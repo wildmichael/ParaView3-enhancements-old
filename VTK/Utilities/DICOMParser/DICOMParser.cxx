@@ -3,8 +3,8 @@
   Program:   DICOMParser
   Module:    $RCSfile: DICOMParser.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-09-07 15:31:52 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2003-10-23 01:40:15 $
+  Version:   $Revision: 1.13 $
 
   Copyright (c) 2003 Matt Turek
   All rights reserved.
@@ -184,7 +184,7 @@ bool DICOMParser::ReadHeader() {
     this->Implementation->Elements.push_back(element);
     this->Implementation->Datatypes.push_back(datatype);
 
-    } while (DataFile->Tell() < fileSize);
+    } while ((DataFile->Tell() >= 0) && (DataFile->Tell() < fileSize));
 
 
   return true;
