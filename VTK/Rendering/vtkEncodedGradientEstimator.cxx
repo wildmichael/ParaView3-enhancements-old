@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEncodedGradientEstimator.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-02-10 18:17:41 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-02-12 21:54:33 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -306,6 +306,10 @@ void vtkEncodedGradientEstimator::PrintSelf(ostream& os, vtkIndent indent)
 
   os << indent << "Clip Outside Circle: " 
      << ((this->ClipOutsideCircle)?"On":"Off") << endl;
+
+  // I don't want to print out this->UseCircleClip
+  // os << indent << "Use Circle Clip: " 
+  //    << this->UseCircleClip << endl;
 
   os << indent << "Number Of Threads: " 
      << this->NumberOfThreads << endl;
