@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkQuad.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-05-15 19:19:41 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1994-06-13 10:49:46 $
+  Version:   $Revision: 1.8 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -69,9 +69,9 @@ int vlQuad::EvaluatePosition(float x[3], float closestPoint[3],
 //
   for (maxComponent=0.0, i=0; i<3; i++)
     {
-    if (n[i] > maxComponent)
+    if (fabs(n[i]) > maxComponent)
       {
-      maxComponent = n[i];
+      maxComponent = fabs(n[i]);
       idx = i;
       }
     }
