@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagePlaneWidget.h,v $
   Language:  C++
-  Date:      $Date: 2003-10-31 14:29:11 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2003-10-31 14:49:09 $
+  Version:   $Revision: 1.35 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -245,7 +245,7 @@ public:
   // Description:
   // Control the visibility of the actual texture mapped reformatted plane.
   // in some cases you may only want the plane outline for example.
-  virtual void SetTextureVisibility(int);
+  vtkSetMacro(TextureVisibility,int);
   vtkGetMacro(TextureVisibility,int);
   vtkBooleanMacro(TextureVisibility,int);
   
