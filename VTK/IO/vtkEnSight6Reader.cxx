@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSight6Reader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-04-15 19:18:55 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2003-04-18 18:57:10 $
+  Version:   $Revision: 1.39 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -29,18 +29,10 @@
 #include "vtkStructuredPoints.h"
 #include "vtkUnstructuredGrid.h"
 
-#ifdef _MSC_VER
-#pragma warning (push, 3)
-#endif
-
-#include <string>
-
-#ifdef _MSC_VER
-#pragma warning(pop)
-#endif
 #include <ctype.h>
+#include <vtkstd/string>
 
-vtkCxxRevisionMacro(vtkEnSight6Reader, "$Revision: 1.38 $");
+vtkCxxRevisionMacro(vtkEnSight6Reader, "$Revision: 1.39 $");
 vtkStandardNewMacro(vtkEnSight6Reader);
 
 //----------------------------------------------------------------------------

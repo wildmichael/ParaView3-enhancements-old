@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSightGoldReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-04-15 19:18:55 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2003-04-18 18:57:10 $
+  Version:   $Revision: 1.37 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -28,19 +28,10 @@
 #include "vtkStructuredGrid.h"
 #include "vtkUnstructuredGrid.h"
 
-#ifdef _MSC_VER
-#pragma warning (push, 3)
-#endif
-
-#include <string>
-
-#ifdef _MSC_VER
-#pragma warning(pop)
-#endif
-
 #include <ctype.h>
+#include <vtkstd/string>
 
-vtkCxxRevisionMacro(vtkEnSightGoldReader, "$Revision: 1.36 $");
+vtkCxxRevisionMacro(vtkEnSightGoldReader, "$Revision: 1.37 $");
 vtkStandardNewMacro(vtkEnSightGoldReader);
 
 //----------------------------------------------------------------------------

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGreedyTerrainDecimation.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-04-03 12:38:16 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2003-04-18 18:57:10 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,17 +26,9 @@
 #include "vtkTriangle.h"
 #include "vtkDoubleArray.h"
 
-#ifdef _MSC_VER
-#pragma warning (push, 3)
-#endif
+#include <vtkstd/vector>
 
-#include <vector>
-
-#ifdef _MSC_VER
-#pragma warning(pop)
-#endif
-
-vtkCxxRevisionMacro(vtkGreedyTerrainDecimation, "$Revision: 1.11 $");
+vtkCxxRevisionMacro(vtkGreedyTerrainDecimation, "$Revision: 1.12 $");
 vtkStandardNewMacro(vtkGreedyTerrainDecimation);
 
 // Define some constants describing vertices

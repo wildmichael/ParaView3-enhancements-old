@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPythonUtil.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-03-12 14:35:29 $
-  Version:   $Revision: 1.56 $
+  Date:      $Date: 2003-04-18 18:57:10 $
+  Version:   $Revision: 1.57 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,14 +27,8 @@
 #include "vtkSmartPointerBase.h"
 #include "vtkTimeStamp.h"
 
-#ifdef _MSC_VER
-#pragma warning (push, 3)
-#endif
-#include <map>
-#include <string>
-#ifdef _MSC_VER
-#pragma warning(pop)
-#endif
+#include <vtkstd/map>
+#include <vtkstd/string>
 
 #if defined ( _MSC_VER )
 #  define vtkConvertPtrToLong(x) ((long)(PtrToUlong(x)))

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGenericEnSightReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-04-16 15:52:40 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 2003-04-18 18:57:10 $
+  Version:   $Revision: 1.42 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -28,17 +28,9 @@
 #include "vtkIdListCollection.h"
 #include "vtkObjectFactory.h"
 
-#ifdef _MSC_VER
-#pragma warning (push, 3)
-#endif
+#include <vtkstd/string>
 
-#include <string>
-
-#ifdef _MSC_VER
-#pragma warning(pop)
-#endif
-
-vtkCxxRevisionMacro(vtkGenericEnSightReader, "$Revision: 1.41 $");
+vtkCxxRevisionMacro(vtkGenericEnSightReader, "$Revision: 1.42 $");
 vtkStandardNewMacro(vtkGenericEnSightReader);
 
 vtkCxxSetObjectMacro(vtkGenericEnSightReader,TimeSets, 
