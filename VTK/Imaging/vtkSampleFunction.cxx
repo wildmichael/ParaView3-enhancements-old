@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkSampleFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-08-25 11:56:59 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1994-08-25 11:57:52 $
+  Version:   $Revision: 1.6 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -18,7 +18,7 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 #include "FScalars.hh"
 #include "FNormals.hh"
 
-// Description
+// Description:
 // Construct with ModelBounds=(-1,1,-1,1,-1,1), SampleDimensions=(50,50,50),
 // Capping turned off, and normal generation on.
 vlSampleFunction::vlSampleFunction()
