@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMPICommunicator.h,v $
   Language:  C++
-  Date:      $Date: 2001-05-01 19:51:20 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-05-30 13:53:12 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -110,6 +110,8 @@ public:
   {
   public:
     int Test();
+    void Cancel();
+    void Wait();
     MPI_Request Req;
   };
 

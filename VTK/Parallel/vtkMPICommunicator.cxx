@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMPICommunicator.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-11 17:41:43 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-05-30 13:53:12 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -707,5 +707,31 @@ int vtkMPICommunicator::Request::Test()
     vtkGenericWarningMacro("MPI error occured: " << msg);
     delete[] msg;
     return 0;
+    }
+}
+
+void vtkMPICommunicator::Request::Wait()
+{
+  MPI_Status status;
+
+  int err = MPI_Wait(&this->Req, &status);
+  
+  if ( err != MPI_SUCCESS )
+    {
+    char *msg = vtkMPIController::ErrorString(err);
+    vtkGenericWarningMacro("MPI error occured: " << msg);
+    delete[] msg;
+    }
+}
+
+void vtkMPICommunicator::Request::Cancel()
+{
+  int err = MPI_Cancel(&this->Req);
+  
+  if ( err != MPI_SUCCESS )
+    {
+    char *msg = vtkMPIController::ErrorString(err);
+    vtkGenericWarningMacro("MPI error occured: " << msg);
+    delete[] msg;
     }
 }
