@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLCamera.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-05-25 15:29:32 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2000-05-26 09:16:10 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -69,12 +69,9 @@ void vtkOpenGLCamera::Render(vtkRenderer *ren)
 {
   float aspect[2];
   float *vport;
-  int  *size, lowerLeft[2];
+  int  lowerLeft[2];
   vtkMatrix4x4 *matrix = vtkMatrix4x4::New();
 
-  // get the bounds of the window 
-  size = (ren->GetRenderWindow())->GetSize();
-  
   // find out if we should stereo render
   this->Stereo = (ren->GetRenderWindow())->GetStereoRender();
   vport = ren->GetViewport();
