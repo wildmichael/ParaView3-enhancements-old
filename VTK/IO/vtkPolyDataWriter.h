@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataWriter.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-14 13:21:46 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-10-02 18:24:40 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,9 +59,8 @@ public:
   const char *GetClassName() {return "vtkPolyDataWriter";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
-
-// Description:
-// Specify the input data or filter.
+  // Description:
+  // Specify the input data or filter.
   void SetInput(vtkPolyData *input);
 
   void SetInput(vtkPolyData &input) {this->SetInput(&input);};

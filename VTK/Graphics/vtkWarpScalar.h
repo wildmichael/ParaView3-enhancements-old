@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpScalar.h,v $
   Language:  C++
-  Date:      $Date: 1998-05-06 19:14:37 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1998-10-02 18:24:41 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -54,8 +54,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // along the z-axis. If scalars are also present, these are copied through
 // and can be used to color the surface.
 //
-// Note that the filter passes both its point data and cell data to its output, 
-// except for normals, since these are distorted by the warping.
+// Note that the filter passes both its point data and cell data to
+// its output, except for normals, since these are distorted by the
+// warping.
 
 
 #ifndef __vtkWarpScalar_h

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataNormals.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-14 13:21:46 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-10-02 18:24:40 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -66,10 +66,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkPolyDataNormals : public vtkPolyDataToPolyDataFilter
 {
 public:
-
-// Description:
-// Construct with feature angle=30, splitting and consistency turned on, 
-// flipNormals turned off, and non-manifold traversal turned on.
+  // Description:
+  // Construct with feature angle=30, splitting and consistency turned on, 
+  // flipNormals turned off, and non-manifold traversal turned on.
   vtkPolyDataNormals();
 
   static vtkPolyDataNormals *New() {return new vtkPolyDataNormals;};
@@ -96,9 +95,10 @@ public:
   vtkBooleanMacro(Consistency,int);
 
   // Description:
-  // Turn on/off the global flipping of normal orientation. Flipping reverves the
-  // meaning of front and back for Frontface and Backface culling in vtkProperty.
-  // Flipping modifies both the normal direction and the order of a cell's points.
+  // Turn on/off the global flipping of normal orientation. Flipping
+  // reverves the meaning of front and back for Frontface and Backface
+  // culling in vtkProperty.  Flipping modifies both the normal
+  // direction and the order of a cell's points.
   vtkSetMacro(FlipNormals,int);
   vtkGetMacro(FlipNormals,int);
   vtkBooleanMacro(FlipNormals,int);
