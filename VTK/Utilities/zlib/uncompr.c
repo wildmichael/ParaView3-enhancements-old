@@ -3,8 +3,11 @@
  * For conditions of distribution and use, see copyright notice in zlib.h 
  */
 
-/* @(#) $Id: uncompr.c,v 1.1 2001-07-31 18:14:19 martink Exp $ */
+/* @(#) $Id: uncompr.c,v 1.2 2002-05-09 20:21:12 andy Exp $ */
 
+#if defined(_MSC_VER)
+#pragma warning ( disable : 4702 )
+#endif
 #include "zlib.h"
 
 /* ===========================================================================

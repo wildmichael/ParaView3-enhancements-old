@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointLocator2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:58 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2002-05-09 20:21:12 $
+  Version:   $Revision: 1.21 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 #include "vtkPolyData.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkPointLocator2D, "$Revision: 1.20 $");
+vtkCxxRevisionMacro(vtkPointLocator2D, "$Revision: 1.21 $");
 vtkStandardNewMacro(vtkPointLocator2D);
 
 class vtkNeighborPoints2D
@@ -910,7 +910,7 @@ int vtkPointLocator2D::IsInsertedPoint(float x[2])
     float *pt;
 
     // the InsertionLevel stuff is wacky 
-    for (lvtk=0; lvtk <= -1; lvtk++)
+    for (lvtk=0; lvtk <= 0; lvtk++)
       {
       this->GetBucketNeighbors (ijk, this->Divisions, lvtk);
 
