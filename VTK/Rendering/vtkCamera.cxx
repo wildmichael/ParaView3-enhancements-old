@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkCamera.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-09 19:53:07 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1995-01-05 13:42:02 $
+  Version:   $Revision: 1.17 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -54,6 +54,8 @@ vlCamera::vlCamera()
   this->Orientation[0] = 0.0;
   this->Orientation[1] = 0.0;
   this->Orientation[2] = 0.0;
+  
+  this->FocalDisk = 1.0;
 }
 
 // Description:
