@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRemoveGhostCells.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-25 13:04:29 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-08-31 13:22:49 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -73,18 +73,7 @@ void vtkRemoveGhostCells::Execute()
 
   cellData = input->GetCellData();
 
-  vtkFieldData* fd = cellData->GetFieldData();
-  if (!fd)
-    {
-    vtkErrorMacro(<<"No field data found.");
-    output->SetPoints(input->GetPoints());
-    output->SetPolys(input->GetPolys());
-    output->GetPointData()->PassData(input->GetPointData());
-    output->GetCellData()->PassData(input->GetCellData());
-    return;
-    }
-
-  vtkDataArray* temp = fd->GetArray("vtkGhostLevels");
+  vtkDataArray* temp = cellData->GetArray("vtkGhostLevels");
   if ( (!temp) || (temp->GetDataType() != VTK_UNSIGNED_CHAR)
     || (temp->GetNumberOfComponents() != 1))
     {
