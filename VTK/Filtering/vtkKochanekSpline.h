@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKochanekSpline.h,v $
   Language:  C++
-  Date:      $Date: 1997-09-05 19:09:38 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-07-17 14:26:39 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -61,9 +61,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // 
 // These three parameters give the user broad control over the shape of
 // the interpolating spline. The original Kochanek paper describes the
-// effects nicely and is recommened reading.
+// effects nicely and is recommended reading.
 // .SECTION See Also
-// vtkSpline
+// vtkSpline vtkCardinalSpline
 
 
 #ifndef __vtkKochanekSpline_h

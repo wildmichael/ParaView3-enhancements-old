@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCardinalSpline.h,v $
   Language:  C++
-  Date:      $Date: 1997-09-05 19:09:37 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-07-17 14:26:37 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,14 +41,15 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // .NAME vtkCardinalSpline - computes an interpolating spline using a
 // a Cardinal basis.
 // .SECTION Description
+// vtkCardinalSpline is a concrete implementation of vtkSpline using a
+// Cardinal basis.
 // .SECTION See Also
-// vtkSpline
+// vtkSpline vtkKochanekSpline
 
 
 #ifndef __vtkCardinalSpline_h
 #define __vtkCardinalSpline_h
 
-#include <stdio.h>
 #include "vtkSpline.h"
 
 class VTK_EXPORT vtkCardinalSpline : public vtkSpline
@@ -68,6 +69,8 @@ public:
 protected:
   void Fit1D (int n, float *x, float *y, float *w, float coefficients[][4],
 	      int leftConstraint, float leftValue, int rightConstraint, float rightValue);
+  void FitClosed1D (int n, float *x, float *y, float *w, 
+		    float coefficients[][4]);
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSpline.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-23 19:13:30 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-07-17 14:26:36 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,6 +55,7 @@ vtkSpline::vtkSpline ()
   this->LeftValue = 0.0;
   this->RightConstraint = 1;
   this->RightValue = 0.0;
+  this->Closed = 0;
 }
 
 vtkSpline::~vtkSpline ()
@@ -106,34 +107,13 @@ void vtkSpline::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkObject::PrintSelf(os,indent);
 
-  os << indent << "ClampValue: " << (this->ClampValue ? "On\n" : "Off\n");
+  os << indent << "Clamp Value: " << (this->ClampValue ? "On\n" : "Off\n");
   os << indent << "Left Constraint: " << this->LeftConstraint << "\n";
   os << indent << "Right Constraint: " << this->RightConstraint << "\n";
   os << indent << "Left Value: " << this->LeftValue << "\n";
   os << indent << "Right Value: " << this->RightValue << "\n";
+  os << indent << "Closed: " << (this->Closed ? "On\n" : "Off\n");
 
   os << indent << "Piecewise Function:\n";
   this->PiecewiseFunction->PrintSelf(os,indent.GetNextIndent());
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
