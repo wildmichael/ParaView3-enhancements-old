@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkActor.h,v $
   Language:  C++
-  Date:      $Date: 1994-08-25 21:46:41 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1994-09-09 10:47:16 $
+  Version:   $Revision: 1.10 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -65,6 +65,8 @@ class vlActor : public vlObject
   // Description:
   // Sets the posiiton of the actor.
   vlSetVector3Macro(Position,float);
+  void AddPosition(float deltaPosition[3]);
+  void AddPosition(float delatX, float deltaY, float deltaZ);
 
   // Description:
   // Get the origin of the actor. This is the point about which all 
