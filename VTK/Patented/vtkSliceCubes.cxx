@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSliceCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-18 20:50:23 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 1999-06-21 14:03:56 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -66,9 +66,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkUnsignedLongArray.h"
 #include "vtkDoubleArray.h"
 #include "vtkFloatArray.h"
-
-vtkSafeSetStringMacro2(FileName,vtkSliceCubes);
-vtkSafeSetStringMacro2(LimitsFileName,vtkSliceCubes);
 
 // Description:
 // Construct with NULL reader, output FileName specification, and limits 
