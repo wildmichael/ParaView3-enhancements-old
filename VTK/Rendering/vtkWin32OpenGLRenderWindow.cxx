@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-11-12 22:07:13 $
-  Version:   $Revision: 1.60 $
+  Date:      $Date: 2000-11-30 14:43:04 $
+  Version:   $Revision: 1.61 $
   Thanks:    to Horst Schreiber for developing this MFC code
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -610,7 +610,7 @@ void vtkWin32OpenGLRenderWindow::WindowInitialize (void)
       // has the class been registered ?
       if (!GetClassInfo(this->ApplicationInstance,"vtkOpenGL",&wndClass))
         {
-        wndClass.style = CS_HREDRAW | CS_VREDRAW;
+        wndClass.style = CS_HREDRAW | CS_VREDRAW | CS_OWNDC;
         wndClass.lpfnWndProc = vtkWin32OpenGLRenderWindow::WndProc;
         wndClass.cbClsExtra = 0;
         wndClass.hInstance = this->ApplicationInstance;
