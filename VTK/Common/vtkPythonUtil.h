@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPythonUtil.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-30 16:12:38 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2001-12-04 16:52:01 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -93,10 +93,10 @@ VTK_PYTHON_EXPORT int PyVTKClass_Check(PyObject *obj);
 VTK_PYTHON_EXPORT int PyVTKSpecialObjectCheck(PyObject *obj);
 VTK_PYTHON_EXPORT PyObject *PyVTKObject_New(PyObject *vtkclass, vtkObject *ptr);
 VTK_PYTHON_EXPORT PyObject *PyVTKClass_New(vtknewfunc constructor, PyMethodDef *methods,
-                         char *classname, char *modulename, char *docstring,
+                         char *classname, char *modulename, char *docstring[],
                          PyObject *base);
 VTK_PYTHON_EXPORT PyObject *PyVTKSpecialObject_New(void *ptr, PyMethodDef *methods,
-                                 char *classname, char *docstring);
+                                 char *classname, char *docstring[]);
 
 // this is a special version of ParseTuple that handles both bound
 // and unbound method calls for VTK objects
