@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPoints.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-14 21:24:52 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 1999-01-28 00:51:21 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -72,7 +72,7 @@ public:
   float *GetPoint(int id) { return this->Data->GetTuple(id);};
 
   // Description:
-  // Coy point components into user provided array v[3] for specified
+  // Copy point components into user provided array v[3] for specified
   // id.
   void GetPoint(int id, float x[3]) { this->Data->GetTuple(id,x);};
 
@@ -81,6 +81,7 @@ public:
   // Make sure you use SetNumberOfPoints() to allocate memory prior
   // to using SetPoint().
   void SetPoint(int id, float x[3]) { this->Data->SetTuple(id,x);};
+  void SetPoint(int id, float x, float y, float z);
 
   // Description:
   // Insert point into object. Range checking performed and memory
@@ -137,6 +138,14 @@ inline void vtkPoints::SetNumberOfPoints(int number)
   this->Data->SetNumberOfTuples(number);
 }
 
+inline void vtkPoints::SetPoint(int id, float x, float y, float z)
+{
+  float p[3];
+  p[0] = x;
+  p[1] = y;
+  p[2] = z;
+  this->Data->SetTuple(id,p);
+};
 
 inline void vtkPoints::InsertPoint(int id, float x, float y, float z)
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkNormals.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-14 21:24:50 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1999-01-28 00:51:20 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -82,6 +82,7 @@ public:
   // Make sure you use SetNumberOfNormals() to allocate memory prior
   // to using SetNormal().
   void SetNormal(int id, float n[3]){this->Data->SetTuple(id,n);};
+  void SetNormal(int id, float x, float y, float z);
 
   // Description:
   // Insert normal into object. Range checking performed and memory
@@ -121,6 +122,15 @@ inline void vtkNormals::SetNumberOfNormals(int number)
 {
   this->Data->SetNumberOfComponents(3);
   this->Data->SetNumberOfTuples(number);
+}
+
+inline void vtkNormals::SetNormal(int id, float nx, float ny, float nz)
+{
+  float n[3];
+  n[0] = nx;
+  n[1] = ny;
+  n[2] = nz;
+  this->Data->SetTuple(id,n);
 }
 
 inline void vtkNormals::InsertNormal(int id, float nx, float ny, float nz)
