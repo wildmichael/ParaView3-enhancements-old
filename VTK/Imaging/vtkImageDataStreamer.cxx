@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDataStreamer.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-01-13 13:25:34 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2000-01-24 21:01:24 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -60,7 +60,10 @@ vtkImageDataStreamer* vtkImageDataStreamer::New()
 //----------------------------------------------------------------------------
 vtkImageDataStreamer::vtkImageDataStreamer()
 {
-  this->MemoryLimit = 1000; 
+  // Set a default memory limit of a gigabyte
+  this->MemoryLimit = 1000000; 
+
+  // Set a default split mode to be slabs
   this->SplitMode   = VTK_IMAGE_DATA_STREAMER_SLAB_MODE;
 }
 
