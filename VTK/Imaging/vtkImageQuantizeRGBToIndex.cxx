@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageQuantizeRGBToIndex.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-16 16:22:11 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1999-07-17 12:56:51 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,9 +58,9 @@ public:
       this->Bounds[4] = 0; this->Bounds[5] = 256; };
 
   ~vtkColorQuantizeNode()
-    { if ( this->Histogram[0] ) { delete this->Histogram[0]; }
-      if ( this->Histogram[1] ) { delete this->Histogram[1]; }
-      if ( this->Histogram[2] ) { delete this->Histogram[2]; }
+    { if ( this->Histogram[0] ) { delete []this->Histogram[0]; }
+      if ( this->Histogram[1] ) { delete []this->Histogram[1]; }
+      if ( this->Histogram[2] ) { delete []this->Histogram[2]; }
       if ( this->Child1 ) { delete this->Child1; }
       if ( this->Child2 ) { delete this->Child2; } };
 
