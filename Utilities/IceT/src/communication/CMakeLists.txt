@@ -1,4 +1,4 @@
-# $Id: CMakeLists.txt,v 1.1 2003-06-17 18:38:54 andy Exp $
+# $Id: CMakeLists.txt,v 1.2 2003-06-19 18:08:12 kmorel Exp $
 #
 ## Copyright 2003 Sandia Coporation
 ## Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -17,3 +17,4 @@ ADD_LIBRARY(icet_mpi ${ICET_MPI_SRCS})
 TARGET_LINK_LIBRARIES(icet_mpi icet)
 
 INSTALL_TARGETS(/lib icet_mpi)
+INSTALL_FILES(/include/GL .h ${ICET_SOURCE_DIR}/src/include/GL/ice-t_mpi)
