@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXYPlotWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-14 00:08:54 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-01-16 20:35:26 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 #include "vtkRenderWindowInteractor.h"
 #include "vtkCoordinate.h"
 
-vtkCxxRevisionMacro(vtkXYPlotWidget, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkXYPlotWidget, "$Revision: 1.2 $");
 vtkStandardNewMacro(vtkXYPlotWidget);
 vtkCxxSetObjectMacro(vtkXYPlotWidget, XYPlotActor, vtkXYPlotActor);
 
@@ -60,15 +60,17 @@ void vtkXYPlotWidget::SetEnabled(int enabling)
       return;
       }
     
-    this->CurrentRenderer = 
-      this->Interactor->FindPokedRenderer(
+    if ( ! this->CurrentRenderer )
+      {
+      this->CurrentRenderer = this->Interactor->FindPokedRenderer(
         this->Interactor->GetLastEventPosition()[0],
         this->Interactor->GetLastEventPosition()[1]);
-    if (this->CurrentRenderer == NULL)
-      {
-      return;
+      if (this->CurrentRenderer == NULL)
+        {
+        return;
+        }
       }
-    
+
     this->Enabled = 1;
     
     // listen for the following events
@@ -99,7 +101,9 @@ void vtkXYPlotWidget::SetEnabled(int enabling)
     // turn off the line
     this->CurrentRenderer->RemoveActor(this->XYPlotActor);
     this->InvokeEvent(vtkCommand::DisableEvent,NULL);
+    this->CurrentRenderer = NULL;
     }
+
   this->Interactor->Render();
 }
 

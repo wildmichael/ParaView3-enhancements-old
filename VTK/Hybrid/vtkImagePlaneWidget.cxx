@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagePlaneWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-26 18:21:21 $
-  Version:   $Revision: 1.56 $
+  Date:      $Date: 2003-01-16 20:35:25 $
+  Version:   $Revision: 1.57 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -44,7 +44,7 @@
 #include "vtkTextureMapToPlane.h"
 #include "vtkTransform.h"
 
-vtkCxxRevisionMacro(vtkImagePlaneWidget, "$Revision: 1.56 $");
+vtkCxxRevisionMacro(vtkImagePlaneWidget, "$Revision: 1.57 $");
 vtkStandardNewMacro(vtkImagePlaneWidget);
 
 vtkCxxSetObjectMacro(vtkImagePlaneWidget, PlaneProperty, vtkProperty);
@@ -249,12 +249,15 @@ void vtkImagePlaneWidget::SetEnabled(int enabling)
       return;
       }
     
-    this->CurrentRenderer = 
-      this->Interactor->FindPokedRenderer(this->Interactor->GetLastEventPosition()[0],
-                                          this->Interactor->GetLastEventPosition()[1]);
-    if ( this->CurrentRenderer == 0 )
+    if ( ! this->CurrentRenderer )
       {
-      return;
+      this->CurrentRenderer = this->Interactor->FindPokedRenderer(
+        this->Interactor->GetLastEventPosition()[0],
+        this->Interactor->GetLastEventPosition()[1]);
+      if (this->CurrentRenderer == NULL)
+        {
+        return;
+        }
       }
 
     this->Enabled = 1;
@@ -339,6 +342,7 @@ void vtkImagePlaneWidget::SetEnabled(int enabling)
       }
 
     this->InvokeEvent(vtkCommand::DisableEvent,0);
+    this->CurrentRenderer = NULL;
     }
 
   this->Interactor->Render();

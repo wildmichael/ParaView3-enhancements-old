@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalarBarWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-01-07 16:16:56 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2003-01-16 20:35:26 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 #include "vtkRenderWindowInteractor.h"
 #include "vtkCoordinate.h"
 
-vtkCxxRevisionMacro(vtkScalarBarWidget, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkScalarBarWidget, "$Revision: 1.7 $");
 vtkStandardNewMacro(vtkScalarBarWidget);
 vtkCxxSetObjectMacro(vtkScalarBarWidget, ScalarBarActor, vtkScalarBarActor);
 
@@ -62,15 +62,17 @@ void vtkScalarBarWidget::SetEnabled(int enabling)
       return;
       }
     
-    this->CurrentRenderer = 
-      this->Interactor->FindPokedRenderer(
+    if ( ! this->CurrentRenderer )
+      {
+      this->CurrentRenderer = this->Interactor->FindPokedRenderer(
         this->Interactor->GetLastEventPosition()[0],
         this->Interactor->GetLastEventPosition()[1]);
-    if (this->CurrentRenderer == NULL)
-      {
-      return;
+      if (this->CurrentRenderer == NULL)
+        {
+        return;
+        }
       }
-    
+
     this->Enabled = 1;
     
     // listen for the following events
@@ -105,7 +107,9 @@ void vtkScalarBarWidget::SetEnabled(int enabling)
     // turn off the line
     this->CurrentRenderer->RemoveActor(this->ScalarBarActor);
     this->InvokeEvent(vtkCommand::DisableEvent,NULL);
+    this->CurrentRenderer = NULL;
     }
+  
   this->Interactor->Render();
 }
 
