@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPlaneWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-05 11:53:07 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2002-09-05 15:14:49 $
+  Version:   $Revision: 1.29 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -39,7 +39,7 @@
 #include "vtkSphereSource.h"
 #include "vtkTransform.h"
 
-vtkCxxRevisionMacro(vtkPlaneWidget, "$Revision: 1.28 $");
+vtkCxxRevisionMacro(vtkPlaneWidget, "$Revision: 1.29 $");
 vtkStandardNewMacro(vtkPlaneWidget);
 
 vtkCxxSetObjectMacro(vtkPlaneWidget,PlaneProperty,vtkProperty);
@@ -603,6 +603,7 @@ void vtkPlaneWidget::OnLeftButtonUp()
   this->HighlightHandle(NULL);
   this->HighlightPlane(0);
   this->HighlightNormal(0);
+  this->SizeHandles();
 
   this->EventCallbackCommand->SetAbortFlag(1);
   this->EndInteraction();
@@ -663,6 +664,7 @@ void vtkPlaneWidget::OnMiddleButtonUp()
   this->HighlightPlane(0);
   this->HighlightNormal(0);
   this->HighlightHandle(NULL);
+  this->SizeHandles();
   
   this->EventCallbackCommand->SetAbortFlag(1);
   this->EndInteraction();
@@ -719,6 +721,7 @@ void vtkPlaneWidget::OnRightButtonUp()
 
   this->State = vtkPlaneWidget::Start;
   this->HighlightPlane(0);
+  this->SizeHandles();
   
   this->EventCallbackCommand->SetAbortFlag(1);
   this->EndInteraction();
@@ -1229,17 +1232,25 @@ void vtkPlaneWidget::PlaceWidget(float bds[6])
     }
 
   // Set the radius on the sphere handles
-  for(i=0; i<4; i++)
+  this->SizeHandles();
+}
+
+void vtkPlaneWidget::SizeHandles()
+{
+  float radius = this->vtk3DWidget::SizeHandles(1.25);
+  
+  for(int i=0; i<4; i++)
     {
-    this->HandleGeometry[i]->SetRadius(0.025*this->InitialLength);
+    this->HandleGeometry[i]->SetRadius(radius);
     }
 
   // Set the height and radius of the cone
-  this->ConeSource->SetHeight(0.060*this->InitialLength);
-  this->ConeSource->SetRadius(0.025*this->InitialLength);  
-  this->ConeSource2->SetHeight(0.060*this->InitialLength);
-  this->ConeSource2->SetRadius(0.025*this->InitialLength);  
+  this->ConeSource->SetHeight(2.0*radius);
+  this->ConeSource->SetRadius(radius);
+  this->ConeSource2->SetHeight(2.0*radius);
+  this->ConeSource2->SetRadius(radius);
 }
+
 
 void vtkPlaneWidget::SelectRepresentation()
 {

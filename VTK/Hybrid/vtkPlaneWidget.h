@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPlaneWidget.h,v $
   Language:  C++
-  Date:      $Date: 2002-09-05 11:53:07 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2002-09-05 15:14:49 $
+  Version:   $Revision: 1.17 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -285,6 +285,7 @@ protected:
   void HandlesOn(double length);
   void HandlesOff();
   int HighlightHandle(vtkProp *prop); //returns cell id
+  virtual void SizeHandles();
   
   // the normal cone
   vtkActor          *ConeActor;
