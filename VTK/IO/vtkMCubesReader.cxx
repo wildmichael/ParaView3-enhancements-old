@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMCubesReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-12-27 10:53:15 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1996-03-26 21:56:49 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -52,7 +52,7 @@ vtkMCubesReader::vtkMCubesReader()
   this->Locator = NULL;
   this->SelfCreatedLocator = 0;
 
-  this->FlipNormals = 1;
+  this->FlipNormals = 0;
   this->Normals = 1;
 }
 

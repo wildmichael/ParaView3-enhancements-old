@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRibbonFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-10-25 23:45:19 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1996-03-26 21:56:50 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -213,9 +213,9 @@ void vtkRibbonFilter::Execute()
 //
     newStrips->InsertNextCell(npts*2);
     for (i=0; i < npts; i++) 
-      {
-      newStrips->InsertCellPoint(ptOffset+2*i);
+      {//order important for consistent normals
       newStrips->InsertCellPoint(ptOffset+2*i+1);
+      newStrips->InsertCellPoint(ptOffset+2*i);
       }
     
     ptOffset += npts*2;
