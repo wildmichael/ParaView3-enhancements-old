@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamer.h,v $
   Language:  C++
-  Date:      $Date: 1999-02-15 01:27:30 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1999-06-24 21:51:32 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -77,6 +77,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #define __vtkStreamer_h
 
 #include "vtkDataSetToPolyDataFilter.h"
+
+class vtkMultiThreader;
 
 #define VTK_INTEGRATE_FORWARD 0
 #define VTK_INTEGRATE_BACKWARD 1
@@ -232,6 +234,20 @@ public:
   vtkGetMacro(Vorticity,int);
   vtkBooleanMacro(Vorticity,int);
 
+  vtkSetMacro( NumberOfThreads, int );
+  vtkGetMacro( NumberOfThreads, int );
+
+//BTX
+
+  // Description:
+  // These methods were added to allow access to these variablse from the
+  // threads. 
+  // Not intended for general use.
+  vtkGetMacro( NumberOfStreamers, int );
+  vtkStreamArray *GetStreamers() { return this->Streamers; };
+
+//ETX
+
 protected:
   // Integrate data
   void Integrate();
@@ -274,6 +290,10 @@ protected:
 
   // boolean controls whether data scalars or velocity magnitude are used
   int SpeedScalars;
+
+  void InitializeThreadedIntegrate();
+  vtkMultiThreader           *Threader;
+  int                        NumberOfThreads;
 };
 
 // Description:
