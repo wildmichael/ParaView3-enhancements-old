@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-23 21:30:57 $
-  Version:   $Revision: 1.66 $
+  Date:      $Date: 2001-08-24 17:45:27 $
+  Version:   $Revision: 1.67 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1296,10 +1296,6 @@ int vtkVolumeRayCastMapper::ComputeRowBounds(vtkVolume   *vol,
   oldImageMemorySize[0] = this->ImageMemorySize[0];
   oldImageMemorySize[1] = this->ImageMemorySize[1];
   
-  int oldImageOrigin[2];
-  oldImageOrigin[0] = this->ImageOrigin[0];
-  oldImageOrigin[1] = this->ImageOrigin[1];
-
   // Swap the row bounds
   int *tmpptr;
   tmpptr = this->RowBounds;
