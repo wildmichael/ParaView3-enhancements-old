@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractPropPicker.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:27 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2002-05-27 13:44:53 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -84,7 +84,7 @@ public:
   // set method is used internally to set the path. (Note: the structure of
   // an assembly path is a collection of vtkAssemblyNode, each node pointing
   // to a vtkProp and (possibly) a transformation matrix.)
-  vtkSetObjectMacro(Path,vtkAssemblyPath);
+  virtual void SetPath(vtkAssemblyPath*);
   vtkGetObjectMacro(Path,vtkAssemblyPath);
 
   // The following are convenience methods to maintain API with older
