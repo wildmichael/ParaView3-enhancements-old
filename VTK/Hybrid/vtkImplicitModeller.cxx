@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitModeller.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-08 12:47:41 $
-  Version:   $Revision: 1.55 $
+  Date:      $Date: 1999-07-13 11:30:27 $
+  Version:   $Revision: 1.56 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -90,6 +90,13 @@ vtkImplicitModeller::vtkImplicitModeller()
   this->NumberOfThreads              = this->Threader->GetNumberOfThreads();
 }
 
+vtkImplicitModeller::~vtkImplicitModeller()
+{
+  if (this->Threader)
+    {
+    this->Threader->Delete();
+    }
+}
 
 // Initialize the filter for appending data. You must invoke the
 // StartAppend() method before doing successive Appends(). It's also a
@@ -132,7 +139,7 @@ static VTK_THREAD_RETURN_TYPE vtkImplicitModeller_ThreadedAppend( void *arg )
   vtkImplicitModellerAppendInfo *userData;
   vtkStructuredPoints *output;
   float maxDistance;
-  int cellNum, i, j, k;
+  int i, j, k;
   float *bounds, adjBounds[6];
   float pcoords[3];
   vtkScalars *newScalars;
@@ -346,7 +353,7 @@ void vtkImplicitModeller::Append(vtkDataSet *input)
     int min[3], max[3];
     float x[3], prevDistance2, distance2;
     int jkFactor, subId;
-    float closestPoint[3], mDist;
+    float closestPoint[3];
     float *weights=new float[input->GetMaxCellSize()];
     float maxDistance2;
     // Get the output scalars
