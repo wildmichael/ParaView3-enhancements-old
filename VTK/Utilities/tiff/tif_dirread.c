@@ -1,4 +1,4 @@
-/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/tiff/Attic/tif_dirread.c,v 1.3 2003-12-03 23:23:45 barre Exp $ */
+/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/tiff/Attic/tif_dirread.c,v 1.4 2003-12-29 14:21:40 andy Exp $ */
 
 /*
  * Copyright (c) 1988-1997 Sam Leffler
@@ -745,10 +745,13 @@ TIFFFetchRational(TIFF* tif, TIFFDirEntry* dir)
 static float
 TIFFFetchFloat(TIFF* tif, TIFFDirEntry* dir)
 {
-        long l = TIFFExtractData(tif, dir->tdir_type, dir->tdir_offset);
-        float v = *(float*) &l;
-        TIFFCvtIEEEFloatToNative(tif, 1, &v);
-        return (v);
+        union {
+          long l;
+          float v;
+        } u;
+        u.l = TIFFExtractData(tif, dir->tdir_type, dir->tdir_offset);
+        TIFFCvtIEEEFloatToNative(tif, 1, &u.v);
+        return (u.v);
 }
 
 /*
