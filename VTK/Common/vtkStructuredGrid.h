@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGrid.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:01 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 1999-09-17 19:45:09 $
+  Version:   $Revision: 1.51 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -185,6 +185,15 @@ public:
   // Description:
   // Return the amount of memory for the update piece.
   unsigned long GetEstimatedUpdateMemorySize();  
+  
+  // Description:
+  // Return the actual size of the data in kilobytes. This number
+  // is valid only after the pipeline has updated. The memory size
+  // returned is guaranteed to be greater than or equal to the
+  // memory required to represent the data (e.g., extra space in
+  // arrays, etc. are not included in the return value). THIS METHOD
+  // IS THREAD SAFE.
+  unsigned long GetActualMemorySize();
   
 protected:
   vtkStructuredGrid();

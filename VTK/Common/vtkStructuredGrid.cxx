@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 11:56:31 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 1999-09-17 19:45:02 $
+  Version:   $Revision: 1.51 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -984,6 +984,12 @@ unsigned long vtkStructuredGrid::GetEstimatedUpdateMemorySize()
     return 1;
     }
   return updateSize;
+}
+
+//----------------------------------------------------------------------------
+unsigned long vtkStructuredGrid::GetActualMemorySize()
+{
+  return this->vtkPointSet::GetActualMemorySize();
 }
 
 //----------------------------------------------------------------------------

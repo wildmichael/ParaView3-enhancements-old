@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSet.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:01:40 $
-  Version:   $Revision: 1.55 $
+  Date:      $Date: 1999-09-17 19:44:26 $
+  Version:   $Revision: 1.56 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -356,6 +356,16 @@ int vtkPointSet::GetNetReferenceCount()
   return this->ReferenceCount;
 }
 
+
+unsigned long vtkPointSet::GetActualMemorySize()
+{
+  unsigned long size=this->vtkDataSet::GetActualMemorySize();
+  if ( this->Points ) 
+    {
+    size += this->Points->GetActualMemorySize();
+    }
+  return size;
+}
 
 void vtkPointSet::PrintSelf(ostream& os, vtkIndent indent)
 {

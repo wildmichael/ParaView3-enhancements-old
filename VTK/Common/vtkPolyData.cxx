@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-10 12:24:28 $
-  Version:   $Revision: 1.102 $
+  Date:      $Date: 1999-09-17 19:44:37 $
+  Version:   $Revision: 1.103 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -1408,7 +1408,36 @@ unsigned long vtkPolyData::GetEstimatedUpdateMemorySize()
   return size;
 }
 
-
+//----------------------------------------------------------------------------
+unsigned long vtkPolyData::GetActualMemorySize()
+{
+  unsigned long size=this->vtkPointSet::GetActualMemorySize();
+  if ( this->Verts ) 
+    {
+    size += this->Verts->GetActualMemorySize();
+    }
+  if ( this->Lines ) 
+    {
+    size += this->Lines->GetActualMemorySize();
+    }
+  if ( this->Polys ) 
+    {
+    size += this->Polys->GetActualMemorySize();
+    }
+  if ( this->Strips ) 
+    {
+    size += this->Strips->GetActualMemorySize();
+    }
+  if ( this->Cells )
+    {
+    size += this->Cells->GetActualMemorySize();
+    }
+  if ( this->Links )
+    {
+    size += this->Links->GetActualMemorySize();
+    }
+  return size;
+}
 
 //----------------------------------------------------------------------------
 void vtkPolyData::PrintSelf(ostream& os, vtkIndent indent)

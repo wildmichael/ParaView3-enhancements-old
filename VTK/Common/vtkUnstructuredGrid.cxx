@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-10 12:24:31 $
-  Version:   $Revision: 1.61 $
+  Date:      $Date: 1999-09-17 19:45:16 $
+  Version:   $Revision: 1.62 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -321,7 +321,6 @@ void vtkUnstructuredGrid::GetCell(int cellId, vtkGenericCell *cell)
     cell->Points->SetPoint(i, x);
     }
 }
-
 
 // Fast implementation of GetCellBounds().  Bounds are calculated without
 // constructing a cell.
@@ -659,6 +658,28 @@ unsigned long vtkUnstructuredGrid::GetEstimatedUpdateMemorySize()
   return size;
 }
 
+
+//----------------------------------------------------------------------------
+unsigned long vtkUnstructuredGrid::GetActualMemorySize()
+{
+  unsigned long size=this->vtkPointSet::GetActualMemorySize();
+  if ( this->Connectivity )
+    {
+    size += this->Connectivity->GetActualMemorySize();
+    }
+
+  if ( this->Cells )
+    {
+    size += this->Cells->GetActualMemorySize();
+    }
+
+  if ( this->Links )
+    {
+    size += this->Links->GetActualMemorySize();
+    }
+
+  return size;
+}
 
 void vtkUnstructuredGrid::PrintSelf(ostream& os, vtkIndent indent)
 {
