@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPVGeometryFilter.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:34:51 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-05-07 21:09:57 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -44,8 +44,6 @@ public:
 protected:
   vtkPVGeometryFilter();
   ~vtkPVGeometryFilter();
-  vtkPVGeometryFilter(const vtkPVGeometryFilter&) {};
-  void operator=(const vtkPVGeometryFilter&) {};
 
   void Execute();
   void ImageDataExecute(vtkImageData *input);
@@ -54,6 +52,10 @@ protected:
   void UnstructuredGridExecute(vtkUnstructuredGrid *input);
 
   int OutlineFlag;
+
+private:
+  vtkPVGeometryFilter(const vtkPVGeometryFilter&); // Not implemented
+  void operator=(const vtkPVGeometryFilter&); // Not implemented
 };
 
 #endif

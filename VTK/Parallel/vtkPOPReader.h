@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPOPReader.h,v $
   Language:  C++
-  Date:      $Date: 2002-02-27 16:28:28 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-05-07 21:09:57 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -72,8 +72,6 @@ public:
 protected:
   vtkPOPReader();
   ~vtkPOPReader();
-  vtkPOPReader(const vtkPOPReader&) {};
-  void operator=(const vtkPOPReader&) {};
 
   void ExecuteInformation();
   void Execute();
@@ -118,6 +116,9 @@ protected:
   char *MakeFileName(char *name);
 
   int ClipExtent[6];
+
+  vtkPOPReader(const vtkPOPReader&);   // Not implemented
+  void operator=(const vtkPOPReader&); // Not implemented
 };
 
 #endif
