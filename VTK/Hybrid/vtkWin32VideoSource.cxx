@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32VideoSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-04 02:21:52 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2002-08-08 11:47:36 $
+  Version:   $Revision: 1.20 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -17,13 +17,14 @@
 =========================================================================*/
 #include "vtkWin32VideoSource.h"
 #include "vtkObjectFactory.h"
-
+#include "vtkTimerLog.h"
+#include "vtkCriticalSection.h"
 #include <ctype.h>
 
 // VFW compressed formats are listed at http://www.webartz.com/fourcc/
 #define VTK_BI_UYVY 0x59565955
 
-vtkCxxRevisionMacro(vtkWin32VideoSource, "$Revision: 1.19 $");
+vtkCxxRevisionMacro(vtkWin32VideoSource, "$Revision: 1.20 $");
 vtkStandardNewMacro(vtkWin32VideoSource);
 
 #if ( _MSC_VER >= 1300 ) // Visual studio .NET
