@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLPStructuredDataReader.h,v $
   Language:  C++
-  Date:      $Date: 2002-10-23 15:49:47 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2003-05-08 15:45:33 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -63,6 +63,7 @@ protected:
   void ReadXMLData();
   int ReadPrimaryElement(vtkXMLDataElement* ePrimary);
   
+  void SetupOutputInformation();
   void SetupEmptyOutput();
   void SetupPieces(int numPieces);
   void DestroyPieces();
