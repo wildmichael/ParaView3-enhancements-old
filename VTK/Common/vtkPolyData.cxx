@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-11-14 21:50:22 $
-  Version:   $Revision: 1.70 $
+  Date:      $Date: 1996-11-20 18:27:59 $
+  Version:   $Revision: 1.71 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,7 +57,8 @@ vtkCellArray *vtkPolyData::Dummy = NULL;
 vtkPolyData::vtkPolyData ()
 {
   static vtkCellArray StaticDummyObject;
-
+  StaticDummyObject.ReferenceCountingOff();
+  
   this->Verts = NULL;
   this->Lines = NULL;
   this->Polys = NULL;
