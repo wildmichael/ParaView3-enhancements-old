@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFieldData.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-15 16:35:29 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 2002-02-15 19:47:55 $
+  Version:   $Revision: 1.45 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkFieldData.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkFieldData, "$Revision: 1.44 $");
+vtkCxxRevisionMacro(vtkFieldData, "$Revision: 1.45 $");
 vtkStandardNewMacro(vtkFieldData);
 
 vtkFieldData::BasicIterator::BasicIterator(const int* list, 
@@ -169,6 +169,10 @@ vtkFieldData::vtkFieldData()
 
   this->CopyFieldFlags = 0;
   this->NumberOfFieldFlags = 0;
+
+  this->DoCopyAllOn = 1;
+  this->DoCopyAllOff = 0;
+
   this->CopyAllOn();
 }
 
@@ -597,7 +601,7 @@ void vtkFieldData::CopyFieldOnOff(const char* field, int onOff)
 // Turn on copying of all data.
 void vtkFieldData::CopyAllOn()
 {
-  if ( !DoCopyAllOn || DoCopyAllOff)
+  if ( !DoCopyAllOn || DoCopyAllOff )
     {
     this->DoCopyAllOn = 1;
     this->DoCopyAllOff = 0;
@@ -608,7 +612,7 @@ void vtkFieldData::CopyAllOn()
 // Turn off copying of all data.
 void vtkFieldData::CopyAllOff()
 {
-  if ( DoCopyAllOn || !DoCopyAllOff)
+  if ( DoCopyAllOn || !DoCopyAllOff )
     {
     this->DoCopyAllOn = 0;
     this->DoCopyAllOff = 1;
