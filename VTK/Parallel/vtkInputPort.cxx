@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInputPort.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-22 20:15:18 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-07-12 19:55:24 $
+  Version:   $Revision: 1.3 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -343,7 +343,7 @@ void vtkInputPort::UpdateInformation()
     }
   output->SetPipelineMTime(this->GetMTime());
   // Locality has to be changed too.
-  //output->GetDataInformation()->SetLocality(1.0);
+  output->SetLocality(1.0);
   
 }
 
