@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleUser.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-26 21:57:20 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2002-04-29 05:17:08 $
+  Version:   $Revision: 1.27 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -177,6 +177,8 @@ public:
   void StartUserInteraction();
   void EndUserInteraction();
 
+protected:
+
   // Description:
   // Generic event bindings
   virtual void OnMouseMove       (int ctrl, int shift, int x, int y);
@@ -207,8 +209,6 @@ public:
 
   virtual void OnTimer(void);
 
-
-protected:
   vtkInteractorStyleUser();
   ~vtkInteractorStyleUser();
 

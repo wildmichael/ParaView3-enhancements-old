@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleSwitch.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-25 03:00:19 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2002-04-29 05:17:08 $
+  Version:   $Revision: 1.17 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -50,11 +50,6 @@ public:
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
-  // Only care about the char event, which is used to switch between
-  // different styles.
-  virtual void OnChar   (int ctrl, int shift, char keycode, int repeatcount);
-  
-  // Description:
   // The sub styles need the interactor too.
   void SetInteractor(vtkRenderWindowInteractor *iren);
   
@@ -74,6 +69,11 @@ public:
 protected:
   vtkInteractorStyleSwitch();
   ~vtkInteractorStyleSwitch();
+  
+  // Description:
+  // Only care about the char event, which is used to switch between
+  // different styles.
+  virtual void OnChar   (int ctrl, int shift, char keycode, int repeatcount);
   
   void SetCurrentStyle();
   

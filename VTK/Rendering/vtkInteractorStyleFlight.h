@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleFlight.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-26 21:57:20 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2002-04-29 05:17:08 $
+  Version:   $Revision: 1.16 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -48,26 +48,6 @@ public:
   static vtkInteractorStyleFlight *New();
   vtkTypeRevisionMacro(vtkInteractorStyleFlight,vtkInteractorStyle);
   void PrintSelf(ostream& os, vtkIndent indent);
-
-  // Description:
-  // Concrete implementation of Mouse event bindings for flight
-  virtual void OnRightButtonDown (int ctrl, int shift, int x, int y);
-  virtual void OnRightButtonUp   (int ctrl, int shift, int x, int y);
-  virtual void OnMiddleButtonDown(int ctrl, int shift, int x, int y);
-  virtual void OnMiddleButtonUp  (int ctrl, int shift, int x, int y);
-  virtual void OnLeftButtonDown  (int ctrl, int shift, int x, int y);
-  virtual void OnLeftButtonUp    (int ctrl, int shift, int x, int y);
-  virtual void OnMouseMove       (int ctrl, int shift, int x, int y);
-
-  // Description:
-  // Concrete implementation of Keyboard event bindings for flight
-  virtual void OnChar   (int ctrl, int shift, char keycode, int repeatcount);
-  virtual void OnKeyDown(int ctrl, int shift, char keycode, int repeatcount);
-  virtual void OnKeyUp  (int ctrl, int shift, char keycode, int repeatcount);
-
-  // Description:
-  // Mouse and key events set correct motion states, OnTimer performs the motion
-  virtual void OnTimer(void);
 
   // Description:
   // Move the Eye/Camera to a specific location (no intermediate
@@ -120,7 +100,27 @@ public:
 protected:
   vtkInteractorStyleFlight();
   ~vtkInteractorStyleFlight();
-  //
+
+  // Description:
+  // Concrete implementation of Mouse event bindings for flight
+  virtual void OnRightButtonDown (int ctrl, int shift, int x, int y);
+  virtual void OnRightButtonUp   (int ctrl, int shift, int x, int y);
+  virtual void OnMiddleButtonDown(int ctrl, int shift, int x, int y);
+  virtual void OnMiddleButtonUp  (int ctrl, int shift, int x, int y);
+  virtual void OnLeftButtonDown  (int ctrl, int shift, int x, int y);
+  virtual void OnLeftButtonUp    (int ctrl, int shift, int x, int y);
+  virtual void OnMouseMove       (int ctrl, int shift, int x, int y);
+
+  // Description:
+  // Concrete implementation of Keyboard event bindings for flight
+  virtual void OnChar   (int ctrl, int shift, char keycode, int repeatcount);
+  virtual void OnKeyDown(int ctrl, int shift, char keycode, int repeatcount);
+  virtual void OnKeyUp  (int ctrl, int shift, char keycode, int repeatcount);
+
+  // Description:
+  // Mouse and key events set correct motion states, OnTimer performs the motion
+  virtual void OnTimer(void);
+
   // Description:
   // Routines used internally for computing motion and steering
   void DoTimerStart(void);
