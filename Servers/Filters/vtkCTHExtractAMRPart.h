@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCTHExtractAMRPart.h,v $
   Language:  C++
-  Date:      $Date: 2003-09-08 19:41:57 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2003-09-10 15:31:04 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -87,9 +87,10 @@ protected:
 
   void ExecuteCellDataToPointData2(vtkDataArray *cellVolumeFraction, 
                             vtkFloatArray *pointVolumeFraction, vtkCTHData* data);
-  float ComputeSharedPoint(int blockId, int x, int y, int z, 
-                            float* pCell, vtkCTHData* output);
-  void FindPointCells(vtkCTHData* self, vtkIdType ptId, vtkIdList* idList);
+  void FindBlockNeighbors(vtkCTHData* self, int blockId, vtkIdList* blockList);
+  float ComputeSharedPoint(int blockId, vtkIdList* blockList, int x, int y, int z, 
+                            float* pCell, float* pPoint, vtkCTHData* output);
+  //void FindPointCells(vtkCTHData* self, vtkIdType ptId, vtkIdList* idList);
 
 
 
