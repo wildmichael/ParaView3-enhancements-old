@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageIslandRemoval2D.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-17 14:29:49 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1998-01-21 18:51:31 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -72,11 +72,6 @@ public:
   void PrintSelf(ostream& os, vtkIndent indent);
   
   // Description:
-  // Set/Get which 2 axes will be processed.
-  void SetFilteredAxes(int axis0, int axis1);
-  vtkGetVector2Macro(FilteredAxes, int);
-
-  // Description:
   // Set/Get the cutoff area for removal
   vtkSetMacro(AreaThreshold, int);
   vtkGetMacro(AreaThreshold, int);
@@ -104,9 +99,8 @@ protected:
   int SquareNeighborhood;
   float IslandValue;
   float ReplaceValue;
-  
-  
-  void Execute(vtkImageRegion *inRegion, vtkImageRegion *outRegion);  
+
+  virtual void Execute(vtkImageData *inData, vtkImageData *outData);
 };
 
 #endif
