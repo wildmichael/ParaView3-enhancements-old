@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSphereSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-21 19:58:43 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 2000-08-30 14:28:24 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -97,6 +97,12 @@ void vtkSphereSource::Execute()
   int numPieces = output->GetUpdateNumberOfPieces();
   int ghostLevel = output->GetUpdateGhostLevel();
   
+  if (ghostLevel > 0)
+    {
+    vtkWarningMacro("vtkSphereSource does not generate ghost cells.");
+    ghostLevel = 0;
+    }
+
   // I want to modify the ivars resoultion start theta and end theta, 
   // so I will make local copies of them.  THese might be able to be merged 
   // with the other copies of them, ...
@@ -245,9 +251,9 @@ void vtkSphereSource::Execute()
           {
           newGhostPoints->InsertNextGhostLevel(ghostLevel - i + 1);
           }
-	else if (i >= localThetaResolution - ghostLevel)
+        else if (i >= localThetaResolution - ghostLevel)
           {
-	  newGhostPoints->InsertNextGhostLevel(i - localThetaResolution +
+          newGhostPoints->InsertNextGhostLevel(i - localThetaResolution +
 					       ghostLevel + 1);
           }
         else
