@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSynchronizedTemplates3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-07 19:34:10 $
-  Version:   $Revision: 1.61 $
+  Date:      $Date: 2002-05-07 21:10:32 $
+  Version:   $Revision: 1.62 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -44,7 +44,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkExtentTranslator.h"
 
-vtkCxxRevisionMacro(vtkSynchronizedTemplates3D, "$Revision: 1.61 $");
+vtkCxxRevisionMacro(vtkSynchronizedTemplates3D, "$Revision: 1.62 $");
 vtkStandardNewMacro(vtkSynchronizedTemplates3D);
 
 //----------------------------------------------------------------------------
@@ -730,8 +730,8 @@ VTK_THREAD_RETURN_TYPE vtkSyncTempThreadedExecute( void *arg )
 void vtkSynchronizedTemplates3D::Execute()
 {
   int idx, inId, outId, offset, num, ptIdx, newIdx;
-  vtkIdType numCellPts;
-  vtkIdType newCellPts[3], *cellPts;
+  vtkIdType numCellPts=0;
+  vtkIdType newCellPts[3], *cellPts=0;
   vtkPolyData *output = this->GetOutput();
   vtkPointData *outPD;
   vtkCellData *outCD;
