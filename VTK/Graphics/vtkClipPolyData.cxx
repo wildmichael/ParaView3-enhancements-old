@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:05:58 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1999-10-14 15:32:32 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -156,7 +156,7 @@ void vtkClipPolyData::Execute()
   //
   if ( numPts < 1 || inPts == NULL )
     {
-    vtkErrorMacro(<<"No data to clip");
+    //vtkErrorMacro(<<"No data to clip");
     return;
     }
 
