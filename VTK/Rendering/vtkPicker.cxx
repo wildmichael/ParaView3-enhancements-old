@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPicker.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:12:11 $
-  Version:   $Revision: 1.52 $
+  Date:      $Date: 2000-05-08 18:42:33 $
+  Version:   $Revision: 1.53 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -137,6 +137,10 @@ void vtkPicker::MarkPicked(vtkActor *assem, vtkActor *actor, vtkMapper *mapper,
   this->Mapper = mapper;
   this->DataSet = mapper->GetInput();
   this->GlobalTMin = tMin;
+
+  this->MapperPosition[0] = mapperPos[0];
+  this->MapperPosition[1] = mapperPos[1];
+  this->MapperPosition[2] = mapperPos[2];
 
   // The point has to be transformed back into world coordinates.
   // Note: it is assumed that the transform is in the correct state.
