@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:09:10 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2000-03-20 21:08:48 $
+  Version:   $Revision: 1.16 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -313,7 +313,15 @@ void vtkWin32OpenGLTextMapper::RenderOpaqueGeometry(vtkViewport* viewport,
   glMatrixMode( GL_MODELVIEW );
   glPushMatrix();
   glLoadIdentity();
-  glOrtho(0,vsize[0] -1, 0, vsize[1] -1, 0, 1);
+  if ( actor->GetProperty()->GetDisplayLocation() == VTK_FOREGROUND_LOCATION )
+    {
+    glOrtho(0,vsize[0] -1, 0, vsize[1] -1, 0, 1);
+    }
+  else
+    {
+    glOrtho(0,vsize[0] -1, 0, vsize[1] -1, -1, 0);
+    }
+  
   glDisable( GL_LIGHTING);
 
   // When picking draw the bounds of the text as a rectangle,

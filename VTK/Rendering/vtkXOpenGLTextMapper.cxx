@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXOpenGLTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:09:13 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2000-03-20 21:08:49 $
+  Version:   $Revision: 1.11 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -273,7 +273,15 @@ void vtkXOpenGLTextMapper::RenderOpaqueGeometry(vtkViewport* viewport,
   glMatrixMode( GL_MODELVIEW );
   glPushMatrix();
   glLoadIdentity();
-  glOrtho(0,vsize[0] -1, 0, vsize[1] -1, 0, 1);
+  if (actor->GetProperty()->GetDisplayLocation() == VTK_FOREGROUND_LOCATION)
+    {
+    glOrtho(0,vsize[0] -1, 0, vsize[1] -1, 0, 1);
+    }
+  else
+    {
+    glOrtho(0,vsize[0] -1, 0, vsize[1] -1, -1, 0);
+    }
+  
   glDisable( GL_LIGHTING);
 
   glListBase(vtkXOpenGLTextMapper::GetListBaseForFont(this,viewport,

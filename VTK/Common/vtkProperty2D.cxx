@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProperty2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:03:42 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2000-03-20 21:08:47 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -71,6 +71,7 @@ vtkProperty2D::vtkProperty2D()
   this->Color[0] = 1.0;
   this->Color[1] = 1.0;
   this->Color[2] = 1.0;  
+  this->DisplayLocation = VTK_FOREGROUND_LOCATION;
 }
 
 vtkProperty2D::~vtkProperty2D()

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProperty2D.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:03:42 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2000-03-20 21:08:47 $
+  Version:   $Revision: 1.16 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -54,6 +54,9 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 class vtkViewport;
 
+#define VTK_BACKGROUND_LOCATION 0
+#define VTK_FOREGROUND_LOCATION 1
+
 class VTK_EXPORT vtkProperty2D : public vtkObject
 {
 public:
@@ -88,6 +91,23 @@ public:
   vtkGetMacro(LineWidth,float);
 
   // Description:
+  // The DisplayLocation is either background or foreground.
+  // If it is background, then this 2D actor will be drawn
+  // behind all 3D props or foreground 2D actors. If it is
+  // background, then this 2D actor will be drawn in front of
+  // all 3D props and background 2D actors. Within 2D actors
+  // of the same DisplayLocation type, order is determined by
+  // the order in which the 2D actors were added to the viewport.
+  vtkSetClampMacro( DisplayLocation, int, 
+                    VTK_BACKGROUND_LOCATION, VTK_FOREGROUND_LOCATION );
+  vtkGetMacro( DisplayLocation, int );
+  void SetDisplayLocationToBackground() 
+    {this->DisplayLocation = VTK_BACKGROUND_LOCATION;};
+  void SetDisplayLocationToForeground() 
+    {this->DisplayLocation = VTK_FOREGROUND_LOCATION;};
+  
+  
+  // Description:
   // Have the device specific subclass render this property.
   virtual void Render (vtkViewport* vtkNotUsed(viewport))  {}
   
@@ -101,6 +121,7 @@ protected:
   float Opacity;
   float PointSize;
   float LineWidth;
+  int   DisplayLocation;
 };
   
   
