@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitModeller.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-15 15:05:55 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 1997-07-17 10:55:51 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -280,7 +280,7 @@ void vtkImplicitModeller::Update()
 // Compute ModelBounds from input geometry.
 float vtkImplicitModeller::ComputeModelBounds()
 {
-  float *bounds, maxDist, h[3];
+  float *bounds, maxDist;
   int i;
   vtkStructuredPoints *output=this->GetOutput();
   float tempf[3];
@@ -298,7 +298,7 @@ float vtkImplicitModeller::ComputeModelBounds()
     }
 
   for (maxDist=0.0, i=0; i<3; i++)
-    if ( (h[i]=(bounds[2*i+1] - bounds[2*i])) > maxDist )
+    if ( (bounds[2*i+1] - bounds[2*i]) > maxDist )
       maxDist = bounds[2*i+1] - bounds[2*i];
 
   maxDist *= this->MaximumDistance;
@@ -308,8 +308,8 @@ float vtkImplicitModeller::ComputeModelBounds()
     {
     for (i=0; i<3; i++)
       {
-      this->ModelBounds[2*i] = bounds[2*i] - h[i]*this->AdjustDistance;
-      this->ModelBounds[2*i+1] = bounds[2*i+1] + h[i]*this->AdjustDistance;
+      this->ModelBounds[2*i] = bounds[2*i] - maxDist*this->AdjustDistance;
+      this->ModelBounds[2*i+1] = bounds[2*i+1] + maxDist*this->AdjustDistance;
       }
     }
 
