@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDEMReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-27 16:49:25 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2001-04-11 20:37:57 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -119,7 +119,7 @@ void vtkDEMReader::ExecuteInformation()
 
 //----------------------------------------------------------------------------
 // Convert to Imaging API
-void vtkDEMReader::Execute()
+void vtkDEMReader::ExecuteData(vtkDataObject *)
 {
   vtkImageData *output = this->GetOutput();
 

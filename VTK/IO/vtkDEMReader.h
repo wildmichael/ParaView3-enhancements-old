@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDEMReader.h,v $
   Language:  C++
-  Date:      $Date: 2001-01-25 12:41:55 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2001-04-11 20:37:56 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -165,8 +165,7 @@ protected:
   void ComputeExtentOriginAndSpacing (int extent[6], float origin[6], float spacing[6]);
   int ReadTypeARecord ();
   int ReadProfiles (vtkImageData *data);
-  void Execute();
-  void Execute(vtkImageData *outData) {this->vtkImageSource::Execute(outData);}
+  void ExecuteData(vtkDataObject *out);
 };
 
 #endif
