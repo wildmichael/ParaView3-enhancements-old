@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCutter.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-10-01 12:16:13 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 1996-12-31 17:17:15 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -270,6 +270,8 @@ void vtkCutter::GenerateValues(int numContours, float range[2])
     }
 
   this->NumberOfContours = numContours;
+
+  this->Modified();
 }
 
 void vtkCutter::PrintSelf(ostream& os, vtkIndent indent)
