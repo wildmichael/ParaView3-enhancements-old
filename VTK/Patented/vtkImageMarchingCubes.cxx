@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMarchingCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:24:45 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 2001-12-17 15:28:22 $
+  Version:   $Revision: 1.44 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -14,13 +14,14 @@ All rights reserved.
     Within The Interior Region of a Solid body".
     Application of this software for commercial purposes requires 
     a license grant from GE. Contact:
-        Jerald Roehling
-        GE Licensing
-        One Independence Way
-        PO Box 2023
-        Princeton, N.J. 08540
-        phone 609-734-9823
-        e-mail:Roehlinj@gerlmo.ge.com
+
+        Carl B. Horton
+        Sr. Counsel, Intellectual Property
+        3000 N. Grandview Blvd., W-710
+        Waukesha, WI  53188
+        Phone:  (262) 513-4022
+        E-Mail: Carl.Horton@med.ge.com
+
     for more information.
 
 Redistribution and use in source and binary forms, with or without

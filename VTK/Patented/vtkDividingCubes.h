@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDividingCubes.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:38:02 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 2001-12-17 15:28:21 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -15,13 +15,14 @@ All rights reserved.
     Contained Within the Interior Region of a Solid Body".
     Application of this software for commercial purposes requires 
     a license grant from GE. Contact:
-        Jerald Roehling
-        GE Licensing
-        One Independence Way
-        PO Box 2023
-        Princeton, N.J. 08540
-        phone 609-734-9823
-        e-mail:Roehlinj@gerlmo.ge.com
+
+        Carl B. Horton
+        Sr. Counsel, Intellectual Property
+        3000 N. Grandview Blvd., W-710
+        Waukesha, WI  53188
+        Phone:  (262) 513-4022
+        E-Mail: Carl.Horton@med.ge.com
+
     for more information.
 
 Redistribution and use in source and binary forms, with or without
