@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSliceCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:07:15 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1998-05-27 12:51:53 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -397,7 +397,7 @@ void vtkSliceCubes::Execute()
    return;
    }
 
-  if ( (outFP = fopen(this->FileName, "w")) == NULL )
+  if ( (outFP = fopen(this->FileName, "wb")) == NULL )
    {
    vtkErrorMacro(<<"Cannot open specified output file...");
    return;
