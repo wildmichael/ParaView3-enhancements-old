@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:43:23 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1997-07-15 12:28:09 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,6 +64,7 @@ vtkClipPolyData::vtkClipPolyData(vtkImplicitFunction *cf)
 vtkClipPolyData::~vtkClipPolyData()
 {
   this->ClippedOutput->Delete();
+  if ( this->SelfCreatedLocator && this->Locator ) this->Locator->Delete();
 }
 
 // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCutter.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:43:39 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 1997-07-15 12:28:10 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -60,6 +60,7 @@ vtkCutter::vtkCutter(vtkImplicitFunction *cf)
 vtkCutter::~vtkCutter()
 {
   this->ContourValues->Delete();
+  if ( this->SelfCreatedLocator && this->Locator ) this->Locator->Delete();
 }
 
 // Description:
