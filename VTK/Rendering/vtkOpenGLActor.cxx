@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-30 07:50:02 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2001-05-17 16:16:21 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -81,7 +81,21 @@ void vtkOpenGLActor::Render(vtkRenderer *ren, vtkMapper *mapper)
     }
   else
     {
-    glDepthMask (GL_FALSE);
+    // add this check here for GL_SELECT mode
+    // If we are not picking, then don't write to the zbuffer
+    // because we probably haven't sorted the polygons. If we
+    // are picking, then translucency doesn't matter - we want to
+    // pick the thing closest to us.
+    GLint param[1];
+    glGetIntegerv(GL_RENDER_MODE, param);
+    if(param[0] == GL_SELECT )
+      {
+      glDepthMask(GL_TRUE);
+      }
+    else
+      {
+      glDepthMask (GL_FALSE);
+      }
     }
 
   // build transformation 
