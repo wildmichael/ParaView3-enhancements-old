@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWorldPointPicker.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-06-08 09:11:05 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2000-11-10 18:08:29 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -41,6 +41,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 =========================================================================*/
 #include "vtkWorldPointPicker.h"
 #include "vtkObjectFactory.h"
+#include "vtkCommand.h"
 
 //------------------------------------------------------------------------------
 vtkWorldPointPicker* vtkWorldPointPicker::New()
@@ -78,10 +79,7 @@ int vtkWorldPointPicker::Pick(float selectionX, float selectionY,
   this->SelectionPoint[2] = selectionZ;
 
   // Invoke start pick method if defined
-  if ( this->StartPickMethod )
-    {
-    (*this->StartPickMethod)(this->StartPickMethodArg);
-    }
+  this->InvokeEvent(vtkCommand::StartPickEvent,NULL);
 
   z = renderer->GetZ ((int) selectionX, (int) selectionY);
 
@@ -124,10 +122,7 @@ int vtkWorldPointPicker::Pick(float selectionX, float selectionY,
     }
 
   // Invoke end pick method if defined
-  if ( this->EndPickMethod )
-    {
-    (*this->EndPickMethod)(this->EndPickMethodArg);
-    }
+  this->InvokeEvent(vtkCommand::EndPickEvent,NULL);
 
   return 0;
 }

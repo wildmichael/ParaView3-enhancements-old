@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32RenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-10-05 06:44:34 $
-  Version:   $Revision: 1.66 $
+  Date:      $Date: 2000-11-10 18:08:29 $
+  Version:   $Revision: 1.67 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -51,6 +51,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <gl/gl.h>
 #endif
 #include "vtkObjectFactory.h"
+#include "vtkCommand.h"
 
 
 #ifndef VTK_IMPLEMENT_MESA_CXX
@@ -620,9 +621,9 @@ LRESULT CALLBACK vtkHandleMessage2(HWND hWnd,UINT uMsg, WPARAM wParam,
 
     case WM_CLOSE:
       // Don't know what to put here ! Why so many callbacks ?
-      if (me->ExitMethod) 
+      if (me->HasObserver(vtkCommand::ExitEvent)) 
         {
-        (*me->ExitMethod)(me->ExitMethodArg);
+        me->InvokeEvent(vtkCommand::ExitEvent,NULL);
         }
       else if (me->ClassExitMethod) 
         {
@@ -703,9 +704,9 @@ void vtkWin32RenderWindowInteractor::PrintSelf(ostream& os, vtkIndent indent)
 
 void vtkWin32RenderWindowInteractor::ExitCallback()
 {
-  if (this->ExitMethod)
+  if (this->HasObserver(vtkCommand::ExitEvent)) 
     {
-    (*this->ExitMethod)(this->ExitMethodArg);
+    this->InvokeEvent(vtkCommand::ExitEvent,NULL);
     }
   else if (this->ClassExitMethod)
     {

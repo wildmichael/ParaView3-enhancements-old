@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-06 17:28:37 $
-  Version:   $Revision: 1.73 $
+  Date:      $Date: 2000-11-10 18:08:29 $
+  Version:   $Revision: 1.74 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -267,20 +267,10 @@ protected:
   int   CursorHidden;
   
   // user methods that can be used to override default behavior
-  void (*StartPickMethod)(void *);
-  void (*StartPickMethodArgDelete)(void *);
-  void *StartPickMethodArg;
-  void (*EndPickMethod)(void *);
-  void (*EndPickMethodArgDelete)(void *);
-  void *EndPickMethodArg;
-
-  void (*UserMethod)(void *);
-  void (*UserMethodArgDelete)(void *);
-  void *UserMethodArg;
-
-  void (*ExitMethod)(void *);
-  void (*ExitMethodArgDelete)(void *);
-  void *ExitMethodArg;
+  unsigned long StartPickTag;
+  unsigned long EndPickTag;
+  unsigned long UserTag;
+  unsigned long ExitTag;
 };
 
 #endif
