@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractUnstructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-22 14:28:39 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2001-01-23 19:05:08 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -242,6 +242,7 @@ void vtkExtractUnstructuredGrid::Execute()
             {
             outputPD->CopyData(pd,ptId,newPtId);
             }
+          cellIds->InsertNextId(newPtId);
           }
         }//merging coincident points
       else
