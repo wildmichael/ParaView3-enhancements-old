@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXTextMapper.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:07:01 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2001-09-12 14:43:34 $
+  Version:   $Revision: 1.17 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -70,10 +70,6 @@ public:
   // Set the font size used by the mapper.  If the font size is 
   // available, the code will use the nearest available size.
   void SetFontSize(int size);
-
-  // Description:
-  // Draw the text to the screen.
-  void RenderOverlay(vtkViewport* viewport, vtkActor2D* actor);
 
   // Description:
   // What is the size of the rectangle required to draw this
