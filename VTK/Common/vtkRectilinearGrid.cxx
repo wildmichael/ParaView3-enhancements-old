@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-24 21:42:20 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1999-07-06 14:37:52 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -590,6 +590,16 @@ int vtkRectilinearGrid::FindPoint(float x[3])
   return loc[2]*this->Dimensions[0]*this->Dimensions[1] +
          loc[1]*this->Dimensions[0] + loc[0];
   
+}
+int vtkRectilinearGrid::FindCell(float x[3], vtkCell *vtkNotUsed(cell), 
+				 vtkGenericCell *vtkNotUsed(gencell),
+				 int vtkNotUsed(cellId), 
+				 float vtkNotUsed(tol2), 
+				 int& subId, float pcoords[3], 
+				 float *weights)
+{
+  return
+    this->FindCell( x, (vtkCell *)NULL, 0, 0.0, subId, pcoords, weights );
 }
 
 int vtkRectilinearGrid::FindCell(float x[3], vtkCell *vtkNotUsed(cell), 
