@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCamera.h,v $
   Language:  C++
-  Date:      $Date: 1995-10-10 23:54:12 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1995-10-25 13:15:11 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -148,7 +148,6 @@ class vtkCamera : public vtkObject
   vtkGetMacro(Switch,int);
   vtkBooleanMacro(Switch,int);
 
-  float GetTwist();
   void SetViewPlaneNormal(float a[3]);
   void SetViewPlaneNormal(float x, float y, float z);
   void CalcViewPlaneNormal();
