@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadricClustering.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-05-07 03:24:34 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2001-05-07 18:06:40 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -269,7 +269,6 @@ void vtkQuadricClustering::Append(vtkPolyData *pd)
   inputTris = pd->GetPolys();
   if (inputTris)
     {
-//    this->AddTriangles(inputTris, inputPoints, 1);
     this->AddPolygons(inputTris, inputPoints, 1);
     }
 
@@ -1014,7 +1013,9 @@ void vtkQuadricClustering::EndAppendUsingPoints(vtkPolyData *input)
     // Sanity check.
     if (outPtId == -1)
       {
-      vtkErrorMacro("Point hash mismatch.");
+      // This condition happens when there are points in the input that are
+      // not used in any triangles, and therefore are never added to the
+      // 3D hash structure.
       continue;
       }
 
