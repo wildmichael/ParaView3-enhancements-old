@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSphereSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-12 19:10:19 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 2001-01-27 17:16:27 $
+  Version:   $Revision: 1.51 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -45,7 +45,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkNormals.h"
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
-//#include "vtkGhostLevels.h"
 
 //------------------------------------------------------------------------------
 vtkSphereSource* vtkSphereSource::New()
