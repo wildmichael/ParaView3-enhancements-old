@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImager.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:12 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2001-10-10 14:30:20 $
+  Version:   $Revision: 1.26 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -210,4 +210,8 @@ unsigned int vtkImager::GetPickedId()
 }
 
 
+vtkImageWindow *vtkImager::GetImageWindow()
+{
+  return static_cast<vtkImageWindow*>(this->VTKWindow);
+}
 

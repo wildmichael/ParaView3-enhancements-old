@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImager.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:19:59 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2001-10-10 14:30:20 $
+  Version:   $Revision: 1.21 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -55,7 +55,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkActor2DCollection.h"
 #include "vtkActor2D.h"
 #include "vtkViewport.h"
-
+#include "vtkWindow.h"
 
 class vtkImageWindow;
 
@@ -74,8 +74,8 @@ public:
 
   // Description:
   // Get the image window that an imager is attached to.
-  vtkImageWindow* GetImageWindow() {return (vtkImageWindow*) this->VTKWindow;};
-  vtkWindow *GetVTKWindow() {return (vtkWindow*) this->VTKWindow;};
+  vtkImageWindow* GetImageWindow();
+  vtkWindow *GetVTKWindow() {return static_cast<vtkWindow*>(this->VTKWindow);};
 
   
   //BTX

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFollower.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-06 18:55:27 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2001-10-10 14:30:21 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -45,6 +45,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkFollower.h"
 #include "vtkCamera.h"
 #include "vtkObjectFactory.h"
+#include "vtkRenderer.h"
 
 //-----------------------------------------------------------------------------
 vtkFollower* vtkFollower::New()
@@ -53,7 +54,7 @@ vtkFollower* vtkFollower::New()
   vtkObject* ret = vtkObjectFactory::CreateInstance("vtkFollower");
   if(ret)
     {
-    return (vtkFollower*)ret;
+    return static_cast<vtkFollower*>(ret);
     }
   // If the factory was unable to create the object, then create it here.
   return new vtkFollower;
@@ -196,7 +197,7 @@ int vtkFollower::RenderOpaqueGeometry(vtkViewport *vp)
 
   if (this->GetIsOpaque())
     {
-    vtkRenderer *ren = (vtkRenderer *)vp;
+    vtkRenderer *ren = static_cast<vtkRenderer *>(vp);
     this->Render(ren);
     return 1;
     }
@@ -218,7 +219,7 @@ int vtkFollower::RenderTranslucentGeometry(vtkViewport *vp)
 
   if (!this->GetIsOpaque())
     {
-    vtkRenderer *ren = (vtkRenderer *)vp;
+    vtkRenderer *ren = static_cast<vtkRenderer *>(vp);
     this->Render(ren);
     return 1;
     }
