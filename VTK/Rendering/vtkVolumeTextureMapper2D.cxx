@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeTextureMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-02 20:26:53 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-09-03 06:33:12 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -179,7 +179,7 @@ VolumeTextureMapper2D_XMajorDirection( T *data_ptr,
       tptr = texture + k*4*tsize[0];
       dptr = data_ptr + k*size[0]*size[1] + i;
 
-      // Given a X and Z value, what are the cropping bounds
+      // Given an X and Z value, what are the cropping bounds
       // on Y.
       if ( cropping )
 	{
@@ -978,6 +978,40 @@ void vtkVolumeTextureMapper2D::GenerateTexturesAndRenderRectangles()
 	case VTK_MINUS_Z_MAJOR_DIRECTION:
 	  VolumeTextureMapper2D_ZMajorDirection
 	    ( (unsigned char *)inputPointer, size, texture, tsize, 0, this );
+	  break;
+	}
+      break;
+    case VTK_UNSIGNED_SHORT:
+      switch ( this->MajorDirection )
+	{
+	case VTK_PLUS_X_MAJOR_DIRECTION:
+	  VolumeTextureMapper2D_XMajorDirection
+	    ( (unsigned short *)inputPointer, size, texture, tsize, 1, this );
+	  break;
+
+	case VTK_MINUS_X_MAJOR_DIRECTION:
+	  VolumeTextureMapper2D_XMajorDirection
+	    ( (unsigned short *)inputPointer, size, texture, tsize, 0, this );
+	  break;
+
+	case VTK_PLUS_Y_MAJOR_DIRECTION:
+	  VolumeTextureMapper2D_YMajorDirection
+	    ( (unsigned short *)inputPointer, size, texture, tsize, 1, this );
+	  break;
+
+	case VTK_MINUS_Y_MAJOR_DIRECTION:
+	  VolumeTextureMapper2D_YMajorDirection
+	    ( (unsigned short *)inputPointer, size, texture, tsize, 0, this );
+	  break;
+
+	case VTK_PLUS_Z_MAJOR_DIRECTION:
+	  VolumeTextureMapper2D_ZMajorDirection
+	    ( (unsigned short *)inputPointer, size, texture, tsize, 1, this );
+	  break;
+
+	case VTK_MINUS_Z_MAJOR_DIRECTION:
+	  VolumeTextureMapper2D_ZMajorDirection
+	    ( (unsigned short *)inputPointer, size, texture, tsize, 0, this );
 	  break;
 	}
       break;
