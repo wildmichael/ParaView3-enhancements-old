@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindowTclInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-04 14:30:34 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2002-01-21 00:58:24 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -56,7 +56,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkOldStyleCallbackCommand.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkXRenderWindowTclInteractor, "$Revision: 1.31 $");
+vtkCxxRevisionMacro(vtkXRenderWindowTclInteractor, "$Revision: 1.32 $");
 vtkStandardNewMacro(vtkXRenderWindowTclInteractor);
 
 // steal the first three elements of the TkMainInfo stuct
@@ -514,9 +514,14 @@ int vtkXRenderWindowTclInteractor::DestroyTimer(void)
 void vtkXRenderWindowTclInteractor::TerminateApp(void) 
 {
 #if ((TK_MAJOR_VERSION <= 4)||((TK_MAJOR_VERSION == 8)&&(TK_MINOR_VERSION == 0)))
-  Tcl_Interp* interp = tkMainWindowList->interp
+  Tcl_Interp* interp = tkMainWindowList->interp;
 #else
   Tcl_Interp* interp = TkGetMainInfoList()->interp;
 #endif
+
+#if TCL_MAJOR_VERSION == 8 && TCL_MINOR_VERSION <= 2
+  Tcl_GlobalEval(interp, "exit");
+#else
   Tcl_EvalEx(interp, "exit", -1, TCL_EVAL_GLOBAL);
+#endif
 }

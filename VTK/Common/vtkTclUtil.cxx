@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTclUtil.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-16 17:28:18 $
-  Version:   $Revision: 1.69 $
+  Date:      $Date: 2002-01-21 00:58:23 $
+  Version:   $Revision: 1.70 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -391,7 +391,11 @@ VTKTCL_EXPORT void vtkTclVoidFunc(void *arg)
 
   arg2 = (vtkTclVoidFuncArg *)arg;
 
+#if TCL_MAJOR_VERSION == 8 && TCL_MINOR_VERSION <= 2
   res = Tcl_GlobalEval(arg2->interp, arg2->command);
+#else
+  res = Tcl_EvalEx(arg2->interp, arg2->command, -1, TCL_EVAL_GLOBAL);
+#endif
 
   if (res == TCL_ERROR)
     {
@@ -603,6 +607,7 @@ void vtkTclCommand::Execute(vtkObject *, unsigned long, void *)
 #else
   res = Tcl_EvalEx(this->Interp, this->StringCommand, -1, TCL_EVAL_GLOBAL);
 #endif  
+
   if (res == TCL_ERROR)
     {
     if (Tcl_GetVar(this->Interp,(char *) "errorInfo",0))
