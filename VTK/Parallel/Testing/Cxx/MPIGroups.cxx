@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: MPIGroups.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:35:05 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2002-04-12 19:58:46 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 #include "vtkRenderer.h"
 #include "vtkRenderWindow.h"
 #include "vtkRenderWindowInteractor.h"
-#include "vtkTreeComposite.h"
+#include "vtkCompositeManager.h"
 #include "vtkDebugLeaks.h"
 #include "vtkParallelFactory.h"
 #include "vtkRegressionTestImage.h"
@@ -136,7 +136,7 @@ void proc1( vtkMultiProcessController *controller, void *arg )
   iren->SetRenderWindow(renWin);
 
   // The only thing we have to do to get parallel execution.
-  vtkTreeComposite*  treeComp = vtkTreeComposite::New();
+  vtkCompositeManager*  treeComp = vtkCompositeManager::New();
   treeComp->SetController(controller);
   treeComp->SetRenderWindow(renWin);
 

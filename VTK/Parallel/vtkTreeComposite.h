@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTreeComposite.h,v $
   Language:  C++
-  Date:      $Date: 2002-03-27 20:37:12 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2002-04-12 19:58:46 $
+  Version:   $Revision: 1.20 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -54,15 +54,18 @@
 #ifndef __vtkTreeComposite_h
 #define __vtkTreeComposite_h
 
-#include "vtkCompositeManager.h"
+#include "vtkCompositer.h"
 
 
-class VTK_PARALLEL_EXPORT vtkTreeComposite : public vtkCompositeManager
+class VTK_PARALLEL_EXPORT vtkTreeComposite : public vtkCompositer
 {
 public:
   static vtkTreeComposite *New();
-  vtkTypeRevisionMacro(vtkTreeComposite,vtkCompositeManager);
+  vtkTypeRevisionMacro(vtkTreeComposite,vtkCompositer);
   void PrintSelf(ostream& os, vtkIndent indent);
+
+  virtual void CompositeBuffer(vtkDataArray *pBuf, vtkFloatArray *zBuf,
+                               vtkDataArray *pTmp, vtkFloatArray *zTmp);
 
 protected:
   vtkTreeComposite();
@@ -70,10 +73,6 @@ protected:
   vtkTreeComposite(const vtkTreeComposite&);
   void operator=(const vtkTreeComposite&);
   
-  virtual void CompositeBuffer(int width, int height, int useCharFlag,
-                               vtkDataArray *pBuf, vtkFloatArray *zBuf,
-                               vtkDataArray *pTmp, vtkFloatArray *zTmp);
-
 };
 
 #endif
