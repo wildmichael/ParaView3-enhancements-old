@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataMapper2D.h,v $
   Language:  C++
-  Date:      $Date: 2001-09-28 20:32:08 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2001-10-02 13:33:07 $
+  Version:   $Revision: 1.27 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -64,9 +64,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkProperty2D.h"
 #include "vtkScalarsToColors.h"
 #include "vtkPolyData.h"
-
-#define VTK_GET_ARRAY_BY_ID 0
-#define VTK_GET_ARRAY_BY_NAME 1
 
 class VTK_EXPORT vtkPolyDataMapper2D : public vtkMapper2D
 {
