@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergePoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-05-17 21:11:44 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1996-05-29 17:24:33 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -43,7 +43,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // Description:
 // Merge points together if they are exactly coincident. Return a list 
 // that maps unmerged point ids into new point ids. User is responsible 
-// for freeing list (use delete []).
+// for freeing list (use delete []). Make sure you've provided a dataset
+// before invoking this method.
 int *vtkMergePoints::MergePoints()
 {
   int ptId, i, j;
@@ -113,8 +114,8 @@ int *vtkMergePoints::MergePoints()
 // with pre-inserted point (if precisely coincident). If point is merged 
 // with pre-inserted point, pre-inserted point id is returned. Otherwise, 
 // new point id is returned. Before using this method you must make sure 
-// that a point list has been supplied, the bounds has been set properly, and 
-// that divs are properly set (see InitPointInsertion() from superclass.)
+// that a point list has been supplied, the bounds has been set properly,
+// and that divs are properly set (see InitPointInsertion() from superclass.)
 int vtkMergePoints::InsertPoint(float x[3])
 {
   int i, ijk[3];
@@ -149,7 +150,7 @@ int vtkMergePoints::InsertPoint(float x[3])
     for (i=0; i < bucket->GetNumberOfIds(); i++) 
       {
       ptId = bucket->GetId(i);
-      pt = this->DataSet->GetPoint(ptId);
+      pt = this->Points->GetPoint(ptId);
       if ( x[0] == pt[0] && x[1] == pt[1] && x[2] == pt[2] ) return ptId;
       }
     }
