@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkColorTransferFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:28:01 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 2002-03-27 19:12:29 $
+  Version:   $Revision: 1.41 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkColorTransferFunction.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkColorTransferFunction, "$Revision: 1.40 $");
+vtkCxxRevisionMacro(vtkColorTransferFunction, "$Revision: 1.41 $");
 vtkStandardNewMacro(vtkColorTransferFunction);
 
 // Construct a new vtkColorTransferFunction with default values
@@ -37,7 +37,7 @@ vtkColorTransferFunction::vtkColorTransferFunction()
   this->Range[0] = 0;
   this->Range[1] = 0;
 
-  this->Clamping = 0;
+  this->Clamping = 1;
   this->ColorSpace = VTK_CTF_RGB;
   
   this->Function = NULL;
