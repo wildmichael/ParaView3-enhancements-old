@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagePlaneWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-05-13 08:31:20 $
-  Version:   $Revision: 1.64 $
+  Date:      $Date: 2003-09-19 16:59:55 $
+  Version:   $Revision: 1.65 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -44,7 +44,7 @@
 #include "vtkTextureMapToPlane.h"
 #include "vtkTransform.h"
 
-vtkCxxRevisionMacro(vtkImagePlaneWidget, "$Revision: 1.64 $");
+vtkCxxRevisionMacro(vtkImagePlaneWidget, "$Revision: 1.65 $");
 vtkStandardNewMacro(vtkImagePlaneWidget);
 
 vtkCxxSetObjectMacro(vtkImagePlaneWidget, PlaneProperty, vtkProperty);
@@ -241,9 +241,9 @@ void vtkImagePlaneWidget::SetEnabled(int enabling)
     
     if ( ! this->CurrentRenderer )
       {
-      this->CurrentRenderer = this->Interactor->FindPokedRenderer(
+      this->SetCurrentRenderer(this->Interactor->FindPokedRenderer(
         this->Interactor->GetLastEventPosition()[0],
-        this->Interactor->GetLastEventPosition()[1]);
+        this->Interactor->GetLastEventPosition()[1]));
       if (this->CurrentRenderer == NULL)
         {
         return;
@@ -322,7 +322,7 @@ void vtkImagePlaneWidget::SetEnabled(int enabling)
       }
 
     this->InvokeEvent(vtkCommand::DisableEvent,0);
-    this->CurrentRenderer = NULL;
+    this->SetCurrentRenderer(NULL);
     }
 
   this->Interactor->Render();

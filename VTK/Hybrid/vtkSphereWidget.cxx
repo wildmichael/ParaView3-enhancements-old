@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSphereWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-03-28 18:19:46 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2003-09-19 16:59:55 $
+  Version:   $Revision: 1.25 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -34,7 +34,7 @@
 #include "vtkSphere.h"
 #include "vtkSphereSource.h"
 
-vtkCxxRevisionMacro(vtkSphereWidget, "$Revision: 1.24 $");
+vtkCxxRevisionMacro(vtkSphereWidget, "$Revision: 1.25 $");
 vtkStandardNewMacro(vtkSphereWidget);
 
 vtkSphereWidget::vtkSphereWidget()
@@ -149,10 +149,10 @@ void vtkSphereWidget::SetEnabled(int enabling)
     
     if ( ! this->CurrentRenderer )
       {
-      this->CurrentRenderer = 
+      this->SetCurrentRenderer(
         this->Interactor->FindPokedRenderer(
           this->Interactor->GetLastEventPosition()[0],
-          this->Interactor->GetLastEventPosition()[1]);
+          this->Interactor->GetLastEventPosition()[1]));
       if (this->CurrentRenderer == NULL)
         {
         return;
@@ -205,7 +205,7 @@ void vtkSphereWidget::SetEnabled(int enabling)
     this->CurrentRenderer->RemoveActor(this->HandleActor);
 
     this->InvokeEvent(vtkCommand::DisableEvent,NULL);
-    this->CurrentRenderer = NULL;
+    this->SetCurrentRenderer(NULL);
     }
 
   this->Interactor->Render();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyle.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-02-17 19:28:36 $
-  Version:   $Revision: 1.85 $
+  Date:      $Date: 2003-09-19 17:00:03 $
+  Version:   $Revision: 1.86 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -35,7 +35,7 @@
 #include "vtkRenderer.h"
 #include "vtkTextProperty.h"
 
-vtkCxxRevisionMacro(vtkInteractorStyle, "$Revision: 1.85 $");
+vtkCxxRevisionMacro(vtkInteractorStyle, "$Revision: 1.86 $");
 vtkStandardNewMacro(vtkInteractorStyle);
 
 //----------------------------------------------------------------------------
@@ -245,16 +245,7 @@ void vtkInteractorStyle::SetInteractor(vtkRenderWindowInteractor *i)
 //----------------------------------------------------------------------------
 void vtkInteractorStyle::FindPokedRenderer(int x,int y) 
 {
-  // Release old renderer, if any
-  if (this->CurrentRenderer)
-    {
-    this->CurrentRenderer->UnRegister(this);
-    }
-  this->CurrentRenderer = NULL;
-
-  this->CurrentRenderer = this->Interactor->FindPokedRenderer(x,y);
-
-  this->CurrentRenderer->Register(this);
+  this->SetCurrentRenderer(this->Interactor->FindPokedRenderer(x,y));
 }
 
 //----------------------------------------------------------------------------

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSplineWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-03-06 20:26:46 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2003-09-19 16:59:55 $
+  Version:   $Revision: 1.17 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -37,7 +37,7 @@
 #include "vtkSpline.h"
 #include "vtkTransform.h"
 
-vtkCxxRevisionMacro(vtkSplineWidget, "$Revision: 1.16 $");
+vtkCxxRevisionMacro(vtkSplineWidget, "$Revision: 1.17 $");
 vtkStandardNewMacro(vtkSplineWidget);
 
 vtkCxxSetObjectMacro(vtkSplineWidget, HandleProperty, vtkProperty);
@@ -397,9 +397,9 @@ void vtkSplineWidget::SetEnabled(int enabling)
 
     if ( ! this->CurrentRenderer )
       {
-      this->CurrentRenderer = this->Interactor->FindPokedRenderer(
+      this->SetCurrentRenderer(this->Interactor->FindPokedRenderer(
         this->Interactor->GetLastEventPosition()[0],
-        this->Interactor->GetLastEventPosition()[1]);
+        this->Interactor->GetLastEventPosition()[1]));
       if (this->CurrentRenderer == NULL)
         {
         return;
@@ -466,7 +466,7 @@ void vtkSplineWidget::SetEnabled(int enabling)
 
     this->CurrentHandle = NULL;
     this->InvokeEvent(vtkCommand::DisableEvent,NULL);
-    this->CurrentRenderer = NULL;
+    this->SetCurrentRenderer(NULL);
     }
 
   this->Interactor->Render();
@@ -1318,8 +1318,9 @@ void vtkSplineWidget::SetNumberOfHandles(int npts)
 
   if ( this->Interactor )
     {
-    this->CurrentRenderer = this->Interactor->FindPokedRenderer(this->Interactor->GetLastEventPosition()[0],
-    this->Interactor->GetLastEventPosition()[1]);
+    this->SetCurrentRenderer(this->Interactor->FindPokedRenderer(
+                               this->Interactor->GetLastEventPosition()[0],
+                               this->Interactor->GetLastEventPosition()[1]));
     if (this->CurrentRenderer != NULL)
       {
       for (i=0; i<this->NumberOfHandles; i++)
@@ -1336,8 +1337,9 @@ void vtkSplineWidget::Initialize(void)
   int i;
   if ( this->Interactor )
     {
-    this->CurrentRenderer = this->Interactor->FindPokedRenderer(this->Interactor->GetLastEventPosition()[0],
-    this->Interactor->GetLastEventPosition()[1]);
+    this->SetCurrentRenderer(this->Interactor->FindPokedRenderer(
+                               this->Interactor->GetLastEventPosition()[0],
+                               this->Interactor->GetLastEventPosition()[1]));
     if ( this->CurrentRenderer != NULL)
       {
       for (i=0; i<this->NumberOfHandles; i++)
