@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMathematics.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:09:05 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1999-11-18 16:49:45 $
+  Version:   $Revision: 1.20 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -303,7 +303,7 @@ static void vtkImageMathematicsExecute2(vtkImageMathematics *self,
 		}
 	      else
 		{
-	        *outPtr =  (T)atan2(*in1Ptr,*in2Ptr);
+	        *outPtr =  (T)atan2((double)*in1Ptr,(double)*in2Ptr);
 		}
 	    break;
 	  }
