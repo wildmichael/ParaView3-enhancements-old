@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleJoystickCamera.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-01 16:37:05 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2000-08-02 09:14:57 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -87,34 +87,28 @@ void vtkInteractorStyleJoystickCamera::OnTimer(void)
       // JCP Animation control 
       break;
       //-----
-    case VTKIS_ROTATE:  // rotate with respect to an axis perp to look
+    case VTK_INTERACTOR_STYLE_CAMERA_ROTATE:  // rotate with respect to an axis perp to look
       this->FindPokedCamera(this->LastPos[0], this->LastPos[1]);
       this->RotateCamera(this->LastPos[0], this->LastPos[1]);
       rwi->CreateTimer(VTKI_TIMER_UPDATE);
       break;
       //-----
-    case VTKIS_PAN: // move perpendicular to camera's look vector
+    case VTK_INTERACTOR_STYLE_CAMERA_PAN: // move perpendicular to camera's look vector
       this->FindPokedCamera(this->LastPos[0], this->LastPos[1]);
       this->PanCamera(this->LastPos[0], this->LastPos[1]);
       rwi->CreateTimer(VTKI_TIMER_UPDATE);
       break;
       //-----
-    case VTKIS_ZOOM:
+    case VTK_INTERACTOR_STYLE_CAMERA_ZOOM:
       this->FindPokedCamera(this->LastPos[0], this->LastPos[1]);
       this->DollyCamera(this->LastPos[0], this->LastPos[1]);
       rwi->CreateTimer(VTKI_TIMER_UPDATE);
       break;
       //-----
-    case VTKIS_SPIN:
+    case VTK_INTERACTOR_STYLE_CAMERA_SPIN:
       this->FindPokedCamera(this->LastPos[0], this->LastPos[1]);
       this->SpinCamera(this->LastPos[0], this->LastPos[1]);
       rwi->CreateTimer(VTKI_TIMER_UPDATE);
-      break;
-      //-----
-    case VTKIS_DOLLY:  // move along camera's view vector
-      break;
-      //-----
-    case VTKIS_USCALE:
       break;
       //-----
     case VTKIS_TIMER:
