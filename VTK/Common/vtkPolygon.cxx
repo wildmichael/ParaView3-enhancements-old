@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolygon.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-06-18 10:52:05 $
-  Version:   $Revision: 1.99 $
+  Date:      $Date: 2003-10-31 20:44:17 $
+  Version:   $Revision: 1.100 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -30,7 +30,7 @@
 #include "vtkTriangle.h"
 #include "vtkBox.h"
 
-vtkCxxRevisionMacro(vtkPolygon, "$Revision: 1.99 $");
+vtkCxxRevisionMacro(vtkPolygon, "$Revision: 1.100 $");
 vtkStandardNewMacro(vtkPolygon);
 
 // Instantiate polygon.
@@ -1102,7 +1102,7 @@ int vtkPolygon::IntersectWithLine(float p1[3], float p2[3], float tol,float& t,
   // Evaluate position
   //
   weights = new float[npts];
-  if ( this->EvaluatePosition(x, closestPoint, subId, pcoords, dist2, weights))
+  if ( this->EvaluatePosition(x, closestPoint, subId, pcoords, dist2, weights) >= 0)
     {
     if ( dist2 <= tol2 ) 
       {
