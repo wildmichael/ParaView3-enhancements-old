@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-05-12 02:24:11 $
-  Version:   $Revision: 1.69 $
+  Date:      $Date: 2001-06-05 07:33:43 $
+  Version:   $Revision: 1.70 $
   Thanks:    to Horst Schreiber for developing this MFC code
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -43,7 +43,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <stdlib.h>
 #include <math.h>
 #include <stdio.h>
-#ifdef _MSC_VER
+#if defined(_MSC_VER) || defined (__BORLANDC__)
 #include <GL/glaux.h>
 #else
 #include <GL/gl.h>
