@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearSynchronizedTemplates.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-05-06 18:00:30 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2003-05-07 13:07:53 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -50,7 +50,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkRectilinearSynchronizedTemplates, "$Revision: 1.4 $");
+vtkCxxRevisionMacro(vtkRectilinearSynchronizedTemplates, "$Revision: 1.5 $");
 vtkStandardNewMacro(vtkRectilinearSynchronizedTemplates);
 
 //----------------------------------------------------------------------------
@@ -293,7 +293,6 @@ void ContourRectilinearGrid(vtkRectilinearSynchronizedTemplates *self, int *exEx
   int v0, v1, v2, v3;
   vtkIdType ptIds[3];
   float value;
-  int *wholeExt;
   // We need to know the edgePointId's for interpolating attributes.
   int edgePtId, inCellId, outCellId;
   vtkPointData *inPD = self->GetInput()->GetPointData();
@@ -345,8 +344,6 @@ void ContourRectilinearGrid(vtkRectilinearSynchronizedTemplates *self, int *exEx
   yInc = xInc*(inExt[1]-inExt[0]+1);
   zInc = yInc*(inExt[3]-inExt[2]+1);
 
-  wholeExt = self->GetInput()->GetWholeExtent();
-  
   // Kens increments, probably to do with edge array
   zstep = xdim*ydim;
   yisectstep = xdim*3;
