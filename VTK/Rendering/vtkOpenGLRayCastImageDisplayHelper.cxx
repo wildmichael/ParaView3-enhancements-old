@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLRayCastImageDisplayHelper.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-11-24 20:05:46 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-12-03 21:35:06 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -35,7 +35,7 @@
 #include <math.h>
 
 #ifndef VTK_IMPLEMENT_MESA_CXX
-vtkCxxRevisionMacro(vtkOpenGLRayCastImageDisplayHelper, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkOpenGLRayCastImageDisplayHelper, "$Revision: 1.2 $");
 vtkStandardNewMacro(vtkOpenGLRayCastImageDisplayHelper);
 #endif
 
@@ -99,6 +99,7 @@ void vtkOpenGLRayCastImageDisplayHelper::RenderTexture( vtkVolume *vol,
   
   // get the perspective transformation from the active camera 
   viewToWorldMatrix->DeepCopy( perspectiveTransform->GetMatrix() );
+  perspectiveTransform->Delete();
   
   // use the inverse matrix 
   viewToWorldMatrix->Invert();

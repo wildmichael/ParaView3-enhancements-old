@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGridVolumeRayCastMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-11-25 06:06:45 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2003-12-03 21:35:06 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -40,7 +40,7 @@
 VTK_THREAD_RETURN_TYPE UnstructuredGridVolumeRayCastMapper_CastRays( void *arg );
 
 
-vtkCxxRevisionMacro(vtkUnstructuredGridVolumeRayCastMapper, "$Revision: 1.4 $");
+vtkCxxRevisionMacro(vtkUnstructuredGridVolumeRayCastMapper, "$Revision: 1.5 $");
 vtkStandardNewMacro(vtkUnstructuredGridVolumeRayCastMapper);
 
 
@@ -525,6 +525,9 @@ float vtkUnstructuredGridVolumeRayCastMapper::GetMinimumBoundsDepth( vtkRenderer
         }
       }
     }
+  
+  perspectiveTransform->Delete();
+  perspectiveMatrix->Delete();
   
   return minZ;
 }
