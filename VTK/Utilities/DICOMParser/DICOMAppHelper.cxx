@@ -3,8 +3,8 @@
   Program:   DICOMParser
   Module:    $RCSfile: DICOMAppHelper.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-09-08 14:31:11 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2003-10-23 01:40:45 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) 2003 Matt Turek
   All rights reserved.
@@ -737,7 +737,7 @@ void DICOMAppHelper::PixelDataCallback( DICOMParser *,
                                         unsigned char* data,
                                         quadbyte len)
 {
-  int numPixels = this->Dimensions[0] * this->Dimensions[1];
+  int numPixels = this->Dimensions[0] * this->Dimensions[1] * this->GetNumberOfComponents();
   if (len < numPixels)
     {
     numPixels = len;
