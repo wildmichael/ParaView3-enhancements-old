@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDebugLeaks.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-24 22:15:41 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2002-06-24 22:17:17 $
+  Version:   $Revision: 1.16 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -64,7 +64,7 @@ protected:
   vtkDebugLeaks(){}; 
   virtual ~vtkDebugLeaks(){}; 
   
-  int DisplayMessageBox(const char*);
+  static int DisplayMessageBox(const char*);
   
   static void ClassInitialize();
   static void ClassFinalize();
