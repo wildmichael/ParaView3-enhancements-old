@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCylinder.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:35:33 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1995-08-16 08:50:05 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,8 +42,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // .SECTION Description
 // vtkCylinder computes the implicit function and function gradient for 
 // a cylinder. vtkCylinder is a concrete implementation of vtkImplicitFunction.
-// Cylinder is centered at origin and axes of rotation is along z-axis. (Use a
-// transform filter if necessary to reposition).
+// Cylinder is centered at origin and axes of rotation is along z-axis. (Use 
+// the superclass' vtkImplicitFunction transformation matrix if necessary to
+// reposition).
 // .SECTION Caveats
 // The cylinder is infinite in extent. To truncate the cylinder use the 
 // vtkImplicitBoolean in combination with clipping planes.
