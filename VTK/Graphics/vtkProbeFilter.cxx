@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProbeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-09-17 20:58:47 $
-  Version:   $Revision: 1.53 $
+  Date:      $Date: 2000-09-18 11:06:32 $
+  Version:   $Revision: 1.54 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -188,28 +188,44 @@ void vtkProbeFilter::ComputeInputUpdateExtents( vtkDataObject *output )
 {
   vtkDataObject *input = this->GetInput();
   vtkDataObject *source = this->GetSource();
-
+  int usePiece = 0;
+  
   // What ever happend to CopyUpdateExtent in vtkDataObject?
   // Copying both piece and extent could be bad.  Setting the piece
   // of a structured data set will affect the extent.
-
+  if (output->IsA("vtkUnstructuredPoints") || output->IsA("vtkPolyData"))
+    {
+    usePiece = 1;
+    }
+  
   if ( ! this->SpatialMatch)
     {
     source->SetUpdateExtent(0, 1, 0);
     }
   else
     {
-    source->SetUpdateExtent(output->GetUpdatePiece(), 
-                            output->GetUpdateNumberOfPieces(),
-                            output->GetUpdateGhostLevel());
-    source->SetUpdateExtent(output->GetUpdateExtent()); 
+    if (usePiece)
+      {
+      source->SetUpdateExtent(output->GetUpdatePiece(), 
+			      output->GetUpdateNumberOfPieces(),
+			      output->GetUpdateGhostLevel());
+      }
+    else
+      {
+      source->SetUpdateExtent(output->GetUpdateExtent()); 
+      }
     }
   
-  input->SetUpdateExtent(output->GetUpdatePiece(), 
-                         output->GetUpdateNumberOfPieces(),
-                         output->GetUpdateGhostLevel());
-  input->SetUpdateExtent(output->GetUpdateExtent()); 
-
+  if (usePiece)
+    {
+    input->SetUpdateExtent(output->GetUpdatePiece(), 
+			   output->GetUpdateNumberOfPieces(),
+			   output->GetUpdateGhostLevel());
+    }
+  else
+    {
+    input->SetUpdateExtent(output->GetUpdateExtent()); 
+    }
 }
 
 //----------------------------------------------------------------------------
