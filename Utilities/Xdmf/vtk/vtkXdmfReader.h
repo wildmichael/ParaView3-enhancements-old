@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXdmfReader.h,v $
   Language:  C++
-  Date:      $Date: 2003-11-04 21:03:31 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2003-11-05 15:31:47 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -169,7 +169,11 @@ public:
 
   // Description:
   // Set / get stride
-  vtkSetVector3Macro(Stride, int);
+  void SetStride(int x, int y, int z);
+  void SetStride(int xyz[3])
+    {
+    this->SetStride(xyz[0], xyz[1], xyz[2]);
+    }
   vtkGetVector3Macro(Stride, int);
 
   // Description:
