@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetWriter.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-16 23:10:11 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1997-04-16 23:30:40 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -48,7 +48,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #define __vtkDataSetWriter_h
 
 #include "vtkDataWriter.h"
-#include "vtkImageSource.h"
 #include "vtkImageToStructuredPoints.h"
 
 class VTK_EXPORT vtkDataSetWriter : public vtkDataWriter
