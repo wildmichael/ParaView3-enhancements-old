@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-03-01 10:07:20 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1995-03-03 13:27:28 $
+  Version:   $Revision: 1.13 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -24,28 +24,29 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 // at (0,0), and double buffering turned on.
 vlRenderWindow::vlRenderWindow()
 {
-  Size[0] = Size[1] = 300;
-  Position[0] = Position[1] = 0;
-  Borders = 1;
-  FullScreen = 0;
-  OldScreen[0] = OldScreen[1] = 0;
-  OldScreen[2] = OldScreen[3] = 300;
-  OldScreen[4] = 1;
-  Mapped = 0;
-  DoubleBuffer = 1;
-  StereoRender = 0;
-  StereoStatus = 0;
-  Interactor = NULL;
+  this->Size[0] = this->Size[1] = 300;
+  this->Position[0] = this->Position[1] = 0;
+  this->Borders = 1;
+  this->FullScreen = 0;
+  this->OldScreen[0] = this->OldScreen[1] = 0;
+  this->OldScreen[2] = this->OldScreen[3] = 300;
+  this->OldScreen[4] = 1;
+  this->Mapped = 0;
+  this->DoubleBuffer = 1;
+  this->StereoRender = 0;
+  this->StereoType = VL_STEREO_RED_BLUE;
+  this->StereoStatus = 0;
+  this->Interactor = NULL;
   strcpy(this->Name,"Visualization Library");
-  AAFrames = 0;
-  AABuffer = NULL;
-  FDFrames = 0;
-  FDBuffer = NULL;
-  SubFrames = 0;
-  SubBuffer = NULL;
-  CurrentSubFrame = 0;
-  ResultFrame = NULL;
-  FileName = NULL;
+  this->AAFrames = 0;
+  this->AABuffer = NULL;
+  this->FDFrames = 0;
+  this->FDBuffer = NULL;
+  this->SubFrames = 0;
+  this->SubBuffer = NULL;
+  this->CurrentSubFrame = 0;
+  this->ResultFrame = NULL;
+  this->FileName = NULL;
 }
 
 // Description:
