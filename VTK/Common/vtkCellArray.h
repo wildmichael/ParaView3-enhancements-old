@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellArray.h,v $
   Language:  C++
-  Date:      $Date: 1995-06-29 17:53:20 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1995-06-30 16:27:38 $
+  Version:   $Revision: 1.32 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataWriter.h,v $
   Language:  C++
-  Date:      $Date: 1995-06-29 17:55:34 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1995-06-30 16:30:07 $
+  Version:   $Revision: 1.6 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -87,12 +87,12 @@ public:
   vtkSetStringMacro(LookupTableName);
   vtkGetStringMacro(LookupTableName);
 
-  FILE *OpenVLFile();
+  FILE *OpenVTKFile();
   int WriteHeader(FILE *fp);
   int WritePoints(FILE *fp, vtkPoints *p);
   int WriteCells(FILE *fp, vtkCellArray *cells, char *label);
   int WritePointData(FILE *fp, vtkDataSet *ds);
-  void CloseVLFile(FILE *fp);
+  void CloseVTKFile(FILE *fp);
 
 protected:
   char *Filename;

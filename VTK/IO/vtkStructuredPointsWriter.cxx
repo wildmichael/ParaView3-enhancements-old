@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-29 17:58:05 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1995-06-30 16:27:25 $
+  Version:   $Revision: 1.7 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -36,7 +36,7 @@ void vtkStructuredPointsWriter::WriteData()
 
   vtkDebugMacro(<<"Writing vtk structured points...");
 
-  if ( !(fp=this->OpenVLFile()) || !this->WriteHeader(fp) )
+  if ( !(fp=this->OpenVTKFile()) || !this->WriteHeader(fp) )
       return;
 //
 // Write structured points specific stuff
@@ -54,7 +54,7 @@ void vtkStructuredPointsWriter::WriteData()
 
   this->WritePointData(fp, input);
 
-  this->CloseVLFile(fp);
+  this->CloseVTKFile(fp);
 }
 
 void vtkStructuredPointsWriter::PrintSelf(ostream& os, vtkIndent indent)

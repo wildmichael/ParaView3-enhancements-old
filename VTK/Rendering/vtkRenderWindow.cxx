@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-29 17:57:02 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1995-06-30 16:26:21 $
+  Version:   $Revision: 1.19 $
 
 This file is part of the Visualization Toolkit. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -34,7 +34,7 @@ vtkRenderWindow::vtkRenderWindow()
   this->Mapped = 0;
   this->DoubleBuffer = 1;
   this->StereoRender = 0;
-  this->StereoType = VL_STEREO_RED_BLUE;
+  this->StereoType = VTK_STEREO_RED_BLUE;
   this->StereoStatus = 0;
   this->Interactor = NULL;
   strcpy(this->Name,"Visualization Toolkit");
@@ -550,7 +550,7 @@ void vtkRenderWindow::StereoUpdate(void)
     {
     switch (this->StereoType) 
       {
-      case VL_STEREO_RED_BLUE:
+      case VTK_STEREO_RED_BLUE:
 	{
         this->StereoStatus = 1;
 	}
@@ -560,7 +560,7 @@ void vtkRenderWindow::StereoUpdate(void)
     {
     switch (this->StereoType) 
       {
-      case VL_STEREO_RED_BLUE:
+      case VTK_STEREO_RED_BLUE:
 	{
         this->StereoStatus = 0;
 	}
@@ -574,7 +574,7 @@ void vtkRenderWindow::StereoMidpoint(void)
 {
   switch (this->StereoType) 
     {
-    case VL_STEREO_RED_BLUE:
+    case VTK_STEREO_RED_BLUE:
       {
       int *size;
       // get the size
@@ -591,7 +591,7 @@ void vtkRenderWindow::StereoRenderComplete(void)
 {
   switch (this->StereoType) 
     {
-    case VL_STEREO_RED_BLUE:
+    case VTK_STEREO_RED_BLUE:
       {
       unsigned char *buff;
       unsigned char *p1, *p2, *p3;
@@ -668,7 +668,7 @@ int vtkRenderWindow::GetRemapWindow(void)
 {
   switch (this->StereoType) 
     {
-    case VL_STEREO_RED_BLUE: return 0;
-    case VL_STEREO_CRYSTAL_EYES: return 1;
+    case VTK_STEREO_RED_BLUE: return 0;
+    case VTK_STEREO_CRYSTAL_EYES: return 1;
     }
 }

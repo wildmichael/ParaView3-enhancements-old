@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPoints.h,v $
   Language:  C++
-  Date:      $Date: 1995-06-29 17:55:00 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1995-06-30 16:29:28 $
+  Version:   $Revision: 1.23 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way

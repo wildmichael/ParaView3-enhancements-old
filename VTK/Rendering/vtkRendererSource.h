@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRendererSource.h,v $
   Language:  C++
-  Date:      $Date: 1995-06-29 17:54:37 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1995-06-30 16:29:02 $
+  Version:   $Revision: 1.3 $
 
 This file is part of the Visualization Toolkit. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express

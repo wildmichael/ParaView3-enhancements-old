@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 1995-06-29 17:54:39 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1995-06-30 16:29:04 $
+  Version:   $Revision: 1.17 $
 
 This file is part of the Visualization Toolkit. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -21,7 +21,7 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 // synchronize the rendering process, set window size, and control double
 // buffering. Another set of important methods allow the creation of
 // device dependent actors, lights, and cameras. These objects are created
-// depending upon the value of the environment variable "VL_RENDERER".
+// depending upon the value of the environment variable "VTK_RENDERER".
 
 #ifndef __vtkRenderWindow_hh
 #define __vtkRenderWindow_hh
@@ -36,8 +36,8 @@ class vtkTextureDevice;
 class vtkPropertyDevice;
 
 // lets define the diferent types of stereo
-#define VL_STEREO_CRYSTAL_EYES 1
-#define VL_STEREO_RED_BLUE     2
+#define VTK_STEREO_CRYSTAL_EYES 1
+#define VTK_STEREO_RED_BLUE     2
 
 class vtkRenderWindow : public vtkObject
 {

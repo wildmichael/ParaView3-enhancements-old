@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-29 17:58:01 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1995-06-30 16:27:19 $
+  Version:   $Revision: 1.13 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -60,7 +60,7 @@ vtkDataReader::~vtkDataReader()
 
 // Description:
 // Open a vtk data file. Returns NULL if error.
-FILE *vtkDataReader::OpenVLFile()
+FILE *vtkDataReader::OpenVTKFile()
 {
   FILE *fptr;
 
@@ -1021,7 +1021,7 @@ char *vtkDataReader::LowerCase(char *str)
 
 // Description:
 // Close a vtk file.
-void vtkDataReader::CloseVLFile(FILE *fp)
+void vtkDataReader::CloseVTKFile(FILE *fp)
 {
   vtkDebugMacro(<<"Closing vtk file");
   if ( fp != NULL ) fclose(fp);

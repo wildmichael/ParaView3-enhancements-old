@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDiskSource.h,v $
   Language:  C++
-  Date:      $Date: 1995-06-29 17:53:37 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1995-06-30 16:27:59 $
+  Version:   $Revision: 1.6 $
 
 Description:
 ---------------------------------------------------------------------------

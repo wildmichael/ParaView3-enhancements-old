@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGridReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 09:24:12 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1995-06-30 16:27:25 $
+  Version:   $Revision: 1.11 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -135,7 +135,7 @@ void vtkUnstructuredGridReader::Execute()
   if ( this->Debug ) this->Reader.DebugOn();
   else this->Reader.DebugOff();
 
-  if ( !(fp=this->Reader.OpenVLFile()) || !this->Reader.ReadHeader(fp) )
+  if ( !(fp=this->Reader.OpenVTKFile()) || !this->Reader.ReadHeader(fp) )
       return;
 //
 // Read unstructured grid specific stuff

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-29 17:58:01 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1995-06-30 16:27:20 $
+  Version:   $Revision: 1.9 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -75,7 +75,7 @@ vtkDataWriter::~vtkDataWriter()
 
 // Description:
 // Open a vtk data file. Returns NULL if error.
-FILE *vtkDataWriter::OpenVLFile()
+FILE *vtkDataWriter::OpenVTKFile()
 {
   FILE *fptr;
 
@@ -656,7 +656,7 @@ int vtkDataWriter::WriteCells(FILE *fp, vtkCellArray *cells, char *label)
 
 // Description:
 // Close a vtk file.
-void vtkDataWriter::CloseVLFile(FILE *fp)
+void vtkDataWriter::CloseVTKFile(FILE *fp)
 {
   vtkDebugMacro(<<"Closing vtk file\n");
   if ( fp != NULL ) fclose(fp);

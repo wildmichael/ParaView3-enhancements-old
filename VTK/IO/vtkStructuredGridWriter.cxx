@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 09:24:11 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1995-06-30 16:27:24 $
+  Version:   $Revision: 1.8 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -35,7 +35,7 @@ void vtkStructuredGridWriter::WriteData()
 
   vtkDebugMacro(<<"Writing vtk structured grid...");
 
-  if ( !(fp=this->OpenVLFile()) || !this->WriteHeader(fp) )
+  if ( !(fp=this->OpenVTKFile()) || !this->WriteHeader(fp) )
       return;
 //
 // Write structured grid specific stuff
@@ -49,7 +49,7 @@ void vtkStructuredGridWriter::WriteData()
 
   this->WritePointData(fp, input);
 
-  this->CloseVLFile(fp);
+  this->CloseVTKFile(fp);
 }
 
 void vtkStructuredGridWriter::PrintSelf(ostream& os, vtkIndent indent)

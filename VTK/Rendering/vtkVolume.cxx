@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-29 17:57:48 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1995-06-30 16:27:05 $
+  Version:   $Revision: 1.3 $
 
 This file is part of the Visualization Toolkit. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
