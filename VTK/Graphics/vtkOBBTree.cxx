@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOBBTree.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-05 13:21:16 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 2001-07-06 01:09:11 $
+  Version:   $Revision: 1.44 $
   Thanks:    Thanks to Peter C. Everett <pce@world.std.com> for
              improvements and enhancements to vtkOBBTree class.
 
@@ -885,9 +885,9 @@ int vtkOBBTree::IntersectWithLine(const float p1[3], const float p2[3],
   else
     {
     if (points)
-     {
-     points->SetNumberOfPoints(0);
-     }
+      {
+      points->SetNumberOfPoints(0);
+      }
     if (cellIds)
       {
       cellIds->SetNumberOfIds(0);
@@ -897,7 +897,7 @@ int vtkOBBTree::IntersectWithLine(const float p1[3], const float p2[3],
   delete [] senseList;
   delete [] cellList;
   delete [] distanceList;
-
+  delete [] OBBstack;
   // return 1 if p1 is inside, 0 is p1 is outside
   return rval;
 }
@@ -1000,6 +1000,8 @@ int vtkOBBTree::IntersectWithLine(float a0[3], float a1[3], float tol,
     pcoords[2] = pcoordsBest[2];
     subId= subIdBest ;
     }
+
+  delete [] OBBstack;
 
   if ( cellIdBest < 0 )
     {
