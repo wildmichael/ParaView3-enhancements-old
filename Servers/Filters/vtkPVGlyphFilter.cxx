@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPVGlyphFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-10-01 20:55:53 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2003-11-13 19:12:11 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 #include "vtkMultiProcessController.h"
 #include "vtkPolyData.h"
 
-vtkCxxRevisionMacro(vtkPVGlyphFilter, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkPVGlyphFilter, "$Revision: 1.6 $");
 vtkStandardNewMacro(vtkPVGlyphFilter);
 
 vtkPVGlyphFilter::vtkPVGlyphFilter()
@@ -95,4 +95,8 @@ void vtkPVGlyphFilter::PrintSelf(ostream& os, vtkIndent indent)
   
   os << indent << "MaximumNumberOfPoints: " << this->GetMaximumNumberOfPoints()
      << endl;
+
+  os << indent << "UseMaskPoints: " << (this->UseMaskPoints?"on":"off") << endl;
+
+  os << indent << "NumberOfProcesses: " << this->NumberOfProcesses << endl;
 }
