@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMultipleInputFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:09 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 2001-03-13 18:42:01 $
+  Version:   $Revision: 1.49 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -240,25 +240,22 @@ VTK_THREAD_RETURN_TYPE vtkImageMultiThreadedExecute( void *arg )
 
 //----------------------------------------------------------------------------
 // The execute method created by the subclass.
-void vtkImageMultipleInputFilter::Execute()
+void vtkImageMultipleInputFilter::ExecuteData(vtkDataObject *out)
 {
-  vtkImageData *output = this->GetOutput();
-
+  vtkImageData *output = vtkImageData::SafeDownCast(out);
+  if (!output)
+    {
+    vtkWarningMacro("ExecuteData called without ImageData output");
+    return;
+    }
   output->SetExtent(output->GetUpdateExtent());
   output->AllocateScalars();
-  this->Execute((vtkImageData**)(this->Inputs), output);
-}
 
-//----------------------------------------------------------------------------
-// The execute method created by the subclass.
-void vtkImageMultipleInputFilter::Execute(vtkImageData **inDatas, 
-					  vtkImageData *outData)
-{
   vtkImageMultiThreadStruct str;
   
   str.Filter = this;
-  str.Inputs = inDatas;
-  str.Output = outData;
+  str.Inputs = (vtkImageData **)this->GetInputs();
+  str.Output = output;
   
   this->Threader->SetNumberOfThreads(this->NumberOfThreads);
   
