@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXOpenGLTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-07 21:22:33 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2000-04-25 15:57:22 $
+  Version:   $Revision: 1.14 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -184,16 +184,33 @@ void vtkXOpenGLTextMapper::ReleaseGraphicsResources(vtkWindow *win)
       cache[numCached] = NULL;
       }
     }
+  this->Window = NULL;
 }
 
 vtkXOpenGLTextMapper::vtkXOpenGLTextMapper()
 {
 }
 
+vtkXOpenGLTextMapper::~vtkXOpenGLTextMapper()
+{
+  if (this->Window)
+    {
+    this->ReleaseGraphicsResources(this->Window);
+    }  
+}
+
 void vtkXOpenGLTextMapper::RenderOpaqueGeometry(vtkViewport* viewport, 
 						vtkActor2D* actor)
 {
   vtkDebugMacro (<< "RenderOpaqueGeometry");
+
+  // Get the window information for display
+  vtkWindow*  window = viewport->GetVTKWindow();
+  if (this->Window && this->Window != window)
+    {
+    this->ReleaseGraphicsResources(this->Window);
+    }
+  this->Window = window;
 
   // Check for input
   if ( this->NumberOfLines > 1 )

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXOpenGLTextMapper.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:09:13 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2000-04-25 15:57:22 $
+  Version:   $Revision: 1.10 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -76,7 +76,7 @@ public:
 
 protected:
   vtkXOpenGLTextMapper();
-  ~vtkXOpenGLTextMapper() {};
+  ~vtkXOpenGLTextMapper();
   vtkXOpenGLTextMapper(const vtkXOpenGLTextMapper&) {};
   void operator=(const vtkXOpenGLTextMapper&) {};
 };

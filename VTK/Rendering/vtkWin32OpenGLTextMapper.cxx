@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-08 17:21:22 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2000-04-25 15:57:21 $
+  Version:   $Revision: 1.18 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -183,7 +183,9 @@ void vtkWin32OpenGLTextMapper::ReleaseGraphicsResources(vtkWindow *win)
     DeleteObject( this->Font );
     this->Font = 0;
     }
-
+  
+  this->Window = NULL;
+  
   // very important
   // the release of graphics resources indicates that significant changes have
   // occurred. Old fonts, cached sizes etc are all no longer valid, so we send
@@ -195,12 +197,27 @@ vtkWin32OpenGLTextMapper::vtkWin32OpenGLTextMapper()
 {
 }
 
+vtkWin32OpenGLTextMapper::~vtkWin32OpenGLTextMapper()
+{
+  if (this->Window)
+    {
+    this->ReleaseGraphicsResources(this->Window);
+    }  
+}
 
 void vtkWin32OpenGLTextMapper::RenderOpaqueGeometry(vtkViewport* viewport, 
                                                     vtkActor2D* actor)
 {
   vtkDebugMacro (<< "RenderOpaqueGeometry");
 
+  // Get the window information for display
+  vtkWindow*  window = viewport->GetVTKWindow();
+  if (this->Window && this->Window != window)
+    {
+    this->ReleaseGraphicsResources(this->Window);
+    }
+  this->Window = window;
+  
   // Check for input
   if ( this->NumberOfLines > 1 )
     {
@@ -217,8 +234,6 @@ void vtkWin32OpenGLTextMapper::RenderOpaqueGeometry(vtkViewport* viewport,
   int size[2];
   this->GetSize(viewport, size);
 
-  // Get the window information for display
-  vtkWindow*  window = viewport->GetVTKWindow();
   // Get the device context from the window
   HDC hdc = (HDC) window->GetGenericContext();
  
