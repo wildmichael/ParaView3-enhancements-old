@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangularTCoords.h,v $
   Language:  C++
-  Date:      $Date: 1996-11-06 14:39:38 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1996-11-12 22:35:19 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,8 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-// .NAME vtkTriangularTCoords - 2D texture coordinates based for
-// triangles.
+// .NAME vtkTriangularTCoords - 2D texture coordinates based for triangles.
 // .SECTION Description
 // vtkTriangularTCoords is a filter that generates texture coordinates
 // for triangles. Texture coordinates for each triangle are:
@@ -47,11 +46,11 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // texture map is symmetric about the center of the triangle. Thus the order
 // Of the texture coordinates is not important. The procedural texture
 // in vtkTriangularTexture is designed with this symmetry. For more information
-// see the paper "Opacity-modulating Triangular Textures for Irregular Surfaces,"
-// by Penny Rheingans, IEEE Visualization '96, pp. 219-225.
+// see the paper "Opacity-modulating Triangular Textures for Irregular 
+// Surfaces,"  by Penny Rheingans, IEEE Visualization '96, pp. 219-225.
 // .SECTION See Also
-// vtkTriangularTexture vtkThresholdPoints vtkTextureMapToPlane vtkTextureMapToSphere
-// vtkTextureMapToCylinder vtkTextureMapToBox
+// vtkTriangularTexture vtkThresholdPoints vtkTextureMapToPlane 
+// vtkTextureMapToSphere vtkTextureMapToCylinder vtkTextureMapToBox
 
 #ifndef __vtkTriangularTCoords_h
 #define __vtkTriangularTCoords_h

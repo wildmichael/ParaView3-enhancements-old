@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDelaunay3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-10-17 19:24:51 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1996-11-12 22:35:14 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -95,7 +95,7 @@ static int FindTetra(float x[3], int ptIds[4], float p[4][3],
   vtkIdList neighbors(2);
   float v12[3], vp[3], vx[3], v32[3], n[3], valx, valp, maxValx;
   
-  // prevent aimless wandering and depth by recursion
+  // prevent aimless wandering and death by recursion
   if ( depth++ > 100 )
     {
     NumberOfDegeneracies++;
