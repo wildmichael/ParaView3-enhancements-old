@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPyramid.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:26:12 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2002-05-27 13:09:09 $
+  Version:   $Revision: 1.21 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -15,11 +15,15 @@
      PURPOSE.  See the above copyright notice for more information.
 
 =========================================================================*/
-// .NAME vtkPyramid - a 3D cell that represents a pyramid
+// .NAME vtkPyramid - a 3D cell that represents a linear pyramid
 // .SECTION Description
 // vtkPyramid is a concrete implementation of vtkCell to represent a 3D
 // pyramid. A pyramid consists of a rectangular base with four triangular
-// faces.
+// faces. vtkPyramid uses the standard isoparametric shape functions for 
+// a linear pyramid. The pyramid is defined by the five points (0-4) where
+// (0,1,2,3) is the base of the pyramid which, using the right hand rule,
+// forms a quadrilaterial whose normal points in the direction of the 
+// pyramid apex at vertex #4.
 
 #ifndef __vtkPyramid_h
 #define __vtkPyramid_h
