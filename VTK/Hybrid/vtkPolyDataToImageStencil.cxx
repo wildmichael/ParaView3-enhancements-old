@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataToImageStencil.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-11 14:26:45 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2003-02-28 17:26:44 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkPolyDataToImageStencil, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkPolyDataToImageStencil, "$Revision: 1.6 $");
 vtkStandardNewMacro(vtkPolyDataToImageStencil);
 
 //----------------------------------------------------------------------------
@@ -171,7 +171,7 @@ void vtkPolyDataToImageStencil::ThreadedExecute(vtkImageStencilData *data,
   int *zlist = 0;
   int zlistlen = 0;
   int zlistidx = 0;
-  if (extent[4] != extent[5])
+  if (extent[4] < extent[5])
     {
     tree->IntersectWithLine(p0, p1, points, 0);
     vtkTurnPointsIntoList(points, zlist, zlistlen,
