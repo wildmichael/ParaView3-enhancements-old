@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIndent.h,v $
   Language:  C++
-  Date:      $Date: 2002-07-01 22:05:23 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2002-12-10 19:10:39 $
+  Version:   $Revision: 1.32 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,6 +26,9 @@
 
 #include "vtkSystemIncludes.h"
 
+class vtkIndent;
+VTK_COMMON_EXPORT ostream& operator<<(ostream& os, const vtkIndent& o);
+
 class VTK_COMMON_EXPORT vtkIndent
 {
 public:
@@ -43,7 +46,7 @@ public:
   //BTX
   // Description:
   // Print out the indentation. Basically output a bunch of spaces.
-  friend VTK_COMMON_EXPORT ostream& operator<<(ostream& os, vtkIndent& o); 
+  friend VTK_COMMON_EXPORT ostream& operator<<(ostream& os, const vtkIndent& o);
   //ETX
 
 protected:

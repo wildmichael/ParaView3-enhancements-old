@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWrapTcl.c,v $
   Language:  C++
-  Date:      $Date: 2002-12-03 23:41:57 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2002-12-10 19:10:39 $
+  Version:   $Revision: 1.28 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -512,6 +512,11 @@ void vtkParseOutput(FILE *fp, FileInfo *data)
   int i,j;
   
   fprintf(fp,"// tcl wrapper for %s object\n//\n",data->ClassName);
+  if (strcmp("vtkObjectBase",data->ClassName) != 0)
+    {
+    // Block inclusion of full streams.
+    fprintf(fp,"#define VTK_STREAMS_FWD_ONLY\n");
+    }
   fprintf(fp,"#include \"vtkSystemIncludes.h\"\n");
   fprintf(fp,"#include \"%s.h\"\n\n",data->ClassName);
   fprintf(fp,"#include \"vtkTclUtil.h\"\n");

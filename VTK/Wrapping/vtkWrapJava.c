@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWrapJava.c,v $
   Language:  C++
-  Date:      $Date: 2002-12-03 23:42:24 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2002-12-10 19:10:39 $
+  Version:   $Revision: 1.39 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -659,6 +659,11 @@ void vtkParseOutput(FILE *fp, FileInfo *data)
   int i;
   
   fprintf(fp,"// java wrapper for %s object\n//\n",data->ClassName);
+  if (strcmp("vtkObject",data->ClassName) != 0)
+    {
+    // Block inclusion of full streams.
+    fprintf(fp,"#define VTK_STREAMS_FWD_ONLY\n");
+    }
   fprintf(fp,"#include \"vtkSystemIncludes.h\"\n");
   fprintf(fp,"#include \"%s.h\"\n",data->ClassName);
   fprintf(fp,"#include \"vtkJavaUtil.h\"\n\n");
