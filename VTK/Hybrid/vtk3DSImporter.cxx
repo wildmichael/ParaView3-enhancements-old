@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtk3DSImporter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:10:59 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2000-05-21 16:59:38 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -260,7 +260,6 @@ void vtk3DSImporter::ImportCameras (vtkRenderer *renderer)
     aCamera->SetViewUp (0, 0, 1);
     aCamera->SetClippingRange (.1,10000);
     aCamera->Roll (camera->bank);
-    aCamera->ComputeViewPlaneNormal ();
     renderer->SetActiveCamera (aCamera);
     vtkDebugMacro (<< "Importing Camera: " << camera->name);
   }
