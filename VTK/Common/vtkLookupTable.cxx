@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLookupTable.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-09 22:26:47 $
-  Version:   $Revision: 1.86 $
+  Date:      $Date: 2002-08-28 11:03:32 $
+  Version:   $Revision: 1.87 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkLookupTable, "$Revision: 1.86 $");
+vtkCxxRevisionMacro(vtkLookupTable, "$Revision: 1.87 $");
 vtkStandardNewMacro(vtkLookupTable);
 
 // Construct with range=(0,1); and hsv ranges set up for rainbow color table 
@@ -250,7 +250,7 @@ void vtkLookupTable::Build()
 {
   if (this->Table->GetNumberOfTuples() < 1 ||
       (this->GetMTime() > this->BuildTime && 
-       this->InsertTime < this->BuildTime))
+       this->InsertTime <= this->BuildTime))
     {
     this->ForceBuild();
     }
@@ -836,6 +836,11 @@ void vtkLookupTable::MapScalarsThroughTable2(void *input,
 // that the allocated memory is not initialized according to HSVA ramps.
 void vtkLookupTable::SetNumberOfTableValues(vtkIdType number)
 {
+  if (this->NumberOfColors == number)
+    {
+    return;
+    }
+  this->Modified();
   this->NumberOfColors = number;
   this->Table->SetNumberOfTuples(number);
 }
