@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSightReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-29 20:48:07 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2001-02-20 16:35:48 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1065,7 +1065,8 @@ void vtkEnSightReader::AddVariableType()
 int vtkEnSightReader::ReadLine(char result[256])
 {
   this->IS->getline(result,256);
-  if (this->IS->eof()) 
+//  if (this->IS->eof()) 
+  if (this->IS->fail())
     {
     return 0;
     }
