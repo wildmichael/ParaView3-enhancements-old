@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDepthSortPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-02-13 05:16:53 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2001-02-27 12:51:26 $
+  Version:   $Revision: 1.10 $
   Thanks:    Scott Hill for implementing this class
 
 
@@ -191,6 +191,7 @@ void vtkDepthSortPolyData::Execute()
     depth[cellId].z = vtkMath::Dot(x,vector);
     depth[cellId].cellId = cellId;
     }
+  this->UpdateProgress(0.20);
 
   // Sort the depths
   if ( this->Direction == VTK_DIRECTION_FRONT_TO_BACK )
@@ -201,6 +202,7 @@ void vtkDepthSortPolyData::Execute()
     {
     qsort((void *)depth, numCells, sizeof(vtkSortValues), CompareBackToFront);
     }
+  this->UpdateProgress(0.60);
 
   // Generate sorted output
   if ( this->SortScalars )
@@ -227,6 +229,7 @@ void vtkDepthSortPolyData::Execute()
       scalars[newId] = newId;
       }
     }
+  this->UpdateProgress(0.90);
 
   // Points are left alone
   output->SetPoints(this->GetInput()->GetPoints());
