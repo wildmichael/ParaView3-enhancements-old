@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXOpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-24 13:34:00 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2001-10-12 13:23:51 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -861,7 +861,7 @@ Bool vtkXOpenGLRenderWindowPredProc(Display *vtkNotUsed(disp), XEvent *event,
 {
   Window win = (Window)arg;
   
-  if ((((XAnyEvent *)event)->window == win) &&
+  if (((reinterpret_cast<XAnyEvent *>(event))->window == win) &&
       ((event->type == ButtonPress)))
     vtkXOpenGLRenderWindowFoundMatch = 1;
 
