@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkConeSource.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:51:12 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1996-12-31 17:15:47 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -75,6 +75,11 @@ public:
   // Set the number of facets used to represent the cone.
   vtkSetClampMacro(Resolution,int,0,VTK_CELL_SIZE)
   vtkGetMacro(Resolution,int);
+
+  // Description:
+  // Set the angle of the cone. As a side effect, this method sets radius.
+  void SetAngle (float angle);
+  float GetAngle ();
 
   // Description:
   // Turn on/off whether to cap the cone with a polygon.
