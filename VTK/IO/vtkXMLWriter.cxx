@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-01-01 15:53:12 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2003-01-01 17:04:12 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,7 @@
 #include "vtkPoints.h"
 #include "vtkUnsignedCharArray.h"
 
-vtkCxxRevisionMacro(vtkXMLWriter, "$Revision: 1.11 $");
+vtkCxxRevisionMacro(vtkXMLWriter, "$Revision: 1.12 $");
 vtkCxxSetObjectMacro(vtkXMLWriter, Compressor, vtkDataCompressor);
 
 //----------------------------------------------------------------------------
@@ -653,7 +653,7 @@ unsigned long vtkXMLWriter::GetWordTypeSize(int dataType)
 //----------------------------------------------------------------------------
 const char* vtkXMLWriter::GetWordTypeName(int dataType)
 {
-  char isSigned = FALSE;
+  char isSigned = 0;
   int size = 0;
   
   // These string values must match vtkXMLDataElement::GetWordTypeAttribute().
@@ -670,14 +670,14 @@ const char* vtkXMLWriter::GetWordTypeName(int dataType)
         default: return 0;
         }
       } break;
-    case VTK_CHAR:           isSigned = TRUE; size = sizeof(char); break;
-    case VTK_INT:            isSigned = TRUE; size = sizeof(int); break;
-    case VTK_LONG:           isSigned = TRUE; size = sizeof(long); break;
-    case VTK_SHORT:          isSigned = TRUE; size = sizeof(short); break;
-    case VTK_UNSIGNED_CHAR:  isSigned = FALSE; size = sizeof(unsigned char); break;
-    case VTK_UNSIGNED_INT:   isSigned = FALSE; size = sizeof(unsigned int); break;
-    case VTK_UNSIGNED_LONG:  isSigned = FALSE; size = sizeof(unsigned long); break;
-    case VTK_UNSIGNED_SHORT: isSigned = FALSE; size = sizeof(unsigned short); break;
+    case VTK_CHAR:           isSigned = 1; size = sizeof(char); break;
+    case VTK_INT:            isSigned = 1; size = sizeof(int); break;
+    case VTK_LONG:           isSigned = 1; size = sizeof(long); break;
+    case VTK_SHORT:          isSigned = 1; size = sizeof(short); break;
+    case VTK_UNSIGNED_CHAR:  isSigned = 0; size = sizeof(unsigned char); break;
+    case VTK_UNSIGNED_INT:   isSigned = 0; size = sizeof(unsigned int); break;
+    case VTK_UNSIGNED_LONG:  isSigned = 0; size = sizeof(unsigned long); break;
+    case VTK_UNSIGNED_SHORT: isSigned = 0; size = sizeof(unsigned short); break;
     default:
       { vtkWarningMacro("Unsupported data type: " << dataType); } break;
     }
