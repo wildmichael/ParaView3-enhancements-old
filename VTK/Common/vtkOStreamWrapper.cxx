@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOStreamWrapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-01-07 15:52:50 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2003-03-07 14:53:03 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -70,11 +70,7 @@ VTKOSTREAM_OPERATOR(double);
 VTKOSTREAM_OPERATOR(bool);
 #endif
 #ifdef VTK_NEED_ID_TYPE_STREAM_OPERATORS
-vtkOStreamWrapper& vtkOStreamWrapper::operator << (vtkIdType a)
-{
-  this->ostr << vtkIdTypeHolder(a);
-  return *this;
-}
+VTKOSTREAM_OPERATOR(vtkIdType);
 #endif
 VTKOSTREAM_OPERATOR_FUNC(void (*a)(void*));
 VTKOSTREAM_OPERATOR_FUNC(void* (*a)(void*));
