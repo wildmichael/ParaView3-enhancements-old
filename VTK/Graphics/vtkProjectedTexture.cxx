@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProjectedTexture.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:04:22 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2000-04-25 13:28:00 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -200,7 +200,7 @@ void vtkProjectedTexture::Execute()
   newTCoords->Delete();
 }
 
-void vtkProjectedTexture::PrintSelf(ostream& os, vtkIndent indent)
+void vtkProjectedTexture::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkDataSetToDataSetFilter::PrintSelf(os,indent);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsReader.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:07:05 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2000-04-25 13:29:54 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -57,7 +57,7 @@ class VTK_EXPORT vtkStructuredPointsReader : public vtkStructuredPointsSource
 public:
   static vtkStructuredPointsReader *New();
   vtkTypeMacro(vtkStructuredPointsReader,vtkStructuredPointsSource);
-  void PrintSelf(ostream& os, vtkIndent indent);
+  void PrintSelf(vtkOstream& os, vtkIndent indent);
 
   // Description:
   // Return the MTime also considering the vtkDataReader ivar.

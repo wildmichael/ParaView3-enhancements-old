@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransformTextureCoords.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:07:20 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2000-04-25 13:30:02 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -180,7 +180,7 @@ void vtkTransformTextureCoords::Execute()
   transform->Delete();
 }
 
-void vtkTransformTextureCoords::PrintSelf(ostream& os, vtkIndent indent)
+void vtkTransformTextureCoords::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkDataSetToDataSetFilter::PrintSelf(os,indent);
 

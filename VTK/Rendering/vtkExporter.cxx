@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:05:11 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2000-04-25 13:28:41 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -151,7 +151,7 @@ void vtkExporter::SetEndWrite(void (*f)(void *), void *arg)
     }
 }
 
-void vtkExporter::PrintSelf(ostream& os, vtkIndent indent)
+void vtkExporter::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkObject::PrintSelf(os,indent);
 

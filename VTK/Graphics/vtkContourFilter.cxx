@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkContourFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-03-06 15:20:16 $
-  Version:   $Revision: 1.73 $
+  Date:      $Date: 2000-04-25 13:28:24 $
+  Version:   $Revision: 1.74 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -306,7 +306,7 @@ void vtkContourFilter::CreateDefaultLocator()
     }
 }
 
-void vtkContourFilter::PrintSelf(ostream& os, vtkIndent indent)
+void vtkContourFilter::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkDataSetToPolyDataFilter::PrintSelf(os,indent);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinearExtrusionFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:05:40 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2000-04-25 13:29:06 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -85,7 +85,7 @@ class VTK_EXPORT vtkLinearExtrusionFilter : public vtkPolyDataToPolyDataFilter
 {
 public:
   vtkTypeMacro(vtkLinearExtrusionFilter,vtkPolyDataToPolyDataFilter);
-  void PrintSelf(ostream& os, vtkIndent indent);
+  void PrintSelf(vtkOstream& os, vtkIndent indent);
 
   // Description:
   // Create object with normal extrusion type, capping on, scale factor=1.0,

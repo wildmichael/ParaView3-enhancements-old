@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OutputWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:04:07 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2000-04-25 13:27:46 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -227,8 +227,9 @@ int vtkWin32OutputWindow::Initialize()
 
 void vtkWin32OutputWindow::PromptText(const char* text)
 {
-  ostrstream vtkmsg;
-  vtkmsg << text << "\nPress Cancel to supress any further messages." << ends;
+  vtkOstrstream vtkmsg;
+  vtkmsg << text << "\nPress Cancel to supress any further messages." 
+         << vtkEnds;
   if (MessageBox(NULL, vtkmsg.str(), "Error",
 		 MB_ICONERROR | MB_OKCANCEL) == IDCANCEL) 
     { 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProgrammableDataObjectSource.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:06:21 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2000-04-25 13:29:26 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -67,7 +67,7 @@ class VTK_EXPORT vtkProgrammableDataObjectSource : public vtkSource
 public:
   static vtkProgrammableDataObjectSource *New();
   vtkTypeMacro(vtkProgrammableDataObjectSource,vtkSource);
-  void PrintSelf(ostream& os, vtkIndent indent);
+  void PrintSelf(vtkOstream& os, vtkIndent indent);
 
   // Description:
   // Specify the function to use to generate the output data object. Note

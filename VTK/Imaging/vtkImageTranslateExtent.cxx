@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageTranslateExtent.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:08:53 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2000-04-25 13:31:06 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -75,12 +75,12 @@ vtkImageTranslateExtent::vtkImageTranslateExtent()
 
 
 //----------------------------------------------------------------------------
-void vtkImageTranslateExtent::PrintSelf(ostream& os, vtkIndent indent)
+void vtkImageTranslateExtent::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkImageToImageFilter::PrintSelf(os,indent);
 
   os << indent << "Translation: (" << this->Translation[0]
-     << "," << this->Translation[1] << "," << this->Translation[2] << endl;
+     << "," << this->Translation[1] << "," << this->Translation[2] << vtkEndl;
 }
   
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRibbonFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:06:41 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 2000-04-25 13:29:38 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -313,7 +313,7 @@ void vtkRibbonFilter::Execute()
   output->Squeeze();
 }
 
-void vtkRibbonFilter::PrintSelf(ostream& os, vtkIndent indent)
+void vtkRibbonFilter::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkPolyDataToPolyDataFilter::PrintSelf(os,indent);
 

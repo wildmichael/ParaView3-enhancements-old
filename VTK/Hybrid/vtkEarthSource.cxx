@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEarthSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:04:13 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2000-04-25 13:27:51 $
+  Version:   $Revision: 1.16 $
   Thanks:    Thanks to Tom Johnson at Johnson Scientific International who
              developed and contributed this class. Also see
              ftp://www.ou.edu/pub/simtelnet/msdos/worldmap and the
@@ -77,7 +77,7 @@ vtkEarthSource::vtkEarthSource()
   this->Outline = 1;
 }
 
-void vtkEarthSource::PrintSelf(ostream& os, vtkIndent indent)
+void vtkEarthSource::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkPolyDataSource::PrintSelf(os,indent);
   

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLabeledDataMapper.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:08:59 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2000-04-25 13:31:09 $
+  Version:   $Revision: 1.19 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -93,7 +93,7 @@ public:
   static vtkLabeledDataMapper *New();
 
   vtkTypeMacro(vtkLabeledDataMapper,vtkMapper2D);
-  void PrintSelf(ostream& os, vtkIndent indent);
+  void PrintSelf(vtkOstream& os, vtkIndent indent);
   
   // Description:
   // Draw the text to the screen at each input point.

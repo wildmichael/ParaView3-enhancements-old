@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageLogic.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:08:32 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2000-04-25 13:30:49 $
+  Version:   $Revision: 1.19 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -437,7 +437,7 @@ void vtkImageLogic::ThreadedExecute(vtkImageData **inData,
     }
 }
 
-void vtkImageLogic::PrintSelf(ostream& os, vtkIndent indent)
+void vtkImageLogic::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkImageTwoInputFilter::PrintSelf(os,indent);
 

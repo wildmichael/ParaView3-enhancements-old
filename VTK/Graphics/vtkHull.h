@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHull.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:05:23 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2000-04-25 13:28:52 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -62,7 +62,7 @@ class VTK_EXPORT vtkHull : public vtkPolyDataToPolyDataFilter
 public:
   static vtkHull *New();
   vtkTypeMacro(vtkHull,vtkPolyDataToPolyDataFilter);
-  void PrintSelf(ostream& os, vtkIndent indent);
+  void PrintSelf(vtkOstream& os, vtkIndent indent);
 
   // Description:
   // Remove all planes from the current set of planes.  

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkJavaUtil.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:03:22 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2000-04-25 13:27:12 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -45,9 +45,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <stdmutex.h>
 #endif
 
-#include <iostream.h>
-#include <stdlib.h>
-#include <stdio.h>
 #ifdef _INTEGRAL_MAX_BITS
 #undef _INTEGRAL_MAX_BITS
 #endif

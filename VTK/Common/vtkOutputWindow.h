@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOutputWindow.h,v $
   Language:  C++
-  Date:      $Date: 2000-03-28 12:39:34 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2000-04-25 13:27:22 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -76,7 +76,7 @@ public:
   vtkTypeMacro(vtkOutputWindow,vtkObject);
   // Description:
   // Print ObjectFactor to stream.
-  virtual void PrintSelf(ostream& os, vtkIndent indent);
+  virtual void PrintSelf(vtkOstream& os, vtkIndent indent);
 
   // Description:
   // This is a singleton pattern New.  There will only be ONE

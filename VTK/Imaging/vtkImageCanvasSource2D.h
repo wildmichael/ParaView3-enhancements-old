@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCanvasSource2D.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-28 16:40:07 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2000-04-25 13:30:34 $
+  Version:   $Revision: 1.18 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -79,7 +79,7 @@ public:
   static vtkImageCanvasSource2D *New();
 
   vtkTypeMacro(vtkImageCanvasSource2D,vtkStructuredPoints);
-  void PrintSelf(ostream& os, vtkIndent indent);
+  void PrintSelf(vtkOstream& os, vtkIndent indent);
 
   // Description:
   // To drawing into a different image, set it with this method.

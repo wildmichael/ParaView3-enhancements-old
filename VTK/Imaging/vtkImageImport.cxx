@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageImport.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:08:29 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2000-04-25 13:30:47 $
+  Version:   $Revision: 1.24 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -93,7 +93,7 @@ vtkImageImport::~vtkImageImport()
 }
 
 //----------------------------------------------------------------------------
-void vtkImageImport::PrintSelf(ostream& os, vtkIndent indent)
+void vtkImageImport::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   int idx;
   

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagePadFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:08:42 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2000-04-25 13:30:56 $
+  Version:   $Revision: 1.21 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -179,7 +179,7 @@ void vtkImagePadFilter::ComputeInputUpdateExtent(int inExt[6],
     }
 }
 
-void vtkImagePadFilter::PrintSelf(ostream& os, vtkIndent indent)
+void vtkImagePadFilter::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkImageToImageFilter::PrintSelf(os,indent);
 

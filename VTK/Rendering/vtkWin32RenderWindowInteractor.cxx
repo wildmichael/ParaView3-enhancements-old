@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32RenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-03-13 20:24:17 $
-  Version:   $Revision: 1.56 $
+  Date:      $Date: 2000-04-25 13:30:22 $
+  Version:   $Revision: 1.57 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -532,10 +532,10 @@ vtkWin32RenderWindowInteractor::SetClassExitMethodArgDelete(void (*f)(void *))
     }
 }
 
-void vtkWin32RenderWindowInteractor::PrintSelf(ostream& os, vtkIndent indent)
+void vtkWin32RenderWindowInteractor::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkRenderWindowInteractor::PrintSelf(os,indent);
-  os << indent << "InstallMessageProc: " << this->InstallMessageProc << endl;
+  os << indent << "InstallMessageProc: " << this->InstallMessageProc << vtkEndl;
 }
 
 void vtkWin32RenderWindowInteractor::ExitCallback()

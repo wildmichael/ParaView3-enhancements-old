@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectorNorm.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:07:29 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2000-04-25 13:30:07 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -202,12 +202,12 @@ char *vtkVectorNorm::GetAttributeModeAsString(void)
     }
 }
 
-void vtkVectorNorm::PrintSelf(ostream& os, vtkIndent indent)
+void vtkVectorNorm::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkDataSetToDataSetFilter::PrintSelf(os,indent);
 
   os << indent << "Normalize: " << (this->Normalize ? "On\n" : "Off\n");
   os << indent << "Attribute Mode: " << this->GetAttributeModeAsString() 
-     << endl;
+     << vtkEndl;
 }
 

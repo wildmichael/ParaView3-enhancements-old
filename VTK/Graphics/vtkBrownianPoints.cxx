@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBrownianPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-29 12:28:15 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2000-04-25 13:28:15 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -134,7 +134,7 @@ void vtkBrownianPoints::Execute()
   newVectors->Delete();
 }
 
-void vtkBrownianPoints::PrintSelf(ostream& os, vtkIndent indent)
+void vtkBrownianPoints::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkDataSetToDataSetFilter::PrintSelf(os,indent);
 

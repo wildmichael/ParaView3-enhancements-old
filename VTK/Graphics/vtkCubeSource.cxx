@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCubeSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:04:51 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2000-04-25 13:28:25 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -211,7 +211,7 @@ void vtkCubeSource::SetBounds(float bounds[6])
                   (bounds[5]+bounds[4])/2.0);
 }
 
-void vtkCubeSource::PrintSelf(ostream& os, vtkIndent indent)
+void vtkCubeSource::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkPolyDataSource::PrintSelf(os,indent);
 

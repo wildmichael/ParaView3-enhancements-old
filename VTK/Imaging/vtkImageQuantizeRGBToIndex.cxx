@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageQuantizeRGBToIndex.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:08:43 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2000-04-25 13:30:57 $
+  Version:   $Revision: 1.17 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -693,20 +693,20 @@ void vtkImageQuantizeRGBToIndex::EnlargeOutputUpdateExtents( vtkDataObject
   this->GetOutput()->SetUpdateExtent(wholeExtent);
 }
 
-void vtkImageQuantizeRGBToIndex::PrintSelf(ostream& os, vtkIndent indent)
+void vtkImageQuantizeRGBToIndex::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkImageToImageFilter::PrintSelf(os,indent);
 
   // Input Type is internal so we dont prit it
-  //os << indent << "InputType: " << this->InputType << endl;
+  //os << indent << "InputType: " << this->InputType << vtkEndl;
 
-  os << indent << "Number Of Colors: " << this->NumberOfColors << endl;
-  os << indent << "Lookup Table: " << endl << *this->LookupTable;
+  os << indent << "Number Of Colors: " << this->NumberOfColors << vtkEndl;
+  os << indent << "Lookup Table: " << vtkEndl << *this->LookupTable;
   os << indent << "Execute Time (in initialize stage): " << 
-    this->InitializeExecuteTime << endl;
+    this->InitializeExecuteTime << vtkEndl;
   os << indent << "Execute Time (in build tree stage): " << 
-    this->BuildTreeExecuteTime << endl;
+    this->BuildTreeExecuteTime << vtkEndl;
   os << indent << "Execute Time (in lookup index stage): " << 
-    this->LookupIndexExecuteTime << endl;
+    this->LookupIndexExecuteTime << vtkEndl;
 }
 

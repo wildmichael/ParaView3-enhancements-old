@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPythonUtil.h,v $
   Language:  C++
-  Date:      $Date: 2000-03-11 22:21:46 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2000-04-25 13:27:32 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,9 +39,7 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-
-#include <string.h>
-#include "vtkSetGet.h"
+#include "vtkObject.h"
 #include "Python.h"
 
 extern char *vtkPythonManglePointer(void *ptr, const char *type);

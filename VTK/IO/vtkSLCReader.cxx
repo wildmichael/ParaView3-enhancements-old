@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSLCReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:06:42 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2000-04-25 13:29:40 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -344,7 +344,7 @@ void vtkSLCReader::Execute()
   fclose( fp );
 }
 
-void vtkSLCReader::PrintSelf(ostream& os, vtkIndent indent)
+void vtkSLCReader::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkStructuredPointsSource::PrintSelf(os,indent);
 

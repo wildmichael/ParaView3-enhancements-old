@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-03-16 19:03:10 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2000-04-25 13:31:08 $
+  Version:   $Revision: 1.21 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -161,7 +161,7 @@ vtkImageWindow* vtkImageWindow::New()
   return (vtkImageWindow*)ret;
 }
 
-void vtkImageWindow::PrintSelf(ostream& os, vtkIndent indent)
+void vtkImageWindow::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkWindow::PrintSelf(os, indent);
 

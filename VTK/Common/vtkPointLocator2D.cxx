@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointLocator2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:03:34 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2000-04-25 13:27:26 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -964,7 +964,7 @@ void vtkPointLocator2D::GenerateFace(int face, int i, int j, int k,
 }
 
 
-void vtkPointLocator2D::PrintSelf(ostream& os, vtkIndent indent)
+void vtkPointLocator2D::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkLocator::PrintSelf(os,indent);
 

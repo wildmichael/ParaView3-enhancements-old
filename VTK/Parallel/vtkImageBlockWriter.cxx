@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageBlockWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:04:16 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2000-04-25 13:27:54 $
+  Version:   $Revision: 1.6 $
   
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -76,14 +76,14 @@ vtkImageBlockWriter::~vtkImageBlockWriter()
 }
 
 //----------------------------------------------------------------------------
-void vtkImageBlockWriter::PrintSelf(ostream& os, vtkIndent indent)
+void vtkImageBlockWriter::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkProcessObject::PrintSelf(os,indent);
   
-  os << indent << "FilePattern: " << this->FilePattern << endl;
-  os << indent << "Overlap: " << this->Overlap << endl;
+  os << indent << "FilePattern: " << this->FilePattern << vtkEndl;
+  os << indent << "Overlap: " << this->Overlap << vtkEndl;
   os << indent << "Divisions: " << this->Divisions[0] << ", "
-     << this->Divisions[1] << ", " << this->Divisions[2] << endl;
+     << this->Divisions[1] << ", " << this->Divisions[2] << vtkEndl;
 }
 
 

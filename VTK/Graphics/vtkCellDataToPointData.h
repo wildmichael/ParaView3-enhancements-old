@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellDataToPointData.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:04:44 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2000-04-25 13:28:18 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -67,7 +67,7 @@ class VTK_EXPORT vtkCellDataToPointData : public vtkDataSetToDataSetFilter
 public:
   static vtkCellDataToPointData *New();
   vtkTypeMacro(vtkCellDataToPointData,vtkDataSetToDataSetFilter);
-  void PrintSelf(ostream& os, vtkIndent indent);
+  void PrintSelf(vtkOstream& os, vtkIndent indent);
 
   // Description:
   // Control whether the input cell data is to be passed to the output. If

@@ -3,8 +3,8 @@
  Program:   Visualization Toolkit
  Module:    $RCSfile: vtkSource.cxx,v $
  Language:  C++
- Date:      $Date: 2000-03-21 16:47:13 $
- Version:   $Revision: 1.62 $
+ Date:      $Date: 2000-04-25 13:27:36 $
+ Version:   $Revision: 1.63 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -733,7 +733,7 @@ void vtkSource::ExecuteInformation()
 }
 
 //----------------------------------------------------------------------------
-void vtkSource::PrintSelf(ostream& os, vtkIndent indent)
+void vtkSource::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkProcessObject::PrintSelf(os,indent);
 

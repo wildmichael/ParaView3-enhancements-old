@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProcessObject.h,v $
   Language:  C++
-  Date:      $Date: 2000-03-06 21:09:57 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2000-04-25 13:27:30 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -83,7 +83,7 @@ public:
   static vtkProcessObject *New();
 
   vtkTypeMacro(vtkProcessObject,vtkObject);
-  void PrintSelf(ostream& os, vtkIndent indent);
+  void PrintSelf(vtkOstream& os, vtkIndent indent);
 
   // Description:
   // Specify function to be called before object executes.

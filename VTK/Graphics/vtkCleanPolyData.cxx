@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCleanPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-15 12:50:30 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 2000-04-25 13:28:20 $
+  Version:   $Revision: 1.52 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -464,7 +464,7 @@ void vtkCleanPolyData::ReleaseLocator(void) {
     }
 }
 //------------------------------------------------------------------------------
-void vtkCleanPolyData::PrintSelf(ostream& os, vtkIndent indent) {
+void vtkCleanPolyData::PrintSelf(vtkOstream& os, vtkIndent indent) {
     vtkPolyDataToPolyDataFilter::PrintSelf(os,indent);
     os << indent << "ToleranceIsAbsolute: "
        << this->ToleranceIsAbsolute << "\n";

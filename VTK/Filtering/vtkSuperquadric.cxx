@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSuperquadric.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:04:25 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2000-04-25 13:28:02 $
+  Version:   $Revision: 1.11 $
   Thanks:    Mike Halle, Brigham and Women's Hospital
 
 
@@ -174,7 +174,7 @@ void vtkSuperquadric::EvaluateGradient(float vtkNotUsed(xyz)[3], float g[3])
   g[0] = g[1] = g[2] = 0.0; 
 }
 
-void vtkSuperquadric::PrintSelf(ostream& os, vtkIndent indent)
+void vtkSuperquadric::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkImplicitFunction::PrintSelf(os,indent);
 

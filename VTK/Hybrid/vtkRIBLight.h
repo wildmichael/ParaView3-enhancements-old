@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRIBLight.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:04:23 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2000-04-25 13:28:01 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -60,7 +60,7 @@ class VTK_EXPORT vtkRIBLight : public vtkLight
 public:
   static vtkRIBLight *New();
   vtkTypeMacro(vtkRIBLight,vtkLight);
-  void PrintSelf(ostream& os, vtkIndent indent);
+  void PrintSelf(vtkOstream& os, vtkIndent indent);
 
   vtkBooleanMacro(Shadows,int);
   vtkSetMacro(Shadows,int);

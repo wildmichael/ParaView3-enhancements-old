@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamLine.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:06:55 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2000-04-25 13:29:48 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -183,7 +183,7 @@ void vtkStreamLine::Execute()
   output->Squeeze();
 }
 
-void vtkStreamLine::PrintSelf(ostream& os, vtkIndent indent)
+void vtkStreamLine::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkStreamer::PrintSelf(os,indent);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPriorityQueue.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:03:40 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2000-04-25 13:27:29 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -81,7 +81,7 @@ public:
   static vtkPriorityQueue *New();
 
   vtkTypeMacro(vtkPriorityQueue,vtkObject);
-  void PrintSelf(ostream& os, vtkIndent indent);
+  void PrintSelf(vtkOstream& os, vtkIndent indent);
 
   // Description:
   // Allocate initial space for priority queue.

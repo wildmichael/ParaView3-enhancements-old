@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractGeometry.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:05:12 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2000-04-25 13:28:42 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -195,7 +195,7 @@ void vtkExtractGeometry::Execute()
   output->Squeeze();
 }
 
-void vtkExtractGeometry::PrintSelf(ostream& os, vtkIndent indent)
+void vtkExtractGeometry::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkDataSetToUnstructuredGridFilter::PrintSelf(os,indent);
 

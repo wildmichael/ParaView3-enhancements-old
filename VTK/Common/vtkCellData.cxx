@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellData.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:02:59 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2000-04-25 13:26:57 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -94,7 +94,7 @@ void vtkCellData::NullCell (int ptId)
 
 }
 
-void vtkCellData::PrintSelf(ostream& os, vtkIndent indent)
+void vtkCellData::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkDataSetAttributes::PrintSelf(os,indent);
 }

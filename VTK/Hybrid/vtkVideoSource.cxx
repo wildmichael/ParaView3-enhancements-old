@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVideoSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-03-23 00:13:22 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2000-04-25 13:28:05 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -40,9 +40,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
 #include <ctype.h>
-#include <string.h>
 #include <time.h>
-#include <iostream.h>
 #include "vtkVideoSource.h"
 #include "vtkObjectFactory.h"
 
@@ -180,7 +178,7 @@ vtkVideoSource::~vtkVideoSource()
 }
 
 //----------------------------------------------------------------------------
-void vtkVideoSource::PrintSelf(ostream& os, vtkIndent indent)
+void vtkVideoSource::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   int idx;
   

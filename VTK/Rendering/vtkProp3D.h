@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProp3D.h,v $
   Language:  C++
-  Date:      $Date: 2000-03-19 06:50:54 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2000-04-25 13:29:28 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -65,7 +65,7 @@ class VTK_EXPORT vtkProp3D : public vtkProp
 {
 public:
   vtkTypeMacro(vtkProp3D,vtkProp);
-  void PrintSelf(ostream& os, vtkIndent indent);
+  void PrintSelf(vtkOstream& os, vtkIndent indent);
 
   // Description:
   // Shallow copy of this vtkProp3D.

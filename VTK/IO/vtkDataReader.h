@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataReader.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:04:58 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 2000-04-25 13:28:31 $
+  Version:   $Revision: 1.49 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -49,8 +49,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #ifndef __vtkDataReader_h
 #define __vtkDataReader_h
 
-#include <stdio.h>
-#include <fstream.h>
 #include "vtkObject.h"
 #include "vtkSource.h"
 #include "vtkDataSetAttributes.h"
@@ -67,7 +65,7 @@ class VTK_EXPORT vtkDataReader : public vtkObject
 public:
   static vtkDataReader *New();
   vtkTypeMacro(vtkDataReader,vtkObject);
-  void PrintSelf(ostream& os, vtkIndent indent);
+  void PrintSelf(vtkOstream& os, vtkIndent indent);
 
   // Description:
   // Specify file name of vtk data file to read.
@@ -242,7 +240,7 @@ public:
 
   // Description:
   // Return the istream being used to read in the data.
-  istream *GetIStream() {return this->IS;};
+  vtkIstream *GetIStream() {return this->IS;};
 
 protected:
   vtkDataReader();
@@ -252,7 +250,7 @@ protected:
 
   char *FileName;
   int FileType;
-  istream *IS;
+  vtkIstream *IS;
 
   char *ScalarsName;
   char *VectorsName;

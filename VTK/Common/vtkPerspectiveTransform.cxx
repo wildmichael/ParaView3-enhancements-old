@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPerspectiveTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-22 03:59:59 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2000-04-25 13:27:22 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -45,7 +45,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkMath.h"
 
 //----------------------------------------------------------------------------
-void vtkPerspectiveTransform::PrintSelf(ostream& os, vtkIndent indent)
+void vtkPerspectiveTransform::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkGeneralTransform::PrintSelf(os, indent);
   if (this->Matrix)

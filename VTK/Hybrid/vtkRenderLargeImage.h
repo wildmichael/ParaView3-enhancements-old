@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderLargeImage.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:04:24 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2000-04-25 13:28:01 $
+  Version:   $Revision: 1.14 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -46,8 +46,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #ifndef __vtkRenderLargeImage_h
 #define __vtkRenderLargeImage_h
 
-#include <iostream.h>
-#include <fstream.h>
 #include "vtkImageSource.h"
 #include "vtkRenderer.h"
 
@@ -56,7 +54,7 @@ class VTK_EXPORT vtkRenderLargeImage : public vtkImageSource
 public:
   static vtkRenderLargeImage *New();
   vtkTypeMacro(vtkRenderLargeImage,vtkImageSource);
-  void PrintSelf(ostream& os, vtkIndent indent);   
+  void PrintSelf(vtkOstream& os, vtkIndent indent);   
 
   // Description:
   // The magnification of the current render window

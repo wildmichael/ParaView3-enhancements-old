@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:03:25 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2000-04-25 13:27:17 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -62,7 +62,7 @@ vtkMapper2D* vtkMapper2D::New()
 
 
 
-void vtkMapper2D::PrintSelf(ostream& os, vtkIndent indent)
+void vtkMapper2D::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   this->vtkAbstractMapper::PrintSelf(os, indent);
 }

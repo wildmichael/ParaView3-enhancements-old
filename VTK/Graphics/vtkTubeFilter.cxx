@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTubeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:07:23 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 2000-04-25 13:30:04 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -456,7 +456,7 @@ void vtkTubeFilter::Execute()
   output->Squeeze();
 }
 
-void vtkTubeFilter::PrintSelf(ostream& os, vtkIndent indent)
+void vtkTubeFilter::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkPolyDataToPolyDataFilter::PrintSelf(os,indent);
 
@@ -469,6 +469,6 @@ void vtkTubeFilter::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "Default Normal: " << "( " << this->DefaultNormal[0] <<
      ", " << this->DefaultNormal[1] << ", " << this->DefaultNormal[2] <<
      " )\n";
-  os << indent << "Capping: " << this->Capping << endl;
+  os << indent << "Capping: " << this->Capping << vtkEndl;
 }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVRMLExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:07:28 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 2000-04-25 13:30:06 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -692,7 +692,7 @@ void vtkVRMLExporter::WritePointData(vtkPoints *points, vtkNormals *normals,
 }
 
 
-void vtkVRMLExporter::PrintSelf(ostream& os, vtkIndent indent)
+void vtkVRMLExporter::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkExporter::PrintSelf(os,indent);
  

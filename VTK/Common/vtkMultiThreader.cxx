@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMultiThreader.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:03:28 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2000-04-25 13:27:19 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -311,7 +311,7 @@ void vtkMultiThreader::SingleMethodExecute()
 	     ( (void *)(&this->ThreadInfoArray[thread_loop]) ) );
     if ( process_id[thread_loop] == -1)
       {
-      vtkErrorMacro("sproc call failed. Code: " << errno << endl);
+      vtkErrorMacro("sproc call failed. Code: " << errno << vtkEndl);
       }
     }
   
@@ -728,12 +728,12 @@ void vtkMultiThreader::TerminateThread( int ThreadID )
 }
 
 // Print method for the multithreader
-void vtkMultiThreader::PrintSelf(ostream& os, vtkIndent indent)
+void vtkMultiThreader::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   this->vtkObject::PrintSelf(os,indent); 
 
   os << indent << "Thread Count: " << this->NumberOfThreads << "\n";
   os << indent << "Global Maximum Number Of Threads: " << 
-    vtkMultiThreaderGlobalMaximumNumberOfThreads << endl;
+    vtkMultiThreaderGlobalMaximumNumberOfThreads << vtkEndl;
 
 }

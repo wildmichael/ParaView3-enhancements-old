@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTexturedSphereSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:07:15 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2000-04-25 13:29:59 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -169,7 +169,7 @@ void vtkTexturedSphereSource::Execute()
   newPolys->Delete();
 }
 
-void vtkTexturedSphereSource::PrintSelf(ostream& os, vtkIndent indent)
+void vtkTexturedSphereSource::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkPolyDataSource::PrintSelf(os,indent);
 

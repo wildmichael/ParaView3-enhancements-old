@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtk3DSImporter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:04:32 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2000-04-25 13:28:08 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1262,7 +1262,7 @@ vtk3DSImporter::~vtk3DSImporter()
   VTK_LIST_KILL (this->MatPropList);
 }
 
-void vtk3DSImporter::PrintSelf(ostream& os, vtkIndent indent)
+void vtk3DSImporter::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkImporter::PrintSelf(os,indent);
 }

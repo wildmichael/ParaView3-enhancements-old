@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:03:03 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2000-04-25 13:26:59 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -255,7 +255,7 @@ unsigned long vtkDataArray::GetActualMemorySize()
   return (unsigned long)ceil((size * numPrims)/1000.0); //kilobytes
 }
 
-void vtkDataArray::PrintSelf(ostream& os, vtkIndent indent)
+void vtkDataArray::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkObject::PrintSelf(os,indent);
 

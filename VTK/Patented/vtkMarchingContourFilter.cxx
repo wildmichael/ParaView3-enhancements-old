@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingContourFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:09:20 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2000-04-25 13:31:20 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -361,7 +361,7 @@ void vtkMarchingContourFilter::CreateDefaultLocator()
     }
 }
 
-void vtkMarchingContourFilter::PrintSelf(ostream& os, vtkIndent indent)
+void vtkMarchingContourFilter::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkDataSetToPolyDataFilter::PrintSelf(os,indent);
 

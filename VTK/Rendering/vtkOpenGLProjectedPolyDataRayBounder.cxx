@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLProjectedPolyDataRayBounder.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:05:59 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2000-04-25 13:29:14 $
+  Version:   $Revision: 1.25 $
   Thanks:    Thanks to Lisa Sobierajski Avila who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -290,7 +290,7 @@ float *vtkOpenGLProjectedPolyDataRayBounder::Draw( vtkRenderer *ren,
 	    matrix->Element[3][2] || (matrix->Element[3][3] != 1.0) )
         {
         vtkErrorMacro( << "Oh no! They aren't 0 like they're supposed to be!");
-        cout << *transform;
+        vtkCout << *transform;
         }
       }
     
@@ -411,7 +411,7 @@ vtkOpenGLProjectedPolyDataRayBounder::ReleaseGraphicsResources(vtkWindow *vtkNot
 
 
 // Print the vtkOpenGLProjectedPolyDataRayBounder
-void vtkOpenGLProjectedPolyDataRayBounder::PrintSelf(ostream& os, 
+void vtkOpenGLProjectedPolyDataRayBounder::PrintSelf(vtkOstream& os, 
 						     vtkIndent indent)
 {
   vtkProjectedPolyDataRayBounder::PrintSelf(os,indent);

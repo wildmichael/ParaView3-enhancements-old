@@ -3,8 +3,8 @@
   Program:   Java Wrapper for VTK
   Module:    $RCSfile: vtkJavaPanel.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:05:35 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2000-04-25 13:29:02 $
+  Version:   $Revision: 1.5 $
 
 This file's contents may be copied, reproduced or altered in any way 
 without the express written consent of the author.
@@ -42,9 +42,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
 
-#include <iostream.h>
-#include <stdlib.h>
-#include <stdio.h>
+#include "vtkSystemIncludes.h"
 #include <X11/Intrinsic.h>
 #include "vtkJavaUtil.h"
 
@@ -93,8 +91,8 @@ void vtk_vtkPanel_setWindow(struct Hvtk_vtkPanel *me,
     PEER_PDATA(CanvasData, Hsun_awt_motif_MCanvasPeer, me);
   Widget wig = wdata->comp.widget;
 
-  // cerr << XtDisplay(wig) << " Display\n";
-  // cerr << XtWindowOfObject(wig) << " Window\n";
+  // vtkCerr << XtDisplay(wig) << " Display\n";
+  // vtkCerr << XtWindowOfObject(wig) << " Window\n";
   
   op->SetDisplayId((void *)XtDisplay(wig));
   op->SetWindowId((void *)XtWindowOfObject(wig));

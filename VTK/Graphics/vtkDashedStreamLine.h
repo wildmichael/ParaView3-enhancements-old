@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDashedStreamLine.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:04:55 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2000-04-25 13:28:28 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -66,7 +66,7 @@ class VTK_EXPORT vtkDashedStreamLine : public vtkStreamLine
 public:
   static vtkDashedStreamLine *New();
   vtkTypeMacro(vtkDashedStreamLine,vtkStreamLine);
-  void PrintSelf(ostream& os, vtkIndent indent);
+  void PrintSelf(vtkOstream& os, vtkIndent indent);
 
   // Description:
   // For each dash, specify the fraction of the dash that is "on". A factor

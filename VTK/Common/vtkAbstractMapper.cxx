@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-16 14:13:19 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2000-04-25 13:26:53 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -49,7 +49,7 @@ vtkAbstractMapper::vtkAbstractMapper()
   this->TimeToDraw = 0.0;
 }
 
-void vtkAbstractMapper::PrintSelf(ostream& os, vtkIndent indent)
+void vtkAbstractMapper::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   this->vtkProcessObject::PrintSelf(os,indent);
 

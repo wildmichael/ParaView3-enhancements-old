@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2000-03-08 15:57:18 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2000-04-25 13:30:22 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -62,7 +62,7 @@ class VTK_EXPORT vtkWin32OpenGLRenderWindow : public vtkRenderWindow
 public:
   static vtkWin32OpenGLRenderWindow *New();
   vtkTypeMacro(vtkWin32OpenGLRenderWindow,vtkRenderWindow);
-  void PrintSelf(ostream& os, vtkIndent indent);
+  void PrintSelf(vtkOstream& os, vtkIndent indent);
 
   // Description:
   // Begin the rendering process.

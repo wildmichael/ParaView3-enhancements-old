@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsGeometryFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:07:04 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2000-04-25 13:29:53 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -68,7 +68,7 @@ class VTK_EXPORT vtkStructuredPointsGeometryFilter : public vtkStructuredPointsT
 {
 public:
   vtkTypeMacro(vtkStructuredPointsGeometryFilter,vtkStructuredPointsToPolyDataFilter);
-  void PrintSelf(ostream& os, vtkIndent indent);
+  void PrintSelf(vtkOstream& os, vtkIndent indent);
   
   // Description:
   // Construct with initial extent of all the data

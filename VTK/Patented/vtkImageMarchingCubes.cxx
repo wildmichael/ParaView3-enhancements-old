@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMarchingCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:09:18 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2000-04-25 13:31:19 $
+  Version:   $Revision: 1.32 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -761,7 +761,7 @@ void vtkImageMarchingCubes::March(vtkImageData *inData,
 				chunkMin, chunkMax, numContours, values);
       break;
     default:
-      cerr << "March: Unknown output ScalarType";
+      vtkErrorMacro(<< "Unknown output ScalarType");
       return;
     }
 }
@@ -924,7 +924,7 @@ vtkImageData *vtkImageMarchingCubes::GetInput()
 
   
 //----------------------------------------------------------------------------
-void vtkImageMarchingCubes::PrintSelf(ostream& os, vtkIndent indent)
+void vtkImageMarchingCubes::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkPolyDataSource::PrintSelf(os,indent);
 

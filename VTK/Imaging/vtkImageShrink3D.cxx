@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageShrink3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:08:48 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 2000-04-25 13:31:02 $
+  Version:   $Revision: 1.44 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -142,7 +142,7 @@ void vtkImageShrink3D::SetAveraging (int value)
 
 
 //----------------------------------------------------------------------------
-void vtkImageShrink3D::PrintSelf(ostream& os, vtkIndent indent)
+void vtkImageShrink3D::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkImageToImageFilter::PrintSelf(os,indent);
 

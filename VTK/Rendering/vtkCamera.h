@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCamera.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-17 02:04:06 $
-  Version:   $Revision: 1.61 $
+  Date:      $Date: 2000-04-25 13:28:16 $
+  Version:   $Revision: 1.62 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -62,7 +62,7 @@ class vtkRenderer;
 class VTK_EXPORT vtkCamera : public vtkObject
 {
  public:
-  void PrintSelf(ostream& os, vtkIndent indent);
+  void PrintSelf(vtkOstream& os, vtkIndent indent);
   vtkTypeMacro(vtkCamera,vtkObject);
 
   // Description:

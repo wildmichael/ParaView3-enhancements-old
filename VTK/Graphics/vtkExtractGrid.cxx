@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 11:27:24 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2000-04-25 13:28:43 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -318,7 +318,7 @@ void vtkExtractGrid::Execute()
 }
 
 
-void vtkExtractGrid::PrintSelf(ostream& os, vtkIndent indent)
+void vtkExtractGrid::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkStructuredGridToStructuredGridFilter::PrintSelf(os,indent);
 

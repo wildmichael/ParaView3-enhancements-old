@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAppendPolyData.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-17 09:10:33 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2000-04-25 13:28:11 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -62,7 +62,7 @@ public:
   static vtkAppendPolyData *New();
 
   vtkTypeMacro(vtkAppendPolyData,vtkPolyDataToPolyDataFilter);
-  void PrintSelf(ostream& os, vtkIndent indent);
+  void PrintSelf(vtkOstream& os, vtkIndent indent);
 
   // Description:
   // UserManagedInputs allows the user to set inputs by number instead of

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsWriter.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:07:08 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2000-04-25 13:29:54 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -58,7 +58,7 @@ class VTK_EXPORT vtkStructuredPointsWriter : public vtkDataWriter
 public:
   static vtkStructuredPointsWriter *New();
   vtkTypeMacro(vtkStructuredPointsWriter,vtkDataWriter);
-  void PrintSelf(ostream& os, vtkIndent indent);
+  void PrintSelf(vtkOstream& os, vtkIndent indent);
 
   // Description:
   // Set / get  the input data or filter.

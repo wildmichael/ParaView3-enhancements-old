@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellPicker.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:04:45 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2000-04-25 13:28:19 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -135,7 +135,7 @@ void vtkCellPicker::Initialize()
   this->vtkPicker::Initialize();
 }
 
-void vtkCellPicker::PrintSelf(ostream& os, vtkIndent indent)
+void vtkCellPicker::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   this->vtkPicker::PrintSelf(os,indent);
 

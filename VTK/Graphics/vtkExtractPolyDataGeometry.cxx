@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractPolyDataGeometry.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:05:13 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2000-04-25 13:28:44 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -223,7 +223,7 @@ void vtkExtractPolyDataGeometry::Execute()
   output->Squeeze();
 }
 
-void vtkExtractPolyDataGeometry::PrintSelf(ostream& os, vtkIndent indent)
+void vtkExtractPolyDataGeometry::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkPolyDataToPolyDataFilter::PrintSelf(os,indent);
 

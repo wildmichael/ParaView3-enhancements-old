@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataNormals.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:06:16 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2000-04-25 13:29:23 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -574,7 +574,7 @@ void vtkPolyDataNormals::MarkAndReplace (int cellId, int n,
   return;
 }
 
-void vtkPolyDataNormals::PrintSelf(ostream& os, vtkIndent indent)
+void vtkPolyDataNormals::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkPolyDataToPolyDataFilter::PrintSelf(os,indent);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSeedConnectivity.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:08:47 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2000-04-25 13:31:01 $
+  Version:   $Revision: 1.18 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -64,7 +64,7 @@ class VTK_EXPORT vtkImageSeedConnectivity : public vtkImageToImageFilter
 public:
   static vtkImageSeedConnectivity *New();
   vtkTypeMacro(vtkImageSeedConnectivity,vtkImageToImageFilter);
-  void PrintSelf(ostream& os, vtkIndent indent);
+  void PrintSelf(vtkOstream& os, vtkIndent indent);
   
   // Description:
   // Methods for manipulating the seed pixels.

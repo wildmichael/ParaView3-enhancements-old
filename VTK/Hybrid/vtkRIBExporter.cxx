@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRIBExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-08 19:01:36 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2000-04-25 13:28:00 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -971,7 +971,7 @@ void vtkRIBExporter::WriteStrips (vtkPolyData *polyData, vtkScalars *s, vtkPrope
   polygon->Delete();
 }
 
-void vtkRIBExporter::PrintSelf(ostream& os, vtkIndent indent)
+void vtkRIBExporter::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkExporter::PrintSelf(os,indent);
  

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:06:18 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2000-04-25 13:29:24 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -81,7 +81,7 @@ vtkPolyData *vtkPolyDataWriter::GetInput()
 
 void vtkPolyDataWriter::WriteData()
 {
-  ostream *fp;
+  vtkOstream *fp;
   vtkPolyData *input = this->GetInput();
 
   vtkDebugMacro(<<"Writing vtk polygonal data...");
@@ -119,7 +119,7 @@ void vtkPolyDataWriter::WriteData()
   this->CloseVTKFile(fp);
 }
 
-void vtkPolyDataWriter::PrintSelf(ostream& os, vtkIndent indent)
+void vtkPolyDataWriter::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkDataWriter::PrintSelf(os,indent);
 }

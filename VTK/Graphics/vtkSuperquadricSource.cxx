@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSuperquadricSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:04:25 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2000-04-25 13:28:02 $
+  Version:   $Revision: 1.9 $
   Thanks:    Mike Halle, Brigham and Women's Hospital
 
 
@@ -358,7 +358,7 @@ void vtkSuperquadricSource::Execute()
   newPolys->Delete();
 }
 
-void vtkSuperquadricSource::PrintSelf(ostream& os, vtkIndent indent)
+void vtkSuperquadricSource::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkPolyDataSource::PrintSelf(os,indent);
 

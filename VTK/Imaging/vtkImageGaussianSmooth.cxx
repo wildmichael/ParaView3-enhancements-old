@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageGaussianSmooth.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:08:24 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2000-04-25 13:30:43 $
+  Version:   $Revision: 1.27 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -79,7 +79,7 @@ vtkImageGaussianSmooth::~vtkImageGaussianSmooth()
 }
 
 //----------------------------------------------------------------------------
-void vtkImageGaussianSmooth::PrintSelf(ostream& os, vtkIndent indent)
+void vtkImageGaussianSmooth::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   // int idx;
   

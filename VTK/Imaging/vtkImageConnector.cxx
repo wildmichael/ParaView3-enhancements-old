@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageConnector.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:08:12 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2000-04-25 13:30:36 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -216,7 +216,7 @@ void vtkImageConnector::MarkData(vtkImageData *data, int numberOfAxes, int exten
   vtkDebugMacro("Marked " << count << " pixels");
 }
 
-void vtkImageConnector::PrintSelf(ostream& os, vtkIndent indent)
+void vtkImageConnector::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkObject::PrintSelf(os,indent);
 

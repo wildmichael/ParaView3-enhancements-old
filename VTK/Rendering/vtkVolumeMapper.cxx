@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:07:36 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2000-04-25 13:30:11 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -155,7 +155,7 @@ vtkStructuredPoints *vtkVolumeMapper::GetRGBTextureInput()
 
 
 // Print the vtkVolumeMapper
-void vtkVolumeMapper::PrintSelf(ostream& os, vtkIndent indent)
+void vtkVolumeMapper::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   this->vtkAbstractMapper3D::PrintSelf(os,indent);
 
@@ -171,15 +171,15 @@ void vtkVolumeMapper::PrintSelf(ostream& os, vtkIndent indent)
 
   os << indent << "Cropping: " << (this->Cropping ? "On\n" : "Off\n");
 
-  os << indent << "Cropping Region Planes: " << endl 
+  os << indent << "Cropping Region Planes: " << vtkEndl 
      << indent << "  In X: " << this->CroppingRegionPlanes[0] 
-     << " to " << this->CroppingRegionPlanes[1] << endl 
+     << " to " << this->CroppingRegionPlanes[1] << vtkEndl 
      << indent << "  In Y: " << this->CroppingRegionPlanes[2] 
-     << " to " << this->CroppingRegionPlanes[3] << endl 
+     << " to " << this->CroppingRegionPlanes[3] << vtkEndl 
      << indent << "  In Z: " << this->CroppingRegionPlanes[4] 
-     << " to " << this->CroppingRegionPlanes[5] << endl;
+     << " to " << this->CroppingRegionPlanes[5] << vtkEndl;
  
-  os << indent << "Cropping Region Flags: " << this->CroppingRegionFlags << endl;
+  os << indent << "Cropping Region Flags: " << this->CroppingRegionFlags << vtkEndl;
 
   os << indent << "Build Time: " <<this->BuildTime.GetMTime() << "\n";
 }

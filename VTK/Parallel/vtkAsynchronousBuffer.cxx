@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAsynchronousBuffer.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:04:09 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2000-04-25 13:27:48 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -340,7 +340,7 @@ void vtkAsynchronousBuffer::Execute()
 
 
 //----------------------------------------------------------------------------
-void vtkAsynchronousBuffer::PrintSelf(ostream& os, vtkIndent indent)
+void vtkAsynchronousBuffer::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkDataSetToDataSetFilter::PrintSelf(os,indent);
 
@@ -352,7 +352,7 @@ void vtkAsynchronousBuffer::PrintSelf(ostream& os, vtkIndent indent)
     {
     os << indent << "BlockingOff\n";
     }
-  os << "Finished: " << this->Finished << endl;
+  os << "Finished: " << this->Finished << vtkEndl;
   
   os << indent << "ThreadId: " << this->ThreadId << "\n";
 }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGaussianSplatter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:05:19 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2000-04-25 13:28:49 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -736,7 +736,7 @@ void vtkGaussianSplatter::SetScalar(int idx, float dist2)
     }
 }
 
-void vtkGaussianSplatter::PrintSelf(ostream& os, vtkIndent indent)
+void vtkGaussianSplatter::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkDataSetToStructuredPointsFilter::PrintSelf(os,indent);
 

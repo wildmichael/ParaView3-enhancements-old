@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDecimate.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:09:16 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 2000-04-25 13:31:18 $
+  Version:   $Revision: 1.44 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -175,7 +175,7 @@ class VTK_EXPORT vtkDecimate : public vtkPolyDataToPolyDataFilter
 public:
   static vtkDecimate *New();
   vtkTypeMacro(vtkDecimate,vtkPolyDataToPolyDataFilter);
-  void PrintSelf(ostream& os, vtkIndent indent);
+  void PrintSelf(vtkOstream& os, vtkIndent indent);
 
   // Description:
   // Set the decimation error bounds. Expressed as a fraction of the longest

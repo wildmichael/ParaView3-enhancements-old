@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32ImageWindow.h,v $
   Language:  C++
-  Date:      $Date: 2000-03-16 19:03:12 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2000-04-25 13:31:14 $
+  Version:   $Revision: 1.18 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -64,7 +64,7 @@ public:
 
   static vtkWin32ImageWindow *New();
   vtkTypeMacro(vtkWin32ImageWindow,vtkImageWindow);
-  void PrintSelf(ostream& os, vtkIndent indent);
+  void PrintSelf(vtkOstream& os, vtkIndent indent);
 
   // Description:
   // Swap the front and back buffers. Normally not called by the user.

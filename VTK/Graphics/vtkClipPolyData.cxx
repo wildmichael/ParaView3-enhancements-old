@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-03-25 16:34:16 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2000-04-25 13:28:21 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -422,7 +422,7 @@ void vtkClipPolyData::CreateDefaultLocator()
 
 
 //----------------------------------------------------------------------------
-void vtkClipPolyData::PrintSelf(ostream& os, vtkIndent indent)
+void vtkClipPolyData::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkPolyDataToPolyDataFilter::PrintSelf(os,indent);
 

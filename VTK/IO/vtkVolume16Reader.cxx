@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume16Reader.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:07:35 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2000-04-25 13:30:11 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -648,7 +648,7 @@ void vtkVolume16Reader::TransformSlice (unsigned short *slice, unsigned short *p
     }
 }
 
-void vtkVolume16Reader::PrintSelf(ostream& os, vtkIndent indent)
+void vtkVolume16Reader::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkVolumeReader::PrintSelf(os,indent);
 

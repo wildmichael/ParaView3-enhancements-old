@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangularTexture.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:07:22 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2000-04-25 13:30:03 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -215,7 +215,7 @@ void vtkTriangularTexture::Execute()
   newScalars->Delete();
 }
 
-void vtkTriangularTexture::PrintSelf(ostream& os, vtkIndent indent)
+void vtkTriangularTexture::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkStructuredPointsSource::PrintSelf(os,indent);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRecursiveSphereDirectionEncoder.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:06:33 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2000-04-25 13:29:33 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -413,12 +413,12 @@ void vtkRecursiveSphereDirectionEncoder::InitializeIndexTable( void )
 
 
 // Print the vtkRecursiveSphereDirectionEncoder
-void vtkRecursiveSphereDirectionEncoder::PrintSelf(ostream& os, vtkIndent indent)
+void vtkRecursiveSphereDirectionEncoder::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   this->vtkDirectionEncoder::PrintSelf(os,indent);
 
   os << indent << "Number of encoded directions: " << 
-    this->GetNumberOfEncodedDirections() << endl;
+    this->GetNumberOfEncodedDirections() << vtkEndl;
 
-  os << indent << "Recursion depth: " << this->RecursionDepth << endl;
+  os << indent << "Recursion depth: " << this->RecursionDepth << vtkEndl;
 }

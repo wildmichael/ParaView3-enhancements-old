@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeMapper.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:07:37 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 2000-04-25 13:30:12 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -76,7 +76,7 @@ class VTK_EXPORT vtkVolumeMapper : public vtkAbstractMapper3D
 {
 public:
   vtkTypeMacro(vtkVolumeMapper,vtkAbstractMapper3D);
-  void PrintSelf( ostream& os, vtkIndent index );
+  void PrintSelf( vtkOstream& os, vtkIndent index );
 
   // Description:
   // Update the volume rendering pipeline by updating the scalar input

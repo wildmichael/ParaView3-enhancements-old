@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPropPicker.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:06:25 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2000-04-25 13:29:28 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -63,7 +63,7 @@ public:
   static vtkPropPicker *New();
 
   vtkTypeMacro(vtkPropPicker,vtkWorldPointPicker);
-  void PrintSelf(ostream& os, vtkIndent indent);
+  void PrintSelf(vtkOstream& os, vtkIndent indent);
 
   // Description:
 

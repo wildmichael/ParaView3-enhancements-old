@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRIBProperty.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:04:24 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2000-04-25 13:28:01 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -201,7 +201,7 @@ char *vtkRIBProperty::GetDeclarations ()
   return this->Declarations;
 }
 
-void vtkRIBProperty::PrintSelf(ostream& os, vtkIndent indent)
+void vtkRIBProperty::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkProperty::PrintSelf(os,indent);
  

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSweptSurface.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-11 22:59:19 $
-  Version:   $Revision: 1.55 $
+  Date:      $Date: 2000-04-25 13:31:23 $
+  Version:   $Revision: 1.56 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -815,7 +815,7 @@ void vtkSweptSurface::Cap(vtkScalars *s)
     }
 }
 
-void vtkSweptSurface::PrintSelf(ostream& os, vtkIndent indent)
+void vtkSweptSurface::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkStructuredPointsToStructuredPointsFilter::PrintSelf(os,indent);
 

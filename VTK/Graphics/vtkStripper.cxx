@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStripper.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:06:57 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 2000-04-25 13:29:50 $
+  Version:   $Revision: 1.44 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -369,7 +369,7 @@ void vtkStripper::Execute()
 
 }
 
-void vtkStripper::PrintSelf(ostream& os, vtkIndent indent)
+void vtkStripper::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkPolyDataToPolyDataFilter::PrintSelf(os,indent);
 

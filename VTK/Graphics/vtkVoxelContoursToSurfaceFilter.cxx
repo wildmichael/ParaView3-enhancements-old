@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoxelContoursToSurfaceFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:07:47 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2000-04-25 13:30:18 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -701,13 +701,13 @@ void vtkVoxelContoursToSurfaceFilter::Execute()
 }
 
 
-void vtkVoxelContoursToSurfaceFilter::PrintSelf(ostream& os, vtkIndent indent)
+void vtkVoxelContoursToSurfaceFilter::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkPolyDataToPolyDataFilter::PrintSelf(os,indent);
 
   os << indent << "Memory Limit (in bytes): " << 
-    this->MemoryLimitInBytes << endl;
+    this->MemoryLimitInBytes << vtkEndl;
 
   os << indent << "Spacing: " << this->Spacing[0] << " " <<
-    this->Spacing[1] << " " << this->Spacing[2] << endl;
+    this->Spacing[1] << " " << this->Spacing[2] << vtkEndl;
 }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:07:43 $
-  Version:   $Revision: 1.53 $
+  Date:      $Date: 2000-04-25 13:30:15 $
+  Version:   $Revision: 1.54 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -968,7 +968,7 @@ float vtkVolumeRayCastMapper::GetZeroOpacityThreshold( vtkVolume *vol )
 }
 
 // Print method for vtkVolumeRayCastMapper
-void vtkVolumeRayCastMapper::PrintSelf(ostream& os, vtkIndent indent)
+void vtkVolumeRayCastMapper::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkVolumeMapper::PrintSelf(os,indent);
 
@@ -995,20 +995,20 @@ void vtkVolumeRayCastMapper::PrintSelf(ostream& os, vtkIndent indent)
   if ( this->GradientEstimator )
     {
       os << indent << "Gradient Estimator: " << (this->GradientEstimator) <<
-	endl;
+	vtkEndl;
     }
   else
     {
-      os << indent << "Gradient Estimator: (none)" << endl;
+      os << indent << "Gradient Estimator: (none)" << vtkEndl;
     }
 
   if ( this->GradientShader )
     {
-      os << indent << "Gradient Shader: " << (this->GradientShader) << endl;
+      os << indent << "Gradient Shader: " << (this->GradientShader) << vtkEndl;
     }
   else
     {
-      os << indent << "Gradient Shader: (none)" << endl;
+      os << indent << "Gradient Shader: (none)" << vtkEndl;
     }
 
 }

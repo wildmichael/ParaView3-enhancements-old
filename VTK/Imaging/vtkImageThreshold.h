@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageThreshold.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:08:52 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2000-04-25 13:31:05 $
+  Version:   $Revision: 1.24 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -57,7 +57,7 @@ class VTK_EXPORT vtkImageThreshold : public vtkImageToImageFilter
 public:
   static vtkImageThreshold *New();
   vtkTypeMacro(vtkImageThreshold,vtkImageToImageFilter);
-  void PrintSelf(ostream& os, vtkIndent indent);
+  void PrintSelf(vtkOstream& os, vtkIndent indent);
   
   // Description:
   // The values greater than or equal to the value match.

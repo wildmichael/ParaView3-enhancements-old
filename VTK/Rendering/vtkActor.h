@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:04:33 $
-  Version:   $Revision: 1.79 $
+  Date:      $Date: 2000-04-25 13:28:09 $
+  Version:   $Revision: 1.80 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -70,7 +70,7 @@ class VTK_EXPORT vtkActor : public vtkProp3D
 {
  public:
   vtkTypeMacro(vtkActor,vtkProp3D);
-  void PrintSelf(ostream& os, vtkIndent indent);
+  void PrintSelf(vtkOstream& os, vtkIndent indent);
 
   // Description:
   // Creates an actor with the following defaults: origin(0,0,0)

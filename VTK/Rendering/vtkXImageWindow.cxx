@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXImageWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-03-18 13:47:19 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2000-04-25 13:31:16 $
+  Version:   $Revision: 1.36 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -390,7 +390,7 @@ vtkXImageWindow::~vtkXImageWindow()
 
 
 //----------------------------------------------------------------------------
-void vtkXImageWindow::PrintSelf(ostream& os, vtkIndent indent)
+void vtkXImageWindow::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkImageWindow::PrintSelf(os, indent);
   os << indent << "Parent Id: " << this->ParentId << "\n";
@@ -756,7 +756,7 @@ void vtkXImageWindow::MakeDefaultWindow()
     {
     if ( ( this->DisplayId = XOpenDisplay((char *)NULL)) == NULL) 
       {
-      cerr <<"cannot connect to X server"<< XDisplayName((char *)NULL)<< endl;
+      vtkErrorMacro(<<"cannot connect to X server"<< XDisplayName((char *)NULL));
       exit(-1);
       }
     this->OwnDisplay = 1;

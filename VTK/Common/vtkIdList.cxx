@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIdList.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:03:16 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2000-04-25 13:27:07 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -268,7 +268,7 @@ void vtkIdList::IntersectWith(vtkIdList& otherIds)
 }
 #undef VTK_TMP_ARRAY_SIZE
 
-void vtkIdList::PrintSelf(ostream& os, vtkIndent indent)
+void vtkIdList::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkObject::PrintSelf(os,indent);
 

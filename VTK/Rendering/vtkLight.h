@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLight.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:05:38 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2000-04-25 13:29:05 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -63,7 +63,7 @@ class VTK_EXPORT vtkLight : public vtkObject
 {
 public:
   vtkTypeMacro(vtkLight,vtkObject);
-  void PrintSelf(ostream& os, vtkIndent indent);
+  void PrintSelf(vtkOstream& os, vtkIndent indent);
 
   // Description:
   // Create a light with the focal point at the origin and its position
@@ -134,8 +134,8 @@ public:
   // Perform deep copy of this light.
   void DeepCopy(vtkLight *light);
 
-  void ReadSelf(istream& is);
-  void WriteSelf(ostream& os);
+  void ReadSelf(vtkIstream& is);
+  void WriteSelf(vtkOstream& os);
   
 protected:
   vtkLight();

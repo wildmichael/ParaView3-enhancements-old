@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAxisActor2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:08:03 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2000-04-25 13:30:28 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to Kitware & RPI/SCOREC who supported the development
              of this class.
 
@@ -234,7 +234,7 @@ void vtkAxisActor2D::ReleaseGraphicsResources(vtkWindow *win)
   this->AxisActor->ReleaseGraphicsResources(win);
 }
 
-void vtkAxisActor2D::PrintSelf(ostream& os, vtkIndent indent)
+void vtkAxisActor2D::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkActor2D::PrintSelf(os,indent);
 

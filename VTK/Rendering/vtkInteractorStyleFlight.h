@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleFlight.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-04 11:38:38 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2000-04-25 13:29:00 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to John Biddiscombe of the Rutherford Appleton Laboratory
              who developed this class.
 
@@ -73,7 +73,7 @@ class VTK_EXPORT vtkInteractorStyleFlight : public vtkInteractorStyle
 public:
   static vtkInteractorStyleFlight *New();
   vtkTypeMacro(vtkInteractorStyleFlight,vtkInteractorStyle);
-  void PrintSelf(ostream& os, vtkIndent indent);
+  void PrintSelf(vtkOstream& os, vtkIndent indent);
 
   // Description:
   // Concrete implementation of Mouse event bindings for flight

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeTextureMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:07:46 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2000-04-25 13:30:17 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -245,27 +245,27 @@ void vtkVolumeTextureMapper::InitializeRender( vtkRenderer *ren,
 }
 
 // Print the vtkVolumeTextureMapper
-void vtkVolumeTextureMapper::PrintSelf(ostream& os, vtkIndent indent)
+void vtkVolumeTextureMapper::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   this->vtkVolumeMapper::PrintSelf(os,indent);
 
   if ( this->GradientEstimator )
     {
       os << indent << "Gradient Estimator: " << (this->GradientEstimator) <<
-	endl;
+	vtkEndl;
     }
   else
     {
-      os << indent << "Gradient Estimator: (none)" << endl;
+      os << indent << "Gradient Estimator: (none)" << vtkEndl;
     }
 
   if ( this->GradientShader )
     {
-      os << indent << "Gradient Shader: " << (this->GradientShader) << endl;
+      os << indent << "Gradient Shader: " << (this->GradientShader) << vtkEndl;
     }
   else
     {
-      os << indent << "Gradient Shader: (none)" << endl;
+      os << indent << "Gradient Shader: (none)" << vtkEndl;
     }
 
   // this->Shade is a temporary variable that should not be printed

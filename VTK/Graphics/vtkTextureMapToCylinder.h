@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextureMapToCylinder.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:07:12 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2000-04-25 13:29:57 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -76,7 +76,7 @@ class VTK_EXPORT vtkTextureMapToCylinder : public vtkDataSetToDataSetFilter
 {
 public:
   vtkTypeMacro(vtkTextureMapToCylinder,vtkDataSetToDataSetFilter);
-  void PrintSelf(ostream& os, vtkIndent indent);
+  void PrintSelf(vtkOstream& os, vtkIndent indent);
 
   // Description:
   // Create object with cylinder axis parallel to z-axis (points (0,0,-0.5) 

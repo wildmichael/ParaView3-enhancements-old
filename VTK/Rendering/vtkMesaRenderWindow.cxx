@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-18 01:59:28 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2000-04-25 13:29:11 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,9 +39,6 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-#include <stdlib.h>
-#include <math.h>
-#include <iostream.h>
 #include "vtkMesaRenderWindow.h"
 #include "vtkMesaRenderer.h"
 #include "vtkMesaProperty.h"
@@ -750,7 +747,7 @@ Colormap vtkMesaRenderWindow::GetDesiredColormap ()
   return this->ColorMap;  
 }
 
-void vtkMesaRenderWindow::PrintSelf(ostream& os, vtkIndent indent)
+void vtkMesaRenderWindow::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   this->vtkXRenderWindow::PrintSelf(os,indent);
 

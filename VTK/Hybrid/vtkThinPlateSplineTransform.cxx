@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThinPlateSplineTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-03-19 06:48:56 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2000-04-25 13:28:04 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to David G. Gobbi who developed this class 
              based on code from vtkThinPlateSplineMeshWarp.cxx
 	     written by Tim Hutton.
@@ -117,19 +117,6 @@ static inline void MatrixMultiply(double** a, double** b, double** c,
       }
     }
 }
-/*
-static void PrintMatrix(double **m, int x, int y)
-{
-  int i,j; 
-  for(i = 0; i < x; i++) 
-    {
-    for(j = 0; j < y; j++) 
-      {
-      cerr << m[i][j] << ((j != y-1) ? " " : "\n");
-      }
-    }
-}
-*/
 
 //------------------------------------------------------------------------
 vtkThinPlateSplineTransform::vtkThinPlateSplineTransform()
@@ -582,7 +569,7 @@ void vtkThinPlateSplineTransform::InverseTransformPoint(const float point[3],
 }
 
 //------------------------------------------------------------------------
-void vtkThinPlateSplineTransform::PrintSelf(ostream& os, vtkIndent indent)
+void vtkThinPlateSplineTransform::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkWarpTransform::PrintSelf(os,indent);
   

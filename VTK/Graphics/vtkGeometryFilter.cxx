@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGeometryFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-13 14:33:16 $
-  Version:   $Revision: 1.59 $
+  Date:      $Date: 2000-04-25 13:28:50 $
+  Version:   $Revision: 1.60 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -371,7 +371,7 @@ void vtkGeometryFilter::CreateDefaultLocator()
     }
 }
 
-void vtkGeometryFilter::PrintSelf(ostream& os, vtkIndent indent)
+void vtkGeometryFilter::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkDataSetToPolyDataFilter::PrintSelf(os,indent);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDashedStreamLine.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:04:55 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2000-04-25 13:28:28 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -197,7 +197,7 @@ void vtkDashedStreamLine::Execute()
   output->Squeeze();
 }
 
-void vtkDashedStreamLine::PrintSelf(ostream& os, vtkIndent indent)
+void vtkDashedStreamLine::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkStreamLine::PrintSelf(os,indent);
 

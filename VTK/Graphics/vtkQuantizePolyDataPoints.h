@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuantizePolyDataPoints.h,v $
   Language:  C++
-  Date:      $Date: 2000-03-17 11:14:59 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2000-04-25 13:29:30 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to John Biddiscombe of the Rutherford Appleton Laboratory
              who developed and contributed this class.
 
@@ -69,7 +69,7 @@ class VTK_EXPORT vtkQuantizePolyDataPoints : public vtkCleanPolyData
 public:
   static vtkQuantizePolyDataPoints *New();
   const char *GetClassName() {return "vtkQuantizePolyDataPoints";};
-  void PrintSelf(ostream& os, vtkIndent indent);
+  void PrintSelf(vtkOstream& os, vtkIndent indent);
   // Description:
   // Specify quantization grain size
   vtkSetClampMacro(QFactor,float,1E-5,VTK_LARGE_FLOAT);

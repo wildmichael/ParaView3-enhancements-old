@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectors.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:04:02 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2000-04-25 13:27:45 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -120,7 +120,7 @@ float vtkVectors::GetMaxNorm()
   return this->MaxNorm;
 }
 
-void vtkVectors::PrintSelf(ostream& os, vtkIndent indent)
+void vtkVectors::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkAttributeData::PrintSelf(os,indent);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAccumulate.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:08:05 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2000-04-25 13:30:29 $
+  Version:   $Revision: 1.17 $
   Thanks:    Thanks to C. Charles Law who developed this class
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -58,7 +58,7 @@ class VTK_EXPORT vtkImageAccumulate : public vtkImageToImageFilter
 public:
   static vtkImageAccumulate *New();
   vtkTypeMacro(vtkImageAccumulate,vtkImageToImageFilter);
-  void PrintSelf(ostream& os, vtkIndent indent);
+  void PrintSelf(vtkOstream& os, vtkIndent indent);
 
   // Description:
   // Set/Get - The component spacing is the dimension of each cell.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProperty.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:07:37 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2000-04-25 13:30:12 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -330,7 +330,7 @@ vtkPiecewiseFunction *vtkVolumeProperty::GetGradientOpacity()
 }
 
 // Print the state of the volume property.
-void vtkVolumeProperty::PrintSelf(ostream& os, vtkIndent indent)
+void vtkVolumeProperty::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkObject::PrintSelf(os,indent);
 
@@ -357,7 +357,7 @@ void vtkVolumeProperty::PrintSelf(ostream& os, vtkIndent indent)
      << this->GradientOpacity << "\n";
 
   os << indent << "RGB Texture Coefficient: " 
-     << this->RGBTextureCoefficient << endl;
+     << this->RGBTextureCoefficient << vtkEndl;
 
   os << indent << "Shade: " << this->Shade << "\n";
   os << indent << indent << "Ambient: " << this->Ambient << "\n";

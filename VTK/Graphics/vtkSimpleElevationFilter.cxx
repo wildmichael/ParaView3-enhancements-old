@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSimpleElevationFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:06:50 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2000-04-25 13:29:45 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -132,7 +132,7 @@ void vtkSimpleElevationFilter::Execute()
   newScalars->Delete();
 }
 
-void vtkSimpleElevationFilter::PrintSelf(ostream& os, vtkIndent indent)
+void vtkSimpleElevationFilter::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkDataSetToDataSetFilter::PrintSelf(os,indent);
 

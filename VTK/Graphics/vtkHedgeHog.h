@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHedgeHog.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:05:22 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2000-04-25 13:28:52 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -55,7 +55,7 @@ class VTK_EXPORT vtkHedgeHog : public vtkDataSetToPolyDataFilter
 public:
   static vtkHedgeHog *New();
   vtkTypeMacro(vtkHedgeHog,vtkDataSetToPolyDataFilter);
-  void PrintSelf(ostream& os, vtkIndent indent);
+  void PrintSelf(vtkOstream& os, vtkIndent indent);
 
   // Description:
   // Set scale factor to control size of oriented lines.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextureMapToSphere.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:07:14 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2000-04-25 13:29:58 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -210,7 +210,7 @@ void vtkTextureMapToSphere::Execute()
   newTCoords->Delete();
 }
 
-void vtkTextureMapToSphere::PrintSelf(ostream& os, vtkIndent indent)
+void vtkTextureMapToSphere::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkDataSetToDataSetFilter::PrintSelf(os,indent);
 

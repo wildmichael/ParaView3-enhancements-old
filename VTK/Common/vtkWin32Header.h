@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32Header.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:04:07 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2000-04-25 13:27:46 $
+  Version:   $Revision: 1.8 $
   Thanks:    to Horst Schreiber for developing this MFC code
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,22 +39,20 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
+// .NAME vtkWin32Header - manage Windows system differences
+// .SECTION Description
+// The vtkWin32Header captures some system differences between Unix and
+// Windows operating systems. 
 
 #ifndef __vtkWIN32Header_h
 #define __vtkWIN32Header_h
 
-// include  generic stuff 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <fstream.h>
-#include <math.h>
-
-// now add in the UNIX / Windows varients
+//
+// Windows specific stuff------------------------------------------
 #if defined(_WIN32) || defined(WIN32)
-#include <strstrea.h>
 #include <windows.h>
 
+// Handle compiler warning messages, etc.
 #pragma warning ( disable : 4244 )
 #pragma warning ( disable : 4305 )
 #pragma warning ( disable : 4309 )
@@ -65,10 +63,9 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define VTK_EXPORT __declspec( dllimport )
 #endif
 
-// Now for the UNIX stuff
-#else 
+// If not Windows, then -------------------------------------------
+#else
 
-#include <strstream.h>
 #define VTK_EXPORT
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridGeometryFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:06:58 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2000-04-25 13:29:51 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -459,7 +459,7 @@ void vtkStructuredGridGeometryFilter::SetExtent(int *extent)
     }
 }
 
-void vtkStructuredGridGeometryFilter::PrintSelf(ostream& os, vtkIndent indent)
+void vtkStructuredGridGeometryFilter::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkStructuredGridToPolyDataFilter::PrintSelf(os,indent);
 

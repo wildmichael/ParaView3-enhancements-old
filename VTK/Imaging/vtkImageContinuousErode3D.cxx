@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageContinuousErode3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:08:14 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2000-04-25 13:30:37 $
+  Version:   $Revision: 1.15 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -92,7 +92,7 @@ vtkImageContinuousErode3D::~vtkImageContinuousErode3D()
 
 
 //----------------------------------------------------------------------------
-void vtkImageContinuousErode3D::PrintSelf(ostream& os, vtkIndent indent)
+void vtkImageContinuousErode3D::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkImageSpatialFilter::PrintSelf(os,indent);
 }

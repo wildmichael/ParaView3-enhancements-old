@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTensors.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:03:54 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2000-04-25 13:27:39 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -154,7 +154,7 @@ void vtkTensors::GetTensors(vtkIdList *ptIds, vtkTensors *t)
     }
 }
 
-void vtkTensors::PrintSelf(ostream& os, vtkIndent indent)
+void vtkTensors::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkAttributeData::PrintSelf(os,indent);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEarthSource.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:04:15 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2000-04-25 13:27:53 $
+  Version:   $Revision: 1.17 $
   Thanks:    Thanks to Tom Johnson at Johnson Scientific International who
              developed and contributed this class. Also see
              ftp://www.ou.edu/pub/simtelnet/msdos/worldmap and the
@@ -60,7 +60,7 @@ class VTK_EXPORT vtkEarthSource : public vtkPolyDataSource
 public:
   static vtkEarthSource *New();
   vtkTypeMacro(vtkEarthSource,vtkPolyDataSource);
-  void PrintSelf(ostream& os, vtkIndent indent);
+  void PrintSelf(vtkOstream& os, vtkIndent indent);
 
   // Description:
   // Set radius of earth.

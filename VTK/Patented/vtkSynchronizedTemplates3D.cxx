@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSynchronizedTemplates3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:09:24 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2000-04-25 13:31:24 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1040,7 +1040,7 @@ vtkImageData *vtkSynchronizedTemplates3D::GetInput()
 
 
 //----------------------------------------------------------------------------
-void vtkSynchronizedTemplates3D::PrintSelf(ostream& os, vtkIndent indent)
+void vtkSynchronizedTemplates3D::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkPolyDataSource::PrintSelf(os,indent);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDataStreamer.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:08:15 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2000-04-25 13:30:39 $
+  Version:   $Revision: 1.14 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -134,10 +134,10 @@ vtkImageDataStreamer::vtkImageDataStreamer()
 
 
 //----------------------------------------------------------------------------
-void vtkImageDataStreamer::PrintSelf(ostream& os, vtkIndent indent)
+void vtkImageDataStreamer::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkImageToImageFilter::PrintSelf(os,indent);
-  os << indent << "MemoryLimit (in kb): " << this->MemoryLimit << endl;
+  os << indent << "MemoryLimit (in kb): " << this->MemoryLimit << vtkEndl;
   os << indent << "SplitMode: ";
   if (this->SplitMode == VTK_IMAGE_DATA_STREAMER_BLOCK_MODE)
     {

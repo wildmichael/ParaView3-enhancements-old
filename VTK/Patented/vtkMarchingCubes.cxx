@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:09:20 $
-  Version:   $Revision: 1.64 $
+  Date:      $Date: 2000-04-25 13:31:21 $
+  Version:   $Revision: 1.65 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -674,7 +674,7 @@ void vtkMarchingCubes::CreateDefaultLocator()
     }
 }
 
-void vtkMarchingCubes::PrintSelf(ostream& os, vtkIndent indent)
+void vtkMarchingCubes::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkStructuredPointsToPolyDataFilter::PrintSelf(os,indent);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataConnectivityFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:06:14 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2000-04-25 13:29:23 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -574,7 +574,7 @@ void vtkPolyDataConnectivityFilter::DeleteSpecifiedRegion(int id)
   this->SpecifiedRegionIds->DeleteId(id);
 }
 
-void vtkPolyDataConnectivityFilter::PrintSelf(ostream& os, vtkIndent indent)
+void vtkPolyDataConnectivityFilter::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkPolyDataToPolyDataFilter::PrintSelf(os,indent);
 

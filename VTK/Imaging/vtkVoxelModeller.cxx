@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoxelModeller.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-20 13:38:52 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2000-04-25 13:30:18 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -333,7 +333,7 @@ void vtkVoxelModeller::Write(char *fname)
   fp = fopen(fname,"w");
   if (!fp) 
     {
-    vtkErrorMacro(<< "Couldn't open file: " << fname << endl);
+    vtkErrorMacro(<< "Couldn't open file: " << fname << vtkEndl);
     return;
     }
 
@@ -377,7 +377,7 @@ void vtkVoxelModeller::Write(char *fname)
   fclose(fp);
 }
 
-void vtkVoxelModeller::PrintSelf(ostream& os, vtkIndent indent)
+void vtkVoxelModeller::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkDataSetToStructuredPointsFilter::PrintSelf(os,indent);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEdgePoints.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:05:09 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2000-04-25 13:28:39 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -231,7 +231,7 @@ void vtkEdgePoints::Execute()
   cellScalars->Delete();
 }
 
-void vtkEdgePoints::PrintSelf(ostream& os, vtkIndent indent)
+void vtkEdgePoints::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkDataSetToPolyDataFilter::PrintSelf(os,indent);
 

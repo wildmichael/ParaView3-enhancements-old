@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitModeller.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:05:26 $
-  Version:   $Revision: 1.63 $
+  Date:      $Date: 2000-04-25 13:28:55 $
+  Version:   $Revision: 1.64 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -962,7 +962,7 @@ char *vtkImplicitModeller::GetProcessModeAsString()
     }
 }
 
-void vtkImplicitModeller::PrintSelf(ostream& os, vtkIndent indent)
+void vtkImplicitModeller::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkDataSetToStructuredPointsFilter::PrintSelf(os,indent);
 
@@ -985,8 +985,8 @@ void vtkImplicitModeller::PrintSelf(ostream& os, vtkIndent indent)
 
   os << indent << "Capping: " << (this->Capping ? "On\n" : "Off\n");
   os << indent << "Cap Value: " << this->CapValue << "\n";
-  os << indent << "Process Mode: " << this->GetProcessModeAsString() << endl;
-  os << indent << "Number Of Threads (for PerVoxel mode): " << this->NumberOfThreads << endl;
+  os << indent << "Process Mode: " << this->GetProcessModeAsString() << vtkEndl;
+  os << indent << "Number Of Threads (for PerVoxel mode): " << this->NumberOfThreads << vtkEndl;
 }
 
 

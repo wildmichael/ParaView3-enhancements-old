@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkReferenceCount.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:03:46 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2000-04-25 13:27:34 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -56,7 +56,7 @@ public:
   static vtkReferenceCount *New();
 
   vtkTypeMacro(vtkReferenceCount,vtkObject);
-  void PrintSelf(ostream& os, vtkIndent indent);
+  void PrintSelf(vtkOstream& os, vtkIndent indent);
   
 protected:  
   vtkReferenceCount();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLODActor.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:05:36 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2000-04-25 13:29:03 $
+  Version:   $Revision: 1.33 $
   
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -73,7 +73,7 @@ class VTK_EXPORT vtkLODActor : public vtkActor
 {
 public:
   vtkTypeMacro(vtkLODActor,vtkActor);
-  void PrintSelf(ostream& os, vtkIndent indent);
+  void PrintSelf(vtkOstream& os, vtkIndent indent);
 
   // Description:
   // Creates a vtkLODActor with the following defaults: origin(0,0,0) 

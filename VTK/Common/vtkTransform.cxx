@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-12 19:49:26 $
-  Version:   $Revision: 1.84 $
+  Date:      $Date: 2000-04-25 13:27:40 $
+  Version:   $Revision: 1.85 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -873,7 +873,7 @@ vtkTransform::~vtkTransform ()
   delete [] this->StackBottom;
 }
 
-void vtkTransform::PrintSelf (ostream& os, vtkIndent indent)
+void vtkTransform::PrintSelf (vtkOstream& os, vtkIndent indent)
 {
   vtkLinearTransform::PrintSelf(os, indent);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastCompositeFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:07:38 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2000-04-25 13:30:13 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -2603,7 +2603,7 @@ char *vtkVolumeRayCastCompositeFunction::GetCompositeMethodAsString(void)
 
 // Print method for vtkVolumeRayCastCompositeFunction
 // Since there is nothing local to print, just print the object stuff.
-void vtkVolumeRayCastCompositeFunction::PrintSelf(ostream& os, vtkIndent indent)
+void vtkVolumeRayCastCompositeFunction::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkVolumeRayCastFunction::PrintSelf(os,indent);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageViewer.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:08:54 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2000-04-25 13:31:07 $
+  Version:   $Revision: 1.30 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -86,12 +86,12 @@ vtkImageViewer::~vtkImageViewer()
 }
 
 //----------------------------------------------------------------------------
-void vtkImageViewer::PrintSelf(ostream& os, vtkIndent indent)
+void vtkImageViewer::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkObject::PrintSelf(os, indent);
-  os << indent << *this->ImageWindow << endl;
-  os << indent << *this->Imager << endl;
-  os << indent << *this->ImageMapper << endl;
+  os << indent << *this->ImageWindow << vtkEndl;
+  os << indent << *this->Imager << vtkEndl;
+  os << indent << *this->ImageMapper << vtkEndl;
 }
 
 

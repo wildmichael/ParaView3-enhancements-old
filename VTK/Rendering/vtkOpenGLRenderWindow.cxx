@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-18 01:59:28 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2000-04-25 13:29:15 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,9 +39,6 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-#include <stdlib.h>
-#include <math.h>
-#include <iostream.h>
 #include "vtkOpenGLRenderWindow.h"
 #include "vtkOpenGLRenderer.h"
 #include "vtkOpenGLProperty.h"
@@ -737,7 +734,7 @@ Colormap vtkOpenGLRenderWindow::GetDesiredColormap ()
   return this->ColorMap;  
 }
 
-void vtkOpenGLRenderWindow::PrintSelf(ostream& os, vtkIndent indent)
+void vtkOpenGLRenderWindow::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   this->vtkXRenderWindow::PrintSelf(os,indent);
 

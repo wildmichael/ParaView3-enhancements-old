@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInterpolatingSubdivisionFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:05:35 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2000-04-25 13:29:02 $
+  Version:   $Revision: 1.5 $
   Thanks:    This work was supported bt PHS Research Grant No. 1 P41 RR13218-01
              from the National Center for Research Resources
 
@@ -59,7 +59,7 @@ class VTK_EXPORT vtkInterpolatingSubdivisionFilter : public vtkPolyDataToPolyDat
 {
 public:
   vtkTypeMacro(vtkInterpolatingSubdivisionFilter,vtkPolyDataToPolyDataFilter);
-  void PrintSelf(ostream& os, vtkIndent indent);
+  void PrintSelf(vtkOstream& os, vtkIndent indent);
 
   // Description:
   // Set/get the number of subdivisions.

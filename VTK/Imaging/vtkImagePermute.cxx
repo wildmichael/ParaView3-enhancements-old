@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagePermute.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-03-26 03:59:27 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2000-04-25 13:30:57 $
+  Version:   $Revision: 1.23 $
   Thanks:    Thanks to Abdalmajeid M. Alyassin who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -277,7 +277,7 @@ void vtkImagePermute::ThreadedExecute(vtkImageData *inData,
     }
 }
 
-void vtkImagePermute::PrintSelf(ostream& os, vtkIndent indent)
+void vtkImagePermute::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkImageToImageFilter::PrintSelf(os,indent);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointPicker.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:06:11 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2000-04-25 13:29:22 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -59,7 +59,7 @@ class VTK_EXPORT vtkPointPicker : public vtkPicker
 public:
   static vtkPointPicker *New();
   vtkTypeMacro(vtkPointPicker,vtkPicker);
-  void PrintSelf(ostream& os, vtkIndent indent);
+  void PrintSelf(vtkOstream& os, vtkIndent indent);
 
   // Description:
   // Get the id of the picked point. If PointId = -1, nothing was picked.

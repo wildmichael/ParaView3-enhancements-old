@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXImageWindow.h,v $
   Language:  C++
-  Date:      $Date: 2000-03-16 19:41:00 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2000-04-25 13:31:16 $
+  Version:   $Revision: 1.20 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -55,9 +55,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include 	<X11/cursorfont.h>
 #include 	<X11/X.h>
 #include 	<X11/keysym.h>
-#include    	<fstream.h>
-#include 	<stdlib.h>
-#include 	<iostream.h>
 
 #include        "vtkImageWindow.h"
 
@@ -66,7 +63,7 @@ class VTK_EXPORT vtkXImageWindow : public vtkImageWindow
 public:
   static vtkXImageWindow *New();
   vtkTypeMacro(vtkXImageWindow,vtkImageWindow);
-  void PrintSelf(ostream& os, vtkIndent indent);
+  void PrintSelf(vtkOstream& os, vtkIndent indent);
 
   // Description:
   // Implements SetWindowName for a X window

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindowTclInteractor.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:08:02 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2000-04-25 13:30:26 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -66,7 +66,7 @@ class VTK_EXPORT vtkXRenderWindowTclInteractor : public vtkRenderWindowInteracto
 public:
   static vtkXRenderWindowTclInteractor *New();
   vtkTypeMacro(vtkXRenderWindowTclInteractor,vtkRenderWindowInteractor);
-  void PrintSelf(ostream& os, vtkIndent indent);
+  void PrintSelf(vtkOstream& os, vtkIndent indent);
 
   // Description:
   // Initializes the event handlers without an XtAppContext.  This is

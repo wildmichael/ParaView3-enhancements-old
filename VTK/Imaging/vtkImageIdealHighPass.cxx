@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageIdealHighPass.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:08:28 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2000-04-25 13:30:46 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -260,7 +260,7 @@ void vtkImageIdealHighPass::ThreadedExecute(vtkImageData *inData,
     }
 }
 
-void vtkImageIdealHighPass::PrintSelf(ostream& os, vtkIndent indent)
+void vtkImageIdealHighPass::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkImageToImageFilter::PrintSelf(os,indent);
 

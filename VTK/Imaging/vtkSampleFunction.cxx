@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSampleFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:06:44 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 2000-04-25 13:29:41 $
+  Version:   $Revision: 1.48 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -316,7 +316,7 @@ void vtkSampleFunction::Cap(vtkScalars *s)
 }
 
 
-void vtkSampleFunction::PrintSelf(ostream& os, vtkIndent indent)
+void vtkSampleFunction::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkStructuredPointsSource::PrintSelf(os,indent);
 

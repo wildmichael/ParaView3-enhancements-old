@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergeDataObjectFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:05:46 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2000-04-25 13:29:10 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -144,7 +144,7 @@ void vtkMergeDataObjectFilter::Execute()
 
 
 //----------------------------------------------------------------------------
-void vtkMergeDataObjectFilter::PrintSelf(ostream& os, vtkIndent indent)
+void vtkMergeDataObjectFilter::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkDataSetToDataSetFilter::PrintSelf(os,indent);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpVector.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:07:52 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2000-04-25 13:30:21 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -207,7 +207,7 @@ int vtkWarpVector::SplitPointRange(int threadId, int threadCount,
 
 
 
-void vtkWarpVector::PrintSelf(ostream& os, vtkIndent indent)
+void vtkWarpVector::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkPointSetToPointSetFilter::PrintSelf(os,indent);
 

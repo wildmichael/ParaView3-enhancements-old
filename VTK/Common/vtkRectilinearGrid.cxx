@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-12 18:10:47 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2000-04-25 13:27:33 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -969,7 +969,7 @@ void vtkRectilinearGrid::DeepCopy(vtkDataObject *dataObject)
 }
 
 //----------------------------------------------------------------------------
-void vtkRectilinearGrid::PrintSelf(ostream& os, vtkIndent indent)
+void vtkRectilinearGrid::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkDataSet::PrintSelf(os,indent);
 
@@ -984,12 +984,12 @@ void vtkRectilinearGrid::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "WholeExtent: " << this->WholeExtent[0] << ", "
      << this->WholeExtent[1] << ", " << this->WholeExtent[2] << ", "
      << this->WholeExtent[3] << ", " << this->WholeExtent[4] << ", "
-     << this->WholeExtent[5] << endl;
+     << this->WholeExtent[5] << vtkEndl;
 
   os << indent << "Extent: " << this->Extent[0] << ", "
      << this->Extent[1] << ", " << this->Extent[2] << ", "
      << this->Extent[3] << ", " << this->Extent[4] << ", "
-     << this->Extent[5] << endl;
+     << this->Extent[5] << vtkEndl;
 
 }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkReverseSense.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:06:40 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2000-04-25 13:29:38 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -150,7 +150,7 @@ void vtkReverseSense::Execute()
 }
 
 
-void vtkReverseSense::PrintSelf(ostream& os, vtkIndent indent)
+void vtkReverseSense::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkPolyDataToPolyDataFilter::PrintSelf(os,indent);
 

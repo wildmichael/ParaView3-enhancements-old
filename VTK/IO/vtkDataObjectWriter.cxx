@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObjectWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:04:57 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2000-04-25 13:28:30 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -90,7 +90,7 @@ vtkDataObject *vtkDataObjectWriter::GetInput()
 // Write FieldData data to file
 void vtkDataObjectWriter::WriteData()
 {
-  ostream *fp;
+  vtkOstream *fp;
   vtkFieldData *f=this->GetInput()->GetFieldData();
 
   vtkDebugMacro(<<"Writing vtk FieldData data...");
@@ -107,7 +107,7 @@ void vtkDataObjectWriter::WriteData()
   this->Writer->CloseVTKFile(fp);  
 }
 
-void vtkDataObjectWriter::PrintSelf(ostream& os, vtkIndent indent)
+void vtkDataObjectWriter::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkWriter::PrintSelf(os,indent);
   

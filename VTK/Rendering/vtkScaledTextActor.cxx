@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScaledTextActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:09:06 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2000-04-25 13:31:12 $
+  Version:   $Revision: 1.13 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -260,12 +260,12 @@ int vtkScaledTextActor::RenderOpaqueGeometry(vtkViewport *viewport)
   return 1;
 }
 
-void vtkScaledTextActor::PrintSelf(ostream& os, vtkIndent indent)
+void vtkScaledTextActor::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkActor2D::PrintSelf(os,indent);
 
-  os << indent << "MaximumLineHeight: " << this->MaximumLineHeight << endl;
-  os << indent << "MinimumSize: " << this->MinimumSize[0] << " " << this->MinimumSize[1] << endl;
+  os << indent << "MaximumLineHeight: " << this->MaximumLineHeight << vtkEndl;
+  os << indent << "MinimumSize: " << this->MinimumSize[0] << " " << this->MinimumSize[1] << vtkEndl;
 }
 
 vtkCoordinate *vtkScaledTextActor::GetPosition2Coordinate() 

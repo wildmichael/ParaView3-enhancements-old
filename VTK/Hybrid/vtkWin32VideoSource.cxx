@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32VideoSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:04:31 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2000-04-25 13:28:07 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -90,7 +90,7 @@ vtkWin32VideoSource::~vtkWin32VideoSource()
 }
 
 //----------------------------------------------------------------------------
-void vtkWin32VideoSource::PrintSelf(ostream& os, vtkIndent indent)
+void vtkWin32VideoSource::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkVideoSource::PrintSelf(os,indent);
 }
@@ -105,19 +105,19 @@ vtkWin32VideoSourceWinProc(HWND hwnd, UINT message,
 
   /* Let all messages pass through
   case WM_MOVE:
-    // cerr << "WM_MOVE\n";
+    // vtkCerr << "WM_MOVE\n";
     break;
 
   case WM_SIZE:
-    // cerr << "WM_SIZE\n";
+    // vtkCerr << "WM_SIZE\n";
     break;
     
   case WM_DESTROY:
-    // cerr << "WM_DESTROY\n";    
+    // vtkCerr << "WM_DESTROY\n";    
     break;
 
   case WM_CLOSE:
-    // cerr << "WM_CLOSE\n";
+    // vtkCerr << "WM_CLOSE\n";
     break;
   */
 
@@ -146,12 +146,12 @@ LRESULT PASCAL vtkWin32VideoSourceStatusCallbackProc(HWND hwndC, int nID,
   /* 
   if (nID == IDS_CAP_BEGIN)
     {
-    cerr << "start of capture\n";
+    vtkCerr << "start of capture\n";
     }
 
   if (nID == IDS_CAP_END)
     {
-    cerr << "end of capture\n";
+    vtkCerr << "end of capture\n";
     }
   */
 

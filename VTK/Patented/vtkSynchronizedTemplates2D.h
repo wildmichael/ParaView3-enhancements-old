@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSynchronizedTemplates2D.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:09:23 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2000-04-25 13:31:24 $
+  Version:   $Revision: 1.8 $
 
 
 
@@ -75,7 +75,7 @@ class VTK_EXPORT vtkSynchronizedTemplates2D : public vtkStructuredPointsToPolyDa
 public:
   static vtkSynchronizedTemplates2D *New();
   vtkTypeMacro(vtkSynchronizedTemplates2D,vtkStructuredPointsToPolyDataFilter);
-  void PrintSelf(ostream& os, vtkIndent indent);
+  void PrintSelf(vtkOstream& os, vtkIndent indent);
 
   // Description:
   // Because we delegate to vtkContourValues

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellCenters.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-03-20 10:18:59 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2000-04-25 13:28:17 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -139,7 +139,7 @@ void vtkCellCenters::Execute()
     }
 }
 
-void vtkCellCenters::PrintSelf(ostream& os, vtkIndent indent)
+void vtkCellCenters::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkDataSetToPolyDataFilter::PrintSelf(os,indent);
 

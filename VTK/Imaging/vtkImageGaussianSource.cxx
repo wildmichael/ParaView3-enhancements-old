@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageGaussianSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:08:25 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2000-04-25 13:30:44 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -207,7 +207,7 @@ void vtkImageGaussianSource::Execute(vtkImageData *data)
     }
 }
 
-void vtkImageGaussianSource::PrintSelf(ostream& os, vtkIndent indent)
+void vtkImageGaussianSource::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkImageSource::PrintSelf(os,indent);
 

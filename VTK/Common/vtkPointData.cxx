@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointData.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:03:33 $
-  Version:   $Revision: 1.58 $
+  Date:      $Date: 2000-04-25 13:27:24 $
+  Version:   $Revision: 1.59 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -93,7 +93,7 @@ void vtkPointData::NullPoint (int ptId)
     }
 }
 
-void vtkPointData::PrintSelf(ostream& os, vtkIndent indent)
+void vtkPointData::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkDataSetAttributes::PrintSelf(os,indent);
 }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageLaplacian.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:08:31 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2000-04-25 13:30:48 $
+  Version:   $Revision: 1.18 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -72,7 +72,7 @@ vtkImageLaplacian::vtkImageLaplacian()
 
 
 //----------------------------------------------------------------------------
-void vtkImageLaplacian::PrintSelf(ostream& os, vtkIndent indent)
+void vtkImageLaplacian::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   this->vtkImageToImageFilter::PrintSelf(os, indent);
   os << indent << "Dimensionality: " << this->Dimensionality;

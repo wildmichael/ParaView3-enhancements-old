@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThresholdPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:07:16 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2000-04-25 13:30:00 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -158,7 +158,7 @@ void vtkThresholdPoints::Execute()
   output->Squeeze();
 }
 
-void vtkThresholdPoints::PrintSelf(ostream& os, vtkIndent indent)
+void vtkThresholdPoints::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkDataSetToPolyDataFilter::PrintSelf(os,indent);
 

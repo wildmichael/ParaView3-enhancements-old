@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpLens.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:07:50 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2000-04-25 13:30:19 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -122,7 +122,7 @@ void vtkWarpLens::Execute()
   newPts->Delete();
 }
 
-void vtkWarpLens::PrintSelf(ostream& os, vtkIndent indent)
+void vtkWarpLens::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkPointSetToPointSetFilter::PrintSelf(os,indent);
   

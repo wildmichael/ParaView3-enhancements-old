@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractGrid.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-21 17:19:44 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2000-04-25 13:28:43 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -71,7 +71,7 @@ class VTK_EXPORT vtkExtractGrid : public vtkStructuredGridToStructuredGridFilter
 public:
   static vtkExtractGrid *New();
   vtkTypeMacro(vtkExtractGrid,vtkStructuredGridToStructuredGridFilter);
-  void PrintSelf(ostream& os, vtkIndent indent);
+  void PrintSelf(vtkOstream& os, vtkIndent indent);
 
   // Description:
   // Specify i-j-k (min,max) pairs to extract. The resulting structured grid

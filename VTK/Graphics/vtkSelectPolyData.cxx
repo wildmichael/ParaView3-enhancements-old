@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSelectPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:06:46 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2000-04-25 13:29:42 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -591,7 +591,7 @@ unsigned long int vtkSelectPolyData::GetMTime()
   return mTime;
 }
 
-void vtkSelectPolyData::PrintSelf(ostream& os, vtkIndent indent)
+void vtkSelectPolyData::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkPolyDataToPolyDataFilter::PrintSelf(os,indent);
 

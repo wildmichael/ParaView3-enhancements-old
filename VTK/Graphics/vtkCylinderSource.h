@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCylinderSource.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:04:54 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2000-04-25 13:28:28 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -57,7 +57,7 @@ class VTK_EXPORT vtkCylinderSource : public vtkPolyDataSource
 public:
   static vtkCylinderSource *New();
   vtkTypeMacro(vtkCylinderSource,vtkPolyDataSource);
-  void PrintSelf(ostream& os, vtkIndent indent);
+  void PrintSelf(vtkOstream& os, vtkIndent indent);
 
   // Description:
   // Set the height of the cylinder.

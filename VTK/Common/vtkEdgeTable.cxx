@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEdgeTable.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:03:08 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2000-04-25 13:27:04 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -459,7 +459,7 @@ int vtkEdgeTable::InsertUniquePoint(int p1, int p2, float x[3], int &ptId)
     }
 }
 
-void vtkEdgeTable::PrintSelf(ostream& os, vtkIndent indent)
+void vtkEdgeTable::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkObject::PrintSelf(os,indent);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMatrixToLinearTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-09 19:03:21 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2000-04-25 13:27:18 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -57,7 +57,7 @@ vtkMatrixToLinearTransform* vtkMatrixToLinearTransform::New()
 }
 
 //----------------------------------------------------------------------------
-void vtkMatrixToLinearTransform::PrintSelf(ostream& os, vtkIndent indent)
+void vtkMatrixToLinearTransform::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkLinearTransform::PrintSelf(os, indent);
 }

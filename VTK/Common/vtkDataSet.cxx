@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSet.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-17 12:07:20 $
-  Version:   $Revision: 1.74 $
+  Date:      $Date: 2000-04-25 13:27:01 $
+  Version:   $Revision: 1.75 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -373,7 +373,7 @@ void vtkDataSet::InternalDataSetCopy(vtkDataSet *src)
 }
 
 //----------------------------------------------------------------------------
-void vtkDataSet::PrintSelf(ostream& os, vtkIndent indent)
+void vtkDataSet::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   float *bounds;
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMaskPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:05:45 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2000-04-25 13:29:09 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -215,7 +215,7 @@ void vtkMaskPolyData::Execute()
   output->Squeeze();
 }
 
-void vtkMaskPolyData::PrintSelf(ostream& os, vtkIndent indent)
+void vtkMaskPolyData::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkPolyDataToPolyDataFilter::PrintSelf(os,indent);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProjectedPolyDataRayBounder.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:06:23 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2000-04-25 13:29:27 $
+  Version:   $Revision: 1.17 $
   Thanks:    Thanks to Lisa Sobierajski Avila who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -201,7 +201,7 @@ float *vtkProjectedPolyDataRayBounder::Draw( vtkRenderer *vtkNotUsed(ren),
 
 // Print the object including the PolyData, the matrix source, and the
 // build time.
-void vtkProjectedPolyDataRayBounder::PrintSelf(ostream& os, vtkIndent indent)
+void vtkProjectedPolyDataRayBounder::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkRayBounder::PrintSelf(os, indent);
 

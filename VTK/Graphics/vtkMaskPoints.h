@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMaskPoints.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:05:45 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2000-04-25 13:29:09 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -57,7 +57,7 @@ class VTK_EXPORT vtkMaskPoints : public vtkDataSetToPolyDataFilter
 public:
   static vtkMaskPoints *New();
   vtkTypeMacro(vtkMaskPoints,vtkDataSetToPolyDataFilter);
-  void PrintSelf(ostream& os, vtkIndent indent);
+  void PrintSelf(vtkOstream& os, vtkIndent indent);
 
   // Description:
   // Turn on every nth point.

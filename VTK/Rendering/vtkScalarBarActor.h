@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalarBarActor.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-14 22:22:15 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2000-04-25 13:31:12 $
+  Version:   $Revision: 1.25 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -85,7 +85,7 @@ class VTK_EXPORT vtkScalarBarActor : public vtkActor2D
 {
 public:
   vtkTypeMacro(vtkScalarBarActor,vtkActor2D);
-  void PrintSelf(ostream& os, vtkIndent indent);
+  void PrintSelf(vtkOstream& os, vtkIndent indent);
 
   // Description:
   // Instantiate object with 64 maximum colors; 5 labels; font size 12

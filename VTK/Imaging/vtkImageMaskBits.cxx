@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMaskBits.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:08:37 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2000-04-25 13:30:52 $
+  Version:   $Revision: 1.7 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -255,13 +255,13 @@ void vtkImageMaskBits::ThreadedExecute(vtkImageData *inData,
 }
 
 
-void vtkImageMaskBits::PrintSelf(ostream& os, vtkIndent indent)
+void vtkImageMaskBits::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkImageToImageFilter::PrintSelf(os,indent);
 
   os << indent << "Operation: " << this->Operation << "\n";
   os << indent << "Masks: (" << this->Masks[0] << ", " << this->Masks[1] << ", "
-     << this->Masks[2] << ", " << this->Masks[3] << ")" << endl;
+     << this->Masks[2] << ", " << this->Masks[3] << ")" << vtkEndl;
 }
 
 

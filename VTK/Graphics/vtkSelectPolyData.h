@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSelectPolyData.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:06:47 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2000-04-25 13:29:42 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -119,7 +119,7 @@ public:
   static vtkSelectPolyData *New();
 
   vtkTypeMacro(vtkSelectPolyData,vtkPolyDataToPolyDataFilter);
-  void PrintSelf(ostream& os, vtkIndent indent);
+  void PrintSelf(vtkOstream& os, vtkIndent indent);
 
   // Description:
   // Set/Get the flag to control behavior of the filter. If

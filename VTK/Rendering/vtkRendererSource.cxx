@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRendererSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:06:40 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2000-04-25 13:29:37 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -172,7 +172,7 @@ void vtkRendererSource::Execute()
   delete [] pixels;
 }
 
-void vtkRendererSource::PrintSelf(ostream& os, vtkIndent indent)
+void vtkRendererSource::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkStructuredPointsSource::PrintSelf(os,indent);
 

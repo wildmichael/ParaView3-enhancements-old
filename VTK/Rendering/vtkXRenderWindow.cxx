@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:07:58 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2000-04-25 13:30:25 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,9 +39,6 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-#include <math.h>
-#include <stdlib.h>
-#include <iostream.h>
 #include "vtkXRenderWindow.h"
 #include "vtkXRenderWindowInteractor.h"
 #include "vtkObjectFactory.h"
@@ -335,7 +332,7 @@ void vtkXRenderWindow::SetDisplayId(void *arg)
   this->OwnDisplay = 0;
 }
 
-void vtkXRenderWindow::PrintSelf(ostream& os, vtkIndent indent)
+void vtkXRenderWindow::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   this->vtkRenderWindow::PrintSelf(os,indent);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProgrammableAttributeDataFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:06:20 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2000-04-25 13:29:25 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -211,7 +211,7 @@ void vtkProgrammableAttributeDataFilter::Execute()
     }
 }
 
-void vtkProgrammableAttributeDataFilter::PrintSelf(ostream& os, vtkIndent indent)
+void vtkProgrammableAttributeDataFilter::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkDataSetToDataSetFilter::PrintSelf(os,indent);
 

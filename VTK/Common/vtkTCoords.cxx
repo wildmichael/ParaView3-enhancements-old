@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTCoords.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:03:52 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2000-04-25 13:27:38 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -105,7 +105,7 @@ void vtkTCoords::GetTCoords(vtkIdList *ptIds, vtkTCoords *tc)
     }
 }
 
-void vtkTCoords::PrintSelf(ostream& os, vtkIndent indent)
+void vtkTCoords::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkAttributeData::PrintSelf(os,indent);
 

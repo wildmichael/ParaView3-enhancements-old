@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkJavaUtil.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:03:22 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2000-04-25 13:27:12 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -43,7 +43,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #ifndef __vtkJavaUtil_h
 #define __vtkJavaUtil_h
 
-#include <string.h>
+#include "vtkSystemIncludes.h"
 #include <jni.h>
 
 class vtkObject;

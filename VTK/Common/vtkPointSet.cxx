@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSet.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-12 18:10:45 $
-  Version:   $Revision: 1.60 $
+  Date:      $Date: 2000-04-25 13:27:27 $
+  Version:   $Revision: 1.61 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -414,7 +414,7 @@ void vtkPointSet::DeepCopy(vtkDataObject *dataObject)
 }
 
 //----------------------------------------------------------------------------
-void vtkPointSet::PrintSelf(ostream& os, vtkIndent indent)
+void vtkPointSet::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkDataSet::PrintSelf(os,indent);
 

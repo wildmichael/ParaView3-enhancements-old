@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:07:02 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2000-04-25 13:29:52 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -81,7 +81,7 @@ vtkStructuredGrid *vtkStructuredGridWriter::GetInput()
 
 void vtkStructuredGridWriter::WriteData()
 {
-  ostream *fp;
+  vtkOstream *fp;
   vtkStructuredGrid *input= this->GetInput();
   int dim[3];
 
@@ -107,7 +107,7 @@ void vtkStructuredGridWriter::WriteData()
   this->CloseVTKFile(fp);
 }
 
-void vtkStructuredGridWriter::PrintSelf(ostream& os, vtkIndent indent)
+void vtkStructuredGridWriter::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkDataWriter::PrintSelf(os,indent);
 }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRecursiveDividingCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:06:32 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2000-04-25 13:29:33 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -354,7 +354,7 @@ void vtkRecursiveDividingCubes::SubDivide(float origin[3], float h[3],
     }
 }
 
-void vtkRecursiveDividingCubes::PrintSelf(ostream& os, vtkIndent indent)
+void vtkRecursiveDividingCubes::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkStructuredPointsToPolyDataFilter::PrintSelf(os,indent);
 

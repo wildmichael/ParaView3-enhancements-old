@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSet.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-17 12:07:20 $
-  Version:   $Revision: 1.92 $
+  Date:      $Date: 2000-04-25 13:27:01 $
+  Version:   $Revision: 1.93 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -74,7 +74,7 @@ class VTK_EXPORT vtkDataSet : public vtkDataObject
 {
 public:
   vtkTypeMacro(vtkDataSet,vtkDataObject);
-  void PrintSelf(ostream& os, vtkIndent indent);
+  void PrintSelf(vtkOstream& os, vtkIndent indent);
   
   // Description:
   // Copy the geometric and topological structure of an object. Note that

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDelaunay3D.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:05:07 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2000-04-25 13:28:37 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -118,7 +118,7 @@ class VTK_EXPORT vtkDelaunay3D : public vtkUnstructuredGridSource
 {
 public:
   vtkTypeMacro(vtkDelaunay3D,vtkUnstructuredGridSource);
-  void PrintSelf(ostream& os, vtkIndent indent);
+  void PrintSelf(vtkOstream& os, vtkIndent indent);
 
   // Description:
   // Construct object with Alpha = 0.0; Tolerance = 0.001; Offset = 2.5;

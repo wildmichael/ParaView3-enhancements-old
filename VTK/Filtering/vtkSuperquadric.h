@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSuperquadric.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:04:25 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2000-04-25 13:28:02 $
+  Version:   $Revision: 1.11 $
   Thanks:    Mike Halle, Brigham and Women's Hospital
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -79,7 +79,7 @@ public:
   static vtkSuperquadric *New();
 
   vtkTypeMacro(vtkSuperquadric,vtkImplicitFunction);
-  void PrintSelf(ostream& os, vtkIndent indent);
+  void PrintSelf(vtkOstream& os, vtkIndent indent);
 
   // ImplicitFunction interface
   float EvaluateFunction(float x[3]);

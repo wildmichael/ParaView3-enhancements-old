@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLandmarkTransform.h,v $
   Language:  C++
-  Date:      $Date: 2000-03-07 19:48:51 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2000-04-25 13:27:56 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to Tim Hutton and David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -66,7 +66,7 @@ public:
   static vtkLandmarkTransform *New();
 
   vtkTypeMacro(vtkLandmarkTransform,vtkLinearTransform);
-  void PrintSelf(ostream& os, vtkIndent indent);
+  void PrintSelf(vtkOstream& os, vtkIndent indent);
 
   // Description:
   // Specify the source and target landmark sets. The two sets must have 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageBlockReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:04:16 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2000-04-25 13:27:53 $
+  Version:   $Revision: 1.8 $
   
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -93,15 +93,15 @@ vtkImageBlockReader::~vtkImageBlockReader()
 }
 
 //----------------------------------------------------------------------------
-void vtkImageBlockReader::PrintSelf(ostream& os, vtkIndent indent)
+void vtkImageBlockReader::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   int idx;
   vtkImageSource::PrintSelf(os,indent);
   
-  os << indent << "FilePattern: " << this->FilePattern << endl;
-  os << indent << "Overlap: " << this->Overlap << endl;
+  os << indent << "FilePattern: " << this->FilePattern << vtkEndl;
+  os << indent << "Overlap: " << this->Overlap << vtkEndl;
   os << indent << "Divisions: " << this->Divisions[0] << ", "
-     << this->Divisions[1] << ", " << this->Divisions[2] << endl;
+     << this->Divisions[1] << ", " << this->Divisions[2] << vtkEndl;
 
   os << indent << "WholeExtent: (" << this->WholeExtent[0]
      << "," << this->WholeExtent[1];
@@ -112,8 +112,8 @@ void vtkImageBlockReader::PrintSelf(ostream& os, vtkIndent indent)
     }
 
   os << indent << "NumberOfScalarComponents: " 
-     << this->NumberOfScalarComponents << endl;
-  os << indent << "ScalarType: " << this->ScalarType << endl;
+     << this->NumberOfScalarComponents << vtkEndl;
+  os << indent << "ScalarType: " << this->ScalarType << vtkEndl;
 }
 
 

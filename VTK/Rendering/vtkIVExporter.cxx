@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIVExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-15 19:46:58 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2000-04-25 13:28:53 $
+  Version:   $Revision: 1.26 $
   Thanks:    to Jon A. Webb of Visual Interface Inc.
 
 
@@ -715,7 +715,7 @@ void vtkIVExporter::WritePointData(vtkPoints *points, vtkNormals *normals,
 }
 
 
-void vtkIVExporter::PrintSelf(ostream& os, vtkIndent ind)
+void vtkIVExporter::PrintSelf(vtkOstream& os, vtkIndent ind)
 {
   vtkExporter::PrintSelf(os,ind);
  

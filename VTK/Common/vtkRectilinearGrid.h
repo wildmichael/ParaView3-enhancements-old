@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGrid.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-12 18:10:47 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2000-04-25 13:27:33 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -73,7 +73,7 @@ public:
   static vtkRectilinearGrid *New();
 
   vtkTypeMacro(vtkRectilinearGrid,vtkDataSet);
-  void PrintSelf(ostream& os, vtkIndent indent);
+  void PrintSelf(vtkOstream& os, vtkIndent indent);
 
   // Description:
   // Create a similar type object.

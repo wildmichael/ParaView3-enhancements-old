@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProp.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:03:41 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2000-04-25 13:27:31 $
+  Version:   $Revision: 1.9 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -130,7 +130,7 @@ void vtkProp::ShallowCopy(vtkProp *Prop)
   this->SetPickMethodArgDelete(Prop->PickMethodArgDelete);
 }
 
-void vtkProp::PrintSelf(ostream& os, vtkIndent indent)
+void vtkProp::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   this->vtkObject::PrintSelf(os,indent);
 
@@ -147,11 +147,11 @@ void vtkProp::PrintSelf(ostream& os, vtkIndent indent)
     }
 
   os << indent << "AllocatedRenderTime: " 
-     << this->AllocatedRenderTime << endl;
+     << this->AllocatedRenderTime << vtkEndl;
   os << indent << "EstimatedRenderTime: " 
-     << this->EstimatedRenderTime << endl;
+     << this->EstimatedRenderTime << vtkEndl;
   os << indent << "RenderTimeMultiplier: " 
-     << this->RenderTimeMultiplier << endl;
+     << this->RenderTimeMultiplier << vtkEndl;
   os << indent << "Visibility: " << (this->Visibility ? "On\n" : "Off\n");
 }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyle.h,v $
   Language:  C++
-  Date:      $Date: 2000-03-01 18:19:54 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2000-04-25 13:28:59 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -82,7 +82,7 @@ public:
   static vtkInteractorStyle *New();
 
   vtkTypeMacro(vtkInteractorStyle,vtkObject);
-  void PrintSelf(ostream& os, vtkIndent indent);
+  void PrintSelf(vtkOstream& os, vtkIndent indent);
 
   // Description:
   // Set/Get the Interactor wrapper being controlled by this object.

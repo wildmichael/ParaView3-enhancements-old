@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKitwareObjectFactory.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:09:19 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2000-04-25 13:31:20 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -44,9 +44,9 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkKitwareContourFilter.h"
 #include "vtkVersion.h"
 
-void vtkKitwareObjectFactory::PrintSelf(ostream& os, vtkIndent indent)
+void vtkKitwareObjectFactory::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
-  os << indent << "Kitware object factory" << endl;
+  os << indent << "Kitware object factory" << vtkEndl;
 }
 
 

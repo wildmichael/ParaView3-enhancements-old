@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCriticalSection.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-03-27 00:49:44 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2000-04-25 13:26:59 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -143,7 +143,7 @@ vtkSimpleCriticalSection *vtkSimpleCriticalSection::SafeDownCast(vtkSimpleCritic
   return (vtkSimpleCriticalSection *)o;
 }
   
-void vtkCriticalSection::PrintSelf(ostream& os, vtkIndent indent)
+void vtkCriticalSection::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkObject::PrintSelf(os, indent);
 }

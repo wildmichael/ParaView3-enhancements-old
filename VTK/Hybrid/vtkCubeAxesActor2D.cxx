@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCubeAxesActor2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:04:11 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2000-04-25 13:27:50 $
+  Version:   $Revision: 1.18 $
   Thanks:    Thorsten Dowe who modified and improved this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -606,7 +606,7 @@ float *vtkCubeAxesActor2D::GetBounds()
 }
 
 
-void vtkCubeAxesActor2D::PrintSelf(ostream& os, vtkIndent indent)
+void vtkCubeAxesActor2D::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkActor2D::PrintSelf(os,indent);
 

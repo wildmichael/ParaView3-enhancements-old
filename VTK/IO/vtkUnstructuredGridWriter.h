@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGridWriter.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:07:27 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2000-04-25 13:30:06 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -57,7 +57,7 @@ class VTK_EXPORT vtkUnstructuredGridWriter : public vtkDataWriter
 public:
   static vtkUnstructuredGridWriter *New();
   vtkTypeMacro(vtkUnstructuredGridWriter,vtkDataWriter);
-  void PrintSelf(ostream& os, vtkIndent indent);
+  void PrintSelf(vtkOstream& os, vtkIndent indent);
 
   // Description:
   // Specify the input data or filter.

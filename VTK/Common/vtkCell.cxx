@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCell.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:02:58 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 2000-04-25 13:26:56 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -257,7 +257,7 @@ int vtkCell::GetParametricCenter(float pcoords[3])
   return 0;
 }
 
-void vtkCell::PrintSelf(ostream& os, vtkIndent indent)
+void vtkCell::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   int numIds=this->PointIds->GetNumberOfIds();
 

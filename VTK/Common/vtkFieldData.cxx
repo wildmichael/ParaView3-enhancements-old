@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFieldData.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-21 18:58:10 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2000-04-25 13:27:04 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -645,7 +645,7 @@ unsigned long vtkFieldData::GetActualMemorySize()
   return size;
 }
 
-void vtkFieldData::PrintSelf(ostream& os, vtkIndent indent)
+void vtkFieldData::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkObject::PrintSelf(os,indent);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpVector.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:07:53 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2000-04-25 13:30:21 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -58,7 +58,7 @@ class VTK_EXPORT vtkWarpVector : public vtkPointSetToPointSetFilter
 public:
   static vtkWarpVector *New();
   vtkTypeMacro(vtkWarpVector,vtkPointSetToPointSetFilter);
-  void PrintSelf(ostream& os, vtkIndent indent);
+  void PrintSelf(vtkOstream& os, vtkIndent indent);
 
   // Description:
   // Specify value to scale displacement.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSynchronizedTemplates2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:09:23 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2000-04-25 13:31:24 $
+  Version:   $Revision: 1.6 $
 
 
 
@@ -485,7 +485,7 @@ void vtkSynchronizedTemplates2D::Execute()
   output->Squeeze();
 }
 
-void vtkSynchronizedTemplates2D::PrintSelf(ostream& os, vtkIndent indent)
+void vtkSynchronizedTemplates2D::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkStructuredPointsToPolyDataFilter::PrintSelf(os,indent);
 

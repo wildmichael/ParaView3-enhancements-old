@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransformFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-03-28 22:26:13 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2000-04-25 13:30:01 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -213,7 +213,7 @@ unsigned long vtkTransformFilter::GetMTime()
   return mTime;
 }
 
-void vtkTransformFilter::PrintSelf(ostream& os, vtkIndent indent)
+void vtkTransformFilter::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkPointSetToPointSetFilter::PrintSelf(os,indent);
 

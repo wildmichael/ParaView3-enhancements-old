@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaRenderer.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:05:53 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2000-04-25 13:29:12 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -59,7 +59,7 @@ protected:
 public:
   static vtkMesaRenderer *New();
   vtkTypeMacro(vtkMesaRenderer,vtkRenderer);
-  void PrintSelf(ostream& os, vtkIndent indent);
+  void PrintSelf(vtkOstream& os, vtkIndent indent);
 
   // Description:
   // Concrete open gl render method.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHyperStreamline.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-28 12:14:29 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2000-04-25 13:28:52 $
+  Version:   $Revision: 1.40 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -837,7 +837,7 @@ void vtkHyperStreamline::BuildTube()
   output->Squeeze();
 }
 
-void vtkHyperStreamline::PrintSelf(ostream& os, vtkIndent indent)
+void vtkHyperStreamline::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkDataSetToPolyDataFilter::PrintSelf(os,indent);
 

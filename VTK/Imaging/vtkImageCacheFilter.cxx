@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCacheFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:08:09 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2000-04-25 13:30:33 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -79,14 +79,14 @@ vtkImageCacheFilter::~vtkImageCacheFilter()
 
 
 //----------------------------------------------------------------------------
-void vtkImageCacheFilter::PrintSelf(ostream& os, vtkIndent indent)
+void vtkImageCacheFilter::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   int idx, *ext;
   vtkIndent i2 = indent.GetNextIndent();
   
   vtkImageToImageFilter::PrintSelf(os,indent);
 
-  os << indent << "CacheSize: " << this->CacheSize << endl;
+  os << indent << "CacheSize: " << this->CacheSize << vtkEndl;
   os << indent << "Caches: \n";
   for (idx = 0; idx < this->CacheSize; ++idx)
     {
@@ -95,7 +95,7 @@ void vtkImageCacheFilter::PrintSelf(ostream& os, vtkIndent indent)
       ext = this->Data[idx]->GetExtent();
       os << i2 << idx << ": (" << this->Times[idx] 
 	 << ") " << ext[0] << ", " << ext[1] << ", " << ext[2] << ", " 
-	 << ext[3] << ", " << ext[4] << ", " << ext[5] << endl;
+	 << ext[3] << ", " << ext[4] << ", " << ext[5] << vtkEndl;
       }
     }
 }

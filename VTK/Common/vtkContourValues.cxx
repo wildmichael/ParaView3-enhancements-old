@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkContourValues.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-15 21:07:31 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2000-04-25 13:26:58 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -203,7 +203,7 @@ int vtkContourValues::GetNumberOfContours()
   return this->Contours->GetMaxId()+1;
 }
 
-void vtkContourValues::PrintSelf(ostream& os, vtkIndent indent)
+void vtkContourValues::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   int i, numContours=this->Contours->GetMaxId() + 1;
 

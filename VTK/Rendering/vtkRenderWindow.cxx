@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-12 21:20:35 $
-  Version:   $Revision: 1.96 $
+  Date:      $Date: 2000-04-25 13:29:34 $
+  Version:   $Revision: 1.97 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -705,7 +705,7 @@ int vtkRenderWindow::CheckAbortStatus()
   return this->AbortRender;
 }
 
-void vtkRenderWindow::PrintSelf(ostream& os, vtkIndent indent)
+void vtkRenderWindow::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkWindow::PrintSelf(os,indent);
 

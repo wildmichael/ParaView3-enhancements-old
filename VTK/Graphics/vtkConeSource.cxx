@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkConeSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:04:49 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 2000-04-25 13:28:23 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -305,7 +305,7 @@ float vtkConeSource::GetAngle()
 }
 
 //----------------------------------------------------------------------------
-void vtkConeSource::PrintSelf(ostream& os, vtkIndent indent)
+void vtkConeSource::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkPolyDataSource::PrintSelf(os,indent);
 

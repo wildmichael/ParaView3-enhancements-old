@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObjectReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:04:55 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2000-04-25 13:28:28 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -159,7 +159,7 @@ char *vtkDataObjectReader::GetFieldDataName()
   return this->Reader->GetFieldDataName();
 }
 
-void vtkDataObjectReader::PrintSelf(ostream& os, vtkIndent indent)
+void vtkDataObjectReader::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkDataObjectSource::PrintSelf(os,indent);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkViewRays.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:07:33 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2000-04-25 13:30:10 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -88,7 +88,7 @@ class VTK_EXPORT vtkViewRays :public vtkObject
 public:
   static vtkViewRays *New();
     vtkTypeMacro(vtkViewRays,vtkObject);
-  void PrintSelf(ostream& os,vtkIndent indent);
+  void PrintSelf(vtkOstream& os,vtkIndent indent);
 
   // Description:
   // Specify the vtkRenderer whose camera will be used to to calculate 

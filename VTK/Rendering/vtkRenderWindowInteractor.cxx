@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:06:35 $
-  Version:   $Revision: 1.67 $
+  Date:      $Date: 2000-04-25 13:29:35 $
+  Version:   $Revision: 1.68 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -366,7 +366,7 @@ void vtkRenderWindowInteractor::EndPickCallback()
     }
 }
 
-void vtkRenderWindowInteractor::PrintSelf(ostream& os, vtkIndent indent)
+void vtkRenderWindowInteractor::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkObject::PrintSelf(os,indent);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSinusoidSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:08:49 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2000-04-25 13:31:02 $
+  Version:   $Revision: 1.22 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -241,7 +241,7 @@ void vtkImageSinusoidSource::Execute(vtkImageData *data)
     }
 }
 
-void vtkImageSinusoidSource::PrintSelf(ostream& os, vtkIndent indent)
+void vtkImageSinusoidSource::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkImageSource::PrintSelf(os,indent);
 

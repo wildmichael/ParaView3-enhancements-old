@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUGFacetReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:07:24 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2000-04-25 13:30:04 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -383,7 +383,7 @@ void vtkUGFacetReader::CreateDefaultLocator()
     }
 }
 
-void vtkUGFacetReader::PrintSelf(ostream& os, vtkIndent indent)
+void vtkUGFacetReader::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkPolyDataSource::PrintSelf(os,indent);
 

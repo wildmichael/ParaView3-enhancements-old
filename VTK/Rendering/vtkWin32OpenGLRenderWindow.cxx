@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-11 19:52:12 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 2000-04-25 13:30:21 $
+  Version:   $Revision: 1.51 $
   Thanks:    to Horst Schreiber for developing this MFC code
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -847,7 +847,7 @@ void vtkWin32OpenGLRenderWindow::WindowRemap()
   this->WindowInitialize();
 }
 
-void vtkWin32OpenGLRenderWindow::PrintSelf(ostream& os, vtkIndent indent)
+void vtkWin32OpenGLRenderWindow::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   this->vtkRenderWindow::PrintSelf(os,indent);
 

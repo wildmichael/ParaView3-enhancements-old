@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-13 15:29:59 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 2000-04-25 13:30:10 $
+  Version:   $Revision: 1.50 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -811,7 +811,7 @@ void vtkVolume::UpdateScalarOpacityforSampleSize( vtkRenderer *vtkNotUsed(ren),
 }
 
 
-void vtkVolume::PrintSelf(ostream& os, vtkIndent indent)
+void vtkVolume::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkProp3D::PrintSelf(os,indent);
 

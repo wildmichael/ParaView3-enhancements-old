@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProperty2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-03-22 15:28:52 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2000-04-25 13:27:32 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -79,7 +79,7 @@ vtkProperty2D::~vtkProperty2D()
 
 }
 
-void vtkProperty2D::PrintSelf(ostream& os, vtkIndent indent)
+void vtkProperty2D::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
 
   this->vtkObject::PrintSelf(os, indent);

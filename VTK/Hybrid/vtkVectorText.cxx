@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectorText.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:07:30 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2000-04-25 13:30:08 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1767,7 +1767,7 @@ void vtkVectorText::Execute()
   newPolys->Delete();
 }
   
-void vtkVectorText::PrintSelf(ostream& os, vtkIndent indent)
+void vtkVectorText::PrintSelf(vtkOstream& os, vtkIndent indent)
 {
   vtkPolyDataSource::PrintSelf(os,indent);
 
