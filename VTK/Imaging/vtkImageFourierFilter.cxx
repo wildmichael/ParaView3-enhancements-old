@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageFourierFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 21:16:27 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1998-01-30 19:26:09 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -49,14 +49,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 	Vectors of complex numbers.
 =========================================================================*/
 
-
-
-
-//----------------------------------------------------------------------------
-void vtkImageFourierFilter::PrintSelf(ostream& os, vtkIndent indent)
-{
-  vtkImageFilter::PrintSelf(os,indent);
-}
 
 
 

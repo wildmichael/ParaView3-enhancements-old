@@ -1,10 +1,10 @@
 /*=========================================================================
 
   Program:   Visualization Toolkit
-  Module:    $RCSfile: vtkImageButterworthHighPass.h,v $
+  Module:    $RCSfile: vtkImageDecomposeFilter.h,v $
   Language:  C++
-  Date:      $Date: 1998-01-30 19:25:48 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-01-30 19:25:55 $
+  Version:   $Revision: 1.1 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,58 +38,58 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-// .NAME vtkImageButterworthHighPass - Frequency domain high pass.
+// .NAME vtkImageDecomposeFilter - Filters that execute axes in series.
 // .SECTION Description
-// vtkImageButterworthHighPass  the frequency components around 0 are
-// attenuated.  Input and output are in floats, with two components
-// (complex numbers).
-// out(i, j) = 1 / (1 + pow(CutOff/Freq(i,j), 2*Order));
+// This superclass molds the vtkImageIterateFilter superclass so
+// it iterates over the axes.  The filter uses dimensionality to 
+// determine how many axes to execute (starting from x).  
+// Full filtered axes is not supported (but could be).
+// The filter also provides convenience methods for permuting information
+// retrieved from input, output and vtkImageData.
+
+#ifndef __vtkImageDecomposeFilter_h
+#define __vtkImageDecomposeFilter_h
 
 
+#include "vtkImageIterateFilter.h"
 
-#ifndef __vtkImageButterworthHighPass_h
-#define __vtkImageButterworthHighPass_h
-
-
-#include "vtkImageFilter.h"
-
-class VTK_EXPORT vtkImageButterworthHighPass : public vtkImageFilter
+class VTK_EXPORT vtkImageDecomposeFilter : public vtkImageIterateFilter
 {
 public:
-  vtkImageButterworthHighPass();
-  static vtkImageButterworthHighPass *New() 
-    {return new vtkImageButterworthHighPass;};
-  const char *GetClassName() {return "vtkImageButterworthHighPass";};
+  vtkImageDecomposeFilter();
+  static vtkImageDecomposeFilter *New() {return new vtkImageDecomposeFilter;};
+  const char *GetClassName() {return "vtkImageDecomposeFilter";};
+  void PrintSelf(ostream& os, vtkIndent indent);
+
+  void SetDimensionality(int dim);
+  vtkGetMacro(Dimensionality,int);
 
   // Description:
-  // Set/Get the cutoff frequency for each axis.
-  // The values are specified in the order X, Y, Z, Time.
-  // Units: Cycles per world unit (as defined by the data spacing).
-  vtkSetVector3Macro(CutOff,float);
-  void SetCutOff(float v) {this->SetCutOff(v, v, v);}
-  void SetXCutOff(float v);
-  void SetYCutOff(float v);
-  void SetZCutOff(float v);
-  vtkGetVector3Macro(CutOff,float);
-  float GetXCutOff() {return this->CutOff[0];}
-  float GetYCutOff() {return this->CutOff[1];}
-  float GetZCutOff() {return this->CutOff[2];}
+  // for compatability
+  void SetFilteredAxes(int axis0);
+  void SetFilteredAxes(int axis0, int axis2);
+  void SetFilteredAxes(int axis0, int axis2, int axis3);
 
   // Description:
-  // The order determines sharpness of the cutoff curve.
-  vtkSetMacro(Order, int);
-  vtkGetMacro(Order, int);
-  
+  // public for template execute functions
+  void PermuteIncrements(int *increments, int &inc0, int &inc1, int &inc2);
+  void PermuteExtent(int *extent, int &min0, int &max0, int &min1, int &max1,
+		     int &min2, int &max2);
   
 protected:
-  int Order;
-  float CutOff[3];
-  
-  void ThreadedExecute(vtkImageData *inData, vtkImageData *outData,
-		       int outExt[6], int id);
+  int Dimensionality;
+
+
 };
 
 #endif
+
+
+
+
+
+
+
 
 
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageFourierFilter.h,v $
   Language:  C++
-  Date:      $Date: 1998-01-26 16:26:28 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1998-01-30 19:26:10 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -43,13 +43,14 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // vtkImageFourierFilter is a class of filters that use complex numbers
 // this superclass is a container for methods that manipulate these structure
 // including fast Fourier transforms.  Complex numbers may become a class.
+// This should realy be a helper class.
 
 
 #ifndef __vtkImageFourierFilter_h
 #define __vtkImageFourierFilter_h
 
 
-#include "vtkImageFilter.h"
+#include "vtkImageDecomposeFilter.h"
 
 
 //BTX
@@ -110,12 +111,11 @@ typedef struct{
 /******************* End of COMPLEX number stuff ********************/
 //ETX
 
-class VTK_EXPORT vtkImageFourierFilter : public vtkImageFilter
+class VTK_EXPORT vtkImageFourierFilter : public vtkImageDecomposeFilter
 {
 public:
   static vtkImageFourierFilter *New() {return new vtkImageFourierFilter;};
   const char *GetClassName() {return "vtkImageFourierFilter";};
-  void PrintSelf(ostream& os, vtkIndent indent);
   
   // public for templated functions of this object
   //BTX
