@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-22 18:20:58 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1998-05-22 19:41:53 $
+  Version:   $Revision: 1.13 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -53,6 +53,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkViewport.h"
 #include "vtkWindow.h"
 #include "vtkImageData.h"
+
+#define VTK_RINT(x) ((x > 0.0) ? (int)(x + 0.5) : (int)(x - 0.5))
 
 vtkImageMapper::vtkImageMapper()
 {
@@ -153,8 +155,8 @@ void vtkImageMapper::Render(vtkViewport* viewport, vtkActor2D* actor)
   int vSize[2];
   // size excludes last pixel except for last pixelof window
   // this is to prevent overlapping viewports
-  vSize[0] = rint(vCoords[2]) - rint(vCoords[0]);
-  vSize[1] = rint(vCoords[3]) - rint(vCoords[1]);
+  vSize[0] = VTK_RINT(vCoords[2]) - VTK_RINT(vCoords[0]);
+  vSize[1] = VTK_RINT(vCoords[3]) - VTK_RINT(vCoords[1]);
   viewport->ViewportToNormalizedDisplay(vCoords[2],vCoords[3]);
   if (vCoords[2] == 1.0) 
     {
