@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIdList.h,v $
   Language:  C++
-  Date:      $Date: 1999-11-19 21:01:56 $
-  Version:   $Revision: 1.55 $
+  Date:      $Date: 1999-12-01 21:21:30 $
+  Version:   $Revision: 1.56 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -140,6 +140,17 @@ protected:
 
   int *Resize(const int sz);
 };
+
+// In-lined for performance
+inline int vtkIdList::InsertNextId(const int id)
+{
+  if ( this->NumberOfIds >= this->Size )
+    {
+    this->Resize(this->NumberOfIds+1);
+    }
+  this->Ids[this->NumberOfIds++] = id;
+  return this->NumberOfIds-1;
+}
 
 inline int vtkIdList::IsId(int id)
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIdList.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-20 15:07:53 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1999-12-01 21:21:30 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -111,16 +111,6 @@ void vtkIdList::InsertId(const int i, const int id)
     {
     this->NumberOfIds = i + 1;
     }
-}
-
-int vtkIdList::InsertNextId(const int id)
-{
-  if ( this->NumberOfIds >= this->Size )
-    {
-    this->Resize(this->NumberOfIds+1);
-    }
-  this->Ids[this->NumberOfIds++] = id;
-  return this->NumberOfIds-1;
 }
 
 int vtkIdList::InsertUniqueId(const int id)
