@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBMPReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-25 11:14:50 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2002-11-27 13:56:14 $
+  Version:   $Revision: 1.39 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkLookupTable.h"
 
-vtkCxxRevisionMacro(vtkBMPReader, "$Revision: 1.38 $");
+vtkCxxRevisionMacro(vtkBMPReader, "$Revision: 1.39 $");
 vtkStandardNewMacro(vtkBMPReader);
 
 #ifdef read
@@ -48,7 +48,7 @@ vtkBMPReader::vtkBMPReader()
   this->Depth = 0;
   // we need to create it now in case its asked for later (pointer must be valid)
   this->LookupTable = vtkLookupTable::New();
-  this->Allow8BitBMP = false;
+  this->Allow8BitBMP = 0;
 }
 
 //----------------------------------------------------------------------------
