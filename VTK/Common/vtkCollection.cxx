@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkCollection.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-09 19:47:46 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1995-02-22 08:49:48 $
+  Version:   $Revision: 1.8 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -102,10 +102,11 @@ void vlCollection::RemoveItem(vlObject *a)
 // Remove all object from the list.
 void vlCollection::RemoveAllItems()
 {
-  vlCollectionElement *p;  
+  vlCollectionElement *p, *next;
 
-  for ( p=this->Top; p != NULL; p = p->Next )
+  for ( next=p=this->Top; next != NULL; p=next)
     {
+    next = p->Next;
     delete p;
     }
 
