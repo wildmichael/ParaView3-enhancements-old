@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPLYWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-12 15:13:11 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-09-14 20:00:02 $
+  Version:   $Revision: 1.5 $
   Thanks:    Mike Dresser MD/PhD
              Director of Core Facility for Imaging
              Program in Molecular and Cell Biology
@@ -76,6 +76,10 @@ vtkPLYWriter::~vtkPLYWriter()
   if ( this->LookupTable )
     {
     this->LookupTable->Delete();
+    }
+  if ( this->ArrayName )
+    {
+    delete [] this->ArrayName;
     }
 }
 

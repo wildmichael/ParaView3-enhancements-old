@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPLY.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-12 15:59:22 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2001-09-14 20:00:01 $
+  Version:   $Revision: 1.7 $
   Thanks:    Mike Dresser MD/PhD
              Director of Core Facility for Imaging
              Program in Molecular and Cell Biology
@@ -807,6 +807,7 @@ PlyFile *vtkPLY::ply_open_for_reading(
   /* open the file for reading */
 
   fp = fopen (name, "rb");
+  free(name);
   if (fp == NULL)
     return (NULL);
 
@@ -838,17 +839,17 @@ Exit:
   returns a list of properties, or NULL if the file doesn't contain that elem
 ******************************************************************************/
 
-PlyProperty **vtkPLY::ply_get_element_description(
+PlyElement *vtkPLY::ply_get_element_description(
   PlyFile *plyfile,
   char *elem_name,
   int *nelems,
   int *nprops
 )
 {
-  int i;
+  //wjs: this class has been drastically changed because of memory leaks.
+  // the return type is different, and the element properties are not
+  // returned.
   PlyElement *elem;
-  PlyProperty *prop;
-  PlyProperty **prop_list;
 
   /* find information about the element */
   elem = find_element (plyfile, elem_name);
@@ -858,16 +859,7 @@ PlyProperty **vtkPLY::ply_get_element_description(
   *nelems = elem->num;
   *nprops = elem->nprops;
 
-  /* make a copy of the element's property list */
-  prop_list = (PlyProperty **) myalloc (sizeof (PlyProperty *) * elem->nprops);
-  for (i = 0; i < elem->nprops; i++) {
-    prop = (PlyProperty *) myalloc (sizeof (PlyProperty));
-    copy_property (prop, elem->props[i]);
-    prop_list[i] = prop;
-  }
-
-  /* return this duplicate property list */
-  return (prop_list);
+  return elem;
 }
 
 
