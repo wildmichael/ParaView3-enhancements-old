@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-09-13 18:09:20 $
-  Version:   $Revision: 1.158 $
+  Date:      $Date: 2000-09-25 12:40:02 $
+  Version:   $Revision: 1.159 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -657,8 +657,8 @@ void vtkRenderer::CreateLight(void)
 
   // set these values just to have a good default should LightFollowCamera
   // be turned off.
-  this->CreatedLight->SetPosition(this->ActiveCamera->GetPosition());
-  this->CreatedLight->SetFocalPoint(this->ActiveCamera->GetFocalPoint());
+  this->CreatedLight->SetPosition(this->GetActiveCamera()->GetPosition());
+  this->CreatedLight->SetFocalPoint(this->GetActiveCamera()->GetFocalPoint());
 }
 
 // Compute the bounds of the visible props
