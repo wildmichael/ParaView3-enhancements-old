@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSight6Reader.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-22 13:00:21 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2000-12-22 15:02:59 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -113,6 +113,11 @@ vtkEnSight6Reader::~vtkEnSight6Reader()
 {
   int i, j;
   
+  if (this->FilePath)
+    {
+    delete [] this->FilePath;
+    this->FilePath = NULL;
+    }
   if (this->CaseFileName)
     {
     delete [] this->CaseFileName;
