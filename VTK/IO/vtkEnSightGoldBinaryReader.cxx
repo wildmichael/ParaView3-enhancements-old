@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSightGoldBinaryReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-03-13 16:45:13 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2003-03-16 16:22:37 $
+  Version:   $Revision: 1.31 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -30,9 +30,18 @@
 #include "vtkUnstructuredGrid.h"
 
 #include <ctype.h>
+
+#ifdef _MSC_VER
+#pragma warning (push, 3)
+#endif
+
 #include <string>
 
-vtkCxxRevisionMacro(vtkEnSightGoldBinaryReader, "$Revision: 1.30 $");
+#ifdef _MSC_VER
+#pragma warning(pop)
+#endif
+
+vtkCxxRevisionMacro(vtkEnSightGoldBinaryReader, "$Revision: 1.31 $");
 vtkStandardNewMacro(vtkEnSightGoldBinaryReader);
 
 //----------------------------------------------------------------------------
