@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagingFactory.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-22 19:16:42 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1999-10-22 19:24:36 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -75,9 +75,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkXPolyDataMapper2D.h"
 #endif
 
-char *vtkImagingFactoryGetRenderLibrary()
+const char *vtkImagingFactoryGetRenderLibrary()
 {
-  char *temp;
+  const char *temp;
   
   // first check the environment variable
   temp = getenv("VTK_RENDERER");
@@ -127,7 +127,7 @@ vtkObject* vtkImagingFactory::CreateInstance(const char* vtkclassname )
     return ret;
     }
 
-  char *rl = vtkImagingFactoryGetRenderLibrary();
+  const char *rl = vtkImagingFactoryGetRenderLibrary();
 
 #ifdef VTK_USE_OGLR
 #ifndef VTK_USE_NATIVE_IMAGING
