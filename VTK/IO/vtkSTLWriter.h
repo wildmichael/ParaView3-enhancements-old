@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSTLWriter.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:47:20 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1997-10-30 12:13:02 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,7 +41,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // .NAME vtkSTLWriter - write stereo lithography files
 // .SECTION Description
 // vtkSTLWriter writes stereo lithography (.stl) files in either ASCII or 
-// binary form.
+// binary form. Stereo lithography files only contain triangles. If polgons
+// with more than 3 vertices are present, only the first 3 vertices are written.
+// Use vtkTriangleFilter to convert polygons to triangles.
 // .SECTION Caveats
 // Binary files written on one system may not be readable on other systems.
 // vtkSTLWriter uses VAX or PC byte ordering and swaps bytes on other systems.
