@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-02-07 17:14:54 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1994-02-07 17:52:52 $
+  Version:   $Revision: 1.15 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -240,7 +240,7 @@ void vlPolyData::PrintSelf(ostream& os, vlIndent indent)
     vlDataSet::PrintSelf(os,indent);
     
     os << indent << "Number Of Points: " << this->NumberOfPoints() << "\n";
-    os << indent << "Number Of Verticess: " << this->NumberOfVerts() << "\n";
+    os << indent << "Number Of Vertices: " << this->NumberOfVerts() << "\n";
     os << indent << "Number Of Lines: " << this->NumberOfLines() << "\n";
     os << indent << "Number Of Polygons: " << this->NumberOfPolys() << "\n";
     os << indent << "Number Of Triangle Strips: " << this->NumberOfStrips() << "\n";
