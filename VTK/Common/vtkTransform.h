@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransform.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 20:48:19 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1997-06-06 12:42:28 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,7 +56,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // .EXAMPLE XFormSph.cc
 // .SECTION see also
 // vtkMatrix4x4 vtkTransformCollection vtkTransformFilter
-// vtkTransformPolyFilter
+// vtkTransformPolyDataFilter
 
 #ifndef __vtkTransform_h
 #define __vtkTransform_h

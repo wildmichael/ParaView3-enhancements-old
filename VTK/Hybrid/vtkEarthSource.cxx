@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEarthSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-23 20:47:48 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1997-06-06 12:42:33 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to Tom Johnson at Johnson Scientific International who
              developed and contributed this class.
 
@@ -57,7 +57,7 @@ vtkEarthSource::vtkEarthSource()
 
 void vtkEarthSource::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkPolySource::PrintSelf(os,indent);
+  vtkPolyDataSource::PrintSelf(os,indent);
   
   os << indent << "Radius: " << this->Radius << "\n";
   os << indent << "OnRatio: " << this->OnRatio << "\n";

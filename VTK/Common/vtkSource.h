@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSource.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 20:48:10 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 1997-06-06 12:42:27 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -70,7 +70,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // data (please see text).
 
 // .SECTION See Also
-// vtkDataSetReader vtkFilter vtkPolySource vtkStructuredGridSource
+// vtkDataSetReader vtkFilter vtkPolyDataSource vtkStructuredGridSource
 // vtkStructuredPointsSource vtkUnstructuredGridSource
 
 #ifndef __vtkSource_h
