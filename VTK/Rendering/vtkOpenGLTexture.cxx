@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLTexture.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-17 21:18:56 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1997-07-21 13:07:35 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -45,15 +45,11 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkOpenGLTexture.h"
 #include <GL/gl.h>
 
-// shared increasing counter
-long vtkOpenGLTexture::GlobalIndex = 0;
-
 // Description:
 // Initializes an instance, generates a unique index.
 vtkOpenGLTexture::vtkOpenGLTexture()
 {
-  this->GlobalIndex++;
-  this->Index = this->GlobalIndex;
+  this->Index = 0;
 }
 
 // Description:
@@ -173,6 +169,14 @@ void vtkOpenGLTexture::Load(vtkRenderer *vtkNotUsed(ren))
       }
 
     // define a display list for this texture
+    // free any old display lists
+    if (this->Index)
+      {
+      glDeleteLists(this->Index,1);
+      this->Index = 0;
+      }
+    // get a unique display list id
+    this->Index = glGenLists(1);
     glDeleteLists ((GLuint) this->Index, (GLsizei) 0);
     glNewList ((GLuint) this->Index, GL_COMPILE);
     if (this->Interpolate)
