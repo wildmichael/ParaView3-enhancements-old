@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInterpolatedVelocityField.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-04-18 18:57:10 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2003-06-03 17:27:04 $
+  Version:   $Revision: 1.28 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,7 +25,7 @@
 
 #include <vtkstd/vector>
 
-vtkCxxRevisionMacro(vtkInterpolatedVelocityField, "$Revision: 1.27 $");
+vtkCxxRevisionMacro(vtkInterpolatedVelocityField, "$Revision: 1.28 $");
 vtkStandardNewMacro(vtkInterpolatedVelocityField);
 
 typedef vtkstd::vector< vtkDataSet* > DataSetsTypeBase;
@@ -128,6 +128,8 @@ int vtkInterpolatedVelocityField::FunctionValues(vtkDataSet* dataset,
     return 0;
     }
 
+  int found = 0;
+
   if (this->Caching)
     {
     // See if the point is in the cached cell
@@ -137,7 +139,6 @@ int vtkInterpolatedVelocityField::FunctionValues(vtkDataSet* dataset,
                                               this->Weights))
         || ret == -1)
       {
-
       // if not, find and get it
       if (this->LastCellId != - 1 )
         {
@@ -151,35 +152,21 @@ int vtkInterpolatedVelocityField::FunctionValues(vtkDataSet* dataset,
         if (this->LastCellId != - 1)
           {
           dataset->GetCell(this->LastCellId, this->GenCell);
-          }
-        else
-          {
-          return 0;
-          }
-        }
-      else
-        {
-        this->LastCellId = 
-          dataset->FindCell(x, 0, this->GenCell, -1, 0, 
-                            subId, this->LastPCoords, this->Weights);
-        if (this->LastCellId != - 1)
-          {
-          dataset->GetCell(this->LastCellId, this->GenCell);
-          }
-        else
-          {
-          return 0;
+          found = 1;
           }
         }
       }
     else
       {
       this->CacheHit++;
+      found = 1;
       }
     }
-  else
+
+  if (!found)
     {
-    // if caching is off, find the cell and get it
+    // if the cell is not found, do a global search (ignore initial
+    // cell if there is one)
     this->LastCellId = 
       dataset->FindCell(x, 0, this->GenCell, -1, 0, 
                               subId, this->LastPCoords, this->Weights);
