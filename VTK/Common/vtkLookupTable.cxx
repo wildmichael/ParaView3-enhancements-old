@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLookupTable.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-05-28 15:42:17 $
-  Version:   $Revision: 1.65 $
+  Date:      $Date: 2001-05-28 16:07:29 $
+  Version:   $Revision: 1.66 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -281,7 +281,7 @@ float vtkLookupTable::GetOpacity(float v)
 // There is a little more to this than simply taking the log10 of the
 // two range values: we do conversion of negative ranges to positive
 // ranges, and conversion of zero to a 'very small number'
-static void vtkGetLogRange(const float range[2], float logRange[2])
+static void vtkLookupTableLogRange(const float range[2], float logRange[2])
 {
   float rmin = range[0];
   float rmax = range[1];
@@ -379,7 +379,7 @@ unsigned char *vtkLookupTable::MapValue(float v)
   if (this->Scale == VTK_SCALE_LOG10)
     {   // handle logarithmic scale
     float logRange[2];
-    vtkGetLogRange(this->TableRange, logRange);
+    vtkLookupTableLogRange(this->TableRange, logRange);
     shift = -logRange[0];
     scale = maxIndex/(logRange[1] - logRange[0]);    
     v = vtkApplyLogScale(v, this->TableRange, logRange);
@@ -413,7 +413,7 @@ static void vtkLookupTableMapData(vtkLookupTable *self, T *input,
     {
     float val;
     float logRange[2];
-    vtkGetLogRange(range, logRange);
+    vtkLookupTableLogRange(range, logRange);
     shift = -logRange[0];
     scale = maxIndex/(logRange[1] - logRange[0]);
 
