@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-10 13:50:11 $
-  Version:   $Revision: 1.66 $
+  Date:      $Date: 2001-05-03 11:55:21 $
+  Version:   $Revision: 1.67 $
   Thanks:    to Horst Schreiber for developing this MFC code
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -643,9 +643,17 @@ void vtkWin32OpenGLRenderWindow::WindowInitialize (void)
         }
       else
         {
+	DWORD style;
+	if (this->Borders)
+	  {
+	  style = WS_OVERLAPPEDWINDOW | WS_CLIPCHILDREN /*| WS_CLIPSIBLINGS*/;
+	  }
+	else
+	  {
+	  style = WS_POPUP | WS_CLIPCHILDREN /*| WS_CLIPSIBLINGS*/;
+	  }
         this->WindowId = CreateWindow(
-	  "vtkOpenGL", this->WindowName,
-	  WS_OVERLAPPEDWINDOW | WS_CLIPCHILDREN /*| WS_CLIPSIBLINGS*/,
+	  "vtkOpenGL", this->WindowName, style,
 	  x,y, width+2*GetSystemMetrics(SM_CXFRAME),
 	  height+2*GetSystemMetrics(SM_CYFRAME) +GetSystemMetrics(SM_CYCAPTION),
 	  NULL, NULL, this->ApplicationInstance, NULL);
