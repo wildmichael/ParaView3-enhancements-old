@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLPolyDataMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-15 19:22:45 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2000-03-25 13:42:15 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -298,6 +298,7 @@ void vtkOpenGLPolyDataMapper::Render(vtkRenderer *ren, vtkActor *act)
   if (this->ImmediateModeRendering ||
       this->GetGlobalImmediateModeRendering())
     {
+    this->GetColors();
     // Time the actual drawing
     timer->StartTimer();
     this->Draw(ren,act);
