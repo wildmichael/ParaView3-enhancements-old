@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPiecewiseFunction.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:49 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1999-09-30 13:57:33 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -99,8 +99,11 @@ public:
   float *GetRange();
 
   // Description:
-  // Fills in an array of function values evaluated at regular intervals
-  void GetTable( float x1, float x2, int size, float *table );
+  // Fills in an array of function values evaluated at regular intervals.
+  // Parameter "stride" is used to step through the output "table". It is
+  // used by vtkColorTransferFunction to fill in an rgb table using three
+  // separate piecewise functions and three separate calls to GetTable().
+  void GetTable( float x1, float x2, int size, float *table, int stride=1 );
 
   // Description:
   // When zero range clamping is Off, GetValue() returns 0.0 when a
