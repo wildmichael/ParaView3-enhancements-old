@@ -1,4 +1,4 @@
-# $Id: CMakeLists.txt,v 1.9 2003-11-09 06:02:57 dcthomp Exp $
+# $Id: CMakeLists.txt,v 1.10 2004-03-30 23:17:50 andy Exp $
 #
 ## Copyright 2003 Sandia Coporation
 ## Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -74,7 +74,7 @@ ENDIF (MPI_EXTRA_LIBRARY)
 # Configure MPI testing support.
 IF (BUILD_TESTING)
   FIND_PROGRAM(ICET_MPIRUN_EXE NAMES mpirun lamexec)
-  SET(ICET_MPI_PREFLAGS "-np 2" CACHE STRING "Flags used by MPI start program.")
+  SET(ICET_MPI_PREFLAGS "-np;2" CACHE STRING "Flags used by MPI start program.")
   SET(ICET_MPI_POSTFLAGS "" CACHE STRING "Flags used by MPI start program.")
   SET(ICET_MPI_MAX_NUMPROCS "2" CACHE STRING "Maximum number of processors available to run parallel applications.")
   MARK_AS_ADVANCED(ICET_MPIRUN_EXE ICET_MPI_PREFLAGS ICET_MPI_POSTFLAGS ICET_MPI_MAX_NUMPROCS)
