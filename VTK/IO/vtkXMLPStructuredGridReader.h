@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLPStructuredGridReader.h,v $
   Language:  C++
-  Date:      $Date: 2002-11-22 20:48:59 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2003-09-22 17:15:59 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -44,6 +44,10 @@ public:
   // Get/Set the reader's output.
   void SetOutput(vtkStructuredGrid *output);
   vtkStructuredGrid *GetOutput();
+
+  // Description:
+  // Needed for ParaView
+  vtkStructuredGrid* GetOutput(int idx);
   
 protected:
   vtkXMLPStructuredGridReader();
