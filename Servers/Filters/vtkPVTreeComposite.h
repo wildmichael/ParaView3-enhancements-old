@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPVTreeComposite.h,v $
   Language:  C++
-  Date:      $Date: 2001-05-16 21:16:34 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2001-05-30 18:54:20 $
+  Version:   $Revision: 1.6 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -84,13 +84,20 @@ protected:
   int LocalProcessId;
   int RenderAborted;
   vtkPVRenderView *RenderView;
+  int Printing;
+  // Flag used to indicate the first call for a render.
+  // There is no initialize method.
+  int Initialized;
   
 //BTX 
 #ifdef VTK_USE_MPI 
-  int SatelliteFinalAbortCheck();
-  int SatelliteAbortCheck();
-  int RootAbortCheck();
-  int RootFinalAbortCheck();
+  void SatelliteFinalAbortCheck();
+  void SatelliteAbortCheck();
+  void RootAbortCheck();
+  void RootFinalAbortCheck();
+  void RootWaitForSatelliteToFinish(int satelliteId);
+  void RootSendFinalCompositeDescision();
+  
   // For the asynchronous receives.
   vtkMPIController *MPIController;
   vtkMPICommunicator::Request ReceiveRequest;
