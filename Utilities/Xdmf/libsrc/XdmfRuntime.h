@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfRuntime.h,v 1.7 2004-01-15 21:43:56 andy Exp $  */
-/*  Date : $Date: 2004-01-15 21:43:56 $ */
-/*  Version : $Revision: 1.7 $ */
+/*  Id : $Id: XdmfRuntime.h,v 1.8 2004-04-14 20:23:19 berk Exp $  */
+/*  Date : $Date: 2004-04-14 20:23:19 $ */
+/*  Version : $Revision: 1.8 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -98,7 +98,7 @@ next Frequency multiple
 //! Gracefully Clean up
   XdmfInt32  Term( void );
 //! Update from XML in a Disk File
-  XdmfInt32  ParseFile( XdmfString FileName = "XdmfRuntime.xml" );
+  XdmfInt32  ParseFile( XdmfConstString FileName = "XdmfRuntime.xml" );
 //! Update from XML in a XdmfString
   XdmfInt32  ParseBuffer( XdmfString Buffer = NULL  );
 

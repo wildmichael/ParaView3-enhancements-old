@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfRuntime.cxx,v 1.3 2003-09-29 16:00:41 andy Exp $  */
-/*  Date : $Date: 2003-09-29 16:00:41 $ */
-/*  Version : $Revision: 1.3 $ */
+/*  Id : $Id: XdmfRuntime.cxx,v 1.4 2004-04-14 20:23:19 berk Exp $  */
+/*  Date : $Date: 2004-04-14 20:23:19 $ */
+/*  Version : $Revision: 1.4 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -143,7 +143,7 @@ return( XDMF_SUCCESS );
 }
 
 XdmfInt32
-XdmfRuntime::ParseFile( XdmfString FileName ) {
+XdmfRuntime::ParseFile( XdmfConstString FileName ) {
 
 XdmfInt32 Status;
 

@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfXNode.h,v 1.7 2004-01-13 22:59:52 andy Exp $  */
-/*  Date : $Date: 2004-01-13 22:59:52 $ */
-/*  Version : $Revision: 1.7 $ */
+/*  Id : $Id: XdmfXNode.h,v 1.8 2004-04-14 20:23:19 berk Exp $  */
+/*  Date : $Date: 2004-04-14 20:23:19 $ */
+/*  Version : $Revision: 1.8 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -93,7 +93,14 @@ int        size;
 //     ObjectHandle->ManualDelete(ObjectHandle);
 //   }
 
+#ifdef __cplusplus
+extern "C" {
+#endif
 extern void C__XdmfXNodeDelete(void *XdmfXNode);
+#ifdef __cplusplus
+}
+#endif
+
 
 #else 
 
