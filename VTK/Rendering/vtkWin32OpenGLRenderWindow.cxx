@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-07-16 16:43:10 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1998-08-04 17:39:14 $
+  Version:   $Revision: 1.25 $
   Thanks:    to Horst Schreiber for developing this MFC code
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -274,7 +274,7 @@ void vtkWin32OpenGLSetupPixelFormat(HDC hDC,int debug)
 }
 
 vtkWin32OpenGLRenderWindow *vtkWin32OpenGLRenderWindowPtr = NULL;
-vtkWin32OpenGLSetupPalette(HDC hDC, vtkWin32OpenGLRenderWindow *me)
+void vtkWin32OpenGLSetupPalette(HDC hDC, vtkWin32OpenGLRenderWindow *me)
 {
     int pixelFormat = GetPixelFormat(hDC);
     PIXELFORMATDESCRIPTOR pfd;
