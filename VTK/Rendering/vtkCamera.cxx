@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCamera.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:50:57 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 1996-11-15 16:09:45 $
+  Version:   $Revision: 1.46 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -439,6 +439,37 @@ float *vtkCamera::GetOrientation ()
   << ", " << this->Orientation[1] << ", " << this->Orientation[2] << ")");
   
   return this->Orientation;
+}
+
+// Description:
+// Returns the WXYZ orientation of the camera. 
+float *vtkCamera::GetOrientationWXYZ()
+{
+  vtkMatrix4x4  matrix;
+  float *Rz, Rx[3], Ry[3];
+  
+  // calculate a new orientation
+  Rz = this->ViewPlaneNormal;
+  vtkMath::Cross(this->ViewUp,Rz,Rx);
+  vtkMath::Normalize(Rx);
+  vtkMath::Cross(Rz,Rx,Ry);
+  
+  matrix[0][0] = Rx[0];
+  matrix[1][0] = Rx[1];
+  matrix[2][0] = Rx[2];
+  matrix[0][1] = Ry[0];
+  matrix[1][1] = Ry[1];
+  matrix[2][1] = Ry[2];
+  matrix[0][2] = Rz[0];
+  matrix[1][2] = Rz[1];
+  matrix[2][2] = Rz[2];
+  matrix[3][0] = 0;
+  matrix[3][1] = 0;
+  matrix[3][2] = 0;
+  matrix[3][3] = 1;
+
+  this->PerspectiveTransform.SetMatrix(matrix);
+  return this->PerspectiveTransform.GetOrientationWXYZ();
 }
 
 // Description:

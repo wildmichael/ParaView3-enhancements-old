@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCamera.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:50:58 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 1996-11-15 16:09:44 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -192,6 +192,7 @@ class vtkCamera : public vtkObject
   void OrthogonalizeViewUp();
 
   float *GetOrientation();
+  float *GetOrientationWXYZ();
 
   unsigned long int GetViewingRaysMTime();
   void              ViewingRaysModified();
