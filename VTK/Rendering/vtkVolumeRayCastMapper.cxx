@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-15 21:48:29 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1997-07-16 15:26:14 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -63,9 +63,12 @@ vtkVolumeRayCastMapper::vtkVolumeRayCastMapper()
   this->RGBAImage               = NULL;
   this->ZImage                  = NULL;
   this->SampleDistance          = 1.0;
-  this->InterpolationType       = 0;
   this->ThreadCount             = this->Threader.GetThreadCount();
   this->RayBounder              = NULL;
+  this->VolumeRayCastFunction   = NULL;
+  this->OpacityTFArray          = NULL;
+  this->RGBTFArray              = NULL;
+  this->GrayTFArray             = NULL;
 }
 
 // Description:
@@ -82,7 +85,7 @@ vtkVolumeRayCastMapper::~vtkVolumeRayCastMapper()
 struct vtkVolumeRayCastMapperInfo
 {
   vtkVolumeRayCastMapper *Caster;
-  vtkRenderWindow    *RenderWindow;
+  vtkRenderWindow        *RenderWindow;
 };
 
 

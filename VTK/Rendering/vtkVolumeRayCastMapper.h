@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastMapper.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-15 02:51:37 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1997-07-16 15:26:12 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -178,9 +178,6 @@ protected:
   int                        DataIncrement[3];
 
   vtkVolumeRayCastFunction   *VolumeRayCastFunction;
-
-  // The interpolation type (nearest neighbor = 0 or trilinear = 1)
-  int                        InterpolationType;
 
   // The normal encoder for creating/storing gradients and 
   // gradient magnitudes
