@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkTimeStamp.h,v $
   Language:  C++
-  Date:      $Date: 1994-07-13 16:31:02 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1994-08-05 09:01:01 $
+  Version:   $Revision: 1.10 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -29,10 +29,8 @@ public:
   void Modified() {this->ModifiedTime = ++vlTime;};
   unsigned long int GetMTime() {return ModifiedTime;};
 
-  int operator>(vlTimeStamp& ts) 
-    {return (this->ModifiedTime > ts.ModifiedTime);};
-  int operator<(vlTimeStamp& ts) 
-    {return (this->ModifiedTime < ts.ModifiedTime);};
+  int operator>(vlTimeStamp& ts) {return (this->ModifiedTime > ts.ModifiedTime);};
+  int operator<(vlTimeStamp& ts) {return (this->ModifiedTime < ts.ModifiedTime);};
   operator unsigned long int() {return this->ModifiedTime;};
 
 private:
