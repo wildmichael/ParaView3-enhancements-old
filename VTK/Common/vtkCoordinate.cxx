@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCoordinate.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-05-25 15:29:22 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2000-05-26 10:04:02 $
+  Version:   $Revision: 1.21 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -201,11 +201,11 @@ float *vtkCoordinate::GetComputedWorldValue(vtkViewport* viewport)
   if (this->ReferenceCoordinate && this->CoordinateSystem != VTK_WORLD)
     {
     float RefValue[3];
-    int *ival;
+    float *fval;
     
-    ival = this->ReferenceCoordinate->GetComputedDisplayValue(viewport);
-    RefValue[0] = (float)(ival[0]);
-    RefValue[1] = (float)(ival[1]);
+    fval = this->ReferenceCoordinate->GetComputedFloatDisplayValue(viewport);
+    RefValue[0] = fval[0];
+    RefValue[1] = fval[1];
     RefValue[2] = 0.0;
     
     // convert to current coordinate system
