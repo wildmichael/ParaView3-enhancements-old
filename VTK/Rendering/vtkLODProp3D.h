@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLODProp3D.h,v $
   Language:  C++
-  Date:      $Date: 2002-09-15 22:54:23 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2002-12-20 14:01:32 $
+  Version:   $Revision: 1.31 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -140,6 +140,7 @@ public:
   // LOD if automatic LOD selection is off.
   void EnableLOD( int id );
   void DisableLOD( int id );
+  int IsLODEnabled( int id );
 
   // Description:
   // Set the level of a particular LOD. When a LOD is selected for

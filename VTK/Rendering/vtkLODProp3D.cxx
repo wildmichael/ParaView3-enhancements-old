@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLODProp3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-15 22:54:23 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2002-12-20 14:01:32 $
+  Version:   $Revision: 1.37 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -28,7 +28,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkLODProp3D, "$Revision: 1.36 $");
+vtkCxxRevisionMacro(vtkLODProp3D, "$Revision: 1.37 $");
 vtkStandardNewMacro(vtkLODProp3D);
 
 #define VTK_INDEX_NOT_IN_USE    -1
@@ -670,6 +670,18 @@ void vtkLODProp3D::DisableLOD( int id )
     }
   
   this->LODs[index].State = 0;
+}
+
+int vtkLODProp3D::IsLODEnabled( int id )
+{
+  int index = this->ConvertIDToIndex( id );
+
+  if ( index == VTK_INVALID_LOD_INDEX || index == VTK_INDEX_NOT_IN_USE )
+    {
+    return 0;
+    }
+  
+  return this->LODs[index].State;
 }
 
 void vtkLODProp3D::SetLODLevel( int id, float level )
