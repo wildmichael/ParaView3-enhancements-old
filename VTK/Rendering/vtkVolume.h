@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-13 16:15:37 $
-  Version:   $Revision: 1.52 $
+  Date:      $Date: 2000-09-14 17:16:54 $
+  Version:   $Revision: 1.53 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -267,6 +267,7 @@ public:
   // Override in order to take into account screen coverage
   void AddEstimatedRenderTime( float t, vtkViewport *vp );
   float GetEstimatedRenderTime( vtkViewport *vp );
+  float GetEstimatedRenderTime() {return vtkProp3D::GetEstimatedRenderTime();}
   
 //ETX
 
