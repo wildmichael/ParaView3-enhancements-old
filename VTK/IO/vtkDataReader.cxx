@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 13:27:32 $
-  Version:   $Revision: 1.77 $
+  Date:      $Date: 1999-07-22 21:00:20 $
+  Version:   $Revision: 1.78 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,6 +56,14 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkUnsignedLongArray.h"
 #include "vtkDoubleArray.h"
 #include "vtkFloatArray.h"
+
+
+// this undef is required on the hp. vtkMutexLock ends up including
+// /usr/inclue/dce/cma_ux.h which has the gall to #define read as cma_read
+
+#ifdef read
+#undef read
+#endif
 
 // Construct object.
 vtkDataReader::vtkDataReader()
