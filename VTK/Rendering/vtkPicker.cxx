@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPicker.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-06-12 16:22:24 $
-  Version:   $Revision: 1.57 $
+  Date:      $Date: 2000-06-13 08:21:56 $
+  Version:   $Revision: 1.58 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -295,6 +295,7 @@ int vtkPicker::Pick(float selectionX, float selectionY, float selectionZ,
   vtkVolume *volume;
   vtkAssemblyPath *path;
   this->Transform->PostMultiply();
+  pickable = 0;
   for ( props->InitTraversal(); (prop=props->GetNextProp()); )
     {
     for ( prop->InitPathTraversal(); (path=prop->GetNextPath()); )
@@ -302,7 +303,7 @@ int vtkPicker::Pick(float selectionX, float selectionY, float selectionZ,
       propCandidate = path->GetLastNode()->GetProp();
       if ( propCandidate->GetPickable() && propCandidate->GetVisibility() )
         {
-		pickable = 1;
+	pickable = 1;
         if ( (actor=vtkActor::SafeDownCast(propCandidate)) != NULL )
           {
           mapper = actor->GetMapper();
@@ -325,7 +326,13 @@ int vtkPicker::Pick(float selectionX, float selectionY, float selectionZ,
       //  coordinates. 
       if ( pickable  &&  mapper != NULL )
         {
-        this->Transform->SetMatrix(*(path->GetLastNode()->GetMatrix()));
+	vtkMatrix4x4 *LastMatrix = path->GetLastNode()->GetMatrix();
+	if (LastMatrix == NULL)
+	  {
+	  vtkErrorMacro (<< "Pick: Null matrix.");
+	  return 0;
+	  }
+        this->Transform->SetMatrix(*LastMatrix);
         this->Transform->Push();
         this->Transform->Inverse();
 
