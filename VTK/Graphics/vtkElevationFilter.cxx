@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkElevationFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:34:45 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1995-08-30 12:34:01 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -70,11 +70,12 @@ void vtkElevationFilter::Execute()
   float l, *bounds, *x, s, v[3];
   float diffVector[3], diffScalar;
   vtkMath math;
-//
-// Initialize
-//
+  
+  //
+  // Initialize
+  //
   vtkDebugMacro(<<"Generating elevation scalars!");
-  this->Initialize();
+  this->Output->Initialize();
 
   if ( ((numPts=this->Input->GetNumberOfPoints()) < 1) )
     {
@@ -112,10 +113,10 @@ void vtkElevationFilter::Execute()
 //
 // Update self
 //
-  this->PointData.CopyScalarsOff();
-  this->PointData.PassData(this->Input->GetPointData());
+  this->Output->GetPointData()->CopyScalarsOff();
+  this->Output->GetPointData()->PassData(this->Input->GetPointData());
 
-  this->PointData.SetScalars(newScalars);
+  this->Output->GetPointData()->SetScalars(newScalars);
   newScalars->Delete();
 }
 

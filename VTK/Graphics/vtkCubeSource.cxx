@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCubeSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:34:32 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1995-08-30 12:33:56 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,9 +38,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-//
-// Methods for cube generator
-//
 #include <math.h>
 #include "vtkCubeSource.hh"
 #include "vtkFloatPoints.hh"
@@ -66,10 +63,12 @@ void vtkCubeSource::Execute()
   vtkFloatPoints *newPoints; 
   vtkFloatNormals *newNormals;
   vtkCellArray *newPolys;
-//
-// Set things up; allocate memory
-//
-  this->Initialize();
+  vtkPolyData *output = this->GetOutput();
+  
+  //
+  // Set things up; allocate memory
+  //
+  output->Initialize();
 
   newPoints = new vtkFloatPoints(numPts);
   newNormals = new vtkFloatNormals(numPts);
@@ -140,14 +139,14 @@ void vtkCubeSource::Execute()
 //
 // Update ourselves and release memory
 //
-  this->SetPoints(newPoints);
+  output->SetPoints(newPoints);
   newPoints->Delete();
 
-  this->PointData.SetNormals(newNormals);
+  output->GetPointData()->SetNormals(newNormals);
   newNormals->Delete();
 
   newPolys->Squeeze(); // since we've estimated size; reclaim some space
-  this->SetPolys(newPolys);
+  output->SetPolys(newPolys);
   newPolys->Delete();
 }
 

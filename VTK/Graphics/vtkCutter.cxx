@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCutter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:34:33 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1995-08-30 12:33:03 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -47,16 +47,12 @@ vtkCutter::vtkCutter(vtkImplicitFunction *cf)
   this->CutFunction = cf;
 }
 
-vtkCutter::~vtkCutter()
-{
-}
-
 // Description:
 // Overload standard modified time function. If cut functions is modified,
 // then we are modified as well.
 unsigned long vtkCutter::GetMTime()
 {
-  unsigned long mTime=this->vtkDataSetToPolyFilter::GetMTime();
+  unsigned long mTime=this->vtkDataSetFilter::GetMTime();
   unsigned long cutFuncMTime;
 
   if ( this->CutFunction != NULL )
@@ -81,12 +77,13 @@ void vtkCutter::Execute()
   vtkCellArray *newVerts, *newLines, *newPolys;
   vtkFloatPoints *newPoints;
   float value, *x, s;
-
+  vtkPolyData *output = this->GetOutput();
+  
   vtkDebugMacro(<< "Executing cutter");
 //
 // Initialize self; create output objects
 //
-  this->Initialize();
+  output->Initialize();
 
   if ( !this->CutFunction )
     {
@@ -124,22 +121,22 @@ void vtkCutter::Execute()
 // Update ourselves.  Because we don't know upfront how many verts, lines,
 // polys we've created, take care to reclaim memory. 
 //
-  this->SetPoints(newPoints);
+  output->SetPoints(newPoints);
   newPoints->Delete();
 
-  if (newVerts->GetNumberOfCells()) this->SetVerts(newVerts);
+  if (newVerts->GetNumberOfCells()) output->SetVerts(newVerts);
   newVerts->Delete();
 
-  if (newLines->GetNumberOfCells()) this->SetLines(newLines);
+  if (newLines->GetNumberOfCells()) output->SetLines(newLines);
   newLines->Delete();
 
-  if (newPolys->GetNumberOfCells()) this->SetPolys(newPolys);
+  if (newPolys->GetNumberOfCells()) output->SetPolys(newPolys);
   newPolys->Delete();
 
-  this->PointData.SetScalars(newScalars);
+  output->GetPointData()->SetScalars(newScalars);
   newScalars->Delete();
 
-  this->Squeeze();
+  output->Squeeze();
 }
 
 void vtkCutter::PrintSelf(ostream& os, vtkIndent indent)

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCylinderSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:34:35 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1995-08-30 12:33:06 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,10 +64,12 @@ void vtkCylinderSource::Execute()
   vtkFloatNormals *newNormals;
   vtkFloatTCoords *newTCoords;
   vtkCellArray *newPolys;
+  vtkPolyData *output = this->GetOutput();
+  
 //
 // Set things up; allocate memory
 //
-  this->Initialize();
+  output->Initialize();
 
   if ( this->Capping )
     {
@@ -174,17 +176,17 @@ void vtkCylinderSource::Execute()
 //
 // Update ourselves and release memory
 //
-  this->SetPoints(newPoints);
+  output->SetPoints(newPoints);
   newPoints->Delete();
 
-  this->PointData.SetNormals(newNormals);
+  output->GetPointData()->SetNormals(newNormals);
   newNormals->Delete();
 
-  this->PointData.SetTCoords(newTCoords);
+  output->GetPointData()->SetTCoords(newTCoords);
   newTCoords->Delete();
 
   newPolys->Squeeze(); // since we've estimated size; reclaim some space
-  this->SetPolys(newPolys);
+  output->SetPolys(newPolys);
   newPolys->Delete();
 }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCursor3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:34:33 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1995-08-30 12:33:04 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -73,12 +73,13 @@ void vtkCursor3D::Execute()
   vtkCellArray *newLines;
   float x[3];
   int ptIds[2];
-
+  vtkPolyData *output = this->GetOutput();
+  
   vtkDebugMacro(<<"Generating cursor");
-  this->Initialize();
-//
-// Check bounding box and origin
-//
+  output->Initialize();
+  //
+  // Check bounding box and origin
+  //
   if ( this->Wrap ) 
     {
     for (i=0; i<3; i++)
@@ -318,10 +319,10 @@ void vtkCursor3D::Execute()
 //
 // Update ourselves and release memory
 //
-  this->SetPoints(newPts);
+  output->SetPoints(newPts);
   newPts->Delete();
 
-  this->SetLines(newLines);
+  output->SetLines(newLines);
   newLines->Delete();
 }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCleanPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:34:29 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1995-08-30 12:33:01 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -72,9 +72,11 @@ void vtkCleanPolyData::Execute()
   vtkCellArray *inLines=input->GetLines(), *newLines=NULL;
   vtkCellArray *inPolys=input->GetPolys(), *newPolys=NULL;
   vtkCellArray *inStrips=input->GetStrips(), *newStrips=NULL;
-
+  vtkPolyData *output = this->GetOutput();
+  vtkPointData *outputPD = output->GetPointData();
+  
   vtkDebugMacro(<<"Cleaning data");
-  this->Initialize();
+  output->Initialize();
 
   if ( numPts < 1 || (inPts=input->GetPoints()) == NULL )
     {
@@ -83,7 +85,7 @@ void vtkCleanPolyData::Execute()
     }
 
   pd = input->GetPointData();
-  this->PointData.CopyAllocate(pd);
+  outputPD->CopyAllocate(pd);
 
   if ( this->Locator == NULL ) this->CreateDefaultLocator();
 
@@ -111,14 +113,14 @@ void vtkCleanPolyData::Execute()
     if ( Index[i] == numNewPts ) 
       {
       newPts->SetPoint(numNewPts,inPts->GetPoint(i));
-      this->PointData.CopyData(pd,i,numNewPts);
+      outputPD->CopyData(pd,i,numNewPts);
       numNewPts++;
       }
     }
 
   // need to reclaim space since we've reduced storage req.
   newPts->Squeeze();
-  this->PointData.Squeeze();
+  outputPD->Squeeze();
 
   vtkDebugMacro(<<"Removed " << numPts-numNewPts << " points");
 
@@ -243,26 +245,26 @@ void vtkCleanPolyData::Execute()
 //
   delete [] Index;
 
-  this->SetPoints(newPts);
+  output->SetPoints(newPts);
   newPts->Delete();
   if (newVerts)
     {
-    this->SetVerts(newVerts);
+    output->SetVerts(newVerts);
     newVerts->Delete();
     }
   if (newLines)
     {
-    this->SetLines(newLines);
+    output->SetLines(newLines);
     newLines->Delete();
     }
   if (newPolys)
     {
-    this->SetPolys(newPolys);
+    output->SetPolys(newPolys);
     newPolys->Delete();
     }
   if (newStrips)
     {
-    this->SetStrips(newStrips);
+    output->SetStrips(newStrips);
     newStrips->Delete();
     }
 }
@@ -298,6 +300,5 @@ void vtkCleanPolyData::PrintSelf(ostream& os, vtkIndent indent)
   vtkPolyToPolyFilter::PrintSelf(os,indent);
 
   os << indent << "Tolerance: " << this->Tolerance << "\n";
-
 }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkHyperStreamline.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:35:08 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1995-08-30 12:32:57 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -85,6 +85,7 @@ vtkHyperStreamline::vtkHyperStreamline()
   this->IntegrationDirection = INTEGRATE_FORWARD;
   this->IntegrationStepLength = 0.2;
   this->TerminalSpeed = 0.0;
+  this->Output = new vtkPolyData;
 }
 
 // Description:
@@ -185,9 +186,10 @@ void vtkHyperStreamline::Execute()
   float d, step, dir, vNext[3], tol2, p[3];
   float w[MAX_CELL_SIZE], dist2;
   float closestPoint[3];
-  
+  vtkPolyData *output = this->GetOutput();
+
   vtkDebugMacro(<<"Generating streamers");
-  this->Initialize();
+  output->Initialize();
   this->NumberOfStreamers = 0;
 
   if ( ! (inVectors=pd->GetVectors()) )
