@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageGradient.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-30 18:37:45 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1999-07-31 20:48:44 $
+  Version:   $Revision: 1.20 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -132,7 +132,7 @@ static void vtkImageGradientExecute(vtkImageGradient *self,
 				    int outExt[6], int id)
 {
   int idxX, idxY, idxZ;
-  int maxC, maxX, maxY, maxZ;
+  int maxX, maxY, maxZ;
   int inIncX, inIncY, inIncZ;
   int outIncX, outIncY, outIncZ;
   unsigned long count = 0;
@@ -143,7 +143,6 @@ static void vtkImageGradientExecute(vtkImageGradient *self,
   int useZMin, useZMax, useYMin, useYMax, useXMin, useXMax;
   
   // find the region to loop over
-  maxC = outData->GetNumberOfScalarComponents();
   maxX = outExt[1] - outExt[0];
   maxY = outExt[3] - outExt[2]; 
   maxZ = outExt[5] - outExt[4];

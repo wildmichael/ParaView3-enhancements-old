@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLImageWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-05-13 13:19:20 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-07-31 20:48:45 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -76,7 +76,6 @@ XVisualInfo *vtkOpenGLImageWindowTryForVisual(Display *DisplayId,
 XVisualInfo *vtkOpenGLImageWindow::GetDesiredVisualInfo()
 {
   XVisualInfo   *v = NULL;
-  int           multi;
   
   // get the default display connection 
   if (!this->DisplayId)

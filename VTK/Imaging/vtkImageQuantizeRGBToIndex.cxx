@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageQuantizeRGBToIndex.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-30 18:37:48 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-07-31 20:48:45 $
+  Version:   $Revision: 1.8 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -232,7 +232,7 @@ static void vtkImageQuantizeRGBToIndexExecute(vtkImageQuantizeRGBToIndex *self,
 					      vtkImageData *outData, 
 					      unsigned short *outPtr)
 {
-  int                  extent[6], outExtent[6];
+  int                  extent[6];
   int                  inIncrement[3], outIncrement[3];
   T                    *rgbPtr;
   unsigned short       *indexPtr;
@@ -244,7 +244,6 @@ static void vtkImageQuantizeRGBToIndexExecute(vtkImageQuantizeRGBToIndex *self,
   int                  maxdevAxis, maxdevLeafNode;
   float                maxdev, dev;
   int                  leaf, axis;
-  int                  value;
   int                  cannotDivideFurther;
   vtkLookupTable       *lut;
   float                color[4];
