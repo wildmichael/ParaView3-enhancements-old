@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkReflectionFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-27 13:59:33 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-02-27 14:30:34 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkReflectionFilter.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkReflectionFilter, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkReflectionFilter, "$Revision: 1.3 $");
 vtkStandardNewMacro(vtkReflectionFilter);
 
 //---------------------------------------------------------------------------
@@ -52,40 +52,61 @@ void vtkReflectionFilter::Execute()
   vtkIdType i;
   float point[3];
   vtkGenericCell *cell = vtkGenericCell::New();
+
+  float constant;
   
-  for (i = 0; i < numPts; i++)
+  switch (this->Plane)
     {
-    points->GetPoint(i, point);
-    
-    switch (this->Plane)
-      {
-      case VTK_USE_X_MIN:
-        outPoints->InsertNextPoint(-point[0] + 2*bounds[0], point[1],
-                                   point[2]);
-        break;
-      case VTK_USE_X_MAX:
-        outPoints->InsertNextPoint(-point[0] + 2*bounds[1], point[1],
-                                   point[2]);
-        break;
-      case VTK_USE_Y_MIN:
-        outPoints->InsertNextPoint(point[0], -point[1] + 2*bounds[2],
-                                   point[2]);
-        break;
-      case VTK_USE_Y_MAX:
-        outPoints->InsertNextPoint(point[0], -point[1] + 2*bounds[3],
-                                   point[2]);
-        break;
-      case VTK_USE_Z_MIN:
-        outPoints->InsertNextPoint(point[0], point[1],
-                                   -point[2] + 2*bounds[4]);
-        break;
-      case VTK_USE_Z_MAX:
-        outPoints->InsertNextPoint(point[0], point[1],
-                                   -point[2] + 2*bounds[5]);
-        break;
-      }
+    case VTK_USE_X_MIN:
+      constant = 2*bounds[0];
+      for (i = 0; i < numPts; i++)
+        {
+        points->GetPoint(i, point);
+        outPoints->InsertNextPoint(-point[0] + constant, point[1], point[2]);
+        }
+      break;
+    case VTK_USE_X_MAX:
+      constant = 2*bounds[1];
+      for (i = 0; i < numPts; i++)
+        {
+        points->GetPoint(i, point);
+        outPoints->InsertNextPoint(-point[0] + constant, point[1], point[2]);
+        }
+      break;
+    case VTK_USE_Y_MIN:
+      constant = 2*bounds[2];
+      for (i = 0; i < numPts; i++)
+        {
+        points->GetPoint(i, point);
+        outPoints->InsertNextPoint(point[0], -point[1] + constant, point[2]);
+        }
+      break;
+    case VTK_USE_Y_MAX:
+      constant = 2*bounds[3];
+      for (i = 0; i < numPts; i++)
+        {
+        points->GetPoint(i, point);
+        outPoints->InsertNextPoint(point[0], -point[1] + constant, point[2]);
+        }
+      break;
+    case VTK_USE_Z_MIN:
+      constant = 2*bounds[4];
+      for (i = 0; i < numPts; i++)
+        {
+        points->GetPoint(i, point);
+        outPoints->InsertNextPoint(point[0], point[1], -point[2] + constant);
+        }
+      break;
+    case VTK_USE_Z_MAX:
+      constant = 2*bounds[5];
+      for (i = 0; i < numPts; i++)
+        {
+        points->GetPoint(i, point);
+        outPoints->InsertNextPoint(point[0], point[1], -point[2] + constant);
+        }
+      break;
     }
-  
+
   int numCellPts, j, cellType;
   vtkIdType *newCellPts;
   vtkIdList *cellPts;
