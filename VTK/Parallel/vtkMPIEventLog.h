@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMPIEventLog.h,v $
   Language:  C++
-  Date:      $Date: 2001-05-08 14:12:50 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-05-08 15:29:13 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -98,7 +98,8 @@ protected:
 
   static int LastEventId;
   int Active;
-  int Id;
+  int BeginId;
+  int EndId;
 };
 
 #endif
