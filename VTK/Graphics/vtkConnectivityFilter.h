@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkConnectivityFilter.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-22 12:39:54 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1998-02-20 22:12:03 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -93,8 +93,8 @@ public:
 
   // Description:
   // Set the scalar range to use to extract cells based on scalar connectivity.
-  vtkSetVectorMacro(ScalarRange,float,2);
-  vtkGetVectorMacro(ScalarRange,float,2);
+  vtkSetVector2Macro(ScalarRange,float);
+  vtkGetVector2Macro(ScalarRange,float);
 
   // Description:
   // Control the extraction of connected surfaces.
