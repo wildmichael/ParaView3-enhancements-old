@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImager.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-02 17:53:34 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-09-03 14:04:07 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -49,8 +49,8 @@ vtkImager::vtkImager()
   vtkDebugMacro(<< "vtkImager::vtkImager");
 
   this->Viewport[0] = 0.0; // min x
-  this->Viewport[1] = 1.0; // max x
-  this->Viewport[2] = 0.0; // min y
+  this->Viewport[1] = 0.0; // min y
+  this->Viewport[2] = 1.0; // max x
   this->Viewport[3] = 1.0; // max y
 
 }
