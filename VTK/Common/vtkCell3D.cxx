@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCell3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-27 15:38:51 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-04-30 15:23:21 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -40,6 +40,12 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
 #include "vtkCell3D.h"
+
+void Clip(float, vtkScalars*, vtkPointLocator*, vtkCellArray*,
+          vtkPointData*, vtkPointData*, vtkCellData*, int, vtkCellData*, 
+          int)
+{
+}
 
 void vtkCell3D::PrintSelf(ostream& os, vtkIndent indent)
 {
