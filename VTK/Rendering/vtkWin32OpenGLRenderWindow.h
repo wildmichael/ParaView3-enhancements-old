@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:07:54 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2000-03-08 15:57:18 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -220,6 +220,10 @@ public:
   // Register a texture name with this render window
   void RegisterTextureResource (GLuint id);
 
+  // Description:
+  // Get the size of the depth buffer.
+  int GetDepthBufferSize();
+  
 protected:
   vtkWin32OpenGLRenderWindow();
   ~vtkWin32OpenGLRenderWindow();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:06:34 $
-  Version:   $Revision: 1.92 $
+  Date:      $Date: 2000-03-08 15:57:17 $
+  Version:   $Revision: 1.93 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -338,7 +338,14 @@ public:
   virtual void *GetGenericDrawable() {return NULL;};
   virtual void SetWindowInfo(char *) {};
 
+  // Description:
+  // Make this the current window. 
   virtual void MakeCurrent() {};
+
+  // Description:
+  // This method should be defined by the subclass. How many bits of
+  // precision are there in the zbuffer?
+  virtual int GetDepthBufferSize() {return -1;};
 
 protected:
   vtkRenderWindow();

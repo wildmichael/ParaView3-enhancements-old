@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:07:53 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 2000-03-08 15:57:18 $
+  Version:   $Revision: 1.47 $
   Thanks:    to Horst Schreiber for developing this MFC code
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -852,6 +852,23 @@ void vtkWin32OpenGLRenderWindow::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "Next Window Id: " << this->NextWindowId << "\n";
   os << indent << "Window Id: " << this->WindowId << "\n";
   os << indent << "MultiSamples: " << this->MultiSamples << "\n";
+}
+
+int vtkWin32OpenGLRenderWindow::GetDepthBufferSize()
+{
+  GLint size;
+
+  if ( this->Mapped )
+    {
+    size = 0;
+    glGetIntegerv( GL_DEPTH_BITS, &size );
+    return (int) size;
+    }
+  else
+    {
+    vtkDebugMacro(<< "Window is not mapped yet!" );
+    return 24;
+    }
 }
 
 

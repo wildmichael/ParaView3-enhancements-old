@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:06:00 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2000-03-08 15:57:16 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -744,6 +744,22 @@ void vtkOpenGLRenderWindow::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "MultiSamples: " << this->MultiSamples << "\n";
 }
 
+int vtkOpenGLRenderWindow::GetDepthBufferSize()
+{
+  GLint size;
+
+  if ( this->Mapped )
+    {
+    size = 0;
+    glGetIntegerv( GL_DEPTH_BITS, &size );
+    return (int) size;
+    }
+  else
+    {
+    vtkDebugMacro(<< "Window is not mapped yet!" );
+    return 24;
+    }
+}
 
 unsigned char *vtkOpenGLRenderWindow::GetPixelData(int x1, int y1, 
 						   int x2, int y2, 

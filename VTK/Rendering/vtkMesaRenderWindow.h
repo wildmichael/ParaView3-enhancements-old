@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:05:52 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2000-03-08 15:57:15 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -173,6 +173,10 @@ public:
   virtual void *GetGenericWindowId();
   virtual void *GetGenericContext();
 
+  // Description:
+  // Get the size of the depth buffer.
+  int GetDepthBufferSize();
+  
 protected:
   void *OffScreenWindow;
   int ScreenDoubleBuffer;
