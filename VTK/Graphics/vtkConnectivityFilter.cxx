@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkConnectivityFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-14 12:46:56 $
-  Version:   $Revision: 1.65 $
+  Date:      $Date: 2002-05-14 13:05:28 $
+  Version:   $Revision: 1.66 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkFloatArray.h"
 
-vtkCxxRevisionMacro(vtkConnectivityFilter, "$Revision: 1.65 $");
+vtkCxxRevisionMacro(vtkConnectivityFilter, "$Revision: 1.66 $");
 vtkStandardNewMacro(vtkConnectivityFilter);
 
 // Construct with default extraction mode to extract largest regions.
@@ -332,7 +332,7 @@ void vtkConnectivityFilter::Execute()
   this->CellIds->Delete();
   output->Squeeze();
   vtkDataArray* outScalars = 0; 
-  if (this->ColorRegions && (outScalar=output->GetPointData()->GetScalars()))
+  if (this->ColorRegions && (outScalars=output->GetPointData()->GetScalars()))
     {
     outScalars->Resize(output->GetNumberOfPoints());
     }
