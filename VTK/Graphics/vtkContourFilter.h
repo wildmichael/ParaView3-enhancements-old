@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkContourFilter.h,v $
   Language:  C++
-  Date:      $Date: 1995-02-26 10:24:55 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1995-04-27 15:42:52 $
+  Version:   $Revision: 1.10 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -55,6 +55,7 @@ public:
   vlGetVectorMacro(Values,float,MAX_CONTOURS);
 
   void GenerateValues(int numContours, float range[2]);
+  void GenerateValues(int numContours, float range1, float range2);
 
 protected:
   void Execute();
