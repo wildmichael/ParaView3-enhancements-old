@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkRenderWidget.h,v $
   Language:  C++
-  Date:      $Date: 1999-03-25 21:49:31 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-12-02 21:47:39 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -79,7 +79,7 @@ struct vtkTkRenderWidget
 // This widget requires access to structures that are normally 
 // not visible to Tcl/Tk applications. For this reason you must
 // have access to tkInt.h
-#include "tkInt.h"
+// #include "tkInt.h"
 
 #ifdef _WIN32
 extern "C" {
