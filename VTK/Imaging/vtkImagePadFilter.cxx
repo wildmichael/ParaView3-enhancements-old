@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagePadFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-01-08 15:21:07 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1997-02-03 18:52:03 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -54,6 +54,49 @@ vtkImagePadFilter::vtkImagePadFilter()
     {
     this->OutputImageExtent[idx * 2] = 0;
     this->OutputImageExtent[idx * 2 + 1] = 0;
+    }
+}
+
+
+//----------------------------------------------------------------------------
+void vtkImagePadFilter::SetAxes(int num, int *axes)
+{
+  int oldAxes[VTK_IMAGE_DIMENSIONS];
+
+  // Save old axes for translation
+  this->GetAxes(oldAxes);
+  // Call superclass method
+  vtkImageFilter::SetAxes(num, axes);
+  
+  // Change the coordinate system of the ivars. 
+  this->ChangeExtentCoordinateSystem(this->OutputImageExtent, oldAxes,
+				     this->OutputImageExtent, this->Axes);
+}  
+
+//----------------------------------------------------------------------------
+// Description:
+// Convert 4d extent from one coordinate system into another.
+// "extentIn" and "extentOut" may be the same array.
+// Copy of vtkImageRegion's method.
+void 
+vtkImagePadFilter::ChangeExtentCoordinateSystem(int *extentIn, int *axesIn,
+						int *extentOut, int *axesOut)
+{
+  int idx;
+  int absolute[VTK_IMAGE_EXTENT_DIMENSIONS];
+
+  // Change into a known coordinate system (0,1,2,...)
+  for (idx = 0; idx < VTK_IMAGE_DIMENSIONS; ++idx)
+    {
+    absolute[axesIn[idx]*2] = extentIn[idx*2];
+    absolute[axesIn[idx]*2+1] = extentIn[idx*2+1];
+    }
+
+  // Change into the desired coordinate system.
+  for (idx = 0; idx < VTK_IMAGE_DIMENSIONS; ++idx)
+    {
+    extentOut[idx*2] = absolute[axesOut[idx]*2];
+    extentOut[idx*2+1] = absolute[axesOut[idx]*2+1];
     }
 }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagePadFilter.h,v $
   Language:  C++
-  Date:      $Date: 1997-01-08 15:21:16 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1997-02-03 18:52:04 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -65,6 +65,11 @@ public:
   void GetOutputImageExtent(int num, int *extent);
   vtkImageGetExtentMacro(OutputImageExtent);
   
+  // Description:
+  // This affects the OutputImage Extent
+  void SetAxes(int num, int *axes);
+  vtkImageSetMacro(Axes,int);
+  
 protected:
   int OutputImageExtent[VTK_IMAGE_EXTENT_DIMENSIONS];
 
@@ -72,6 +77,9 @@ protected:
 				     vtkImageRegion *outRegion);
   void ComputeRequiredInputRegionExtent(vtkImageRegion *outRegion,
 					vtkImageRegion *inRegion);
+
+void ChangeExtentCoordinateSystem(int *extentIn, int *axesIn,
+				  int *extentOut, int *axesOut);
 };
 
 #endif

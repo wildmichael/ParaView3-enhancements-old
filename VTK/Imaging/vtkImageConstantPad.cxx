@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageConstantPad.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-01-08 15:19:13 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1997-02-03 18:52:02 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -75,7 +75,7 @@ void vtkImageConstantPadExecute(vtkImageConstantPad *self,
   T constant;
 
 
-  constant = self->GetConstant();
+  constant = (T)(self->GetConstant());
   // Get information to march through data 
   inRegion->GetIncrements(inInc0, inInc1, inInc2, inInc3);
   inRegion->GetImageExtent(imageMin0, imageMax0, imageMin1, imageMax1, 
