@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-09-19 07:16:12 $
-  Version:   $Revision: 1.92 $
+  Date:      $Date: 2000-09-26 21:43:39 $
+  Version:   $Revision: 1.93 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -221,21 +221,6 @@ void vtkDataReader::SetInputString(char* in, int len)
     } 
   this->Modified(); 
 } 
-
-// Internal function used to consume whitespace when reading in
-// an InputString.
-void vtkDataReader::EatWhiteSpace()
-{
-  char c;
-  while (this->IS->get(c)) 
-    {
-    if (c == '\n' || isspace(c)==0)
-      {
-      this->IS->putback(c);
-      break;
-      }
-    }
-}
 
 // Internal function to read in a line up to 256 characters.
 // Returns zero if there was an error.

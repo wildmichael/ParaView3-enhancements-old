@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataReader.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-17 11:12:07 $
-  Version:   $Revision: 1.54 $
+  Date:      $Date: 2000-09-26 21:43:39 $
+  Version:   $Revision: 1.55 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -240,11 +240,6 @@ public:
   // Helper method for reading in data.
   char *LowerCase(char *);
   
-  // Description:
-  // Internal function used to consume white space when reading in
-  // an InputString.
-  void EatWhiteSpace();
-
   // Description:
   // Return the istream being used to read in the data.
   istream *GetIStream() {return this->IS;};
