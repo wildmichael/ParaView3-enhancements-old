@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuad.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-09-28 20:20:24 $
-  Version:   $Revision: 1.64 $
+  Date:      $Date: 2000-10-03 13:07:02 $
+  Version:   $Revision: 1.65 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -610,7 +610,6 @@ void vtkQuad::Derivatives(int vtkNotUsed(subId), float pcoords[3],
   double *J[2], J0[2], J1[2];
   double *JI[2], JI0[2], JI1[2];
   float funcDerivs[8], sum[2], dBydx, dBydy;
-  float idet;
   int i, j;
 
   // Project points of quad into 2D system
