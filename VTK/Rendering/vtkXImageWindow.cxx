@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXImageWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-04-23 12:57:17 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1999-09-11 12:33:57 $
+  Version:   $Revision: 1.23 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -595,8 +595,9 @@ void vtkXImageWindow::SetPosition(int x, int y)
     return;
     }
 
-  XMoveResizeWindow(this->DisplayId,this->WindowId,x,y,
-                    this->Size[0], this->Size[1]);
+  // This is different from vtkXRenderWindow which calls XMoveResizeWindow.
+  // XMoveResizeWindow cannot be called here beacuse, this->Size[] may be zero.
+  XMoveWindow(this->DisplayId,this->WindowId,x,y);
   XSync(this->DisplayId,False);
 }
 
