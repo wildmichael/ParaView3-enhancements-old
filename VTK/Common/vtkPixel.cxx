@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPixel.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:04:53 $
-  Version:   $Revision: 1.53 $
+  Date:      $Date: 1999-12-28 18:59:37 $
+  Version:   $Revision: 1.54 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -50,8 +50,18 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // Construct the pixel with four points.
 vtkPixel::vtkPixel()
 {
+  int i;
+  
   this->Points->SetNumberOfPoints(4);
   this->PointIds->SetNumberOfIds(4);
+  for (i = 0; i < 4; i++)
+    {
+    this->Points->SetPoint(i, 0.0, 0.0, 0.0);
+    }
+  for (i = 0; i < 4; i++)
+    {
+    this->PointIds->SetId(i,0);
+    }
   this->Line = vtkLine::New();
 }
 

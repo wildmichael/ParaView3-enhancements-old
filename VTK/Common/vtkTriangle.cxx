@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangle.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:05:16 $
-  Version:   $Revision: 1.76 $
+  Date:      $Date: 1999-12-28 18:59:38 $
+  Version:   $Revision: 1.77 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -68,8 +68,18 @@ vtkTriangle* vtkTriangle::New()
 // Construct the triangle with three points.
 vtkTriangle::vtkTriangle()
 {
+  int i;
+  
   this->Points->SetNumberOfPoints(3);
   this->PointIds->SetNumberOfIds(3);
+  for (i = 0; i < 3; i++)
+    {
+    this->Points->SetPoint(i, 0.0, 0.0, 0.0);
+    }
+  for (i = 0; i < 3; i++)
+    {
+    this->PointIds->SetId(i,0);
+    }
   this->Line = vtkLine::New();
 }
 

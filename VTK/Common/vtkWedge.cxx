@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWedge.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-17 17:55:56 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-12-28 18:59:39 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -66,8 +66,18 @@ vtkWedge* vtkWedge::New()
 // Construct the wedge with six points.
 vtkWedge::vtkWedge()
 {
+  int i;
+  
   this->Points->SetNumberOfPoints(6);
   this->PointIds->SetNumberOfIds(6);
+  for (i = 0; i < 6; i++)
+    {
+    this->Points->SetPoint(i, 0.0, 0.0, 0.0);
+    }
+  for (i = 0; i < 6; i++)
+    {
+    this->PointIds->SetId(i,0);
+    }
   this->Line = vtkLine::New();
   this->Triangle = vtkTriangle::New();
   this->Quad = vtkQuad::New();

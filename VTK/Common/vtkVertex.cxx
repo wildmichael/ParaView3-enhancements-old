@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVertex.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-12-01 12:11:55 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 1999-12-28 18:59:39 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -65,8 +65,18 @@ vtkVertex* vtkVertex::New()
 // Construct the vertex with a single point.
 vtkVertex::vtkVertex()
 {
+  int i;
+  
   this->Points->SetNumberOfPoints(1);
   this->PointIds->SetNumberOfIds(1);
+  for (i = 0; i < 1; i++)
+    {
+    this->Points->SetPoint(i, 0.0, 0.0, 0.0);
+    }
+  for (i = 0; i < 1; i++)
+    {
+    this->PointIds->SetId(i,0);
+    }
 }
 
 // Make a new vtkVertex object with the same information as this object.

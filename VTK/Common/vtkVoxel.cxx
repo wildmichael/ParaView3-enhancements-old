@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoxel.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-10 21:20:37 $
-  Version:   $Revision: 1.57 $
+  Date:      $Date: 1999-12-28 18:59:39 $
+  Version:   $Revision: 1.58 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -48,8 +48,18 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // Construct the voxel with eight points.
 vtkVoxel::vtkVoxel()
 {
+  int i;
+  
   this->Points->SetNumberOfPoints(8);
   this->PointIds->SetNumberOfIds(8);
+  for (i = 0; i < 8; i++)
+    {
+    this->Points->SetPoint(i, 0.0, 0.0, 0.0);
+    }
+  for (i = 0; i < 8; i++)
+    {
+    this->PointIds->SetId(i,0);
+    }
   this->Line = vtkLine::New();
   this->Pixel = vtkPixel::New();
 }

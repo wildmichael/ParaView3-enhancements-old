@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLine.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-30 18:45:11 $
-  Version:   $Revision: 1.60 $
+  Date:      $Date: 1999-12-28 18:59:37 $
+  Version:   $Revision: 1.61 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -65,8 +65,18 @@ vtkLine* vtkLine::New()
 // Construct the line with two points.
 vtkLine::vtkLine()
 {
+  int i;
+  
   this->Points->SetNumberOfPoints(2);
   this->PointIds->SetNumberOfIds(2);
+  for (i = 0; i < 2; i++)
+    {
+    this->Points->SetPoint(i, 0.0, 0.0, 0.0);
+    }
+  for (i = 0; i < 2; i++)
+    {
+    this->PointIds->SetId(i,0);
+    }
 }
 
 vtkCell *vtkLine::MakeObject()

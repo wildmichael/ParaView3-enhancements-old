@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPyramid.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-17 17:55:53 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-12-28 18:59:37 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -66,8 +66,18 @@ vtkPyramid* vtkPyramid::New()
 // Construct the pyramid with five points.
 vtkPyramid::vtkPyramid()
 {
+  int i;
+  
   this->Points->SetNumberOfPoints(5);
   this->PointIds->SetNumberOfIds(5);
+  for (i = 0; i < 5; i++)
+    {
+    this->Points->SetPoint(i, 0.0, 0.0, 0.0);
+    }
+  for (i = 0; i < 5; i++)
+    {
+    this->PointIds->SetId(i,0);
+    }
   this->Line = vtkLine::New();
   this->Triangle = vtkTriangle::New();
   this->Quad = vtkQuad::New();

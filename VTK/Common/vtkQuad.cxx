@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuad.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:05:05 $
-  Version:   $Revision: 1.60 $
+  Date:      $Date: 1999-12-28 18:59:38 $
+  Version:   $Revision: 1.61 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -68,8 +68,18 @@ vtkQuad* vtkQuad::New()
 // Construct the quad with four points.
 vtkQuad::vtkQuad()
 {
+  int i;
+  
   this->Points->SetNumberOfPoints(4);
   this->PointIds->SetNumberOfIds(4);
+  for (i = 0; i < 4; i++)
+    {
+    this->Points->SetPoint(i, 0.0, 0.0, 0.0);
+    }
+  for (i = 0; i < 4; i++)
+    {
+    this->PointIds->SetId(i,0);
+    }
   this->Line = vtkLine::New();
 }
 

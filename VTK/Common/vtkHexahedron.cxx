@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHexahedron.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-10 21:20:34 $
-  Version:   $Revision: 1.59 $
+  Date:      $Date: 1999-12-28 18:59:36 $
+  Version:   $Revision: 1.60 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -48,8 +48,19 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // Construct the hexahedron with eight points.
 vtkHexahedron::vtkHexahedron()
 {
+  int i;
+  
   this->Points->SetNumberOfPoints(8);
   this->PointIds->SetNumberOfIds(8);
+
+  for (i = 0; i < 8; i++)
+    {
+    this->Points->SetPoint(i, 0.0, 0.0, 0.0);
+    }
+  for (i = 0; i < 8; i++)
+    {
+    this->PointIds->SetId(i,0);
+    }
   this->Line = vtkLine::New();
   this->Quad = vtkQuad::New();
 }
