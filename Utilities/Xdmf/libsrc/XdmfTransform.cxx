@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfTransform.cxx,v 1.2 2003-03-04 15:24:32 andy Exp $  */
-/*  Date : $Date: 2003-03-04 15:24:32 $ */
-/*  Version : $Revision: 1.2 $ */
+/*  Id : $Id: XdmfTransform.cxx,v 1.3 2003-09-18 14:39:11 andy Exp $  */
+/*  Date : $Date: 2003-09-18 14:39:11 $ */
+/*  Version : $Revision: 1.3 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -207,6 +207,7 @@ if( Desc ){
   Formatter.SetDOM( this->DOM );
   Formatter.SetFormat( this->DataTransform );
   Array = Formatter.ElementToArray( ArrayElement, Desc );
+  delete Desc;
   return( Array );
   }
 return( NULL );
