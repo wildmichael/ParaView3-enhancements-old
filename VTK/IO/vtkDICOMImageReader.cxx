@@ -4,8 +4,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDICOMImageReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-06-02 22:45:13 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2003-06-02 23:08:59 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -23,10 +23,13 @@
 #include "vtkPointData.h"
 #include "vtkDirectory.h"
 
+#include "DICOMParser.h"
+#include "DICOMAppHelper.h"
+
 #include <vtkstd/vector>
 #include <vtkstd/string>
 
-vtkCxxRevisionMacro(vtkDICOMImageReader, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkDICOMImageReader, "$Revision: 1.4 $");
 vtkStandardNewMacro(vtkDICOMImageReader);
 
 class myvector : public vtkstd::vector<vtkstd::string>
