@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractIterator.txx,v $
   Language:  C++
-  Date:      $Date: 2002-05-28 14:30:37 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-06-16 23:16:26 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -93,5 +93,12 @@ void vtkAbstractIterator<KeyType,DataType>::SetContainer(vtkContainer* container
     }
 }
 
+
+#if defined ( _MSC_VER )
+template <class KeyType,class DataType>
+vtkAbstractIterator<KeyType,DataType>::vtkAbstractIterator(const vtkAbstractIterator<KeyType,DataType>&){}
+template <class KeyType,class DataType>
+void vtkAbstractIterator<KeyType,DataType>::operator=(const vtkAbstractIterator<KeyType,DataType>&){}
+#endif
 
 #endif

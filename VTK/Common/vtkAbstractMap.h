@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractMap.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-16 23:10:27 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2002-06-16 23:16:26 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -100,6 +100,10 @@ public:
 
 protected:
   vtkAbstractMap();
+
+private:
+  vtkAbstractMap(const vtkAbstractMap&); // Not implemented
+  void operator=(const vtkAbstractMap&); // Not implemented
 };
 
 #ifdef VTK_NO_EXPLICIT_TEMPLATE_INSTANTIATION

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractList.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-10 18:06:21 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2002-06-16 23:16:26 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -145,8 +145,8 @@ protected:
   vtkAbstractList();
 
 private:
-  vtkAbstractList(const vtkAbstractList<DType>&){}
-  void operator=(const vtkAbstractList<DType>&){}
+  vtkAbstractList(const vtkAbstractList<DType>&); // Not implement
+  void operator=(const vtkAbstractList<DType>&); // Not implement
 };
 
 #ifdef VTK_NO_EXPLICIT_TEMPLATE_INSTANTIATION

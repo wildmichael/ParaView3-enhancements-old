@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkContainer.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-03 13:15:13 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2002-06-16 23:16:26 $
+  Version:   $Revision: 1.17 $
 
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -76,6 +76,10 @@ protected:
   vtkIdType ReferenceCount;   
   vtkContainer();
   virtual ~vtkContainer();
+
+private:
+  vtkContainer(const vtkContainer&); // Not implemented
+  void operator=(const vtkContainer&); // Not implemented
 };
 
 template<class DType>

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractMap.txx,v $
   Language:  C++
-  Date:      $Date: 2002-04-29 13:18:04 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-06-16 23:16:26 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,5 +25,11 @@
 template<class KeyType, class DataType>
 vtkAbstractMap<KeyType,DataType>::vtkAbstractMap() {}
 
+#if defined ( _MSC_VER )
+template <class KeyType,class DataType>
+vtkAbstractMap<KeyType,DataType>::vtkAbstractMap(const vtkAbstractMap<KeyType,DataType>&){}
+template <class KeyType,class DataType>
+void vtkAbstractMap<KeyType,DataType>::operator=(const vtkAbstractMap<KeyType,DataType>&){}
+#endif
 
 #endif
