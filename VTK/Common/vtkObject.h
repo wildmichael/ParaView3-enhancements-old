@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObject.h,v $
   Language:  C++
-  Date:      $Date: 2002-03-18 17:34:58 $
-  Version:   $Revision: 1.83 $
+  Date:      $Date: 2002-03-20 17:26:15 $
+  Version:   $Revision: 1.84 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -183,8 +183,8 @@ public:
   vtkCommand *GetCommand(unsigned long tag);
   void InvokeEvent(unsigned long event, void *callData);
   void InvokeEvent(const char *event, void *callData);
-  //ETX
   void RemoveObserver(vtkCommand*);
+  //ETX
   void RemoveObserver(unsigned long tag);
   int HasObserver(unsigned long event);
   int HasObserver(const char *event);
