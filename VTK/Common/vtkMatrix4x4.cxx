@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkMatrix4x4.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-03-03 18:33:14 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1994-03-08 12:23:07 $
+  Version:   $Revision: 1.5 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -252,3 +252,17 @@ void vlMatrix4x4::PrintSelf (ostream& os, vlIndent indent)
     }
 }
 
+
+void vlMatrix4x4::Transpose (vlMatrix4x4 in,vlMatrix4x4 & out)
+{
+  int i, j;
+  float temp;
+
+  for (i=0; i<4; i++)
+    for(j=i; j<4; j++)
+      {
+      temp = in.Element[i][j];
+      out.Element[i][j] = in.Element[j][i];
+      out.Element[j][i] = temp;
+      }
+}

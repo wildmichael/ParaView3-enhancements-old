@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkMatrix4x4.h,v $
   Language:  C++
-  Date:      $Date: 1994-03-03 18:33:02 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1994-03-08 12:22:53 $
+  Version:   $Revision: 1.4 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -32,6 +32,11 @@ class vlMatrix4x4 : public vlObject
   //  return it in out.
   void Invert (vlMatrix4x4 in,vlMatrix4x4 & out);
   void Invert (void) { Invert(*this,*this);};
+
+  //  Calculate the transpose of in and
+  //  return it in out.
+  void Transpose (vlMatrix4x4 in,vlMatrix4x4 & out);
+  void Transpose (void) { Transpose(*this,*this);};
 
   void VectorMultiply(float in[4], float out[4]);
   void Adjoint (vlMatrix4x4 & in,vlMatrix4x4 & out);
