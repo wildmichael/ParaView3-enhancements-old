@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFunctionParser.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:23 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2002-01-25 19:25:05 $
+  Version:   $Revision: 1.13 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -154,6 +154,10 @@ public:
   // Get the ith vector variable name.
   char* GetVectorVariableName(int i);
 
+  // Description:
+  // Remove all the current variables.
+  void RemoveAllVariables();
+  
 protected:
   vtkFunctionParser();
   ~vtkFunctionParser();
