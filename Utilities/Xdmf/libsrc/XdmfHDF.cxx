@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfHDF.cxx,v 1.13 2004-01-13 22:59:52 andy Exp $  */
-/*  Date : $Date: 2004-01-13 22:59:52 $ */
-/*  Version : $Revision: 1.13 $ */
+/*  Id : $Id: XdmfHDF.cxx,v 1.14 2004-01-15 13:46:37 andy Exp $  */
+/*  Date : $Date: 2004-01-15 13:46:37 $ */
+/*  Version : $Revision: 1.14 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -170,10 +170,10 @@ return(0);
 // Set the Current Working Directory
 //
 XdmfInt32
-XdmfHDF::SetCwdName( XdmfString Directory )
+XdmfHDF::SetCwdName( XdmfConstString Directory )
 {
 hid_t    NewDirectory;
-XdmfString  NewDirectoryName = Directory;
+XdmfConstString  NewDirectoryName = Directory;
 XdmfInt32  i, Type;
 
 Type = this->Info( this->Cwd, Directory );
