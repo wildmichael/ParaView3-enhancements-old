@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 1998-11-11 21:47:32 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1999-01-09 21:54:12 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -204,7 +204,8 @@ public:
   // Description:
   // Clean up device contexts, rendering contexts, etc.
   void Clean();
-  
+
+ protected:
   HINSTANCE ApplicationInstance;
   HPALETTE  Palette;
   HPALETTE  OldPalette;
