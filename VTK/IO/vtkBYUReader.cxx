@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBYUReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-17 21:17:49 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1998-01-15 12:24:27 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -85,6 +85,7 @@ void vtkBYUReader::Execute()
   this->ReadDisplacementFile(numPts);
   this->ReadScalarFile(numPts);
   this->ReadTextureFile(numPts);
+  this->UpdateProgress(1.0);
 }
 
 void vtkBYUReader::ReadGeometryFile(FILE *geomFile, int &numPts)
@@ -146,6 +147,7 @@ void vtkBYUReader::ReadGeometryFile(FILE *geomFile, int &numPts)
     fscanf(geomFile, "%e %e %e", x, x+1, x+2);
     newPts->InsertPoint(i,x);
     }
+  this->UpdateProgress(0.333);
 
   // read poly data. Have to fix 1-offset. Only reading part number specified.
   for ( polyId=1; polyId <= numPolys; polyId++ )
@@ -163,6 +165,7 @@ void vtkBYUReader::ReadGeometryFile(FILE *geomFile, int &numPts)
       newPolys->InsertNextCell(pts);
       }
     }
+  this->UpdateProgress(0.6667);
 
   vtkDebugMacro(<<"Reading:" << numPts << " points, "
                  << numPolys << " polygons.");
