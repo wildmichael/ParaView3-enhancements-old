@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVRML.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-14 19:32:37 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2002-06-15 10:40:08 $
+  Version:   $Revision: 1.23 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -47,7 +47,7 @@
 #include <iostream.h>
 #endif
 
-#ifdef __BORLANDC___ && (__BORLANDC__<0x0560)
+#ifdef __BORLANDC__ && (__BORLANDC__<0x0560)
 // seems to be missing from new.h and new for borland
 void* operator new[](unsigned int,void *v)
 {
