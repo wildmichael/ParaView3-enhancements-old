@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-07-29 21:17:00 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 2003-07-30 15:25:43 $
+  Version:   $Revision: 1.49 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,7 +26,7 @@
 # include <unistd.h> /* unlink */
 #endif
 
-vtkCxxRevisionMacro(vtkImageWriter, "$Revision: 1.48 $");
+vtkCxxRevisionMacro(vtkImageWriter, "$Revision: 1.49 $");
 vtkStandardNewMacro(vtkImageWriter);
 
 #ifdef write
@@ -315,6 +315,7 @@ void vtkImageWriter::RecursiveWrite(int axis, vtkImageData *cache,
   if (this->ErrorCode == vtkErrorCode::OutOfDiskSpaceError)
     {
     this->DeleteFiles();
+    return;
     }
   if (file && fileOpenedHere)
     {
@@ -563,10 +564,6 @@ void vtkImageWriter::WriteFile(ofstream *file, vtkImageData *data,
       ptr = data->GetScalarPointer(extent[0], idxY, idxZ);
       if ( ! file->write((char *)ptr, rowLength))
         {
-        vtkErrorMacro("WriteFile: write failed");
-        file->close();
-        delete file;
-        this->DeleteFiles();
         return;
         }
       }
