@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTclUtil.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-15 12:51:25 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 2000-02-15 13:33:48 $
+  Version:   $Revision: 1.50 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -487,7 +487,7 @@ int vtkTclNewInstanceCommand(ClientData cd, Tcl_Interp *interp,
   ClientData temp;
   if (!strcmp("ListInstances",argv[1]))
     {
-    vtkTclListInstances(interp,cs->CommandFunction);
+    vtkTclListInstances(interp,(ClientData) cs->CommandFunction);
     return TCL_OK;
     }
   temp = cs->NewCommand();
