@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtentTranslator.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:36:11 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2001-11-06 14:11:37 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -78,7 +78,7 @@ public:
   vtkGetMacro(GhostLevel, int);
 
   // Description:
-  // These are the main methods that shoul dbe called. These methods 
+  // These are the main methods that should be called. These methods 
   // are responsible for converting a piece to an extent. The signatures
   // without arguments are only thread safe when each thread accesses a
   // different instance. The signatures with arguements are fully thread
