@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLPDataWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-06 02:32:38 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2003-04-18 19:10:18 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkXMLPDataWriter.h"
 #include "vtkDataSet.h"
 
-vtkCxxRevisionMacro(vtkXMLPDataWriter, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkXMLPDataWriter, "$Revision: 1.4 $");
 
 //----------------------------------------------------------------------------
 vtkXMLPDataWriter::vtkXMLPDataWriter()
@@ -223,13 +223,15 @@ void vtkXMLPDataWriter::SplitFileName()
 //----------------------------------------------------------------------------
 char* vtkXMLPDataWriter::CreatePieceFileName(int index, const char* path)
 {
-  ostrstream fn;
-  if(path) { fn << path; }
-  fn << this->FileNameBase << index;
-  if(this->PieceFileNameExtension) { fn << this->PieceFileNameExtension; }
-  //if(this->FileNameExtension) { fn << this->FileNameExtension; }
-  fn << ends;
-  return fn.str();
+  ostrstream fn_with_warning_C4701;
+  if(path) { fn_with_warning_C4701 << path; }
+  fn_with_warning_C4701 << this->FileNameBase << index;
+  if(this->PieceFileNameExtension) 
+  { fn_with_warning_C4701 << this->PieceFileNameExtension; }
+  //if(this->FileNameExtension) 
+  //{ fn_with_warning_C4701 << this->FileNameExtension; }
+  fn_with_warning_C4701 << ends;
+  return fn_with_warning_C4701.str();
 }
 
 //----------------------------------------------------------------------------

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: otherColorTransferFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-08 13:28:04 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2003-04-18 19:09:49 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -152,6 +152,6 @@ int otherColorTransferFunction(int, char *[])
 {
   vtkDebugLeaks::PromptUserOff();
 
-  ostrstream vtkmsg; 
-  return Test(vtkmsg);
+  ostrstream vtkmsg_with_warning_C4701; 
+  return Test(vtkmsg_with_warning_C4701);
 } 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLPDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-31 21:58:34 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2003-04-18 19:10:18 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,7 +25,7 @@
 #include "vtkXMLDataElement.h"
 #include "vtkXMLDataReader.h"
 
-vtkCxxRevisionMacro(vtkXMLPDataReader, "$Revision: 1.4 $");
+vtkCxxRevisionMacro(vtkXMLPDataReader, "$Revision: 1.5 $");
 
 //----------------------------------------------------------------------------
 vtkXMLPDataReader::vtkXMLPDataReader()
@@ -361,10 +361,10 @@ int vtkXMLPDataReader::CanReadPiece(int index)
 //----------------------------------------------------------------------------
 char* vtkXMLPDataReader::CreatePieceFileName(const char* fileName)
 {
-  ostrstream fn;
-  if(this->PathName) { fn << this->PathName; }
-  fn << fileName << ends;
-  return fn.str();
+  ostrstream fn_with_warning_C4701;
+  if(this->PathName) { fn_with_warning_C4701 << this->PathName; }
+  fn_with_warning_C4701 << fileName << ends;
+  return fn_with_warning_C4701.str();
 }
 
 //----------------------------------------------------------------------------

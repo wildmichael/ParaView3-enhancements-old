@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: otherCoordinate.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-08 19:13:16 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2003-04-18 19:09:36 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -173,7 +173,7 @@ int otherCoordinate(int,char *[])
 {
   vtkDebugLeaks::PromptUserOff();
 
-  ostrstream vtkmsg; 
-  return Test(vtkmsg);
+  ostrstream vtkmsg_with_warning_C4701; 
+  return Test(vtkmsg_with_warning_C4701);
 }
 

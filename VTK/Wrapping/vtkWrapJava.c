@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWrapJava.c,v $
   Language:  C++
-  Date:      $Date: 2003-01-20 16:23:05 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 2003-04-18 19:10:46 $
+  Version:   $Revision: 1.42 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -747,11 +747,11 @@ void vtkParseOutput(FILE *fp, FileInfo *data)
     fprintf(fp,"  jstring tmp;\n\n");
     fprintf(fp,"  op = (vtkObject *)vtkJavaGetPointerFromObject(env,obj,(char *) \"vtkObject\");\n");
     
-    fprintf(fp,"  ostrstream buf;\n");
-    fprintf(fp,"  op->Print(buf);\n");
-    fprintf(fp,"  buf.put('\\0');\n");  
-        fprintf(fp,"  tmp = vtkJavaMakeJavaString(env,buf.str());\n");
-    fprintf(fp,"  delete buf.str();\n");
+    fprintf(fp,"  ostrstream vtkmsg_with_warning_C4701;\n");
+    fprintf(fp,"  op->Print(vtkmsg_with_warning_C4701);\n");
+    fprintf(fp,"  vtkmsg_with_warning_C4701.put('\\0');\n");  
+    fprintf(fp,"  tmp = vtkJavaMakeJavaString(env,vtkmsg_with_warning_C4701.str());\n");
+    fprintf(fp,"  delete vtkmsg_with_warning_C4701.str();\n");
 
     fprintf(fp,"  return tmp;\n");
     fprintf(fp,"}\n");
@@ -761,11 +761,11 @@ void vtkParseOutput(FILE *fp, FileInfo *data)
     fprintf(fp,"  jstring tmp;\n\n");
     fprintf(fp,"  op = (vtkObject *)vtkJavaGetPointerFromObject(env,obj,(char *) \"vtkObject\");\n");
     
-    fprintf(fp,"  ostrstream buf;\n");
-    fprintf(fp,"  op->PrintRevisions(buf);\n");
-    fprintf(fp,"  buf.put('\\0');\n");  
-        fprintf(fp,"  tmp = vtkJavaMakeJavaString(env,buf.str());\n");
-    fprintf(fp,"  delete buf.str();\n");
+    fprintf(fp,"  ostrstream vtkmsg_with_warning_C4701;\n");
+    fprintf(fp,"  op->PrintRevisions(vtkmsg_with_warning_C4701);\n");
+    fprintf(fp,"  vtkmsg_with_warning_C4701.put('\\0');\n");  
+    fprintf(fp,"  tmp = vtkJavaMakeJavaString(env,vtkmsg_with_warning_C4701.str());\n");
+    fprintf(fp,"  delete vtkmsg_with_warning_C4701.str();\n");
 
     fprintf(fp,"  return tmp;\n");
     fprintf(fp,"}\n");
