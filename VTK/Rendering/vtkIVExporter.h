@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIVExporter.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:32 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2002-05-27 14:48:16 $
+  Version:   $Revision: 1.24 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,8 +27,13 @@
 #ifndef __vtkIVExporter_h
 #define __vtkIVExporter_h
 
-#include <stdio.h>
 #include "vtkExporter.h"
+
+class vtkLight;
+class vtkActor;
+class vtkPoints;
+class vtkDataArray;
+class vtkUnsignedCharArray;
 
 class VTK_RENDERING_EXPORT vtkIVExporter : public vtkExporter
 {

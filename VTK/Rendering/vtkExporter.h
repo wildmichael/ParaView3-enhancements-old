@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExporter.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:31 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2002-05-27 14:48:16 $
+  Version:   $Revision: 1.27 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -40,7 +40,7 @@
 #define __vtkExporter_h
 
 #include "vtkObject.h"
-#include "vtkRenderWindow.h"
+class vtkRenderWindow;
 
 class VTK_RENDERING_EXPORT vtkExporter : public vtkObject 
 {
@@ -59,7 +59,7 @@ public:
 
   // Description:
   // Set/Get the rendering window that contains the scene to be written.
-  vtkSetObjectMacro(RenderWindow,vtkRenderWindow);
+  virtual void SetRenderWindow(vtkRenderWindow*);
   vtkGetObjectMacro(RenderWindow,vtkRenderWindow);
   
   // Description:

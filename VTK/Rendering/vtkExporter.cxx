@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:31 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2002-05-27 14:48:16 $
+  Version:   $Revision: 1.18 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -17,7 +17,12 @@
 =========================================================================*/
 #include "vtkExporter.h"
 
-vtkCxxRevisionMacro(vtkExporter, "$Revision: 1.17 $");
+#include "vtkRenderWindow.h"
+
+vtkCxxRevisionMacro(vtkExporter, "$Revision: 1.18 $");
+
+vtkCxxSetObjectMacro(vtkExporter,RenderWindow,vtkRenderWindow);
+
 
 // Construct with no start and end write methods or arguments.
 vtkExporter::vtkExporter()

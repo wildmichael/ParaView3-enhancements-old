@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRIBExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-27 14:27:44 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 2002-05-27 14:48:29 $
+  Version:   $Revision: 1.45 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -29,9 +29,10 @@
 #include "vtkPolygon.h"
 #include "vtkRIBLight.h"
 #include "vtkRIBProperty.h"
+#include "vtkRenderWindow.h"
 #include "vtkTIFFWriter.h"
 
-vtkCxxRevisionMacro(vtkRIBExporter, "$Revision: 1.44 $");
+vtkCxxRevisionMacro(vtkRIBExporter, "$Revision: 1.45 $");
 vtkStandardNewMacro(vtkRIBExporter);
 
 typedef float RtColor[3];

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVRMLExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-27 14:27:44 $
-  Version:   $Revision: 1.60 $
+  Date:      $Date: 2002-05-27 14:48:16 $
+  Version:   $Revision: 1.61 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,9 +23,10 @@
 #include "vtkObjectFactory.h"
 #include "vtkPolyDataMapper.h"
 #include "vtkProperty.h"
+#include "vtkRenderWindow.h"
 #include "vtkTexture.h"
 
-vtkCxxRevisionMacro(vtkVRMLExporter, "$Revision: 1.60 $");
+vtkCxxRevisionMacro(vtkVRMLExporter, "$Revision: 1.61 $");
 vtkStandardNewMacro(vtkVRMLExporter);
 
 vtkVRMLExporter::vtkVRMLExporter()

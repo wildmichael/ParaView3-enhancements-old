@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOOGLExporter.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:47 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-05-27 14:48:16 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -28,8 +28,10 @@
 #ifndef __vtkOOGLExporter_h
 #define __vtkOOGLExporter_h
 
-#include <stdio.h>
 #include "vtkExporter.h"
+
+class vtkLight;
+class vtkActor;
 
 class VTK_RENDERING_EXPORT vtkOOGLExporter : public vtkExporter
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVRMLExporter.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:39:31 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2002-05-27 14:48:16 $
+  Version:   $Revision: 1.34 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -28,8 +28,13 @@
 #ifndef __vtkVRMLExporter_h
 #define __vtkVRMLExporter_h
 
-#include <stdio.h>
 #include "vtkExporter.h"
+
+class vtkLight;
+class vtkActor;
+class vtkPoints;
+class vtkDataArray;
+class vtkUnsignedCharArray;
 
 class VTK_RENDERING_EXPORT vtkVRMLExporter : public vtkExporter
 {
