@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLImageWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-03-09 21:27:13 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1999-03-12 20:41:11 $
+  Version:   $Revision: 1.6 $
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -306,7 +306,7 @@ LRESULT vtkWin32OpenGLImageWindow::MessageProc(HWND hWnd, UINT message,
         this->DeviceContext = GetDC(hWnd);
         this->SetupPixelFormat(this->DeviceContext,
 			       PFD_SUPPORT_OPENGL | PFD_DRAW_TO_WINDOW |
-			       PFD_DOUBLEBUFFER, 
+			       (this->DoubleBuffer*PFD_DOUBLEBUFFER), 
 			       this->GetDebug(), 32, 32);
         this->SetupPalette(this->DeviceContext);
 	this->ContextId = wglCreateContext(this->DeviceContext);
@@ -474,7 +474,8 @@ void vtkWin32OpenGLImageWindow::MakeDefaultWindow()
     SetWindowLong(this->WindowId,GWL_USERDATA,(LONG)this);
     this->DeviceContext = GetDC(this->WindowId);
     this->SetupPixelFormat(this->DeviceContext, PFD_SUPPORT_OPENGL |
-			   PFD_DRAW_TO_WINDOW | PFD_DOUBLEBUFFER, 
+			   PFD_DRAW_TO_WINDOW | 
+			   (this->DoubleBuffer*PFD_DOUBLEBUFFER), 
 			   this->GetDebug(), 32, 32);
     this->SetupPalette(this->DeviceContext);
     this->ContextId = wglCreateContext(this->DeviceContext);
