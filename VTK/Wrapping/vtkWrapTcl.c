@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWrapTcl.c,v $
   Language:  C++
-  Date:      $Date: 2002-06-18 19:03:26 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2002-12-03 23:41:57 $
+  Version:   $Revision: 1.27 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -659,7 +659,7 @@ void vtkParseOutput(FILE *fp, FileInfo *data)
     fprintf(fp,"    {\n    return TCL_OK;\n    }\n");
     }
   
-  /* add the default print method to Object */
+  /* Add the Print method to vtkObjectBase. */
   if (!strcmp("vtkObjectBase",data->ClassName))
     {
     fprintf(fp,"  if ((!strcmp(\"Print\",argv[1]))&&(argc == 2))\n    {\n");
@@ -669,7 +669,16 @@ void vtkParseOutput(FILE *fp, FileInfo *data)
     fprintf(fp,"    Tcl_SetResult(interp,buf.str(),TCL_VOLATILE);\n");
     fprintf(fp,"    delete buf.str();\n");
     fprintf(fp,"    return TCL_OK;\n    }\n");
+    /* Add the PrintRevisions method to vtkObjectBase. */
+    fprintf(fp,"  if ((!strcmp(\"PrintRevisions\",argv[1]))&&(argc == 2))\n    {\n");
+    fprintf(fp,"    ostrstream buf;\n");
+    fprintf(fp,"    op->PrintRevisions(buf);\n");
+    fprintf(fp,"    buf.put('\\0');\n");
+    fprintf(fp,"    Tcl_SetResult(interp,buf.str(),TCL_VOLATILE);\n");
+    fprintf(fp,"    delete buf.str();\n");
+    fprintf(fp,"    return TCL_OK;\n    }\n");    
     }
+  /* Add the AddObserver method to vtkObject. */
   if (!strcmp("vtkObject",data->ClassName))
     {
     fprintf(fp,"  if ((!strcmp(\"AddObserver\",argv[1]))&&(argc >= 4))\n    {\n");
