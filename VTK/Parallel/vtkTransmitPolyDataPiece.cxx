@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransmitPolyDataPiece.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-26 18:17:42 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2003-01-17 14:38:11 $
+  Version:   $Revision: 1.13 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 #include "vtkPointData.h"
 #include "vtkPolyData.h"
 
-vtkCxxRevisionMacro(vtkTransmitPolyDataPiece, "$Revision: 1.12 $");
+vtkCxxRevisionMacro(vtkTransmitPolyDataPiece, "$Revision: 1.13 $");
 vtkStandardNewMacro(vtkTransmitPolyDataPiece);
 
 vtkCxxSetObjectMacro(vtkTransmitPolyDataPiece,Controller,
@@ -182,6 +182,7 @@ void vtkTransmitPolyDataPiece::RootExecute()
   output->CopyStructure(extract->GetOutput());
   output->GetPointData()->PassData(extract->GetOutput()->GetPointData());
   output->GetCellData()->PassData(extract->GetOutput()->GetCellData());
+  output->GetFieldData()->PassData(extract->GetOutput()->GetFieldData());
 
   // Now do each of the satellite requests.
   numProcs = this->Controller->GetNumberOfProcesses();
@@ -220,6 +221,7 @@ void vtkTransmitPolyDataPiece::SatelliteExecute(int)
   output->CopyStructure(tmp);
   output->GetPointData()->PassData(tmp->GetPointData());
   output->GetCellData()->PassData(tmp->GetCellData());
+  output->GetFieldData()->PassData(tmp->GetFieldData());
 
   tmp->Delete();
 }
