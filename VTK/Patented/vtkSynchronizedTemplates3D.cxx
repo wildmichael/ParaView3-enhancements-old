@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSynchronizedTemplates3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-18 11:11:49 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 2001-05-09 13:06:10 $
+  Version:   $Revision: 1.42 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -652,12 +652,14 @@ void vtkSynchronizedTemplates3D::InitializeOutput(int *ext,vtkPolyData *o)
     {
     newNormals = vtkNormals::New();
     newNormals->Allocate(estimatedSize,estimatedSize/2);
+    newNormals->GetData()->SetName("Normals");
     o->GetPointData()->CopyNormalsOff();
     }
   if (this->ComputeGradients)
     {
     newGradients = vtkVectors::New();
     newGradients->Allocate(estimatedSize,estimatedSize/2);
+    newGradients->GetData()->SetName("Gradients");
     o->GetPointData()->CopyVectorsOff();
     }
   // It is more efficient to just create the scalar array 
@@ -667,6 +669,7 @@ void vtkSynchronizedTemplates3D::InitializeOutput(int *ext,vtkPolyData *o)
     {
     newScalars = vtkScalars::New();
     newScalars->Allocate(estimatedSize,estimatedSize/2);
+    newScalars->GetData()->SetName("Scalars");
     }
   
   o->GetPointData()->InterpolateAllocate(this->GetInput()->GetPointData(),
