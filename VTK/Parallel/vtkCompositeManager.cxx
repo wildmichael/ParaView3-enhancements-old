@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCompositeManager.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-24 15:03:32 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2002-05-06 12:07:59 $
+  Version:   $Revision: 1.26 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -35,7 +35,7 @@
  #include <mpi.h>
 #endif
 
-vtkCxxRevisionMacro(vtkCompositeManager, "$Revision: 1.25 $");
+vtkCxxRevisionMacro(vtkCompositeManager, "$Revision: 1.26 $");
 vtkStandardNewMacro(vtkCompositeManager);
 
 // Structures to communicate render info.
@@ -695,6 +695,10 @@ void vtkCompositeManager::StartRender()
 //-------------------------------------------------------------------------
 void vtkCompositeManager::EndRender()
 {
+  if (!this->UseCompositing)
+    {
+    return;
+    }  
 
   if (this->FirstRender)
     {
