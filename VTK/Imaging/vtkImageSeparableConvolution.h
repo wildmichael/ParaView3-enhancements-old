@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSeparableConvolution.h,v $
   Language:  C++
-  Date:      $Date: 2001-12-12 19:44:16 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-12-17 16:38:29 $
+  Version:   $Revision: 1.2 $
   Thanks:    
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -47,7 +47,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // centered at (int)((kernelsize - 1) / 2.0 ).  If a kernel is NULL,
 // that dimension is skipped.  This filter is designed to efficiently
 // convolve separable filters that can be decomposed into 1 or more 1D
-// convolutions.  It also handles arbitrarly large kernel sizes.
+// convolutions.  It also handles arbitrarly large kernel sizes, and
+// uses edge replication to handle boundaries.
 
 #ifndef __vtkImageSeparableConvolution_h
 #define __vtkImageSeparableConvolution_h

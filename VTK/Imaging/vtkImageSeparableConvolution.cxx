@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSeparableConvolution.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-17 15:32:58 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-12-17 16:38:29 $
+  Version:   $Revision: 1.5 $
   Thanks:    
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -165,7 +165,7 @@ template <class T>
 static void vtkImageSeparableConvolutionExecute ( vtkImageSeparableConvolution* self,
                                                   vtkImageData* inData,
                                                   vtkImageData* outData,
-                                                  T vtkNotUsed ( dummy ) )
+                                                  T* vtkNotUsed ( dummy ) )
 {
   T *inPtr0, *inPtr1, *inPtr2;
   float *outPtr0, *outPtr1, *outPtr2;
@@ -339,7 +339,7 @@ void vtkImageSeparableConvolution::IterativeExecuteData(vtkImageData *inData,
   // choose which templated function to call.
   switch (inData->GetScalarType())
     {
-    vtkTemplateMacro4(vtkImageSeparableConvolutionExecute, this, inData, outData, (VTK_TT) 0 );
+    vtkTemplateMacro4(vtkImageSeparableConvolutionExecute, this, inData, outData, static_cast<VTK_TT*>(0) );
     default:
       vtkErrorMacro(<< "Execute: Unknown ScalarType");
       return;
