@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIceTClientCompositeManager.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-06-25 19:15:08 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-07-16 19:58:34 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -52,7 +52,7 @@
 #endif
 
 
-vtkCxxRevisionMacro(vtkIceTClientCompositeManager, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkIceTClientCompositeManager, "$Revision: 1.2 $");
 vtkStandardNewMacro(vtkIceTClientCompositeManager);
 
 vtkCxxSetObjectMacro(vtkIceTClientCompositeManager,Compositer,vtkCompositer);
@@ -121,7 +121,7 @@ vtkIceTClientCompositeManager::vtkIceTClientCompositeManager()
   this->Compositer = vtkCompressCompositer::New();
   //this->Compositer = vtkTreeCompositer::New();
 
-  this->Tiled = 0;
+  this->Tiled = 1;
   this->TiledDimensions[0] = this->TiledDimensions[1] = 1;
 
   this->UseChar = 1;
@@ -739,8 +739,8 @@ void vtkIceTClientCompositeManager::SatelliteStartRender()
                       vtkCompositeManager::WIN_INFO_TAG);
 
   // This should be fixed.  Round off will cause window to resize. !!!!!
-  renWin->SetSize(winInfo.Size[0] * winInfo.ReductionFactor,
-                  winInfo.Size[1] * winInfo.ReductionFactor);
+  //renWin->SetSize(winInfo.Size[0] * winInfo.ReductionFactor,
+  //                winInfo.Size[1] * winInfo.ReductionFactor);
   //this->ReductionFactor = winInfo.ReductionFactor;
   this->ReductionFactor = 1;
   this->SquirtCompression = 3 * (winInfo.ReductionFactor-1);
