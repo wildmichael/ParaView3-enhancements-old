@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointWidget.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-30 21:06:20 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2002-09-04 19:52:18 $
+  Version:   $Revision: 1.13 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -187,7 +187,6 @@ public:
       this->YShadowsOff();
       this->ZShadowsOff();
     }
-
 
   // Description:
   // Get the handle properties (the little balls are the handles). The 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtk3DWidget.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-02 16:13:36 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2002-09-04 19:52:07 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -100,8 +100,16 @@ public:
   // it just fits within the bounding box defined in PlaceWidget(bounds).
   // The PlaceFactor will make the widget larger (PlaceFactor > 1) or smaller
   // (PlaceFactor < 1). By default, PlaceFactor is set to 0.5.
-  vtkSetMacro(PlaceFactor,float);
+  vtkSetClampMacro(PlaceFactor,float,0.01,VTK_LARGE_FLOAT);
   vtkGetMacro(PlaceFactor,float);
+
+  // Description:
+  // Set/Get the factor that controls the size of the handles that
+  // appear as part of the widget. These handles (like spheres, etc.)
+  // are used to manipulate the widget, and are sized as a fraction of
+  // the screen diagonal.
+  vtkSetClampMacro(HandleSize,float,0.001,0.5);
+  vtkGetMacro(HandleSize,float);
 
 protected:
   vtk3DWidget();
@@ -115,6 +123,9 @@ protected:
   float PlaceFactor;
   int Placed; 
   void AdjustBounds(float bounds[6], float newBounds[6], float center[3]);
+  
+  //control the size of handles
+  float HandleSize;
   
 private:
   vtk3DWidget(const vtk3DWidget&);  // Not implemented.
