@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkBYUWriter.h,v $
   Language:  C++
-  Date:      $Date: 1994-06-08 21:22:58 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1994-07-20 21:46:16 $
+  Version:   $Revision: 1.2 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -15,9 +15,15 @@ without the express written consent of the authors.
 Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994 
 
 =========================================================================*/
-//
-// Write MOVIE.BYU Files
-//
+// .NAME vlBYUWriter - write MOVIE.BYU files
+// .SECTION Description
+// vlBYUWriter writes MOVIE.BYU polygonal files. These files consist 
+// of a geometry file (.g), a scalar file (.s), a displacement or 
+// vector file (.d), and a 2D texture coordinate file (.t). These files 
+// must be specified to the object, the appropriate boolean 
+// variables must be true, and data must be available from the input
+// for the files to be written.
+
 #ifndef __vlBYUWriter_h
 #define __vlBYUWriter_h
 
