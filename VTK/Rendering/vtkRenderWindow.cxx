@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-02-06 17:49:10 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1994-06-02 17:03:38 $
+  Version:   $Revision: 1.4 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -44,7 +44,13 @@ void vlRenderWindow::AddRenderers(vlRenderer *ren)
 {
   // we are its parent 
   ren->SetRenderWindow(this);
-  this->Renderers.AddMember(ren);
+  this->Renderers.AddItem(ren);
+}
+
+void vlRenderWindow::RemoveRenderers(vlRenderer *ren)
+{
+  // we are its parent 
+  this->Renderers.RemoveItem(ren);
 }
 
 void vlRenderWindow::SetSize(int a[2])

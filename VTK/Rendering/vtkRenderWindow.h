@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 1994-02-06 17:56:13 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1994-06-02 17:03:50 $
+  Version:   $Revision: 1.5 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -36,7 +36,11 @@ public:
   vlRenderWindow();
   char *GetClassName() {return "vlRenderWindow";};
   void PrintSelf(ostream& os, vlIndent indent);
+
   void AddRenderers(vlRenderer *);
+  void RemoveRenderers(vlRenderer *);
+  vlRendererCollection *GetRenderers() {return &(this->Renderers);};
+
   virtual void Render();
   virtual void Frame() = 0;
   virtual void Start() = 0;

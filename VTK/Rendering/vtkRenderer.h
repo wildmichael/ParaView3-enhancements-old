@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkRenderer.h,v $
   Language:  C++
-  Date:      $Date: 1994-03-25 15:32:55 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1994-06-02 17:04:01 $
+  Version:   $Revision: 1.10 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -50,6 +50,10 @@ public:
 
   void AddLights(vlLight *);
   void AddActors(vlActor *);
+  void RemoveLights(vlLight *);
+  void RemoveActors(vlActor *);
+  vlLightCollection *GetLights() {return &(this->Lights);};
+  vlActorCollection *GetActors() {return &(this->Actors);};
   void SetActiveCamera(vlCamera *);
   vlCamera *GetActiveCamera();
 
