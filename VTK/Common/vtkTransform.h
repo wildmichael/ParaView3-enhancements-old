@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransform.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 21:03:44 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1996-09-23 18:16:35 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -94,6 +94,7 @@ class vtkTransform : public vtkObject
   void GetInverse(vtkMatrix4x4& inverse);
   float *GetOrientation();
   void GetOrientation(float& rx, float& ry, float& rz);
+  float *GetOrientationWXYZ();  
   float *GetPosition();
   void GetPosition (float& x, float& y, float& z);
   float *GetScale();

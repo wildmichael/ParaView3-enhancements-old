@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 21:03:43 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 1996-09-23 18:16:33 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -523,6 +523,57 @@ void vtkTransform::GetPosition (float & x,float & y,float & z)
   y = (**this->Stack).Element[1][3];
   z = (**this->Stack).Element[2][3];
 }
+
+// Description:
+// Returns the orientation of the transform as a rotation W about the vector of
+// X,Y and Z.
+float *vtkTransform::GetOrientationWXYZ ()
+{
+  float cT, sT;
+  float cP, sP;
+  float cS, sS;
+  float quat[4];
+  float *orient;
+  static float WXYZ[4];
+  float mag;
+  
+  // return the orientation of the transformation matrix
+  orient = this->GetOrientation();
+  
+  // calc the intermediate values for the quat 360.0 is on purpose
+  cS = cos(orient[0]*3.1415926/360.0);
+  sS = sin(orient[0]*3.1415926/360.0);
+  cT = cos(orient[1]*3.1415926/360.0);
+  sT = sin(orient[1]*3.1415926/360.0);
+  cP = cos(orient[2]*3.1415926/360.0);
+  sP = sin(orient[2]*3.1415926/360.0);
+  
+  // calc the quat
+  quat[0] = cS*cT*cP + sS*sT*sP;
+  quat[1] = sS*cT*cP - cS*sT*sP;
+  quat[2] = cS*sT*cP + sS*cT*sP;
+  quat[3] = cS*cT*sP - sS*sT*cP;
+  
+  // calc the wxyz
+  mag = sqrt(quat[1]*quat[1] + quat[2]*quat[2] + quat[3]*quat[3]);
+
+  if (mag)
+    {
+    WXYZ[0] = 180.0*2.0*acos(quat[0])/3.1415926;
+    WXYZ[1] = quat[1]/mag;
+    WXYZ[2] = quat[2]/mag;
+    WXYZ[3] = quat[3]/mag;
+    }
+  else
+    {
+    WXYZ[0] = 0;
+    WXYZ[1] = 0;
+    WXYZ[2] = 0;
+    WXYZ[3] = 1;
+    }
+  
+  return WXYZ;
+} // vtkTransform::GetOrientationWXYZ 
 
 // Description:
 // Return the position from the current transformation matrix as an array
