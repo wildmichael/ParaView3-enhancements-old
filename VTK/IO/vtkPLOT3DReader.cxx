@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPLOT3DReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-03-26 15:15:38 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1997-04-07 19:55:16 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -122,6 +122,7 @@ void vtkPLOT3DReader::Execute()
     fclose(xyzFp);
     xyzFp = fopen(this->XYZFilename, "rb");
     error = this->ReadBinaryGrid(xyzFp,output);
+    fclose(xyzFp);
     }
   
   if ( error )
@@ -152,6 +153,7 @@ void vtkPLOT3DReader::Execute()
       fclose(QFp);
       QFp = fopen(this->QFilename, "rb");
       error = this->ReadBinarySolution(QFp,output);
+      fclose(QFp);
       }
     
     if ( error )
@@ -183,6 +185,7 @@ void vtkPLOT3DReader::Execute()
       fclose(funcFp);
       funcFp = fopen(this->FunctionFilename, "rb");
       error = this->ReadBinaryFunctionFile(funcFp,output);
+      fclose(funcFp);
       }
     
     if ( error )
@@ -212,6 +215,7 @@ void vtkPLOT3DReader::Execute()
       fclose(funcFp);
       funcFp = fopen(this->VectorFunctionFilename, "rb");
       error = this->ReadBinaryVectorFunctionFile(funcFp,output);
+      fclose(funcFp);
       }
     
     if ( error )
