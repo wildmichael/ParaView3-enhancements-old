@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-15 15:40:31 $
-  Version:   $Revision: 1.99 $
+  Date:      $Date: 2002-08-19 16:43:21 $
+  Version:   $Revision: 1.100 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,7 @@
 #include "vtkRenderer.h"
 #include "vtkRendererCollection.h"
 
-vtkCxxRevisionMacro(vtkRenderWindowInteractor, "$Revision: 1.99 $");
+vtkCxxRevisionMacro(vtkRenderWindowInteractor, "$Revision: 1.100 $");
 
 //----------------------------------------------------------------------------
 // Needed when we don't use the vtkStandardNewMacro.
@@ -356,6 +356,7 @@ void vtkRenderWindowInteractor::FlyTo(vtkRenderer *ren, float x, float y, float 
       }
     ren->GetActiveCamera()->SetFocalPoint(focalPt);
     ren->GetActiveCamera()->Dolly(this->Dolly/this->NumberOfFlyFrames + 1.0);
+    ren->GetActiveCamera()->OrthogonalizeViewUp();
     ren->ResetCameraClippingRange();
     this->RenderWindow->Render();
     }
