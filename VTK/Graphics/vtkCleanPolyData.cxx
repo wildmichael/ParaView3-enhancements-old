@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCleanPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:40:54 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 1998-10-06 20:39:31 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -234,7 +234,9 @@ void vtkCleanPolyData::Execute()
                  newStrips->GetNumberOfCells() << " strips");
     }
 
-  //
+  vtkDebugMacro(<<"Removed " << numPts - newPts->GetNumberOfPoints()
+                << " points");
+
   // Update ourselves and release memory
   //
   delete [] updatedPts;
