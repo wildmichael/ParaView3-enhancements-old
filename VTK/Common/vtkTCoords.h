@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTCoords.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-05 17:06:33 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 2000-12-07 20:50:12 $
+  Version:   $Revision: 1.46 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -96,13 +96,13 @@ public:
   // Insert TCoord into object. No range checking performed (fast!).
   // Make sure you use SetNumberOfTCoords() to allocate memory prior
   // to using SetTCoord().
-  void SetTCoord(int id, float tc[3]) {this->Data->SetTuple(id,tc);};
+  void SetTCoord(int id, const float tc[3]) {this->Data->SetTuple(id,tc);};
   void SetTCoord(int id, float r, float s, float t);
 
   // Description:
   // Insert TCoord into object. Range checking performed and memory
   // allocated as necessary.
-  void InsertTCoord(int id, float tc[3]) 
+  void InsertTCoord(int id, const float tc[3]) 
     {this->Data->InsertTuple(id,tc);};
 
   // Description:
@@ -111,7 +111,7 @@ public:
 
   // Description:
   // Insert TCoord at end of array and return its location (id) in the array.
-  int InsertNextTCoord(float tc[3]) 
+  int InsertNextTCoord(const float tc[3]) 
     {return this->Data->InsertNextTuple(tc);}
   int InsertNextTCoord(float tx, float ty, float tz);
 

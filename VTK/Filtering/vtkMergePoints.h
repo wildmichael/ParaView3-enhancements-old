@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergePoints.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:05:48 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2000-12-07 20:50:12 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -63,7 +63,7 @@ public:
   // Determine whether point given by x[3] has been inserted into points list.
   // Return id of previously inserted point if this is true, otherwise return
   // -1.
-  int IsInsertedPoint(float x[3]);
+  int IsInsertedPoint(const float x[3]);
   int IsInsertedPoint(float x, float  y, float z)
     {return this->vtkPointLocator::IsInsertedPoint(x, y, z); };
 

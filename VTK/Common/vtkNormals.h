@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkNormals.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-05 17:06:33 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 2000-12-07 20:50:12 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -89,16 +89,16 @@ public:
   // Insert normal into object. No range checking performed (fast!).
   // Make sure you use SetNumberOfNormals() to allocate memory prior
   // to using SetNormal().
-  void SetNormal(int id, float n[3]) 
+  void SetNormal(int id, const float n[3]) 
     {this->Data->SetTuple(id,n);}
-  void SetNormal(int id, double n[3]) 
+  void SetNormal(int id, const double n[3]) 
     {this->Data->SetTuple(id,n);}
   void SetNormal(int id, double nx, double ny, double nz);
 
   // Description:
   // Insert normal into object. Range checking performed and memory
   // allocated as necessary.
-  void InsertNormal(int id, double n[3]) 
+  void InsertNormal(int id, const double n[3]) 
     {this->Data->InsertTuple(id,n);}
   void InsertNormal(int id, float n[3]) 
     {this->Data->InsertTuple(id,n);}
@@ -106,9 +106,9 @@ public:
 
   // Description:
   // Insert normal into next available slot. Returns id of slot.
-  int InsertNextNormal(float n[3]) 
+  int InsertNextNormal(const float n[3]) 
     {return this->Data->InsertNextTuple(n);}
-  int InsertNextNormal(double n[3]) 
+  int InsertNextNormal(const double n[3]) 
     {return this->Data->InsertNextTuple(n);}
   int InsertNextNormal(double nx, double ny, double nz);
 

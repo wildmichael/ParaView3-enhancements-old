@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectors.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-05 17:06:33 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 2000-12-07 20:50:12 $
+  Version:   $Revision: 1.50 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -84,21 +84,25 @@ public:
   // Insert vector into object. No range checking performed (fast!).
   // Make sure you use SetNumberOfVectors() to allocate memory prior
   // to using SetVector().
-  void SetVector(int id, float v[3]) {this->Data->SetTuple(id,v);};
-  void SetVector(int id, double v[3]) {this->Data->SetTuple(id,v);};
+  void SetVector(int id, const float v[3]) {this->Data->SetTuple(id,v);};
+  void SetVector(int id, const double v[3]) {this->Data->SetTuple(id,v);};
   void SetVector(int id, double vx, double vy, double vz);
 
   // Description:
   // Insert vector into object. Range checking performed and memory
   // allocated as necessary.
-  void InsertVector(int id, float v[3]) {this->Data->InsertTuple(id,v);};
-  void InsertVector(int id, double v[3]) {this->Data->InsertTuple(id,v);};
+  void InsertVector(int id, const float v[3])
+    {this->Data->InsertTuple(id,v);};
+  void InsertVector(int id, const double v[3]) 
+    {this->Data->InsertTuple(id,v);};
   void InsertVector(int id, double vx, double vy, double vz);
 
   // Description:
   // Insert vector into next available slot. Returns id of slot.
-  int InsertNextVector(float v[3]) {return this->Data->InsertNextTuple(v);};
-  int InsertNextVector(double v[3]) {return this->Data->InsertNextTuple(v);};
+  int InsertNextVector(const float v[3]) 
+    {return this->Data->InsertNextTuple(v);};
+  int InsertNextVector(const double v[3]) 
+    {return this->Data->InsertNextTuple(v);};
   int InsertNextVector(double vx, double vy, double vz);
 
   // Description:
