@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkByteSwap.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-03 21:14:04 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2001-09-01 15:58:32 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -338,24 +338,21 @@ void vtkByteSwap::SwapWrite4BERange(char *mem_ptr1,int num, FILE *fp)
  
   while (num)
     {
-      memcpy(cpy, mem_ptr1, chunkSize * 4);
+    memcpy(cpy, mem_ptr1, chunkSize * 4);
   
-      pos = cpy;    
-      for (i = 0; i < chunkSize; i++)
-	{
-
-	  Swap2Bytes(pos);
-
-	  pos += 4;
-
-	}
-      fwrite(cpy,4,chunkSize,fp);
-      mem_ptr1 += chunkSize*4;
-      num -= chunkSize;
-      if (num < chunkSize)
-	{
-	  chunkSize = num;
-	}
+    pos = cpy;    
+    for (i = 0; i < chunkSize; i++)
+      {
+      Swap4Bytes(pos);
+      pos += 4;
+      }
+    fwrite(cpy,4,chunkSize,fp);
+    mem_ptr1 += chunkSize*4;
+    num -= chunkSize;
+    if (num < chunkSize)
+      {
+      chunkSize = num;
+      }
     }
   delete [] cpy;
   
