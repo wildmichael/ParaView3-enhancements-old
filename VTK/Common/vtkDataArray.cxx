@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-10-04 13:52:29 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2001-10-04 15:09:30 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -867,6 +867,52 @@ void vtkDataArray::ComputeRange(int comp)
     this->ComponentForLastRange = comp;
     }
 
+}
+
+void vtkDataArray::GetDataTypeRange(double range[2])
+{
+  range[0] = this->GetDataTypeMin();
+  range[1] = this->GetDataTypeMax();
+}
+
+double vtkDataArray::GetDataTypeMin()
+{
+  int dataType=this->GetDataType();
+  switch (dataType)
+    {
+    case VTK_BIT:            return (double)VTK_BIT_MIN;
+    case VTK_UNSIGNED_CHAR:  return (double)VTK_UNSIGNED_CHAR_MIN;
+    case VTK_CHAR:           return (double)VTK_CHAR_MIN;
+    case VTK_UNSIGNED_SHORT: return (double)VTK_UNSIGNED_SHORT_MIN;
+    case VTK_SHORT:          return (double)VTK_SHORT_MIN;
+    case VTK_UNSIGNED_INT:   return (double)VTK_UNSIGNED_INT_MIN;
+    case VTK_INT:            return (double)VTK_INT_MIN;
+    case VTK_UNSIGNED_LONG:  return (double)VTK_UNSIGNED_LONG_MIN;
+    case VTK_LONG:           return (double)VTK_LONG_MIN;
+    case VTK_FLOAT:          return (double)VTK_FLOAT_MIN;
+    case VTK_DOUBLE:         return (double)VTK_DOUBLE_MIN;
+    default: return 0;
+    }
+}
+
+double vtkDataArray::GetDataTypeMax()
+{
+  int dataType=this->GetDataType();
+  switch (dataType)
+    {
+    case VTK_BIT:            return (double)VTK_BIT_MAX;
+    case VTK_UNSIGNED_CHAR:  return (double)VTK_UNSIGNED_CHAR_MAX;
+    case VTK_CHAR:           return (double)VTK_CHAR_MAX;
+    case VTK_UNSIGNED_SHORT: return (double)VTK_UNSIGNED_SHORT_MAX;
+    case VTK_SHORT:          return (double)VTK_SHORT_MAX;
+    case VTK_UNSIGNED_INT:   return (double)VTK_UNSIGNED_INT_MAX;
+    case VTK_INT:            return (double)VTK_INT_MAX;
+    case VTK_UNSIGNED_LONG:  return (double)VTK_UNSIGNED_LONG_MAX;
+    case VTK_LONG:           return (double)VTK_LONG_MAX;
+    case VTK_FLOAT:          return (double)VTK_FLOAT_MAX;
+    case VTK_DOUBLE:         return (double)VTK_DOUBLE_MAX;
+    default: return 1;
+    }
 }
 
 void vtkDataArray::PrintSelf(ostream& os, vtkIndent indent)
