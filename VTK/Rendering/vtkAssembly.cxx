@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAssembly.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:43:02 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1998-03-11 21:13:32 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -232,6 +232,21 @@ void vtkAssembly::DeletePaths()
       }
     this->Paths->Delete();
     this->Paths = NULL;
+    }
+}
+
+// Recursive application of properties to all parts composing assembly.
+void vtkAssembly::ApplyProperties()
+{
+  vtkActor *part;
+  vtkProperty *prop=this->GetProperty();
+  vtkProperty *actorProp;
+
+  for (this->Parts.InitTraversal(); (part = this->Parts.GetNextItem()); )
+    {
+    actorProp = part->GetProperty();
+    *actorProp = *prop;
+    part->ApplyProperties();
     }
 }
 

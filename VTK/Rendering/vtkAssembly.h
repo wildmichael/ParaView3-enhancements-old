@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAssembly.h,v $
   Language:  C++
-  Date:      $Date: 1998-03-10 16:07:15 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1998-03-11 21:13:30 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -114,6 +114,8 @@ public:
   int GetNumberOfParts();
 
   void BuildPaths(vtkAssemblyPaths *paths, vtkActorCollection *path);
+
+  void ApplyProperties(); //recursive application of properties
 
   float *GetBounds();
   unsigned long int GetMTime();

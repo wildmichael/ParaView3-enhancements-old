@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor.h,v $
   Language:  C++
-  Date:      $Date: 1997-12-11 22:01:08 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 1998-03-11 21:13:27 $
+  Version:   $Revision: 1.52 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -144,6 +144,15 @@ class VTK_EXPORT vtkActor : public vtkProp
   // Description:
   // Used to construct assembly paths and perform part traversal.
   virtual void BuildPaths(vtkAssemblyPaths *paths, vtkActorCollection *path);
+
+  // Description:
+  // Apply the current properties to all parts that compose this actor.
+  // This method is overloaded in vtkAssembly to apply the assemblies'
+  // properties to all its parts in a recursive manner. Typically the
+  // use of this method is to set the desired properties in the assembly,
+  // and then push the properties down to the assemblies parts with
+  // ApplyProperties().
+  virtual void ApplyProperties() {return;};
 
   // Description:
   // Update visualization pipeline and any other parts of actor that are
