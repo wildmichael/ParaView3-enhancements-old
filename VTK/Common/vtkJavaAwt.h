@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkJavaAwt.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-10 21:06:25 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2002-10-25 18:19:50 $
+  Version:   $Revision: 1.13 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -70,7 +70,7 @@ extern "C" JNIEXPORT void  JNICALL
   JAWT_Win32DrawingSurfaceInfo* dsi_win;
   dsi_win = (JAWT_Win32DrawingSurfaceInfo*)dsi->platformInfo;
   temp0->SetWindowId((void *)dsi_win->hwnd);
-  
+  temp0->SetDisplayId((void *)dsi_win->hdc);
 // otherwise use X11 code
 #else
   JAWT_X11DrawingSurfaceInfo* dsi_x11;
