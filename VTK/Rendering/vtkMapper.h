@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkMapper.h,v $
   Language:  C++
-  Date:      $Date: 1994-08-05 09:02:15 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1994-08-23 22:40:11 $
+  Version:   $Revision: 1.8 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -39,6 +39,9 @@ public:
   char *GetClassName() {return "vlMapper";};
   void PrintSelf(ostream& os, vlIndent indent);
   void operator=(const vlMapper& m);
+
+  unsigned long int GetMTime();
+
   void SetStartRender(void (*f)(void *), void *arg);
   void SetEndRender(void (*f)(void *), void *arg);
 
@@ -59,7 +62,7 @@ public:
   vlGetObjectMacro(LookupTable,vlLookupTable);
 
   // Description:
-  // Set flag to control whether scalar data is used to color objects.
+  // Turn on/off flag to control whether scalar data is used to color objects.
   vlSetMacro(ScalarsVisible,int);
   vlGetMacro(ScalarsVisible,int);
   vlBooleanMacro(ScalarsVisible,int);

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-08-05 09:02:14 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1994-08-23 22:40:23 $
+  Version:   $Revision: 1.12 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -36,6 +36,23 @@ vlMapper::~vlMapper()
     {
     this->LookupTable->UnRegister(this);
     }
+}
+
+// Description:
+// Overload standard modified time function. If cut functions is modified,
+// then we are modified as well.
+unsigned long vlMapper::GetMTime()
+{
+  unsigned long mTime=this->MTime.GetMTime();
+  unsigned long lutMTime;
+
+  if ( this->LookupTable != NULL )
+    {
+    lutMTime = this->LookupTable->GetMTime();
+    mTime = ( lutMTime > mTime ? lutMTime : mTime );
+    }
+
+  return mTime;
 }
 
 void vlMapper::operator=(const vlMapper& m)
