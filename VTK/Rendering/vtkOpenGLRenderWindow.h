@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 1999-04-29 17:51:15 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-08-26 18:52:40 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -53,6 +53,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include <X11/Xutil.h>
 #include "vtkXRenderWindow.h"
 #include "GL/glx.h"
+
+class vtkIdList;
 
 class VTK_EXPORT vtkOpenGLRenderWindow : public vtkXRenderWindow
 {
@@ -153,6 +155,13 @@ public:
   // Description:
   // Make this window the current OpenGL context.
   void MakeCurrent();
+
+  // Description:
+  // Register a texture name with this render window
+  void RegisterTextureResource (GLuint id);
+  
+ protected:
+  vtkIdList *TextureResourceIds;
 };
 
 #endif
