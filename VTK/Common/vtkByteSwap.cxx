@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkByteSwap.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-15 21:33:56 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 2001-12-07 14:37:26 $
+  Version:   $Revision: 1.42 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -462,7 +462,7 @@ void vtkByteSwap::Swap2LERange(char *mem_ptr1, int num)
   
 }
 #else
-void vtkByteSwap::Swap2LERange(char *mem_ptr1,int num){}
+void vtkByteSwap::Swap2LERange(char *,int ){}
 #endif
 
 // Swap bunch of bytes. Num is the number of four byte words to swap.
