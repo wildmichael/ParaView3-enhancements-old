@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFiniteDifferenceGradientEstimator.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:31 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2002-03-11 14:24:47 $
+  Version:   $Revision: 1.31 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -30,7 +30,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkFiniteDifferenceGradientEstimator, "$Revision: 1.30 $");
+vtkCxxRevisionMacro(vtkFiniteDifferenceGradientEstimator, "$Revision: 1.31 $");
 vtkStandardNewMacro(vtkFiniteDifferenceGradientEstimator);
 
 // This is the templated function that actually computes the EncodedNormal
@@ -70,6 +70,11 @@ static void ComputeGradients(
   scale = estimator->GetGradientMagnitudeScale();
   bias = estimator->GetGradientMagnitudeBias();
   zeroPad = estimator->GetZeroPad();
+  
+  // adjust the aspect
+  aspect[0] = aspect[0] * 2.0 * estimator->SampleSpacingInVoxels;
+  aspect[1] = aspect[1] * 2.0 * estimator->SampleSpacingInVoxels;
+  aspect[2] = aspect[2] * 2.0 * estimator->SampleSpacingInVoxels;
   
   // Compute steps through the volume in x, y, and z
   xstep = 1;
@@ -250,9 +255,9 @@ static void ComputeGradients(
         // Take care of the aspect ratio of the data
         // Scaling in the vtkVolume is isotropic, so this is the
         // only place we have to worry about non-isotropic scaling.
-        n[0] /= (2.0 * aspect[0]);
-        n[1] /= (2.0 * aspect[1]);
-        n[2] /= (2.0 * aspect[2]);
+        n[0] /= aspect[0];
+        n[1] /= aspect[1];
+        n[2] /= aspect[2];
         
         // Compute the gradient magnitude
         t = sqrt( (double)( n[0]*n[0] + 
