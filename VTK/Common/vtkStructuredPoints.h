@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStructuredPoints.h,v $
   Language:  C++
-  Date:      $Date: 1994-08-15 07:47:16 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1994-09-14 08:17:27 $
+  Version:   $Revision: 1.13 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -46,13 +46,13 @@ public:
   // Set the aspect ratio of the cubical cells that compose the structured
   // point set.
   vlSetVector3Macro(AspectRatio,float);
-  vlGetVectorMacro(AspectRatio,float);
+  vlGetVectorMacro(AspectRatio,float,3);
 
   // Description:
   // Set the origin of the data. The origin plus aspect ratio determine the
   // position in space of the structured points.
   vlSetVector3Macro(Origin,float);
-  vlGetVectorMacro(Origin,float);
+  vlGetVectorMacro(Origin,float,3);
 
 protected:
   float Origin[3];

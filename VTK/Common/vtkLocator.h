@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkLocator.h,v $
   Language:  C++
-  Date:      $Date: 1994-09-12 21:22:35 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1994-09-14 08:17:22 $
+  Version:   $Revision: 1.7 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -49,7 +49,7 @@ public:
   // Description:
   // Set the number of divisions in x-y-z directions.
   vlSetVector3Macro(Divisions,int);
-  vlGetVectorMacro(Divisions,int);
+  vlGetVectorMacro(Divisions,int,3);
 
   // Description:
   // Boolean controls whether automatic subdivision size is computed

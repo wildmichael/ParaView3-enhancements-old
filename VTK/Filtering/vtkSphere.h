@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkSphere.h,v $
   Language:  C++
-  Date:      $Date: 1994-08-15 07:47:11 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1994-09-14 08:17:25 $
+  Version:   $Revision: 1.4 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -37,7 +37,7 @@ public:
   vlGetMacro(Radius,float);
 
   vlSetVector3Macro(Origin,float);
-  vlGetVectorMacro(Origin,float);
+  vlGetVectorMacro(Origin,float,3);
 
 protected:
   float Radius;

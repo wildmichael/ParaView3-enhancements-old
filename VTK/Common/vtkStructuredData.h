@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStructuredData.h,v $
   Language:  C++
-  Date:      $Date: 1994-09-12 21:22:51 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1994-09-14 08:17:26 $
+  Version:   $Revision: 1.11 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -53,7 +53,7 @@ public:
   // specific object methods
   void SetDimensions(int i, int j, int k);
   void SetDimensions(int dim[3]);
-  vlGetVectorMacro(Dimensions,int);
+  vlGetVectorMacro(Dimensions,int,3);
 
   int GetDataDimension();
 

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPlane.h,v $
   Language:  C++
-  Date:      $Date: 1994-08-15 07:51:51 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1994-09-14 08:17:23 $
+  Version:   $Revision: 1.7 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -43,10 +43,10 @@ public:
   void EvaluateNormal(float x, float y, float z, float n[3]);
 
   vlSetVector3Macro(Normal,float);
-  vlGetVectorMacro(Normal,float);
+  vlGetVectorMacro(Normal,float,3);
 
   vlSetVector3Macro(Origin,float);
-  vlGetVectorMacro(Origin,float);
+  vlGetVectorMacro(Origin,float,3);
 
 protected:
   float Normal[3];
