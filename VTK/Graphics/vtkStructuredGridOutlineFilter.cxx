@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStructuredGridOutlineFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-15 11:09:05 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1994-11-28 23:04:37 $
+  Version:   $Revision: 1.4 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -17,7 +17,7 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 
 void vlStructuredGridOutlineFilter::Execute()
 {
-  vlStructuredGrid *input;
+  vlStructuredGrid *input=(vlStructuredGrid *)this->Input;
   vlPoints *inPts;
   int i, j, k;
   int idx, gridIdx;
@@ -75,7 +75,7 @@ void vlStructuredGridOutlineFilter::Execute()
     else
       gridIdx = (dim[2] - 1)*dim[0]*dim[1];
 
-    for (i=0; i<dim[0]; i++)
+    for (i=0; i<dim[1]; i++)
       newPts->InsertNextPoint(inPts->GetPoint(gridIdx+i*dim[0]));
 
     }
@@ -94,7 +94,7 @@ void vlStructuredGridOutlineFilter::Execute()
     else
       gridIdx = (dim[1] - 1)*dim[0];
         
-    for (i=0; i<dim[0]; i++)
+    for (i=0; i<dim[2]; i++)
       newPts->InsertNextPoint(inPts->GetPoint(gridIdx+i*idx));
 
     }
@@ -102,13 +102,13 @@ void vlStructuredGridOutlineFilter::Execute()
 // Create lines. Rely on the fact that x, then y, then z points have been 
 // created.
 //
-  idx = 0;
-  for (k=0; k < 3; k++)
+  idx = -1;
+  for (k=0; k<3; k++) //loop over x-y-z directions
     {
-    for (i=0;i<4;i++)
+    for (i=0; i<4; i++)
       {
       idx++;
-      for (j=0;j<(dim[k]-1);j++) 
+      for (j=0; j<(dim[k]-1); j++) 
         {
         pts[0] = idx++;
         pts[1] = idx;
