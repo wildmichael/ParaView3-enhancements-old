@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkConeSource.h,v $
   Language:  C++
-  Date:      $Date: 1994-10-10 16:28:09 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1995-06-18 14:29:46 $
+  Version:   $Revision: 1.12 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -15,14 +15,14 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 =========================================================================*/
 // .NAME vlConeSource - generate polygonal cone 
 // .SECTION Description
-// vlConeSource creates a cone centered at origin. Depending upon the
-// resolution of this object, different representations are created.
-// If resolution=0 a line is created; if resolution=1, a single
-// triangle is created; if resolution=2, two crossed triangles are
-// created. For resolution > 2, a 3D cone (with resolution number of 
-// sides) is created. It is also possible to control whether the bottom 
-// of the cone is capped with a (resolution-sided) polygon, and to 
-// specify the height and radius of the cone.
+// vlConeSource creates a cone centered at origin and pointing down the 
+// x-axis. Depending upon the resolution of this object, different 
+// representations are created. If resolution=0 a line is created; if 
+// resolution=1, a single triangle is created; if resolution=2, two 
+// crossed triangles are created. For resolution > 2, a 3D cone (with 
+// resolution number of sides) is created. It is also possible to control 
+// whether the bottom of the cone is capped with a (resolution-sided) 
+// polygon, and to specify the height and radius of the cone.
 
 #ifndef __vlConeSource_h
 #define __vlConeSource_h
