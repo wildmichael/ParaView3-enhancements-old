@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCompositeDataVisitor.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-12-11 15:47:36 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-12-12 19:46:29 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -17,13 +17,13 @@
 =========================================================================*/
 #include "vtkCompositeDataVisitor.h"
 
-#include "vtkCompositeDataVisitorCommand.h"
+#include "vtkCompositeDataCommand.h"
 
-vtkCxxRevisionMacro(vtkCompositeDataVisitor, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkCompositeDataVisitor, "$Revision: 1.2 $");
 
 vtkCxxSetObjectMacro(vtkCompositeDataVisitor,
                      Command, 
-                     vtkCompositeDataVisitorCommand);
+                     vtkCompositeDataCommand);
 
 //----------------------------------------------------------------------------
 vtkCompositeDataVisitor::vtkCompositeDataVisitor()

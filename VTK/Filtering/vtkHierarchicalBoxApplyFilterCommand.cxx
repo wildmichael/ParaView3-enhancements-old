@@ -3,8 +3,8 @@
 Program:   Visualization Toolkit
 Module:    $RCSfile: vtkHierarchicalBoxApplyFilterCommand.cxx,v $
 Language:  C++
-Date:      $Date: 2003-12-11 15:47:37 $
-Version:   $Revision: 1.1 $
+Date:      $Date: 2003-12-12 19:46:29 $
+Version:   $Revision: 1.2 $
 
 Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -26,7 +26,7 @@ PURPOSE.  See the above copyright notice for more information.
 
 #include "vtkApplyFilterCommandInternal.h"
 
-vtkCxxRevisionMacro(vtkHierarchicalBoxApplyFilterCommand, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkHierarchicalBoxApplyFilterCommand, "$Revision: 1.2 $");
 vtkStandardNewMacro(vtkHierarchicalBoxApplyFilterCommand);
 
 vtkCxxSetObjectMacro(vtkHierarchicalBoxApplyFilterCommand,
@@ -62,7 +62,7 @@ void vtkHierarchicalBoxApplyFilterCommand::Initialize()
 
 //----------------------------------------------------------------
 void vtkHierarchicalBoxApplyFilterCommand::Execute(
-  vtkCompositeDataVisitor *caller, vtkDataObject *input, void* callData)
+  vtkCompositeDataVisitor *, vtkDataObject *input, void* callData)
 {
   if (!this->Output)
     {

@@ -3,8 +3,8 @@
 Program:   Visualization Toolkit
 Module:    $RCSfile: vtkMultiBlockApplyFilterCommand.cxx,v $
 Language:  C++
-Date:      $Date: 2003-12-11 15:47:37 $
-Version:   $Revision: 1.1 $
+Date:      $Date: 2003-12-12 19:46:29 $
+Version:   $Revision: 1.2 $
 
 Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -23,7 +23,7 @@ PURPOSE.  See the above copyright notice for more information.
 #include "vtkObjectFactory.h"
 #include "vtkSource.h"
 
-vtkCxxRevisionMacro(vtkMultiBlockApplyFilterCommand, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkMultiBlockApplyFilterCommand, "$Revision: 1.2 $");
 vtkStandardNewMacro(vtkMultiBlockApplyFilterCommand);
 
 vtkCxxSetObjectMacro(vtkMultiBlockApplyFilterCommand,
@@ -52,7 +52,7 @@ void vtkMultiBlockApplyFilterCommand::Initialize()
 }
 
 //----------------------------------------------------------------
-void vtkMultiBlockApplyFilterCommand::Execute(vtkCompositeDataVisitor *caller, 
+void vtkMultiBlockApplyFilterCommand::Execute(vtkCompositeDataVisitor *, 
                                               vtkDataObject *input,
                                               void*)
 {

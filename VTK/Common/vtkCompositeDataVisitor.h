@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCompositeDataVisitor.h,v $
   Language:  C++
-  Date:      $Date: 2003-12-11 15:47:36 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-12-12 19:46:29 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,7 +26,7 @@
 
 #include "vtkObject.h"
 
-class vtkCompositeDataVisitorCommand;
+class vtkCompositeDataCommand;
 
 class VTK_COMMON_EXPORT vtkCompositeDataVisitor : public vtkObject
 {
@@ -39,8 +39,8 @@ public:
   // Set/get the command object applied to each item. The visitor
   // will call Execute() on the command with the current item
   // as an argument.
-  void SetCommand(vtkCompositeDataVisitorCommand* comm);
-  vtkGetObjectMacro(Command, vtkCompositeDataVisitorCommand);
+  void SetCommand(vtkCompositeDataCommand* comm);
+  vtkGetObjectMacro(Command, vtkCompositeDataCommand);
 //ETX
 
   // Description:
@@ -59,7 +59,7 @@ protected:
   vtkCompositeDataVisitor(); 
   virtual ~vtkCompositeDataVisitor(); 
 
-  vtkCompositeDataVisitorCommand* Command;
+  vtkCompositeDataCommand* Command;
   int CreateTransitionElements;
 
 private:

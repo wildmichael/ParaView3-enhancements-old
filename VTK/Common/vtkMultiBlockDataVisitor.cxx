@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMultiBlockDataVisitor.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-12-11 15:47:37 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-12-12 19:46:29 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,10 +20,10 @@
 #include "vtkCompositeDataSet.h"
 #include "vtkDataSet.h"
 #include "vtkMultiBlockDataIterator.h"
-#include "vtkCompositeDataVisitorCommand.h"
+#include "vtkCompositeDataCommand.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkMultiBlockDataVisitor, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkMultiBlockDataVisitor, "$Revision: 1.2 $");
 vtkStandardNewMacro(vtkMultiBlockDataVisitor);
 
 vtkCxxSetObjectMacro(vtkMultiBlockDataVisitor,

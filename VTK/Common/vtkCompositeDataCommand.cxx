@@ -1,9 +1,9 @@
 /*=========================================================================
 
   Program:   Visualization Toolkit
-  Module:    $RCSfile: vtkCompositeDataVisitorCommand.cxx,v $
+  Module:    $RCSfile: vtkCompositeDataCommand.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-12-11 15:47:36 $
+  Date:      $Date: 2003-12-12 19:46:29 $
   Version:   $Revision: 1.1 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -15,22 +15,22 @@
      PURPOSE.  See the above copyright notice for more information.
 
 =========================================================================*/
-#include "vtkCompositeDataVisitorCommand.h"
+#include "vtkCompositeDataCommand.h"
 
-vtkCxxRevisionMacro(vtkCompositeDataVisitorCommand, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkCompositeDataCommand, "$Revision: 1.1 $");
 
 //----------------------------------------------------------------------------
-vtkCompositeDataVisitorCommand::vtkCompositeDataVisitorCommand()
+vtkCompositeDataCommand::vtkCompositeDataCommand()
 {
 }
 
 //----------------------------------------------------------------------------
-vtkCompositeDataVisitorCommand::~vtkCompositeDataVisitorCommand()
+vtkCompositeDataCommand::~vtkCompositeDataCommand()
 {
 }
 
 //----------------------------------------------------------------------------
-void vtkCompositeDataVisitorCommand::PrintSelf(ostream& os, vtkIndent indent)
+void vtkCompositeDataCommand::PrintSelf(ostream& os, vtkIndent indent)
 {
   this->Superclass::PrintSelf(os,indent);
 }

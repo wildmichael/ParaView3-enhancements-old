@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkApplyFilterCommand.h,v $
   Language:  C++
-  Date:      $Date: 2003-12-11 15:47:37 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-12-12 19:46:29 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -31,17 +31,17 @@
 #ifndef __vtkApplyFilterCommand_h
 #define __vtkApplyFilterCommand_h
 
-#include "vtkCompositeDataVisitorCommand.h"
+#include "vtkCompositeDataCommand.h"
 
 class vtkApplyFilterCommandInternal;
 class vtkMultiBlockDataSet;
 class vtkSource;
 class vtkDataObject;
 
-class VTK_FILTERING_EXPORT vtkApplyFilterCommand : public vtkCompositeDataVisitorCommand
+class VTK_FILTERING_EXPORT vtkApplyFilterCommand : public vtkCompositeDataCommand
 {
 public:
-  vtkTypeRevisionMacro(vtkApplyFilterCommand, vtkCompositeDataVisitorCommand);
+  vtkTypeRevisionMacro(vtkApplyFilterCommand, vtkCompositeDataCommand);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

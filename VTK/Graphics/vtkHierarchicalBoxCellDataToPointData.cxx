@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHierarchicalBoxCellDataToPointData.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-12-11 15:47:37 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-12-12 19:46:29 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -28,7 +28,7 @@
 
 
 
-vtkCxxRevisionMacro(vtkHierarchicalBoxCellDataToPointData, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkHierarchicalBoxCellDataToPointData, "$Revision: 1.2 $");
 vtkStandardNewMacro(vtkHierarchicalBoxCellDataToPointData);
 
 //----------------------------------------------------------------------------
@@ -62,7 +62,7 @@ void vtkHierarchicalBoxCellDataToPointData::ExecuteData(vtkDataObject* dooutput)
 
   vtkHierarchicalBoxDataSet* output = comm->GetOutput();
 
-  this->GetOutput()->ShallowCopy(output);
+  dooutput->ShallowCopy(output);
 
   comm->Delete();
   visitor->Delete();
