@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkColorTransferFunction.h,v $
   Language:  C++
-  Date:      $Date: 1999-04-29 14:58:23 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-06-24 00:57:22 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -50,10 +50,10 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkColorTransferFunction_h
 #define __vtkColorTransferFunction_h
 
-#include "vtkObject.h"
+#include "vtkScalarsToColors.h"
 #include "vtkPiecewiseFunction.h"
 
-class VTK_EXPORT vtkColorTransferFunction : public vtkObject 
+class VTK_EXPORT vtkColorTransferFunction : public vtkScalarsToColors 
 {
 public:
   vtkColorTransferFunction();
@@ -117,13 +117,18 @@ public:
   float GetBlueValue( float x ) { return this->Blue->GetValue( x ); };
 
   // Description:
+  // Map one value through the lookup table.
+  virtual unsigned char *MapValue(float v);
+
+  // Description:
   // Returns min and max position of all function points.
+  // The set method does nothing.
   float *GetRange();
+  virtual void SetRange(float, float) {};
 
   // Description:
   // Fills in a table of n function values between x1 and x2
   void GetTable( float x1, float x2, int n, float* table );
-
 
   // Description:
   // Sets and gets the clamping value for this transfer function.
@@ -135,6 +140,12 @@ public:
   vtkPiecewiseFunction *GetRedFunction(){return this->Red;};
   vtkPiecewiseFunction *GetGreenFunction(){return this->Green;};
   vtkPiecewiseFunction *GetBlueFunction(){return this->Blue;};
+
+  // Description:
+  // map a set of scalars through the lookup table
+  virtual void MapScalarsThroughTable2(void *input, unsigned char *output,
+                                       int inputDataType, int numberOfValues,
+                                       int inputIncrement);
   
 protected:
   // Determines the function value outside of defined points
@@ -151,6 +162,7 @@ protected:
 
   // An evaluated color
   float  ColorValue[3];
+  unsigned char ColorValue2[4];
 
   // The min and max point locations for all three transfer functions
   float Range[2]; 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper.h,v $
   Language:  C++
-  Date:      $Date: 1999-04-22 14:14:18 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 1999-06-24 00:57:43 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -73,7 +73,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #define __vtkMapper_h
 
 #include "vtkAbstractMapper.h"
-#include "vtkLookupTable.h"
+#include "vtkScalarsToColors.h"
 #include "vtkDataSet.h"
 
 #define VTK_SCALAR_MODE_DEFAULT 0
@@ -111,8 +111,8 @@ public:
 
   // Description:
   // Specify a lookup table for the mapper to use.
-  void SetLookupTable(vtkLookupTable *lut);
-  vtkLookupTable *GetLookupTable();
+  void SetLookupTable(vtkScalarsToColors *lut);
+  vtkScalarsToColors *GetLookupTable();
 
   // Description:
   // Create default lookup table. Generally used to create one when none
@@ -213,14 +213,10 @@ public:
   void SetRenderTime(float time) {this->RenderTime = time;}
   vtkGetMacro(RenderTime, float);
   
-  // Description:
-  // For legacy compatibility. Do not use.
-  void SetLookupTable(vtkLookupTable& lut) {this->SetLookupTable(&lut);}
-
 protected:
   vtkScalars *Colors;
 
-  vtkLookupTable *LookupTable;
+  vtkScalarsToColors *LookupTable;
   int ScalarVisibility;
   vtkTimeStamp BuildTime;
   float ScalarRange[2];
