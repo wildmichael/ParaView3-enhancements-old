@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkShrinkPolyData.h,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:32:20 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1995-09-13 07:02:38 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
