@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBYUWriter.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:43:09 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1998-07-02 12:23:23 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -46,6 +46,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // must be specified to the object, the appropriate boolean 
 // variables must be true, and data must be available from the input
 // for the files to be written.
+// WARNING: this writer does not currently write triangle strips. Use
+// vtkTriangleFilter to convert strips to triangles.
 
 #ifndef __vtkBYUWriter_h
 #define __vtkBYUWriter_h
