@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSphereWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-30 05:03:14 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2002-04-30 21:49:49 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,7 +26,7 @@
 #include "vtkCallbackCommand.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkSphereWidget, "$Revision: 1.10 $");
+vtkCxxRevisionMacro(vtkSphereWidget, "$Revision: 1.11 $");
 vtkStandardNewMacro(vtkSphereWidget);
 
 vtkSphereWidget::vtkSphereWidget()
@@ -405,14 +405,15 @@ void vtkSphereWidget::OnMouseMove (int vtkNotUsed(ctrl),
   double focalPoint[4], pickPoint[4], prevPickPoint[4];
   double z;
 
-  this->CurrentCamera = this->Interactor->FindPokedCamera(X,Y);
-  if ( !this->CurrentCamera )
+  vtkRenderer *renderer = this->Interactor->FindPokedRenderer(X,Y);
+  vtkCamera *camera = renderer->GetActiveCamera();
+  if ( !camera )
     {
     return;
     }
 
   // Compute the two points defining the motion vector
-  this->CurrentCamera->GetFocalPoint(focalPoint);
+  camera->GetFocalPoint(focalPoint);
   this->ComputeWorldToDisplay(focalPoint[0], focalPoint[1],
                               focalPoint[2], focalPoint);
   z = focalPoint[2];

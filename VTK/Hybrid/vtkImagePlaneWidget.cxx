@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagePlaneWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-30 05:03:14 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2002-04-30 21:49:49 $
+  Version:   $Revision: 1.16 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -38,7 +38,7 @@
 
 #define ABS(x) ((x)<0 ? -(x) : (x))
 
-vtkCxxRevisionMacro(vtkImagePlaneWidget, "$Revision: 1.15 $");
+vtkCxxRevisionMacro(vtkImagePlaneWidget, "$Revision: 1.16 $");
 vtkStandardNewMacro(vtkImagePlaneWidget);
 
 vtkImagePlaneWidget::vtkImagePlaneWidget()
@@ -581,14 +581,15 @@ void vtkImagePlaneWidget::OnMouseMove (int vtkNotUsed(ctrl),
   double focalPoint[4], pickPoint[4], prevPickPoint[4];
   double z;
 
-  this->CurrentCamera = this->Interactor->FindPokedCamera(X,Y);
-  if ( ! this->CurrentCamera )
+  vtkRenderer *renderer = this->Interactor->FindPokedRenderer(X,Y);
+  vtkCamera *camera = renderer->GetActiveCamera();
+  if ( ! camera )
     {
     return;
     }
 
   // Compute the two points defining the motion vector
-  this->CurrentCamera->GetFocalPoint(focalPoint);
+  camera->GetFocalPoint(focalPoint);
   this->ComputeWorldToDisplay(focalPoint[0], focalPoint[1],
                               focalPoint[2], focalPoint);
   z = focalPoint[2];
