@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAssembly.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-01-20 12:27:13 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1996-03-20 21:50:33 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -87,7 +87,7 @@ void vtkAssembly::Render(vtkRenderer *ren)
     this->ApplyProperties();
     }
 
-  for (this->Parts.InitTraversal(); part = this->Parts.GetNextItem(); )
+  for (this->Parts.InitTraversal(); (part = this->Parts.GetNextItem()); )
     {
     if ( part->GetVisibility() ) part->Render(ren);
     }
@@ -104,7 +104,7 @@ void vtkAssembly::ApplyTransformation()
   vtkMatrix4x4 *matrix;
 
   // traverse list of parts, setting parent matrix
-  for (this->Parts.InitTraversal(); part = this->Parts.GetNextItem(); )
+  for (this->Parts.InitTraversal(); (part = this->Parts.GetNextItem()); )
     {
     if ( (matrix=part->GetUserMatrix()) == NULL )
       {
@@ -125,7 +125,7 @@ void vtkAssembly::ApplyProperties()
   vtkProperty *property, *thisProperty=this->GetProperty();
 
   // traverse list of parts, setting properties
-  for (this->Parts.InitTraversal(); part = this->Parts.GetNextItem(); )
+  for (this->Parts.InitTraversal(); (part = this->Parts.GetNextItem()); )
     {
     property = part->GetProperty();
     *property = *thisProperty;
@@ -139,7 +139,7 @@ vtkActorCollection* vtkAssembly::GetComposingParts()
   this->ComposingParts.RemoveAllItems();
   this->ComposingParts.AddItem(this);
 
-  for (this->Parts.InitTraversal(); part = this->Parts.GetNextItem(); )
+  for (this->Parts.InitTraversal(); (part = this->Parts.GetNextItem()); )
     {
     part->AddComposingParts(this->ComposingParts);
     }
@@ -151,11 +151,11 @@ void vtkAssembly::AddComposingParts(vtkActorCollection &parts)
 {
   vtkActor *part;
 
-  this->ComposingParts.AddItem(this);
+  parts.AddItem(this);
 
-  for (this->Parts.InitTraversal(); part = this->Parts.GetNextItem(); )
+  for (this->Parts.InitTraversal(); (part = this->Parts.GetNextItem()); )
     {
-    part->AddComposingParts(this->ComposingParts);
+    part->AddComposingParts(parts);
     }
 }
 

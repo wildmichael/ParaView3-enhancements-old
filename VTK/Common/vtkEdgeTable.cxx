@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEdgeTable.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-03-13 20:42:47 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1996-03-20 21:50:38 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -46,12 +46,12 @@ vtkEdgeTable::vtkEdgeTable(int numPoints)
 {
   if ( numPoints < 1 ) numPoints = 1;
 
-  this->Table = new (vtkIdList *)[numPoints];
+  this->Table = new vtkIdList *[numPoints];
   for (int i=0; i < numPoints; i++) this->Table[i] = NULL;
   this->TableSize = numPoints;
 }
 
-vtkEdgeTable::~vtkEdgeTable(int numPoints)
+vtkEdgeTable::~vtkEdgeTable()
 {
   if ( this->Table )
     {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellLocator.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-12-11 10:04:30 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1996-03-20 21:50:34 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -308,7 +308,7 @@ return this->Tree[octantId];
 
 // Description:
 // Intersect against another vtkCellLocator returning cells that lie in 
-// intersecting octants.
+// intersecting octants. Not implimented yet.
 int vtkCellLocator::IntersectWithCellLocator(vtkCellLocator& locator, vtkIdList cells)
 {
   return 0;

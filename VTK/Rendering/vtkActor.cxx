@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-01-20 12:27:06 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 1996-03-20 21:50:32 $
+  Version:   $Revision: 1.42 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -90,6 +90,11 @@ vtkActor::~vtkActor()
 {
   if ( this->SelfCreatedProperty && this->Property != NULL) 
     this->Property->Delete();
+
+  if (this->Device)
+    {
+    this->Device->Delete();
+    }
 }
 
 // Description:
@@ -114,7 +119,7 @@ void vtkActor::Render(vtkRenderer *ren)
     {
     this->Device = ren->GetRenderWindow()->MakeActor();
     }
-
+  
   if ( this->Mapper ) this->Device->Render(this,ren,this->Mapper);
 }
 

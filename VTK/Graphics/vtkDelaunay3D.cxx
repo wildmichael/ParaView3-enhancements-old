@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDelaunay3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-03-15 13:20:14 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1996-03-20 21:50:37 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -88,7 +88,7 @@ static int FindTetra(float x[3], int ptIds[4], float p[4][3],
                      int tetra, vtkUnstructuredGrid *Mesh, 
                      vtkFloatPoints *points, float tol)
 {
-  int i, j, npts, inside, i2, i3, i4;
+  int i, j, inside, i2, i3, i4;
   vtkIdList pts(4), facePts(3);
   static vtkMath math;
   vtkIdList neighbors(2);
@@ -322,7 +322,7 @@ void vtkDelaunay3D::Execute()
 {
   int numPoints, numTetras, i;
   int tetraNum, numFaces, tetraId;
-  int ptId, tetra[4];
+  int ptId;
   vtkPoints *inPoints;
   vtkFloatPoints *points;
   vtkUnstructuredGrid *Mesh=new vtkUnstructuredGrid;

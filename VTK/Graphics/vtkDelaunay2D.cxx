@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDelaunay2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-03-15 13:20:12 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1996-03-20 21:50:36 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -210,7 +210,7 @@ void vtkDelaunay2D::Execute()
   int ptId, tri[3];
   vtkPoints *inPoints;
   vtkFloatPoints *points;
-  vtkCellArray *triangles, *alphaTriangles;
+  vtkCellArray *triangles;
   vtkPolyData *Mesh=new vtkPolyData;
   vtkPointSet *input=(vtkPointSet *)this->Input;
   vtkPolyData *output=(vtkPolyData *)this->Output;
@@ -348,7 +348,7 @@ void vtkDelaunay2D::Execute()
     vtkTriangle triangle;
     float alpha2 = this->Alpha * this->Alpha;
     float x1[3], x2[3], x3[3];
-    int j, cellId, numNei, testEdge, thisType, neiType, p1, p2, nei;
+    int j, cellId, numNei, p1, p2, nei;
 
     vtkCellArray *alphaVerts = new vtkCellArray(numPoints);
     vtkCellArray *alphaLines = new vtkCellArray(numPoints);
