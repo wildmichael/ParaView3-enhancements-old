@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLine.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-05-30 01:49:18 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1996-07-03 19:03:33 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -240,7 +240,6 @@ float vtkLine::DistanceToLine(float x[3], float p1[3], float p2[3],
 //   Get parametric location
 //
   num = p21[0]*(x[0]-p1[0]) + p21[1]*(x[1]-p1[1]) + p21[2]*(x[2]-p1[2]);
-  denom = math.Dot(p21,p21);
 
   if ( (denom = math.Dot(p21,p21)) < fabs(VTK_TOL*num) ) //numerically bad!
     {
