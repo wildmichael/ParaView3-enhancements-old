@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 12:33:54 $
-  Version:   $Revision: 1.53 $
+  Date:      $Date: 1999-10-11 13:08:34 $
+  Version:   $Revision: 1.54 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -1015,9 +1015,9 @@ void vtkStructuredGrid::InternalUpdate()
 
     inPts = this->GetPoints();
 
-    yInc = (uExt[1]-uExt[0]+1);
-    zInc = yInc * (uExt[3]-uExt[2]+1) ;
-    newSize = zInc * (uExt[5]-uExt[4]+1);
+    yInc = (ext[1]-ext[0]+1);
+    zInc = yInc * (ext[3]-ext[2]+1) ;
+    newSize = (uExt[1]-uExt[0]+1)*(uExt[3]-uExt[2]+1)*(uExt[5]-uExt[4]+1);
     newPts = (vtkPoints *) inPts->MakeObject(); newPts->SetNumberOfPoints(newSize);
     newPd->CopyAllocate(inPd,newSize,newSize);
 
