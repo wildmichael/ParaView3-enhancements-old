@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSplineWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-08 18:57:29 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-11-08 22:10:01 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -34,7 +34,7 @@
 #include "vtkSphereSource.h"
 #include "vtkTransform.h"
 
-vtkCxxRevisionMacro(vtkSplineWidget, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkSplineWidget, "$Revision: 1.4 $");
 vtkStandardNewMacro(vtkSplineWidget);
 
 vtkSplineWidget::vtkSplineWidget()
@@ -530,6 +530,7 @@ void vtkSplineWidget::HighlightLine(int highlight)
 {
   if ( highlight )
     {
+    this->ValidPick = 1;
     this->LinePicker->GetPickPosition(this->LastPickPosition);
     this->LineActor->SetProperty(this->SelectedLineProperty);
     }
@@ -613,7 +614,7 @@ void vtkSplineWidget::OnMiddleButtonDown()
   int Y = this->Interactor->GetEventPosition()[1];
 
   // Okay, we can process this. Try to pick handles first;
-  // if no handles picked, then pick the bounding box.
+  // if no handles picked, then try to pick the line.
   vtkAssemblyPath *path;
   this->Interactor->FindPokedRenderer(X,Y);
   this->HandlePicker->Pick(X,Y,0.0,this->CurrentRenderer);
@@ -1171,10 +1172,9 @@ void vtkSplineWidget::SetResolution(int resolution)
     return;
     }
 
-  this->Resolution = resolution;
-  this->NumberOfSplinePoints = this->Resolution + 1;
+  this->NumberOfSplinePoints = resolution + 1;
 
-  if(resolution > this->Resolution)
+  if(resolution > this->Resolution)  //only delete when necessary
     {
     delete [] this->SplinePositions;
     if ( (this->SplinePositions = new float[this->NumberOfSplinePoints]) == NULL )
@@ -1183,6 +1183,10 @@ void vtkSplineWidget::SetResolution(int resolution)
       return;
       }
     }
+
+  this->Resolution = resolution;
+
+  this->LinePicker->DeletePickList(this->LineActor);
 
   vtkPoints* points = this->LineData->GetPoints();
   points->Allocate(this->NumberOfSplinePoints);
@@ -1207,6 +1211,7 @@ void vtkSplineWidget::SetResolution(int resolution)
   this->LineData->Update();
   this->LineMapper->Update();
   this->LineActor->Modified();
+  this->LinePicker->AddPickList(this->LineActor);
 }
 
 void vtkSplineWidget::GetPolyData(vtkPolyData *pd)
