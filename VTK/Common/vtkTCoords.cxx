@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkTCoords.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-02-07 17:14:38 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1994-03-12 18:58:52 $
+  Version:   $Revision: 1.5 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -24,7 +24,7 @@ void vlTCoords::GetTCoords(vlIdList& ptId, vlFloatTCoords& ftc)
 {
   for (int i=0; i<ptId.NumberOfIds(); i++)
     {
-    ftc.InsertTCoord(i,this->GetTCoord(ptId[i]));
+    ftc.InsertTCoord(i,this->GetTCoord(ptId.GetId(i)));
     }
 }
 

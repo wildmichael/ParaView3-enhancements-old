@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkVectors.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-02-07 17:14:33 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1994-03-12 18:58:44 $
+  Version:   $Revision: 1.7 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -30,7 +30,7 @@ void vlVectors::GetVectors(vlIdList& ptId, vlFloatVectors& fp)
 {
   for (int i=0; i<ptId.NumberOfIds(); i++)
     {
-    fp.InsertVector(i,this->GetVector(ptId[i]));
+    fp.InsertVector(i,this->GetVector(ptId.GetId(i)));
     }
 }
 void vlVectors::ComputeMaxNorm()

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkTriangleStrip.h,v $
   Language:  C++
-  Date:      $Date: 1994-03-08 20:46:34 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1994-03-12 18:58:48 $
+  Version:   $Revision: 1.3 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -29,6 +29,7 @@ public:
   vlTriangleStrip() {};
   char *GetClassName() {return "vlTriangleStrip";};
 
+  int CellDimension() {return 2;};
   float EvaluatePosition(float x[3], int& subId, float pcoords[3]);
   void EvaluateLocation(int& subId, float pcoords[3], float x[3]);
 
