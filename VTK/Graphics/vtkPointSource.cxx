@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-05-11 17:14:33 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2000-05-21 16:36:06 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -78,7 +78,7 @@ void vtkPointSource::Execute()
 {
   int i;
   float theta, rho, cosphi, sinphi, radius;
-  float x[3], lambda;
+  float x[3];
   vtkPoints *newPoints;
   vtkCellArray *newVerts;
   vtkPolyData *output = this->GetOutput();
