@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32RenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-11-12 22:07:13 $
-  Version:   $Revision: 1.68 $
+  Date:      $Date: 2000-11-18 20:24:14 $
+  Version:   $Revision: 1.69 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -205,7 +205,7 @@ void vtkWin32RenderWindowInteractor::Disable()
     return;
     }
   
-  if (InstallMessageProc && this->Enabled && this->WindowId) 
+  if (this->InstallMessageProc && this->Enabled && this->WindowId) 
     {
     // we need to release any hold we have on a windows event loop
     vtkWin32OpenGLRenderWindow *ren;

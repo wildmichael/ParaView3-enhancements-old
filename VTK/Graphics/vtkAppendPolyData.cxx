@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAppendPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-21 19:58:43 $
-  Version:   $Revision: 1.66 $
+  Date:      $Date: 2000-11-18 20:24:14 $
+  Version:   $Revision: 1.67 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -105,7 +105,7 @@ void vtkAppendPolyData::RemoveInput(vtkPolyData *ds)
 void vtkAppendPolyData::SetNumberOfInputs(int num)
 {
   int overlap;
-  if (!UserManagedInputs)
+  if (!this->UserManagedInputs)
     {
     vtkErrorMacro(<<
       "SetNumberOfInputs is not supported if UserManagedInputs is false");
