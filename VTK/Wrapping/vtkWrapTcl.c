@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWrapTcl.c,v $
   Language:  C++
-  Date:      $Date: 2001-11-14 21:03:16 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2001-12-16 22:33:17 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -544,14 +544,20 @@ void vtkParseOutput(FILE *fp, FileInfo *data)
     if (strcmp(data->ClassName, "vtkRenderWindowInteractor") == 0)
       {
       fprintf(fp,"#ifndef _WIN32\n");
+      fprintf(fp,"#ifndef __APPLE__\n");
       fprintf(fp,"#include \"vtkXRenderWindowTclInteractor.h\"\n");
+      fprintf(fp,"#endif\n");
       fprintf(fp,"#endif\n");
 
       fprintf(fp,"\nClientData %sNewCommand()\n{\n",data->ClassName);
 
       fprintf(fp,"#ifndef _WIN32\n");
+      fprintf(fp,"#ifndef __APPLE__\n");
       fprintf(fp,"  %s *temp = vtkXRenderWindowTclInteractor::New();\n",
               data->ClassName);
+      fprintf(fp,"#else\n");
+      fprintf(fp,"  %s *temp = %s::New();\n",data->ClassName,data->ClassName);
+      fprintf(fp,"#endif\n");
       fprintf(fp,"#else\n");
       fprintf(fp,"  %s *temp = %s::New();\n",data->ClassName,data->ClassName);
       fprintf(fp,"#endif\n");
