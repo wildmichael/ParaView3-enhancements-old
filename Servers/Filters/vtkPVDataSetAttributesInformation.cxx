@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkPVDataSetAttributesInformation.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-05-02 18:02:40 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2003-05-07 17:59:07 $
+  Version:   $Revision: 1.5 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -48,7 +48,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro(vtkPVDataSetAttributesInformation);
-vtkCxxRevisionMacro(vtkPVDataSetAttributesInformation, "$Revision: 1.4 $");
+vtkCxxRevisionMacro(vtkPVDataSetAttributesInformation, "$Revision: 1.5 $");
 
 
 //----------------------------------------------------------------------------
@@ -131,7 +131,7 @@ void vtkPVDataSetAttributesInformation::CopyFromDataSetAttributes(vtkDataSetAttr
   for (idx = 0; idx < num; ++idx)
     {
     array = da->GetArray(idx);
-    if (array->GetName() )
+    if (array->GetName() && strcmp(array->GetName(),"vtkGhostLevels") != 0)
       {
       vtkPVArrayInformation *info = vtkPVArrayInformation::New();
       info->CopyFromArray(array);
