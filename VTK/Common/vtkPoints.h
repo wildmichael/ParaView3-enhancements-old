@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPoints.h,v $
   Language:  C++
-  Date:      $Date: 2000-01-18 14:04:02 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 2000-01-25 20:37:54 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -60,8 +60,8 @@ public:
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
-  // Create a coy of this object.
-  vtkAttributeData *MakeObject() {return new vtkPoints(this->GetDataType());};
+  // Create a copy of this object.
+  vtkAttributeData *MakeObject();
 
   // Description:
   // Return number of points in array.

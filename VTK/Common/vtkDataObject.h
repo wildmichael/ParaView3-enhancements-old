@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObject.h,v $
   Language:  C++
-  Date:      $Date: 2000-01-18 14:03:49 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2000-01-25 20:37:49 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -76,8 +76,7 @@ public:
 
   // Description:
   // Create concrete instance of this data object.
-  virtual vtkDataObject *MakeObject() {return new vtkDataObject;}
-  
+  virtual vtkDataObject *MakeObject() {return vtkDataObject::New();}
 
   // Description:
   // Set/Get the source object creating this data object.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTensors.h,v $
   Language:  C++
-  Date:      $Date: 2000-01-18 14:04:10 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2000-01-25 20:37:57 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -63,7 +63,8 @@ public:
 
   // Description:
   // Create a copy of this object.
-  vtkAttributeData *MakeObject() {return vtkTensors::New(this->GetDataType());};
+  vtkAttributeData *MakeObject() 
+    {return vtkTensors::New(this->GetDataType());};
 
   // Description:
   // Return number of tensors in array.

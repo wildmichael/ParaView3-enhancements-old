@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGrid.h,v $
   Language:  C++
-  Date:      $Date: 2000-01-18 14:04:08 $
-  Version:   $Revision: 1.58 $
+  Date:      $Date: 2000-01-25 20:37:56 $
+  Version:   $Revision: 1.59 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -71,7 +71,7 @@ public:
 
   // Description:
   // Create a similar type object
-  vtkDataObject *MakeObject() {return new vtkStructuredGrid;};
+  vtkDataObject *MakeObject() {return vtkStructuredGrid::New();};
 
   // Description:
   // Copy the geometric and topological structure of an input poly data object.

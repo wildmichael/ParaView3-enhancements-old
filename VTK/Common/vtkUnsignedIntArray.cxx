@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnsignedIntArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-12-28 18:58:08 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2000-01-25 20:37:58 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,9 +41,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkUnsignedIntArray.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
+//----------------------------------------------------------------------------
 vtkUnsignedIntArray* vtkUnsignedIntArray::New()
 {
   // First try to create the object from the vtkObjectFactory
@@ -56,8 +54,12 @@ vtkUnsignedIntArray* vtkUnsignedIntArray::New()
   return new vtkUnsignedIntArray;
 }
 
-
-
+vtkDataArray *vtkUnsignedIntArray::MakeObject()
+{
+  vtkDataArray *a = vtkUnsignedIntArray::New();
+  a->SetNumberOfComponents(this->NumberOfComponents);
+  return a;
+}
 
 // Instantiate object.
 vtkUnsignedIntArray::vtkUnsignedIntArray(int numComp)

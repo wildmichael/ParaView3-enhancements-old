@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCharArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-12-28 18:58:06 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2000-01-25 20:37:48 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -43,7 +43,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 
-//------------------------------------------------------------------------------
+//---------------------------------------------------------------------------
 vtkCharArray* vtkCharArray::New()
 {
   // First try to create the object from the vtkObjectFactory
@@ -56,8 +56,12 @@ vtkCharArray* vtkCharArray::New()
   return new vtkCharArray;
 }
 
-
-
+vtkDataArray *vtkCharArray::MakeObject()
+{
+  vtkDataArray *a = vtkCharArray::New();
+  a->SetNumberOfComponents(this->NumberOfComponents);
+  return a;
+}
 
 // Instantiate object.
 vtkCharArray::vtkCharArray(int numComp)

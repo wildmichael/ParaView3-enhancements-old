@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEmptyCell.h,v $
   Language:  C++
-  Date:      $Date: 2000-01-18 14:03:51 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2000-01-25 20:37:50 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,7 +56,7 @@ public:
 
   // Description:
   // See the vtkCell API for descriptions of these methods.
-  vtkCell *MakeObject() {return new vtkEmptyCell(*this);};
+  vtkCell *MakeObject() {return vtkEmptyCell::New();};
   int GetCellType() {return VTK_EMPTY_CELL;};
   int GetCellDimension() {return 0;};
   int GetNumberOfEdges() {return 0;};
@@ -94,7 +94,7 @@ public:
 protected:
   vtkEmptyCell() {};
   ~vtkEmptyCell() {};
-  vtkEmptyCell(const vtkEmptyCell& p);
+  vtkEmptyCell(const vtkEmptyCell& p) {};
   void operator=(const vtkEmptyCell&) {};
 
 

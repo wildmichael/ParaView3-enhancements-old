@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBitArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-12-28 18:58:05 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2000-01-25 20:37:47 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -43,7 +43,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 
-//------------------------------------------------------------------------------
+//----------------------------------------------------------------------------
 vtkBitArray* vtkBitArray::New()
 {
   // First try to create the object from the vtkObjectFactory
@@ -56,8 +56,12 @@ vtkBitArray* vtkBitArray::New()
   return new vtkBitArray;
 }
 
-
-
+vtkDataArray *vtkBitArray::MakeObject()
+{
+  vtkDataArray *a = vtkBitArray::New();
+  a->SetNumberOfComponents(this->NumberOfComponents);
+  return a;
+}
 
 // Instantiate object.
 vtkBitArray::vtkBitArray(int numComp)

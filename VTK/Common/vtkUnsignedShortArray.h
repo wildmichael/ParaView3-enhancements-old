@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnsignedShortArray.h,v $
   Language:  C++
-  Date:      $Date: 2000-01-18 14:04:13 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2000-01-25 20:37:59 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -66,9 +66,8 @@ public:
   void Initialize();
 
   // Description:
-  // Create a similar type object
-  vtkDataArray *MakeObject() {
-    return new vtkUnsignedShortArray(this->NumberOfComponents);};
+  // Create the same type object as this (virtual constructor).
+  vtkDataArray *MakeObject();
 
   // Description:
   // Get the data type.

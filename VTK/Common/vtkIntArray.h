@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIntArray.h,v $
   Language:  C++
-  Date:      $Date: 2000-01-18 14:03:55 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 2000-01-25 20:37:53 $
+  Version:   $Revision: 1.50 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -66,8 +66,8 @@ public:
   void Initialize();
 
   // Description:
-  // Create a similar type object
-  vtkDataArray *MakeObject() {return new vtkIntArray(this->NumberOfComponents);};
+  // Create the same type object as this (virtual constructor).
+  vtkDataArray *MakeObject();
 
   // Description:
   // Get the data type.

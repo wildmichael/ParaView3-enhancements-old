@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPoints.h,v $
   Language:  C++
-  Date:      $Date: 2000-01-18 14:04:08 $
-  Version:   $Revision: 1.66 $
+  Date:      $Date: 2000-01-25 20:37:56 $
+  Version:   $Revision: 1.67 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -63,7 +63,7 @@ public:
   
   // Description:
   // Create a similar type object
-  vtkDataObject *MakeObject() {return new vtkStructuredPoints;}
+  vtkDataObject *MakeObject() {return vtkStructuredPoints::New();}
 
   // Description:
   // To simplify filter superclasses,

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.h,v $
   Language:  C++
-  Date:      $Date: 2000-01-18 14:03:53 $
-  Version:   $Revision: 1.56 $
+  Date:      $Date: 2000-01-25 20:37:52 $
+  Version:   $Revision: 1.57 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -66,8 +66,8 @@ public:
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
-  // Create a similar type object
-  vtkDataObject *MakeObject() {return new vtkImageData;};
+  // Create the same type object as this (virtual constructor).
+  vtkDataObject *MakeObject() {return vtkImageData::New();};
 
   // Description:
   // Copy the geometric and topological structure of an input image data

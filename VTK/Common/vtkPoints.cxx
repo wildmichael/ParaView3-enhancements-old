@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:04:57 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2000-01-25 20:37:54 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,9 +41,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkPoints.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
+//----------------------------------------------------------------------------
 vtkPoints* vtkPoints::New()
 {
   // First try to create the object from the vtkObjectFactory
@@ -56,8 +54,12 @@ vtkPoints* vtkPoints::New()
   return new vtkPoints;
 }
 
-
-
+vtkAttributeData *vtkPoints::MakeObject()
+{
+  vtkPoints *p = vtkPoints::New();
+  p->SetDataType(this->GetDataType());
+  return p;
+}
 
 // Construct object with an initial data array of type float.
 vtkPoints::vtkPoints(int dataType) : vtkAttributeData(dataType)

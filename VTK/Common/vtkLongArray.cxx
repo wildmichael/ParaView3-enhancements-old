@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLongArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-12-28 18:58:07 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2000-01-25 20:37:53 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,9 +41,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkLongArray.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
+//----------------------------------------------------------------------------
 vtkLongArray* vtkLongArray::New()
 {
   // First try to create the object from the vtkObjectFactory
@@ -56,8 +54,12 @@ vtkLongArray* vtkLongArray::New()
   return new vtkLongArray;
 }
 
-
-
+vtkDataArray *vtkLongArray::MakeObject()
+{
+  vtkDataArray *a = vtkLongArray::New();
+  a->SetNumberOfComponents(this->NumberOfComponents);
+  return a;
+}
 
 // Instantiate object.
 vtkLongArray::vtkLongArray(int numComp)

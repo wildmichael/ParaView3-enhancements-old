@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyData.h,v $
   Language:  C++
-  Date:      $Date: 2000-01-18 14:04:02 $
-  Version:   $Revision: 1.89 $
+  Date:      $Date: 2000-01-25 20:37:55 $
+  Version:   $Revision: 1.90 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -87,8 +87,8 @@ public:
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
-  // Create a similar type object
-  vtkDataObject *MakeObject() {return new vtkPolyData;};
+  // Create a similar type object.
+  vtkDataObject *MakeObject() {return vtkPolyData::New();};
 
   // Description:
   // Return what type of dataset this is.

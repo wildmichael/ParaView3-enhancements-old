@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLongArray.h,v $
   Language:  C++
-  Date:      $Date: 2000-01-18 14:03:56 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2000-01-25 20:37:54 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -70,8 +70,8 @@ public:
   void Squeeze() {this->Resize (this->MaxId+1);};
 
   // Description:
-  // Create a similar type object
-  vtkDataArray *MakeObject() {return new vtkLongArray(this->NumberOfComponents);};
+  // Create the same type object as this (virtual constructor).
+  vtkDataArray *MakeObject();
 
   // Description:
   // Get the data type.

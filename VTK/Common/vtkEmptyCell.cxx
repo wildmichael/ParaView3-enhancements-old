@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEmptyCell.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:04:34 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2000-01-25 20:37:50 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -44,9 +44,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkPointLocator.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
+//----------------------------------------------------------------------------
 vtkEmptyCell* vtkEmptyCell::New()
 {
   // First try to create the object from the vtkObjectFactory
@@ -57,14 +55,6 @@ vtkEmptyCell* vtkEmptyCell::New()
     }
   // If the factory was unable to create the object, then create it here.
   return new vtkEmptyCell;
-}
-
-
-
-
-// Deep copy of cell.
-vtkEmptyCell::vtkEmptyCell(const vtkEmptyCell& vtkNotUsed(p))
-{
 }
 
 int vtkEmptyCell::EvaluatePosition(float  vtkNotUsed(x)[3], 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoidArray.h,v $
   Language:  C++
-  Date:      $Date: 2000-01-18 14:04:15 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2000-01-25 20:38:00 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -67,7 +67,7 @@ public:
 
   // Description:
   // Create a similar type object
-  vtkDataArray *MakeObject() {return new vtkVoidArray;};
+  vtkDataArray *MakeObject() {return vtkVoidArray::New();};
 
   // Description:
   // Get the data type.

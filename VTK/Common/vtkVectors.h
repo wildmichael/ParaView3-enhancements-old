@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectors.h,v $
   Language:  C++
-  Date:      $Date: 2000-01-18 14:04:14 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 2000-01-25 20:38:00 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,13 +57,13 @@ public:
   static vtkVectors *New(int dataType);
   static vtkVectors *New();
 
-
   vtkTypeMacro(vtkVectors,vtkAttributeData);
   void PrintSelf(ostream& os, vtkIndent indent);
   
   // Description:
-  // Create a copy of this object.
-  vtkAttributeData *MakeObject(){return vtkVectors::New(this->GetDataType());};
+  // Create the same type object as this (virtual constructor).
+  vtkAttributeData *MakeObject()
+    {return vtkVectors::New(this->GetDataType());};
 
   // Description:
   // Return number of vectors in array.

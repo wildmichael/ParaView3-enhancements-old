@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkShortArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-12-28 18:58:07 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2000-01-25 20:37:56 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,9 +41,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkShortArray.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
+//----------------------------------------------------------------------------
 vtkShortArray* vtkShortArray::New()
 {
   // First try to create the object from the vtkObjectFactory
@@ -56,8 +54,12 @@ vtkShortArray* vtkShortArray::New()
   return new vtkShortArray;
 }
 
-
-
+vtkDataArray *vtkShortArray::MakeObject()
+{
+  vtkDataArray *a = vtkShortArray::New();
+  a->SetNumberOfComponents(this->NumberOfComponents);
+  return a;
+}
 
 // Instantiate object.
 vtkShortArray::vtkShortArray(int numComp)
