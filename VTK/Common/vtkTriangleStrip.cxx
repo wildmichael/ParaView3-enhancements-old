@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangleStrip.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-11-03 01:16:31 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 1998-11-05 13:45:42 $
+  Version:   $Revision: 1.50 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -258,14 +258,14 @@ int vtkTriangleStrip::Triangulate(int vtkNotUsed(index), vtkIdList *ptIds,
 {
   int numTris = this->Points->GetNumberOfPoints()-2;
   int i, order;
-  static int idx[2][3]={{1,0,2},{0,1,2}};
+  static int idx[2][3]={{0,1,2},{1,0,2}};
 
   pts->Reset();
   ptIds->Reset();
 
   for (int subId=0; subId < numTris; subId++)
     {
-    order = i % 2;
+    order = subId % 2;
 
     for ( i=0; i < 3; i++ )
       {
