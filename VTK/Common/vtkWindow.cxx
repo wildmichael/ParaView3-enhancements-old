@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-08-26 18:31:44 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1997-12-11 20:35:11 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,6 +55,7 @@ vtkWindow::vtkWindow()
   this->WindowName = new char[strlen("Visualization Toolkit")+1];
     strcpy( this->WindowName, "Visualization Toolkit" );
   this->Erase = 1;
+  this->DoubleBuffer = 0;
 }
 
 vtkWindow::~vtkWindow()
@@ -134,5 +135,7 @@ void vtkWindow::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "Position: (" << temp[0] << ", " << temp[1] << ")\n";
   temp = this->GetSize();
   os << indent << "Size: (" << temp[0] << ", " << temp[1] << ")\n";
+
+
 }
 
