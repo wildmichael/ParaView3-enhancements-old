@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSight6BinaryReader.h,v $
   Language:  C++
-  Date:      $Date: 2001-06-13 20:46:33 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-06-14 14:26:15 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -156,6 +156,12 @@ protected:
   // Returns zero if there was an error.
   int ReadFloatArray(float *result, int numFloats);
 
+  // Description:
+  // Read to the next time step in the geometry file.
+  void SkipTimeStep();
+  void SkipStructuredGrid(char line[256]);
+  void SkipUnstructuredGrid(char line[256]);
+  
   // global list of points for the unstructured parts of the model
   int NumberOfUnstructuredPoints;
   vtkPoints* UnstructuredPoints;
