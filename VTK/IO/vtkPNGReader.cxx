@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPNGReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-09 19:23:12 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-08-09 19:25:16 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -262,6 +262,7 @@ static void vtkPNGReaderUpdate2(vtkPNGReader *self, OT *outPtr,
     row_pointers[ui] = tempImage + rowbytes*ui;
     }
   png_read_image(png_ptr, row_pointers);
+  delete [] tempImage;
 
   // copy the data into the outPtr
   OT *outPtr2;
