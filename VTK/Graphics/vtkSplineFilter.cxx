@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSplineFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-23 11:33:36 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-08-25 19:22:31 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 #include "vtkFloatArray.h"
 #include "vtkMath.h"
 
-vtkCxxRevisionMacro(vtkSplineFilter, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkSplineFilter, "$Revision: 1.7 $");
 vtkStandardNewMacro(vtkSplineFilter);
 
 vtkSplineFilter::vtkSplineFilter()
@@ -242,7 +242,7 @@ int vtkSplineFilter::GeneratePoints(vtkIdType offset, vtkIdType npts,
   // Now compute the new points
   numNewPts = numDivs + 1;
   vtkIdType idx;
-  float s, s0;
+  float s, s0=0.0;
   if ( genTCoords == VTK_TCOORDS_FROM_SCALARS )
     {
     s0=pd->GetScalars()->GetTuple1(pts[0]);
