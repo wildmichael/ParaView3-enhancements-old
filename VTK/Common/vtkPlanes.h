@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPlanes.h,v $
   Language:  C++
-  Date:      $Date: 2001-04-15 16:35:13 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-04-17 09:25:46 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -92,7 +92,7 @@ public:
 
   // Description:
   // Specify the planes - see camera Get frustum planes definition.
-  void SetFrustumPlanes(float aspect, float planes[24]);
+  void SetFrustumPlanes(float planes[24]);
 
   // Description:
   // Return the number of planes in the set of planes.

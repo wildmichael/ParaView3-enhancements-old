@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPlanes.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-15 16:35:13 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-04-17 09:25:46 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -145,7 +145,7 @@ void vtkPlanes::EvaluateGradient(float x[3], float n[3])
     }
 }
 
-void vtkPlanes::SetFrustumPlanes(float aspect, float planes[24])
+void vtkPlanes::SetFrustumPlanes(float planes[24])
 {
   int i;
   float *plane, n[3], x[3];
