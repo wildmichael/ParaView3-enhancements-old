@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: finance.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:27:34 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-04-08 15:28:57 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,7 @@
 #include "vtkTubeFilter.h"
 #include "vtkUnstructuredGrid.h"
 #include "vtkPoints.h"
-#include "vtkScalars.h"
+#include "vtkFloatArray.h"
 
 static vtkDataSet *ReadFinancialData(const char *x, const char *y, const char *z, const char *s);
 static int ParseFile(FILE *file, const char *tag, float *data);
