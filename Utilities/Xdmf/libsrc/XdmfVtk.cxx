@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfVtk.cxx,v 1.1 2002-12-02 17:11:03 clarke Exp $  */
-/*  Date : $Date: 2002-12-02 17:11:03 $ */
-/*  Version : $Revision: 1.1 $ */
+/*  Id : $Id: XdmfVtk.cxx,v 1.2 2003-03-04 15:24:32 andy Exp $  */
+/*  Date : $Date: 2003-03-04 15:24:32 $ */
+/*  Version : $Revision: 1.2 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -28,10 +28,6 @@
 #include "vtkContourFilter.h"
 #include "vtkStructuredGrid.h"
 #include "vtkUnstructuredGrid.h"
-
-#include <iostream>
-#include <fstream>
-
 
 XdmfVtk::XdmfVtk( ) {
   this->Mpi = NULL;

@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfXNode.cxx,v 1.1 2002-12-02 17:11:04 clarke Exp $  */
-/*  Date : $Date: 2002-12-02 17:11:04 $ */
-/*  Version : $Revision: 1.1 $ */
+/*  Id : $Id: XdmfXNode.cxx,v 1.2 2003-03-04 15:24:32 andy Exp $  */
+/*  Date : $Date: 2003-03-04 15:24:32 $ */
+/*  Version : $Revision: 1.2 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -23,8 +23,6 @@
 /*                                                                 */
 /*******************************************************************/
 #include "XdmfXNode.h"
-
-using namespace std;
 
 void
 C__XdmfXNodeDelete(void *obj){

@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfGrid.h,v 1.1 2002-12-02 17:11:03 clarke Exp $  */
-/*  Date : $Date: 2002-12-02 17:11:03 $ */
-/*  Version : $Revision: 1.1 $ */
+/*  Id : $Id: XdmfGrid.h,v 1.2 2003-03-04 15:24:31 andy Exp $  */
+/*  Date : $Date: 2003-03-04 15:24:31 $ */
+/*  Version : $Revision: 1.2 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -29,8 +29,9 @@
 #include "XdmfGeometry.h"
 #include "XdmfAttribute.h"
 
+#include "XdmfExport.h"
 
-class XdmfGrid : public XdmfTopology {
+class XDMF_EXPORT XdmfGrid : public XdmfTopology {
 
 public:
   XdmfGrid();

@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: vtkXdmfReader.h,v 1.1 2002-12-02 17:13:54 clarke Exp $  */
-/*  Date : $Date: 2002-12-02 17:13:54 $ */
-/*  Version : $Revision: 1.1 $ */
+/*  Id : $Id: vtkXdmfReader.h,v 1.2 2003-03-04 15:24:32 andy Exp $  */
+/*  Date : $Date: 2003-03-04 15:24:32 $ */
+/*  Version : $Revision: 1.2 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -29,7 +29,7 @@
 // #include "vtkSource.h"
 #include "vtkDataReader.h"
 #include "vtkXdmfDataArray.h"
-#include "Xdmf/Xdmf.h"
+#include "Xdmf.h"
 
 
 class vtkDataArrayCollection;

@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfAttribute.h,v 1.1 2002-12-02 17:11:03 clarke Exp $  */
-/*  Date : $Date: 2002-12-02 17:11:03 $ */
-/*  Version : $Revision: 1.1 $ */
+/*  Id : $Id: XdmfAttribute.h,v 1.2 2003-03-04 15:24:31 andy Exp $  */
+/*  Date : $Date: 2003-03-04 15:24:31 $ */
+/*  Version : $Revision: 1.2 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -27,6 +27,8 @@
 
 #include "XdmfTopology.h"
 
+#include "XdmfExport.h"
+
 // Value Types
 #define XDMF_ATTRIBUTE_TYPE_NONE  0
 #define XDMF_ATTRIBUTE_TYPE_SCALAR  1
@@ -42,7 +44,7 @@
 #define XDMF_ATTRIBUTE_CENTER_NODE  4
 
 
-class XdmfAttribute : public XdmfLightData {
+class XDMF_EXPORT XdmfAttribute : public XdmfLightData {
 
 public:
   XdmfAttribute();

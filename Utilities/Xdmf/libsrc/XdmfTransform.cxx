@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfTransform.cxx,v 1.1 2002-12-02 17:11:03 clarke Exp $  */
-/*  Date : $Date: 2002-12-02 17:11:03 $ */
-/*  Version : $Revision: 1.1 $ */
+/*  Id : $Id: XdmfTransform.cxx,v 1.2 2003-03-04 15:24:32 andy Exp $  */
+/*  Date : $Date: 2003-03-04 15:24:32 $ */
+/*  Version : $Revision: 1.2 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -26,10 +26,6 @@
 #include "XdmfFormatMulti.h"
 #include "XdmfExpression.h"
 #include "XdmfArray.h"
-
-#include <strstream>
-
-using namespace std;
 
 XdmfTransform::XdmfTransform() {
   strcpy( this->DataTransform, "XML" );
@@ -181,9 +177,16 @@ if( XDMF_WORD_CMP( Attribute, "Function" ) ){
       Function << c;
       }
     }
+  Function << '\0';
   StreamString = Function.str();
   XdmfDebug("Transform Function = " << StreamString );
   ReturnArray = XdmfExpr(  StreamString );
+ // Reset Dimensions if Necessary
+  CData = this->DOM->Get( Element, "Dimensions" );
+  if(CData && ReturnArray){
+    ReturnArray->ReformFromString(CData);
+   }
+
   delete StreamString;
   while( NTmp ){
     NTmp--;

@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDataDesc.h,v 1.1 2002-12-02 17:11:03 clarke Exp $  */
-/*  Date : $Date: 2002-12-02 17:11:03 $ */
-/*  Version : $Revision: 1.1 $ */
+/*  Id : $Id: XdmfDataDesc.h,v 1.2 2003-03-04 15:24:31 andy Exp $  */
+/*  Date : $Date: 2003-03-04 15:24:31 $ */
+/*  Version : $Revision: 1.2 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -28,12 +28,14 @@
 #include "XdmfObject.h"
 #include "XdmfHDFSupport.h"
 
+#include "XdmfExport.h"
+
 #define XDMF_SELECTALL    0
 #define XDMF_HYPERSLAB    1
 #define XDMF_COORDINATES  2
 
 
-class XdmfDataDesc : public XdmfObject {
+class XDMF_EXPORT XdmfDataDesc : public XdmfObject {
 
 
 public :

@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfHeavyData.h,v 1.1 2002-12-02 17:11:03 clarke Exp $  */
-/*  Date : $Date: 2002-12-02 17:11:03 $ */
-/*  Version : $Revision: 1.1 $ */
+/*  Id : $Id: XdmfHeavyData.h,v 1.2 2003-03-04 15:24:31 andy Exp $  */
+/*  Date : $Date: 2003-03-04 15:24:31 $ */
+/*  Version : $Revision: 1.2 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -32,6 +32,9 @@ extern "C" {
 #include "hdf5.h"
 }
 #endif
+
+#include "XdmfExport.h"
+
 /*!
 This is an abstract convenience object for reading and writing
 HeavyData Files. 
@@ -44,7 +47,7 @@ where
   Filename = UNIX style Pathname of HeavyDat file
   Pathname = HeavyData Pathname inside HeavyData File
 */
-class XdmfHeavyData : public XdmfDataDesc {
+class XDMF_EXPORT XdmfHeavyData : public XdmfDataDesc {
 
 public:
   XdmfHeavyData();

@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfAttribute.cxx,v 1.1 2002-12-02 17:11:03 clarke Exp $  */
-/*  Date : $Date: 2002-12-02 17:11:03 $ */
-/*  Version : $Revision: 1.1 $ */
+/*  Id : $Id: XdmfAttribute.cxx,v 1.2 2003-03-04 15:24:31 andy Exp $  */
+/*  Date : $Date: 2003-03-04 15:24:31 $ */
+/*  Version : $Revision: 1.2 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -25,8 +25,6 @@
 #include "XdmfAttribute.h"
 #include "XdmfTransform.h"
 #include "XdmfFormatMulti.h"
-
-#include <strstream>
 
 XdmfAttribute::XdmfAttribute() {
   this->AttributeType = XDMF_ATTRIBUTE_TYPE_NONE;

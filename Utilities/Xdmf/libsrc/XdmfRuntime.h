@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfRuntime.h,v 1.1 2002-12-02 17:11:03 clarke Exp $  */
-/*  Date : $Date: 2002-12-02 17:11:03 $ */
-/*  Version : $Revision: 1.1 $ */
+/*  Id : $Id: XdmfRuntime.h,v 1.2 2003-03-04 15:24:31 andy Exp $  */
+/*  Date : $Date: 2003-03-04 15:24:31 $ */
+/*  Version : $Revision: 1.2 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -27,6 +27,8 @@
 
 #include "XdmfArray.h"
 #include "XdmfCharArray.h"
+
+
 #include "XdmfNDGM.h"
 #include "XdmfDOM.h"
 
@@ -103,14 +105,14 @@ next Frequency multiple
 //! Signal Completed Update in Free Run or Safe Mode
   XdmfInt32  SignalComplete( XdmfInt32 Barrier = XDMF_DEFAULT_BARRIER, XdmfInt32 Mode = -1 ) {
     XdmfInt32 Status;
-    XdmfDebug("Clearing Barrier " << Barrier << std::endl);
+    XdmfDebug("Clearing Barrier " << Barrier << endl);
     Status = ndgm_barrier_init(Barrier, -1);
     if( Mode < 0 ) Mode = this->BarrierMode;
     if ( Mode == XDMF_SAFE ) {
-      XdmfDebug("Waiting in Barrier " << Barrier << std::endl);
+      XdmfDebug("Waiting in Barrier " << Barrier << endl);
       Status = ndgm_barrier_wait(Barrier);
     }
-    XdmfDebug("Status = " << Status << std::endl );
+    XdmfDebug("Status = " << Status << endl );
     return( Status );
     }
 

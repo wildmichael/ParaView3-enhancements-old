@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfFormat.h,v 1.1 2002-12-02 17:11:03 clarke Exp $  */
-/*  Date : $Date: 2002-12-02 17:11:03 $ */
-/*  Version : $Revision: 1.1 $ */
+/*  Id : $Id: XdmfFormat.h,v 1.2 2003-03-04 15:24:31 andy Exp $  */
+/*  Date : $Date: 2003-03-04 15:24:31 $ */
+/*  Version : $Revision: 1.2 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -28,6 +28,8 @@
 
 #include "XdmfLightData.h"
 
+#include "XdmfExport.h"
+
 /*!
 This is the Base Object for Format Drivers.
 If the Data if embedded in the XML, this object
@@ -45,7 +47,7 @@ An XML Format Node Looks like :
   1.1 3.3 5.5 7.7 9.9 11 13.1 15
 </DataStructure>
 */
-class XdmfFormat : public XdmfLightData {
+class XDMF_EXPORT XdmfFormat : public XdmfLightData {
 
 public :
 

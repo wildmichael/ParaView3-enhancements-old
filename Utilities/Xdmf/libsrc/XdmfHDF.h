@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfHDF.h,v 1.1 2002-12-02 17:11:03 clarke Exp $  */
-/*  Date : $Date: 2002-12-02 17:11:03 $ */
-/*  Version : $Revision: 1.1 $ */
+/*  Id : $Id: XdmfHDF.h,v 1.2 2003-03-04 15:24:31 andy Exp $  */
+/*  Date : $Date: 2003-03-04 15:24:31 $ */
+/*  Version : $Revision: 1.2 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -28,6 +28,8 @@
 #include "XdmfHeavyData.h"
 #include "XdmfArray.h"
 
+#include "XdmfExport.h"
+
 #define XDMF_H5_DIRECTORY  H5G_GROUP
 #define XDMF_H5_DATASET    H5G_DATASET
 #define XDMF_H5_UNKNOWN    H5G_UNKNOWN
@@ -45,7 +47,7 @@ where
   Filename = UNIX style Pathname of HDF5 file
   Pathname = HDF5 Pathname inside HDF5 File
 */
-class XdmfHDF : public XdmfHeavyData {
+class XDMF_EXPORT XdmfHDF : public XdmfHeavyData {
 
 public:
   XdmfHDF();

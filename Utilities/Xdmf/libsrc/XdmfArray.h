@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfArray.h,v 1.1 2002-12-02 17:11:03 clarke Exp $  */
-/*  Date : $Date: 2002-12-02 17:11:03 $ */
-/*  Version : $Revision: 1.1 $ */
+/*  Id : $Id: XdmfArray.h,v 1.2 2003-03-04 15:24:31 andy Exp $  */
+/*  Date : $Date: 2003-03-04 15:24:31 $ */
+/*  Version : $Revision: 1.2 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -25,7 +25,7 @@
 #ifndef __XdmfArray_h
 #define __XdmfArray_h
 
-
+#include "XdmfExport.h"
 #include "XdmfDataDesc.h"
 #include "XdmfArrayCopyMacro.h"
 
@@ -40,7 +40,7 @@ enough space. You can also set the pointer directly.
 */
 
 
-class XdmfArray : public XdmfDataDesc {
+class XDMF_EXPORT XdmfArray : public XdmfDataDesc {
 
 public:
   XdmfArray();
@@ -375,10 +375,10 @@ typedef struct {
   XdmfArray  *Array;
   } XdmfArrayList;
 
-extern  XdmfArray  *TagNameToArray( XdmfString TagName );
-extern  void    PrintAllXdmfArrays( void );
-extern  XdmfArray  *GetNextOlderArray( XdmfLength Age, XdmfLength *AgeOfArray = NULL  );
-extern  XdmfLength  GetCurrentArrayTime( void );
+XDMF_EXPORT  XdmfArray  *TagNameToArray( XdmfString TagName );
+XDMF_EXPORT  void    PrintAllXdmfArrays( void );
+XDMF_EXPORT  XdmfArray  *GetNextOlderArray( XdmfLength Age, XdmfLength *AgeOfArray = NULL  );
+XDMF_EXPORT  XdmfLength  GetCurrentArrayTime( void );
 #endif /* DOXYGEN_SKIP */
 
 #endif // __XdmfArray_h

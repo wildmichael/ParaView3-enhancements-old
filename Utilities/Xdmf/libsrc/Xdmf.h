@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: Xdmf.h,v 1.1 2002-12-02 17:11:03 clarke Exp $  */
-/*  Date : $Date: 2002-12-02 17:11:03 $ */
-/*  Version : $Revision: 1.1 $ */
+/*  Id : $Id: Xdmf.h,v 1.2 2003-03-04 15:24:31 andy Exp $  */
+/*  Date : $Date: 2003-03-04 15:24:31 $ */
+/*  Version : $Revision: 1.2 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -37,10 +37,15 @@
 #include "XdmfDataDesc.h"
 #include "XdmfXNode.h"
 #include "XdmfExpression.h"
+#ifdef ICE_HAVE_NDGM
 #include "XdmfNDGM.h"
+#endif
 #include "XdmfTransform.h"
 #include "XdmfParameter.h"
+#ifdef ICE_HAVE_NDGM
 #include "XdmfRuntime.h"
+#endif
+
 // XDMF_MODEL
 #include "XdmfAttribute.h"
 #include "XdmfGeometry.h"

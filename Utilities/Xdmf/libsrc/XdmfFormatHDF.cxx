@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfFormatHDF.cxx,v 1.1 2002-12-02 17:11:03 clarke Exp $  */
-/*  Date : $Date: 2002-12-02 17:11:03 $ */
-/*  Version : $Revision: 1.1 $ */
+/*  Id : $Id: XdmfFormatHDF.cxx,v 1.2 2003-03-04 15:24:31 andy Exp $  */
+/*  Date : $Date: 2003-03-04 15:24:31 $ */
+/*  Version : $Revision: 1.2 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -25,10 +25,9 @@
 #include "XdmfFormatHDF.h"
 
 
-#include <strstream>
+#ifndef _WIN32
 #include <unistd.h>
-
-using namespace std;
+#endif
 
 XdmfFormatHDF::XdmfFormatHDF() {
   strcpy( this->DataFormat, "HDF" );
@@ -61,7 +60,8 @@ if( Data && strlen( Data ) > 1 ){
     }
   if( Desc ){
     XdmfHDF  H5;
-
+    // (Added by Andy)
+    H5.SetWorkingDirectory(this->DOM->GetWorkingDirectory());
     if( NewArray ){
       Array->CopyType( Desc );
       Array->CopyShape( Desc );

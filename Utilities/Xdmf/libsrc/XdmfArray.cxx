@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfArray.cxx,v 1.1 2002-12-02 17:11:03 clarke Exp $  */
-/*  Date : $Date: 2002-12-02 17:11:03 $ */
-/*  Version : $Revision: 1.1 $ */
+/*  Id : $Id: XdmfArray.cxx,v 1.2 2003-03-04 15:24:31 andy Exp $  */
+/*  Date : $Date: 2003-03-04 15:24:31 $ */
+/*  Version : $Revision: 1.2 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -24,21 +24,13 @@
 /*******************************************************************/
 #include "XdmfArray.h"
 
-/*
-#if defined(CYGWIN)
-#include <sstream>
-#else
-#include <strstream>
-#endif
-*/
-
+#ifndef _WIN32
 #include <unistd.h>
+#endif
 
 #if defined(IRIX64) || defined(IRIXN32)
 #else
 #endif
-using namespace std;
-
 // static  ostrstream  *StringOutput = NULL;
 static  XdmfLength  GlobalTimeCntr = 0;
 static  XdmfLength  ListLength = 0;
@@ -225,7 +217,9 @@ XdmfInt32 XdmfArray::Allocate( void ){
     if( this->DataPointer == NULL ) {
       XdmfDebug("Allocation Failed");
       perror(" Alloc :" );
+#ifndef _WIN32      
       XdmfDebug("End == " << sbrk(0)  );
+#endif
       }
   }
   XdmfDebug("Data Pointer = " << this->DataPointer );
