@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkParseJava.c,v $
   Language:  C++
-  Date:      $Date: 2002-06-18 19:03:26 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2002-06-19 18:03:17 $
+  Version:   $Revision: 1.19 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -386,6 +386,10 @@ void vtkParseOutput(FILE *fp, FileInfo *data)
     if (data->IsConcrete)
       {
       fprintf(fp,"\n  public %s() { this.VTKInit();};\n",data->ClassName);
+      }
+    else
+      {
+      fprintf(fp,"\n  public %s() { super();};\n",data->ClassName);
       }
     fprintf(fp,"\n  protected %s(int dmy) { super(); };\n",data->ClassName);
     fprintf(fp,"  protected int vtkId = 0;\n");
