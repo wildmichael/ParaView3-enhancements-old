@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLWriter.h,v $
   Language:  C++
-  Date:      $Date: 2003-06-10 15:20:35 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2003-06-16 17:59:34 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -127,14 +127,6 @@ public:
   // Description:
   // Invoke the writer.  Returns 1 for success, 0 for failure.
   int Write();
-  
-  //BTX
-  // Description:
-  // Get/Set the output stream to which to write the data.  This
-  // overrides use of FileName.
-  vtkGetMacro(Stream, ostream*);
-  vtkSetMacro(Stream, ostream*);
-  //ETX
   
 protected:
   vtkXMLWriter();

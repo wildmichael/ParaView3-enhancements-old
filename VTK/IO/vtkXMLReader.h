@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLReader.h,v $
   Language:  C++
-  Date:      $Date: 2003-06-10 15:20:35 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2003-06-16 17:59:34 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -79,14 +79,6 @@ public:
   int GetCellArrayStatus(const char* name);
   void SetPointArrayStatus(const char* name, int status);  
   void SetCellArrayStatus(const char* name, int status);  
-  
-  //BTX
-  // Description:
-  // Get/Set the input stream from which to read the data.  This
-  // overrides use of FileName.
-  vtkGetMacro(Stream, istream*);
-  vtkSetMacro(Stream, istream*);
-  //ETX
   
 protected:
   vtkXMLReader();
