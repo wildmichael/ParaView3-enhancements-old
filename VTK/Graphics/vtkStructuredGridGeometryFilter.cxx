@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridGeometryFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-03-03 17:30:30 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 1999-03-05 13:40:22 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -108,13 +108,33 @@ void vtkStructuredGridGeometryFilter::Execute()
   startIdx = extent[0] + extent[2]*dims[0] + extent[4]*dims[0]*dims[1];
 
 // The cell index is a bit more complicated at the boundaries
-  startCellIdx =  (extent[0] < dims[0] - 1) ? extent[0]
-                                            : extent[0]-1;
-  startCellIdx += (extent[2] < dims[1] - 1) ? extent[2]*(dims[0]-1)
-                                            : (extent[2]-1)*(dims[0]-1);
-  startCellIdx += (extent[4] < dims[2] - 1) ? extent[4]*(dims[0]-1)*(dims[1]-1)
-                                            : (extent[4]-1)*(dims[0]-1)*(dims[1]-1);
-
+  if (dims[0] == 1)
+    {
+    startCellIdx = extent[0];
+    }
+  else
+    {
+    startCellIdx =  (extent[0] < dims[0] - 1) ? extent[0]
+                                              : extent[0]-1;
+    }
+  if (dims[1] == 1)
+    {
+    startCellIdx += extent[2]*(dims[0]-1);
+    }
+  else
+    {
+    startCellIdx += (extent[2] < dims[1] - 1) ? extent[2]*(dims[0]-1)
+                                              : (extent[2]-1)*(dims[0]-1);
+    }
+  if (dims[2] == 1)
+    {
+    startCellIdx += extent[4]*(dims[0]-1)*(dims[1]-1);
+    }
+  else
+    {
+    startCellIdx += (extent[4] < dims[2] - 1) ? extent[4]*(dims[0]-1)*(dims[1]-1)
+                                              : (extent[4]-1)*(dims[0]-1)*(dims[1]-1);
+    }
   switch (dimension) 
     {
     default:
@@ -197,7 +217,7 @@ void vtkStructuredGridGeometryFilter::Execute()
         {
         if ( input->IsPointVisible(idx) || input->IsPointVisible(idx+offset[0]) )
           {
-          idx = startIdx + i*offset[0];
+          idx = startCellIdx + i*offset[0];
           ptIds[0] = i;
           ptIds[1] = i + 1;
           cellId = newLines->InsertNextCell(2,ptIds);
