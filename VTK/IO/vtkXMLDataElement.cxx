@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLDataElement.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-03-28 20:28:01 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2003-03-31 15:32:43 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 
 #include <ctype.h>
 
-vtkCxxRevisionMacro(vtkXMLDataElement, "$Revision: 1.10 $");
+vtkCxxRevisionMacro(vtkXMLDataElement, "$Revision: 1.11 $");
 vtkStandardNewMacro(vtkXMLDataElement);
 
 //----------------------------------------------------------------------------
@@ -288,6 +288,31 @@ vtkXMLDataElement* vtkXMLDataElement::FindNestedElementWithNameAndId(
     if(nname && nid && (strcmp(nname, name) == 0) && (strcmp(nid, id) == 0))
       {
       return this->NestedElements[i];
+      }
+    }
+  return 0;
+}
+
+//----------------------------------------------------------------------------
+vtkXMLDataElement* vtkXMLDataElement::FindNestedElementWithNameAndAttribute(
+  const char* name, const char* att_name, const char* att_value)
+{
+  if (!name || !att_name || !att_value)
+    {
+    return 0;
+    }
+
+  int i;
+  for(i=0;i < this->NumberOfNestedElements;++i)
+    {
+    const char* nname = this->NestedElements[i]->GetName();
+    if(nname && (strcmp(nname, name) == 0))
+      {
+      const char *val = this->NestedElements[i]->GetAttribute(att_name);
+      if (val && !strcmp(val, att_value))
+        {
+        return this->NestedElements[i];
+        }
       }
     }
   return 0;

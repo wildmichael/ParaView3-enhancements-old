@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLDataElement.h,v $
   Language:  C++
-  Date:      $Date: 2003-03-28 19:38:15 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2003-03-31 15:32:43 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -136,8 +136,10 @@ public:
   // Find a nested element with the given id, given name, or given name and id.
   vtkXMLDataElement* FindNestedElement(const char* id);
   vtkXMLDataElement* FindNestedElementWithName(const char* name);
-  vtkXMLDataElement* FindNestedElementWithNameAndId(const char* name, 
-                                                    const char* id);
+  vtkXMLDataElement* FindNestedElementWithNameAndId(
+    const char* name, const char* id);
+  vtkXMLDataElement* FindNestedElementWithNameAndAttribute(
+    const char* name, const char* att_name, const char* att_value);
   
   // Description:
   // Lookup the element with the given id, starting at this scope.
