@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProp.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-14 17:15:04 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2000-09-22 10:40:57 $
+  Version:   $Revision: 1.25 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -225,7 +225,16 @@ public:
   virtual float GetEstimatedRenderTime( vtkViewport * )
     { return this->EstimatedRenderTime; };
   virtual float GetEstimatedRenderTime(){ return this->EstimatedRenderTime; };
-      
+  
+  // Description:
+  // WARNING: INTERNAL METHOD - NOT INTENDED FOR GENERAL USE
+  // DO NOT USE THESE METHODS OUTSIDE OF THE RENDERING PROCESS
+  // This method is used by, for example, the vtkLODProp3D in order to
+  // initialize the estimated render time at start-up to some user defined
+  // value.
+  virtual void SetEstimatedRenderTime(float t) 
+    {this->EstimatedRenderTime = t; this->SavedEstimatedRenderTime = t;};
+    
   // Description:
   // WARNING: INTERNAL METHOD - NOT INTENDED FOR GENERAL USE
   // DO NOT USE THESE METHODS OUTSIDE OF THE RENDERING PROCESS

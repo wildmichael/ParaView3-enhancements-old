@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLODProp3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-09-13 16:15:36 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2000-09-22 10:40:57 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -355,6 +355,8 @@ int vtkLODProp3D::AddLOD( vtkMapper *m, vtkProperty *p,
   this->LODs[index].State         = 1;
   this->NumberOfLODs++;
 
+  actor->SetEstimatedRenderTime(time);
+  
   return this->LODs[index].ID;
 }
 
@@ -394,6 +396,8 @@ int vtkLODProp3D::AddLOD( vtkVolumeMapper *m, vtkVolumeProperty *p,
   this->LODs[index].State         = 1;
   this->NumberOfLODs++;
 
+  volume->SetEstimatedRenderTime(time);
+  
   return this->LODs[index].ID;
 }
 
