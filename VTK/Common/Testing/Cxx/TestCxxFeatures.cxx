@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: TestCxxFeatures.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-01 21:22:48 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2002-10-02 17:29:42 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,8 +23,6 @@
 
 #include "vtkSystemIncludes.h"
 
-#include <sstream>
-
 //----------------------------------------------------------------------------
 
 /* Check for known compilers.  */
@@ -35,6 +33,18 @@
 
 #if defined(__sgi) && !defined(__GNUC__) && !defined(_COMPILER_VERSION)
 # define VTK_CXX_SGI_6
+#endif
+
+#if defined(__HP_aCC)
+# define VTK_CXX_ACC
+#endif
+
+#if defined(__SUNPRO_CC)
+# define VTK_CXX_SUNPRO
+#endif
+
+#if defined(__GNUC__) && (__GNUC__ < 3)
+# define VTK_CXX_GCC_2
 #endif
 
 //----------------------------------------------------------------------------
@@ -60,6 +70,13 @@
 // Assume standard behavior if symbol is not already defined.
 #if !defined(VTK_CLASS_TEMPLATE_SPECIALIZATION)
 # define VTK_CLASS_TEMPLATE_SPECIALIZATION template <>
+#endif
+
+//----------------------------------------------------------------------------
+
+/* Test inclusion of sstream header.  */
+#if !(defined(VTK_CXX_GCC_2) || defined(VTK_CXX_ACC) || defined(VTK_CXX_SGI_6))
+#include <sstream>
 #endif
 
 //----------------------------------------------------------------------------
