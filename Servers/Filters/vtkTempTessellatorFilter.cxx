@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTempTessellatorFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2004-09-03 14:16:51 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2004-12-17 22:38:47 $
+  Version:   $Revision: 1.9 $
 
   Copyright 2003 Sandia Corporation.
   Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -32,7 +32,7 @@
 #include "vtkDataSetSubdivisionAlgorithm.h"
 #include "vtkSubdivisionAlgorithm.h"
 
-vtkCxxRevisionMacro(vtkTempTessellatorFilter, "$Revision: 1.8 $");
+vtkCxxRevisionMacro(vtkTempTessellatorFilter, "$Revision: 1.9 $");
 vtkStandardNewMacro(vtkTempTessellatorFilter);
 
 // ========================================
@@ -373,6 +373,7 @@ void vtkTempTessellatorFilter::Teardown()
     delete [] this->OutputAttributeIndices;
     }
   this->Subdivider->ResetFieldList();
+  this->Subdivider->SetMesh(0);
 }
 
 // ========================================
