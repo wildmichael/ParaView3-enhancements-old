@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-02-13 15:48:16 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 2003-08-21 13:16:44 $
+  Version:   $Revision: 1.46 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -43,7 +43,7 @@ public:
 };
 
 #ifndef VTK_IMPLEMENT_MESA_CXX
-vtkCxxRevisionMacro(vtkOpenGLRenderer, "$Revision: 1.45 $");
+vtkCxxRevisionMacro(vtkOpenGLRenderer, "$Revision: 1.46 $");
 vtkStandardNewMacro(vtkOpenGLRenderer);
 #endif
 
@@ -202,7 +202,7 @@ void vtkOpenGLRenderer::Clear(void)
     glClearColor( ((GLclampf)(this->Background[0])),
                   ((GLclampf)(this->Background[1])),
                   ((GLclampf)(this->Background[2])),
-                  ((GLclampf)(1.0)) );
+                  ((GLclampf)(0.0)) );
     clear_mask |= GL_COLOR_BUFFER_BIT;
     }
 
