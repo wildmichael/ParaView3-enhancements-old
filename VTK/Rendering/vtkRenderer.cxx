@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-08-26 18:33:28 $
-  Version:   $Revision: 1.70 $
+  Date:      $Date: 1997-10-01 14:55:58 $
+  Version:   $Revision: 1.71 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -90,6 +90,7 @@ vtkRenderer::~vtkRenderer()
     this->ActiveCamera->Delete();
   if ( this->SelfCreatedLight && this->CreatedLight != NULL) 
     this->CreatedLight->Delete();
+  this->RayCaster->Delete();
 }
 
 #ifdef VTK_USE_GLR
