@@ -3,8 +3,8 @@
   Program:   OSCAR 
   Module:    $RCSfile: vtkLightCollection.h,v $
   Language:  C++
-  Date:      $Date: 1994-01-12 16:00:49 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1994-01-17 21:32:54 $
+  Version:   $Revision: 1.2 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -37,6 +37,7 @@ class vlLightCollection : public vlObject
 
  public:
   vlLightCollection();
+  virtual char *GetClassName() {return "vlLightCollection";};
   void AddMember(vlLight *);
   int  GetNumberOfMembers();
   vlLight *GetMember(int num);
