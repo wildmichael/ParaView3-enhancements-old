@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextMapper.h,v $
   Language:  C++
-  Date:      $Date: 2000-01-18 14:06:07 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2000-01-24 17:02:20 $
+  Version:   $Revision: 1.26 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -171,6 +171,10 @@ public:
   vtkGetMacro(LineSpacing, float);
   vtkGetMacro(NumberOfLines,int);
   
+  // Description:
+  // Shallow copy of an actor.
+  void ShallowCopy(vtkTextMapper *tm);
+
 protected:
   vtkTextMapper();
   ~vtkTextMapper();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-18 19:34:34 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2000-01-24 17:02:20 $
+  Version:   $Revision: 1.24 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,6 +59,19 @@ vtkTextMapper::vtkTextMapper()
   this->NumberOfLinesAllocated = 0;
   this->LineOffset = 0.0;
   this->LineSpacing = 1.0;
+}
+
+// Shallow copy of an actor.
+void vtkTextMapper::ShallowCopy(vtkTextMapper *tm)
+{
+  this->SetInput(tm->GetInput());
+  this->SetFontSize(tm->GetFontSize());
+  this->SetBold(tm->GetBold());
+  this->SetItalic(tm->GetItalic());
+  this->SetShadow(tm->GetShadow());
+  this->SetFontFamily(tm->GetFontFamily());
+  this->SetJustification(tm->GetJustification());
+  this->SetVerticalJustification(tm->GetVerticalJustification());
 }
 
 vtkTextMapper *vtkTextMapper::New()

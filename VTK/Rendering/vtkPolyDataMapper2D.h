@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataMapper2D.h,v $
   Language:  C++
-  Date:      $Date: 2000-01-18 14:06:06 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2000-01-24 17:02:20 $
+  Version:   $Revision: 1.15 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -135,6 +135,10 @@ public:
   // coordinates are taken as local display coordinates.
   vtkSetObjectMacro(TransformCoordinate, vtkCoordinate);
   vtkGetObjectMacro(TransformCoordinate, vtkCoordinate);
+
+  // Description:
+  // Make a shallow copy of this mapper.
+  void ShallowCopy(vtkPolyDataMapper2D *m);
 
 protected:
   vtkPolyDataMapper2D();
