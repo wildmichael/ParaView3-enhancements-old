@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleTerrain.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-30 21:49:49 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-05-01 13:07:17 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 #include "vtkPolyDataMapper.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkInteractorStyleTerrain, "$Revision: 1.7 $");
+vtkCxxRevisionMacro(vtkInteractorStyleTerrain, "$Revision: 1.8 $");
 vtkStandardNewMacro(vtkInteractorStyleTerrain);
 
 vtkInteractorStyleTerrain::vtkInteractorStyleTerrain()
@@ -195,7 +195,8 @@ void vtkInteractorStyleTerrain::PrintSelf(ostream& os, vtkIndent indent)
 
 void vtkInteractorStyleTerrain::OnLeftButtonDown (int vtkNotUsed(ctrl), 
                                                   int vtkNotUsed(shift), 
-                                                  int X, int Y)
+                                                  int vtkNotUsed(X),
+                                                  int vtkNotUsed(Y))
 {
   // We're only here is we are enabled
   this->State = vtkInteractorStyleTerrain::Rotating;
@@ -222,8 +223,9 @@ void vtkInteractorStyleTerrain::OnLeftButtonUp (int vtkNotUsed(ctrl),
 }
 
 void vtkInteractorStyleTerrain::OnMiddleButtonDown (int vtkNotUsed(ctrl), 
-                                                  int vtkNotUsed(shift), 
-                                                  int X, int Y)
+                                                    int vtkNotUsed(shift), 
+                                                    int vtkNotUsed(X),
+                                                    int vtkNotUsed(Y))
 {
   // We're only here is we are enabled
   this->State = vtkInteractorStyleTerrain::Panning;
@@ -250,8 +252,9 @@ void vtkInteractorStyleTerrain::OnMiddleButtonUp (int vtkNotUsed(ctrl),
 }
 
 void vtkInteractorStyleTerrain::OnRightButtonDown (int vtkNotUsed(ctrl), 
-                                                  int vtkNotUsed(shift), 
-                                                  int X, int Y)
+                                                   int vtkNotUsed(shift), 
+                                                   int vtkNotUsed(X),
+                                                   int vtkNotUsed(Y))
 {
   // We're only here is we are enabled
   this->State = vtkInteractorStyleTerrain::Zooming;
