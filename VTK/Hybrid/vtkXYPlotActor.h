@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXYPlotActor.h,v $
   Language:  C++
-  Date:      $Date: 2001-04-26 14:47:17 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2001-05-02 12:56:00 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to Kitware & RPI/SCOREC who supported the development
              of this class.
 
@@ -243,6 +243,22 @@ public:
   vtkBooleanMacro(ExchangeAxes, int);
 
   // Description:
+  // Normally the x-axis is plotted from minimum to maximum. Setting this instance
+  // variable causes the x-axis to be plotted from maximum to minimum. Note that
+  // boolean always applies to the x-axis even if ExchangeAxes is set.
+  vtkSetMacro(ReverseXAxis, int);
+  vtkGetMacro(ReverseXAxis, int);
+  vtkBooleanMacro(ReverseXAxis, int);
+
+  // Description:
+  // Normally the y-axis is plotted from minimum to maximum. Setting this instance
+  // variable causes the y-axis to be plotted from maximum to minimum. Note that
+  // boolean always applies to the y-axis even if ExchangeAxes is set.
+  vtkSetMacro(ReverseYAxis, int);
+  vtkGetMacro(ReverseYAxis, int);
+  vtkBooleanMacro(ReverseYAxis, int);
+
+  // Description:
   // Retrieve handles to the legend box and glyph source. This is useful
   // if you would like to change the default behavior of the legend box
   // or glyph source. For example, the default glyph can be changed from
@@ -449,6 +465,8 @@ protected:
   int PlotLines;
   int PlotPoints;
   int ExchangeAxes;
+  int ReverseXAxis;
+  int ReverseYAxis;
   
   vtkTextMapper *TitleMapper;
   vtkActor2D    *TitleActor;
