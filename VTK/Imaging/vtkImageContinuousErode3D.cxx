@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageContinuousErode3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:30 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1999-08-05 19:22:09 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -290,7 +290,7 @@ void vtkImageContinuousErode3D::ThreadedExecute(vtkImageData *inData,
 						int outExt[6], int id)
 {
   int inExt[6];
-  this->ComputeInputUpdateExtent(inExt,outExt);
+  this->ComputeRequiredInputUpdateExtent(inExt,outExt);
   void *inPtr = inData->GetScalarPointerForExtent(inExt);
   void *outPtr = outData->GetScalarPointerForExtent(outExt);
   vtkImageData *mask;

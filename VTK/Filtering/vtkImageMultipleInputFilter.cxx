@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMultipleInputFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-04 17:49:00 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 1999-08-05 19:22:16 $
+  Version:   $Revision: 1.34 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -133,14 +133,14 @@ int vtkImageMultipleInputFilter::ComputeDivisionExtents(vtkDataObject *out,
   actualSplits = this->SplitExtent(this->ExecuteExtent, outExt, 
 				   division, numDivisions);
   
-  if (idx < actualSplits)
+  if (division < actualSplits)
     { // yes this is a vaid piece.
     for (idx = 0; idx < this->NumberOfInputs; ++idx)
       {
       input = this->GetInput(idx);
       if (input != NULL)
 	{
-	this->ComputeInputUpdateExtent(inExt, this->ExecuteExtent, idx);
+	this->ComputeRequiredInputUpdateExtent(inExt, this->ExecuteExtent, idx);
 	input->SetUpdateExtent(inExt);
 	}
       }
@@ -162,7 +162,7 @@ int vtkImageMultipleInputFilter::ComputeDivisionExtents(vtkDataObject *out,
 // have the extent of the required input region.  The default method assumes
 // the required input extent are the same as the output extent.
 // Note: The splitting methods call this method with outRegion = inRegion.
-void vtkImageMultipleInputFilter::ComputeInputUpdateExtent(int inExt[6],
+void vtkImageMultipleInputFilter::ComputeRequiredInputUpdateExtent(int inExt[6],
 							   int outExt[6],
 							   int whichInput)
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToImageFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-04 17:49:00 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1999-08-05 19:22:21 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -138,7 +138,7 @@ int vtkImageToImageFilter::ComputeDivisionExtents(vtkDataObject *output,
   
   if (idx < actualSplits)
     { // yes this is a valid piece.
-    this->ComputeInputUpdateExtent(inExt, this->ExecuteExtent);
+    this->ComputeRequiredInputUpdateExtent(inExt, this->ExecuteExtent);
     input->SetUpdateExtent(inExt);
     return 1;
     }
@@ -154,7 +154,7 @@ int vtkImageToImageFilter::ComputeDivisionExtents(vtkDataObject *output,
 // UpdateExtent needed to generate the output UpdateExtent.
 // By default the input is set to the same as the output before this
 // method is called.
-void vtkImageToImageFilter::ComputeInputUpdateExtent(int inExt[6], 
+void vtkImageToImageFilter::ComputeRequiredInputUpdateExtent(int inExt[6], 
 						     int outExt[6])
 {
   memcpy(inExt,outExt,sizeof(int)*6);

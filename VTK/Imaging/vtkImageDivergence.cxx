@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDivergence.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:32 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1999-08-05 19:22:10 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -51,8 +51,8 @@ vtkImageDivergence::vtkImageDivergence()
 
 //----------------------------------------------------------------------------
 // Just clip the request.  The subclass may need to overwrite this method.
-void vtkImageDivergence::ComputeInputUpdateExtent(int inExt[6], 
-							    int outExt[6])
+void vtkImageDivergence::ComputeRequiredInputUpdateExtent(int inExt[6], 
+							  int outExt[6])
 {
   int idx;
   int *wholeExtent;

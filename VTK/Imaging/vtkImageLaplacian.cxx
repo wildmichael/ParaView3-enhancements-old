@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageLaplacian.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:41 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1999-08-05 19:22:15 $
+  Version:   $Revision: 1.13 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -61,7 +61,7 @@ void vtkImageLaplacian::PrintSelf(ostream& os, vtkIndent indent)
 
 //----------------------------------------------------------------------------
 // Just clip the request.  The subclass may need to overwrite this method.
-void vtkImageLaplacian::ComputeInputUpdateExtent(int inExt[6], 
+void vtkImageLaplacian::ComputeRequiredInputUpdateExtent(int inExt[6], 
 							 int outExt[6])
 {
   int idx;

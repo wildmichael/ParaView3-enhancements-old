@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagePadFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-30 18:37:47 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1999-08-05 19:22:17 $
+  Version:   $Revision: 1.15 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -130,7 +130,7 @@ void vtkImagePadFilter::ExecuteInformation()
 
 //----------------------------------------------------------------------------
 // Just clip the request.  The subclass may need to overwrite this method.
-void vtkImagePadFilter::ComputeInputUpdateExtent(int inExt[6], 
+void vtkImagePadFilter::ComputeRequiredInputUpdateExtent(int inExt[6], 
 							 int outExt[6])
 {
   int idx;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAppend.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-30 18:37:43 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-08-05 19:22:08 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -109,7 +109,7 @@ void vtkImageAppend::ExecuteInformation()
 
 
 //----------------------------------------------------------------------------
-void vtkImageAppend::ComputeInputUpdateExtent(int inExt[6],
+void vtkImageAppend::ComputeRequiredInputUpdateExtent(int inExt[6],
 					      int outExt[6], int whichInput)
 {
   int min, max, shift, tmp, idx;
@@ -235,7 +235,7 @@ void vtkImageAppend::ThreadedExecute(vtkImageData **inData,
       // Get the input extent and output extent
       // the real out extent for this input may be clipped.
       memcpy(inExt, outExt, 6*sizeof(int));
-      this->ComputeInputUpdateExtent(inExt, outExt, idx1);
+      this->ComputeRequiredInputUpdateExtent(inExt, outExt, idx1);
       memcpy(cOutExt, inExt, 6*sizeof(int));
       cOutExt[this->AppendAxis*2] = 
 	inExt[this->AppendAxis*2] + this->Shifts[idx1];

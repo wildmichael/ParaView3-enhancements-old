@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageGaussianSmooth.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-30 18:37:45 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1999-08-05 19:22:12 $
+  Version:   $Revision: 1.21 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -122,7 +122,7 @@ void vtkImageGaussianSmooth::ExecuteInformation()
 }
 
 //----------------------------------------------------------------------------
-void vtkImageGaussianSmooth::ComputeInputUpdateExtent(int inExt[6], 
+void vtkImageGaussianSmooth::ComputeRequiredInputUpdateExtent(int inExt[6], 
 							      int outExt[6])
 {
   int *wholeExtent;
@@ -472,7 +472,7 @@ void vtkImageGaussianSmooth::ThreadedExecute(vtkImageData *inData,
     }
 
   // Decompose
-  this->ComputeInputUpdateExtent(inExt, outExt);
+  this->ComputeRequiredInputUpdateExtent(inExt, outExt);
   switch (this->Dimensionality)
     {
     case 1:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDifference.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:32 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-08-05 19:22:10 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -113,7 +113,7 @@ protected:
   int Averaging;
   
   void ExecuteInformation(); 
-  void ComputeInputUpdateExtent(int inExt[6], int outExt[6],
+  void ComputeRequiredInputUpdateExtent(int inExt[6], int outExt[6],
 					int whichInput);
   void ThreadedExecute(vtkImageData **inDatas, vtkImageData *outData,
 		       int extent[6], int id);  

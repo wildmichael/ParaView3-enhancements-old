@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagePermute.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:48 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1999-08-05 19:22:18 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -67,7 +67,7 @@ public:
 protected:
   int  FilteredAxes[3];
   void ExecuteInformation();
-  void ComputeInputUpdateExtent(int inExt[6], int outExt[6]);
+  void ComputeRequiredInputUpdateExtent(int inExt[6], int outExt[6]);
   void ThreadedExecute(vtkImageData *inData, vtkImageData *outData, 
 		       int ext[6], int id);
 };

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDifference.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-30 18:37:44 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1999-08-05 19:22:10 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -110,7 +110,7 @@ vtkImageDifference::vtkImageDifference()
 
 //----------------------------------------------------------------------------
 // This method computes the input extent necessary to generate the output.
-void vtkImageDifference::ComputeInputUpdateExtent(int inExt[6],
+void vtkImageDifference::ComputeRequiredInputUpdateExtent(int inExt[6],
 							  int outExt[6],
 							  int whichInput)
 {

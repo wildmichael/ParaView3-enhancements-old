@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSpatialFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:55 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1999-08-05 19:22:21 $
+  Version:   $Revision: 1.29 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -78,7 +78,7 @@ protected:
 
   void ExecuteInformation();
   void ComputeOutputWholeExtent(int extent[6], int handleBoundaries);
-  void ComputeInputUpdateExtent(int extent[6], int wholeExtent[6]);
+  void ComputeRequiredInputUpdateExtent(int extent[6], int wholeExtent[6]);
 
 };
 

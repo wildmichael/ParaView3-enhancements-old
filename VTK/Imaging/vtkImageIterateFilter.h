@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageIterateFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-04 17:23:41 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1999-08-05 19:22:14 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -78,7 +78,7 @@ protected:
   // called for each iteration (differs from superclass in arguments).
   virtual void ExecuteImageInformation(vtkImageData *inData, vtkImageData *outData);
   
-  // Ends up calling ComputeInputUpdateExtent(int inExt[6],int outExt[6])
+  // Ends up calling ComputeRequiredInputUpdateExtent(int inExt[6],int outExt[6])
   // for each iteration.
   int ComputeDivisionExtents(vtkDataObject *output,
 			     int division, int numDivisions);

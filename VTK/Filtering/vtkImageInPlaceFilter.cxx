@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageInPlaceFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:40 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1999-08-05 19:22:14 $
+  Version:   $Revision: 1.21 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -158,7 +158,7 @@ void vtkImageInPlaceFilter::RecursiveStreamUpdate(vtkImageData *outData,
   
   // Compute the required input region extent.
   // Copy to fill in extent of extra dimensions.
-  this->ComputeInputUpdateExtent(this->GetInput()->GetUpdateExtent(),
+  this->ComputeRequiredInputUpdateExtent(this->GetInput()->GetUpdateExtent(),
 					 this->GetOutput()->GetUpdateExtent());
   
   // determine the amount of memory that will be used by the input region.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMirrorPad.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:46 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1999-08-05 19:22:15 $
+  Version:   $Revision: 1.18 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -45,7 +45,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 //----------------------------------------------------------------------------
 // Just clip the request.
-void vtkImageMirrorPad::ComputeInputUpdateExtent(int inExt[6], 
+void vtkImageMirrorPad::ComputeRequiredInputUpdateExtent(int inExt[6], 
 							 int outExt[6])
 {
   int *wExtent = this->GetInput()->GetWholeExtent();

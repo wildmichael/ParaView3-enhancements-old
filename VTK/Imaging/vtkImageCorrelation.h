@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCorrelation.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:31 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1999-08-05 19:22:09 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -70,7 +70,7 @@ public:
 protected:
   int Dimensionality;
   void ExecuteInformation();
-  virtual void ComputeInputUpdateExtent(int inExt[6], int outExt[6],
+  virtual void ComputeRequiredInputUpdateExtent(int inExt[6], int outExt[6],
 						int whichInput);
   void ThreadedExecute(vtkImageData **inDatas, vtkImageData *outData,
 		       int extent[6], int id);

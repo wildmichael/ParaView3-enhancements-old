@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageShrink3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-31 20:48:45 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 1999-08-05 19:22:19 $
+  Version:   $Revision: 1.36 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -68,7 +68,7 @@ void vtkImageShrink3D::PrintSelf(ostream& os, vtkIndent indent)
 
 //----------------------------------------------------------------------------
 // This method computes the Region of input necessary to generate outRegion.
-void vtkImageShrink3D::ComputeInputUpdateExtent(int inExt[6], 
+void vtkImageShrink3D::ComputeRequiredInputUpdateExtent(int inExt[6], 
 							int outExt[6])
 {
   int idx;
@@ -243,7 +243,7 @@ void vtkImageShrink3D::ThreadedExecute(vtkImageData *inData,
   vtkDebugMacro(<< "Execute: inData = " << inData 
   << ", outData = " << outData);
 
-  this->ComputeInputUpdateExtent(inExt,outExt);
+  this->ComputeRequiredInputUpdateExtent(inExt,outExt);
   void *inPtr = inData->GetScalarPointerForExtent(inExt);
 
   // this filter expects that input is the same type as output.

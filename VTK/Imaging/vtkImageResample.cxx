@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageResample.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-03 17:07:49 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1999-08-05 19:22:19 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -135,7 +135,7 @@ float vtkImageResample::GetAxisMagnificationFactor(int axis)
 //----------------------------------------------------------------------------
 // This method computes the Region of input necessary to generate outRegion.
 // It assumes offset and size are multiples of Magnify Factors.
-void vtkImageResample::ComputeInputUpdateExtent(int inExt[6], 
+void vtkImageResample::ComputeRequiredInputUpdateExtent(int inExt[6], 
 						int outExt[6])
 {
   int min, max, axis;
@@ -317,7 +317,7 @@ void vtkImageResample::ThreadedExecute(vtkImageData *inData,
   int inExt[6];
 
   outPtr = outData->GetScalarPointerForExtent(outExt);
-  this->ComputeInputUpdateExtent(inExt,outExt);
+  this->ComputeRequiredInputUpdateExtent(inExt,outExt);
   inPtr = inData->GetScalarPointerForExtent(inExt);
   
   // this filter expects that input is the same type as output.

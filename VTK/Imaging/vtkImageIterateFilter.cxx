@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageIterateFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-04 17:23:41 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1999-08-05 19:22:14 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -221,7 +221,7 @@ int vtkImageIterateFilter::ComputeDivisionExtents(vtkDataObject *output,
     
     /* default value */
     out->GetUpdateExtent(inExt);
-    this->ComputeInputUpdateExtent(inExt, out->GetUpdateExtent());
+    this->ComputeRequiredInputUpdateExtent(inExt, out->GetUpdateExtent());
     in->SetUpdateExtent(inExt);
     out = in;
     }

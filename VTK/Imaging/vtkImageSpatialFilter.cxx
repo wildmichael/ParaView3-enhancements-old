@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSpatialFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-03 17:07:50 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1999-08-05 19:22:21 $
+  Version:   $Revision: 1.33 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -139,7 +139,7 @@ void vtkImageSpatialFilter::ComputeOutputWholeExtent(int extent[6],
 // an output region.  Before this method is called "region" should have the 
 // extent of the output region.  After this method finishes, "region" should 
 // have the extent of the required input region.
-void vtkImageSpatialFilter::ComputeInputUpdateExtent(int extent[6], 
+void vtkImageSpatialFilter::ComputeRequiredInputUpdateExtent(int extent[6], 
 							     int inExtent[6])
 {
   int idx;
