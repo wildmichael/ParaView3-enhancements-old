@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCastToConcrete.h,v $
   Language:  C++
-  Date:      $Date: 1999-01-29 18:16:11 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1999-04-22 10:49:33 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -117,6 +117,14 @@ public:
   // Get the output of this filter as type vtkUnstructuredGrid. Performs
   // run-time checking on type. Returns NULL if wrong type.
   vtkRectilinearGrid *GetRectilinearGridOutput();
+
+  // Description:
+  // Handle the source/data loop.
+  void UnRegister(vtkObject *o);
+
+  // Description:
+  // Test to see if this object is in a reference counting loop.
+  virtual int InRegisterLoop(vtkObject *);
 
 protected:
   void Execute(); //insures compatibility; satisfies abstract api in vtkFilter
