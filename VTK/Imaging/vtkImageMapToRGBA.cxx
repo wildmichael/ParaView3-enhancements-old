@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMapToRGBA.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-30 18:37:47 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1999-08-09 17:47:34 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,6 +56,23 @@ vtkImageMapToRGBA::~vtkImageMapToRGBA()
     {
     this->LookupTable->UnRegister(this);
     }
+}
+
+//----------------------------------------------------------------------------
+unsigned long vtkImageMapToRGBA::GetMTime()
+{
+  unsigned long t1, t2;
+
+  t1 = this->vtkImageToImageFilter::GetMTime();
+  if (this->LookupTable)
+    {
+    t2 = this->LookupTable->GetMTime();
+    if (t2 > t1)
+      {
+      t1 = t2;
+      }
+    }
+  return t1;
 }
 
 //----------------------------------------------------------------------------

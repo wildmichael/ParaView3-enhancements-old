@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMapToRGBA.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:44 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-08-09 17:47:39 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -65,6 +65,10 @@ public:
 
   vtkSetObjectMacro(LookupTable,vtkScalarsToColors);
   vtkGetObjectMacro(LookupTable,vtkScalarsToColors);
+
+  // Description:
+  // We need to check the modified time of the lookup table too.
+  unsigned long GetMTime();
 
 protected:
   vtkScalarsToColors *LookupTable;
