@@ -3,8 +3,8 @@
  Program:   Visualization Toolkit
  Module:    $RCSfile: vtkSource.cxx,v $
  Language:  C++
- Date:      $Date: 1996-08-21 21:03:27 $
- Version:   $Revision: 1.25 $
+ Date:      $Date: 1997-01-30 22:38:01 $
+ Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -179,8 +179,15 @@ void vtkSource::Execute()
 void vtkSource::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkObject::PrintSelf(os,indent);
-  os << indent << "Execute Time: " << this->ExecuteTime.GetMTime() << "\n";
-  os << indent << "Output:\n";
-  this->Output->PrintSelf(os,indent.GetNextIndent());
+
+  if ( this->Output )
+    {
+    os << indent << "Output:\n";
+    this->Output->PrintSelf(os,indent.GetNextIndent());
+    }
+  else
+    {
+    os << indent << "No output generated for this filter\n";
+    }
 }
 
