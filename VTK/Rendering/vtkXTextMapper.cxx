@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-07-01 19:59:09 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2002-08-22 18:49:37 $
+  Version:   $Revision: 1.37 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,7 +25,7 @@
 //mark this class for future legacy-related changes
 #endif
 
-vtkCxxRevisionMacro(vtkXTextMapper, "$Revision: 1.36 $");
+vtkCxxRevisionMacro(vtkXTextMapper, "$Revision: 1.37 $");
 
 //-------------------------------------------------------------------------
 vtkXTextMapper* vtkXTextMapper::New()
@@ -226,8 +226,8 @@ void vtkXTextMapper::DetermineSize(vtkViewport *viewport, int *size)
   XFreeFontInfo(NULL, fontStruct, 1);
 }
 
-
-
-
-
-
+//----------------------------------------------------------------------------
+void vtkXTextMapper::PrintSelf(ostream& os, vtkIndent indent)
+{
+  this->Superclass::PrintSelf(os,indent);
+}

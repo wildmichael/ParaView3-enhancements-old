@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXOpenGLTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-07-01 19:59:09 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2002-08-22 18:49:37 $
+  Version:   $Revision: 1.38 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 #include "vtkTextProperty.h"
 #include "vtkViewport.h"
 
-vtkCxxRevisionMacro(vtkXOpenGLTextMapper, "$Revision: 1.37 $");
+vtkCxxRevisionMacro(vtkXOpenGLTextMapper, "$Revision: 1.38 $");
 vtkStandardNewMacro(vtkXOpenGLTextMapper);
 
 struct vtkFontStruct
@@ -395,3 +395,8 @@ void vtkXOpenGLTextMapper::RenderOverlay(vtkViewport* viewport,
   glEnable( GL_LIGHTING);
 }
 
+//----------------------------------------------------------------------------
+void vtkXOpenGLTextMapper::PrintSelf(ostream& os, vtkIndent indent)
+{
+  this->Superclass::PrintSelf(os,indent);
+}

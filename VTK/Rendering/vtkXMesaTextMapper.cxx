@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMesaTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-30 05:45:43 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2002-08-22 18:49:37 $
+  Version:   $Revision: 1.19 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -29,7 +29,7 @@
 #include "vtkToolkits.h"
 #include "vtkViewport.h"
 
-vtkCxxRevisionMacro(vtkXMesaTextMapper, "$Revision: 1.18 $");
+vtkCxxRevisionMacro(vtkXMesaTextMapper, "$Revision: 1.19 $");
 vtkStandardNewMacro(vtkXMesaTextMapper);
 
 static void
@@ -504,3 +504,8 @@ void vtkXMesaTextMapper::RenderOverlay(vtkViewport* viewport,
   glEnable( GL_LIGHTING);
 }
 
+//----------------------------------------------------------------------------
+void vtkXMesaTextMapper::PrintSelf(ostream& os, vtkIndent indent)
+{
+  this->Superclass::PrintSelf(os,indent);
+}
