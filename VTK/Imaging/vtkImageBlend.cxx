@@ -3,9 +3,9 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageBlend.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-09-26 20:10:19 $
-  Version:   $Revision: 1.10 $
-  Thanks:    Thanks to David G. Gobbi who developed this class.
+  Date:      $Date: 2000-09-26 20:14:24 $
+  Version:   $Revision: 1.11 $
+  Thanks:    Thanks to David G. Gobbi and Sebastien Barre who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
