@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageExtractComponents.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-17 14:29:19 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1997-12-22 17:33:47 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -60,18 +60,21 @@ public:
 
   // Description:
   // Set/Get the components to extract.
-  void SetComponents(int num, int *components);
-  vtkImageSetMacro(Components, int);
+  void SetComponents(int c1);
+  void SetComponents(int c1, int c2);
+  void SetComponents(int c1, int c2, int c3);
+  vtkGetVector3Macro(Components,int);
   
   // here for templated function
-  // limited to 4 for now.
+  // limited to 3 for now.
   int NumberOfComponents;
-  int Components[4];
+  int Components[3];
   
 protected:
   
   void ExecuteImageInformation();
-  void Execute(vtkImageRegion *inRegion, vtkImageRegion *outRegion);
+  void ThreadedExecute(vtkImageData *inData, vtkImageData *outData, 
+		       int ext[6]);
 };
 
 #endif
