@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXdmfReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2004-04-05 13:39:10 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 2004-04-23 18:58:28 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen  
@@ -74,7 +74,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <vector>
 
 vtkStandardNewMacro(vtkXdmfReader);
-vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.42 $");
+vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.43 $");
 
 #if defined(_WIN32) && (defined(_MSC_VER) || defined(__BORLANDC__))
 #  include <direct.h>
@@ -1336,20 +1336,13 @@ void vtkXdmfReader::ExecuteInformation()
         vtkErrorMacro("Unknown topology type: " << grid->GetTopologyType());
         }
 
-      int *upext = this->Outputs[idx]->GetUpdateExtent();
-      vtkDebugMacro( << "Update Extents: " << upext[0] << ", " 
-        << upext[1] << ", " 
-        << upext[2] << ", " 
-        << upext[3] << ", " 
-        << upext[4] << ", " 
-        << upext[5] );
-      //cout << "WholeExtent:  " << PRINT_EXTENT(this->Outputs[idx]->GetWholeExtent()) << endl;
-      //cout << "UpdateExtent: " << PRINT_EXTENT(this->Outputs[idx]->GetUpdateExtent()) << endl;
-      //vtkStructuredGrid  *vGrid = vtkStructuredGrid::SafeDownCast(this->Outputs[idx]);
-      //if ( vGrid )
-      //  {
-      //  cout << "Extent:       " << PRINT_EXTENT(vGrid->GetExtent()) << endl;
-      //  }
+      vtkDebugMacro( << "Update Extents: " << 
+                     this->Outputs[idx]->GetUpdateExtent()[0] << ", " <<
+                     this->Outputs[idx]->GetUpdateExtent()[1] << ", " <<
+                     this->Outputs[idx]->GetUpdateExtent()[2] << ", " <<
+                     this->Outputs[idx]->GetUpdateExtent()[3] << ", " <<
+                     this->Outputs[idx]->GetUpdateExtent()[4] << ", " <<
+                     this->Outputs[idx]->GetUpdateExtent()[5] );
       }
 
     idx ++;
