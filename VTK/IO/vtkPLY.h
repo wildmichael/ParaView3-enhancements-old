@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPLY.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:08:55 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2001-10-10 19:01:58 $
+  Version:   $Revision: 1.7 $
   Thanks:    Mike Dresser MD/PhD
              Director of Core Facility for Imaging
              Program in Molecular and Cell Biology
@@ -122,7 +122,7 @@ WARRANTY OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.
 
 typedef struct PlyProperty {    /* description of a property */
 
-  char *name;                           /* property name */
+  const char *name;                           /* property name */
   int external_type;                    /* file's data type */
   int internal_type;                    /* program's data type */
   int offset;                           /* offset bytes of prop in a struct */
@@ -189,8 +189,8 @@ class VTK_IO_EXPORT vtkPLY
 {
 public:
   //standard PLY library interface
-  static PlyFile *ply_write(FILE *, int, char **, int);
-  static PlyFile *ply_open_for_writing(char *, int, char **, int, float *);
+  static PlyFile *ply_write(FILE *, int, const char **, int);
+  static PlyFile *ply_open_for_writing(char *, int, const char **, int, float *);
   static void ply_describe_element(PlyFile *, char *, int, int, PlyProperty *);
   static void ply_describe_property(PlyFile *, char *, PlyProperty *);
   static void ply_element_count(PlyFile *, char *, int);
@@ -218,9 +218,9 @@ public:
 
   // These methods are internal to the PLY library in the normal distribution
   // They should be used carefully
-  static int equal_strings(char *, char *);
+  static int equal_strings(const char *, const char *);
   static PlyElement *find_element(PlyFile *, char *);
-  static PlyProperty *find_property(PlyElement *, char *, int *);
+  static PlyProperty *find_property(PlyElement *, const char *, int *);
   static void write_scalar_type (FILE *, int);
   static char **get_words(FILE *, int *, char **);
   static char **old_get_words(FILE *, int *);

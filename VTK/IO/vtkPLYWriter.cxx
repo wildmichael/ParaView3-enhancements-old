@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPLYWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-14 20:00:02 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2001-10-10 19:01:58 $
+  Version:   $Revision: 1.6 $
   Thanks:    Mike Dresser MD/PhD
              Director of Core Facility for Imaging
              Program in Molecular and Cell Biology
@@ -107,7 +107,7 @@ void vtkPLYWriter::WriteData()
   unsigned char *cellColors, *pointColors;
   PlyFile *ply;
   float version;
-  static char *elemNames[] = { "vertex", "face" };
+  static const char *elemNames[] = { "vertex", "face" };
   static PlyProperty vertProps[] = { // property information for a vertex
     {"x", PLY_FLOAT, PLY_FLOAT, offsetof(plyVertex,x[0]), 0, 0, 0, 0},
     {"y", PLY_FLOAT, PLY_FLOAT, offsetof(plyVertex,x[1]), 0, 0, 0, 0},
