@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-03-13 19:29:58 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1999-04-13 12:54:33 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -154,7 +154,7 @@ void vtkVolumeMapper::SetRGBTextureInput( vtkStructuredPoints *rgbTexture )
 // Print the vtkVolumeMapper
 void vtkVolumeMapper::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkObject::PrintSelf(os,indent);
+  vtkProcessObject::PrintSelf(os,indent);
 
   if ( this->ScalarInput )
     {
