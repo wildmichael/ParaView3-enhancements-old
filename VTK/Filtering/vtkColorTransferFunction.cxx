@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkColorTransferFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-06-28 11:33:03 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2000-07-03 14:05:06 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -617,7 +617,7 @@ void vtkColorTransferFunction::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkScalarsToColors::PrintSelf(os, indent);
 
-  os << indent << "Size: " << this->NumberOfPoints;
+  os << indent << "Size: " << this->NumberOfPoints << endl;
   if ( this->Clamping )
     {
     os << indent << "Clamping: On\n";
@@ -635,6 +635,9 @@ void vtkColorTransferFunction::PrintSelf(ostream& os, vtkIndent indent)
     {
     os << indent << "Color Space: HSV\n";
     }
+  
+  os << indent << "Range: " << this->Range[0] << " to " 
+     << this->Range[1] << endl;
   
   if ( this->NumberOfPoints < 100 )
     {
