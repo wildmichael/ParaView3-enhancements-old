@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLUnstructuredGridWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-05-05 20:13:55 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2003-05-08 21:03:54 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 #include "vtkUnsignedCharArray.h"
 #include "vtkUnstructuredGrid.h"
 
-vtkCxxRevisionMacro(vtkXMLUnstructuredGridWriter, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkXMLUnstructuredGridWriter, "$Revision: 1.4 $");
 vtkStandardNewMacro(vtkXMLUnstructuredGridWriter);
 
 //----------------------------------------------------------------------------
@@ -83,6 +83,7 @@ void vtkXMLUnstructuredGridWriter::SetInputUpdateExtent(int piece,
 //----------------------------------------------------------------------------
 void vtkXMLUnstructuredGridWriter::WriteInlinePieceAttributes()
 {
+  this->Superclass::WriteInlinePieceAttributes();
   vtkUnstructuredGrid* input = this->GetInput();
   this->WriteScalarAttribute("NumberOfCells", input->GetNumberOfCells());
 }
