@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkRenderWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-18 13:13:03 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 2001-06-19 11:52:14 $
+  Version:   $Revision: 1.51 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
