@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObject.h,v $
   Language:  C++
-  Date:      $Date: 1997-05-14 19:57:14 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 1997-05-14 23:35:05 $
+  Version:   $Revision: 1.42 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -82,6 +82,14 @@ public:
   virtual void PrintTrailer(ostream& os, vtkIndent indent);
 
   static void BreakOnError();
+
+  // Description:
+  // This is a global flag that controls whether any debug, warning
+  // or error messages are displayed.
+  static void SetGlobalWarningDisplay(int val);
+  static void GlobalWarningDisplayOn() {vtkObject::SetGlobalWarningDisplay(1);};
+  static void GlobalWarningDisplayOff() {vtkObject::SetGlobalWarningDisplay(0);};
+  static int  GetGlobalWarningDisplay();
   
 protected:
   unsigned char Debug;         // Enable debug messages

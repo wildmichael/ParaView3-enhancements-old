@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObject.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-14 19:57:13 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1997-05-14 23:35:05 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,6 +39,19 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkObject.h"
+
+// Initialize static member that controls warning display
+static int vtkObjectGlobalWarningDisplay = 1;
+
+void vtkObject::SetGlobalWarningDisplay(int val)
+{
+  vtkObjectGlobalWarningDisplay = val;
+}
+
+int vtkObject::GetGlobalWarningDisplay()
+{
+  return vtkObjectGlobalWarningDisplay;
+}
 
 // Description:
 // This operator allows all subclasses of vtkObject to be printed via <<.
