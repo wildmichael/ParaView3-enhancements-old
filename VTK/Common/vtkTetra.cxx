@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkTetra.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-02-26 10:17:59 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1995-05-29 13:05:57 $
+  Version:   $Revision: 1.13 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -20,7 +20,6 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 #include "CellArr.hh"
 
 static vlMath math;
-static vlTriangle tri;
 
 // Description:
 // Deep copy of cell.
@@ -262,6 +261,7 @@ vlCell *vlTetra::GetEdge(int edgeId)
 vlCell *vlTetra::GetFace(int faceId)
 {
   int *verts;
+  static vlTriangle tri;
 
   verts = faces[faceId];
 
@@ -289,6 +289,7 @@ int vlTetra::IntersectWithLine(float p1[3], float p2[3], float tol, float& t,
   float tTemp;
   float pc[3], xTemp[3];
   int faceNum;
+  static vlTriangle tri;
 
   t = LARGE_FLOAT;
   for (faceNum=0; faceNum<4; faceNum++)
