@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkShortArray.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:41:24 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1997-08-21 18:37:16 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -67,7 +67,7 @@ public:
   void SetNumberOfValues(const int number);
   void SetValue(const int id, const short value);
   vtkShortArray &InsertValue(const int id, const short i);
-  int InsertNextValue(const int short);
+  int InsertNextValue(const short);
   short *GetPointer(const int id);
   short *WritePointer(const int id, const int number);
 
@@ -80,7 +80,6 @@ public:
   void Squeeze();
   int GetSize();
   int GetMaxId();
-  short *GetArray();
   void Reset();
 
 private:
@@ -162,11 +161,6 @@ inline int vtkShortArray::GetSize() {return this->Size;};
 // Description:
 // Returning the maximum index of data inserted so far.
 inline int vtkShortArray::GetMaxId() {return this->MaxId;};
-
-// Description:
-// Get the pointer to the array. Useful for interfacing to C or 
-// FORTRAN routines.
-inline short *vtkShortArray::GetArray() {return this->Array;};
 
 // Description:
 // Reuse the memory allocated by this object. Objects appears like
