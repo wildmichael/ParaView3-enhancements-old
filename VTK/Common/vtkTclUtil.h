@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTclUtil.h,v $
   Language:  C++
-  Date:      $Date: 1998-03-20 20:51:49 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1998-10-27 01:13:56 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,6 +42,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkTclInclude_h
 #define __vtkTclInclude_h
 
+#include "vtkObject.h"
 #include <tcl.h>
 #include <tk.h>
 #include <string.h>
@@ -55,15 +56,22 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 extern VTKTCL_EXPORT Tcl_Interp *vtkGlobalTclInterp;
 extern VTKTCL_EXPORT int vtkTclEval(char *str);
 extern VTKTCL_EXPORT char *vtkTclGetResult();
-extern VTKTCL_EXPORT int vtkTclDeleteObjectFromHash(ClientData cd);
+extern VTKTCL_EXPORT void vtkTclDeleteObjectFromHash(void *cd);
 extern VTKTCL_EXPORT void vtkTclGenericDeleteObject(ClientData cd);
-extern VTKTCL_EXPORT void vtkTclGetObjectFromPointer(Tcl_Interp *interp,void *temp,
-			  int command(ClientData, Tcl_Interp *,int, char *[]));
-extern VTKTCL_EXPORT void *vtkTclGetPointerFromObject(char *name,char *result_type,
-					Tcl_Interp *interp, int &error);
+
+extern VTKTCL_EXPORT void 
+vtkTclGetObjectFromPointer(Tcl_Interp *interp, void *temp,
+			   int command(ClientData, 
+				       Tcl_Interp *,int, char *[]));
+
+extern VTKTCL_EXPORT void *
+vtkTclGetPointerFromObject(char *name, char *result_type,
+			   Tcl_Interp *interp, int &error);
+
 extern VTKTCL_EXPORT void vtkTclVoidFunc(void *);
 extern VTKTCL_EXPORT void vtkTclVoidFuncArgDelete(void *);
-extern VTKTCL_EXPORT void vtkTclListInstances(Tcl_Interp *interp, ClientData arg);
+extern VTKTCL_EXPORT void vtkTclListInstances(Tcl_Interp *interp, 
+					      ClientData arg);
 extern VTKTCL_EXPORT int  vtkTclInDelete();
 
 typedef  struct _vtkTclVoidFuncArg 
