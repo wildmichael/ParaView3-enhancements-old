@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: H5FDndgm.c,v 1.6 2003-11-05 22:01:01 clarke Exp $  */
-/*  Date : $Date: 2003-11-05 22:01:01 $ */
-/*  Version : $Revision: 1.6 $ */
+/*  Id : $Id: H5FDndgm.c,v 1.7 2004-05-26 21:38:43 clarke Exp $  */
+/*  Date : $Date: 2004-05-26 21:38:43 $ */
+/*  Version : $Revision: 1.7 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -415,7 +415,7 @@ return(status);
 
 /* Make Entries Available Scripting */
 /* Only HDF5 Files are put in NDGM */
-NDGM_ADDR XdmfAddNdgmEntry( char *Name, NDGM_ADDR Length ){
+XDMF_EXPORT NDGM_ADDR XdmfAddNdgmEntry( char *Name, NDGM_ADDR Length ){
 
 H5FD_ndgm_t    fp;
 NDGM_DEFAULT_INT  status;
@@ -434,7 +434,7 @@ return(FAIL);
 }
 
 /* All or Nothing ... don't leave holes */
-void XdmfDeleteAllNdgmEntries( void ) {
+XDMF_EXPORT void XdmfDeleteAllNdgmEntries( void ) {
 
 char    entry_list[HDF_NDGM_ENTRY_CHUNK][HDF_NDGM_ENTRY_LENGTH];
 
@@ -444,7 +444,7 @@ ndgm_put( NDGM_LAST_ADDRESS() - ( HDF_NDGM_ENTRY_CHUNK * HDF_NDGM_ENTRY_LENGTH )
      entry_list, HDF_NDGM_ENTRY_CHUNK * HDF_NDGM_ENTRY_LENGTH );
 }
 
-char *XdmfGetNdgmEntries( void ){
+XDMF_EXPORT char *XdmfGetNdgmEntries( void ){
   char  *ReturnList = calloc( 1, 1 );
   char  *LastEntry;
   int  i, StingLength, ListSize = 0;
