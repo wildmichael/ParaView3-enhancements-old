@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCast.h,v $
   Language:  C++
-  Date:      $Date: 1998-06-29 19:10:24 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1998-08-18 15:52:28 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to Abdalmajeid M. Alyassin who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -73,7 +73,17 @@ public:
   vtkSetMacro(OutputScalarType,int);
   vtkGetMacro(OutputScalarType,int);
 
+  // Description:
+  // When the ClampOverflow flag is on, the data is thresholded so that
+  // the output value does not exceed the amx or min of the data type.
+  // By defualt ClampOverflow is off.
+  vtkSetMacro(ClampOverflow, int);
+  vtkGetMacro(ClampOverflow, int);
+  vtkBooleanMacro(ClampOverflow, int);
+  
+  
 protected:
+  int ClampOverflow;
   int OutputScalarType;
   void ExecuteImageInformation();
   void InternalUpdate(vtkImageData *data);
