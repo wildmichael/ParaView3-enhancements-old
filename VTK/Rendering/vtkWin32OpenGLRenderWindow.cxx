@@ -3,11 +3,11 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 17:11:24 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1997-07-09 20:49:35 $
+  Version:   $Revision: 1.8 $
   Thanks:    to Horst Schreiber for developing this MFC code
 
-Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
+Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
 This software is copyrighted by Ken Martin, Will Schroeder and Bill Lorensen.
 The following terms apply to all files associated with the software unless

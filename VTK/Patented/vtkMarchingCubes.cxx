@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 19:58:22 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 1997-07-09 20:50:18 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -78,6 +78,8 @@ vtkMarchingCubes::vtkMarchingCubes()
 vtkMarchingCubes::~vtkMarchingCubes()
 {
   this->ContourValues->Delete();
+  if ( this->SelfCreatedLocator ) this->Locator->Delete();
+  this->SelfCreatedLocator = 0;
 }
 
 // Description:
