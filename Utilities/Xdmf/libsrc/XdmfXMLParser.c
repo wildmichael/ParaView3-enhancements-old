@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfXMLParser.c,v 1.1 2002-12-02 17:11:03 clarke Exp $  */
-/*  Date : $Date: 2002-12-02 17:11:03 $ */
-/*  Version : $Revision: 1.1 $ */
+/*  Id : $Id: XdmfXMLParser.c,v 1.2 2003-04-08 19:41:21 andy Exp $  */
+/*  Date : $Date: 2003-04-08 19:41:21 $ */
+/*  Version : $Revision: 1.2 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -50,7 +50,7 @@ XML_Parser   NewParser;
 XML_Char   *encoding = NULL;
 XMLUserData   *data;
 void     *userData;
-char    Name[256], *Namep;
+char    Name[1024], *Namep;
 char    *ExternalXML = NULL;
 FILE    *fp;
 
