@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:17:38 $
-  Version:   $Revision: 1.61 $
+  Date:      $Date: 2001-11-19 21:55:18 $
+  Version:   $Revision: 1.62 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -134,7 +134,7 @@ public:
   // window. You must use the SetWidget method to tell this Interactor
   // about that widget. It's X and it's not terribly easy, but it looks cool.
   virtual void SetWidget(Widget);
-  Widget GetWidget() {return this->top;};
+  Widget GetWidget() {return this->Top;};
   
   // Description
   // This method will store the top level shell widget for the interactor.
@@ -183,8 +183,8 @@ protected:
 
   Display *DisplayId;
   Window WindowId;
-  Widget top;
-  Widget oldTop;
+  Widget Top;
+  int OwnTop;
   XtAppContext App;
   int PositionBeforeStereo[2];
   Widget TopLevelShell;
