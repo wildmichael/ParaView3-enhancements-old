@@ -18,13 +18,13 @@
 #include "vtkImageFlip.h"
 #include "vtkObjectFactory.h"
 #include "vtkBase64Utilities.h"
-#include "zlib.h"
+#include "vtk_zlib.h"
 
 #include "Resources/icons.h"
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro( vtkKWIcon );
-vtkCxxRevisionMacro(vtkKWIcon, "$Revision: 1.24 $");
+vtkCxxRevisionMacro(vtkKWIcon, "$Revision: 1.25 $");
 
 //----------------------------------------------------------------------------
 vtkKWIcon::vtkKWIcon()
