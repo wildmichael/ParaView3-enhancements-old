@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThreadedController.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-05-02 21:03:01 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-08-13 15:40:13 $
+  Version:   $Revision: 1.4 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -84,7 +84,11 @@ public:
       ret->Delete();
   }
 
-  friend vtkThreadedController;
+  friend class vtkThreadedController;
+
+protected:
+  vtkThreadedControllerOutputWindow(const vtkThreadedControllerOutputWindow&);
+  void operator=(const vtkThreadedControllerOutputWindow&);
 
 };
 

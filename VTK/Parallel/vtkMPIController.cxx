@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMPIController.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-11 17:41:43 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-08-13 15:40:13 $
+  Version:   $Revision: 1.5 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -69,11 +69,14 @@ public:
     this->Controller = 0;
   }
 
-  friend vtkMPIController;
+  friend class vtkMPIController;
 
 protected:
 
   vtkMPIController* Controller;
+  vtkMPIOutputWindow(const vtkMPIOutputWindow&);
+  void operator=(const vtkMPIOutputWindow&);
+
 };
 
 void vtkMPIController::CreateOutputWindow()
