@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSpline.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-30 15:27:28 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2002-11-12 20:09:10 $
+  Version:   $Revision: 1.20 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,7 +19,7 @@
 
 #include "vtkPiecewiseFunction.h"
 
-vtkCxxRevisionMacro(vtkSpline, "$Revision: 1.19 $");
+vtkCxxRevisionMacro(vtkSpline, "$Revision: 1.20 $");
 
 // Construct a spline wth the folloing defaults:
 // ClampValueOff
@@ -147,3 +147,12 @@ void vtkSpline::PrintSelf(ostream& os, vtkIndent indent)
 
   os << indent << "Closed: " << (this->Closed ? "On\n" : "Off\n");
 }
+
+//----------------------------------------------------------------------------
+#ifndef VTK_REMOVE_LEGACY_CODE
+vtkSpline* vtkSpline::MakeObject()
+{
+  VTK_LEGACY_METHOD(MakeObject, "4.2");
+  return this->NewInstance();
+}
+#endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCardinalSpline.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-14 18:53:06 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2002-11-12 20:09:10 $
+  Version:   $Revision: 1.22 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -38,12 +38,6 @@ public:
 
   vtkTypeRevisionMacro(vtkCardinalSpline,vtkSpline);
   void PrintSelf(ostream& os, vtkIndent indent);
-
-  // Description:
-  // Virtual constructor creates a spline of the same type as this one.
-  // Note that the created spline does not copy the data from this instance.
-  virtual vtkSpline *MakeObject()
-    { return vtkCardinalSpline::New(); }
 
   // Description
   // Compute Cardinal Splines for each dependent variable
