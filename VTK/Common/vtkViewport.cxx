@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkViewport.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-19 17:33:09 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-06-22 19:01:30 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -325,6 +325,16 @@ void vtkViewport::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "Viewport: (" << this->Viewport[0] << ", " 
     << this->Viewport[1] << ", " << this->Viewport[2] << ", " 
       << this->Viewport[3] << ")\n";
+
+  os << indent << "Displaypoint: (" << this->DisplayPoint[0] << ", " 
+    << this->DisplayPoint[1] << ", " << this->DisplayPoint[2] << ")\n";
+
+  os << indent << "Viewpoint: (" << this->ViewPoint[0] << ", " 
+    << this->ViewPoint[1] << ", " << this->ViewPoint[2] << ")\n";
+
+  os << indent << "Worldpoint: (" << this->WorldPoint[0] << ", " 
+    << this->WorldPoint[1] << ", " << this->WorldPoint[2] << ", " 
+      << this->WorldPoint[3] << ")\n";
 
   if ( this->StartRenderMethod )
     {

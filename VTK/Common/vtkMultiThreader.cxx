@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMultiThreader.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-23 18:55:51 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1998-06-22 19:01:26 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -648,7 +648,8 @@ void vtkMultiThreader::TerminateThread( int ThreadID )
 // Print method for the multithreader
 void vtkMultiThreader::PrintSelf(ostream& os, vtkIndent indent)
 {
-  
+  this->vtkObject::PrintSelf(os,indent); 
+
   os << indent << "Thread Count: " << this->NumberOfThreads << "\n";
   os << indent << "Global Maximum Number Of Threads: " << 
     vtkMultiThreaderGlobalMaximumNumberOfThreads << endl;

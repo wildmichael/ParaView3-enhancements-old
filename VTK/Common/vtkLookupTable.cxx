@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLookupTable.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 22:50:03 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 1998-06-22 19:01:24 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -274,7 +274,7 @@ void vtkLookupTable::GetTableValue (int indx, float rgba[4])
 
 void vtkLookupTable::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkObject::PrintSelf(os,indent);
+  vtkReferenceCount::PrintSelf(os,indent);
 
   os << indent << "Build Time: " <<this->BuildTime.GetMTime() << "\n";
   os << indent << "Hue Range: (" << this->HueRange[0] << ", "
@@ -287,4 +287,6 @@ void vtkLookupTable::PrintSelf(ostream& os, vtkIndent indent)
      << this->TableRange[1] << ")\n";
   os << indent << "Value Range: (" << this->ValueRange[0] << ", "
      << this->ValueRange[1] << ")\n";
+  os << indent << "Alpha Range: (" << this->AlphaRange[0] << ", "
+     << this->AlphaRange[1] << ")\n";
 }

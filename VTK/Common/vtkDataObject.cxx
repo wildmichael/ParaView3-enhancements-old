@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObject.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-04-02 18:39:17 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-06-22 19:01:20 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -114,7 +114,10 @@ void vtkDataObject::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkObject::PrintSelf(os,indent);
 
+  os << indent << "Source: " << this->Source << "\n";
+
   os << indent << "Release Data: " << (this->ReleaseDataFlag ? "On\n" : "Off\n");
+  os << indent << "Data Released: " << (this->DataReleased ? "True\n" : "False\n");
   os << indent << "Global Release Data: " 
      << (vtkDataObjectGlobalReleaseDataFlag ? "On\n" : "Off\n");
 

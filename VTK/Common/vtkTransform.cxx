@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-04-16 21:06:44 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 1998-06-22 19:01:28 $
+  Version:   $Revision: 1.52 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -744,6 +744,10 @@ vtkTransform::~vtkTransform ()
 void vtkTransform::PrintSelf (ostream& os, vtkIndent indent)
 {
   vtkObject::PrintSelf(os, indent);
+
+  os << indent << "Point: " << "( " << 
+     this->Point[0] << ", " << this->Point[1] << ", " <<
+     this->Point[2] << ", " << this->Point[3] << "\n";
 
   os << indent << "Current Transformation:" << "\n";
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-20 21:10:02 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-06-22 19:01:31 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -138,7 +138,8 @@ void vtkWindow::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "Position: (" << temp[0] << ", " << temp[1] << ")\n";
   temp = this->GetSize();
   os << indent << "Size: (" << temp[0] << ", " << temp[1] << ")\n";
-
+  os << indent << "Mapped: " << this->Mapped << "\n";
+  os << indent << "Double Buffered: " << this->DoubleBuffer << "\n";
 
 }
 
