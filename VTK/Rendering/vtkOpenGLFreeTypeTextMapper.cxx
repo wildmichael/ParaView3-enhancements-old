@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLFreeTypeTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-07-12 15:04:57 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-07-12 15:31:20 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -133,7 +133,7 @@ int IsAntiAliasingRequestedByThisProperty(vtkTextProperty *tprop)
 //----------------------------------------------------------------------------
 // A cache
 
-#define FONT_CACHE_CAPACITY 60
+#define FONT_CACHE_CAPACITY 150
 
 class vtkFontCache
 {
@@ -424,7 +424,7 @@ FTFont* vtkFontCache::GetFont(vtkTextProperty *tprop,
 vtkFontCache FontCacheSingleton;
 
 //----------------------------------------------------------------------------
-vtkCxxRevisionMacro(vtkOpenGLFreeTypeTextMapper, "$Revision: 1.8 $");
+vtkCxxRevisionMacro(vtkOpenGLFreeTypeTextMapper, "$Revision: 1.9 $");
 vtkStandardNewMacro(vtkOpenGLFreeTypeTextMapper);
 
 //----------------------------------------------------------------------------
