@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFieldDataToAttributeDataFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-27 18:53:59 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2001-10-31 16:36:09 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1177,4 +1177,14 @@ int vtkFieldDataToAttributeDataFilter::UpdateComponentRange(vtkDataArray *da,
     {
     return 0;
     }
+}
+
+
+//----------------------------------------------------------------------------
+void vtkFieldDataToAttributeDataFilter::ComputeInputUpdateExtents(vtkDataObject *output)
+{
+  vtkDataObject *input = this->GetInput();
+
+  this->vtkDataSetToDataSetFilter::ComputeInputUpdateExtents(output);
+  input->SetRequestExactExtent(output->GetRequestExactExtent());
 }

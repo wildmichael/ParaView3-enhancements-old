@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLoopSubdivisionFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-29 17:14:46 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2001-10-31 16:36:10 $
+  Version:   $Revision: 1.10 $
   Thanks:    This work was supported bt PHS Research Grant No. 1 P41 RR13218-01
              from the National Center for Research Resources
 
@@ -168,7 +168,9 @@ void vtkLoopSubdivisionFilter::GenerateEvenStencil (vtkIdType p1,
   numCellsInLoop = cellIds->GetNumberOfIds();
   if (numCellsInLoop < 1)
       {
-      vtkErrorMacro("numCellsInLoop < 1: " << numCellsInLoop);
+      vtkWarningMacro("numCellsInLoop < 1: " << numCellsInLoop);
+      stencilIds->Reset();
+      return;
       }
   // Find an edge to start with that contains p1
   polys->GetCellPoints (cellIds->GetId(0), ptIds);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkArrowSource.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:36:42 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-10-31 16:36:08 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,7 +39,7 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-// .NAME vtkArrowSource - Appends a cylinder/line to a cone to form an arrow.
+// .NAME vtkArrowSource - Appends a cylinder to a cone to form an arrow.
 // .SECTION Description
 // vtkArrowSource was intended to be used as the source for a glyph.
 // The shaft base is always at (0,0,0). The arrow tip is always at (1,0,0).
@@ -82,7 +82,9 @@ public:
   vtkGetMacro(ShaftRadius,float);
 
   // Description:
-  // Set the resolution of the shaft.  0 gives a line, 1 gives a rectangle.
+  // Set the resolution of the shaft.  2 gives a rectangle.
+  // I would like to extend the cone to produce a line,
+  // but this is not an option now.
   vtkSetClampMacro(ShaftResolution,int,0,128);
   vtkGetMacro(ShaftResolution,int);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-10-30 21:48:02 $
-  Version:   $Revision: 1.90 $
+  Date:      $Date: 2001-10-31 16:36:16 $
+  Version:   $Revision: 1.91 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -242,6 +242,9 @@ vtkScalars *vtkMapper::GetColors()
   if ( this->Scalars == NULL )
     {
     this->Scalars = vtkScalars::New();
+    // Consistent Register and UnRegisters.
+    this->Scalars->Register(this);
+    this->Delete();
     }
   int numScalars = scalars->GetNumberOfTuples();
   this->Scalars->SetNumberOfScalars(numScalars);
@@ -291,6 +294,9 @@ vtkUnsignedCharArray *vtkMapper::MapScalars(float alpha)
       this->LookupTable->SetAlpha(alpha);
       this->Colors = this->LookupTable->
         MapScalars(scalars, this->ColorMode, this->ArrayComponent);
+      // Consistent register and unregisters
+      this->Colors->Register(this);
+      this->Colors->Delete();
       }
     }
 
@@ -360,6 +366,9 @@ void vtkMapper::CreateDefaultLookupTable()
     this->LookupTable->UnRegister(this);
     }
   this->LookupTable = vtkLookupTable::New();
+  // Consistent Register/UnRegisters.
+  this->LookupTable->Register(this);
+  this->LookupTable->Delete();
 }
 
 // Update the network connected to this mapper.

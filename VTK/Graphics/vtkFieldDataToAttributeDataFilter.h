@@ -3,8 +3,10 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFieldDataToAttributeDataFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:03 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2001-10-31 16:36:09 $
+  Version:   $Revision: 1.24 $
+  Date:      $Date: 2001-10-31 16:36:09 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -238,6 +240,10 @@ public:
   // Update the maximum and minimum component range values. Returns a flag
   // indicating whether the range was updated.
   static int UpdateComponentRange(vtkDataArray *da, vtkIdType compRange[2]);
+
+  // Description:
+  // If output does not need exact extent, the I do not either.
+  virtual void ComputeInputUpdateExtents( vtkDataObject *output );
 
 protected:
   vtkFieldDataToAttributeDataFilter();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGlyph3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-20 13:13:08 $
-  Version:   $Revision: 1.96 $
+  Date:      $Date: 2001-10-31 16:36:10 $
+  Version:   $Revision: 1.97 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -152,6 +152,8 @@ void vtkGlyph3D::Execute()
   if (numPts < 1)
     {
     vtkDebugMacro(<<"No points to glyph!");
+    pts->Delete();
+    trans->Delete();
     return;
     }
 
@@ -181,6 +183,7 @@ void vtkGlyph3D::Execute()
       {
       vtkErrorMacro(<<"Indexing on but don't have data to index with");
       pts->Delete();
+      trans->Delete();
       return;
       }
     else

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRTAnalyticSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-10-25 14:20:22 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-10-31 16:36:14 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -68,9 +68,9 @@ vtkRTAnalyticSource::vtkRTAnalyticSource()
   this->Center[1] = 0.0;
   this->Center[2] = 0.0;
 
-  this->WholeExtent[0] = 0;  this->WholeExtent[1] = 255;
-  this->WholeExtent[2] = 0;  this->WholeExtent[3] = 255;
-  this->WholeExtent[4] = 0;  this->WholeExtent[5] = 0;
+  this->WholeExtent[0] = -10;  this->WholeExtent[1] = 10;
+  this->WholeExtent[2] = -10;  this->WholeExtent[3] = 10;
+  this->WholeExtent[4] = -10;  this->WholeExtent[5] = 10;
   this->StandardDeviation = 0.5;
 
   this->XFreq = 60;
@@ -84,8 +84,8 @@ vtkRTAnalyticSource::vtkRTAnalyticSource()
 
 //----------------------------------------------------------------------------
 void vtkRTAnalyticSource::SetWholeExtent(int xMin, int xMax, 
-					    int yMin, int yMax,
-					    int zMin, int zMax)
+					 int yMin, int yMax,
+					 int zMin, int zMax)
 {
   int modified = 0;
   

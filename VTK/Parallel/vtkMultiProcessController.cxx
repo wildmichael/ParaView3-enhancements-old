@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMultiProcessController.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-17 20:43:01 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2001-10-31 16:36:12 $
+  Version:   $Revision: 1.6 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -54,7 +54,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 // Helper class to contain the RMI information.  
 // A subclass of vtkObject so that I can keep them in a collection.
-class VTK_EXPORT vtkMultiProcessControllerRMI : public vtkObject
+class VTK_PARALLEL_EXPORT vtkMultiProcessControllerRMI : public vtkObject
 {
 public:
   static vtkMultiProcessControllerRMI *New(); 

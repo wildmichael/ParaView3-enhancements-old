@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSynchronizedTemplates2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-12 20:19:42 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2001-10-31 16:36:16 $
+  Version:   $Revision: 1.15 $
 
 
 
@@ -465,6 +465,7 @@ void vtkSynchronizedTemplates2D::Execute()
     if (this->ComputeScalars)
       {
       newScalars = inScalars->MakeObject();
+      newScalars->SetName(inScalars->GetName());
       newScalars->Allocate(5000,25000);
       }
     switch (inScalars->GetDataType())

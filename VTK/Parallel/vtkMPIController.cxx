@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMPIController.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-13 15:40:13 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2001-10-31 16:36:12 $
+  Version:   $Revision: 1.6 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -46,7 +46,7 @@ int vtkMPIController::Initialized = 0;
 
 // Output window which prints out the process id
 // with the error or warning messages
-class VTK_EXPORT vtkMPIOutputWindow : public vtkOutputWindow
+class VTK_PARALLEL_EXPORT vtkMPIOutputWindow : public vtkOutputWindow
 {
 public:
   vtkTypeMacro(vtkMPIOutputWindow,vtkOutputWindow);

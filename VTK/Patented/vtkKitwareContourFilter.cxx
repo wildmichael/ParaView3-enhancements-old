@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKitwareContourFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-12 16:09:54 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2001-10-31 16:36:15 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -245,6 +245,9 @@ void vtkKitwareContourFilter::StructuredPointsContour(int dim)
       syncTemp2D->SetValue(i,values[i]);
       }
          
+    syncTemp2D->GetOutput()->SetUpdateExtent(thisOutput->GetUpdatePiece(),
+					     thisOutput->GetUpdateNumberOfPieces(),
+					     thisOutput->GetUpdateGhostLevel());
     syncTemp2D->Update();
     output = syncTemp2D->GetOutput();
     output->Register(this);
@@ -280,6 +283,7 @@ void vtkKitwareContourFilter::StructuredPointsContour(int dim)
   
   thisOutput->CopyStructure(output);
   thisOutput->GetPointData()->ShallowCopy(output->GetPointData());
+  thisOutput->GetCellData()->ShallowCopy(output->GetCellData());
   output->UnRegister(this);
 }
 //
@@ -320,6 +324,7 @@ void vtkKitwareContourFilter::StructuredGridContour(int dim)
   
   thisOutput->CopyStructure(output);
   thisOutput->GetPointData()->ShallowCopy(output->GetPointData());
+  thisOutput->GetCellData()->ShallowCopy(output->GetCellData());
   output->UnRegister(this);
 }
 

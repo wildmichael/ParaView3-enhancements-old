@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThreadedController.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-16 21:40:49 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2001-10-31 16:36:14 $
+  Version:   $Revision: 1.8 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -54,7 +54,7 @@ static vtkSimpleCriticalSection vtkOutputWindowCritSect;
 
 // Output window which prints out the process id
 // with the error or warning messages
-class VTK_EXPORT vtkThreadedControllerOutputWindow : public vtkOutputWindow
+class VTK_PARALLEL_EXPORT vtkThreadedControllerOutputWindow : public vtkOutputWindow
 {
 public:
   vtkTypeMacro(vtkThreadedControllerOutputWindow,vtkOutputWindow);

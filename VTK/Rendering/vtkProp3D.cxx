@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProp3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-27 21:16:16 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2001-10-31 16:36:16 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -314,6 +314,9 @@ void vtkProp3D::SetUserMatrix(vtkMatrix4x4 *matrix)
     this->UserMatrix = matrix; 
     this->UserMatrix->Register(this);
     vtkMatrixToLinearTransform *transform = vtkMatrixToLinearTransform::New();
+    // Consistent Register and UnRegisters.
+    transform->Register(this);
+    transform->Delete();
     transform->SetInput(matrix);
     this->UserTransform = transform;
     }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipDataSet.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-29 15:04:57 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2001-10-31 16:36:09 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -245,11 +245,12 @@ void vtkClipDataSet::Execute()
     }
   outPD->InterpolateAllocate(inPD,estimatedSize,estimatedSize/2);
   outCD[0] = output->GetCellData();
-  outCD[0]->CopyAllocate(inCD,estimatedSize,estimatedSize/2);
+  // ClipCell does not yet copy the cell data.
+  //outCD[0]->CopyAllocate(inCD,estimatedSize,estimatedSize/2);
   if ( this->GenerateClippedOutput )
     {
     outCD[1] = clippedOutput->GetCellData();
-    outCD[1]->CopyAllocate(inCD,estimatedSize,estimatedSize/2);
+    //outCD[1]->CopyAllocate(inCD,estimatedSize,estimatedSize/2);
     }
 
   //Process all cells and clip each in turn

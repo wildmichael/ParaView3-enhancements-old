@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSharedMemoryCommunicator.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-22 18:15:23 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2001-10-31 16:36:14 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -114,6 +114,12 @@ vtkSharedMemoryCommunicator::vtkSharedMemoryCommunicator()
 
 vtkSharedMemoryCommunicator::~vtkSharedMemoryCommunicator()
 {
+  if (this->LocalThreadId == 0)
+    {
+      delete[] this->Communicators;
+      this->Communicators = 0;
+    }
+
   // Note the communicators are not deleted because ThreadedControllers
   // delete them when they are destroyed
   delete this->MessageListLock;
