@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader2.h,v $
   Language:  C++
-  Date:      $Date: 2002-11-12 19:44:35 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2003-01-14 21:30:00 $
+  Version:   $Revision: 1.17 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -178,8 +178,13 @@ public:
 #endif
   
   // Description:
-  // Return 1 if the reader can read the given file name.
+  // Return non zero if the reader can read the given file name.
   // Should be implemented by all sub-classes of vtkImageReader2.
+  // For non zero return values the following values are to be used
+  //   1 - I think I can read the file but I cannot prove it
+  //   2 - I definitely can read the file
+  //   3 - I can read the file and I have validated that I am the 
+  //       correct reader for this file
   virtual int CanReadFile(const char* vtkNotUsed(fname))
     {
       return 0;
