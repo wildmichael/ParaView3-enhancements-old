@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPLOT3DReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-03-12 21:11:50 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1997-03-26 15:15:38 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -113,8 +113,10 @@ void vtkPLOT3DReader::Execute()
     return;
     }
   if ( this->GetFileType(xyzFp) == ASCII )
+    {
     vtkWarningMacro("reading ascii grid files currently not supported");
     // error = this->ReadASCIIGrid(xyzFp);
+    }
   else
     {
     fclose(xyzFp);
@@ -141,8 +143,10 @@ void vtkPLOT3DReader::Execute()
       }
 
     if ( this->GetFileType(QFp) == ASCII )
+      {
       vtkWarningMacro("reading ascii solution files currently not supported");
-    // error = this->ReadASCIISolution(QFp);
+      // error = this->ReadASCIISolution(QFp);
+      }
     else
       {
       fclose(QFp);
@@ -170,8 +174,10 @@ void vtkPLOT3DReader::Execute()
       }
 
     if ( this->GetFileType(funcFp) == ASCII )
+      {
       vtkWarningMacro("reading ASCII function files currently not supported");
-    // error = this->ReadASCIIFunctionFile(funcFp);
+      // error = this->ReadASCIIFunctionFile(funcFp);
+      }
     else
       {
       fclose(funcFp);
@@ -197,8 +203,10 @@ void vtkPLOT3DReader::Execute()
       }
 
     if ( this->GetFileType(funcFp) == ASCII )
+      {
       vtkWarningMacro("reading ASCII vector function files currently not supported");
-    // error = this->ReadASCIIFunctionFile(funcFp);
+      // error = this->ReadASCIIFunctionFile(funcFp);
+      }
     else
       {
       fclose(funcFp);
