@@ -3,8 +3,8 @@
  Program:   Visualization Toolkit
  Module:    $RCSfile: vtkSource.cxx,v $
  Language:  C++
- Date:      $Date: 2001-12-27 21:09:20 $
- Version:   $Revision: 1.88 $
+ Date:      $Date: 2001-12-28 00:38:35 $
+ Version:   $Revision: 1.89 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -43,7 +43,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkDataObject.h"
 #include "vtkObjectFactory.h"
 #include "vtkCommand.h"
-
+#include "vtkErrorCode.h"
 
 //----------------------------------------------------------------------------
 vtkSource* vtkSource::New()
@@ -710,6 +710,8 @@ void vtkSource::PrintSelf(ostream& os, vtkIndent indent)
     {
     os << indent <<"No Outputs\n";
     }
+
+  os << indent << "ErrorCode: " << vtkErrorCode::GetStringFromErrorCode(this->ErrorCode) << endl;
 }
 
 int vtkSource::InRegisterLoop(vtkObject *o)
