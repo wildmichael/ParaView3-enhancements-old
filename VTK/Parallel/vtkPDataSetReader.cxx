@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPDataSetReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:34:43 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2002-02-19 15:36:45 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -31,7 +31,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkSource.h"
 
-vtkCxxRevisionMacro(vtkPDataSetReader, "$Revision: 1.11 $");
+vtkCxxRevisionMacro(vtkPDataSetReader, "$Revision: 1.12 $");
 vtkStandardNewMacro(vtkPDataSetReader);
 
 //----------------------------------------------------------------------------
@@ -819,6 +819,12 @@ void vtkPDataSetReader::Execute()
       {
       return;
       }
+    if (output->CheckAttributes())
+      {
+      vtkErrorMacro("Attribute Mismatch.");
+      return;
+      }
+
     output->CopyStructure(data);
     output->GetCellData()->PassData(data->GetCellData());
     output->GetPointData()->PassData(data->GetPointData());
