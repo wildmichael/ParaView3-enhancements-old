@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSimpleImageToImageFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-04 20:43:44 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2003-03-03 19:55:31 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,7 +19,7 @@
 
 #include "vtkImageData.h"
 
-vtkCxxRevisionMacro(vtkSimpleImageToImageFilter, "$Revision: 1.9 $");
+vtkCxxRevisionMacro(vtkSimpleImageToImageFilter, "$Revision: 1.10 $");
 
 //----------------------------------------------------------------------------
 vtkSimpleImageToImageFilter::vtkSimpleImageToImageFilter()
@@ -90,6 +90,13 @@ void vtkSimpleImageToImageFilter::ExecuteData(vtkDataObject *vtkNotUsed(out))
   if (!input)
     {
     vtkErrorMacro("No input is specified!");
+    return;
+    }
+
+  // Too many filters have floating point exceptions to execute
+  // with empty input/ no request.
+  if (this->UpdateExtentIsEmpty(output))
+    {
     return;
     }
 

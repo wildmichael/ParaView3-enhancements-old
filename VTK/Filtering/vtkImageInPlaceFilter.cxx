@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageInPlaceFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-17 02:07:36 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2003-03-03 19:55:30 $
+  Version:   $Revision: 1.38 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkPointData.h"
 
-vtkCxxRevisionMacro(vtkImageInPlaceFilter, "$Revision: 1.37 $");
+vtkCxxRevisionMacro(vtkImageInPlaceFilter, "$Revision: 1.38 $");
 
 //----------------------------------------------------------------------------
 
@@ -30,6 +30,13 @@ void vtkImageInPlaceFilter::ExecuteData(vtkDataObject *vtkNotUsed(out))
   vtkImageData *output = this->GetOutput();
   int *inExt, *outExt;
   
+  // Too many filters have floating point exceptions to execute
+  // with empty input/ no request.
+  if (this->UpdateExtentIsEmpty(output))
+    {
+    return;
+    }
+
   inExt = this->GetInput()->GetUpdateExtent();
   outExt = this->GetOutput()->GetUpdateExtent();
 

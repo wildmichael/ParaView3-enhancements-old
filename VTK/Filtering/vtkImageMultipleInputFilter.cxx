@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMultipleInputFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-28 22:55:56 $
-  Version:   $Revision: 1.60 $
+  Date:      $Date: 2003-03-03 19:55:31 $
+  Version:   $Revision: 1.61 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 #include "vtkMultiThreader.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkImageMultipleInputFilter, "$Revision: 1.60 $");
+vtkCxxRevisionMacro(vtkImageMultipleInputFilter, "$Revision: 1.61 $");
 
 //----------------------------------------------------------------------------
 vtkImageMultipleInputFilter::vtkImageMultipleInputFilter()
@@ -201,6 +201,15 @@ void vtkImageMultipleInputFilter::ExecuteData(vtkDataObject *out)
     vtkWarningMacro("ExecuteData called without ImageData output");
     return;
     }
+
+  // Too many filters have floating point exceptions to execute
+  // with empty input/ no request.
+  if (this->UpdateExtentIsEmpty(output))
+    {
+    return;
+    }
+
+
   output->SetExtent(output->GetUpdateExtent());
   output->AllocateScalars();
 
