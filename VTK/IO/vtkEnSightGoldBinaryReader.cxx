@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSightGoldBinaryReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-06-02 20:43:58 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2003-06-18 15:36:33 $
+  Version:   $Revision: 1.35 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -33,7 +33,7 @@
 #include <ctype.h>
 #include <vtkstd/string>
 
-vtkCxxRevisionMacro(vtkEnSightGoldBinaryReader, "$Revision: 1.34 $");
+vtkCxxRevisionMacro(vtkEnSightGoldBinaryReader, "$Revision: 1.35 $");
 vtkStandardNewMacro(vtkEnSightGoldBinaryReader);
 
 //----------------------------------------------------------------------------
@@ -214,6 +214,7 @@ void vtkEnSightGoldBinaryReader::SkipTimeStep()
   char line[80], subLine[80];
   int lineRead;
 
+  line[0] = '\0';
   while (strncmp(line, "BEGIN TIME STEP", 15) != 0)
     {
     this->ReadLine(line);
