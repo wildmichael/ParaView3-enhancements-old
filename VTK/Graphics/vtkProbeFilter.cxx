@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProbeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-09-18 11:06:32 $
-  Version:   $Revision: 1.54 $
+  Date:      $Date: 2000-11-28 18:07:11 $
+  Version:   $Revision: 1.55 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -173,6 +173,9 @@ void vtkProbeFilter::Execute()
 //----------------------------------------------------------------------------
 void vtkProbeFilter::ExecuteInformation()
 {
+  // Copy whole extent ...
+  this->vtkSource::ExecuteInformation();
+
   if (this->GetInput() == NULL || this->GetSource() == NULL)
     {
     vtkErrorMacro("Missing input or source");
