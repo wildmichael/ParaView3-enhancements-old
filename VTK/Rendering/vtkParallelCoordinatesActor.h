@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkParallelCoordinatesActor.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-03 14:10:27 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2000-11-19 20:11:20 $
+  Version:   $Revision: 1.8 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -88,13 +88,7 @@ public:
   // axes; a label format of "%-#6.3g"; and x coordinates computed from point
   // ids.
   static vtkParallelCoordinatesActor *New();
-  
-  // Description: Access the Position2 instance variable. This variable
-  // controls the upper right corner of the plot. It is by default
-  // relative to (the superclasses') Position and in normalized viewport
-  // coordinates.
-  vtkViewportCoordinateMacro(Position2);
-  
+
   // Description:
   // Specify whether to use the rows or columns as independent variables.
   // If columns, then each row represents a separate point. If rows, then 
@@ -179,7 +173,6 @@ protected:
   void operator=(const vtkParallelCoordinatesActor&) {};
 
 private:
-  vtkCoordinate *Position2Coordinate;
   vtkDataObject *Input; //list of data sets to plot
 
   int IndependentVariables; //use column or row

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalarBarActor.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-03 14:10:27 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2000-11-19 20:11:20 $
+  Version:   $Revision: 1.29 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -93,16 +93,8 @@ public:
   // format, no title, and vertical orientation. The initial scalar bar
   // size is (0.05 x 0.8) of the viewport size.
   static vtkScalarBarActor *New();
-  
-  // Description:
-  // Access the Position2 instance variable. This variable controls
-  // the upper right corner of the scalarbar. It is by default
-  // relative to Position1 and in Normalized Viewport coordinates.
-  void SetPosition2(float,float);
-  void SetPosition2(float x[2]);
-  vtkCoordinate *GetPosition2Coordinate();
-  float *GetPosition2();
-  
+
+
   // Description:
   // Draw the scalar bar and annotation text to the screen.
   int RenderOpaqueGeometry(vtkViewport* viewport);
@@ -122,15 +114,6 @@ public:
   vtkSetObjectMacro(LookupTable,vtkScalarsToColors);
   vtkGetObjectMacro(LookupTable,vtkScalarsToColors);
 
-  // Description:
-  // Set/Get the height and width of the scalar bar. The value is expressed
-  // as a fraction of the viewport. This really is just another way of
-  // setting the Position2 instance variable.
-  void SetWidth(float w);
-  float GetWidth();
-  void SetHeight(float h);
-  float GetHeight();
-  
   // Description:
   // Set/Get the maximum number of scalar bar segments to show. This may
   // differ from the number of colors in the lookup table, in which case
@@ -213,8 +196,7 @@ protected:
   int   Shadow;
   int   FontFamily;
   char  *LabelFormat;
-  vtkCoordinate *Position2Coordinate;
-  
+
 private:
   vtkTextMapper *TitleMapper;
   vtkActor2D    *TitleActor;
