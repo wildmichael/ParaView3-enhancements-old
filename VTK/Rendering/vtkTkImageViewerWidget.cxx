@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkImageViewerWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-01-29 16:37:30 $
-  Version:   $Revision: 1.62 $
+  Date:      $Date: 2003-03-14 19:41:47 $
+  Version:   $Revision: 1.63 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -31,7 +31,7 @@ extern "C"
 }
 #endif
 
-#ifdef _WIN32
+#ifdef _MSC_VER
  #pragma warning ( disable : 4273 )
 #else
  #ifdef VTK_USE_CARBON
