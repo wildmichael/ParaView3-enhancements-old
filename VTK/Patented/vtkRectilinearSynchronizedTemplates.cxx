@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearSynchronizedTemplates.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-05-05 14:33:11 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2003-05-06 13:41:08 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -50,7 +50,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkRectilinearSynchronizedTemplates, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkRectilinearSynchronizedTemplates, "$Revision: 1.3 $");
 vtkStandardNewMacro(vtkRectilinearSynchronizedTemplates);
 
 //----------------------------------------------------------------------------
@@ -95,6 +95,7 @@ unsigned long vtkRectilinearSynchronizedTemplates::GetMTime()
 
 //----------------------------------------------------------------------------
 void vtkRectilinearSynchronizedTemplatesInitializeOutput(
+  vtkRectilinearSynchronizedTemplates *self,
   int *ext, vtkRectilinearGrid *input, vtkPolyData *o, vtkFloatArray *scalars,
   vtkFloatArray *normals, vtkFloatArray *gradients)
 {
@@ -116,7 +117,14 @@ void vtkRectilinearSynchronizedTemplatesInitializeOutput(
   o->GetPointData()->CopyAllOn();
   // It is more efficient to just create the scalar array 
   // rather than redundantly interpolate the scalars.
-  o->GetPointData()->CopyScalarsOff();
+  if (self->GetInputScalarsSelection())
+    {
+    o->GetPointData()->CopyFieldOff(self->GetInputScalarsSelection());
+    }
+  else
+    {
+    o->GetPointData()->CopyScalarsOff();
+    }
 
   if (normals)
     {
@@ -317,7 +325,7 @@ void ContourRectilinearGrid(vtkRectilinearSynchronizedTemplates *self, int *exEx
     {
     newGradients = vtkFloatArray::New();
     }
-  vtkRectilinearSynchronizedTemplatesInitializeOutput(exExt, self->GetInput(), output, 
+  vtkRectilinearSynchronizedTemplatesInitializeOutput(self, exExt, self->GetInput(), output, 
                                          newScalars, newNormals, newGradients);
   newPts = output->GetPoints();
   newPolys = output->GetPolys();
