@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCell.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-14 21:24:42 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 1999-01-07 14:22:35 $
+  Version:   $Revision: 1.52 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,7 +55,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // .SECTION See Also
 // vtkHexahedron vtkLine vtkPixel vtkPolyLine vtkPolyVertex
 // vtkPolygon vtkQuad vtkTetra vtkTriangle 
-// vtkTriangleStrip vtkVertex vtkVoxel
+// vtkTriangleStrip vtkVertex vtkVoxel vtkWedge vtkPyramid
 
 #ifndef __vtkCell_h
 #define __vtkCell_h
