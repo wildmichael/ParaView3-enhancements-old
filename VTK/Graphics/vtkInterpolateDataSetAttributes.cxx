@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInterpolateDataSetAttributes.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-02 21:35:31 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-12-05 15:05:56 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -249,6 +249,7 @@ void vtkInterpolateDataSetAttributes::Execute()
 
   highDS = lowDS + 1;
   t = this->T - (float)lowDS;
+  if (t > 1.0) t =1.0;
   
   ds = this->InputList->GetItem(lowDS);
   ds2 = this->InputList->GetItem(highDS);
