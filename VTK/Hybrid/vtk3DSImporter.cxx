@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtk3DSImporter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-04-22 21:29:34 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1999-04-28 11:43:00 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -579,7 +579,6 @@ static void parse_fog (vtk3DSImporter *importer, Chunk *mainchunk)
 
 static void parse_fog_bgnd(vtk3DSImporter *vtkNotUsed(importer))
 {
-  vtkGenericWarningMacro(<< "fog background detected but not used\n");
 }
 
 
