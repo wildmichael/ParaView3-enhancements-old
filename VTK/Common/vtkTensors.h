@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTensors.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:38:42 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1995-08-31 21:21:19 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,7 +58,6 @@ class vtkTensors : public vtkRefCount
 {
 public:
   vtkTensors(int dim=3);
-  virtual ~vtkTensors() {};
   char *GetClassName() {return "vtkTensors";};
   void PrintSelf(ostream& os, vtkIndent indent);
 

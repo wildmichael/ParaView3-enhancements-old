@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSetToPointSetFilter.h,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:32:26 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1995-08-31 21:21:55 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -60,9 +60,10 @@ public:
   
   void SetInput(vtkPointSet *input);
 
-  // Description:
-  // Get the output of this filter.
-  vtkPointSet *GetOutput() {return (vtkPointSet *)this->Output;};
+  // filter interface (need to overload because of abstract interface)
+  void Update();
+
+  vtkPointSet *GetOutput();
 };
 
 #endif

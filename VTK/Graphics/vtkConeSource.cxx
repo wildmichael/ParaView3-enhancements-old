@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkConeSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:33:02 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1995-08-31 21:22:25 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -68,7 +68,6 @@ void vtkConeSource::Execute()
   //
   // Set things up; allocate memory
   //
-  output->Initialize();
 
   switch ( this->Resolution )
   {

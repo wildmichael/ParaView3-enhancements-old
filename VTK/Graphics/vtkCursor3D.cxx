@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCursor3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:33:04 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1995-08-31 21:22:32 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -76,7 +76,6 @@ void vtkCursor3D::Execute()
   vtkPolyData *output = this->GetOutput();
   
   vtkDebugMacro(<<"Generating cursor");
-  output->Initialize();
   //
   // Check bounding box and origin
   //

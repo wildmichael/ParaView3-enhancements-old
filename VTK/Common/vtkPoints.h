@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPoints.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:37:39 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1995-08-31 21:21:04 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,7 +57,6 @@ class vtkPoints : public vtkRefCount
 {
 public:
   vtkPoints();
-  virtual ~vtkPoints() {};
   char *GetClassName() {return "vtkPoints";};
   void PrintSelf(ostream& os, vtkIndent indent);
 

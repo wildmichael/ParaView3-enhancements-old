@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAxes.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:32:58 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1995-08-31 21:22:12 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,8 +64,7 @@ void vtkAxes::Execute()
   int ptIds[2];
   vtkPolyData *output = (vtkPolyData *)this->Output;
   
-  // clear the output data
-  this->Output->Initialize();
+  vtkDebugMacro(<<"Creating x-y-z axes");
 
   newPts = new vtkFloatPoints(numPts);
   newLines = new vtkCellArray();
@@ -88,7 +87,6 @@ void vtkAxes::Execute()
   newScalars->InsertNextScalar(0.0);
   newNormals->InsertNextNormal(n);
 
-
   n[0] = 0.0; n[1] = 0.0; n[2] = 1.0; 
   ptIds[0] = newPts->InsertNextPoint(this->Origin);
   newScalars->InsertNextScalar(0.25);
@@ -101,7 +99,6 @@ void vtkAxes::Execute()
   newScalars->InsertNextScalar(0.25);
   newNormals->InsertNextNormal(n);
   newLines->InsertNextCell(2,ptIds);
-
 
   n[0] = 1.0; n[1] = 0.0; n[2] = 0.0; 
   ptIds[0] = newPts->InsertNextPoint(this->Origin);

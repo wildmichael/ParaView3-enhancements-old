@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLookupTable.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:37:00 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1995-08-31 21:20:48 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -45,11 +45,12 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // or rgba into scalar values. The color table can be created by direct 
 // insertion of color values, or by specifying  hue, saturation, value, and 
 // alpha range and generating a table.
-//    This class is designed as a base class for derivation by other classes. 
+//
+// This class is designed as a base class for derivation by other classes. 
 // The Build(), MapValue(), and SetTableRange() methods are virtual and may 
 // require overloading in subclasses.
 // .SECTION Caveats
-//    vtkLookupTable is a reference counted object. Therefore you should 
+// vtkLookupTable is a reference counted object. Therefore you should 
 // always use operator "new" to construct new objects. This procedure will
 // avoid memory problems (see text).
 // .SECTION See Also

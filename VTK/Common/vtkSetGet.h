@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSetGet.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:34:58 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1995-08-31 21:21:00 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -43,7 +43,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // The SetGet macros are used to interface to instance variables
 // in a standard fashion. This includes properly treating modified time
 // and printing out debug information.
-//    Macros are available for built-in types; for character strings; 
+//
+// Macros are available for built-in types; for character strings; 
 // vector arrays of built-in types size 2,3,4; for setting objects; and
 // debug, warning, and error printout information.
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCutter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:33:03 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1995-08-31 21:22:30 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -83,7 +83,6 @@ void vtkCutter::Execute()
 //
 // Initialize self; create output objects
 //
-  output->Initialize();
 
   if ( !this->CutFunction )
     {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCleanPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:33:01 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1995-08-31 21:22:23 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -76,7 +76,6 @@ void vtkCleanPolyData::Execute()
   vtkPointData *outputPD = output->GetPointData();
   
   vtkDebugMacro(<<"Cleaning data");
-  output->Initialize();
 
   if ( numPts < 1 || (inPts=input->GetPoints()) == NULL )
     {
