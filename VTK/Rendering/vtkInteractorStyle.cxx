@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyle.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-18 19:06:10 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2000-09-06 17:28:38 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -729,6 +729,18 @@ void vtkInteractorStyle::OnKeyDown(int ctrl, int shift, char vtkNotUsed(keycode)
 }
 //----------------------------------------------------------------------------
 void vtkInteractorStyle::OnKeyUp  (int ctrl, int shift, char vtkNotUsed(keycode), int vtkNotUsed(repeatcount)) 
+{
+  this->CtrlKey  = ctrl;
+  this->ShiftKey = shift;
+}
+//----------------------------------------------------------------------------
+void vtkInteractorStyle::OnKeyPress(int ctrl, int shift, char vtkNotUsed(keycode), char *vtkNotUsed(keysym), int vtkNotUsed(repeatcount))
+{
+  this->CtrlKey  = ctrl;
+  this->ShiftKey = shift;
+}
+//----------------------------------------------------------------------------
+void vtkInteractorStyle::OnKeyRelease(int ctrl, int shift, char vtkNotUsed(keycode), char *vtkNotUsed(keysym), int vtkNotUsed(repeatcount)) 
 {
   this->CtrlKey  = ctrl;
   this->ShiftKey = shift;

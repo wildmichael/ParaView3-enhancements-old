@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-01 16:30:34 $
-  Version:   $Revision: 1.52 $
+  Date:      $Date: 2000-09-06 17:28:38 $
+  Version:   $Revision: 1.53 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -108,6 +108,12 @@ public:
   // call this method it will loop processing X events until the
   // application is exited.
   virtual void Start();
+
+  // Description:
+  // Hide or Show the mouse cursor, it is nice to be able to hide the
+  // default cursor if you want VTK to display a 3D cursor instead.
+  void HideCursor();
+  void ShowCursor();
 
   // Description:
   // Specify the Xt widget to use for interaction. This method is

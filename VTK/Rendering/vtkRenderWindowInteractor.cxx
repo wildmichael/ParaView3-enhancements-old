@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-01 14:37:44 $
-  Version:   $Revision: 1.71 $
+  Date:      $Date: 2000-09-06 17:28:38 $
+  Version:   $Revision: 1.72 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -59,6 +59,7 @@ vtkRenderWindowInteractor::vtkRenderWindowInteractor()
   this->DesiredUpdateRate = 15;
   // default limit is 3 hours per frame
   this->StillUpdateRate = 0.0001;
+  this->CursorHidden = 0;
   
   this->Picker = this->CreateDefaultPicker();
   this->Picker->Register(this);
