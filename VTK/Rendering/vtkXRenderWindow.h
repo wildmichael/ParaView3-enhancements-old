@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 1999-03-26 16:02:52 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1999-04-23 13:01:55 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -78,15 +78,15 @@ public:
   
   // Description:
   // Get the current size of the window in pixels.
-  int     *GetSize();
+  virtual int     *GetSize();
 
   // Description:
   // Get the size of the screen in pixels
-  int     *GetScreenSize();
+  virtual int     *GetScreenSize();
 
   // Description:
   // Get the position in screen coordinates (pixels) of the window.
-  int     *GetPosition();
+  virtual int     *GetPosition();
 
   // Description:
   // Get this RenderWindow's X display id.
