@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkJavaUtil.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-11-05 14:13:24 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1998-03-17 13:28:17 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -360,9 +360,7 @@ void *vtkJavaGetPointerFromObject(JNIEnv *env, jobject obj, char *result_type)
     }
   else
     {
-#ifdef VTKJAVADEBUG
     vtkGenericWarningMacro("vtk bad argument, type conversion failed.");
-#endif  
     return NULL;
     }
 }
