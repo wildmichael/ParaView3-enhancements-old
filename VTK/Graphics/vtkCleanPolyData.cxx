@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCleanPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-12-03 20:24:23 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1997-12-03 20:34:31 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -174,7 +174,7 @@ void vtkCleanPolyData::Execute()
           }
         }//for points in polygon
       
-      if ( numNewPts > 1 && updatedPts[0] == updatedPts[numNewPts-1] ) numNewPts--;
+      if ( numNewPts > 2 && updatedPts[0] == updatedPts[numNewPts-1] ) numNewPts--;
       if ( numNewPts > 2 ) newPolys->InsertNextCell(numNewPts,updatedPts);
       }
 
