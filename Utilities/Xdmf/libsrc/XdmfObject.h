@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfObject.h,v 1.4 2003-04-11 17:57:52 andy Exp $  */
-/*  Date : $Date: 2003-04-11 17:57:52 $ */
-/*  Version : $Revision: 1.4 $ */
+/*  Id : $Id: XdmfObject.h,v 1.5 2003-05-21 18:35:33 clarke Exp $  */
+/*  Date : $Date: 2003-05-21 18:35:33 $ */
+/*  Version : $Revision: 1.5 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -76,6 +76,7 @@
 #  include <iostream>
 #  include <strstream>
 #  include <fstream>
+#  include <iomanip>
 using std::cerr;
 using std::cout;
 using std::cin;
@@ -92,6 +93,8 @@ using std::ifstream;
 using std::fstream;
 using std::hex;
 
+
+
 // otherwise, non-ANSI -----------------------------------------------------
 #else /* XDMF_USE_ANSI_STDLIB */
 #  include <iostream.h>
@@ -101,6 +104,7 @@ using std::hex;
 #    include <strstream.h>
 #  endif
 #  include <fstream.h>
+#  include <iomanip.h>
 #endif /* XDMF_USE_ANSI_STDLIB */
 #endif
 
