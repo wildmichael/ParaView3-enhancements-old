@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangle.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-09-26 20:53:05 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 1996-09-27 19:52:52 $
+  Version:   $Revision: 1.48 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -237,6 +237,8 @@ static LINE_CASES lineCases[] = {
   {{-1, -1, -1}}
 };
 
+static int edges[3][2] = { {0,1}, {1,2}, {2,0} };
+
 void vtkTriangle::Contour(float value, vtkFloatScalars *cellScalars, 
 			  vtkPointLocator *locator,
 			  vtkCellArray *vtkNotUsed(verts), 
@@ -248,7 +250,6 @@ void vtkTriangle::Contour(float value, vtkFloatScalars *cellScalars,
   LINE_CASES *lineCase;
   EDGE_LIST  *edge;
   int i, j, index, *vert;
-  static int edges[3][2] = { {0,1}, {1,2}, {2,0} };
   int pts[2];
   float t, *x1, *x2, x[3];
 
@@ -607,8 +608,6 @@ static TRIANGLE_CASES triangleCases[] = {
 {{0, 101, 2, 2, 101, 102, -1}},	// 6
 {{100, 101, 102, -1, -1, -1, -1}}	// 7
 };
-
-static int edges[3][2] = { {0,1}, {1,2}, {2,0} };
 
 // Description:
 // Clip this triangle using scalar value provided. Like contouring, except
