@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObject.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-12 18:10:42 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 2000-04-17 12:07:19 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -586,7 +586,7 @@ void vtkDataObject::CopyInformation( vtkDataObject *data )
 //----------------------------------------------------------------------------
 void vtkDataObject::ShallowCopy(vtkDataObject *src)
 {
-  this->InternalCopy(src);
+  this->InternalDataObjectCopy(src);
 
   this->SetFieldData(src->GetFieldData());
 }
@@ -596,7 +596,7 @@ void vtkDataObject::DeepCopy(vtkDataObject *src)
 {
   vtkFieldData *srcFieldData = src->GetFieldData();
   
-  this->InternalCopy(src);
+  this->InternalDataObjectCopy(src);
 
   if (srcFieldData)
     {
@@ -612,7 +612,7 @@ void vtkDataObject::DeepCopy(vtkDataObject *src)
 }
 
 //----------------------------------------------------------------------------
-void vtkDataObject::InternalCopy(vtkDataObject *src)
+void vtkDataObject::InternalDataObjectCopy(vtkDataObject *src)
 {
   int idx;
 

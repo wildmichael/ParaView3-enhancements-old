@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-12 18:10:44 $
-  Version:   $Revision: 1.82 $
+  Date:      $Date: 2000-04-17 12:07:21 $
+  Version:   $Revision: 1.83 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -1714,7 +1714,7 @@ void vtkImageData::ShallowCopy(vtkDataObject *dataObject)
 
   if ( imageData != NULL )
     {
-    this->InternalCopy(imageData);
+    this->InternalImageDataCopy(imageData);
     }
 
   // Do superclass
@@ -1728,7 +1728,7 @@ void vtkImageData::DeepCopy(vtkDataObject *dataObject)
 
   if ( imageData != NULL )
     {
-    this->InternalCopy(imageData);
+    this->InternalImageDataCopy(imageData);
     }
 
   // Do superclass
@@ -1737,7 +1737,7 @@ void vtkImageData::DeepCopy(vtkDataObject *dataObject)
 
 //----------------------------------------------------------------------------
 // This copies all the local variables (but not objects).
-void vtkImageData::InternalCopy(vtkImageData *src)
+void vtkImageData::InternalImageDataCopy(vtkImageData *src)
 {
   int idx;
 

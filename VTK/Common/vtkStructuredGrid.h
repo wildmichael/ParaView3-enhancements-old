@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGrid.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-12 18:10:48 $
-  Version:   $Revision: 1.63 $
+  Date:      $Date: 2000-04-17 12:07:22 $
+  Version:   $Revision: 1.64 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -197,14 +197,16 @@ protected:
   vtkScalars *PointVisibility;
   void AllocatePointVisibility();
 
-  // Internal method used by DeepCopy and ShallowCopy.
-  void InternalCopy(vtkStructuredGrid *src);
 
 private:
   // Description:
   // For legacy compatibility. Do not use.
   void GetCellNeighbors(int cellId, vtkIdList& ptIds, vtkIdList& cellIds)
     {this->GetCellNeighbors(cellId, &ptIds, &cellIds);}
+
+  // Internal method used by DeepCopy and ShallowCopy.
+  void InternalStructuredGridCopy(vtkStructuredGrid *src);
+
 };
 
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-12 18:10:47 $
-  Version:   $Revision: 1.63 $
+  Date:      $Date: 2000-04-17 12:07:22 $
+  Version:   $Revision: 1.64 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -870,7 +870,7 @@ void vtkStructuredGrid::ShallowCopy(vtkDataObject *dataObject)
 
   if ( grid != NULL )
     {
-    this->InternalCopy(grid);
+    this->InternalStructuredGridCopy(grid);
     }
 
   // Do superclass
@@ -884,7 +884,7 @@ void vtkStructuredGrid::DeepCopy(vtkDataObject *dataObject)
 
   if ( grid != NULL )
     {
-    this->InternalCopy(grid);
+    this->InternalStructuredGridCopy(grid);
     }
 
   // Do superclass
@@ -893,7 +893,7 @@ void vtkStructuredGrid::DeepCopy(vtkDataObject *dataObject)
 
 //----------------------------------------------------------------------------
 // This copies all the local variables (but not objects).
-void vtkStructuredGrid::InternalCopy(vtkStructuredGrid *src)
+void vtkStructuredGrid::InternalStructuredGridCopy(vtkStructuredGrid *src)
 {
   int idx;
 

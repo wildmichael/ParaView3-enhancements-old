@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSet.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-13 14:33:16 $
-  Version:   $Revision: 1.91 $
+  Date:      $Date: 2000-04-17 12:07:20 $
+  Version:   $Revision: 1.92 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -339,7 +339,7 @@ protected:
   float Center[3];
 
 private:
-  void InternalCopy(vtkDataSet *src);  
+  void InternalDataSetCopy(vtkDataSet *src);  
 };
 
 inline void vtkDataSet::GetPoint(int id, float x[3])

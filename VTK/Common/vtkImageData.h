@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-12 18:10:44 $
-  Version:   $Revision: 1.63 $
+  Date:      $Date: 2000-04-17 12:07:21 $
+  Version:   $Revision: 1.64 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -351,7 +351,9 @@ protected:
   int NumberOfScalarComponents;
 
   void ComputeIncrements();
-  void InternalCopy(vtkImageData *src);
+
+private:
+  void InternalImageDataCopy(vtkImageData *src);
 };
 
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObject.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-13 14:33:15 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2000-04-17 12:07:19 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -388,7 +388,7 @@ protected:
 
 private:
   // Helper method for the ShallowCopy and DeepCopy methods.
-  void InternalCopy(vtkDataObject *src);
+  void InternalDataObjectCopy(vtkDataObject *src);
 };
 
 #endif
