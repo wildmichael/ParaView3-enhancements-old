@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransformFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-03 15:57:43 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 2003-03-31 20:56:31 $
+  Version:   $Revision: 1.42 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 #include "vtkPointData.h"
 #include "vtkPointSet.h"
 
-vtkCxxRevisionMacro(vtkTransformFilter, "$Revision: 1.41 $");
+vtkCxxRevisionMacro(vtkTransformFilter, "$Revision: 1.42 $");
 vtkStandardNewMacro(vtkTransformFilter);
 vtkCxxSetObjectMacro(vtkTransformFilter,Transform,vtkAbstractTransform);
 
@@ -170,6 +170,21 @@ void vtkTransformFilter::Execute()
 
   outPD->PassData(pd);
   outCD->PassData(cd);
+
+  vtkFieldData* inFD = input->GetFieldData();
+  if (inFD)
+    {
+    vtkFieldData* outFD = output->GetFieldData();
+    if (!outFD)
+      {
+      outFD = vtkFieldData::New();
+      output->SetFieldData(outFD);
+      // We can still use outFD since it's registered
+      // by the output
+      outFD->Delete();
+      }
+    outFD->PassData(inFD);
+    }
 }
 
 unsigned long vtkTransformFilter::GetMTime()
