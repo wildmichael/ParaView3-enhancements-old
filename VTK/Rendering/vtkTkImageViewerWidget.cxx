@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkImageViewerWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:50:10 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1997-07-16 21:26:58 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -358,8 +358,16 @@ LRESULT APIENTRY vtkTkImageViewerWidgetProc(HWND hWnd, UINT message,
     }
   else
     {
+//
+// TkWinTopLevelProc has been deprecated in Tcl/Tk8.0.  Not sure how 
+// well this will actually work in 8.0.
+//
+#if (TK_MAJOR_VERSION < 8)
     SetWindowLong(hWnd,GWL_WNDPROC,(LONG)TkWinTopLevelProc);
     rval = TkWinTopLevelProc(hWnd,message,wParam,lParam);
+#else
+    rval = 0;
+#endif
     }
 
     if (message != WM_PAINT)
