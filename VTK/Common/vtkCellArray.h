@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellArray.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-05 17:06:32 $
-  Version:   $Revision: 1.74 $
+  Date:      $Date: 2000-12-06 20:59:25 $
+  Version:   $Revision: 1.75 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -238,8 +238,7 @@ public:
 #ifndef VTK_REMOVE_LEGACY_CODE
   // Description:
   // For legacy compatibility. Do not use.
-  int InsertNextCell(vtkIdList &pts)
-    {VTK_LEGACY_METHOD(InsertNextCell,"3.2"); return this->InsertNextCell(&pts);}
+  int InsertNextCell(vtkIdList &pts);
 #endif
   
 protected:

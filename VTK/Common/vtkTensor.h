@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTensor.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-05 17:06:33 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2000-12-06 20:59:25 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -85,17 +85,16 @@ public:
   // Deep copy of one tensor to another tensor.
   void DeepCopy(vtkTensor *t);
 
+#ifndef VTK_REMOVE_LEGACY_CODE
+  // Description:
+  // For legacy compatibility. Do not use.
+  void DeepCopy(vtkTensor &t);
+#endif
+
   // Description:
   // Provide float * type conversion.
   operator float*() {return this->T;};
 
-#ifndef VTK_REMOVE_LEGACY_CODE
-  // Description:
-  // For legacy compatibility. Do not use.
-  void DeepCopy(vtkTensor &t)
-    {VTK_LEGACY_METHOD(DeepCopy,"3.2"); this->DeepCopy(&t);}
-#endif
-  
   // Description:
   // Data member left public for efficiency.
   float *T;
