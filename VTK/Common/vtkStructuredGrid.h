@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGrid.h,v $
   Language:  C++
-  Date:      $Date: 2001-04-16 15:01:46 $
-  Version:   $Revision: 1.78 $
+  Date:      $Date: 2001-04-23 19:51:24 $
+  Version:   $Revision: 1.79 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -103,6 +103,7 @@ public:
   int GetMaxCellSize() {return 8;}; //hexahedron is the largest
   void GetCellNeighbors(int cellId, vtkIdList *ptIds, vtkIdList *cellIds);
   virtual void GetScalarRange(float range[2]);
+  float *GetScalarRange() {return this->vtkPointSet::GetScalarRange();}
 
   // Description:
   // following methods are specific to structured grid
