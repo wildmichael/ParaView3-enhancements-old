@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractTensorComponents.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:20 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2002-06-10 19:07:10 $
+  Version:   $Revision: 1.28 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -84,10 +84,18 @@ public:
   // that you set the ScalarComponents ivar.
   vtkSetMacro(ScalarMode,int);
   vtkGetMacro(ScalarMode,int);
-  void ScalarIsComponent() {this->SetScalarMode(VTK_EXTRACT_COMPONENT);};
-  void ScalarIsEffectiveStress() {
-    this->SetScalarMode(VTK_EXTRACT_EFFECTIVE_STRESS);};
-  void ScalarIsDeterminant() {this->SetScalarMode(VTK_EXTRACT_DETERMINANT);};
+  void SetScalarModeToComponent()
+    {this->SetScalarMode(VTK_EXTRACT_COMPONENT);};
+  void SetScalarModeToEffectiveStress()
+    {this->SetScalarMode(VTK_EXTRACT_EFFECTIVE_STRESS);};
+  void SetScalarModeToDeterminant()
+    {this->SetScalarMode(VTK_EXTRACT_DETERMINANT);};
+  void ScalarIsComponent()
+    {this->SetScalarMode(VTK_EXTRACT_COMPONENT);};
+  void ScalarIsEffectiveStress()
+    {this->SetScalarMode(VTK_EXTRACT_EFFECTIVE_STRESS);};
+  void ScalarIsDeterminant()
+    {this->SetScalarMode(VTK_EXTRACT_DETERMINANT);};
 
   // Description:
   // Boolean controls whether vector data is extracted from tensor.
