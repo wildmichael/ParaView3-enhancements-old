@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkContourFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:04:50 $
-  Version:   $Revision: 1.72 $
+  Date:      $Date: 2000-03-06 15:20:16 $
+  Version:   $Revision: 1.73 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -123,7 +123,7 @@ unsigned long vtkContourFilter::GetMTime()
 //
 void vtkContourFilter::Execute()
 {
-  int cellId, i;
+  int cellId, i, abortExecute=0;
   vtkIdList *cellPts;
   vtkScalars *inScalars;
   vtkCell *cell;
@@ -192,11 +192,22 @@ void vtkContourFilter::Execute()
   //
   if ( !this->UseScalarTree )
     {
-    for (cellId=0; cellId < numCells; cellId++)
+    for (cellId=0; cellId < numCells && !abortExecute; cellId++)
       {
       cell = input->GetCell(cellId);
       cellPts = cell->GetPointIds();
       inScalars->GetScalars(cellPts,cellScalars);
+
+      if ( ! (cellId % 5000) ) 
+        {
+        vtkDebugMacro(<<"Contouring #" << cellId);
+        this->UpdateProgress ((float)cellId/numCells);
+        if (this->GetAbortExecute())
+          {
+          abortExecute = 1;
+          break;
+          }
+        }
 
       for (i=0; i < numContours; i++)
         {
