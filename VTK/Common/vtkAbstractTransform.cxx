@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-09-14 16:15:57 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2000-09-26 10:27:54 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -43,9 +43,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkAbstractTransform.h"
 #include "vtkHomogeneousTransform.h"
 #include "vtkMath.h"
-#ifdef VTK_DEBUG_LEAKS
 #include "vtkDebugLeaks.h"
-#endif
 
 //----------------------------------------------------------------------------
 vtkAbstractTransform::vtkAbstractTransform()
