@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtentSplitter.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-07-01 20:30:38 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-07-01 21:18:46 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 #include <vtkstd/queue>
 #include <vtkstd/vector>
 
-vtkCxxRevisionMacro(vtkExtentSplitter, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkExtentSplitter, "$Revision: 1.2 $");
 vtkStandardNewMacro(vtkExtentSplitter);
 
 //----------------------------------------------------------------------------
@@ -248,7 +248,7 @@ int vtkExtentSplitter::ComputeSubExtents()
   
   vtkExtentSplitterInternals::SubExtentsType subExtents;
   int bestPriority;
-  int dimensionality;
+  int dimensionality = 0;
   
   while(!this->Internal->Queue.empty())
     {
