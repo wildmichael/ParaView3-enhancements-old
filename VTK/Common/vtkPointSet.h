@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSet.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:14 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 2001-06-18 13:13:00 $
+  Version:   $Revision: 1.51 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -72,15 +72,15 @@ public:
 
   // Description:
   // See vtkDataSet for additional information.
-  int GetNumberOfPoints();
-  float *GetPoint(int ptId) {return this->Points->GetPoint(ptId);};
-  void GetPoint(int ptId, float x[3]) {this->Points->GetPoint(ptId,x);};
-  int FindPoint(float x[3]);
-  int FindPoint(float x, float y, float z) { return this->vtkDataSet::FindPoint(x, y, z);};
-  int FindCell(float x[3], vtkCell *cell, int cellId, float tol2, int& subId, 
-               float pcoords[3], float *weights);
-  int FindCell(float x[3], vtkCell *cell, vtkGenericCell *gencell,
-	       int cellId, float tol2, int& subId, 
+  vtkIdType GetNumberOfPoints();
+  float *GetPoint(vtkIdType ptId) {return this->Points->GetPoint(ptId);};
+  void GetPoint(vtkIdType ptId, float x[3]) {this->Points->GetPoint(ptId,x);};
+  vtkIdType FindPoint(float x[3]);
+  vtkIdType FindPoint(float x, float y, float z) { return this->vtkDataSet::FindPoint(x, y, z);};
+  vtkIdType FindCell(float x[3], vtkCell *cell, vtkIdType cellId, float tol2,
+               int& subId, float pcoords[3], float *weights);
+  vtkIdType FindCell(float x[3], vtkCell *cell, vtkGenericCell *gencell,
+	       vtkIdType cellId, float tol2, int& subId, 
                float pcoords[3], float *weights);
 
   // Description:
@@ -135,7 +135,7 @@ protected:
 
 };
 
-inline int vtkPointSet::GetNumberOfPoints()
+inline vtkIdType vtkPointSet::GetNumberOfPoints()
 {
   if (this->Points)
     {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInterpolatingSubdivisionFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-24 21:18:54 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2001-06-18 13:13:03 $
+  Version:   $Revision: 1.11 $
   Thanks:    This work was supported bt PHS Research Grant No. 1 P41 RR13218-01
              from the National Center for Research Resources
 
@@ -204,9 +204,9 @@ void vtkInterpolatingSubdivisionFilter::GenerateSubdivisionCells (vtkPolyData *i
   int numCells = inputDS->GetNumberOfCells();
   int cellId, newId, id;
   int npts;
-  int *pts;
+  vtkIdType *pts;
   float edgePts[3];
-  int newCellPts[3];
+  vtkIdType newCellPts[3];
   vtkCellData *inputCD = inputDS->GetCellData();
 
   // Now create new cells from existing points and generated edge points

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangularTCoords.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-02 12:54:39 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2001-06-18 13:13:03 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -66,7 +66,8 @@ void vtkTriangularTCoords::Execute()
   vtkCellArray *inPolys,*inStrips;
   int numNewPts, numNewPolys, polyAllocSize;
   vtkTCoords *newTCoords;
-  int npts, *pts, newId, newIds[3], numCells, cellId;
+  int npts, newId, numCells, cellId;
+  vtkIdType *pts, newIds[3];
   int errorLogging = 1;
   vtkPoints *newPoints;
   vtkCellArray *newPolys;

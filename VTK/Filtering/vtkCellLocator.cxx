@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellLocator.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:31 $
-  Version:   $Revision: 1.65 $
+  Date:      $Date: 2001-06-18 13:13:02 $
+  Version:   $Revision: 1.66 $
   
     
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1497,7 +1497,8 @@ void vtkCellLocator::GenerateRepresentation(int level, vtkPolyData *pd)
 void vtkCellLocator::GenerateFace(int face, int numDivs, int i, int j, int k,
                                   vtkPoints *pts, vtkCellArray *polys)
 {
-  int ii, ids[4];
+  int ii;
+  vtkIdType ids[4];
   float origin[3], x[3];
   float h[3];
 

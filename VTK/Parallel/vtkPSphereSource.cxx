@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPSphereSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-02-01 19:51:14 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-06-18 13:13:04 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -72,7 +72,8 @@ void vtkPSphereSource::Execute()
   vtkCellArray *newPolys;
   float x[3], n[3], deltaPhi, deltaTheta, phi, theta, radius, norm;
   float startTheta, endTheta, startPhi, endPhi;
-  int pts[3], base, numPoles=0, thetaResolution, phiResolution;
+  int base, numPoles=0, thetaResolution, phiResolution;
+  vtkIdType pts[3];
   vtkPolyData *output = this->GetOutput();
   int piece = output->GetUpdatePiece();
   int numPieces = output->GetUpdateNumberOfPieces();

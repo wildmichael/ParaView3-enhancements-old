@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-05-28 05:49:59 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2001-06-18 13:13:00 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -68,7 +68,7 @@ vtkCellArray::vtkCellArray()
   this->TraversalLocation = 0;
 }
 
-vtkCellArray::vtkCellArray(const int sz, const int ext)
+vtkCellArray::vtkCellArray(const vtkIdType sz, const int ext)
 {
   this->Ia = vtkIntArray::New();
   this->Ia->Allocate(sz,ext);

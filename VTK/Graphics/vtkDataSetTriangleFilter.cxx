@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetTriangleFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-13 11:55:53 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2001-06-18 13:13:02 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -96,8 +96,9 @@ void vtkDataSetTriangleFilter::StructuredExecute()
   vtkPoints *cellPts = vtkPoints::New();
   vtkPoints *newPoints = vtkPoints::New();
   vtkIdList *cellPtIds = vtkIdList::New();
-  int num, numSimplices, numPts, dim, type, pts[4];
-
+  int num, numSimplices, numPts, dim, type;
+  vtkIdType pts[4];
+  
   // Create an array of points. This does an explicit creation
   // of each point.
   num = input->GetNumberOfPoints();
@@ -197,7 +198,7 @@ void vtkDataSetTriangleFilter::UnstructuredExecute()
   vtkIdList *cellPtIds = vtkIdList::New();
   int type, ptId, ncells, numTets;
   int npts, numSimplices, dim;
-  int pts[4];
+  vtkIdType pts[4];
   float *xPtr;
 
   // Create an array of points

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyVertex.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:15 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 2001-06-18 13:13:00 $
+  Version:   $Revision: 1.52 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -162,8 +162,9 @@ void vtkPolyVertex::Contour(float value, vtkScalars *cellScalars,
                             vtkPointData *inPd, vtkPointData *outPd,
                             vtkCellData *inCd, int cellId, vtkCellData *outCd)
 {
-  int i, pts[1], numPts=this->Points->GetNumberOfPoints(), newCellId;
-
+  int i, numPts=this->Points->GetNumberOfPoints(), newCellId;
+  vtkIdType pts[1];
+  
   for (i=0; i < numPts; i++)
     {
     if ( value == cellScalars->GetScalar(i) )
@@ -239,8 +240,9 @@ void vtkPolyVertex::Clip(float value, vtkScalars *cellScalars,
                          int insideOut)
 {
   float s, x[3];
-  int pts[1], i, newCellId, numPts=this->Points->GetNumberOfPoints();
-
+  int i, newCellId, numPts=this->Points->GetNumberOfPoints();
+  vtkIdType pts[1];
+  
   for ( i=0; i < numPts; i++ )
     {
     s = cellScalars->GetScalar(i);

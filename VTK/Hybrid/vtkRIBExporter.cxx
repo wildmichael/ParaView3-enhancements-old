@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRIBExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:26 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2001-06-18 13:13:02 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -671,9 +671,10 @@ void vtkRIBExporter::WritePolygons (vtkPolyData *polyData, vtkScalars *s, vtkPro
   RtPoint vertexPoints[512];
   float poly_norm[3];
   float vertexTCoords[512][2];
-  int *pts;
+  vtkIdType *pts;
+  int npts;
   int k, kk;
-  int npts, rep, j, interpolation;
+  int rep, j, interpolation;
   int tDim;
   unsigned char *colors;
   vtkCellArray *polys;
@@ -815,7 +816,7 @@ void vtkRIBExporter::WriteStrips (vtkPolyData *polyData, vtkScalars *s, vtkPrope
   RtPoint vertexPoints[512];
   float poly_norm[3];
   float vertexTCoords[512][2];
-  int *pts;
+  vtkIdType *pts;
   int p1, p2, p3;
   int k, kk;
   int npts, rep, j, interpolation;
@@ -826,7 +827,7 @@ void vtkRIBExporter::WriteStrips (vtkPolyData *polyData, vtkScalars *s, vtkPrope
   vtkPoints *p;
   vtkTCoords *t;
   vtkPolygon *polygon;
-  int idx[3];
+  vtkIdType idx[3];
 
   // get the representation 
   rep = aProperty->GetRepresentation();

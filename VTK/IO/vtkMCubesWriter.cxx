@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMCubesWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:42 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2001-06-18 13:13:03 $
+  Version:   $Revision: 1.21 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -129,8 +129,8 @@ void WriteMCubes(FILE *fp, vtkPoints *pts, vtkNormals *normals, vtkCellArray *po
   typedef struct {float x[3], n[3];} pointType;
   pointType point;
   int i;
-  int npts, *indx;
-
+  int npts;
+  vtkIdType *indx;
 
   //  Write out triangle polygons.  In not a triangle polygon, create triangles.
   //

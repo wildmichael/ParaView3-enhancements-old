@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMarchingCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:16 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2001-06-18 13:13:04 $
+  Version:   $Revision: 1.36 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -567,7 +567,8 @@ static void vtkImageMarchingCubesHandleCube(vtkImageMarchingCubes *self,
   int inc0, inc1, inc2;
   int valueIdx;
   float value;
-  int cubeIndex, ii, pointIds[3];
+  int cubeIndex, ii;
+  vtkIdType pointIds[3];
   TRIANGLE_CASES *triCase;
   EDGE_LIST  *edge;
 

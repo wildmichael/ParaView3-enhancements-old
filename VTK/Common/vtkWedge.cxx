@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWedge.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-27 19:27:24 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2001-06-18 13:13:01 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -412,7 +412,7 @@ void vtkWedge::Contour(float value, vtkScalars *cellScalars,
   TRIANGLE_CASES *triCase;
   EDGE_LIST  *edge;
   int i, j, index, *vert, newCellId;
-  int pts[3];
+  vtkIdType pts[3];
   float t, *x1, *x2, x[3];
 
   // Build the case table

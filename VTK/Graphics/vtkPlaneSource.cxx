@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPlaneSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:46 $
-  Version:   $Revision: 1.52 $
+  Date:      $Date: 2001-06-18 13:13:03 $
+  Version:   $Revision: 1.53 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -108,7 +108,7 @@ void vtkPlaneSource::SetResolution(const int xR, const int yR)
 void vtkPlaneSource::Execute()
 {
   float x[3], tc[2], v1[3], v2[3];
-  int pts[4];
+  vtkIdType pts[4];
   int i, j, ii;
   int numPts;
   int numPolys;

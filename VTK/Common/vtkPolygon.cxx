@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolygon.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-12 13:18:59 $
-  Version:   $Revision: 1.86 $
+  Date:      $Date: 2001-06-18 13:13:00 $
+  Version:   $Revision: 1.87 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -105,7 +105,8 @@ vtkCell *vtkPolygon::MakeObject()
 // Compute the polygon normal from a points list, and a list of point ids
 // that index into the points list. This version will handle non-convex
 // polygons.
-void vtkPolygon::ComputeNormal(vtkPoints *p, int numPts, int *pts, float *n)
+void vtkPolygon::ComputeNormal(vtkPoints *p, int numPts, vtkIdType *pts,
+                               float *n)
 {
   int i;
   float v0[3], v1[3], v2[3];

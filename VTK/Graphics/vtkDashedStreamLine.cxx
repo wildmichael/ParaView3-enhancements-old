@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDashedStreamLine.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-05-31 13:14:47 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2001-06-18 13:13:02 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -72,7 +72,8 @@ void vtkDashedStreamLine::Execute()
   vtkVectors *newVectors;
   vtkFloatArray *newScalars=NULL;
   vtkCellArray *newLines;
-  int i, ptId, j, pts[2];
+  int i, ptId, j;
+  vtkIdType pts[2];
   float tOffset, x[3], v[3], r, xPrev[3], vPrev[3], scalarPrev;
   float s = 0;
   float xEnd[3], vEnd[3], sEnd;

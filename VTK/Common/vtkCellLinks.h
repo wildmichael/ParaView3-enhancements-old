@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellLinks.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:07 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2001-06-18 13:13:00 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -58,7 +58,7 @@ class vtkCellArray;
 
 struct _vtkLink_s {
     unsigned short ncells;
-    int *cells;
+    vtkIdType *cells;
 };
 
 class VTK_EXPORT vtkCellLinks : public vtkObject 
@@ -90,7 +90,7 @@ public:
 
   // Description:
   // Return a list of cell ids using the point.
-  int *GetCells(int ptId) {return this->Array[ptId].cells;};
+  vtkIdType *GetCells(int ptId) {return this->Array[ptId].cells;};
 
   // Description:
   // Insert a new point into the cell-links data structure. The size parameter
@@ -189,7 +189,7 @@ inline void vtkCellLinks::InsertNextCellReference(int ptId, int cellId)
 
 inline void vtkCellLinks::RemoveCellReference(int cellId, int ptId)
 {
-  int *cells=this->Array[ptId].cells;
+  vtkIdType *cells=this->Array[ptId].cells;
   int ncells=this->Array[ptId].ncells;
 
   for (int i=0; i < ncells; i++)
@@ -213,10 +213,11 @@ inline void vtkCellLinks::AddCellReference(int cellId, int ptId)
 
 inline void vtkCellLinks::ResizeCellList(int ptId, int size)
 {
-  int *cells, newSize;
-
+  int newSize;
+  vtkIdType *cells;
+  
   newSize = this->Array[ptId].ncells + size;
-  cells = new int[newSize];
+  cells = new vtkIdType[newSize];
   memcpy(cells, this->Array[ptId].cells, this->Array[ptId].ncells*sizeof(int));
   delete [] this->Array[ptId].cells;
   this->Array[ptId].cells = cells;

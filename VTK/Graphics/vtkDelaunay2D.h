@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDelaunay2D.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:35 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2001-06-18 13:13:02 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -218,7 +218,7 @@ private:
   void FillPolygons(vtkCellArray *polys, int *triUse);
 
   int InCircle (double x[3], double x1[3], double x2[3], double x3[3]);
-  int FindTriangle(double x[3], int ptIds[3], int tri, double tol, 
+  int FindTriangle(double x[3], vtkIdType ptIds[3], int tri, double tol, 
                    int nei[3], vtkIdList *neighbors);
   void CheckEdge(int ptId, double x[3], int p1, int p2, int tri);
 

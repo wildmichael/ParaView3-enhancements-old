@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetAttributes.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-12 13:18:59 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2001-06-18 13:13:00 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -762,7 +762,8 @@ void vtkDataSetAttributes::InterpolateTuple(vtkDataArray *fromData,
 {
   int numComp=fromData->GetNumberOfComponents();
   int i, j, numIds=ptIds->GetNumberOfIds();
-  int *ids=ptIds->GetPointer(0), idx=toId*numComp;
+  vtkIdType *ids=ptIds->GetPointer(0);
+  int idx=toId*numComp;
   double c;
   
   switch (fromData->GetDataType())

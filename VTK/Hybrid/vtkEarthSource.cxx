@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEarthSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:23 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2001-06-18 13:13:01 $
+  Version:   $Revision: 1.19 $
   Thanks:    Thanks to Tom Johnson at Johnson Scientific International who
              developed and contributed this class. Also see
              ftp://www.ou.edu/pub/simtelnet/msdos/worldmap and the
@@ -6861,7 +6861,7 @@ void vtkEarthSource::Execute()
   vtkNormals *newNormals;
   vtkCellArray *newPolys;
   float x[3], base[3];
-  int Pts[4000];
+  vtkIdType Pts[4000];
   vtkPolyData *output = this->GetOutput();
   int npts, land, offset;
   int actualpts, actualpolys;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:55 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2001-06-18 13:13:03 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -208,7 +208,7 @@ void vtkTextSource::Execute()
   float x[3];
   int pos = 0;
   int pixelPos;
-  int pts[5];
+  vtkIdType pts[5];
   int numPolys = 0;
   int acol;
   int drawingWhite = 0;

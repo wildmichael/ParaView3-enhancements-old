@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSuperquadricSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-05-11 17:41:06 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2001-06-18 13:13:02 $
+  Version:   $Revision: 1.13 $
   Thanks:    Mike Halle, Brigham and Women's Hospital
 
 
@@ -176,7 +176,7 @@ void vtkSuperquadricSource::Execute()
   vtkNormals *newNormals;
   vtkTCoords *newTCoords;
   vtkCellArray *newPolys;
-  int *ptidx;
+  vtkIdType *ptidx;
   float pt[3], nv[3], dims[3];
   float len;
   float alpha;
@@ -328,7 +328,7 @@ void vtkSuperquadricSource::Execute()
 
   // mesh!
   // build triangle strips for efficiency....
-  ptidx = new int[ptsPerStrip];
+  ptidx = new vtkIdType[ptsPerStrip];
   
   rowOffset = this->ThetaResolution+thetaSegs;
   

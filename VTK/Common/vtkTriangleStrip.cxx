@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangleStrip.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:20 $
-  Version:   $Revision: 1.62 $
+  Date:      $Date: 2001-06-18 13:13:01 $
+  Version:   $Revision: 1.63 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -288,7 +288,8 @@ void vtkTriangleStrip::Derivatives(int subId, float pcoords[3], float *values,
 
 // Given a triangle strip, decompose it into (triangle) polygons. The 
 // polygons are appended to the end of the list of polygons.
-void vtkTriangleStrip::DecomposeStrip(int npts, int *pts, vtkCellArray *polys)
+void vtkTriangleStrip::DecomposeStrip(int npts, vtkIdType *pts,
+                                      vtkCellArray *polys)
 {
   int p1, p2, p3, i;
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellCenters.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-02-27 01:16:53 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2001-06-18 13:13:02 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -121,7 +121,7 @@ void vtkCellCenters::Execute()
 
   if ( this->VertexCells )
     {
-    int pts[1];
+    vtkIdType pts[1];
     vtkCellData *outCD=output->GetCellData();
     vtkCellArray *verts = vtkCellArray::New();
     verts->Allocate(verts->EstimateSize(1,numCells),1);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkShrinkPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-02-02 16:44:41 $
-  Version:   $Revision: 1.52 $
+  Date:      $Date: 2001-06-18 13:13:03 $
+  Version:   $Revision: 1.53 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -73,7 +73,8 @@ static void vtkShrinkPolyDataExecute(vtkShrinkPolyData *self,
   vtkPointData *pd;
   vtkCellArray *inVerts,*inLines,*inPolys,*inStrips;
   int numNewPts, numNewLines, numNewPolys, polyAllocSize;
-  int npts, *pts, newIds[3];
+  int npts;
+  vtkIdType *pts, newIds[3];
   vtkPoints *newPoints;
   T *p1, *p2, *p3;
   vtkPolyData *input = self->GetInput();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolygon.h,v $
   Language:  C++
-  Date:      $Date: 2001-05-28 05:40:03 $
-  Version:   $Revision: 1.59 $
+  Date:      $Date: 2001-06-18 13:13:00 $
+  Version:   $Revision: 1.60 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -92,7 +92,8 @@ public:
 
   // Description:
   // Polygon specific
-  static void ComputeNormal(vtkPoints *p, int numPts, int *pts, float n[3]);
+  static void ComputeNormal(vtkPoints *p, int numPts, vtkIdType *pts,
+                            float n[3]);
   static void ComputeNormal(vtkPoints *p, float n[3]);
   
   // Description:

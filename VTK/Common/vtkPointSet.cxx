@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSet.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-05-15 12:42:55 $
-  Version:   $Revision: 1.67 $
+  Date:      $Date: 2001-06-18 13:13:00 $
+  Version:   $Revision: 1.68 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -123,7 +123,7 @@ unsigned long int vtkPointSet::GetMTime()
 }
 
 //----------------------------------------------------------------------------
-int vtkPointSet::FindPoint(float x[3])
+vtkIdType vtkPointSet::FindPoint(float x[3])
 {
   if ( !this->Points )
     {
@@ -148,11 +148,13 @@ int vtkPointSet::FindPoint(float x[3])
 #define VTK_MAX_WALK 12
 
 //----------------------------------------------------------------------------
-int vtkPointSet::FindCell(float x[3], vtkCell *cell, vtkGenericCell *gencell,
-			  int cellId, float tol2, 
-                          int& subId, float pcoords[3], float *weights)
+vtkIdType vtkPointSet::FindCell(float x[3], vtkCell *cell,
+                                vtkGenericCell *gencell, vtkIdType cellId,
+                                float tol2, int& subId, float pcoords[3],
+                                float *weights)
 {
-  int             ptId, walk;
+  vtkIdType       ptId;
+  int             walk;
   float           closestPoint[3];
   float           dist2;
   vtkIdList       *cellIds, *ptIds;
@@ -296,8 +298,9 @@ int vtkPointSet::FindCell(float x[3], vtkCell *cell, vtkGenericCell *gencell,
 }
 
 //----------------------------------------------------------------------------
-int vtkPointSet::FindCell(float x[3], vtkCell *cell, int cellId, float tol2, 
-                          int& subId, float pcoords[3], float *weights)
+vtkIdType vtkPointSet::FindCell(float x[3], vtkCell *cell, vtkIdType cellId,
+                                float tol2, int& subId, float pcoords[3],
+                                float *weights)
 {
   return
     this->FindCell( x, cell, NULL, cellId, tol2, subId, pcoords, weights );

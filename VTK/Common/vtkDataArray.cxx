@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-13 11:55:16 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2001-06-18 13:13:00 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -60,7 +60,7 @@ unsigned long vtkDataArray::ArrayNamePostfix = 0;
 static vtkSimpleCriticalSection DataArrayCritSec;
 
 // Construct object with default tuple dimension (number of components) of 1.
-vtkDataArray::vtkDataArray(int numComp)
+vtkDataArray::vtkDataArray(vtkIdType numComp)
 {
   this->Size = 0;
   this->MaxId = -1;
@@ -122,7 +122,7 @@ void vtkDataArray::DeepCopy(vtkDataArray *da)
 }
 
 // These can be overridden for more efficiency
-float vtkDataArray::GetComponent(const int i, const int j)
+float vtkDataArray::GetComponent(const vtkIdType i, const int j)
 {
   float *tuple=new float[this->NumberOfComponents], c;
 
@@ -133,8 +133,7 @@ float vtkDataArray::GetComponent(const int i, const int j)
   return c;
 }
 
-
-void vtkDataArray::SetComponent(const int i, const int j, const float c)
+void vtkDataArray::SetComponent(const vtkIdType i, const int j, const float c)
 {
   float *tuple=new float[this->NumberOfComponents];
 
@@ -156,7 +155,8 @@ void vtkDataArray::SetComponent(const int i, const int j, const float c)
   delete [] tuple;
 }
 
-void vtkDataArray::InsertComponent(const int i, const int j, const float c)
+void vtkDataArray::InsertComponent(const vtkIdType i, const int j,
+                                   const float c)
 {
   float *tuple=new float[this->NumberOfComponents];
 
@@ -178,7 +178,7 @@ void vtkDataArray::InsertComponent(const int i, const int j, const float c)
   delete [] tuple;
 }
 
-void vtkDataArray::GetData(int tupleMin, int tupleMax, int compMin, 
+void vtkDataArray::GetData(vtkIdType tupleMin, vtkIdType tupleMax, int compMin,
 			   int compMax, vtkFloatArray* data)
 {
   int i, j;
@@ -226,7 +226,7 @@ void vtkDataArray::SetLookupTable(vtkLookupTable* lut)
 }
 
 // default double behaviour
-void vtkDataArray::GetTuple(const int i, double * tuple)
+void vtkDataArray::GetTuple(const vtkIdType i, double * tuple)
 {
   int c;
   int numComp=this->GetNumberOfComponents();
@@ -239,7 +239,7 @@ void vtkDataArray::GetTuple(const int i, double * tuple)
   delete [] ftuple;
 }
 
-void vtkDataArray::SetTuple(const int i, const double * tuple)
+void vtkDataArray::SetTuple(const vtkIdType i, const double * tuple)
 {
   int c;
   int numComp=this->GetNumberOfComponents();
@@ -252,7 +252,7 @@ void vtkDataArray::SetTuple(const int i, const double * tuple)
   delete [] ftuple;
 }
 
-void vtkDataArray::InsertTuple(const int i, const double * tuple)
+void vtkDataArray::InsertTuple(const vtkIdType i, const double * tuple)
 {
   int c;
   int numComp=this->GetNumberOfComponents();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXYPlotActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-12 23:45:22 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2001-06-18 13:13:02 $
+  Version:   $Revision: 1.21 $
   Thanks:    Thanks to Kitware & RPI/SCOREC who supported the development
              of this class.
 
@@ -1576,7 +1576,8 @@ void vtkXYPlotActor::ClipPlotData(int *pos, int *pos2, vtkPolyData *pd)
   vtkCellArray *lines=pd->GetLines();
   vtkCellArray *newLines, *newVerts;
   int numPts=pd->GetNumberOfPoints();
-  int npts, *pts, newPts[2];
+  int npts;
+  vtkIdType newPts[2], *pts;
   int i, j, id;
   float *x1, *x2, *px, *n, xint[3], t;
   float p1[2], p2[2];

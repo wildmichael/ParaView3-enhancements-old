@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAppendPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-05-11 11:18:53 $
-  Version:   $Revision: 1.79 $
+  Date:      $Date: 2001-06-18 13:13:02 $
+  Version:   $Revision: 1.80 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -158,7 +158,8 @@ void vtkAppendPolyData::Execute()
   vtkDataArray *newPtNormals = NULL;
   vtkDataArray *newPtTCoords = NULL;
   vtkDataArray *newPtTensors = NULL;
-  int i, ptId, cellId, npts, *pts;
+  int i, ptId, cellId, npts;
+  vtkIdType *pts;
   
   vtkDebugMacro(<<"Appending polydata");
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCell3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-06 20:31:34 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2001-06-18 13:13:00 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -63,7 +63,8 @@ void vtkCell3D::Clip(float value, vtkScalars *cellScalars,
   int numEdges=this->GetNumberOfEdges();
   int *edges;
   int i;
-  int type, ptId, id;
+  int type;
+  vtkIdType id, ptId;
   int internalId[VTK_CELL_SIZE];
   float s1, s2, *xPtr, t, p1[3], p2[3], x[3];
   

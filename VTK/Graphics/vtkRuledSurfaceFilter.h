@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRuledSurfaceFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:51 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-06-18 13:13:03 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -175,9 +175,9 @@ private:
   float     Weights[4];
 
   void  Resample(vtkPolyData *output, vtkPoints *inPts, vtkPoints *newPts, 
-                 int npts, int *pts, int npts2, int *pts2);
+                 int npts, vtkIdType *pts, int npts2, vtkIdType *pts2);
   void  PointWalk(vtkPolyData *output, vtkPoints *inPts, 
-                  int npts, int *pts, int npts2, int *pts2);
+                  int npts, vtkIdType *pts, int npts2, vtkIdType *pts2);
   
 };
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointLocator.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:14 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 2001-06-18 13:13:00 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -164,7 +164,7 @@ public:
   // Note this combines the functionality of IsInsertedPoint() followed
   // by a call to InsertNextPoint().
   // This method is not thread safe.
-  virtual int InsertUniquePoint(const float x[3], int &ptId);
+  virtual int InsertUniquePoint(const float x[3], vtkIdType &ptId);
 
   // Description:
   // Given a position x, return the id of the point closest to it. This method

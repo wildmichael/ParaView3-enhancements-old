@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStripper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-02 12:54:39 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 2001-06-18 13:13:03 $
+  Version:   $Revision: 1.48 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -69,12 +69,14 @@ void vtkStripper::Execute()
   int longestStrip, longestLine, cellId, i, j, numCells, numPts;
   int numLines, numStrips, nei;
   vtkCellArray *newStrips=NULL, *inStrips, *newLines=NULL, *inLines, *inPolys;
-  int numTriPts, *triPts, numLinePts, *linePts;
+  int numTriPts, numLinePts;
   vtkIdList *cellIds;
-  int *pts, neighbor=0, foundOne;
+  int neighbor=0, foundOne;
+  vtkIdType *pts;
   vtkPolyData *Mesh;
   char *visited;
-  int numStripPts, *stripPts;
+  int numStripPts;
+  vtkIdType *stripPts, *linePts, *triPts;
   vtkPolyData *input= this->GetInput();
   vtkPolyData *output= this->GetOutput();
   vtkPointData *pd=input->GetPointData();
@@ -100,7 +102,7 @@ void vtkStripper::Execute()
     return;
     }
 
-  pts = new int[this->MaximumLength + 2]; //working array
+  pts = new vtkIdType[this->MaximumLength + 2]; //working array
   cellIds = vtkIdList::New();
   cellIds->Allocate(this->MaximumLength + 2);
 
@@ -109,7 +111,8 @@ void vtkStripper::Execute()
     {
     newStrips = vtkCellArray::New();
     newStrips->Allocate(newStrips->EstimateSize(numCells,6));
-    for(inStrips->InitTraversal();inStrips->GetNextCell(numStripPts,stripPts);)
+    for(inStrips->InitTraversal();inStrips->GetNextCell(numStripPts,
+                                                        stripPts);)
       {
       newStrips->InsertNextCell(numStripPts,stripPts);
       }

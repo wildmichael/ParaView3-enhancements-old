@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCleanPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-05 01:54:28 $
-  Version:   $Revision: 1.58 $
+  Date:      $Date: 2001-06-18 13:13:02 $
+  Version:   $Revision: 1.59 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -112,7 +112,7 @@ void vtkCleanPolyData::Execute()
     vtkErrorMacro(<<"No data to Operate On!");
     return;
     }
-  int *updatedPts = new int[input->GetMaxCellSize()];
+  vtkIdType *updatedPts = new vtkIdType[input->GetMaxCellSize()];
 
   int numNewPts;
   vtkPoints *newPts = vtkPoints::New();
@@ -120,8 +120,10 @@ void vtkCleanPolyData::Execute()
 
   // we'll be needing these
   int inCellID, newId;
-  int i, ptId;
-  int npts, *pts;
+  int i;
+  vtkIdType ptId;
+  int npts;
+  vtkIdType *pts;
   float x[3];
   float newx[3];
 

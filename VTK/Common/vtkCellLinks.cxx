@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellLinks.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:07 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2001-06-18 13:13:00 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -100,7 +100,7 @@ void vtkCellLinks::AllocateLinks(int n)
 {
   for (int i=0; i < n; i++)
     {
-    this->Array[i].cells = new int[this->Array[i].ncells];
+    this->Array[i].cells = new vtkIdType[this->Array[i].ncells];
     }
 }
 
@@ -168,7 +168,9 @@ void vtkCellLinks::BuildLinks(vtkDataSet *data)
   // Use fast path if polydata
   if ( data->GetDataObjectType() == VTK_POLY_DATA )
     {
-    int npts, *pts;
+    int npts;
+    vtkIdType *pts;
+    
     vtkPolyData *pdata = (vtkPolyData *)data;
     // traverse data to determine number of uses of each point
     for (cellId=0; cellId < numCells; cellId++)
@@ -236,7 +238,8 @@ void vtkCellLinks::BuildLinks(vtkDataSet *data, vtkCellArray *Connectivity)
   int numPts = data->GetNumberOfPoints();
   int j, cellId;
   unsigned short *linkLoc;
-  int npts, *pts;
+  int npts;
+  vtkIdType *pts;
   int loc = Connectivity->GetTraversalLocation();
   
   // traverse data to determine number of uses of each point
@@ -278,7 +281,7 @@ int vtkCellLinks::InsertNextPoint(int numLinks)
     {
     this->Resize(this->MaxId + 1);
     }
-  this->Array[this->MaxId].cells = new int[numLinks];
+  this->Array[this->MaxId].cells = new vtkIdType[numLinks];
   return this->MaxId;
 }
 

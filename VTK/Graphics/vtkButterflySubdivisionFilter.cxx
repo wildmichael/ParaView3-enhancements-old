@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkButterflySubdivisionFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:30 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-06-18 13:13:02 $
+  Version:   $Revision: 1.5 $
   Thanks:    This work was supported bt PHS Research Grant No. 1 P41 RR13218-01
              from the National Center for Research Resources
 
@@ -62,7 +62,7 @@ vtkButterflySubdivisionFilter* vtkButterflySubdivisionFilter::New()
 void vtkButterflySubdivisionFilter::GenerateSubdivisionPoints (vtkPolyData *inputDS, vtkIntArray *edgeData, vtkPoints *outputPts, vtkPointData *outputPD)
 {
   float *weights, *weights1, *weights2;
-  int *pts;
+  vtkIdType *pts;
   int cellId, edgeId, newId;
   int i, j;
   int npts;
@@ -298,9 +298,9 @@ void vtkButterflySubdivisionFilter::GenerateBoundaryStencil
      vtkIdList *stencilIds, float *weights)
 {
   vtkIdList *cellIds = vtkIdList::New();
-  int *cells;
+  vtkIdType *cells;
   unsigned short ncells;
-  int *pts;
+  vtkIdType *pts;
   int npts;
   int i, j;
   int p0, p3;

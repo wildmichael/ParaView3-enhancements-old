@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAxes.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-05-11 17:40:21 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2001-06-18 13:13:02 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -82,7 +82,7 @@ void vtkAxes::Execute()
   vtkFloatArray *newScalars;
   vtkFloatArray *newNormals;
   float x[3], n[3];
-  int ptIds[2];
+  vtkIdType ptIds[2];
   vtkPolyData *output = this->GetOutput();
   
   vtkDebugMacro(<<"Creating x-y-z axes");

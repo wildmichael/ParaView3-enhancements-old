@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRuledSurfaceFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-24 21:18:55 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2001-06-18 13:13:03 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -84,7 +84,8 @@ void vtkRuledSurfaceFilter::Execute()
   vtkCellArray *inLines, *newPolys, *newStrips;
   vtkPolyData *input = this->GetInput();
   vtkPolyData *output = this->GetOutput();
-  int npts, *pts, npts2, *pts2;
+  int npts, npts2;
+  vtkIdType *pts, *pts2;
   vtkPointData *inPD=input->GetPointData(), *outPD=output->GetPointData();
 
   // Check input, pass data if requested
@@ -187,8 +188,8 @@ void vtkRuledSurfaceFilter::Execute()
 
 void  vtkRuledSurfaceFilter::Resample(vtkPolyData *output, vtkPoints *inPts, 
                                       vtkPoints *newPts, 
-                                      int npts, int *pts, 
-                                      int npts2, int *pts2)
+                                      int npts, vtkIdType *pts, 
+                                      int npts2, vtkIdType *pts2)
 {
   int i, j, id, offset;
   float length, length2;
@@ -401,8 +402,8 @@ void  vtkRuledSurfaceFilter::Resample(vtkPolyData *output, vtkPoints *inPts,
 }
 
 void  vtkRuledSurfaceFilter::PointWalk(vtkPolyData *output, vtkPoints *inPts, 
-                                       int npts, int *pts,
-                                       int npts2, int *pts2)
+                                       int npts, vtkIdType *pts,
+                                       int npts2, vtkIdType *pts2)
 {
   int loc, loc2;
   vtkCellArray *newPolys=output->GetPolys();

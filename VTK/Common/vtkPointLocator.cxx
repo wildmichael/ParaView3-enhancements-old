@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointLocator.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-16 13:28:37 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 2001-06-18 13:13:00 $
+  Version:   $Revision: 1.52 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1482,7 +1482,7 @@ int vtkPointLocator::IsInsertedPoint(const float x[3])
 }
 
 
-int vtkPointLocator::InsertUniquePoint(const float x[3], int &id)
+int vtkPointLocator::InsertUniquePoint(const float x[3], vtkIdType &id)
 {
   int ptId;
 
@@ -1756,7 +1756,7 @@ void vtkPointLocator::GenerateRepresentation(int vtkNotUsed(level),
 void vtkPointLocator::GenerateFace(int face, int i, int j, int k, 
                                    vtkPoints *pts, vtkCellArray *polys)
 {
-  int ids[4];
+  vtkIdType ids[4];
   float origin[3], x[3];
 
   // define first corner

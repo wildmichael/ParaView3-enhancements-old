@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDepthSortPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-13 23:34:17 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2001-06-18 13:13:01 $
+  Version:   $Revision: 1.16 $
   Thanks:    Scott Hill for implementing this class
 
 
@@ -151,8 +151,9 @@ void vtkDepthSortPolyData::Execute()
   float p[3], *bounds, *w = NULL, xf[3];
   double vector[3];
   double origin[3];
-  int type, npts, *pts, newId, subId;
-
+  int type, npts, newId, subId;
+  vtkIdType *pts;
+  
   // Initialize
   //
   vtkDebugMacro(<<"Sorting polygonal data");

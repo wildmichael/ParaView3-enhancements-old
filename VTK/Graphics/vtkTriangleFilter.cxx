@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangleFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-04 15:48:01 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 2001-06-18 13:13:03 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -61,7 +61,8 @@ void vtkTriangleFilter::Execute()
 {
   vtkPolyData *input = this->GetInput();
   int numCells=input->GetNumberOfCells();
-  int dim, i, j, pts[3], cellNum, numPts, numSimplices, newId, type;
+  int dim, i, j, cellNum, numPts, numSimplices, newId, type;
+  vtkIdType pts[3];
   vtkIdList *ptIds=vtkIdList::New();
   vtkPoints *spts=vtkPoints::New();
   vtkPolyData *output=this->GetOutput();

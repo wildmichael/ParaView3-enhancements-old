@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDiskSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:36 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2001-06-18 13:13:02 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -74,7 +74,7 @@ void vtkDiskSource::Execute()
   int numPolys, numPts;
   float x[3];
   int i, j;
-  int pts[4];
+  vtkIdType pts[4];
   float theta, deltaRadius;
   float cosTheta, sinTheta;
   vtkPoints *newPoints; 

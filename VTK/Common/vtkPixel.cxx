@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPixel.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-26 17:48:25 $
-  Version:   $Revision: 1.62 $
+  Date:      $Date: 2001-06-18 13:13:00 $
+  Version:   $Revision: 1.63 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -266,7 +266,8 @@ void vtkPixel::Contour(float value, vtkScalars *cellScalars,
   LINE_CASES *lineCase;
   EDGE_LIST  *edge;
   int i, j, index, *vert;
-  int pts[2], newCellId;
+  int newCellId;
+  vtkIdType pts[2];
   float t, *x1, *x2, x[3];
 
   // Build the case table

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-12 13:18:04 $
-  Version:   $Revision: 1.79 $
+  Date:      $Date: 2001-06-18 13:13:02 $
+  Version:   $Revision: 1.80 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -873,7 +873,8 @@ int vtkDataWriter::WriteCells(ostream *fp, vtkCellArray *cells, const char *labe
 
   if ( this->FileType == VTK_ASCII )
     {
-    int npts, *pts, j;
+    int npts, j;
+    vtkIdType *pts;
     for (cells->InitTraversal(); cells->GetNextCell(npts,pts); )
       {
       *fp << npts << " ";

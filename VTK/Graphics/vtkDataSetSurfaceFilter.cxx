@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetSurfaceFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-01 18:38:26 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-06-18 13:13:02 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -290,7 +290,7 @@ void vtkDataSetSurfaceFilter::ExecuteFaceStrips(vtkDataSet *input,
   int          ib, ic;
   int          aA2, bA2, cA2;
   int          rotatedFlag;
-  int          *stripArray;
+  vtkIdType    *stripArray;
   int          stripArrayIdx;
 
   output = this->GetOutput();
@@ -373,7 +373,7 @@ void vtkDataSetSurfaceFilter::ExecuteFaceStrips(vtkDataSet *input,
 
   // Tri Strips (no cell data ...).
   // Allocate the temporary array user to create the tri strips.
-  stripArray = new int[2*(ext[bA2+1]-ext[bA2]+1)];
+  stripArray = new vtkIdType[2*(ext[bA2+1]-ext[bA2]+1)];
   // Make the cells for this face.
   outStrips = output->GetStrips();
   for (ic = ext[cA2]; ic < ext[cA2+1]; ++ic)
@@ -722,7 +722,7 @@ void vtkDataSetSurfaceFilter::UnstructuredGridExecute()
   vtkPolyData *output = this->GetOutput();
   vtkPointData *outputPD = output->GetPointData();
   vtkCellData *outputCD = output->GetCellData();
-  int outPts[4];
+  vtkIdType outPts[4];
   vtkFastGeomQuad *q;
   // These are for the defualt case/
   vtkIdList *pts;

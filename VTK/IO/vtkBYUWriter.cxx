@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBYUWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:30 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2001-06-18 13:13:02 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -130,7 +130,8 @@ void vtkBYUWriter::WriteGeometryFile(FILE *geomFile, int numPts)
   int numPolys, numEdges;
   int i;
   float *x;
-  int npts, *pts;
+  int npts;
+  vtkIdType *pts;
   vtkPoints *inPts;
   vtkCellArray *inPolys;
   vtkPolyData *input= this->GetInput();

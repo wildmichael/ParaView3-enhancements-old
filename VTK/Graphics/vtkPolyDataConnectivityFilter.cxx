@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataConnectivityFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-24 21:18:55 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2001-06-18 13:13:03 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -94,7 +94,8 @@ void vtkPolyDataConnectivityFilter::Execute()
   int numPts, numCells;
   vtkPoints *inPts;
   vtkPoints *newPts;
-  int id, npts, *pts, *cells, n;
+  int id, npts, n;
+  vtkIdType *cells, *pts;
   unsigned short ncells;
   int maxCellsInRegion;
   int largestRegionId = 0;
@@ -435,7 +436,8 @@ void vtkPolyDataConnectivityFilter::Execute()
 //
 void vtkPolyDataConnectivityFilter::TraverseAndMark ()
 {
-  int i, j, k, cellId, numIds, ptId, npts, *pts, *cells;
+  int i, j, k, cellId, numIds, ptId, npts;
+  vtkIdType *pts, *cells;
   vtkIdList *tmpWave;
   unsigned short ncells;
 

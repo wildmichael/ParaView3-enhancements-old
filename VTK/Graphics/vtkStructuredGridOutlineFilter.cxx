@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridOutlineFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-24 21:18:55 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2001-06-18 13:13:03 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -71,7 +71,8 @@ void vtkStructuredGridOutlineFilter::Execute()
   vtkPoints *newPts;
   vtkCellArray *newLines;
   vtkPolyData *output=this->GetOutput();
-  int numPts, idx, offset, ids[2];
+  int numPts, idx, offset;
+  vtkIdType ids[2];
   // for marching through the points along an edge.
   int start = 0, num = 0, inc = 0, id;
 

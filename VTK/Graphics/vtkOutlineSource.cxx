@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOutlineSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:45 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2001-06-18 13:13:03 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -75,7 +75,7 @@ void vtkOutlineSource::Execute()
 {
   float *bounds;
   float x[3];
-  int pts[2];
+  vtkIdType pts[2];
   vtkPoints *newPts;
   vtkCellArray *newLines;
   vtkPolyData *output = this->GetOutput();

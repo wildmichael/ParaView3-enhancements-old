@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCubeSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-05-10 19:19:15 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 2001-06-18 13:13:02 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -79,7 +79,7 @@ void vtkCubeSource::Execute()
   float x[3], n[3], tc[3];
   int numPolys=6, numPts=24;
   int i, j, k;
-  int pts[4];
+  vtkIdType pts[4];
   vtkPoints *newPoints; 
   vtkFloatArray *newNormals;
   vtkFloatArray *newTCoords; // CCS 7/27/98 Added for Texture Mapping

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHexahedron.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-05-23 12:33:12 $
-  Version:   $Revision: 1.68 $
+  Date:      $Date: 2001-06-18 13:13:00 $
+  Version:   $Revision: 1.69 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -413,7 +413,7 @@ void vtkHexahedron::Contour(float value, vtkScalars *cellScalars,
   EDGE_LIST  *edge;
   int i, j, index, *vert;
   int e1, e2, newCellId;
-  int pts[3];
+  vtkIdType pts[3];
   float t, x1[3], x2[3], x[3], deltaScalar;
 
   // Build the case table

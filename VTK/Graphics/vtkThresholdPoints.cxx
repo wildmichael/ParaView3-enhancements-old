@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThresholdPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-02-27 01:43:54 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2001-06-18 13:13:03 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -105,7 +105,8 @@ void vtkThresholdPoints::Execute()
   vtkPoints *newPoints;
   vtkPointData *pd, *outPD;
   vtkCellArray *verts;
-  int ptId, pts[1], numPts;
+  int ptId, numPts;
+  vtkIdType pts[1];
   float *x;
   vtkDataSet *input = this->GetInput();
   vtkPolyData *output = this->GetOutput();

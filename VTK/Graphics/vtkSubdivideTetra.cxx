@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSubdivideTetra.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-03 16:20:55 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2001-06-18 13:13:02 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -68,7 +68,8 @@ void vtkSubdivideTetra::Execute()
   int numPts = input->GetNumberOfPoints();
   int numCells = input->GetNumberOfCells();
   vtkPoints *inPts=input->GetPoints();
-  int cellId, i, pts[4];
+  int cellId, i;
+  vtkIdType pts[4];
   vtkGenericCell *cell;
   vtkPointData *pd = input->GetPointData();
   vtkUnstructuredGrid *output = this->GetOutput();

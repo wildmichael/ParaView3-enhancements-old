@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDecimatePro.h,v $
   Language:  C++
-  Date:      $Date: 2001-03-29 21:18:28 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 2001-06-18 13:13:02 $
+  Version:   $Revision: 1.44 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -344,14 +344,14 @@ protected:
   vtkPriorityQueue *EdgeLengths;
 
   void SplitMesh();
-  int EvaluateVertex(int ptId, unsigned short int numTris, int *tris,
+  int EvaluateVertex(int ptId, unsigned short int numTris, vtkIdType *tris,
                      int fedges[2]);
   int FindSplit(int type, int fedges[2], int& pt1, int& pt2,
                 vtkIdList *CollapseTris);
   int IsValidSplit(int index);
   void SplitLoop(int fedges[2], int& n1, int *l1, int& n2, int *l2);
-  void SplitVertex(int ptId,int type, unsigned short int numTris, int *tris,
-                   int insert);
+  void SplitVertex(int ptId,int type, unsigned short int numTris,
+                   vtkIdType *tris, int insert);
   int CollapseEdge(int type, int ptId, int collapseId, int pt1, int pt2,
                    vtkIdList *CollapseTris);
   void DistributeError(float error);

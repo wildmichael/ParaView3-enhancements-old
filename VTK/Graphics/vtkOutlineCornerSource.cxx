@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOutlineCornerSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:25 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-06-18 13:13:02 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to Sebastien Barre who developed this class.
 
 
@@ -102,7 +102,7 @@ void vtkOutlineCornerSource::Execute()
   newLines->Allocate(newLines->EstimateSize(24,2));
 
   float x[3];
-  int pts[2];
+  vtkIdType pts[2];
 
   int pid = 0;
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSynchronizedTemplates2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-24 21:56:51 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2001-06-18 13:13:04 $
+  Version:   $Revision: 1.13 $
 
 
 
@@ -149,7 +149,7 @@ static void ContourImage(vtkSynchronizedTemplates2D *self,
   float *spacing = self->GetInput()->GetSpacing();
   float y, t;
   int *isect1Ptr, *isect2Ptr;
-  int ptIds[2];
+  vtkIdType ptIds[2];
   int *tablePtr;
   int v0, v1 = 0, v2;
   int idx, vidx;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEdgePoints.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-02-27 01:23:05 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2001-06-18 13:13:02 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -87,7 +87,8 @@ void vtkEdgePoints::Execute()
   float s0, s1, x0[3], x1[3], x[3], t;
   float e0Scalar, deltaScalar;
   int e0, e1;
-  int pts[1], p1, p2;
+  int p1, p2;
+  vtkIdType pts[1];
   int numCells, estimatedSize;
   vtkDataSet *input = this->GetInput();
   vtkPolyData *output = this->GetOutput();

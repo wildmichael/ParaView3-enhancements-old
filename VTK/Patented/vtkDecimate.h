@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDecimate.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:15 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 2001-06-18 13:13:04 $
+  Version:   $Revision: 1.48 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -131,7 +131,7 @@ typedef struct _vtkLocalTri
   int     id;
   float   area;
   float   n[3];
-  int     verts[3];
+  vtkIdType     verts[3];
   } vtkLocalTri, *vtkLocalTriPtr;
 
 //
@@ -303,7 +303,7 @@ protected:
   
   void CreateOutput(int numPts, int numTris, int numEliminated, 
                     vtkPointData *pd, vtkPoints *inPts);
-  int BuildLoop(int ptId, unsigned short int nTris, int* tris);
+  int BuildLoop(int ptId, unsigned short int nTris, vtkIdType* tris);
   void EvaluateLoop(int& vtype, int& numFEdges, vtkLocalVertexPtr fedges[]);
   int CanSplitLoop(vtkLocalVertexPtr fedges[2], int numVerts, 
                    vtkLocalVertexPtr verts[], int& n1, vtkLocalVertexPtr l1[], 

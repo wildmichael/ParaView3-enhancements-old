@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHull.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-12 13:18:04 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2001-06-18 13:13:03 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -607,14 +607,14 @@ void vtkHull::ClipPolygonsFromPlanes( vtkPoints *outPoints,
   double         previousD, d, crosspoint;
   double         *verts, *newVerts, *tmpVerts;
   int            vertCount, newVertCount;
-  int            *pnts;
+  vtkIdType      *pnts;
 
   // Use two arrays to store the vertices of the polygon
   verts = new double[3*(this->NumberOfPlanes+1)];
   newVerts = new double[3*(this->NumberOfPlanes+1)];
 
   // We need an array to store the indices for the polygon
-  pnts = new int[this->NumberOfPlanes-1];
+  pnts = new vtkIdType[this->NumberOfPlanes-1];
 
   // We have no vertices yet
   vertCount = 0;

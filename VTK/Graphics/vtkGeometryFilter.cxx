@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGeometryFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-18 11:11:49 $
-  Version:   $Revision: 1.80 $
+  Date:      $Date: 2001-06-18 13:13:03 $
+  Version:   $Revision: 1.81 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -154,7 +154,8 @@ void vtkGeometryFilter::Execute()
   vtkIdList *pts;
   vtkPoints *newPts;
   int ptId;
-  int npts, pt;
+  int npts;
+  vtkIdType pt;
   vtkPointData *pd = input->GetPointData();
   vtkCellData *cd = input->GetCellData();
   int allVisible;
@@ -460,7 +461,8 @@ void vtkGeometryFilter::PolyDataExecute()
   vtkPolyData *input= (vtkPolyData *)this->GetInput();
   int i, cellId;
   int allVisible;
-  int npts, *pts;    
+  int npts;
+  vtkIdType *pts;
   vtkPoints *p = input->GetPoints();
   int numCells=input->GetNumberOfCells();
   vtkPointData *pd = input->GetPointData();
@@ -589,7 +591,8 @@ void vtkGeometryFilter::UnstructuredGridExecute()
   if (Connectivity == NULL) {return;}
   int i, cellId;
   int allVisible;
-  int npts, *pts;    
+  int npts;
+  vtkIdType *pts;
   vtkPoints *p = input->GetPoints();
   int numCells=input->GetNumberOfCells();
   vtkPointData *pd = input->GetPointData();
@@ -921,7 +924,8 @@ void vtkGeometryFilter::StructuredGridExecute()
   vtkIdList *ptIds;
   vtkIdList *cellIds;
   vtkIdList *pts;
-  int ptId, *faceVerts, *facePts, faceId, numFacePts;
+  int ptId, *faceVerts, faceId, numFacePts;
+  vtkIdType *facePts;
   vtkPointData *pd = input->GetPointData();
   vtkCellData *cd = input->GetCellData();
   int allVisible;

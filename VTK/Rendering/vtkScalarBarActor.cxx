@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalarBarActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-21 15:05:31 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2001-06-18 13:13:04 $
+  Version:   $Revision: 1.35 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -335,7 +335,7 @@ int vtkScalarBarActor::RenderOpaqueGeometry(vtkViewport *viewport)
 
     //polygons & cell colors
     unsigned char *rgba, *rgb;
-    int ptIds[4];
+    vtkIdType ptIds[4];
     for (i=0; i<numColors; i++)
       {
       ptIds[0] = 2*i;

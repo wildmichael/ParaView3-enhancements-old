@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVertex.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:21 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 2001-06-18 13:13:01 $
+  Version:   $Revision: 1.50 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -166,7 +166,8 @@ void vtkVertex::Contour(float value, vtkScalars *cellScalars,
 {
   if ( value == cellScalars->GetScalar(0) )
     {
-    int pts[1], newCellId;
+    int newCellId;
+    vtkIdType pts[1];
     pts[0] = locator->InsertNextPoint(this->Points->GetPoint(0));
     if ( outPd )
       {   
@@ -265,8 +266,9 @@ void vtkVertex::Clip(float value, vtkScalars *cellScalars,
                      int insideOut)
 {
   float s, *x;
-  int pts[1], newCellId;
-    
+  int newCellId;
+  vtkIdType pts[1];
+  
   s = cellScalars->GetScalar(0);
 
   if ( ( !insideOut && s > value) || (insideOut && s <= value) )

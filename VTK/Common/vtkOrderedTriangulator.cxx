@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOrderedTriangulator.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-08 15:16:33 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2001-06-18 13:13:00 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -866,7 +866,7 @@ int vtkOrderedTriangulator::GetTetras(int classification,
   vtkOTTetra::TetraClassification type; //inside, outside
 
   // loop over all tetras getting the ones with the classification requested
-  int pts[4];
+  vtkIdType pts[4];
   for (tptr=this->Mesh->Tetras.Begin(); 
        tptr != this->Mesh->Tetras.End(); ++tptr)
     {
@@ -922,7 +922,7 @@ int vtkOrderedTriangulator::AddTetras(int classification,
   vtkOTTetra::TetraClassification type; //inside, outside
 
   // loop over all tetras getting the ones with the classification requested
-  int pts[4];
+  vtkIdType pts[4];
   for (tptr=this->Mesh->Tetras.Begin(); 
        tptr != this->Mesh->Tetras.End(); ++tptr)
     {

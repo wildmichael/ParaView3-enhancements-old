@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWindowedSincPolyDataFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-24 21:18:55 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2001-06-18 13:13:03 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -101,7 +101,8 @@ void vtkWindowedSincPolyDataFilter::Execute()
 {
   int numPts, numCells;
   int i, j, k, numPolys, numStrips;
-  int npts, *pts;
+  int npts;
+  vtkIdType *pts;
   int p1, p2;
   float *x, *y, deltaX[3], xNew[3];
   float x1[3], x2[3], x3[3], l1[3], l2[3];
@@ -241,7 +242,8 @@ void vtkWindowedSincPolyDataFilter::Execute()
     { //build cell structure
     vtkCellArray *polys;
     int numNei, cellId, nei, edge;
-    int *neiPts, numNeiPts;
+    int numNeiPts;
+    vtkIdType *neiPts;
     float normal[3], neiNormal[3];
     vtkIdList *neighbors;
 

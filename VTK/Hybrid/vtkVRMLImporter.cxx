@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVRMLImporter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-05-30 17:40:13 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2001-06-18 13:13:02 $
+  Version:   $Revision: 1.27 $
   Thanks:    Tom Citriniti who implemented and contributed this class
 
 
@@ -6018,7 +6018,8 @@ vtkVRMLImporter::exitField()
       {
       if (yylval.mfint32->GetValue(i) == -1) 
         {
-        cells->InsertNextCell(cnt, yylval.mfint32->GetPointer(index));
+        cells->InsertNextCell(cnt,
+                              (vtkIdType*)yylval.mfint32->GetPointer(index));
         index = i+1;
         cnt = 0;
         }
@@ -6116,7 +6117,8 @@ vtkVRMLImporter::exitField()
   else if (strcmp(fr->fieldName, "colorIndex") == 0) 
     {
     vtkCellArray *cells;
-    int npts, *pts, index, j;
+    int npts, index, j;
+    vtkIdType *pts;
     vtkPolyData *pd = (vtkPolyData *)this->CurrentMapper->GetInput();
     if (pd->GetNumberOfPolys() > 0)
       cells = pd->GetPolys();

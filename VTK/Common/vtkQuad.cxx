@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuad.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-26 17:48:25 $
-  Version:   $Revision: 1.70 $
+  Date:      $Date: 2001-06-18 13:13:00 $
+  Version:   $Revision: 1.71 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -432,7 +432,8 @@ void vtkQuad::Contour(float value, vtkScalars *cellScalars,
   LINE_CASES *lineCase;
   EDGE_LIST  *edge;
   int i, j, index, *vert;
-  int pts[2], newCellId;
+  int newCellId;
+  vtkIdType pts[2];
   int e1, e2;
   float t, x1[3], x2[3], x[3], deltaScalar;
 
@@ -767,7 +768,8 @@ void vtkQuad::Clip(float value, vtkScalars *cellScalars,
   QUAD_EDGE_LIST  *edge;
   int i, j, index, *vert;
   int e1, e2;
-  int pts[4], newCellId;
+  int newCellId;
+  vtkIdType pts[4];
   int vertexId;
   float t, x1[3], x2[3], x[3], deltaScalar;
   float scalar0, scalar1, e1Scalar;

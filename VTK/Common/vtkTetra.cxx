@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTetra.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-07 15:26:01 $
-  Version:   $Revision: 1.64 $
+  Date:      $Date: 2001-06-18 13:13:01 $
+  Version:   $Revision: 1.65 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -298,7 +298,7 @@ void vtkTetra::Contour(float value, vtkScalars *cellScalars,
   TRIANGLE_CASES *triCase;
   EDGE_LIST  *edge;
   int i, j, index, *vert, newCellId;
-  int pts[3];
+  vtkIdType pts[3];
   float t, *x1, *x2, x[3];
 
   // Build the case table
@@ -749,7 +749,7 @@ void vtkTetra::Clip(float value, vtkScalars *cellScalars,
   
   if ( inject >= 4 ) //all points are above/below
     {
-    int pts[4];
+    vtkIdType pts[4];
     float x[3];
     for (inject=0; inject < 4; inject++)
       {

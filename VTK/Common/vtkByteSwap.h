@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkByteSwap.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:06 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2001-06-18 13:13:00 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -84,7 +84,9 @@ public:
 
 
   // Description:
-  // Swap four byte word to be BE.
+  // For writing, swap four byte word to be BE.
+  // For reading, swap four byte word from BE to machine's internal
+  // representation.
   static void Swap4BE(char *c);
   static void Swap4BE(float *p) { vtkByteSwap::Swap4BE((char *)p);};
   static void Swap4BE(int *i)   { vtkByteSwap::Swap4BE((char *)i);};

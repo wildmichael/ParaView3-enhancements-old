@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangle.h,v $
   Language:  C++
-  Date:      $Date: 2001-05-28 05:34:45 $
-  Version:   $Revision: 1.64 $
+  Date:      $Date: 2001-06-18 13:13:01 $
+  Version:   $Revision: 1.65 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -150,7 +150,8 @@ public:
   // Description:
   // Compute the triangle normal from a points list, and a list of point ids
   // that index into the points list.
-  static void ComputeNormal(vtkPoints *p, int numPts, int *pts, float n[3]);
+  static void ComputeNormal(vtkPoints *p, int numPts, vtkIdType *pts,
+                            float n[3]);
 
   // Description:
   // Compute the triangle normal from three points.

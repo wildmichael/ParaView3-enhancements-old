@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLoopSubdivisionFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:42 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2001-06-18 13:13:03 $
+  Version:   $Revision: 1.7 $
   Thanks:    This work was supported bt PHS Research Grant No. 1 P41 RR13218-01
              from the National Center for Research Resources
 
@@ -62,7 +62,7 @@ vtkLoopSubdivisionFilter* vtkLoopSubdivisionFilter::New()
 void vtkLoopSubdivisionFilter::GenerateSubdivisionPoints (vtkPolyData *inputDS, vtkIntArray *edgeData, vtkPoints *outputPts, vtkPointData *outputPD)
 {
   float *weights;
-  int *pts;
+  vtkIdType *pts;
   int numPts;
   int cellId, edgeId, newId;
   int npts;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUGFacetReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:56 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2001-06-18 13:13:03 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -113,7 +113,7 @@ void vtkUGFacetReader::Execute()
   FILE *fp;
   char header[36];
   struct {float  v1[3], v2[3], v3[3], n1[3], n2[3], n3[3];} facet;
-  int ptId[3];
+  vtkIdType ptId[3];
   short ugiiColor, direction;
   int numberTris, numFacetSets, setNumber, facetNumber;
   vtkPoints *newPts, *mergedPts;
@@ -231,7 +231,8 @@ void vtkUGFacetReader::Execute()
   //
   if ( this->Merging )
     {
-    int npts, *pts, i, nodes[3];
+    int npts, i;
+    vtkIdType *pts, nodes[3];
     float *x;
 
     mergedPts = vtkPoints::New();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMCubesReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-05-02 13:25:07 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 2001-06-18 13:13:03 $
+  Version:   $Revision: 1.52 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -111,7 +111,8 @@ void vtkMCubesReader::Execute()
   typedef struct {float x[3], n[3];} pointType;
   pointType point;
   struct  stat buf;
-  int nodes[3], numDegenerate=0;
+  int numDegenerate=0;
+  vtkIdType nodes[3];
   float direction, n[3], dummy[2];
   vtkPolyData *output = this->GetOutput();
   int byteOrder = this->GetDataByteOrder();

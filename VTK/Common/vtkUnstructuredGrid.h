@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGrid.h,v $
   Language:  C++
-  Date:      $Date: 2001-05-21 12:44:55 $
-  Version:   $Revision: 1.73 $
+  Date:      $Date: 2001-06-18 13:13:01 $
+  Version:   $Revision: 1.74 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -80,8 +80,8 @@ public:
   // Description:
   // Standard vtkDataSet API methods. See vtkDataSet for more information.
   int GetDataObjectType() {return VTK_UNSTRUCTURED_GRID;};
-  virtual void Allocate(int numCells=1000, int extSize=1000);
-  int InsertNextCell(int type, int npts, int *pts);
+  virtual void Allocate(vtkIdType numCells=1000, int extSize=1000);
+  int InsertNextCell(int type, int npts, vtkIdType *pts);
   int InsertNextCell(int type, vtkIdList *ptIds);
   void Reset();
   void SetCells(int *types, vtkCellArray *cells);
@@ -90,32 +90,32 @@ public:
   vtkCellArray *GetCells() {return this->Connectivity;};
   vtkDataObject *MakeObject() {return vtkUnstructuredGrid::New();};
   virtual void CopyStructure(vtkDataSet *ds);
-  int GetNumberOfCells();
-  virtual vtkCell *GetCell(int cellId);
-  virtual void GetCell(int cellId, vtkGenericCell *cell);
-  virtual void GetCellBounds(int cellId, float bounds[6]);
-  virtual void GetCellPoints(int cellId, vtkIdList *ptIds);
-  void GetPointCells(int ptId, vtkIdList *cellIds);
+  vtkIdType GetNumberOfCells();
+  virtual vtkCell *GetCell(vtkIdType cellId);
+  virtual void GetCell(vtkIdType cellId, vtkGenericCell *cell);
+  virtual void GetCellBounds(vtkIdType cellId, float bounds[6]);
+  virtual void GetCellPoints(vtkIdType cellId, vtkIdList *ptIds);
+  void GetPointCells(vtkIdType ptId, vtkIdList *cellIds);
 
-  int GetCellType(int cellId);
+  int GetCellType(vtkIdType cellId);
   void Squeeze();
   void Initialize();
   int GetMaxCellSize();
   void BuildLinks();
   vtkCellLinks *GetCellLinks() {return this->Links;};
-  virtual void GetCellPoints(int cellId, int& npts, int* &pts);
-  void ReplaceCell(int cellId, int npts, int *pts);
-  int InsertNextLinkedCell(int type, int npts, int *pts); 
-  void RemoveReferenceToCell(int ptId, int cellId);
-  void AddReferenceToCell(int ptId, int cellId);
-  void ResizeCellList(int ptId, int size);
+  virtual void GetCellPoints(vtkIdType cellId, int& npts, vtkIdType* &pts);
+  void ReplaceCell(vtkIdType cellId, int npts, vtkIdType *pts);
+  int InsertNextLinkedCell(int type, int npts, vtkIdType *pts);
+  void RemoveReferenceToCell(vtkIdType ptId, vtkIdType cellId);
+  void AddReferenceToCell(vtkIdType ptId, vtkIdType cellId);
+  void ResizeCellList(vtkIdType ptId, int size);
 
   // Description:
   // Topological inquiry to get all cells using list of points exclusive of
   // cell specified (e.g., cellId).
   // THIS METHOD IS THREAD SAFE IF FIRST CALLED FROM A SINGLE THREAD AND
   // THE DATASET IS NOT MODIFIED
-  virtual void GetCellNeighbors(int cellId, vtkIdList *ptIds, 
+  virtual void GetCellNeighbors(vtkIdType cellId, vtkIdList *ptIds, 
 				vtkIdList *cellIds);
 
   // Description:
@@ -214,7 +214,7 @@ protected:
   
   // Description:
   // For legacy compatibility. Do not use.
-  void GetCellNeighbors(int cellId, vtkIdList& ptIds, vtkIdList& cellIds)
+  void GetCellNeighbors(vtkIdType cellId, vtkIdList& ptIds, vtkIdList& cellIds)
     {this->GetCellNeighbors(cellId, &ptIds, &cellIds);}
 };
 
