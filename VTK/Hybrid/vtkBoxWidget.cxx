@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBoxWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-07-01 15:46:37 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2003-07-01 17:54:33 $
+  Version:   $Revision: 1.33 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -37,7 +37,7 @@
 #include "vtkSphereSource.h"
 #include "vtkTransform.h"
 
-vtkCxxRevisionMacro(vtkBoxWidget, "$Revision: 1.32 $");
+vtkCxxRevisionMacro(vtkBoxWidget, "$Revision: 1.33 $");
 vtkStandardNewMacro(vtkBoxWidget);
 
 vtkBoxWidget::vtkBoxWidget()
@@ -1195,7 +1195,6 @@ void vtkBoxWidget::GetTransform(vtkTransform *t)
   double *p14 = pts + 3*14;
   double center[3], translate[3], scale[3], scaleVec[3][3];
   float  position[3];
-  float *PropCenter;
   int i;
 
   // The transformation is relative to the initial bounds.
