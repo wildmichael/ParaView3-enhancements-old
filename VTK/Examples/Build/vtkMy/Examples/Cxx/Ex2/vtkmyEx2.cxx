@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkmyEx2.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-10 14:24:13 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-12-09 20:49:44 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,10 +25,12 @@
 //
 // First include the required header files for the vtk classes we are using
 //
+#include "vtkActor.h"
+#include "vtkCamera.h"
 #include "vtkConeSource.h"
 #include "vtkPolyDataMapper.h"
 #include "vtkRenderWindow.h"
-#include "vtkCamera.h"
+#include "vtkRenderer.h"
 
 int main(int argc, char *argv[])
 {
