@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkTransform.h,v $
   Language:  C++
-  Date:      $Date: 1994-10-06 18:11:15 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1994-11-01 23:14:38 $
+  Version:   $Revision: 1.11 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -61,6 +61,7 @@ class vlTransform : public vlObject
   float *GetOrientation();
   void GetPosition (float & x,float & y,float & z);
   void GetScale ( float & x, float & y, float & z);
+  void SetMatrix(vlMatrix4x4& m);
   vlMatrix4x4& GetMatrix();
   void GetMatrix (vlMatrix4x4& m);
   void Concatenate (vlMatrix4x4 & matrix);
@@ -71,6 +72,7 @@ class vlTransform : public vlObject
   void MultiplyNormals(vlNormals *inNormals, vlNormals *outNormals);
   vlSetVector4Macro(Point,float);
   float *GetPoint();
+  void GetPoint(float p[3]);
 
  private:
   int PreMultiplyFlag;
