@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTIFFWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-10-07 12:24:12 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2003-10-08 13:46:13 $
+  Version:   $Revision: 1.30 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 #include "vtkErrorCode.h"
 #include <tiffio.h>
 
-vtkCxxRevisionMacro(vtkTIFFWriter, "$Revision: 1.29 $");
+vtkCxxRevisionMacro(vtkTIFFWriter, "$Revision: 1.30 $");
 vtkStandardNewMacro(vtkTIFFWriter);
 
 //----------------------------------------------------------------------------
@@ -270,4 +270,26 @@ void vtkTIFFWriter::WriteFileTrailer(ofstream *, vtkImageData *)
 void vtkTIFFWriter::PrintSelf(ostream& os, vtkIndent indent)
 {
   this->Superclass::PrintSelf(os,indent);
+
+  os << indent << "Compression: ";
+  if ( this->Compression == vtkTIFFWriter::PackBits )
+    {
+    os << "Pack Bits\n";
+    }
+  else if ( this->Compression == vtkTIFFWriter::JPEG )
+    {
+    os << "JPEG\n";
+    }
+  else if ( this->Compression == vtkTIFFWriter::Deflate )
+    {
+    os << "Deflate\n";
+    }
+  else if ( this->Compression == vtkTIFFWriter::LZW )
+    {
+    os << "LZW\n";
+    }
+  else //if ( this->Compression == vtkTIFFWriter::NoCompression )
+    {
+    os << "No Compression\n";
+    }
 }
