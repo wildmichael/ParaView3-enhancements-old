@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCocoaRenderWindow.mm,v $
   Language:  C++
-  Date:      $Date: 2002-06-06 20:49:08 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-09-01 13:14:34 $
+  Version:   $Revision: 1.3 $
   Thanks:    to Yves Starreveld for developing this class
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -40,9 +40,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
 
-#include <stdlib.h>
-#include <math.h>
-#include <stdio.h>
 #include "vtkCocoaRenderWindow.h"
 #include "vtkCocoaRenderWindowInteractor.h"
 #include "vtkOpenGLRenderer.h"
@@ -52,16 +49,16 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkOpenGLActor.h"
 #include "vtkOpenGLLight.h"
 #include "vtkOpenGLPolyDataMapper.h"
+#include "vtkIdList.h"
 #include "vtkObjectFactory.h"
 #include "vtkRendererCollection.h"
-//#include "vtkFloatArray.h"
 #import "vtkCocoaWindow.h"
 #import "vtkCocoaGLView.h"
 
 #define id Id // since id is a reserved token in ObjC and is used a _lot_ in vtk
 
 
-vtkCxxRevisionMacro(vtkCocoaRenderWindow, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkCocoaRenderWindow, "$Revision: 1.3 $");
 vtkStandardNewMacro(vtkCocoaRenderWindow);
 
 
