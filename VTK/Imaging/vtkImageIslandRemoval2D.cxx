@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageIslandRemoval2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-01-07 09:11:23 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2000-01-13 14:29:18 $
+  Version:   $Revision: 1.26 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -517,6 +517,8 @@ static void vtkImageIslandRemoval2DExecute(vtkImageIslandRemoval2D *self,
 	inPtr1 += inInc1;
 	outPtr1 += outInc1;
 	}
+      inPtr2 += inInc2;
+      outPtr2 += outInc2;
       }
     }
 }
