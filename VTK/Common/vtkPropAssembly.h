@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPropAssembly.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-27 15:18:37 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2001-10-02 21:06:39 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -70,7 +70,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "vtkProp.h"
 
-class VTK_EXPORT vtkPropAssembly : public vtkProp
+class VTK_COMMON_EXPORT vtkPropAssembly : public vtkProp
 {
 public:
   vtkTypeMacro(vtkPropAssembly,vtkProp);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMatrix4x4.h,v $
   Language:  C++
-  Date:      $Date: 2001-05-28 05:46:17 $
-  Version:   $Revision: 1.57 $
+  Date:      $Date: 2001-10-02 21:06:33 $
+  Version:   $Revision: 1.58 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -53,7 +53,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "vtkObject.h"
 
-class VTK_EXPORT vtkMatrix4x4 : public vtkObject
+class VTK_COMMON_EXPORT vtkMatrix4x4 : public vtkObject
 {
   // Some of the methods in here have a corresponding static (class)
   // method taking a pointer to 16 doubles that constitutes a user

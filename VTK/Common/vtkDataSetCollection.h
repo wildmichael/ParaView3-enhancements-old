@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetCollection.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-20 21:12:03 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2001-10-02 21:06:16 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -50,7 +50,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkCollection.h"
 #include "vtkDataSet.h"
 
-class VTK_EXPORT vtkDataSetCollection : public vtkCollection
+class VTK_COMMON_EXPORT vtkDataSetCollection : public vtkCollection
 {
 public:
   static vtkDataSetCollection *New();

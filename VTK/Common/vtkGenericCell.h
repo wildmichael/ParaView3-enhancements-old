@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGenericCell.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:45 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2001-10-02 21:06:22 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -53,7 +53,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "vtkCell.h"
 
-class VTK_EXPORT vtkGenericCell : public vtkCell
+class VTK_COMMON_EXPORT vtkGenericCell : public vtkCell
 {
 public:
   // Description:

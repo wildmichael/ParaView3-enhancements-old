@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLargeInteger.h,v $
   Language:  C++
-  Date:      $Date: 2001-02-16 16:53:41 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-10-02 21:06:29 $
+  Version:   $Revision: 1.5 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -45,7 +45,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "vtkObject.h"
 
-class VTK_EXPORT vtkLargeInteger 
+class VTK_COMMON_EXPORT vtkLargeInteger 
 {
 public:
   vtkLargeInteger(void);

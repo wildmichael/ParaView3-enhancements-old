@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolygon.h,v $
   Language:  C++
-  Date:      $Date: 2001-09-10 20:11:30 $
-  Version:   $Revision: 1.65 $
+  Date:      $Date: 2001-10-02 21:06:38 $
+  Version:   $Revision: 1.66 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -54,7 +54,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkTriangle.h"
 #include "vtkQuad.h"
 
-class VTK_EXPORT vtkPolygon : public vtkCell
+class VTK_COMMON_EXPORT vtkPolygon : public vtkCell
 {
 public:
   static vtkPolygon *New();

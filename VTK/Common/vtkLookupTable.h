@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLookupTable.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:45 $
-  Version:   $Revision: 1.57 $
+  Date:      $Date: 2001-10-02 21:06:31 $
+  Version:   $Revision: 1.58 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -62,7 +62,7 @@ class vtkScalars;
 #define VTK_SCALE_LINEAR 0
 #define VTK_SCALE_LOG10 1
 
-class VTK_EXPORT vtkLookupTable : public vtkScalarsToColors
+class VTK_COMMON_EXPORT vtkLookupTable : public vtkScalarsToColors
 {
 public:
   // Description:

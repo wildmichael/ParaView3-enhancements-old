@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalars.h,v $
   Language:  C++
-  Date:      $Date: 2001-09-28 20:30:09 $
-  Version:   $Revision: 1.75 $
+  Date:      $Date: 2001-10-02 21:06:41 $
+  Version:   $Revision: 1.76 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -72,7 +72,7 @@ class vtkLookupTable;
 class vtkUnsignedCharArray;
 class vtkScalarsToColors;
 
-class VTK_EXPORT vtkScalars : public vtkAttributeData
+class VTK_COMMON_EXPORT vtkScalars : public vtkAttributeData
 {
 public:
   static vtkScalars *New();

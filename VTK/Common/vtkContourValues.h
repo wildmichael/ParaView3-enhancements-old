@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkContourValues.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:44 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2001-10-02 21:06:12 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -56,7 +56,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 class vtkFloatArray;
 
-class VTK_EXPORT vtkContourValues : public vtkObject
+class VTK_COMMON_EXPORT vtkContourValues : public vtkObject
 {
 public:
   // Description:

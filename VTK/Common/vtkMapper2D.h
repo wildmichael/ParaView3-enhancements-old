@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper2D.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:45 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2001-10-02 21:06:32 $
+  Version:   $Revision: 1.23 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -56,7 +56,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 class vtkViewport;
 class vtkActor2D;
 
-class VTK_EXPORT vtkMapper2D : public vtkAbstractMapper
+class VTK_COMMON_EXPORT vtkMapper2D : public vtkAbstractMapper
 {
 public:
   static vtkMapper2D* New();

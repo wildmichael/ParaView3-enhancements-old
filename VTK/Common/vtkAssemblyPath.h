@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAssemblyPath.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:45:56 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-10-02 21:06:05 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -61,7 +61,7 @@ class vtkMatrix4x4;
 class vtkTransform;
 class vtkProp;
 
-class VTK_EXPORT vtkAssemblyPath : public vtkCollection
+class VTK_COMMON_EXPORT vtkAssemblyPath : public vtkCollection
 {
 public:
   vtkTypeMacro(vtkAssemblyPath,vtkCollection);

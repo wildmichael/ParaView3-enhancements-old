@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSetGet.h,v $
   Language:  C++
-  Date:      $Date: 2001-09-19 20:13:18 $
-  Version:   $Revision: 1.87 $
+  Date:      $Date: 2001-10-02 21:06:42 $
+  Version:   $Revision: 1.88 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -439,11 +439,11 @@ virtual void Get##name (type data[count]) \
 // This is to avoid vtkObject #include of vtkOutputWindow
 // while vtkOutputWindow #includes vtkObject
 
-extern VTK_EXPORT void vtkOutputWindowDisplayText(const char*);
-extern VTK_EXPORT void vtkOutputWindowDisplayErrorText(const char*);
-extern VTK_EXPORT void vtkOutputWindowDisplayWarningText(const char*);
-extern VTK_EXPORT void vtkOutputWindowDisplayGenericWarningText(const char*);
-extern VTK_EXPORT void vtkOutputWindowDisplayDebugText(const char*);
+extern VTK_COMMON_EXPORT void vtkOutputWindowDisplayText(const char*);
+extern VTK_COMMON_EXPORT void vtkOutputWindowDisplayErrorText(const char*);
+extern VTK_COMMON_EXPORT void vtkOutputWindowDisplayWarningText(const char*);
+extern VTK_COMMON_EXPORT void vtkOutputWindowDisplayGenericWarningText(const char*);
+extern VTK_COMMON_EXPORT void vtkOutputWindowDisplayDebugText(const char*);
 
 //
 // This macro is used for any output that may not be in an instance method

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyData.h,v $
   Language:  C++
-  Date:      $Date: 2001-09-28 19:30:26 $
-  Version:   $Revision: 1.115 $
+  Date:      $Date: 2001-10-02 21:06:38 $
+  Version:   $Revision: 1.116 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -79,7 +79,7 @@ class vtkEmptyCell;
 
 
 
-class VTK_EXPORT vtkPolyData : public vtkPointSet 
+class VTK_COMMON_EXPORT vtkPolyData : public vtkPointSet 
 {
 public:
   static vtkPolyData *New();

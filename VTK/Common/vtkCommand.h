@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCommand.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 16:11:31 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2001-10-02 21:06:11 $
+  Version:   $Revision: 1.17 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -53,7 +53,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 class vtkObject;
 
 // The superclass that all commands should be subclasses of
-class VTK_EXPORT vtkCommand
+class VTK_COMMON_EXPORT vtkCommand
 {
 public:
   vtkCommand() {};
@@ -111,7 +111,7 @@ public:
 // a good command to use for generic function callbacks
 // the function should have the format 
 // void func(vtkObject *,void *clientdata, void *calldata)
-class VTK_EXPORT vtkCallbackCommand : public vtkCommand
+class VTK_COMMON_EXPORT vtkCallbackCommand : public vtkCommand
 {
 public:
   vtkCallbackCommand();
@@ -135,7 +135,7 @@ public:
 
 
 // the old style void fund(void *) callbacks
-class VTK_EXPORT vtkOldStyleCallbackCommand : public vtkCommand
+class VTK_COMMON_EXPORT vtkOldStyleCallbackCommand : public vtkCommand
 {
 public:
   vtkOldStyleCallbackCommand();

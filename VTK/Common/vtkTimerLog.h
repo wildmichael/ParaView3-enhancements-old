@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTimerLog.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-30 14:25:30 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2001-10-02 21:06:44 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -101,7 +101,7 @@ typedef struct
 // undefine it here
 #undef GetCurrentTime
 
-class VTK_EXPORT vtkTimerLog : public vtkObject 
+class VTK_COMMON_EXPORT vtkTimerLog : public vtkObject 
 {
 public:
   static vtkTimerLog *New();

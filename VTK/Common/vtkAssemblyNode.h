@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAssemblyNode.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:47:29 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2001-10-02 21:06:04 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -73,7 +73,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkProp.h"
 #include "vtkMatrix4x4.h"
 
-class VTK_EXPORT vtkAssemblyNode : public vtkObject
+class VTK_COMMON_EXPORT vtkAssemblyNode : public vtkObject
 {
 public:
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGrid.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:46 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 2001-10-02 21:06:40 $
+  Version:   $Revision: 1.50 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -68,7 +68,7 @@ class vtkPixel;
 class vtkVoxel;
 class vtkDataArray;
 
-class VTK_EXPORT vtkRectilinearGrid : public vtkDataSet
+class VTK_COMMON_EXPORT vtkRectilinearGrid : public vtkDataSet
 {
 public:
   static vtkRectilinearGrid *New();

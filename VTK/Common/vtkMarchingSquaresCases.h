@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingSquaresCases.h,v $
   Language:  C++
-  Date:      $Date: 2001-07-11 15:31:21 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2001-10-02 21:06:33 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -46,7 +46,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //
 
 typedef int EDGE_LIST;
-struct VTK_EXPORT VTK_LINE_CASES 
+struct VTK_COMMON_EXPORT VTK_LINE_CASES 
 {
   EDGE_LIST edges[5];
   static VTK_LINE_CASES* GetCases();

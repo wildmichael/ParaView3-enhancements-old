@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProp.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-27 15:18:37 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2001-10-02 21:06:39 $
+  Version:   $Revision: 1.33 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -59,7 +59,7 @@ class vtkPropCollection;
 class vtkWindow;
 class vtkMatrix4x4;
 
-class VTK_EXPORT vtkProp : public vtkObject
+class VTK_COMMON_EXPORT vtkProp : public vtkObject
 {
 public:
   // Description:

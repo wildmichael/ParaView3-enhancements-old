@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObjectFactory.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:45 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2001-10-02 21:06:35 $
+  Version:   $Revision: 1.17 $
   Thanks:    Thanks to William A. Hoffman who developed this class
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -67,7 +67,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 class vtkObjectFactoryCollection;
 class vtkOverrideInformationCollection;
 
-class VTK_EXPORT vtkObjectFactory : public vtkObject
+class VTK_COMMON_EXPORT vtkObjectFactory : public vtkObject
 {
 public:  
   // Class Methods used to interface with the registered factories

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProperty2D.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:46 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2001-10-02 21:06:40 $
+  Version:   $Revision: 1.23 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -57,7 +57,7 @@ class vtkViewport;
 #define VTK_BACKGROUND_LOCATION 0
 #define VTK_FOREGROUND_LOCATION 1
 
-class VTK_EXPORT vtkProperty2D : public vtkObject
+class VTK_COMMON_EXPORT vtkProperty2D : public vtkObject
 {
 public:
   vtkTypeMacro(vtkProperty2D,vtkObject);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProcessStatistics.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:46 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2001-10-02 21:06:39 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -49,7 +49,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkLine.h"
 #include "vtkPixel.h"
 
-class VTK_EXPORT vtkProcessStatistics : public vtkObject
+class VTK_COMMON_EXPORT vtkProcessStatistics : public vtkObject
 {
 public:
   // Description:

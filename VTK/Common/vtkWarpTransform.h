@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpTransform.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:46 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-10-02 21:06:47 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -52,7 +52,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "vtkAbstractTransform.h"
 
-class VTK_EXPORT vtkWarpTransform : public vtkAbstractTransform
+class VTK_COMMON_EXPORT vtkWarpTransform : public vtkAbstractTransform
 {
 public:
 

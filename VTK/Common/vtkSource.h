@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSource.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:46 $
-  Version:   $Revision: 1.61 $
+  Date:      $Date: 2001-10-02 21:06:43 $
+  Version:   $Revision: 1.62 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -72,7 +72,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkProcessObject.h"
 #include "vtkDataObject.h"
 
-class VTK_EXPORT vtkSource : public vtkProcessObject
+class VTK_COMMON_EXPORT vtkSource : public vtkProcessObject
 {
 public:
   static vtkSource *New();

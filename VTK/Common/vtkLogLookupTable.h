@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLogLookupTable.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:45 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2001-10-02 21:06:31 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -52,7 +52,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "vtkLookupTable.h"
 
-class VTK_EXPORT vtkLogLookupTable : public vtkLookupTable
+class VTK_COMMON_EXPORT vtkLogLookupTable : public vtkLookupTable
 {
 public:
   static vtkLogLookupTable *New();

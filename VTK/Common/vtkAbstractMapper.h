@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractMapper.h,v $
   Language:  C++
-  Date:      $Date: 2001-09-28 20:30:09 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2001-10-02 21:06:03 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -70,7 +70,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 class vtkWindow;
 class vtkDataSet;
 
-class VTK_EXPORT vtkAbstractMapper : public vtkProcessObject
+class VTK_COMMON_EXPORT vtkAbstractMapper : public vtkProcessObject
 {
 public:
   vtkTypeMacro(vtkAbstractMapper,vtkProcessObject);

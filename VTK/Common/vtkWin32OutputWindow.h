@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OutputWindow.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-27 14:59:23 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2001-10-02 21:06:47 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -55,7 +55,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkOutputWindow.h"
 
 
-class VTK_EXPORT vtkWin32OutputWindow : public vtkOutputWindow
+class VTK_COMMON_EXPORT vtkWin32OutputWindow : public vtkOutputWindow
 {
 public:
 // Methods from vtkObject

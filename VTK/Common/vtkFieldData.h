@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFieldData.h,v $
   Language:  C++
-  Date:      $Date: 2001-09-25 21:06:47 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2001-10-02 21:06:20 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -70,7 +70,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkDataArray.h"
 #include "vtkIdList.h"
 
-class VTK_EXPORT vtkFieldData : public vtkObject
+class VTK_COMMON_EXPORT vtkFieldData : public vtkObject
 {
 public:
   static vtkFieldData *New();
@@ -386,7 +386,7 @@ protected:
 
 public:
 
-  class VTK_EXPORT BasicIterator
+  class VTK_COMMON_EXPORT BasicIterator
   {
   public:
     BasicIterator();
@@ -426,7 +426,7 @@ public:
     int Position;
   };
 
-  class VTK_EXPORT Iterator : public BasicIterator
+  class VTK_COMMON_EXPORT Iterator : public BasicIterator
   {
   public:
 

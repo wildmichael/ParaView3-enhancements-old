@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractTransform.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-16 21:40:49 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2001-10-02 21:06:03 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -73,7 +73,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 class vtkSimpleMutexLock;
 
 
-class VTK_EXPORT vtkAbstractTransform : public vtkObject
+class VTK_COMMON_EXPORT vtkAbstractTransform : public vtkObject
 {
 public:
 
@@ -348,7 +348,7 @@ public:
 
 // A helper class (not derived from vtkObject) to store a series of
 // transformations in a pipelined concatenation.
-class VTK_EXPORT vtkTransformConcatenation
+class VTK_COMMON_EXPORT vtkTransformConcatenation
 {
 public:
   static vtkTransformConcatenation *New() {
@@ -422,7 +422,7 @@ protected:
 
 // A helper class (not derived from vtkObject) to store a stack of
 // concatenations.
-class VTK_EXPORT vtkTransformConcatenationStack
+class VTK_COMMON_EXPORT vtkTransformConcatenationStack
 {
 public:
   static vtkTransformConcatenationStack *New() {

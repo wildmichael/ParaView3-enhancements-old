@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIdentityTransform.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-13 15:54:30 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2001-10-02 21:06:25 $
+  Version:   $Revision: 1.18 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -53,7 +53,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "vtkLinearTransform.h"
 
-class VTK_EXPORT vtkIdentityTransform : public vtkLinearTransform
+class VTK_COMMON_EXPORT vtkIdentityTransform : public vtkLinearTransform
 {
 public:
   static vtkIdentityTransform *New();

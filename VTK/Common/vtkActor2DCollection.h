@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor2DCollection.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-20 21:12:03 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2001-10-02 21:06:04 $
+  Version:   $Revision: 1.24 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -56,7 +56,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkActor2D.h"
 class vtkViewport;
 
-class VTK_EXPORT vtkActor2DCollection : public vtkPropCollection
+class VTK_COMMON_EXPORT vtkActor2DCollection : public vtkPropCollection
 {
  public:
   // Description:

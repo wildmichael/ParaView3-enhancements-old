@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPriorityQueue.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:46 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2001-10-02 21:06:38 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -73,7 +73,7 @@ typedef struct _vtkPriorityItem
   } vtkPriorityItem;
 //ETX
 
-class VTK_EXPORT vtkPriorityQueue : public vtkObject
+class VTK_COMMON_EXPORT vtkPriorityQueue : public vtkObject
 {
 public:
   // Description:

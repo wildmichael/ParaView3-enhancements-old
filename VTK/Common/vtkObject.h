@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObject.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:45 $
-  Version:   $Revision: 1.76 $
+  Date:      $Date: 2001-10-02 21:06:35 $
+  Version:   $Revision: 1.77 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -72,7 +72,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 class vtkSubjectHelper;
 class vtkCommand;
 
-class VTK_EXPORT vtkObject 
+class VTK_COMMON_EXPORT vtkObject 
 {
 public:
   // Description:
@@ -223,7 +223,7 @@ protected:
 
 private:
   //BTX
-  friend VTK_EXPORT ostream& operator<<(ostream& os, vtkObject& o);
+  friend VTK_COMMON_EXPORT ostream& operator<<(ostream& os, vtkObject& o);
   //ETX
 };
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCriticalSection.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-16 21:40:49 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2001-10-02 21:06:13 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -88,7 +88,7 @@ typedef int vtkCritSecType;
 #endif
 
 // Critical Section object that is not a vtkObject.
-class VTK_EXPORT vtkSimpleCriticalSection
+class VTK_COMMON_EXPORT vtkSimpleCriticalSection
 {
 public:
   vtkSimpleCriticalSection()
@@ -133,7 +133,7 @@ protected:
 
 //ETX
 
-class VTK_EXPORT vtkCriticalSection : public vtkObject
+class VTK_COMMON_EXPORT vtkCriticalSection : public vtkObject
 {
 public:
   static vtkCriticalSection *New();

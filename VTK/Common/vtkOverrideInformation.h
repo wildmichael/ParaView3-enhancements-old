@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOverrideInformation.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:45 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-10-02 21:06:36 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to William A. Hoffman who developed this class
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -55,7 +55,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkObjectFactory.h"
 
 
-class VTK_EXPORT vtkOverrideInformation : public vtkObject
+class VTK_COMMON_EXPORT vtkOverrideInformation : public vtkObject
 {
 public: 
   static vtkOverrideInformation* New();

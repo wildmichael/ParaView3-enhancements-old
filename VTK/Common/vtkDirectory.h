@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDirectory.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:44 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2001-10-02 21:06:17 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to William A. Hoffman who developed this class
   
 
@@ -56,7 +56,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkObject.h"
 #include "vtkDebugLeaks.h"
 
-class VTK_EXPORT vtkDirectory : public vtkObject
+class VTK_COMMON_EXPORT vtkDirectory : public vtkObject
 {
 public:
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDynamicLoader.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:45 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2001-10-02 21:06:18 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to William A. Hoffman who developed this class
 
 
@@ -67,7 +67,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkObject.h"
 
 
-class VTK_EXPORT vtkDynamicLoader : public vtkObject
+class VTK_COMMON_EXPORT vtkDynamicLoader : public vtkObject
 {
 public:
   static vtkDynamicLoader *New() {return new vtkDynamicLoader;};

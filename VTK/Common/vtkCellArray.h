@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellArray.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:44 $
-  Version:   $Revision: 1.81 $
+  Date:      $Date: 2001-10-02 21:06:09 $
+  Version:   $Revision: 1.82 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -62,7 +62,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkIdTypeArray.h"
 #include "vtkCell.h"
 
-class VTK_EXPORT vtkCellArray : public vtkObject
+class VTK_COMMON_EXPORT vtkCellArray : public vtkObject
 {
 public:
   vtkTypeMacro(vtkCellArray,vtkObject);

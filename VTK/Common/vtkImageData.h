@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.h,v $
   Language:  C++
-  Date:      $Date: 2001-09-12 16:08:43 $
-  Version:   $Revision: 1.89 $
+  Date:      $Date: 2001-10-02 21:06:26 $
+  Version:   $Revision: 1.90 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -57,7 +57,7 @@ class vtkPixel;
 class vtkVoxel;
 
 
-class VTK_EXPORT vtkImageData : public vtkDataSet
+class VTK_COMMON_EXPORT vtkImageData : public vtkDataSet
 {
 public:
   static vtkImageData *New();

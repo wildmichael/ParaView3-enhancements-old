@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGrid.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:45:56 $
-  Version:   $Revision: 1.84 $
+  Date:      $Date: 2001-10-02 21:06:43 $
+  Version:   $Revision: 1.85 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -66,7 +66,7 @@ class vtkQuad;
 class vtkHexahedron;
 class vtkEmptyCell;
 
-class VTK_EXPORT vtkStructuredGrid : public vtkPointSet 
+class VTK_COMMON_EXPORT vtkStructuredGrid : public vtkPointSet 
 {
 public:
   static vtkStructuredGrid *New();

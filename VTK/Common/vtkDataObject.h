@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObject.h,v $
   Language:  C++
-  Date:      $Date: 2001-09-14 18:24:50 $
-  Version:   $Revision: 1.59 $
+  Date:      $Date: 2001-10-02 21:06:14 $
+  Version:   $Revision: 1.60 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -69,7 +69,7 @@ class vtkExtentTranslator;
 #define VTK_PIECES_EXTENT   0
 #define VTK_3D_EXTENT       1
 
-class VTK_EXPORT vtkDataObject : public vtkObject
+class VTK_COMMON_EXPORT vtkDataObject : public vtkObject
 {
 public:
   static vtkDataObject *New();

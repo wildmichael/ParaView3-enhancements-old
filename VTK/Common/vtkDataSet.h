@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSet.h,v $
   Language:  C++
-  Date:      $Date: 2001-09-25 21:06:46 $
-  Version:   $Revision: 1.106 $
+  Date:      $Date: 2001-10-02 21:06:15 $
+  Version:   $Revision: 1.107 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -70,7 +70,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkGenericCell.h"
 #include "vtkCellTypes.h"
 
-class VTK_EXPORT vtkDataSet : public vtkDataObject
+class VTK_COMMON_EXPORT vtkDataSet : public vtkDataObject
 {
 public:
   vtkTypeMacro(vtkDataSet,vtkDataObject);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWedge.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:42:14 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2001-10-02 21:06:47 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -55,7 +55,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 class vtkUnstructuredGrid;
 
-class VTK_EXPORT vtkWedge : public vtkCell3D
+class VTK_COMMON_EXPORT vtkWedge : public vtkCell3D
 {
 public:
   static vtkWedge *New();
