@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIOStreamFwd.h,v $
   Language:  C++
-  Date:      $Date: 2002-12-13 22:22:24 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2003-03-21 20:12:26 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -28,6 +28,10 @@
 
 #ifdef VTK_USE_ANSI_STDLIB
 
+#ifdef _MSC_VER
+#pragma warning (push, 3)
+#endif
+
 // Forward-declare ansi streams.
 # include <iosfwd>
 using std::ios;
@@ -39,6 +43,11 @@ using std::filebuf;
 using std::ifstream;
 using std::ofstream;
 using std::fstream;
+
+#ifdef _MSC_VER
+#pragma warning(pop)
+#endif
+
 #else
 # ifdef __BORLANDC__
 #  include <iosfwd.h>

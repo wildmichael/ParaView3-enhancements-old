@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIOStream.h,v $
   Language:  C++
-  Date:      $Date: 2002-12-10 19:10:39 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2003-03-21 20:12:26 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,6 +26,10 @@
 #include "vtkConfigure.h"
 
 #ifdef VTK_USE_ANSI_STDLIB
+
+#ifdef _MSC_VER
+#pragma warning (push, 3)
+#endif
 
 # include <iostream>  // Include real ansi istream and ostream.
 # include <strstream> // Include real ansi strstreams.
@@ -51,6 +55,10 @@ using std::strstream;
 using std::ofstream;
 using std::ifstream;
 using std::fstream;
+
+#ifdef _MSC_VER
+#pragma warning(pop)
+#endif
 
 #else
 
