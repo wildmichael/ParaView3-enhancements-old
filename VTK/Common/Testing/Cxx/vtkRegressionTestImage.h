@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRegressionTestImage.h,v $
   Language:  C++
-  Date:      $Date: 2002-03-19 16:20:52 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2002-03-26 21:59:19 $
+  Version:   $Revision: 1.22 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -58,6 +58,7 @@ vtkRegressionTester::Test(argc, argv, rw, 10)
 vtkRegressionTester::Test(argc, argv, rw, t)
 
 
+inline
 int vtkRegressionTester::Test(int argc, char *argv[], vtkRenderWindow *rw, 
                               float thresh ) 
 {
@@ -283,6 +284,7 @@ int vtkRegressionTester::Test(int argc, char *argv[], vtkRenderWindow *rw,
   return NOT_RUN;
 }
 
+inline
 char* vtkRegressionTester::IncrementFileName(const char* fname, 
                                                     int count)
 {
@@ -313,6 +315,7 @@ char* vtkRegressionTester::IncrementFileName(const char* fname,
   return newFileName;
 }
 
+inline
 int vtkRegressionTester::LookForFile(const char* newFileName)
 {
   if (!newFileName)
