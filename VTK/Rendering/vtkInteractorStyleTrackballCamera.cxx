@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleTrackballCamera.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-01 04:56:53 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2002-05-03 13:41:10 $
+  Version:   $Revision: 1.25 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,18 +20,13 @@
 #include "vtkMath.h"
 #include "vtkCommand.h"
 
-vtkCxxRevisionMacro(vtkInteractorStyleTrackballCamera, "$Revision: 1.24 $");
+vtkCxxRevisionMacro(vtkInteractorStyleTrackballCamera, "$Revision: 1.25 $");
 vtkStandardNewMacro(vtkInteractorStyleTrackballCamera);
 
 //----------------------------------------------------------------------------
 vtkInteractorStyleTrackballCamera::vtkInteractorStyleTrackballCamera() 
 {
   this->MotionFactor   = 10.0;
-
-  // This prevent vtkInteractorStyle::StartState to fire the timer
-  // that is used to handle joystick mode
-
-  this->UseTimers = 0;
 }
 
 //----------------------------------------------------------------------------

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyle.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-03 13:23:57 $
-  Version:   $Revision: 1.71 $
+  Date:      $Date: 2002-05-03 13:41:10 $
+  Version:   $Revision: 1.72 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 #include "vtkOldStyleCallbackCommand.h"
 #include "vtkCallbackCommand.h"
 
-vtkCxxRevisionMacro(vtkInteractorStyle, "$Revision: 1.71 $");
+vtkCxxRevisionMacro(vtkInteractorStyle, "$Revision: 1.72 $");
 
 //----------------------------------------------------------------------------
 vtkInteractorStyle *vtkInteractorStyle::New() 
@@ -39,7 +39,7 @@ vtkInteractorStyle::vtkInteractorStyle()
   this->AnimState           = VTKIS_ANIM_OFF; 
 
   this->HandleObservers     = 1;
-  this->UseTimers           = 1;
+  this->UseTimers           = 0;
 
   this->AutoAdjustCameraClippingRange = 1;
   
