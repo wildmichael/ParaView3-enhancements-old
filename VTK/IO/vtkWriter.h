@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWriter.h,v $
   Language:  C++
-  Date:      $Date: 1996-06-26 20:41:55 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1996-07-13 21:21:15 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -52,7 +52,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // will have to create SetInput() method as well.
 
 // .SECTION See Also
-// vtkBYUWriter vtkDataWriter vtkSTLWriter vtkVoxelWriter
+// vtkBYUWriter vtkDataWriter vtkSTLWriter vtkVoxelWriter vtkMCubesWriter
 
 #ifndef __vtkWriter_hh
 #define __vtkWriter_hh
