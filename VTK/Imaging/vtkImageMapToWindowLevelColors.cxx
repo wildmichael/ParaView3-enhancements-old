@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMapToWindowLevelColors.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:33:01 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2002-04-03 20:18:24 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkImageMapToWindowLevelColors.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkImageMapToWindowLevelColors, "$Revision: 1.10 $");
+vtkCxxRevisionMacro(vtkImageMapToWindowLevelColors, "$Revision: 1.11 $");
 vtkStandardNewMacro(vtkImageMapToWindowLevelColors);
 
 // Constructor sets default values
@@ -268,7 +268,7 @@ static void vtkImageMapToWindowLevelColorsExecute(vtkImageMapToWindowLevelColors
   numberOfOutputComponents = outData->GetNumberOfScalarComponents();
   outputFormat = self->GetOutputFormat();
   
-  rowLength = extX;
+  rowLength = extX*numberOfComponents;
 
   // Loop through output pixels
   outPtr1 = outPtr;
@@ -325,7 +325,7 @@ static void vtkImageMapToWindowLevelColorsExecute(vtkImageMapToWindowLevelColors
               *(optr+1) = 255;
               break;
             }
-          iptr++;
+          iptr += numberOfComponents;
           optr += numberOfOutputComponents;
           }
         }
@@ -361,7 +361,7 @@ static void vtkImageMapToWindowLevelColorsExecute(vtkImageMapToWindowLevelColors
               *(optr+1) = 255;
               break;
             }
-          iptr++;
+          iptr += numberOfComponents;
           optr += numberOfOutputComponents;
           }
         }      
