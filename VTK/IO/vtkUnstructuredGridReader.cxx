@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGridReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-21 19:58:43 $
-  Version:   $Revision: 1.54 $
+  Date:      $Date: 2000-09-17 11:16:11 $
+  Version:   $Revision: 1.55 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -80,7 +80,7 @@ unsigned long int vtkUnstructuredGridReader::GetMTime()
 }
 
 // Specify file name of vtk polygonal data file to read.
-void vtkUnstructuredGridReader::SetFileName(char *name) 
+void vtkUnstructuredGridReader::SetFileName(const char *name) 
 {
   this->Reader->SetFileName(name);
 }
@@ -237,7 +237,13 @@ void vtkUnstructuredGridReader::Execute()
         break;
         }
 
-      if ( ! strncmp(this->Reader->LowerCase(line),"points",6) )
+      if (! strncmp(this->Reader->LowerCase(line), "field", 5))
+	{
+	vtkFieldData* fd = this->Reader->ReadFieldData();
+	output->SetFieldData(fd);
+	fd->Delete(); // ?
+	}
+      else if ( ! strncmp(line, "points",6) )
         {
         if (!this->Reader->Read(&numPts))
           {

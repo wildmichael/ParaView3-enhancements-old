@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGridReader.h,v $
   Language:  C++
-  Date:      $Date: 2000-07-11 09:12:20 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2000-09-17 11:16:11 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -65,7 +65,7 @@ public:
 
   // Description:
   // Specify file name of vtk polygonal data file to read.
-  void SetFileName(char *name);
+  void SetFileName(const char *name);
   char *GetFileName();
 
   // Description:
