@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractMapper.h,v $
   Language:  C++
-  Date:      $Date: 2001-04-15 16:36:39 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2001-04-16 14:13:03 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -64,10 +64,6 @@ class VTK_EXPORT vtkAbstractMapper : public vtkProcessObject
 public:
   vtkTypeMacro(vtkAbstractMapper,vtkProcessObject);
   void PrintSelf(ostream& os, vtkIndent indent);
-
-  // Description:
-  // Perform a Shallow copy of this object
-  void ShallowCopy(vtkAbstractMapper *m);
 
   // Description:
   // Override Modifiedtime as we have added Clipping planes

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-05 14:32:42 $
-  Version:   $Revision: 1.80 $
+  Date:      $Date: 2001-04-16 14:13:22 $
+  Version:   $Revision: 1.81 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -203,7 +203,7 @@ unsigned long vtkMapper::GetMTime()
 void vtkMapper::ShallowCopy(vtkMapper *m)
 {
   this->SetLookupTable(m->GetLookupTable());
-
+  this->SetClippingPlanes(m->GetClippingPlanes());
   this->SetScalarVisibility(m->GetScalarVisibility());
   this->SetScalarRange(m->GetScalarRange());
   this->SetColorMode(m->GetColorMode());

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-15 16:36:39 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2001-04-16 14:13:03 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -60,11 +60,6 @@ vtkAbstractMapper::~vtkAbstractMapper()
     {
     this->ClippingPlanes->UnRegister(this);
     }
-}
-
-void vtkAbstractMapper::ShallowCopy(vtkAbstractMapper *m)
-{
-  this->SetClippingPlanes(m->GetClippingPlanes());
 }
 
 // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-05 23:36:32 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2001-04-16 14:13:39 $
+  Version:   $Revision: 1.26 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -62,6 +62,7 @@ vtkPolyDataMapper2D::vtkPolyDataMapper2D()
 void vtkPolyDataMapper2D::ShallowCopy(vtkPolyDataMapper2D *m)
 {
   this->SetLookupTable(m->GetLookupTable());
+  this->SetClippingPlanes(m->GetClippingPlanes());
   this->SetColorMode(m->GetColorMode());
   this->SetScalarVisibility(m->GetScalarVisibility());
   this->SetScalarRange(m->GetScalarRange());
