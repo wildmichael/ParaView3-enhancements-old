@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamTracer.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-06-02 12:20:20 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2003-06-12 14:42:06 $
+  Version:   $Revision: 1.20 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -35,7 +35,7 @@
 #include "vtkRungeKutta4.h"
 #include "vtkRungeKutta45.h"
 
-vtkCxxRevisionMacro(vtkStreamTracer, "$Revision: 1.19 $");
+vtkCxxRevisionMacro(vtkStreamTracer, "$Revision: 1.20 $");
 vtkStandardNewMacro(vtkStreamTracer);
 vtkCxxSetObjectMacro(vtkStreamTracer,Integrator,vtkInitialValueProblemSolver);
 
@@ -1035,12 +1035,12 @@ void vtkStreamTracer::GenerateNormals(vtkPolyData* output, float* firstNormal)
       int i, j;
       float normal[3], local1[3], local2[3], theta, costheta, sintheta, length;
       float velocity[3];
+      normals->SetName("Normals");
+      vtkDataArray* newVectors = 
+        outputPD->GetVectors(this->InputVectorsSelection);
       for(i=0; i<numPts; i++)
         {
         normals->GetTuple(i, normal);
-        normals->SetName("Normals");
-        vtkDataArray* newVectors = 
-          outputPD->GetVectors(this->InputVectorsSelection);
         if (newVectors == NULL)
           { // This should never happen.
           vtkErrorMacro("Could not find output array.");
