@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-04-05 12:48:44 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1999-04-16 15:21:36 $
+  Version:   $Revision: 1.13 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -177,7 +177,7 @@ void vtkXTextMapper::GetSize(vtkViewport* viewport, int *size)
 
 void vtkXTextMapper::RenderOverlay(vtkViewport* viewport, vtkActor2D* actor)
 {
-  vtkDebugMacro (<< "RenderOpaqueGeometry");
+  vtkDebugMacro (<< "RenderOverlayGeometry");
 
   if ( this->NumberOfLines > 1 )
     {
@@ -288,7 +288,7 @@ void vtkXTextMapper::RenderOverlay(vtkViewport* viewport, vtkActor2D* actor)
   // adjust actorPos to account for justification
   int pos[2];
   pos[0] = actorPos[0];
-  pos[1] = actorPos[1] - (this->LineOffset * this->LineSpacing * size[1]);
+  pos[1] = actorPos[1] + (this->LineOffset * this->LineSpacing * size[1]);
   switch (this->Justification)
     {
     // do nothing for case 0 left
@@ -299,10 +299,10 @@ void vtkXTextMapper::RenderOverlay(vtkViewport* viewport, vtkActor2D* actor)
   switch (this->VerticalJustification)
     {
     case VTK_TEXT_TOP: 
-      pos[1] = pos[1] - size[1];
+      pos[1] = pos[1] + size[1];
       break;
     case VTK_TEXT_CENTERED:
-      pos[1] = pos[1] - size[1]/2;
+      pos[1] = pos[1] + size[1]/2;
       break;
     case VTK_TEXT_BOTTOM: 
       break;
