@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitFunction.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:29 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 2002-11-03 22:53:38 $
+  Version:   $Revision: 1.50 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -80,7 +80,7 @@ public:
   // Description:
   // Set/Get a transformation to apply to input points before
   // executing the implicit function.
-  vtkSetObjectMacro(Transform,vtkAbstractTransform);
+  virtual void SetTransform(vtkAbstractTransform*);
   vtkGetObjectMacro(Transform,vtkAbstractTransform);
 
   // Description:

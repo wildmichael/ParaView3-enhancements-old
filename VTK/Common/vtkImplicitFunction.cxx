@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:29 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2002-11-03 22:53:38 $
+  Version:   $Revision: 1.31 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,9 +16,11 @@
 
 =========================================================================*/
 #include "vtkImplicitFunction.h"
+
 #include "vtkMath.h"
 
-vtkCxxRevisionMacro(vtkImplicitFunction, "$Revision: 1.30 $");
+vtkCxxRevisionMacro(vtkImplicitFunction, "$Revision: 1.31 $");
+vtkCxxSetObjectMacro(vtkImplicitFunction,Transform,vtkAbstractTransform);
 
 vtkImplicitFunction::vtkImplicitFunction()
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOverrideInformation.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:52 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-11-03 22:53:38 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,15 +21,11 @@
 // a class which is overriden in a vtkObjectFactory.
 //
 
-
-
 #ifndef __vtkOverrideInformation_h
 #define __vtkOverrideInformation_h
 
-
 #include "vtkObject.h"
 #include "vtkObjectFactory.h"
-
 
 class VTK_COMMON_EXPORT vtkOverrideInformation : public vtkObject
 {
@@ -80,7 +76,8 @@ public:
   // Set the description
   vtkSetStringMacro(Description);
 protected:
-  vtkSetObjectMacro(ObjectFactory, vtkObjectFactory);
+  virtual void SetObjectFactory(vtkObjectFactory*);
+
 private:
   vtkOverrideInformation();
   ~vtkOverrideInformation();

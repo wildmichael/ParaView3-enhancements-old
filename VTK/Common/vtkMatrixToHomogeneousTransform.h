@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMatrixToHomogeneousTransform.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:43 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-11-03 22:53:38 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -42,7 +42,7 @@ class VTK_COMMON_EXPORT vtkMatrixToHomogeneousTransform :
 
   // Set the input matrix.  Any modifications to the matrix will be
   // reflected in the transformation.
-  vtkSetObjectMacro(Input,vtkMatrix4x4);
+  virtual void SetInput(vtkMatrix4x4*);
   vtkGetObjectMacro(Input,vtkMatrix4x4);
 
   // Description:

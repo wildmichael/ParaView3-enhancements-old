@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPlanes.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:56 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2002-11-03 22:53:38 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -61,7 +61,7 @@ public:
 
   // Description:
   // Specify a list of points defining points through which the planes pass.
-  vtkSetObjectMacro(Points,vtkPoints);
+  virtual void SetPoints(vtkPoints*);
   vtkGetObjectMacro(Points,vtkPoints);
   
   // Description:

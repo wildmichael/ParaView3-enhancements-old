@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPlanes.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:56 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-11-03 22:53:38 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,14 +16,16 @@
 
 =========================================================================*/
 #include "vtkPlanes.h"
+
 #include "vtkPlane.h"
 #include "vtkObjectFactory.h"
 #include "vtkFloatArray.h"
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkPlanes, "$Revision: 1.7 $");
+vtkCxxRevisionMacro(vtkPlanes, "$Revision: 1.8 $");
 vtkStandardNewMacro(vtkPlanes);
+vtkCxxSetObjectMacro(vtkPlanes,Points,vtkPoints);
 
 vtkPlanes::vtkPlanes()
 {

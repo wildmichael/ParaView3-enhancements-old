@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMatrixToHomogeneousTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:42 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-11-03 22:53:38 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,8 +18,9 @@
 #include "vtkMatrixToHomogeneousTransform.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkMatrixToHomogeneousTransform, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkMatrixToHomogeneousTransform, "$Revision: 1.6 $");
 vtkStandardNewMacro(vtkMatrixToHomogeneousTransform);
+vtkCxxSetObjectMacro(vtkMatrixToHomogeneousTransform,Input,vtkMatrix4x4);
 
 //----------------------------------------------------------------------------
 vtkMatrixToHomogeneousTransform::vtkMatrixToHomogeneousTransform()
