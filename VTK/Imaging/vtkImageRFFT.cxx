@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageRFFT.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-05-16 19:55:27 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2000-09-27 11:07:50 $
+  Version:   $Revision: 1.23 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -176,7 +176,7 @@ static void vtkImageRFFTExecute(vtkImageRFFT *self,
 
       // copy into output
       outPtr0 = outPtr1;
-      pComplex = outComplex + (inMin0 - outMin0);
+      pComplex = outComplex + (outMin0 - inMin0);
       for (idx0 = outMin0; idx0 <= outMax0; ++idx0)
 	{
 	*outPtr0 = (float)pComplex->Real;
