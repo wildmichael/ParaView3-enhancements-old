@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLImageWindow.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:14 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2001-03-10 13:50:29 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -99,6 +99,14 @@ public:
   // normally.
   virtual void SetWindowName(char *);
   
+  // Description:
+  // Set this ImageWindow's window id to a pre-existing window.
+  void SetWindowInfo(char *);
+
+  // Description:
+  // Sets the HWND id of the window that WILL BE created.
+  void SetParentInfo(char *);
+
   //BTX
   virtual void *GetGenericDisplayId() {return (void *)this->ContextId;};
   virtual void *GetGenericWindowId()  {return (void *)this->WindowId;};

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32ImageWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:14 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2001-03-10 13:50:29 $
+  Version:   $Revision: 1.24 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -664,6 +664,27 @@ LRESULT APIENTRY vtkWin32ImageWindowWndProc(HWND hWnd, UINT message,
   return DefWindowProc(hWnd, message, wParam, lParam);
 }
 
+// Set this ImageWindow's X window id to a pre-existing window.
+void vtkWin32ImageWindow::SetWindowInfo(char *info)
+{
+  int tmp;
+  
+  sscanf(info,"%i",&tmp);
+ 
+  this->WindowId = (HWND)tmp;
+  vtkDebugMacro(<< "Setting WindowId to " << this->WindowId << "\n"); 
+}
+
+// Sets the HWND id of the window that WILL BE created.
+void vtkWin32ImageWindow::SetParentInfo(char *info)
+{
+  int tmp;
+  
+  sscanf(info,"%i",&tmp);
+ 
+  this->ParentId = (HWND)tmp;
+  vtkDebugMacro(<< "Setting ParentId to " << this->ParentId << "\n"); 
+}
 
 //----------------------------------------------------------------------------
 void vtkWin32ImageWindow::MakeDefaultWindow() 

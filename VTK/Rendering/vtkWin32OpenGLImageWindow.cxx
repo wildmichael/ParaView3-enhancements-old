@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLImageWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-26 15:15:36 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2001-03-10 13:50:29 $
+  Version:   $Revision: 1.21 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -141,6 +141,28 @@ void vtkWin32OpenGLImageWindow::SetWindowName( char * _arg )
     {
     SetWindowText(this->WindowId,this->WindowName);
     }
+}
+
+// Set this ImageWindow's X window id to a pre-existing window.
+void vtkWin32OpenGLImageWindow::SetWindowInfo(char *info)
+{
+  int tmp;
+  
+  sscanf(info,"%i",&tmp);
+ 
+  this->WindowId = (HWND)tmp;
+  vtkDebugMacro(<< "Setting WindowId to " << this->WindowId << "\n"); 
+}
+
+// Sets the HWND id of the window that WILL BE created.
+void vtkWin32OpenGLImageWindow::SetParentInfo(char *info)
+{
+  int tmp;
+  
+  sscanf(info,"%i",&tmp);
+ 
+  this->ParentId = (HWND)tmp;
+  vtkDebugMacro(<< "Setting ParentId to " << this->ParentId << "\n"); 
 }
 
 void vtkWin32OpenGLImageWindow::MakeCurrent()

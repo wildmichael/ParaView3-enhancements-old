@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWindow.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:22 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2001-03-10 13:49:49 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -71,6 +71,7 @@ public:
   virtual void *GetGenericContext()   = 0;
   virtual void *GetGenericDrawable()  = 0;  
   virtual void SetWindowInfo(char *) = 0;
+  virtual void SetParentInfo(char *) = 0;
 
   // Description:
   // Set/Get the position in screen coordinates of the rendering window.

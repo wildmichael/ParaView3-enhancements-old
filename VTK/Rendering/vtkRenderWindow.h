@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2001-01-31 17:51:11 $
-  Version:   $Revision: 1.106 $
+  Date:      $Date: 2001-03-10 13:50:11 $
+  Version:   $Revision: 1.107 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -360,6 +360,7 @@ public:
   virtual void *GetGenericContext() {return NULL;}
   virtual void *GetGenericDrawable() {return NULL;}
   virtual void SetWindowInfo(char *) {}
+  virtual void SetParentInfo(char *) {};
 
   // Description:
   // Make this the current window. 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32ImageWindow.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:14 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2001-03-10 13:50:29 $
+  Version:   $Revision: 1.22 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -80,6 +80,14 @@ public:
   // output to the viewer.
   vtkWin32ImageWindow *GetOutput(){return this;};
   
+  // Description:
+  // Set this ImageWindow's window id to a pre-existing window.
+  void SetWindowInfo(char *);
+
+  // Description:
+  // Sets the HWND id of the window that WILL BE created.
+  void SetParentInfo(char *);
+
   //BTX
 
   // Description:

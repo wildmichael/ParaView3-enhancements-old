@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-02-13 16:40:15 $
-  Version:   $Revision: 1.65 $
+  Date:      $Date: 2001-03-10 13:50:11 $
+  Version:   $Revision: 1.66 $
   Thanks:    to Horst Schreiber for developing this MFC code
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1038,6 +1038,17 @@ void vtkWin32OpenGLRenderWindow::SetWindowInfo(char *info)
  
   this->WindowId = (HWND)tmp;
   vtkDebugMacro(<< "Setting WindowId to " << this->WindowId << "\n"); 
+}
+
+// Sets the HWND id of the window that WILL BE created.
+void vtkWin32OpenGLRenderWindow::SetParentInfo(char *info)
+{
+  int tmp;
+  
+  sscanf(info,"%i",&tmp);
+ 
+  this->ParentId = (HWND)tmp;
+  vtkDebugMacro(<< "Setting ParentId to " << this->ParentId << "\n"); 
 }
 
 // Set the window id to a pre-existing window.

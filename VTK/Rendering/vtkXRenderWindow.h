@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:01 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 2001-03-10 13:50:11 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -140,6 +140,10 @@ public:
   // Description:
   // Set this RenderWindow's X window id to a pre-existing window.
   void     SetWindowInfo(char *info);
+
+  // Description:
+  // Sets the X window id of the window that WILL BE created.
+  void     SetParentInfo(char *info);
 
   // Description:
   // This computes the size of the render window 

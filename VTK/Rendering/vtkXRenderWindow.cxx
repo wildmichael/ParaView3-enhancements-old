@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:01 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 2001-03-10 13:50:11 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -265,6 +265,30 @@ void vtkXRenderWindow::SetWindowInfo(char *info)
   sscanf(info,"%i",&tmp);
  
   this->SetWindowId(tmp);
+}
+
+// Sets the X window id of the window that WILL BE created.
+void vtkXRenderWindow::SetParentInfo(char *info)
+{
+  int tmp;
+  
+  // get the default display connection 
+  if (!this->DisplayId)
+    {
+    this->DisplayId = XOpenDisplay((char *)NULL); 
+    if (this->DisplayId == NULL) 
+      {
+      vtkErrorMacro(<< "bad X server connection.\n");
+      }
+    else
+      {
+      this->OwnDisplay = 1;
+      }
+    }
+
+  sscanf(info,"%i",&tmp);
+ 
+  this->SetParentId(tmp);
 }
 
 void vtkXRenderWindow::SetWindowId(void *arg)
