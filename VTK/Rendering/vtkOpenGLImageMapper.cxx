@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLImageMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-09 01:54:51 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 2001-05-31 17:42:34 $
+  Version:   $Revision: 1.42 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -93,6 +93,9 @@ vtkOpenGLImageMapper::~vtkOpenGLImageMapper()
     } \
   (x) = (unsigned char)(val); \
 } 
+/* should do proper rounding, as follows:
+  (x) = (unsigned char)(val + 0.5f); \
+*/
 
 // the bit-shift must be done after the comparison to zero
 // because bit-shift is implemenation dependant for negative numbers
@@ -288,6 +291,10 @@ static void vtkOpenGLImageMapperRenderShort(
   
   long sscale = (long) (scale*(1 << bitShift));
   long sshift = (long) (sscale*shift);
+  /* should do proper rounding, as follows:
+  long sscale = (long) floor(scale*(1 << bitShift) + 0.5);
+  long sshift = (long) floor((scale*shift + 0.5)*(1 << bitShift));
+  */
   long val;
   unsigned char tmp;
   
