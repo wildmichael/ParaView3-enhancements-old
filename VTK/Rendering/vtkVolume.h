@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:02:58 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 1999-08-30 05:12:36 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -237,6 +237,17 @@ public:
   // WARNING: INTERNAL METHOD - NOT INTENDED FOR GENERAL USE
   // DO NOT USE THIS METHOD OUTSIDE OF THE RENDERING PROCESS
   float  GetArraySize () { return this->ArraySize; };
+
+  // Description:
+  // WARNING: INTERNAL METHOD - NOT INTENDED FOR GENERAL USE
+  // DO NOT USE THIS METHOD OUTSIDE OF THE RENDERING PROCESS
+  void UpdateTransferFunctions( vtkRenderer *ren );
+
+  // Description:
+  // WARNING: INTERNAL METHOD - NOT INTENDED FOR GENERAL USE
+  // DO NOT USE THIS METHOD OUTSIDE OF THE RENDERING PROCESS
+  void UpdateScalarOpacityforSampleSize( vtkRenderer *ren, float sample_distance );
+
 //ETX
 
 protected:
@@ -290,16 +301,6 @@ protected:
   float                        GradientOpacityArray[256];
   float                        GradientOpacityConstant;
   vtkTimeStamp                 GradientOpacityArrayMTime;
-
-  // Description:
-  // WARNING: INTERNAL METHOD - NOT INTENDED FOR GENERAL USE
-  // DO NOT USE THIS METHOD OUTSIDE OF THE RENDERING PROCESS
-  void UpdateTransferFunctions( vtkRenderer *ren );
-
-  // Description:
-  // WARNING: INTERNAL METHOD - NOT INTENDED FOR GENERAL USE
-  // DO NOT USE THIS METHOD OUTSIDE OF THE RENDERING PROCESS
-  void UpdateScalarOpacityforSampleSize( vtkRenderer *ren, float sample_distance );
 
   VTKRayCastVolumeInfo *VolumeInfo;
 };
