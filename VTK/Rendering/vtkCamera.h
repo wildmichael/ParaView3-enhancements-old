@@ -3,8 +3,8 @@
   Program:   OSCAR 
   Module:    $RCSfile: vtkCamera.h,v $
   Language:  C++
-  Date:      $Date: 1994-01-12 12:34:27 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1994-01-12 16:18:15 $
+  Version:   $Revision: 1.2 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -16,9 +16,11 @@ This file is part of the vis library
 #ifndef __vlCamera_hh
 #define __vlCamera_hh
 
+#include "Object.hh"
+
 class vlRenderer;
 
-class vlCamera
+class vlCamera : public vlObject
 {
  public:
   float FocalPoint[3];

@@ -3,8 +3,8 @@
   Program:   OSCAR 
   Module:    $RCSfile: vtkRenderer.h,v $
   Language:  C++
-  Date:      $Date: 1994-01-12 12:31:34 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1994-01-12 16:18:59 $
+  Version:   $Revision: 1.2 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -16,12 +16,13 @@ This file is part of the vis library
 #ifndef __vlRenderer_hh
 #define __vlRenderer_hh
 
-#include "Light.h"
-#include "Camera.h"
-#include "Actor.h"
-#include "GeomPrim.h"
+#include "Object.hh"
+#include "LightC.hh"
+#include "Camera.hh"
+#include "ActorC.hh"
+#include "GeomPrim.hh"
 
-class vlRenderer
+class vlRenderer : public vlObject
 {
 public:
   vlCamera *ActiveCamera;
