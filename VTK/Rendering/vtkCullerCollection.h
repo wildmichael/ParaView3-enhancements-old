@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCullerCollection.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:53 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2001-09-24 20:00:24 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -68,7 +68,7 @@ class VTK_EXPORT vtkCullerCollection : public vtkCollection
   // Description:
   // Get the next Culler in the list.
   vtkCuller *GetNextItem() { 
-    return vtkCuller::SafeDownCast(this->GetNextItemAsObject());};
+    return static_cast<vtkCuller *>(this->GetNextItemAsObject());};
   
   // Description:
   // Get the last Culler in the list.
@@ -96,7 +96,7 @@ inline vtkCuller *vtkCullerCollection::GetLastItem()
     }
   else
     {
-    return vtkCuller::SafeDownCast(this->Bottom->Item);
+    return static_cast<vtkCuller *>(this->Bottom->Item);
     }
 }
 
