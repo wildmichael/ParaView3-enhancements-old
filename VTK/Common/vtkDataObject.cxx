@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObject.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-04-14 14:00:20 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-04-15 18:44:07 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -156,8 +156,9 @@ void vtkDataObject::SetSource(vtkSource *_arg)
   vtkDebugMacro(<< this->GetClassName() << " (" << this << "): setting Source to " << _arg ); 
   if (this->Source != _arg) 
     { 
-    if (this->Source != NULL) { this->Source->UnRegister(this); }
+		vtkSource *tmp = this->Source;
     this->Source = _arg; 
+    if (tmp != NULL) { tmp->UnRegister(this); }
     if (this->Source != NULL) { this->Source->Register(this); } 
     this->Modified(); 
     } 
