@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkViewport.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 20:34:20 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1998-12-18 19:27:44 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -188,7 +188,8 @@ public:
   // Add/Remove an Actor2D to this viewport.
   void AddActor2D(vtkActor2D* actor);
   void RemoveActor2D(vtkActor2D* actor);
-
+  vtkActor2DCollection *GetActors2D() { return this->Actors2D; };
+  
   // Description:
   // Get the size and origin of the viewport in display coordinates
   int *GetSize();
