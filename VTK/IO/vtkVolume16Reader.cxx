@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume16Reader.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-06-09 20:05:15 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1996-06-19 11:13:53 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -50,6 +50,7 @@ vtkVolume16Reader::vtkVolume16Reader()
   this->DataMask = 0x0000;
   this->HeaderSize = 0;
   this->SwapBytes = 0;
+  this->DataDimensions[0] = this->DataDimensions[1] = 0;
 }
 
 void vtkVolume16Reader::Execute()
