@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCleanPolyData.h,v $
   Language:  C++
-  Date:      $Date: 2001-01-02 20:27:55 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 2001-04-24 20:36:31 $
+  Version:   $Revision: 1.44 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen
@@ -84,8 +84,8 @@ class VTK_EXPORT vtkCleanPolyData : public vtkPolyDataToPolyDataFilter
 {
 public:
   static vtkCleanPolyData *New();
-  const char *GetClassName() {return "vtkCleanPolyData";};
   void PrintSelf(ostream& os, vtkIndent indent);
+  vtkTypeMacro(vtkCleanPolyData,vtkPolyDataToPolyDataFilter);
 
   // Description:
   // By default ToleranceIsAbsolute is false and Tolerance is

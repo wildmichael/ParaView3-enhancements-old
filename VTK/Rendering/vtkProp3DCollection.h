@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProp3DCollection.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:48 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-04-24 20:36:31 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -58,7 +58,7 @@ class VTK_EXPORT vtkProp3DCollection : public vtkPropCollection
 {
 public:
   static vtkProp3DCollection *New();
-  const char *GetClassName() {return "vtkProp3DCollection";};
+  vtkTypeMacro(vtkProp3DCollection,vtkPropCollection);
 
   // Description:
   // Add an actor to the list.
