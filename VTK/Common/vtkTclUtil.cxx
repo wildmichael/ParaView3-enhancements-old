@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTclUtil.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-11-11 17:59:49 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1997-02-26 20:26:20 $
+  Version:   $Revision: 1.13 $
 
 This file is part of the Visualization Toolkit. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -261,6 +261,7 @@ void vtkTclListInstances(Tcl_Interp *interp, ClientData arg)
 {
   Tcl_HashSearch srch;
   Tcl_HashEntry *entry;
+  int first = 1;
   
   // iteratively search hash table for command function
   entry = Tcl_FirstHashEntry(&vtkCommandLookup, &srch);
@@ -269,17 +270,20 @@ void vtkTclListInstances(Tcl_Interp *interp, ClientData arg)
     interp->result[0] = '\0';
     return;
     }
-  if (Tcl_GetHashValue(entry) == arg)
-    {
-    Tcl_AppendResult(interp,Tcl_GetHashKey(&vtkCommandLookup,entry),NULL);
-    }
-  entry = Tcl_NextHashEntry(&srch);
   while (entry)
     {
     if (Tcl_GetHashValue(entry) == arg)
       {
-      Tcl_AppendResult(interp, " ", Tcl_GetHashKey(&vtkCommandLookup,entry), 
-		       NULL);
+      if (first)
+	{
+	first = 0;
+	Tcl_AppendResult(interp,Tcl_GetHashKey(&vtkCommandLookup,entry),NULL);
+	}
+      else
+	{
+	Tcl_AppendResult(interp, " ", Tcl_GetHashKey(&vtkCommandLookup,entry), 
+			 NULL);
+	}
       }
     entry = Tcl_NextHashEntry(&srch);
     }
