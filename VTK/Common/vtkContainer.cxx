@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkContainer.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-21 21:55:46 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-03-25 23:26:01 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -41,6 +41,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 =========================================================================*/
 
 #include "vtkContainer.h"
+#include "vtkDebugLeaks.h"
 
 void vtkContainer::Register()
 {
@@ -55,3 +56,17 @@ void vtkContainer::UnRegister()
     }
 }
 
+vtkContainer::vtkContainer() 
+{ 
+  this->ReferenceCount = 1;
+#ifdef VTK_DEBUG_LEAKS
+  vtkDebugLeaks::ConstructClass(this->GetClassName());
+#endif
+}
+
+vtkContainer::~vtkContainer() 
+{
+#ifdef VTK_DEBUG_LEAKS
+  vtkDebugLeaks::DestructClass(this->GetClassName());
+#endif
+}

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractList.h,v $
   Language:  C++
-  Date:      $Date: 2002-03-22 22:50:58 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-03-25 23:26:01 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -59,6 +59,8 @@ template<class DType>
 class vtkAbstractList : public vtkContainer
 {
 public:
+  vtkContainerTypeMacro(vtkAbstractList<DType>, vtkContainer);
+
   // Description:
   // This is a prototype for a compare function. It has to
   // return true if objects are the same and false if not.
