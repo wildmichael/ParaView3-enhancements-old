@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-26 18:20:41 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2003-01-15 21:48:28 $
+  Version:   $Revision: 1.18 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 #include "vtkViewport.h"
 #include "vtkWindow.h"
 
-vtkCxxRevisionMacro(vtkTextActor, "$Revision: 1.17 $");
+vtkCxxRevisionMacro(vtkTextActor, "$Revision: 1.18 $");
 vtkStandardNewMacro(vtkTextActor);
 
 vtkCxxSetObjectMacro(vtkTextActor,TextProperty,vtkTextProperty);
@@ -272,7 +272,8 @@ int vtkTextActor::RenderOpaqueGeometry(vtkViewport *viewport)
       //  Lets try to minimize the number of times we change the font size.
       //  If the width of the font box has not changed by more than a pixel
       // (numerical issues) do not recompute font size.
-      if (tpropmapper->GetMTime() > this->BuildTime ||
+      if (mapper->GetMTime() > this->BuildTime ||
+          tpropmapper->GetMTime() > this->BuildTime ||
           this->LastSize[0] < size[0] - 1 || this->LastSize[1] < size[1] - 1 ||
           this->LastSize[0] > size[0] + 1 || this->LastSize[1] > size[1] + 1)
         {
