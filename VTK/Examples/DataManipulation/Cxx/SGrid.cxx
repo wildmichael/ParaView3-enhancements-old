@@ -1,3 +1,20 @@
+/*=========================================================================
+
+  Program:   Visualization Toolkit
+  Module:    $RCSfile: SGrid.cxx,v $
+  Language:  C++
+  Date:      $Date: 2002-01-22 15:27:31 $
+  Version:   $Revision: 1.2 $
+
+  Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
+  All rights reserved.
+  See Copyright.txt or http://www.kitware.com/Copyright.htm for details.
+
+     This software is distributed WITHOUT ANY WARRANTY; without even 
+     the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR 
+     PURPOSE.  See the above copyright notice for more information.
+
+=========================================================================*/
 // This example shows how to manually create a structured grid.
 // The basic idea is to instantiate vtkStructuredGrid, set its dimensions,
 // and then assign points defining the grid coordinate. The number of
