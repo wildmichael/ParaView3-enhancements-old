@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRendererSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-12 15:22:40 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1999-10-15 14:18:14 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -205,9 +205,6 @@ unsigned long vtkRendererSource::GetMTime()
 void vtkRendererSource::UpdateInformation()
 {
   unsigned long t1, t2, size;
-  float locality, l2;
-  int idx;
-  vtkDataObject *pd;
   vtkStructuredPoints *output = this->GetOutput();
   vtkRenderer *ren = this->GetInput();
   vtkActorCollection *actors;
