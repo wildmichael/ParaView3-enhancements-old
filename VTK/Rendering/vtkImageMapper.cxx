@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-06 14:44:32 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1999-02-24 17:44:55 $
+  Version:   $Revision: 1.16 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -110,9 +110,9 @@ float vtkImageMapper::GetColorScale()
   return 255.0 / this->ColorWindow;
 }
 
-void vtkImageMapper::Render(vtkViewport* viewport, vtkActor2D* actor)
+void vtkImageMapper::RenderOverlay(vtkViewport* viewport, vtkActor2D* actor)
 {
-  vtkDebugMacro(<< "vtkImageMapper::Render");
+  vtkDebugMacro(<< "vtkImageMapper::RenderOverlay");
 
   vtkImageData *data;
   int displayExtent[6];

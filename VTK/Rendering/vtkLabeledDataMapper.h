@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLabeledDataMapper.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-26 14:22:08 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1999-02-24 17:44:55 $
+  Version:   $Revision: 1.6 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -99,7 +99,8 @@ public:
   
   // Description:
   // Draw the text to the screen at each input point.
-  void Render(vtkViewport*, vtkActor2D*);
+  void RenderGeometry(vtkViewport* viewport, vtkActor2D* actor) {};
+  void RenderPostSwap(vtkViewport* viewport, vtkActor2D* actor);
 
   // Description:
   // Set the input dataset to the mapper.  

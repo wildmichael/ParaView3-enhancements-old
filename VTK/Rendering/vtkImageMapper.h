@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMapper.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-26 14:22:06 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-02-24 17:44:55 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -102,7 +102,7 @@ public:
 
   // Description:
   // Draw the image to the screen.
-  void Render(vtkViewport* viewport, vtkActor2D* actor);
+  void RenderOverlay(vtkViewport* viewport, vtkActor2D* actor);
 
   // Description:
   // Function called by Render to actually draw the image to to the screen
