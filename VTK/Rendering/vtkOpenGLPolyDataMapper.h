@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLPolyDataMapper.h,v $
   Language:  C++
-  Date:      $Date: 2001-03-07 20:24:21 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2001-04-09 01:50:43 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -51,7 +51,11 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkPolyDataMapper.h"
 #include <stdlib.h>
 #ifndef VTK_IMPLEMENT_MESA_CXX
-#include <GL/gl.h>
+  #ifdef VTK_USE_QUARTZ
+    #include <OpenGL/gl.h>
+  #else
+    #include <GL/gl.h>
+  #endif
 #endif
 
 class vtkProperty;
