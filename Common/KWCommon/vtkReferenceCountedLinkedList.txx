@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkReferenceCountedLinkedList.txx,v $
   Language:  C++
-  Date:      $Date: 2002-04-04 18:44:58 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-04-04 20:00:09 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -227,7 +227,7 @@ void vtkReferenceCountedLinkedList<DType>::DebugList()
 // this knowledge to have easier acces for its members. This
 // method returns either NULL or the object.
 template <class DType>
-DType vtkReferenceCountedLinkedList<DType>::GetItem(vtkIdType id)
+DType vtkReferenceCountedLinkedList<DType>::GetPointerItem(vtkIdType id)
 {
   DType a = 0;
   if ( this->GetItem(id, a) == VTK_OK )

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkReferenceCountedLinkedList.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-04 18:44:58 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-04-04 20:00:09 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -103,7 +103,7 @@ public:
   // Since we know that the storage type is a pointer, we can use
   // this knowledge to have easier acces for its members. This
   // method returns either NULL or the object.
-  DType GetItem(vtkIdType id);
+  DType GetPointerItem(vtkIdType id);
 
 protected:
   vtkReferenceCountedLinkedList() {}
