@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMutexLock.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-05-19 14:07:48 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1999-05-20 15:46:32 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -52,7 +52,11 @@ vtkMutexLock::vtkMutexLock()
 #endif
 
 #ifdef VTK_USE_PTHREADS
+#ifdef VTK_HP_PTHREADS
+  pthread_mutex_init(&(this->MutexLock), pthread_mutexattr_default);
+#else
   pthread_mutex_init(&(this->MutexLock), NULL);
+#endif
 #endif
 
 }
