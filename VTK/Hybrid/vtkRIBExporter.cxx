@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRIBExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-10-01 14:56:37 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1997-12-23 20:27:27 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -934,7 +934,7 @@ void vtkRIBExporter::WriteTexture (vtkTexture *aTexture)
 
     // make sure using unsigned char data of color scalars type
     if (aTexture->GetMapColorScalarsThroughLookupTable () ||
-        (strcmp(scalars->GetDataType(),"unsigned char") ||
+        (scalars->GetDataType() != VTK_UNSIGNED_CHAR ||
         strcmp(scalars->GetScalarType(),"ColorScalar")) )
       {
       mappedScalars = aTexture->GetMappedScalars ();
