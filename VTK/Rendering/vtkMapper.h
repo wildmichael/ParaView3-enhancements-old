@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkMapper.h,v $
   Language:  C++
-  Date:      $Date: 1994-11-21 11:14:15 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1995-02-20 15:36:52 $
+  Version:   $Revision: 1.14 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -45,6 +45,8 @@ public:
 
   void SetStartRender(void (*f)(void *), void *arg);
   void SetEndRender(void (*f)(void *), void *arg);
+  void SetStartRenderArgDelete(void (*f)(void *));
+  void SetEndRenderArgDelete(void (*f)(void *));
 
   // Description:
   // Method initiates the mapping process. Generally sent by the actor 
@@ -53,7 +55,7 @@ public:
 
   void SetLookupTable(vlLookupTable *lut);
   void SetLookupTable(vlLookupTable& lut) {this->SetLookupTable(&lut);};
-  vlGetObjectMacro(LookupTable,vlLookupTable);
+  vlLookupTable *GetLookupTable();
 
   // Description:
   // Create default lookup table. Generally used to create one when none
@@ -85,8 +87,10 @@ protected:
   vlDataSet *Input;
 
   void (*StartRender)(void *);
+  void (*StartRenderArgDelete)(void *);
   void *StartRenderArg;
   void (*EndRender)(void *);
+  void (*EndRenderArgDelete)(void *);
   void *EndRenderArg;
   vlLookupTable *LookupTable;
   int ScalarsVisible;

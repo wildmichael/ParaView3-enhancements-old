@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-21 11:14:14 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1995-02-20 15:36:51 $
+  Version:   $Revision: 1.17 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -22,8 +22,10 @@ vlMapper::vlMapper()
   this->Input = NULL;
 
   this->StartRender = NULL;
+  this->StartRenderArgDelete = NULL;
   this->StartRenderArg = NULL;
   this->EndRender = NULL;
+  this->EndRenderArgDelete = NULL;
   this->EndRenderArg = NULL;
 
   this->LookupTable = NULL;
@@ -75,8 +77,35 @@ void vlMapper::SetStartRender(void (*f)(void *), void *arg)
 {
   if ( f != this->StartRender || arg != this->StartRenderArg )
     {
+    // delete the current arg if there is one and a delete meth
+    if ((this->StartRenderArg)&&(this->StartRenderArgDelete))
+      {
+      (*this->StartRenderArgDelete)(this->StartRenderArg);
+      }
     this->StartRender = f;
     this->StartRenderArg = arg;
+    this->Modified();
+    }
+}
+
+// Description:
+// Set the arg delete method. This is used to free user memory.
+void vlMapper::SetStartRenderArgDelete(void (*f)(void *))
+{
+  if ( f != this->StartRenderArgDelete)
+    {
+    this->StartRenderArgDelete = f;
+    this->Modified();
+    }
+}
+
+// Description:
+// Set the arg delete method. This is used to free user memory.
+void vlMapper::SetEndRenderArgDelete(void (*f)(void *))
+{
+  if ( f != this->EndRenderArgDelete)
+    {
+    this->EndRenderArgDelete = f;
     this->Modified();
     }
 }
@@ -88,6 +117,11 @@ void vlMapper::SetEndRender(void (*f)(void *), void *arg)
 {
   if ( f != this->EndRender || arg != EndRenderArg )
     {
+    // delete the current arg if there is one and a delete meth
+    if ((this->EndRenderArg)&&(this->EndRenderArgDelete))
+      {
+      (*this->EndRenderArgDelete)(this->EndRenderArg);
+      }
     this->EndRender = f;
     this->EndRenderArg = arg;
     this->Modified();
@@ -105,6 +139,12 @@ void vlMapper::SetLookupTable(vlLookupTable *lut)
     this->LookupTable = lut;
     this->Modified();
     }
+}
+
+vlLookupTable *vlMapper::GetLookupTable()
+{
+  if ( this->LookupTable == NULL ) this->CreateDefaultLookupTable();
+  return this->LookupTable;
 }
 
 void vlMapper::CreateDefaultLookupTable()
