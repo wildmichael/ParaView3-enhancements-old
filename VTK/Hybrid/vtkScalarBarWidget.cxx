@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalarBarWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-03 20:53:39 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-09-08 10:15:30 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,8 +24,9 @@
 #include "vtkRenderWindowInteractor.h"
 #include "vtkCoordinate.h"
 
-vtkCxxRevisionMacro(vtkScalarBarWidget, "$Revision: 1.4 $");
+vtkCxxRevisionMacro(vtkScalarBarWidget, "$Revision: 1.5 $");
 vtkStandardNewMacro(vtkScalarBarWidget);
+vtkCxxSetObjectMacro(vtkScalarBarWidget, ScalarBarActor, vtkScalarBarActor);
 
 vtkScalarBarWidget::vtkScalarBarWidget()
 {
@@ -37,7 +38,10 @@ vtkScalarBarWidget::vtkScalarBarWidget()
 
 vtkScalarBarWidget::~vtkScalarBarWidget()
 {
-  this->ScalarBarActor->Delete();
+  if (this->ScalarBarActor)
+    {
+    this->ScalarBarActor->Delete();
+    }
 }
 
 void vtkScalarBarWidget::SetEnabled(int enabling)

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalarBarWidget.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-12 14:47:39 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-09-08 10:15:30 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -46,6 +46,7 @@ public:
 
   // Description:
   // Get the ScalarBar used by this Widget. One is created automatically.
+  void SetScalarBarActor(vtkScalarBarActor *scalarbar);
   vtkGetObjectMacro(ScalarBarActor,vtkScalarBarActor);
   
   // Description:
