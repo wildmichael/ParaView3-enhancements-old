@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyle.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-25 02:29:53 $
-  Version:   $Revision: 1.59 $
+  Date:      $Date: 2002-04-25 13:59:05 $
+  Version:   $Revision: 1.60 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 #include "vtkOldStyleCallbackCommand.h"
 #include "vtkCallbackCommand.h"
 
-vtkCxxRevisionMacro(vtkInteractorStyle, "$Revision: 1.59 $");
+vtkCxxRevisionMacro(vtkInteractorStyle, "$Revision: 1.60 $");
 
 //----------------------------------------------------------------------------
 vtkInteractorStyle *vtkInteractorStyle::New() 
@@ -570,7 +570,7 @@ void vtkInteractorStyle::StopState()
     {   
     rwi->GetRenderWindow()->SetDesiredUpdateRate(rwi->GetStillUpdateRate());
     rwi->Render();
-    if ( !rwi->DestroyTimer() ) 
+    if (!this->NoTimerInStartState && !rwi->DestroyTimer()) 
       {
       vtkErrorMacro(<< "Timer stop failed");
       }
@@ -1152,6 +1152,13 @@ void vtkInteractorStyle::RotateCamera(int x, int y)
   double rxf = (double)(x - this->Center[0]) * this->DeltaAzimuth;
   double ryf = (double)(y - this->Center[1]) * this->DeltaElevation;
 
+  // No current camera (should not happen, FindPokedCamera should have been
+  // called before)
+  if (!this->CurrentCamera) 
+    {
+    return;
+    }
+  
   this->CurrentCamera->Azimuth(rxf);
   this->CurrentCamera->Elevation(ryf);
   this->CurrentCamera->OrthogonalizeViewUp();
