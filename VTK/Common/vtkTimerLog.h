@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTimerLog.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-20 20:59:21 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2000-12-27 13:09:51 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -163,7 +163,7 @@ public:
   double GetElapsedTime();
 
 protected:
-  vtkTimerLog() {}; //insure constructor/destructor protected
+  vtkTimerLog() {this->StartTime=0;}; //insure constructor/destructor protected
   ~vtkTimerLog() {};
   vtkTimerLog(const vtkTimerLog&) {};
   void operator=(const vtkTimerLog&) {};
