@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPropPicker.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:06:24 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2000-02-14 14:05:28 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -46,6 +46,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 vtkPropPicker::vtkPropPicker()
 {
   this->PickFromProps = NULL;
+  this->Prop = NULL;
 }
 
 vtkPropPicker* vtkPropPicker::New()
