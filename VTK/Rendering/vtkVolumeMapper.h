@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeMapper.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:13:06 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 2000-07-28 15:05:15 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -54,8 +54,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define __vtkVolumeMapper_h
 
 #include "vtkAbstractMapper3D.h"
-#include "vtkStructuredPoints.h"
-#include "vtkImageToStructuredPoints.h"
+#include "vtkImageData.h"
 
 class vtkRenderer;
 class vtkVolume;
@@ -84,11 +83,8 @@ public:
 
   // Description:
   // Set/Get the input data
-  void SetInput( vtkStructuredPoints * );
-  void SetInput(vtkImageData *cache)
-    {vtkImageToStructuredPoints *tmp = cache->MakeImageToStructuredPoints();
-    this->SetInput(tmp->GetOutput()); tmp->Delete();}
-  vtkStructuredPoints *GetInput();
+  void SetInput( vtkImageData * );
+  vtkImageData *GetInput();
 
   // Description:
   // Turn On/Off orthogonal cropping. (Clipping planes are
@@ -127,11 +123,8 @@ public:
 
   // Description:
   // Set/Get the rgb texture input data
-  void SetRGBTextureInput( vtkStructuredPoints *rgbTexture );
-  void SetRGBTextureInput(vtkImageData *cache)
-    {vtkImageToStructuredPoints *tmp = cache->MakeImageToStructuredPoints();
-    this->SetRGBTextureInput(tmp->GetOutput()); tmp->Delete();}
-  virtual vtkStructuredPoints *GetRGBTextureInput();
+  void SetRGBTextureInput( vtkImageData *rgbTexture );
+  virtual vtkImageData *GetRGBTextureInput();
 
   // Description:
   // Return bounding box (array of six floats) of data expressed as

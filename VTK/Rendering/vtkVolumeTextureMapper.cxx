@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeTextureMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:13:11 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2000-07-28 15:05:15 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -114,11 +114,15 @@ void vtkVolumeTextureMapper::Update()
 {
   if ( this->GetInput() )
     {
+    this->GetInput()->UpdateInformation();
+    this->GetInput()->SetUpdateExtentToWholeExtent();
     this->GetInput()->Update();
     }
 
   if ( this->GetRGBTextureInput() )
     {
+    this->GetRGBTextureInput()->UpdateInformation();
+    this->GetRGBTextureInput()->SetUpdateExtentToWholeExtent();
     this->GetRGBTextureInput()->Update();
     }
 }

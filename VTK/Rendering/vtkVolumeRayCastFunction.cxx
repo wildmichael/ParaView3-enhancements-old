@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:07:40 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2000-07-28 15:05:15 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -67,9 +67,9 @@ void vtkVolumeRayCastFunction::FunctionInitialize(
   volumeInfo->InterpolationType = vol->GetProperty()->GetInterpolationType();
 
   // Get the size, spacing and origin of the scalar data
-  ((vtkStructuredPoints *)mapper->GetInput())->GetDimensions( volumeInfo->DataSize );
-  ((vtkStructuredPoints *)mapper->GetInput())->GetSpacing( volumeInfo->DataSpacing );
-  ((vtkStructuredPoints *)mapper->GetInput())->GetOrigin( volumeInfo->DataOrigin );
+  mapper->GetInput()->GetDimensions( volumeInfo->DataSize );
+  mapper->GetInput()->GetSpacing( volumeInfo->DataSpacing );
+  mapper->GetInput()->GetOrigin( volumeInfo->DataOrigin );
 
   // What are the data increments? 
   // (One voxel, one row, and one slice offsets)

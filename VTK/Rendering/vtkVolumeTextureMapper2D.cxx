@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeTextureMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-07-26 11:42:39 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2000-07-28 15:05:15 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1262,7 +1262,7 @@ vtkVolumeTextureMapper2D *vtkVolumeTextureMapper2D::New()
 
 void vtkVolumeTextureMapper2D::GenerateTexturesAndRenderQuads()
 {
-  vtkStructuredPoints    *input = this->GetInput();
+  vtkImageData           *input = this->GetInput();
   int                    size[3];
   void                   *inputPointer;
   int                    inputType;
