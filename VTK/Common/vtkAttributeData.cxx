@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAttributeData.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-11 14:45:53 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2001-09-25 18:49:22 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -226,8 +226,14 @@ void vtkAttributeData::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "Data: " << this->Data << "\n";
   if ( this->Data )
     {
-    os << indent << "Data Array Name: " 
-       << this->Data->GetName() << "\n";
+    if ( this->Data->GetName() )
+      {
+      os << indent << "Data Array Name: " << this->Data->GetName() << "\n";
+      }
+    else
+      {
+      os << indent << "Data Array Name: (none)\n";
+      }
     }
 }
 
