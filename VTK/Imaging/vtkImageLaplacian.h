@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageLaplacian.h,v $
   Language:  C++
-  Date:      $Date: 1998-04-09 19:45:48 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1998-06-29 17:26:07 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,7 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-// .NAME vtkimageLaplacian - Computes divergence of gradient.
+// .NAME vtkImageLaplacian - Computes divergence of gradient.
 // .SECTION Description
 // vtkimageLaplacian computes the Laplacian (like a second derivative)
 // of a scalar image.  The operation is the same as taking the
