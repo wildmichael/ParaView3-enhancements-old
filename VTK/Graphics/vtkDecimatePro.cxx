@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDecimatePro.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-23 12:52:14 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 1999-09-24 11:15:29 $
+  Version:   $Revision: 1.47 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -143,7 +143,6 @@ void vtkDecimatePro::Execute()
   float max, *bounds;
   vtkPointData *outputPD=output->GetPointData();
   vtkPointData *inPD=input->GetPointData();
-  vtkPointData *newPD;
   int *map, numNewPts, totalPts, newCellPts[3];
   int abortExecute=0;
 
