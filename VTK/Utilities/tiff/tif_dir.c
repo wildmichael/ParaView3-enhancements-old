@@ -1,4 +1,4 @@
-/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/tiff/Attic/tif_dir.c,v 1.1 2002-01-29 22:38:19 andy Exp $ */
+/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/tiff/Attic/tif_dir.c,v 1.2 2002-02-05 16:12:41 andy Exp $ */
 
 /*
  * Copyright (c) 1988-1997 Sam Leffler
@@ -866,7 +866,7 @@ _TIFFVGetField(TIFF* tif, ttag_t tag, va_list ap)
  * internal directory structure.
  */
 int
-TIFFGetField(TIFF* tif, ttag_t tag, ...)
+TEXPORT TIFFGetField(TIFF* tif, ttag_t tag, ...)
 {
         int status;
         va_list ap;
