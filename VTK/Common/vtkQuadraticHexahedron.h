@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadraticHexahedron.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-31 20:53:36 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-06-03 11:53:33 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -112,9 +112,7 @@ protected:
   vtkCellData      *CellData;
   vtkFloatArray    *Scalars;
   
-  void Subdivide(float *weights);
-  void InterpolateAttributes(vtkPointData *inPd, vtkCellData *inCd,
-                             vtkIdType cellId, float *weights);
+  void Subdivide(vtkPointData *inPd, vtkCellData *inCd, vtkIdType cellId);
 
 private:
   vtkQuadraticHexahedron(const vtkQuadraticHexahedron&);  // Not implemented.
