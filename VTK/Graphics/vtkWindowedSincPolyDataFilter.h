@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWindowedSincPolyDataFilter.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:57 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2002-11-26 19:07:01 $
+  Version:   $Revision: 1.22 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -182,6 +182,12 @@ public:
   vtkBooleanMacro(BoundarySmoothing,int);
 
   // Description:
+  // Smooth non-manifold vertices.
+  vtkSetMacro(NonManifoldSmoothing,int);
+  vtkGetMacro(NonManifoldSmoothing,int);
+  vtkBooleanMacro(NonManifoldSmoothing,int);
+  
+  // Description:
   // Turn on/off the generation of scalar distance values.
   vtkSetMacro(GenerateErrorScalars,int);
   vtkGetMacro(GenerateErrorScalars,int);
@@ -205,6 +211,7 @@ public:
   float FeatureAngle;
   float EdgeAngle;
   int BoundarySmoothing;
+  int NonManifoldSmoothing;
   int GenerateErrorScalars;
   int GenerateErrorVectors;
 private:
