@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-02-07 17:28:46 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1994-05-08 08:56:28 $
+  Version:   $Revision: 1.9 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -31,15 +31,15 @@ vlMapper::~vlMapper()
 {
   if (this->LookupTable)
     {
-    this->LookupTable->UnRegister((void *)this);
+    this->LookupTable->UnRegister(this);
     }
 }
 
 void vlMapper::operator=(const vlMapper& m)
 {
-  if (this->LookupTable) this->LookupTable->UnRegister((void *)this);
+  if (this->LookupTable) this->LookupTable->UnRegister(this);
   this->LookupTable = m.LookupTable;
-  if (this->LookupTable) this->LookupTable->Register((void *)this);
+  if (this->LookupTable) this->LookupTable->Register(this);
 
   this->ScalarsVisible = m.ScalarsVisible;
   this->ScalarRange[0] = m.ScalarRange[0];

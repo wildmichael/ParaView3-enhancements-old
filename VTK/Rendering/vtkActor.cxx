@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkActor.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-04-11 17:16:20 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1994-05-08 08:56:26 $
+  Version:   $Revision: 1.12 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -48,7 +48,7 @@ vlActor::vlActor()
 
 vlActor::~vlActor()
 {
-  if ( this->Mapper ) this->Mapper->UnRegister((void *)this);
+  if ( this->Mapper ) this->Mapper->UnRegister(this);
 }
 
 void vlActor::Render(vlRenderer *ren)
@@ -65,9 +65,9 @@ void vlActor::SetMapper(vlMapper *m)
 {
   if ( this->Mapper != m )
     {
-    if ( this->Mapper ) this->Mapper->UnRegister((void *)this);
+    if ( this->Mapper ) this->Mapper->UnRegister(this);
     this->Mapper = m;
-    this->Mapper->Register((void *)this);
+    this->Mapper->Register(this);
     this->Modified();
     }
 }
