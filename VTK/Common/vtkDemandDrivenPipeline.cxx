@@ -38,7 +38,7 @@
 
 #include <vtkstd/vector>
 
-vtkCxxRevisionMacro(vtkDemandDrivenPipeline, "$Revision: 1.12 $");
+vtkCxxRevisionMacro(vtkDemandDrivenPipeline, "$Revision: 1.13 $");
 vtkStandardNewMacro(vtkDemandDrivenPipeline);
 
 //----------------------------------------------------------------------------
@@ -74,6 +74,7 @@ vtkDemandDrivenPipeline::~vtkDemandDrivenPipeline()
 void vtkDemandDrivenPipeline::PrintSelf(ostream& os, vtkIndent indent)
 {
   this->Superclass::PrintSelf(os, indent);
+  os << indent << "PipelineMTime: " << this->PipelineMTime << "\n";
 }
 
 //----------------------------------------------------------------------------
