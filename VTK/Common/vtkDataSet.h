@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkDataSet.h,v $
   Language:  C++
-  Date:      $Date: 1994-05-15 19:23:30 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1994-05-23 22:28:13 $
+  Version:   $Revision: 1.20 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -52,6 +52,7 @@ public:
   // Get point or cell of id 0<=cellId<NumberOfPoints/Cells
   virtual float *GetPoint(int ptId) = 0;
   virtual vlCell *GetCell(int cellId) = 0;
+  virtual int GetCellType(int cellId) = 0;
 
   // topological inquiries to get neighbors and cells that use a point
   virtual void GetPointCells(int ptId, vlIdList *cellIds) = 0;

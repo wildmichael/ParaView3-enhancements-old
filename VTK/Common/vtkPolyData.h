@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPolyData.h,v $
   Language:  C++
-  Date:      $Date: 1994-04-15 16:11:14 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1994-05-23 22:28:21 $
+  Version:   $Revision: 1.25 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -39,6 +39,7 @@ public:
   vlDataSet *MakeObject() {return new vlPolyData(*this);};
   int GetNumberOfCells();
   vlCell *GetCell(int cellId);
+  int GetCellType(int cellId);
   vlMapper *MakeMapper();
   void Initialize();
   void GetPointCells(int ptId, vlIdList *cellIds);
@@ -66,6 +67,7 @@ public:
   void InsertNextCell(int type, int npts, int pts[MAX_CELL_SIZE]);
 
   // following stuff supports cell structure
+  // Booleans control whether certain types of data are loaded.
   vlBooleanMacro(LoadVerts,int);
   vlSetMacro(LoadVerts,int);
   vlGetMacro(LoadVerts,int);
@@ -92,10 +94,6 @@ public:
   vlSetMacro(Writable,int)
   vlGetMacro(Writable,int);
   
-  vlBooleanMacro(TriangleMesh,int);
-  vlSetMacro(TriangleMesh,int);
-  vlGetMacro(TriangleMesh,int);
-
 protected:
   // points inherited
   // point data (i.e., scalars, vectors, normals, tcoords) inherited
@@ -110,7 +108,6 @@ protected:
   int LoadLines;
   int LoadPolys;
   int LoadStrips;
-  int TriangleMesh;
   int Writable;
   vlCellList *Cells;
   vlLinkList *Links;

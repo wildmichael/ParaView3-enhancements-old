@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkDataSet.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-05-15 19:23:31 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1994-05-23 22:28:12 $
+  Version:   $Revision: 1.20 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -122,16 +122,19 @@ void vlDataSet::GetCellNeighbors(int cellId, vlIdList *ptIds,
                                  vlIdList *cellIds)
 {
   int i;
-  static vlIdList otherCells(MAX_CELL_SIZE);
+  vlIdList otherCells(MAX_CELL_SIZE);
 
   // load list with candidate cells, remove current cell
   this->GetPointCells(ptIds->GetId(0),cellIds);
   cellIds->DeleteId(cellId);
 
   // now perform multiple intersections on list
-  for ( i=1; i < ptIds->GetNumberOfIds(); i++)
+  if ( cellIds->GetNumberOfIds() > 0 )
     {
-    this->GetPointCells(ptIds->GetId(i), &otherCells);
-    cellIds->IntersectWith(&otherCells);
+    for ( i=1; i < ptIds->GetNumberOfIds(); i++)
+      {
+      this->GetPointCells(ptIds->GetId(i), &otherCells);
+      cellIds->IntersectWith(&otherCells);
+      }
     }
 }

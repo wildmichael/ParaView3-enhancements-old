@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkLocator.h,v $
   Language:  C++
-  Date:      $Date: 1994-04-11 21:20:09 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1994-05-23 22:28:18 $
+  Version:   $Revision: 1.3 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -53,7 +53,7 @@ public:
   // return closest point id to coordinate specified
   int FindClosestPoint(float x[3]);
   // return index of merged points
-  void MergePoints(int *index); // dimensioned Points->NumberOfPoints long
+  int *MergePoints(); // dimensioned Points->NumberOfPoints long
 
 protected:
   // place points in appropriate cells

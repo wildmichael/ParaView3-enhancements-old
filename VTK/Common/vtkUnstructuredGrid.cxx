@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkUnstructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-05-17 08:31:52 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1994-05-23 22:28:26 $
+  Version:   $Revision: 1.6 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -104,6 +104,11 @@ void vlUnstructuredGrid::Initialize()
     this->Links = NULL;
   }
 };
+
+int vlUnstructuredGrid::GetCellType(int cellId)
+{
+  return this->Cells->GetCellType(cellId);
+}
 
 vlCell *vlUnstructuredGrid::GetCell(int cellId)
 {

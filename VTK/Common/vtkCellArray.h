@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkCellArray.h,v $
   Language:  C++
-  Date:      $Date: 1994-05-15 19:23:39 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1994-05-23 22:28:11 $
+  Version:   $Revision: 1.19 $
 
 Description:
 ---------------------------------------------------------------------------

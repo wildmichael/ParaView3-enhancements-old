@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStructuredGrid.h,v $
   Language:  C++
-  Date:      $Date: 1994-05-13 13:45:35 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1994-05-23 22:28:23 $
+  Version:   $Revision: 1.4 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -27,6 +27,7 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 class vlStructuredGrid : public vlPointSet, public vlStructuredDataSet {
 public:
   vlStructuredGrid();
+  vlStructuredGrid(const vlStructuredGrid& sg);
   ~vlStructuredGrid();
   char *GetClassName() {return "vlStructuredGrid";};
   void PrintSelf(ostream& os, vlIndent indent);
@@ -37,6 +38,7 @@ public:
   void Initialize();
   int GetNumberOfPoints() {vlPointSet::GetNumberOfPoints();};
   vlCell *GetCell(int cellId);
+  int GetCellType(int cellId);
 
 protected:
   // points inherited
