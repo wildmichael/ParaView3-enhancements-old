@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:39:18 $
-  Version:   $Revision: 1.118 $
+  Date:      $Date: 2002-02-21 22:15:16 $
+  Version:   $Revision: 1.119 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,8 +27,16 @@
 // the right eye.  The user has to make the render window aligned with the 
 // VRex projector, or the eye will be swapped.
 
+// .SECTION Caveats 
+// In VTK versions 4 and later, the vtkWindowToImageFilter class is
+// part of the canonical way to output an image of a window to a file
+// (replacing the obsolete SaveImageAsPPM method for vtkRenderWindows
+// that existed in 3.2 and earlier).  Connect one of these filters to
+// the output of the window, and filter's output to a writer such as
+// vtkPNGWriter.
+
 // .SECTION see also
-// vtkRenderer vtkRenderWindowInteractor
+// vtkRenderer vtkRenderWindowInteractor vtkWindowToImageFilter
 
 #ifndef __vtkRenderWindow_h
 #define __vtkRenderWindow_h
