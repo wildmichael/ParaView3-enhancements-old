@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEdgeTable.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:21 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2002-02-27 22:07:43 $
+  Version:   $Revision: 1.31 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 #include "vtkIdList.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkEdgeTable, "$Revision: 1.30 $");
+vtkCxxRevisionMacro(vtkEdgeTable, "$Revision: 1.31 $");
 vtkStandardNewMacro(vtkEdgeTable);
 
 // Instantiate object based on maximum point id.
@@ -116,7 +116,6 @@ void vtkEdgeTable::Reset()
     }
     
   this->NumberOfEdges = 0;
-  this->StoreAttributes = 0;
 }
 
 vtkEdgeTable::~vtkEdgeTable()
