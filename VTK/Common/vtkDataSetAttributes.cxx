@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetAttributes.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-17 20:13:30 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 2001-09-17 23:21:21 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -282,7 +282,6 @@ void vtkDataSetAttributes::ShallowCopy(vtkFieldData *fd)
     {
     int numArrays = fd->GetNumberOfArrays();
     int attributeType;
-    vtkDataArray *data, *newData;
 
     // Allocate space for numArrays
     this->AllocateArrays(numArrays);
