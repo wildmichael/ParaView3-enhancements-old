@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRungeKutta2.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-18 22:25:07 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2002-11-14 16:50:13 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkRungeKutta2.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkRungeKutta2, "$Revision: 1.10 $");
+vtkCxxRevisionMacro(vtkRungeKutta2, "$Revision: 1.11 $");
 vtkStandardNewMacro(vtkRungeKutta2);
 
 vtkRungeKutta2::vtkRungeKutta2() 
@@ -69,6 +69,7 @@ int vtkRungeKutta2::ComputeNextStep(float* xprev, float* dxprev, float* xnext,
     }
   else if ( !this->FunctionSet->FunctionValues(this->Vals, this->Derivs) )
     {
+    memcpy(xnext, this->Vals, (numVals-1)*sizeof(float));
     return OUT_OF_DOMAIN;
     }
 
@@ -82,6 +83,7 @@ int vtkRungeKutta2::ComputeNextStep(float* xprev, float* dxprev, float* xnext,
   // Obtain the derivatives at x_i + dt/2 * dx_i
   if (!this->FunctionSet->FunctionValues(this->Vals, this->Derivs))
     {
+    memcpy(xnext, this->Vals, (numVals-1)*sizeof(float));
     return OUT_OF_DOMAIN;
     }
     
