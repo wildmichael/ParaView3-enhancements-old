@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-02-06 17:54:27 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1994-03-03 18:39:18 $
+  Version:   $Revision: 1.8 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -141,6 +141,58 @@ void vlRenderer::ViewToDisplay()
       sizey*this->Viewport[1];
 
   this->SetDisplayPoint(dx,dy,this->ViewPoint[2]);
+}
+
+
+void vlRenderer::ViewToWorld()
+{
+  vlMatrix4x4 mat;
+  float result[4];
+
+  // get the perspective transformation from the active camera 
+//  mat = this->ActiveCamera->GetPerspectiveTransform();
+  
+  // use the inverse matrix 
+  mat.Invert();
+  
+  // Transform point to world coordinates 
+  result[0] = this->ViewPoint[0];
+  result[1] = this->ViewPoint[1];
+  result[2] = this->ViewPoint[2];
+  result[3] = 1.0;
+
+  mat.VectorMultiply(result,result);
+  
+  // Get the transformed vector & set WorldPoint 
+  this->SetWorldPoint(result);
+}
+
+void vlRenderer::WorldToView()
+{
+  vlMatrix4x4 matrix;
+  int       i,j;
+  float     view[4];
+  float     *world;
+
+  // get the perspective transformation from the active camera 
+  matrix = this->ActiveCamera->GetPerspectiveTransform();
+
+  world = this->WorldPoint;
+  view[0] = world[0]*matrix[0][0] + world[1]*matrix[1][0] +
+    world[2]*matrix[2][0] + world[3]*matrix[3][0];
+  view[1] = world[0]*matrix[0][1] + world[1]*matrix[1][1] +
+    world[2]*matrix[2][1] + world[3]*matrix[3][1];
+  view[2] = world[0]*matrix[0][2] + world[1]*matrix[1][2] +
+    world[2]*matrix[2][2] + world[3]*matrix[3][2];
+  view[3] = world[0]*matrix[0][3] + world[1]*matrix[1][3] +
+    world[2]*matrix[2][3] + world[3]*matrix[3][3];
+
+  if (view[3] != 0.0)
+    {
+    this->SetViewPoint(view[0]/view[3],
+		       view[1]/view[3],
+		       view[2]/view[3]);
+    }
 }
 
 void vlRenderer::PrintSelf(ostream& os, vlIndent indent)
