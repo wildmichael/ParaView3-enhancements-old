@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpLens.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-25 16:07:23 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-08-19 11:51:55 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -52,7 +52,6 @@ void vtkWarpLens::Execute()
 {
   vtkPoints *inPts;
   vtkPoints *newPts;
-  vtkPointData *pd;
   int ptId, numPts;
   float *x, newX[3];
   vtkPointSet *input = this->GetInput();
@@ -67,7 +66,6 @@ void vtkWarpLens::Execute()
 
   inPts = input->GetPoints();  
   numPts = inPts->GetNumberOfPoints();
-  pd = input->GetPointData();
 
   if (!inPts )
     {
