@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataStreamer.h,v $
   Language:  C++
-  Date:      $Date: 2000-10-27 13:35:25 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2000-11-21 17:59:55 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -71,6 +71,14 @@ public:
   void SetNumberOfStreamDivisions(int num);
   int GetNumberOfStreamDivisions();
   
+  // Description:
+  // By default, this option is off.  When it is on, cell scalars are generated
+  // based on which piece they are in.
+  vtkSetMacro(ColorByPiece, int);
+  vtkGetMacro(ColorByPiece, int);
+  vtkBooleanMacro(ColorByPiece, int);
+
+
 protected:
   vtkPolyDataStreamer();
   ~vtkPolyDataStreamer();
@@ -86,6 +94,8 @@ protected:
   unsigned long MemoryLimit;
   int NumberOfStreamDivisions;
   void ComputeNumberOfStreamDivisionsFromMemoryLimit();
+
+  int ColorByPiece;
 
 };
 
