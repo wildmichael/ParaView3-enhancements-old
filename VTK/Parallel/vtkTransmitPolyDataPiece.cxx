@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransmitPolyDataPiece.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-01-17 14:38:11 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2003-03-24 18:16:45 $
+  Version:   $Revision: 1.14 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 #include "vtkPointData.h"
 #include "vtkPolyData.h"
 
-vtkCxxRevisionMacro(vtkTransmitPolyDataPiece, "$Revision: 1.13 $");
+vtkCxxRevisionMacro(vtkTransmitPolyDataPiece, "$Revision: 1.14 $");
 vtkStandardNewMacro(vtkTransmitPolyDataPiece);
 
 vtkCxxSetObjectMacro(vtkTransmitPolyDataPiece,Controller,
@@ -159,14 +159,6 @@ void vtkTransmitPolyDataPiece::RootExecute()
   int ext[3];
   int numProcs, i;
 
-
-  if (output->GetUpdatePiece() != 0)
-    {
-    vtkWarningMacro(<< "Piece " << output->GetUpdatePiece() 
-                    << " does not match process 0.  " 
-                    << "Altering request to try to avoid a deadlock.");
-    }
-
   // First, set up the pipeline and handle local request.
   tmp->ShallowCopy(input);
   tmp->SetReleaseDataFlag(0);
@@ -174,7 +166,7 @@ void vtkTransmitPolyDataPiece::RootExecute()
   extract->SetInput(tmp);
   extract->GetOutput()->SetUpdateNumberOfPieces(
                                 output->GetUpdateNumberOfPieces());
-  extract->GetOutput()->SetUpdatePiece(0);
+  extract->GetOutput()->SetUpdatePiece(output->GetUpdatePiece());
   extract->GetOutput()->SetUpdateGhostLevel(output->GetUpdateGhostLevel());
 
   extract->Update();
@@ -189,10 +181,6 @@ void vtkTransmitPolyDataPiece::RootExecute()
   for (i = 1; i < numProcs; ++i)
     {
     this->Controller->Receive(ext, 3, i, 22341);
-    if (ext[1] != output->GetUpdateNumberOfPieces())
-      {
-      vtkWarningMacro("Number of pieces mismatch between processes.");
-      }
     extract->GetOutput()->SetUpdateNumberOfPieces(ext[1]);
     extract->GetOutput()->SetUpdatePiece(ext[0]);
     extract->GetOutput()->SetUpdateGhostLevel(ext[2]);
