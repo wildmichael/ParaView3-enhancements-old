@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSphere.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:51:30 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1995-07-31 22:38:26 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -46,7 +46,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkSphere_h
 #define __vtkSphere_h
 
-#include "ImpFunc.hh"
+#include "vtkImplicitFunction.hh"
 
 class vtkSphere : public vtkImplicitFunction
 {

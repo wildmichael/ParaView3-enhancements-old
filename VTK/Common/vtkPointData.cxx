@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointData.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:48:13 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 1995-07-31 22:36:11 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,14 +38,14 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "PtData.hh"
-#include "Cell.hh"
-#include "FScalars.hh"
-#include "FVectors.hh"
-#include "FNormals.hh"
-#include "FTCoords.hh"
-#include "FTensors.hh"
-#include "Pixmap.hh"
+#include "vtkPointData.hh"
+#include "vtkCell.hh"
+#include "vtkFloatScalars.hh"
+#include "vtkFloatVectors.hh"
+#include "vtkFloatNormals.hh"
+#include "vtkFloatTCoords.hh"
+#include "vtkFloatTensors.hh"
+#include "vtkPixmap.hh"
 
 // Description:
 // Construct with copying turned on for all data.

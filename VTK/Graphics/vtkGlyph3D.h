@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGlyph3D.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:50:10 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1995-07-31 22:36:19 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -51,7 +51,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkGlyph3D_h
 #define __vtkGlyph3D_h
 
-#include "DS2PolyF.hh"
+#include "vtkDataSetToPolyFilter.hh"
 
 #define SCALE_BY_SCALAR 0
 #define SCALE_BY_VECTOR 1

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPixel.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:48:02 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1995-07-31 22:36:07 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,13 +38,13 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "Pixel.hh"
-#include "Quad.hh"
-#include "Polygon.hh"
-#include "Plane.hh"
+#include "vtkPixel.hh"
+#include "vtkQuad.hh"
+#include "vtkPolygon.hh"
+#include "vtkPlane.hh"
 #include "vtkMath.hh"
-#include "CellArr.hh"
-#include "Line.hh"
+#include "vtkCellArray.hh"
+#include "vtkLine.hh"
 
 static vtkMath math;
 static vtkPlane plane;

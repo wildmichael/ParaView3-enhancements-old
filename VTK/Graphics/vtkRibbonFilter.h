@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRibbonFilter.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:51:09 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1995-07-31 22:38:05 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -53,7 +53,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkRibbonFilter_h
 #define __vtkRibbonFilter_h
 
-#include "P2PF.hh"
+#include "vtkPolyToPolyFilter.hh"
 
 class vtkRibbonFilter : public vtkPolyToPolyFilter 
 {

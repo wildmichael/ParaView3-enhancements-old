@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCylinder.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:47:05 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1995-07-31 22:34:35 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,7 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "Cylinder.hh"
+#include "vtkCylinder.hh"
 
 // Description
 // Construct cylinder radius of 0.5.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridSource.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:51:15 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1995-07-31 22:38:35 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -45,8 +45,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkStructuredGridSource_h
 #define __vtkStructuredGridSource_h
 
-#include "Source.hh"
-#include "SGrid.hh"
+#include "vtkSource.hh"
+#include "vtkStructuredGrid.hh"
 
 class vtkStructuredGridSource : public vtkSource, public vtkStructuredGrid 
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpScalar.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:49:06 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1995-07-31 22:38:12 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,7 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "WarpScal.hh"
+#include "vtkWarpScalar.hh"
 
 vtkWarpScalar::vtkWarpScalar()
 {

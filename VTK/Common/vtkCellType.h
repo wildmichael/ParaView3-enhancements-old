@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellType.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:49:40 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1995-07-31 22:34:55 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTensors.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:48:48 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1995-07-31 22:37:33 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,7 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "Tensors.hh"
+#include "vtkTensors.hh"
 
 vtkTensors::vtkTensors(int dim)
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoxelModeller.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:49:04 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1995-07-31 22:38:09 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,8 +40,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include <math.h>
 #include <stdio.h>
-#include "VoxelMod.hh"
-#include "BScalars.hh"
+#include "vtkVoxelModeller.hh"
+#include "vtkBitScalars.hh"
 
 // Description:
 // Construct with sample dimensions=(50,50,50) and so that model bounds are

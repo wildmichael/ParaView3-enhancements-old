@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCleanPolyData.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:49:40 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1995-07-31 22:35:22 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,7 +55,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkCleanPolyData_h
 #define __vtkCleanPolyData_h
 
-#include "P2PF.hh"
+#include "vtkPolyToPolyFilter.hh"
 
 class vtkCleanPolyData : public vtkPolyToPolyFilter
 {

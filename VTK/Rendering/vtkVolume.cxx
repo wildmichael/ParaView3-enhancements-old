@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:49:03 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1995-07-31 22:38:05 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,7 +41,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include <stdlib.h>
 #include <math.h>
 
-#include "Volume.hh"
+#include "vtkVolume.hh"
 
 // Description:
 // Creates an Volume with the following defaults: origin(0,0,0) 

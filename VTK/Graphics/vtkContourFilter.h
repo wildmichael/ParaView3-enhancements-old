@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkContourFilter.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:49:44 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1995-07-31 22:35:28 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -61,7 +61,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkContourFilter_h
 #define __vtkContourFilter_h
 
-#include "DS2PolyF.hh"
+#include "vtkDataSetToPolyFilter.hh"
 
 #define MAX_CONTOURS 256
 

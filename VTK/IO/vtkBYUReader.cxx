@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBYUReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:46:52 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1995-07-31 22:34:22 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,11 +38,11 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "BYURead.hh"
-#include "FPoints.hh"
-#include "FVectors.hh"
-#include "FScalars.hh"
-#include "FTCoords.hh"
+#include "vtkBYUReader.hh"
+#include "vtkFloatPoints.hh"
+#include "vtkFloatVectors.hh"
+#include "vtkFloatScalars.hh"
+#include "vtkFloatTCoords.hh"
 
 vtkBYUReader::vtkBYUReader()
 {

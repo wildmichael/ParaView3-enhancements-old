@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkConnectivityFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:47:02 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1995-07-31 22:34:31 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,7 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "ConnectF.hh"
+#include "vtkConnectivityFilter.hh"
 
 // Description:
 // Construct with default extraction mode to extract largest regions.

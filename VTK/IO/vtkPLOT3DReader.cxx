@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPLOT3DReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-29 11:42:24 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1995-07-31 22:36:04 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,8 +40,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include <ctype.h>
 #include <math.h>
-#include "Pl3dRead.hh"
-#include "ByteSwap.hh"
+#include "vtkPLOT3DReader.hh"
+#include "vtkByteSwap.hh"
 
 #define BINARY 0
 #define ASCII 1

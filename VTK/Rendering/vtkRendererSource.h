@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRendererSource.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:51:06 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1995-07-31 22:38:04 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,8 +59,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkRendererSource_hh
 #define __vtkRendererSource_hh
 
-#include "SPtsSrc.hh"
-#include "Renderer.hh"
+#include "vtkStructuredPointsSource.hh"
+#include "vtkRenderer.hh"
 
 class vtkRendererSource : public vtkStructuredPointsSource
 {

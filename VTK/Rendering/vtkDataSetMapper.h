@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetMapper.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:49:51 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1995-07-31 22:35:39 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -50,9 +50,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkDataSetMapper_h
 #define __vtkDataSetMapper_h
 
-#include "GeomF.hh"
-#include "PolyMap.hh"
-#include "Renderer.hh"
+#include "vtkGeometryFilter.hh"
+#include "vtkPolyMapper.hh"
+#include "vtkRenderer.hh"
 
 class vtkDataSetMapper : public vtkMapper 
 {

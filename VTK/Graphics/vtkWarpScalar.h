@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpScalar.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:52:01 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1995-07-31 22:39:04 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,7 +55,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkWarpScalar_h
 #define __vtkWarpScalar_h
 
-#include "PtS2PtSF.hh"
+#include "vtkPointSetToPointSetFilter.hh"
 
 class vtkWarpScalar : public vtkPointSetToPointSetFilter
 {

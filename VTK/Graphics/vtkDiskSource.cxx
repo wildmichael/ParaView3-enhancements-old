@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDiskSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:47:14 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1995-07-31 22:34:43 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,7 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "DiskSrc.hh"
+#include "vtkDiskSource.hh"
 #include "vtkMath.hh"
 
 vtkDiskSource::vtkDiskSource()

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuad.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-29 11:45:40 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1995-07-31 22:36:32 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,12 +38,12 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "Quad.hh"
-#include "Polygon.hh"
-#include "Plane.hh"
+#include "vtkQuad.hh"
+#include "vtkPolygon.hh"
+#include "vtkPlane.hh"
 #include "vtkMath.hh"
-#include "CellArr.hh"
-#include "Line.hh"
+#include "vtkCellArray.hh"
+#include "vtkLine.hh"
 
 static vtkMath math;
 static vtkLine line;

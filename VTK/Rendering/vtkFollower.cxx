@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFollower.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-29 11:15:35 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1995-07-31 22:34:51 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,8 +41,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include <stdlib.h>
 #include <math.h>
 #include "vtkMath.hh"
-#include "Follower.hh"
-#include "Camera.hh"
+#include "vtkFollower.hh"
+#include "vtkCamera.hh"
 
 // Description:
 // Creates an follower with no camera set

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:48:06 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 1995-07-31 22:36:18 $
+  Version:   $Revision: 1.50 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,15 +38,15 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "PolyData.hh"
-#include "Vertex.hh"
-#include "PolyVert.hh"
-#include "Line.hh"
-#include "PolyLine.hh"
-#include "Triangle.hh"
-#include "TriStrip.hh"
-#include "Quad.hh"
-#include "Polygon.hh"
+#include "vtkPolyData.hh"
+#include "vtkVertex.hh"
+#include "vtkPolyVertex.hh"
+#include "vtkLine.hh"
+#include "vtkPolyLine.hh"
+#include "vtkTriangle.hh"
+#include "vtkTriangleStrip.hh"
+#include "vtkQuad.hh"
+#include "vtkPolygon.hh"
 
 // Initialize static member.  This member is used to simplify traversal
 // of verts, lines, polygons, and triangle strips lists.  It basically 

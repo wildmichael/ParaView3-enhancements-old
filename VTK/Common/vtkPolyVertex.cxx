@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyVertex.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:48:11 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1995-07-31 22:36:27 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,10 +38,10 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "PolyVert.hh"
+#include "vtkPolyVertex.hh"
 #include "vtkMath.hh"
-#include "CellArr.hh"
-#include "Vertex.hh"
+#include "vtkCellArray.hh"
+#include "vtkVertex.hh"
 
 static vtkMath math;
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpTo.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:52:01 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1995-07-31 22:39:05 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -46,7 +46,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkWarpTo_h
 #define __vtkWarpTo_h
 
-#include "PtS2PtSF.hh"
+#include "vtkPointSetToPointSetFilter.hh"
 
 class vtkWarpTo : public vtkPointSetToPointSetFilter
 {

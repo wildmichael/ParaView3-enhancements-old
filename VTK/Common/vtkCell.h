@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCell.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:49:37 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1995-07-31 22:35:16 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -60,10 +60,10 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #define MAX_CELL_SIZE 512
 #define TOL 1.e-05 // Tolerance for geometric calculation
 
-#include "Object.hh"
-#include "FPoints.hh"
-#include "FScalars.hh"
-#include "IdList.hh"
+#include "vtkObject.hh"
+#include "vtkFloatPoints.hh"
+#include "vtkFloatScalars.hh"
+#include "vtkIdList.hh"
 #include "CellType.hh"
 
 class vtkCellArray;

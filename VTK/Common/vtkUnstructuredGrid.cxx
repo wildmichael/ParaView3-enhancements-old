@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:48:57 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1995-07-31 22:37:54 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,19 +38,19 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "UGrid.hh"
-#include "Vertex.hh"
-#include "PolyVert.hh"
-#include "Line.hh"
-#include "PolyLine.hh"
-#include "Triangle.hh"
-#include "TriStrip.hh"
-#include "Quad.hh"
-#include "Pixel.hh"
-#include "Polygon.hh"
-#include "Tetra.hh"
-#include "Hexa.hh"
-#include "Voxel.hh"
+#include "vtkUnstructuredGrid.hh"
+#include "vtkVertex.hh"
+#include "vtkPolyVertex.hh"
+#include "vtkLine.hh"
+#include "vtkPolyLine.hh"
+#include "vtkTriangle.hh"
+#include "vtkTriangleStrip.hh"
+#include "vtkQuad.hh"
+#include "vtkPixel.hh"
+#include "vtkPolygon.hh"
+#include "vtkTetra.hh"
+#include "vtkHexahedron.hh"
+#include "vtkVoxel.hh"
 
 vtkUnstructuredGrid::vtkUnstructuredGrid ()
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkLogLookupTable.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:47:48 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1995-07-31 22:35:38 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,7 +39,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include <math.h>
-#include "LogLut.hh"
+#include "vtkLogLookupTable.hh"
 
 // Description:
 // Construct with effective range 1->10 (based on logarithmic values.

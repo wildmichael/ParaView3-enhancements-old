@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyData.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:50:55 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 1995-07-31 22:37:40 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -52,11 +52,11 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkPolyData_h
 #define __vtkPolyData_h
 
-#include "PointSet.hh"
-#include "FPoints.hh"
-#include "CellArr.hh"
-#include "CellList.hh"
-#include "LinkList.hh"
+#include "vtkPointSet.hh"
+#include "vtkFloatPoints.hh"
+#include "vtkCellArray.hh"
+#include "vtkCellList.hh"
+#include "vtkLinkList.hh"
 
 class vtkPolyData : public vtkPointSet 
 {

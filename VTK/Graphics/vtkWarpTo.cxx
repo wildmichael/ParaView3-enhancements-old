@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpTo.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-29 11:58:10 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1995-07-31 22:38:13 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,7 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "WarpTo.hh"
+#include "vtkWarpTo.hh"
 
 void vtkWarpTo::Execute()
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellLocator.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-29 11:08:37 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1995-07-31 22:34:28 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,10 +39,10 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include <math.h>
-#include "CellLoc.hh"
-#include "Locator.hh"
+#include "vtkCellLocator.hh"
+#include "vtkLocator.hh"
 #include "vtkMath.hh"
-#include "IntArray.hh"
+#include "vtkIntArray.hh"
 
 #define OUTSIDE 0
 #define INSIDE 1

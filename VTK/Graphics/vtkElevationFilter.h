@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkElevationFilter.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:49:56 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1995-07-31 22:35:54 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -49,7 +49,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkElevationFilter_h
 #define __vtkElevationFilter_h
 
-#include "DS2DSF.hh"
+#include "vtkDataSetToDataSetFilter.hh"
 
 class vtkElevationFilter : public vtkDataSetToDataSetFilter 
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLocator.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-29 11:36:13 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1995-07-31 22:35:37 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,9 +38,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "Locator.hh"
+#include "vtkLocator.hh"
 #include "vtkMath.hh"
-#include "IntArray.hh"
+#include "vtkIntArray.hh"
 
 class vtkNeighborPoints
 {

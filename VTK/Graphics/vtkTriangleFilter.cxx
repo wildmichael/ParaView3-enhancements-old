@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangleFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:48:54 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1995-07-31 22:37:48 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,8 +38,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "TriF.hh"
-#include "Polygon.hh"
+#include "vtkTriangleFilter.hh"
+#include "vtkPolygon.hh"
 
 void vtkTriangleFilter::Execute()
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-29 12:01:08 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1995-07-31 22:34:36 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,24 +38,24 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "vtkDataR.hh"
+#include "vtkDataReader.hh"
 #include <ctype.h>
 
-#include "BScalars.hh"
-#include "UCScalar.hh"
-#include "FScalars.hh"
-#include "SScalars.hh"
-#include "IScalars.hh"
-#include "FPoints.hh"
-#include "IPoints.hh"
-#include "FNormals.hh"
-#include "FTensors.hh"
-#include "FTCoords.hh"
-#include "Graymap.hh"
-#include "AGraymap.hh"
-#include "Pixmap.hh"
-#include "APixmap.hh"
-#include "Lut.hh"
+#include "vtkBitScalars.hh"
+#include "vtkUnsignedCharScalars.hh"
+#include "vtkFloatScalars.hh"
+#include "vtkShortScalars.hh"
+#include "vtkIntScalars.hh"
+#include "vtkFloatPoints.hh"
+#include "vtkIntPoints.hh"
+#include "vtkFloatNormals.hh"
+#include "vtkFloatTensors.hh"
+#include "vtkFloatTCoords.hh"
+#include "vtkGraymap.hh"
+#include "vtkAGraymap.hh"
+#include "vtkPixmap.hh"
+#include "vtkAPixmap.hh"
+#include "vtkLookupTable.hh"
 
 // Description:
 // Construct object.

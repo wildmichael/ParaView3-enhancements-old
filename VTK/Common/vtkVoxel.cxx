@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoxel.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:49:04 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1995-07-31 22:38:08 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,11 +38,11 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "Voxel.hh"
+#include "vtkVoxel.hh"
 #include "vtkMath.hh"
-#include "Line.hh"
-#include "Pixel.hh"
-#include "CellArr.hh"
+#include "vtkLine.hh"
+#include "vtkPixel.hh"
+#include "vtkCellArray.hh"
 
 static vtkMath math;  
 static vtkLine line;

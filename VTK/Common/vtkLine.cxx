@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLine.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:47:45 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1995-07-31 22:35:33 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,9 +38,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "Line.hh"
+#include "vtkLine.hh"
 #include "vtkMath.hh"
-#include "CellArr.hh"
+#include "vtkCellArray.hh"
 
 static vtkMath math; //avoid lots of construction
 

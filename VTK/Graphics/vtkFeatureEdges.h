@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFeatureEdges.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:50:01 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1995-07-31 22:35:56 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -51,7 +51,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkFeatureEdges_h
 #define __vtkFeatureEdges_h
 
-#include "P2PF.hh"
+#include "vtkPolyToPolyFilter.hh"
 
 class vtkFeatureEdges : public vtkPolyToPolyFilter
 {

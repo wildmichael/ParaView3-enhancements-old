@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPicker.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:48:01 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1995-07-31 22:36:06 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,11 +38,11 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "Picker.hh"
-#include "Camera.hh"
+#include "vtkPicker.hh"
+#include "vtkCamera.hh"
 #include "vtkMath.hh"
-#include "Vertex.hh"
-#include "RenderW.hh"
+#include "vtkVertex.hh"
+#include "vtkRenderWindow.hh"
 
 static vtkMath math;
 

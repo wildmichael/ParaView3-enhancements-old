@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCubeSource.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:49:44 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1995-07-31 22:35:29 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -47,7 +47,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkCubeSource_h
 #define __vtkCubeSource_h
 
-#include "PolySrc.hh"
+#include "vtkPolySource.hh"
 
 class vtkCubeSource : public vtkPolySource 
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 20:08:48 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 1995-07-31 22:36:39 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,9 +41,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include <stdlib.h>
 #include <string.h>
 
-#include "Renderer.hh"
-#include "RenderW.hh"
-#include "VolRen.hh"
+#include "vtkRenderer.hh"
+#include "vtkRenderWindow.hh"
+#include "vtkVolumeRenderer.hh"
 #include "vtkMath.hh"
 
 // Description:

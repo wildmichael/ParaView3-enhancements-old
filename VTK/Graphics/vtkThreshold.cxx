@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThreshold.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:48:51 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1995-07-31 22:37:39 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,7 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "Threshld.hh"
+#include "vtkThreshold.hh"
 
 // Construct with lower threshold=0, upper threshold=1, and threshold 
 // function=upper.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCubeSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:47:03 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1995-07-31 22:34:32 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,9 +42,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // Methods for cube generator
 //
 #include <math.h>
-#include "CubeSrc.hh"
-#include "FPoints.hh"
-#include "FNormals.hh"
+#include "vtkCubeSource.hh"
+#include "vtkFloatPoints.hh"
+#include "vtkFloatNormals.hh"
 
 vtkCubeSource::vtkCubeSource(float xL, float yL, float zL)
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStack.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:48:41 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1995-07-31 22:37:07 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,7 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "Stack.hh"
+#include "vtkStack.hh"
 
 // Description:
 // Construct with empty stack.

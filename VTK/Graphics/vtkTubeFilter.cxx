@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTubeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:48:56 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1995-07-31 22:37:50 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,8 +38,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "TubeF.hh"
-#include "PolyLine.hh"
+#include "vtkTubeFilter.hh"
+#include "vtkPolyLine.hh"
 #include "vtkMath.hh"
 
 vtkTubeFilter::vtkTubeFilter()

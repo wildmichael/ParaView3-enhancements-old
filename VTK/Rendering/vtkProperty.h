@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProperty.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:51:01 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1995-07-31 22:37:53 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -53,8 +53,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #define __vtkProperty_hh
 
 #include "Render.hh"
-#include "Object.hh"
-#include "StrPts.hh"
+#include "vtkObject.hh"
+#include "vtkStructuredPoints.hh"
 
 class vtkRenderer;
 class vtkPropertyDevice;

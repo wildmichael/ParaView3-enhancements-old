@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalars.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:51:26 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1995-07-31 22:38:19 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,7 +57,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkScalars_h
 #define __vtkScalars_h
 
-#include "RefCount.hh"
+#include "vtkRefCount.hh"
 
 class vtkIdList;
 class vtkFloatScalars;
@@ -139,7 +139,7 @@ protected:
 
 // These include files are placed here so that if Scalars.hh is included 
 // all other classes necessary for compilation are also included. 
-#include "IdList.hh"
-#include "FScalars.hh"
+#include "vtkIdList.hh"
+#include "vtkFloatScalars.hh"
 
 #endif

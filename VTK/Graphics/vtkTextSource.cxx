@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:48:49 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1995-07-31 22:37:35 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,9 +38,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "TextSrc.hh"
-#include "FPoints.hh"
-#include "Graymap.hh"
+#include "vtkTextSource.hh"
+#include "vtkFloatPoints.hh"
+#include "vtkGraymap.hh"
 
 #define vtkfont_width 9
 #define vtkfont_row_width 864

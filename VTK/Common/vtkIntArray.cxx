@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIntArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:47:37 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1995-07-31 22:35:18 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,7 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "IntArray.hh"
+#include "vtkIntArray.hh"
 
 // Description:
 // Allocate memory for this array. Delete old storage if present.

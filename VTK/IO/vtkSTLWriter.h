@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSTLWriter.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:51:19 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1995-07-31 22:38:07 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -50,8 +50,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #define __vtkSTLWriter_h
 
 #include <stdio.h>
-#include "Writer.hh"
-#include "PolyData.hh"
+#include "vtkWriter.hh"
+#include "vtkPolyData.hh"
 
 #define STL_ASCII 0
 #define STL_BINARY 1

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGlyph3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:47:28 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1995-07-31 22:35:03 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,10 +38,10 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "Glyph3D.hh"
-#include "Trans.hh"
-#include "FVectors.hh"
-#include "FNormals.hh"
+#include "vtkGlyph3D.hh"
+#include "vtkTransform.hh"
+#include "vtkFloatVectors.hh"
+#include "vtkFloatNormals.hh"
 #include "vtkMath.hh"
 
 // Description

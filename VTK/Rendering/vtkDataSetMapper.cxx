@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:47:11 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1995-07-31 22:34:38 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,8 +38,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "DSMapper.hh"
-#include "PolyMap.hh"
+#include "vtkDataSetMapper.hh"
+#include "vtkPolyMapper.hh"
 
 vtkDataSetMapper::vtkDataSetMapper()
 {

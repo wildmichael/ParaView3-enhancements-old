@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGrid.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:51:13 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1995-07-31 22:38:32 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -50,8 +50,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkStructuredGrid_h
 #define __vtkStructuredGrid_h
 
-#include "PointSet.hh"
-#include "StrData.hh"
+#include "vtkPointSet.hh"
+#include "vtkStructuredData.hh"
 
 class vtkStructuredGrid : public vtkPointSet, public vtkStructuredData {
 public:

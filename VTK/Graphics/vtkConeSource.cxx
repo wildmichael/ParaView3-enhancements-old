@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkConeSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:47:01 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1995-07-31 22:34:31 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,7 +42,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // Methods for Cone generator
 //
 #include <math.h>
-#include "ConeSrc.hh"
+#include "vtkConeSource.hh"
 
 vtkConeSource::vtkConeSource(int res)
 {

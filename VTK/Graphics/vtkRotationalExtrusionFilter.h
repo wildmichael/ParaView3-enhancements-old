@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRotationalExtrusionFilter.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:51:10 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1995-07-31 22:38:06 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -73,7 +73,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkRotationalExtrusionFilter_h
 #define __vtkRotationalExtrusionFilter_h
 
-#include "P2PF.hh"
+#include "vtkPolyToPolyFilter.hh"
 
 class vtkRotationalExtrusionFilter : public vtkPolyToPolyFilter 
 {

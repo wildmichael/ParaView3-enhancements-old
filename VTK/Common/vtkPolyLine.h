@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyLine.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:50:56 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1995-07-31 22:37:42 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -46,10 +46,10 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkPolyLine_h
 #define __vtkPolyLine_h
 
-#include "Cell.hh"
-#include "Points.hh"
-#include "CellArr.hh"
-#include "FNormals.hh"
+#include "vtkCell.hh"
+#include "vtkPoints.hh"
+#include "vtkCellArray.hh"
+#include "vtkFloatNormals.hh"
 
 class vtkPolyLine : public vtkCell
 {

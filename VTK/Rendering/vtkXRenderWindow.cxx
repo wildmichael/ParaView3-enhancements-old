@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:49:14 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1995-07-31 22:38:16 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,8 +41,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include <math.h>
 #include <stdlib.h>
 #include <iostream.h>
-#include "XRenWin.hh"
-#include "XInter.hh"
+#include "vtkXRenderWindow.hh"
+#include "vtkXRenderWindowInteractor.hh"
 
 vtkXRenderWindow::vtkXRenderWindow()
 {

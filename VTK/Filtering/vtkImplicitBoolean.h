@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitBoolean.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:50:18 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1995-07-31 22:36:30 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,8 +55,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkImplicitBoolean_h
 #define __vtkImplicitBoolean_h
 
-#include "ImpFunc.hh"
-#include "ImpFuncC.hh"
+#include "vtkImplicitFunction.hh"
+#include "vtkImplicitFunctionCollection.hh"
 
 #define UNION 0
 #define INTERSECTION 1

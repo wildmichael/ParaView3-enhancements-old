@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDiskSource.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:49:55 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1995-07-31 22:35:49 $
+  Version:   $Revision: 1.9 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -50,7 +50,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkDiskSource_h
 #define __vtkDiskSource_h
 
-#include "PolySrc.hh"
+#include "vtkPolySource.hh"
 
 class vtkDiskSource : public vtkPolySource 
 {

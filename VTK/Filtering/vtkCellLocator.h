@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellLocator.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:49:39 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1995-07-31 22:35:19 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,10 +55,10 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkCellLocator_h
 #define __vtkCellLocator_h
 
-#include "Object.hh"
-#include "Points.hh"
-#include "IdList.hh"
-#include "DataSet.hh"
+#include "vtkObject.hh"
+#include "vtkPoints.hh"
+#include "vtkIdList.hh"
+#include "vtkDataSet.hh"
 
 
 class vtkCellLocator : public vtkObject

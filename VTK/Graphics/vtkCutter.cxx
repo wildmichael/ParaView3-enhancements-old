@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCutter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:47:04 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1995-07-31 22:34:33 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,7 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "Cutter.hh"
+#include "vtkCutter.hh"
 
 // Description:
 // Construct with user-specified implicit function.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPlane.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:48:04 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1995-07-31 22:36:09 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,7 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "Plane.hh"
+#include "vtkPlane.hh"
 #include "vtkMath.hh"
 
 static vtkMath math;

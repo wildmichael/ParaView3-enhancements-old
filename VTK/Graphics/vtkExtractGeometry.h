@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractGeometry.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:49:56 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1995-07-31 22:35:55 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -48,8 +48,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkExtractGeometry_h
 #define __vtkExtractGeometry_h
 
-#include "DS2UGrid.hh"
-#include "ImpFunc.hh"
+#include "vtkDataSetToUnstructuredGridFilter.hh"
+#include "vtkImplicitFunction.hh"
 
 class vtkExtractGeometry : public vtkDataSetToUnstructuredGridFilter
 {

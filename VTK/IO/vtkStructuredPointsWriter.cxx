@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:49:26 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1995-07-31 22:37:31 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,7 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "vtkSPtsW.hh"
+#include "vtkStructuredPointsWriter.hh"
 
 // Description:
 // Specify the input data or filter.

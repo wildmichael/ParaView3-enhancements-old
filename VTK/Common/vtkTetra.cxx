@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTetra.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-29 11:53:09 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1995-07-31 22:37:34 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,11 +38,11 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "Tetra.hh"
+#include "vtkTetra.hh"
 #include "vtkMath.hh"
-#include "Line.hh"
-#include "Triangle.hh"
-#include "CellArr.hh"
+#include "vtkLine.hh"
+#include "vtkTriangle.hh"
+#include "vtkCellArray.hh"
 
 static vtkMath math;
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHedgeHog.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:47:29 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1995-07-31 22:35:05 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,7 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "HedgeHog.hh"
+#include "vtkHedgeHog.hh"
 
 void vtkHedgeHog::Execute()
 {

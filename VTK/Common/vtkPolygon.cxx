@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolygon.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:48:11 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1995-07-31 22:36:29 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,13 +38,13 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "Polygon.hh"
+#include "vtkPolygon.hh"
 #include "vtkMath.hh"
-#include "Line.hh"
-#include "Plane.hh"
-#include "DataSet.hh"
-#include "Triangle.hh"
-#include "CellArr.hh"
+#include "vtkLine.hh"
+#include "vtkPlane.hh"
+#include "vtkDataSet.hh"
+#include "vtkTriangle.hh"
+#include "vtkCellArray.hh"
 
 static vtkPlane plane;
 static vtkMath math;

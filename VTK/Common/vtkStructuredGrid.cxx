@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:48:24 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1995-07-31 22:37:13 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,11 +38,11 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "SGrid.hh"
-#include "Vertex.hh"
-#include "Line.hh"
-#include "Quad.hh"
-#include "Hexa.hh"
+#include "vtkStructuredGrid.hh"
+#include "vtkVertex.hh"
+#include "vtkLine.hh"
+#include "vtkQuad.hh"
+#include "vtkHexahedron.hh"
 
 vtkStructuredGrid::vtkStructuredGrid()
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:50:36 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1995-07-31 22:37:02 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -50,10 +50,10 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkMapper_hh
 #define __vtkMapper_hh
 
-#include "Object.hh"
-#include "GeomPrim.hh"
-#include "Lut.hh"
-#include "DataSet.hh"
+#include "vtkObject.hh"
+#include "vtkGeometryPrimitive.hh"
+#include "vtkLookupTable.hh"
+#include "vtkDataSet.hh"
 
 class vtkRenderer;
 

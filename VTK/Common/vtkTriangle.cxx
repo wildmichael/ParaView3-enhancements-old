@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangle.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-29 11:55:06 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1995-07-31 22:37:47 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,12 +38,12 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "Triangle.hh"
-#include "Polygon.hh"
-#include "Plane.hh"
+#include "vtkTriangle.hh"
+#include "vtkPolygon.hh"
+#include "vtkPlane.hh"
 #include "vtkMath.hh"
-#include "CellArr.hh"
-#include "Line.hh"
+#include "vtkCellArray.hh"
+#include "vtkLine.hh"
 
 static vtkPolygon poly;
 static vtkMath math;

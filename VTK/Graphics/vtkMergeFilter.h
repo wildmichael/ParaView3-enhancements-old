@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergeFilter.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:50:38 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1995-07-31 22:37:08 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -46,8 +46,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkMergeFilter_h
 #define __vtkMergeFilter_h
 
-#include "DataSet.hh"
-#include "Filter.hh"
+#include "vtkDataSet.hh"
+#include "vtkFilter.hh"
 
 class vtkMergeFilter : public vtkDataSet, public vtkFilter
 {

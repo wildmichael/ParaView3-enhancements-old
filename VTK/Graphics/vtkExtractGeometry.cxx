@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractGeometry.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:47:16 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1995-07-31 22:34:45 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,7 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "ExtractG.hh"
+#include "vtkExtractGeometry.hh"
 #include "vtkMath.hh"
 
 // Description:

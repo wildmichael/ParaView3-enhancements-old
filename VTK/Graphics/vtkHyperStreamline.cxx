@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkHyperStreamline.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-29 11:24:53 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1995-07-31 22:35:08 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,7 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "HyperStr.hh"
+#include "vtkHyperStreamline.hh"
 #include "vtkMath.hh"
 
 vtkHyperArray::vtkHyperArray()

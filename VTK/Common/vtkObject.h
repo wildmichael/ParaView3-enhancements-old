@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObject.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:50:40 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1995-07-31 22:37:12 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -48,9 +48,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #define __vtkObject_hh
 
 #include <iostream.h>
-#include "TimeSt.hh"
+#include "vtkTimeStamp.hh"
 #include "SetGet.hh"
-#include "Indent.hh"
+#include "vtkIndent.hh"
 
 class vtkObject 
 {

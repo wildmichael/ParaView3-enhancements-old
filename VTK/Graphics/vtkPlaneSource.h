@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPlaneSource.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:50:52 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1995-07-31 22:37:31 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -49,7 +49,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkPlaneSource_h
 #define __vtkPlaneSource_h
 
-#include "PolySrc.hh"
+#include "vtkPolySource.hh"
 
 class vtkPlaneSource : public vtkPolySource 
 {

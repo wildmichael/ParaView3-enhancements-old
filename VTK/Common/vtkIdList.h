@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIdList.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:50:16 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1995-07-31 22:36:25 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -47,8 +47,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef vtkIdList_h
 #define vtkIdList_h
 
-#include "Object.hh"
-#include "IntArray.hh"
+#include "vtkObject.hh"
+#include "vtkIntArray.hh"
 
 class vtkIdList : public vtkObject
 {

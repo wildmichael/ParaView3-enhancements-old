@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPlane.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:50:52 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1995-07-31 22:37:30 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -49,7 +49,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #define __vtkPlane_h
 
 #include <math.h>
-#include "ImpFunc.hh"
+#include "vtkImplicitFunction.hh"
 
 class vtkPlane : public vtkImplicitFunction
 {

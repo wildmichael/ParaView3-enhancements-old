@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoidArray.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:51:54 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1995-07-31 22:39:00 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -47,7 +47,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkVoidArray_h
 #define __vtkVoidArray_h
 
-#include "Object.hh"
+#include "vtkObject.hh"
 
 class vtkVoidArray : public vtkObject 
 {

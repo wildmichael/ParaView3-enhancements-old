@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMaskPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:47:51 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1995-07-31 22:35:43 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,7 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "MaskPts.hh"
+#include "vtkMaskPoints.hh"
 #include "vtkMath.hh"
 
 void vtkMaskPoints::Execute()

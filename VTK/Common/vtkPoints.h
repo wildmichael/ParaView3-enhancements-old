@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPoints.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:50:54 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1995-07-31 22:37:39 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -48,7 +48,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkPoints_h
 #define __vtkPoints_h
 
-#include "RefCount.hh"
+#include "vtkRefCount.hh"
 
 class vtkFloatPoints;
 class vtkIdList;
@@ -118,7 +118,7 @@ protected:
 
 // These include files are placed here so that if Points.hh is included 
 // all other classes necessary for compilation are also included. 
-#include "IdList.hh"
-#include "FPoints.hh"
+#include "vtkIdList.hh"
+#include "vtkFloatPoints.hh"
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTexture.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:48:50 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1995-07-31 22:37:36 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,10 +39,10 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include <stdlib.h>
-#include "Texture.hh"
-#include "Renderer.hh"
-#include "RenderW.hh"
-#include "TextDev.hh"
+#include "vtkTexture.hh"
+#include "vtkRenderer.hh"
+#include "vtkRenderWindow.hh"
+#include "vtkTextureDevice.hh"
 
 // Description:
 // Construct object and initialize.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkShrinkFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:48:36 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1995-07-31 22:37:02 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,7 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "ShrinkF.hh"
+#include "vtkShrinkFilter.hh"
 
 void vtkShrinkFilter::Execute()
 {

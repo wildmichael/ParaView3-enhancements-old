@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLineSource.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:50:32 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1995-07-31 22:36:55 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -47,7 +47,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkLineSource_h
 #define __vtkLineSource_h
 
-#include "PolySrc.hh"
+#include "vtkPolySource.hh"
 
 class vtkLineSource : public vtkPolySource 
 {

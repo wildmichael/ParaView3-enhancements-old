@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSet.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:47:12 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 1995-07-31 22:34:37 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,7 +42,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // DataSet methods
 //
 #include <math.h>
-#include "DataSet.hh"
+#include "vtkDataSet.hh"
 
 // Initialize static member that controls global data release after use by filter
 int vtkDataSet::GlobalReleaseDataFlag = 0;

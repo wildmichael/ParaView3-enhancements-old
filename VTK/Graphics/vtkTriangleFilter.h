@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangleFilter.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:51:48 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1995-07-31 22:38:51 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -47,7 +47,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkTriangleFilter_h
 #define __vtkTriangleFilter_h
 
-#include "P2PF.hh"
+#include "vtkPolyToPolyFilter.hh"
 
 class vtkTriangleFilter : public vtkPolyToPolyFilter
 {

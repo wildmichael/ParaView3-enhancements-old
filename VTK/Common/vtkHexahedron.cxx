@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHexahedron.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:47:30 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1995-07-31 22:35:07 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,11 +38,11 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "Hexa.hh"
+#include "vtkHexahedron.hh"
 #include "vtkMath.hh"
-#include "Line.hh"
-#include "Quad.hh"
-#include "CellArr.hh"
+#include "vtkLine.hh"
+#include "vtkQuad.hh"
+#include "vtkCellArray.hh"
 
 // Description:
 // Deep copy of cell.

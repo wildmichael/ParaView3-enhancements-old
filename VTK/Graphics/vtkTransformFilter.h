@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransformFilter.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:51:47 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1995-07-31 22:38:49 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,8 +55,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkTransformFilter_h
 #define __vtkTransformFilter_h
 
-#include "PtS2PtSF.hh"
-#include "Trans.hh"
+#include "vtkPointSetToPointSetFilter.hh"
+#include "vtkTransform.hh"
 
 class vtkTransformFilter : public vtkPointSetToPointSetFilter
 {

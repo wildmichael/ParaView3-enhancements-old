@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointPicker.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:51:02 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1995-07-31 22:37:34 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -50,7 +50,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkPointPicker_h
 #define __vtkPointPicker_h
 
-#include "Picker.hh"
+#include "vtkPicker.hh"
 
 class vtkPointPicker : public vtkPicker
 {

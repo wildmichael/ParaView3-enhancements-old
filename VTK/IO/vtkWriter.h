@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWriter.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:52:02 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1995-07-31 22:39:06 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -50,8 +50,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkWriter_hh
 #define __vtkWriter_hh
 
-#include "Object.hh"
-#include "DataSet.hh"
+#include "vtkObject.hh"
+#include "vtkDataSet.hh"
 
 class vtkWriter : public vtkObject 
 {

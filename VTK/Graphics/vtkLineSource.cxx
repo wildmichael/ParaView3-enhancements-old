@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLineSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:47:46 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1995-07-31 22:35:34 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,9 +39,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include <math.h>
-#include "LineSrc.hh"
-#include "FPoints.hh"
-#include "FTCoords.hh"
+#include "vtkLineSource.hh"
+#include "vtkFloatPoints.hh"
+#include "vtkFloatTCoords.hh"
 
 vtkLineSource::vtkLineSource(int res)
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDividingCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:47:08 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1995-07-31 22:34:43 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,9 +38,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "DCubes.hh"
+#include "vtkDividingCubes.hh"
 #include "vtkMath.hh"
-#include "Voxel.hh"
+#include "vtkVoxel.hh"
 
 vtkDividingCubes::vtkDividingCubes()
 {

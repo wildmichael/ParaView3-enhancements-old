@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkShrinkFilter.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:51:28 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1995-07-31 22:38:23 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -51,7 +51,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkShrinkFilter_h
 #define __vtkShrinkFilter_h
 
-#include "DS2UGrid.hh"
+#include "vtkDataSetToUnstructuredGridFilter.hh"
 
 class vtkShrinkFilter : public vtkDataSetToUnstructuredGridFilter
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:49:25 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1995-07-31 22:37:20 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,7 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "vtkSGrdW.hh"
+#include "vtkStructuredGridWriter.hh"
 
 // Description:
 // Specify the input data or filter.

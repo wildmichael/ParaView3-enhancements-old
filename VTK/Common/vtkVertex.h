@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVertex.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:51:57 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1995-07-31 22:38:59 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -45,7 +45,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkVertex_h
 #define __vtkVertex_h
 
-#include "Cell.hh"
+#include "vtkCell.hh"
 
 class vtkVertex : public vtkCell
 {

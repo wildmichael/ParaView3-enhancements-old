@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSource.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:51:29 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1995-07-31 22:38:25 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -48,7 +48,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkSource_h
 #define __vtkSource_h
 
-#include "LWObject.hh"
+#include "vtkLWObject.hh"
 
 class vtkSource : public vtkLWObject
 {

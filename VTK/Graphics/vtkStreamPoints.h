@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamPoints.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:51:34 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1995-07-31 22:38:30 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -48,7 +48,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkStreamPoints_h
 #define __vtkStreamPoints_h
 
-#include "Streamer.hh"
+#include "vtkStreamer.hh"
 
 class vtkStreamPoints : public vtkStreamer
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRibbonFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-29 11:48:22 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1995-07-31 22:36:42 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,10 +39,10 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkMath.hh"
-#include "RibbonF.hh"
-#include "FPoints.hh"
-#include "FNormals.hh"
-#include "PolyLine.hh"
+#include "vtkRibbonFilter.hh"
+#include "vtkFloatPoints.hh"
+#include "vtkFloatNormals.hh"
+#include "vtkPolyLine.hh"
 
 // Description:
 // Construct ribbon so that width is 0.1, no normal rotation, the width does 

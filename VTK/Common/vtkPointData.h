@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointData.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:51:01 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1995-07-31 22:37:33 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -49,13 +49,13 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkPointData_h
 #define __vtkPointData_h
 
-#include "Object.hh"
-#include "Scalars.hh"
-#include "Vectors.hh"
-#include "Normals.hh"
-#include "TCoords.hh"
-#include "Tensors.hh"
-#include "UserDef.hh"
+#include "vtkObject.hh"
+#include "vtkScalars.hh"
+#include "vtkVectors.hh"
+#include "vtkNormals.hh"
+#include "vtkTCoords.hh"
+#include "vtkTensors.hh"
+#include "vtkUserDefined.hh"
 
 class vtkPointData : public vtkObject 
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPoints.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:51:32 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1995-07-31 22:38:36 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -48,8 +48,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkStructuredPoints_h
 #define __vtkStructuredPoints_h
 
-#include "DataSet.hh"
-#include "StrData.hh"
+#include "vtkDataSet.hh"
+#include "vtkStructuredData.hh"
 
 class vtkStructuredPoints : public vtkDataSet, public vtkStructuredData 
 {

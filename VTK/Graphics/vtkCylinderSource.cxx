@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCylinderSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:47:05 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1995-07-31 22:34:35 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,10 +39,10 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include <math.h>
-#include "CylSrc.hh"
-#include "FPoints.hh"
-#include "FNormals.hh"
-#include "FTCoords.hh"
+#include "vtkCylinderSource.hh"
+#include "vtkFloatPoints.hh"
+#include "vtkFloatNormals.hh"
+#include "vtkFloatTCoords.hh"
 
 vtkCylinderSource::vtkCylinderSource (int res)
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMatrix4x4.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:47:51 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1995-07-31 22:35:45 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,7 +41,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include <stdlib.h>
 #include <math.h>
 
-#include "Mat4x4.hh"
+#include "vtkMatrix4x4.hh"
 #include "vtkMath.hh"
 
 // Description:
