@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXOpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:18:19 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2002-01-03 14:37:48 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -210,7 +210,7 @@ vtkXOpenGLRenderWindow::vtkXOpenGLRenderWindow()
   this->NextWindowId = (Window)NULL;
   this->ColorMap = (Colormap)0;
   this->OwnWindow = 0;
-
+  
   // OpenGL specific
 #ifdef VTK_OPENGL_HAS_OSMESA
   this->OffScreenContextId = NULL;
@@ -919,12 +919,6 @@ int *vtkXOpenGLRenderWindow::GetScreenSize()
     DisplayHeight(this->DisplayId, DefaultScreen(this->DisplayId));
 
   return this->ScreenSize;
-}
-
-// Get the current size of the window in pixels.
-int *vtkXOpenGLRenderWindow::GetSize(void)
-{  
-  return this->Size;
 }
 
 // Get the position in screen coordinates (pixels) of the window.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXOpenGLRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:38:36 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-01-03 14:37:47 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -132,10 +132,6 @@ public:
   virtual void *GetGenericContext();
   virtual void *GetGenericDrawable()  {return (void *)this->WindowId;};
   
-  // Description:
-  // Get the current size of the window in pixels.
-  virtual int     *GetSize();
-
   // Description:
   // Get the size of the screen in pixels
   virtual int     *GetScreenSize();
