@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTensorGlyph.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:12:49 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2000-10-20 13:58:11 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -86,11 +86,6 @@ public:
   // extracted, glyphs are colored with input scalar data, and logarithmic
   // scaling is turned off.
   static vtkTensorGlyph *New();
-
-  // Description:
-  // Override update method because execution can branch two ways (via Input 
-  // and Source objects).
-  void Update();
 
   // Description:
   // Specify the geometry to copy to each point.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProgrammableAttributeDataFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:12:19 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2000-10-20 13:58:11 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -41,7 +41,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 =========================================================================*/
 #include "vtkProgrammableAttributeDataFilter.h"
 #include "vtkObjectFactory.h"
-
 
 
 //------------------------------------------------------------------------------
@@ -123,70 +122,6 @@ void vtkProgrammableAttributeDataFilter::SetExecuteMethodArgDelete(void (*f)(voi
     {
     this->ExecuteMethodArgDelete = f;
     this->Modified();
-    }
-}
-
-void vtkProgrammableAttributeDataFilter::Update()
-{
-  vtkDataSet *input = this->GetInput();
-  vtkDataSet *output = this->GetOutput();
-  vtkDataSet *ds;
-
-  // make sure input is available
-  if ( !input )
-    {
-    vtkErrorMacro(<< "No input...can't execute!");
-    return;
-    }
-
-  // prevent chasing our tail
-  if (this->Updating)
-    {
-    return;
-    }
-
-  // Update the inputs
-  this->Updating = 1;
-  input->Update();
-  for (this->InputList->InitTraversal(); 
-       (ds = this->InputList->GetNextItem()); )
-    {
-    ds->Update();
-    }
-  this->Updating = 0;
-
-  // execute
-  if ( this->StartMethod )
-    {
-    (*this->StartMethod)(this->StartMethodArg);
-    }
-  output->CopyStructure(input);
-  // reset AbortExecute flag and Progress
-  this->AbortExecute = 0;
-  this->Progress = 0.0;
-  this->Execute();
-  if ( !this->AbortExecute )
-    {
-    this->UpdateProgress(1.0);
-    }
-  if ( this->EndMethod )
-    {
-    (*this->EndMethod)(this->EndMethodArg);
-    }
-  
-  // clean up
-  if ( input->ShouldIReleaseData() ) 
-    {
-    input->ReleaseData();
-    }
-  
-  for (this->InputList->InitTraversal(); 
-       (ds = this->InputList->GetNextItem()); )
-    {
-    if ( ds->ShouldIReleaseData() )
-      {
-      ds->ReleaseData();
-      }
     }
 }
 

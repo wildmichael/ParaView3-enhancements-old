@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProgrammableAttributeDataFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-01 16:29:01 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2000-10-20 13:58:11 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -128,10 +128,6 @@ public:
   // Description:
   // Set the arg delete method. This is used to free user memory.
   void SetExecuteMethodArgDelete(void (*f)(void *));
-
-  // Description:
-  // vtkFilter interface - overridden because of multiple input.
-  void Update();
 
   // Description:
   // For legacy compatibility. Do not use.

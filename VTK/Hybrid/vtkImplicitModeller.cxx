@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitModeller.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:11:49 $
-  Version:   $Revision: 1.65 $
+  Date:      $Date: 2000-10-20 13:58:11 $
+  Version:   $Revision: 1.66 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -52,7 +52,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkUnstructuredGrid.h"
 #include "vtkRectilinearGrid.h"
 #include "vtkObjectFactory.h"
-
+#include "vtkCommand.h"
 
 
 //------------------------------------------------------------------------------
@@ -148,7 +148,7 @@ void vtkImplicitModeller::StartAppend()
   float maxDistance;
 
   vtkDebugMacro(<< "Initializing data");
-	this->UpdateProgress(0.0);
+  this->UpdateProgress(0.0);
   this->DataAppended = 1;
 
   numPts = this->SampleDimensions[0] * this->SampleDimensions[1] 
@@ -621,7 +621,7 @@ void vtkImplicitModeller::Append(vtkDataSet *input)
             }
           }
         }
-      if (this->ProgressMethod)
+      if (this->HasObserver(vtkCommand::ProgressEvent))
         {
         info.ProgressMutex = vtkMutexLock::New();
         }

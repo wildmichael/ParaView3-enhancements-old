@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-06-21 08:53:30 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2000-10-20 13:58:11 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -40,6 +40,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
 #include "vtkWriter.h"
+#include "vtkCommand.h"
 
 // Construct with no start and end write methods or arguments.
 vtkWriter::vtkWriter()
@@ -82,15 +83,9 @@ void vtkWriter::Write()
     return;
   }
   //
-  if ( this->StartMethod )
-    {
-    (*this->StartMethod)(this->StartMethodArg);
-    }
+  this->InvokeEvent(vtkCommand::StartEvent,NULL);
   this->WriteData();
-  if ( this->EndMethod )
-    {
-    (*this->EndMethod)(this->EndMethodArg);
-    }
+  this->InvokeEvent(vtkCommand::EndEvent,NULL);
 
   if ( input->ShouldIReleaseData() )
     {
