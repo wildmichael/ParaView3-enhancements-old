@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpVector.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:49:33 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1997-07-23 20:49:26 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -54,16 +54,16 @@ void vtkWarpVector::Execute()
   vtkDebugMacro(<<"Warping data with vectors");
 
   inPts = input->GetPoints();
-  numPts = inPts->GetNumberOfPoints();
   pd = input->GetPointData();
-  inVectors = pd->GetVectors();
 
-  if ( !inVectors || !inPts )
+  if ( !pd->GetVectors() || !inPts )
     {
     vtkErrorMacro(<<"No input data");
     return;
     }
 
+  inVectors = pd->GetVectors();
+  numPts = inPts->GetNumberOfPoints();
   newPts = vtkFloatPoints::New();
   newPts->SetNumberOfPoints(numPts);
 //
