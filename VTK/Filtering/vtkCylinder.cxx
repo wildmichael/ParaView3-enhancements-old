@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCylinder.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-23 19:12:57 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1998-07-28 13:21:18 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -60,11 +60,14 @@ float vtkCylinder::EvaluateFunction(float xyz[3])
 
 // Description
 // Evaluate cylinder function gradient.
-void vtkCylinder::EvaluateGradient(float x[3], float g[3])
+void vtkCylinder::EvaluateGradient(float xyz[3], float g[3])
 {
-  g[0] = 2.0 * x[0];
+  float x = xyz[0] - this->Center[0];
+  float z = xyz[2] - this->Center[2];
+
+  g[0] = 2.0 * (x - this->Center[0]);
   g[1] = 0.0;
-  g[2] = 2.0 * x[2];
+  g[2] = 2.0 * (z - this->Center[2]);
 }
 
 void vtkCylinder::PrintSelf(ostream& os, vtkIndent indent)
