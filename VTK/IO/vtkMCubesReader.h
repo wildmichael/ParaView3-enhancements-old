@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMCubesReader.h,v $
   Language:  C++
-  Date:      $Date: 1995-09-11 07:58:22 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1995-10-09 16:42:24 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -43,11 +43,18 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // vtkMCubesReader is a source object that reads binary marching cubes
 // files. (Marching cubes is an isosurfacing technique that generates 
 // many triangles). The binary format is supported by B. Lorensen's
-// marching cubes program. The format repeats point coordinates, so
-// this object will merge the points with a vtkLocator object. You can 
-// choose to supply the vtkLocator or use the default.
+// marching cubes program (and the vtkSliceCubes object). The format 
+// repeats point coordinates, so this object will merge the points 
+// with a vtkLocator object. You can choose to supply the vtkLocator 
+// or use the default.
 // .SECTION Caveats
 // Binary files assumed written in sun/hp/sgi form.
+//
+// Because points are merged when read, degenerate triangles may be removed.
+// Thus the number of triangles read may be fewer than the number of triangles
+// written.
+// .SECTION See Also
+// vtkMarchingCubes vtkSliceCubes
 
 #ifndef __vtkMCubesReader_h
 #define __vtkMCubesReader_h
@@ -96,16 +103,15 @@ public:
   void CreateDefaultLocator();
 
 protected:
+  void Execute();
+
   char *Filename;
   char *LimitsFilename;
-
   vtkLocator *Locator;
   int SelfCreatedLocator;
-
   int FlipNormals;
   int Normals;
 
-  void Execute();
 };
 
 #endif

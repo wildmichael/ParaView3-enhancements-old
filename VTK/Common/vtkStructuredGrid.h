@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGrid.h,v $
   Language:  C++
-  Date:      $Date: 1995-09-08 12:50:12 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1995-10-09 16:42:22 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -73,12 +73,12 @@ public:
   float *GetPoint(int ptId);
   void GetPoint(int ptId, float p[3]);
   int FindCell(float x[3], vtkCell *cell, float tol2, int& subId, 
-               float pcoords[3],float weights[VTK_MAX_CELL_SIZE]);
+               float pcoords[3],float *weights);
   int GetNumberOfCells();
   void GetCellPoints(int cellId, vtkIdList& ptIds);
   void GetPointCells(int ptId, vtkIdList& cellIds);
-
   void Initialize();
+  int GetMaxCellSize() {return 8;}; //hexahedron is the largest
 
 protected:
   // points inherited
@@ -113,7 +113,7 @@ inline void vtkStructuredGrid::GetPointCells(int ptId, vtkIdList& cellIds)
 
 inline int vtkStructuredGrid::FindCell(float x[3], vtkCell *cell, float tol2, 
                                       int& subId, float pcoords[3],
-                                      float weights[VTK_MAX_CELL_SIZE])
+                                      float *weights)
 {
   return this->vtkPointSet::FindCell(x,cell,tol2,subId,pcoords,weights);
 }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDecimate.h,v $
   Language:  C++
-  Date:      $Date: 1995-09-12 13:48:19 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1995-10-09 16:41:58 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -221,7 +221,7 @@ public:
   // If the number of triangles connected to a vertex exceeds "Degree", then 
   // the vertex is considered complex and is never deleted. (NOTE: the
   // complexity of the triangulation algorithm is proportional to Degree^2.)
-  vtkSetClampMacro(Degree,int,25,VTK_MAX_CELL_SIZE);
+  vtkSetClampMacro(Degree,int,25,VTK_CELL_SIZE);
   vtkGetMacro(Degree,int);
   
 protected:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolygon.h,v $
   Language:  C++
-  Date:      $Date: 1995-09-12 13:48:27 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1995-10-09 16:42:17 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -76,9 +76,9 @@ public:
                vtkCellArray *lines, vtkCellArray *polys, vtkFloatScalars *s);
   int EvaluatePosition(float x[3], float closestPoint[3],
                        int& subId, float pcoords[3],
-                       float& dist2, float weights[VTK_MAX_CELL_SIZE]);
+                       float& dist2, float *weights);
   void EvaluateLocation(int& subId, float pcoords[3], float x[3],
-                        float weights[VTK_MAX_CELL_SIZE]);
+                        float *weights);
   int IntersectWithLine(float p1[3], float p2[3], float tol, float& t,
                         float x[3], float pcoords[3], int& subId);
   int Triangulate(int index, vtkFloatPoints &pts);
@@ -86,7 +86,7 @@ public:
                    int dim, float *derivs);
 
   // Polygon specific
-  void ComputeWeights(float x[3], float weights[VTK_MAX_CELL_SIZE]);
+  void ComputeWeights(float x[3], float *weights);
 
   int ParameterizePolygon(float p0[3], float p10[3], float &l10, 
                           float p20[3], float &l20, float n[3]);

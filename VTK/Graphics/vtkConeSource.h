@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkConeSource.h,v $
   Language:  C++
-  Date:      $Date: 1995-09-08 12:48:37 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1995-10-09 16:41:52 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -73,7 +73,7 @@ public:
 
   // Description:
   // Set the number of facets used to represent cone.
-  vtkSetClampMacro(Resolution,int,0,VTK_MAX_CELL_SIZE)
+  vtkSetClampMacro(Resolution,int,0,VTK_CELL_SIZE)
   vtkGetMacro(Resolution,int);
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPoints.h,v $
   Language:  C++
-  Date:      $Date: 1995-09-08 12:50:16 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 1995-10-09 16:42:26 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -72,12 +72,13 @@ public:
   void GetPoint(int id, float x[3]);
   vtkCell *GetCell(int cellId);
   int FindCell(float x[3], vtkCell *cell, float tol2, int& subId, 
-               float pcoords[3], float weights[VTK_MAX_CELL_SIZE]);
+               float pcoords[3], float *weights);
   int GetCellType(int cellId);
   void GetCellPoints(int cellId, vtkIdList& ptIds);
   void GetPointCells(int ptId, vtkIdList& cellIds);
   void ComputeBounds();
   void Initialize();
+  int GetMaxCellSize() {return 8;}; //voxel is the largest
 
   void GetVoxelGradient(int i, int j, int k, vtkScalars *s, vtkFloatVectors& g);
   void GetPointGradient(int i, int j, int k, vtkScalars *s, float g[3]);
