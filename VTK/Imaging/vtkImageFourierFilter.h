@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageFourierFilter.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 21:16:28 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1998-01-26 16:26:28 $
+  Version:   $Revision: 1.13 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -137,3 +137,5 @@ protected:
 
 
 #endif
+
+
