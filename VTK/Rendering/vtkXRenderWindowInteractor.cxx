@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:38:17 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1995-08-13 16:30:49 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -562,9 +562,8 @@ void vtkXRenderWindowInteractor::SetupNewWindow(int Stereo)
       }
     }
 
-  // free the previous widget
-  XtDestroyWidget(this->top);
-
+  this->oldTop = this->top;
+  
   this->top = XtVaAppCreateShell(this->RenderWindow->GetName(),"vtk",
 				 applicationShellWidgetClass,
 				 this->DisplayId,
@@ -591,6 +590,10 @@ void vtkXRenderWindowInteractor::SetupNewWindow(int Stereo)
 void vtkXRenderWindowInteractor::FinishSettingUpNewWindow()
 {
   int *size;
+
+  // free the previous widget
+  XtDestroyWidget(this->oldTop);
+  XSync(this->DisplayId,False);
 
   XtAddEventHandler(this->top,
 		    KeyPressMask | ButtonPressMask | ExposureMask |
