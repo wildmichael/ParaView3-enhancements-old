@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHull.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-03-02 23:43:52 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-03-22 22:34:52 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -376,9 +376,9 @@ void vtkHull::AddRecursiveSpherePlanes( int level )
       }
     }
 
-  delete points;
-  delete triangles;
-  delete validPoint;
+  delete [] points;
+  delete [] triangles;
+  delete [] validPoint;
 
 }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEncodedGradientEstimator.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-02-12 21:54:33 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1999-03-22 22:34:52 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -89,6 +89,11 @@ vtkEncodedGradientEstimator::~vtkEncodedGradientEstimator()
   if ( this->DirectionEncoder )
     {
     this->DirectionEncoder->UnRegister( this );
+    }
+
+  if ( this->CircleLimits )
+    {
+    delete [] this->CircleLimits;
     }
 }
 
@@ -245,7 +250,7 @@ void vtkEncodedGradientEstimator::ComputeCircleLimits( int size )
     {
     if ( this->CircleLimits )
       {
-      delete this->CircleLimits;
+      delete [] this->CircleLimits;
       }
     this->CircleLimits = new int[2*size];
     this->CircleLimitsSize = size;
