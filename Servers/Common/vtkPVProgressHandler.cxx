@@ -32,7 +32,7 @@
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro(vtkPVProgressHandler);
-vtkCxxRevisionMacro(vtkPVProgressHandler, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkPVProgressHandler, "$Revision: 1.2 $");
 vtkCxxSetObjectMacro(vtkPVProgressHandler, SocketController, vtkSocketController);
 
 //----------------------------------------------------------------------------
@@ -262,7 +262,7 @@ void vtkPVProgressHandler::InvokeRootNodeServerProgressEvent(
   vtkClientServerID nid;
   nid.ID = id;
   vtkObjectBase* base = 
-    app->GetProcessModule()->GetInterpreter()->GetObjectFromID(nid, 1);
+    vtkProcessModule::GetProcessModule()->GetInterpreter()->GetObjectFromID(nid, 1);
   if ( base )
     {
     char buffer[1024];
