@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnsignedCharArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-12 18:32:04 $
-  Version:   $Revision: 1.56 $
+  Date:      $Date: 2003-10-17 12:33:49 $
+  Version:   $Revision: 1.57 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkUnsignedCharArray.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkUnsignedCharArray, "$Revision: 1.56 $");
+vtkCxxRevisionMacro(vtkUnsignedCharArray, "$Revision: 1.57 $");
 vtkStandardNewMacro(vtkUnsignedCharArray);
 
 // Instantiate object.
@@ -115,8 +115,8 @@ void vtkUnsignedCharArray::DeepCopy(vtkDataArray *ia)
 
   if ( ia->GetDataType() != VTK_UNSIGNED_CHAR )
     {
-      vtkDataArray::DeepCopy(ia);
-      return;
+    vtkDataArray::DeepCopy(ia);
+    return;
     }
 
   if ( this != ia )
