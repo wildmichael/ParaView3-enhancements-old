@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFieldDataToAttributeDataFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-21 19:58:43 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2000-08-25 12:35:06 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -678,7 +678,7 @@ void vtkFieldDataToAttributeDataFilter::ConstructGhostLevels(int num,
     newGhostLevels->SetNumberOfGhostLevels(num);
 
 
-    if ( this->ConstructArray(newGhostLevels->GetData(), i, fieldArray[0],
+    if ( this->ConstructArray(newGhostLevels->GetData(), 0, fieldArray[0],
 			      arrayComp, componentRange[0], componentRange[1],
 			      normalize) == 0 )
       {
