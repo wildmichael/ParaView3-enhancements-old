@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLineWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-05 11:53:07 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2002-11-18 20:20:42 $
+  Version:   $Revision: 1.37 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -37,7 +37,7 @@
 #include "vtkPointWidget.h"
 #include "vtkCommand.h"
 
-vtkCxxRevisionMacro(vtkLineWidget, "$Revision: 1.36 $");
+vtkCxxRevisionMacro(vtkLineWidget, "$Revision: 1.37 $");
 vtkStandardNewMacro(vtkLineWidget);
 
 // This class is used to coordinate the interaction between the point widget
@@ -284,6 +284,7 @@ void vtkLineWidget::SetEnabled(int enabling)
       this->CurrentRenderer->AddActor(this->Handle[j]);
       this->Handle[j]->SetProperty(this->HandleProperty);
       }
+    
     this->BuildRepresentation();
     this->SizeHandles();
 
@@ -313,6 +314,11 @@ void vtkLineWidget::SetEnabled(int enabling)
       this->CurrentRenderer->RemoveActor(this->Handle[i]);
       }
 
+    if (this->CurrentPointWidget)
+      {
+      this->CurrentPointWidget->EnabledOff();
+      }
+    
     this->CurrentHandle = NULL;
     this->InvokeEvent(vtkCommand::DisableEvent,NULL);
     }
