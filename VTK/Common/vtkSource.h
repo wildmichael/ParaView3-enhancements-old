@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSource.h,v $
   Language:  C++
-  Date:      $Date: 2001-02-28 22:55:28 $
-  Version:   $Revision: 1.59 $
+  Date:      $Date: 2001-03-02 12:35:38 $
+  Version:   $Revision: 1.60 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -161,7 +161,7 @@ protected:
   // Description:
   // This method is the one that should be used by subclasses, right now the 
   // default implementation is to call the backwards compatibility method
-  virtual void ExecuteData(vtkDataObject *output) {
+  virtual void ExecuteData(vtkDataObject *vtkNotUsed(output)) {
     this->Execute(); };
 
   // Description:
