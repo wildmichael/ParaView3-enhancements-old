@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:50 $
-  Version:   $Revision: 1.164 $
+  Date:      $Date: 2000-12-21 02:29:17 $
+  Version:   $Revision: 1.165 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -325,6 +325,10 @@ void vtkRenderer::Render(void)
     if (this->LastRenderTimeInSeconds == 0.0)
       {
       this->LastRenderTimeInSeconds = 0.0001;
+      }
+    if (totalEstimate < 0.0001)
+      {
+      totalEstimate = 0.0001;
       }
     this->TimeFactor = totalEstimate / this->LastRenderTimeInSeconds;
     //this->TimeFactor = 1.0;
