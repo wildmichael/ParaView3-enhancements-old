@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataMapper2D.h,v $
   Language:  C++
-  Date:      $Date: 1998-05-07 13:15:34 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-05-07 18:58:52 $
+  Version:   $Revision: 1.2 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -56,6 +56,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkActor2D.h"
 #include "vtkProperty2D.h"
 #include "vtkLookupTable.h"
+#include "vtkPolyData.h"
 
 class VTK_EXPORT vtkPolyDataMapper2D : public vtkMapper2D
 {
@@ -122,6 +123,8 @@ public:
   // method, use GetColor() on the scalar to get the scalar values. This
   // method may return NULL if no color information is available.
   vtkScalars *GetColors();
+
+  virtual unsigned long GetMTime();
 
 protected:
   vtkPolyData* Input;

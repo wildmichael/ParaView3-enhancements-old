@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-07 13:15:33 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-05-07 18:58:51 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -60,8 +60,6 @@ vtkPolyDataMapper2D::vtkPolyDataMapper2D()
   this->ScalarRange[0] = 0.0; this->ScalarRange[1] = 1.0;
 
   this->SelfCreatedLookupTable = 0;
-  this->ImmediateModeRendering = 0;
-
   this->ColorMode = VTK_COLOR_MODE_DEFAULT;
 }
 
@@ -88,7 +86,7 @@ vtkPolyDataMapper2D *vtkPolyDataMapper2D::New()
 // then this object is modified as well.
 unsigned long vtkPolyDataMapper2D::GetMTime()
 {
-  unsigned long mTime=this->MTime.GetMTime();
+  unsigned long mTime = this->MTime;
   unsigned long lutMTime;
 
   if ( this->LookupTable != NULL )
