@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: TestPStream.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-14 16:51:29 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-11-15 13:28:48 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -141,7 +141,7 @@ void MyMain( vtkMultiProcessController *controller, void *arg )
   LookupTable1->SetValueRange(1, 1);
   LookupTable1->SetTableRange(0.197813, 0.710419);
   LookupTable1->SetVectorComponent(0);
-  LookupTable1->Build;
+  LookupTable1->Build();
 
   vtkPolyDataMapper* Mapper6 = vtkPolyDataMapper::New();
   Mapper6->SetInput(Geometry6->GetOutput());
@@ -235,9 +235,6 @@ int main( int argc, char* argv[] )
     // Set the number of processes to 2 for this example.
     contr->SetNumberOfProcesses(2);
     } 
-
-  int numProcs = contr->GetNumberOfProcesses();
-  int myId = contr->GetLocalProcessId();
 
   // Added for regression test.
   // ----------------------------------------------
