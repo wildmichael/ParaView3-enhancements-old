@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageViewer.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-30 19:16:12 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1997-05-05 12:20:15 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -54,7 +54,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include 	"vtkObject.h"
 #include 	"vtkImageSource.h"
 #include 	"vtkImageRegion.h"
-#include        "vtkStructuredPointsToImage.h"
+#include  "vtkStructuredPointsToImage.h"
 
 class VTK_EXPORT vtkImageViewer : public vtkObject {
 public:
@@ -158,6 +158,13 @@ public:
   vtkBooleanMacro(Mapped,int);
 
   // Description:
+  // By default this is a color viewer. GreyScaleOn will improve the appearance
+  // of grey scale images on some systems.
+  vtkSetMacro(GreyScale,int);
+  vtkGetMacro(GreyScale,int);
+  vtkBooleanMacro(GreyScale,int);
+
+  // Description:
   // Set/Get the position in screen coordinates of the rendering window.
   virtual int *GetPosition() {return (int *)NULL;};
   virtual void SetPosition(int,int);
@@ -191,6 +198,7 @@ protected:
   char *WindowName;
   int Size[2];
   int Position[2];
+  int GreyScale;
 };
 
 #endif
