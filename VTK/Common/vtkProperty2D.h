@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProperty2D.h,v $
   Language:  C++
-  Date:      $Date: 1997-12-08 14:28:29 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1997-12-11 20:34:41 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -70,6 +70,7 @@ public:
   vtkProperty2D();
   ~vtkProperty2D();
   static vtkProperty2D *New() {return new vtkProperty2D;};
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   vtkSetVector3Macro(Color, float);
   vtkGetVectorMacro(Color, float, 3);
