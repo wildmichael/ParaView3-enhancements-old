@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXTextMapper.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:40:03 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2002-06-30 00:21:50 $
+  Version:   $Revision: 1.22 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -43,11 +43,6 @@ public:
   static vtkXTextMapper *New();
 
   // Description:
-  // Set the font size used by the mapper.  If the font size is 
-  // available, the code will use the nearest available size.
-  void SetFontSize(int size);
-
-  // Description:
   // What is the size of the rectangle required to draw this
   // mapper ?
   void GetSize(vtkViewport* viewport, int size[2]);
@@ -55,6 +50,10 @@ public:
 protected:
   vtkXTextMapper();
   ~vtkXTextMapper() {};
+
+  // Description:
+  // Get the font size that matches an available X font size.
+  int GetMatchingFontSize();
 
   // Description:
   // Actually get the size of the rectangle.
