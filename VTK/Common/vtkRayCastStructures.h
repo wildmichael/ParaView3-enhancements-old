@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRayCastStructures.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:26:15 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-10-28 21:35:00 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -77,6 +77,6 @@ typedef struct
   // a ray caster that takes steps
   int                          NumberOfStepsTaken;
 
-} VTKRayCastRayInfo;
+} vtkRayCastRayInfo;
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellLinks.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-07 21:13:37 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2002-10-28 21:35:00 $
+  Version:   $Revision: 1.25 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,19 +21,19 @@
 #include "vtkPolyData.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkCellLinks, "$Revision: 1.24 $");
+vtkCxxRevisionMacro(vtkCellLinks, "$Revision: 1.25 $");
 vtkStandardNewMacro(vtkCellLinks);
 
 void vtkCellLinks::Allocate(vtkIdType sz, vtkIdType ext)
 {
-  static _vtkLink_s linkInit = {0,NULL};
+  static vtkCellLinks::LinkStruct linkInit = {0,NULL};
 
   this->Size = sz;
   if ( this->Array != NULL )
     {
     delete [] this->Array;
     }
-  this->Array = new _vtkLink_s[sz];
+  this->Array = new vtkCellLinks::LinkStruct[sz];
   this->Extend = ext;
   this->MaxId = -1;
 
@@ -84,12 +84,12 @@ void vtkCellLinks::Reset()
 //
 // Private function does "reallocate"
 //
-_vtkLink_s *vtkCellLinks::Resize(vtkIdType sz)
+vtkCellLinks::LinkStruct *vtkCellLinks::Resize(vtkIdType sz)
 {
   vtkIdType i;
-  _vtkLink_s *newArray;
+  vtkCellLinks::LinkStruct *newArray;
   vtkIdType newSize;
-  _vtkLink_s linkInit = {0,NULL};
+  vtkCellLinks::LinkStruct linkInit = {0,NULL};
 
   if ( sz >= this->Size )
     {
@@ -100,7 +100,7 @@ _vtkLink_s *vtkCellLinks::Resize(vtkIdType sz)
     newSize = sz;
     }
 
-  newArray = new _vtkLink_s[newSize];
+  newArray = new vtkCellLinks::LinkStruct[newSize];
 
   for (i=0; i<sz && i<this->Size; i++)
     {
@@ -262,7 +262,7 @@ unsigned long vtkCellLinks::GetActualMemorySize()
     }
 
   size *= sizeof(int *); //references to cells
-  size += (this->MaxId+1) * sizeof(_vtkLink_s); //list of cell lists
+  size += (this->MaxId+1) * sizeof(vtkCellLinks::LinkStruct); //list of cell lists
 
   return (unsigned long) ceil((float)size/1000.0); //kilobytes
 }
@@ -270,7 +270,7 @@ unsigned long vtkCellLinks::GetActualMemorySize()
 void vtkCellLinks::DeepCopy(vtkCellLinks *src)
 {
   this->Allocate(src->Size, src->Extend);
-  memcpy(this->Array, src->Array, this->Size * sizeof(_vtkLink_s));
+  memcpy(this->Array, src->Array, this->Size * sizeof(vtkCellLinks::LinkStruct));
   this->MaxId = src->MaxId;
 }
 
