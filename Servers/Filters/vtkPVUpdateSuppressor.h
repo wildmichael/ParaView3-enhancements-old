@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPVUpdateSuppressor.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-07 21:16:27 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-08-13 13:35:46 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -15,27 +15,27 @@
      PURPOSE.  See the above copyright notice for more information.
 
 =========================================================================*/
-// .NAME vtkPVUpdateSupressor - prevents propagation of update
+// .NAME vtkPVUpdateSuppressor - prevents propagation of update
 // .SECTION Description
 //
 // .SECTION Caveats
 
 // .SECTION See Also
 
-#ifndef __vtkPVUpdateSupressor_h
-#define __vtkPVUpdateSupressor_h
+#ifndef __vtkPVUpdateSuppressor_h
+#define __vtkPVUpdateSuppressor_h
 
 #include "vtkPolyDataToPolyDataFilter.h"
 
-class VTK_EXPORT vtkPVUpdateSupressor : public vtkPolyDataToPolyDataFilter
+class VTK_EXPORT vtkPVUpdateSuppressor : public vtkPolyDataToPolyDataFilter
 {
 public:
-  vtkTypeRevisionMacro(vtkPVUpdateSupressor,vtkPolyDataToPolyDataFilter);
+  vtkTypeRevisionMacro(vtkPVUpdateSuppressor,vtkPolyDataToPolyDataFilter);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Construct with user-specified implicit function.
-  static vtkPVUpdateSupressor *New();
+  static vtkPVUpdateSuppressor *New();
 
   // Description:
   // Return the mtime also considering the locator and clip function.
@@ -55,14 +55,14 @@ public:
   virtual void SetUpdatePiece(int);
 
 protected:
-  vtkPVUpdateSupressor();
-  ~vtkPVUpdateSupressor();
+  vtkPVUpdateSuppressor();
+  ~vtkPVUpdateSuppressor();
 
   void Execute();
 
 private:
-  vtkPVUpdateSupressor(const vtkPVUpdateSupressor&);  // Not implemented.
-  void operator=(const vtkPVUpdateSupressor&);  // Not implemented.
+  vtkPVUpdateSuppressor(const vtkPVUpdateSuppressor&);  // Not implemented.
+  void operator=(const vtkPVUpdateSuppressor&);  // Not implemented.
 };
 
 #endif
