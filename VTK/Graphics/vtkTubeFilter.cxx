@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTubeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-03-12 21:12:09 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1997-04-09 10:56:44 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -122,7 +122,10 @@ void vtkTubeFilter::Execute()
       if ( !lineNormalGenerator.GenerateSlidingNormals(inPts,inLines,(vtkFloatNormals*)inNormals) )
         {
         vtkErrorMacro(<< "No normals for line!\n");
-        inNormals->Delete();
+        if (deleteNormals) inNormals->Delete();
+        newPts->Delete();
+        newNormals->Delete();
+        newStrips->Delete();
         return;
         }
       }
@@ -198,6 +201,10 @@ void vtkTubeFilter::Execute()
       if ( vtkMath::Normalize(sNext) == 0.0 )
         {
         vtkErrorMacro(<<"Coincident points!");
+        inNormals->Delete();
+        newPts->Delete();
+        newNormals->Delete();
+        newStrips->Delete();
         return;
         }
 
@@ -224,6 +231,10 @@ void vtkTubeFilter::Execute()
       if ( vtkMath::Normalize(w) == 0.0)
         {
         vtkErrorMacro(<<"Bad normal s = " << s[0] << " " << s[1] << " " << s[2] << " n = " << n[0] << " " << n[1] << " " << n[2]);
+        if (deleteNormals) inNormals->Delete();
+        newPts->Delete();
+        newNormals->Delete();
+        newStrips->Delete();
         return;
         }
       
