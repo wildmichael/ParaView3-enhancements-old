@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTIFFReader.h,v $
   Language:  C++
-  Date:      $Date: 2002-02-01 16:55:19 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2002-02-01 17:51:41 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -86,7 +86,7 @@ class VTK_IO_EXPORT vtkTIFFReader : public vtkImageReader2
   // the format .extension
   virtual const char* GetFileExensions()
     {
-    return ".tif";
+    return ".tif .tiff";
     }
 
   // Description: 
