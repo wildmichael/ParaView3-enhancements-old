@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCharArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:04:29 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1999-12-28 18:58:06 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -166,7 +166,14 @@ void vtkCharArray::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkDataArray::PrintSelf(os,indent);
 
-  os << indent << "Array: " << this->Array << "\n";
+  if (this->Array)
+    {
+    os << indent << "Array: " << this->Array << "\n";
+    }
+  else
+    {
+    os << indent << "Array: (null)\n";
+    }
 }
 
 //

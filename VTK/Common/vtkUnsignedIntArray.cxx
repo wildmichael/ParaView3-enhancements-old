@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnsignedIntArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:05:18 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1999-12-28 18:58:08 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -172,7 +172,14 @@ void vtkUnsignedIntArray::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkDataArray::PrintSelf(os,indent);
 
-  os << indent << "Array: " << this->Array << "\n";
+  if (this->Array)
+    {
+    os << indent << "Array: " << this->Array << "\n";
+    }
+  else
+    {
+    os << indent << "Array: (null)\n";
+    }
 }
 
 //

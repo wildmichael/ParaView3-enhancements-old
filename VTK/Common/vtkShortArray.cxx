@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkShortArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:05:07 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 1999-12-28 18:58:07 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -171,7 +171,14 @@ void vtkShortArray::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkDataArray::PrintSelf(os,indent);
 
-  os << indent << "Array: " << this->Array << "\n";
+  if (this->Array)
+    {
+    os << indent << "Array: " << this->Array << "\n";
+    }
+  else
+    {
+    os << indent << "Array: (null)\n";
+    }
 }
 
 //
