@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: TestImageIterator.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-07 15:33:13 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-03-08 13:42:22 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -36,8 +36,8 @@ int DoTest(T*)
     = new vtkImageProgressIterator<T>(id,ext,0,0);
   delete it;
   delete ipt;
-  return 0;
   id->Delete();
+  return 0;
 }
 
 int main()
