@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:12:47 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2000-09-16 08:51:22 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -80,7 +80,7 @@ unsigned long int vtkStructuredPointsReader::GetMTime()
 }
 
 // Specify file name of vtk structured points data file to read.
-void vtkStructuredPointsReader::SetFileName(char *name) 
+void vtkStructuredPointsReader::SetFileName(const char *name) 
 {
   this->Reader->SetFileName(name);
 }
