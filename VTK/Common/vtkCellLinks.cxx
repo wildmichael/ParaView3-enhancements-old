@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellLinks.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-10 21:20:34 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1999-11-11 15:58:15 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -206,7 +206,7 @@ void vtkCellLinks::BuildLinks(vtkDataSet *data)
 void vtkCellLinks::BuildLinks(vtkDataSet *data, vtkCellArray *Connectivity)
 {
   int numPts = data->GetNumberOfPoints();
-  int i, j, cellId;
+  int j, cellId;
   unsigned short *linkLoc;
   int npts, *pts;
   int loc = Connectivity->GetTraversalLocation();
