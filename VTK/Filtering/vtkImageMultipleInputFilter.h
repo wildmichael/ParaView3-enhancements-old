@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMultipleInputFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-03 14:10:26 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2000-10-10 17:38:57 $
+  Version:   $Revision: 1.37 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -73,6 +73,7 @@ public:
   // Adds an input to the first null position in the input list.
   // Expands the list memory if necessary
   virtual void AddInput(vtkImageData *input);
+  virtual void RemoveInput(vtkImageData *input);
   
   // Description:
   // Get one input to this filter.
