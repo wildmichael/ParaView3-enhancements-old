@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageInPlaceFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-01-03 14:56:35 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1997-05-15 23:24:28 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -138,7 +138,7 @@ void vtkImageInPlaceFilter::UpdatePointData(int dim, vtkImageRegion *outRegion)
     }
   
   // Make the input region that will be used to generate the output region
-  inRegion = new vtkImageRegion;
+  inRegion = vtkImageRegion::New();
   // Fill in image information (ComputeRequiredInputExtent may need it)
   this->Input->UpdateImageInformation(inRegion);
   // Set the coordinate system
@@ -314,7 +314,7 @@ vtkImageRegion *vtkImageInPlaceFilter::GetInputRegion(int dim, int *extent)
     return NULL;
     }
 
-  region = new vtkImageRegion;
+  region = vtkImageRegion::New();
 
   // This step is just error checking, and may be wastefull.  The Image
   // Information is automatically computed when UpdateRegion is called.

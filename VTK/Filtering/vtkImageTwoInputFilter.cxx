@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageTwoInputFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-02-26 14:26:57 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1997-05-15 23:24:34 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -206,8 +206,8 @@ vtkImageTwoInputFilter::UpdatePointData(int dim, vtkImageRegion *outRegion)
     }
   
   // Make the input regions that will be used to generate the output region
-  inRegion1 = new vtkImageRegion;
-  inRegion2 = new vtkImageRegion;
+  inRegion1 = vtkImageRegion::New();
+  inRegion2 = vtkImageRegion::New();
   // Fill in image information
   this->Input1->UpdateImageInformation(inRegion1);
   this->Input2->UpdateImageInformation(inRegion2);
@@ -277,7 +277,7 @@ void vtkImageTwoInputFilter::UpdateImageInformation(vtkImageRegion *outRegion)
     return;
     }
 
-  inRegion2 = new vtkImageRegion;
+  inRegion2 = vtkImageRegion::New();
   
   this->Input1->UpdateImageInformation(outRegion);
   this->Input2->UpdateImageInformation(inRegion2);
@@ -409,7 +409,7 @@ vtkImageRegion *vtkImageTwoInputFilter::GetInput1Region(int dim, int *extent)
     return NULL;
     }
 
-  region = new vtkImageRegion;
+  region = vtkImageRegion::New();
 
   // This step is just error checking, and may be wastefull.  The Image
   // Information is automatically computed when UpdateRegion is called.
@@ -449,7 +449,7 @@ vtkImageRegion *vtkImageTwoInputFilter::GetInput2Region(int dim, int *extent)
     return NULL;
     }
 
-  region = new vtkImageRegion;
+  region = vtkImageRegion::New();
 
   // This step is just error checking, and may be wastefull.  The Image
   // Information is automatically computed when UpdateRegion is called.
