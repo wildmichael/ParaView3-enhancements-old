@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkCylinder.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-05-04 15:58:36 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1995-06-08 20:06:37 $
+  Version:   $Revision: 1.4 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -16,10 +16,9 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 #include "Cylinder.hh"
 
 // Description
-// Construct cylinder with height of 1.0 and radius of 0.5.
+// Construct cylinder radius of 0.5.
 vlCylinder::vlCylinder()
 {
-  this->Height = 1.0;
   this->Radius = 0.5;
 }
 
@@ -40,6 +39,5 @@ void vlCylinder::PrintSelf(ostream& os, vlIndent indent)
 {
   vlImplicitFunction::PrintSelf(os,indent);
 
-  os << indent << "Height: " << this->Height << "\n";
   os << indent << "Radius: " << this->Radius << "\n";
 }
