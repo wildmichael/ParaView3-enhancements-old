@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkScalars.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-09-12 21:22:48 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1994-11-09 19:56:02 $
+  Version:   $Revision: 1.12 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -65,14 +65,11 @@ float *vlScalars::GetRange()
 
 void vlScalars::PrintSelf(ostream& os, vlIndent indent)
 {
-  if (this->ShouldIPrint(vlScalars::GetClassName()))
-    {
-    float *range;
+  float *range;
 
-    vlRefCount::PrintSelf(os,indent);
+  vlRefCount::PrintSelf(os,indent);
 
-    os << indent << "Number Of Scalars: " << this->GetNumberOfScalars() << "\n";
-    range = this->GetRange();
-    os << indent << "Range: (" << range[0] << ", " << range[1] << ")\n";
-    }
+  os << indent << "Number Of Scalars: " << this->GetNumberOfScalars() << "\n";
+  range = this->GetRange();
+  os << indent << "Range: (" << range[0] << ", " << range[1] << ")\n";
 }

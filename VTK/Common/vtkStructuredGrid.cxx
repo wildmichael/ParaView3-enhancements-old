@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-06 19:30:45 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1994-11-09 19:55:57 $
+  Version:   $Revision: 1.10 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -174,10 +174,7 @@ vlCell *vlStructuredGrid::GetCell(int cellId)
 
 void vlStructuredGrid::PrintSelf(ostream& os, vlIndent indent)
 {
-  if (this->ShouldIPrint(vlStructuredGrid::GetClassName()))
-    {
-    vlPointSet::PrintSelf(os,indent);
+  vlPointSet::PrintSelf(os,indent);
 //    vlStructuredData::PrintSelf(os,indent);
-    }
 }
 

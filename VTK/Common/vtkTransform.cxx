@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-01 23:14:40 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1994-11-09 19:56:16 $
+  Version:   $Revision: 1.16 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -605,14 +605,11 @@ vlTransform::~vlTransform ()
 
 void vlTransform::PrintSelf (ostream& os, vlIndent indent)
 {
-  if (this->ShouldIPrint (vlTransform::GetClassName()))
-    {
-	  vlObject::PrintSelf(os, indent);
+        vlObject::PrintSelf(os, indent);
 
-	  os << indent << "Current Transformation:" << "\n";
+        os << indent << "Current Transformation:" << "\n";
 
-	  (**this->Stack).PrintSelf (os, indent.GetNextIndent());
-    }
+        (**this->Stack).PrintSelf (os, indent.GetNextIndent());
 }
 
 // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkMatrix4x4.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-09-20 08:36:55 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1994-11-09 19:55:33 $
+  Version:   $Revision: 1.11 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -251,16 +251,13 @@ void vlMatrix4x4::PrintSelf (ostream& os, vlIndent indent)
 {
   int i, j;
 
-  if (this->ShouldIPrint (vlMatrix4x4::GetClassName()))
-    {
-	  vlObject::PrintSelf(os, indent);
+        vlObject::PrintSelf(os, indent);
 
-	  os << indent << "Elements:\n";
-          for (i = 0; i < 4; i++) {
-	    cout << indent << indent;
-            for (j = 0; j < 4; j++) {
-              cout << this->Element[i][j] << " ";
-            }
+        os << indent << "Elements:\n";
+        for (i = 0; i < 4; i++) {
+          cout << indent << indent;
+          for (j = 0; j < 4; j++) {
+            cout << this->Element[i][j] << " ";
 	    cout << "\n";
           }
     }

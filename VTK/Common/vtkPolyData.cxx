@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-10-27 21:35:29 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 1994-11-09 19:55:46 $
+  Version:   $Revision: 1.43 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -627,14 +627,11 @@ void vlPolyData::GetCellEdgeNeighbors(int cellId, int p1, int p2,
 
 void vlPolyData::PrintSelf(ostream& os, vlIndent indent)
 {
-  if (this->ShouldIPrint(vlPolyData::GetClassName()))
-    {
-    vlPointSet::PrintSelf(os,indent);
-    
-    os << indent << "Number Of Vertices: " << this->GetNumberOfVerts() << "\n";
-    os << indent << "Number Of Lines: " << this->GetNumberOfLines() << "\n";
-    os << indent << "Number Of Polygons: " << this->GetNumberOfPolys() << "\n";
-    os << indent << "Number Of Triangle Strips: " << this->GetNumberOfStrips() << "\n";
-    }
+  vlPointSet::PrintSelf(os,indent);
+
+  os << indent << "Number Of Vertices: " << this->GetNumberOfVerts() << "\n";
+  os << indent << "Number Of Lines: " << this->GetNumberOfLines() << "\n";
+  os << indent << "Number Of Polygons: " << this->GetNumberOfPolys() << "\n";
+  os << indent << "Number Of Triangle Strips: " << this->GetNumberOfStrips() << "\n";
 }
 

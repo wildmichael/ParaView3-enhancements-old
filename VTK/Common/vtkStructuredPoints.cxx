@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStructuredPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-06 19:32:29 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1994-11-09 19:56:06 $
+  Version:   $Revision: 1.18 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -271,16 +271,13 @@ int vlStructuredPoints::GetCellType(int cellId)
 
 void vlStructuredPoints::PrintSelf(ostream& os, vlIndent indent)
 {
-  if (this->ShouldIPrint(vlStructuredPoints::GetClassName()))
-    {
-    vlDataSet::PrintSelf(os,indent);
-    
-    os << indent << "Origin: (" << this->Origin[0] << ", "
-                                    << this->Origin[1] << ", "
-                                    << this->Origin[2] << ")\n";
-    os << indent << "AspectRatio: (" << this->AspectRatio[0] << ", "
-                                    << this->AspectRatio[1] << ", "
-                                    << this->AspectRatio[2] << ")\n";
-    }
+  vlDataSet::PrintSelf(os,indent);
+
+  os << indent << "Origin: (" << this->Origin[0] << ", "
+                                  << this->Origin[1] << ", "
+                                  << this->Origin[2] << ")\n";
+  os << indent << "AspectRatio: (" << this->AspectRatio[0] << ", "
+                                  << this->AspectRatio[1] << ", "
+                                  << this->AspectRatio[2] << ")\n";
 }
 

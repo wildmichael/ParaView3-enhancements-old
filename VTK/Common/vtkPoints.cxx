@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-09-14 14:55:00 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1994-11-09 19:55:42 $
+  Version:   $Revision: 1.11 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -74,18 +74,15 @@ float *vlPoints::GetBounds()
 
 void vlPoints::PrintSelf(ostream& os, vlIndent indent)
 {
-  if (this->ShouldIPrint(vlPoints::GetClassName()))
-    {
-    float *bounds;
+  float *bounds;
 
-    vlRefCount::PrintSelf(os,indent);
+  vlRefCount::PrintSelf(os,indent);
 
-    os << indent << "Number Of Points: " << this->GetNumberOfPoints() << "\n";
-    bounds = this->GetBounds();
-    os << indent << "Bounds: \n";
-    os << indent << "  Xmin,Xmax: (" << bounds[0] << ", " << bounds[1] << ")\n";
-    os << indent << "  Ymin,Ymax: (" << bounds[2] << ", " << bounds[3] << ")\n";
-    os << indent << "  Zmin,Zmax: (" << bounds[4] << ", " << bounds[5] << ")\n";
-    }
+  os << indent << "Number Of Points: " << this->GetNumberOfPoints() << "\n";
+  bounds = this->GetBounds();
+  os << indent << "Bounds: \n";
+  os << indent << "  Xmin,Xmax: (" << bounds[0] << ", " << bounds[1] << ")\n";
+  os << indent << "  Ymin,Ymax: (" << bounds[2] << ", " << bounds[3] << ")\n";
+  os << indent << "  Zmin,Zmax: (" << bounds[4] << ", " << bounds[5] << ")\n";
 }
 
