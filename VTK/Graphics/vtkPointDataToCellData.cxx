@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointDataToCellData.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-30 19:50:14 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-05-08 17:16:15 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -83,6 +83,9 @@ void vtkPointDataToCellData::Execute()
       }
     }
 
+  // Pass through any cell data that's in the input and not defined in the output.
+  output->GetCellData()->PassNoReplaceData(input->GetCellData());
+  
   if ( this->PassPointData )
     {
     output->GetPointData()->PassData(input->GetPointData());
