@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitVolume.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-10-11 16:28:06 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1997-03-10 12:11:36 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -61,6 +61,7 @@ float vtkImplicitVolume::EvaluateFunction(float x[3])
 {
   vtkScalars *scalars;
   int i, ijk[3];
+  int numPts;
   float pcoords[3], weights[8], s;
   static vtkIdList ptIds(8);
 
@@ -75,10 +76,11 @@ float vtkImplicitVolume::EvaluateFunction(float x[3])
   // Find the cell that contains xyz and get it
   if ( this->Volume->ComputeStructuredCoordinates(x,ijk,pcoords) )
     {
-    vtkVoxel::InterpolationFunctions(pcoords,weights);
     this->Volume->GetCellPoints(this->Volume->ComputeCellId(ijk),ptIds);
+    vtkVoxel::InterpolationFunctions(pcoords,weights);
 
-    for (s=0.0, i=0; i < 8; i++)
+    numPts = ptIds.GetNumberOfIds ();
+    for (s=0.0, i=0; i < numPts; i++)
       {
       s += scalars->GetScalar(ptIds.GetId(i)) * weights[i];
       }
