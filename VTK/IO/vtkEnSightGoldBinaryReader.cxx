@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSightGoldBinaryReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-10-24 20:39:16 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2003-10-26 01:12:13 $
+  Version:   $Revision: 1.38 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -34,7 +34,7 @@
 #include <ctype.h>
 #include <vtkstd/string>
 
-vtkCxxRevisionMacro(vtkEnSightGoldBinaryReader, "$Revision: 1.37 $");
+vtkCxxRevisionMacro(vtkEnSightGoldBinaryReader, "$Revision: 1.38 $");
 vtkStandardNewMacro(vtkEnSightGoldBinaryReader);
 
 //----------------------------------------------------------------------------
@@ -700,7 +700,6 @@ int vtkEnSightGoldBinaryReader::SkipRectilinearGrid(char line[256])
   int lineRead = 1;
   int iblanked = 0;
   int dimensions[3];
-  float *tempCoords;
   int numPts;
   
   if (sscanf(line, " %*s %*s %s", subLine) == 1)
@@ -1077,7 +1076,7 @@ int vtkEnSightGoldBinaryReader::ReadVectorsPerNode(char* fileName,
   char line[80]; 
   int partId, numPts, i;
   vtkFloatArray *vectors;
-  float tuple[3], vector[3];
+  float tuple[3];
   float *comp1, *comp2, *comp3;
   float *vectorsRead;
   vtkDataSet *output;
