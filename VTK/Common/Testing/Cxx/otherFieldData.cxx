@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: otherFieldData.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-05 17:47:09 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-11-12 19:59:17 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -50,7 +50,8 @@ int otherFieldData(int,char *[])
   fd->CopyFieldOff("Array0");
   fd->CopyFieldOff("Array1");
 
-  vtkFieldData* fd2 = fd->MakeObject();
+  vtkFieldData* fd2 = fd->NewInstance();
+  fd2->CopyStructure(fd);
   fd2->ShallowCopy(fd);
   fd2->DeepCopy(fd);
 
