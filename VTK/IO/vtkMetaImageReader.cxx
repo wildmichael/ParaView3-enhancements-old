@@ -16,14 +16,13 @@
 
 #include "vtkObjectFactory.h"
 #include "vtkImageData.h"
-#include "vtkXMLImageDataWriter.h"
 
 #include <vtkstd/string>
 
 #include <sys/stat.h>
 
 //----------------------------------------------------------------------------
-vtkCxxRevisionMacro(vtkMetaImageReader, "$Revision: 1.15 $");
+vtkCxxRevisionMacro(vtkMetaImageReader, "$Revision: 1.16 $");
 vtkStandardNewMacro(vtkMetaImageReader);
 
 //----------------------------------------------------------------------------
