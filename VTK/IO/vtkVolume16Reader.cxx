@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume16Reader.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-11-08 22:13:04 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2000-11-28 19:48:57 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -166,6 +166,8 @@ void vtkVolume16Reader::ExecuteInformation()
   output->SetScalarType(VTK_UNSIGNED_SHORT);
   output->SetNumberOfScalarComponents(1);
   
+  output->SetSpacing(this->DataSpacing);
+  output->SetOrigin(this->DataOrigin);
   // spacing and origin ?
 }
     
