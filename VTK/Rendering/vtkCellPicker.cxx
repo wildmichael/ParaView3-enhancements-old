@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellPicker.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:43:20 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1998-06-19 20:37:33 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -47,8 +47,9 @@ vtkCellPicker::vtkCellPicker()
   for (int i=0; i<3; i++) this->PCoords[i] = 0.0;
 }
 
-void vtkCellPicker::IntersectWithLine(float p1[3], float p2[3], float tol, 
-                                    vtkActor *assem, vtkActor *a, vtkMapper *m)
+float vtkCellPicker::IntersectWithLine(float p1[3], float p2[3], float tol, 
+				      vtkActor *assem, vtkActor *a, 
+				      vtkMapper *m)
 {
   int numCells;
   int cellId, i, minCellId, minSubId, subId;
@@ -56,7 +57,7 @@ void vtkCellPicker::IntersectWithLine(float p1[3], float p2[3], float tol,
   vtkCell *cell;
   vtkDataSet *input=m->GetInput();
 
-  if ( (numCells = input->GetNumberOfCells()) < 1 ) return;
+  if ( (numCells = input->GetNumberOfCells()) < 1 ) return 2.0;
   //
   //  Intersect each cell with ray.  Keep track of one closest to 
   //  the eye (and within the clipping range).
@@ -91,6 +92,7 @@ void vtkCellPicker::IntersectWithLine(float p1[3], float p2[3], float tol,
     for (i=0; i<3; i++) this->PCoords[i] = minPcoords[i];
     vtkDebugMacro("Picked cell id= " << minCellId);
     }
+  return tMin;
 }
 
 void vtkCellPicker::Initialize()

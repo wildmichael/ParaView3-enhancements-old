@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPicker.h,v $
   Language:  C++
-  Date:      $Date: 1998-05-08 17:29:46 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1998-06-19 20:37:37 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -129,7 +129,9 @@ public:
   vtkGetObjectMacro(DataSet,vtkDataSet);
 
   vtkActorCollection *GetActors();
-
+  vtkPoints *GetPickedPositions() {return this->PickedPositions;};
+  
+  
   virtual int Pick(float selectionX, float selectionY, float selectionZ, 
            vtkRenderer *renderer);  
   int Pick(float selectionPt[3], vtkRenderer *renderer);  
@@ -153,13 +155,13 @@ public:
   void InitializePickList();
   void AddPickList(vtkActor *a);
   void DeletePickList(vtkActor *a);
-  vtkActorCollection *GetPickList() {return &(this->PickList);}
+  vtkActorCollection *GetPickList() {return this->PickList;}
 
 protected:
   void MarkPicked(vtkActor *assem, vtkActor *a, vtkMapper *m, 
                   float tMin, float mapperPos[3]);
-  virtual void IntersectWithLine(float p1[3], float p2[3], float tol, 
-                                 vtkActor *assem, vtkActor *a, vtkMapper *m);
+  virtual float IntersectWithLine(float p1[3], float p2[3], float tol, 
+				  vtkActor *assem, vtkActor *a, vtkMapper *m);
   virtual void Initialize();
 
   vtkRenderer *Renderer; //pick occurred in this renderer's viewport
@@ -172,8 +174,9 @@ protected:
   vtkMapper *Mapper; //selected mapper
   vtkDataSet *DataSet; //selected dataset
   float GlobalTMin; //parametric coordinate along pick ray where hit occured
-  vtkTransform Transform; //use to perform ray transformation
-  vtkActorCollection Actors; //candidate actors (based on bounding box)
+  vtkTransform *Transform; //use to perform ray transformation
+  vtkActorCollection *Actors; //candidate actors (based on bounding box)
+  vtkPoints *PickedPositions; // candidate positions
   
   // the following are used to manage invocation of pick methods
   void (*StartPickMethod)(void *);
@@ -188,11 +191,11 @@ protected:
   
   // use the following to control picking from a list
   int PickFromList;
-  vtkActorCollection PickList;
+  vtkActorCollection *PickList;
   
 };
 
-inline vtkActorCollection* vtkPicker::GetActors() {return &(this->Actors);}
+inline vtkActorCollection* vtkPicker::GetActors() {return this->Actors;}
 
 inline int vtkPicker::Pick(float selectionPt[3], vtkRenderer *renderer)
 {

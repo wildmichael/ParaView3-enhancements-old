@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellPicker.h,v $
   Language:  C++
-  Date:      $Date: 1998-06-04 14:32:11 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1998-06-19 20:37:34 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -79,8 +79,8 @@ protected:
   int SubId; // picked cell subId
   float PCoords[3]; // picked cell parametric coordinates
 
-  virtual void IntersectWithLine(float p1[3], float p2[3], float tol, 
-                         vtkActor *assem, vtkActor *a, vtkMapper *m);
+  virtual float IntersectWithLine(float p1[3], float p2[3], float tol, 
+				  vtkActor *assem, vtkActor *a, vtkMapper *m);
   void Initialize();
 };
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointPicker.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:46:16 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1998-06-19 20:37:35 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -67,8 +67,8 @@ public:
 protected:
   int PointId; //picked point
 
-  void IntersectWithLine(float p1[3], float p2[3], float tol, 
-                         vtkActor *assem, vtkActor *a, vtkMapper *m);
+  float IntersectWithLine(float p1[3], float p2[3], float tol, 
+			  vtkActor *assem, vtkActor *a, vtkMapper *m);
   void Initialize();
 
 };
