@@ -20,7 +20,7 @@
 #include "vtkPolyData.h"
 #include "vtkStreamingDemandDrivenPipeline.h"
 
-vtkCxxRevisionMacro(vtkPPolyDataNormals, "$Revision: 1.11 $");
+vtkCxxRevisionMacro(vtkPPolyDataNormals, "$Revision: 1.12 $");
 vtkStandardNewMacro(vtkPPolyDataNormals);
 
 //----------------------------------------------------------------------------
@@ -58,7 +58,7 @@ int vtkPPolyDataNormals::RequestData(
 }
 
 //--------------------------------------------------------------------------
-int vtkPPolyDataNormals::ComputeInputUpdateExtent(
+int vtkPPolyDataNormals::RequestUpdateExtent(
   vtkInformation *vtkNotUsed(request),
   vtkInformationVector **inputVector,
   vtkInformationVector *outputVector)
