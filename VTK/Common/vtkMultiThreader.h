@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMultiThreader.h,v $
   Language:  C++
-  Date:      $Date: 1998-01-07 22:44:13 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1998-03-06 22:53:46 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -195,6 +195,13 @@ public:
   // Description:
   // Terminate the thread that was created with a SpawnThreadExecute()
   void TerminateThread( int thread_id );
+
+  // Description:
+  // Set/Get the maximum number of threads to use when multithreading.
+  // This limits and overrides any other settings for multithreading.
+  // A value of zero indicates no limit.
+  static void SetGlobalMaximumNumberOfThreads(int val);
+  static int  GetGlobalMaximumNumberOfThreads();
 
 protected:
   // The number of threads to use

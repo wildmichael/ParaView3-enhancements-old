@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMultiThreader.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-01-07 22:44:14 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1998-03-06 22:53:45 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -51,6 +51,20 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifdef VTK_USE_PTHREADS
 #include <pthread.h>
 #endif
+
+// Initialize static member that controls global maximum number of threads
+static int vtkMultiThreaderGlobalMaximumNumberOfThreads = 0;
+
+void vtkMultiThreader::SetGlobalMaximumNumberOfThreads(int val)
+{
+  if (val == vtkMultiThreaderGlobalMaximumNumberOfThreads) return;
+  vtkMultiThreaderGlobalMaximumNumberOfThreads = val;
+}
+
+int vtkMultiThreader::GetGlobalMaximumNumberOfThreads()
+{
+  return vtkMultiThreaderGlobalMaximumNumberOfThreads;
+}
 
 // Description:
 // Constructor. Default all the methods to NULL. Since the
@@ -170,6 +184,14 @@ void vtkMultiThreader::SingleMethodExecute()
     return;
     }
 
+  // obey the global maximum number of threads limit
+  if (vtkMultiThreaderGlobalMaximumNumberOfThreads &&
+      this->NumberOfThreads > vtkMultiThreaderGlobalMaximumNumberOfThreads)
+    {
+    this->NumberOfThreads = vtkMultiThreaderGlobalMaximumNumberOfThreads;
+    }
+  
+    
   // We are using sproc (on SGIs), pthreads(on Suns), or a single thread
   // (the default)  
 
@@ -326,6 +348,13 @@ void vtkMultiThreader::MultipleMethodExecute()
   pthread_t          process_id[VTK_MAX_THREADS];
 #endif
 
+
+  // obey the global maximum number of threads limit
+  if (vtkMultiThreaderGlobalMaximumNumberOfThreads &&
+      this->NumberOfThreads > vtkMultiThreaderGlobalMaximumNumberOfThreads)
+    {
+    this->NumberOfThreads = vtkMultiThreaderGlobalMaximumNumberOfThreads;
+    }
 
   for ( thread_loop = 0; thread_loop < this->NumberOfThreads; thread_loop++ )
     if ( this->MultipleMethod[thread_loop] == (vtkThreadFunctionType)NULL)
@@ -620,5 +649,7 @@ void vtkMultiThreader::PrintSelf(ostream& os, vtkIndent indent)
 {
   
   os << indent << "Thread Count: " << this->NumberOfThreads << "\n";
+  os << indent << "Global Maximum Number Of Threads: " << 
+    vtkMultiThreaderGlobalMaximumNumberOfThreads << endl;
 
 }
