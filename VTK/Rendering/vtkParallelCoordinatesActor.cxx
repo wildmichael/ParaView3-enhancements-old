@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkParallelCoordinatesActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-20 12:45:17 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2000-10-19 23:44:47 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to Kitware & RPI/SCOREC who supported the development
              of this class.
 
@@ -171,6 +171,9 @@ int vtkParallelCoordinatesActor::RenderOverlay(vtkViewport *viewport)
     {
     renderedSomething += this->TitleActor->RenderOverlay(viewport);
     }
+
+  this->PlotActor->SetProperty(this->GetProperty());
+  renderedSomething += this->PlotActor->RenderOverlay(viewport);
 
   for (int i=0; i<this->N; i++)
     {
