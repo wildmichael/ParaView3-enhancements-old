@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 1998-04-08 21:47:23 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1998-06-01 13:20:01 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -83,16 +83,16 @@ public:
   virtual void Initialize();
   virtual void Initialize(XtAppContext app);
   virtual void Start();
-  void UpdateSize(int,int);
-  void StartRotate();
-  void EndRotate();
-  void StartZoom();
-  void EndZoom();
-  void StartPan();
-  void EndPan();
-  void SetWidget(Widget);
-  void SetupNewWindow(int Stereo = 0);
-  void FinishSettingUpNewWindow();
+  virtual void UpdateSize(int,int);
+  virtual void StartRotate();
+  virtual void EndRotate();
+  virtual void StartZoom();
+  virtual void EndZoom();
+  virtual void StartPan();
+  virtual void EndPan();
+  virtual void SetWidget(Widget);
+  virtual void SetupNewWindow(int Stereo = 0);
+  virtual void FinishSettingUpNewWindow();
   
   friend void vtkXRenderWindowInteractorCallback(Widget,XtPointer,
 					     XEvent *,Boolean *);
