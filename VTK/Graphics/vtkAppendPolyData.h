@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAppendPolyData.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:02:01 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1999-09-14 16:49:35 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -88,6 +88,9 @@ public:
   vtkGetMacro(ParallelStreaming, int); 
   vtkBooleanMacro(ParallelStreaming, int); 
 
+  // hack until I get a real fix.
+  void UpdateInformation();
+  
 protected:
   vtkAppendPolyData();
   ~vtkAppendPolyData();
