@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCityBlockDistance.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-02-03 14:35:07 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-06-04 17:21:06 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -97,9 +97,8 @@ void vtkImageCityBlockDistance::ComputeRequiredInputUpdateExtent(int inExt[6],
 //----------------------------------------------------------------------------
 // Description:
 // This is writen as a 1D execute method, but is called several times.
-void vtkImageCityBlockDistance::ThreadedExecute(vtkImageData *inData, 
-						vtkImageData *outData,
-						int outExt[6], int threadId)
+void vtkImageCityBlockDistance::Execute(vtkImageData *inData, 
+					vtkImageData *outData)
 {
   short *inPtr0, *inPtr1, *inPtr2, *inPtrC;
   short *outPtr0, *outPtr1, *outPtr2, *outPtrC;
@@ -109,6 +108,9 @@ void vtkImageCityBlockDistance::ThreadedExecute(vtkImageData *inData,
   int idx0, idx1, idx2, idxC;
   short distP, distN;
   short big = 2000;
+  int outExt[6];
+  
+  this->Output->GetUpdateExtent(outExt);
 
   // this filter expects that inputand output are short
   if (inData->GetScalarType() != VTK_SHORT ||
