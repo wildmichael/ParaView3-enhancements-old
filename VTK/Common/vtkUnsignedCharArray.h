@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkUnsignedCharArray.h,v $
   Language:  C++
-  Date:      $Date: 1995-01-23 21:13:45 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1995-05-23 16:54:25 $
+  Version:   $Revision: 1.11 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -109,7 +109,7 @@ inline void vlCharArray::operator+=(const unsigned char c)
 // not do automatic resizing - user's responsibility to range check.
 inline unsigned char& vlCharArray::operator[](const int i)
 {
-  if (i > this->MaxId) this->MaxId = 1;
+  if (i > this->MaxId) this->MaxId = i;
   return this->Array[i];
 }
 
