@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOutputWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:50 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2002-03-05 14:27:23 $
+  Version:   $Revision: 1.26 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkDebugLeaks.h"
 
-vtkCxxRevisionMacro(vtkOutputWindow, "$Revision: 1.25 $");
+vtkCxxRevisionMacro(vtkOutputWindow, "$Revision: 1.26 $");
 
 vtkOutputWindow* vtkOutputWindow::Instance = 0;
 vtkOutputWindowSmartPointer vtkOutputWindow::SmartPointer(NULL);
@@ -55,9 +55,9 @@ void vtkOutputWindowDisplayDebugText(const char* message)
 
 vtkOutputWindowSmartPointer::~vtkOutputWindowSmartPointer()
 {
-  if (Pointer)
+  if (this->Pointer)
     {
-    Pointer->Delete();
+    this->Pointer->Delete();
     }
 }
 
