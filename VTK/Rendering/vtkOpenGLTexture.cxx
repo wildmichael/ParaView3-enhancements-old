@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLTexture.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-18 16:08:41 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 2001-08-30 20:30:41 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -281,7 +281,7 @@ void vtkOpenGLTexture::Load(vtkRenderer *ren)
     glNewList ((GLuint) this->Index, GL_COMPILE);
 #endif
 
-#ifdef VTK_USE_QUARTZ
+#ifdef __APPLE__
     ((vtkQuartzRenderWindow *)(ren->GetRenderWindow()))->RegisterTextureResource(this->Index);
 #else
   #ifdef _WIN32
