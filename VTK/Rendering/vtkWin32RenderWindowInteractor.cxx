@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32RenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:08:30 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 1999-12-15 21:03:04 $
+  Version:   $Revision: 1.51 $
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -97,7 +97,7 @@ vtkWin32RenderWindowInteractor::~vtkWin32RenderWindowInteractor()
       // well send a USER message to the other
       // event handler so that it can properly
       // call this event handler if required
-      this->OldProc(this->WindowId,WM_USER+14,28,(LONG)this->OldProc);
+      CallWindowProc(this->OldProc,this->WindowId,WM_USER+14,28,(LONG)this->OldProc);
       }
     else 
       {
@@ -175,7 +175,7 @@ void vtkWin32RenderWindowInteractor::Enable()
       // well send a USER message to the other
       // event handler so that it can properly
       // call this event handler if required
-      this->OldProc(this->WindowId,WM_USER+12,24,(LONG)vtkHandleMessage);
+      CallWindowProc(this->OldProc,this->WindowId,WM_USER+12,24,(LONG)vtkHandleMessage);
       }
     else 
       {
@@ -214,7 +214,7 @@ void vtkWin32RenderWindowInteractor::Disable()
       // well send a USER message to the other
       // event handler so that it can properly
       // call this event handler if required
-      this->OldProc(this->WindowId,WM_USER+14,28,(LONG)this->OldProc);
+      CallWindowProc(this->OldProc,this->WindowId,WM_USER+14,28,(LONG)this->OldProc);
       }
     else 
       {
@@ -388,12 +388,12 @@ LRESULT CALLBACK vtkHandleMessage(HWND hWnd,UINT uMsg, WPARAM wParam,
     {
     case WM_PAINT:
       me->GetRenderWindow()->Render();
-      return me->OldProc(hWnd,uMsg,wParam,lParam);
+      return CallWindowProc(me->OldProc,hWnd,uMsg,wParam,lParam);
       break;
       
     case WM_SIZE:
       me->UpdateSize(LOWORD(lParam),HIWORD(lParam));
-      return me->OldProc(hWnd,uMsg,wParam,lParam);
+      return CallWindowProc(me->OldProc,hWnd,uMsg,wParam,lParam);
       break;
       
     case WM_LBUTTONDOWN:
@@ -451,7 +451,7 @@ LRESULT CALLBACK vtkHandleMessage(HWND hWnd,UINT uMsg, WPARAM wParam,
     default:
       if (me) 
         {
-        return me->OldProc(hWnd,uMsg,wParam,lParam);
+        return CallWindowProc(me->OldProc,hWnd,uMsg,wParam,lParam);
         }
     };
   return 0;
