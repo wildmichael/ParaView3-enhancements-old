@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXOpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-09 14:12:08 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2002-08-09 20:52:22 $
+  Version:   $Revision: 1.28 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -86,7 +86,7 @@ vtkXOpenGLRenderWindowInternal::vtkXOpenGLRenderWindowInternal(
 
 
 #ifndef VTK_IMPLEMENT_MESA_CXX
-vtkCxxRevisionMacro(vtkXOpenGLRenderWindow, "$Revision: 1.27 $");
+vtkCxxRevisionMacro(vtkXOpenGLRenderWindow, "$Revision: 1.28 $");
 vtkStandardNewMacro(vtkXOpenGLRenderWindow);
 #endif
 
@@ -251,38 +251,41 @@ vtkXOpenGLRenderWindow::~vtkXOpenGLRenderWindow()
   vtkOpenGLRenderer *ren;
   
   // free the cursors
-  XUndefineCursor(this->DisplayId,this->WindowId);
-  if (this->XCArrow)
+  if (this->DisplayId)
     {
-    XFreeCursor(this->DisplayId,this->XCArrow);
-    }
-  if (this->XCSizeAll)
-    {
-    XFreeCursor(this->DisplayId,this->XCSizeAll);
-    }
-  if (this->XCSizeNS)
-    {
-    XFreeCursor(this->DisplayId,this->XCSizeNS);
-    }
-  if (this->XCSizeWE)
-    {
-    XFreeCursor(this->DisplayId,this->XCSizeWE);
-    }
-  if (this->XCSizeNE)
-    {
-    XFreeCursor(this->DisplayId,this->XCSizeNE);
-    }
-  if (this->XCSizeNW)
-    {
-    XFreeCursor(this->DisplayId,this->XCSizeNW);
-    }
-  if (this->XCSizeSE)
-    {
-    XFreeCursor(this->DisplayId,this->XCSizeSE);
-    }
-  if (this->XCSizeSW)
-    {
-    XFreeCursor(this->DisplayId,this->XCSizeSW);
+    XUndefineCursor(this->DisplayId,this->WindowId);
+    if (this->XCArrow)
+      {
+      XFreeCursor(this->DisplayId,this->XCArrow);
+      }
+    if (this->XCSizeAll)
+      {
+      XFreeCursor(this->DisplayId,this->XCSizeAll);
+      }
+    if (this->XCSizeNS)
+      {
+      XFreeCursor(this->DisplayId,this->XCSizeNS);
+      }
+    if (this->XCSizeWE)
+      {
+      XFreeCursor(this->DisplayId,this->XCSizeWE);
+      }
+    if (this->XCSizeNE)
+      {
+      XFreeCursor(this->DisplayId,this->XCSizeNE);
+      }
+    if (this->XCSizeNW)
+      {
+      XFreeCursor(this->DisplayId,this->XCSizeNW);
+      }
+    if (this->XCSizeSE)
+      {
+      XFreeCursor(this->DisplayId,this->XCSizeSE);
+      }
+    if (this->XCSizeSW)
+      {
+      XFreeCursor(this->DisplayId,this->XCSizeSW);
+      }
     }
   
   // make sure we have been initialized 
