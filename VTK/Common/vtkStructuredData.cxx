@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredData.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:03:49 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 2000-09-11 11:58:06 $
+  Version:   $Revision: 1.49 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -438,6 +438,14 @@ void vtkStructuredData::GetCellNeigbors(int cellId, vtkIdList *ptIds,
   cellDim[0] = dim[0] - 1;
   cellDim[1] = dim[1] - 1;
   cellDim[2] = dim[2] - 1;
+
+  for(i=0; i<3; i++)
+    {
+    if ( cellDim[i] < 1 )
+      {
+      cellDim[i] = 1;
+      }
+    }
 
   for (j=0; j<8; j++) 
     {
