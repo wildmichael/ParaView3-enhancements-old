@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkCamera.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-09-09 22:32:07 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1994-09-12 23:26:39 $
+  Version:   $Revision: 1.14 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -43,6 +43,17 @@ vlCamera::vlCamera()
   this->Switch = 1;
   this->LeftEye = 1;
   this->EyeAngle = 2.0;
+
+  this->Thickness = 1000.0;
+  this->Distance = 1.0;
+
+  this->ViewPlaneNormal[0] = 0.0;
+  this->ViewPlaneNormal[1] = 0.0;
+  this->ViewPlaneNormal[2] = 1.0;
+
+  this->Orientation[0] = 0.0;
+  this->Orientation[1] = 0.0;
+  this->Orientation[2] = 0.0;
 }
 
 // Description:
