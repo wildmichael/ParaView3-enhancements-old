@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetTriangleFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-04 13:58:34 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2001-06-11 10:50:16 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -201,7 +201,6 @@ void vtkDataSetTriangleFilter::UnstructuredExecute()
   float *xPtr;
 
   // Create an array of points
-  numPts = input->GetNumberOfPoints();
   output->Allocate(input->GetNumberOfCells()*5);
   
   // Points are passed through
