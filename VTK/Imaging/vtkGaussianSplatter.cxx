@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGaussianSplatter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-10-09 16:44:25 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1995-10-10 16:40:26 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -104,8 +104,8 @@ void vtkGaussianSplatter::Execute()
   int numSplatPts, numPts;
   int ptId, i, j, k;
   vtkPointData *pd;
-  vtkNormals *inNormals;
-  vtkScalars *inScalars;
+  vtkNormals *inNormals=NULL;
+  vtkScalars *inScalars=NULL;
   int loc[3], ip, jp, kp, idir, jdir, kdir;
   vtkStructuredPoints *output = this->GetOutput();
   
@@ -195,6 +195,8 @@ void vtkGaussianSplatter::Execute()
     {
     this->Cap(NewScalars);
     }
+
+  vtkDebugMacro(<< "Splatted " << this->Input->GetNumberOfPoints() << " points");
 //
 // Update self and release memeory
 //
