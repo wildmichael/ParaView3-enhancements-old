@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleSwitch.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-16 14:16:39 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2002-04-23 19:46:41 $
+  Version:   $Revision: 1.13 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 #include "vtkInteractorStyleTrackballActor.h"
 #include "vtkInteractorStyleTrackballCamera.h"
 
-vtkCxxRevisionMacro(vtkInteractorStyleSwitch, "$Revision: 1.12 $");
+vtkCxxRevisionMacro(vtkInteractorStyleSwitch, "$Revision: 1.13 $");
 vtkStandardNewMacro(vtkInteractorStyleSwitch);
 
 //----------------------------------------------------------------------------
@@ -79,9 +79,10 @@ void vtkInteractorStyleSwitch::SetAutoAdjustCameraClippingRange( int value )
 }
 
 //----------------------------------------------------------------------------
-void vtkInteractorStyleSwitch::OnChar(int ctrl, int shift, 
+void vtkInteractorStyleSwitch::OnChar(int vtkNotUsed(ctrl), 
+                                      int vtkNotUsed(shift), 
                                       char keycode,
-                                      int repeatcount) 
+                                      int vtkNotUsed(repeatcount)) 
 {
   switch (keycode)
     {
