@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMultiProcessController.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-24 21:55:41 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-07-20 13:38:39 $
+  Version:   $Revision: 1.3 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -123,6 +123,8 @@ vtkMultiProcessController::vtkMultiProcessController()
 
   this->BreakFlag = 0;
   this->ForceDeepCopy = 1;
+
+  this->OutputWindow = 0;
 
   // Define an rmi internally to exit from the processing loop.
   this->AddRMI(vtkMultiProcessControllerBreakRMI, this, BREAK_RMI_TAG);
