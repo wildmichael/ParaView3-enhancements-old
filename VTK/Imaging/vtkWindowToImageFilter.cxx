@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWindowToImageFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:22 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2001-03-13 19:22:33 $
+  Version:   $Revision: 1.13 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -140,9 +140,12 @@ void vtkWindowToImageFilter::ExecuteInformation()
 //----------------------------------------------------------------------------
 // This function reads a region from a file.  The regions extent/axes
 // are assumed to be the same as the file extent/order.
-void vtkWindowToImageFilter::Execute(vtkImageData *data)
+void vtkWindowToImageFilter::ExecuteData(vtkDataObject *data)
 {
   vtkImageData *out = this->GetOutput();
+  out->SetExtent(out->GetUpdateExtent());
+  out->AllocateScalars();
+  
   int outExtent[6];
   int outIncr[3];
   int *size;
@@ -157,7 +160,7 @@ void vtkWindowToImageFilter::Execute(vtkImageData *data)
   
   // Get the requested extents.
   out->GetUpdateExtent(outExtent);
-  data->GetIncrements(outIncr);
+  out->GetIncrements(outIncr);
   rowSize = (outExtent[1] - outExtent[0] + 1)*3;
   
   // get the size of the render window
@@ -167,7 +170,7 @@ void vtkWindowToImageFilter::Execute(vtkImageData *data)
   pixels1 = pixels;
   
   outPtr = 
-    (unsigned char *)data->GetScalarPointer(outExtent[0], outExtent[2],0);
+    (unsigned char *)out->GetScalarPointer(outExtent[0], outExtent[2],0);
   
   // Loop through ouput pixels
   for (idxY = outExtent[2]; idxY <= outExtent[3]; idxY++)
