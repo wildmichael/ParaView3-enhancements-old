@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkArrayMap.txx,v $
   Language:  C++
-  Date:      $Date: 2002-04-12 22:06:28 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-04-18 14:14:44 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -146,6 +146,10 @@ vtkArrayMap<KeyType,DataType>::FindDataItem(KeyType key)
 template<class KeyType, class DataType>
 vtkIdType vtkArrayMap<KeyType,DataType>::GetNumberOfItems()
 {
+  if ( !this->Array )
+    {
+    return 0;
+    }
   return this->Array->GetNumberOfItems();
 }
 
