@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPDataSetReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-29 20:49:43 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2002-11-05 15:36:37 $
+  Version:   $Revision: 1.17 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -31,7 +31,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkSource.h"
 
-vtkCxxRevisionMacro(vtkPDataSetReader, "$Revision: 1.16 $");
+vtkCxxRevisionMacro(vtkPDataSetReader, "$Revision: 1.17 $");
 vtkStandardNewMacro(vtkPDataSetReader);
 
 //----------------------------------------------------------------------------
@@ -846,7 +846,7 @@ void vtkPDataSetReader::SkipFieldData(ifstream *file)
   // Read the number of arrays specified
   for (i=0; i<numArrays; i++)
     {
-    long length;
+    long length=0;
     char buffer[256];
     *file >> buffer; 
     *file >> numComp;
