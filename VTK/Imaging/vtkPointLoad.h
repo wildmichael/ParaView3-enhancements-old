@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointLoad.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:33:43 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2002-08-05 17:29:13 $
+  Version:   $Revision: 1.36 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -30,12 +30,12 @@
 #ifndef __vtkPointLoad_h
 #define __vtkPointLoad_h
 
-#include "vtkStructuredPointsSource.h"
+#include "vtkImageSource.h"
 
-class VTK_IMAGING_EXPORT vtkPointLoad :  public vtkStructuredPointsSource
+class VTK_IMAGING_EXPORT vtkPointLoad :  public vtkImageSource
 {
 public:
-  vtkTypeRevisionMacro(vtkPointLoad,vtkStructuredPointsSource);
+  vtkTypeRevisionMacro(vtkPointLoad,vtkImageSource);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
@@ -71,22 +71,24 @@ public:
   vtkGetMacro(PoissonsRatio,float);
 
   // Description:
-  // Turn on/off computation of effective stress scalar.
-  vtkSetMacro(ComputeEffectiveStress,int);
-  vtkGetMacro(ComputeEffectiveStress,int);
-  vtkBooleanMacro(ComputeEffectiveStress,int);
+  // Turn on/off computation of effective stress scalar. These methods do 
+  // nothing. The effective stress is always computed.
+  void SetComputeEffectiveStress(int) {};
+  int GetComputeEffectiveStress() {return 1;};
+  void ComputeEffectiveStressOn() {};
+  void ComputeEffectiveStressOff() {};
 
 protected:
   vtkPointLoad();
   ~vtkPointLoad() {};
 
-  void Execute();
+  virtual void ExecuteInformation();
+  virtual void ExecuteData(vtkDataObject *);
 
   float LoadValue;
   float PoissonsRatio;
   int SampleDimensions[3];
   float ModelBounds[6];
-  int ComputeEffectiveStress;
 
 private:
   vtkPointLoad(const vtkPointLoad&);  // Not implemented.
