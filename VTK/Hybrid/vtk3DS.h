@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtk3DS.h,v $
   Language:  C++
-  Date:      $Date: 1999-04-22 21:29:34 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-04-28 14:29:04 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,7 +56,7 @@ typedef float Vector[3];
 
 typedef unsigned char  byte;
 typedef unsigned short word;
-typedef unsigned long  dword;
+typedef unsigned int  dword;
 
 typedef struct {
    VTK_LIST_FIELDS
