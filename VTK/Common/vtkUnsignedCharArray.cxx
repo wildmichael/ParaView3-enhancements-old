@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkUnsignedCharArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-09-30 18:30:44 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1994-11-09 19:46:47 $
+  Version:   $Revision: 1.10 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -115,15 +115,12 @@ void vlCharArray::operator+=(const vlCharArray& ia)
 
 void vlCharArray::PrintSelf(ostream& os, vlIndent indent)
 {
-  if (this->ShouldIPrint(vlCharArray::GetClassName()))
-    {
-    vlObject::PrintSelf(os,indent);
+  vlObject::PrintSelf(os,indent);
 
-    os << indent << "Array: " << this->Array << "\n";
-    os << indent << "Size: " << this->Size << "\n";
-    os << indent << "MaxId: " << this->MaxId << "\n";
-    os << indent << "Extend size: " << this->Extend << "\n";
-    }
+  os << indent << "Array: " << this->Array << "\n";
+  os << indent << "Size: " << this->Size << "\n";
+  os << indent << "MaxId: " << this->MaxId << "\n";
+  os << indent << "Extend size: " << this->Extend << "\n";
 }
 
 //
