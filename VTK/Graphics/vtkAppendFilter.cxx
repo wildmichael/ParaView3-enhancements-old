@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAppendFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-18 11:11:48 $
-  Version:   $Revision: 1.55 $
+  Date:      $Date: 2001-06-26 15:21:25 $
+  Version:   $Revision: 1.56 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -122,7 +122,7 @@ vtkDataSetCollection *vtkAppendFilter::GetInputList()
 // Append data sets into single unstructured grid
 void vtkAppendFilter::Execute()
 {
-  int numPts, numCells, ptOffset, cellOffset;
+  vtkIdType numPts, numCells, ptOffset, cellOffset;
   int   tenth, count, abort=0;
   float decimal;
   vtkPoints *newPts;
@@ -131,7 +131,7 @@ void vtkAppendFilter::Execute()
   vtkIdList *ptIds, *newPtIds;
   int i, idx;
   vtkDataSet *ds;
-  int ptId, cellId, newCellId;
+  vtkIdType ptId, cellId, newCellId;
   vtkUnstructuredGrid *output = this->GetOutput();
   vtkPointData *outputPD = output->GetPointData();
   vtkCellData *outputCD = output->GetCellData();

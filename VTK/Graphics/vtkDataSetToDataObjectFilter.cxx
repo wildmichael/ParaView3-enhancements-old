@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetToDataObjectFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-05-31 13:14:47 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2001-06-26 15:21:25 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -242,7 +242,7 @@ void vtkDataSetToDataObjectFilter::Execute()
 	ca->GetData()->SetName("Cells");
         fd->AddArray( ca->GetData() );
 
-        int numCells=input->GetNumberOfCells();
+        vtkIdType numCells=input->GetNumberOfCells();
         vtkIntArray *types=vtkIntArray::New();
         types->SetNumberOfValues(numCells);
         for (i=0; i<numCells; i++)
