@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkDataSet.h,v $
   Language:  C++
-  Date:      $Date: 1994-08-04 15:08:13 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1994-08-09 15:10:04 $
+  Version:   $Revision: 1.27 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -33,6 +33,8 @@ class vlDataSet : virtual public vlObject
 {
 public:
   vlDataSet();
+  vlDataSet(const vlDataSet& ds);
+  ~vlDataSet() {};
   char *GetClassName() {return "vlDataSet";};
   void PrintSelf(ostream& os, vlIndent indent);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkDataSet.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-08-04 15:08:35 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1994-08-09 15:10:03 $
+  Version:   $Revision: 1.25 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -29,6 +29,14 @@ vlDataSet::vlDataSet ()
   this->Bounds[3] = 1.0;
   this->Bounds[4] = 0.0;
   this->Bounds[5] = 1.0;
+}
+
+// Description:
+// Copy constructor.
+vlDataSet::vlDataSet (const vlDataSet& ds) :
+PointData(ds.PointData)
+{
+  for (int i=0; i < 6; i++) this->Bounds[i] = ds.Bounds[i];
 }
 
 void vlDataSet::Initialize()
