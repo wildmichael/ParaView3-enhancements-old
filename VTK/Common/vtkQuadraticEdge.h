@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadraticEdge.h,v $
   Language:  C++
-  Date:      $Date: 2002-03-08 21:14:12 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-04-05 20:32:59 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,10 +18,11 @@
 // .NAME vtkQuadraticEdge - cell represents a parabolic, isoparametric edge
 // .SECTION Description
 // vtkQuadraticEdge is a concrete implementation of vtkNonLinearCell to
-// represent a one-dimensional parabolic line. The interpolation is the
-// standard finite element, quadratic isoparametric shape function. The 
-// cell includes a mid-edge node. The ordering of the three points defining
-// the cell is point ids (1,2,3) where id #3 is the midedge node.
+// represent a one-dimensional, isoparametric parabolic line. The
+// interpolation is the standard finite element, quadratic isoparametric
+// shape function. The cell includes a mid-edge node. The ordering of the
+// three points defining the cell is point ids (1,2,3) where id #3 is the
+// midedge node.
 
 #ifndef __vtkQuadraticEdge_h
 #define __vtkQuadraticEdge_h
@@ -78,9 +79,10 @@ public:
                         float x[3], float pcoords[3], int& subId);
 
   // Description:
-  // Method required by superclass vtkNonLinearCell. Produces vtkPolyData
-  // as a function of the vtkNonLinearCell::Error instance variable.
-  // The second Tesselate() method is empty (intended only for 3D cells).
+  // Method required by the superclass vtkNonLinearCell. Produces 
+  // vtkPolyData as a function of the vtkNonLinearCell::Error 
+  // instance variable. The second Tesselate() method is empty 
+  // (intended only for 3D cells).
   virtual void Tesselate(vtkIdType cellId, 
                          vtkDataSet *input, vtkPolyData *output, 
                          vtkPointLocator *locator=NULL);
