@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-24 12:20:57 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-11-11 15:05:31 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,7 @@
 #include "vtkPoints.h"
 #include "vtkUnsignedCharArray.h"
 
-vtkCxxRevisionMacro(vtkXMLWriter, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkXMLWriter, "$Revision: 1.4 $");
 vtkCxxSetObjectMacro(vtkXMLWriter, Compressor, vtkDataCompressor);
 
 //----------------------------------------------------------------------------
@@ -181,6 +181,13 @@ void vtkXMLWriter::SetDataModeToAppended()
 //----------------------------------------------------------------------------
 int vtkXMLWriter::Write()
 {
+  // Make sure we have input.
+  if(!this->Inputs || !this->Inputs[0])
+    {
+    vtkErrorMacro("No input provided!");
+    return 0;
+    }
+  
   // Make sure we have a file to write.
   if(!this->FileName)
     {
@@ -237,6 +244,16 @@ vtkDataSet* vtkXMLWriter::GetInputAsDataSet()
 void vtkXMLWriter::StartFile()
 {
   ostream& os = *(this->Stream);
+  
+  // If this will really be a valid XML file, put the XML header at
+  // the top.
+  if(this->EncodeAppendedData)
+    {
+    os << "<?xml version=\"1.0\"?>\n";
+    }
+  
+  // Open the document-level element.  This will contain the rest of
+  // the elements.
   os << "<VTKFile";
   this->WriteFileAttributes();
   os << ">\n";
@@ -288,6 +305,8 @@ void vtkXMLWriter::WriteFileAttributes()
 void vtkXMLWriter::EndFile()
 {
   ostream& os = *(this->Stream);
+  
+  // Close the document-level element.
   os << "</VTKFile>\n";
 }
 
