@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPiecewiseFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-01-17 18:22:28 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2003-05-02 18:15:42 $
+  Version:   $Revision: 1.34 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,7 +19,7 @@
 #include "vtkSource.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkPiecewiseFunction, "$Revision: 1.33 $");
+vtkCxxRevisionMacro(vtkPiecewiseFunction, "$Revision: 1.34 $");
 vtkStandardNewMacro(vtkPiecewiseFunction);
 
 // Construct a new vtkPiecewiseFunction with default values
@@ -274,9 +274,9 @@ float vtkPiecewiseFunction::GetFirstNonZeroValue()
 
 // Adds a point to the function. If a duplicate point is inserted
 // then the function value at that location is set to the new value.
-void vtkPiecewiseFunction::AddPoint( float x, float val )
+int vtkPiecewiseFunction::AddPoint( float x, float val )
 {
-  this->InsertPoint( x, val );
+  return this->InsertPoint( x, val );
 }
 
 // Adds a point to the function and returns the array index of the point.
@@ -409,7 +409,7 @@ void vtkPiecewiseFunction::MovePoints( int index, int down )
 
 // Removes a point from the function. If no point is found then function
 // remains the same.
-void vtkPiecewiseFunction::RemovePoint( float x )
+int vtkPiecewiseFunction::RemovePoint( float x )
 {
   int   i;
   float x1;
@@ -444,8 +444,10 @@ void vtkPiecewiseFunction::RemovePoint( float x )
         this->FunctionRange[0] = this->FunctionRange[1] = 0.0;
         }
       this->Modified();
+      return i;
       }
     }
+  return -1;
 }
 
 // Removes all points from the function.

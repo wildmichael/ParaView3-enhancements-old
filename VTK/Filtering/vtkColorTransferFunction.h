@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkColorTransferFunction.h,v $
   Language:  C++
-  Date:      $Date: 2003-01-17 18:22:28 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2003-05-02 18:15:42 $
+  Version:   $Revision: 1.39 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -50,9 +50,11 @@ public:
   int GetSize() {return this->NumberOfPoints;};
   
   // Description:
-  // Add a point to the function defined in RGB or HSV
-  void AddRGBPoint( float x, float r, float g, float b );
-  void AddHSVPoint( float x, float h, float s, float v );
+  // Add/Remove a point to/from the function defined in RGB or HSV
+  // Return the index of the point (0 based), or -1 on error.
+  int AddRGBPoint( float x, float r, float g, float b );
+  int AddHSVPoint( float x, float h, float s, float v );
+  int RemovePoint( float x );
 
   // Description:
   // Add two points to the function and remove all the points 
@@ -63,8 +65,7 @@ public:
                       float x2, float h2, float s2, float v2 );
   
   // Description:
-  // Remove a point / remove all points
-  void RemovePoint( float x );
+  // Remove all points
   void RemoveAllPoints();
 
   // Description:

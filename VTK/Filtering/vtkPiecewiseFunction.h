@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPiecewiseFunction.h,v $
   Language:  C++
-  Date:      $Date: 2003-01-17 18:22:28 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2003-05-02 18:15:42 $
+  Version:   $Revision: 1.33 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -49,8 +49,9 @@ public:
   // Description:
   // Add/Remove points to/from the function. If a duplicate point is added
   // then the function value is changed at that location.
-  void AddPoint( float x, float val );
-  void RemovePoint( float x );
+  // Return the index of the point (0 based), or -1 on error.
+  int AddPoint( float x, float val );
+  int RemovePoint( float x );
 
   // Description:
   // Removes all points from the function. 
