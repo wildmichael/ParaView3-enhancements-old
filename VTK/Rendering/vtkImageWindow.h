@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageWindow.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:47:46 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-02-02 18:21:07 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -83,6 +83,10 @@ public:
   virtual int* GetPosition() = 0;
   virtual void GetPosition(int* x, int* y);
 
+  // Description:
+  // Set the desired background color for the window.
+  virtual void SetBackgroundColor(float r, float g, float b) = 0;
+  
   // Description:
   // Sets the size of a window in pixels.
   virtual void SetSize(int , int ) = 0;
