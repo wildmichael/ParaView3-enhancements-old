@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLineWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-28 16:27:36 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2002-08-29 18:42:24 $
+  Version:   $Revision: 1.33 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -37,7 +37,7 @@
 #include "vtkPointWidget.h"
 #include "vtkCommand.h"
 
-vtkCxxRevisionMacro(vtkLineWidget, "$Revision: 1.32 $");
+vtkCxxRevisionMacro(vtkLineWidget, "$Revision: 1.33 $");
 vtkStandardNewMacro(vtkLineWidget);
 
 // This class is used to coordinate the interaction between the point widget
@@ -564,6 +564,7 @@ void vtkLineWidget::OnLeftButtonDown()
   path = this->HandlePicker->GetPath();
   if ( path != NULL )
     {
+    this->InvokeEvent(vtkCommand::StartInteractionEvent,NULL);
     this->State = vtkLineWidget::MovingHandle;
     this->HighlightHandle(path->GetFirstNode()->GetProp());
     this->EnablePointWidget();
@@ -575,6 +576,7 @@ void vtkLineWidget::OnLeftButtonDown()
     path = this->LinePicker->GetPath();
     if ( path != NULL )
       {
+      this->InvokeEvent(vtkCommand::StartInteractionEvent,NULL);
       this->State = vtkLineWidget::MovingLine;
       this->HighlightLine(1);
       this->EnablePointWidget();
@@ -590,7 +592,6 @@ void vtkLineWidget::OnLeftButtonDown()
   
   this->EventCallbackCommand->SetAbortFlag(1);
   this->StartInteraction();
-  this->InvokeEvent(vtkCommand::StartInteractionEvent,NULL);
   if ( ! forward )
     {
     this->Interactor->Render();
@@ -636,6 +637,7 @@ void vtkLineWidget::OnMiddleButtonDown()
   path = this->HandlePicker->GetPath();
   if ( path != NULL )
     {
+    this->InvokeEvent(vtkCommand::StartInteractionEvent,NULL);
     this->State = vtkLineWidget::MovingLine;
     this->HighlightHandles(1);
     this->HighlightLine(1);
@@ -648,6 +650,7 @@ void vtkLineWidget::OnMiddleButtonDown()
     path = this->LinePicker->GetPath();
     if ( path != NULL )
       {
+      this->InvokeEvent(vtkCommand::StartInteractionEvent,NULL);
       //note that the haighlight methods set the LastPickPosition, so they are ordered
       this->HighlightHandles(1);
       this->HighlightLine(1);
@@ -664,7 +667,6 @@ void vtkLineWidget::OnMiddleButtonDown()
   
   this->EventCallbackCommand->SetAbortFlag(1);
   this->StartInteraction();
-  this->InvokeEvent(vtkCommand::StartInteractionEvent,NULL);
   if ( ! forward )
     {
     this->Interactor->Render();
