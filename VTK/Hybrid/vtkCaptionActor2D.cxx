@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCaptionActor2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-10-10 11:54:23 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2001-11-01 13:11:15 $
+  Version:   $Revision: 1.11 $
   Thanks:    Tim Smith who sponsored and encouraged the development
              of this class.
 
@@ -264,7 +264,7 @@ int vtkCaptionActor2D::RenderOpaqueGeometry(vtkViewport *viewport)
   //
   float *w1, *w2;
   int *x1, *x2, *x3;
-  float p1[3], p2[3], p3[3];
+  float p1[4], p2[4], p3[4];
   x1 = this->AttachmentPointCoordinate->GetComputedDisplayValue(viewport);
   x2 = this->PositionCoordinate->GetComputedDisplayValue(viewport);
   x3 = this->Position2Coordinate->GetComputedDisplayValue(viewport);
