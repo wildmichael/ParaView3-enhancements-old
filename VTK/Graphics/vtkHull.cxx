@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHull.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-04 15:40:50 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2001-06-12 13:18:04 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -292,13 +292,13 @@ void  vtkHull::SetPlanes( vtkPlanes *planes )
     {
     int i, idx;
     vtkPoints *points = planes->GetPoints();
-    vtkNormals *normals = planes->GetNormals();
+    vtkDataArray *normals = planes->GetNormals();
     if ( points && normals )
       {
       for (i=0; i<planes->GetNumberOfPlanes(); i++)
         {
         float *point = points->GetPoint(i);
-        if ( (idx=this->AddPlane(normals->GetNormal(i))) >= 0)
+        if ( (idx=this->AddPlane(normals->GetTuple(i))) >= 0)
           { 
           idx *= 4;
           this->Planes[idx + 3] = -(this->Planes[idx]*point[0] +

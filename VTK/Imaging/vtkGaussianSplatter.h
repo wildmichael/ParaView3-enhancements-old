@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGaussianSplatter.h,v $
   Language:  C++
-  Date:      $Date: 2001-02-26 14:53:20 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2001-06-12 13:18:04 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -96,6 +96,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define VTK_ACCUMULATION_MODE_MIN 0
 #define VTK_ACCUMULATION_MODE_MAX 1
 #define VTK_ACCUMULATION_MODE_SUM 2
+
+class vtkFloatAray;
 
 class VTK_EXPORT vtkGaussianSplatter : public vtkDataSetToStructuredPointsFilter 
 {
@@ -216,7 +218,7 @@ protected:
   void operator=(const vtkGaussianSplatter&) {};
 
   void Execute();
-  void Cap(vtkScalars *s);
+  void Cap(vtkFloatArray *s);
 
   int SampleDimensions[3]; // dimensions of volume to splat into
   float Radius; // maximum distance splat propagates (as fraction 0->1)
@@ -240,7 +242,7 @@ protected:
 
 //BTX
 private:
-  vtkScalars *NewScalars;
+  vtkFloatArray *NewScalars;
   float Radius2;
   float (vtkGaussianSplatter::*Sample)(float x[3]);
   float (vtkGaussianSplatter::*SampleFactor)(float s);
