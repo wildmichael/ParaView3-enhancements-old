@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:12:28 $
-  Version:   $Revision: 1.98 $
+  Date:      $Date: 2000-05-21 18:04:57 $
+  Version:   $Revision: 1.99 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -581,11 +581,7 @@ void vtkRenderWindow::DoFDRender()
 	vpn = acam->GetViewPlaneNormal();
 	aTrans->Identity();
 	aTrans->Scale(focalDisk,focalDisk,focalDisk);
-	aTrans->RotateWXYZ(offsets[1],vpn[0],vpn[1],vpn[2]);
-	// Use Transpose() and TransformVector() instead of
-	// Inverse() and TransformNormal() -- it is mathematically
-	// equivalent and but is more efficient
-	aTrans->Transpose();
+	aTrans->RotateWXYZ(-offsets[1],vpn[0],vpn[1],vpn[2]);
 	aTrans->TransformVector(acam->GetViewUp(),vec);
 
 	dpoint = acam->GetPosition();
