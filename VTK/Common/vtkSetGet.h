@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkSetGet.h,v $
   Language:  C++
-  Date:      $Date: 1994-09-09 23:05:21 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1994-09-12 21:24:47 $
+  Version:   $Revision: 1.13 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -13,17 +13,13 @@ written consent of the authors.
 Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994 
 
 =========================================================================*/
-// .NAME SetGet Macros - standard macros for setting/getting instance
-//                       variable values
+// .NAME SetGet Macros - standard macros for setting/getting instance variables
 // .SECTION Description
 // The SetGet macros are used to interface to instance variables
-// in a standard fashion. This includes properly treating modified time,
-// registering/unregistering object use, and printing out debug 
-// information.
-//
-// Macros are available for built-in types; for character strings; 
-// vector arrays of built-in types size 2,3,4; and for setting 
-// objects (i.e., Registering objects).
+// in a standard fashion. This includes properly treating modified time
+// and printing out debug information.
+//    Macros are available for built-in types; for character strings; 
+// vector arrays of built-in types size 2,3,4; and for setting objects.
 
 #ifndef __vlSetGet_hh
 #define __vlSetGet_hh
@@ -109,10 +105,28 @@ void Set##name (type _arg) \
   } 
 
 //
-// Set pointer to object; uses vlObject reference counting methodology.
-// Creates method Set"name"() (e.g., SetPoints()).
+// Set pointer to object. Creates method Set"name"() (e.g., SetPoints()).
 //
 #define vlSetObjectMacro(name,type) \
+void Set##name (type* _arg) \
+  { \
+  if (Debug)   cerr << "In " __FILE__ << ", line " << __LINE__ << "\n" << this->GetClassName() << " (" << this << "): setting " << #name " to " << &_arg << "\n\n"; \
+  if (name != _arg) \
+    { \
+    name = _arg; \
+    this->Modified(); \
+    } \
+  } \
+void Set##name (type& _arg) \
+  { \
+  Set##name (&_arg);\
+  } 
+
+//
+// Set pointer to object; uses vlRefCount reference counting methodology.
+// Creates method Set"name"() (e.g., SetPoints()).
+//
+#define vlSetRefCountedObjectMacro(name,type) \
 void Set##name (type* _arg) \
   { \
   if (Debug)   cerr << "In " __FILE__ << ", line " << __LINE__ << "\n" << this->GetClassName() << " (" << this << "): setting " << #name " to " << &_arg << "\n\n"; \
