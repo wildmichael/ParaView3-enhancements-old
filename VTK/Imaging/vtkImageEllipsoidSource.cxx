@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageEllipsoidSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-05-16 19:52:42 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2000-07-10 09:59:34 $
+  Version:   $Revision: 1.17 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -203,11 +203,11 @@ static void vtkImageEllipsoidSourceExecute(vtkImageEllipsoidSource *self,
     // handle divide by zero
     if (radius[2] != 0.0)
       {
-      temp = ((double)idx2 - center[2]) / radius[2];
+      temp = ((double)idx2 - (double)(center[2])) / (double)(radius[2]);
       }
     else
       {
-      if ((double)idx2 - center[2] == 0.0)
+      if ((float)idx2 - center[2] == 0.0)
 	{
 	temp = 0.0;
 	}
@@ -230,11 +230,11 @@ static void vtkImageEllipsoidSourceExecute(vtkImageEllipsoidSource *self,
       // handle divide by zero
       if (radius[1] != 0.0)
 	{
-	temp = ((double)idx1 - center[1]) / radius[1];
+	temp = ((double)idx1 - (double)(center[1])) / (double)(radius[1]);
 	}
       else
 	{
-	if ((double)idx1 - center[1] == 0.0)
+	if ((float)idx1 - center[1] == 0.0)
 	  {
 	  temp = 0.0;
 	  }
@@ -250,11 +250,11 @@ static void vtkImageEllipsoidSourceExecute(vtkImageEllipsoidSource *self,
 	// handle divide by zero
 	if (radius[0] != 0.0)
 	  {
-	  temp = ((double)idx0 - center[0]) / radius[0];
+	  temp = ((double)idx0 - (double)(center[0])) / (double)(radius[0]);
 	  }
 	else
 	  {
-	  if ((double)idx0 - center[0] == 0.0)
+	  if ((float)idx0 - center[0] == 0.0)
 	    {
 	    temp = 0.0;
 	    }
