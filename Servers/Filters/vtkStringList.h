@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkStringList.h,v $
   Language:  C++
-  Date:      $Date: 2001-09-04 15:54:51 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-11-12 19:52:51 $
+  Version:   $Revision: 1.3 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -74,6 +74,7 @@ public:
   // Get a command from its index.
   char *GetString(int idx);
   
+  vtkGetMacro(NumberOfStrings, int);
   
 protected:
   vtkStringList();
