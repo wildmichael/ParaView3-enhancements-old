@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGridReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-31 15:53:34 $
-  Version:   $Revision: 1.58 $
+  Date:      $Date: 2001-04-20 14:38:05 $
+  Version:   $Revision: 1.59 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -361,7 +361,7 @@ void vtkUnstructuredGridReader::Execute()
         }
       }
       if ( ! output->GetPoints() ) vtkWarningMacro(<<"No points read!");
-      if ( ! (cells && types) )  vtkWarningMacro(<<"No topology read!");
+      //if ( ! (cells && types) )  vtkWarningMacro(<<"No topology read!");
     }
 
   else if ( !strncmp(line, "point_data", 10) )
