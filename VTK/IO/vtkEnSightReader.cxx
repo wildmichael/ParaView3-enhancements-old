@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSightReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-03 14:33:03 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-01-09 21:40:03 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1265,6 +1265,47 @@ int vtkEnSightReader::GetElementType(char line[256])
     {
     return -1;
     }
+}
+
+void vtkEnSightReader::SetCaseFileName(char* fileName)
+{
+  char *endingSlash = NULL;
+  char *path, *newFileName;
+  int position, numChars;
+  
+  if ( this->CaseFileName && fileName && (!strcmp(this->CaseFileName, fileName)))
+    {
+    return;
+    }
+  if (this->CaseFileName)
+    {
+    delete [] this->CaseFileName;
+    }
+  if (fileName)
+    {
+    this->CaseFileName = new char[strlen(fileName)+1];
+    strcpy(this->CaseFileName, fileName);
+    }
+   else
+    {
+    this->CaseFileName = NULL;
+    }
+  
+  // strip off the path and save it as FilePath if it was included in the filename
+  if (endingSlash = strrchr(this->CaseFileName, '/'))
+    {
+    position = endingSlash - this->CaseFileName + 1;
+    path = new char[position + 1];
+    numChars = strlen(this->CaseFileName);
+    newFileName = new char[numChars - position + 1];
+    strncpy(path, this->CaseFileName, position);
+    this->SetFilePath(path);
+    strncpy(newFileName, this->CaseFileName + position, numChars - position);
+    this->SetCaseFileName(newFileName);
+    delete [] path;
+    }
+      
+  this->Modified();
 }
 
 void vtkEnSightReader::PrintSelf(ostream& os, vtkIndent indent)
