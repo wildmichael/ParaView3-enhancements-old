@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRayCaster.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:12:24 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2000-05-02 03:59:49 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -848,7 +848,7 @@ void vtkRayCaster::InitializeRayCasting(vtkRenderer *ren)
   // inverse of the camera's view transform. Copy it into an array for 
   // faster processing
   this->ViewToWorldTransform->SetMatrix( 
-	    ren->GetActiveCamera()->GetViewTransform() );
+	    ren->GetActiveCamera()->GetViewTransformMatrix() );
   this->ViewToWorldTransform->Inverse();
   for ( j = 0; j < 4; j++ )
     {
