@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-04 22:16:16 $
-  Version:   $Revision: 1.116 $
+  Date:      $Date: 2002-01-06 15:43:50 $
+  Version:   $Revision: 1.117 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -61,7 +61,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include <ctype.h>
 
-vtkCxxRevisionMacro(vtkDataReader, "$Revision: 1.116 $");
+vtkCxxRevisionMacro(vtkDataReader, "$Revision: 1.117 $");
 vtkStandardNewMacro(vtkDataReader);
 
 // this undef is required on the hp. vtkMutexLock ends up including
@@ -2053,6 +2053,16 @@ void vtkDataReader::PrintSelf(ostream& os, vtkIndent indent)
   if ( this->InputString )
     {
     os << indent << "Input String: " << this->InputString << "\n";
+    }
+  else
+    {
+    os << indent << "Input String: (None)\n";
+    }
+
+  if ( this->InputArray )
+    {
+    os << indent << "Input Array: "  << "\n";
+    this->InputArray->PrintSelf(os,indent.GetNextIndent());
     }
   else
     {
