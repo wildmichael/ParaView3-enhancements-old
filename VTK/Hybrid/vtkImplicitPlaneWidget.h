@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitPlaneWidget.h,v $
   Language:  C++
-  Date:      $Date: 2002-09-05 11:53:07 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-09-05 15:56:51 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -314,6 +314,7 @@ protected:
   void CreateDefaultProperties();
   
   void GeneratePlane();
+  virtual void SizeHandles();
   
 private:
   vtkImplicitPlaneWidget(const vtkImplicitPlaneWidget&);  //Not implemented
