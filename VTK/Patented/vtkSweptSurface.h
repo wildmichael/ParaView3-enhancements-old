@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSweptSurface.h,v $
   Language:  C++
-  Date:      $Date: 1997-03-04 17:59:01 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1997-04-18 20:23:16 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -70,6 +70,7 @@ class VTK_EXPORT vtkSweptSurface : public vtkStructuredPointsToStructuredPointsF
 {
 public:
   vtkSweptSurface();
+  vtkSweptSurface *New() {return new vtkSweptSurface;};
   char *GetClassName() {return "vtkSweptSurface";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
