@@ -8,7 +8,7 @@
  * of authorship are reproduced on all copies.
  */
 
-/* $Id: draw.c,v 1.6 2003-08-12 20:35:26 kmorel Exp $ */
+/* $Id: draw.c,v 1.7 2003-08-12 20:46:48 kmorel Exp $ */
 
 #include <GL/ice-t.h>
 #include <state.h>
@@ -643,7 +643,7 @@ void icetDrawFrame(void)
   /* Correct background color where applicable. */
     glClearColor(background_color[0], background_color[1],
 		 background_color[2], background_color[3]);
-    if (   color_blending && (display_tile >= 0)
+    if (   color_blending && (display_tile >= 0) && (background_color_word != 0)
 	&& icetIsEnabled(ICET_CORRECT_COLORED_BACKGROUND) ) {
 	GLubyte *color = icetGetImageColorBuffer(image);
 	GLubyte *bc = (GLubyte *)(&background_color_word);
