@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleTrackballActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-01 17:04:27 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2000-08-03 09:45:24 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -228,16 +228,11 @@ void vtkInteractorStyleTrackballActor::RotateXY(int x, int y, int oldX,
 //----------------------------------------------------------------------------
 void vtkInteractorStyleTrackballActor::PanXY(int x, int y, int oldX, int oldY)
 {
-  vtkCamera *cam;
-  
   if (this->CurrentRenderer == NULL)
     {
     return;
     }
 
-  // calculate the focal depth since we'll be using it a lot
-  cam = this->CurrentRenderer->GetActiveCamera();
-  
   vtkRenderWindowInteractor *rwi = this->Interactor;
   
   // use initial center as the origin from which to pan

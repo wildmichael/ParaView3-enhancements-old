@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleJoystickActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-01 17:04:27 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2000-08-03 09:45:24 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -233,8 +233,6 @@ void vtkInteractorStyleJoystickActor::RotateXY(int x, int y)
 //----------------------------------------------------------------------------
 void vtkInteractorStyleJoystickActor::PanXY(int x, int y)
 {
-  vtkCamera *cam;
-  
   if (this->CurrentRenderer == NULL)
     {
     return;
