@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkActor.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-01-12 16:47:25 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1995-04-13 13:16:45 $
+  Version:   $Revision: 1.23 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -279,7 +279,7 @@ float *vlActor::GetBounds()
     fptr += 3;
     }
   
-  this->Transform.Push();  
+  this->Transform.Pop();  
   
   // now calc the new bounds
   this->Bounds[0] = this->Bounds[2] = this->Bounds[4] = 1.0e30;
