@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPVTreeComposite.h,v $
   Language:  C++
-  Date:      $Date: 2001-05-04 13:58:45 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-05-16 21:16:34 $
+  Version:   $Revision: 1.5 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -45,16 +45,17 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // .SECTION see also
 // vtkMultiProcessController vtkRenderWindow.
 
+#include "vtkToolkits.h"
 #ifndef __vtkPVTreeComposite_h
 #define __vtkPVTreeComposite_h
-
-#include "vtkTreeComposite.h"
-#include "vtkPVRenderView.h"
-#include "vtkToolkits.h"
 
 #ifdef VTK_USE_MPI
 #include "vtkMPIController.h"
 #endif
+
+#include "vtkTreeComposite.h"
+#include "vtkPVRenderView.h"
+
 
 class VTK_EXPORT vtkPVTreeComposite : public vtkTreeComposite
 {
