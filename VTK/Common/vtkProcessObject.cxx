@@ -3,8 +3,8 @@
  Program:   Visualization Toolkit
  Module:    $RCSfile: vtkProcessObject.cxx,v $
  Language:  C++
- Date:      $Date: 2000-10-09 01:01:04 $
- Version:   $Revision: 1.16 $
+ Date:      $Date: 2000-10-16 12:36:29 $
+ Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -477,16 +477,30 @@ void vtkProcessObject::SortMerge(vtkDataObject **a1, int l1,
 {
   while (l1 > 0 || l2 > 0)
     {
+    // When the second list is empty, finish the first.
     if (l2 == 0)
       {
       *results++ = *a1++;
       --l1;
       }
-    else if (l1 == 0)
+    // When the first list is empty, finish the second.
+    else if (l1 == 0 || *a1 == NULL)
       {
       *results++ = *a2++;
       --l2;
       }
+    // Handle NULL pointers (put them at the end).
+    else if (*a2 == NULL)
+      {
+      *results++ = *a1++;
+      --l1;
+      }
+    else if (*a1 == NULL)
+      {
+      *results++ = *a2++;
+      --l2;
+      }
+    // Sort by locality.
     else if ((*a1)->GetLocality() < (*a2)->GetLocality())
       {
       *results++ = *a1++;
