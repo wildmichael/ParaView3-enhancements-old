@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPVTreeComposite.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-05-04 14:40:55 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2001-05-10 15:47:31 $
+  Version:   $Revision: 1.6 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -46,7 +46,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 vtkPVTreeComposite* vtkPVTreeComposite::New()
 {
   // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkPVTreeCompssite");
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkPVTreeComposite");
   if(ret)
     {
     return (vtkPVTreeComposite*)ret;
