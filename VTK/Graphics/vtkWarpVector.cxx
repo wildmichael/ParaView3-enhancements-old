@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpVector.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-15 16:19:58 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1998-12-27 21:13:29 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -74,7 +74,10 @@ void vtkWarpVector::Execute()
     if ( ! (ptId % 10000) ) 
       {
       this->UpdateProgress ((float)ptId/numPts);
-      if (this->GetAbortExecute()) break;
+      if (this->GetAbortExecute())
+	{
+	break;
+	}
       }
 
     x = inPts->GetPoint(ptId);

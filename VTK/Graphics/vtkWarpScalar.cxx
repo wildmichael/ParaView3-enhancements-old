@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpScalar.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-15 16:19:58 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1998-12-27 21:13:29 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -121,13 +121,22 @@ void vtkWarpScalar::Execute()
     if ( ! (ptId % 10000) ) 
       {
       this->UpdateProgress ((float)ptId/numPts);
-      if (this->GetAbortExecute()) break;
+      if (this->GetAbortExecute())
+	{
+	break;
+	}
       }
 
     x = inPts->GetPoint(ptId);
-    n = (this->*(PointNormal))(ptId,inNormals);
-    if ( this->XYPlane ) s = x[2];
-    else s = inScalars->GetScalar(ptId);
+    n = (this->*(this->PointNormal))(ptId,inNormals);
+    if ( this->XYPlane )
+      {
+      s = x[2];
+      }
+    else
+      {
+      s = inScalars->GetScalar(ptId);
+      }
     for (i=0; i<3; i++)
       {
       newX[i] = x[i] + this->ScaleFactor * s * n[i];

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpTo.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-08 18:45:13 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1998-12-27 21:13:29 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -81,7 +81,10 @@ void vtkWarpTo::Execute()
       {
       x = inPts->GetPoint(ptId);
       mag = sqrt(vtkMath::Distance2BetweenPoints(this->Position,x));
-      if (mag < minMag) minMag = mag;
+      if (mag < minMag)
+	{
+	minMag = mag;
+	}
       }
     }
   
