@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadricDecimation.h,v $
   Language:  C++
-  Date:      $Date: 2002-09-03 12:52:23 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2002-10-28 19:26:01 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -37,10 +37,6 @@
 #include "vtkIdList.h"
 
 class vtkPointData;
-
-typedef struct {
-  float *Quadric;
-} VTK_ERROR_QUADRIC;
 
 class VTK_GRAPHICS_EXPORT vtkQuadricDecimation : public vtkPolyDataToPolyDataFilter
 {
@@ -106,7 +102,12 @@ protected:
   vtkIdList *EndPoint1List;
   vtkIdList *EndPoint2List;
   vtkPriorityQueue *EdgeCosts;
-  VTK_ERROR_QUADRIC *ErrorQuadrics;
+
+  typedef struct {
+    float *Quadric;
+  } ErrorQuadricStruct;
+  ErrorQuadricStruct *ErrorQuadrics;
+
   int AttributeComponents[6];
   int NumberOfComponents;
   vtkPolyData *Mesh;
