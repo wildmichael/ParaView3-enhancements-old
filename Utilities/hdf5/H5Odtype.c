@@ -10,7 +10,7 @@
 *                                                                          *
 ****************************************************************************/
 
-/* $Id: H5Odtype.c,v 1.3 2003-04-09 19:34:42 andy Exp $ */
+/* $Id: H5Odtype.c,v 1.4 2004-01-27 16:23:14 berk Exp $ */
 
 #define H5T_PACKAGE             /*prevent warning from including H5Tpkg.h */
 
@@ -1294,7 +1294,7 @@ H5O_dtype_debug(H5F_t *f, const void *mesg, FILE *stream,
                 dt->u.array.ndims);
     fprintf(stream, "%*s%-*s {", indent, "", fwidth, "Dim Size:");
         for (i=0; i<dt->u.array.ndims; i++) {
-        fprintf (stream, "%s%u", i?", ":"", dt->u.array.dim[i]);
+        fprintf (stream, "%s%d", i?", ":"", dt->u.array.dim[i]);
     }
     fprintf (stream, "}\n");
     fprintf(stream, "%*s%-*s {", indent, "", fwidth, "Dim Permutation:");
