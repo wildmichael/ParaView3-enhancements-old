@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObject.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-01 17:47:30 $
-  Version:   $Revision: 1.64 $
+  Date:      $Date: 2001-11-07 22:26:31 $
+  Version:   $Revision: 1.65 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -507,5 +507,11 @@ int vtkObject::HasObserver(unsigned long event)
 int vtkObject::HasObserver(const char *event)
 {
   return this->HasObserver(vtkCommand::GetEventIdFromString(event));
+}
+
+void vtkObject::Modified()
+{
+  this->MTime.Modified();
+  this->InvokeEvent(vtkCommand::ModifiedEvent,NULL);
 }
 
