@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageGaussianSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:08:54 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1999-10-21 19:08:16 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder,ill Lorensen.
@@ -119,7 +119,7 @@ void vtkImageGaussianSource::SetWholeExtent(int xMin, int xMax,
 }
 
 //----------------------------------------------------------------------------
-void vtkImageGaussianSource::UpdateInformation()
+void vtkImageGaussianSource::ExecuteInformation()
 {
   vtkImageData *output = this->GetOutput();
   unsigned long mem;

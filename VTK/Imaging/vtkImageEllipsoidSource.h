@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageEllipsoidSource.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:08:49 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-10-21 19:08:01 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -86,8 +86,6 @@ public:
   vtkSetMacro(OutValue,float);
   vtkGetMacro(OutValue,float);
   
-  void UpdateInformation();
-
   // Description:
   // Set what type of scalar data this source should generate.
   vtkSetMacro(OutputScalarType,int);
@@ -113,6 +111,7 @@ protected:
   float OutValue;
   int OutputScalarType;
   
+  void ExecuteInformation();
   void Execute(vtkImageData *outData);
 };
 
