@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageClip.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:08:43 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1999-11-08 02:04:24 $
+  Version:   $Revision: 1.17 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -81,6 +81,10 @@ public:
   vtkGetMacro(ClipData, int);
   vtkBooleanMacro(ClipData, int);
 
+  // Description:
+  // Hack set output by piece
+  void SetOutputWholeExtent(int piece, int numPieces);
+
 protected:
   vtkImageClip();
   ~vtkImageClip() {};
@@ -96,6 +100,7 @@ protected:
   
   void ExecuteInformation(vtkImageData *inData, vtkImageData *outData);
   void CopyData(vtkImageData *inData, vtkImageData *outData, int *ext);
+  int SplitExtent(int piece, int numPieces, int *ext);
 };
 
 
