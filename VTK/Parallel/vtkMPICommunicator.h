@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMPICommunicator.h,v $
   Language:  C++
-  Date:      $Date: 2001-05-30 13:53:12 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-06-19 17:39:16 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -60,9 +60,9 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #ifndef __vtkMPICommunicator_h
 #define __vtkMPICommunicator_h
 
+#include "mpi.h"
 #include "vtkCommunicator.h"
 #include "vtkMPIGroup.h"
-#include "mpi.h"
 
 class vtkMPIController;
 
