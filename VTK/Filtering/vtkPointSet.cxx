@@ -20,7 +20,7 @@
 #include "vtkPointLocator.h"
 #include "vtkSource.h"
 
-vtkCxxRevisionMacro(vtkPointSet, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkPointSet, "$Revision: 1.2 $");
 
 vtkCxxSetObjectMacro(vtkPointSet,Points,vtkPoints);
 
@@ -46,9 +46,15 @@ vtkPointSet::~vtkPointSet ()
 void vtkPointSet::CopyStructure(vtkDataSet *ds)
 {
   vtkPointSet *ps=(vtkPointSet *)ds;
-  this->Initialize();
 
-  this->SetPoints(ps->Points);
+  if ( this->Points != ps->Points )
+    {
+    if ( this->Locator ) 
+      {
+      this->Locator->Initialize();
+      }
+    this->SetPoints(ps->Points);
+    }
 }
 
 
