@@ -1,10 +1,10 @@
 /*=========================================================================
 
   Program:   Visualization Library
-  Module:    PtS2PtSF.cc
+  Module:    $RCSfile: vtkPointSetToPointSetFilter.cxx,v $
   Language:  C++
-  Date:      11/6/94
-  Version:   1.8
+  Date:      $Date: 1994-11-07 10:02:05 $
+  Version:   $Revision: 1.10 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -29,8 +29,7 @@ vlPointSetToPointSetFilter::~vlPointSetToPointSetFilter()
 
 vlDataSet* vlPointSetToPointSetFilter::MakeObject()
 {
-//  vlPointSetToPointSetFilter *o = new vlPointSetToPointSetFilter();
-  vlPointSetToPointSetFilter *o;
+  vlPointSetToPointSetFilter *o = new vlPointSetToPointSetFilter();
   o->PointSet = this->PointSet;
   o->SetPoints(this->GetPoints());
   return o;

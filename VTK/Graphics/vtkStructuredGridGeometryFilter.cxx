@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStructuredGridGeometryFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-06 19:34:34 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1994-11-07 10:02:06 $
+  Version:   $Revision: 1.9 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -27,8 +27,6 @@ vlStructuredGridGeometryFilter::vlStructuredGridGeometryFilter()
   this->Extent[5] = 0;
 }
 
-
-#include "SGrid.hh"
 void vlStructuredGridGeometryFilter::Execute()
 {
   vlPointData *pd;
@@ -44,7 +42,7 @@ void vlStructuredGridGeometryFilter::Execute()
   float *x;
   vlStructuredGrid *input=(vlStructuredGrid *)this->Input;
 
-  vlDebugMacro(<< "Creating structured geometry");
+  vlDebugMacro(<< "Extracting structured points geometry");
   this->Initialize();
 
   pd = input->GetPointData();

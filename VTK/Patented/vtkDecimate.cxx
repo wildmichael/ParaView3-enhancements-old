@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkDecimate.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-06 19:37:41 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1994-11-07 10:02:03 $
+  Version:   $Revision: 1.5 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -932,23 +932,20 @@ void vlDecimate::Triangulate(int numVerts, VertexPtr verts[])
 
 void vlDecimate::PrintSelf(ostream& os, vlIndent indent)
 {
-  if (this->ShouldIPrint(vlDecimate::GetClassName()))
-    {
-    vlPolyToPolyFilter::PrintSelf(os,indent);
+  vlPolyToPolyFilter::PrintSelf(os,indent);
 
-    os << indent << "Target Reduction: " << this->TargetReduction << "\n";
-    os << indent << "Criterion: " << this->Criterion << "\n";
-    os << indent << "Criterion Increment: " << this->CriterionIncrement << "\n";
-    os << indent << "Maximum Criterion: " << this->MaximumCriterion << "\n";
-    os << indent << "Maximum Iterations: " << this->MaximumIterations << "\n";
-    os << indent << "Maximum Sub Iterations: " << this->MaximumSubIterations << "\n";
-    os << indent << "Aspect Ratio: " << this->AspectRatio << "\n";
-    os << indent << "Preserve Edges: " << (this->PreserveEdges ? "On\n" : "Off\n");
-    os << indent << "Feature Angle: " << this->FeatureAngle << "\n";
-    os << indent << "Feature Angle Increment: " << this->FeatureAngleIncrement << "\n";
-    os << indent << "Maximum Feature Angle: " << this->MaximumFeatureAngle << "\n";
+  os << indent << "Target Reduction: " << this->TargetReduction << "\n";
+  os << indent << "Criterion: " << this->Criterion << "\n";
+  os << indent << "Criterion Increment: " << this->CriterionIncrement << "\n";
+  os << indent << "Maximum Criterion: " << this->MaximumCriterion << "\n";
+  os << indent << "Maximum Iterations: " << this->MaximumIterations << "\n";
+  os << indent << "Maximum Sub Iterations: " << this->MaximumSubIterations << "\n";
+  os << indent << "Aspect Ratio: " << this->AspectRatio << "\n";
+  os << indent << "Preserve Edges: " << (this->PreserveEdges ? "On\n" : "Off\n");
+  os << indent << "Feature Angle: " << this->FeatureAngle << "\n";
+  os << indent << "Feature Angle Increment: " << this->FeatureAngleIncrement << "\n";
+  os << indent << "Maximum Feature Angle: " << this->MaximumFeatureAngle << "\n";
 
-    }
 
 }
 
