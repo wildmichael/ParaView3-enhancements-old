@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-22 18:45:10 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2000-09-12 16:07:50 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -122,7 +122,7 @@ vtkVolumeProMapper::vtkVolumeProMapper()
 // volume if necessary
 vtkVolumeProMapper::~vtkVolumeProMapper()
 {
- 
+  this->VolumeBuildTime->Delete();
 }
 
 // Simplified version - just assume the mapper type
