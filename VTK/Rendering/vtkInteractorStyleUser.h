@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleUser.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:38 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2002-04-15 10:02:22 $
+  Version:   $Revision: 1.23 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -33,16 +33,16 @@
 #ifndef __vtkInteractorStyleUser_h
 #define __vtkInteractorStyleUser_h
 
-#include "vtkInteractorStyleSwitch.h"
+#include "vtkInteractorStyle.h"
 
 // new motion flag
 #define VTKIS_USERINTERACTION 8 
 
-class VTK_RENDERING_EXPORT vtkInteractorStyleUser : public vtkInteractorStyleSwitch 
+class VTK_RENDERING_EXPORT vtkInteractorStyleUser : public vtkInteractorStyle 
 {
 public:
   static vtkInteractorStyleUser *New();
-  vtkTypeRevisionMacro(vtkInteractorStyleUser,vtkInteractorStyleSwitch);
+  vtkTypeRevisionMacro(vtkInteractorStyleUser,vtkInteractorStyle);
   void PrintSelf(ostream& os, vtkIndent indent);
   
   // Description:
