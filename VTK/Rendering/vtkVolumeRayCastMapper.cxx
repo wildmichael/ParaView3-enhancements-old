@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-24 15:35:43 $
-  Version:   $Revision: 1.83 $
+  Date:      $Date: 2002-05-27 16:26:57 $
+  Version:   $Revision: 1.84 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,18 +16,23 @@
 
 =========================================================================*/
 #include "vtkVolumeRayCastMapper.h"
-#include "vtkRenderer.h"
-#include "vtkMath.h"
-#include "vtkRenderWindow.h"
-#include "vtkVolumeRayCastFunction.h"
+
+#include "vtkEncodedGradientEstimator.h"
+#include "vtkEncodedGradientShader.h"
 #include "vtkFiniteDifferenceGradientEstimator.h"
-#include "vtkPlaneCollection.h"
+#include "vtkMath.h"
 #include "vtkObjectFactory.h"
-#include "vtkMultiThreader.h"
+#include "vtkPlaneCollection.h"
+#include "vtkRenderWindow.h"
+#include "vtkRenderer.h"
+#include "vtkVolumeRayCastFunction.h"
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkVolumeRayCastMapper, "$Revision: 1.83 $");
+vtkCxxRevisionMacro(vtkVolumeRayCastMapper, "$Revision: 1.84 $");
+
+vtkCxxSetObjectMacro(vtkVolumeRayCastMapper,VolumeRayCastFunction,
+                     vtkVolumeRayCastFunction );
 
 #define vtkVRCMultiplyPointMacro( A, B, M ) \
   B[0] = A[0]*M[0]  + A[1]*M[1]  + A[2]*M[2]  + M[3]; \
