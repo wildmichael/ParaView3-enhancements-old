@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGridReader.h,v $
   Language:  C++
-  Date:      $Date: 2000-07-26 14:50:44 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2000-09-17 11:13:40 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -66,7 +66,7 @@ public:
 
   // Description:
   // Set / get file name of vtk polygonal data file to read.
-  void SetFileName(char *name);
+  void SetFileName(const char *name);
   char *GetFileName();
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:12:18 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2000-09-17 11:13:40 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -94,6 +94,11 @@ void vtkPolyDataWriter::WriteData()
   // Write polygonal data specific stuff
   //
   *fp << "DATASET POLYDATA\n"; 
+  
+  //
+  // Write data owned by the dataset
+  this->WriteDataSetData(fp, input);
+
   this->WritePoints(fp, input->GetPoints());
 
   if (input->GetVerts())

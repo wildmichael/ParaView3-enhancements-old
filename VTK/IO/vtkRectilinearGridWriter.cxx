@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGridWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:12:26 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2000-09-17 11:13:40 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -96,6 +96,9 @@ void vtkRectilinearGridWriter::WriteData()
   // Write rectilinear grid specific stuff
   //
   *fp << "DATASET RECTILINEAR_GRID\n"; 
+
+  // Write data owned by the dataset
+  this->WriteDataSetData(fp, input);
 
   input->GetDimensions(dim);
   *fp << "DIMENSIONS " << dim[0] << " " << dim[1] << " " << dim[2] << "\n";
