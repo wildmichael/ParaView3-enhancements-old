@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolygon.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:26:04 $
-  Version:   $Revision: 1.95 $
+  Date:      $Date: 2002-05-07 21:13:37 $
+  Version:   $Revision: 1.96 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,7 +26,7 @@
 
 #include <stdlib.h>
 
-vtkCxxRevisionMacro(vtkPolygon, "$Revision: 1.95 $");
+vtkCxxRevisionMacro(vtkPolygon, "$Revision: 1.96 $");
 vtkStandardNewMacro(vtkPolygon);
 
 // Instantiate polygon.
@@ -891,10 +891,7 @@ int vtkPolygon::EarCutTriangulation ()
     {
     return (this->SuccessfulTriangulation=0);
     }
-  else
-    {
-    return (this->SuccessfulTriangulation=1);
-    }
+  return (this->SuccessfulTriangulation=1);
 }
 
 

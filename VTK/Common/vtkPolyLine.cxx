@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyLine.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:26:02 $
-  Version:   $Revision: 1.69 $
+  Date:      $Date: 2002-05-07 21:13:37 $
+  Version:   $Revision: 1.70 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkFloatArray.h"
 
-vtkCxxRevisionMacro(vtkPolyLine, "$Revision: 1.69 $");
+vtkCxxRevisionMacro(vtkPolyLine, "$Revision: 1.70 $");
 vtkStandardNewMacro(vtkPolyLine);
 
 vtkPolyLine::vtkPolyLine()
@@ -48,8 +48,8 @@ vtkCell *vtkPolyLine::MakeObject()
 int vtkPolyLine::GenerateSlidingNormals(vtkPoints *pts, vtkCellArray *lines,
                                         vtkDataArray *normals)
 {
-  vtkIdType npts;
-  vtkIdType *linePts;
+  vtkIdType npts=0;
+  vtkIdType *linePts=0;
   float sPrev[3], sNext[3], q[3], w[3], normal[3], theta;
   float p[3], pNext[3];
   float c[3], f1, f2;

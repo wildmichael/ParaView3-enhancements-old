@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellLinks.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:13 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2002-05-07 21:13:37 $
+  Version:   $Revision: 1.24 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 #include "vtkPolyData.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkCellLinks, "$Revision: 1.23 $");
+vtkCxxRevisionMacro(vtkCellLinks, "$Revision: 1.24 $");
 vtkStandardNewMacro(vtkCellLinks);
 
 void vtkCellLinks::Allocate(vtkIdType sz, vtkIdType ext)
@@ -204,8 +204,8 @@ void vtkCellLinks::BuildLinks(vtkDataSet *data, vtkCellArray *Connectivity)
   vtkIdType numPts = data->GetNumberOfPoints();
   vtkIdType j, cellId;
   unsigned short *linkLoc;
-  vtkIdType npts;
-  vtkIdType *pts;
+  vtkIdType npts=0;
+  vtkIdType *pts=0;
   vtkIdType loc = Connectivity->GetTraversalLocation();
   
   // traverse data to determine number of uses of each point
