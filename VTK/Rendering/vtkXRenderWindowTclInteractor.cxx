@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindowTclInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-01 21:00:08 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2002-05-01 21:45:20 $
+  Version:   $Revision: 1.38 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -31,7 +31,7 @@
 #include "vtkOldStyleCallbackCommand.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkXRenderWindowTclInteractor, "$Revision: 1.37 $");
+vtkCxxRevisionMacro(vtkXRenderWindowTclInteractor, "$Revision: 1.38 $");
 vtkStandardNewMacro(vtkXRenderWindowTclInteractor);
 
 // steal the first three elements of the TkMainInfo stuct
@@ -323,7 +323,7 @@ void vtkXRenderWindowTclInteractorCallback(Widget vtkNotUsed(w),
       xp = (reinterpret_cast<XButtonEvent*>(event))->x;
       yp = (reinterpret_cast<XButtonEvent*>(event))->y;
       yp = me->Size[1] - xp - 1;
-      SetEventAndLastEventPositions(xp, yp);
+      me->SetEventAndLastEventPositions(xp, yp);
       // only render if we are currently accepting events
       if (me->GetEnabled())
         {
@@ -351,7 +351,7 @@ void vtkXRenderWindowTclInteractorCallback(Widget vtkNotUsed(w),
         me->UpdateSize(width, height);
         xp = (reinterpret_cast<XButtonEvent*>(event))->x;
         yp = (reinterpret_cast<XButtonEvent*>(event))->y;
-        SetEventAndLastEventPositions(xp, me->Size[1] - yp - 1);
+        me->SetEventAndLastEventPositions(xp, me->Size[1] - yp - 1);
         // only render if we are currently accepting events
         if (me->GetEnabled())
           {
