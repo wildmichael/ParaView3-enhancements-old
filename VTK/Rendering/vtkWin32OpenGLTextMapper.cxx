@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-03-03 21:03:53 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1999-03-04 19:12:16 $
+  Version:   $Revision: 1.2 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -61,7 +61,7 @@ void vtkWin32OpenGLTextMapper::RenderOpaqueGeometry(vtkViewport* viewport,
   // Get the position of the text actor
   POINT ptDestOff;
   int* actorPos = 
-    actor->GetPositionCoordinate()->GetComputedDisplayValue(viewport);
+    actor->GetPositionCoordinate()->GetComputedViewportValue(viewport);
   ptDestOff.x = actorPos[0];
   ptDestOff.y = actorPos[1];
 
