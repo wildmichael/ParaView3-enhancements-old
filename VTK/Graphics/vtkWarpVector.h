@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpVector.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:13:16 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2000-05-17 16:00:55 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -51,7 +51,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define __vtkWarpVector_h
 
 #include "vtkPointSetToPointSetFilter.h"
-#include "vtkMultiThreader.h"
 
 class VTK_EXPORT vtkWarpVector : public vtkPointSetToPointSetFilter
 {
@@ -65,15 +64,6 @@ public:
   vtkSetMacro(ScaleFactor,float);
   vtkGetMacro(ScaleFactor,float);
 
-  // Description:
-  // Get/Set the number of threads to create when rendering
-  vtkSetClampMacro( NumberOfThreads, int, 1, VTK_MAX_THREADS );
-  vtkGetMacro( NumberOfThreads, int );
-
-  // Description:
-  // public so that C function can call it.
-  void ThreadedExecute(int threadId, int numThreads);
-
 protected:
   vtkWarpVector();
   ~vtkWarpVector();
@@ -81,11 +71,7 @@ protected:
   void operator=(const vtkWarpVector&) {};
 
   void Execute();
-  int SplitPointRange(int threadId, int threadCount, int &min, int &max);
   float ScaleFactor;
-
-  vtkMultiThreader *Threader;
-  int NumberOfThreads;
 };
 
 #endif
