@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-04-29 17:51:14 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1999-04-30 01:57:22 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -227,7 +227,7 @@ vtkOpenGLRenderWindow::~vtkOpenGLRenderWindow()
     if (this->OwnWindow && this->DisplayId && this->WindowId)
       {
       XDestroyWindow(this->DisplayId,this->WindowId);
-      this->WindowId = NULL;
+      this->WindowId = (Window)NULL;
       }
     }
 }
@@ -298,7 +298,7 @@ void vtkOpenGLRenderWindow::StereoUpdate(void)
 //
 void vtkOpenGLRenderWindow::SetStereoCapableWindow(int capable)
 {
-  if (this->WindowId == NULL)
+  if (!this->WindowId)
     {
     vtkRenderWindow::SetStereoCapableWindow(capable);
     }
