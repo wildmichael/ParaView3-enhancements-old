@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGridSynchronizedTemplates3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-13 15:40:57 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-10-11 12:39:44 $
+  Version:   $Revision: 1.7 $
 
 
 
@@ -64,6 +64,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkFloatArray.h"
 #include "vtkSynchronizedTemplates3D.h"
 #include "vtkGridSynchronizedTemplates3D.h"
+#include "vtkUnstructuredInformation.h"
 #include "vtkMath.h"
 
 
@@ -943,6 +944,8 @@ void vtkGridSynchronizedTemplates3D::ExecuteInformation()
     }
   this->GetOutput()->SetEstimatedWholeMemorySize(
     numTris*sizeTri + numPts*sizePt);
+  this->GetOutput()->GetUnstructuredInformation()->SetMaximumNumberOfPieces(100000);
+    
 }
 
 //----------------------------------------------------------------------------
