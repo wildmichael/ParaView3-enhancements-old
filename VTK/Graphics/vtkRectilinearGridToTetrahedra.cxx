@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGridToTetrahedra.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-07-15 19:12:32 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2003-07-15 21:22:37 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,7 @@
 #include "vtkIdList.h"
 #include "vtkCellArray.h"
 
-vtkCxxRevisionMacro(vtkRectilinearGridToTetrahedra, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkRectilinearGridToTetrahedra, "$Revision: 1.4 $");
 vtkStandardNewMacro(vtkRectilinearGridToTetrahedra);
 
 // ways to convert to a voxel to tetrahedra.
@@ -82,7 +82,7 @@ void vtkRectilinearGridToTetrahedra::SetInput(const float ExtentX,
   float Spacing[3];
   Extent[0]  = ExtentX;    Extent[1] = ExtentY;    Extent[2] = ExtentZ;
   Spacing[0] = SpacingX;  Spacing[1] = SpacingY;  Spacing[2] = SpacingZ;
-  return this->SetInput(Extent,Spacing);
+  return this->SetInput(Extent,Spacing,tol);
 }
 
 
