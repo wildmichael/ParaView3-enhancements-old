@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: vtkXdmfDataArray.h,v 1.3 2003-12-19 19:55:23 andy Exp $  */
-/*  Date : $Date: 2003-12-19 19:55:23 $ */
-/*  Version : $Revision: 1.3 $ */
+/*  Id : $Id: vtkXdmfDataArray.h,v 1.4 2004-01-04 18:02:24 andy Exp $  */
+/*  Date : $Date: 2004-01-04 18:02:24 $ */
+/*  Version : $Revision: 1.4 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -32,10 +32,6 @@
 class VTK_EXPORT vtkXdmfDataArray : public vtkObject
 {
 public:
-  vtkDataArray  *vtkArray;
-  XdmfArray  *Array;
-
-  vtkXdmfDataArray();
   static vtkXdmfDataArray *New();
   vtkTypeMacro(vtkXdmfDataArray,vtkObject);
 
@@ -52,7 +48,7 @@ public:
   void SetArray( char *TagName ) {
     this->Array = TagNameToArray( TagName );
     if( this->Array ) {
-      FromXdmfArray();
+      this->FromXdmfArray();
       }
     }
 
@@ -72,5 +68,11 @@ public:
     return( this->vtkArray );
     }
 
+protected:
+  vtkXdmfDataArray();
+
+private:
+  vtkDataArray  *vtkArray;
+  XdmfArray  *Array;
 };
 #endif /* _vtkXdmfDataArray_h */
