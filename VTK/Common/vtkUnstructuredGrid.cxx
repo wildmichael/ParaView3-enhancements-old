@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-17 22:41:15 $
-  Version:   $Revision: 1.87 $
+  Date:      $Date: 2001-03-17 22:47:43 $
+  Version:   $Revision: 1.88 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -887,17 +887,8 @@ void vtkUnstructuredGrid::GetCellNeighbors(int cellId, vtkIdList *ptIds,
 
 void vtkUnstructuredGrid::GetCellTypes(vtkCellTypes *types)
 {
-  int cellId, numCells=this->GetNumberOfCells();
-  unsigned char type;
-  types->Allocate(numCells,1000);
+
+  types->Allocate(this->GetNumberOfCells(),1000);
   vtkDataSet::GetCellTypes(types);
-//   types->Reset();
-//   for (cellId=0; cellId < numCells; cellId++)
-//     {
-//     type = this->GetCellType(cellId);
-//     if ( ! types->IsType(type) )
-//       {
-//       types->InsertNextType(type);
-//       }
-//     }
+
 }
