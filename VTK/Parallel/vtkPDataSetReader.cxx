@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPDataSetReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-04-22 17:23:46 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2003-05-16 13:30:33 $
+  Version:   $Revision: 1.25 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -34,7 +34,7 @@
 #include "vtkUnstructuredGrid.h"
 #include "vtkExtentTranslator.h"
 
-vtkCxxRevisionMacro(vtkPDataSetReader, "$Revision: 1.24 $");
+vtkCxxRevisionMacro(vtkPDataSetReader, "$Revision: 1.25 $");
 vtkStandardNewMacro(vtkPDataSetReader);
 
 //----------------------------------------------------------------------------
@@ -742,6 +742,9 @@ void vtkPDataSetReader::ReadVTKFileInformation(ifstream *file)
   float x, y, z;
   vtkDataSet *output;
   char str[1024];
+  
+  // To avoid UMR in the first string comparison
+  strcpy(str, "        "); 
 
   // Try to find the line that specifies the dataset type.
   i = 0;
