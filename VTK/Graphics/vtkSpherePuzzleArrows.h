@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSpherePuzzleArrows.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:46 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-09-03 12:52:23 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,6 +25,8 @@
 #include "vtkPolyDataSource.h"
 #include "vtkSpherePuzzle.h"
 
+class vtkPoints;
+class vtkCellArray;
 
 class VTK_EXPORT vtkSpherePuzzleArrows : public vtkPolyDataSource 
 {

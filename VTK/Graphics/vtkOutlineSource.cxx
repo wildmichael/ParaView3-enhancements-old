@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOutlineSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:32 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2002-09-03 12:52:23 $
+  Version:   $Revision: 1.29 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,9 +16,13 @@
 
 =========================================================================*/
 #include "vtkOutlineSource.h"
-#include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkOutlineSource, "$Revision: 1.28 $");
+#include "vtkCellArray.h"
+#include "vtkObjectFactory.h"
+#include "vtkPoints.h"
+#include "vtkPolyData.h"
+
+vtkCxxRevisionMacro(vtkOutlineSource, "$Revision: 1.29 $");
 vtkStandardNewMacro(vtkOutlineSource);
 
 //----------------------------------------------------------------------------

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkShrinkFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:44 $
-  Version:   $Revision: 1.57 $
+  Date:      $Date: 2002-09-03 12:52:23 $
+  Version:   $Revision: 1.58 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,9 +16,11 @@
 
 =========================================================================*/
 #include "vtkShrinkFilter.h"
-#include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkShrinkFilter, "$Revision: 1.57 $");
+#include "vtkObjectFactory.h"
+#include "vtkUnstructuredGrid.h"
+
+vtkCxxRevisionMacro(vtkShrinkFilter, "$Revision: 1.58 $");
 vtkStandardNewMacro(vtkShrinkFilter);
 
 vtkShrinkFilter::vtkShrinkFilter(float sf)

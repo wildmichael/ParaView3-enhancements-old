@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:50 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 2002-09-03 12:52:23 $
+  Version:   $Revision: 1.44 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,11 +16,13 @@
 
 =========================================================================*/
 #include "vtkTextSource.h"
-#include "vtkPoints.h"
-#include "vtkUnsignedCharArray.h"
-#include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkTextSource, "$Revision: 1.43 $");
+#include "vtkObjectFactory.h"
+#include "vtkPoints.h"
+#include "vtkPolyData.h"
+#include "vtkUnsignedCharArray.h"
+
+vtkCxxRevisionMacro(vtkTextSource, "$Revision: 1.44 $");
 vtkStandardNewMacro(vtkTextSource);
 
 #define vtkfont_width 9

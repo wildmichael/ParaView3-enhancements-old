@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDecimatePro.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:16 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 2002-09-03 12:52:23 $
+  Version:   $Revision: 1.52 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -80,7 +80,9 @@
 #define __vtkDecimatePro_h
 
 #include "vtkPolyDataToPolyDataFilter.h"
+
 #include "vtkPriorityQueue.h"
+#include "vtkCell.h" // Needed for VTK_CELL_SIZE
 
 // Special structures for building loops
 typedef struct _vtkProLocalVertex 

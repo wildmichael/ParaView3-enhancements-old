@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBlankStructuredGridWithImage.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:08 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-09-03 12:52:22 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,10 +16,12 @@
 
 =========================================================================*/
 #include "vtkBlankStructuredGridWithImage.h"
+
 #include "vtkImageData.h"
 #include "vtkObjectFactory.h"
+#include "vtkStructuredGrid.h"
 
-vtkCxxRevisionMacro(vtkBlankStructuredGridWithImage, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkBlankStructuredGridWithImage, "$Revision: 1.6 $");
 vtkStandardNewMacro(vtkBlankStructuredGridWithImage);
 
 //----------------------------------------------------------------------------

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkButtonSource.h,v $
   Language:  C++
-  Date:      $Date: 2002-02-11 17:47:41 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-09-03 12:52:22 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -38,6 +38,10 @@
 #define __vtkButtonSource_h
 
 #include "vtkPolyDataSource.h"
+
+class vtkCellArray;
+class vtkFloatArray;
+class vtkPoints;
 
 #define VTK_TEXTURE_STYLE_FIT_IMAGE    0
 #define VTK_TEXTURE_STYLE_PROPORTIONAL 1

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHull.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:23 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2002-09-03 12:52:23 $
+  Version:   $Revision: 1.20 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -43,7 +43,10 @@
 
 #include "vtkPolyDataToPolyDataFilter.h"
 
+class vtkCellArray;
 class vtkPlanes;
+class vtkPoints;
+class vtkPolyData;
 
 class VTK_GRAPHICS_EXPORT vtkHull : public vtkPolyDataToPolyDataFilter
 {

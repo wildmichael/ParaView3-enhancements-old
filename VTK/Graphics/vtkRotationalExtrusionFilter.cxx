@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRotationalExtrusionFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-08 13:34:14 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 2002-09-03 12:52:23 $
+  Version:   $Revision: 1.46 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,11 +16,13 @@
 
 =========================================================================*/
 #include "vtkRotationalExtrusionFilter.h"
-#include "vtkMath.h"
-#include "vtkIdList.h"
-#include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkRotationalExtrusionFilter, "$Revision: 1.45 $");
+#include "vtkIdList.h"
+#include "vtkMath.h"
+#include "vtkObjectFactory.h"
+#include "vtkPolyData.h"
+
+vtkCxxRevisionMacro(vtkRotationalExtrusionFilter, "$Revision: 1.46 $");
 vtkStandardNewMacro(vtkRotationalExtrusionFilter);
 
 // Create object with capping on, angle of 360 degrees, resolution = 12, and

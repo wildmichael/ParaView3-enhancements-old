@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSplineFilter.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-15 11:23:24 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-09-03 12:52:23 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -47,6 +47,12 @@
 #define VTK_TCOORDS_FROM_NORMALIZED_LENGTH 1
 #define VTK_TCOORDS_FROM_LENGTH            2
 #define VTK_TCOORDS_FROM_SCALARS           3
+
+class vtkCellArray;
+class vtkCellData;
+class vtkFloatArray;
+class vtkPointData;
+class vtkPoints;
 
 class VTK_GRAPHICS_EXPORT vtkSplineFilter : public vtkPolyDataToPolyDataFilter
 {
@@ -146,7 +152,7 @@ protected:
                      vtkFloatArray *newTCoords);
 
   void GenerateLine(vtkIdType offset, vtkIdType numGenPts, vtkIdType inCellId,
-                  vtkCellData *cd, vtkCellData *outCD, vtkCellArray *newLines);
+                    vtkCellData *cd, vtkCellData *outCD, vtkCellArray *newLines);
 
   //helper members
   vtkFloatArray *TCoordMap;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInterpolatingSubdivisionFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:24 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2002-09-03 12:52:23 $
+  Version:   $Revision: 1.19 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,9 +16,11 @@
 
 =========================================================================*/
 #include "vtkInterpolatingSubdivisionFilter.h"
-#include "vtkEdgeTable.h"
 
-vtkCxxRevisionMacro(vtkInterpolatingSubdivisionFilter, "$Revision: 1.18 $");
+#include "vtkEdgeTable.h"
+#include "vtkPolyData.h"
+
+vtkCxxRevisionMacro(vtkInterpolatingSubdivisionFilter, "$Revision: 1.19 $");
 
 // Construct object with number of subdivisions set to 1.
 vtkInterpolatingSubdivisionFilter::vtkInterpolatingSubdivisionFilter()

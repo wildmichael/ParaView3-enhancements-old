@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:34 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 2002-09-03 12:52:23 $
+  Version:   $Revision: 1.41 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,13 +16,17 @@
 
 =========================================================================*/
 #include "vtkPointSource.h"
+
+#include "vtkCellArray.h"
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
+#include "vtkPoints.h"
+#include "vtkPolyData.h"
 
 #include <float.h>
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkPointSource, "$Revision: 1.40 $");
+vtkCxxRevisionMacro(vtkPointSource, "$Revision: 1.41 $");
 vtkStandardNewMacro(vtkPointSource);
 
 //----------------------------------------------------------------------------

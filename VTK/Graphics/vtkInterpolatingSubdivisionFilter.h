@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInterpolatingSubdivisionFilter.h,v $
   Language:  C++
-  Date:      $Date: 2002-03-28 21:35:50 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2002-09-03 12:52:23 $
+  Version:   $Revision: 1.16 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -32,9 +32,13 @@
 
 #include "vtkPolyDataToPolyDataFilter.h"
 
-class vtkIntArray;
-class vtkIdList;
 class vtkCellArray;
+class vtkCellData;
+class vtkIdList;
+class vtkIntArray;
+class vtkPointData;
+class vtkPoints;
+class vtkPolyData;
 
 class VTK_GRAPHICS_EXPORT vtkInterpolatingSubdivisionFilter : public vtkPolyDataToPolyDataFilter
 {

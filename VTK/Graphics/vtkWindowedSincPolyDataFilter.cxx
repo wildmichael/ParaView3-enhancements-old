@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWindowedSincPolyDataFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-08 13:34:14 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2002-09-03 12:52:23 $
+  Version:   $Revision: 1.29 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,14 +16,16 @@
 
 =========================================================================*/
 #include "vtkWindowedSincPolyDataFilter.h"
+
+#include "vtkFloatArray.h"
 #include "vtkMath.h"
-#include "vtkTriangleFilter.h"
+#include "vtkObjectFactory.h"
+#include "vtkPolyData.h"
 #include "vtkPolygon.h"
 #include "vtkTriangle.h"
-#include "vtkObjectFactory.h"
-#include "vtkFloatArray.h"
+#include "vtkTriangleFilter.h"
 
-vtkCxxRevisionMacro(vtkWindowedSincPolyDataFilter, "$Revision: 1.28 $");
+vtkCxxRevisionMacro(vtkWindowedSincPolyDataFilter, "$Revision: 1.29 $");
 vtkStandardNewMacro(vtkWindowedSincPolyDataFilter);
 
 // Construct object with number of iterations 20; passband .1;

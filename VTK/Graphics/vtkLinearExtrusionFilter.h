@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinearExtrusionFilter.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:26 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 2002-09-03 12:52:23 $
+  Version:   $Revision: 1.41 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -52,6 +52,8 @@
 #define __vtkLinearExtrusionFilter_h
 
 #include "vtkPolyDataToPolyDataFilter.h"
+
+class vtkDataArray;
 
 #define VTK_VECTOR_EXTRUSION 1
 #define VTK_NORMAL_EXTRUSION 2

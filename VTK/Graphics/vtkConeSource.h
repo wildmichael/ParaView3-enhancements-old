@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkConeSource.h,v $
   Language:  C++
-  Date:      $Date: 2002-03-30 17:45:11 $
-  Version:   $Revision: 1.52 $
+  Date:      $Date: 2002-09-03 12:52:22 $
+  Version:   $Revision: 1.53 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -31,6 +31,8 @@
 #define __vtkConeSource_h
 
 #include "vtkPolyDataSource.h"
+
+#include "vtkCell.h" // Needed for VTK_CELL_SIZE
 
 class VTK_GRAPHICS_EXPORT vtkConeSource : public vtkPolyDataSource 
 {

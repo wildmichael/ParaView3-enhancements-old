@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDataGeometryFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-21 19:59:37 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-09-03 12:52:23 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,9 +16,12 @@
 
 =========================================================================*/
 #include "vtkImageDataGeometryFilter.h"
-#include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkImageDataGeometryFilter, "$Revision: 1.5 $");
+#include "vtkObjectFactory.h"
+#include "vtkImageData.h"
+#include "vtkPolyData.h"
+
+vtkCxxRevisionMacro(vtkImageDataGeometryFilter, "$Revision: 1.6 $");
 vtkStandardNewMacro(vtkImageDataGeometryFilter);
 
 // Construct with initial extent of all the data

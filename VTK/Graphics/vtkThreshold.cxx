@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThreshold.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:52 $
-  Version:   $Revision: 1.58 $
+  Date:      $Date: 2002-09-03 12:52:23 $
+  Version:   $Revision: 1.59 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,9 +16,11 @@
 
 =========================================================================*/
 #include "vtkThreshold.h"
-#include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkThreshold, "$Revision: 1.58 $");
+#include "vtkObjectFactory.h"
+#include "vtkUnstructuredGrid.h"
+
+vtkCxxRevisionMacro(vtkThreshold, "$Revision: 1.59 $");
 vtkStandardNewMacro(vtkThreshold);
 
 // Construct with lower threshold=0, upper threshold=1, and threshold 

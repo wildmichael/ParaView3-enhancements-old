@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractRectilinearGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-28 18:22:16 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-09-03 12:52:23 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,10 +16,12 @@
 
 =========================================================================*/
 #include "vtkExtractRectilinearGrid.h"
+
 #include "vtkFloatArray.h"
 #include "vtkObjectFactory.h"
+#include "vtkRectilinearGrid.h"
 
-vtkCxxRevisionMacro(vtkExtractRectilinearGrid, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkExtractRectilinearGrid, "$Revision: 1.4 $");
 vtkStandardNewMacro(vtkExtractRectilinearGrid);
 
 // Construct object to extract all of the input data.

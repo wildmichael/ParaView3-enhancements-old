@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHull.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:23 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2002-09-03 12:52:23 $
+  Version:   $Revision: 1.31 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,11 +16,13 @@
 
 =========================================================================*/
 #include "vtkHull.h"
+
 #include "vtkPlanes.h"
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
+#include "vtkPolyData.h"
 
-vtkCxxRevisionMacro(vtkHull, "$Revision: 1.30 $");
+vtkCxxRevisionMacro(vtkHull, "$Revision: 1.31 $");
 vtkStandardNewMacro(vtkHull);
 
 // Construct an the hull object with no planes

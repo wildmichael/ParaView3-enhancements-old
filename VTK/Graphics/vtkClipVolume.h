@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipVolume.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:11 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2002-09-03 12:52:22 $
+  Version:   $Revision: 1.33 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -56,8 +56,14 @@
 #include "vtkStructuredPointsToUnstructuredGridFilter.h"
 #include "vtkImplicitFunction.h"
 
+class vtkCellData;
+class vtkImplicitFunction;
 class vtkMergePoints;
 class vtkOrderedTriangulator;
+class vtkPointData;
+class vtkPointLocator;
+class vtkPoints;
+class vtkUnstructuredGrid;
 
 class VTK_GRAPHICS_EXPORT vtkClipVolume : public vtkStructuredPointsToUnstructuredGridFilter
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSuperquadricSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:50 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2002-09-03 12:52:23 $
+  Version:   $Revision: 1.19 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,16 +21,17 @@
    Based on "Rigid physically based superquadrics", A. H. Barr,
    in "Graphics Gems III", David Kirk, ed., Academic Press, 1992.
 */
-
 #include "vtkSuperquadricSource.h"
-#include "vtkPoints.h"
+
+#include "vtkFloatArray.h"
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
-#include "vtkFloatArray.h"
+#include "vtkPoints.h"
+#include "vtkPolyData.h"
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkSuperquadricSource, "$Revision: 1.18 $");
+vtkCxxRevisionMacro(vtkSuperquadricSource, "$Revision: 1.19 $");
 vtkStandardNewMacro(vtkSuperquadricSource);
 
 static void evalSuperquadric(float u, float v, 

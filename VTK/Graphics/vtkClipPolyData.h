@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipPolyData.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:11 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 2002-09-03 12:52:22 $
+  Version:   $Revision: 1.42 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -61,6 +61,8 @@
 
 #include "vtkPolyDataToPolyDataFilter.h"
 #include "vtkImplicitFunction.h"
+
+class vtkPointLocator;
 
 class VTK_GRAPHICS_EXPORT vtkClipPolyData : public vtkPolyDataToPolyDataFilter
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDelaunay3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-07 22:12:17 $
-  Version:   $Revision: 1.62 $
+  Date:      $Date: 2002-09-03 12:52:23 $
+  Version:   $Revision: 1.63 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,8 +24,9 @@
 #include "vtkPolyData.h"
 #include "vtkTetra.h"
 #include "vtkTriangle.h"
+#include "vtkUnstructuredGrid.h"
 
-vtkCxxRevisionMacro(vtkDelaunay3D, "$Revision: 1.62 $");
+vtkCxxRevisionMacro(vtkDelaunay3D, "$Revision: 1.63 $");
 vtkStandardNewMacro(vtkDelaunay3D);
 
 //----------------------------------------------------------------------------

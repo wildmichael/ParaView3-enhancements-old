@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPlaneSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-26 17:06:44 $
-  Version:   $Revision: 1.57 $
+  Date:      $Date: 2002-09-03 12:52:23 $
+  Version:   $Revision: 1.58 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,13 +16,16 @@
 
 =========================================================================*/
 #include "vtkPlaneSource.h"
-#include "vtkPoints.h"
-#include "vtkMath.h"
-#include "vtkTransform.h"
-#include "vtkObjectFactory.h"
-#include "vtkFloatArray.h"
 
-vtkCxxRevisionMacro(vtkPlaneSource, "$Revision: 1.57 $");
+#include "vtkCellArray.h"
+#include "vtkFloatArray.h"
+#include "vtkMath.h"
+#include "vtkObjectFactory.h"
+#include "vtkPoints.h"
+#include "vtkPolyData.h"
+#include "vtkTransform.h"
+
+vtkCxxRevisionMacro(vtkPlaneSource, "$Revision: 1.58 $");
 vtkStandardNewMacro(vtkPlaneSource);
 
 // Construct plane perpendicular to z-axis, resolution 1x1, width and height

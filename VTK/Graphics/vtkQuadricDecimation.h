@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadricDecimation.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:41 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2002-09-03 12:52:23 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -35,6 +35,8 @@
 #include "vtkEdgeTable.h"
 #include "vtkPriorityQueue.h"
 #include "vtkIdList.h"
+
+class vtkPointData;
 
 typedef struct {
   float *Quadric;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSmoothPolyDataFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-13 11:03:46 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2002-09-03 12:52:23 $
+  Version:   $Revision: 1.35 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,14 +16,16 @@
 
 =========================================================================*/
 #include "vtkSmoothPolyDataFilter.h"
-#include "vtkMath.h"
-#include "vtkTriangleFilter.h"
-#include "vtkPolygon.h"
-#include "vtkCellLocator.h"
-#include "vtkObjectFactory.h"
-#include "vtkFloatArray.h"
 
-vtkCxxRevisionMacro(vtkSmoothPolyDataFilter, "$Revision: 1.34 $");
+#include "vtkCellLocator.h"
+#include "vtkFloatArray.h"
+#include "vtkMath.h"
+#include "vtkObjectFactory.h"
+#include "vtkPolyData.h"
+#include "vtkPolygon.h"
+#include "vtkTriangleFilter.h"
+
+vtkCxxRevisionMacro(vtkSmoothPolyDataFilter, "$Revision: 1.35 $");
 vtkStandardNewMacro(vtkSmoothPolyDataFilter);
 
 // The following code defines a helper class for performing mesh smoothing

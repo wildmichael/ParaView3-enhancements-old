@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBandedPolyDataContourFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-07-25 18:46:11 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2002-09-03 12:52:22 $
+  Version:   $Revision: 1.29 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,13 +16,16 @@
 
 =========================================================================*/
 #include "vtkBandedPolyDataContourFilter.h"
+
 #include "vtkEdgeTable.h"
 #include "vtkFloatArray.h"
-#include "vtkTriangleStrip.h"
 #include "vtkObjectFactory.h"
+#include "vtkPolyData.h"
+#include "vtkTriangleStrip.h"
+
 #include <float.h>
 
-vtkCxxRevisionMacro(vtkBandedPolyDataContourFilter, "$Revision: 1.28 $");
+vtkCxxRevisionMacro(vtkBandedPolyDataContourFilter, "$Revision: 1.29 $");
 vtkStandardNewMacro(vtkBandedPolyDataContourFilter);
 
 // Construct object.
@@ -706,6 +709,10 @@ void vtkBandedPolyDataContourFilter::Execute()
   output->Squeeze();
 }
 
+vtkPolyData *vtkBandedPolyDataContourFilter::GetContourEdgesOutput()
+{
+  return static_cast<vtkPolyData *>(this->Outputs[1]);
+}
 
 unsigned long int vtkBandedPolyDataContourFilter::GetMTime()
 {

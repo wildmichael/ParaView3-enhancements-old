@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkContourGrid.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:12 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2002-09-03 12:52:22 $
+  Version:   $Revision: 1.14 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -57,6 +57,7 @@
 
 class vtkScalarTree;
 class vtkEdgeTable;
+class vtkPointLocator;
 
 class VTK_GRAPHICS_EXPORT vtkContourGrid : public vtkUnstructuredGridToPolyDataFilter
 {

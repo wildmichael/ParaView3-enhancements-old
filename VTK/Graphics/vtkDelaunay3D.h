@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDelaunay3D.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:16 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 2002-09-03 12:52:23 $
+  Version:   $Revision: 1.46 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -88,6 +88,10 @@
 
 #include "vtkUnstructuredGridSource.h"
 
+class vtkIdList;
+class vtkPointLocator;
+class vtkPointSet;
+class vtkPoints;
 class vtkTetraArray;
 
 class VTK_GRAPHICS_EXPORT vtkDelaunay3D : public vtkUnstructuredGridSource

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataConnectivityFilter.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:35 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2002-09-03 12:52:23 $
+  Version:   $Revision: 1.31 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -54,6 +54,8 @@
 #define VTK_EXTRACT_CLOSEST_POINT_REGION 6
 
 class vtkDataArray;
+class vtkIdList;
+class vtkIdTypeArray;
 
 class VTK_GRAPHICS_EXPORT vtkPolyDataConnectivityFilter : public vtkPolyDataToPolyDataFilter
 {

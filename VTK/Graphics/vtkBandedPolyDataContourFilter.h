@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBandedPolyDataContourFilter.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-12 14:11:41 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2002-09-03 12:52:22 $
+  Version:   $Revision: 1.16 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -42,6 +42,10 @@
 
 #include "vtkPolyDataToPolyDataFilter.h"
 #include "vtkContourValues.h"
+
+class vtkPoints;
+class vtkCellArray;
+class vtkPointData;
 
 #define VTK_SCALAR_MODE_INDEX 0
 #define VTK_SCALAR_MODE_VALUE 1
@@ -103,8 +107,7 @@ public:
   // Description:
   // Get the second output which contains the edges divinding the contour 
   // bands. This output is empty unless GenerateContourEdges is enabled.
-  vtkPolyData *GetContourEdgesOutput()
-    {return static_cast<vtkPolyData *>(this->Outputs[1]);}
+  vtkPolyData *GetContourEdgesOutput();
 
   // Description:
   // If you want to contour by an arbitrary array, then set its name here.

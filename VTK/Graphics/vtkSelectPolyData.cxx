@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSelectPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-18 19:03:26 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2002-09-03 12:52:23 $
+  Version:   $Revision: 1.25 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,16 +16,21 @@
 
 =========================================================================*/
 #include "vtkSelectPolyData.h"
-#include "vtkMath.h"
-#include "vtkPolygon.h"
-#include "vtkTriangleFilter.h"
-#include "vtkCharArray.h"
-#include "vtkTriangleStrip.h"
-#include "vtkObjectFactory.h"
-#include "vtkFloatArray.h"
 
-vtkCxxRevisionMacro(vtkSelectPolyData, "$Revision: 1.24 $");
+#include "vtkCharArray.h"
+#include "vtkFloatArray.h"
+#include "vtkMath.h"
+#include "vtkObjectFactory.h"
+#include "vtkPoints.h"
+#include "vtkPolygon.h"
+#include "vtkPolyData.h"
+#include "vtkTriangleFilter.h"
+#include "vtkTriangleStrip.h"
+
+vtkCxxRevisionMacro(vtkSelectPolyData, "$Revision: 1.25 $");
 vtkStandardNewMacro(vtkSelectPolyData);
+
+vtkCxxSetObjectMacro(vtkSelectPolyData,Loop,vtkPoints);
 
 // Description:
 // Instantiate object with InsideOut turned off.

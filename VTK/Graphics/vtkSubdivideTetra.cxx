@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSubdivideTetra.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:50 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2002-09-03 12:52:23 $
+  Version:   $Revision: 1.23 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,10 +16,12 @@
 
 =========================================================================*/
 #include "vtkSubdivideTetra.h"
+
 #include "vtkMergePoints.h"
 #include "vtkObjectFactory.h"
+#include "vtkUnstructuredGrid.h"
 
-vtkCxxRevisionMacro(vtkSubdivideTetra, "$Revision: 1.22 $");
+vtkCxxRevisionMacro(vtkSubdivideTetra, "$Revision: 1.23 $");
 vtkStandardNewMacro(vtkSubdivideTetra);
 
 // Description:

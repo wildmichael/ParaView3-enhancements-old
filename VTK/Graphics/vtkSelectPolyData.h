@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSelectPolyData.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-18 19:03:26 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2002-09-03 12:52:23 $
+  Version:   $Revision: 1.22 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -84,6 +84,8 @@
 #define VTK_INSIDE_CLOSEST_POINT_REGION 2
 
 class vtkCharArray;
+class vtkPoints;
+class vtkIdList;
 
 class VTK_GRAPHICS_EXPORT vtkSelectPolyData : public vtkPolyDataToPolyDataFilter
 {
@@ -117,7 +119,7 @@ public:
   // Description:
   // Set/Get the array of point coordinates defining the loop. There must
   // be at least three points used to define a loop.
-  vtkSetObjectMacro(Loop,vtkPoints);
+  virtual void SetLoop(vtkPoints*);
   vtkGetObjectMacro(Loop,vtkPoints);
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinkEdgels.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:27 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2002-09-03 12:52:23 $
+  Version:   $Revision: 1.32 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,13 +16,14 @@
 
 =========================================================================*/
 #include "vtkLinkEdgels.h"
-#include "vtkMath.h"
+
 #include "vtkFloatArray.h"
+#include "vtkImageData.h"
+#include "vtkMath.h"
 #include "vtkObjectFactory.h"
+#include "vtkPolyData.h"
 
-#include <stdlib.h>
-
-vtkCxxRevisionMacro(vtkLinkEdgels, "$Revision: 1.31 $");
+vtkCxxRevisionMacro(vtkLinkEdgels, "$Revision: 1.32 $");
 vtkStandardNewMacro(vtkLinkEdgels);
 
 // Construct instance of vtkLinkEdgels with GradientThreshold set to 

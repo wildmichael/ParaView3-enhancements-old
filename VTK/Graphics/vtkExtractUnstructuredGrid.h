@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractUnstructuredGrid.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:20 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2002-09-03 12:52:23 $
+  Version:   $Revision: 1.27 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -40,6 +40,8 @@
 #define __vtkExtractUnstructuredGrid_h
 
 #include "vtkUnstructuredGridToUnstructuredGridFilter.h"
+
+class vtkPointLocator;
 
 class VTK_GRAPHICS_EXPORT vtkExtractUnstructuredGrid : public vtkUnstructuredGridToUnstructuredGridFilter
 {

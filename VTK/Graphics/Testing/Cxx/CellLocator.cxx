@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: CellLocator.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-08 13:50:50 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-09-03 12:52:23 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -15,15 +15,16 @@
      PURPOSE.  See the above copyright notice for more information.
 
 =========================================================================*/
-#include "vtkRenderer.h"
+#include "vtkActor.h"
+#include "vtkCellLocator.h"
+#include "vtkPolyData.h"
+#include "vtkPolyDataMapper.h"
+#include "vtkProperty.h"
 #include "vtkRenderWindow.h"
+#include "vtkRenderWindowInteractor.h"
+#include "vtkRenderer.h"
 #include "vtkRenderer.h"
 #include "vtkSphereSource.h"
-#include "vtkPolyDataMapper.h"
-#include "vtkActor.h"
-#include "vtkRenderWindowInteractor.h"
-#include "vtkCellLocator.h"
-#include "vtkProperty.h"
 
 #include "vtkRegressionTestImage.h"
 #include "vtkDebugLeaks.h"

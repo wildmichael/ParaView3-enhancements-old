@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadricClustering.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-26 19:37:27 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 2002-09-03 12:52:23 $
+  Version:   $Revision: 1.46 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,13 +16,16 @@
 
 =========================================================================*/
 #include "vtkQuadricClustering.h"
-#include "vtkMath.h"
-#include "vtkTriangle.h"
-#include "vtkObjectFactory.h"
-#include "vtkFeatureEdges.h"
-#include "vtkTimerLog.h"
 
-vtkCxxRevisionMacro(vtkQuadricClustering, "$Revision: 1.45 $");
+#include "vtkCellArray.h"
+#include "vtkFeatureEdges.h"
+#include "vtkMath.h"
+#include "vtkObjectFactory.h"
+#include "vtkPolyData.h"
+#include "vtkTimerLog.h"
+#include "vtkTriangle.h"
+
+vtkCxxRevisionMacro(vtkQuadricClustering, "$Revision: 1.46 $");
 vtkStandardNewMacro(vtkQuadricClustering);
 
 //----------------------------------------------------------------------------

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAppendPolyData.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:01 $
-  Version:   $Revision: 1.53 $
+  Date:      $Date: 2002-09-03 12:52:22 $
+  Version:   $Revision: 1.54 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -32,6 +32,11 @@
 #define __vtkAppendPolyData_h
 
 #include "vtkPolyDataToPolyDataFilter.h"
+
+class vtkCellArray;
+class vtkDataArray;
+class vtkPoints;
+class vtkPolyData;
 
 class VTK_GRAPHICS_EXPORT vtkAppendPolyData : public vtkPolyDataToPolyDataFilter
 {

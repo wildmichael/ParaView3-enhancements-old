@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkReflectionFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-07-03 20:17:11 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-09-03 12:52:23 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,9 +16,11 @@
 
 =========================================================================*/
 #include "vtkReflectionFilter.h"
-#include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkReflectionFilter, "$Revision: 1.7 $");
+#include "vtkObjectFactory.h"
+#include "vtkUnstructuredGrid.h"
+
+vtkCxxRevisionMacro(vtkReflectionFilter, "$Revision: 1.8 $");
 vtkStandardNewMacro(vtkReflectionFilter);
 
 //---------------------------------------------------------------------------

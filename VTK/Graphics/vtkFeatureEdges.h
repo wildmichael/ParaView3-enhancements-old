@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFeatureEdges.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:21 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2002-09-03 12:52:23 $
+  Version:   $Revision: 1.38 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -39,6 +39,8 @@
 #define __vtkFeatureEdges_h
 
 #include "vtkPolyDataToPolyDataFilter.h"
+
+class vtkPointLocator;
 
 class VTK_GRAPHICS_EXPORT vtkFeatureEdges : public vtkPolyDataToPolyDataFilter
 {

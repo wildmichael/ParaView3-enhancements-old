@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridGeometryFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:49 $
-  Version:   $Revision: 1.54 $
+  Date:      $Date: 2002-09-03 12:52:23 $
+  Version:   $Revision: 1.55 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,10 +16,13 @@
 
 =========================================================================*/
 #include "vtkStructuredGridGeometryFilter.h"
+
 #include "vtkExtentTranslator.h"
 #include "vtkObjectFactory.h"
+#include "vtkStructuredGrid.h"
+#include "vtkPolyData.h"
 
-vtkCxxRevisionMacro(vtkStructuredGridGeometryFilter, "$Revision: 1.54 $");
+vtkCxxRevisionMacro(vtkStructuredGridGeometryFilter, "$Revision: 1.55 $");
 vtkStandardNewMacro(vtkStructuredGridGeometryFilter);
 
 // Construct with initial extent of all the data

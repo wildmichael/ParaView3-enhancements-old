@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractPolyDataGeometry.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-08 13:34:14 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2002-09-03 12:52:23 $
+  Version:   $Revision: 1.17 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,10 +16,12 @@
 
 =========================================================================*/
 #include "vtkExtractPolyDataGeometry.h"
+
 #include "vtkFloatArray.h"
 #include "vtkObjectFactory.h"
+#include "vtkPolyData.h"
 
-vtkCxxRevisionMacro(vtkExtractPolyDataGeometry, "$Revision: 1.16 $");
+vtkCxxRevisionMacro(vtkExtractPolyDataGeometry, "$Revision: 1.17 $");
 vtkStandardNewMacro(vtkExtractPolyDataGeometry);
 
 // Construct object with ExtractInside turned on.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSpatialRepresentationFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:46 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2002-09-03 12:52:23 $
+  Version:   $Revision: 1.29 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,9 +16,11 @@
 
 =========================================================================*/
 #include "vtkSpatialRepresentationFilter.h"
-#include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkSpatialRepresentationFilter, "$Revision: 1.28 $");
+#include "vtkObjectFactory.h"
+#include "vtkPolyData.h"
+
+vtkCxxRevisionMacro(vtkSpatialRepresentationFilter, "$Revision: 1.29 $");
 vtkStandardNewMacro(vtkSpatialRepresentationFilter);
 
 vtkSpatialRepresentationFilter::vtkSpatialRepresentationFilter()

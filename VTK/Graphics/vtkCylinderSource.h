@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCylinderSource.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:13 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 2002-09-03 12:52:23 $
+  Version:   $Revision: 1.44 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,6 +27,8 @@
 #define __vtkCylinderSource_h
 
 #include "vtkPolyDataSource.h"
+
+#include "vtkCell.h" // Needed for VTK_CELL_SIZE
 
 class VTK_GRAPHICS_EXPORT vtkCylinderSource : public vtkPolyDataSource 
 {

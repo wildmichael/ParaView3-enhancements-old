@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRuledSurfaceFilter.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:44 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2002-09-03 12:52:23 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -55,6 +55,10 @@
 #define __vtkRuledSurfaceFilter_h
 
 #include "vtkPolyDataToPolyDataFilter.h"
+
+class vtkIdList;
+class vtkPoints;
+class vtkPolyData;
 
 #define VTK_RULED_MODE_RESAMPLE 0
 #define VTK_RULED_MODE_POINT_WALK 1

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetTriangleFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-14 11:43:52 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2002-09-03 12:52:23 $
+  Version:   $Revision: 1.14 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,13 +16,15 @@
 
 =========================================================================*/
 #include "vtkDataSetTriangleFilter.h"
-#include "vtkStructuredPoints.h"
-#include "vtkImageData.h"
-#include "vtkStructuredGrid.h"
-#include "vtkOrderedTriangulator.h"
-#include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkDataSetTriangleFilter, "$Revision: 1.13 $");
+#include "vtkImageData.h"
+#include "vtkObjectFactory.h"
+#include "vtkOrderedTriangulator.h"
+#include "vtkStructuredGrid.h"
+#include "vtkStructuredPoints.h"
+#include "vtkUnstructuredGrid.h"
+
+vtkCxxRevisionMacro(vtkDataSetTriangleFilter, "$Revision: 1.14 $");
 vtkStandardNewMacro(vtkDataSetTriangleFilter);
 
 vtkDataSetTriangleFilter::~vtkDataSetTriangleFilter()

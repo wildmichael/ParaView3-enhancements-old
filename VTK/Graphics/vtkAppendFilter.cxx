@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAppendFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:00 $
-  Version:   $Revision: 1.58 $
+  Date:      $Date: 2002-09-03 12:52:22 $
+  Version:   $Revision: 1.59 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,9 +16,11 @@
 
 =========================================================================*/
 #include "vtkAppendFilter.h"
-#include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkAppendFilter, "$Revision: 1.58 $");
+#include "vtkObjectFactory.h"
+#include "vtkUnstructuredGrid.h"
+
+vtkCxxRevisionMacro(vtkAppendFilter, "$Revision: 1.59 $");
 vtkStandardNewMacro(vtkAppendFilter);
 
 //----------------------------------------------------------------------------

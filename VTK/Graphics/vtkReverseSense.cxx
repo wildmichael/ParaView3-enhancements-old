@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkReverseSense.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:43 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2002-09-03 12:52:23 $
+  Version:   $Revision: 1.24 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,9 +16,12 @@
 
 =========================================================================*/
 #include "vtkReverseSense.h"
-#include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkReverseSense, "$Revision: 1.23 $");
+#include "vtkDataArray.h"
+#include "vtkObjectFactory.h"
+#include "vtkPolyData.h"
+
+vtkCxxRevisionMacro(vtkReverseSense, "$Revision: 1.24 $");
 vtkStandardNewMacro(vtkReverseSense);
 
 // Construct object so that behavior is to reverse cell ordering and

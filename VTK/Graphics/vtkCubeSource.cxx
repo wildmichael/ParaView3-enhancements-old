@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCubeSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:13 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 2002-09-03 12:52:22 $
+  Version:   $Revision: 1.47 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,13 +16,15 @@
 
 =========================================================================*/
 #include "vtkCubeSource.h"
-#include "vtkPoints.h"
+
 #include "vtkFloatArray.h"
 #include "vtkObjectFactory.h"
+#include "vtkPoints.h"
+#include "vtkPolyData.h"
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkCubeSource, "$Revision: 1.46 $");
+vtkCxxRevisionMacro(vtkCubeSource, "$Revision: 1.47 $");
 vtkStandardNewMacro(vtkCubeSource);
 
 vtkCubeSource::vtkCubeSource(float xL, float yL, float zL)

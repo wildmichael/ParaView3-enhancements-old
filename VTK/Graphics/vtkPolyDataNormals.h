@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataNormals.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:36 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2002-09-03 12:52:23 $
+  Version:   $Revision: 1.29 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -39,7 +39,10 @@
 #define __vtkPolyDataNormals_h
 
 #include "vtkPolyDataToPolyDataFilter.h"
+
 class vtkFloatArray;
+class vtkIdList;
+class vtkPolyData;
 
 class VTK_GRAPHICS_EXPORT vtkPolyDataNormals : public vtkPolyDataToPolyDataFilter
 {

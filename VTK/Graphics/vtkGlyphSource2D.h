@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGlyphSource2D.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:22 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2002-09-03 12:52:23 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -44,6 +44,10 @@
 #define VTK_ARROW_GLYPH 9
 #define VTK_THICKARROW_GLYPH 10
 #define VTK_HOOKEDARROW_GLYPH 11
+
+class vtkPoints;
+class vtkUnsignedCharArray;
+class vtkCellArray;
 
 class VTK_GRAPHICS_EXPORT vtkGlyphSource2D : public vtkPolyDataSource 
 {

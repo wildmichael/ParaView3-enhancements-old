@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRecursiveDividingCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:42 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2002-09-03 12:52:23 $
+  Version:   $Revision: 1.36 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,13 +16,16 @@
 
 =========================================================================*/
 #include "vtkRecursiveDividingCubes.h"
-#include "vtkMath.h"
-#include "vtkVoxel.h"
-#include "vtkFloatArray.h"
-#include "vtkObjectFactory.h"
-#include "vtkFloatArray.h"
 
-vtkCxxRevisionMacro(vtkRecursiveDividingCubes, "$Revision: 1.35 $");
+#include "vtkCellArray.h"
+#include "vtkFloatArray.h"
+#include "vtkImageData.h"
+#include "vtkMath.h"
+#include "vtkObjectFactory.h"
+#include "vtkPolyData.h"
+#include "vtkVoxel.h"
+
+vtkCxxRevisionMacro(vtkRecursiveDividingCubes, "$Revision: 1.36 $");
 vtkStandardNewMacro(vtkRecursiveDividingCubes);
 
 vtkRecursiveDividingCubes::vtkRecursiveDividingCubes()

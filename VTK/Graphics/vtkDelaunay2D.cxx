@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDelaunay2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-08 13:34:14 $
-  Version:   $Revision: 1.53 $
+  Date:      $Date: 2002-09-03 12:52:23 $
+  Version:   $Revision: 1.54 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,14 +16,16 @@
 
 =========================================================================*/
 #include "vtkDelaunay2D.h"
-#include "vtkMath.h"
-#include "vtkTriangle.h"
-#include "vtkPolygon.h"
-#include "vtkPlane.h"
-#include "vtkDoubleArray.h"
-#include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkDelaunay2D, "$Revision: 1.53 $");
+#include "vtkDoubleArray.h"
+#include "vtkMath.h"
+#include "vtkObjectFactory.h"
+#include "vtkPlane.h"
+#include "vtkPolyData.h"
+#include "vtkPolygon.h"
+#include "vtkTriangle.h"
+
+vtkCxxRevisionMacro(vtkDelaunay2D, "$Revision: 1.54 $");
 vtkStandardNewMacro(vtkDelaunay2D);
 
 // Construct object with Alpha = 0.0; Tolerance = 0.00001; Offset = 1.25;

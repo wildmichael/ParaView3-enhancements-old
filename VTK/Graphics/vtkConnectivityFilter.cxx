@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkConnectivityFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-14 13:05:28 $
-  Version:   $Revision: 1.66 $
+  Date:      $Date: 2002-09-03 12:52:22 $
+  Version:   $Revision: 1.67 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,11 +16,17 @@
 
 =========================================================================*/
 #include "vtkConnectivityFilter.h"
+
+#include "vtkDataSet.h"
+#include "vtkFloatArray.h"
+#include "vtkIdList.h"
+#include "vtkIntArray.h"
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
-#include "vtkFloatArray.h"
+#include "vtkPoints.h"
+#include "vtkUnstructuredGrid.h"
 
-vtkCxxRevisionMacro(vtkConnectivityFilter, "$Revision: 1.66 $");
+vtkCxxRevisionMacro(vtkConnectivityFilter, "$Revision: 1.67 $");
 vtkStandardNewMacro(vtkConnectivityFilter);
 
 // Construct with default extraction mode to extract largest regions.

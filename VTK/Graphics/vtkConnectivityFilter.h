@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkConnectivityFilter.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:12 $
-  Version:   $Revision: 1.52 $
+  Date:      $Date: 2002-09-03 12:52:22 $
+  Version:   $Revision: 1.53 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -59,7 +59,10 @@
 #define VTK_EXTRACT_ALL_REGIONS 5
 #define VTK_EXTRACT_CLOSEST_POINT_REGION 6
 
+class vtkDataArray;
 class vtkFloatArray;
+class vtkIdList;
+class vtkIntArray;
 
 class VTK_GRAPHICS_EXPORT vtkConnectivityFilter : public vtkDataSetToUnstructuredGridFilter
 {
