@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPNMWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:19 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2002-05-21 12:38:08 $
+  Version:   $Revision: 1.18 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkPNMWriter.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkPNMWriter, "$Revision: 1.17 $");
+vtkCxxRevisionMacro(vtkPNMWriter, "$Revision: 1.18 $");
 vtkStandardNewMacro(vtkPNMWriter);
 
 #ifdef write
@@ -86,10 +86,10 @@ void vtkPNMWriter::WriteFile(ofstream *file, vtkImageData *data,
   rowLength *= data->GetNumberOfScalarComponents();
 
   wExtent = this->GetInput()->GetWholeExtent();
-  area = ((extent[5] - extent[4] + 1)*(extent[3] - extent[2] + 1)*
-          (extent[1] - extent[0] + 1)) / 
-    ((wExtent[5] -wExtent[4] + 1)*(wExtent[3] -wExtent[2] + 1)*
-     (wExtent[1] -wExtent[0] + 1));
+  area = static_cast<float>(((extent[5] - extent[4] + 1)*(extent[3] - extent[2] + 1)*
+                             (extent[1] - extent[0] + 1))) / 
+         static_cast<float>(((wExtent[5] -wExtent[4] + 1)*(wExtent[3] -wExtent[2] + 1)*
+                             (wExtent[1] -wExtent[0] + 1)));
     
   target = (unsigned long)((extent[5]-extent[4]+1)*
                            (extent[3]-extent[2]+1)/(50.0*area));
