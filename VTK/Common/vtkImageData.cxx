@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-03 10:39:06 $
-  Version:   $Revision: 1.58 $
+  Date:      $Date: 1999-08-03 17:09:38 $
+  Version:   $Revision: 1.59 $
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -1754,7 +1754,7 @@ unsigned long vtkImageData::GetEstimatedMemorySize()
   int idx;
   
   // Consider the size of each scalar.
-  switch (this->ScalarType)
+  switch (this->GetScalarType())
     {
     case VTK_FLOAT:
       size *= sizeof(float);

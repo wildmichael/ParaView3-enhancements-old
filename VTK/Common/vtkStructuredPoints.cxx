@@ -3,8 +3,8 @@
 
   Module:    $RCSfile: vtkStructuredPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-30 11:25:47 $
-  Version:   $Revision: 1.72 $
+  Date:      $Date: 1999-08-03 17:10:00 $
+  Version:   $Revision: 1.73 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -43,6 +43,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 vtkStructuredPoints::vtkStructuredPoints()
 {
+  this->ScalarType = VTK_FLOAT;
 }
 
 

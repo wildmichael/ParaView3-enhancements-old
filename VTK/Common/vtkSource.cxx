@@ -3,8 +3,8 @@
  Program:   Visualization Toolkit
  Module:    $RCSfile: vtkSource.cxx,v $
  Language:  C++
- Date:      $Date: 1999-07-28 15:33:55 $
- Version:   $Revision: 1.39 $
+ Date:      $Date: 1999-08-03 17:09:48 $
+ Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -339,6 +339,10 @@ void vtkSource::InternalUpdate(vtkDataObject *output)
 	}
       }  
     }
+  
+  // Information gets invalidated as soon as Update is called,
+  // so validate it again here.
+  this->InformationTime.Modified();
 }
 
 //----------------------------------------------------------------------------
@@ -468,9 +472,11 @@ void vtkSource::UpdateInformation()
   if (t1 > this->InformationTime.GetMTime())
     {
     this->ExecuteInformation();
+    // This call to modify is almost useless.  Update invalidates this time.
+    // InformationTime is modified at the end of InternalUpdate too.
+    // Keep this modified in case we have multiple calls to UpdateInformation.
     this->InformationTime.Modified();
     }
-
 }
 
 //----------------------------------------------------------------------------
