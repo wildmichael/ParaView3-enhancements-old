@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractMapper3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-16 14:54:16 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2003-03-20 13:17:20 $
+  Version:   $Revision: 1.15 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,13 +18,13 @@
 #include "vtkAbstractMapper3D.h"
 #include "vtkDataSet.h"
 
-vtkCxxRevisionMacro(vtkAbstractMapper3D, "$Revision: 1.14 $");
+vtkCxxRevisionMacro(vtkAbstractMapper3D, "$Revision: 1.15 $");
 
 //-----  This hack needed to compile using gcc3 on OSX until new stdc++.dylib
 #ifdef __APPLE_CC__
 extern "C"
 {
-  void oft_initRen() 
+  void oft_initRendering() 
   {
   extern void _ZNSt8ios_base4InitC4Ev();
   _ZNSt8ios_base4InitC4Ev();
