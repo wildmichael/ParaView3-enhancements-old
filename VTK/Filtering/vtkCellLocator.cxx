@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellLocator.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-13 20:53:55 $
-  Version:   $Revision: 1.74 $
+  Date:      $Date: 2002-12-13 20:54:44 $
+  Version:   $Revision: 1.75 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 #include <stdlib.h>
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkCellLocator, "$Revision: 1.74 $");
+vtkCxxRevisionMacro(vtkCellLocator, "$Revision: 1.75 $");
 vtkStandardNewMacro(vtkCellLocator);
 
 #define VTK_CELL_OUTSIDE 0
