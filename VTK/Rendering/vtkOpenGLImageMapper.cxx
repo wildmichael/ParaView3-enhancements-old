@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLImageMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-05 23:36:32 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 2001-04-09 01:54:51 $
+  Version:   $Revision: 1.41 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -44,7 +44,11 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkWindow.h"
 #include "vtkViewport.h"
 #include "vtkActor2D.h"
-#include <GL/gl.h>
+#ifdef VTK_USE_QUARTZ
+ #include <OpenGL/gl.h>
+#else
+ #include <GL/gl.h>
+#endif
 #include <limits.h>
 #include "vtkObjectFactory.h"
 #include "vtkgluPickMatrix.h"

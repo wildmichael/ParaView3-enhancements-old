@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLImager.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-18 19:50:24 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2001-04-09 01:55:09 $
+  Version:   $Revision: 1.14 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -42,7 +42,11 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkOpenGLImager.h"
 #include "vtkImageWindow.h"
 #ifndef VTK_IMPLEMENT_MESA_CXX
-#include <GL/gl.h>
+  #ifdef VTK_USE_QUARTZ
+    #include <OpenGL/gl.h>
+  #else
+    #include <GL/gl.h>
+  #endif
 #endif
 #include "vtkObjectFactory.h"
 
