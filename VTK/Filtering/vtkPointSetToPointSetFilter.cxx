@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSetToPointSetFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-01-01 22:07:30 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 1999-04-15 21:23:24 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -197,3 +197,20 @@ vtkUnstructuredGrid *vtkPointSetToPointSetFilter::GetUnstructuredGridOutput()
   return this->UnstructuredGrid;
 }
 
+void vtkPointSetToPointSetFilter::UnRegister(vtkObject *o)
+{
+  // detect the circular loop source <-> data
+  // If we have two references and one of them is my data
+  // and I am not being unregistered by my data, break the loop.
+  if (this->ReferenceCount == 4 &&
+      this->PolyData->GetReferenceCount() == 1 &&
+      this->StructuredGrid->GetReferenceCount() == 1 &&
+      this->UnstructuredGrid->GetReferenceCount() == 1)
+    {
+    this->PolyData->SetSource(NULL);
+    this->StructuredGrid->SetSource(NULL);
+    this->UnstructuredGrid->SetSource(NULL);
+    }
+  
+  this->vtkObject::UnRegister(o);
+}

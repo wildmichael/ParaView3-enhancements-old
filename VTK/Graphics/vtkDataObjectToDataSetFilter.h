@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObjectToDataSetFilter.h,v $
   Language:  C++
-  Date:      $Date: 1998-12-02 21:29:53 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1999-04-15 21:23:22 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -270,6 +270,10 @@ public:
   void SetOriginComponent(char *arrayName, int arrayComp)
     {this->SetOriginComponent(arrayName, arrayComp, -1, -1);};
   
+  // Description:
+  // Handle the source/data loop.
+  void UnRegister(vtkObject *o);
+
 protected:
   void Execute(); //generate output data
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSetToPointSetFilter.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-08 18:42:08 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 1999-04-15 21:23:23 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -105,6 +105,10 @@ public:
   // Description:
   // Get the output as vtkUnstructuredGrid. Performs run-time checking.
   vtkUnstructuredGrid *GetUnstructuredGridOutput();
+
+  // Description:
+  // Handle the source/data loop.
+  void UnRegister(vtkObject *o);
 
 protected:
   // objects used to support the retrieval of output

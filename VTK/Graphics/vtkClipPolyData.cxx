@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-03-19 20:12:00 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1999-04-15 21:23:24 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -460,4 +460,43 @@ void vtkClipPolyData::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "Generate Clip Scalars: " << (this->GenerateClipScalars ? "On\n" : "Off\n");
 
   os << indent << "Generate Clipped Output: " << (this->GenerateClippedOutput ? "On\n" : "Off\n");
+}
+
+void vtkClipPolyData::UnRegister(vtkObject *o)
+{
+  // detect the circular loop source <-> data
+  // If we have two references and one of them is my data
+  // and I am not being unregistered by my data, break the loop.
+  if (this->ReferenceCount == 3 && this->Output != NULL &&
+      this->Output->GetSource() == this && o != this->Output &&
+      this->Output->GetReferenceCount() == 1 &&
+      this->ClippedOutput && 
+      this->ClippedOutput->GetReferenceCount() == 1 &&
+      o != this->ClippedOutput && 
+      this->ClippedOutput->GetSource() == this)
+    {
+    this->Output->SetSource(NULL);
+    this->ClippedOutput->SetSource(NULL);
+    }
+  // detect the circular loop source <-> data
+  // If we have two references and one of them is my data
+  // and I am not being unregistered by my data, break the loop.
+  if (this->ReferenceCount == 2 && this->Output != NULL &&
+      this->Output->GetSource() == this && o != this->Output &&
+      this->Output->GetReferenceCount() == 1)
+    {
+    this->Output->SetSource(NULL);
+    }
+  // detect the circular loop source <-> data
+  // If we have two references and one of them is my data
+  // and I am not being unregistered by my data, break the loop.
+  if (this->ReferenceCount == 2 && this->ClippedOutput != NULL &&
+      this->ClippedOutput->GetSource() == this && 
+      o != this->ClippedOutput &&
+      this->ClippedOutput->GetReferenceCount() == 1)
+    {
+    this->ClippedOutput->SetSource(NULL);
+    }
+  
+  this->vtkObject::UnRegister(o);
 }

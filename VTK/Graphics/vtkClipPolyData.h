@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipPolyData.h,v $
   Language:  C++
-  Date:      $Date: 1999-03-19 20:12:00 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1999-04-15 21:23:24 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -161,6 +161,10 @@ public:
   // Description:
   // For legacy compatibility. Do not use.
   void SetLocator(vtkPointLocator& locator) {this->SetLocator(&locator);};
+
+  // Description:
+  // Handle the source/data loop.
+  void UnRegister(vtkObject *o);
 
 protected:
   void Execute();
