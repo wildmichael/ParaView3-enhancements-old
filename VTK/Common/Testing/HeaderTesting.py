@@ -5,8 +5,8 @@
 ##   Program:   Visualization Toolkit
 ##   Module:    $RCSfile: HeaderTesting.py,v $
 ##   Language:  Python
-##   Date:      $Date: 2002-08-09 11:52:54 $
-##   Version:   $Revision: 1.8 $
+##   Date:      $Date: 2002-08-12 02:04:32 $
+##   Version:   $Revision: 1.9 $
 
 ##   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
 ##   All rights reserved.
@@ -55,8 +55,6 @@ class TestVTKFiles:
         pass
     def Print(self, text=""):
         rtext = text
-        rtext = rtext.replace("<", "&lt;")
-        rtext = rtext.replace(">", "&gt;")
         print rtext
     def Error(self, error):
         self.ErrorValue = 1
