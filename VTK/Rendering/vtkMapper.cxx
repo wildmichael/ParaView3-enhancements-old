@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-07-10 09:56:52 $
-  Version:   $Revision: 1.68 $
+  Date:      $Date: 2000-07-13 14:50:43 $
+  Version:   $Revision: 1.69 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -165,6 +165,7 @@ void vtkMapper::ShallowCopy(vtkMapper *m)
   this->SetColorMode(m->GetColorMode());
   this->SetScalarMode(m->GetScalarMode());
   this->SetImmediateModeRendering(m->GetImmediateModeRendering());
+  this->SetResolveCoincidentPrimitives(m->GetResolveCoincidentPrimitives());
 }
 
 // a side effect of this is that this->Colors is also set
