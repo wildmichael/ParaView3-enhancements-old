@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageContinuousErode3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-09 17:08:03 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2002-12-17 02:03:53 $
+  Version:   $Revision: 1.24 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -15,13 +15,15 @@
      PURPOSE.  See the above copyright notice for more information.
 
 =========================================================================*/
-
 #include "vtkImageContinuousErode3D.h"
+
+#include "vtkDataArray.h"
 #include "vtkImageData.h"
 #include "vtkImageEllipsoidSource.h"
 #include "vtkObjectFactory.h"
+#include "vtkPointData.h"
 
-vtkCxxRevisionMacro(vtkImageContinuousErode3D, "$Revision: 1.23 $");
+vtkCxxRevisionMacro(vtkImageContinuousErode3D, "$Revision: 1.24 $");
 vtkStandardNewMacro(vtkImageContinuousErode3D);
 
 //----------------------------------------------------------------------------

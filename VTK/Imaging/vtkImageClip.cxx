@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageClip.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-25 23:31:10 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 2002-12-17 02:03:53 $
+  Version:   $Revision: 1.48 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -17,11 +17,13 @@
 =========================================================================*/
 #include "vtkImageClip.h"
 
-#include "vtkImageData.h"
+#include "vtkCellData.h"
 #include "vtkExtentTranslator.h"
+#include "vtkImageData.h"
 #include "vtkObjectFactory.h"
+#include "vtkPointData.h"
 
-vtkCxxRevisionMacro(vtkImageClip, "$Revision: 1.47 $");
+vtkCxxRevisionMacro(vtkImageClip, "$Revision: 1.48 $");
 vtkStandardNewMacro(vtkImageClip);
 
 //----------------------------------------------------------------------------

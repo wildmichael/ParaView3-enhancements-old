@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCacheFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-25 23:31:10 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2002-12-17 02:03:53 $
+  Version:   $Revision: 1.19 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,8 +19,9 @@
 
 #include "vtkImageData.h"
 #include "vtkObjectFactory.h"
+#include "vtkPointData.h"
 
-vtkCxxRevisionMacro(vtkImageCacheFilter, "$Revision: 1.18 $");
+vtkCxxRevisionMacro(vtkImageCacheFilter, "$Revision: 1.19 $");
 vtkStandardNewMacro(vtkImageCacheFilter);
 
 //----------------------------------------------------------------------------

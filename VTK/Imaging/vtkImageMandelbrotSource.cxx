@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMandelbrotSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-04 16:53:59 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2002-12-17 02:03:53 $
+  Version:   $Revision: 1.34 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,10 +16,12 @@
 
 =========================================================================*/
 #include "vtkImageMandelbrotSource.h"
+
 #include "vtkImageData.h"
 #include "vtkObjectFactory.h"
+#include "vtkPointData.h"
 
-vtkCxxRevisionMacro(vtkImageMandelbrotSource, "$Revision: 1.33 $");
+vtkCxxRevisionMacro(vtkImageMandelbrotSource, "$Revision: 1.34 $");
 vtkStandardNewMacro(vtkImageMandelbrotSource);
 
 //----------------------------------------------------------------------------

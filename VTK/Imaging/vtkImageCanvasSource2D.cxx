@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCanvasSource2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-08 21:48:27 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2002-12-17 02:03:53 $
+  Version:   $Revision: 1.37 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,10 +20,11 @@
 #include "vtkImageCast.h"
 #include "vtkImageClip.h"
 #include "vtkObjectFactory.h"
+#include "vtkPointData.h"
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkImageCanvasSource2D, "$Revision: 1.36 $");
+vtkCxxRevisionMacro(vtkImageCanvasSource2D, "$Revision: 1.37 $");
 vtkStandardNewMacro(vtkImageCanvasSource2D);
 
 //----------------------------------------------------------------------------

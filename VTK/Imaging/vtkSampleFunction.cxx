@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSampleFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-11 14:26:22 $
-  Version:   $Revision: 1.61 $
+  Date:      $Date: 2002-12-17 02:03:53 $
+  Version:   $Revision: 1.62 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,8 +22,9 @@
 #include "vtkImplicitFunction.h"
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
+#include "vtkPointData.h"
 
-vtkCxxRevisionMacro(vtkSampleFunction, "$Revision: 1.61 $");
+vtkCxxRevisionMacro(vtkSampleFunction, "$Revision: 1.62 $");
 vtkStandardNewMacro(vtkSampleFunction);
 vtkCxxSetObjectMacro(vtkSampleFunction,ImplicitFunction,vtkImplicitFunction);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangularTexture.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-25 23:31:10 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2002-12-17 02:03:53 $
+  Version:   $Revision: 1.23 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,9 +20,10 @@
 #include "vtkImageData.h"
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
+#include "vtkPointData.h"
 #include "vtkUnsignedCharArray.h"
 
-vtkCxxRevisionMacro(vtkTriangularTexture, "$Revision: 1.22 $");
+vtkCxxRevisionMacro(vtkTriangularTexture, "$Revision: 1.23 $");
 vtkStandardNewMacro(vtkTriangularTexture);
 
 // Instantiate object with XSize and YSize = 64; the texture pattern =1
