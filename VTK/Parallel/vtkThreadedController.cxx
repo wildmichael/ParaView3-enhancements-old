@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThreadedController.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-13 15:40:13 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-08-14 20:44:49 $
+  Version:   $Revision: 1.5 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -95,9 +95,11 @@ protected:
 
 void vtkThreadedController::CreateOutputWindow()
 {
+#if defined(VTK_USE_PTHREADS) || defined(VTK_USE_SPROC) || defined(_WIN32)
   vtkThreadedControllerOutputWindow* window = new vtkThreadedControllerOutputWindow;
   this->OutputWindow = window;
   vtkOutputWindow::SetInstance(this->OutputWindow);
+#endif
 }
 
 //----------------------------------------------------------------------------
@@ -411,8 +413,10 @@ vtkMultiProcessController *vtkThreadedController::GetLocalController()
       return this->Controllers[idx];
       }
     }
-  
-  vtkErrorMacro("Could Not Find my process id.");
+
+  // Need to use cerr instead of error macro here to prevent
+  // recursion (the controller's output window calls GetLocalController)
+  cerr << "Could Not Find my process id." << endl;
   return NULL;
 #elif defined VTK_USE_SPROC
   int idx;
@@ -425,7 +429,9 @@ vtkMultiProcessController *vtkThreadedController::GetLocalController()
       }
     }
   
-  vtkErrorMacro("Could Not Find my process id.");
+  // Need to use cerr instead of error macro here to prevent
+  // recursion (the controller's output window calls GetLocalController)
+  cerr << "Could Not Find my process id." << endl;
   return NULL;
 #elif defined _WIN32
 
@@ -439,7 +445,9 @@ vtkMultiProcessController *vtkThreadedController::GetLocalController()
       }
     }
   
-  vtkErrorMacro("Could Not Find my process id.");
+  // Need to use cerr instead of error macro here to prevent
+  // recursion (the controller's output window calls GetLocalController)
+  cerr << "Could Not Find my process id." << endl;
   return NULL;
   
 #else
