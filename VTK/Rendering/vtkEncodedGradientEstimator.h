@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEncodedGradientEstimator.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:53 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2001-08-30 14:48:21 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -186,9 +186,11 @@ public:
   // The time at which the normals were last built
   vtkTimeStamp          BuildTime;
 
+//BTX
   vtkGetVectorMacro( InputSize, int, 3 );
   vtkGetVectorMacro( InputAspect, float, 3 );
-
+//ETX
+  
 protected:
   vtkEncodedGradientEstimator();
   ~vtkEncodedGradientEstimator();
