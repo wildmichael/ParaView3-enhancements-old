@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageNoiseSource.h,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 21:59:06 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-06-29 17:25:14 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,8 +38,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-// .NAME vtkImageSphereSource - Create a binary image of a sphere.
-// .SECTION
+// .NAME vtkImageNoiseSource - Create an image filled with noise.
+// .SECTION Description
 // vtkImageNoiseSource just produces images filled with noise.  
 // The only option now is uniform noise
 // specified by a min and a max.  
