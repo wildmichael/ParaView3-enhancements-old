@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReslice.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-26 01:25:23 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2001-08-26 01:38:43 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to David G Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -2099,8 +2099,6 @@ int isBounded(F *point, F *xAxis, int *inMin, int *inMax, int ai, int r)
 
 // this huge mess finds out where the current output raster
 // line intersects the input volume
-
-static
 void vtkResliceFindExtentHelper(int &r1, int &r2, int sign, int *outExt)
 {
   if (sign < 0)
