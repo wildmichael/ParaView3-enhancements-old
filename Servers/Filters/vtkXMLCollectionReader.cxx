@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLCollectionReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-05-21 19:02:34 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-05-23 14:08:46 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -30,7 +30,7 @@
 #include <vtkstd/map>
 #include <vtkstd/algorithm>
 
-vtkCxxRevisionMacro(vtkXMLCollectionReader, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkXMLCollectionReader, "$Revision: 1.2 $");
 vtkStandardNewMacro(vtkXMLCollectionReader);
 
 //----------------------------------------------------------------------------
@@ -550,7 +550,18 @@ void vtkXMLCollectionReader::ReadXMLData()
     
     // Give the update request from this output to its internal
     // reader.
-    out->SetUpdateExtent(this->Outputs[this->CurrentOutput]->GetUpdateExtent());
+    if(out->GetExtentType() == VTK_PIECES_EXTENT)
+      {
+      int p = this->Outputs[this->CurrentOutput]->GetUpdatePiece();
+      int n = this->Outputs[this->CurrentOutput]->GetUpdateNumberOfPieces();
+      out->SetUpdateExtent(p,n);
+      }
+    else
+      {
+      int e[6];
+      this->Outputs[this->CurrentOutput]->GetUpdateExtent(e);
+      out->SetUpdateExtent(e);
+      }
     
     // Read the data.
     out->Update();
