@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFiniteDifferenceGradientEstimator.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-02-10 18:18:05 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-02-19 15:29:40 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -47,6 +47,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkUnsignedIntArray.h"
 #include "vtkLongArray.h"
 #include "vtkUnsignedLongArray.h"
+#include "vtkFloatArray.h"
 #include "vtkDoubleArray.h"
 
 // This is the templated function that actually computes the EncodedNormal

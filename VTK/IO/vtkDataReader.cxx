@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-01-05 13:10:44 $
-  Version:   $Revision: 1.71 $
+  Date:      $Date: 1999-02-19 15:29:37 $
+  Version:   $Revision: 1.72 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,6 +55,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkLongArray.h"
 #include "vtkUnsignedLongArray.h"
 #include "vtkDoubleArray.h"
+#include "vtkFloatArray.h"
 
 // Construct object.
 vtkDataReader::vtkDataReader()

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-31 15:16:46 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 1999-02-19 15:29:38 $
+  Version:   $Revision: 1.46 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -54,6 +54,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkLongArray.h"
 #include "vtkUnsignedLongArray.h"
 #include "vtkDoubleArray.h"
+#include "vtkFloatArray.h"
 
 // Created object with default header, ASCII format, and default names for 
 // scalars, vectors, tensors, normals, and texture coordinates.

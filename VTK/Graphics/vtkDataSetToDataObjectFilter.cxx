@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetToDataObjectFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-10 14:51:58 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1999-02-19 15:29:38 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -44,6 +44,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkStructuredGrid.h"
 #include "vtkRectilinearGrid.h"
 #include "vtkUnstructuredGrid.h"
+#include "vtkFloatArray.h"
 
 // Instantiate object.
 vtkDataSetToDataObjectFilter::vtkDataSetToDataObjectFilter()

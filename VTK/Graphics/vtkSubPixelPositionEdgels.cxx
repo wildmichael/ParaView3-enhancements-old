@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSubPixelPositionEdgels.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-31 14:10:29 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1999-02-19 15:29:42 $
+  Version:   $Revision: 1.21 $
 
 Copyright (c) 1993-1997 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -39,6 +39,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include "vtkMath.h"
 #include "vtkSubPixelPositionEdgels.h"
+#include "vtkFloatArray.h"
 
 vtkSubPixelPositionEdgels::vtkSubPixelPositionEdgels()
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDecimatePro.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-01-21 14:55:02 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 1999-02-19 15:29:39 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -43,6 +43,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkTriangle.h"
 #include "vtkPlane.h"
 #include "vtkLine.h"
+#include "vtkFloatArray.h"
 
 #define VTK_TOLERANCE 1.0e-05
 #define VTK_MAX_TRIS_PER_VERTEX VTK_CELL_SIZE

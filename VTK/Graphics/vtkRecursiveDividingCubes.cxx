@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRecursiveDividingCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-31 14:08:43 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1999-02-19 15:29:41 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,6 +41,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkRecursiveDividingCubes.h"
 #include "vtkMath.h"
 #include "vtkVoxel.h"
+#include "vtkFloatArray.h"
 
 vtkRecursiveDividingCubes::vtkRecursiveDividingCubes()
 {

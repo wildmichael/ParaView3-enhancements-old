@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalarTree.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-31 14:10:28 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1999-02-19 15:29:42 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,6 +39,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkScalarTree.h"
+#include "vtkFloatArray.h"
 
 // Instantiate scalar tree with maximum level of 20 and branching
 // factor of 5.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitSelectionLoop.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-01-05 13:11:35 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-02-19 15:29:40 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,6 +41,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkImplicitSelectionLoop.h"
 #include "vtkMath.h"
 #include "vtkPlane.h"
+#include "vtkFloatArray.h"
 
 // Instantiate object with no initial loop.
 vtkImplicitSelectionLoop::vtkImplicitSelectionLoop()

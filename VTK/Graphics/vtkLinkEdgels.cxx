@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinkEdgels.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:41:09 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1999-02-19 15:29:40 $
+  Version:   $Revision: 1.17 $
 
 Copyright (c) 1993-1997 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -40,6 +40,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include <stdlib.h>
 #include "vtkLinkEdgels.h"
 #include "vtkMath.h"
+#include "vtkFloatArray.h"
 
 // Construct instance of vtkLinkEdgels with GradientThreshold set to 
 // 0.1, PhiThreshold set to 90 degrees and LinkThreshold set to 90 degrees.
