@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPCAAnalysisFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-13 12:11:59 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-05-07 19:39:25 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 #include "vtkMath.h"
 #include "vtkFloatArray.h"
 
-vtkCxxRevisionMacro(vtkPCAAnalysisFilter, "$Revision: 1.4 $");
+vtkCxxRevisionMacro(vtkPCAAnalysisFilter, "$Revision: 1.5 $");
 vtkStandardNewMacro(vtkPCAAnalysisFilter);
 
 //------------------------------------------------------------------------
@@ -135,18 +135,6 @@ static inline void SmallCovarianceMatrix(double **a, double **c,
     }
   }
 } 
-
-//------------------------------------------------------------------------
-static inline void MatrixTranspose(double **a, double **b, int rows, int cols)
-{
-  for(int i = 0; i < rows; i++) {
-    for(int j = 0; j < cols; j++) {
-      double tmp = a[i][j];
-      b[i][j] = a[j][i];
-      b[j][i] = tmp;
-    }
-  }
-}
 
 //------------------------------------------------------------------------
 static inline double* NewVector(int length)

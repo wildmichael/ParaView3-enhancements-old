@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPLY.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-24 20:01:34 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2002-05-07 19:39:17 $
+  Version:   $Revision: 1.17 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -1884,10 +1884,9 @@ double vtkPLY::get_item_value(char *item, int type)
       pdouble = (double *) item;
       double_value = *pdouble;
       return (double_value);
-    default:
-      fprintf (stderr, "get_item_value: bad type = %d\n", type);
-      exit (-1);
   }
+  fprintf (stderr, "get_item_value: bad type = %d\n", type);
+  return 0;
 }
 
 
@@ -2063,7 +2062,7 @@ double vtkPLY::old_write_ascii_item(FILE *fp, char *item, int type)
       return (double_value);
   }
   fprintf (stderr, "old_write_ascii_item: bad type = %d\n", type);
-  exit (-1);
+  return 0;
 }
 
 
@@ -2517,9 +2516,10 @@ char *vtkPLY::my_alloc(int size, int lnum, char *fname)
 
   ptr = (char *) malloc (size);
 
-  if (ptr == 0) {
+  if (ptr == 0) 
+    {
     fprintf(stderr, "Memory allocation bombed on line %d in %s\n", lnum, fname);
-  }
+    }
 
   return (ptr);
 }

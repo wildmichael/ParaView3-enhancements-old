@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReslice.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:33:21 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2002-05-07 19:39:44 $
+  Version:   $Revision: 1.20 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 #include <float.h>
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkImageReslice, "$Revision: 1.19 $");
+vtkCxxRevisionMacro(vtkImageReslice, "$Revision: 1.20 $");
 vtkStandardNewMacro(vtkImageReslice);
 
 //----------------------------------------------------------------------------
@@ -763,14 +763,6 @@ static inline int vtkResliceRound(float x)
   return vtkResliceRound((double)x);
 }
 
-// convert a double into an integer plus a fraction  
-static inline int vtkResliceFloor(double x, double &f)
-{
-  int ix = vtkResliceFloor(x);
-  f = x - ix;
-  return ix;
-}
-
 // convert a float into an integer plus a fraction  
 static inline int vtkResliceFloor(float x, float &f)
 {
@@ -801,16 +793,6 @@ static inline void vtkResliceRound(float val, float& rnd)
 }
 
 static inline void vtkResliceRound(float val, double& rnd)
-{
-  rnd = val;
-}
-
-static inline void vtkResliceRound(double val, float& rnd)
-{
-  rnd = val;
-}
-
-static inline void vtkResliceRound(double val, double& rnd)
 {
   rnd = val;
 }
