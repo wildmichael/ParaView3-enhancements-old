@@ -3,8 +3,9 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAnisotropicDiffusion2D.h,v $
   Language:  C++
-  Date:      $Date: 1996-09-12 17:28:09 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1996-09-13 14:15:03 $
+  Version:   $Revision: 1.3 $
+  Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
