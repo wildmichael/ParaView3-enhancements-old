@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageFlip.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-25 23:31:10 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2003-01-17 14:31:47 $
+  Version:   $Revision: 1.35 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 #include "vtkMatrix4x4.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkImageFlip, "$Revision: 1.34 $");
+vtkCxxRevisionMacro(vtkImageFlip, "$Revision: 1.35 $");
 vtkStandardNewMacro(vtkImageFlip);
 
 //----------------------------------------------------------------------------
@@ -33,7 +33,9 @@ vtkImageFlip::vtkImageFlip()
 
   if (!this->ResliceAxes)
     {
-    this->ResliceAxes = vtkMatrix4x4::New();
+    // for consistent register/unregister
+    this->SetResliceAxes(vtkMatrix4x4::New());
+    this->ResliceAxes->Delete();
     }
 }
 
