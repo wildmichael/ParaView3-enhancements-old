@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-02 18:20:24 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2000-08-23 15:48:35 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -235,6 +235,7 @@ void vtkOpenGLRenderer::DeviceRender(void)
   this->ClearLights();
 
   this->UpdateCamera();
+  this->UpdateLightGeometry();
   this->UpdateLights();
 
   // set matrix mode for actors 
@@ -383,6 +384,7 @@ void vtkOpenGLRenderer::DevicePickRender()
   this->ClearLights();
 
   this->UpdateCamera();
+  this->UpdateLightGeometry();
   this->UpdateLights();
 
   // set matrix mode for actors 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCamera.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-08 15:40:59 $
-  Version:   $Revision: 1.91 $
+  Date:      $Date: 2000-08-23 15:48:34 $
+  Version:   $Revision: 1.92 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,8 +42,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <math.h>
 #include "vtkCamera.h"
 #include "vtkMath.h"
-#include "vtkRenderer.h"
-#include "vtkRenderWindow.h"
 #include "vtkTimeStamp.h"
 #include "vtkGraphicsFactory.h"
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-16 22:06:07 $
-  Version:   $Revision: 1.153 $
+  Date:      $Date: 2000-08-23 15:48:34 $
+  Version:   $Revision: 1.154 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -84,6 +84,8 @@ vtkRenderer::vtkRenderer()
   this->Lights  =  vtkLightCollection::New();
   this->Actors  =  vtkActorCollection::New();
   this->Volumes = vtkVolumeCollection::New();
+
+  this->LightFollowCamera = 1;
 
   this->NumberOfPropsToRayCast         = 0;
   this->NumberOfPropsToRenderIntoImage = 0;
@@ -176,6 +178,7 @@ void vtkRenderer::Render(void)
           light->GetMTime() > this->RenderTime)
         {
         mods = 1;
+	goto completed_mod_check;
         }
       }
     for (this->Props->InitTraversal(); 
@@ -187,10 +190,13 @@ void vtkRenderer::Render(void)
         if (aProp->GetRedrawMTime() > this->RenderTime)
           {
           mods = 1;
+	  goto completed_mod_check;
           }
         }
       }
     
+    completed_mod_check:
+
     if (!mods)
       {
       int rx1, ry1, rx2, ry2;
@@ -382,6 +388,48 @@ int vtkRenderer::UpdateCamera ()
   // update the viewing transformation
   this->ActiveCamera->Render((vtkRenderer *)this); 
   
+  return 1;
+}
+
+int vtkRenderer::UpdateLightGeometry()
+{
+  vtkCamera *camera;
+  vtkLight *light;
+  vtkMatrix4x4 *lightMatrix;
+
+  if (this->LightFollowCamera) 
+  {
+    // only update the light's geometry if this Renderer is tracking
+    // this lights.  That allows one renderer to view the lights that
+    // another renderer is setting up.
+
+    camera = this->GetActiveCamera();
+    lightMatrix = camera->GetCameraLightTransformMatrix();
+
+    for(this->Lights->InitTraversal(); 
+	(light = this->Lights->GetNextItem()); )
+    {
+      if (light->LightTypeIsSceneLight())
+	{
+	  // nothing needs to be done.
+	  ;
+	}
+      else if (light->LightTypeIsHeadlight())
+	{
+	  // update position and orientation of light to match camera.
+	  light->SetPosition(camera->GetPosition());
+	  light->SetFocalPoint(camera->GetFocalPoint());
+	}
+      else if (light->LightTypeIsCameraLight())
+	{
+	  light->SetTransformMatrix(lightMatrix);
+	}
+      else 
+	{
+	  vtkErrorMacro(<< "light has unknown light type");
+	}
+    }
+  }
   return 1;
 }
 
@@ -608,6 +656,11 @@ void vtkRenderer::CreateLight(void)
 
   this->CreatedLight = vtkLight::New();
   this->AddLight(this->CreatedLight);
+
+  this->CreatedLight->SetLightTypeToHeadlight();
+
+  // set these values just to have a good default should LightFollowCamera
+  // be turned off.
   this->CreatedLight->SetPosition(this->ActiveCamera->GetPosition());
   this->CreatedLight->SetFocalPoint(this->ActiveCamera->GetFocalPoint());
 }
