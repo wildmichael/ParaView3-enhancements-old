@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSystemIncludes.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:10:29 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2000-07-20 13:16:43 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -52,6 +52,12 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #ifndef __vtkSystemIncludes_h
 #define __vtkSystemIncludes_h
+
+/* first include the local configuration for this machine */
+/* this only applies to UNIX systems */
+#ifndef _WIN32
+#include "vtkConfigure.h"
+#endif
 
 // include  generic stuff 
 #include <stdio.h>

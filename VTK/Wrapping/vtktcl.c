@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtktcl.c,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:09:29 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2000-07-20 13:16:43 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,6 +42,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
 #include "tk.h"
+#include "vtkToolkits.h"
 
 extern Vtkcommontcl_Init(Tcl_Interp *interp);
 

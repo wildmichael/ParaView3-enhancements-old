@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGraphicsFactory.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-07-14 14:16:03 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2000-07-20 13:16:43 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,6 +42,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "vtkObjectFactory.h"
 #include "vtkGraphicsFactory.h"
+#include "vtkToolkits.h"
 
 #ifdef VTK_USE_OGLR
 #include "vtkOpenGLActor.h"
