@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCleanPolyData.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-06 12:43:34 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1997-06-18 15:00:19 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -68,7 +68,7 @@ public:
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
-  // Specify tolerance in terms of percentage of bounding box.
+  // Specify tolerance in terms of fraction of bounding box length.
   vtkSetClampMacro(Tolerance,float,0.0,1.0);
   vtkGetMacro(Tolerance,float);
 
