@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGL2PSExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-10-11 10:51:11 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2003-10-21 07:01:55 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -170,7 +170,7 @@ void _Turn2DPropsOn(vtkRendererCollection *renCol, vtkIntArray *act2dVis)
     }
 }
 
-vtkCxxRevisionMacro(vtkGL2PSExporter, "$Revision: 1.9 $");
+vtkCxxRevisionMacro(vtkGL2PSExporter, "$Revision: 1.10 $");
 vtkStandardNewMacro(vtkGL2PSExporter);
 
 static float vtkGL2PSExporterGlobalPointSizeFactor = 5.0/7.0;
@@ -224,7 +224,7 @@ void vtkGL2PSExporter::WriteData()
 {
   FILE *fpObj;
   char *fName;
-  GLint format;
+  GLint format = GL2PS_EPS;
   GLint sort;
   GLint options = GL2PS_NONE;
   int buffsize = 0;
@@ -233,12 +233,11 @@ void vtkGL2PSExporter::WriteData()
   int *winsize = this->RenderWindow->GetSize();
 
   vtkRendererCollection *renCol = this->RenderWindow->GetRenderers();
-  int nRen = renCol->GetNumberOfItems();
   // Stores visibility of actors/volumes.
   vtkIntArray *volVis = vtkIntArray::New();
   vtkIntArray *actVis = vtkIntArray::New();
   vtkIntArray *act2dVis = vtkIntArray::New();
-  float *floatpixels; // for writing 3d props as an image.
+  float *floatpixels = 0; // for writing 3d props as an image.
 
   // Setting this to the entire window size for now.
   viewport[0] = 0;
@@ -396,7 +395,6 @@ void vtkGL2PSExporter::WriteData()
       _Turn3DPropsOff(renCol);
       _Turn2DPropsOn(renCol, act2dVis);
       this->RenderWindow->Render();
-
       }
     else
       {
