@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkCollection.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-06-01 17:22:04 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1994-07-07 13:07:30 $
+  Version:   $Revision: 1.2 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -106,6 +106,8 @@ int vlCollection::IsItemPresent(vlObject *a)
       elem = elem->Next;
       }
     }
+
+  return 0;
 }
 
 
