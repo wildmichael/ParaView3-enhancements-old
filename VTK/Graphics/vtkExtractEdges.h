@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractEdges.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:36 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2001-05-28 06:00:38 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -73,13 +73,6 @@ public:
   // Return MTime also considering the locator.
   unsigned long GetMTime();
 
-#ifndef VTK_REMOVE_LEGACY_CODE
-  // Description:
-  // For legacy compatibility. Do not use.
-  void SetLocator(vtkPointLocator& locator) 
-    {VTK_LEGACY_METHOD(SetLocator,"3.2"); this->SetLocator(&locator);}
-#endif
-  
 protected:
   vtkExtractEdges();
   ~vtkExtractEdges();
