@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLookupTable.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:36 $
-  Version:   $Revision: 1.81 $
+  Date:      $Date: 2002-02-18 16:48:00 $
+  Version:   $Revision: 1.82 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkLookupTable, "$Revision: 1.81 $");
+vtkCxxRevisionMacro(vtkLookupTable, "$Revision: 1.82 $");
 vtkStandardNewMacro(vtkLookupTable);
 
 // Construct with range=(0,1); and hsv ranges set up for rainbow color table 
@@ -820,14 +820,8 @@ void vtkLookupTable::MapScalarsThroughTable2(void *input,
 // table. This method simply allocates memory and prepares the table
 // for use with SetTableValue(). It differs from Build() method in
 // that the allocated memory is not initialized according to HSVA ramps.
-void vtkLookupTable::SetNumberOfTableValues(int number)
+void vtkLookupTable::SetNumberOfTableValues(vtkIdType number)
 {
-  if (number < 0 || number > 65535)
-    {
-    vtkErrorMacro("The Number of Table Values must be between 0 and 65535");
-    return;
-    }
-
   this->NumberOfColors = number;
   this->Table->SetNumberOfTuples(number);
 }
@@ -835,7 +829,7 @@ void vtkLookupTable::SetNumberOfTableValues(int number)
 // Directly load color into lookup table. Use [0,1] float values for color
 // component specification. Make sure that you've either used the
 // Build() method or used SetNumberOfTableValues() prior to using this method.
-void vtkLookupTable::SetTableValue(int indx, float rgba[4])
+void vtkLookupTable::SetTableValue(vtkIdType indx, float rgba[4])
 {
   // Check the index to make sure it is valid
   if (indx < 0)
@@ -874,7 +868,7 @@ void vtkLookupTable::SetTableValue(int indx, float r, float g, float b,
 
 // Return a rgba color value for the given index into the lookup Table. Color
 // components are expressed as [0,1] float values.
-void vtkLookupTable::GetTableValue(int indx, float rgba[4])
+void vtkLookupTable::GetTableValue(vtkIdType indx, float rgba[4])
 {
   unsigned char *_rgba;
 
