@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLine.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-09-26 20:49:41 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 1996-09-30 16:29:57 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -460,3 +460,4 @@ void vtkLine::Clip(float value, vtkFloatScalars *cellScalars,
     if ( pts[0] != pts[1] ) lines->InsertNextCell(2,pts);
     }
 }
+

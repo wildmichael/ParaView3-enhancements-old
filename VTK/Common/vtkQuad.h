@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuad.h,v $
   Language:  C++
-  Date:      $Date: 1996-09-26 20:51:45 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1996-09-30 16:30:13 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -69,6 +69,9 @@ public:
                vtkPointLocator *locator, vtkCellArray *verts, 
                vtkCellArray *lines, vtkCellArray *polys,
                vtkPointData *inPd, vtkPointData *outPd);
+  void Clip(float value, vtkFloatScalars *cellScalars, 
+            vtkPointLocator *locator, vtkCellArray *polys,
+            vtkPointData *inPd, vtkPointData *outPd, int insideOut);
   int EvaluatePosition(float x[3], float closestPoint[3],
                        int& subId, float pcoords[3],
                        float& dist2, float *weights);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCell.h,v $
   Language:  C++
-  Date:      $Date: 1996-09-26 20:49:23 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 1996-09-30 16:29:52 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -168,6 +168,18 @@ public:
                        vtkPointLocator *locator, vtkCellArray *verts, 
                        vtkCellArray *lines, vtkCellArray *polys, 
                        vtkPointData *inPd, vtkPointData *outPd) = 0;
+
+  // Description:
+  // Cut (or clip) the cell based on the input cellScalars and the
+  // specified value. The output of the clip operation will be one or
+  // more simplices (i.e., vertices, lines, triangles, or tetrahedron)
+  // of the same topological dimension as the cell. The flag insideOut
+  // controls what part of the cell is considered inside - normally
+  // cell points whose scalar value is greater than "value" are
+  // considered inside. If insideOut is on, this is reversed.
+  virtual void Clip(float value, vtkFloatScalars *cellScalars, 
+                    vtkPointLocator *locator, vtkCellArray *connectivity,
+                    vtkPointData *inPd, vtkPointData *outPd, int insideOut) = 0;
 
   // Description:
   // Intersect with a ray. Return parametric coordinates (both line and cell)

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVertex.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-09-26 20:53:13 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1996-09-30 16:30:21 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -190,3 +190,10 @@ void vtkVertex::Derivatives(int vtkNotUsed(subId),
     }
 }
 
+void vtkVertex::Clip(float value, vtkFloatScalars *cellScalars, 
+                     vtkPointLocator *locator, vtkCellArray *pts,
+                     vtkPointData *inPd, vtkPointData *outPd,
+                     int insideOut)
+{
+
+}

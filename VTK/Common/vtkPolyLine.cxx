@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyLine.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-09-26 20:51:37 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 1996-09-30 16:30:03 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -535,3 +535,10 @@ void vtkPolyLine::Derivatives(int subId, float pcoords[3], float *values,
   line.Derivatives(0, pcoords, values, dim, derivs);
 }
 
+void vtkPolyLine::Clip(float value, vtkFloatScalars *cellScalars, 
+                       vtkPointLocator *locator, vtkCellArray *lines,
+                       vtkPointData *inPd, vtkPointData *outPd,
+                       int insideOut)
+{
+
+}

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangleStrip.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-09-26 20:53:08 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1996-09-30 16:30:18 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -304,4 +304,12 @@ void vtkTriangleStrip::DecomposeStrips(vtkCellArray *strips, vtkCellArray *polys
       p3 = pts[3+i];
       }
     }
+}
+
+void vtkTriangleStrip::Clip(float value, vtkFloatScalars *cellScalars, 
+                            vtkPointLocator *locator, vtkCellArray *tris,
+                            vtkPointData *inPd, vtkPointData *outPd,
+                            int insideOut)
+{
+
 }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyVertex.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-09-26 20:51:39 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 1996-09-30 16:30:05 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -189,3 +189,10 @@ void vtkPolyVertex::Derivatives(int vtkNotUsed(subId),
     }
 }
 
+void vtkPolyVertex::Clip(float value, vtkFloatScalars *cellScalars, 
+                         vtkPointLocator *locator, vtkCellArray *pts,
+                         vtkPointData *inPd, vtkPointData *outPd,
+                         int insideOut)
+{
+
+}

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyLine.h,v $
   Language:  C++
-  Date:      $Date: 1996-09-26 20:51:38 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1996-09-30 16:30:04 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -75,6 +75,9 @@ public:
                vtkPointLocator *locator, vtkCellArray *verts, 
                vtkCellArray *lines, vtkCellArray *polys, 
                vtkPointData *inPd, vtkPointData *outPd);
+  void Clip(float value, vtkFloatScalars *cellScalars, 
+            vtkPointLocator *locator, vtkCellArray *lines,
+            vtkPointData *inPd, vtkPointData *outPd, int insideOut);
   int EvaluatePosition(float x[3], float closestPoint[3],
                        int& subId, float pcoords[3],
                        float& dist2, float *weights);

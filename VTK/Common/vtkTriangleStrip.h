@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangleStrip.h,v $
   Language:  C++
-  Date:      $Date: 1996-09-26 20:53:09 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1996-09-30 16:30:20 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -73,6 +73,9 @@ public:
                vtkPointLocator *locator, vtkCellArray *verts, 
                vtkCellArray *lines, vtkCellArray *polys, 
                vtkPointData *inPd, vtkPointData *outPd);
+  void Clip(float value, vtkFloatScalars *cellScalars, 
+            vtkPointLocator *locator, vtkCellArray *polys,
+            vtkPointData *inPd, vtkPointData *outPd, int insideOut);
   int EvaluatePosition(float x[3], float closestPoint[3],
                        int& subId, float pcoords[3],
                        float& dist2, float *weights);
@@ -85,7 +88,7 @@ public:
                    int dim, float *derivs);
 
   // triangle strip specific
-  void DecomposeStrips(vtkCellArray *strips, vtkCellArray *polys);
+  void DecomposeStrips(vtkCellArray *strips, vtkCellArray *tris);
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHexahedron.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-09-26 20:49:35 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 1996-09-30 16:29:54 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -629,4 +629,12 @@ void vtkHexahedron::JacobianInverse(float pcoords[3], double **inverse,
     vtkErrorMacro(<<"Jacobian inverse not found");
     return;
     }
+}
+
+void vtkHexahedron::Clip(float value, vtkFloatScalars *cellScalars, 
+                         vtkPointLocator *locator, vtkCellArray *tetras,
+                         vtkPointData *inPd, vtkPointData *outPd,
+                         int insideOut)
+{
+
 }
