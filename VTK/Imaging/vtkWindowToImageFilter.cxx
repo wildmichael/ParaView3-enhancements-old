@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWindowToImageFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-13 19:22:33 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2001-03-17 21:27:37 $
+  Version:   $Revision: 1.14 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -140,7 +140,7 @@ void vtkWindowToImageFilter::ExecuteInformation()
 //----------------------------------------------------------------------------
 // This function reads a region from a file.  The regions extent/axes
 // are assumed to be the same as the file extent/order.
-void vtkWindowToImageFilter::ExecuteData(vtkDataObject *data)
+void vtkWindowToImageFilter::ExecuteData(vtkDataObject *vtkNotUsed(data))
 {
   vtkImageData *out = this->GetOutput();
   out->SetExtent(out->GetUpdateExtent());

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAccumulate.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-13 19:37:45 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2001-03-17 21:27:37 $
+  Version:   $Revision: 1.28 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -212,7 +212,7 @@ static void vtkImageAccumulateExecute(vtkImageAccumulate *self,
 // algorithm to fill the output from the input.
 // It just executes a switch statement to call the correct function for
 // the Datas data types.
-void vtkImageAccumulate::ExecuteData(vtkDataObject *out)
+void vtkImageAccumulate::ExecuteData(vtkDataObject *vtkNotUsed(out))
 {
   void *inPtr;
   void *outPtr;
