@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: ice.h,v 1.1 2002-12-02 17:14:44 clarke Exp $  */
-/*  Date : $Date: 2002-12-02 17:14:44 $ */
-/*  Version : $Revision: 1.1 $ */
+/*  Id : $Id: ice.h,v 1.2 2003-04-10 18:16:34 andy Exp $  */
+/*  Date : $Date: 2003-04-10 18:16:34 $ */
+/*  Version : $Revision: 1.2 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -35,6 +35,10 @@
 #include "sys/types.h"
 #include "time.h"
 #include "string.h"
+
+#ifdef __hpux
+# include <sys.param.h>
+#endif
 
 #ifdef UNIX
 #include "sys/file.h"
