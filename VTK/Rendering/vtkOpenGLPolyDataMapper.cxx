@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLPolyDataMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-28 20:32:07 $
-  Version:   $Revision: 1.60 $
+  Date:      $Date: 2001-10-02 14:50:02 $
+  Version:   $Revision: 1.61 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -2506,8 +2506,8 @@ void vtkOpenGLPolyDataMapper::Draw(vtkRenderer *aren, vtkActor *act)
     
   prims[0] = input->GetVerts();
   prims[1] = input->GetLines();
-  prims[2] = input->GetStrips();
-  prims[3] = input->GetPolys();
+  prims[2] = input->GetPolys();
+  prims[3] = input->GetStrips();
 
   t = input->GetPointData()->GetTCoords();
   if ( t ) 
@@ -2772,23 +2772,23 @@ void vtkOpenGLPolyDataMapper::Draw(vtkRenderer *aren, vtkActor *act)
     glDisable( GL_LIGHTING);
     }
   
+  // do polys
+  aPrim = prims[2];
+  aGlFunction = glFunction[3];
+  draw3(aPrim, aGlFunction, cellNum, p, n, c, t, ren, noAbort);
+
   // do tstrips
   if ( zResolve )
     {
     glDepthRange(2*zRes, 1.);
     }
-  aPrim = prims[2];
+  aPrim = prims[3];
   aGlFunction = glFunction[2];
   draw2(aPrim, aGlFunction, cellNum, p, n, c, t, ren, noAbort);
   if (rep == VTK_WIREFRAME)   
     {
     draw2W(aPrim, aGlFunction, cellNum, p, n, c, t, ren, noAbort);
     }
-
-  // do polys
-  aPrim = prims[3];
-  aGlFunction = glFunction[3];
-  draw3(aPrim, aGlFunction, cellNum, p, n, c, t, ren, noAbort);
 
   // enable lighting again if necessary
   if (!n && rep == VTK_POINTS)
