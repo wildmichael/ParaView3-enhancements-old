@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSightGoldReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-27 14:11:23 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2002-07-31 20:15:10 $
+  Version:   $Revision: 1.32 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,7 +26,7 @@
 
 #include <ctype.h>
 
-vtkCxxRevisionMacro(vtkEnSightGoldReader, "$Revision: 1.31 $");
+vtkCxxRevisionMacro(vtkEnSightGoldReader, "$Revision: 1.32 $");
 vtkStandardNewMacro(vtkEnSightGoldReader);
 
 //----------------------------------------------------------------------------
@@ -1068,6 +1068,18 @@ int vtkEnSightGoldReader::CreateUnstructuredGridOutput(int partId,
     ugrid->Delete();
     
     this->UnstructuredPartIds->InsertNextId(partId);
+
+    idx = this->UnstructuredPartIds->IsId(partId);
+    if (this->CellIds == NULL)
+      {
+      this->CellIds = new vtkIdList **[16];
+      }
+    
+    this->CellIds[idx] = new vtkIdList *[16];
+    for (i = 0; i < 16; i++)
+      {
+      this->CellIds[idx][i] = vtkIdList::New();
+      }
     }
   else if ( ! this->GetOutput(partId)->IsA("vtkUnstructuredGrid"))
     {
@@ -1075,21 +1087,16 @@ int vtkEnSightGoldReader::CreateUnstructuredGridOutput(int partId,
     this->OutputsAreValid = 0;
     return 0;
     }
-    
+  else
+    {
+    idx = this->UnstructuredPartIds->IsId(partId);
+    for (i = 0; i < 16; i++)
+      {
+      this->CellIds[idx][i]->Reset();
+      }
+    }
+  
   ((vtkUnstructuredGrid *)this->GetOutput(partId))->Allocate(1000);
-  
-  idx = this->UnstructuredPartIds->IsId(partId);
-
-  if (this->CellIds == NULL)
-    {
-    this->CellIds = new vtkIdList **[16];
-    }
-  
-  this->CellIds[idx] = new vtkIdList *[16];
-  for (i = 0; i < 16; i++)
-    {
-    this->CellIds[idx][i] = vtkIdList::New();
-    }
   
   while(lineRead && strncmp(line, "part", 4) != 0)
     {
