@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-06-09 09:32:53 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2000-06-10 16:31:53 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -220,7 +220,7 @@ void vtkAbstractTransform::Update()
 
   // check to see if we are a special 'inverse' transform
   if (this->DependsOnInverse && 
-      this->MyInverse->vtkObject::GetMTime() >= this->UpdateTime.GetMTime())
+      this->MyInverse->GetMTime() >= this->UpdateTime.GetMTime())
     {
     vtkDebugMacro("Updating transformation from its inverse");
     this->InternalDeepCopy(this->MyInverse);
@@ -271,6 +271,7 @@ void vtkAbstractTransform::UnRegister(vtkObject *o)
 {
   if (this->InUnRegister)
     { // we don't want to go into infinite recursion...
+    vtkDebugMacro(<<"UnRegister: circular reference eliminated"); 
     this->ReferenceCount--;
     return;
     }
@@ -280,8 +281,9 @@ void vtkAbstractTransform::UnRegister(vtkObject *o)
   if (this->MyInverse && this->ReferenceCount == 2 &&
       this->MyInverse->ReferenceCount == 1)
     { // break the cycle
+    vtkDebugMacro(<<"UnRegister: eliminating circular reference"); 
     this->InUnRegister = 1;
-    this->MyInverse->Delete();
+    this->MyInverse->UnRegister(this);
     this->MyInverse = NULL;
     this->InUnRegister = 0;
     }
