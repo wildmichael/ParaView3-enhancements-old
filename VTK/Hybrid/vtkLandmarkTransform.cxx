@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLandmarkTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-03-11 14:11:21 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2000-03-19 02:37:25 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to Tim Hutton and David G. Gobbi who developed this class.
 
 Redistribution and use in source and binary forms, with or without
@@ -135,6 +135,7 @@ void vtkLandmarkTransform::Update()
   const int N_PTS = this->SourceLandmarks->GetNumberOfPoints();
   if(N_PTS != this->TargetLandmarks->GetNumberOfPoints())
     {
+    this->UpdateMutex->Unlock();
     vtkErrorMacro("Update: Source and Target Landmarks contain a different number of points");
     return;
     }
