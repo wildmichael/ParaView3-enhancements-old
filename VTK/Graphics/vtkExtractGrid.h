@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractGrid.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 20:51:28 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1997-06-27 15:32:38 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -70,7 +70,7 @@ class VTK_EXPORT vtkExtractGrid : public vtkStructuredGridToStructuredGridFilter
 public:
   vtkExtractGrid();
   static vtkExtractGrid *New() {return new vtkExtractGrid;};
-  char *GetClassName() {return "vtkExtractGrid";};
+  const char *GetClassName() {return "vtkExtractGrid";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

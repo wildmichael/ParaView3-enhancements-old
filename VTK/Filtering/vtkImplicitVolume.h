@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitVolume.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 20:51:55 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1997-06-27 15:33:01 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -70,7 +70,7 @@ class VTK_EXPORT vtkImplicitVolume : public vtkImplicitFunction
 public:
   vtkImplicitVolume();
   static vtkImplicitVolume *New() {return new vtkImplicitVolume;};
-  char *GetClassName() {return "vtkImplicitVolume";};
+  const char *GetClassName() {return "vtkImplicitVolume";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
   unsigned long int GetMTime();

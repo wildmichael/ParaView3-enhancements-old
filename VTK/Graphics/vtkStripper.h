@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStripper.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-06 12:46:32 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1997-06-27 15:34:22 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -68,7 +68,7 @@ class VTK_EXPORT vtkStripper : public vtkPolyDataToPolyDataFilter
 public:
   vtkStripper();
   static vtkStripper *New() {return new vtkStripper;};
-  char *GetClassName() {return "vtkStripper";};
+  const char *GetClassName() {return "vtkStripper";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

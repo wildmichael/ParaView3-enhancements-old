@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataConnectivityFilter.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-06 12:45:18 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1997-06-27 15:33:37 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -80,7 +80,7 @@ public:
   vtkPolyDataConnectivityFilter();
   ~vtkPolyDataConnectivityFilter();
   static vtkPolyDataConnectivityFilter *New() {return new vtkPolyDataConnectivityFilter;};
-  char *GetClassName() {return "vtkPolyDataConnectivityFilter";};
+  const char *GetClassName() {return "vtkPolyDataConnectivityFilter";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

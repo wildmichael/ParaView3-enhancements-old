@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSTLReader.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-06 12:46:14 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1997-06-27 15:34:04 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -68,7 +68,7 @@ public:
   vtkSTLReader();
   ~vtkSTLReader();
   static vtkSTLReader *New() {return new vtkSTLReader;};
-  char *GetClassName() {return "vtkSTLReader";};
+  const char *GetClassName() {return "vtkSTLReader";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkContourFilter.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-25 12:44:48 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 1997-06-27 15:32:14 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -87,7 +87,7 @@ public:
   vtkContourFilter();
   static vtkContourFilter *New() {return new vtkContourFilter;};
   ~vtkContourFilter();
-  char *GetClassName() {return "vtkContourFilter";};
+  const char *GetClassName() {return "vtkContourFilter";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Methods to set contour values

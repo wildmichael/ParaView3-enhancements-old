@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangularTexture.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 20:54:16 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1997-06-27 15:34:49 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -61,7 +61,7 @@ class VTK_EXPORT vtkTriangularTexture : public vtkStructuredPointsSource
 public:
   vtkTriangularTexture();
   static vtkTriangularTexture *New() {return new vtkTriangularTexture;};
-  char *GetClassName() {return "vtkTriangularTexture";};
+  const char *GetClassName() {return "vtkTriangularTexture";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCylinderSource.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-06 12:43:55 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1997-06-27 15:32:19 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,7 +56,7 @@ class VTK_EXPORT vtkCylinderSource : public vtkPolyDataSource
 public:
   vtkCylinderSource(int res=6);
   static vtkCylinderSource *New() {return new vtkCylinderSource;};
-  char *GetClassName() {return "vtkCylinderSource";};
+  const char *GetClassName() {return "vtkCylinderSource";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

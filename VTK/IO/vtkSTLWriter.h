@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSTLWriter.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-06 12:46:15 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1997-06-27 15:34:04 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,7 +59,7 @@ public:
   vtkSTLWriter();
   ~vtkSTLWriter();
   static vtkSTLWriter *New() {return new vtkSTLWriter;};
-  char *GetClassName() {return "vtkSTLWriter";};
+  const char *GetClassName() {return "vtkSTLWriter";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

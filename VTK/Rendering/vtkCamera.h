@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCamera.h,v $
   Language:  C++
-  Date:      $Date: 1997-05-23 20:33:49 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 1997-06-27 15:32:06 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -61,7 +61,7 @@ class VTK_EXPORT vtkCamera : public vtkObject
   vtkCamera();
   void PrintSelf(ostream& os, vtkIndent indent);
   static vtkCamera *New();
-  char *GetClassName() {return "vtkCamera";};
+  const char *GetClassName() {return "vtkCamera";};
 
   // Description:
   // Set/Get the position of the camera in world coordinates.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataWriter.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-06 12:45:34 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1997-06-27 15:33:42 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,7 +56,7 @@ class VTK_EXPORT vtkPolyDataWriter : public vtkDataWriter
 public:
   vtkPolyDataWriter() {};
   static vtkPolyDataWriter *New() {return new vtkPolyDataWriter;};
-  char *GetClassName() {return "vtkPolyDataWriter";};
+  const char *GetClassName() {return "vtkPolyDataWriter";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
   void SetInput(vtkPolyData *input);

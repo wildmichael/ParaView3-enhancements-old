@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMCubesReader.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-06 12:44:51 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1997-06-27 15:33:07 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -82,7 +82,7 @@ public:
   vtkMCubesReader();
   ~vtkMCubesReader();
   static vtkMCubesReader *New() {return new vtkMCubesReader;};
-  char *GetClassName() {return "vtkMCubesReader";};
+  const char *GetClassName() {return "vtkMCubesReader";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActorCollection.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 20:50:36 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1997-06-27 15:31:57 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,7 +57,7 @@ class VTK_EXPORT vtkActorCollection : public vtkCollection
 {
  public:
   static vtkActorCollection *New() {return new vtkActorCollection;};
-  char *GetClassName() {return "vtkActorCollection";};
+  const char *GetClassName() {return "vtkActorCollection";};
 
   void AddItem(vtkActor *a);
   void RemoveItem(vtkActor *a);

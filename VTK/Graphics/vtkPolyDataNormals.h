@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataNormals.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-06 12:45:25 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1997-06-27 15:33:40 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -68,7 +68,7 @@ class VTK_EXPORT vtkPolyDataNormals : public vtkPolyDataToPolyDataFilter
 public:
   vtkPolyDataNormals();
   static vtkPolyDataNormals *New() {return new vtkPolyDataNormals;};
-  char *GetClassName() {return "vtkPolyDataNormals";};
+  const char *GetClassName() {return "vtkPolyDataNormals";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

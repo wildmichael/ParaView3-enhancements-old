@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLRenderer.h,v $
   Language:  C++
-  Date:      $Date: 1997-05-28 14:51:09 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1997-06-27 15:33:23 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,7 +59,7 @@ class VTK_EXPORT vtkOpenGLRenderer : public vtkRenderer
 
   void Render(void); // overides base 
   static vtkOpenGLRenderer *New() {return new vtkOpenGLRenderer;};
-  char *GetClassName() {return "vtkOpenGLRenderer";};
+  const char *GetClassName() {return "vtkOpenGLRenderer";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
   void ClearLights(void);

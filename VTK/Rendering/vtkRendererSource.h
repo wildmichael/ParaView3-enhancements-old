@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRendererSource.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 20:52:59 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1997-06-27 15:34:00 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -60,7 +60,7 @@ class VTK_EXPORT vtkRendererSource : public vtkStructuredPointsSource
 public:
   vtkRendererSource();
   static vtkRendererSource *New() {return new vtkRendererSource;};
-  char *GetClassName() {return "vtkRendererSource";};
+  const char *GetClassName() {return "vtkRendererSource";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
   unsigned long int GetMTime();

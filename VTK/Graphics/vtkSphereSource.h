@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSphereSource.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-06 12:46:19 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1997-06-27 15:34:11 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,7 +58,7 @@ class VTK_EXPORT vtkSphereSource : public vtkPolyDataSource
 public:
   vtkSphereSource(int res=8);
   static vtkSphereSource *New() {return new vtkSphereSource;};
-  char *GetClassName() {return "vtkSphereSource";};
+  const char *GetClassName() {return "vtkSphereSource";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

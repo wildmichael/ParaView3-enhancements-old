@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLTexture.h,v $
   Language:  C++
-  Date:      $Date: 1997-05-28 14:51:11 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1997-06-27 15:33:24 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,7 +55,7 @@ class VTK_EXPORT vtkOpenGLTexture : public vtkTexture
 public:
   vtkOpenGLTexture();
   static vtkOpenGLTexture *New() {return new vtkOpenGLTexture;};
-  char *GetClassName() {return "vtkOpenGLTexture";};
+  const char *GetClassName() {return "vtkOpenGLTexture";};
   
   void Load(vtkRenderer *ren);
   

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageFlip.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 20:57:28 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1997-06-27 15:35:44 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,7 +56,7 @@ class VTK_EXPORT vtkImageFlip : public vtkImageFilter
 public:
   vtkImageFlip();
   static vtkImageFlip *New() {return new vtkImageFlip;};
-  char *GetClassName() {return "vtkImageFlip";};
+  const char *GetClassName() {return "vtkImageFlip";};
 
   // Description:
   // If PreseveImageExtent is off, then extent of axis0 is simply

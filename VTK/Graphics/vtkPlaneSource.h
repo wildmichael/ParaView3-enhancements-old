@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPlaneSource.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-06 12:45:11 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 1997-06-27 15:33:31 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -75,7 +75,7 @@ public:
   vtkPlaneSource();
   void PrintSelf(ostream& os, vtkIndent indent);
   static vtkPlaneSource *New() {return new vtkPlaneSource;};
-  char *GetClassName() {return "vtkPlaneSource";};
+  const char *GetClassName() {return "vtkPlaneSource";};
 
   // Description:
   // Specify the resolution of the plane along the first axes.

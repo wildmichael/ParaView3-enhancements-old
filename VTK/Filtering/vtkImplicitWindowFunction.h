@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitWindowFunction.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 20:51:57 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1997-06-27 15:33:02 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -65,7 +65,7 @@ public:
   vtkImplicitWindowFunction();
   ~vtkImplicitWindowFunction();
   static vtkImplicitWindowFunction *New() {return new vtkImplicitWindowFunction;};
-  char *GetClassName() {return "vtkImplicitWindowFunction";};
+  const char *GetClassName() {return "vtkImplicitWindowFunction";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // implicit function interface

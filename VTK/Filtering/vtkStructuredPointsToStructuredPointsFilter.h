@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsToStructuredPointsFilter.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 20:53:51 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1997-06-27 15:34:34 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,7 +58,7 @@ class VTK_EXPORT vtkStructuredPointsToStructuredPointsFilter : public vtkStructu
 public:
   vtkStructuredPointsToStructuredPointsFilter();
   static vtkStructuredPointsToStructuredPointsFilter *New() {return new vtkStructuredPointsToStructuredPointsFilter;};
-  char *GetClassName() {return "vtkStructuredPointsToStructuredPointsFilter";};
+  const char *GetClassName() {return "vtkStructuredPointsToStructuredPointsFilter";};
 
   // Description:
   // Get the output of this filter.

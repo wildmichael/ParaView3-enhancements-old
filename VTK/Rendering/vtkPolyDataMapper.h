@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataMapper.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-06 12:45:23 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1997-06-27 15:33:39 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,7 +56,7 @@ class VTK_EXPORT vtkPolyDataMapper : public vtkMapper
 {
 public:
   static vtkPolyDataMapper *New();
-  char *GetClassName() {return "vtkPolyDataMapper";};
+  const char *GetClassName() {return "vtkPolyDataMapper";};
 
   virtual void Render(vtkRenderer *, vtkActor *) {};
   float *GetBounds();

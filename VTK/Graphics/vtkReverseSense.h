@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkReverseSense.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-06 12:46:06 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1997-06-27 15:34:00 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,7 +59,7 @@ class VTK_EXPORT vtkReverseSense : public vtkPolyDataToPolyDataFilter
 public:
   vtkReverseSense();
   static vtkReverseSense *New() {return new vtkReverseSense;};
-  char *GetClassName() {return "vtkReverseSense";};
+  const char *GetClassName() {return "vtkReverseSense";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

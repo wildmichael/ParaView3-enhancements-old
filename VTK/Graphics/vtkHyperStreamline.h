@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHyperStreamline.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-06 12:44:42 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1997-06-27 15:32:56 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -128,7 +128,7 @@ public:
   vtkHyperStreamline();
   ~vtkHyperStreamline();
   static vtkHyperStreamline *New() {return new vtkHyperStreamline;};
-  char *GetClassName() {return "vtkHyperStreamline";};
+  const char *GetClassName() {return "vtkHyperStreamline";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
   void SetStartLocation(int cellId, int subId, float pcoords[3]);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamer.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-06 12:46:29 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1997-06-27 15:34:21 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -129,7 +129,7 @@ public:
   vtkStreamer();
   ~vtkStreamer();
   static vtkStreamer *New() {return new vtkStreamer;};
-  char *GetClassName() {return "vtkStreamer";};
+  const char *GetClassName() {return "vtkStreamer";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
   void SetStartLocation(int cellId, int subId, float pcoords[3]);

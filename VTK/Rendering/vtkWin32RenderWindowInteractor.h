@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32RenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 1997-05-28 16:40:26 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1997-06-27 15:35:09 $
+  Version:   $Revision: 1.7 $
   
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -70,7 +70,7 @@ public:
   vtkWin32RenderWindowInteractor();
   ~vtkWin32RenderWindowInteractor();
   static vtkWin32RenderWindowInteractor *New() {return new vtkWin32RenderWindowInteractor;};
-  char *GetClassName() {return "vtkWin32RenderWindowInteractor";};
+  const char *GetClassName() {return "vtkWin32RenderWindowInteractor";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
   virtual void Initialize();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSampleFunction.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-05 19:52:48 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1997-06-27 15:34:05 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -61,7 +61,7 @@ public:
   vtkSampleFunction();
   ~vtkSampleFunction();
   static vtkSampleFunction *New() {return new vtkSampleFunction;};
-  char *GetClassName() {return "vtkSampleFunction";};
+  const char *GetClassName() {return "vtkSampleFunction";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

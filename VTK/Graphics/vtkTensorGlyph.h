@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTensorGlyph.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-06 12:46:45 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1997-06-27 15:34:36 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -78,7 +78,7 @@ class VTK_EXPORT vtkTensorGlyph : public vtkDataSetToPolyDataFilter
 public:
   vtkTensorGlyph();
   static vtkTensorGlyph *New() {return new vtkTensorGlyph;};
-  char *GetClassName() {return "vtkTensorGlyph";};
+  const char *GetClassName() {return "vtkTensorGlyph";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
   void Update();

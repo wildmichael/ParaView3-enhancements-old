@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransformTextureCoords.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 20:54:13 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1997-06-27 15:34:46 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,7 +64,7 @@ class VTK_EXPORT vtkTransformTextureCoords : public vtkDataSetToDataSetFilter
 public:
   vtkTransformTextureCoords();
   static vtkTransformTextureCoords *New() {return new vtkTransformTextureCoords;};
-  char *GetClassName() {return "vtkTransformTextureCoords";};
+  const char *GetClassName() {return "vtkTransformTextureCoords";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProjectedPolyDataRayBounder.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-09 00:03:41 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1997-06-27 15:33:44 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to Lisa Sobierajski Avila who developed this class.
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -68,7 +68,7 @@ public:
   vtkProjectedPolyDataRayBounder();
   ~vtkProjectedPolyDataRayBounder();
   static vtkProjectedPolyDataRayBounder *New();
-  char *GetClassName() {return "vtkProjectedPolyDataRayBounder";};
+  const char *GetClassName() {return "vtkProjectedPolyDataRayBounder";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

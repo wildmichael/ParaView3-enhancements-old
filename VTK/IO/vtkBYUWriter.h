@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBYUWriter.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-06 12:43:31 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1997-06-27 15:32:02 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -60,7 +60,7 @@ public:
   vtkBYUWriter();
   ~vtkBYUWriter();
   static vtkBYUWriter *New() {return new vtkBYUWriter;};
-  char *GetClassName() {return "vtkBYUWriter";};
+  const char *GetClassName() {return "vtkBYUWriter";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

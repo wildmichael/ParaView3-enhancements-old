@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinkEdgels.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 20:52:03 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1997-06-27 15:33:06 $
+  Version:   $Revision: 1.7 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -77,7 +77,7 @@ class VTK_EXPORT vtkLinkEdgels : public vtkStructuredPointsToPolyDataFilter
 public:
   vtkLinkEdgels();
   static vtkLinkEdgels *New() {return new vtkLinkEdgels;};
-  char *GetClassName() {return "vtkLinkEdgels";};
+  const char *GetClassName() {return "vtkLinkEdgels";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

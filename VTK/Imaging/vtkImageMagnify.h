@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMagnify.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-04 12:55:21 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1997-06-27 15:35:55 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,7 +58,7 @@ class VTK_EXPORT vtkImageMagnify : public vtkImageDecomposedFilter
 public:
   vtkImageMagnify();
   static vtkImageMagnify *New() {return new vtkImageMagnify;};
-  char *GetClassName() {return "vtkImageMagnify";};
+  const char *GetClassName() {return "vtkImageMagnify";};
 
   // Description:
   // Set/Get Magnification factors

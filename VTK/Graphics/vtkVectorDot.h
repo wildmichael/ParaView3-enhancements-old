@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectorDot.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 20:54:24 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1997-06-27 15:34:55 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,7 +56,7 @@ class VTK_EXPORT vtkVectorDot : public vtkDataSetToDataSetFilter
 public:
   vtkVectorDot();
   static vtkVectorDot *New() {return new vtkVectorDot;};
-  char *GetClassName() {return "vtkVectorDot";};
+  const char *GetClassName() {return "vtkVectorDot";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageFourierFilter.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-17 16:25:59 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1997-06-27 15:35:46 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -113,7 +113,7 @@ class VTK_EXPORT vtkImageFourierFilter : public vtkImageFilter
 {
 public:
   static vtkImageFourierFilter *New() {return new vtkImageFourierFilter;};
-  char *GetClassName() {return "vtkImageFourierFilter";};
+  const char *GetClassName() {return "vtkImageFourierFilter";};
   void PrintSelf(ostream& os, vtkIndent indent);
   
   // public for templated functions of this object

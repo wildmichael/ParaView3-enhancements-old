@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGridReader.h,v $
   Language:  C++
-  Date:      $Date: 1997-05-29 01:53:07 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1997-06-27 15:34:52 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,7 +56,7 @@ class VTK_EXPORT vtkUnstructuredGridReader : public vtkUnstructuredGridSource
 public:
   vtkUnstructuredGridReader();
   static vtkUnstructuredGridReader *New() {return new vtkUnstructuredGridReader;};
-  char *GetClassName() {return "vtkUnstructuredGridReader";};
+  const char *GetClassName() {return "vtkUnstructuredGridReader";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // overload because of vtkDataReader ivar

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRibbonFilter.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-06 12:46:09 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1997-06-27 15:34:01 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -63,7 +63,7 @@ class VTK_EXPORT vtkRibbonFilter : public vtkPolyDataToPolyDataFilter
 public:
   vtkRibbonFilter();
   static vtkRibbonFilter *New() {return new vtkRibbonFilter;};
-  char *GetClassName() {return "vtkRibbonFilter";};
+  const char *GetClassName() {return "vtkRibbonFilter";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

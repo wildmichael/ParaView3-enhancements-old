@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitBoolean.h,v $
   Language:  C++
-  Date:      $Date: 1997-05-23 20:34:41 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1997-06-27 15:32:58 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -71,7 +71,7 @@ public:
   vtkImplicitBoolean();
   ~vtkImplicitBoolean();
   static vtkImplicitBoolean *New() {return new vtkImplicitBoolean;};
-  char *GetClassName() {return "vtkImplicitBoolean";};
+  const char *GetClassName() {return "vtkImplicitBoolean";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // ImplicitFunction interface

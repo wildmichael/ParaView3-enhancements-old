@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkConnectivityFilter.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-06 12:43:39 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1997-06-27 15:32:13 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -80,7 +80,7 @@ public:
   vtkConnectivityFilter();
   ~vtkConnectivityFilter();
   static vtkConnectivityFilter *New() {return new vtkConnectivityFilter;};
-  char *GetClassName() {return "vtkConnectivityFilter";};
+  const char *GetClassName() {return "vtkConnectivityFilter";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCutter.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-25 12:44:49 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1997-06-27 15:32:17 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,7 +64,7 @@ public:
   vtkCutter(vtkImplicitFunction *cf=NULL);
   ~vtkCutter();
   static vtkCutter *New() {return new vtkCutter;};
-  char *GetClassName() {return "vtkCutter";};
+  const char *GetClassName() {return "vtkCutter";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Methods to set contour values

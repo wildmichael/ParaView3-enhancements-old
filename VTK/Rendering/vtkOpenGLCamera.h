@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLCamera.h,v $
   Language:  C++
-  Date:      $Date: 1997-05-28 14:50:58 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1997-06-27 15:33:18 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -54,7 +54,7 @@ class VTK_EXPORT vtkOpenGLCamera : public vtkCamera
 {
  public:
   static vtkOpenGLCamera *New() {return new vtkOpenGLCamera;};
-  char *GetClassName() {return "vtkOpenGLCamera";};
+  const char *GetClassName() {return "vtkOpenGLCamera";};
 
   void Render(vtkRenderer *ren);
 };

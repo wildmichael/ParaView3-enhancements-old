@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGlyph3D.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-06 12:44:36 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1997-06-27 15:32:54 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -110,7 +110,7 @@ public:
   vtkGlyph3D();
   ~vtkGlyph3D();
   static vtkGlyph3D *New() {return new vtkGlyph3D;};
-  char *GetClassName() {return "vtkGlyph3D";};
+  const char *GetClassName() {return "vtkGlyph3D";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
   void Update();

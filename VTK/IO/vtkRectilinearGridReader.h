@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGridReader.h,v $
   Language:  C++
-  Date:      $Date: 1997-05-29 01:52:49 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1997-06-27 15:33:51 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,7 +56,7 @@ class VTK_EXPORT vtkRectilinearGridReader : public vtkRectilinearGridSource
 public:
   vtkRectilinearGridReader();
   static vtkRectilinearGridReader *New() {return new vtkRectilinearGridReader;};
-  char *GetClassName() {return "vtkRectilinearGridReader";};
+  const char *GetClassName() {return "vtkRectilinearGridReader";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // overload because of vtkDataReader ivar

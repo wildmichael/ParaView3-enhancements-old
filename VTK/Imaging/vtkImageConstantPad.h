@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageConstantPad.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 20:57:17 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1997-06-27 15:35:31 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,7 +56,7 @@ class VTK_EXPORT vtkImageConstantPad : public vtkImagePadFilter
 public:
   vtkImageConstantPad();
   static vtkImageConstantPad *New() {return new vtkImageConstantPad;};
-  char *GetClassName() {return "vtkImageConstantPad";};
+  const char *GetClassName() {return "vtkImageConstantPad";};
 
   // Set/Get the pad value.
   vtkSetMacro(Constant, float);

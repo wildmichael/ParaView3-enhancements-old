@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTubeFilter.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-06 12:47:04 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1997-06-27 15:34:50 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -72,7 +72,7 @@ class VTK_EXPORT vtkTubeFilter : public vtkPolyDataToPolyDataFilter
 public:
   vtkTubeFilter();
   static vtkTubeFilter *New() {return new vtkTubeFilter;};
-  char *GetClassName() {return "vtkTubeFilter";};
+  const char *GetClassName() {return "vtkTubeFilter";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

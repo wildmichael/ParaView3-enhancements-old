@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalarTree.h,v $
   Language:  C++
-  Date:      $Date: 1997-05-23 20:53:51 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1997-06-27 15:34:06 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -73,7 +73,7 @@ public:
   vtkScalarTree();
   ~vtkScalarTree();
   static vtkScalarTree *New() {return new vtkScalarTree;};
-  char *GetClassName() {return "vtkScalarTree";};
+  const char *GetClassName() {return "vtkScalarTree";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
