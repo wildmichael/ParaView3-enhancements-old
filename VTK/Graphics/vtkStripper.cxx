@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStripper.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-30 16:32:37 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 1999-02-25 16:17:44 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -101,7 +101,7 @@ void vtkStripper::Execute()
   if ( inLines->GetNumberOfCells() > 0 )
     {
     newLines = vtkCellArray::New();
-    newLines->Allocate(newStrips->EstimateSize(numCells,6));
+    newLines->Allocate(newLines->EstimateSize(numCells,6));
     for (inLines->InitTraversal(); inLines->GetNextCell(numLinePts,linePts); )
       {
       if ( numLinePts > 2 )
