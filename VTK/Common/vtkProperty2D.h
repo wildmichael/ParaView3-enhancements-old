@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProperty2D.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:16 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2001-01-22 17:47:08 $
+  Version:   $Revision: 1.21 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -95,6 +95,20 @@ public:
   vtkGetMacro(LineWidth,float);
 
   // Description:
+  // Set/Get the stippling pattern of a Line, as a 16-bit binary pattern 
+  // (1 = pixel on, 0 = pixel off).
+  // This is only implemented for OpenGL. The default is 0xFFFF.
+  vtkSetMacro(LineStipplePattern,int);
+  vtkGetMacro(LineStipplePattern,int);
+
+  // Description:
+  // Set/Get the stippling repeat factor of a Line, which specifies how
+  // many times each bit in the pattern is to be repeated.
+  // This is only implemented for OpenGL. The default is 1.
+  vtkSetClampMacro(LineStippleRepeatFactor,int,1,VTK_LARGE_INTEGER);
+  vtkGetMacro(LineStippleRepeatFactor,int);
+
+  // Description:
   // The DisplayLocation is either background or foreground.
   // If it is background, then this 2D actor will be drawn
   // behind all 3D props or foreground 2D actors. If it is
@@ -125,6 +139,8 @@ protected:
   float Opacity;
   float PointSize;
   float LineWidth;
+  int   LineStipplePattern;
+  int   LineStippleRepeatFactor;
   int   DisplayLocation;
 };
   
