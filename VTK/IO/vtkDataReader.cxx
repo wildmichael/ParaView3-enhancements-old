@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:02:11 $
-  Version:   $Revision: 1.79 $
+  Date:      $Date: 1999-10-01 14:35:05 $
+  Version:   $Revision: 1.80 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -1839,6 +1839,8 @@ void vtkDataReader::PrintSelf(ostream& os, vtkIndent indent)
     {
     os << indent << "Input String: (None)\n";
     }
+
+  os << indent << "Input String Length: " << this->InputStringLength << endl;
 
   if ( this->ScalarsName )
     {
