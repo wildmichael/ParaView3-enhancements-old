@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLCamera.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:45:46 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-03-10 14:45:50 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -114,6 +114,18 @@ void vtkOpenGLCamera::Render(vtkRenderer *ren)
         break;
       }
     }
+  else
+    {
+    if (ren->GetRenderWindow()->GetDoubleBuffer())
+      {
+      glDrawBuffer(GL_BACK);
+      }
+    else
+      {
+      glDrawBuffer(GL_FRONT);
+      }
+    }
+  
   // we will set this for all modes on the sparc
   bottom = (int)(vport[1]*(size[1] -1));
   top = (int)(vport[3]*(size[1] - 1));

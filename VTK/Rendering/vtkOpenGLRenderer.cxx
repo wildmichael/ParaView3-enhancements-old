@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-03 19:05:21 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1998-03-10 14:45:51 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -325,7 +325,9 @@ float *vtkOpenGLRenderer::GetCenter()
 				/2.0*(float)size[0]);
 	this->Center[1] = ((this->Viewport[3]+this->Viewport[1])
 				/2.0*(float)size[1]);
+#ifndef sparc	
 	this->Center[1] = this->Center[1]*(491.0/1024.0);
+#endif
 	}
 	break;
       default:
