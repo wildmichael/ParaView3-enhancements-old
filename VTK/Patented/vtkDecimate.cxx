@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDecimate.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-13 14:53:56 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 1999-12-19 22:14:04 $
+  Version:   $Revision: 1.52 $
 
 
 Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -183,6 +183,12 @@ void vtkDecimate::Execute()
 
 
   vtkDebugMacro(<<"Decimating mesh...");
+
+  if (input == NULL)
+    {
+    vtkErrorMacro(<<"Input is NULL");
+    return;
+    }
   //
   // Check input
   //

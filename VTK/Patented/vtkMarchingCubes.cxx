@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-13 14:53:59 $
-  Version:   $Revision: 1.61 $
+  Date:      $Date: 1999-12-19 22:14:06 $
+  Version:   $Revision: 1.62 $
 
 
 Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -409,8 +409,8 @@ void vtkMarchingCubes::Execute()
   vtkNormals *newNormals;
   vtkVectors *newGradients;
   vtkStructuredPoints *input = this->GetInput();
-  vtkPointData *pd=input->GetPointData();
-  vtkScalars *inScalars=pd->GetScalars();
+  vtkPointData *pd;
+  vtkScalars *inScalars;
   int dims[3];
   int estimatedSize;
   float Spacing[3], origin[3];
@@ -420,9 +420,22 @@ void vtkMarchingCubes::Execute()
   float *values=this->ContourValues->GetValues();
   
   vtkDebugMacro(<< "Executing marching cubes");
+
 //
 // Initialize and check input
 //
+  if (input == NULL)
+    {
+    vtkErrorMacro(<<"Input is NULL");
+    return;
+    }
+  pd=input->GetPointData();
+  if (pd ==NULL)
+    {
+    vtkErrorMacro(<<"PointData is NULL");
+    return;
+    }
+  inScalars=pd->GetScalars();
   if ( inScalars == NULL )
     {
     vtkErrorMacro(<<"Scalars must be defined for contouring");

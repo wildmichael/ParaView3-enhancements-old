@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDividingCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-13 14:53:57 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1999-12-19 22:14:05 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -119,6 +119,13 @@ void vtkDividingCubes::Execute()
   vtkPolyData *output = this->GetOutput();
   
   vtkDebugMacro(<< "Executing dividing cubes...");
+
+  if (input == NULL)
+    {
+    vtkErrorMacro(<<"Input is NULL");
+    return;
+    }
+
   //
   // Initialize self; check input; create output objects
   //
