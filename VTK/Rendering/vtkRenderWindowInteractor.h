@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkRenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 1994-11-28 23:47:38 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1994-12-09 18:33:06 $
+  Version:   $Revision: 1.9 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -35,7 +35,7 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 #include "Light.hh"
 #include "Picker.hh"
 #include "PolyMap.hh"
-#include "CubeSrc.hh"
+#include "Outline.hh"
 
 class vlRenderWindowInteractor : public vlObject
 {
@@ -99,7 +99,7 @@ protected:
   // for picking actors
   vlPicker *Picker;
   int SelfCreatedPicker;
-  vlCubeSource Outline;
+  vlOutlineSource Outline;
   vlPolyMapper OutlineMapper;
   vlActor *OutlineActor;
   vlRenderer *PickedRenderer;

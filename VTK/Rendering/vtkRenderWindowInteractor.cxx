@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkRenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-28 23:47:40 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1994-12-09 18:33:07 $
+  Version:   $Revision: 1.8 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -103,7 +103,8 @@ void vlRenderWindowInteractor::HighlightActor(vlActor *actor)
     this->OutlineActor->DragableOff();
     this->OutlineActor->SetMapper(this->OutlineMapper);
     this->OutlineActor->GetProperty()->SetColor(1.0,1.0,1.0);
-    this->OutlineActor->GetProperty()->SetWireframe();
+    this->OutlineActor->GetProperty()->SetAmbient(1.0);
+    this->OutlineActor->GetProperty()->SetDiffuse(0.0);
     }
 
   if ( this->PickedRenderer ) 
