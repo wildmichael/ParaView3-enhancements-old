@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-09-13 14:13:55 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1996-09-18 14:00:53 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -44,7 +44,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 //----------------------------------------------------------------------------
 vtkImageSource::vtkImageSource()
 {
-  this->SplitFactor = 2;
 }
 
 
@@ -55,7 +54,6 @@ vtkImageSource::vtkImageSource()
 void vtkImageSource::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkObject::PrintSelf(os,indent);
-  os << indent << "SplitFactor: " << this->SplitFactor << "\n";
 }
   
 
