@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSocketController.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-08 15:26:27 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-08-09 20:37:59 $
+  Version:   $Revision: 1.5 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -151,4 +151,4 @@ protected:
 };
 
 
-#endif
+#endif // __vtkSocketController_h

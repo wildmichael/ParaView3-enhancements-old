@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSocketCommunicator.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-08 13:38:46 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2001-08-09 20:37:59 $
+  Version:   $Revision: 1.18 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -314,7 +314,7 @@ int vtkSocketCommunicator::Receive(char *data, int length,
     return 0;
     }
 
-  return ReceiveMessage( (char *)data, sizeof(char), length, tag);
+  return ReceiveMessage( data, sizeof(char), length, tag);
 }
 
 //----------------------------------------------------------------------------
