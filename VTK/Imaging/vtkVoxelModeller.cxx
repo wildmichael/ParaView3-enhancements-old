@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoxelModeller.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:38:09 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1995-08-17 19:22:47 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -44,9 +44,11 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkBitScalars.hh"
 
 // Description:
-// Construct with sample dimensions=(50,50,50) and so that model bounds are
-// automatically computer from input. Maximum distance is set to examine
-// whole grid.
+// Construct an instance of vtkVoxelModeller with its sample dimensions
+// set to (50,50,50) and so that the model bounds are
+// automatically computed from its input. The maximum distance is set to 
+// examine the whole grid. This could be made much faster and probably
+// will be in the future.
 vtkVoxelModeller::vtkVoxelModeller()
 {
   this->MaximumDistance = 1.0;
@@ -201,7 +203,7 @@ void vtkVoxelModeller::Execute()
 }
 
 // Description:
-// Compute ModelBounds from input geometry.
+// Compute the ModelBounds based on the input geometry.
 float vtkVoxelModeller::ComputeModelBounds()
 {
   float *bounds, maxDist;
