@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSynchronizedTemplates3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-20 13:34:44 $
-  Version:   $Revision: 1.55 $
+  Date:      $Date: 2001-12-28 15:35:45 $
+  Version:   $Revision: 1.56 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -825,14 +825,14 @@ void vtkSynchronizedTemplates3D::Execute()
     int firstPD=1;
     for (idx = 0; idx < this->NumberOfThreads; ++idx)
       {
-      threadPD = this->Threads[idx]->GetPointData();
-      
       if ( !this->Threads[idx] || 
            this->Threads[idx]->GetNumberOfPoints() <= 0 )
         {
         continue; //no input, just skip
         }
 
+      threadPD = this->Threads[idx]->GetPointData();
+      
       if ( firstPD )
         {
         ptList.InitializeFieldList(threadPD);
@@ -849,14 +849,14 @@ void vtkSynchronizedTemplates3D::Execute()
 
     for (idx = 0; idx < this->NumberOfThreads; ++idx)
       {
-      threadCD = this->Threads[idx]->GetCellData();
-      
       if ( !this->Threads[idx] || 
            this->Threads[idx]->GetNumberOfPoints() <= 0 )
         {
         continue; //no input, just skip
         }
 
+      threadCD = this->Threads[idx]->GetCellData();
+      
       if ( firstCD )
         {
         clList.InitializeFieldList(threadCD);
