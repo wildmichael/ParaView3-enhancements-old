@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeTextureMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-28 18:55:30 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2001-08-29 13:59:18 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -939,6 +939,9 @@ void vtkVolumeTextureMapper2D::InitializeRender( vtkRenderer *ren,
   
   worldToVoxelsTransform->TransformVectorAtPoint( vpn, pos, vpn );
   
+  volMatrix->Delete();
+  voxelsTransform->Delete();
+  worldToVoxelsTransform->Delete();
                                                   
   if ( fabs(vpn[0]) >= fabs(vpn[1]) && fabs(vpn[0]) >= fabs(vpn[2]) )
     {
