@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorObserver.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-29 14:14:09 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-03-30 11:29:26 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,7 +19,7 @@
 #include "vtkCallbackCommand.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkInteractorObserver, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkInteractorObserver, "$Revision: 1.4 $");
 
 vtkInteractorObserver::vtkInteractorObserver()
 {
@@ -61,6 +61,7 @@ void vtkInteractorObserver::SetInteractor(vtkRenderWindowInteractor* i)
   // if we already have an Interactor then stop observing it
   if (this->Interactor)
     {
+    this->SetEnabled(0); //disable the old interactor
     this->Interactor->RemoveObserver(this->KeypressCallbackCommand);
     }
 
