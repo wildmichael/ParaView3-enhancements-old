@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: otherArrays.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-15 15:29:38 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2002-06-18 13:15:56 $
+  Version:   $Revision: 1.13 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -32,7 +32,7 @@
 #define SIZE 1000
 
 template <class T, class A, class V>
-static int doArrayTest (ostream& strm, T *ptr, A *array, V value, int size)
+int doArrayTest (ostream& strm, T *ptr, A *array, V value, int size)
 {
   T *ptr2;
   float tuple1[SIZE/100];
