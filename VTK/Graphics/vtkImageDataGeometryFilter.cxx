@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDataGeometryFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-17 02:05:38 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2003-02-28 17:25:43 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 #include "vtkPointData.h"
 #include "vtkPolyData.h"
 
-vtkCxxRevisionMacro(vtkImageDataGeometryFilter, "$Revision: 1.7 $");
+vtkCxxRevisionMacro(vtkImageDataGeometryFilter, "$Revision: 1.8 $");
 vtkStandardNewMacro(vtkImageDataGeometryFilter);
 
 // Construct with initial extent of all the data
@@ -67,6 +67,12 @@ void vtkImageDataGeometryFilter::Execute()
   outCD = output->GetCellData();
 //  this->PointData.CopyNormalsOff();
   dims = input->GetDimensions();
+
+  if (dims[0] <= 0 || dims[1] <= 0 || dims[2] <= 0)
+    {
+    return;
+    }
+
 //
 // Based on the dimensions of the structured data, and the extent of the geometry,
 // compute the combined extent plus the dimensionality of the data
