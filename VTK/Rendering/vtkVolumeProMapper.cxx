@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-14 19:04:24 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-07-23 18:50:21 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -654,7 +654,7 @@ void vtkVolumeProMapper::UpdateVolume( vtkRenderer *ren, vtkVolume *vol )
   unsigned char		    *uc_data_ptr;
   unsigned short	    *us_data_ptr;
   void                      *data_ptr;
-  vtkStructuredPoints       *input = (vtkStructuredPoints *)this->Input;
+  vtkStructuredPoints       *input = this->GetInput();
   vtkTransform              *volumeTransform;
   vtkTransform              *scalarTransform;
   int                       i, j;
@@ -889,14 +889,14 @@ void vtkVolumeProMapper::Render( vtkRenderer *ren, vtkVolume *vol )
     }
 
   // make sure that we have scalar input and update the scalar input
-  if ( this->Input == NULL ) 
+  if ( this->GetInput() == NULL ) 
     {
     vtkErrorMacro(<< "No Input!");
     return;
     }
   else
     {
-    this->Input->Update();
+    this->GetInput()->Update();
     } 
 
   this->UpdateCamera( ren, vol );
