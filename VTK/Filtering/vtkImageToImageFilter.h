@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToImageFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:03:21 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-09-08 17:16:25 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -127,6 +127,7 @@ protected:
 
   vtkMultiThreader *Threader;
   int Bypass;
+  int BypassWasOn;
   int NumberOfThreads;
   
   // This is called by the superclass.
@@ -138,6 +139,8 @@ protected:
   void Execute();
   // This is the method you should override.
   virtual void Execute(vtkImageData *inData, vtkImageData *outData);
+  // scalars are allocated here.   
+  void StreamExecuteStart(); 
 
   // Overide this if your filter is not a pixel for pixel operation.
   // Given outExt, tell me what you need for inExt.
