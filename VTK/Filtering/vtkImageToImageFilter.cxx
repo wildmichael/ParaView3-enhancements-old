@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToImageFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-04 17:23:42 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-08-04 17:49:00 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -129,7 +129,7 @@ int vtkImageToImageFilter::ComputeDivisionExtents(vtkDataObject *output,
   if (input == NULL)
     {
     vtkErrorMacro("No input");
-    return;
+    return 0;
     }
   
   outExt = this->GetOutput()->GetUpdateExtent();

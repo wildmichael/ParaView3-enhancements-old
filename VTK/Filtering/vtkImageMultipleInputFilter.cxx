@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMultipleInputFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-04 17:23:41 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1999-08-04 17:49:00 $
+  Version:   $Revision: 1.33 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -131,7 +131,7 @@ int vtkImageMultipleInputFilter::ComputeDivisionExtents(vtkDataObject *out,
   
   outExt = this->GetOutput()->GetUpdateExtent();
   actualSplits = this->SplitExtent(this->ExecuteExtent, outExt, 
-				   idx, numDivisions);
+				   division, numDivisions);
   
   if (idx < actualSplits)
     { // yes this is a vaid piece.
