@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkImageViewerWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-20 14:23:54 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1998-03-20 20:23:47 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -437,9 +437,10 @@ static int vtkTkImageViewerWidget_MakeImageViewer(struct vtkTkImageViewerWidget 
   TkWindow *winPtr2;
   Tcl_HashEntry *hPtr;
   int new_flag;
-  vtkImageWin32Viewer *ImageViewer;
+  vtkImageViewer *ImageViewer;
   TkWinDrawable *twdPtr;
   HWND parentWin;
+  vtkWin32ImageWindow *ImageWindow;
 
   if (self->ImageViewer)
     {
@@ -455,7 +456,7 @@ static int vtkTkImageViewerWidget_MakeImageViewer(struct vtkTkImageViewerWidget 
     {
     // Make the ImageViewer window.
     self->ImageViewer = vtkImageViewer::New();
-    ImageViewer = (vtkImageWin32Viewer *)(self->ImageViewer);
+    ImageViewer = (vtkImageViewer *)(self->ImageViewer);
     vtkTclGetObjectFromPointer(self->Interp, self->ImageViewer,
 			       vtkImageViewerCommand);
     self->IV = strdup(self->Interp->result);
@@ -465,7 +466,7 @@ static int vtkTkImageViewerWidget_MakeImageViewer(struct vtkTkImageViewerWidget 
     {
     self->ImageViewer = (vtkImageViewer *)
       vtkTclGetPointerFromObject(self->IV, "vtkImageViewer", self->Interp);
-    ImageViewer = (vtkImageWin32Viewer *)(self->ImageViewer);
+    ImageViewer = (vtkImageViewer *)(self->ImageViewer);
     }
   
   // Set the size
@@ -495,14 +496,15 @@ static int vtkTkImageViewerWidget_MakeImageViewer(struct vtkTkImageViewerWidget 
   //ImageViewer->GetDesiredColormap());
   
   self->ImageViewer->Render();  
+  ImageWindow = (vtkWin32ImageWindow *)self->ImageViewer->GetImageWindow();
 
 #if(TK_MAJOR_VERSION >=  8)
-  twdPtr = (TkWinDrawable*)Tk_AttachHWND(self->TkWin, ImageViewer->GetWindowId());
+  twdPtr = (TkWinDrawable*)Tk_AttachHWND(self->TkWin, ImageWindow->GetWindowId());
 #else
   twdPtr = (TkWinDrawable*) ckalloc(sizeof(TkWinDrawable));
   twdPtr->type = TWD_WINDOW;
   twdPtr->window.winPtr = winPtr;
-  twdPtr->window.handle = ImageViewer->GetWindowId();
+  twdPtr->window.handle = ImageWindow->GetWindowId();
 #endif
   
   self->OldProc = (WNDPROC)GetWindowLong(twdPtr->window.handle,GWL_WNDPROC);
