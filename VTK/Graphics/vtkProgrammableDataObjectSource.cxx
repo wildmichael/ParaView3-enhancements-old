@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProgrammableDataObjectSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-02 21:34:46 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-12-07 21:45:37 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -103,6 +103,15 @@ void vtkProgrammableDataObjectSource::PrintSelf(ostream& os, vtkIndent indent)
   vtkSource::PrintSelf(os,indent);
 
   os << indent << "Execute Time: " <<this->ExecuteTime.GetMTime() << "\n";
+
+  if ( this->ExecuteMethod )
+    {
+    os << indent << "An ExecuteMethod has been defined\n";
+    }
+  else
+    {
+    os << indent << "An ExecuteMethod has NOT been defined\n";
+    }
 
 }
 
