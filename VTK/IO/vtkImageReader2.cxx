@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader2.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-07-23 14:23:57 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2003-11-21 18:54:15 $
+  Version:   $Revision: 1.27 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -24,7 +24,7 @@
 
 #include <sys/stat.h>
 
-vtkCxxRevisionMacro(vtkImageReader2, "$Revision: 1.26 $");
+vtkCxxRevisionMacro(vtkImageReader2, "$Revision: 1.27 $");
 vtkStandardNewMacro(vtkImageReader2);
 
 #ifdef read
@@ -732,12 +732,3 @@ void vtkImageReader2::SetDataScalarType(int type)
   // Set the default output scalar type
   this->GetOutput()->SetScalarType(this->DataScalarType);
 }
-
-//----------------------------------------------------------------------------
-#ifndef VTK_REMOVE_LEGACY_CODE
-vtkImageReader2* vtkImageReader2::MakeObject()
-{
-  VTK_LEGACY_METHOD(MakeObject, "4.2");
-  return this->NewInstance();
-}
-#endif
