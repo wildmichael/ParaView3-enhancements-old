@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSpatialFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-10-03 12:06:03 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1996-10-17 21:04:09 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -330,7 +330,7 @@ void vtkImageSpatialFilter::ExecuteCenter(int dim,
 
   
   // Terminate recursion?
-  if (dim <= this->NumberOfAxes)
+  if (dim <= this->Dimensionality)
     {
     this->ExecuteCenter(inRegion, outRegion);
     return;
