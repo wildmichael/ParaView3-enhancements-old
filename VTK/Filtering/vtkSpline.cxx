@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSpline.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:29:48 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2000-04-28 18:12:42 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -108,7 +108,7 @@ unsigned long vtkSpline::GetMTime()
   return mTime;
 }
 
-void vtkSpline::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkSpline::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkObject::PrintSelf(os,indent);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitVolume.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:28:57 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2000-04-28 18:11:51 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -185,7 +185,7 @@ void vtkImplicitVolume::EvaluateGradient(float x[3], float n[3])
   gradient->Delete();
 }
 
-void vtkImplicitVolume::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkImplicitVolume::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkImplicitFunction::PrintSelf(os,indent);
 

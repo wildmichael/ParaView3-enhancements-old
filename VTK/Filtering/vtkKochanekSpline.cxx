@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKochanekSpline.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:29:02 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2000-04-28 18:11:56 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -398,7 +398,7 @@ void vtkKochanekSpline::Fit1D (int size, float *x, float *y,
   }
 }
 
-void vtkKochanekSpline::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkKochanekSpline::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkSpline::PrintSelf(os,indent);
   os << indent << "DefaultBias: " << this->DefaultBias << "\n";

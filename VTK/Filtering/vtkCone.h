@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCone.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:28:23 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2000-04-28 18:11:15 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -65,7 +65,7 @@ public:
   static vtkCone *New();
 
   vtkTypeMacro(vtkCone,vtkImplicitFunction);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
   
   // Description
   // Evaluate cone equation.

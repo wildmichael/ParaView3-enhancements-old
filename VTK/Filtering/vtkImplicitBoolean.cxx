@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitBoolean.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:28:54 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2000-04-28 18:11:47 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -253,7 +253,7 @@ void vtkImplicitBoolean::EvaluateGradient(float x[3], float g[3])
     }//else
 }
 
-void vtkImplicitBoolean::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkImplicitBoolean::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkImplicitFunction::PrintSelf(os,indent);
 

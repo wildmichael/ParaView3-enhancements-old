@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCone.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:28:23 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2000-04-28 18:11:15 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -85,7 +85,7 @@ void vtkCone::EvaluateGradient(float x[3], float g[3])
   g[2] = 2.0*x[2];
 }
 
-void vtkCone::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkCone::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkImplicitFunction::PrintSelf(os,indent);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitDataSet.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:28:55 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2000-04-28 18:11:48 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -201,7 +201,7 @@ void vtkImplicitDataSet::EvaluateGradient(float x[3], float n[3])
     }
 }
 
-void vtkImplicitDataSet::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkImplicitDataSet::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkImplicitFunction::PrintSelf(os,indent);
 

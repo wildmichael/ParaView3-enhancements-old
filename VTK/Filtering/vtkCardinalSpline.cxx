@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCardinalSpline.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:28:17 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2000-04-28 18:11:09 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -453,7 +453,7 @@ void vtkCardinalSpline::FitClosed1D (int size, float *x, float *y,
   coefficients[N][3] = coefficients[0][3];
 }
 
-void vtkCardinalSpline::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkCardinalSpline::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkSpline::PrintSelf(os,indent);
 }

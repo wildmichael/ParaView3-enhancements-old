@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitBoolean.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:28:54 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2000-04-28 18:11:48 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -71,7 +71,7 @@ class VTK_EXPORT vtkImplicitBoolean : public vtkImplicitFunction
 {
 public:
   vtkTypeMacro(vtkImplicitBoolean,vtkImplicitFunction);
-  void PrintSelf(vtkOstream& os, vtkIndent indent);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Default boolean method is union.

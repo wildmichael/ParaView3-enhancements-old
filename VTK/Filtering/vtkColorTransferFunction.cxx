@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkColorTransferFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:28:22 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2000-04-28 18:11:15 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -349,7 +349,7 @@ void vtkColorTransferFunction::BuildFunctionFromTable( float x1, float x2,
 
 
 // Print method for vtkColorTransferFunction
-void vtkColorTransferFunction::PrintSelf(vtkOstream& os, vtkIndent indent)
+void vtkColorTransferFunction::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkScalarsToColors::PrintSelf(os, indent);
 
