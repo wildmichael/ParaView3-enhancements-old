@@ -1,45 +1,45 @@
 /*=========================================================================
 
-  Program:   Visualization Library
+  Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMaskPolyData.h,v $
   Language:  C++
-  Date:      $Date: 1994-09-24 14:38:58 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1995-06-29 17:54:14 $
+  Version:   $Revision: 1.5 $
 
-This file is part of the Visualization Library. No part of this file
+This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
 without the express written consent of the authors.
 
 Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994 
 
 =========================================================================*/
-// .NAME vlMaskPolyData - sample subset of input polygonal data
+// .NAME vtkMaskPolyData - sample subset of input polygonal data
 // .SECTION Description
-// vlMaskPolyData is a filter that sub-samples input polygonal data. The user
+// vtkMaskPolyData is a filter that sub-samples input polygonal data. The user
 // specifies every nth item, with an initial offset to begin sampling.
 
-#ifndef __vlMaskPolyData_h
-#define __vlMaskPolyData_h
+#ifndef __vtkMaskPolyData_h
+#define __vtkMaskPolyData_h
 
 #include "P2PF.hh"
 
-class vlMaskPolyData : public vlPolyToPolyFilter
+class vtkMaskPolyData : public vtkPolyToPolyFilter
 {
 public:
-  vlMaskPolyData();
-  ~vlMaskPolyData() {};
-  char *GetClassName() {return "vlMaskPolyData";};
-  void PrintSelf(ostream& os, vlIndent indent);
+  vtkMaskPolyData();
+  ~vtkMaskPolyData() {};
+  char *GetClassName() {return "vtkMaskPolyData";};
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Turn on every nth entity
-  vlSetClampMacro(OnRatio,int,1,LARGE_INTEGER);
-  vlGetMacro(OnRatio,int);
+  vtkSetClampMacro(OnRatio,int,1,LARGE_INTEGER);
+  vtkGetMacro(OnRatio,int);
 
   // Description:
   // Start with this point
-  vlSetClampMacro(Offset,int,0,LARGE_INTEGER);
-  vlGetMacro(Offset,int);
+  vtkSetClampMacro(Offset,int,0,LARGE_INTEGER);
+  vtkGetMacro(Offset,int);
 
 protected:
   void Execute();

@@ -1,35 +1,35 @@
 /*=========================================================================
 
-  Program:   Visualization Library
+  Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetToStructuredPointsFilter.h,v $
   Language:  C++
-  Date:      $Date: 1995-05-05 15:51:49 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1995-06-29 17:53:32 $
+  Version:   $Revision: 1.9 $
 
-This file is part of the Visualization Library. No part of this file
+This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
 without the express written consent of the authors.
 
 Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994 
 
 =========================================================================*/
-// .NAME vlDataSetToStructuredPointsFilter - abstract filter class
+// .NAME vtkDataSetToStructuredPointsFilter - abstract filter class
 // .SECTION Description
-// vlDataSetToStructuredPointsFilter is an abstract filter class whose
+// vtkDataSetToStructuredPointsFilter is an abstract filter class whose
 // subclasses take as input any dataset and generate structured points 
 // data on output.
 
-#ifndef __vlDataSetToStructuredPointsFilter_h
-#define __vlDataSetToStructuredPointsFilter_h
+#ifndef __vtkDataSetToStructuredPointsFilter_h
+#define __vtkDataSetToStructuredPointsFilter_h
 
 #include "DataSetF.hh"
 #include "StrPts.hh"
 
-class vlDataSetToStructuredPointsFilter : public vlStructuredPoints, public vlDataSetFilter
+class vtkDataSetToStructuredPointsFilter : public vtkStructuredPoints, public vtkDataSetFilter
 {
 public:
-  char *GetClassName() {return "vlDataSetToStructuredPointsFilter";};
-  void PrintSelf(ostream& os, vlIndent indent);
+  char *GetClassName() {return "vtkDataSetToStructuredPointsFilter";};
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Object interface
   void Modified();

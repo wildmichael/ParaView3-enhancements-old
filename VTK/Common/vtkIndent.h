@@ -1,12 +1,12 @@
 /*=========================================================================
 
-  Program:   Visualization Library
+  Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIndent.h,v $
   Language:  C++
-  Date:      $Date: 1994-07-13 16:30:31 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1995-06-29 17:54:01 $
+  Version:   $Revision: 1.3 $
 
-This file is part of the Visualization Library. No part of this file or its 
+This file is part of the Visualization Toolkit. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
 written consent of the authors.
 
@@ -14,24 +14,24 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 
 =========================================================================*/
 
-// .NAME vlIndent - control print indentation
+// .NAME vtkIndent - control print indentation
 // .SECTION Description
-// vlIndent is used to control indentation during the chaining print 
+// vtkIndent is used to control indentation during the chaining print 
 // process.
 
-#ifndef __vlIndent_h
-#define __vlIndent_h
+#ifndef __vtkIndent_h
+#define __vtkIndent_h
 
 #include <iostream.h>
 
-class vlIndent
+class vtkIndent
 {
 public:
-  vlIndent(int ind=0) {this->Indent=ind;};
-  vlIndent GetNextIndent();
+  vtkIndent(int ind=0) {this->Indent=ind;};
+  vtkIndent GetNextIndent();
   int Indent;
 
-friend ostream& operator<<(ostream& os, vlIndent& ind);
+friend ostream& operator<<(ostream& os, vtkIndent& ind);
 };
 
 #endif
