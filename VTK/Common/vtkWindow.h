@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWindow.h,v $
   Language:  C++
-  Date:      $Date: 1997-10-16 18:48:32 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-03-10 22:30:17 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -109,6 +109,18 @@ public:
   // Get name of rendering window
   vtkGetStringMacro(WindowName);
   virtual void SetWindowName(char * );
+
+  // Description:
+  // Get the pixel data of an image, transmitted as RGBRGBRGB. The
+  // front argument indicates if the front buffer should be used or the back 
+  // buffer. It is the caller's responsibility to delete the resulting 
+  // array. It is very important to realize that the memory in this array
+  // is organized from the bottom of the window to the top. The origin
+  // of the screen is in the lower left corner. The y axis increases as
+  // you go up the screen. So the storage of pixels is from left to right
+  // and from bottom to top.
+  virtual unsigned char *GetPixelData(int, int, int, int, int) 
+  {return (unsigned char *)NULL;};
 
 protected:
   char *WindowName;
