@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-07-14 15:09:44 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2000-09-19 17:48:20 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -49,7 +49,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #endif
 #include "vtkObjectFactory.h"
 
-
+#ifndef VTK_IMPLEMENT_MESA_CXX
 //-------------------------------------------------------------------------
 vtkOpenGLActor* vtkOpenGLActor::New()
 {
@@ -62,6 +62,7 @@ vtkOpenGLActor* vtkOpenGLActor::New()
   // If the factory was unable to create the object, then create it here.
   return new vtkOpenGLActor;
 }
+#endif
 
 // Actual actor render method.
 void vtkOpenGLActor::Render(vtkRenderer *ren, vtkMapper *mapper)

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLProperty.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:06:00 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2000-09-19 17:48:20 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -51,7 +51,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkObjectFactory.h"
 
 
-
+#ifndef VTK_IMPLEMENT_MESA_CXX
 //------------------------------------------------------------------------------
 vtkOpenGLProperty* vtkOpenGLProperty::New()
 {
@@ -64,7 +64,7 @@ vtkOpenGLProperty* vtkOpenGLProperty::New()
   // If the factory was unable to create the object, then create it here.
   return new vtkOpenGLProperty;
 }
-
+#endif
 
 
 

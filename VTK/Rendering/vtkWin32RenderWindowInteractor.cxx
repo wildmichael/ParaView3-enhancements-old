@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32RenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-09-13 13:36:09 $
-  Version:   $Revision: 1.64 $
+  Date:      $Date: 2000-09-19 17:48:20 $
+  Version:   $Revision: 1.65 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -53,7 +53,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkObjectFactory.h"
 
 
-
+#ifndef VTK_IMPLEMENT_MESA_CXX
 //----------------------------------------------------------------------------
 vtkWin32RenderWindowInteractor* vtkWin32RenderWindowInteractor::New()
 {
@@ -66,7 +66,7 @@ vtkWin32RenderWindowInteractor* vtkWin32RenderWindowInteractor::New()
   // If the factory was unable to create the object, then create it here.
   return new vtkWin32RenderWindowInteractor;
 }
-
+#endif
 
 
 

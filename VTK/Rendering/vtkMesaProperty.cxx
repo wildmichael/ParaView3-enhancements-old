@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaProperty.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:05:51 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2000-09-19 17:48:20 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -69,3 +69,15 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define vtkOpenGLProperty vtkMesaProperty
 #include "vtkOpenGLProperty.cxx"
 #undef vtkOpenGLProperty
+//------------------------------------------------------------------------------
+vtkMesaProperty* vtkMesaProperty::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkMesaProperty");
+  if(ret)
+    {
+    return (vtkMesaProperty*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkMesaProperty;
+}

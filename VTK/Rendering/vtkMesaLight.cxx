@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaLight.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:05:49 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2000-09-19 17:48:20 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -69,3 +69,17 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define vtkOpenGLLight vtkMesaLight
 #include "vtkOpenGLLight.cxx"
 #undef vtkOpenGLLight
+
+
+//------------------------------------------------------------------------------
+vtkMesaLight* vtkMesaLight::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkMesaLight");
+  if(ret)
+    {
+    return (vtkMesaLight*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkMesaLight;
+}

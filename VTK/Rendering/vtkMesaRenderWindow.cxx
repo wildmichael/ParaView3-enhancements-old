@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-18 19:05:13 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2000-09-19 17:48:20 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -48,6 +48,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkMesaActor.h"
 #include "vtkMesaPolyDataMapper.h"
 #include "vtkIdList.h"
+#include "vtkObjectFactory.h"
 
 #define VTK_MAX_LIGHTS 8
 
@@ -60,6 +61,19 @@ void vtkOSMesaDestroyWindow(void *Window)
 void *vtkOSMesaCreateWindow(int width, int height) 
 {
   return malloc(width*height*4);
+}
+
+
+vtkMesaRenderWindow *vtkMesaRenderWindow::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkMesaRenderWindow");
+  if(ret)
+    {
+    return (vtkMesaRenderWindow*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkMesaRenderWindow;
 }
 
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLImageActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-06-28 17:45:23 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2000-09-19 17:48:20 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -56,7 +56,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkObjectFactory.h"
 
 
-
+#ifndef VTK_IMPLEMENT_MESA_CXX
 //-----------------------------------------------------------------------------
 vtkOpenGLImageActor* vtkOpenGLImageActor::New()
 {
@@ -69,6 +69,7 @@ vtkOpenGLImageActor* vtkOpenGLImageActor::New()
   // If the factory was unable to create the object, then create it here.
   return new vtkOpenGLImageActor;
 }
+#endif
 
 // Initializes an instance, generates a unique index.
 vtkOpenGLImageActor::vtkOpenGLImageActor()

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-23 15:48:35 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2000-09-19 17:48:20 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -64,7 +64,7 @@ public:
   GLuint PickedId;
 };
 
-
+#ifndef VTK_IMPLEMENT_MESA_CXX
 //---------------------------------------------------------------------------
 vtkOpenGLRenderer* vtkOpenGLRenderer::New()
 {
@@ -77,6 +77,7 @@ vtkOpenGLRenderer* vtkOpenGLRenderer::New()
   // If the factory was unable to create the object, then create it here.
   return new vtkOpenGLRenderer;
 }
+#endif
 
 #define VTK_MAX_LIGHTS 8
 

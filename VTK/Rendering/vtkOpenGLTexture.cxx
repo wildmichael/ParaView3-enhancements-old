@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLTexture.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-04 08:25:48 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2000-09-19 17:48:20 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -56,7 +56,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkObjectFactory.h"
 
 
-
+#ifndef VTK_IMPLEMENT_MESA_CXX
 //------------------------------------------------------------------------------
 vtkOpenGLTexture* vtkOpenGLTexture::New()
 {
@@ -69,7 +69,7 @@ vtkOpenGLTexture* vtkOpenGLTexture::New()
   // If the factory was unable to create the object, then create it here.
   return new vtkOpenGLTexture;
 }
-
+#endif
 
 // Initializes an instance, generates a unique index.
 vtkOpenGLTexture::vtkOpenGLTexture()

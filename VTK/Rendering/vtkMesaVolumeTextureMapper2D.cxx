@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaVolumeTextureMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:05:53 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2000-09-19 17:48:20 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -69,3 +69,15 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define vtkOpenGLVolumeTextureMapper2D vtkMesaVolumeTextureMapper2D
 #include "vtkOpenGLVolumeTextureMapper2D.cxx"
 #undef vtkOpenGLVolumeTextureMapper2D
+//------------------------------------------------------------------------------
+vtkMesaVolumeTextureMapper2D* vtkMesaVolumeTextureMapper2D::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkMesaVolumeTextureMapper2D");
+  if(ret)
+    {
+    return (vtkMesaVolumeTextureMapper2D*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkMesaVolumeTextureMapper2D;
+}

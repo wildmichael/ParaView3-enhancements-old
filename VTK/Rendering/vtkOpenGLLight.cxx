@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLLight.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-08 15:40:59 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2000-09-19 17:48:20 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -49,7 +49,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkObjectFactory.h"
 
 
-
+#ifndef VTK_IMPLEMENT_MESA_CXX
 //------------------------------------------------------------------------------
 vtkOpenGLLight* vtkOpenGLLight::New()
 {
@@ -62,7 +62,7 @@ vtkOpenGLLight* vtkOpenGLLight::New()
   // If the factory was unable to create the object, then create it here.
   return new vtkOpenGLLight;
 }
-
+#endif
 
 
 
