@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRungeKutta4.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:17 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-04-24 00:38:35 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -159,7 +159,7 @@ float vtkRungeKutta4::ComputeNextStep(float* xprev, float* dxprev,
 
   for(i=0; i<numVals-1; i++)
     {
-    this->Vals[i] = xprev[i] + delT*this->NextDerivs[0][i];
+    this->Vals[i] = xprev[i] + delT*this->NextDerivs[1][i];
     }
   this->Vals[numVals-1] = t + delT;
 
