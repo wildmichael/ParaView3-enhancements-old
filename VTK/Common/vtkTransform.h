@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransform.h,v $
   Language:  C++
-  Date:      $Date: 1999-04-29 12:09:54 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 1999-04-29 15:59:28 $
+  Version:   $Revision: 1.44 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -130,23 +130,23 @@ class VTK_EXPORT vtkTransform : public vtkObject
   // Creates a matrix that rotates angle degrees about an axis through the
   // origin and x, y, z. It then concatenates this matrix with the current
   // transformation matrix.
-  void RotateWXYZ ( float angle, float x, float y, float z);
 //BTX
-  void RotateWXYZ (double angle, double x, double y, double z);
+  void RotateWXYZ ( float angle, float x, float y, float z);
 //ETX
+  void RotateWXYZ (double angle, double x, double y, double z);
   // Description:
   // Scales the current transformation matrix in the x, y and z directions.
   // A scale factor of zero will automatically be replaced with one.
-  void Scale ( float x, float y, float z);
 //BTX
-  void Scale ( double x, double y, double z);
+  void Scale ( float x, float y, float z);
 //ETX
+  void Scale ( double x, double y, double z);
   // Description:
   // Translate the current transformation matrix by the vector {x, y, z}.
-  void Translate ( float x, float y, float z);
 //BTX
-  void Translate ( double x, double y, double z);
+  void Translate ( float x, float y, float z);
 //ETX
+  void Translate ( double x, double y, double z);
   // Description:
   // Transposes the current transformation matrix.
   void Transpose();
