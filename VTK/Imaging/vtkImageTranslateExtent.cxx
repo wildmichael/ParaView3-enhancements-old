@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageTranslateExtent.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:09:19 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-11-10 14:19:19 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -150,6 +150,7 @@ void vtkImageTranslateExtent::InternalUpdate(vtkDataObject *data)
     }
   outData->SetExtent(extent);
   outData->GetPointData()->PassData(inData->GetPointData());
+  outData->DataHasBeenGenerated();
   
   // release input data
   if (this->GetInput()->ShouldIReleaseData())

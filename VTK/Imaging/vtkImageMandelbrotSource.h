@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMandelbrotSource.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:09:03 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-11-10 14:19:19 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -124,7 +124,7 @@ protected:
 
   void Execute(vtkImageData *outData);
   void ExecuteInformation();
-  unsigned short EvaluateSet(double p[4]);
+  float EvaluateSet(double p[4]);
 };
 
 
