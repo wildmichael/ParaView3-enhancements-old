@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkRenderWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-04-17 13:49:00 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1997-04-24 20:29:51 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -287,22 +287,24 @@ static void vtkTkRenderWidget_EventProc(ClientData clientData,
     {
     case Expose:
       if ((eventPtr->xexpose.count == 0)
-	  /* && !self->UpdatePending*/) 
-	{
-	self->RenderWindow->Render();
-	}
+	    /* && !self->UpdatePending*/) 
+	      {
+	      self->RenderWindow->Render();
+	      }
       break;
     case ConfigureNotify:
       if ( 1 /*Tk_IsMapped(self->TkWin)*/ ) 
-	{
-	self->Width = Tk_Width(self->TkWin);
-	self->Height = Tk_Height(self->TkWin);
-	if (self->RenderWindow)
-	  {
-	  self->RenderWindow->SetSize(self->Width, self->Height);
-	  }
-	//vtkTkRenderWidget_PostRedisplay(self);
-	}
+        {
+	      self->Width = Tk_Width(self->TkWin);
+	      self->Height = Tk_Height(self->TkWin);
+        Tk_GeometryRequest(self->TkWin,self->Width,self->Height);
+	      if (self->RenderWindow)
+	        {
+          self->RenderWindow->SetPosition(Tk_X(self->TkWin),Tk_Y(self->TkWin));
+	        self->RenderWindow->SetSize(self->Width, self->Height);
+	        }
+	      //vtkTkRenderWidget_PostRedisplay(self);
+	      }
       break;
     case MapNotify:
       break;
@@ -359,17 +361,12 @@ LRESULT APIENTRY vtkTkRenderWidgetProc(HWND hWnd, UINT message,
     rval = TkWinTopLevelProc(hWnd,message,wParam,lParam);
     }
 
-
-  switch (message) 
-    {
-    case WM_DESTROY:
-    case WM_PALETTECHANGED:
-    case WM_QUERYNEWPALETTE:
-      // now do the original vtk proc for some messages
+    if (message != WM_PAINT)
+      {
       SetWindowLong(hWnd,GWL_USERDATA,(LONG)self->RenderWindow);
       SetWindowLong(hWnd,GWL_WNDPROC,(LONG)self->OldProc);
       self->OldProc(hWnd,message,wParam,lParam);
-    }
+      }
 
   // now reset to the original config
   SetWindowLong(hWnd,GWL_USERDATA,(LONG)self);
