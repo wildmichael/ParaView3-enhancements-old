@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCamera.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-09-12 07:14:26 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 1995-09-17 19:54:09 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -650,9 +650,9 @@ void vtkCamera::OrthogonalizeViewUp()
 
 // Description:
 // Move the position of the camera along the view plane normal. Moving
-// towards the focal point (e.g., zoom>1) is a zoom-in, moving away 
-// from the focal point (e.g., zoom<1) is a zoom-out.
-void vtkCamera::Zoom(float amount)
+// towards the focal point (e.g., > 1) is a dolly-in, moving away 
+// from the focal point (e.g., < 1) is a dolly-out.
+void vtkCamera::Dolly(float amount)
 {
   float	distance;
   
@@ -664,6 +664,18 @@ void vtkCamera::Zoom(float amount)
   this->SetPosition(this->FocalPoint[0] +distance * this->ViewPlaneNormal[0],
 		    this->FocalPoint[1] +distance * this->ViewPlaneNormal[1],
 		    this->FocalPoint[2] +distance * this->ViewPlaneNormal[2]);
+}
+
+// Description:
+// Change the ViewAngle of the camera so that more or less of a scene 
+// occupies the viewport. A value > 1 is a zoom-in. A value < 1 is a zoom-out.
+void vtkCamera::Zoom(float amount)
+{
+  float	distance;
+  
+  if (amount <= 0.0) return;
+  
+  this->ViewAngle = this->ViewAngle/amount;
 }
 
 
