@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBoxWidget.h,v $
   Language:  C++
-  Date:      $Date: 2002-09-05 14:46:01 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2003-06-18 18:56:43 $
+  Version:   $Revision: 1.14 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -106,7 +106,6 @@ public:
                    float zmin, float zmax)
     {this->Superclass::PlaceWidget(xmin,xmax,ymin,ymax,zmin,zmax);}
 
-
   // Description:
   // Get the planes describing the implicit function defined by the box
   // widget. The user must provide the instance of the class vtkPlanes. Note
@@ -131,6 +130,13 @@ public:
   // transform can be used to control the position of vtkProp3D's, as well as
   // other transformation operations (e.g., vtkTranformPolyData).
   void GetTransform(vtkTransform *t);
+
+  // Description:
+  // Set the position, scale and orientation of the box widget using the
+  // transform specified. Note that the transformation is relative to 
+  // where PlaceWidget was initially called (i.e., the original bounding
+  // box). 
+  void SetTransform(vtkTransform* t);
 
   // Description:
   // Grab the polydata (including points) that define the box widget. The
