@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkImageViewerWidget.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:50:11 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-09-14 15:30:22 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -45,10 +45,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // GetImageViewer method that returns a vtkImageViewer. You can also 
 // specify a vtkImageViewer to be used when creating the widget by using
 // the -iv option. It also takes -width and -height options.
-
-
-// .SECTION Event Bindings
-// Events can be bound on this widget just liek any other Tk widget.
+// Events can be bound on this widget just like any other Tk widget.
 
 // .SECTION See Also
 // vtkImageViewer
