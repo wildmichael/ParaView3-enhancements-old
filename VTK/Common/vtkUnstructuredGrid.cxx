@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-01-07 08:57:17 $
-  Version:   $Revision: 1.69 $
+  Date:      $Date: 2000-01-13 13:23:53 $
+  Version:   $Revision: 1.70 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -611,8 +611,16 @@ unsigned long vtkUnstructuredGrid::GetActualMemorySize()
 
 void vtkUnstructuredGrid::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkDataSet::PrintSelf(os,indent);
-  
+  vtkPointSet::PrintSelf(os,indent);
+
+  os << indent << "Number Of Pieces: " << this->NumberOfPieces << endl;
+  os << indent << "Piece: " << this->Piece << endl;
+  os << indent << "Maximum Number Of Pieces: " << this->MaximumNumberOfPieces << endl;
+
+  os << indent << "UpdateExtent: " << this->UpdateExtent[0] << ", "
+     << this->UpdateExtent[1] << ", " << this->UpdateExtent[2] << ", "
+     << this->UpdateExtent[3] << ", " << this->UpdateExtent[4] << ", "
+     << this->UpdateExtent[5] << endl;
 }
 
 void vtkUnstructuredGrid::GetCellNeighbors(int cellId, vtkIdList *ptIds,
