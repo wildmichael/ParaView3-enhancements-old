@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSet.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-17 17:37:35 $
-  Version:   $Revision: 1.81 $
+  Date:      $Date: 2001-09-14 17:27:59 $
+  Version:   $Revision: 1.82 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -214,11 +214,6 @@ unsigned long int vtkDataSet::GetMTime()
   unsigned long mtime, result;
   
   result = vtkDataObject::GetMTime();
-  if (this->Source)
-    {
-    mtime = this->Source->GetMTime();
-    result = ( mtime > result ? mtime : result );
-    }
   
   mtime = this->PointData->GetMTime();
   result = ( mtime > result ? mtime : result );
