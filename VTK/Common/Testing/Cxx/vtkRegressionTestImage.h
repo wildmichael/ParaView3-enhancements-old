@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRegressionTestImage.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-24 14:26:40 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2002-09-30 20:37:21 $
+  Version:   $Revision: 1.26 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,17 +22,18 @@
 // example program. This capability is critical for regression testing.
 // This function returns 1 if test passed, 0 if test failed.
 
-#include <sys/stat.h>
-
-#include "vtkWindowToImageFilter.h"
+#include "vtkImageData.h"
+#include "vtkImageDifference.h"
+#include "vtkImageResample.h"
+#include "vtkImageShiftScale.h"
+#include "vtkJPEGWriter.h"
 #include "vtkPNGReader.h"
 #include "vtkPNGWriter.h"
-#include "vtkImageDifference.h"
-#include "vtkTestUtilities.h"
-#include "vtkImageResample.h"
-#include "vtkJPEGWriter.h"
-#include "vtkImageShiftScale.h"
 #include "vtkRenderWindow.h"
+#include "vtkTestUtilities.h"
+#include "vtkWindowToImageFilter.h"
+
+#include <sys/stat.h>
 
 class vtkRegressionTester
 {
