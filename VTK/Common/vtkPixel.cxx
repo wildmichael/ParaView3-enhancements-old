@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPixel.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-05-30 01:49:27 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1996-06-08 13:05:20 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -184,31 +184,9 @@ int vtkPixel::CellBoundary(int subId, float pcoords[3], vtkIdList& pts)
 //
 // Marching squares
 //
+#include "vtkMarchingSquaresCases.hh"
+
 static int edges[4][2] = { {0,1}, {1,3}, {3,2}, {2,0} };
-
-typedef int EDGE_LIST;
-typedef struct {
-       EDGE_LIST edges[5];
-} LINE_CASES;
-
-static LINE_CASES lineCases[] = { 
-  {{-1, -1, -1, -1, -1}},
-  {{0, 3, -1, -1, -1}},
-  {{1, 0, -1, -1, -1}},
-  {{1, 3, -1, -1, -1}},
-  {{2, 1, -1, -1, -1}},
-  {{0, 3, 2, 1, -1}},
-  {{2, 0, -1, -1, -1}},
-  {{2, 3, -1, -1, -1}},
-  {{3, 2, -1, -1, -1}},
-  {{0, 2, -1, -1, -1}},
-  {{1, 0, 3, 2, -1}},
-  {{1, 2, -1, -1, -1}},
-  {{3, 1, -1, -1, -1}},
-  {{0, 1, -1, -1, -1}},
-  {{3, 0, -1, -1, -1}},
-  {{-1, -1, -1, -1, -1}}
-};
 
 void vtkPixel::Contour(float value, vtkFloatScalars *cellScalars,
 		       vtkFloatPoints *points, 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalars.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-05-08 18:48:26 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1996-06-08 13:05:21 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,7 +58,7 @@ vtkScalars::~vtkScalars()
 }
 
 // Description:
-// Given a list of pt ids, return an array of scalar values.
+// Given a list of point ids, return an array of scalar values.
 void vtkScalars::GetScalars(vtkIdList& ptId, vtkFloatScalars& fs)
 {
   for (int i=0; i<ptId.GetNumberOfIds(); i++)
@@ -67,6 +67,19 @@ void vtkScalars::GetScalars(vtkIdList& ptId, vtkFloatScalars& fs)
     }
 }
 
+// Description:
+// Given a range of point ids [p1,p2], return an array of scalar values.
+// Make sure enough space has been allocated in the vtkFloatScalars object
+// to hold all the values.
+void vtkScalars::GetScalars(int p1, int p2, vtkFloatScalars& fs)
+{
+  int i, id;
+
+  for (i=0, id=p1; id <= p2; id++, i++)
+    {
+    fs.SetScalar(i,this->GetScalar(id));
+    }
+}
 
 // Description:
 // Return all the scalar values as a short scalar

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-05-30 13:54:44 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 1996-06-08 13:05:25 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -275,9 +275,9 @@ int vtkStructuredPoints::FindPoint(float x[3])
   
 }
 
-int vtkStructuredPoints::FindCell(float x[3], vtkCell *cell, float tol2, 
-                                 int& subId, float pcoords[3],
-                                 float *weights)
+int vtkStructuredPoints::FindCell(float x[3], vtkCell *vtkNotUsed(cell), 
+                                  float vtkNotUsed(tol2), int& subId, 
+                                  float pcoords[3], float *weights)
 {
   int i, loc[3];
   float d, floatLoc[3];
@@ -308,7 +308,7 @@ int vtkStructuredPoints::FindCell(float x[3], vtkCell *cell, float tol2,
          loc[1] * (this->Dimensions[0]-1) + loc[0];
 }
 
-int vtkStructuredPoints::GetCellType(int cellId)
+int vtkStructuredPoints::GetCellType(int vtkNotUsed(cellId))
 {
   switch (this->DataDescription)
     {
