@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActorCollection.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:35:03 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1995-08-14 22:23:02 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,9 +40,12 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 // .NAME vtkActorCollection - a list of actors
 // .SECTION Description
-// vtkActorCollection represents and provides methods to manipulate list of
+// vtkActorCollection represents and provides methods to manipulate a list of
 // actors (i.e., vtkActor and subclasses). The list is unsorted and duplicate
 // entries are not prevented.
+
+// .SECTION see also
+// vtkActor vtkCollection 
 
 #ifndef __vtkActorC_hh
 #define __vtkActorC_hh
@@ -62,14 +65,14 @@ class vtkActorCollection : public vtkCollection
 };
 
 // Description:
-// Add an actor to the list.
+// Adds an actor to the list.
 inline void vtkActorCollection::AddItem(vtkActor *a) 
 {
   this->vtkCollection::AddItem((vtkObject *)a);
 }
 
 // Description:
-// Remove an actor from the list.
+// Removes an actor from the list.
 inline void vtkActorCollection::RemoveItem(vtkActor *a) 
 {
   this->vtkCollection::RemoveItem((vtkObject *)a);
