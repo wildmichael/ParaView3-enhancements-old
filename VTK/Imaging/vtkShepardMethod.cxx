@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkShepardMethod.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-01 10:28:06 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1995-08-01 10:45:01 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,7 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "Shepard.hh"
+#include "vtkShepardMethod.hh"
 #include "vtkMath.hh"
 
 // Description:

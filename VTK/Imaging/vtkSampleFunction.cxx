@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSampleFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-01 10:28:04 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1995-08-01 10:45:00 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,10 +38,10 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "SampleF.hh"
+#include "vtkSampleFunction.hh"
 #include "vtkMath.hh"
-#include "FScalars.hh"
-#include "FNormals.hh"
+#include "vtkFloatScalars.hh"
+#include "vtkFloatNormals.hh"
 
 // Description:
 // Construct with ModelBounds=(-1,1,-1,1,-1,1), SampleDimensions=(50,50,50),

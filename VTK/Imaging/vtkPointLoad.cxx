@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPointLoad.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-01 10:28:03 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1995-08-01 10:44:59 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,9 +38,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "PtLoad.hh"
+#include "vtkPointLoad.hh"
 #include "vtkMath.hh"
-#include "FTensors.hh"
+#include "vtkFloatTensors.hh"
 
 // Description:
 // Construct with ModelBounds=(-1,1,-1,1,-1,1), SampleDimensions=(50,50,50),
