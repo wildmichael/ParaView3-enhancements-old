@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-05 17:43:52 $
-  Version:   $Revision: 1.99 $
+  Date:      $Date: 2002-10-31 17:28:06 $
+  Version:   $Revision: 1.100 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -213,6 +213,7 @@ public:
   // Description:
   // For access to data from tcl
   float GetScalarComponentAsFloat(int x, int y, int z, int component);
+  void SetScalarComponentFromFloat(int x, int y, int z, int component, float v);
   
   // Description:
   // Allocate the vtkScalars object associated with this object.
