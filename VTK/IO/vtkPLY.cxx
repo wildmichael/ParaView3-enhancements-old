@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPLY.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-07 19:38:54 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2002-03-24 20:01:34 $
+  Version:   $Revision: 1.16 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -185,7 +185,8 @@ PlyFile *vtkPLY::ply_open_for_writing(
   plyInitialize();
 
   /* tack on the extension .ply, if necessary */
-  name = (char *) myalloc (sizeof (char) * (strlen (filename) + 5));
+  name = (char *) myalloc (sizeof (char) * 
+                           (static_cast<int>(strlen (filename)) + 5));
   strcpy (name, filename);
   if (strlen (name) < 4 ||
       strcmp (name + strlen (name) - 4, ".ply") != 0)
@@ -804,7 +805,8 @@ PlyFile *vtkPLY::ply_open_for_reading(
 
   /* tack on the extension .ply, if necessary */
 
-  name = (char *) myalloc (sizeof (char) * (strlen (filename) + 5));
+  name = (char *) myalloc (sizeof (char) * 
+                           (static_cast<int>(strlen (filename) + 5)));
   strcpy (name, filename);
   if (strlen (name) < 4 ||
       strcmp (name + strlen (name) - 4, ".ply") != 0)

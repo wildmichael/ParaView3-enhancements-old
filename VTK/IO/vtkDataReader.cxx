@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-13 02:20:11 $
-  Version:   $Revision: 1.121 $
+  Date:      $Date: 2002-03-24 20:01:33 $
+  Version:   $Revision: 1.122 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -38,7 +38,7 @@
 #include <ctype.h>
 #include <sys/stat.h>
 
-vtkCxxRevisionMacro(vtkDataReader, "$Revision: 1.121 $");
+vtkCxxRevisionMacro(vtkDataReader, "$Revision: 1.122 $");
 vtkStandardNewMacro(vtkDataReader);
 
 // this undef is required on the hp. vtkMutexLock ends up including
@@ -145,7 +145,7 @@ void vtkDataReader::SetInputString(const char *in)
 { 
   if (in != NULL)
     {
-    this->SetInputString(in, strlen(in));
+    this->SetInputString(in, static_cast<int>(strlen(in)));
     }
   else
     {
@@ -2141,7 +2141,7 @@ void vtkDataReader::DecodeArrayName(char *resname, const char* name)
   //strcpy(resname, name);
   ostrstream str;
   int cc = 0, ch;
-  int len = strlen(name);
+  int len = static_cast<int>(strlen(name));
   char buffer[10] = "0x";
   while(name[cc]) 
     {

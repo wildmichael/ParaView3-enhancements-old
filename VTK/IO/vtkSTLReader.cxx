@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSTLReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-01 14:01:55 $
-  Version:   $Revision: 1.62 $
+  Date:      $Date: 2002-03-24 20:01:35 $
+  Version:   $Revision: 1.63 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 #include <ctype.h>
 #include <string.h>
 
-vtkCxxRevisionMacro(vtkSTLReader, "$Revision: 1.62 $");
+vtkCxxRevisionMacro(vtkSTLReader, "$Revision: 1.63 $");
 vtkStandardNewMacro(vtkSTLReader);
 
 #define VTK_ASCII 0
@@ -360,7 +360,7 @@ int vtkSTLReader::GetSTLFileType(FILE *fp)
   //  Read a little from the file to figure what type it is.
   //
   // skip 255 characters so we are past any first line comment */
-  numChars = fread ((unsigned char *)header, 1, 255, fp);
+  numChars = static_cast<int>(fread ((unsigned char *)header, 1, 255, fp));
   for (i = 0, type=VTK_ASCII; i< numChars && type == VTK_ASCII; i++) // don't test \0
     {
     if (header[i] > 127)

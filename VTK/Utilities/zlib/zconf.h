@@ -3,7 +3,7 @@
  * For conditions of distribution and use, see copyright notice in zlib.h 
  */
 
-/* @(#) $Id: zconf.h,v 1.5 2002-02-27 23:27:55 andy Exp $ */
+/* @(#) $Id: zconf.h,v 1.6 2002-03-24 20:01:36 andy Exp $ */
 
 #ifndef _ZCONF_H
 #define _ZCONF_H
@@ -283,6 +283,7 @@ typedef uLong FAR uLongf;
 #pragma warning ( disable : 4127 ) /* cond expr is constant */
 #pragma warning ( disable : 4131 ) /* Old style declaration */
 #pragma warning ( disable : 4244 ) /* conversion loss of data */
+#pragma warning ( disable : 4267 )
 #endif
 
 #endif /* _ZCONF_H */

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkJPEGReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-16 13:59:22 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2002-03-24 20:01:34 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@ extern "C" {
 }
 
 
-vtkCxxRevisionMacro(vtkJPEGReader, "$Revision: 1.9 $");
+vtkCxxRevisionMacro(vtkJPEGReader, "$Revision: 1.10 $");
 vtkStandardNewMacro(vtkJPEGReader);
 
 
@@ -289,7 +289,7 @@ int vtkJPEGReader::CanReadFile(const char* fname)
     }
   // read the first two bytes
   char magic[2];
-  int n = fread(magic, sizeof(magic), 1, fp);
+  int n = static_cast<int>(fread(magic, sizeof(magic), 1, fp));
   if (n != 1) 
     {
     fclose(fp);

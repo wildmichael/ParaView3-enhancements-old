@@ -1,4 +1,4 @@
-/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/tiff/Attic/tiffconf.h,v 1.3 2002-02-14 16:53:01 andy Exp $ */
+/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/tiff/Attic/tiffconf.h,v 1.4 2002-03-24 20:01:36 andy Exp $ */
 /*
  * Copyright (c) 1988-1997 Sam Leffler
  * Copyright (c) 1991-1997 Silicon Graphics, Inc.
@@ -149,11 +149,14 @@
 #pragma warning ( disable : 4189 )
 #pragma warning ( disable : 4244 )
 #pragma warning ( disable : 4251 )
+#pragma warning ( disable : 4267 )
 #pragma warning ( disable : 4305 )
 #pragma warning ( disable : 4309 )
 #pragma warning ( disable : 4505 )
 #pragma warning ( disable : 4706 )
 #pragma warning ( disable : 4786 )
+#pragma warning ( disable : 4311 )
+#pragma warning ( disable : 4312 )
 #endif
 
 #endif /* _TIFFCONF_ */

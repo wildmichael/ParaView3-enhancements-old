@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLParser.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-19 20:41:52 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-03-24 20:01:35 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 #include "expat.h"
 #include <ctype.h>
 
-vtkCxxRevisionMacro(vtkXMLParser, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkXMLParser, "$Revision: 1.2 $");
 vtkStandardNewMacro(vtkXMLParser);
 
 //----------------------------------------------------------------------------
@@ -202,7 +202,7 @@ int vtkXMLParser::ParseBuffer(const char* buffer, unsigned int count)
 //----------------------------------------------------------------------------
 int vtkXMLParser::ParseBuffer(const char* buffer)
 {
-  return this->ParseBuffer(buffer, strlen(buffer));
+  return this->ParseBuffer(buffer, static_cast<int>(strlen(buffer)));
 }
 
 //----------------------------------------------------------------------------

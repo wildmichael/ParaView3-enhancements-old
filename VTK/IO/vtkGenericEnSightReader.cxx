@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGenericEnSightReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:13 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2002-03-24 20:01:33 $
+  Version:   $Revision: 1.21 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 #include "vtkEnSightGoldBinaryReader.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkGenericEnSightReader, "$Revision: 1.20 $");
+vtkCxxRevisionMacro(vtkGenericEnSightReader, "$Revision: 1.21 $");
 vtkStandardNewMacro(vtkGenericEnSightReader);
 
 //----------------------------------------------------------------------------
@@ -435,7 +435,7 @@ void vtkGenericEnSightReader::SetCaseFileName(char* fileName)
     {
     position = endingSlash - this->CaseFileName + 1;
     path = new char[position + 1];
-    numChars = strlen(this->CaseFileName);
+    numChars = static_cast<int>(strlen(this->CaseFileName));
     newFileName = new char[numChars - position + 1];
     strcpy(path, "");
     strncat(path, this->CaseFileName, position);
@@ -849,8 +849,8 @@ void vtkGenericEnSightReader::ReplaceWildcardsHelper(char* fileName, int num)
   char newChar;
   int newNum;
   
-  wildcardPos = strcspn(fileName, "*");
-  numWildcards = strspn(fileName + wildcardPos, "*");
+  wildcardPos = static_cast<int>(strcspn(fileName, "*"));
+  numWildcards = static_cast<int>(strspn(fileName + wildcardPos, "*"));
   
   tmpNum /= 10;
   while (tmpNum >= 1)
