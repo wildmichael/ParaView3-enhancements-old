@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-26 17:16:46 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2001-11-28 22:53:13 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -49,8 +49,10 @@ vtkVolumeMapper::vtkVolumeMapper()
   this->Cropping = 0;
   for ( i = 0; i < 3; i++ )
     {
-    this->CroppingRegionPlanes[2*i    ] = 0;
-    this->CroppingRegionPlanes[2*i + 1] = 1;
+    this->CroppingRegionPlanes[2*i    ]      = 0;
+    this->CroppingRegionPlanes[2*i + 1]      = 1;
+    this->VoxelCroppingRegionPlanes[2*i]     = 0;
+    this->VoxelCroppingRegionPlanes[2*i + 1] = 1;    
     }
   this->Bounds[0] = this->Bounds[2] = this->Bounds[4] = -1.0;
   this->Bounds[1] = this->Bounds[3] = this->Bounds[5] = 1.0;
