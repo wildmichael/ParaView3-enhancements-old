@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadraticEdge.h,v $
   Language:  C++
-  Date:      $Date: 2002-03-07 11:51:49 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-03-07 15:33:05 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -80,7 +80,7 @@ public:
   // Description:
   // Method required by superclass vtkNonLinearCell. Produces vtkPolyData
   // as a function of the vtkNonLinearCell::Error instance variable.
-  // The second Tessellate() method is empty (intended only for 3D cells).
+  // The second Tesselate() method is empty (intended only for 3D cells).
   virtual void Tesselate(vtkIdType cellId, 
                          vtkDataSet *input, vtkPolyData *output, 
                          vtkPointLocator *locator=NULL);
@@ -98,8 +98,10 @@ protected:
   vtkQuadraticEdge();
   ~vtkQuadraticEdge();
 
-  vtkPolyData *Tessellation;
-  void InternalTessellate(); //used internally to tessellate this cell.
+  vtkPolyData *Tesselation;
+  vtkPolyData *InternalDataSet; //used for internal tesselation
+
+  void InternalTesselate(); //used internally to tessellate this cell.
 
 private:
   vtkQuadraticEdge(const vtkQuadraticEdge&);  // Not implemented.

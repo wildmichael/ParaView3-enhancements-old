@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkNonLinearCell.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-06 15:45:18 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-03-07 15:33:04 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,10 +19,9 @@
 #include "vtkPolyData.h"
 #include "vtkUnstructuredGrid.h"
 #include "vtkDataSet.h"
-#include "vtkPointLocator.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkNonLinearCell, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkNonLinearCell, "$Revision: 1.2 $");
 
 
 vtkNonLinearCell::vtkNonLinearCell()
