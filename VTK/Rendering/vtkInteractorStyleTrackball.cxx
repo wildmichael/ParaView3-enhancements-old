@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleTrackball.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-27 19:49:19 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-08-27 19:54:20 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -245,10 +245,8 @@ void vtkInteractorStyleTrackball::TrackballDollyCamera(int x, int y)
       }
     else
       {
-      double *clippingRange = this->CurrentCamera->GetClippingRange();
-      this->CurrentCamera->SetClippingRange(clippingRange[0]/zoomFactor,
-                                            clippingRange[1]/zoomFactor);
       this->CurrentCamera->Dolly(zoomFactor);
+      this->CurrentRenderer->ResetCameraClippingRange();
       }
     
     vtkRenderWindowInteractor *rwi = this->Interactor;

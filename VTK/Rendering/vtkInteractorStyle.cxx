@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyle.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-27 19:49:19 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1999-08-27 19:54:19 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -976,12 +976,8 @@ void vtkInteractorStyle::DollyCamera(int x, int y)
     }
   else
     {
-    double *clippingRange = this->CurrentCamera->GetClippingRange();
-    double dist = clippingRange[1] - clippingRange[0];
-    this->CurrentCamera->SetClippingRange(clippingRange[0]/zoomFactor,
-                                          clippingRange[0]/zoomFactor +
-                                          dist);
     this->CurrentCamera->Dolly(zoomFactor);
+    this->CurrentRenderer->ResetCameraClippingRange();
     }
 
   if (rwi->GetLightFollowCamera())
