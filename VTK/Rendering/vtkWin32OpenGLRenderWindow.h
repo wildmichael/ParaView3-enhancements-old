@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2002-03-26 16:53:47 $
-  Version:   $Revision: 1.52 $
+  Date:      $Date: 2002-06-09 16:54:11 $
+  Version:   $Revision: 1.53 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -92,7 +92,7 @@ public:
   // Description:
   // Set the name of the window. This appears at the top of the window
   // normally.
-  virtual void SetWindowName(char *);
+  virtual void SetWindowName(const char *);
   
   // Description:
   // Set this RenderWindow's window id to a pre-existing window.
