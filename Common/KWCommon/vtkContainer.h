@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkContainer.h,v $
   Language:  C++
-  Date:      $Date: 2003-01-07 15:30:00 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-01-07 16:37:01 $
+  Version:   $Revision: 1.2 $
 
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -69,7 +69,7 @@ private:
   void operator=(const vtkContainer&); // Not implemented
 };
 
-
+//BTX
 // Description:
 // The following methods provide all the necessary operations that are
 // done.
@@ -165,6 +165,6 @@ static inline void vtkContainerDeleteMethod(const char* d1)
 { char *ch = const_cast<char*>(d1); delete [] ch; } 
 static inline void vtkContainerDeleteMethod(char* d1) { delete [] d1; }
 static inline void vtkContainerDeleteMethod(void*) {}
-
+//ETX
 
 #endif 
