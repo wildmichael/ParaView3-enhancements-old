@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkGeometryFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-02-26 10:25:02 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1995-05-14 18:46:54 $
+  Version:   $Revision: 1.13 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -212,10 +212,10 @@ void vlGeometryFilter::PrintSelf(ostream& os, vlIndent indent)
   os << indent << "Cell Minimum : " << this->CellMinimum << "\n";
   os << indent << "Cell Maximum : " << this->CellMaximum << "\n";
 
-  os << indent << "Extent: (" 
-     << this->Extent[0] << ", " << this->Extent[1] << ")\n("
-     << this->Extent[2] << ", " << this->Extent[3] << ")\n(" 
-     << this->Extent[4] << ", " << this->Extent[5] << ")\n";
+  os << indent << "Extent: \n";
+  os << indent << "  Xmin,Xmax: (" << this->Extent[0] << ", " << this->Extent[1] << ")\n";
+  os << indent << "  Ymin,Ymax: (" << this->Extent[2] << ", " << this->Extent[3] << ")\n";
+  os << indent << "  Zmin,Zmax: (" << this->Extent[4] << ", " << this->Extent[5] << ")\n";
 
   os << indent << "PointClipping: " << (this->PointClipping ? "On\n" : "Off\n");
   os << indent << "CellClipping: " << (this->CellClipping ? "On\n" : "Off\n");
