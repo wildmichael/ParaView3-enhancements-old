@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellLocator.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-01 11:55:18 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 1999-07-01 12:06:49 $
+  Version:   $Revision: 1.47 $
   
     
   Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -1622,6 +1622,6 @@ void vtkCellLocator::GenerateRepresentation(int level, vtkPolyData *pd)
     vtkLocator::PrintSelf(os,indent);
     
     os << indent << "Number of Cells Per Bucket: " << this->NumberOfCellsPerBucket << "\n";
-    
+    os << indent << "Cache Cell Bounds: " << this->CacheCellBounds << "\n";  
     }
   
