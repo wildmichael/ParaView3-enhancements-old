@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-01 16:28:47 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2000-09-27 18:45:34 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -145,6 +145,10 @@ public:
   virtual float *GetRGBAPixelData(int x,int y,int x2,int y2,int front);
   virtual void SetRGBAPixelData(int x,int y,int x2,int y2,float *,int front,
                                 int blend=0);
+  virtual unsigned char *GetRGBACharPixelData(int x,int y,int x2,int y2,
+					      int front);
+  virtual void SetRGBACharPixelData(int x,int y,int x2,int y2,unsigned char *,
+				    int front, int blend=0);  
 
   // Description:
   // Set/Get the zbuffer data from an image
