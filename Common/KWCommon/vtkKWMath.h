@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKWMath.h,v $
   Language:  C++
-  Date:      $Date: 2003-10-09 15:48:26 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2003-11-01 08:16:32 $
+  Version:   $Revision: 1.8 $
 
 Copyright (c) 1998-2003 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -103,6 +103,10 @@ public:
   static int FixTransferFunctionPointsOutOfRange(
     vtkColorTransferFunction *func, float range[2]);
  
+  // Description:
+  // Return true if first extent is within second extent
+  static int ExtentIsWithinOtherExtent(int extent1[6], int extent2[6]);
+
 protected:
   vtkKWMath() {};
   ~vtkKWMath() {};
