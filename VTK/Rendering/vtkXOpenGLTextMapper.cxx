@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXOpenGLTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-03-09 21:15:43 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1999-03-22 22:47:11 $
+  Version:   $Revision: 1.2 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -53,7 +53,7 @@ struct vtkFontStruct
   
 static vtkFontStruct *cache[10] = {NULL,NULL,NULL,NULL,NULL,
 				   NULL,NULL,NULL,NULL,NULL};
-static numCached = 0;
+static int numCached = 0;
 
 int vtkXOpenGLTextMapper::GetListBaseForFont(vtkTextMapper *tm, 
 					     vtkViewport *vp, 
