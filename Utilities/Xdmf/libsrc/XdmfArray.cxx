@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfArray.cxx,v 1.10 2003-10-21 19:37:10 andy Exp $  */
-/*  Date : $Date: 2003-10-21 19:37:10 $ */
-/*  Version : $Revision: 1.10 $ */
+/*  Id : $Id: XdmfArray.cxx,v 1.11 2003-10-24 15:50:20 clarke Exp $  */
+/*  Date : $Date: 2003-10-24 15:50:20 $ */
+/*  Version : $Revision: 1.11 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -97,7 +97,7 @@ void XdmfArrayListClass::RemoveArray(XdmfArray* array)
   XdmfLength   i;
 for( i = 0 ; i < this->ListLength ; i++ ){
   if ( this->List[ i ].Array == array ){
-    memcpy( &this->List[ i ],
+    memmove( &this->List[ i ],
       &this->List[ i + 1 ],
       (this->ListIndex - i) * sizeof( XdmfArrayList ) );      
     this->ListIndex--;
