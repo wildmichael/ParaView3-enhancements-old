@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleJoystickCamera.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-05 20:16:09 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2002-03-22 19:05:27 $
+  Version:   $Revision: 1.15 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,7 +19,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkCommand.h"
 
-vtkCxxRevisionMacro(vtkInteractorStyleJoystickCamera, "$Revision: 1.14 $");
+vtkCxxRevisionMacro(vtkInteractorStyleJoystickCamera, "$Revision: 1.15 $");
 vtkStandardNewMacro(vtkInteractorStyleJoystickCamera);
 
 //----------------------------------------------------------------------------
@@ -102,11 +102,6 @@ void vtkInteractorStyleJoystickCamera::OnMouseMove(int vtkNotUsed(ctrl),
 void vtkInteractorStyleJoystickCamera::OnLeftButtonDown(int ctrl, int shift, 
                                                 int x, int y) 
 {
-  if (this->HasObserver(vtkCommand::LeftButtonPressEvent)) 
-    {
-    this->InvokeEvent(vtkCommand::LeftButtonPressEvent,NULL);
-    return;
-    }
   this->FindPokedRenderer(x, y);
 
   if (this->CurrentRenderer == NULL)
@@ -176,11 +171,6 @@ void vtkInteractorStyleJoystickCamera::OnMiddleButtonDown(int vtkNotUsed(ctrl),
                                                           int vtkNotUsed(shift), 
                                                           int x, int y)
 {
-  if (this->HasObserver(vtkCommand::MiddleButtonPressEvent)) 
-    {
-    this->InvokeEvent(vtkCommand::MiddleButtonPressEvent,NULL);
-    return;
-    }
   this->FindPokedRenderer(x, y);
   if (this->CurrentRenderer == NULL)
     {
@@ -205,11 +195,6 @@ void vtkInteractorStyleJoystickCamera::OnRightButtonDown(int vtkNotUsed(ctrl),
                                                          int vtkNotUsed(shift), 
                                                          int x, int y)
 {
-  if (this->HasObserver(vtkCommand::RightButtonPressEvent)) 
-    {
-    this->InvokeEvent(vtkCommand::RightButtonPressEvent,NULL);
-    return;
-    }
   this->FindPokedRenderer(x, y);
   if (this->CurrentRenderer == NULL)
     {

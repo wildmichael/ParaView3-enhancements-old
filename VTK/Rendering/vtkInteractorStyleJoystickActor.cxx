@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleJoystickActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-14 08:15:29 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2002-03-22 19:05:27 $
+  Version:   $Revision: 1.15 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 #include "vtkMath.h"
 #include "vtkCommand.h"
 
-vtkCxxRevisionMacro(vtkInteractorStyleJoystickActor, "$Revision: 1.14 $");
+vtkCxxRevisionMacro(vtkInteractorStyleJoystickActor, "$Revision: 1.15 $");
 vtkStandardNewMacro(vtkInteractorStyleJoystickActor);
 
 //----------------------------------------------------------------------------
@@ -426,12 +426,6 @@ void vtkInteractorStyleJoystickActor::ScaleXY(int vtkNotUsed(x), int y)
 void vtkInteractorStyleJoystickActor::OnLeftButtonDown(int ctrl, int shift, 
                                                        int x, int y) 
 {
-  if (this->HasObserver(vtkCommand::LeftButtonPressEvent)) 
-    {
-      this->InvokeEvent(vtkCommand::LeftButtonPressEvent,NULL);
-      return;
-    }
-  
   this->FindPokedRenderer(x, y);
   this->FindPickedActor(x, y);
   
@@ -484,12 +478,6 @@ void vtkInteractorStyleJoystickActor::OnLeftButtonUp(int vtkNotUsed(ctrl),
 void vtkInteractorStyleJoystickActor::OnMiddleButtonDown(int ctrl, int shift, 
                                                          int x, int y) 
 {
-  if (this->HasObserver(vtkCommand::MiddleButtonPressEvent)) 
-    {
-      this->InvokeEvent(vtkCommand::MiddleButtonPressEvent,NULL);
-      return;
-    }
-  
   this->FindPokedRenderer(x, y);
   this->FindPickedActor(x, y);
   
@@ -532,12 +520,6 @@ void vtkInteractorStyleJoystickActor::OnRightButtonDown(int vtkNotUsed(ctrl),
                                                         int vtkNotUsed(shift), 
                                                         int x, int y) 
 {
-  if (this->HasObserver(vtkCommand::RightButtonPressEvent)) 
-    {
-      this->InvokeEvent(vtkCommand::RightButtonPressEvent,NULL);
-      return;
-    }
-
   this->FindPokedRenderer(x, y);
   this->FindPickedActor(x, y);
   

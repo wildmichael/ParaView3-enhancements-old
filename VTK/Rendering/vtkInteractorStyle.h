@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyle.h,v $
   Language:  C++
-  Date:      $Date: 2002-03-21 21:27:34 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2002-03-22 19:05:26 $
+  Version:   $Revision: 1.32 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -203,6 +203,10 @@ protected:
   vtkInteractorStyle();
   ~vtkInteractorStyle();
 
+  // does ProcessEvents handle observers on this class or not
+  vtkSetMacro(HandleObservers,int);
+  vtkGetMacro(HandleObservers,int);
+  vtkBooleanMacro(HandleObservers,int);
   // Will the clipping range be automatically adjust before each render?
   int AutoAdjustCameraClippingRange;
   void ResetCameraClippingRange();
@@ -280,6 +284,7 @@ protected:
   float              PickColor[3];        // support 2D picking
   vtkActor2D         *PickedActor2D;
   vtkCallbackCommand* EventCallbackCommand;
+  int                HandleObservers; // boolean: should observers be handled here
 
   unsigned long LeftButtonPressTag;
   unsigned long LeftButtonReleaseTag;
