@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMultiThreader.h,v $
   Language:  C++
-  Date:      $Date: 2002-10-28 22:55:56 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 2002-12-08 02:13:08 $
+  Version:   $Revision: 1.42 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -102,6 +102,7 @@ public:
   // SetMultipleMethod, or SpawnThread method.
 
   //BTX
+#define ThreadInfoStruct vtkMultiThreader::ThreadInfo
   class ThreadInfo
   {
   public:
