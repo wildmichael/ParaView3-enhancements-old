@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDepthSortPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-05-28 05:15:20 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2001-05-28 05:29:56 $
+  Version:   $Revision: 1.13 $
   Thanks:    Scott Hill for implementing this class
 
 
@@ -385,6 +385,7 @@ void vtkDepthSortPolyData::PrintSelf(ostream& os, vtkIndent indent)
        << this->Origin[2] << ")\n";
     }
   
+  os << indent << "Depth Sort Mode: ";
   if ( this->DepthSortMode == VTK_SORT_FIRST_POINT )
     {
     os << "First Point" << endl;
