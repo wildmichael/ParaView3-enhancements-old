@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetSurfaceFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-10-16 20:09:26 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2003-11-05 14:46:01 $
+  Version:   $Revision: 1.27 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -36,7 +36,7 @@
 #include "vtkVoxel.h"
 #include "vtkWedge.h"
 
-vtkCxxRevisionMacro(vtkDataSetSurfaceFilter, "$Revision: 1.26 $");
+vtkCxxRevisionMacro(vtkDataSetSurfaceFilter, "$Revision: 1.27 $");
 vtkStandardNewMacro(vtkDataSetSurfaceFilter);
 
 //----------------------------------------------------------------------------
@@ -874,7 +874,7 @@ void vtkDataSetSurfaceFilter::UnstructuredGridExecute()
           } // if 3D
         else
           {
-          vtkErrorMacro("Missing cell type.");
+          vtkDebugMacro("Missing cell type.");
           }
         } // a linear cell type
 
