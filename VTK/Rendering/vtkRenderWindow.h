@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 1999-05-20 14:50:57 $
-  Version:   $Revision: 1.79 $
+  Date:      $Date: 1999-06-04 19:54:55 $
+  Version:   $Revision: 1.80 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -156,6 +156,27 @@ public:
   vtkGetMacro(StereoRender,int);
   void SetStereoRender(int stereo);
   vtkBooleanMacro(StereoRender,int);
+
+  // Description:
+  // Turn on/off point smoothing. Default is off.
+  // This must be applied before the first Render.
+  vtkSetMacro(PointSmoothing,int);
+  vtkGetMacro(PointSmoothing,int);
+  vtkBooleanMacro(PointSmoothing,int);
+
+  // Description:
+  // Turn on/off line smoothing. Default is off.
+  // This must be applied before the first Render.
+  vtkSetMacro(LineSmoothing,int);
+  vtkGetMacro(LineSmoothing,int);
+  vtkBooleanMacro(LineSmoothing,int);
+
+  // Description:
+  // Turn on/off polygon smoothing. Default is off.
+  // This must be applied before the first Render.
+  vtkSetMacro(PolygonSmoothing,int);
+  vtkGetMacro(PolygonSmoothing,int);
+  vtkBooleanMacro(PolygonSmoothing,int);
 
   // Description:
   // Set/Get what type of stereo rendering to use.
@@ -329,6 +350,9 @@ protected:
   int Borders;
   int FullScreen;
   int OldScreen[5];
+  int PointSmoothing;
+  int LineSmoothing;
+  int PolygonSmoothing;
   int StereoRender;
   int StereoType;
   int StereoStatus; // used for keeping track of what's going on
