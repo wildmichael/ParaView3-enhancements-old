@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGrid.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 20:48:26 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1997-06-20 19:39:56 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -51,8 +51,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkPointSet.h"
 #include "vtkIdList.h"
 #include "vtkCellArray.h"
-#include "vtkCellList.h"
-#include "vtkLinkList.h"
+#include "vtkCellTypes.h"
+#include "vtkCellLinks.h"
 
 class VTK_EXPORT vtkUnstructuredGrid : public vtkPointSet {
 public:
@@ -97,9 +97,9 @@ protected:
 
   // points inherited
   // point data (i.e., scalars, vectors, normals, tcoords) inherited
-  vtkCellList *Cells;
+  vtkCellTypes *Cells;
   vtkCellArray *Connectivity;
-  vtkLinkList *Links;
+  vtkCellLinks *Links;
 };
 
 #endif

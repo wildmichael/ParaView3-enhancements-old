@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellArray.h,v $
   Language:  C++
-  Date:      $Date: 1997-05-23 20:28:03 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 1997-06-20 19:39:39 $
+  Version:   $Revision: 1.51 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -49,10 +49,10 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // Advantages of this data structure are its compactness, simplicity, and 
 // easy interface to external data.  However, it is totally inadequate for 
 // random access.  This functionality (when necessary) is accomplished by 
-// using the vtkCellList and vtkLinkList objects to extend the definition of 
+// using the vtkCellTypes and vtkCellLinks objects to extend the definition of 
 // the data structure.
 // .SECTION See Also
-// vtkCellList vtkLinkList
+// vtkCellTypes vtkCellLinks
 
 #ifndef __vtkCellArray_h
 #define __vtkCellArray_h

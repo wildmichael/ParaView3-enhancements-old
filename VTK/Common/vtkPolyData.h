@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyData.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 20:48:01 $
-  Version:   $Revision: 1.59 $
+  Date:      $Date: 1997-06-20 19:39:52 $
+  Version:   $Revision: 1.60 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -63,8 +63,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkPointSet.h"
 #include "vtkFloatPoints.h"
 #include "vtkCellArray.h"
-#include "vtkCellList.h"
-#include "vtkLinkList.h"
+#include "vtkCellTypes.h"
+#include "vtkCellLinks.h"
 
 class VTK_EXPORT vtkPolyData : public vtkPointSet 
 {
@@ -158,8 +158,8 @@ protected:
 
   // supporting structures for more complex topological operations
   // built only when necessary
-  vtkCellList *Cells;
-  vtkLinkList *Links;
+  vtkCellTypes *Cells;
+  vtkCellLinks *Links;
 
 };
 

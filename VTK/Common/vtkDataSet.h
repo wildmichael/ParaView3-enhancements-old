@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSet.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-20 19:25:12 $
-  Version:   $Revision: 1.61 $
+  Date:      $Date: 1997-06-20 19:39:46 $
+  Version:   $Revision: 1.62 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -122,7 +122,7 @@ public:
   // For example a dataset 5 triangles, 3 lines, and 100 hexahedra would
   // result a list of three entries, corresponding to the types VTK_TRIANGLE,
   // VTK_LINE, and VTK_HEXAHEDRON.
-  virtual void GetCellTypes(vtkIdList *types);
+  virtual void GetCellTypes(vtkCellTypes *types);
 
   // Description:
   // Topological inquiry to get points defining cell.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-23 20:29:25 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 1997-06-20 19:39:55 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -72,7 +72,7 @@ void vtkUnstructuredGrid::Allocate (int numCells, int extSize)
   this->Connectivity->Register(this);
   this->Connectivity->Delete();
 
-  this->Cells = new vtkCellList(numCells,extSize);
+  this->Cells = new vtkCellTypes(numCells,extSize);
   this->Cells->Register(this);
   this->Cells->Delete();
 }
@@ -279,7 +279,7 @@ void vtkUnstructuredGrid::SetCells(int *types, vtkCellArray *cells)
 
   // see whether there are cell types available
   if ( this->Cells ) this->Cells->UnRegister(this);
-  this->Cells = new vtkCellList(cells->GetNumberOfCells(),1000);
+  this->Cells = new vtkCellTypes(cells->GetNumberOfCells(),1000);
   this->Cells->Register(this);
   this->Cells->Delete();
 
@@ -292,7 +292,7 @@ void vtkUnstructuredGrid::SetCells(int *types, vtkCellArray *cells)
 
 void vtkUnstructuredGrid::BuildLinks()
 {
-  this->Links = new vtkLinkList(this->GetNumberOfPoints());
+  this->Links = new vtkCellLinks(this->GetNumberOfPoints());
   this->Links->Register(this);
   this->Links->BuildLinks(this);
   this->Links->Delete();

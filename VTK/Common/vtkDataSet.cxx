@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSet.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-06-20 19:25:13 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 1997-06-20 19:39:45 $
+  Version:   $Revision: 1.51 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -270,17 +270,18 @@ void vtkDataSet::GetCellNeighbors(int cellId, vtkIdList &ptIds,
     }
 }
 
-void vtkDataSet::GetCellTypes(vtkIdList *types)
+void vtkDataSet::GetCellTypes(vtkCellTypes *types)
 {
-  int cellId, type, numCells=this->GetNumberOfCells();
+  int cellId, numCells=this->GetNumberOfCells();
+  unsigned char type;
 
   types->Reset();
   for (cellId=0; cellId < numCells; cellId++)
     {
     type = this->GetCellType(cellId);
-    if ( ! types->IsId(type) )
+    if ( ! types->IsType(type) )
       {
-      types->InsertNextId(type);
+      types->InsertNextType(type);
       }
     }
 }

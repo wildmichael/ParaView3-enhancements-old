@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkReferenceCount.h,v $
   Language:  C++
-  Date:      $Date: 1997-05-23 20:30:14 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1997-06-20 19:39:54 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,7 +55,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // the method ReferenceCountingOff()).
 
 // .SECTION See Also
-// vtkLookupTable vtkTCoords vtkCellList vtkLinkList vtkNormals vtkPoints
+// vtkLookupTable vtkTCoords vtkCellTypes vtkCellLinks vtkNormals vtkPoints
 // vtkScalars vtkTensors vtkUserDefined vtkVectors
 
 #ifndef __vtkReferenceCount_h
