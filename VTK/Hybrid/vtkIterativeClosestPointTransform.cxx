@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIterativeClosestPointTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-05-30 02:02:53 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-06-05 15:34:17 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to Sebastien Barre who developed this class. Thanks to
              Tim Hutton too for the idea.
 
@@ -503,4 +503,11 @@ void vtkIterativeClosestPointTransform::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "MaximumMeanDistance: " << this->MaximumMeanDistance << "\n";
   os << indent << "MaximumNumberOfLandmarks: " << this->MaximumNumberOfLandmarks << "\n";
   os << indent << "StartByMatchingCentroids: " << this->StartByMatchingCentroids << "\n";
+  os << indent << "NumberOfIterations: " << this->NumberOfIterations << "\n";
+  os << indent << "MeanDistance: " << this->MeanDistance << "\n";
+  if(this->LandmarkTransform)
+    {
+    os << indent << "LandmarkTransform:\n";
+    this->LandmarkTransform->PrintSelf(os, indent.GetNextIndent());
+    }
 }
