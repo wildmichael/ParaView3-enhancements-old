@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32TextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-05 18:46:18 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-06-15 20:39:11 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -92,6 +92,7 @@ void vtkWin32TextMapper::Render(vtkViewport* viewport, vtkActor2D* actor)
   if (this->Input == NULL) 
     {
     vtkErrorMacro (<<"vtkWin32TextMapper::Render - No input");
+    return;
     }
 
   // Get the window information for display

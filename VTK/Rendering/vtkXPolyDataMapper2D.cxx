@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXPolyDataMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-03 19:59:10 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-06-15 20:39:12 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -189,8 +189,8 @@ void vtkXPolyDataMapper2D::Render(vtkViewport* viewport, vtkActor2D* actor)
 	rgba = c->GetColor(pts[j]);
 	}
       aColor.red = (unsigned short) (rgba[0] * 256);
-      aColor.green = (unsigned short) (actorColor[1] * 256);
-      aColor.blue = (unsigned short) (actorColor[2] * 256);
+      aColor.green = (unsigned short) (rgba[1] * 256);
+      aColor.blue = (unsigned short) (rgba[2] * 256);
       XAllocColor(displayId, attr.colormap, &aColor);
       XSetForeground(displayId, gc, aColor.pixel);
       }
