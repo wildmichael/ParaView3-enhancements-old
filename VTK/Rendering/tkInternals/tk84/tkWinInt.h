@@ -11,7 +11,7 @@
  * See the file "license.terms" for information on usage and redistribution
  * of this file, and for a DISCLAIMER OF ALL WARRANTIES.
  *
- * RCS: @(#) $Id: tkWinInt.h,v 1.3 2002-10-04 16:53:59 berk Exp $
+ * RCS: @(#) $Id: tkWinInt.h,v 1.4 2003-05-28 17:37:41 barre Exp $
  */
 
 #ifndef _TKWININT
@@ -127,10 +127,11 @@ typedef struct {
 
 /*
  * The following variable is a translation table between X gc functions and
- * Win32 raster op modes.
+ * Win32 raster and BitBlt op modes.
  */
 
 extern int tkpWinRopModes[];
+extern int tkpWinBltModes[];
 
 /*
  * The following defines are used with TkWinGetBorderPixels to get the

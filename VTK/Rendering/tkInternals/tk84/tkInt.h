@@ -11,7 +11,7 @@
  * See the file "license.terms" for information on usage and redistribution
  * of this file, and for a DISCLAIMER OF ALL WARRANTIES.
  *
- * RCS: $Id: tkInt.h,v 1.3 2002-10-04 16:53:59 berk Exp $ 
+ * RCS: $Id: tkInt.h,v 1.4 2003-05-28 17:37:41 barre Exp $ 
  */
 
 #ifndef _TKINT
@@ -493,6 +493,8 @@ typedef struct TkDisplay {
      */
     int mouseButtonState;  /* current mouse button state for this
          * display */
+    Window mouseButtonWindow;  /* Window the button state was set in,
+         * added in Tk 8.4. */
     Window warpWindow;
     int warpX;
     int warpY;
@@ -500,7 +502,6 @@ typedef struct TkDisplay {
     /*
      * The following field(s) were all added for Tk8.4
      */
-    long deletionEpoch;    /* Incremented by window deletions */
     unsigned int flags;    /* Various flag values:  these are all
          * defined in below. */
     TkCaret caret;    /* information about the caret for this
@@ -601,6 +602,7 @@ typedef struct TkMainInfo {
     Tcl_HashTable nameTable;  /* Hash table mapping path names to TkWindow
          * structs for all windows related to this
          * main window.  Managed by tkWindow.c. */
+    long deletionEpoch;    /* Incremented by window deletions */
     Tk_BindingTable bindingTable;
         /* Used in conjunction with "bind" command
          * to bind events to Tcl commands. */
