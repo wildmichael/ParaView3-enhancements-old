@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPDBReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-05-12 18:01:54 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-08-20 12:47:37 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -46,7 +46,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkPoints.h"
 #include "vtkIdTypeArray.h"
 
-vtkCxxRevisionMacro(vtkPDBReader, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkPDBReader, "$Revision: 1.2 $");
 vtkStandardNewMacro(vtkPDBReader);
 
 vtkPDBReader::vtkPDBReader()
@@ -100,8 +100,8 @@ void vtkPDBReader::ReadSpecificMolecule(FILE* fp)
         //sprintf(aamin[NumberOfAtoms],"%3s", dum2);
         this->NumberOfAtoms++;
         }
+      this->AtomType->InsertNextValue(this->MakeAtomType(atype));
       }
-    this->AtomType->InsertNextValue(this->MakeAtomType(atype));
     }
   this->Points->Squeeze();
 }
