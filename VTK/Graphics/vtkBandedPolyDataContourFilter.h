@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBandedPolyDataContourFilter.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-11 17:48:54 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-01-14 13:55:46 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -126,11 +126,8 @@ protected:
 
   int Clipping;
 
-  // internal structures to support the algorithm
+  // sorted and cleaned contour values
   float *ClipValues;
-  float *T;
-  int *PtIds;
-  int *CellScalars;
   
 private:
   vtkBandedPolyDataContourFilter(const vtkBandedPolyDataContourFilter&);  // Not implemented.
