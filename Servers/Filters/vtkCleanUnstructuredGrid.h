@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCleanUnstructuredGrid.h,v $
   Language:  C++
-  Date:      $Date: 2003-09-19 15:54:58 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-11-13 18:05:09 $
+  Version:   $Revision: 1.2 $
 
 =========================================================================*/
 
@@ -14,7 +14,6 @@
 #define __vtkCleanUnstructuredGrid_h
 
 #include <vtkDataSetToUnstructuredGridFilter.h>
-#include <vtkVersion.h>
 
 class vtkUnstructuredGrid;
 class vtkPointLocator;
