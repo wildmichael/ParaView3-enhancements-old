@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDotProduct.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-01-03 18:02:07 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1997-04-01 19:00:02 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -93,7 +93,7 @@ void vtkImageDotProduct::ComputeRequiredInputRegionExtent(
 // Description:
 // This templated function executes the filter for any type of data.
 template <class T>
-void vtkImageDotProductExecute(vtkImageDotProduct *self,
+static void vtkImageDotProductExecute(vtkImageDotProduct *self,
 			       vtkImageRegion *in1Region, T *in1Ptr,
 			       vtkImageRegion *in2Region, T *in2Ptr,
 			       vtkImageRegion *outRegion, T *outPtr)

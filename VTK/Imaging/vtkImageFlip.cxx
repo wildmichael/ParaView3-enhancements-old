@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageFlip.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-03-25 21:57:33 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1997-04-01 19:00:07 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -93,7 +93,7 @@ void vtkImageFlip::ComputeRequiredInputRegionExtent(vtkImageRegion *outRegion,
 // Description:
 // This templated function executes the filter for any type of data.
 template <class IT, class OT>
-void vtkImageFlipExecute(vtkImageFlip *self,
+static void vtkImageFlipExecute(vtkImageFlip *self,
 			 vtkImageRegion *inRegion, IT *inPtr,
 			 vtkImageRegion *outRegion, OT *outPtr){
   int min0, max0, min1, max1;
@@ -131,7 +131,7 @@ void vtkImageFlipExecute(vtkImageFlip *self,
 
 //----------------------------------------------------------------------------
 template <class T>
-void vtkImageFlipExecute(vtkImageFlip *self,
+static void vtkImageFlipExecute(vtkImageFlip *self,
 			 vtkImageRegion *inRegion, T *inPtr,
 			 vtkImageRegion *outRegion)
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageGradientMagnitude.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-01-03 14:55:55 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1997-04-01 19:00:12 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -137,7 +137,7 @@ void vtkImageGradientMagnitude::ComputeRequiredInputRegionExtent(
 // it handles boundaries. Pixels are just replicated to get values 
 // out of extent.
 template <class T>
-void vtkImageGradientMagnitudeExecute(vtkImageGradientMagnitude *self,
+static void vtkImageGradientMagnitudeExecute(vtkImageGradientMagnitude *self,
 				      vtkImageRegion *inRegion, T *inPtr, 
 				      vtkImageRegion *outRegion, float *outPtr)
 {

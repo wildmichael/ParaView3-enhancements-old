@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageGradient.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-01-03 22:09:36 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1997-04-01 19:00:10 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -208,7 +208,7 @@ void vtkImageGradient::ComputeRequiredInputRegionExtent(
 // it handles boundaries. Pixels are just replicated to get values 
 // out of extent.
 template <class T>
-void vtkImageGradientExecute(vtkImageGradient *self,
+static void vtkImageGradientExecute(vtkImageGradient *self,
 			     vtkImageRegion *inRegion, T *inPtr, 
 			     vtkImageRegion *outRegion, float *outPtr)
 {
