@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWindowedSincPolyDataFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-28 12:54:12 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1999-03-26 17:32:04 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -136,6 +136,7 @@ void vtkWindowedSincPolyDataFilter::Execute()
     {
     output->CopyStructure(input);
     output->GetPointData()->PassData(input->GetPointData());
+    output->GetCellData()->PassData(input->GetCellData());
     vtkWarningMacro(<<"Number of iterations == 0: passing data through unchanged");
     return;
     }
@@ -667,6 +668,7 @@ void vtkWindowedSincPolyDataFilter::Execute()
 // Update output. Only point coordinates have changed.
 //
   output->GetPointData()->PassData(input->GetPointData());
+  output->GetCellData()->PassData(input->GetCellData());
 
   if ( this->GenerateErrorScalars )
     {

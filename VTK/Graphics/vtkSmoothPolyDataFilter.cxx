@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSmoothPolyDataFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-30 16:32:36 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1999-03-26 17:32:03 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -126,6 +126,7 @@ void vtkSmoothPolyDataFilter::Execute()
     {
     output->CopyStructure(input);
     output->GetPointData()->PassData(input->GetPointData());
+    output->GetCellData()->PassData(input->GetCellData());
     vtkWarningMacro(<<"Number of iterations == 0: passing data through unchanged");
     return;
     }
@@ -465,6 +466,7 @@ void vtkSmoothPolyDataFilter::Execute()
 // Update output. Only point coordinates have changed.
 //
   output->GetPointData()->PassData(input->GetPointData());
+  output->GetCellData()->PassData(input->GetCellData());
 
   if ( this->GenerateErrorScalars )
     {
