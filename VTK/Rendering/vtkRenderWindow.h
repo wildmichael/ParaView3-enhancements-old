@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2000-08-18 17:18:08 $
-  Version:   $Revision: 1.98 $
+  Date:      $Date: 2000-08-21 02:18:46 $
+  Version:   $Revision: 1.99 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -398,10 +398,6 @@ protected:
   void (*AbortCheckMethod)(void *);
   void (*AbortCheckMethodArgDelete)(void *);
   void *AbortCheckMethodArg;
-
-  // This is used to try to avoid extra make current calls.
-  // Make current calls are expensive on Win32.
-  static vtkRenderWindow *CurrentRenderWindow;
 };
 
 // Description:
