@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOBBTree.h,v $
   Language:  C++
-  Date:      $Date: 1997-08-05 20:03:21 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1998-03-26 18:55:05 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -100,6 +100,7 @@ class VTK_EXPORT vtkOBBTree : public vtkCellLocator
 {
 public:
   vtkOBBTree();
+  ~vtkOBBTree();
   static vtkOBBTree *New() {return new vtkOBBTree;};
   const char *GetClassName() {return "vtkOBBTree";};
 

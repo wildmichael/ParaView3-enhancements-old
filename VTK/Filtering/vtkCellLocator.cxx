@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellLocator.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:43:18 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1998-03-26 18:54:35 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,6 +57,11 @@ vtkCellLocator::vtkCellLocator()
   this->Tree = NULL;
   this->H[0] = this->H[1] = this->H[2] = 1.0;
   this->NumberOfDivisions = 1;
+}
+
+vtkCellLocator::~vtkCellLocator()
+{
+  this->FreeSearchStructure();
 }
 
 void vtkCellLocator::FreeSearchStructure()

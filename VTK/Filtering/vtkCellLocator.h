@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellLocator.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:43:19 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1998-03-26 18:54:36 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -66,6 +66,7 @@ class VTK_EXPORT vtkCellLocator : public vtkLocator
 {
 public:
   vtkCellLocator();
+  ~vtkCellLocator();
   static vtkCellLocator *New() {return new vtkCellLocator;};
   const char *GetClassName() {return "vtkCellLocator";};
   void PrintSelf(ostream& os, vtkIndent indent);
