@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-29 17:42:53 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 1998-06-24 14:03:59 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -618,6 +618,10 @@ void vtkMarchingCubes::PrintSelf(ostream& os, vtkIndent indent)
   vtkStructuredPointsToPolyDataFilter::PrintSelf(os,indent);
 
   this->ContourValues->PrintSelf(os,indent);
+
+  os << indent << "Compute Normals: " << (this->ComputeNormals ? "On\n" : "Off\n");
+  os << indent << "Compute Gradients: " << (this->ComputeGradients ? "On\n" : "Off\n");
+  os << indent << "Compute Scalars: " << (this->ComputeScalars ? "On\n" : "Off\n");
 
   if ( this->Locator )
     {

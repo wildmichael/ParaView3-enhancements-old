@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSliceCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-27 12:51:53 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1998-06-24 14:04:02 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -568,6 +568,8 @@ void vtkSliceCubes::Execute()
 void vtkSliceCubes::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkObject::PrintSelf(os,indent);
+
+  os << indent << "Iso Value: " << this->Value << "\n";
 
   if ( this->Reader )
     {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMarchingCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-29 17:42:51 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1998-06-24 14:03:57 $
+  Version:   $Revision: 1.15 $
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -811,6 +811,15 @@ void vtkImageMarchingCubes::PrintSelf(ostream& os, vtkIndent indent)
   vtkPolyDataSource::PrintSelf(os,indent);
 
   this->ContourValues->PrintSelf(os,indent);
+
+  if ( this->Input )
+    {
+    os << indent << "Input: " << this->Input << "\n";
+    }
+  else
+    {
+    os << indent << "Input: (none)\n";
+    }
 
   os << indent << "ComputeScalars: " << this->ComputeScalars << "\n";
   os << indent << "ComputeNormals: " << this->ComputeNormals << "\n";

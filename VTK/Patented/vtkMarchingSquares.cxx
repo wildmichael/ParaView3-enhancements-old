@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingSquares.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-29 17:42:56 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1998-06-24 14:04:01 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -514,6 +514,14 @@ void vtkMarchingSquares::PrintSelf(ostream& os, vtkIndent indent)
   vtkStructuredPointsToPolyDataFilter::PrintSelf(os,indent);
 
   this->ContourValues->PrintSelf(os,indent);
+
+  os << indent << "Image Range: ( " 
+     << this->ImageRange[0] << ", "
+     << this->ImageRange[1] << ", "
+     << this->ImageRange[2] << ", "
+     << this->ImageRange[3] << ", "
+     << this->ImageRange[4] << ", "
+     << this->ImageRange[5] << " )\n";
 
   if ( this->Locator )
     {

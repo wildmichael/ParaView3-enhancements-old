@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSweptSurface.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-04-21 19:02:27 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1998-06-24 14:04:03 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -592,7 +592,7 @@ void vtkSweptSurface::Cap(vtkScalars *s)
 
 void vtkSweptSurface::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkStructuredPointsFilter::PrintSelf(os,indent);
+  vtkStructuredPointsToStructuredPointsFilter::PrintSelf(os,indent);
 
   os << indent << "Sample Dimensions: (" << this->SampleDimensions[0] << ", "
                << this->SampleDimensions[1] << ", "
@@ -604,6 +604,12 @@ void vtkSweptSurface::PrintSelf(ostream& os, vtkIndent indent)
 
   os << indent << "Fill Value:" << this->FillValue << "\n";
   os << indent << "Capping: " << (this->Capping ? "On\n" : "Off\n");
+
+  os << indent << "Adjust Bounds: " << (this->AdjustBounds ? "On\n" : "Off\n");
+  os << indent << "Adjust Distance: " << this->AdjustDistance << "\n";
+
+  os << indent << "Interpolation Steps: " << this->NumberOfInterpolationSteps << "\n";
+  os << indent << "Max Interp. Steps: " << this->MaximumNumberOfInterpolationSteps << "\n";
 
   if ( this->Transforms )
     {
