@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLCameraWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-03-21 22:37:30 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-03-24 14:38:46 $
+  Version:   $Revision: 1.2 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -45,7 +45,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkCamera.h"
 
 vtkStandardNewMacro(vtkXMLCameraWriter);
-vtkCxxRevisionMacro(vtkXMLCameraWriter, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkXMLCameraWriter, "$Revision: 1.2 $");
 
 vtkCxxSetObjectMacro(vtkXMLCameraWriter, Camera, vtkCamera);
 
@@ -71,7 +71,9 @@ int vtkXMLCameraWriter::Write(ostream &os, vtkIndent vtkNotUsed(indent))
 
   double *dptr;
 
-  os << "<Camera Version=\"$Revision: 1.1 $\"";
+  os << "<Camera Version=\"$Revision: 1.2 $\"";
+
+  os << " ParallelProjection=\"" << this->Camera->GetParallelProjection()<< "\"";
 
   dptr = this->Camera->GetPosition();
   if (dptr)
@@ -101,8 +103,6 @@ int vtkXMLCameraWriter::Write(ostream &os, vtkIndent vtkNotUsed(indent))
   os << " ViewAngle=\"" << this->Camera->GetViewAngle() << "\"";
 
   os << " ParallelScale=\"" << this->Camera->GetParallelScale() << "\"";
-
-  os << " ParallelProjection=\"" << this->Camera->GetParallelProjection()<< "\"";
 
   os << "/>";
 

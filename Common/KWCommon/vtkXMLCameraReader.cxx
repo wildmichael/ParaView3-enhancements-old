@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLCameraReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-03-21 22:37:30 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-03-24 14:38:46 $
+  Version:   $Revision: 1.2 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -45,7 +45,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkCamera.h"
 
 vtkStandardNewMacro(vtkXMLCameraReader);
-vtkCxxRevisionMacro(vtkXMLCameraReader, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkXMLCameraReader, "$Revision: 1.2 $");
 
 vtkCxxSetObjectMacro(vtkXMLCameraReader, Camera, vtkCamera);
 
@@ -74,7 +74,11 @@ void vtkXMLCameraReader::StartElement(const char *name, const char **args)
 
   for (i = 0; args[i] && args[i + 1]; i += 2)
     {
-    if (!strcmp(args[i], "Position"))
+    if (!strcmp(args[i], "ParallelProjection"))
+      {
+      this->Camera->SetParallelProjection(atoi(args[i + 1]));
+      }
+    else if (!strcmp(args[i], "Position"))
       {
       sscanf(args[i + 1], "%lf %lf %lf", dbuffer3, dbuffer3 + 1, dbuffer3 + 2);
       this->Camera->SetPosition(dbuffer3);
@@ -101,10 +105,6 @@ void vtkXMLCameraReader::StartElement(const char *name, const char **args)
     else if (!strcmp(args[i], "ParallelScale"))
       {
       this->Camera->SetParallelScale(atof(args[i + 1]));
-      }
-    else if (!strcmp(args[i], "ParallelProjection"))
-      {
-      this->Camera->SetParallelProjection(atoi(args[i + 1]));
       }
     }
 }
