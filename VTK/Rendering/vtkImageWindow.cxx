@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:47:45 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1998-11-11 12:03:15 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -68,6 +68,11 @@ vtkImageWindow::vtkImageWindow()
 vtkImageWindow::~vtkImageWindow()
 {
   vtkDebugMacro(<<"~vtkImageWindow");
+  if (this->FileName)
+    {
+    delete []this->FileName;
+    this->FileName = (char *) NULL;
+    }
   this->Imagers->Delete();
   this->Imagers = NULL;
 }
