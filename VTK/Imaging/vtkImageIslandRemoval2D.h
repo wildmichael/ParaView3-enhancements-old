@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageIslandRemoval2D.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 21:16:44 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1997-07-17 14:29:49 $
+  Version:   $Revision: 1.13 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -97,7 +97,7 @@ public:
   vtkSetMacro(ReplaceValue, float);
   vtkGetMacro(ReplaceValue, float);
   
-  void InterceptCacheUpdate(vtkImageCache *out);
+  void InterceptCacheUpdate();
   
 protected:
   int AreaThreshold;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageLaplacian.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 21:16:45 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1997-07-17 14:29:51 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -91,15 +91,14 @@ void vtkImageLaplacian::SetFilteredAxes(int num, int *axes)
 //----------------------------------------------------------------------------
 // Description:
 // This method computes the input extent necessary to generate the output.
-void vtkImageLaplacian::ComputeRequiredInputUpdateExtent(vtkImageCache *out, 
-							 vtkImageCache *in)
+void vtkImageLaplacian::ComputeRequiredInputUpdateExtent()
 {
   int extent[8];
   int *wholeExtent;
   int idx, axis;
 
-  wholeExtent = in->GetWholeExtent();
-  out->GetUpdateExtent(extent);
+  wholeExtent = this->Input->GetWholeExtent();
+  this->Output->GetUpdateExtent(extent);
   
   // grow input image extent.
   for (idx = 0; idx < this->NumberOfFilteredAxes; ++idx)
@@ -118,7 +117,7 @@ void vtkImageLaplacian::ComputeRequiredInputUpdateExtent(vtkImageCache *out,
       }
     }
   
-  in->SetUpdateExtent(extent);
+  this->Input->SetUpdateExtent(extent);
 }
 
 

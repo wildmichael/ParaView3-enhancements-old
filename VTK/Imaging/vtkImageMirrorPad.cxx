@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMirrorPad.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 21:17:00 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1997-07-17 14:30:00 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,8 +57,7 @@ vtkImageMirrorPad::vtkImageMirrorPad()
 
 //----------------------------------------------------------------------------
 // Just clip the request.
-void vtkImageMirrorPad::ComputeRequiredInputUpdateExtent(vtkImageCache *out,
-							 vtkImageCache *in)
+void vtkImageMirrorPad::ComputeRequiredInputUpdateExtent()
 {
   int idx;
   int extent[8];
@@ -66,8 +65,8 @@ void vtkImageMirrorPad::ComputeRequiredInputUpdateExtent(vtkImageCache *out,
   int minCycle, maxCycle, minRemainder, maxRemainder, minMirror, maxMirror;
   int *wholeExtent;
   
-  out->GetUpdateExtent(extent);
-  wholeExtent = in->GetWholeExtent();
+  this->Output->GetUpdateExtent(extent);
+  wholeExtent = this->Input->GetWholeExtent();
 
   // determine input extent
   for (idx = 0; idx < 4; ++idx)
@@ -139,7 +138,7 @@ void vtkImageMirrorPad::ComputeRequiredInputUpdateExtent(vtkImageCache *out,
     extent[idx * 2 + 1] = max;
     }
   
-  in->SetUpdateExtent(extent);
+  this->Input->SetUpdateExtent(extent);
 }
 
 

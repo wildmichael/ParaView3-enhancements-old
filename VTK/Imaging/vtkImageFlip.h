@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageFlip.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 21:16:20 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1997-07-17 14:29:32 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -75,8 +75,8 @@ public:
 protected:
   int PreserveImageExtent;
   
-  void ExecuteImageInformation(vtkImageCache *in, vtkImageCache *out);
-  void ComputeRequiredInputUpdateExtent(vtkImageCache *out, vtkImageCache *in);
+  void ExecuteImageInformation();
+  void ComputeRequiredInputUpdateExtent();
   void Execute(vtkImageRegion *inRegion, vtkImageRegion *outRegion);
 };
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageGradient.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 21:16:34 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1997-07-17 14:29:35 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -76,13 +76,12 @@ void vtkImageGradient::SetFilteredAxes(int num, int *axes)
 }
 
 //----------------------------------------------------------------------------
-void vtkImageGradient::ExecuteImageInformation(vtkImageCache *in,
-					       vtkImageCache *out)
+void vtkImageGradient::ExecuteImageInformation()
 {
   int extent[4];
   int idx;
 
-  in->GetWholeExtent(extent);
+  this->Input->GetWholeExtent(extent);
   if ( ! this->HandleBoundaries)
     {
     int axis;
@@ -94,24 +93,23 @@ void vtkImageGradient::ExecuteImageInformation(vtkImageCache *in,
       extent[axis*2 + 1] -= 1;
       }
     }
-  out->SetWholeExtent(extent);
+  this->Output->SetWholeExtent(extent);
   
-  out->SetNumberOfScalarComponents(this->NumberOfFilteredAxes);
+  this->Output->SetNumberOfScalarComponents(this->NumberOfFilteredAxes);
 }
 
 
 //----------------------------------------------------------------------------
 // Description:
 // This method computes the input extent necessary to generate the output.
-void vtkImageGradient::ComputeRequiredInputUpdateExtent(
-			vtkImageCache *out, vtkImageCache *in)
+void vtkImageGradient::ComputeRequiredInputUpdateExtent()
 {
   int extent[4];
   int *wholeExtent;
   int idx, axis;
 
-  wholeExtent = in->GetWholeExtent();
-  out->GetUpdateExtent(extent);
+  wholeExtent = this->Input->GetWholeExtent();
+  this->Output->GetUpdateExtent(extent);
   
   // grow input image extent.
   for (idx = 0; idx < this->NumberOfFilteredAxes; ++idx)
@@ -133,7 +131,7 @@ void vtkImageGradient::ComputeRequiredInputUpdateExtent(
       }
     }
   
-  in->SetUpdateExtent(extent);
+  this->Input->SetUpdateExtent(extent);
 }
 
 

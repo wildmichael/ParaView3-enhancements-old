@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagePermute.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 21:17:08 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1997-07-17 14:30:09 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to Abdalmajeid M. Alyassin who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -60,8 +60,7 @@ void vtkImagePermute::SetFilteredAxes(int num, int *axes)
 }
 
 //----------------------------------------------------------------------------
-void vtkImagePermute::ExecuteImageInformation(vtkImageCache *in, 
-					      vtkImageCache *out)
+void vtkImagePermute::ExecuteImageInformation() 
 {
   int min, max;
   float spacing;
@@ -71,19 +70,18 @@ void vtkImagePermute::ExecuteImageInformation(vtkImageCache *in,
   for (idx = 0; idx < this->NumberOfFilteredAxes; ++idx)
     {
     axis = this->FilteredAxes[idx];
-    in->GetAxisWholeExtent(axis, min, max);
-    out->SetAxisWholeExtent(idx, min, max);
-    in->GetAxisSpacing(axis, spacing);
-    out->SetAxisSpacing(idx, spacing);
-    in->GetAxisOrigin(axis, origin);
-    out->SetAxisOrigin(idx, origin);
+    this->Input->GetAxisWholeExtent(axis, min, max);
+    this->Output->SetAxisWholeExtent(idx, min, max);
+    this->Input->GetAxisSpacing(axis, spacing);
+    this->Output->SetAxisSpacing(idx, spacing);
+    this->Input->GetAxisOrigin(axis, origin);
+    this->Output->SetAxisOrigin(idx, origin);
     }
 }
 
 
 //----------------------------------------------------------------------------
-void vtkImagePermute::ComputeRequiredInputUpdateExtent(vtkImageCache *out, 
-						       vtkImageCache *in)
+void vtkImagePermute::ComputeRequiredInputUpdateExtent()
 {
   int min, max;
   int idx, axis;
@@ -91,8 +89,8 @@ void vtkImagePermute::ComputeRequiredInputUpdateExtent(vtkImageCache *out,
   for (idx = 0; idx < this->NumberOfFilteredAxes; ++idx)
     {
     axis = this->FilteredAxes[idx];
-    out->GetAxisUpdateExtent(idx, min, max);
-    in->SetAxisUpdateExtent(axis, min, max);
+    this->Output->GetAxisUpdateExtent(idx, min, max);
+    this->Input->SetAxisUpdateExtent(axis, min, max);
     }
 }
 

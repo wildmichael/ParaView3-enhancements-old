@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageFlip.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 21:16:19 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1997-07-17 14:29:31 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -61,14 +61,13 @@ void vtkImageFlip::SetFilteredAxes(int num, int *axes)
 //----------------------------------------------------------------------------
 // Description:
 // Image extent is modified by this filter.
-void vtkImageFlip::ExecuteImageInformation(vtkImageCache *in,
-					   vtkImageCache *out)
+void vtkImageFlip::ExecuteImageInformation()
 {
   int idx, axis, extent[8], temp;
 
   if ( ! this->PreserveImageExtent)
     {
-    in->GetWholeExtent(extent);
+    this->Input->GetWholeExtent(extent);
     for (idx = 0; idx < this->NumberOfFilteredAxes; ++idx)
       {
       axis = this->FilteredAxes[idx];
@@ -76,23 +75,20 @@ void vtkImageFlip::ExecuteImageInformation(vtkImageCache *in,
       extent[axis*2] = -extent[axis*2+1];
       extent[axis*2+1] = -temp;
       }
-    out->SetWholeExtent(extent);
+    this->Output->SetWholeExtent(extent);
     }
 }
 
 //----------------------------------------------------------------------------
 // Description:
 // What input should be requested.
-void vtkImageFlip::ComputeRequiredInputUpdateExtent(vtkImageCache *out, 
-						    vtkImageCache *in)
+void vtkImageFlip::ComputeRequiredInputUpdateExtent()
 {
   int idx, axis, extent[8], temp, sum;
   int *wholeExtent;
   
-  in = in;
-  
-  out->GetUpdateExtent(extent);
-  wholeExtent = out->GetWholeExtent();
+  this->Output->GetUpdateExtent(extent);
+  wholeExtent = this->Output->GetWholeExtent();
   for (idx = 0; idx < this->NumberOfFilteredAxes; ++idx)
     {
     axis = this->FilteredAxes[idx];

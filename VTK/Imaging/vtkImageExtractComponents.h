@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageExtractComponents.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-15 16:46:19 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1997-07-17 14:29:19 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -70,7 +70,7 @@ public:
   
 protected:
   
-  void ExecuteImageInformation(vtkImageCache *in1, vtkImageCache *out);
+  void ExecuteImageInformation();
   void Execute(vtkImageRegion *inRegion, vtkImageRegion *outRegion);
 };
 

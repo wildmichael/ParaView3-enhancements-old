@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageExtractComponents.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-15 16:46:18 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1997-07-17 14:29:17 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -93,12 +93,9 @@ void vtkImageExtractComponents::SetComponents(int num, int *components)
 //----------------------------------------------------------------------------
 // Description:
 // This method tells the superclass that only one component will remain.
-void vtkImageExtractComponents::ExecuteImageInformation(vtkImageCache *in,
-							vtkImageCache *out)
+void vtkImageExtractComponents::ExecuteImageInformation()
 {
-  // Avoid compiler warnings.
-  in = in;
-  out->SetNumberOfScalarComponents(this->NumberOfComponents);
+  this->Output->SetNumberOfScalarComponents(this->NumberOfComponents);
 }
 
 //----------------------------------------------------------------------------

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSpatialFilter.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 21:17:28 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1997-07-17 14:30:27 $
+  Version:   $Revision: 1.18 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -99,9 +99,9 @@ protected:
   void SetExecuteTypeToPixel()
     {this->SetExecuteType(VTK_IMAGE_SPATIAL_PIXEL);}
   
-  void ExecuteImageInformation(vtkImageCache *in, vtkImageCache *out);
+  void ExecuteImageInformation();
   void ComputeOutputWholeExtent(int *extent, int handleBoundaries);
-  void ComputeRequiredInputUpdateExtent(vtkImageCache *out, vtkImageCache *in);
+  void ComputeRequiredInputUpdateExtent();
   void ComputeRequiredInputRegionExtent(vtkImageRegion *out, 
 					vtkImageRegion *in);
   void ComputeRequiredInputExtent(int *extent, int *wholeExtent);

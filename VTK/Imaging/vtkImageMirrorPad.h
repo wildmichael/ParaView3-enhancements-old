@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMirrorPad.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 21:17:01 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1997-07-17 14:30:01 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,8 +58,7 @@ public:
   const char *GetClassName() {return "vtkImageMirrorPad";};
 
 protected:
-  void ComputeRequiredInputUpdateExtent(vtkImageCache *out,
-					vtkImageCache *in);
+  void ComputeRequiredInputUpdateExtent();
   void Execute(vtkImageRegion *inRegion, vtkImageRegion *outRegion);
 };
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDotProduct.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-27 15:35:39 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1997-07-17 14:29:16 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -61,12 +61,7 @@ public:
   const char *GetClassName() {return "vtkImageDotProduct";};
 
 protected:
-  void ComputeOutputImageInformation(vtkImageRegion *inRegion1,
-				     vtkImageRegion *inRegion2,
-				     vtkImageRegion *outRegion);
-  void ComputeRequiredInputRegionExtent(vtkImageRegion *outRegion,
-					vtkImageRegion *inRegion1,
-					vtkImageRegion *inRegion2);
+  void ExecuteImageInformation();
   void Execute(vtkImageRegion *inRegion1, 
 	       vtkImageRegion *inRegion2, 
 	       vtkImageRegion *outRegion);

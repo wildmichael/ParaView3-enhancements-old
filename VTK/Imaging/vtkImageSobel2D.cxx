@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSobel2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 21:17:23 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1997-07-17 14:30:21 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -79,26 +79,23 @@ void vtkImageSobel2D::SetFilteredAxes(int axis0, int axis1)
 }
 
 //----------------------------------------------------------------------------
-void vtkImageSobel2D::ExecuteImageInformation(vtkImageCache *in,
-					      vtkImageCache *out)
+void vtkImageSobel2D::ExecuteImageInformation()
 {
-  in = in;
-  out->SetNumberOfScalarComponents(this->NumberOfFilteredAxes);
+  this->Output->SetNumberOfScalarComponents(this->NumberOfFilteredAxes);
 }
 
 
 //----------------------------------------------------------------------------
 // Description:
 // This method computes the input extent necessary to generate the output.
-void vtkImageSobel2D::ComputeRequiredInputUpdateExtent(vtkImageCache *out, 
-						       vtkImageCache *in)
+void vtkImageSobel2D::ComputeRequiredInputUpdateExtent()
 {
   int extent[8];
   int *wholeExtent;
   int idx, axis;
 
-  wholeExtent = in->GetWholeExtent();
-  out->GetUpdateExtent(extent);
+  wholeExtent = this->Input->GetWholeExtent();
+  this->Output->GetUpdateExtent(extent);
   
   // grow input extent.
   for (idx = 0; idx < this->NumberOfFilteredAxes; ++idx)
@@ -117,7 +114,7 @@ void vtkImageSobel2D::ComputeRequiredInputUpdateExtent(vtkImageCache *out,
       }
     }
   
-  in->SetUpdateExtent(extent);
+  this->Input->SetUpdateExtent(extent);
 }
 
 

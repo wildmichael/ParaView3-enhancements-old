@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSeedConnectivity.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-15 16:46:23 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1997-07-17 14:30:16 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -132,7 +132,7 @@ void vtkImageSeedConnectivity::AddSeed(int i0, int i1)
 //----------------------------------------------------------------------------
 // Update the whole image in cache because we will be generating the whole
 // image anyway.
-void vtkImageSeedConnectivity::InterceptCacheUpdate(vtkImageCache *out)
+void vtkImageSeedConnectivity::InterceptCacheUpdate()
 {
   int idx, axis;
   int min, max;
@@ -140,8 +140,8 @@ void vtkImageSeedConnectivity::InterceptCacheUpdate(vtkImageCache *out)
   for (idx = 0; idx < this->NumberOfFilteredAxes; ++idx)
     {
     axis = this->FilteredAxes[idx];
-    out->GetAxisWholeExtent(axis, min, max);
-    out->SetAxisUpdateExtent(axis, min, max);
+    this->Output->GetAxisWholeExtent(axis, min, max);
+    this->Output->SetAxisUpdateExtent(axis, min, max);
     }    
 }
 

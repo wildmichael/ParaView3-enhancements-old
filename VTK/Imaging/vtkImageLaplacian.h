@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageLaplacian.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 21:16:45 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1997-07-17 14:29:52 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -70,7 +70,7 @@ public:
   vtkGetMacro(NumberOfFilteredAxes,int);
   
 protected:
-  void ComputeRequiredInputUpdateExtent(vtkImageCache *out, vtkImageCache *in);
+  void ComputeRequiredInputUpdateExtent();
   void Execute(vtkImageRegion *inRegion, vtkImageRegion *outRegion);
 };
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageIslandRemoval2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 21:16:43 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1997-07-17 14:29:48 $
+  Version:   $Revision: 1.15 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -98,14 +98,14 @@ void vtkImageIslandRemoval2D::SetFilteredAxes(int axis0, int axis1)
 // Description:
 // Intercepts the caches Update to make the region larger than requested.
 // The whole image is generated when any region is requested.
-void vtkImageIslandRemoval2D::InterceptCacheUpdate(vtkImageCache *out)
+void vtkImageIslandRemoval2D::InterceptCacheUpdate()
 {
   int min, max;
 
-  out->GetAxisWholeExtent(this->FilteredAxes[0], min ,max);
-  out->SetAxisUpdateExtent(this->FilteredAxes[0], min ,max);
-  out->GetAxisWholeExtent(this->FilteredAxes[1], min ,max);
-  out->SetAxisUpdateExtent(this->FilteredAxes[1], min ,max);
+  this->Output->GetAxisWholeExtent(this->FilteredAxes[0], min ,max);
+  this->Output->SetAxisUpdateExtent(this->FilteredAxes[0], min ,max);
+  this->Output->GetAxisWholeExtent(this->FilteredAxes[1], min ,max);
+  this->Output->SetAxisUpdateExtent(this->FilteredAxes[1], min ,max);
 }
 
 

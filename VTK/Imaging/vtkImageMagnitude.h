@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMagnitude.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 21:16:52 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1997-07-17 14:29:59 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,7 +58,7 @@ public:
 
 protected:
 
-  void ExecuteImageInformation(vtkImageCache *in, vtkImageCache *out);
+  void ExecuteImageInformation();
   void Execute(vtkImageRegion *inRegion, vtkImageRegion *outRegion);
 };
 

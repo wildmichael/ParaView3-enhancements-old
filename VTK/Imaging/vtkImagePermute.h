@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagePermute.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 21:17:09 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1997-07-17 14:30:10 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -66,8 +66,8 @@ public:
   vtkImageSetMacro(FilteredAxes, int);
   
 protected:
-  void ExecuteImageInformation(vtkImageCache *in, vtkImageCache *out);
-  void ComputeRequiredInputUpdateExtent(vtkImageCache *out, vtkImageCache *in);
+  void ExecuteImageInformation();
+  void ComputeRequiredInputUpdateExtent();
   void Execute(vtkImageRegion *inRegion, vtkImageRegion *outRegion);
 };
 

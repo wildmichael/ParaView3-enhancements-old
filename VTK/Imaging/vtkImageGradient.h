@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageGradient.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 21:16:35 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1997-07-17 14:29:37 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -79,8 +79,8 @@ protected:
   int HandleBoundaries;
   int Dimensionality;
   
-  void ExecuteImageInformation(vtkImageCache *in, vtkImageCache *out);
-  void ComputeRequiredInputUpdateExtent(vtkImageCache *out, vtkImageCache *in);
+  void ExecuteImageInformation();
+  void ComputeRequiredInputUpdateExtent();
   void Execute(vtkImageRegion *inRegion, vtkImageRegion *outRegion);
 
 };

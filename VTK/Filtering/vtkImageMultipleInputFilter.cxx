@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMultipleInputFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-17 11:25:01 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1997-07-17 14:30:03 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -46,11 +46,20 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 //----------------------------------------------------------------------------
 vtkImageMultipleInputFilter::vtkImageMultipleInputFilter()
 {
+  this->FilteredAxes[0] = VTK_IMAGE_X_AXIS;
+  this->FilteredAxes[1] = VTK_IMAGE_Y_AXIS;
+  this->FilteredAxes[2] = VTK_IMAGE_Z_AXIS;
+  this->FilteredAxes[3] = VTK_IMAGE_TIME_AXIS;
+  this->NumberOfFilteredAxes = 2;
+
   this->NumberOfInputs = 0;
   this->Inputs = NULL;
   this->Regions = NULL;
   this->Bypass = 0;
   this->Updating = 0;
+
+  // Invalid
+  this->NumberOfExecutionAxes = -1;
 }
 
 //----------------------------------------------------------------------------
