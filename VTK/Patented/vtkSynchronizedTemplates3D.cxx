@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSynchronizedTemplates3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-19 19:37:48 $
-  Version:   $Revision: 1.54 $
+  Date:      $Date: 2001-12-20 13:34:44 $
+  Version:   $Revision: 1.55 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -345,15 +345,15 @@ static void ContourImage(vtkSynchronizedTemplates3D *self, int *exExt,
   vtkPoints *newPts;
   vtkCellArray *newPolys;
 
-  if (self->GetComputeScalars())
+  if (ComputeScalars)
     {
     newScalars = vtkFloatArray::New();
     }
-  if (self->GetComputeScalars())
+  if (ComputeNormals)
     {
     newNormals = vtkFloatArray::New();
     }
-  if (self->GetComputeScalars())
+  if (ComputeGradients)
     {
     newGradients = vtkFloatArray::New();
     }

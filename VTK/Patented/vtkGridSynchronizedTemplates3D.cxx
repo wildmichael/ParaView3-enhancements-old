@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGridSynchronizedTemplates3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-19 19:37:47 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 2001-12-20 13:34:44 $
+  Version:   $Revision: 1.52 $
 
 
 
@@ -424,15 +424,15 @@ static void ContourGrid(vtkGridSynchronizedTemplates3D *self,
   vtkFloatArray *newNormals = NULL;
   vtkFloatArray *newGradients = NULL;
 
-  if (self->GetComputeScalars())
+  if (ComputeScalars)
     {
     newScalars = vtkFloatArray::New();
     }
-  if (self->GetComputeScalars())
+  if (ComputeNormals)
     {
     newNormals = vtkFloatArray::New();
     }
-  if (self->GetComputeScalars())
+  if (ComputeGradients)
     {
     newGradients = vtkFloatArray::New();
     }
