@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageViewer2.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 14:56:47 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-10-03 13:19:58 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -64,7 +64,7 @@ class vtkInteractorStyleImage;
 #define VTK_IMAGE_VIEWER_UPPER_LEFT 0
 #define VTK_IMAGE_VIEWER_LOWER_LEFT 1
 
-class VTK_EXPORT vtkImageViewer2 : public vtkObject 
+class VTK_RENDERING_EXPORT vtkImageViewer2 : public vtkObject 
 {
 public:
   static vtkImageViewer2 *New();

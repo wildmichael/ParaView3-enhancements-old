@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastMIPFunction.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-20 21:12:11 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2001-10-03 13:20:30 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -63,7 +63,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define VTK_MAXIMIZE_SCALAR_VALUE 0
 #define VTK_MAXIMIZE_OPACITY      1
 
-class VTK_EXPORT vtkVolumeRayCastMIPFunction : public vtkVolumeRayCastFunction
+class VTK_RENDERING_EXPORT vtkVolumeRayCastMIPFunction : public vtkVolumeRayCastFunction
 {
 public:
   static vtkVolumeRayCastMIPFunction *New();

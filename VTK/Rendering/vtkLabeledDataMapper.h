@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLabeledDataMapper.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:58 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2001-10-03 13:20:08 $
+  Version:   $Revision: 1.23 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -83,7 +83,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define VTK_LABEL_TENSORS    5
 #define VTK_LABEL_FIELD_DATA 6
 
-class VTK_EXPORT vtkLabeledDataMapper : public vtkMapper2D
+class VTK_RENDERING_EXPORT vtkLabeledDataMapper : public vtkMapper2D
 {
 public:
   // Description:

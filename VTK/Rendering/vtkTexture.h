@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTexture.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:07:01 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 2001-10-03 13:20:28 $
+  Version:   $Revision: 1.51 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -80,7 +80,7 @@ class vtkWindow;
 #define VTK_TEXTURE_QUALITY_16BIT   16
 #define VTK_TEXTURE_QUALITY_32BIT   32
 
-class VTK_EXPORT vtkTexture : public vtkProcessObject
+class VTK_RENDERING_EXPORT vtkTexture : public vtkProcessObject
 {
 public:
   static vtkTexture *New();

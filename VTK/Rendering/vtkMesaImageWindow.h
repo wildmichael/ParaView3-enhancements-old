@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaImageWindow.h,v $
   Language:  C++
-  Date:      $Date: 2001-09-19 19:54:30 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2001-10-03 13:20:13 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -61,7 +61,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
 
-class VTK_EXPORT vtkMesaImageWindow : public vtkXImageWindow
+class VTK_RENDERING_EXPORT vtkMesaImageWindow : public vtkXImageWindow
 {
 public:
   static vtkMesaImageWindow *New();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImager.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:54 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2001-10-03 13:19:59 $
+  Version:   $Revision: 1.20 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -59,7 +59,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 class vtkImageWindow;
 
-class VTK_EXPORT vtkImager : public vtkViewport
+class VTK_RENDERING_EXPORT vtkImager : public vtkViewport
 { 
 public:
   static vtkImager *New();

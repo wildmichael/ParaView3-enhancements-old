@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLight.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:59 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 2001-10-03 13:20:08 $
+  Version:   $Revision: 1.48 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -75,7 +75,7 @@ class vtkRenderer;
 #define VTK_LIGHT_TYPE_CAMERA_LIGHT 2
 #define VTK_LIGHT_TYPE_SCENE_LIGHT  3
 
-class VTK_EXPORT vtkLight : public vtkObject
+class VTK_RENDERING_EXPORT vtkLight : public vtkObject
 {
 public:
   vtkTypeMacro(vtkLight,vtkObject);

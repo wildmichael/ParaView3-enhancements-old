@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuartzRenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:07:00 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-10-03 13:20:25 $
+  Version:   $Revision: 1.3 $
   
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -73,7 +73,7 @@ void DoMouseDown(void *vtkClass, int shiftDown, int controlDown, int altDown, in
 
 
 
-class VTK_EXPORT vtkQuartzRenderWindowInteractor : public vtkRenderWindowInteractor {
+class VTK_RENDERING_EXPORT vtkQuartzRenderWindowInteractor : public vtkRenderWindowInteractor {
 public:
   // Description:
   // Construct object so that light follows camera motion.

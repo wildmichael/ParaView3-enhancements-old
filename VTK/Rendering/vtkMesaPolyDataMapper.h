@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaPolyDataMapper.h,v $
   Language:  C++
-  Date:      $Date: 2001-09-19 19:54:31 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2001-10-03 13:20:14 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -61,7 +61,7 @@ class vtkRenderWindow;
 class vtkMesaRenderer;
 class vtkTimerLog;
 
-class VTK_EXPORT vtkMesaPolyDataMapper : public vtkPolyDataMapper
+class VTK_RENDERING_EXPORT vtkMesaPolyDataMapper : public vtkPolyDataMapper
 {
 public:
   static vtkMesaPolyDataMapper *New();

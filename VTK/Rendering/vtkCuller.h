@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCuller.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:52:59 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2001-10-03 13:19:53 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -57,7 +57,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 class vtkProp;
 class vtkRenderer;
 
-class VTK_EXPORT vtkCuller : public vtkObject
+class VTK_RENDERING_EXPORT vtkCuller : public vtkObject
 {
 public:
   vtkTypeMacro(vtkCuller,vtkObject);

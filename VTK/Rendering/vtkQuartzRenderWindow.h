@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuartzRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2001-09-02 04:22:10 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-10-03 13:20:25 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -76,7 +76,7 @@ void VBRedrawWindow(void *vtkClass);
 
 class vtkIdList;
 
-class VTK_EXPORT vtkQuartzRenderWindow : public vtkRenderWindow
+class VTK_RENDERING_EXPORT vtkQuartzRenderWindow : public vtkRenderWindow
 {
 public:
   static vtkQuartzRenderWindow *New();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLightKit.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:59 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2001-10-03 13:20:09 $
+  Version:   $Revision: 1.7 $
   Thanks:    Michael Halle, Brigham and Women's Hospital
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -118,7 +118,7 @@ class vtkLight;
 class vtkPiecewiseFunction;
 class vtkRenderer;
 
-class VTK_EXPORT vtkLightKit : public vtkObject
+class VTK_RENDERING_EXPORT vtkLightKit : public vtkObject
 {
 public:
   static vtkLightKit *New();

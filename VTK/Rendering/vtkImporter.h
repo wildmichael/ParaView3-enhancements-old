@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImporter.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:56 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2001-10-03 13:20:01 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -77,7 +77,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkActorCollection.h"
 #include "vtkLightCollection.h"
 
-class VTK_EXPORT vtkImporter : public vtkObject
+class VTK_RENDERING_EXPORT vtkImporter : public vtkObject
 {
 public:
   vtkTypeMacro(vtkImporter,vtkObject);

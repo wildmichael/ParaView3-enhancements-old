@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleJoystickCamera.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:57 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2001-10-03 13:20:03 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -69,7 +69,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define VTK_INTERACTOR_STYLE_CAMERA_ZOOM    3
 #define VTK_INTERACTOR_STYLE_CAMERA_SPIN    4
 
-class VTK_EXPORT vtkInteractorStyleJoystickCamera : public vtkInteractorStyle
+class VTK_RENDERING_EXPORT vtkInteractorStyleJoystickCamera : public vtkInteractorStyle
 {
 public:
   static vtkInteractorStyleJoystickCamera *New();

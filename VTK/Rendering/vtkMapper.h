@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper.h,v $
   Language:  C++
-  Date:      $Date: 2001-09-28 20:32:06 $
-  Version:   $Revision: 1.73 $
+  Date:      $Date: 2001-10-03 13:20:10 $
+  Version:   $Revision: 1.74 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -94,7 +94,7 @@ class vtkWindow;
 class vtkRenderer;
 class vtkActor;
 
-class VTK_EXPORT vtkMapper : public vtkAbstractMapper3D
+class VTK_RENDERING_EXPORT vtkMapper : public vtkAbstractMapper3D
 {
 public:
   vtkTypeMacro(vtkMapper,vtkAbstractMapper3D);

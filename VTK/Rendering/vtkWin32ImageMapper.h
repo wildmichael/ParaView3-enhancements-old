@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32ImageMapper.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:07:01 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2001-10-03 13:20:31 $
+  Version:   $Revision: 1.19 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -57,7 +57,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 class vtkImageActor2D;
 
 #ifndef VTK_REMOVE_LEGACY_CODE
-class VTK_EXPORT vtkWin32ImageMapper : public vtkImageMapper
+class VTK_RENDERING_EXPORT vtkWin32ImageMapper : public vtkImageMapper
 {
 public:
   static vtkWin32ImageMapper *New();

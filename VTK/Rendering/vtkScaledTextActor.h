@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScaledTextActor.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:07:01 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2001-10-03 13:20:27 $
+  Version:   $Revision: 1.19 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -53,7 +53,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkActor2D.h"
 #include "vtkTextMapper.h"
 
-class VTK_EXPORT vtkScaledTextActor : public vtkActor2D
+class VTK_RENDERING_EXPORT vtkScaledTextActor : public vtkActor2D
 {
 public:
   vtkTypeMacro(vtkScaledTextActor,vtkActor2D);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageViewer.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:54 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 2001-10-03 13:19:58 $
+  Version:   $Revision: 1.42 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -61,7 +61,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define VTK_IMAGE_VIEWER_UPPER_LEFT 0
 #define VTK_IMAGE_VIEWER_LOWER_LEFT 1
 
-class VTK_EXPORT vtkImageViewer : public vtkObject 
+class VTK_RENDERING_EXPORT vtkImageViewer : public vtkObject 
 {
 public:
   static vtkImageViewer *New();

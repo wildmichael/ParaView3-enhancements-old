@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLVolumeRayCastMapper.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-20 21:17:18 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-10-03 13:20:22 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -62,7 +62,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   #endif
 #endif
 
-class VTK_EXPORT vtkOpenGLVolumeRayCastMapper : public vtkVolumeRayCastMapper
+class VTK_RENDERING_EXPORT vtkOpenGLVolumeRayCastMapper : public vtkVolumeRayCastMapper
 {
 public:
   static vtkOpenGLVolumeRayCastMapper *New();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleUser.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:58 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2001-10-03 13:20:06 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -62,7 +62,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // new motion flag
 #define VTKIS_USERINTERACTION 8 
 
-class VTK_EXPORT vtkInteractorStyleUser : public vtkInteractorStyleSwitch 
+class VTK_RENDERING_EXPORT vtkInteractorStyleUser : public vtkInteractorStyleSwitch 
 {
 public:
   static vtkInteractorStyleUser *New();

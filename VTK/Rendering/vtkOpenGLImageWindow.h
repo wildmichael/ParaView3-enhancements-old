@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLImageWindow.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:07:00 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2001-10-03 13:20:19 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -56,7 +56,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "GL/glx.h"
 
 
-class VTK_EXPORT vtkOpenGLImageWindow : public vtkXImageWindow
+class VTK_RENDERING_EXPORT vtkOpenGLImageWindow : public vtkXImageWindow
 {
 public:
   static vtkOpenGLImageWindow *New();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractPropPicker.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 22:03:12 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2001-10-03 13:19:50 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -94,7 +94,7 @@ class vtkActor;
 class vtkVolume;
 class vtkProp3D;
 
-class VTK_EXPORT vtkAbstractPropPicker : public vtkAbstractPicker
+class VTK_RENDERING_EXPORT vtkAbstractPropPicker : public vtkAbstractPicker
 {
 public:
   vtkTypeMacro(vtkAbstractPropPicker,vtkAbstractPicker);

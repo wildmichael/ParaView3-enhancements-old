@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleSwitch.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:57 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2001-10-03 13:20:04 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -64,7 +64,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkInteractorStyleTrackballActor.h"
 #include "vtkInteractorStyleTrackballCamera.h"
 
-class VTK_EXPORT vtkInteractorStyleSwitch : public vtkInteractorStyle
+class VTK_RENDERING_EXPORT vtkInteractorStyleSwitch : public vtkInteractorStyle
 {
 public:
   static vtkInteractorStyleSwitch *New();

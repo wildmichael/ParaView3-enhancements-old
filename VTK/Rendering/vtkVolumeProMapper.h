@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProMapper.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-27 15:18:38 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2001-10-03 13:20:29 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -92,7 +92,7 @@ class VLICutPlane;
 #define VTK_VOLUME_12BIT_UPPER          1
 #define VTK_VOLUME_12BIT_LOWER          2
 
-class VTK_EXPORT vtkVolumeProMapper : public vtkVolumeMapper
+class VTK_RENDERING_EXPORT vtkVolumeProMapper : public vtkVolumeMapper
 {
 public:
   vtkTypeMacro(vtkVolumeProMapper,vtkVolumeMapper);

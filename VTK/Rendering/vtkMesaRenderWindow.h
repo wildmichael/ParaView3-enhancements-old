@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2001-09-19 19:54:32 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2001-10-03 13:20:16 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -58,7 +58,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 class vtkIdList;
 
-class VTK_EXPORT vtkMesaRenderWindow : public vtkRenderWindow
+class VTK_RENDERING_EXPORT vtkMesaRenderWindow : public vtkRenderWindow
 {
 protected:
   int MultiSamples;

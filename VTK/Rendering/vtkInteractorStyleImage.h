@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleImage.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 14:56:47 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-10-03 13:20:03 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -64,7 +64,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define VTK_INTERACTOR_STYLE_IMAGE_ZOOM    3
 #define VTK_INTERACTOR_STYLE_IMAGE_SPIN    4
 
-class VTK_EXPORT vtkInteractorStyleImage : public vtkInteractorStyle
+class VTK_RENDERING_EXPORT vtkInteractorStyleImage : public vtkInteractorStyle
 {
 public:
   static vtkInteractorStyleImage *New();

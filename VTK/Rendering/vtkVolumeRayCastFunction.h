@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastFunction.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-27 15:18:38 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2001-10-03 13:20:30 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -164,7 +164,7 @@ typedef struct
   int                          MaximizeOpacity;
 } VTKVRCStaticInfo;
 
-class VTK_EXPORT vtkVolumeRayCastFunction : public vtkObject
+class VTK_RENDERING_EXPORT vtkVolumeRayCastFunction : public vtkObject
 {
 public:
   vtkTypeMacro(vtkVolumeRayCastFunction,vtkObject);

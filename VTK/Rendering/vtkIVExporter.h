@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIVExporter.h,v $
   Language:  C++
-  Date:      $Date: 2001-09-28 20:32:06 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2001-10-03 13:19:57 $
+  Version:   $Revision: 1.18 $
   Thanks:    to Jon A. Webb of Visual Interface Inc.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -54,7 +54,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <stdio.h>
 #include "vtkExporter.h"
 
-class VTK_EXPORT vtkIVExporter : public vtkExporter
+class VTK_RENDERING_EXPORT vtkIVExporter : public vtkExporter
 {
 public:
   static vtkIVExporter *New();

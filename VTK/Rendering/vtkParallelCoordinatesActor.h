@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkParallelCoordinatesActor.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:07:00 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2001-10-03 13:20:23 $
+  Version:   $Revision: 1.12 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -76,7 +76,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define VTK_IV_COLUMN 0
 #define VTK_IV_ROW    1
 
-class VTK_EXPORT vtkParallelCoordinatesActor : public vtkActor2D
+class VTK_RENDERING_EXPORT vtkParallelCoordinatesActor : public vtkActor2D
 {
 public:
   vtkTypeMacro(vtkParallelCoordinatesActor,vtkActor2D);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLRenderer.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:07:00 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2001-10-03 13:20:21 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -50,7 +50,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <stdlib.h>
 #include "vtkRenderer.h"
 
-class VTK_EXPORT vtkOpenGLRenderer : public vtkRenderer
+class VTK_RENDERING_EXPORT vtkOpenGLRenderer : public vtkRenderer
 {
 protected:
   int NumberOfLightsBound;

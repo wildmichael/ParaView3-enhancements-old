@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleUnicam.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:57 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2001-10-03 13:20:06 $
+  Version:   $Revision: 1.10 $
 
 =========================================================================*/
 
@@ -115,7 +115,7 @@ inline double TheTime()
 #define VTK_UNICAM_CAM_INT_PAN    2
 #define VTK_UNICAM_CAM_INT_DOLLY  3
 
-class VTK_EXPORT vtkInteractorStyleUnicam : public vtkInteractorStyle 
+class VTK_RENDERING_EXPORT vtkInteractorStyleUnicam : public vtkInteractorStyle 
 {
 public:
   static vtkInteractorStyleUnicam *New();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetMapper.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-17 17:35:32 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 2001-10-03 13:19:53 $
+  Version:   $Revision: 1.50 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -57,7 +57,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkImageData.h"
 
 
-class VTK_EXPORT vtkDataSetMapper : public vtkMapper 
+class VTK_RENDERING_EXPORT vtkDataSetMapper : public vtkMapper 
 {
 public:
   static vtkDataSetMapper *New();

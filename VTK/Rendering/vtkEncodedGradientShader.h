@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEncodedGradientShader.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:53 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2001-10-03 13:19:54 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -65,7 +65,7 @@ class vtkEncodedGradientEstimator;
 
 #define VTK_MAX_SHADING_TABLES   100
 
-class VTK_EXPORT vtkEncodedGradientShader : public vtkObject
+class VTK_RENDERING_EXPORT vtkEncodedGradientShader : public vtkObject
 {
 public:
   static vtkEncodedGradientShader *New();

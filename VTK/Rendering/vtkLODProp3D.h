@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLODProp3D.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-27 15:18:37 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2001-10-03 13:20:07 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -75,7 +75,7 @@ typedef struct
   float       Level;
 } vtkLODProp3DEntry;
 
-class VTK_EXPORT vtkLODProp3D : public vtkProp3D
+class VTK_RENDERING_EXPORT vtkLODProp3D : public vtkProp3D
 {
 public:
   // Description:

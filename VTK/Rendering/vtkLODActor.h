@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLODActor.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:59 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2001-10-03 13:20:07 $
+  Version:   $Revision: 1.40 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -75,7 +75,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkPolyDataMapper.h"
 #include "vtkMapperCollection.h"
 
-class VTK_EXPORT vtkLODActor : public vtkActor
+class VTK_RENDERING_EXPORT vtkLODActor : public vtkActor
 {
 public:
   vtkTypeMacro(vtkLODActor,vtkActor);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleFlight.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:56 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2001-10-03 13:20:02 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to John Biddiscombe of the Rutherford Appleton Laboratory
              who developed this class.
 
@@ -68,7 +68,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "vtkInteractorStyle.h"
 
-class VTK_EXPORT vtkInteractorStyleFlight : public vtkInteractorStyle
+class VTK_RENDERING_EXPORT vtkInteractorStyleFlight : public vtkInteractorStyle
 {
 public:
   static vtkInteractorStyleFlight *New();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuartzTextMapper.h,v $
   Language:  C++
-  Date:      $Date: 2001-09-02 01:49:03 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-10-03 13:20:25 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -53,7 +53,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "vtkTextMapper.h"
 
-class VTK_EXPORT vtkQuartzTextMapper : public vtkTextMapper
+class VTK_RENDERING_EXPORT vtkQuartzTextMapper : public vtkTextMapper
 {
 public:
   vtkTypeMacro(vtkQuartzTextMapper,vtkTextMapper);

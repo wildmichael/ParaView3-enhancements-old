@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastMapper.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-27 15:18:38 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2001-10-03 13:20:30 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -89,7 +89,7 @@ class  vtkTimerLog;
         t1  = t10 + (y)*(t11-t10);  \
         v   =  t0 + (z)*(t1-t0);
 
-class VTK_EXPORT vtkVolumeRayCastMapper : public vtkVolumeMapper
+class VTK_RENDERING_EXPORT vtkVolumeRayCastMapper : public vtkVolumeMapper
 {
 public:
   static vtkVolumeRayCastMapper *New();

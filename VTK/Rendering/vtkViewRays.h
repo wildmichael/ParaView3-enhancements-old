@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkViewRays.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-27 15:18:37 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2001-10-03 13:20:28 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -49,7 +49,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkMatrix4x4.h"
 class vtkRenderer;
 
-class VTK_EXPORT vtkViewRays :public vtkObject
+class VTK_RENDERING_EXPORT vtkViewRays :public vtkObject
 {
 public:
   static vtkViewRays *New() {return new vtkViewRays;};

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAxisActor2D.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-29 21:45:09 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2001-10-03 13:19:51 $
+  Version:   $Revision: 1.18 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -78,7 +78,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #define VTK_MAX_LABELS 25
 
-class VTK_EXPORT vtkAxisActor2D : public vtkActor2D
+class VTK_RENDERING_EXPORT vtkAxisActor2D : public vtkActor2D
 {
 public:
   vtkTypeMacro(vtkAxisActor2D,vtkActor2D);

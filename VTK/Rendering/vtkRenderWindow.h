@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-16 12:43:57 $
-  Version:   $Revision: 1.109 $
+  Date:      $Date: 2001-10-03 13:20:26 $
+  Version:   $Revision: 1.110 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -74,7 +74,7 @@ class vtkRenderWindowInteractor;
 #define VTK_STEREO_RIGHT        5
 #define VTK_STEREO_DRESDEN      6
 
-class VTK_EXPORT vtkRenderWindow : public vtkWindow
+class VTK_RENDERING_EXPORT vtkRenderWindow : public vtkWindow
 {
 public:
   vtkTypeMacro(vtkRenderWindow,vtkWindow);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyle.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-30 15:35:18 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2001-10-03 13:20:01 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -123,7 +123,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 class vtkPolyDataMapper;
 class vtkOutlineSource;
 
-class VTK_EXPORT vtkInteractorStyle : public vtkObject 
+class VTK_RENDERING_EXPORT vtkInteractorStyle : public vtkObject 
 {
 public:
   // Description:

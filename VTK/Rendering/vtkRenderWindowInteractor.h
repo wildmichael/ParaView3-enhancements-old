@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-30 15:35:18 $
-  Version:   $Revision: 1.80 $
+  Date:      $Date: 2001-10-03 13:20:27 $
+  Version:   $Revision: 1.81 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -69,7 +69,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 class vtkInteractorStyle;
 
-class VTK_EXPORT vtkRenderWindowInteractor : public vtkObject
+class VTK_RENDERING_EXPORT vtkRenderWindowInteractor : public vtkObject
 {
 public:
   static vtkRenderWindowInteractor *New();

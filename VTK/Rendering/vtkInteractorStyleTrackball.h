@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleTrackball.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:57 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2001-10-03 13:20:04 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -67,7 +67,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define VTKIS_CONTROL_OFF 0
 #define VTKIS_CONTROL_ON 1
 
-class VTK_EXPORT vtkInteractorStyleTrackball : public vtkInteractorStyle 
+class VTK_RENDERING_EXPORT vtkInteractorStyleTrackball : public vtkInteractorStyle 
 {
 public:
   static vtkInteractorStyleTrackball *New();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRayCaster.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-28 15:11:01 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2001-10-03 13:20:26 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -51,7 +51,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkObject.h"
 #include "vtkObjectFactory.h"
 
-class VTK_EXPORT vtkRayCaster : public vtkObject
+class VTK_RENDERING_EXPORT vtkRayCaster : public vtkObject
 {
 public:
   static vtkRayCaster *New()

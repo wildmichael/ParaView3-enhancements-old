@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaRenderer.h,v $
   Language:  C++
-  Date:      $Date: 2001-09-19 18:54:34 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2001-10-03 13:20:16 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -51,7 +51,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <stdlib.h>
 #include "vtkRenderer.h"
 
-class VTK_EXPORT vtkMesaRenderer : public vtkRenderer
+class VTK_RENDERING_EXPORT vtkMesaRenderer : public vtkRenderer
 {
 protected:
   int NumberOfLightsBound;
