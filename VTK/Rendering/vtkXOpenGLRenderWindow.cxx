@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXOpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-19 19:39:43 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2002-11-20 15:17:04 $
+  Version:   $Revision: 1.38 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -87,7 +87,7 @@ vtkXOpenGLRenderWindowInternal::vtkXOpenGLRenderWindowInternal(
 
 
 #ifndef VTK_IMPLEMENT_MESA_CXX
-vtkCxxRevisionMacro(vtkXOpenGLRenderWindow, "$Revision: 1.37 $");
+vtkCxxRevisionMacro(vtkXOpenGLRenderWindow, "$Revision: 1.38 $");
 vtkStandardNewMacro(vtkXOpenGLRenderWindow);
 #endif
 
@@ -1213,7 +1213,7 @@ const char* vtkXOpenGLRenderWindow::ReportCapabilities()
         strm << extlist[i] << endl;
       }
     }
-
+  strm << ends;
   return strm.str();
 }
 
