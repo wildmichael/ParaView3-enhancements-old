@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFollower.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-15 23:23:12 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1997-05-29 20:50:40 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -270,6 +270,7 @@ void vtkFollower::Render(vtkRenderer *ren)
     // force creation of a property
     this->GetProperty();
     }
+  this->Device->SetProperty (this->Property);
   this->Property->Render(this, ren);
 
   /* render the texture */
