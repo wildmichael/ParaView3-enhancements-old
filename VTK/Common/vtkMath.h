@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMath.h,v $
   Language:  C++
-  Date:      $Date: 1996-05-16 18:45:04 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 1996-05-24 18:50:46 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -77,6 +77,7 @@ public:
   int InvertMatrix(double **A, double **AI, int size);
   int LUFactorLinearSystem(double **A, int *index, int size);
   void LUSolveLinearSystem(double **A, int *index, double *x, int size);
+  double EstimateMatrixCondition(double **A, int size);
 
   // Random number generation
   void RandomSeed(long s);  
