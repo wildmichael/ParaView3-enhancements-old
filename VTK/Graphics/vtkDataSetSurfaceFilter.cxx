@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetSurfaceFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:14 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2002-04-02 21:01:21 $
+  Version:   $Revision: 1.16 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -30,7 +30,7 @@
 #include "vtkUnsignedCharArray.h"
 #include "vtkStructuredGridGeometryFilter.h"
 
-vtkCxxRevisionMacro(vtkDataSetSurfaceFilter, "$Revision: 1.15 $");
+vtkCxxRevisionMacro(vtkDataSetSurfaceFilter, "$Revision: 1.16 $");
 vtkStandardNewMacro(vtkDataSetSurfaceFilter);
 
 //----------------------------------------------------------------------------
@@ -413,7 +413,17 @@ void vtkDataSetSurfaceFilter::ExecuteFaceQuads(vtkDataSet *input,
   // quad increments (cell incraments, but cInc could be confused with c axis).
   qInc[0] = 1;
   qInc[1] = ext[1]-ext[0];
+  // The conditions are for when we have one or more degenerate axes (2d or 1d cells).
+  if (qInc[1] == 0)
+    {
+    qInc[1] = 1;
+    }
   qInc[2] = (ext[3]-ext[2]) * qInc[1];
+  if (qInc[2] == 0)
+    {
+    qInc[2] = qInc[1];
+    }
+
 
   // Tempoprary variables to avoid many multiplications.
   aA2 = aAxis * 2;
