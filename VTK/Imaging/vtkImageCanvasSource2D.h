@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCanvasSource2D.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-27 14:49:44 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-02-02 19:09:46 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -112,7 +112,10 @@ public:
   void DrawPoint(int p0, int p1);
   void DrawSegment(int x0, int y0, int x1, int y1);
   void DrawSegment3D(float *p0, float *p1);
-
+  void DrawSegment3D(float x1, float y1, float z1, float x2, float y2, float z2) 
+    { float p1[3], p2[3]; 
+    p1[0] = x1; p1[1] = y1; p1[2] = z1; p2[0] = x2; p2[1] = y2; p2[2] = z2;
+    this->DrawSegment3D(p1, p2);}
 
   // Description:
   // Fill a colored area with another color. (like connectivity)
