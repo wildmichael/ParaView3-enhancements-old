@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCell.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-10 18:20:31 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 2001-07-11 15:31:55 $
+  Version:   $Revision: 1.47 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -300,7 +300,7 @@ void vtkCell::PrintSelf(ostream& os, vtkIndent indent)
     }
 }
 
-LINE_CASES VTK_MARCHING_SQUARES_LINECASES[] = { 
+static VTK_LINE_CASES VTK_MARCHING_SQUARES_LINECASES[] = { 
   {{-1, -1, -1, -1, -1}},
   {{0, 3, -1, -1, -1}},
   {{1, 0, -1, -1, -1}},
@@ -318,3 +318,8 @@ LINE_CASES VTK_MARCHING_SQUARES_LINECASES[] = {
   {{3, 0, -1, -1, -1}},
   {{-1, -1, -1, -1, -1}}
 };
+
+VTK_LINE_CASES* VTK_LINE_CASES::GetCases()
+{
+  return VTK_MARCHING_SQUARES_LINECASES;
+}

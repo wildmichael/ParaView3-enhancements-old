@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPixel.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-10 18:20:31 $
-  Version:   $Revision: 1.65 $
+  Date:      $Date: 2001-07-11 15:32:24 $
+  Version:   $Revision: 1.66 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -263,7 +263,7 @@ void vtkPixel::Contour(float value, vtkScalars *cellScalars,
                        vtkCellData *inCd, vtkIdType cellId, vtkCellData *outCd)
 {
   static int CASE_MASK[4] = {1,2,8,4}; //note difference!
-  LINE_CASES *lineCase;
+  VTK_LINE_CASES *lineCase;
   EDGE_LIST  *edge;
   int i, j, index, *vert;
   int newCellId;
@@ -279,7 +279,7 @@ void vtkPixel::Contour(float value, vtkScalars *cellScalars,
       }
     }
 
-  lineCase = VTK_MARCHING_SQUARES_LINECASES + index;
+  lineCase = VTK_LINE_CASES::GetCases() + index;
   edge = lineCase->edges;
 
   for ( ; edge[0] > -1; edge += 2 )
