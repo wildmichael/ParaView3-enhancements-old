@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkConeSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:32 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 2000-12-11 20:19:45 $
+  Version:   $Revision: 1.48 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -98,7 +98,7 @@ void vtkConeSource::Execute()
   
   piece = output->GetUpdatePiece();
   numPieces = output->GetUpdateNumberOfPieces();
-  maxPieces = output->GetMaximumNumberOfPieces();
+  maxPieces = this->Resolution;
   start = maxPieces * piece / numPieces;
   end = (maxPieces * (piece+1) / numPieces) - 1;
   createBottom = (this->Capping && (start == 0));
@@ -279,16 +279,6 @@ void vtkConeSource::ExecuteInformation()
   
   // convert to kilobytes
   size = (size / 1000) + 1;
-  
-  
-  if (this->Resolution < 3)
-    {
-    this->GetOutput()->SetMaximumNumberOfPieces(1);
-    }
-  else
-    {
-    this->GetOutput()->SetMaximumNumberOfPieces(this->Resolution);
-    }  
 }
 
 

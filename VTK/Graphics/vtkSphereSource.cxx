@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSphereSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:52 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 2000-12-11 20:19:45 $
+  Version:   $Revision: 1.48 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -362,5 +362,4 @@ void vtkSphereSource::ExecuteInformation()
   // convert to kilobytes
   size = (size / 1000) + 1;
   
-  this->GetOutput()->SetMaximumNumberOfPieces(this->ThetaResolution);
 }

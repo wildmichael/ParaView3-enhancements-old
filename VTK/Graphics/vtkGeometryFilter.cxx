@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGeometryFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:38 $
-  Version:   $Revision: 1.70 $
+  Date:      $Date: 2000-12-11 20:19:45 $
+  Version:   $Revision: 1.71 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1080,9 +1080,5 @@ void vtkGeometryFilter::ExecuteInformation()
     vtkErrorMacro("No Input");
     return;
     }
-  // I guess images do not set this properly.
-  //this->GetOutput()->SetMaximumNumberOfPieces(
-  //                    this->GetInput()->GetMaximumNumberOfPieces());
-  this->GetOutput()->SetMaximumNumberOfPieces(1000);
 }
 

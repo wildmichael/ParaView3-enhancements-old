@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProbeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:47 $
-  Version:   $Revision: 1.56 $
+  Date:      $Date: 2000-12-11 20:19:45 $
+  Version:   $Revision: 1.57 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -181,8 +181,6 @@ void vtkProbeFilter::ExecuteInformation()
     vtkErrorMacro("Missing input or source");
     return;
     }
-  this->GetOutput()->SetMaximumNumberOfPieces(
-                        this->GetInput()->GetMaximumNumberOfPieces());
 }
 
 
