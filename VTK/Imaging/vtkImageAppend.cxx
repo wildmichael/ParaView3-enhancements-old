@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAppend.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-11-05 12:32:22 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-11-11 13:38:46 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -116,6 +116,9 @@ void vtkImageAppend::ComputeRequiredInputUpdateExtent(int inExt[6],
     return;
     }
   
+  // default input extent will be that of output extent
+  memcpy(inExt,outExt,sizeof(int)*6);
+
   // Find the outMin/max of the appended axis for this input.
   extent = this->Inputs[whichInput]->GetWholeExtent();
   shift = this->Shifts[whichInput];
