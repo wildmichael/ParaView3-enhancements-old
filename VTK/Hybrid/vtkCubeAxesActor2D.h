@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCubeAxesActor2D.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:10:41 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2000-08-18 12:49:24 $
+  Version:   $Revision: 1.20 $
   Thanks:    Thorsten Dowe who modified and improved this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -132,6 +132,15 @@ public:
     {this->SetFlyMode(VTK_FLY_CLOSEST_TRIAD);};
 
   // Description:
+  // Set/Get a flag that controls whether the axes are scaled to fit in
+  // the viewport. If off, the axes size remains constant (i.e., stay the
+  // size of the bounding box). By default scaling is on so the axes are
+  // scaled to fit inside the viewport.
+  vtkSetMacro(Scaling,int);
+  vtkGetMacro(Scaling,int);
+  vtkBooleanMacro(Scaling,int);
+
+  // Description:
   // Set/Get the number of annotation labels to show along the x, y, and 
   // z axes. This values is a suggestion: the number of labels may vary
   // depending on the particulars of the data.
@@ -139,7 +148,8 @@ public:
   vtkGetMacro(NumberOfLabels, int);
   
   // Description:
-  // Set/Get the labels for the x, y, and z axes. By default, use "X", "Y" and "Z".
+  // Set/Get the labels for the x, y, and z axes. By default, 
+  // use "X", "Y" and "Z".
   vtkSetStringMacro(XLabel);
   vtkGetStringMacro(XLabel);
   vtkSetStringMacro(YLabel);
@@ -236,6 +246,7 @@ protected:
 
   vtkCamera *Camera;
   int FlyMode;
+  int Scaling;
   
   vtkAxisActor2D *XAxis;
   vtkAxisActor2D *YAxis;
