@@ -3,8 +3,8 @@
   Program:   OSCAR 
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-01-26 17:42:31 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1994-01-27 12:28:09 $
+  Version:   $Revision: 1.6 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -133,7 +133,7 @@ void vlRenderer::ViewToDisplay()
   sizex = size[0];
   sizey = size[1];
 
-  dx = (this->ViewPoint[0]/this->Aspect[0]) + 1.0) * 
+  dx = (this->ViewPoint[0]/this->Aspect[0] + 1.0) * 
     (sizex*(this->Viewport[2]-this->Viewport[0])) / 2.0 + 0.5 +
       sizex*this->Viewport[0];
   dy = (this->ViewPoint[1]/this->Aspect[1] + 1.0) * 
