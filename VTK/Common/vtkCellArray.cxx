@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:13 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2003-08-13 19:46:29 $
+  Version:   $Revision: 1.40 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkCellArray.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkCellArray, "$Revision: 1.39 $");
+vtkCxxRevisionMacro(vtkCellArray, "$Revision: 1.40 $");
 vtkStandardNewMacro(vtkCellArray);
 
 vtkCellArray::vtkCellArray()
@@ -39,8 +39,8 @@ void vtkCellArray::DeepCopy (vtkCellArray *ca)
 
   this->Ia->DeepCopy(ca->Ia);
   this->NumberOfCells = ca->NumberOfCells;
-  this->InsertLocation = 0;
-  this->TraversalLocation = 0;
+  this->InsertLocation = ca->InsertLocation;
+  this->TraversalLocation = ca->TraversalLocation;
 }
 
 vtkCellArray::~vtkCellArray()
