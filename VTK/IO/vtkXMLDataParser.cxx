@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLDataParser.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-01-31 22:21:29 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2003-02-18 15:12:43 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 #include "vtkBase64InputStream.h"
 #include "vtkDataCompressor.h"
 
-vtkCxxRevisionMacro(vtkXMLDataParser, "$Revision: 1.7 $");
+vtkCxxRevisionMacro(vtkXMLDataParser, "$Revision: 1.8 $");
 vtkStandardNewMacro(vtkXMLDataParser);
 vtkCxxSetObjectMacro(vtkXMLDataParser, Compressor, vtkDataCompressor);
 
@@ -428,24 +428,34 @@ void vtkXMLDataParser::ReadCompressionHeader()
   this->PartialLastBlockUncompressedSize = headerBuffer[2];
   
   // Allocate the size and offset parts of the header.
-  if(this->BlockCompressedSizes) { delete [] this->BlockCompressedSizes; }
-  this->BlockCompressedSizes = new unsigned int[this->NumberOfBlocks];
-  
-  if(this->BlockStartOffsets) { delete [] this->BlockStartOffsets; }
-  this->BlockStartOffsets = new unsigned long[this->NumberOfBlocks];
-  
-  buffer = reinterpret_cast<unsigned char*>(&this->BlockCompressedSizes[0]);
-  
-  // Read the compressed block sizes.
-  unsigned long len = this->NumberOfBlocks*sizeof(unsigned int);
-  if(this->DataStream->Read(buffer, len) < len)
+  if(this->BlockCompressedSizes)
     {
-    vtkErrorMacro("Error reading compression header.");
-    return;
+    delete [] this->BlockCompressedSizes;
+    this->BlockCompressedSizes = 0;
     }
+  if(this->BlockStartOffsets)
+    {
+    delete [] this->BlockStartOffsets;
+    this->BlockStartOffsets = 0;
+    }
+  if(this->NumberOfBlocks > 0)
+    {
+    this->BlockCompressedSizes = new unsigned int[this->NumberOfBlocks];
+    this->BlockStartOffsets = new unsigned long[this->NumberOfBlocks];
+    
+    buffer = reinterpret_cast<unsigned char*>(&this->BlockCompressedSizes[0]);
   
-  // Byte swap the sizes to make sure the values are correct.
-  this->PerformByteSwap(buffer, this->NumberOfBlocks, sizeof(unsigned int));
+    // Read the compressed block sizes.
+    unsigned long len = this->NumberOfBlocks*sizeof(unsigned int);
+    if(this->DataStream->Read(buffer, len) < len)
+      {
+      vtkErrorMacro("Error reading compression header.");
+      return;
+      }
+    
+    // Byte swap the sizes to make sure the values are correct.
+    this->PerformByteSwap(buffer, this->NumberOfBlocks, sizeof(unsigned int));
+    }
   
   this->DataStream->EndReading();
   
@@ -532,6 +542,12 @@ unsigned long vtkXMLDataParser::ReadCompressedData(unsigned char* data,
                                                    unsigned long offset,
                                                    unsigned long length)
 {
+  // Make sure there are data.
+  if(length == 0)
+    {
+    return 0;
+    }
+  
   // Find the begin and end offsets into the data.
   unsigned long beginOffset = offset;
   unsigned long endOffset = offset+length;
