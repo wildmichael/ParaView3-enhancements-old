@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor2D.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-20 19:21:16 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1999-08-02 20:27:39 $
+  Version:   $Revision: 1.18 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -114,6 +114,12 @@ public:
   // Description:
   // Return this objects MTime.
   unsigned long GetMTime();
+
+  // Description: 
+  // For some exporters and other other operations we must be
+  // able to collect all the actors or volumes. These methods
+  // are used in that process.
+  virtual void GetActors2D(vtkPropCollection *pc);
 
 protected:
   vtkMapper2D *Mapper;

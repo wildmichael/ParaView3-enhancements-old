@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-03-11 18:33:14 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1999-08-02 20:27:40 $
+  Version:   $Revision: 1.20 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,6 +41,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkActor2D.h"
 #include "vtkProperty2D.h"
 #include "vtkMapper2D.h"
+#include "vtkPropCollection.h"
 
 // Creates an actor2D with the following defaults: 
 // position -1, -1 (view coordinates)
@@ -208,6 +209,11 @@ vtkProperty2D *vtkActor2D::GetProperty()
     this->Modified();
     }
   return this->Property;
+}
+
+void vtkActor2D::GetActors2D(vtkPropCollection *ac)
+{
+  ac->AddItem(this);
 }
 
 void vtkActor2D::PrintSelf(ostream& os, vtkIndent indent)
