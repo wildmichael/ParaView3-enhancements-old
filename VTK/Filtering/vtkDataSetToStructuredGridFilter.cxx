@@ -16,7 +16,18 @@
 
 #include "vtkStructuredGrid.h"
 
-vtkCxxRevisionMacro(vtkDataSetToStructuredGridFilter, "$Revision: 1.18 $");
+vtkCxxRevisionMacro(vtkDataSetToStructuredGridFilter, "$Revision: 1.19 $");
+
+//----------------------------------------------------------------------------
+vtkDataSetToStructuredGridFilter::vtkDataSetToStructuredGridFilter()
+{
+  this->NumberOfRequiredInputs = 1;
+}
+
+//----------------------------------------------------------------------------
+vtkDataSetToStructuredGridFilter::~vtkDataSetToStructuredGridFilter()
+{
+}
 
 //----------------------------------------------------------------------------
 // Specify the input data or filter.

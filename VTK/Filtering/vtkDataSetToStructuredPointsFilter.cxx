@@ -16,7 +16,18 @@
 
 #include "vtkStructuredPoints.h"
 
-vtkCxxRevisionMacro(vtkDataSetToStructuredPointsFilter, "$Revision: 1.29 $");
+vtkCxxRevisionMacro(vtkDataSetToStructuredPointsFilter, "$Revision: 1.30 $");
+
+//----------------------------------------------------------------------------
+vtkDataSetToStructuredPointsFilter::vtkDataSetToStructuredPointsFilter()
+{
+  this->NumberOfRequiredInputs = 1;
+}
+
+//----------------------------------------------------------------------------
+vtkDataSetToStructuredPointsFilter::~vtkDataSetToStructuredPointsFilter()
+{
+}
 
 //----------------------------------------------------------------------------
 // Specify the input data or filter.

@@ -16,7 +16,18 @@
 
 #include "vtkUnstructuredGrid.h"
 
-vtkCxxRevisionMacro(vtkUnstructuredGridToPolyDataFilter, "$Revision: 1.7 $");
+vtkCxxRevisionMacro(vtkUnstructuredGridToPolyDataFilter, "$Revision: 1.8 $");
+
+//----------------------------------------------------------------------------
+vtkUnstructuredGridToPolyDataFilter::vtkUnstructuredGridToPolyDataFilter()
+{
+  this->NumberOfRequiredInputs = 1;
+}
+
+//----------------------------------------------------------------------------
+vtkUnstructuredGridToPolyDataFilter::~vtkUnstructuredGridToPolyDataFilter()
+{
+}
 
 //----------------------------------------------------------------------------
 // Specify the input data or filter.

@@ -17,7 +17,18 @@
 #include "vtkImageData.h"
 #include "vtkStructuredPoints.h"
 
-vtkCxxRevisionMacro(vtkStructuredPointsToUnstructuredGridFilter, "$Revision: 1.15 $");
+vtkCxxRevisionMacro(vtkStructuredPointsToUnstructuredGridFilter, "$Revision: 1.16 $");
+
+//----------------------------------------------------------------------------
+vtkStructuredPointsToUnstructuredGridFilter::vtkStructuredPointsToUnstructuredGridFilter()
+{
+  this->NumberOfRequiredInputs = 1;
+}
+
+//----------------------------------------------------------------------------
+vtkStructuredPointsToUnstructuredGridFilter::~vtkStructuredPointsToUnstructuredGridFilter()
+{
+}
 
 //----------------------------------------------------------------------------
 // Specify the input data or filter.

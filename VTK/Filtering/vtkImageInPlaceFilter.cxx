@@ -18,7 +18,17 @@
 #include "vtkObjectFactory.h"
 #include "vtkPointData.h"
 
-vtkCxxRevisionMacro(vtkImageInPlaceFilter, "$Revision: 1.39 $");
+vtkCxxRevisionMacro(vtkImageInPlaceFilter, "$Revision: 1.40 $");
+
+//----------------------------------------------------------------------------
+vtkImageInPlaceFilter::vtkImageInPlaceFilter()
+{
+}
+
+//----------------------------------------------------------------------------
+vtkImageInPlaceFilter::~vtkImageInPlaceFilter()
+{
+}
 
 //----------------------------------------------------------------------------
 
