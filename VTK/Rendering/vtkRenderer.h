@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkRenderer.h,v $
   Language:  C++
-  Date:      $Date: 1995-02-20 15:37:13 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1995-04-20 10:30:42 $
+  Version:   $Revision: 1.19 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -146,6 +146,11 @@ public:
   void DisplayToWorld();
   void WorldToDisplay();
 
+  void SetStartRenderMethod(void (*f)(void *), void *arg);
+  void SetEndRenderMethod(void (*f)(void *), void *arg);
+  void SetStartRenderMethodArgDelete(void (*f)(void *));
+  void SetEndRenderMethodArgDelete(void (*f)(void *));
+
 protected:
   vlVolumeRenderer *VolumeRenderer;
   vlCamera *ActiveCamera;
@@ -162,6 +167,13 @@ protected:
   int   Erase;
   float Aspect[2];
   float Center[2];
+
+  void (*StartRenderMethod)(void *);
+  void (*StartRenderMethodArgDelete)(void *);
+  void *StartRenderMethodArg;
+  void (*EndRenderMethod)(void *);
+  void (*EndRenderMethodArgDelete)(void *);
+  void *EndRenderMethodArg;
 };
 
 // Description:
