@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkGlyph3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-09-29 14:07:50 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1994-11-03 10:06:56 $
+  Version:   $Revision: 1.13 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -37,25 +37,6 @@ vlGlyph3D::vlGlyph3D()
 
 vlGlyph3D::~vlGlyph3D()
 {
-}
-
-void vlGlyph3D::PrintSelf(ostream& os, vlIndent indent)
-{
-  if (this->ShouldIPrint(vlGlyph3D::GetClassName()))
-    {
-    vlDataSetToPolyFilter::PrintSelf(os,indent);
-
-    os << indent << "Source: " << this->Source << "\n";
-    os << indent << "Scaling: " << (this->Scaling ? "On\n" : "Off\n");
-    os << indent << "Scale Mode: " << (this->ScaleMode == SCALE_BY_SCALAR ? "Scale by scalar\n" : "Scale by vector\n");
-    os << indent << "Scale Factor: " << this->ScaleFactor << "\n";
-    os << indent << "Range: (" << this->Range[0] << ", " << this->Range[1] << ")\n";
-    os << indent << "Orient: " << (this->Orient ? "On\n" : "Off\n");
-
-
-
-    os << indent << "Orient Mode: " << (this->VectorMode == USE_VECTOR ? "Orient by vector\n" : "Orient by normal\n");
-    }
 }
 
 void vlGlyph3D::Execute()
@@ -279,3 +260,21 @@ void vlGlyph3D::Update()
     if ( this->EndMethod ) (*this->EndMethod)(this->EndMethodArg);
     }
 }
+
+void vlGlyph3D::PrintSelf(ostream& os, vlIndent indent)
+{
+  if (this->ShouldIPrint(vlGlyph3D::GetClassName()))
+    {
+    vlDataSetToPolyFilter::PrintSelf(os,indent);
+
+    os << indent << "Source: " << this->Source << "\n";
+    os << indent << "Scaling: " << (this->Scaling ? "On\n" : "Off\n");
+    os << indent << "Scale Mode: " << (this->ScaleMode == SCALE_BY_SCALAR ? "Scale by scalar\n" : "Scale by vector\n");
+    os << indent << "Scale Factor: " << this->ScaleFactor << "\n";
+    os << indent << "Range: (" << this->Range[0] << ", " << this->Range[1] << ")\n";
+    os << indent << "Orient: " << (this->Orient ? "On\n" : "Off\n");
+
+    os << indent << "Orient Mode: " << (this->VectorMode == USE_VECTOR ? "Orient by vector\n" : "Orient by normal\n");
+    }
+}
+
