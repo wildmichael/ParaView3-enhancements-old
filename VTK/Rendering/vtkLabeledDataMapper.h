@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLabeledDataMapper.h,v $
   Language:  C++
-  Date:      $Date: 1999-03-11 21:27:52 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-03-12 16:53:10 $
+  Version:   $Revision: 1.9 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -207,6 +207,7 @@ protected:
 
 private:
   int NumberOfLabels;
+  int NumberOfLabelsAllocated;
   vtkTextMapper **TextMappers;
 
 };
