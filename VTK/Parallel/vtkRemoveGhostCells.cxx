@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRemoveGhostCells.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-02 18:56:14 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-08-25 13:04:29 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -70,8 +70,6 @@ void vtkRemoveGhostCells::Execute()
   vtkPolyData *input = this->GetInput();
   vtkPolyData *output = this->GetOutput();
   vtkCell *cell;
-
-  vtkWarningMacro(<< "Executing remove ghost cells filter");
 
   cellData = input->GetCellData();
 
