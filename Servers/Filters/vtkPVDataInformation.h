@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkPVDataInformation.h,v $
   Language:  C++
-  Date:      $Date: 2003-06-04 17:08:20 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2003-11-12 18:59:07 $
+  Version:   $Revision: 1.8 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -59,9 +59,10 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "vtkPVInformation.h"
 
+class vtkCollection;
+class vtkCompositeDataSet;
 class vtkDataSet;
 class vtkPVDataSetAttributesInformation;
-class vtkCollection;
 
 class VTK_EXPORT vtkPVDataInformation : public vtkPVInformation
 {
@@ -84,8 +85,6 @@ public:
   // Serialize message.
   virtual int GetMessageLength(); 
   virtual void WriteMessage(unsigned char* msg);
-
-
   
   // Description:
   // Remove all infommation. next add will be like a copy.
@@ -122,6 +121,9 @@ protected:
   ~vtkPVDataInformation();
 
   void DeepCopy(vtkPVDataInformation *dataInfo);
+
+  void CopyFromCompositeDataSet(vtkCompositeDataSet* data);
+  void CopyFromDataSet(vtkDataSet* data);
 
   // Data information collected from remote processes.
   int            DataSetType;
