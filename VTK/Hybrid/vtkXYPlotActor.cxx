@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXYPlotActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-25 13:43:24 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2001-06-28 13:33:49 $
+  Version:   $Revision: 1.24 $
   Thanks:    Thanks to Kitware & RPI/SCOREC who supported the development
              of this class.
 
@@ -881,7 +881,7 @@ void vtkXYPlotActor::ComputeDORange(float xrange[2], float yrange[2],
     {
       field = dobj->GetFieldData();
       numColumns = field->GetNumberOfComponents(); //number of "columns"
-      for (numRows = VTK_LARGE_INTEGER, i=0; i<field->GetNumberOfArrays(); i++)
+      for (numRows = VTK_LARGE_ID, i=0; i<field->GetNumberOfArrays(); i++)
 	{
 	  array = field->GetArray(i);
 	  numTuples = array->GetNumberOfTuples();
@@ -1189,7 +1189,7 @@ void vtkXYPlotActor::CreatePlotData(int *pos, int *pos2, float xRange[2],
 	  // determine the shape of the field
 	  field = dobj->GetFieldData();
 	  numColumns = field->GetNumberOfComponents(); //number of "columns"
-	  for (numRows = VTK_LARGE_INTEGER, i=0; i<field->GetNumberOfArrays(); i++)
+	  for (numRows = VTK_LARGE_ID, i=0; i<field->GetNumberOfArrays(); i++)
 	    {
 	      array = field->GetArray(i);
 	      numTuples = array->GetNumberOfTuples();

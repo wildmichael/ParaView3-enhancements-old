@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGeometryFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-05-28 05:59:45 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 2001-06-28 13:33:50 $
+  Version:   $Revision: 1.48 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -100,23 +100,23 @@ public:
 
   // Description:
   // Specify the minimum point id for point id selection.
-  vtkSetClampMacro(PointMinimum,int,0,VTK_LARGE_INTEGER);
-  vtkGetMacro(PointMinimum,int);
+  vtkSetClampMacro(PointMinimum,vtkIdType,0,VTK_LARGE_ID);
+  vtkGetMacro(PointMinimum,vtkIdType);
 
   // Description:
   // Specify the maximum point id for point id selection.
-  vtkSetClampMacro(PointMaximum,int,0,VTK_LARGE_INTEGER);
-  vtkGetMacro(PointMaximum,int);
+  vtkSetClampMacro(PointMaximum,vtkIdType,0,VTK_LARGE_ID);
+  vtkGetMacro(PointMaximum,vtkIdType);
 
   // Description:
   // Specify the minimum cell id for point id selection.
-  vtkSetClampMacro(CellMinimum,int,0,VTK_LARGE_INTEGER);
-  vtkGetMacro(CellMinimum,int);
+  vtkSetClampMacro(CellMinimum,vtkIdType,0,VTK_LARGE_ID);
+  vtkGetMacro(CellMinimum,vtkIdType);
 
   // Description:
   // Specify the maximum cell id for point id selection.
-  vtkSetClampMacro(CellMaximum,int,0,VTK_LARGE_INTEGER);
-  vtkGetMacro(CellMaximum,int);
+  vtkSetClampMacro(CellMaximum,vtkIdType,0,VTK_LARGE_ID);
+  vtkGetMacro(CellMaximum,vtkIdType);
 
   // Description:
   // Specify a (xmin,xmax, ymin,ymax, zmin,zmax) bounding box to clip data.
@@ -163,10 +163,10 @@ protected:
   void ComputeInputUpdateExtents(vtkDataObject *output);
   void ExecuteInformation();
 
-  int PointMaximum;
-  int PointMinimum;
-  int CellMinimum;
-  int CellMaximum;
+  vtkIdType PointMaximum;
+  vtkIdType PointMinimum;
+  vtkIdType CellMinimum;
+  vtkIdType CellMaximum;
   float Extent[6];
   int PointClipping;
   int CellClipping;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitVolume.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-02-13 19:10:36 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2001-06-28 13:33:50 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -91,8 +91,8 @@ vtkImplicitVolume::~vtkImplicitVolume()
 float vtkImplicitVolume::EvaluateFunction(float x[3])
 {
   vtkScalars *scalars;
-  int i, ijk[3];
-  int numPts;
+  int ijk[3];
+  vtkIdType numPts, i;
   float pcoords[3], weights[8], s;
 
   // See if a volume is defined
@@ -204,5 +204,3 @@ void vtkImplicitVolume::PrintSelf(ostream& os, vtkIndent indent)
     os << indent << "Volume: (none)\n";
     }
 }
-
-

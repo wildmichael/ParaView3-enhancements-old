@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFieldDataToAttributeDataFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-06-26 15:21:25 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2001-06-28 13:33:50 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -223,7 +223,8 @@ public:
   // the data to use from the other data array; normalize is a flag that when
   // set will normalize the data between (0,1).
   static int ConstructArray(vtkDataArray *da, int comp, vtkDataArray *frray,
-		     int fieldComp, int min, int max, int normalize);
+                            int fieldComp, vtkIdType min, vtkIdType max,
+                            int normalize);
 
   // Description:
   // Return an array of a particular name from field data and do error checking.

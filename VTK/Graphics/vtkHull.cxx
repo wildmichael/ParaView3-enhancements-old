@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHull.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-25 17:07:18 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2001-06-28 13:33:50 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -511,7 +511,7 @@ void vtkHull::Execute()
 {
   vtkPolyData    *input       = this->GetInput();
   vtkPolyData    *output      = this->GetOutput();
-  int            numPoints;
+  vtkIdType      numPoints;
   vtkPoints      *outPoints;
   vtkCellArray   *outPolys;
   float          *bounds      = input->GetBounds();
@@ -566,7 +566,8 @@ void vtkHull::Execute()
 void vtkHull::ComputePlaneDistances()
 {
   vtkPolyData    *input       = this->GetInput();
-  int            i, j;
+  vtkIdType      i;
+  int            j;
   float          coord[3];
   double         v;
 

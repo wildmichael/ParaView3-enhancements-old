@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinearSubdivisionFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-21 15:21:52 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2001-06-28 13:33:50 $
+  Version:   $Revision: 1.8 $
   Thanks:    This work was supported bt PHS Research Grant No. 1 P41 RR13218-01
              from the National Center for Research Resources
 
@@ -59,9 +59,9 @@ vtkLinearSubdivisionFilter* vtkLinearSubdivisionFilter::New()
 void vtkLinearSubdivisionFilter::GenerateSubdivisionPoints (vtkPolyData *inputDS, vtkIntArray *edgeData, vtkPoints *outputPts, vtkPointData *outputPD)
 {
   vtkIdType *pts;
-  int cellId, edgeId, newId;
-  vtkIdType npts;
-  int p1, p2;
+  int edgeId;
+  vtkIdType npts, cellId, newId;
+  vtkIdType p1, p2;
   vtkCellArray *inputPolys=inputDS->GetPolys();
   vtkEdgeTable *edgeTable;
   vtkIdList *cellIds = vtkIdList::New();

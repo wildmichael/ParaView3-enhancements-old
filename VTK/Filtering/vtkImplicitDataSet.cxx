@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitDataSet.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:39 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2001-06-28 13:33:50 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -91,7 +91,8 @@ float vtkImplicitDataSet::EvaluateFunction(float x[3])
 {
   vtkScalars *scalars;
   vtkCell *cell;
-  int subId, i, id, numPts;
+  vtkIdType id;
+  int subId, i, numPts;
   float pcoords[3], s;
 
   if ( this->DataSet->GetMaxCellSize() > this->Size )
@@ -152,7 +153,8 @@ void vtkImplicitDataSet::EvaluateGradient(float x[3], float n[3])
 {
   vtkScalars *scalars;
   vtkCell *cell;
-  int subId, i, id, numPts;
+  vtkIdType id;
+  int subId, i, numPts;
   float pcoords[3];
 
   if ( this->DataSet->GetMaxCellSize() > this->Size )

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMaskPolyData.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:43 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2001-06-28 13:33:50 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -63,8 +63,8 @@ public:
 
   // Description:
   // Start with this entity (cell).
-  vtkSetClampMacro(Offset,int,0,VTK_LARGE_INTEGER);
-  vtkGetMacro(Offset,int);
+  vtkSetClampMacro(Offset,vtkIdType,0,VTK_LARGE_ID);
+  vtkGetMacro(Offset,vtkIdType);
 
 protected:
   vtkMaskPolyData();
@@ -74,7 +74,7 @@ protected:
 
   void Execute();
   int OnRatio; // every OnRatio entity is on; all others are off.
-  int Offset;  // offset (or starting point id)
+  vtkIdType Offset;  // offset (or starting point id)
 };
 
 #endif

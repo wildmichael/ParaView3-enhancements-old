@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHedgeHog.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-21 15:27:26 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2001-06-28 13:33:50 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -64,12 +64,13 @@ vtkHedgeHog::vtkHedgeHog()
 void vtkHedgeHog::Execute()
 {
   vtkDataSet *input= this->GetInput();
-  int numPts;
+  vtkIdType numPts;
   vtkPoints *newPts;
   vtkPointData *pd;
   vtkDataArray *inVectors;
   vtkDataArray *inNormals;
-  int i, ptId;
+  vtkIdType ptId;
+  int i;
   vtkIdType pts[2];
   vtkCellArray *newLines;
   float *x, *v;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractGeometry.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:36 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 2001-06-28 13:33:49 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -95,10 +95,10 @@ unsigned long vtkExtractGeometry::GetMTime()
 
 void vtkExtractGeometry::Execute()
 {
-  int ptId, numPts, numCells, i, cellId, newCellId;
+  vtkIdType ptId, numPts, numCells, i, cellId, newCellId, newId, *pointMap;
   vtkIdList *cellPts;
   vtkCell *cell;
-  int numCellPts, newId, *pointMap;
+  int numCellPts;
   float *x;
   float multiplier;
   vtkPoints *newPts;
@@ -135,7 +135,7 @@ void vtkExtractGeometry::Execute()
   //
   numPts = input->GetNumberOfPoints();
   numCells = input->GetNumberOfCells();
-  pointMap = new int[numPts]; // maps old point ids into new
+  pointMap = new vtkIdType[numPts]; // maps old point ids into new
   for (i=0; i < numPts; i++)
     {
     pointMap[i] = -1;

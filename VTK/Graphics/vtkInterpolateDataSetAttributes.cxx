@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInterpolateDataSetAttributes.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-18 11:11:49 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2001-06-28 13:33:50 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -48,8 +48,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkObjectFactory.h"
 
 
-
-//------------------------------------------------------------------------------
+//----------------------------------------------------------------------------
 vtkInterpolateDataSetAttributes* vtkInterpolateDataSetAttributes::New()
 {
   // First try to create the object from the vtkObjectFactory
@@ -61,9 +60,6 @@ vtkInterpolateDataSetAttributes* vtkInterpolateDataSetAttributes::New()
   // If the factory was unable to create the object, then create it here.
   return new vtkInterpolateDataSetAttributes;
 }
-
-
-
 
 // Create object with no input or output.
 vtkInterpolateDataSetAttributes::vtkInterpolateDataSetAttributes()
@@ -77,7 +73,6 @@ vtkInterpolateDataSetAttributes::~vtkInterpolateDataSetAttributes()
 {
   this->InputList->Delete();
   this->InputList = NULL;
-
 }
 
 //----------------------------------------------------------------------------
@@ -114,8 +109,9 @@ vtkDataSetCollection *vtkInterpolateDataSetAttributes::GetInputList()
 void vtkInterpolateDataSetAttributes::Execute()
 {
   vtkDataSetCollection *inputList = this->GetInputList();
-  int numPts, numCells, numInputs = inputList->GetNumberOfItems();
-  int i, lowDS, highDS;
+  vtkIdType numPts, numCells, i;
+  int numInputs = inputList->GetNumberOfItems();
+  int lowDS, highDS;
   vtkDataSet *ds, *ds2;
   vtkDataSet *output = this->GetOutput();
   vtkPointData *outputPD = output->GetPointData();

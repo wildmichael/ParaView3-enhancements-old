@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractPolyDataGeometry.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-02-28 12:49:54 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2001-06-28 13:33:49 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -101,9 +101,9 @@ void vtkExtractPolyDataGeometry::Execute()
   vtkPolyData *output = this->GetOutput();
   vtkPointData *outputPD = output->GetPointData();
   vtkCellData *outputCD = output->GetCellData();
-  int ptId, numPts, numCells, i, cellId;
+  vtkIdType ptId, numPts, numCells, i, cellId, *pointMap, newId;
   int npts, allInside;
-  int newId, *pointMap, updateInterval;
+  vtkIdType updateInterval;
   float multiplier, x[3];
   vtkPoints *newPts;
 
@@ -129,7 +129,7 @@ void vtkExtractPolyDataGeometry::Execute()
   //
   numPts = input->GetNumberOfPoints();
   numCells = input->GetNumberOfCells();
-  pointMap = new int[numPts]; // maps old point ids into new
+  pointMap = new vtkIdType[numPts]; // maps old point ids into new
   for (i=0; i < numPts; i++)
     {
     pointMap[i] = -1;

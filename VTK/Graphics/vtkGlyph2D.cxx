@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGlyph2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-20 13:16:38 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2001-06-28 13:33:50 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -66,8 +66,8 @@ void vtkGlyph2D::Execute()
   vtkDataArray *inVectors;
   unsigned char* inGhostLevels = 0;
   vtkDataArray *inNormals, *sourceNormals = NULL;
-  int numPts, numSourcePts, numSourceCells;
-  int inPtId, i, index;
+  vtkIdType numPts, numSourcePts, numSourceCells, inPtId, i;
+  int index;
   vtkPoints *sourcePts = NULL;
   vtkPoints *newPts;
   vtkDataArray *newScalars=NULL;
@@ -79,7 +79,8 @@ void vtkGlyph2D::Execute()
   vtkIdList *cellPts;
   int npts;
   vtkIdList *pts;
-  int haveVectors, haveNormals, ptIncr, cellId;
+  vtkIdType ptIncr, cellId;
+  int haveVectors, haveNormals;
   float scalex,scaley, den;
   vtkPolyData *output = this->GetOutput();
   vtkPointData *outputPD = output->GetPointData();

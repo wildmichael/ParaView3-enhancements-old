@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitTextureCoords.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-26 15:02:52 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2001-06-28 13:33:50 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -81,7 +81,8 @@ vtkImplicitTextureCoords::~vtkImplicitTextureCoords()
 
 void vtkImplicitTextureCoords::Execute()
 {
-  int ptId, numPts, tcoordDim;
+  vtkIdType ptId, numPts;
+  int tcoordDim;
   vtkFloatArray *newTCoords;
   float min[3], max[3], scale[3];
   float tCoord[3], *tc, *x;
