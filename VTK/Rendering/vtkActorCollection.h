@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActorCollection.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:53 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2001-08-20 15:33:14 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -105,7 +105,7 @@ inline void vtkActorCollection::AddItem(vtkActor *a)
 
 inline vtkActor *vtkActorCollection::GetNextActor() 
 { 
-  return vtkActor::SafeDownCast(this->GetNextItemAsObject());
+  return static_cast<vtkActor *>(this->GetNextItemAsObject());
 }
 
 inline vtkActor *vtkActorCollection::GetLastActor() 
@@ -116,7 +116,7 @@ inline vtkActor *vtkActorCollection::GetLastActor()
     }
   else
     {
-    return vtkActor::SafeDownCast(this->Bottom->Item);
+    return static_cast<vtkActor *>(this->Bottom->Item);
     }
 }
 
