@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMaskPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-31 21:23:15 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1995-09-04 21:30:47 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -161,11 +161,9 @@ void vtkMaskPolyData::Execute()
     }
   //
   // Update ourselves and release memory
-  //
-  // pass through points and point data -- done by ToPoly filter now
-  //output->SetPoints(input->GetPoints());
-  //pd = input->GetPointData();
-  //output->PointData = *pd;
+  output->SetPoints(input->GetPoints());
+  pd = input->GetPointData();
+  output->GetPointData()->PassData(pd);
 
   if (newVerts)
     {
