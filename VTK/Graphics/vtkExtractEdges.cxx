@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractEdges.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-13 13:50:07 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1998-03-13 14:25:51 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -87,7 +87,7 @@ void vtkExtractEdges::Execute()
   numEdges = 0;
   edgeTable = new vtkEdgeTable(numPts);
   newPts = vtkFloatPoints::New();
-  newPts->Allocate(numPts*6);
+  newPts->Allocate(numPts);
   newLines = vtkCellArray::New();
   newLines->EstimateSize(numPts*4,2);
 
