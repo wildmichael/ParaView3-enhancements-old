@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKWRemoteExecute.h,v $
   Language:  C++
-  Date:      $Date: 2003-04-23 20:59:16 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2003-04-24 13:41:19 $
+  Version:   $Revision: 1.6 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -62,11 +62,11 @@ public:
 //BTX
   // Description:
   // Run command remotely.
-  int RunRemoteCommand(const char* args[]);
+  int RunRemoteCommand(const char* args);
 
   // Description:
   // Run command.
-  int RunCommand(const char* args[]);
+  int RunCommand(const char* args);
 
   static void* RunCommandThread(void*);
 
