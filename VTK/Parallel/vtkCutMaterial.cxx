@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCutMaterial.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-02 18:56:14 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-07-24 19:17:44 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -235,7 +235,15 @@ void vtkCutMaterial::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkDataSetToPolyDataFilter::PrintSelf(os,indent);
 
-  os << indent << "ArrayName: " << this->ArrayName << endl;
+  os << indent << "ArrayName: ";
+  if ( this->ArrayName)
+    {
+    os << this->ArrayName << endl;
+    }
+  else
+    {
+    os << "(None)" << endl;
+    }
   os << indent << "MaterialArrayName: " << this->MaterialArrayName << endl;
   os << indent << "Material: " << this->Material << endl;
   

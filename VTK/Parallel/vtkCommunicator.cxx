@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCommunicator.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-12 21:24:10 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-07-24 19:17:44 $
+  Version:   $Revision: 1.2 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -61,7 +61,15 @@ vtkCommunicator::~vtkCommunicator()
 
 void vtkCommunicator::PrintSelf(ostream& os, vtkIndent indent)
 {
-  os << indent << "Marshal string: " << this->MarshalString << endl;
+  os << indent << "Marshal string: ";
+  if ( this->MarshalString )
+    {
+    os << this->MarshalString << endl;
+    }
+  else
+    {
+    os << "(None)" << endl;
+    }
   os << indent << "Marshal string length: " << this->MarshalStringLength
      << endl;
   os << indent << "Marshal data length: " << this->MarshalDataLength
