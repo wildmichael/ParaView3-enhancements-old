@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGridWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:37:58 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1995-09-08 12:49:30 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -79,7 +79,7 @@ void vtkUnstructuredGridWriter::WriteData()
     }
 
   fprintf (fp, "CELL_TYPES %d\n", ncells);
-  if ( this->FileType == ASCII )
+  if ( this->FileType == VTK_ASCII )
     {
     for (cellId=0; cellId<ncells; cellId++)
       {

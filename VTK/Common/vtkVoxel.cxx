@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoxel.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-21 21:17:54 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1995-09-08 12:48:38 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,7 +57,7 @@ vtkVoxel::vtkVoxel(const vtkVoxel& b)
 
 int vtkVoxel::EvaluatePosition(float x[3], float closestPoint[3],
                               int& subId, float pcoords[3], 
-                              float& dist2, float weights[MAX_CELL_SIZE])
+                              float& dist2, float weights[VTK_MAX_CELL_SIZE])
 {
   float *pt1, *pt2, *pt3, *pt4;
   int i;
@@ -102,7 +102,7 @@ int vtkVoxel::EvaluatePosition(float x[3], float closestPoint[3],
 }
 
 void vtkVoxel::EvaluateLocation(int& subId, float pcoords[3], float x[3],
-                               float weights[MAX_CELL_SIZE])
+                               float weights[VTK_MAX_CELL_SIZE])
 {
   float *pt1, *pt2, *pt3, *pt4;
   int i;

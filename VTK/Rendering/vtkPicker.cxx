@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPicker.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-24 18:18:44 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1995-09-08 12:47:21 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -69,7 +69,7 @@ vtkPicker::vtkPicker()
   this->Actor = NULL;
   this->Mapper = NULL;
   this->DataSet = NULL;
-  this->GlobalTMin = LARGE_FLOAT;
+  this->GlobalTMin = VTK_LARGE_FLOAT;
 }
 
 // Update state when actor is picked.
@@ -319,7 +319,7 @@ void vtkPicker::Initialize()
 
   this->Actor = NULL;
   this->Mapper = NULL;
-  this->GlobalTMin = LARGE_FLOAT;
+  this->GlobalTMin = VTK_LARGE_FLOAT;
 }
 
 void vtkPicker::PrintSelf(ostream& os, vtkIndent indent)

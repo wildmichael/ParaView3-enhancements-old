@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangle.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:37:47 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1995-09-08 12:48:28 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,7 +59,7 @@ vtkTriangle::vtkTriangle(const vtkTriangle& t)
 
 int vtkTriangle::EvaluatePosition(float x[3], float closestPoint[3],
                                  int& subId, float pcoords[3], 
-                                 float& dist2, float weights[MAX_CELL_SIZE])
+                                 float& dist2, float weights[VTK_MAX_CELL_SIZE])
 {
   int i, j;
   float *pt1, *pt2, *pt3, n[3];
@@ -163,7 +163,7 @@ int vtkTriangle::EvaluatePosition(float x[3], float closestPoint[3],
 }
 
 void vtkTriangle::EvaluateLocation(int& subId, float pcoords[3], float x[3],
-                                  float weights[MAX_CELL_SIZE])
+                                  float weights[VTK_MAX_CELL_SIZE])
 {
   float u3;
   float *pt0, *pt1, *pt2;
@@ -306,7 +306,7 @@ int vtkTriangle::IntersectWithLine(float p1[3], float p2[3], float tol,
   float *pt1, *pt2, *pt3, n[3];
   float tol2 = tol*tol;
   float closestPoint[3];
-  float dist2, weights[MAX_CELL_SIZE];
+  float dist2, weights[VTK_MAX_CELL_SIZE];
 
   subId = 0;
   pcoords[0] = pcoords[1] = pcoords[2] = 0.0;

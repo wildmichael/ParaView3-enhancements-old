@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-15 19:15:56 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 1995-09-08 12:47:48 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -231,8 +231,8 @@ void vtkRenderer::ResetCamera()
   float allBounds[6];
   int nothingVisible=1;
 
-  allBounds[0] = allBounds[2] = allBounds[4] = LARGE_FLOAT;
-  allBounds[1] = allBounds[3] = allBounds[5] = -LARGE_FLOAT;
+  allBounds[0] = allBounds[2] = allBounds[4] = VTK_LARGE_FLOAT;
+  allBounds[1] = allBounds[3] = allBounds[5] = -VTK_LARGE_FLOAT;
   
   // loop through actors 
   for ( this->Actors.InitTraversal(); anActor = this->Actors.GetNextItem(); )

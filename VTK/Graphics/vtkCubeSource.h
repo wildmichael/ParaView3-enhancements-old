@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCubeSource.h,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:32:12 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1995-09-08 12:50:57 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,17 +58,17 @@ public:
 
   // Description:
   // Set the length of the cube in the x-direction.
-  vtkSetClampMacro(XLength,float,0.0,LARGE_FLOAT);
+  vtkSetClampMacro(XLength,float,0.0,VTK_LARGE_FLOAT);
   vtkGetMacro(XLength,float);
 
   // Description:
   // Set the length of the cube in the y-direction.
-  vtkSetClampMacro(YLength,float,0.0,LARGE_FLOAT);
+  vtkSetClampMacro(YLength,float,0.0,VTK_LARGE_FLOAT);
   vtkGetMacro(YLength,float);
 
   // Description:
   // Set the length of the cube in the z-direction.
-  vtkSetClampMacro(ZLength,float,0.0,LARGE_FLOAT);
+  vtkSetClampMacro(ZLength,float,0.0,VTK_LARGE_FLOAT);
   vtkGetMacro(ZLength,float);
 
   // Description:

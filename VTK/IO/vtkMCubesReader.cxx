@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMCubesReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-31 21:23:12 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1995-09-08 12:47:29 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -118,8 +118,8 @@ void vtkMCubesReader::Execute()
     }
   else // read data to get bounds
     {
-    bounds[0] = bounds[2] = bounds[4] = LARGE_FLOAT;
-    bounds[1] = bounds[3] = bounds[5] = -LARGE_FLOAT;
+    bounds[0] = bounds[2] = bounds[4] = VTK_LARGE_FLOAT;
+    bounds[1] = bounds[3] = bounds[5] = -VTK_LARGE_FLOAT;
     for (i=0; fread(&point, sizeof(pointType), 1, fp); i++) 
       {
       for (j=0; j<3; j++) 

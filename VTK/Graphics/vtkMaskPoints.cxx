@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMaskPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-31 21:24:30 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1995-09-08 12:48:41 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -46,7 +46,7 @@ vtkMaskPoints::vtkMaskPoints()
   this->OnRatio = 2;
   this->Offset = 0;
   this->RandomMode = 0;
-  this->MaximumNumberOfPoints = LARGE_INTEGER;
+  this->MaximumNumberOfPoints = VTK_LARGE_INTEGER;
 }
 
 void vtkMaskPoints::Execute()

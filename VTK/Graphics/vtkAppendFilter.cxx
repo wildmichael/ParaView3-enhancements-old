@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAppendFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-09-05 09:06:55 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1995-09-08 12:48:49 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -113,7 +113,7 @@ void vtkAppendFilter::Execute()
   int numPts, numCells, ptOffset;
   vtkFloatPoints *newPts;
   vtkPointData *pd;
-  vtkIdList ptIds(MAX_CELL_SIZE), newPtIds(MAX_CELL_SIZE);
+  vtkIdList ptIds(VTK_MAX_CELL_SIZE), newPtIds(VTK_MAX_CELL_SIZE);
   int i;
   vtkDataSet *ds;
   int ptId, cellId;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIdList.h,v $
   Language:  C++
-  Date:      $Date: 1995-08-31 21:20:45 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1995-09-08 12:49:02 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -44,8 +44,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // may represent any type of integer id but usually represent point and
 // cell ids.
 
-#ifndef vtkIdList_h
-#define vtkIdList_h
+#ifndef __vtkIdList_h
+#define __vtkIdList_h
 
 #include "vtkObject.hh"
 #include "vtkIntArray.hh"

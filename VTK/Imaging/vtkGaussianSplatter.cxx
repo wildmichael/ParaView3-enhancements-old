@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGaussianSplatter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-09-05 16:06:05 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1995-09-08 12:48:05 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -69,7 +69,7 @@ vtkGaussianSplatter::vtkGaussianSplatter()
   this->ScaleFactor = 1.0;
 
   this->Capping = 1;
-  this->CapValue = LARGE_FLOAT;
+  this->CapValue = VTK_LARGE_FLOAT;
 }
 
 void vtkGaussianSplatter::SetModelBounds(float xmin, float xmax, float ymin, 

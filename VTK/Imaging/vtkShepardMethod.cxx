@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkShepardMethod.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-31 21:23:47 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1995-09-08 12:48:03 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -204,8 +204,8 @@ void vtkShepardMethod::Execute()
 
           if ( distance2 == 0.0 )
             {
-            sum[idx] = LARGE_FLOAT;
-            newScalars->SetScalar(idx,LARGE_FLOAT);
+            sum[idx] = VTK_LARGE_FLOAT;
+            newScalars->SetScalar(idx,VTK_LARGE_FLOAT);
             }
           else
             {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSetGet.h,v $
   Language:  C++
-  Date:      $Date: 1995-08-31 21:21:00 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1995-09-08 12:49:25 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,8 +56,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 //
 // Some constants used throughout code
 //
-#define LARGE_FLOAT 1.0e29
-#define LARGE_INTEGER 2147483646 // 2^31 - 1
+#define VTK_LARGE_FLOAT 1.0e29
+#define VTK_LARGE_INTEGER 2147483646 // 2^31 - 1
 
 //
 // Set built-in type.  Creates member Set"name"() (e.g., SetVisibility());

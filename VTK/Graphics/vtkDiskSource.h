@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDiskSource.h,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:31:23 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1995-09-08 12:48:54 $
+  Version:   $Revision: 1.11 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -42,7 +42,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // vtkDiskSource creates a polygonal disk with a hole in the center. The 
 // disk has zero height. The user can specify the inner and outer radius
 // of the disk, and the radial and circumferential resolution of the 
-// polygonal representation.
+// polygonal representation. 
+// .SECTION SEE ALSO
+// If you desire to create a solid object you can use vtkLinearExtrusionFilter.
 
 #ifndef __vtkDiskSource_h
 #define __vtkDiskSource_h
@@ -59,22 +61,22 @@ public:
 
   // Description:
   // Specify radius of hole in disc.
-  vtkSetClampMacro(InnerRadius,float,0.0,LARGE_FLOAT)
+  vtkSetClampMacro(InnerRadius,float,0.0,VTK_LARGE_FLOAT)
   vtkGetMacro(InnerRadius,float);
 
   // Description:
   // Specify radius of disc.
-  vtkSetClampMacro(OuterRadius,float,0.0,LARGE_FLOAT)
+  vtkSetClampMacro(OuterRadius,float,0.0,VTK_LARGE_FLOAT)
   vtkGetMacro(OuterRadius,float);
 
   // Description:
   // Set the number of points in radius direction.
-  vtkSetClampMacro(RadialResolution,int,1,LARGE_INTEGER)
+  vtkSetClampMacro(RadialResolution,int,1,VTK_LARGE_INTEGER)
   vtkGetMacro(RadialResolution,int);
 
   // Description:
   // Set the number of points in circumferential direction.
-  vtkSetClampMacro(CircumferentialResolution,int,3,LARGE_INTEGER)
+  vtkSetClampMacro(CircumferentialResolution,int,3,VTK_LARGE_INTEGER)
   vtkGetMacro(CircumferentialResolution,int);
 
 protected:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamLine.h,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:32:09 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1995-09-08 12:50:51 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -82,7 +82,7 @@ public:
   // Description:
   // Specify the length of a line segment. Smaller values result in smoother
   // appearing streamlines but greater numbers of line primitives.
-  vtkSetClampMacro(StepLength,float,0.000001,LARGE_FLOAT);
+  vtkSetClampMacro(StepLength,float,0.000001,VTK_LARGE_FLOAT);
   vtkGetMacro(StepLength,float);
 
 protected:

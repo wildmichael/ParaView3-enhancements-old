@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSphereSource.h,v $
   Language:  C++
-  Date:      $Date: 1995-09-07 09:14:20 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1995-09-08 12:51:08 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -62,7 +62,7 @@ public:
 
   // Description:
   // Set radius of sphere.
-  vtkSetClampMacro(Radius,float,0.0,LARGE_FLOAT);
+  vtkSetClampMacro(Radius,float,0.0,VTK_LARGE_FLOAT);
   vtkGetMacro(Radius,float);
 
   // Description:

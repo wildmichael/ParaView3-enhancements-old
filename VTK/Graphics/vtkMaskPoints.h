@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMaskPoints.h,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:31:32 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1995-09-08 12:49:22 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,17 +59,17 @@ public:
 
   // Description:
   // Turn on every nth point.
-  vtkSetClampMacro(OnRatio,int,1,LARGE_INTEGER);
+  vtkSetClampMacro(OnRatio,int,1,VTK_LARGE_INTEGER);
   vtkGetMacro(OnRatio,int);
 
   // Description:
   // Limit the number of points that can be passed through
-  vtkSetClampMacro(MaximumNumberOfPoints,int,0,LARGE_INTEGER);
+  vtkSetClampMacro(MaximumNumberOfPoints,int,0,VTK_LARGE_INTEGER);
   vtkGetMacro(MaximumNumberOfPoints,int);
 
   // Description:
   // Start with this point.
-  vtkSetClampMacro(Offset,int,0,LARGE_INTEGER);
+  vtkSetClampMacro(Offset,int,0,VTK_LARGE_INTEGER);
   vtkGetMacro(Offset,int);
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSampleFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-31 21:23:39 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1995-09-08 12:47:59 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -60,7 +60,7 @@ vtkSampleFunction::vtkSampleFunction()
   this->SampleDimensions[2] = 50;
 
   this->Capping = 0;
-  this->CapValue = LARGE_FLOAT;
+  this->CapValue = VTK_LARGE_FLOAT;
 
   this->ImplicitFunction = NULL;
 

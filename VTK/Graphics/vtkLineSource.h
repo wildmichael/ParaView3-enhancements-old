@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLineSource.h,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:31:30 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1995-09-08 12:49:10 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -68,7 +68,7 @@ public:
 
   // Description:
   // Divide line into resolution number of pieces.
-  vtkSetClampMacro(Resolution,int,1,LARGE_INTEGER);
+  vtkSetClampMacro(Resolution,int,1,VTK_LARGE_INTEGER);
   vtkGetMacro(Resolution,int);
 
 protected:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSource.h,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:31:36 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1995-09-08 12:49:36 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,7 +58,7 @@ public:
 
   // Description:
   // Set the number of points to generate.
-  vtkSetClampMacro(NumberOfPoints,int,1,LARGE_INTEGER);
+  vtkSetClampMacro(NumberOfPoints,int,1,VTK_LARGE_INTEGER);
   vtkGetMacro(NumberOfPoints,int);
 
   // Description:
@@ -68,7 +68,7 @@ public:
 
   // Description:
   // Set the radius of the point cloud.
-  vtkSetClampMacro(Radius,float,0.0,LARGE_FLOAT);
+  vtkSetClampMacro(Radius,float,0.0,VTK_LARGE_FLOAT);
   vtkGetMacro(Radius,float);
 
 protected:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSet.h,v $
   Language:  C++
-  Date:      $Date: 1995-09-01 10:01:58 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 1995-09-08 12:48:48 $
+  Version:   $Revision: 1.42 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -128,7 +128,7 @@ public:
   // The parametric coordinates are provided in pcoords[3]. The interpolation
   // weights are returned in weights[]. Tolerance is used to control how close
   // the point is to be considered "in" the cell.
-  virtual int FindCell(float x[3], vtkCell *cell, float tol2, int& subId, float pcoords[3], float weights[MAX_CELL_SIZE]) = 0;
+  virtual int FindCell(float x[3], vtkCell *cell, float tol2, int& subId, float pcoords[3], float weights[VTK_MAX_CELL_SIZE]) = 0;
 
   // Datasets are composite objects and need to check each part for MTime
   unsigned long int GetMTime();

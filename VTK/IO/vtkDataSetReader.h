@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetReader.h,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:32:24 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1995-09-08 12:51:14 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -43,8 +43,10 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // vtkDataSetReader is a class that provides instance variables 
 // and methods to read any type of dataset in visualization library format. 
 // The output type of this class will vary depending upon the type of data
-// file. Note: these formats are not standard. Use other more standard 
-// formats when you can.
+// file.
+// .SECTION Caveats
+// These vtk formats are not standard. Use other more standard formats when 
+// you can.
 
 #ifndef __vtkDataSetReader_h
 #define __vtkDataSetReader_h

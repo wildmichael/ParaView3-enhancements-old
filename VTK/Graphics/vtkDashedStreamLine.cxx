@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDashedStreamLine.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:34:00 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1995-09-08 12:48:59 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -67,7 +67,7 @@ void vtkDashedStreamLine::Execute()
   if ( this->Input->GetPointData()->GetScalars() || this->SpeedScalars )
     newScalars = new vtkFloatScalars(1000);
   newLines = new vtkCellArray();
-  newLines->Allocate(newLines->EstimateSize(2*this->NumberOfStreamers,MAX_CELL_SIZE));
+  newLines->Allocate(newLines->EstimateSize(2*this->NumberOfStreamers,VTK_MAX_CELL_SIZE));
 //
 // Loop over all streamers generating points
 //

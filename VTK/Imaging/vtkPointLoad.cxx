@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPointLoad.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-31 21:23:29 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1995-09-08 12:47:54 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -171,9 +171,9 @@ void vtkPointLoad::Execute()
         if ( rho < 1.0e-10 )
           {
           vtkWarningMacro(<<"Attempting to set singularity, resetting");
-          tensor.SetComponent(0,0,LARGE_FLOAT);
-          tensor.SetComponent(1,1,LARGE_FLOAT);
-          tensor.SetComponent(2,2,LARGE_FLOAT);
+          tensor.SetComponent(0,0,VTK_LARGE_FLOAT);
+          tensor.SetComponent(1,1,VTK_LARGE_FLOAT);
+          tensor.SetComponent(2,2,VTK_LARGE_FLOAT);
           tensor.SetComponent(0,1,0.0);
           tensor.SetComponent(0,2,0.0);
           tensor.SetComponent(1,0,0.0);
@@ -182,7 +182,7 @@ void vtkPointLoad::Execute()
           tensor.SetComponent(2,1,0.0);
           newTensors->InsertNextTensor(&tensor);
           if ( this->ComputeEffectiveStress )
-            newScalars->InsertNextScalar(LARGE_FLOAT);
+            newScalars->InsertNextScalar(VTK_LARGE_FLOAT);
           continue;
           }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkShepardMethod.h,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:32:15 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1995-09-08 12:51:02 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,7 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-// .NAME vtkShepardMethod - sample unstructured points onto structured points using Shepard's method
+// .NAME vtkShepardMethod - sample unstructured points onto structured points using the method of Shepard
 // .SECTION Description
 // vtkShepardMethod is a filter used to visualize unstructured point data using
 // Shepard's method. The method works by resampling the unstructured points 

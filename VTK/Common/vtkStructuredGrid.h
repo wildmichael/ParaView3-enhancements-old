@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGrid.h,v $
   Language:  C++
-  Date:      $Date: 1995-09-01 10:02:20 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1995-09-08 12:50:12 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -73,7 +73,7 @@ public:
   float *GetPoint(int ptId);
   void GetPoint(int ptId, float p[3]);
   int FindCell(float x[3], vtkCell *cell, float tol2, int& subId, 
-               float pcoords[3],float weights[MAX_CELL_SIZE]);
+               float pcoords[3],float weights[VTK_MAX_CELL_SIZE]);
   int GetNumberOfCells();
   void GetCellPoints(int cellId, vtkIdList& ptIds);
   void GetPointCells(int ptId, vtkIdList& cellIds);
@@ -113,7 +113,7 @@ inline void vtkStructuredGrid::GetPointCells(int ptId, vtkIdList& cellIds)
 
 inline int vtkStructuredGrid::FindCell(float x[3], vtkCell *cell, float tol2, 
                                       int& subId, float pcoords[3],
-                                      float weights[MAX_CELL_SIZE])
+                                      float weights[VTK_MAX_CELL_SIZE])
 {
   return this->vtkPointSet::FindCell(x,cell,tol2,subId,pcoords,weights);
 }

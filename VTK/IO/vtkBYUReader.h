@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBYUReader.h,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:31:14 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1995-09-08 12:48:30 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -98,7 +98,7 @@ public:
   vtkGetMacro(ReadTexture,int)
   vtkBooleanMacro(ReadTexture,int)
 
-  vtkSetClampMacro(PartNumber,int,1,LARGE_INTEGER);
+  vtkSetClampMacro(PartNumber,int,1,VTK_LARGE_INTEGER);
   vtkGetMacro(PartNumber,int);
 
 protected:

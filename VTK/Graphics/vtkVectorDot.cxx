@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectorDot.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-31 21:24:22 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1995-09-08 12:48:32 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -90,7 +90,7 @@ void vtkVectorDot::Execute()
 //
 // Compute initial scalars
 //
-  for (min=LARGE_FLOAT,max=(-LARGE_FLOAT),ptId=0; ptId < numPts; ptId++)
+  for (min=VTK_LARGE_FLOAT,max=(-VTK_LARGE_FLOAT),ptId=0; ptId < numPts; ptId++)
     {
     n = inNormals->GetNormal(ptId);
     v = inVectors->GetVector(ptId);

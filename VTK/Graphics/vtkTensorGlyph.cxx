@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkTensorGlyph.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-31 21:24:10 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1995-09-08 12:48:20 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -76,7 +76,7 @@ void vtkTensorGlyph::Execute()
   vtkTransform trans;
   vtkCell *cell;
   vtkIdList *cellPts;
-  int npts, pts[MAX_CELL_SIZE];
+  int npts, pts[VTK_MAX_CELL_SIZE];
   int ptIncr, cellId;
   vtkMath math;
   vtkMatrix4x4 matrix;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLocator.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:36:58 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1995-09-08 12:49:15 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -85,13 +85,13 @@ public:
 
   // Description:
   // Specify the average number of points in each bucket.
-  vtkSetClampMacro(NumberOfPointsInBucket,int,1,LARGE_INTEGER);
+  vtkSetClampMacro(NumberOfPointsInBucket,int,1,VTK_LARGE_INTEGER);
   vtkGetMacro(NumberOfPointsInBucket,int);
 
   // Description:
   // Specify absolute tolerance (in world coordinates) for performing
   // merge operations.
-  vtkSetClampMacro(Tolerance,float,0.0,LARGE_FLOAT);
+  vtkSetClampMacro(Tolerance,float,0.0,VTK_LARGE_FLOAT);
   vtkGetMacro(Tolerance,float);
 
   virtual int FindClosestPoint(float x[3]);

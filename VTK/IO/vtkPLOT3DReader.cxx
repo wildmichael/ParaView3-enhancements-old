@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPLOT3DReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-31 21:25:00 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1995-09-08 12:49:01 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -54,7 +54,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 vtkPLOT3DReader::vtkPLOT3DReader()
 {
-  this->FileFormat = WHOLE_SINGLE_GRID_NO_IBLANKING;
+  this->FileFormat = VTK_WHOLE_SINGLE_GRID_NO_IBLANKING;
 
   this->XYZFilename = NULL;
   this->QFilename = NULL;
@@ -219,7 +219,7 @@ int vtkPLOT3DReader::ReadBinaryGrid(FILE *fp,vtkStructuredGrid *output)
   int i, gridFound, offset, gridSize, maxGridSize;
   float x[3];
 
-  if ( this->FileFormat == WHOLE_MULTI_GRID_NO_IBLANKING )
+  if ( this->FileFormat == VTK_WHOLE_MULTI_GRID_NO_IBLANKING )
     {
     if ( fread (&(this->NumGrids), sizeof(int), 1, fp) < 1 ) return 1;
     }
@@ -296,7 +296,7 @@ int vtkPLOT3DReader::ReadBinarySolution(FILE *fp,vtkStructuredGrid *output)
   float m[3], params[4];
   int numGrids, numPts;
 
-  if ( this->FileFormat == WHOLE_MULTI_GRID_NO_IBLANKING )
+  if ( this->FileFormat == VTK_WHOLE_MULTI_GRID_NO_IBLANKING )
     {
     if ( fread (&numGrids, sizeof(int), 1, fp) < 1 ) return 1;
     }

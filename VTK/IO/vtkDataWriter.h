@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataWriter.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:35:47 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1995-09-08 12:51:17 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -51,8 +51,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkWriter.hh"
 #include "vtkDataSet.hh"
 
-#define ASCII 1
-#define BINARY 2
+#define VTK_ASCII 1
+#define VTK_BINARY 2
 
 class vtkDataWriter : public vtkWriter
 {
@@ -73,7 +73,7 @@ public:
 
   // Description:
   // Specify file type (ASCII or BINARY) for vtk data file.
-  vtkSetClampMacro(FileType,int,ASCII,BINARY);
+  vtkSetClampMacro(FileType,int,VTK_ASCII,VTK_BINARY);
   vtkGetMacro(FileType,int);
 
   // Description:

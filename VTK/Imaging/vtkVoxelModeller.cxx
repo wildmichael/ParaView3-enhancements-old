@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoxelModeller.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-09-05 16:19:04 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1995-09-08 12:49:32 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -100,7 +100,7 @@ void vtkVoxelModeller::Execute()
   int min[3], max[3];
   float x[3], distance2;
   int jkFactor;
-  float weights[MAX_CELL_SIZE];
+  float weights[VTK_MAX_CELL_SIZE];
   float closestPoint[3];
   float voxelHalfWidth[3], origin[3], ar[3];
   vtkStructuredPoints *output=(vtkStructuredPoints *)this->Output;

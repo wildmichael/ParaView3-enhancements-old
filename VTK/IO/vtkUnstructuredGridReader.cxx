@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGridReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-09-01 19:05:59 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1995-09-08 12:49:35 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -226,7 +226,7 @@ void vtkUnstructuredGridReader::Execute()
           }
 
         types = new int[ncells];
-        if ( this->Reader.GetFileType() == BINARY )
+        if ( this->Reader.GetFileType() == VTK_BINARY )
           {
           if ( (fgets(line,256,fp) == NULL) ||
           (fread(types,sizeof(int),ncells,fp) != ncells) )

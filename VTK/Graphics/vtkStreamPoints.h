@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamPoints.h,v $
   Language:  C++
-  Date:      $Date: 1995-08-31 21:21:17 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1995-09-08 12:50:18 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,7 +59,7 @@ public:
 
   // Description:
   // Specify the separation of points in terms of absolute time.
-  vtkSetClampMacro(TimeIncrement,float,0.000001,LARGE_FLOAT);
+  vtkSetClampMacro(TimeIncrement,float,0.000001,VTK_LARGE_FLOAT);
   vtkGetMacro(TimeIncrement,float);
 
 protected:

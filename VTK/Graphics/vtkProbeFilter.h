@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProbeFilter.h,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:31:39 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1995-09-08 12:49:49 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,11 +38,14 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-// .NAME vtkProbeFilter - compute data values at specified point locations
+// .NAME vtkProbeFilter - sample data values at specified point locations
 // .SECTION Description
 // vtkProbeFilter is a filter that computes point attributes (e.g., scalars,
-// vectors, etc.) at point positions in the input. The point positions
-// are obtained from the points in the source object.
+// vectors, etc.) at specified point positions. The filter has two inputs:
+// the Input and Source. The Input geometric structure is passed through the
+// filter. The point attributes are computed at the Input point positions
+// by interpolating into the source data. For example, we can compute data
+// values on a plane (plane specified as Input) from a volume (Source).
 
 #ifndef __vtkProbeFilter_h
 #define __vtkProbeFilter_h
