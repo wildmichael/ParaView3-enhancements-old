@@ -3,11 +3,11 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectors.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:38:03 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1996-08-02 20:01:39 $
+  Version:   $Revision: 1.19 $
 
 
-Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
+Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
 
 This software is copyrighted by Ken Martin, Will Schroeder and Bill Lorensen.
 The following terms apply to all files associated with the software unless
@@ -94,7 +94,6 @@ void vtkVectors::ComputeMaxNorm()
 {
   int i;
   float *v, norm;
-  vtkMath math;
 
   if ( this->GetMTime() > this->ComputeTime )
     {
@@ -102,7 +101,7 @@ void vtkVectors::ComputeMaxNorm()
     for (i=0; i<this->GetNumberOfVectors(); i++)
       {
       v = this->GetVector(i);
-      norm = math.Norm(v);
+      norm = vtkMath::Norm(v);
       if ( norm > this->MaxNorm ) this->MaxNorm = norm;
       }
 
