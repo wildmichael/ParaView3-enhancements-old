@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-09-29 20:36:01 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1997-12-05 14:17:56 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -321,7 +321,14 @@ void vtkClipPolyData::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkPolyDataToPolyDataFilter::PrintSelf(os,indent);
 
-  os << indent << "Clip Function: " << this->ClipFunction << "\n";
+  if ( this->ClipFunction )
+    {
+    os << indent << "Clip Function: " << this->ClipFunction << "\n";
+    }
+  else
+    {
+    os << indent << "Clip Function: (none)\n";
+    }
   os << indent << "InsideOut: " << (this->InsideOut ? "On\n" : "Off\n");
   os << indent << "Value: " << this->Value << "\n";
   if ( this->Locator )
