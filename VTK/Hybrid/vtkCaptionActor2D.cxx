@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCaptionActor2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-10-05 20:57:52 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2001-10-06 15:51:59 $
+  Version:   $Revision: 1.8 $
   Thanks:    Tim Smith who sponsored and encouraged the development
              of this class.
 
@@ -188,6 +188,11 @@ vtkCaptionActor2D::~vtkCaptionActor2D()
   this->CaptionMapper->Delete();
   this->CaptionActor->Delete();
   
+  if ( this->LeaderGlyph )
+    {
+    this->LeaderGlyph->Delete();
+    }
+
   this->BorderPolyData->Delete();
   this->BorderMapper->Delete();
   this->BorderActor->Delete();
