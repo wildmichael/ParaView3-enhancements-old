@@ -3,8 +3,8 @@
   Program:   OSCAR 
   Module:    $RCSfile: vtkCamera.h,v $
   Language:  C++
-  Date:      $Date: 1994-01-12 16:18:15 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1994-01-21 10:09:56 $
+  Version:   $Revision: 1.3 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -28,7 +28,10 @@ class vlCamera : public vlObject
   float ViewUp[3];
   float ViewAngle;
   float ClippingRange[2];
-  
+  float EyeAngle;
+  int   LeftEye;
+  int   Switch;
+
  public:
   vlCamera();
 
@@ -45,6 +48,16 @@ class vlCamera : public vlObject
   float *GetViewUp();
 
   virtual void Render(vlRenderer *ren) = 0;
+
+  vlSetMacro(EyeAngle,float);
+  vlGetMacro(EyeAngle,float);
+
+  vlSetMacro(Switch,int);
+  vlGetMacro(Switch,int);
+  vlBooleanMacro(Switch,int);
+
+  float GetTwist();
+  float *GetViewPlaneNormal();
 };
 
 #endif
