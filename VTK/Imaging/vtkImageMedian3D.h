@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMedian3D.h,v $
   Language:  C++
-  Date:      $Date: 2002-10-04 16:53:59 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2002-10-09 17:08:03 $
+  Version:   $Revision: 1.26 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -47,12 +47,13 @@ public:
   vtkGetMacro(NumberOfElements,int);
 
   // Description:
-  // If you want to warp by an arbitrary scalar array, then set its name here.
+  // If you want the neighborhood median of an arbitrary point 
+  // scalar array, then set its name here.
   // By default this in NULL and the filter will use the active scalar array.
   vtkGetStringMacro(InputScalarsSelection);
   void SelectInputScalars(const char *fieldName) 
-    {this->SetInputScalarsSelection(fieldName);}
-  
+    {this->SetInputScalarsSelection(fieldName);}  
+
 protected:
   vtkImageMedian3D();
   ~vtkImageMedian3D();
@@ -66,8 +67,7 @@ protected:
   // Called by the superclass
   void ExecuteInformation() { this->Superclass::ExecuteInformation(); }
 
-  char *InputScalarsSelection;
-  vtkSetStringMacro(InputScalarsSelection);
+  void ExecuteData(vtkDataObject *out);
 
 private:
   vtkImageMedian3D(const vtkImageMedian3D&);  // Not implemented.

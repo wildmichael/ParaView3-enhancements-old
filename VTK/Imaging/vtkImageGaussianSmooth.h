@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageGaussianSmooth.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:32:36 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2002-10-09 17:08:03 $
+  Version:   $Revision: 1.38 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,6 +25,8 @@
 
 
 #include "vtkImageToImageFilter.h"
+
+class vtkDataArray;
 
 class VTK_IMAGING_EXPORT vtkImageGaussianSmooth : public vtkImageToImageFilter
 {
@@ -71,6 +73,14 @@ public:
   vtkSetMacro(Dimensionality, int);
   vtkGetMacro(Dimensionality, int);
 
+  // Description:
+  // If you want to smooth by an arbitrary point scalar array, 
+  // then set its name here.
+  // By default this in NULL and the filter will use the active scalar array.
+  vtkGetStringMacro(InputScalarsSelection);
+  void SelectInputScalars(const char *fieldName) 
+    {this->SetInputScalarsSelection(fieldName);}  
+  
 protected:
   vtkImageGaussianSmooth();
   ~vtkImageGaussianSmooth();
@@ -81,8 +91,8 @@ protected:
   
   void ComputeKernel(double *kernel, int min, int max, double std);
   void ComputeInputUpdateExtent(int inExt[6], int outExt[6]);
-  void ExecuteAxis(int axis, vtkImageData *inData, int inExt[6],
-                   vtkImageData *outData, int outExt[6],
+  void ExecuteAxis(int axis, vtkDataArray *inArray, int inExt[6],
+                   vtkDataArray *outArray, int outExt[6],
                    int *pcycle, int target, int *pcount, int total);
   void ThreadedExecute(vtkImageData *inData, 
                        vtkImageData *outData, int outExt[6], int id);

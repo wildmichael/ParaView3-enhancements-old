@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSpatialFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-25 23:31:10 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 2002-10-09 17:08:03 $
+  Version:   $Revision: 1.50 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkImageSpatialFilter, "$Revision: 1.49 $");
+vtkCxxRevisionMacro(vtkImageSpatialFilter, "$Revision: 1.50 $");
 vtkStandardNewMacro(vtkImageSpatialFilter);
 
 //----------------------------------------------------------------------------
@@ -83,6 +83,14 @@ void vtkImageSpatialFilter::ExecuteInformation()
   this->ComputeOutputWholeExtent(extent, this->HandleBoundaries);
   output->SetWholeExtent(extent);
   this->ExecuteInformation(input, output);
+
+  vtkDataArray *inArray;
+  inArray = input->GetPointData()->GetScalars(this->InputScalarsSelection);
+  if (inArray)
+    {
+    output->SetScalarType(inArray->GetDataType());
+    output->SetNumberOfScalarComponents(inArray->GetNumberOfComponents());
+    }
 }
 //----------------------------------------------------------------------------
 void vtkImageSpatialFilter::ExecuteInformation(
