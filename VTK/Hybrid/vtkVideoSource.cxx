@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVideoSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-30 20:36:23 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2002-10-28 19:01:41 $
+  Version:   $Revision: 1.34 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -67,7 +67,7 @@
 // Finally, when Execute() is reading from the FrameBuffer it must do
 // so from within a mutex lock.  Otherwise tearing artifacts might result.
 
-vtkCxxRevisionMacro(vtkVideoSource, "$Revision: 1.33 $");
+vtkCxxRevisionMacro(vtkVideoSource, "$Revision: 1.34 $");
 vtkStandardNewMacro(vtkVideoSource);
 
 #if ( _MSC_VER >= 1300 ) // Visual studio .NET
@@ -479,7 +479,7 @@ static inline void vtkSleep(double duration)
 // Sleep until the specified absolute time has arrived.
 // You must pass a handle to the current thread.  
 // If '0' is returned, then the thread was aborted before or during the wait.
-static int vtkThreadSleep(struct ThreadInfoStruct *data, double time)
+static int vtkThreadSleep(struct vtkMultiThreader::ThreadInfoStruct *data, double time)
 {
   for (int i = 0;; i++)
     {
@@ -516,7 +516,7 @@ static int vtkThreadSleep(struct ThreadInfoStruct *data, double time)
 
 //----------------------------------------------------------------------------
 // this function runs in an alternate thread to asyncronously grab frames
-static void *vtkVideoSourceRecordThread(struct ThreadInfoStruct *data)
+static void *vtkVideoSourceRecordThread(struct vtkMultiThreader::ThreadInfoStruct *data)
 {
   vtkVideoSource *self = (vtkVideoSource *)(data->UserData);
   
@@ -560,7 +560,7 @@ void vtkVideoSource::Record()
 //----------------------------------------------------------------------------
 // this function runs in an alternate thread to 'play the tape' at the
 // specified frame rate.
-static void *vtkVideoSourcePlayThread(struct ThreadInfoStruct *data)
+static void *vtkVideoSourcePlayThread(struct vtkMultiThreader::ThreadInfoStruct *data)
 {
   vtkVideoSource *self = (vtkVideoSource *)(data->UserData);
  

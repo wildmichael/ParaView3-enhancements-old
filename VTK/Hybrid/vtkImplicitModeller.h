@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitModeller.h,v $
   Language:  C++
-  Date:      $Date: 2002-09-30 20:36:23 $
-  Version:   $Revision: 1.57 $
+  Date:      $Date: 2002-10-28 19:01:41 $
+  Version:   $Revision: 1.58 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -165,7 +165,7 @@ public:
 
   // Description:
   // Set / Get the number of threads used during Per-Voxel processing mode
-  vtkSetMacro( NumberOfThreads, int );
+  vtkSetClampMacro( NumberOfThreads, int, 1, VTK_MAX_THREADS );
   vtkGetMacro( NumberOfThreads, int );
 
   // Description:

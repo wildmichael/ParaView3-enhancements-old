@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEncodedGradientEstimator.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-22 18:39:30 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2002-10-28 19:02:06 $
+  Version:   $Revision: 1.31 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -35,10 +35,10 @@
 #define __vtkEncodedGradientEstimator_h
 
 #include "vtkObject.h"
-#include "vtkMultiThreader.h" // for VTK_MAX_THREADS
 
 class vtkImageData;
 class vtkDirectionEncoder;
+class vtkMultiThreader;
 
 class VTK_RENDERING_EXPORT vtkEncodedGradientEstimator : public vtkObject
 {

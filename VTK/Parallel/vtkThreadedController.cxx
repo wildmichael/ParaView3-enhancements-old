@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThreadedController.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-13 19:19:13 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2002-10-28 19:01:51 $
+  Version:   $Revision: 1.17 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,6 +20,7 @@
 
 #include "vtkDataSet.h"
 #include "vtkImageData.h"
+#include "vtkMultiThreader.h"
 #include "vtkOutputWindow.h"
 #include "vtkCriticalSection.h"
 #include "vtkSharedMemoryCommunicator.h"
@@ -69,9 +70,9 @@ private:
   void operator=(const vtkThreadedControllerOutputWindow&);
 };
 
-vtkCxxRevisionMacro(vtkThreadedControllerOutputWindow, "$Revision: 1.16 $");
+vtkCxxRevisionMacro(vtkThreadedControllerOutputWindow, "$Revision: 1.17 $");
 
-vtkCxxRevisionMacro(vtkThreadedController, "$Revision: 1.16 $");
+vtkCxxRevisionMacro(vtkThreadedController, "$Revision: 1.17 $");
 vtkStandardNewMacro(vtkThreadedController);
 
 void vtkThreadedController::CreateOutputWindow()
@@ -285,7 +286,7 @@ void vtkThreadedController::Barrier()
 VTK_THREAD_RETURN_TYPE vtkThreadedController::vtkThreadedControllerStart( 
   void *arg )
 {
-  ThreadInfoStruct* info = (ThreadInfoStruct*)(arg);
+  vtkMultiThreader::ThreadInfoStruct* info = (vtkMultiThreader::ThreadInfoStruct*)(arg);
   int threadId = info->ThreadID;
   vtkThreadedController *controller0 =(vtkThreadedController*)(info->UserData);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToImageFilter.h,v $
   Language:  C++
-  Date:      $Date: 2002-10-09 17:04:46 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2002-10-28 19:01:27 $
+  Version:   $Revision: 1.39 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -30,7 +30,7 @@
 
 #include "vtkImageSource.h"
 
-#include "vtkMultiThreader.h" // Needed for VTK_MAX_THREADS
+class vtkMultiThreader;
 
 class VTK_FILTERING_EXPORT vtkImageToImageFilter : public vtkImageSource
 {

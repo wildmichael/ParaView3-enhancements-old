@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastMapper.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-22 18:39:32 $
-  Version:   $Revision: 1.54 $
+  Date:      $Date: 2002-10-28 19:02:06 $
+  Version:   $Revision: 1.55 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,10 +27,8 @@
 #define __vtkVolumeRayCastMapper_h
 
 #include "vtkVolumeMapper.h"
-#include "vtkMultiThreader.h"         // For VTK_THREAD_RETURN_TYPE
 #include "vtkVolumeRayCastFunction.h" // For VTKVRCStaticInfo 
                                       // and VTKVRCDynamicInfo
-
 class vtkEncodedGradientEstimator;
 class vtkEncodedGradientShader;
 class vtkMatrix4x4;
