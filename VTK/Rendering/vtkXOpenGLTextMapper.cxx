@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXOpenGLTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-03-22 22:47:11 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1999-04-02 13:19:25 $
+  Version:   $Revision: 1.3 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -169,13 +169,24 @@ vtkXOpenGLTextMapper::vtkXOpenGLTextMapper()
 void vtkXOpenGLTextMapper::RenderOpaqueGeometry(vtkViewport* viewport, 
 						vtkActor2D* actor)
 {
-  vtkDebugMacro (<< "vtkXOpenGLTextMapper::RenderOpaqueGeometry");
+  vtkDebugMacro (<< "RenderOpaqueGeometry");
+
+  // Check for input
+  if ( this->NumberOfLines > 1 )
+    {
+    this->RenderMultipleLines(viewport, actor);
+    return;
+    }
 
   // Check for input
   if (this->Input == NULL) 
     {
+    vtkDebugMacro (<<"Render - No input");
     return;
     }
+
+  int size[2];
+  this->GetSize(viewport, size);
 
   // Get the position of the text actor
   int* actorPos = 
@@ -206,18 +217,27 @@ void vtkXOpenGLTextMapper::RenderOpaqueGeometry(vtkViewport* viewport,
 
   int pos[2];
   pos[0] = actorPos[0];
-  pos[1] = actorPos[1];
-  int size[2];
-  this->GetSize(viewport, size);
+  pos[1] = actorPos[1] - (this->LineOffset * this->LineSpacing * size[1]);
 
   switch (this->Justification)
     {
-    case 0: break;
-    case 1:
+    case VTK_TEXT_LEFT: break;
+    case VTK_TEXT_CENTERED:
       pos[0] = pos[0] - size[0]/2;
       break;
-    case 2: 
+    case VTK_TEXT_RIGHT: 
       pos[0] = pos[0] - size[0];
+      break;
+    }
+  switch (this->VerticalJustification)
+    {
+    case VTK_TEXT_TOP: 
+      pos[1] = pos[1] - size[1];
+      break;
+    case VTK_TEXT_CENTERED:
+      pos[1] = pos[1] - size[1]/2;
+      break;
+    case VTK_TEXT_BOTTOM: 
       break;
     }
   
