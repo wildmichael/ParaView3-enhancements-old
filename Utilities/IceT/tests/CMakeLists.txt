@@ -1,4 +1,4 @@
-# $Id: CMakeLists.txt,v 1.2 2003-06-19 19:08:28 kmorel Exp $
+# $Id: CMakeLists.txt,v 1.3 2003-07-14 18:53:59 lawcc Exp $
 #
 ## Copyright 2003 Sandia Coporation
 ## Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -22,6 +22,8 @@ IF (WIN32)
 ELSE (WIN32)
   SET(UTIL_SRCS ${UTIL_SRCS} glwin_glx.c)
 ENDIF (WIN32)
+
+INCLUDE_DIRECTORIES(${CMAKE_CURRENT_SOURCE_DIR})
 
 CREATE_TEST_SOURCELIST(Tests icetTests_mpi.c ${MyTests}
 		       EXTRA_INCLUDE mpi_comm.h
