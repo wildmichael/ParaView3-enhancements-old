@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPNMReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-10 21:13:21 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-08-05 13:25:12 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -110,7 +110,7 @@ void vtkPNMReader::UpdateImageInformation()
   this->ComputeInternalFileName(this->DataExtent[4]);
   
   // get the magic number by reading in a file
-  fp = fopen(this->InternalFileName,"rb");
+  fp = fopen(this->InternalFileName,"r");
   if (!fp)
     {
     vtkErrorMacro("Unable to open file " << this->InternalFileName);
@@ -129,6 +129,12 @@ void vtkPNMReader::UpdateImageInformation()
   // now get the dimensions
   xsize = vtkPNMReaderGetInt(fp);
   ysize = vtkPNMReaderGetInt(fp);
+
+  // read max pixel value into comp for now
+  comp = vtkPNMReaderGetInt(fp);
+  
+  // Set the header size now that we have parsed it
+  this->SetHeaderSize(ftell(fp));
 
   fclose(fp);
 
@@ -175,4 +181,5 @@ void vtkPNMReader::UpdateImageInformation()
   
   vtkImageReader::UpdateImageInformation();
 }
+
 
