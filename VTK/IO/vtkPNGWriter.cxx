@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPNGWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-07-30 15:58:41 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2003-08-06 21:24:46 $
+  Version:   $Revision: 1.17 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 
 #include <png.h>
 
-vtkCxxRevisionMacro(vtkPNGWriter, "$Revision: 1.16 $");
+vtkCxxRevisionMacro(vtkPNGWriter, "$Revision: 1.17 $");
 vtkStandardNewMacro(vtkPNGWriter);
 
 vtkCxxSetObjectMacro(vtkPNGWriter,Result,vtkUnsignedCharArray);
@@ -50,6 +50,8 @@ vtkPNGWriter::~vtkPNGWriter()
 // Writes all the data from the input.
 void vtkPNGWriter::Write()
 {
+  this->SetErrorCode(vtkErrorCode::NoError);
+  
   // Error checking
   if ( this->GetInput() == NULL )
     {
@@ -59,6 +61,7 @@ void vtkPNGWriter::Write()
   if (!this->WriteToMemory && !this->FileName && !this->FilePattern)
     {
     vtkErrorMacro(<<"Write:Please specify either a FileName or a file prefix and pattern");
+    this->SetErrorCode(vtkErrorCode::NoFileNameError);
     return;
     }
   

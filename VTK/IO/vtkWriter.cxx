@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-03-31 20:46:24 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2003-08-06 21:24:46 $
+  Version:   $Revision: 1.39 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,8 +19,9 @@
 
 #include "vtkCommand.h"
 #include "vtkDataObject.h"
+#include "vtkErrorCode.h"
 
-vtkCxxRevisionMacro(vtkWriter, "$Revision: 1.38 $");
+vtkCxxRevisionMacro(vtkWriter, "$Revision: 1.39 $");
 
 // Construct with no start and end write methods or arguments.
 vtkWriter::vtkWriter()
@@ -45,6 +46,8 @@ vtkDataObject *vtkWriter::GetInput()
 // well as StartMethod() and EndMethod() methods.
 void vtkWriter::Write()
 {
+  this->SetErrorCode(vtkErrorCode::NoError);
+  
   vtkDataObject *input = this->GetInput();
   int idx;
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-07-29 19:27:43 $
-  Version:   $Revision: 1.100 $
+  Date:      $Date: 2003-08-06 21:24:45 $
+  Version:   $Revision: 1.101 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -39,7 +39,7 @@
 #include "vtkUnsignedLongArray.h"
 #include "vtkUnsignedShortArray.h"
 
-vtkCxxRevisionMacro(vtkDataWriter, "$Revision: 1.100 $");
+vtkCxxRevisionMacro(vtkDataWriter, "$Revision: 1.101 $");
 vtkStandardNewMacro(vtkDataWriter);
 
 // this undef is required on the hp. vtkMutexLock ends up including
@@ -135,6 +135,7 @@ ostream *vtkDataWriter::OpenVTKFile()
   if ((!this->WriteToOutputString) && ( !this->FileName ))
     {
     vtkErrorMacro(<< "No FileName specified! Can't write!");
+    this->SetErrorCode(vtkErrorCode::NoFileNameError);
     return NULL;
     }
   
@@ -183,6 +184,7 @@ ostream *vtkDataWriter::OpenVTKFile()
   if (fptr->fail())
     {
     vtkErrorMacro(<< "Unable to open file: "<< this->FileName);
+    this->SetErrorCode(vtkErrorCode::CannotOpenFileError);
     delete fptr;
     return NULL;
     }

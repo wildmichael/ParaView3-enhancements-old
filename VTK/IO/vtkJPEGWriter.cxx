@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkJPEGWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-07-29 19:27:43 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2003-08-06 21:24:46 $
+  Version:   $Revision: 1.16 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,7 @@ extern "C" {
 #include <setjmp.h>
 }
 
-vtkCxxRevisionMacro(vtkJPEGWriter, "$Revision: 1.15 $");
+vtkCxxRevisionMacro(vtkJPEGWriter, "$Revision: 1.16 $");
 vtkStandardNewMacro(vtkJPEGWriter);
 
 vtkCxxSetObjectMacro(vtkJPEGWriter,Result,vtkUnsignedCharArray);
@@ -56,6 +56,8 @@ vtkJPEGWriter::~vtkJPEGWriter()
 // Writes all the data from the input.
 void vtkJPEGWriter::Write()
 {
+  this->SetErrorCode(vtkErrorCode::NoError);
+  
   // Error checking
   if ( this->GetInput() == NULL )
     {
@@ -65,6 +67,7 @@ void vtkJPEGWriter::Write()
   if (!this->WriteToMemory && ! this->FileName && !this->FilePattern)
     {
     vtkErrorMacro(<<"Write:Please specify either a FileName or a file prefix and pattern");
+    this->SetErrorCode(vtkErrorCode::NoFileNameError);
     return;
     }
   
@@ -258,6 +261,7 @@ void vtkJPEGWriter::WriteSlice(vtkImageData *data)
     if (!fp)
       {
       vtkErrorMacro("Unable to open file " << this->InternalFileName);
+      this->SetErrorCode(vtkErrorCode::CannotOpenFileError);
       return;
       }
     jpeg_stdio_dest(&cinfo, fp);

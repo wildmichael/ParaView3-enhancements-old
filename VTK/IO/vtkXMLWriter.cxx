@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-07-29 19:27:44 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2003-08-06 21:24:46 $
+  Version:   $Revision: 1.26 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -33,7 +33,7 @@
 # include <unistd.h> /* unlink */
 #endif
 
-vtkCxxRevisionMacro(vtkXMLWriter, "$Revision: 1.25 $");
+vtkCxxRevisionMacro(vtkXMLWriter, "$Revision: 1.26 $");
 vtkCxxSetObjectMacro(vtkXMLWriter, Compressor, vtkDataCompressor);
 
 //----------------------------------------------------------------------------
@@ -231,6 +231,8 @@ void vtkXMLWriter::SetBlockSize(unsigned int blockSize)
 //----------------------------------------------------------------------------
 int vtkXMLWriter::Write()
 {
+  this->SetErrorCode(vtkErrorCode::NoError);
+  
   // Make sure we have input.
   if(!this->Inputs || !this->Inputs[0])
     {
@@ -242,6 +244,7 @@ int vtkXMLWriter::Write()
   if(!this->Stream && !this->FileName)
     {
     vtkErrorMacro("Write() called with no FileName set.");
+    this->SetErrorCode(vtkErrorCode::NoFileNameError);
     return 0;
     }
   
@@ -291,6 +294,7 @@ int vtkXMLWriter::WriteInternal()
     if(!outFile || !*outFile)
       {
       vtkErrorMacro("Error opening output file \"" << this->FileName << "\"");
+      this->SetErrorCode(vtkErrorCode::CannotOpenFileError);
       return 0;
       }
     this->Stream = outFile;
