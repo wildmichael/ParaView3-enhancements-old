@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoxelContoursToSurfaceFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:03:00 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-09-10 17:07:40 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -82,13 +82,18 @@ public:
   // in as many pieces as necessary.
   vtkSetMacro( MemoryLimitInBytes, int );
   vtkGetMacro( MemoryLimitInBytes, int );
-   
+
+  vtkSetVector3Macro( Spacing, float );
+  vtkGetVectorMacro( Spacing, float, 3 );
+
 protected:
   vtkVoxelContoursToSurfaceFilter();
   ~vtkVoxelContoursToSurfaceFilter();
   void    Execute();
 
   int     MemoryLimitInBytes;
+
+  float   Spacing[3];
 
   float   *LineList;
   int     LineListLength;
