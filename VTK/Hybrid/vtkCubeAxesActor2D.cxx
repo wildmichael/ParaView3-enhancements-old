@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCubeAxesActor2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-06 01:47:22 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2001-12-06 02:52:31 $
+  Version:   $Revision: 1.27 $
   Thanks:    Thorsten Dowe who modified and improved this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -700,6 +700,14 @@ void vtkCubeAxesActor2D::PrintSelf(ostream& os, vtkIndent indent)
     }
 
   os << indent << "Scaling: " << (this->Scaling ? "On\n" : "Off\n");
+  os << indent << "UseRanges: " << (this->UseRanges ? "On\n" : "Off\n");
+  os << indent << "Ranges: \n";
+  os << indent << "  Xmin,Xmax: (" << this->Ranges[0] << ", " 
+     << this->Ranges[1] << ")\n";
+  os << indent << "  Ymin,Ymax: (" << this->Ranges[2] << ", " 
+     << this->Ranges[3] << ")\n";
+  os << indent << "  Zmin,Zmax: (" << this->Ranges[4] << ", " 
+     << this->Ranges[5] << ")\n";
 
   os << indent << "Number Of Labels: " << this->NumberOfLabels << "\n";
   os << indent << "X Label: " << this->XLabel << "\n";
