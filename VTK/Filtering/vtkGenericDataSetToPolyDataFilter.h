@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGenericDataSetToPolyDataFilter.h,v $
   Language:  C++
-  Date:      $Date: 2004-09-29 13:36:14 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2004-10-04 18:02:43 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -51,7 +51,9 @@ public:
 protected:
   vtkGenericDataSetToPolyDataFilter();
   ~vtkGenericDataSetToPolyDataFilter() {};
+#if VTK_MAJOR_VERSION>4 || (VTK_MAJOR_VERSION==4 && VTK_MINOR_VERSION>4)
   virtual int FillInputPortInformation(int, vtkInformation*);
+#endif
 
   
 private:

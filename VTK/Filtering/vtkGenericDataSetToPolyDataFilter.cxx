@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGenericDataSetToPolyDataFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2004-09-29 13:36:14 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2004-10-04 18:02:43 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,14 +18,20 @@
 #include "vtkGenericDataSetToPolyDataFilter.h"
 
 #include "vtkGenericDataSet.h"
-#include "vtkInformation.h"
 
-vtkCxxRevisionMacro(vtkGenericDataSetToPolyDataFilter, "$Revision: 1.2 $");
+#if VTK_MAJOR_VERSION>4 || (VTK_MAJOR_VERSION==4 && VTK_MINOR_VERSION>4)
+#include "vtkInformation.h"
+#endif
+
+vtkCxxRevisionMacro(vtkGenericDataSetToPolyDataFilter, "$Revision: 1.3 $");
 
 vtkGenericDataSetToPolyDataFilter
 ::vtkGenericDataSetToPolyDataFilter()
 {
+#if VTK_MAJOR_VERSION>4 || (VTK_MAJOR_VERSION==4 && VTK_MINOR_VERSION>4)
   this->SetNumberOfInputPorts(1);
+#endif
+  
   this->NumberOfRequiredInputs = 1;
 }
 
@@ -71,6 +77,7 @@ void vtkGenericDataSetToPolyDataFilter::ComputeInputUpdateExtents(vtkDataObject 
   input->RequestExactExtentOn();
 }
 
+#if VTK_MAJOR_VERSION>4 || (VTK_MAJOR_VERSION==4 && VTK_MINOR_VERSION>4)
 //----------------------------------------------------------------------------
 int vtkGenericDataSetToPolyDataFilter
 ::FillInputPortInformation(int port, vtkInformation* info)
@@ -82,3 +89,4 @@ int vtkGenericDataSetToPolyDataFilter
   info->Set(vtkAlgorithm::INPUT_REQUIRED_DATA_TYPE(), "vtkGenericDataSet");
   return 1;
 }
+#endif
