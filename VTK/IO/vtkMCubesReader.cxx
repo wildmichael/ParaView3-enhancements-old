@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMCubesReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-07-11 19:12:52 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1996-07-18 14:47:21 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -82,6 +82,8 @@ void vtkMCubesReader::Execute()
   vtkByteSwap swap;
   
   vtkDebugMacro(<<"Reading marching cubes file");
+  fprintf(stderr,"size of vtkIdList is %i\n",sizeof(vtkIdList));
+  
   //
   // Initialize
   //
@@ -147,11 +149,11 @@ void vtkMCubesReader::Execute()
 // Now re-read and merge
 //
   rewind (fp);
-  newPts = new vtkFloatPoints(numPts);
+  newPts = new vtkFloatPoints(numPts/3,numPts/3);
   newPolys = new vtkCellArray;
   newPolys->Allocate(newPolys->EstimateSize(numTris,3));
 
-  if ( this->Normals ) newNormals = new vtkFloatNormals(numPts);
+  if ( this->Normals ) newNormals = new vtkFloatNormals(numPts/3,numPts/3);
   
   if ( this->Locator == NULL ) this->CreateDefaultLocator();
   this->Locator->InitPointInsertion (newPts, bounds);

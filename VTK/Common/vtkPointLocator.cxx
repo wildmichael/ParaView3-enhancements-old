@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointLocator.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-06-08 13:07:22 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1996-07-18 14:47:23 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -394,7 +394,7 @@ void vtkPointLocator::BuildLocator()
     bucket = this->HashTable[idx];
     if ( ! bucket )
       {
-      bucket = new vtkIdList(numPtsPerBucket/2);
+      bucket = new vtkIdList(numPtsPerBucket/2,numPtsPerBucket/3);
       this->HashTable[idx] = bucket;
       }
     bucket->InsertNextId(i);
@@ -538,7 +538,8 @@ int vtkPointLocator::InsertNextPoint(float x[3])
 
   if ( ! (bucket = this->HashTable[idx]) )
     {
-    bucket = new vtkIdList(this->NumberOfPointsPerBucket/2);
+    bucket = new vtkIdList(this->NumberOfPointsPerBucket/2,
+			   this->NumberOfPointsPerBucket/3);
     this->HashTable[idx] = bucket;
     }
 
@@ -572,7 +573,8 @@ void vtkPointLocator::InsertPoint(int ptId, float x[3])
 
   if ( ! (bucket = this->HashTable[idx]) )
     {
-    bucket = new vtkIdList(this->NumberOfPointsPerBucket/2);
+    bucket = new vtkIdList(this->NumberOfPointsPerBucket/2,
+			   this->NumberOfPointsPerBucket/3);
     this->HashTable[idx] = bucket;
     }
 
