@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkParseJava.c,v $
   Language:  C++
-  Date:      $Date: 2002-12-03 23:42:24 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2002-12-04 18:21:02 $
+  Version:   $Revision: 1.24 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -443,7 +443,7 @@ void vtkParseOutput(FILE *fp, FileInfo *data)
   char *dir;
   char *fname;
   char javaDone[] = "VTKJavaWrapped";
-  FILE* fp;
+  FILE* tfp;
   fname = data->OutputFileName;
   dir = (char*)malloc(strlen(fname) + strlen(javaDone) + 2);
   sprintf(dir, "%s", fname);
@@ -457,9 +457,9 @@ void vtkParseOutput(FILE *fp, FileInfo *data)
       }
     }
   strcat(dir, javaDone);
-  fp = fopen(dir, "w");
-  fprintf(fp, "File: %s\n", fname);
-  fclose(fp);
+  tfp = fopen(dir, "w");
+  fprintf(tfp, "File: %s\n", fname);
+  fclose(tfp);
   }
 }
 
