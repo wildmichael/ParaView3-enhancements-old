@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCocoaRenderWindowInteractor.mm,v $
   Language:  C++
-  Date:      $Date: 2002-05-16 13:43:54 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-06-06 20:49:08 $
+  Version:   $Revision: 1.2 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -43,20 +43,22 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <string.h>
 #include <math.h>
 
+
 #include "vtkCocoaRenderWindow.h"
 #include "vtkCocoaRenderWindowInteractor.h"
 #include "vtkCocoaWindow.h"
-#include "vtkInteractorStyle.h"
-#include "vtkActor.h"
-#include <OpenGL/gl.h>
-#include "vtkObjectFactory.h"
 #include "vtkCocoaGLView.h"
 
 #import <Cocoa/Cocoa.h>
 
 #define id Id
 
-vtkCxxRevisionMacro(vtkCocoaRenderWindowInteractor, "$Revision: 1.1 $");
+#include "vtkInteractorStyle.h"
+#include "vtkActor.h"
+#include <OpenGL/gl.h>
+#include "vtkObjectFactory.h"
+
+vtkCxxRevisionMacro(vtkCocoaRenderWindowInteractor, "$Revision: 1.2 $");
 vtkStandardNewMacro(vtkCocoaRenderWindowInteractor);
 
 void (*vtkCocoaRenderWindowInteractor::ClassExitMethod)(void *) = (void (*)(void *))NULL;
