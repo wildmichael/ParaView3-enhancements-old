@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMesaRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:39:54 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-06-03 15:59:53 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -28,6 +28,9 @@
 #include "vtkMesaLight.h"
 #include "vtkMesaActor.h"
 #include "vtkMesaPolyDataMapper.h"
+#include "MangleMesaInclude/glx_mangle.h"
+#include "MangleMesaInclude/glx.h"
+#include "MangleMesaInclude/osmesa.h"
 
 
 #define vtkXOpenGLRenderWindow vtkXMesaRenderWindow
@@ -45,9 +48,10 @@
 #define vtkXOpenGLRenderWindowFoundMatch vtkXMesaRenderWindowFoundMatch
 #define vtkXError vtkMesaXError
 #define vtkXOpenGLRenderWindowTryForVisual vtkXMesaRenderWindowTryForVisual
+#define vtkXOpenGLRenderWindowInternal vtkXMesaRenderWindowInternal
 #define VTK_OPENGL_HAS_OSMESA 1
 // now include the source for vtkXOpenGLRenderWindow
 #include "vtkXOpenGLRenderWindow.cxx"
 
-vtkCxxRevisionMacro(vtkXMesaRenderWindow, "$Revision: 1.4 $");
+vtkCxxRevisionMacro(vtkXMesaRenderWindow, "$Revision: 1.5 $");
 vtkStandardNewMacro(vtkXMesaRenderWindow);

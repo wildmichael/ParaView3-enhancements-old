@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMesaRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2002-03-13 16:11:09 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-06-03 15:59:53 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,25 +25,15 @@
 #ifndef __vtkXMesaRenderWindow_h
 #define __vtkXMesaRenderWindow_h
 
-#include "MangleMesaInclude/gl_mangle.h"
-#include "MangleMesaInclude/glx_mangle.h"
-#include <stdlib.h>
+#include "vtkMesaRenderWindow.h"
 #include <X11/Xlib.h>
 #include <X11/Xutil.h>
-#include "vtkMesaRenderWindow.h"
-#include "MangleMesaInclude/glx.h"
-#include "MangleMesaInclude/osmesa.h"
-
-
-
 
 class vtkIdList;
+class vtkXMesaRenderWindowInternal;
 
 class VTK_RENDERING_EXPORT vtkXMesaRenderWindow : public vtkMesaRenderWindow
 {
-protected:
-  GLXContext ContextId;
-  
 public:
   static vtkXMesaRenderWindow *New();
   vtkTypeRevisionMacro(vtkXMesaRenderWindow,vtkMesaRenderWindow);
@@ -186,6 +176,8 @@ protected:
   vtkXMesaRenderWindow();
   ~vtkXMesaRenderWindow();
 
+  vtkXMesaRenderWindowInternal *Internal;
+  
   Window   ParentId;
   Window   WindowId;
   Window   NextWindowId;
@@ -196,12 +188,6 @@ protected:
   int      ScreenSize[2];
   int      CursorHidden;
 
-  // OffScreen stuff
-  OSMesaContext OffScreenContextId;
-  void *OffScreenWindow;
-  int ScreenMapped;
-  // Looks like this just stores DoubleBuffer.
-  int ScreenDoubleBuffer;
 private:
   vtkXMesaRenderWindow(const vtkXMesaRenderWindow&);  // Not implemented.
   void operator=(const vtkXMesaRenderWindow&);  // Not implemented.
