@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPythonUtil.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:26:12 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 2002-06-28 13:55:26 $
+  Version:   $Revision: 1.42 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -802,7 +802,7 @@ PyObject *PyVTKClass_New(vtknewfunc constructor,
 {
   static PyObject *modulestr[10] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }; 
   static int nmodulestr = 10;
-  PyObject *moduleobj;
+  PyObject *moduleobj = 0;
   PyVTKClass *self = NULL;
   int i;
 
@@ -870,7 +870,7 @@ PyObject *PyVTKClass_New(vtknewfunc constructor,
 }
 
 //--------------------------------------------------------------------
-static PyObject *PyVTKClass_NewSubclass(PyObject *self, PyObject *args,
+static PyObject *PyVTKClass_NewSubclass(PyObject *, PyObject *args,
                                         PyObject *kw)
 {
   static char *kwlist[] = {"name", "bases", "dict", NULL};
