@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBandedPolyDataContourFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-08 13:34:14 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2002-05-13 19:44:55 $
+  Version:   $Revision: 1.26 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 #include "vtkObjectFactory.h"
 #include <float.h>
 
-vtkCxxRevisionMacro(vtkBandedPolyDataContourFilter, "$Revision: 1.25 $");
+vtkCxxRevisionMacro(vtkBandedPolyDataContourFilter, "$Revision: 1.26 $");
 vtkStandardNewMacro(vtkBandedPolyDataContourFilter);
 
 // Construct object.
@@ -187,8 +187,9 @@ void vtkBandedPolyDataContourFilter::Execute()
   vtkIdType *pts = 0;
   int numEdgePts, numNewPts, maxCellSize;
   vtkIdType v, vR, *intPts;
-  int intLoc, intsIdx, reverse;
-  int numIntPts, intsInc;
+  int intsIdx, reverse;
+  vtkIdType intLoc;
+  vtkIdType numIntPts, intsInc;
   vtkIdType numPts, numCells, estimatedSize;
 
   vtkDebugMacro(<<"Executing banded contour filter");
