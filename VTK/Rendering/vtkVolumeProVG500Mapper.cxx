@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProVG500Mapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:39:35 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2002-02-11 19:19:07 $
+  Version:   $Revision: 1.31 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkVolumeProVG500Mapper, "$Revision: 1.30 $");
+vtkCxxRevisionMacro(vtkVolumeProVG500Mapper, "$Revision: 1.31 $");
 
 vtkVolumeProVG500Mapper::vtkVolumeProVG500Mapper()
 {
@@ -337,13 +337,13 @@ void vtkVolumeProVG500Mapper::UpdateProperties( vtkRenderer *vtkNotUsed(ren),
   switch ( this->VolumeDataType )
     {
     case VTK_VOLUME_8BIT:
-      scale = 1.0 / 16.0;
+      scale = 255.0 / 4095.0;
       break;
     case VTK_VOLUME_12BIT_LOWER:
       scale = 1.0;
       break;
     case VTK_VOLUME_12BIT_UPPER:
-      scale = 16.0;
+      scale = 65535.0 / 4095.0;
     }
 
   soFunc = vol->GetProperty()->GetScalarOpacity();
