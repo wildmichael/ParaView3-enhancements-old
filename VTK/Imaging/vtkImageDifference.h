@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDifference.h,v $
   Language:  C++
-  Date:      $Date: 1998-06-02 19:39:51 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-08-04 14:56:00 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -94,17 +94,15 @@ public:
   vtkGetMacro(AllowShift,int);
   vtkBooleanMacro(AllowShift,int);
 
-  // Description:
-  // Computes WholeExtent and ScalarType of output.
-  void ExecuteImageInformation();
-  
-  
 protected:
   float Error;
   float ThresholdedError;
   int AllowShift;
   int Threshold;
   
+  void ExecuteImageInformation(); 
+  void ComputeRequiredInputUpdateExtent(int inExt[6], int outExt[6],
+					int whichInput);
   void ThreadedExecute(vtkImageData **inDatas, vtkImageData *outData,
 		       int extent[6], int id);  
   
