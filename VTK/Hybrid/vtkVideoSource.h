@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVideoSource.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:30:44 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2002-08-01 14:29:10 $
+  Version:   $Revision: 1.23 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,6 +23,9 @@
 // capable of holding a preset number of video frames.  Specialized
 // versions of this class record input from various video input sources.
 // This base class records input from a noise source.
+// .SECTION Caveats
+// You must call the ReleaseSystemResources() method before the application
+// exits.  Otherwise the application might hang while trying to exit.
 
 // .SECTION See Also
 // vtkWin32VideoSource vtkMILVideoSource
@@ -200,8 +203,10 @@ public:
   virtual int GetInitialized() { return this->Initialized; };
 
   // Description:
-  // Release the video driver.  This is called automatically
-  // when the vtkVideoSource is destroyed.
+  // Release the video driver.  This method must be called before
+  // application exit, or else the application might hang during
+  // exit.  This is called automatically when the vtkVideoSource
+  // is destroyed, but it is much safer to call this method manually.
   virtual void ReleaseSystemResources();
 
   // Description:
