@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkRenderer.h,v $
   Language:  C++
-  Date:      $Date: 1994-11-23 10:43:46 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1995-02-20 15:37:13 $
+  Version:   $Revision: 1.18 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -34,6 +34,7 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 #include "GeomPrim.hh"
 
 class vlRenderWindow;
+class vlVolumeRenderer;
 
 class vlRenderer : public vlObject
 {
@@ -50,6 +51,8 @@ public:
   vlActorCollection *GetActors();
   void SetActiveCamera(vlCamera *);
   vlCamera *GetActiveCamera();
+  void SetVolumeRenderer(vlVolumeRenderer *);
+  vlVolumeRenderer *GetVolumeRenderer();
 
   // Description:
   // Set the background color of the rendering screen using an rgb color
@@ -144,6 +147,7 @@ public:
   void WorldToDisplay();
 
 protected:
+  vlVolumeRenderer *VolumeRenderer;
   vlCamera *ActiveCamera;
   vlLightCollection Lights;
   vlActorCollection Actors;
