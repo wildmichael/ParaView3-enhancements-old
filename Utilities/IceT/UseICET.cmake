@@ -12,12 +12,13 @@
 ## modification, are permitted provided that this Notice and any statement
 ## of authorship are reproduced on all copies.
 #
-# $Id: UseICET.cmake,v 1.1 2003-06-19 16:58:44 kmorel Exp $
+# $Id: UseICET.cmake,v 1.2 2003-07-08 18:48:29 kmorel Exp $
 #
 
 #Load compiler settings used for ICE-T.
-INCLUDE(${CMAKE_ROOT}/Modules/CMakeImportBuildSettings.cmake)
-CMAKE_IMPORT_BUILD_SETTINGS(${ICET_BUILD_SETTINGS_FILE})
+#On second thought, why enforce the duplication of compiler flags?
+#INCLUDE(${CMAKE_ROOT}/Modules/CMakeImportBuildSettings.cmake)
+#CMAKE_IMPORT_BUILD_SETTINGS(${ICET_BUILD_SETTINGS_FILE})
 
 # Add compiler flags needed to use ICE-T.
 SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${ICET_REQUIRED_C_FLAGS}")
