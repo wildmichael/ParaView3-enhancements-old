@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-09-17 11:14:31 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2000-10-10 16:17:27 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -181,6 +181,9 @@ void vtkStructuredPointsReader::Execute()
   int done=0;
   vtkStructuredPoints *output = this->GetOutput();
   
+  // ImageSource superclass does not do this.
+  output->ReleaseData();
+
   vtkDebugMacro(<<"Reading vtk structured points file...");
   if ( this->Debug )
     {
