@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 1996-06-07 12:30:11 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1996-06-14 11:25:18 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -74,8 +74,8 @@ public:
   char *GetClassName() {return "vtkRenderWindowInteractor";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
-  virtual void Initialize() = 0;
-  virtual void Start() = 0;
+  virtual void Initialize() {this->Initialized=1;this->RenderWindow->Render();};
+  virtual void Start() {};
 
   // Description:
   // Set/Get the rendering window being controlled by this object.
