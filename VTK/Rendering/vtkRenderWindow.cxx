@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-30 12:45:46 $
-  Version:   $Revision: 1.57 $
+  Date:      $Date: 1997-05-30 16:46:15 $
+  Version:   $Revision: 1.58 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -725,12 +725,15 @@ void vtkRenderWindow::SetPosition(int x, int y)
 
 int vtkRenderWindow::CheckAbortStatus()
 {
-  this->InAbortCheck = 1;
-  if (this->AbortCheckMethod) 
+  if (!this->InAbortCheck)
     {
-    (*this->AbortCheckMethod)(this->AbortCheckMethodArg);
+    this->InAbortCheck = 1;
+    if (this->AbortCheckMethod) 
+      {
+      (*this->AbortCheckMethod)(this->AbortCheckMethodArg);
+      }
+    this->InAbortCheck = 0;
     }
-  this->InAbortCheck = 0;
   return this->AbortRender;
 }
 
