@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOrderedTriangulator.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-07-06 00:06:54 $
-  Version:   $Revision: 1.52 $
+  Date:      $Date: 2003-07-07 01:54:26 $
+  Version:   $Revision: 1.53 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -29,7 +29,7 @@
 #include <vtkstd/vector>
 #include <vtkstd/stack>
 
-vtkCxxRevisionMacro(vtkOrderedTriangulator, "$Revision: 1.52 $");
+vtkCxxRevisionMacro(vtkOrderedTriangulator, "$Revision: 1.53 $");
 vtkStandardNewMacro(vtkOrderedTriangulator);
 
 #ifdef _WIN32_WCE
@@ -143,8 +143,7 @@ struct vtkOTTetra
     {return heap->AllocateMemory(size);}
   void operator delete(void*,vtkHeap*) {}
 
-  vtkOTTetra() : Radius2(0.0L), CurrentPointId(-1), 
-    Type(OutsideCavity), ListIterator(0) 
+  vtkOTTetra() : Radius2(0.0L), CurrentPointId(-1), Type(OutsideCavity)
     {
     this->Center[0] = this->Center[1] = this->Center[2] = 0.0L;
     this->Points[0] = this->Points[1] = this->Points[2] = this->Points[3] = 0;
