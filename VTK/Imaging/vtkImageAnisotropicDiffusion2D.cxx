@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAnisotropicDiffusion2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-10-16 12:25:01 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1996-10-17 15:08:46 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -253,7 +253,7 @@ void vtkImageAnisotropicDiffusion2D::Iterate(vtkImageRegion *inRegion,
   // way to deal with the boundary conditions.  Besides it is fast.
   // (Are you sure every one is correct?!!!)
   inPtr1 = (float *)(inRegion->GetScalarPointer(min0, min1));
-  outPtr1 = (float *)(outRegion->GetScalarWritePointer(min0, min1));
+  outPtr1 = (float *)(outRegion->GetScalarPointer(min0, min1));
   for (idx1 = min1; idx1 <= max1; ++idx1, inPtr1+=inInc1, outPtr1+=outInc1)
     {
     inPtr0 = inPtr1;
