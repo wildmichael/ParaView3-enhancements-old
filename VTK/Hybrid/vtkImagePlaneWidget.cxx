@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagePlaneWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-01-20 18:44:13 $
-  Version:   $Revision: 1.59 $
+  Date:      $Date: 2003-01-29 21:32:23 $
+  Version:   $Revision: 1.60 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -44,7 +44,7 @@
 #include "vtkTextureMapToPlane.h"
 #include "vtkTransform.h"
 
-vtkCxxRevisionMacro(vtkImagePlaneWidget, "$Revision: 1.59 $");
+vtkCxxRevisionMacro(vtkImagePlaneWidget, "$Revision: 1.60 $");
 vtkStandardNewMacro(vtkImagePlaneWidget);
 
 vtkCxxSetObjectMacro(vtkImagePlaneWidget, PlaneProperty, vtkProperty);
@@ -1662,7 +1662,7 @@ void vtkImagePlaneWidget::ActivateMargins(int i)
 
 void vtkImagePlaneWidget::ActivateText(int i)
 {
-  if( !this->CurrentRenderer || !DisplayText)
+  if( !this->CurrentRenderer || !this->DisplayText)
     {
     return;
     }
@@ -1801,9 +1801,9 @@ void vtkImagePlaneWidget::SetOrigin(float x, float y, float z)
   this->PlaneSource->SetOrigin(x,y,z);
 }
 
-void vtkImagePlaneWidget::SetOrigin(float x[3])
+void vtkImagePlaneWidget::SetOrigin(float xyz[3])
 {
-  this->PlaneSource->SetOrigin(x);
+  this->PlaneSource->SetOrigin(xyz);
 }
 
 float* vtkImagePlaneWidget::GetOrigin()
@@ -1821,15 +1821,16 @@ void vtkImagePlaneWidget::SetPoint1(float x, float y, float z)
   this->PlaneSource->SetPoint1(x,y,z);
 }
 
-void vtkImagePlaneWidget::SetPoint1(float x[3])
+void vtkImagePlaneWidget::SetPoint1(float xyz[3])
 {
-  this->PlaneSource->SetPoint1(x);
+  this->PlaneSource->SetPoint1(xyz);
 }
 
 float* vtkImagePlaneWidget::GetPoint1()
 {
   return this->PlaneSource->GetPoint1();
 }
+
 void vtkImagePlaneWidget::GetPoint1(float xyz[3])
 {
   this->PlaneSource->GetPoint1(xyz);
@@ -1840,9 +1841,9 @@ void vtkImagePlaneWidget::SetPoint2(float x, float y, float z)
   this->PlaneSource->SetPoint2(x,y,z);
 }
 
-void vtkImagePlaneWidget::SetPoint2(float x[3])
+void vtkImagePlaneWidget::SetPoint2(float xyz[3])
 {
-  this->PlaneSource->SetPoint2(x);
+  this->PlaneSource->SetPoint2(xyz);
 }
 
 float* vtkImagePlaneWidget::GetPoint2()
