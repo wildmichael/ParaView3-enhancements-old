@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCocoaRenderWindow.mm,v $
   Language:  C++
-  Date:      $Date: 2003-01-16 16:22:28 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2003-01-20 15:17:52 $
+  Version:   $Revision: 1.9 $
   Thanks:    to Yves Starreveld for developing this class
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -58,7 +58,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define id Id // since id is a reserved token in ObjC and is used a _lot_ in vtk
 
 
-vtkCxxRevisionMacro(vtkCocoaRenderWindow, "$Revision: 1.8 $");
+vtkCxxRevisionMacro(vtkCocoaRenderWindow, "$Revision: 1.9 $");
 vtkStandardNewMacro(vtkCocoaRenderWindow);
 
 
@@ -140,12 +140,12 @@ void vtkCocoaRenderWindow::Clean()
     }
 }
 
-void vtkCocoaRenderWindow::SetWindowName( char * _arg )
+void vtkCocoaRenderWindow::SetWindowName( const char * _arg )
 {
   vtkWindow::SetWindowName(_arg);
   if (this->WindowId)
     {
-    //DOCocoaSetWindowText(this->WindowId,this->WindowName);
+    [(vtkCocoaWindow  *)this->WindowId setTitle:[NSString stringWithCString:_arg] ];
     }
 }
 
@@ -397,6 +397,8 @@ void vtkCocoaRenderWindow::WindowInitialize (void)
         glView = [[[vtkCocoaGLView alloc] initWithFrame:glRect] retain];
         [(vtkCocoaWindow *)this->WindowId setvtkCocoaGLView:glView];
 	[(vtkCocoaWindow *)this->WindowId setAcceptsMouseMovedEvents:YES];
+	[(vtkCocoaWindow  *)this->WindowId setTitle:[NSString
+stringWithCString: this->WindowName]];
 	[(vtkCocoaWindow *)this->WindowId setVTKRenderWindow:this];
 	[(vtkCocoaWindow *)this->WindowId setVTKRenderWindowInteractor:0];
 	[glView setVTKRenderWindow:this];
@@ -624,7 +626,7 @@ void vtkCocoaRenderWindow::HideCursor()
     }
   this->CursorHidden = 1;
 
-  //DOCocoa::ShowCursor(!this->CursorHidden);
+  [NSCursor hide];
 }
 
 //----------------------------------------------------------------------------
@@ -636,6 +638,6 @@ void vtkCocoaRenderWindow::ShowCursor()
     }
   this->CursorHidden = 0;
 
-  //DOCocoa::ShowCursor(!this->CursorHidden);
+  [NSCursor show];
 }				   
 
