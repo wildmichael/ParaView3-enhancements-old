@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkJavaUtil.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-30 20:04:46 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1997-07-31 18:00:29 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -485,12 +485,15 @@ jstring vtkJavaMakeJavaString(JNIEnv *env, const char *in)
 //**jcp this is the callback inteface stub for Java. no user parms are passed
 //since the callback must be a method of a class. We make the rash assumption
 //that the <this> pointer will anchor any required other elements for the
-//called functions.
-// 
+//called functions. - edited by km
 void vtkJavaVoidFunc(void* f) 
 {  
   vtkJavaVoidFuncArg *iprm = (vtkJavaVoidFuncArg *)f;
-  iprm->uenv->CallVoidMethod(iprm->uobj,iprm->mid); 
+  // make sure we have a valid method ID
+  if (iprm->mid)
+    {
+    iprm->uenv->CallVoidMethod(iprm->uobj,iprm->mid); 
+    }
 }
 
 void vtkJavaVoidFuncArgDelete(void* arg) 
