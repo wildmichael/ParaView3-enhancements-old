@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMath.h,v $
   Language:  C++
-  Date:      $Date: 1997-09-18 18:05:49 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 1998-05-28 18:27:59 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -110,11 +110,14 @@ public:
   // 
   static double* SolveCubic( double c0, double c1, double c2, double c3 );
   static double* SolveQuadratic( double c0, double c1, double c2 );
+  static double* SolveLinear( double c0, double c1 );
 
-  static void SolveCubic( double c0, double c1, double c2, double c3, 
-			   double *r1, double *r2, double *r3, int *num_roots );
-  static void SolveQuadratic( double c0, double c1, double c2, 
-		        double *r1, double *r2, int *num_roots );
+  static int SolveCubic( double c0, double c1, double c2, double c3, 
+			  double *r1, double *r2, double *r3, int *num_roots );
+  static int SolveQuadratic( double c0, double c1, double c2, 
+			      double *r1, double *r2, int *num_roots );
+
+  static int SolveLinear( double c0, double c1, double *r1, int *num_roots );
 
 protected:
   static long Seed;
