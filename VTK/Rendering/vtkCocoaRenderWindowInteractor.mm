@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCocoaRenderWindowInteractor.mm,v $
   Language:  C++
-  Date:      $Date: 2002-06-06 20:49:08 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2003-04-17 13:13:46 $
+  Version:   $Revision: 1.3 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -58,7 +58,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <OpenGL/gl.h>
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkCocoaRenderWindowInteractor, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkCocoaRenderWindowInteractor, "$Revision: 1.3 $");
 vtkStandardNewMacro(vtkCocoaRenderWindowInteractor);
 
 void (*vtkCocoaRenderWindowInteractor::ClassExitMethod)(void *) = (void (*)(void *))NULL;
@@ -118,8 +118,6 @@ void vtkCocoaRenderWindowInteractor::Initialize()
 
 void vtkCocoaRenderWindowInteractor::Enable() 
 {
-  vtkCocoaRenderWindow *ren;
-  vtkCocoaRenderWindow *tmp;
   if (this->Enabled) 
     {
     return;
@@ -133,7 +131,6 @@ void vtkCocoaRenderWindowInteractor::Enable()
 
 void vtkCocoaRenderWindowInteractor::Disable() 
 {
-  vtkCocoaRenderWindow *tmp;
   if (!this->Enabled) 
     {
     return;
@@ -150,7 +147,7 @@ void vtkCocoaRenderWindowInteractor::TerminateApp(void)
   [NSApp terminate:(vtkCocoaWindow *)this->WindowId];
 }
 
-int vtkCocoaRenderWindowInteractor::CreateTimer(int notUsed) 
+int vtkCocoaRenderWindowInteractor::CreateTimer(int) 
 {
     [NSEvent stopPeriodicEvents];
     [NSEvent startPeriodicEventsAfterDelay:0.01 withPeriod:0.01];

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCocoaRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2003-03-26 14:04:59 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2003-04-17 13:13:46 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -139,7 +139,7 @@ public:
   // Set the window id to a pre-existing window.
   virtual void  SetWindowId(void *);
 
-  void SetNextWindowId(void *foo)
+  void SetNextWindowId(void*)
     {
        vtkWarningMacro("SetNextWindowId not implemented (WindowRemap not implemented).");
     }
