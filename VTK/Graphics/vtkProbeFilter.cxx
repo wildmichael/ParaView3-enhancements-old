@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProbeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-31 21:23:07 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1995-09-02 14:13:53 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -88,15 +88,20 @@ void vtkProbeFilter::Execute()
       outPD->NullPoint(ptId);
       }
     }
-
-  this->Modified(); //make sure something's changed
 }
 
 // Description:
-// Override update method because execution can branch two ways (Input 
-// and Source)
+// Overload update method because execution can branch two ways (Input 
+// and Source). Also input and output are abstract.
 void vtkProbeFilter::Update()
 {
+  // make sure output has been created
+  if ( !this->Output )
+    {
+    vtkErrorMacro(<< "No output has been created...need to set input");
+    return;
+    }
+
   // make sure input is available
   if ( this->Input == NULL || this->Source == NULL )
     {
@@ -117,7 +122,7 @@ void vtkProbeFilter::Update()
   this->GetMTime() > this->ExecuteTime || this->GetDataReleased() )
     {
     if ( this->StartMethod ) (*this->StartMethod)(this->StartMethodArg);
-    this->Output->Initialize(); //clear output
+    this->Output->CopyStructure(this->Input);
     this->Execute();
     this->ExecuteTime.Modified();
     this->SetDataReleased(0);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCutter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-31 21:22:30 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1995-09-02 14:14:15 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -80,10 +80,11 @@ void vtkCutter::Execute()
   vtkPolyData *output = this->GetOutput();
   
   vtkDebugMacro(<< "Executing cutter");
-//
-// Initialize self; create output objects
-//
-
+  cellScalars.ReferenceCountingOff();
+  
+  //
+  // Initialize self; create output objects
+  //
   if ( !this->CutFunction )
     {
     vtkErrorMacro(<<"No cut function specified");
