@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDividingCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:25:11 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1995-07-25 15:37:02 $
+  Version:   $Revision: 1.10 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -133,11 +133,17 @@ void vtkDividingCubes::Execute()
     }
   vtkDebugMacro(<< "Created " << NewPts->GetNumberOfPoints() << "points");
 //
-// Update ourselves
+// Update ourselves and release memory
 //
   this->SetPoints(NewPts);
+  NewPts->Delete();
+
   this->SetVerts(NewVerts);
+  NewVerts->Delete();
+
   this->GetPointData()->SetNormals(NewNormals);
+  NewNormals->Delete();
+
   this->Squeeze();
 }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinearExtrusionFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:25:51 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1995-07-25 15:38:21 $
+  Version:   $Revision: 1.7 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -236,12 +236,25 @@ void vtkLinearExtrusionFilter::Execute()
       } //for each polygon or triangle strip
     } //for each cell
 //
-// Send data to output
+// Send data to output and release memory
 //
   this->SetPoints(newPts);
-  if ( newLines ) this->SetLines(newLines);
-  if ( newPolys ) this->SetPolys(newPolys);
+  newPts->Delete();
+
+  if ( newLines ) 
+    {
+    this->SetLines(newLines);
+    newLines->Delete();
+    }
+
+  if ( newPolys ) 
+    {
+    this->SetPolys(newPolys);
+    newPolys->Delete();
+    }
+
   this->SetStrips(newStrips);
+  newStrips->Delete();
 
   this->Squeeze();
 }

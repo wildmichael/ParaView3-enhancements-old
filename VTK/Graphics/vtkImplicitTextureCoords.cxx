@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitTextureCoords.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-14 16:48:06 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1995-07-25 15:38:11 $
+  Version:   $Revision: 1.8 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -126,6 +126,7 @@ void vtkImplicitTextureCoords::Execute()
   this->PointData.PassData(input->GetPointData());
 
   this->PointData.SetTCoords(newTCoords);
+  newTCoords->Delete();
 }
 
 void vtkImplicitTextureCoords::PrintSelf(ostream& os, vtkIndent indent)

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFeatureEdges.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:25:23 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1995-07-25 15:37:35 $
+  Version:   $Revision: 1.14 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -164,14 +164,16 @@ void vtkFeatureEdges::Execute()
 //
 //  Update ourselves.
 //
-  if ( this->FeatureEdges ) delete polyNormals;
+  if ( this->FeatureEdges ) polyNormals->Delete();
 
   this->SetPoints(newPts);
+  newPts->Delete();
+
   this->SetLines(newLines);
-  if ( this->Coloring )
-    this->PointData.SetScalars(newScalars);
-  else
-    delete newScalars;
+  newLines->Delete();
+
+  if ( this->Coloring ) this->PointData.SetScalars(newScalars);
+  newScalars->Delete();
 }
 
 void vtkFeatureEdges::PrintSelf(ostream& os, vtkIndent indent)

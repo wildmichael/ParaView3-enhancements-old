@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLineSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:25:52 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1995-07-25 15:38:23 $
+  Version:   $Revision: 1.14 $
 
 This file is part of the Visualization Toolkit. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -13,9 +13,6 @@ written consent of the authors.
 Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994 
 
 =========================================================================*/
-//
-// Methods for Line generator
-//
 #include <math.h>
 #include "LineSrc.hh"
 #include "FPoints.hh"
@@ -76,11 +73,16 @@ void vtkLineSource::Execute()
     newLines->InsertNextCell(2,pts);
     }
 //
-// Update ourselves
+// Update ourselves and release memory
 //
   this->SetPoints(newPoints);
+  newPoints->Delete();
+
   this->PointData.SetTCoords(newTCoords);
+  newTCoords->Delete();
+
   this->SetLines(newLines);
+  newLines->Delete();
 }
 
 void vtkLineSource::PrintSelf(ostream& os, vtkIndent indent)

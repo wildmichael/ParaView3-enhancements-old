@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:25:14 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1995-07-25 15:37:06 $
+  Version:   $Revision: 1.20 $
 
 This file is part of the Visualization Toolkit. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -25,8 +25,8 @@ vtkDataSetMapper::vtkDataSetMapper()
 vtkDataSetMapper::~vtkDataSetMapper()
 {
   // delete internally created objects.
-  if ( this->GeometryExtractor ) delete this->GeometryExtractor;
-  if ( this->PolyMapper ) delete this->PolyMapper;
+  if ( this->GeometryExtractor ) this->GeometryExtractor->Delete();
+  if ( this->PolyMapper ) this->PolyMapper->Delete();
 }
 
 void vtkDataSetMapper::SetInput(vtkDataSet *in)

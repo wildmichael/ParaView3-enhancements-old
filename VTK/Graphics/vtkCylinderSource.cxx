@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCylinderSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:25:09 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1995-07-25 15:37:00 $
+  Version:   $Revision: 1.17 $
 
 This file is part of the Visualization Toolkit. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -13,9 +13,6 @@ written consent of the authors.
 Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994 
 
 =========================================================================*/
-//
-// Methods for cylinder generator
-//
 #include <math.h>
 #include "CylSrc.hh"
 #include "FPoints.hh"
@@ -150,14 +147,20 @@ void vtkCylinderSource::Execute()
 
     } // if capping
 //
-// Update ourselves
+// Update ourselves and release memory
 //
   this->SetPoints(newPoints);
+  newPoints->Delete();
+
   this->PointData.SetNormals(newNormals);
+  newNormals->Delete();
+
   this->PointData.SetTCoords(newTCoords);
+  newTCoords->Delete();
 
   newPolys->Squeeze(); // since we've estimated size; reclaim some space
   this->SetPolys(newPolys);
+  newPolys->Delete();
 }
 
 void vtkCylinderSource::PrintSelf(ostream& os, vtkIndent indent)

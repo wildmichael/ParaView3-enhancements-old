@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkElevationFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:25:18 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1995-07-25 15:37:15 $
+  Version:   $Revision: 1.18 $
 
 This file is part of the Visualization Toolkit. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -13,9 +13,6 @@ written consent of the authors.
 Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994 
 
 =========================================================================*/
-//
-// Methods for elevation filter
-//
 #include "ElevatF.hh"
 #include "vtkMath.hh"
 #include "FScalars.hh"
@@ -94,6 +91,7 @@ void vtkElevationFilter::Execute()
   this->PointData.PassData(this->Input->GetPointData());
 
   this->PointData.SetScalars(newScalars);
+  newScalars->Delete();
 }
 
 void vtkElevationFilter::PrintSelf(ostream& os, vtkIndent indent)

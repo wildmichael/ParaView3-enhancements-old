@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDashedStreamLine.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-24 11:03:10 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1995-07-25 15:37:10 $
+  Version:   $Revision: 1.6 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -127,18 +127,27 @@ void vtkDashedStreamLine::Execute()
       } //for this streamer
     } //for all streamers
 //
-// Update ourselves
+// Update ourselves and release memory
 //
   vtkDebugMacro(<<"Created " << newPts->GetNumberOfPoints() << " points, "
                << newLines->GetNumberOfCells() << " lines");
 
   this->SetPoints(newPts);
+  newPts->Delete();
+
   this->PointData.SetVectors(newVectors);
-  if ( newScalars ) this->PointData.SetScalars(newScalars);
+  newVectors->Delete();
+
+  if ( newScalars )
+    {
+    this->PointData.SetScalars(newScalars);
+    newScalars->Delete();
+    }
+
   this->SetLines(newLines);
+  newLines->Delete();
 
   this->Squeeze();
-
 }
 
 void vtkDashedStreamLine::PrintSelf(ostream& os, vtkIndent indent)

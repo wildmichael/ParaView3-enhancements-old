@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitModeller.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-14 16:48:05 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1995-07-25 15:37:45 $
+  Version:   $Revision: 1.20 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -174,10 +174,10 @@ void vtkImplicitModeller::Execute()
     this->Cap(newScalars);
     }
 //
-// Update self
+// Update self and release memory
 //
   this->PointData.SetScalars(newScalars);
-
+  newScalars->Delete();
 }
 
 // Description:

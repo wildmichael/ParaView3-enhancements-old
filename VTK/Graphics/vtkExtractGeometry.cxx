@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractGeometry.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:25:19 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1995-07-25 15:37:33 $
+  Version:   $Revision: 1.11 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -112,11 +112,13 @@ void vtkExtractGeometry::Execute()
       }
     }
 //
-// Update ourselves
+// Update ourselves and release memory
 //
   delete [] pointMap;
 
   this->SetPoints(newPts);
+  newPts->Delete();
+
   this->Squeeze();
 }
 

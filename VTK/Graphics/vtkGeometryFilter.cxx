@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGeometryFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:25:26 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1995-07-25 15:37:39 $
+  Version:   $Revision: 1.18 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -188,20 +188,21 @@ void vtkGeometryFilter::Execute()
               this->InsertNextCell(face->GetCellType(), npts, pts);
               }
             }
-            delete cellCopy;
+            cellCopy->Delete();
           break;
 
         } //switch
       } //if visible
     } //for all cells
 //
-// Update ourselves
+// Update ourselves and release memory
 //
   this->SetPoints(newPts);
+  newPts->Delete();
+
   this->Squeeze();
 
   if ( cellVis ) delete [] cellVis;
-
 }
 
 void vtkGeometryFilter::PrintSelf(ostream& os, vtkIndent indent)

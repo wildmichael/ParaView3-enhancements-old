@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHedgeHog.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:25:34 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1995-07-25 15:37:43 $
+  Version:   $Revision: 1.6 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -68,10 +68,13 @@ void vtkHedgeHog::Execute()
     this->PointData.CopyData(pd,ptId,pts[1]);
     }
 //
-// Update ourselves
+// Update ourselves and release memory
 //
   this->SetPoints(newPts);
+  newPts->Delete();
+
   this->SetLines(newLines);
+  newLines->Delete();
 }
 
 void vtkHedgeHog::PrintSelf(ostream& os, vtkIndent indent)

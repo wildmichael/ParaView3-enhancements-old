@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetToDataSetFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-24 17:08:58 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1995-07-25 15:37:04 $
+  Version:   $Revision: 1.19 $
 
 This file is part of the Visualization Toolkit. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -24,7 +24,7 @@ vtkDataSetToDataSetFilter::vtkDataSetToDataSetFilter()
 
 vtkDataSetToDataSetFilter::~vtkDataSetToDataSetFilter()
 {
-  delete this->DataSet;
+  this->DataSet->Delete();
 }
 
 // Description:
