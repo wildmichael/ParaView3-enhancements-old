@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCleanPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-10-09 16:43:17 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1996-05-09 20:07:05 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -88,7 +88,7 @@ void vtkCleanPolyData::Execute()
 
   if ( this->Locator == NULL ) this->CreateDefaultLocator();
 
-  this->Locator->SetPoints(inPts);
+  this->Locator->SetDataSet(input);
 
   // compute absolute tolerance from relative given
   this->Locator->SetTolerance(this->Tolerance*input->GetLength());
@@ -272,7 +272,7 @@ void vtkCleanPolyData::Execute()
 // Description:
 // Specify a spatial locator for speeding the search process. By
 // default an instance of vtkLocator is used.
-void vtkCleanPolyData::SetLocator(vtkLocator *locator)
+void vtkCleanPolyData::SetLocator(vtkPointLocator *locator)
 {
   if ( this->Locator != locator ) 
     {
@@ -290,7 +290,7 @@ void vtkCleanPolyData::CreateDefaultLocator()
   if ( this->Tolerance <= 0.0 )
     this->Locator = new vtkMergePoints;
   else
-    this->Locator = new vtkLocator;
+    this->Locator = new vtkPointLocator;
 
   this->SelfCreatedLocator = 1;
 }

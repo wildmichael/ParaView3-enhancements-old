@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSet.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-01-09 21:47:48 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1996-05-09 20:07:13 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -122,13 +122,13 @@ int vtkPointSet::FindPoint(float x[3])
 
   if ( !this->Locator )
     {
-    this->Locator = new vtkLocator;
-    this->Locator->SetPoints(this->Points);
+    this->Locator = new vtkPointLocator;
+    this->Locator->SetDataSet(this);
     }
 
   if ( this->Points->GetMTime() > this->Locator->GetMTime() )
     {
-    this->Locator->SetPoints(this->Points);
+    this->Locator->SetDataSet(this);
     }
 
   return this->Locator->FindClosestPoint(x);
@@ -150,13 +150,13 @@ int vtkPointSet::FindCell(float x[3], vtkCell *cell, float tol2, int& subId,
 
   if ( !this->Locator )
     {
-    this->Locator = new vtkLocator;
-    this->Locator->SetPoints(this->Points);
+    this->Locator = new vtkPointLocator;
+    this->Locator->SetDataSet(this);
     }
 
   if ( this->Points->GetMTime() > this->Locator->GetMTime() )
     {
-    this->Locator->SetPoints(this->Points);
+    this->Locator->SetDataSet(this);
     }
 
 // Find the closest point to the input position.  Then get the cells that 

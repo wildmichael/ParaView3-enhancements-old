@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSTLReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-11-05 17:17:46 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1996-05-09 20:07:15 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -264,7 +264,7 @@ int vtkSTLReader::GetSTLFileType(FILE *fp)
 // Description:
 // Specify a spatial locator for merging points. By
 // default an instance of vtkMergePoints is used.
-void vtkSTLReader::SetLocator(vtkLocator *locator)
+void vtkSTLReader::SetLocator(vtkPointLocator *locator)
 {
   if ( this->Locator != locator ) 
     {
