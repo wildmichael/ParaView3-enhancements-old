@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSTLWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-07-29 21:03:24 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 2003-07-29 21:17:00 $
+  Version:   $Revision: 1.50 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,9 +24,11 @@
 #include "vtkPolyData.h"
 #include "vtkTriangle.h"
 
-#include <stdio.h>
+#if !defined(_WIN32) || defined(__CYGWIN__)
+# include <unistd.h> /* unlink */
+#endif
 
-vtkCxxRevisionMacro(vtkSTLWriter, "$Revision: 1.49 $");
+vtkCxxRevisionMacro(vtkSTLWriter, "$Revision: 1.50 $");
 vtkStandardNewMacro(vtkSTLWriter);
 
 vtkSTLWriter::vtkSTLWriter()
