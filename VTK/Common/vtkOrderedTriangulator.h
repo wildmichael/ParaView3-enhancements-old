@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOrderedTriangulator.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-21 16:01:07 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2002-09-10 17:20:03 $
+  Version:   $Revision: 1.21 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -194,6 +194,7 @@ private:
   int PreSorted;
   int UseTwoSortIds;
   vtkMemoryPool* Pool;
+  double Quanta;
   
 private:
   vtkOrderedTriangulator(const vtkOrderedTriangulator&);  // Not implemented.

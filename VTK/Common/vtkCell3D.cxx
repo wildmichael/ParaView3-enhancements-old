@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCell3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-11 12:57:02 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2002-09-10 17:20:03 $
+  Version:   $Revision: 1.28 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 #include "vtkMarchingCubesCases.h"
 #include "vtkPointData.h"
 
-vtkCxxRevisionMacro(vtkCell3D, "$Revision: 1.27 $");
+vtkCxxRevisionMacro(vtkCell3D, "$Revision: 1.28 $");
 
 vtkCell3D::~vtkCell3D()
 {
@@ -86,7 +86,7 @@ void vtkCell3D::Clip(float value, vtkDataArray *cellScalars,
       {
       outPD->CopyData(inPD,ptId, id);
       }
-    internalId[i] = this->Triangulator->InsertPoint(id, xPtr, type);
+    internalId[i] = this->Triangulator->InsertPoint(id, ptId, xPtr, type);
     }//for all points
   
   // For each edge intersection point, insert into triangulation. Edge
