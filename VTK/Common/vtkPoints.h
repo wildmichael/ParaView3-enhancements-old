@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPoints.h,v $
   Language:  C++
-  Date:      $Date: 1995-03-03 17:11:50 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1995-03-05 21:28:44 $
+  Version:   $Revision: 1.14 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -39,6 +39,11 @@ public:
   // Description:
   // Create a copy of this object.
   virtual vlPoints *MakeObject(int sze, int ext=1000) = 0;
+
+  // Description:
+  // Return data type. One of "bit", "char", "short", "int", "float", or
+  // "double".
+  virtual char *GetDataType() = 0;
 
   // Description:
   // Return number of points in list.

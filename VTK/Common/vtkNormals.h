@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkNormals.h,v $
   Language:  C++
-  Date:      $Date: 1994-09-26 14:28:36 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1995-03-05 21:28:54 $
+  Version:   $Revision: 1.11 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -40,6 +40,11 @@ public:
   // Description:
   // Create a copy of this object.
   virtual vlNormals *MakeObject(int sze, int ext=1000) = 0;
+
+  // Description:
+  // Return data type. One of "bit", "char", "short", "int", "float", or
+  // "double".
+  virtual char *GetDataType() = 0;
 
   // Description:
   // Return number of normals in array.

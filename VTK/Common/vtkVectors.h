@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkVectors.h,v $
   Language:  C++
-  Date:      $Date: 1994-09-26 14:28:40 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1995-03-05 21:28:51 $
+  Version:   $Revision: 1.13 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -39,6 +39,11 @@ public:
   // Description:
   // Create a copy of this object.
   virtual vlVectors *MakeObject(int sze, int ext=1000) = 0;
+
+  // Description:
+  // Return data type. One of "bit", "char", "short", "int", "float", or
+  // "double".
+  virtual char *GetDataType() = 0;
 
   // Description:
   // Return number of vectors in array.

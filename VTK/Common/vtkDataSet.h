@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkDataSet.h,v $
   Language:  C++
-  Date:      $Date: 1995-02-26 10:17:33 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1995-03-05 21:28:42 $
+  Version:   $Revision: 1.33 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -47,7 +47,8 @@ public:
   virtual vlDataSet *MakeObject() = 0;
 
   // Description:
-  // Return class name of data type.
+  // Return class name of data type. This is one of vlStructuredGrid, 
+  // vlStructuredPoints, vlUnstructuredGrid, vlPolyData.
   virtual char *GetDataType() = 0;
 
   // Description:

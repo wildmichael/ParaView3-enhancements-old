@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkScalars.h,v $
   Language:  C++
-  Date:      $Date: 1995-03-03 17:11:57 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1995-03-05 21:28:54 $
+  Version:   $Revision: 1.22 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -49,6 +49,11 @@ public:
   // Description:
   // Create a copy of this object.
   virtual vlScalars *MakeObject(int sze, int ext=1000) = 0;
+
+  // Description:
+  // Return data type. One of "bit", "char", "short", "int", "float", or
+  // "double".
+  virtual char *GetDataType() = 0;
 
   // Description:
   // Return number of points in array.

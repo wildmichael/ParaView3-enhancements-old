@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkTensors.h,v $
   Language:  C++
-  Date:      $Date: 1994-11-15 11:04:51 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1995-03-05 21:28:58 $
+  Version:   $Revision: 1.2 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -40,6 +40,11 @@ public:
   // Description:
   // Create a copy of this object.
   virtual vlTensors *MakeObject(int sze, int d=3, int ext=1000) = 0;
+
+  // Description:
+  // Return data type. One of "bit", "char", "short", "int", "float", or
+  // "double".
+  virtual char *GetDataType() = 0;
 
   // Description:
   // Return number of tensors in array.
