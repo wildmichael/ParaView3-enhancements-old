@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetSurfaceFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-02 21:01:21 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2002-04-03 18:01:36 $
+  Version:   $Revision: 1.17 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -30,7 +30,7 @@
 #include "vtkUnsignedCharArray.h"
 #include "vtkStructuredGridGeometryFilter.h"
 
-vtkCxxRevisionMacro(vtkDataSetSurfaceFilter, "$Revision: 1.16 $");
+vtkCxxRevisionMacro(vtkDataSetSurfaceFilter, "$Revision: 1.17 $");
 vtkStandardNewMacro(vtkDataSetSurfaceFilter);
 
 //----------------------------------------------------------------------------
@@ -67,6 +67,11 @@ void vtkDataSetSurfaceFilter::Execute()
   vtkIdType numCells = input->GetNumberOfCells();
   int *ext;
 
+  if (input->CheckAttributes())
+    {
+    return;
+    }
+
   if (numCells == 0)
     {
     return;
@@ -77,6 +82,11 @@ void vtkDataSetSurfaceFilter::Execute()
     case  VTK_UNSTRUCTURED_GRID:
       {
       this->UnstructuredGridExecute();
+      if (this->GetOutput()->CheckAttributes())
+        {
+        return;
+        }
+
       return;
       }
     case VTK_RECTILINEAR_GRID:
@@ -723,6 +733,7 @@ void vtkDataSetSurfaceFilter::UnstructuredGridExecute()
   pts = vtkIdList::New();  
   cell = vtkGenericCell::New();
 
+  this->NumberOfNewCells = 0;
   this->InitializeQuadHash(numPts);
 
   // Allocate
