@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.h,v $
   Language:  C++
-  Date:      $Date: 1996-05-24 19:51:10 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 1996-06-06 15:05:01 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -62,6 +62,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 class vtkRenderWindow;
 class vtkVolumeRenderer;
+class vtkNewVolumeRenderer;
 
 class vtkRenderer : public vtkObject
 {
@@ -81,6 +82,9 @@ public:
   vtkCamera *GetActiveCamera();
   void SetVolumeRenderer(vtkVolumeRenderer *);
   vtkVolumeRenderer *GetVolumeRenderer();
+
+  void SetNewVolumeRenderer(vtkNewVolumeRenderer *);
+  vtkNewVolumeRenderer *GetNewVolumeRenderer();
 
   // Description:
   // Set/Get the background color of the rendering screen using an rgb color
@@ -187,6 +191,7 @@ public:
 
 protected:
   vtkVolumeRenderer *VolumeRenderer;
+  vtkNewVolumeRenderer *NewVolumeRenderer;
   vtkCamera *ActiveCamera;
   vtkLight  *CreatedLight;
   vtkLightCollection Lights;
