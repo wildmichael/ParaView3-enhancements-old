@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkConvexPointSet.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-07-09 21:28:01 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2003-07-10 16:13:50 $
+  Version:   $Revision: 1.19 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -28,7 +28,7 @@
 #include "vtkTetra.h"
 #include "vtkTriangle.h"
 
-vtkCxxRevisionMacro(vtkConvexPointSet, "$Revision: 1.18 $");
+vtkCxxRevisionMacro(vtkConvexPointSet, "$Revision: 1.19 $");
 vtkStandardNewMacro(vtkConvexPointSet);
 
 // Construct the hexahedron with eight points.
@@ -227,7 +227,8 @@ int vtkConvexPointSet::CellBoundary(int subId, float pcoords[3],
     this->Triangle->Points->SetPoint(2,this->Points->GetPoint(tpts[2]));
     status = this->Triangle->
       EvaluatePosition(pMin, closest, subId, pc, dist2, weights);
-    if ( status != -1 && dist2 < minDist2 && dist2 > 0)
+
+    if ( status != -1 && dist2 < minDist2)
       {
       returnStatus = 1;
       pts->SetNumberOfIds(3);
