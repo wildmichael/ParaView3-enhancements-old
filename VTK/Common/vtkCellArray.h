@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellArray.h,v $
   Language:  C++
-  Date:      $Date: 1995-08-31 21:21:34 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 1995-09-08 12:50:55 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -123,7 +123,7 @@ inline int vtkCellArray::InsertNextCell(int npts, int* pts)
 // Description:
 // Create cells by specifying count, and then adding points one at a time using
 // method InsertCellPoint(). WARNING: it is the user's responsibility not to
-// exceed the maximum allowable points per cell (MAX_CELL_SIZE).
+// exceed the maximum allowable points per cell (VTK_MAX_CELL_SIZE).
 inline int vtkCellArray::InsertNextCell(int npts)
 {
   this->Location = this->Ia.InsertNextValue(npts) + 1;
