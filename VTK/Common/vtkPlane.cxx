@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPlane.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-03-10 22:38:50 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1999-04-14 19:19:32 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -71,6 +71,36 @@ void vtkPlane::ProjectPoint(float x[3], float origin[3], float normal[3], float 
   xproj[1] = x[1] - t * normal[1];
   xproj[2] = x[2] - t * normal[2];
 }
+
+// Project a point x onto plane defined by origin and normal. The 
+// projected point is returned in xproj. NOTE : normal NOT required to
+// have magnitude 1.
+void vtkPlane::GeneralizedProjectPoint(float x[3], float origin[3],
+				       float normal[3], float xproj[3])
+{
+  float t, xo[3], n2;
+
+  xo[0] = x[0] - origin[0];
+  xo[1] = x[1] - origin[1];
+  xo[2] = x[2] - origin[2];
+
+  t = vtkMath::Dot(normal,xo);
+  n2 = vtkMath::Dot(normal, normal);
+
+  if (n2 != 0)
+    {
+    xproj[0] = x[0] - t * normal[0]/n2;
+    xproj[1] = x[1] - t * normal[1]/n2;
+    xproj[2] = x[2] - t * normal[2]/n2;
+    }
+  else
+    {
+    xproj[0] = x[0];
+    xproj[1] = x[1];
+    xproj[2] = x[2];
+    }
+}
+
 
 // Evaluate plane equation for point x[3].
 float vtkPlane::EvaluateFunction(float x[3])

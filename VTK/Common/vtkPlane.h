@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPlane.h,v $
   Language:  C++
-  Date:      $Date: 1999-04-14 14:52:02 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 1999-04-14 19:19:32 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -88,6 +88,13 @@ public:
   static void ProjectPoint(float x[3], float origin[3], float normal[3], 
                            float xproj[3]);
 
+  // Description
+  // Project a point x onto plane defined by origin and normal. The 
+  // projected point is returned in xproj. NOTE : normal does NOT have to 
+  // have magnitude 1.
+  static void GeneralizedProjectPoint(float x[3], float origin[3],
+				      float normal[3], float xproj[3]);
+  
   // Description:
   // Quick evaluation of plane equation n(x-origin)=0.
   static float Evaluate(float normal[3], float origin[3], float x[3]);
