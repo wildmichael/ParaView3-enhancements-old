@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSetGet.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 21:03:23 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1997-01-03 14:23:52 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -136,7 +136,7 @@ void Set##name (type _arg) \
 #define vtkSetObjectMacro(name,type) \
 void Set##name (type* _arg) \
   { \
-  if (Debug)   cerr << "Debug: In " __FILE__ << ", line " << __LINE__ << "\n" << this->GetClassName() << " (" << this << "): setting " << #name " to " << &_arg << "\n\n"; \
+  if (Debug)   cerr << "Debug: In " __FILE__ << ", line " << __LINE__ << "\n" << this->GetClassName() << " (" << this << "): setting " << #name " to " << _arg << "\n\n"; \
   if (name != _arg) \
     { \
     name = _arg; \
@@ -155,7 +155,7 @@ void Set##name (type& _arg) \
 #define vtkSetRefCountedObjectMacro(name,type) \
 void Set##name (type* _arg) \
   { \
-  if (Debug)   cerr << "Debug: In " __FILE__ << ", line " << __LINE__ << "\n" << this->GetClassName() << " (" << this << "): setting " << #name " to " << &_arg << "\n\n"; \
+  if (Debug)   cerr << "Debug: In " __FILE__ << ", line " << __LINE__ << "\n" << this->GetClassName() << " (" << this << "): setting " << #name " to " << _arg << "\n\n"; \
   if (name != _arg) \
     { \
     if (name != NULL) name->UnRegister(this); \
