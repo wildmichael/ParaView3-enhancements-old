@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkDataSetToDataSetFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-06-10 08:33:06 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1994-07-09 06:44:14 $
+  Version:   $Revision: 1.11 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -51,6 +51,12 @@ void vlDataSetToDataSetFilter::Initialize()
     {
     return;
     }
+}
+
+void vlDataSetToDataSetFilter::ComputeBounds()
+{
+  float *bounds = this->DataSet->GetBounds();
+  for (int i=0; i<6; i++) this->Bounds[i] = bounds[i];
 }
 
 void vlDataSetToDataSetFilter::PrintSelf(ostream& os, vlIndent indent)
