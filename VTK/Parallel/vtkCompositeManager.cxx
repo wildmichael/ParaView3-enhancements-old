@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCompositeManager.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-07 20:54:13 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2002-01-07 21:57:32 $
+  Version:   $Revision: 1.13 $
 
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -51,7 +51,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkMesaRenderWindow.h"
 #endif
 
-vtkCxxRevisionMacro(vtkCompositeManager, "$Revision: 1.12 $");
+vtkCxxRevisionMacro(vtkCompositeManager, "$Revision: 1.13 $");
 
 // Structures to communicate render info.
 struct vtkCompositeRenderWindowInfo 
@@ -407,6 +407,7 @@ void vtkCompositeManager::RenderRMI()
     // We put this before receive because we want the pipeline
     // to be updated the first time if the camera does not
     // exist and we want it to happen before we block in receive
+    ren = rens->GetNextItem();
     if (ren)
       {
       cam = ren->GetActiveCamera();
@@ -415,7 +416,6 @@ void vtkCompositeManager::RenderRMI()
     controller->Receive((char*)(&renInfo), 
                         sizeof(struct vtkCompositeRendererInfo), 
                         0, vtkCompositeManager::REN_INFO_TAG);
-    ren = rens->GetNextItem();
     if (ren == NULL)
       {
       vtkErrorMacro("Renderer mismatch.");
