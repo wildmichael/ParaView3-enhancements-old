@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:27 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2001-08-21 21:28:24 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -43,8 +43,9 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkVolumeProMapper.h"
 #include "vtkRenderer.h"
 #include "vtkRayCaster.h"
+#include "vtkToolkits.h"
 
-#ifdef VTK_USE_VLI
+#ifdef VTK_USE_VOLUMEPRO
 #include "vtkVolumeProVG500Mapper.h"
 #endif
 
@@ -134,8 +135,8 @@ vtkVolumeProMapper *vtkVolumeProMapper::New()
     {
     return (vtkVolumeProMapper*)ret;
     }
-  // if VTK_USE_VLI is defined, then create the vtkVolumeProVG500Mapper
-#ifdef VTK_USE_VLI
+  // if VTK_USE_VOLUMEPRO is defined, then create the vtkVolumeProVG500Mapper
+#ifdef VTK_USE_VOLUMEPRO
   // If the factory was unable to create the object, then create it here.
   return vtkVolumeProVG500Mapper::New();
 #else
