@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPVDuplicatePolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-03-18 21:07:19 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2003-03-21 20:03:35 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,7 +26,7 @@
 #include "vtkSocketController.h"
 #include "vtkTiledDisplaySchedule.h"
 
-vtkCxxRevisionMacro(vtkPVDuplicatePolyData, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkPVDuplicatePolyData, "$Revision: 1.3 $");
 vtkStandardNewMacro(vtkPVDuplicatePolyData);
 
 vtkCxxSetObjectMacro(vtkPVDuplicatePolyData,Controller, vtkMultiProcessController);
@@ -61,8 +61,8 @@ vtkPVDuplicatePolyData::~vtkPVDuplicatePolyData()
 //-----------------------------------------------------------------------------
 void vtkPVDuplicatePolyData::InitializeSchedule(int numProcs, int numTiles)
 {
-  // The +1 is for zeroEmpty.
-  this->Schedule->InitializeTiles(numTiles, (numProcs+1));
+  // The -1 is for zeroEmpty.
+  this->Schedule->InitializeTiles(numTiles, (numProcs-1));
 }
 
 //-----------------------------------------------------------------------------
@@ -172,7 +172,8 @@ void vtkPVDuplicatePolyData::Execute()
         tmp = NULL;
         }
       tmp = vtkPolyData::New();
-      this->Controller->Receive(tmp, otherProcessId, 12329);
+      // +1 is for zeroEmpty condition.
+      this->Controller->Receive(tmp, otherProcessId+1, 12329);
       appendFilters[tileId]->AddInput(tmp);
       tmp->Delete();
       tmp = NULL;
@@ -182,13 +183,15 @@ void vtkPVDuplicatePolyData::Execute()
       tileId = this->Schedule->GetElementTileId(myId, idx);
       if (appendFilters[tileId] == NULL)
         {
-        this->Controller->Send(input, otherProcessId, 12329);
+        // +1 is for zeroEmpty condition.
+        this->Controller->Send(input, otherProcessId+1, 12329);
         }
       else
         {
         tmp = appendFilters[tileId]->GetOutput();
         tmp->Update();
-        this->Controller->Send(tmp, otherProcessId, 12329);
+        // +1 is for zeroEmpty condition.
+        this->Controller->Send(tmp, otherProcessId+1, 12329);
         // No longer need this filter.
         appendFilters[tileId]->Delete();
         appendFilters[tileId] = NULL;

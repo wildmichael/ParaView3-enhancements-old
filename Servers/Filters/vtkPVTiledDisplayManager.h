@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPVTiledDisplayManager.h,v $
   Language:  C++
-  Date:      $Date: 2003-03-19 21:18:50 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2003-03-21 20:03:35 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -141,7 +141,6 @@ protected:
 
   // On: Composite, Off, assume geometry copied to all tile procs.
   int UseCompositing;
-  int CompositeFlag;
 
   void Composite();
 
