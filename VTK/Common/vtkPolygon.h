@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPolygon.h,v $
   Language:  C++
-  Date:      $Date: 1994-03-12 19:00:24 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1994-03-23 14:07:21 $
+  Version:   $Revision: 1.5 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -37,6 +37,9 @@ public:
   void ComputeNormal(vlFloatPoints *p, float n[3]);
 
   int CellDimension() {return 2;};
+  void Contour(float value, vlFloatScalars *cellScalars, 
+               vlFloatPoints *points,vlCellArray *verts, 
+               vlCellArray *lines, vlCellArray *polys, vlFloatScalars *s);
   float EvaluatePosition(float x[3], int& subId, float pcoords[3]);
   void EvaluateLocation(int& subId, float pcoords[3], float x[3]);
 

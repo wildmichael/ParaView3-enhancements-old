@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPixel.h,v $
   Language:  C++
-  Date:      $Date: 1994-03-12 19:02:28 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1994-03-23 14:07:27 $
+  Version:   $Revision: 1.2 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -30,6 +30,9 @@ public:
   char *GetClassName() {return "vlRectangle";};
 
   int CellDimension() {return 2;};
+  void Contour(float value, vlFloatScalars *cellScalars, 
+               vlFloatPoints *points, vlCellArray *verts, 
+               vlCellArray *lines, vlCellArray *polys, vlFloatScalars *s);
   float EvaluatePosition(float x[3], int& subId, float pcoords[3]);
   void EvaluateLocation(int& subId, float pcoords[3], float x[3]);
 
