@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamer.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-10-28 19:47:55 $
-  Version:   $Revision: 1.61 $
+  Date:      $Date: 2000-10-31 14:46:41 $
+  Version:   $Revision: 1.62 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -610,18 +610,6 @@ void vtkStreamer::Integrate()
           sPtr->s += cellScalars->GetScalar(i) * w[i];
 	  }
         }
-      if ( this->IntegrationDirection == VTK_INTEGRATE_BOTH_DIRECTIONS )
-	{
-	this->Streamers[offset*ptId+1].Direction = -1.0;
-	idxNext = this->Streamers[offset*ptId+1].InsertNextStreamPoint();
-	sNext = this->Streamers[offset*ptId+1].GetStreamPoint(idxNext);
-	sPtr = this->Streamers[offset*ptId].GetStreamPoint(idx);
-	*sNext = *sPtr;
-	}
-      else if ( this->IntegrationDirection == VTK_INTEGRATE_BACKWARD )
-	{
-	this->Streamers[offset*ptId].Direction = -1.0;
-	}
       }
     else
       {
@@ -631,6 +619,19 @@ void vtkStreamer::Integrate()
 	sPtr->v[j] = 0.0;
 	}
       sPtr->speed = 0;
+      }
+
+    if ( this->IntegrationDirection == VTK_INTEGRATE_BOTH_DIRECTIONS )
+      {
+      this->Streamers[offset*ptId+1].Direction = -1.0;
+      idxNext = this->Streamers[offset*ptId+1].InsertNextStreamPoint();
+      sNext = this->Streamers[offset*ptId+1].GetStreamPoint(idxNext);
+      sPtr = this->Streamers[offset*ptId].GetStreamPoint(idx);
+      *sNext = *sPtr;
+      }
+    else if ( this->IntegrationDirection == VTK_INTEGRATE_BACKWARD )
+      {
+      this->Streamers[offset*ptId].Direction = -1.0;
       }
 
 
