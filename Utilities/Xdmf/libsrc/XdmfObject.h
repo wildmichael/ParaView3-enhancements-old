@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfObject.h,v 1.10 2003-09-29 20:02:13 andy Exp $  */
-/*  Date : $Date: 2003-09-29 20:02:13 $ */
-/*  Version : $Revision: 1.10 $ */
+/*  Id : $Id: XdmfObject.h,v 1.11 2003-09-30 16:36:00 andy Exp $  */
+/*  Date : $Date: 2003-09-30 16:36:00 $ */
+/*  Version : $Revision: 1.11 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -71,8 +71,9 @@
 #define __XdmfObject_h
 
 #ifdef __cplusplus
-// Use ANSI C++ ---------------------------------------------
+/* Use ANSI C++ --------------------------------------------- */
 # ifndef SWIG
+#  include <string>
 #  ifdef XDMF_USE_ANSI_STDLIB
 #   include <iostream>
 #   include <strstream>
@@ -96,7 +97,7 @@ using std::hex;
 
 
 
-// otherwise, non-ANSI -----------------------------------------------------
+/* otherwise, non-ANSI ----------------------------------------------------- */
 #  else /* XDMF_USE_ANSI_STDLIB */
 #   include <iostream.h>
 #   if defined(_MSC_VER)
@@ -168,7 +169,7 @@ typedef char *    XdmfString;
 typedef void *    XdmfPointer;
 typedef unsigned char  XdmfInt8;
 typedef int    XdmfInt32;
-// typedef long    XdmfInt64; 
+/* typedef long    XdmfInt64;  */
 typedef long long  XdmfInt64;
 typedef float    XdmfFloat32;
 typedef double    XdmfFloat64;

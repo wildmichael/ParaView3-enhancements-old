@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfXNode.h,v 1.3 2003-09-29 16:00:41 andy Exp $  */
-/*  Date : $Date: 2003-09-29 16:00:41 $ */
-/*  Version : $Revision: 1.3 $ */
+/*  Id : $Id: XdmfXNode.h,v 1.4 2003-09-30 16:36:12 andy Exp $  */
+/*  Date : $Date: 2003-09-30 16:36:12 $ */
+/*  Version : $Revision: 1.4 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -109,7 +109,7 @@ extern void C__XdmfXNodeDelete(void *XdmfXNode);
 
 #endif /* ifndef __XdmfXNode_h */
 
-#else // SWIG
+#else /* SWIG */
 
 class XdmfXNode : public virtual XdmfObject {
 
