@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAccumulate.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-17 17:08:21 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2001-07-18 12:40:03 $
+  Version:   $Revision: 1.33 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -462,5 +462,10 @@ void vtkImageAccumulate::PrintSelf(ostream& os, vtkIndent indent)
 		                         "On\n" : "Off\n");
 
   os << indent << "ClippingExtents: " << this->ClippingExtents << "\n";
+  
+  os << indent << "Mean: " << this->Mean << "\n";
+  os << indent << "Min: " << this->Min << "\n";
+  os << indent << "Max: " << this->Max << "\n";
+  os << indent << "PixelCount: " << this->PixelCount << "\n";
 }
 
