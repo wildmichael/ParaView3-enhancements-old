@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMesaTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:39:55 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2002-04-18 18:36:34 $
+  Version:   $Revision: 1.15 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,7 +25,7 @@
 #include "vtkXMesaTextMapper.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkXMesaTextMapper, "$Revision: 1.14 $");
+vtkCxxRevisionMacro(vtkXMesaTextMapper, "$Revision: 1.15 $");
 vtkStandardNewMacro(vtkXMesaTextMapper);
 
 static void
@@ -339,15 +339,15 @@ vtkXMesaTextMapper::vtkXMesaTextMapper()
 {
 }
 
-void vtkXMesaTextMapper::RenderOpaqueGeometry(vtkViewport* viewport, 
-                                                vtkActor2D* actor)
+void vtkXMesaTextMapper::RenderOverlay(vtkViewport* viewport,
+                                       vtkActor2D* actor)
 {
-  vtkDebugMacro (<< "RenderOpaqueGeometry");
+  vtkDebugMacro (<< "RenderOverlay");
 
   // Check for input
   if ( this->NumberOfLines > 1 )
     {
-    this->RenderOpaqueGeometryMultipleLines(viewport, actor);
+    this->RenderOverlayMultipleLines(viewport, actor);
     return;
     }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMesaTextMapper.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:39:55 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2002-04-18 18:36:34 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -37,8 +37,7 @@ public:
 
   // Description:
   // Actally draw the text.
-  void RenderOpaqueGeometry(vtkViewport* viewport, vtkActor2D* actor);
-  void RenderOverlay(vtkViewport* viewport, vtkActor2D* actor) {};
+  void RenderOverlay(vtkViewport* viewport, vtkActor2D* actor);
 
   // Description:
   // Release any graphics resources that are being consumed by this actor.
