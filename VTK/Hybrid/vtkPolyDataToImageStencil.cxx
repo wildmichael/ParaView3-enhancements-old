@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataToImageStencil.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-02-28 17:26:44 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2003-10-17 17:54:00 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkPolyDataToImageStencil, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkPolyDataToImageStencil, "$Revision: 1.7 $");
 vtkStandardNewMacro(vtkPolyDataToImageStencil);
 
 //----------------------------------------------------------------------------
@@ -32,6 +32,7 @@ vtkPolyDataToImageStencil::vtkPolyDataToImageStencil()
 {
   this->OBBTree = NULL;
   this->Tolerance = 1e-3;
+  this->NumberOfRequiredInputs = 1;
 }
 
 //----------------------------------------------------------------------------
