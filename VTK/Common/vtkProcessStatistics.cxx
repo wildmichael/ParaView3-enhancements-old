@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProcessStatistics.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:38:42 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-11-02 15:05:32 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -163,7 +163,7 @@ float vtkProcessStatistics::GetProcessCPUTimeInMilliseconds()
 #endif
 
 #ifdef _WIN32
-  return 0.0
+  return 0.0;
 #endif
 
 }
