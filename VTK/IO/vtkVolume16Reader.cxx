@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume16Reader.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-06-19 11:13:53 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1996-07-03 20:41:15 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -109,7 +109,7 @@ void vtkVolume16Reader::Execute()
     }
 }
 
-vtkStructuredPoints *vtkVolume16Reader::GetImage(int vtkNotUsed(ImageNumber))
+vtkStructuredPoints *vtkVolume16Reader::GetImage(int ImageNumber)
 {
   vtkScalars *newScalars;
   int *dim;
@@ -139,7 +139,7 @@ vtkStructuredPoints *vtkVolume16Reader::GetImage(int vtkNotUsed(ImageNumber))
     } 
   
   result = new vtkStructuredPoints();
-  newScalars = this->ReadImage(this->ImageRange[0]);
+  newScalars = this->ReadImage(ImageNumber);
   dimensions[0] = dim[0]; dimensions[1] = dim[1];
   dimensions[2] = 1;
   result->SetDimensions(dimensions);
