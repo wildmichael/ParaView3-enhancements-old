@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCompositeManager.h,v $
   Language:  C++
-  Date:      $Date: 2002-11-21 16:18:47 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2003-03-03 20:15:40 $
+  Version:   $Revision: 1.18 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -189,6 +189,12 @@ public:
   void SetNumberOfProcesses(int numProcs);
   vtkGetMacro(NumberOfProcesses, int);
 
+  // Description:
+  // Determines whether the final image on node 0 is magnified
+  // to fit the window or not (only valid when ReductionFactor > 1)
+  vtkSetMacro(DoMagnifyBuffer, int);
+  vtkGetMacro(DoMagnifyBuffer, int);
+
 protected:
   vtkCompositeManager();
   ~vtkCompositeManager();
@@ -231,6 +237,8 @@ protected:
 
   // Reduction factor (For fast interactive compositing).
   int ReductionFactor;
+
+  int DoMagnifyBuffer;
   
   // This cause me a head ache while trying to debug a lockup.
   // I am taking it out in retaliation.  I do not think nested

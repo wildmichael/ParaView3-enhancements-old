@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCompositeManager.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-01-17 14:32:18 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 2003-03-03 20:15:40 $
+  Version:   $Revision: 1.47 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -43,7 +43,7 @@
  #include <mpi.h>
 #endif
 
-vtkCxxRevisionMacro(vtkCompositeManager, "$Revision: 1.46 $");
+vtkCxxRevisionMacro(vtkCompositeManager, "$Revision: 1.47 $");
 vtkStandardNewMacro(vtkCompositeManager);
 
 
@@ -129,6 +129,8 @@ vtkCompositeManager::vtkCompositeManager()
   this->Timer = vtkTimerLog::New();
 
   this->FirstRender = 0;
+
+  this->DoMagnifyBuffer = 1;
 }
 
   
@@ -1421,7 +1423,7 @@ void vtkCompositeManager::Composite()
 
     vtkDataArray* magPdata = 0;
     
-    if (this->ReductionFactor > 1)
+    if (this->ReductionFactor > 1 && this->DoMagnifyBuffer)
       {
       // localPdata gets freed (new memory is allocated and returned.
       // windowSize get modified.
