@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPerspectiveTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-03-19 06:48:55 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2000-03-19 15:44:53 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -241,7 +241,7 @@ vtkGeneralTransform *vtkPerspectiveTransform::GetInverse()
 }
 
 //----------------------------------------------------------------------------
-static vtkPerspectiveTransform *vtkPerspectiveTransform::Concatenate(
+vtkPerspectiveTransform *vtkPerspectiveTransform::Concatenate(
                                             vtkPerspectiveTransform *t1,
 					    vtkPerspectiveTransform *t2,
 					    vtkPerspectiveTransform *t3,

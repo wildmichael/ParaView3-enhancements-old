@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGeneralTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-03-19 06:48:54 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2000-03-19 15:44:52 $
+  Version:   $Revision: 1.17 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -209,7 +209,7 @@ void vtkGeneralTransform::UnRegister(vtkObject *o)
 }
 
 //----------------------------------------------------------------------------
-static vtkGeneralTransform *vtkGeneralTransform::Concatenate(
+vtkGeneralTransform *vtkGeneralTransform::Concatenate(
 					vtkGeneralTransform *t1,
 					vtkGeneralTransform *t2,
 					vtkGeneralTransform *t3,
