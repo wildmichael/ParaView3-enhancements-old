@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBoxWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-07-29 20:17:40 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2003-08-06 20:22:10 $
+  Version:   $Revision: 1.38 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -37,7 +37,7 @@
 #include "vtkSphereSource.h"
 #include "vtkTransform.h"
 
-vtkCxxRevisionMacro(vtkBoxWidget, "$Revision: 1.37 $");
+vtkCxxRevisionMacro(vtkBoxWidget, "$Revision: 1.38 $");
 vtkStandardNewMacro(vtkBoxWidget);
 
 vtkBoxWidget::vtkBoxWidget()
@@ -1067,9 +1067,6 @@ void vtkBoxWidget::GetPlanes(vtkPlanes *planes)
   normals->SetNumberOfComponents(3);
   normals->SetNumberOfTuples(6);
   
-  planes->SetPoints(pts);
-  planes->SetNormals(normals);
-  
   // Set the normals and coordinate values
   float factor = (this->InsideOut ? -1.0 : 1.0);
   for (int i=0; i<6; i++)
@@ -1078,6 +1075,9 @@ void vtkBoxWidget::GetPlanes(vtkPlanes *planes)
     normals->SetTuple3(i, factor*this->N[i][0], factor*this->N[i][1], 
                        factor*this->N[i][2]);
     }
+    
+  planes->SetPoints(pts);
+  planes->SetNormals(normals);
   
   pts->Delete();
   normals->Delete();
