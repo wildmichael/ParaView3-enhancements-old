@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectorIterator.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-24 13:43:15 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-04-25 16:00:39 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,7 +39,7 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-// .NAME vtkVectorIterator - a templated linked list
+// .NAME vtkVectorIterator - a templated vector list iterator
 
 #ifndef __vtkVectorIterator_h
 #define __vtkVectorIterator_h
@@ -79,6 +79,21 @@ public:
   // Increment the iterator to the next location.
   // Return VTK_OK if everything is ok.
   int GoToNextItem();
+
+  // Description:
+  // Decrement the iterator to the next location.
+  // Return VTK_OK if everything is ok.
+  int GoToPreviousItem();
+
+  // Description:
+  // Go to the first item of the list.
+  // Return VTK_OK if everything is ok.
+  int GoToFirstItem() { this->InitTraversal(); return VTK_OK; }
+
+  // Description:
+  // Go to the last item of the list.
+  // Return VTK_OK if everything is ok.
+  int GoToLastItem();
 
 protected:
   static vtkVectorIterator<DType> *New() 

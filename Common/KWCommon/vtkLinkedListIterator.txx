@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinkedListIterator.txx,v $
   Language:  C++
-  Date:      $Date: 2002-04-12 22:06:28 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-04-25 16:00:39 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -109,6 +109,59 @@ int vtkLinkedListIterator<DType>::GoToNextItem()
     return VTK_ERROR;
     }
   this->Pointer = this->Pointer->Next;
+  return VTK_OK;
+}
+
+// Description:
+// Decrement the iterator to the next location.
+// Return VTK_OK if everything is ok.
+template<class DType>
+int vtkLinkedListIterator<DType>::GoToPreviousItem()
+{
+  if ( !this->Pointer )
+    {
+    return VTK_ERROR;
+    }
+  vtkLinkedList<DType> *llist 
+    = static_cast<vtkLinkedList<DType>*>(this->Container);
+
+  // Fast exit if at beginning of the list
+  if ( this->Pointer == llist->Head )
+    {
+    this->Pointer = 0;
+    return VTK_OK;
+    }
+
+  // Traverse the list to find the pervious node
+  vtkLinkedListNode<DType> *curr = 0;
+  for ( curr = llist->Head; curr && curr->Next; curr = curr->Next )
+    {
+    if ( curr->Next == this->Pointer )
+      {
+      this->Pointer = curr;
+      return VTK_OK;
+      }
+    }
+  return VTK_ERROR;
+}
+
+// Description:
+// Increment the iterator to the next location.
+// Return VTK_OK if everything is ok.
+template<class DType>
+int vtkLinkedListIterator<DType>::GoToLastItem()
+{
+  if ( !this->Pointer )
+    {
+    return VTK_ERROR;
+    }
+  vtkLinkedList<DType> *llist 
+    = static_cast<vtkLinkedList<DType>*>(this->Container);
+  this->Pointer = llist->Tail;
+  if ( !this->Pointer )
+    {
+    return VTK_ERROR;
+    }
   return VTK_OK;
 }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkArrayMapIterator.txx,v $
   Language:  C++
-  Date:      $Date: 2002-04-18 14:06:59 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-04-25 16:00:39 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -78,7 +78,7 @@ int vtkArrayMapIterator<KeyType,DataType>::IsDoneWithTraversal()
 {
   vtkArrayMap<KeyType,DataType> *lmap 
     = static_cast<vtkArrayMap<KeyType,DataType>*>(this->Container);
-  if ( !lmap || this->Index >= lmap->GetNumberOfItems() )
+  if ( !lmap || this->Index < 0 || this->Index >= lmap->GetNumberOfItems() )
     {
     return VTK_OK;
     }
@@ -98,6 +98,53 @@ int vtkArrayMapIterator<KeyType,DataType>::GoToNextItem()
     return VTK_ERROR;
     }
   this->Index++;
+  return VTK_OK;
+}
+
+// Description:
+// Decrement the iterator to the next location.
+// Return VTK_OK if everything is ok.
+template<class KeyType,class DataType>
+int vtkArrayMapIterator<KeyType,DataType>::GoToPreviousItem()
+{
+  vtkArrayMap<KeyType,DataType> *lmap 
+    = static_cast<vtkArrayMap<KeyType,DataType>*>(this->Container);
+  if ( !lmap || this->Index < 0 || this->Index >= lmap->GetNumberOfItems() )
+    {
+    return VTK_ERROR;
+    }
+  if ( this->Index == 0 )
+    {
+    this->Index = lmap->GetNumberOfItems();
+    return VTK_OK;
+    }
+  this->Index--;
+  return VTK_OK;
+}
+
+// Description:
+// Go to the "first" item of the map.
+// Return VTK_OK if everything is ok.
+template<class KeyType,class DataType>
+int vtkArrayMapIterator<KeyType,DataType>::GoToFirstItem()
+{
+  this->InitTraversal();
+  return VTK_OK;
+}
+
+// Description:
+// Go to the "last" item of the map.
+// Return VTK_OK if everything is ok.
+template<class KeyType,class DataType>
+int vtkArrayMapIterator<KeyType,DataType>::GoToLastItem()
+{
+  vtkArrayMap<KeyType,DataType> *lmap 
+    = static_cast<vtkArrayMap<KeyType,DataType>*>(this->Container);
+  if ( lmap->GetNumberOfItems() <= 0 )
+    {
+    return VTK_ERROR;
+    }
+  this->Index = lmap->GetNumberOfItems()-1;
   return VTK_OK;
 }
 
