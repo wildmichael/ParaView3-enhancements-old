@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObjectBase.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-24 19:51:25 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-07-01 22:05:23 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -43,7 +43,6 @@
 #ifndef __vtkObjectBase_h
 #define __vtkObjectBase_h
 
-#include "vtkWin32Header.h"
 #include "vtkIndent.h"
 #include "vtkSystemIncludes.h"
 

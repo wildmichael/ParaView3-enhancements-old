@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVRML.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-15 11:05:58 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2002-07-01 22:05:24 $
+  Version:   $Revision: 1.25 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -37,14 +37,12 @@
 
 #define DEFAULTINCREMENT        100
 
-#include "vtkConfigure.h"
+#include "vtkHeap.h"
 
 #ifdef VTK_USE_ANSI_STDLIB
 #include <new>
-#include <iostream>
 #else
 #include <new.h>
-#include <iostream.h>
 #endif
 
 #if defined(__BORLANDC__) && (__BORLANDC__!=0x0560)
@@ -55,14 +53,9 @@ void* operator new[](unsigned int,void *v)
 }
 #endif
 
-#include <string.h>
-
-#include "vtkWin32Header.h"
-
 // Use a user-managed heap to remove memory leaks
 // This code must come before "#include vtkVRML.h" because
 // it uses the functions below.
-#include "vtkHeap.h"
 struct vtkVRMLAllocator
 {
   static void Initialize();

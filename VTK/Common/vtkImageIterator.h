@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageIterator.h,v $
   Language:  C++
-  Date:      $Date: 2002-03-12 15:27:45 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-07-01 22:05:23 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,7 +26,7 @@
 #ifndef __vtkImageIterator_h
 #define __vtkImageIterator_h
 
-#include "vtkWin32Header.h"
+#include "vtkSystemIncludes.h"
 class vtkImageData;
 
 template<class DType>

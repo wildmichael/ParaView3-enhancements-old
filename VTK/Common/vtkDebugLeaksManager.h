@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDebugLeaksManager.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-24 22:15:41 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-07-01 22:05:23 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,7 +25,7 @@
 #ifndef __vtkDebugLeaksManager_h
 #define __vtkDebugLeaksManager_h
 
-#include "vtkWin32Header.h"
+#include "vtkSystemIncludes.h"
 
 class VTK_COMMON_EXPORT vtkDebugLeaksManager
 {
