@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHashMap.txx,v $
   Language:  C++
-  Date:      $Date: 2002-06-25 20:12:00 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-06-27 12:04:27 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -53,7 +53,7 @@ int vtkHashMap<KeyType,DataType>::SetItem(const KeyType& key,
 {
   vtkIdType bucket = vtkHashMapHashMethod(key) % this->NumberOfBuckets;
   ItemType item = { key, data };
-  vtkIdType index;
+  vtkIdType index=0;
   
   if(this->Buckets[bucket]->FindItem(item, index) == VTK_OK)
     {
@@ -75,7 +75,7 @@ int vtkHashMap<KeyType,DataType>::RemoveItem(const KeyType& key)
 {
   vtkIdType bucket = vtkHashMapHashMethod(key) % this->NumberOfBuckets;
   ItemType item = { key, DataType() };
-  vtkIdType index;
+  vtkIdType index=0;
   
   if(this->Buckets[bucket]->FindItem(item, index) == VTK_OK)
     {
@@ -103,7 +103,7 @@ int vtkHashMap<KeyType,DataType>::GetItem(const KeyType& key, DataType& data)
 {
   vtkIdType bucket = vtkHashMapHashMethod(key) % this->NumberOfBuckets;
   ItemType item = { key, DataType() };
-  vtkIdType index;
+  vtkIdType index=0;
   
   if(this->Buckets[bucket]->FindItem(item, index) == VTK_OK)
     {
