@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMultiProcessController.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-20 13:38:39 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-08-13 17:40:18 $
+  Version:   $Revision: 1.4 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -65,6 +65,11 @@ public:
   int Tag;
   vtkRMIFunctionType Function;
   void *LocalArgument;
+  
+protected:
+  vtkMultiProcessControllerRMI() {};
+  vtkMultiProcessControllerRMI(const vtkMultiProcessControllerRMI&);
+  void operator=(const vtkMultiProcessControllerRMI&);
 };
 
 vtkMultiProcessControllerRMI* vtkMultiProcessControllerRMI::New()
