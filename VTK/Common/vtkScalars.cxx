@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalars.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-09-08 12:46:30 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1996-05-08 18:48:26 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,6 +40,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include "vtkScalars.hh"
 #include "vtkFloatScalars.hh"
+#include "vtkShortScalars.hh"
 #include "vtkIdList.hh"
 #include "vtkLookupTable.hh"
 
@@ -64,6 +65,25 @@ void vtkScalars::GetScalars(vtkIdList& ptId, vtkFloatScalars& fs)
     {
     fs.InsertScalar(i,this->GetScalar(ptId.GetId(i)));
     }
+}
+
+
+// Description:
+// Return all the scalar values as a short scalar
+vtkShortScalars *vtkScalars::GetAllShortScalars()
+{
+  int num = this->GetNumberOfScalars();
+  vtkShortScalars *result = new vtkShortScalars(num);
+  short *arr;
+  
+  arr = result->WritePtr(0,num);
+    
+  for (int i=0; i< num; i++)
+    {
+    arr[i] = (short)(256.0*this->GetScalar(i));
+    }
+  
+  return result;
 }
 
 // Description:
