@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRegressionTestImage.h,v $
   Language:  C++
-  Date:      $Date: 2002-02-07 19:53:02 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2002-02-27 15:52:34 $
+  Version:   $Revision: 1.20 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -269,6 +269,8 @@ int vtkRegressionTester::Test(int argc, char *argv[], vtkRenderWindow *rw,
       delete [] valid;
       delete [] diff_small;
 
+      rt_shrink->Delete();
+      rt_gamma->Delete();
       }
 
     delete [] rt_diffName;
