@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGridVolumeRayCastMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-11-25 04:58:07 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2003-11-25 05:25:29 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -40,7 +40,7 @@
 VTK_THREAD_RETURN_TYPE UnstructuredGridVolumeRayCastMapper_CastRays( void *arg );
 
 
-vtkCxxRevisionMacro(vtkUnstructuredGridVolumeRayCastMapper, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkUnstructuredGridVolumeRayCastMapper, "$Revision: 1.3 $");
 vtkStandardNewMacro(vtkUnstructuredGridVolumeRayCastMapper);
 
 
@@ -560,5 +560,9 @@ void vtkUnstructuredGridVolumeRayCastMapper::PrintSelf(ostream& os, vtkIndent in
     << (this->IntermixIntersectingGeometry ? "On\n" : "Off\n");
   
   os << indent << "Number Of Threads: " << this->NumberOfThreads << "\n";
+  
+  // Do not want to print ImageOrigin, ImageViewportSize or ImageInUseSize
+  // since these are just internal variables with Get methods for access
+  // from the ray cast function (not part of the public API)
 }
 
