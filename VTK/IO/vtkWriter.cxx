@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-05-02 18:43:14 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1995-05-03 14:03:50 $
+  Version:   $Revision: 1.9 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -29,8 +29,8 @@ vlWriter::vlWriter()
 }
 
 // Description:
-// General write method executes subclasses WriteData() method, as well as
-// StartWrite() and EndWrite() methods.
+// Write data to output. Method executes subclasses WriteData() method, as 
+// well as StartWrite() and EndWrite() methods.
 void vlWriter::Write()
 {
   // make sure input is available
@@ -47,6 +47,13 @@ void vlWriter::Write()
   if ( this->EndWrite ) (*this->EndWrite)(this->EndWriteArg);
 
   if ( this->Input->ShouldIReleaseData() ) this->Input->ReleaseData();
+}
+
+// Description:
+// Convenient alias for Write() method.
+void vlWriter::Update()
+{
+  this->Write();
 }
 
 // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkWriter.h,v $
   Language:  C++
-  Date:      $Date: 1995-05-02 18:43:14 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1995-05-03 14:03:51 $
+  Version:   $Revision: 1.8 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -36,9 +36,8 @@ public:
   char *GetClassName() {return "vlWriter";};
   void PrintSelf(ostream& os, vlIndent indent);
 
-  // Description:
-  // Write data to disk (or port).
   virtual void Write();
+  void Update();
 
   void SetStartWrite(void (*f)(void *), void *arg);
   void SetEndWrite(void (*f)(void *), void *arg);
