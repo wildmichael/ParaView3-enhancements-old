@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:49:35 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1997-07-18 12:10:30 $
+  Version:   $Revision: 1.9 $
   Thanks:    to Horst Schreiber for developing this MFC code
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -475,8 +475,8 @@ void vtkWin32OpenGLRenderWindow::WindowInitialize (void)
     }	
   else 
     {
-    vtkWin32OpenGLInit();
     wglMakeCurrent(this->DeviceContext, this->ContextId); // hsr
+    vtkWin32OpenGLInit();
     }
 
 }
