@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSurfaceReconstructionFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-17 17:56:02 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-11-18 16:47:31 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to Tim Hutton (MINORI Project, Dental and Medical
              Informatics, Eastman Dental Institute, London, UK) who
              developed and contributed this class.
@@ -398,8 +398,8 @@ void vtkSurfaceReconstructionFilter::Execute()
   if(this->SampleSpacing<=0.0)
 	{
 	  // sample spacing guessed as cube root of (volume divided by number of points)
-	  this->SampleSpacing = pow((bounds[1]-bounds[0])*(bounds[3]-bounds[2])*(bounds[5]-bounds[4]) / (float)COUNT,
-		  1.0/3.0);
+	  this->SampleSpacing = pow((double)(bounds[1]-bounds[0])*(bounds[3]-bounds[2])*(bounds[5]-bounds[4]) / (float)COUNT,
+		  (double)(1.0/3.0));
  
 	  vtkDebugMacro(<<"Estimated sample spacing as: " << this->SampleSpacing );
 	}
