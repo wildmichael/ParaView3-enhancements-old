@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCaptionActor2D.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:30:25 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-05-16 15:53:26 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -55,8 +55,6 @@
 #define __vtkCaptionActor2D_h
 
 #include "vtkActor2D.h"
-#include "vtkTextMapper.h"
-#include "vtkPolyData.h"
 
 class vtkPolyDataMapper2D;
 class vtkPolyDataMapper;
@@ -65,6 +63,8 @@ class vtkGlyph2D;
 class vtkGlyph3D;
 class vtkAppendPolyData;
 class vtkActor;
+class vtkTextMapper;
+class vtkPolyData;
 
 class VTK_HYBRID_EXPORT vtkCaptionActor2D : public vtkActor2D
 {
@@ -108,7 +108,7 @@ public:
   // Description:
   // Specify a glyph to be used as the leader "head". This could be something
   // like an arrow or sphere. If not specified, no glyph is drawn.
-  vtkSetObjectMacro(LeaderGlyph,vtkPolyData);
+  virtual void SetLeaderGlyph(vtkPolyData*);
   vtkGetObjectMacro(LeaderGlyph,vtkPolyData);
 
   // Description:

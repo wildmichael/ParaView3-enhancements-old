@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCaptionActor2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:30:25 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2002-05-16 15:53:26 $
+  Version:   $Revision: 1.15 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -28,8 +28,10 @@
 #include "vtkFloatArray.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkCaptionActor2D, "$Revision: 1.14 $");
+vtkCxxRevisionMacro(vtkCaptionActor2D, "$Revision: 1.15 $");
 vtkStandardNewMacro(vtkCaptionActor2D);
+
+vtkCxxSetObjectMacro(vtkCaptionActor2D,LeaderGlyph,vtkPolyData);
 
 vtkCaptionActor2D::vtkCaptionActor2D()
 {
