@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSweptSurface.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 22:02:31 $
-  Version:   $Revision: 1.71 $
+  Date:      $Date: 2002-05-16 17:03:57 $
+  Version:   $Revision: 1.72 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -30,12 +30,16 @@
 
 =========================================================================*/
 #include "vtkSweptSurface.h"
-#include "vtkVoxel.h"
+
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
+#include "vtkTransformCollection.h"
+#include "vtkVoxel.h"
 
-vtkCxxRevisionMacro(vtkSweptSurface, "$Revision: 1.71 $");
+vtkCxxRevisionMacro(vtkSweptSurface, "$Revision: 1.72 $");
 vtkStandardNewMacro(vtkSweptSurface);
+
+vtkCxxSetObjectMacro(vtkSweptSurface,Transforms, vtkTransformCollection);
 
 // Description:
 // Construct object with SampleDimensions = (50,50,50), FillValue = 

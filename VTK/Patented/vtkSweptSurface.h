@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSweptSurface.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 22:02:32 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 2002-05-16 17:03:57 $
+  Version:   $Revision: 1.50 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -55,7 +55,8 @@
 #define __vtkSweptSurface_h
 
 #include "vtkStructuredPointsToStructuredPointsFilter.h"
-#include "vtkTransformCollection.h"
+
+class vtkTransformCollection;
 
 class VTK_PATENTED_EXPORT vtkSweptSurface : public vtkStructuredPointsToStructuredPointsFilter
 {
@@ -73,7 +74,7 @@ public:
   // Description:
   // Specify a path (i.e., list of transforms) that the input moves along. At
   // least two transforms must be used to define a path.
-  vtkSetObjectMacro(Transforms, vtkTransformCollection);
+  virtual void SetTransforms(vtkTransformCollection*);
   vtkGetObjectMacro(Transforms, vtkTransformCollection);
 
   // Description:
