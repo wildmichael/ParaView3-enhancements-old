@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXYPlotActor.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-28 15:12:17 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2000-09-28 18:38:47 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to Kitware & RPI/SCOREC who supported the development
              of this class.
 
