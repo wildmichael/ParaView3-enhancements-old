@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCGMWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-25 13:43:23 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-09-19 18:16:46 $
+  Version:   $Revision: 1.4 $
   Credit:    The origin of much of this code was from the cd package
              written by G. Edward Johnson at the National Institute 
              of Standards and Technology (US).
@@ -518,7 +518,7 @@ void vtkCGMWriter::WriteData()
   vtkPolyData *input=this->GetInput();
   vtkPoints *inPts=input->GetPoints(), *pts;
   vtkGenericCell *cell=vtkGenericCell::New();
-  vtkScalars *inScalars=input->GetCellData()->GetScalars();
+  vtkDataArray *inScalars=input->GetCellData()->GetActiveScalars();
   vtkIdType numCells=input->GetNumberOfCells(), cellId;
   vtkIdType numPts=input->GetNumberOfPoints();
   int i, id, type, npts, size[2], *p;
@@ -612,7 +612,7 @@ void vtkCGMWriter::WriteData()
       {
       colorMode = VTK_COLOR_MODE_DEFAULT;
       bpp = inScalars->GetNumberOfComponents();
-      colors = ((vtkUnsignedCharArray *)inScalars->GetData())->GetPointer(0);
+      colors = static_cast<vtkUnsignedCharArray *>(inScalars)->GetPointer(0);
       }
     else
       {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSTLReader.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:52 $
-  Version:   $Revision: 1.52 $
+  Date:      $Date: 2001-09-19 18:16:48 $
+  Version:   $Revision: 1.53 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -119,7 +119,8 @@ protected:
 
   void Execute();
   int ReadBinarySTL(FILE *fp, vtkPoints*, vtkCellArray*);
-  int ReadASCIISTL(FILE *fp, vtkPoints*, vtkCellArray*, vtkScalars* scalars=0);
+  int ReadASCIISTL(FILE *fp, vtkPoints*, vtkCellArray*, 
+		   vtkFloatArray* scalars=0);
   int GetSTLFileType(FILE *fp);
 };
 

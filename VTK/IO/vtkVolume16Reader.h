@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume16Reader.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:53 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2001-09-19 18:16:48 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -75,6 +75,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <stdio.h>
 #include "vtkVolumeReader.h"
 #include "vtkTransform.h"
+class vtkUnsignedCharArray;
+class vtkUnsignedShortArray;
 
 #define VTK_FILE_BYTE_ORDER_BIG_ENDIAN 0
 #define VTK_FILE_BYTE_ORDER_LITTLE_ENDIAN 1
@@ -162,8 +164,8 @@ protected:
   void ComputeTransformedSpacing(float Spacing[3]);
   void ComputeTransformedOrigin(float origin[3]);
   void AdjustSpacingAndOrigin(int dimensions[3], float Spacing[3], float origin[3]);
-  vtkScalars *ReadImage(int ImageNumber);
-  vtkScalars *ReadVolume(int FirstImage, int LastImage);
+  vtkUnsignedShortArray *ReadImage(int ImageNumber);
+  vtkUnsignedShortArray *ReadVolume(int FirstImage, int LastImage);
   int Read16BitImage(FILE *fp, unsigned short *pixels, int xsize, int ysize, 
 		     int skip, int swapBytes);
 

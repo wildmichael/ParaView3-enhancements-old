@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPLOT3DReader.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:52 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 2001-09-19 18:16:47 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -99,8 +99,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include <stdio.h>
 #include "vtkStructuredGridSource.h"
-#include "vtkScalars.h"
-#include "vtkVectors.h"
+class vtkFloatArray;
 
 // file formats
 #define VTK_WHOLE_SINGLE_GRID_NO_IBLANKING 0
@@ -252,9 +251,9 @@ protected:
   int ReadBinaryVectorFunctionFile(FILE *fp, vtkStructuredGrid *output);
 
   vtkPoints *Grid;
-  vtkScalars *Density;
-  vtkScalars *Energy;
-  vtkVectors *Momentum;
+  vtkFloatArray *Density;
+  vtkFloatArray *Energy;
+  vtkFloatArray *Momentum;
 
   // derived functions from data in PLOT3D files
   void ComputeDensity(vtkPointData *outputPD);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-28 13:24:33 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 2001-09-19 18:16:48 $
+  Version:   $Revision: 1.47 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -92,7 +92,7 @@ vtkStructuredPoints *vtkStructuredPointsReader::GetOutput()
 void vtkStructuredPointsReader::ExecuteInformation()
 {
   vtkStructuredPoints *output = this->GetOutput();
-  vtkScalars *scalars;
+  vtkDataArray *scalars;
   int saveRequestFlag;
   
   // Now here is a problem.
@@ -105,7 +105,7 @@ void vtkStructuredPointsReader::ExecuteInformation()
   output->vtkDataObject::UpdateData();
   output->SetRequestExactExtent(saveRequestFlag);
   
-  scalars = output->GetPointData()->GetScalars();
+  scalars = output->GetPointData()->GetActiveScalars();
   if (scalars)
     {
     output->SetScalarType(scalars->GetDataType());

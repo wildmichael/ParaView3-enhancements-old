@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSLCReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:51 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2001-09-19 18:16:48 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -187,7 +187,7 @@ void vtkSLCReader::Execute()
 {
   FILE *fp;
 
-  vtkScalars *newScalars;
+  vtkUnsignedCharArray *newScalars;
 
   int   temp;
   int   data_compression;
@@ -254,8 +254,8 @@ void vtkSLCReader::Execute()
 
   plane_size = size[0] * size[1];
   volume_size = plane_size * size[2];
-  newScalars = vtkScalars::New(VTK_UNSIGNED_CHAR,1);
-  newScalars->SetNumberOfScalars(volume_size);
+  newScalars = vtkUnsignedCharArray::New();
+  newScalars->SetNumberOfTuples(volume_size);
 
   // Skip Over Icon
   fscanf( fp, "%d %d X", &icon_width,  &icon_height );
@@ -330,7 +330,7 @@ void vtkSLCReader::Execute()
     // Copy plane into volume
     for( i=0; i<plane_size; i++ )
       {
-      newScalars->SetScalar( (z_counter*plane_size + i), *sptr++ );
+      newScalars->SetValue( (z_counter*plane_size + i), *sptr++ );
       }
     }
 
