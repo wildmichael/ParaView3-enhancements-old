@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuad.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-10-27 19:42:57 $
-  Version:   $Revision: 1.67 $
+  Date:      $Date: 2000-11-01 13:37:18 $
+  Version:   $Revision: 1.68 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -533,7 +533,7 @@ int vtkQuad::IntersectWithLine(float p1[3], float p2[3], float tol, float& t,
   float dist2, weights[4];
 
   subId = 0;
-  pcoords[0] = pcoords[1] = 0.0;
+  pcoords[0] = pcoords[1] = pcoords[2] = 0.0;
   //
   // Get normal for triangle
   //
