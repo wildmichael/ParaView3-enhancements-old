@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLongArray.h,v $
   Language:  C++
-  Date:      $Date: 2002-02-13 22:46:29 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2002-05-07 19:39:00 $
+  Version:   $Revision: 1.36 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -128,12 +128,12 @@ public:
   // Note that i is less then NumberOfTuples and j is less then 
   // NumberOfComponents. Make sure enough memory has been allocated 
   // (use SetNumberOfTuples() and SetNumberOfComponents()).
-  void SetComponent(const vtkIdType i, const int j, const float c);
+  void SetComponent(const vtkIdType i, const int j, float c);
   
   // Description:
   // Insert the data component at ith tuple and jth component location. 
   // Note that memory allocation is performed as necessary to hold the data.
-  virtual void InsertComponent(const vtkIdType i, const int j, const float c);
+  virtual void InsertComponent(const vtkIdType i, const int j, float c);
 
   // Description:
   // Get the address of a particular data index. Performs no checks

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnsignedCharArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:26:32 $
-  Version:   $Revision: 1.54 $
+  Date:      $Date: 2002-05-07 19:39:00 $
+  Version:   $Revision: 1.55 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkUnsignedCharArray.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkUnsignedCharArray, "$Revision: 1.54 $");
+vtkCxxRevisionMacro(vtkUnsignedCharArray, "$Revision: 1.55 $");
 vtkStandardNewMacro(vtkUnsignedCharArray);
 
 vtkDataArray *vtkUnsignedCharArray::MakeObject()
@@ -382,16 +382,18 @@ float vtkUnsignedCharArray::GetComponent(const vtkIdType i, const int j)
 // memory has been allocated (use SetNumberOfTuples() and 
 // SetNumberOfComponents()).
 void vtkUnsignedCharArray::SetComponent(const vtkIdType i, const int j,
-                                        const float c)
+                                        float c)
 {
-  this->SetValue(i*this->NumberOfComponents + j, (unsigned char)c);
+  this->SetValue(i*this->NumberOfComponents + j, 
+                 static_cast<unsigned char>(c));
 }
 
 // Insert the data component at ith tuple and jth component location. 
 // Note that memory allocation is performed as necessary to hold the data.
 void vtkUnsignedCharArray::InsertComponent(const vtkIdType i, const int j,
-                                           const float c)
+                                           float c)
 {
-  this->InsertValue(i*this->NumberOfComponents + j, (unsigned char)c);
+  this->InsertValue(i*this->NumberOfComponents + j, 
+                    static_cast<unsigned char>(c));
 }
 

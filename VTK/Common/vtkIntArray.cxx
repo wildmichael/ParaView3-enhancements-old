@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIntArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-12 13:35:44 $
-  Version:   $Revision: 1.63 $
+  Date:      $Date: 2002-05-07 19:39:00 $
+  Version:   $Revision: 1.64 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkIntArray.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkIntArray, "$Revision: 1.63 $");
+vtkCxxRevisionMacro(vtkIntArray, "$Revision: 1.64 $");
 vtkStandardNewMacro(vtkIntArray);
 
 vtkDataArray *vtkIntArray::MakeObject()
@@ -374,13 +374,12 @@ float vtkIntArray::GetComponent(const vtkIdType i, const int j)
 // Note that i<NumberOfTuples and j<NumberOfComponents. Make sure enough
 // memory has been allocated (use SetNumberOfTuples() and 
 // SetNumberOfComponents()).
-void vtkIntArray::SetComponent(const vtkIdType i, const int j, const float c)
+void vtkIntArray::SetComponent(const vtkIdType i, const int j, float c)
 {
-  this->SetValue(i*this->NumberOfComponents + j, static_cast<const int>(c));
+  this->SetValue(i*this->NumberOfComponents + j, static_cast<int>(c));
 }
 
-void vtkIntArray::InsertComponent(const vtkIdType i, const int j, 
-                                  const float c)
+void vtkIntArray::InsertComponent(const vtkIdType i, const int j, float c)
 {
-  this->InsertValue(i*this->NumberOfComponents + j, static_cast<const int>(c));
+  this->InsertValue(i*this->NumberOfComponents + j, static_cast<int>(c));
 }

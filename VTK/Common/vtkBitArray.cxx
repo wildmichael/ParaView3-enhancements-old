@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBitArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-12 13:35:44 $
-  Version:   $Revision: 1.52 $
+  Date:      $Date: 2002-05-07 19:39:00 $
+  Version:   $Revision: 1.53 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkBitArray.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkBitArray, "$Revision: 1.52 $");
+vtkCxxRevisionMacro(vtkBitArray, "$Revision: 1.53 $");
 vtkStandardNewMacro(vtkBitArray);
 
 vtkDataArray *vtkBitArray::MakeObject()
@@ -379,19 +379,17 @@ vtkIdType vtkBitArray::InsertNextTuple(const double * tuple)
 }
 
 
-void vtkBitArray::InsertComponent(const vtkIdType i, const int j, 
-                                  const float c)
+void vtkBitArray::InsertComponent(const vtkIdType i, const int j, float c)
 {
   this->InsertValue(i*this->NumberOfComponents + j, 
-                    static_cast<const int>(c));
+                    static_cast<int>(c));
 }
 
 // Set the data component at the ith tuple and jth component location.
 // Note that i<NumberOfTuples and j<NumberOfComponents. Make sure enough
 // memory has been allocated (use SetNumberOfTuples() and 
 // SetNumberOfComponents()).
-void vtkBitArray::SetComponent(const vtkIdType i, const int j,
-                               const float c)
+void vtkBitArray::SetComponent(const vtkIdType i, const int j, float c)
 {
-  this->SetValue(i*this->NumberOfComponents + j, (int)c);
+  this->SetValue(i*this->NumberOfComponents + j, static_cast<int>(c));
 }

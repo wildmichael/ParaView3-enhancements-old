@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnsignedLongArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-12 13:35:44 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2002-05-07 19:39:00 $
+  Version:   $Revision: 1.32 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkUnsignedLongArray.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkUnsignedLongArray, "$Revision: 1.31 $");
+vtkCxxRevisionMacro(vtkUnsignedLongArray, "$Revision: 1.32 $");
 vtkStandardNewMacro(vtkUnsignedLongArray);
 
 vtkDataArray *vtkUnsignedLongArray::MakeObject()
@@ -382,14 +382,14 @@ float vtkUnsignedLongArray::GetComponent(const vtkIdType i, const int j)
 // memory has been allocated (use SetNumberOfTuples() and 
 // SetNumberOfComponents()).
 void vtkUnsignedLongArray::SetComponent(const vtkIdType i, const int j, 
-                                        const float c)
+                                        float c)
 {
-  this->SetValue(i*this->NumberOfComponents + j, static_cast<const unsigned long>(c));
+  this->SetValue(i*this->NumberOfComponents + j, static_cast<unsigned long>(c));
 }
 
 void vtkUnsignedLongArray::InsertComponent(const vtkIdType i, const int j, 
-                                           const float c)
+                                           float c)
 {
   this->InsertValue(i*this->NumberOfComponents + j, 
-                    static_cast<const unsigned long>(c));
+                    static_cast<unsigned long>(c));
 }

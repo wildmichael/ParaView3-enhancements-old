@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLongArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-12 13:35:44 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2002-05-07 19:39:00 $
+  Version:   $Revision: 1.33 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkLongArray.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkLongArray, "$Revision: 1.32 $");
+vtkCxxRevisionMacro(vtkLongArray, "$Revision: 1.33 $");
 vtkStandardNewMacro(vtkLongArray);
 
 vtkDataArray *vtkLongArray::MakeObject()
@@ -376,14 +376,13 @@ float vtkLongArray::GetComponent(const vtkIdType i, const int j)
 // Note that i<NumberOfTuples and j<NumberOfComponents. Make sure enough
 // memory has been allocated (use SetNumberOfTuples() and 
 // SetNumberOfComponents()).
-void vtkLongArray::SetComponent(const vtkIdType i, const int j, const float c)
+void vtkLongArray::SetComponent(const vtkIdType i, const int j, float c)
 {
-  this->SetValue(i*this->NumberOfComponents + j, static_cast<const long>(c));
+  this->SetValue(i*this->NumberOfComponents + j, static_cast<long>(c));
 }
 
-void vtkLongArray::InsertComponent(const vtkIdType i, const int j, 
-                                   const float c)
+void vtkLongArray::InsertComponent(const vtkIdType i, const int j, float c)
 {
   this->InsertValue(i*this->NumberOfComponents + j, 
-                    static_cast<const long>(c));
+                    static_cast<long>(c));
 }
