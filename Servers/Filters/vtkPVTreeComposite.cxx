@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkPVTreeComposite.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-11-19 17:01:41 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 2003-11-19 19:18:49 $
+  Version:   $Revision: 1.43 $
   
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -76,7 +76,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 //-------------------------------------------------------------------------
 vtkStandardNewMacro(vtkPVTreeComposite);
-vtkCxxRevisionMacro(vtkPVTreeComposite, "$Revision: 1.42 $");
+vtkCxxRevisionMacro(vtkPVTreeComposite, "$Revision: 1.43 $");
 
 
 //=========================================================================
@@ -1838,7 +1838,8 @@ void vtkPVTreeComposite::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "EnableAbort: " << this->GetEnableAbort() << endl;
   os << indent << "CompositeTime: " << this->CompositeTime << endl;
   os << indent << "SetBuffersTime: " << this->SetBuffersTime << endl;
-  os << indent << "GetBuffersTime: " << this->GetBuffersTime << endl;
+  os << indent << "GetBuffersTime: " << this->GetGetBuffersTime() << endl;
+  os << indent << "MaxRenderTime: " << this->MaxRenderTime << endl;
   os << indent << "UseChar: " << this->UseChar << endl;
   os << indent << "UseRGB: " << this->UseRGB << endl;
 }
