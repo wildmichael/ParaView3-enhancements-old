@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:29 $
-  Version:   $Revision: 1.87 $
+  Date:      $Date: 2001-01-04 21:01:38 $
+  Version:   $Revision: 1.88 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -154,11 +154,6 @@ public:
   // and then push the properties down to the assemblies parts with
   // ApplyProperties().
   virtual void ApplyProperties() {return;};
-
-  // Description:
-  // Update visualization pipeline and any other parts of actor that are
-  // necessary.
-  virtual void Update();
 
   // Description:
   // Get the actors mtime plus consider its properties, texture and

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:29 $
-  Version:   $Revision: 1.105 $
+  Date:      $Date: 2001-01-04 21:01:38 $
+  Version:   $Revision: 1.106 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -444,16 +444,6 @@ unsigned long int vtkActor::GetRedrawMTime()
     }
 
   return mTime;
-}
-
-// Update visualization pipeline and any other parts of actor that are
-// necessary.
-void vtkActor::Update()
-{
-  if ( this->Mapper )
-    {
-    this->Mapper->Update();
-    }
 }
 
 void vtkActor::PrintSelf(ostream& os, vtkIndent indent)
