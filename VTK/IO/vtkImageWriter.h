@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageWriter.h,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:28:00 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-05-29 17:42:46 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -89,7 +89,7 @@ public:
   
   // Description:
   // Set/Get the input object from the image pipeline.
-  vtkSetObjectMacro(Input,vtkImageCache);
+  vtkSetReferenceCountedObjectMacro(Input,vtkImageCache);
   vtkGetObjectMacro(Input,vtkImageCache);
   void SetInput(vtkStructuredPoints *spts)
     {this->SetInput(spts->GetStructuredPointsToImage()->GetOutput());}

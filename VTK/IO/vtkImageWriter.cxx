@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-04-13 21:06:32 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1998-05-29 17:42:45 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -66,6 +66,12 @@ vtkImageWriter::vtkImageWriter()
 //----------------------------------------------------------------------------
 vtkImageWriter::~vtkImageWriter()
 {
+  if (this->Input)
+    {
+    this->Input->UnRegister(this);
+    this->Input == NULL;
+    }
+  
   // get rid of memory allocated for file names
   if (this->FilePrefix)
     {
