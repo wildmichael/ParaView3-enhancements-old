@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXdmfWriter.h,v $
   Language:  C++
-  Date:      $Date: 2004-01-28 16:44:59 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2004-08-19 21:25:43 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -123,7 +123,8 @@ protected:
     void* mapofcells, const void *celltype );
   virtual int WritePoints( ostream& ost, vtkPoints *Points, const char* gridName );
   virtual int WriteDataArray( ostream& ost, vtkDataArray* array, 
-    int dims[3], const char* Name, const char* Center, int type, const char* gridName );
+    int dims[3], const char* Name, const char* Center, int type, const char* gridName,
+    int active );
   virtual int WriteVTKArray( ostream& ost, vtkDataArray* array, 
     int dims[3], const char* name, const char* dataName, const char* gridName, int alllight);
 
