@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSphere.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 20:00:14 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1996-08-21 20:55:41 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,7 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "vtkSphere.hh"
+#include "vtkSphere.h"
 
 // Description
 // Construct sphere with center at (0,0,0) and radius=0.5.
