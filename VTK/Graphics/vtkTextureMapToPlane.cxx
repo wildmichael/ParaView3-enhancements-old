@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextureMapToPlane.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-06-18 14:02:40 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1996-07-03 20:44:39 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -47,7 +47,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // Construct with s,t range=(0,1) and automatic plane generation turned on.
 vtkTextureMapToPlane::vtkTextureMapToPlane()
 {
-  // all zero - indicates that using normal is preferred
+  // all zero - indicates that using normal is preferred is automatic is off
   this->Origin[0] = this->Origin[1] = this->Origin[2] = 0.0;
   this->Point1[0] = this->Point1[1] = this->Point1[2] = 0.0;
   this->Point2[0] = this->Point2[1] = this->Point2[2] = 0.0;
