@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-15 23:23:42 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1997-05-26 22:06:43 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -170,7 +170,7 @@ void vtkRenderWindowInteractor::HighlightActor(vtkActor *actor)
     }
 
   if ( this->PickedRenderer ) 
-    this->PickedRenderer->RemoveActors(OutlineActor);
+    this->PickedRenderer->RemoveActor(OutlineActor);
 
   if ( ! actor )
     {
@@ -179,7 +179,7 @@ void vtkRenderWindowInteractor::HighlightActor(vtkActor *actor)
   else 
     {
     this->PickedRenderer = this->CurrentRenderer;
-    this->CurrentRenderer->AddActors(OutlineActor);
+    this->CurrentRenderer->AddActor(OutlineActor);
     this->Outline.SetBounds(actor->GetBounds());
     this->CurrentActor = actor;
     }

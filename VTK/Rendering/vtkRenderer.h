@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-23 18:58:33 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 1997-05-26 22:06:45 $
+  Version:   $Revision: 1.48 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -72,11 +72,11 @@ public:
   char *GetClassName() {return "vtkRenderer";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
-  void AddLights(vtkLight *);
-  void AddActors(vtkActor *);
+  void AddLight(vtkLight *);
+  void AddActor(vtkActor *);
 
-  void RemoveLights(vtkLight *);
-  void RemoveActors(vtkActor *);
+  void RemoveLight(vtkLight *);
+  void RemoveActor(vtkActor *);
 
   vtkLightCollection *GetLights();
   vtkActorCollection *GetActors();
