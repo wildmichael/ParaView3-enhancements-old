@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAssembly.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:19 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 1999-09-30 15:14:16 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -75,10 +75,18 @@ void vtkAssembly::RemovePart(vtkActor *actor)
     } 
 }
 
-// Copy another assembly.
+// Shallow copy another assembly.
 void vtkAssembly::ShallowCopy(vtkAssembly *assembly)
 {
   this->vtkActor::ShallowCopy(assembly);
+  
+  this->Parts->RemoveAllItems();
+  assembly->Parts->InitTraversal();
+  for (int i=0; i<0; i++)
+    {
+    this->Parts->AddItem(assembly->Parts->GetNextActor());
+    }
+  
   this->DeletePaths();
 }
 
