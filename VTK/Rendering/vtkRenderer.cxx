@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-09-27 19:01:47 $
-  Version:   $Revision: 1.160 $
+  Date:      $Date: 2000-10-26 14:28:20 $
+  Version:   $Revision: 1.161 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -891,11 +891,11 @@ void vtkRenderer::ResetCameraClippingRange( float bounds[6] )
     }
   else if ( ZBufferDepth <= 24 )
     {
-    range[0] = (range[0] < 0.001*range[1])?(0.001*range[1]):(range[0]);
+    range[0] = (range[0] < 0.01*range[1])?(0.01*range[1]):(range[0]);
     }
   else
     {
-    range[0] = (range[0] < 0.0001*range[1])?(0.0001*range[1]):(range[0]);
+    range[0] = (range[0] < 0.01*range[1])?(0.01*range[1]):(range[0]);
     }
 
   this->ActiveCamera->SetClippingRange( range );
