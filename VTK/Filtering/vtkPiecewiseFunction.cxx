@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPiecewiseFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-15 21:39:59 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1999-06-17 19:56:09 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -50,6 +50,11 @@ vtkPiecewiseFunction::vtkPiecewiseFunction()
   this->FunctionSize  	 = 0;
   this->FunctionRange[0] = 0;
   this->FunctionRange[1] = 0;
+
+  for (int i=0; i < this->ArraySize*2; i++)
+    {
+    this->Function[i] = 0.0;
+    }
 }
 
 // Destruct a vtkPiecewiseFunction
@@ -93,6 +98,11 @@ void vtkPiecewiseFunction::Initialize()
   this->FunctionSize  	 = 0;
   this->FunctionRange[0] = 0;
   this->FunctionRange[1] = 0;
+
+  for (int i=0; i < this->ArraySize*2; i++)
+    {
+    this->Function[i] = 0.0;
+    }
 }
 
 
