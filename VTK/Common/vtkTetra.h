@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTetra.h,v $
   Language:  C++
-  Date:      $Date: 1995-10-25 23:50:39 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1996-01-31 10:18:38 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -78,6 +78,10 @@ public:
   int Triangulate(int index, vtkFloatPoints &pts);
   void Derivatives(int subId, float pcoords[3], float *values, 
                    int dim, float *derivs);
+
+  // triangle specific
+  void TetraCenter(float p1[3], float p2[3], float p3[3], float p4[3], float center[3]);
+  float Circumsphere(float  p1[3], float p2[3], float p3[3], float p4[3], float center[3]);
 };
 
 #endif
