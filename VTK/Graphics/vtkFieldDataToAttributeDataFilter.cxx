@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFieldDataToAttributeDataFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-12 16:08:58 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2001-09-27 18:53:59 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -185,7 +185,7 @@ void vtkFieldDataToAttributeDataFilter::Execute()
     
   if ( num < 1 )
     {
-    vtkErrorMacro(<<"No input points/cells to create attribute data for");
+    vtkDebugMacro(<<"No input points/cells to create attribute data for");
     return;
     }
 
