@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkQuad.h,v $
   Language:  C++
-  Date:      $Date: 1994-03-03 20:05:05 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1994-03-08 20:46:31 $
+  Version:   $Revision: 1.2 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -29,7 +29,10 @@ public:
   vlQuad() {};
   char *GetClassName() {return "vlQuad";};
 
-  float DistanceToPoint(float *x);
+  float EvaluatePosition(float x[3], int& subId, float pcoords[3]);
+  void EvaluateLocation(int& subId, float pcoords[3], float x[3]);
+  void ShapeFunctions(float pcoords[3], float sf[4]);
+  void ShapeDerivs(float pcoords[3], float derivs[12]);
 
 };
 
