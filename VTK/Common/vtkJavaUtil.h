@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkJavaUtil.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-01 07:22:59 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2000-11-10 22:07:32 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -45,8 +45,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "vtkSystemIncludes.h"
 #include <jni.h>
+#include "vtkCommand.h"
 
-class vtkObject;
 
 extern JNIEXPORT int vtkJavaGetId(JNIEnv *env,jobject obj);
 
@@ -83,5 +83,46 @@ struct vtkJavaVoidFuncArg
 
 extern JNIEXPORT void vtkJavaVoidFunc(void *);
 extern JNIEXPORT void vtkJavaVoidFuncArgDelete(void *);
+
+class vtkJavaCommand : public vtkCommand
+{
+public:
+  vtkJavaCommand() { this->vm = NULL;};
+  ~vtkJavaCommand() 
+    { 
+    JNIEnv *e;
+    // it should already be atached
+#ifdef JNI_VERSION_1_2
+    this->vm->AttachCurrentThread((void **)(&e),NULL);
+#else
+    this->vm->AttachCurrentThread((JNIEnv_**)(&e),NULL);
+#endif
+    // free the structure
+    e->DeleteGlobalRef(this->uobj);
+    };
+  void SetGlobalRef(jobject obj) { this->uobj = obj; };
+  void SetMethodID(jmethodID id) { this->mid = id; };
+  void AssignJavaVM(JNIEnv *env) { env->GetJavaVM(&(this->vm)); };
+  
+  void Execute(vtkObject *, void *)
+    {
+    // make sure we have a valid method ID
+    if (this->mid)
+      {
+      JNIEnv *e;
+      // it should already be atached
+#ifdef JNI_VERSION_1_2
+      this->vm->AttachCurrentThread((void **)(&e),NULL);
+#else
+      this->vm->AttachCurrentThread((JNIEnv_**)(&e),NULL);
+#endif
+      e->CallVoidMethod(this->uobj,this->mid,NULL); 
+      }
+    };
+  
+  JavaVM *vm;
+  jobject  uobj;
+  jmethodID mid;
+};
 
 #endif
