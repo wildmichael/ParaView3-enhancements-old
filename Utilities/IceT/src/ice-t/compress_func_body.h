@@ -8,7 +8,7 @@
  * of authorship are reproduced on all copies.
  */
 
-/* $Id: compress_func_body.h,v 1.1 2003-06-17 18:38:54 andy Exp $ */
+/* $Id: compress_func_body.h,v 1.2 2004-08-31 22:05:31 kmorel Exp $ */
 
 /* This is not a traditional header file, but rather a "macro" file that
  * defines the body of a compression function.  In general, there are many
@@ -197,7 +197,8 @@
 
     *_compress_time += icetWallTime() - _timer;
 
-    COMPRESSED_SIZE = (GLuint)_dest - (GLuint)COMPRESSED_BUFFER;
+    COMPRESSED_SIZE = (GLuint)(  (IceTPointerArithmetic)_dest
+			       - (IceTPointerArithmetic)COMPRESSED_BUFFER);
     icetRaiseDebug1("Compression: %d%%",
 		    100 - (100*COMPRESSED_SIZE)/((_pixels+1)*8));
 }
