@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSDIView.cpp,v $
   Language:  C++
-  Date:      $Date: 2002-08-29 12:18:33 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-02-06 18:20:11 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 
 #include "vtkSDIDoc.h"
 #include "vtkSDIView.h"
-
+#include "vtkPolyData.h"
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #undef THIS_FILE
