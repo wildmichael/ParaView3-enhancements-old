@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleSwitch.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:40 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-01-30 15:57:50 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,6 +39,20 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
+// .NAME vtkInteractorStyleSwitch - switch interactor style between joystick and trackball mode
+// .SECTION Description
+// vtkInteractorStyleSwitch is a convenience class that manages the switching
+// between the two most common VTK interactor styles: 
+// vtkInteractorStyleJoystick and vtkInteractorStyleTrackball, and the two
+// common modes: camera or object mode. The class intercepts events, and if
+// keystroke "j" or "t" is received, then the mode is switched to 
+// vtkInteractorStyleJoystick and vtkInteractorStyleTrackball, respectively.
+// If the keystroke "c" or "o" is received, then the mode of interaction
+// is changed between the camera and actor, respectively.
+
+// .SECTION See Also
+// vtkInteractorStyle vtkInteractorStyleTrackball vtkInteractorStyleJoystick
+
 #ifndef __vtkInteractorStyleSwitch_h
 #define __vtkInteractorStyleSwitch_h
 
