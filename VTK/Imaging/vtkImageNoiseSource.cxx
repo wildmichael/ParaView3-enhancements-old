@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageNoiseSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 21:59:07 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-03-27 13:21:00 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder,ill Lorensen.
@@ -128,7 +128,7 @@ void vtkImageNoiseSource::Execute(vtkImageData *data)
   
   // Get increments to march through data 
   data->GetContinuousIncrements(outExt, outIncX, outIncY, outIncZ);
-  outPtr = data->GetScalarPointer(outExt[0],outExt[2],outExt[4]);
+  outPtr = (float *) data->GetScalarPointer(outExt[0],outExt[2],outExt[4]);
   
 
   // Loop through ouput pixels
