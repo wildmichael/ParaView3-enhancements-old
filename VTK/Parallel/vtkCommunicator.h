@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCommunicator.h,v $
   Language:  C++
-  Date:      $Date: 2001-07-02 19:27:12 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-08-02 20:02:33 $
+  Version:   $Revision: 1.4 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -79,6 +79,8 @@ public:
 		   int tag) = 0;
   virtual int Send(float* data, int length, int remoteHandle, 
 		   int tag) = 0;
+  virtual int Send(double* data, int length, int remoteHandle, 
+		   int tag) = 0;
 
   // Description:
   // This method receives a data object from a corresponding send. It blocks
@@ -94,6 +96,8 @@ public:
   virtual int Receive(char* data, int length, int remoteHandle, 
 		      int tag) = 0;
   virtual int Receive(float* data, int length, int remoteHandle, 
+		      int tag) = 0;
+  virtual int Receive(double* data, int length, int remoteHandle, 
 		      int tag) = 0;
 
 protected:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMPICommunicator.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-05-30 13:53:12 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2001-08-02 20:02:33 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -400,6 +400,26 @@ int vtkMPICommunicator::Send(float* data, int length,
     }
 }
 
+//----------------------------------------------------------------------------
+int vtkMPICommunicator::Send(double* data, int length, 
+			     int remoteProcessId, int tag)
+{
+  int err = 
+    MPI_Send(data, length, MPI_DOUBLE, remoteProcessId, tag, 
+	     *(this->Handle));
+  if ( err == MPI_SUCCESS )
+    {
+    return 1;
+    }
+  else
+    {
+    char *msg = vtkMPIController::ErrorString(err);
+    vtkErrorMacro("MPI error occured: " << msg);
+    delete[] msg;
+    return 0;
+    }
+}
+
 
 //----------------------------------------------------------------------------
 int vtkMPICommunicator::NoBlockSend(int* data, int length, 
@@ -573,6 +593,33 @@ int vtkMPICommunicator::Receive(float* data, int length,
     }
   int err = 
     MPI_Recv(data, length, MPI_FLOAT, remoteProcessId, tag, 
+	     *(this->Handle),
+	     &status);
+  if ( err == MPI_SUCCESS )
+    {
+    return 1;
+    }
+  else
+    {
+    char *msg = vtkMPIController::ErrorString(err);
+    vtkErrorMacro("MPI error occured: " << msg);
+    delete[] msg;
+    return 0;
+    }
+}
+
+//----------------------------------------------------------------------------
+int vtkMPICommunicator::Receive(double* data, int length, 
+				int remoteProcessId, int tag)
+{
+  MPI_Status status; 
+
+  if (remoteProcessId == vtkMultiProcessController::ANY_SOURCE)
+    {
+    remoteProcessId = MPI_ANY_SOURCE;
+    }
+  int err = 
+    MPI_Recv(data, length, MPI_DOUBLE, remoteProcessId, tag, 
 	     *(this->Handle),
 	     &status);
   if ( err == MPI_SUCCESS )
