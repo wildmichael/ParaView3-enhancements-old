@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalarTree.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-08 18:55:55 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2002-01-09 13:31:59 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -43,6 +43,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkFloatArray.h"
 #include "vtkObjectFactory.h"
 
+vtkCxxRevisionMacro(vtkScalarTree, "$Revision: 1.25 $");
+
 // Instantiate scalar tree with maximum level of 20 and branching
 // factor of 5.
 vtkScalarTree::vtkScalarTree()
@@ -58,7 +60,7 @@ vtkScalarTree::~vtkScalarTree()
 
 void vtkScalarTree::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkObject::PrintSelf(os,indent);
+  this->Superclass::PrintSelf(os,indent);
 
   if ( this->DataSet )
     {
