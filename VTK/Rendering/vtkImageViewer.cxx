@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageViewer.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-07 17:27:23 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2001-08-09 19:39:27 $
+  Version:   $Revision: 1.34 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -119,7 +119,7 @@ void vtkImageViewer::Render()
     // if it would be smaller than 100 by 100 then limit to 100 by 100
     int xs = ext[1] - ext[0] + 1;
     int ys = ext[3] - ext[2] + 1;
-    this->ImageWindow->SetSize(xs < 100 ? 100 : xs,
+    this->ImageWindow->SetSize(xs < 150 ? 150 : xs,
                                ys < 100 ? 100 : ys);
     }
   
