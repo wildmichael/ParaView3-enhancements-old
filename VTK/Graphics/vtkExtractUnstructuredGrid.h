@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractUnstructuredGrid.h,v $
   Language:  C++
-  Date:      $Date: 1998-01-16 21:21:28 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-09-14 13:21:35 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -63,7 +63,11 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkExtractUnstructuredGrid : public vtkUnstructuredGridFilter
 {
 public:
+
+// Description:
+// Construct with all types of clipping turned off.
   vtkExtractUnstructuredGrid();
+
   static vtkExtractUnstructuredGrid *New() {return new vtkExtractUnstructuredGrid;};
   const char *GetClassName() {return "vtkExtractUnstructuredGrid";};
   void PrintSelf(ostream& os, vtkIndent indent);
@@ -107,8 +111,16 @@ public:
   vtkGetMacro(CellMaximum,int);
 
   // Specify x-y-z box for geometric region clipping
+
+// Description:
+// Specify a (xmin,xmax, ymin,ymax, zmin,zmax) bounding box to clip data.
   void SetExtent(float xMin, float xMax, float yMin, float yMax, float zMin, float zMax);
+
+
+// Description:
+// Specify a (xmin,xmax, ymin,ymax, zmin,zmax) bounding box to clip data.
   void SetExtent(float *extent);
+
   float *GetExtent() { return this->Extent;};
 
   // Description:

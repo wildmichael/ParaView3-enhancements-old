@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextSource.h,v $
   Language:  C++
-  Date:      $Date: 1998-04-20 17:16:43 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1998-09-14 13:21:58 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,7 +64,11 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkTextSource : public vtkPolyDataSource 
 {
 public:
+
+// Description:
+// Construct object with no string set and backing enabled.
   vtkTextSource();
+
   ~vtkTextSource();
   static vtkTextSource *New() {return new vtkTextSource;};
   const char *GetClassName() {return "vtkTextSource";};

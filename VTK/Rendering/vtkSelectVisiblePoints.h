@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSelectVisiblePoints.h,v $
   Language:  C++
-  Date:      $Date: 1998-07-05 19:24:14 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-09-14 13:21:52 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -73,7 +73,12 @@ class vtkRenderer;
 class VTK_EXPORT vtkSelectVisiblePoints : public vtkDataSetToPolyDataFilter
 {
 public:
+
+// Description:
+// Instantiate object with no renderer; window selection turned off; 
+// tolerance set to 0.01; and select invisible off.
   vtkSelectVisiblePoints();
+
   static vtkSelectVisiblePoints *New() {return new vtkSelectVisiblePoints;};
   const char *GetClassName() {return "vtkSelectVisiblePoints";};
   void PrintSelf(ostream& os, vtkIndent indent);

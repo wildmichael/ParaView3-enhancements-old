@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWindowedSincPolyDataFilter.h,v $
   Language:  C++
-  Date:      $Date: 1998-06-11 14:47:30 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-09-14 13:22:05 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -159,7 +159,15 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkWindowedSincPolyDataFilter : public vtkPolyDataToPolyDataFilter 
 {
  public:
+
+// Description:
+// Construct object with number of iterations 20; passband .1;
+// feature edge smoothing turned off; feature 
+// angle 45 degrees; edge angle 15 degrees; and boundary smoothing turned 
+// on. Error scalars and vectors are not generated (by default). The 
+// convergence criterion is 0.0 of the bounding box diagonal.
   vtkWindowedSincPolyDataFilter();
+
   static vtkWindowedSincPolyDataFilter *New() {return new vtkWindowedSincPolyDataFilter;};
   const char *GetClassName() {return "vtkWindowedSincPolyDataFilter";};
   void PrintSelf(ostream& os, vtkIndent indent);

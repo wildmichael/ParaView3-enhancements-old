@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractEdges.h,v $
   Language:  C++
-  Date:      $Date: 1998-05-29 17:41:59 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1998-09-14 13:21:35 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -53,14 +53,23 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkExtractEdges : public vtkDataSetToPolyDataFilter
 {
 public:
+
+// Description:
+// Construct object.
   vtkExtractEdges();
+
   ~vtkExtractEdges();
   static vtkExtractEdges *New() {return new vtkExtractEdges;};
   const char *GetClassName() {return "vtkExtractEdges";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Specify locator (default locator created otherwise).
+
+// Description:
+// Specify a spatial locator for merging points. By
+// default an instance of vtkMergePoints is used.
   void SetLocator(vtkPointLocator *locator);
+
   void SetLocator(vtkPointLocator& locator) {this->SetLocator(&locator);};
   vtkGetObjectMacro(Locator,vtkPointLocator);
 

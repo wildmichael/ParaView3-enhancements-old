@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitBoolean.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:45:06 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1998-09-14 13:21:39 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -68,22 +68,42 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkImplicitBoolean : public vtkImplicitFunction
 {
 public:
+
+// Description:
+// 
   vtkImplicitBoolean();
+
   ~vtkImplicitBoolean();
   static vtkImplicitBoolean *New() {return new vtkImplicitBoolean;};
   const char *GetClassName() {return "vtkImplicitBoolean";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // ImplicitFunction interface
+
+// Description
+// Evaluate boolean combinations of implicit function using current operator.
   float EvaluateFunction(float x[3]);
+
+
+// Description
+// Evaluate gradient of boolean combination.
   void EvaluateGradient(float x[3], float g[3]);
+
 
   // Override modified time retrieval because of object dependencies.
   unsigned long int GetMTime();
 
+
+// Description:
+// Add another implicit function to the list of functions.
   void AddFunction(vtkImplicitFunction *in);
+
   void AddFunction(vtkImplicitFunction &in) {this->AddFunction(&in);};
+
+// Description:
+// Remove a function from the list of implicit functions to boolean.
   void RemoveFunction(vtkImplicitFunction *in);
+
   void RemoveFunction(vtkImplicitFunction &in) {this->RemoveFunction(&in);};
   vtkImplicitFunctionCollection *GetFunction() {return &(this->FunctionList);};
 

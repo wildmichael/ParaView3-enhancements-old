@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProperty.h,v $
   Language:  C++
-  Date:      $Date: 1998-08-10 16:30:40 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 1998-09-14 13:21:48 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -63,12 +63,23 @@ class vtkActor;
 class VTK_EXPORT vtkProperty : public vtkReferenceCount
 {
 public:
+
+// Description:
+// Construct object with object color, ambient color, diffuse color,
+// specular color, and edge color white; ambient coefficient=0; diffuse 
+// coefficient=0; specular coefficient=0; specular power=1; Gouraud shading;
+// and surface representation. Backface and frontface culling are off.
   vtkProperty();
+
   static vtkProperty *New();
   const char *GetClassName() {return "vtkProperty";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
+
+// Description:
+// Assign one property to another. 
   vtkProperty &operator=(const vtkProperty& p);
+
 
   // Description:
   // This method causes the property to set up whatever is required for

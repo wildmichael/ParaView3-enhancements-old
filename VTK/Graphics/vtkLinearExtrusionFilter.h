@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinearExtrusionFilter.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:45:23 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1998-09-14 13:21:41 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -81,7 +81,12 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkLinearExtrusionFilter : public vtkPolyDataToPolyDataFilter 
 {
 public:
+
+// Description:
+// Create object with normal extrusion type, capping on, scale factor=1.0,
+// vector (0,0,1), and extrusion point (0,0,0).
   vtkLinearExtrusionFilter();
+
   static vtkLinearExtrusionFilter *New() {return new vtkLinearExtrusionFilter;};
   const char *GetClassName() {return "vtkLinearExtrusionFilter";};
   void PrintSelf(ostream& os, vtkIndent indent);

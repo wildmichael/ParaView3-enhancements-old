@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastCompositeFunction.h,v $
   Language:  C++
-  Date:      $Date: 1997-08-18 14:54:27 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-09-14 13:22:03 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,11 +57,24 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkVolumeRayCastCompositeFunction : public vtkVolumeRayCastFunction
 {
 public:
+
+// Description:
+// Constructor for the vtkVolumeRayCastCompositeFunction class
   vtkVolumeRayCastCompositeFunction();
+
+
+// Description:
+// Destruct the vtkVolumeRayCastCompositeFunction
   ~vtkVolumeRayCastCompositeFunction();
+
   static vtkVolumeRayCastCompositeFunction *New() {return new vtkVolumeRayCastCompositeFunction;};
   const char *GetClassName() {return "vtkVolumeRayCastCompositeFunction";};
+
+// Description:
+// Print method for vtkVolumeRayCastCompositeFunction
+// Since there is nothing local to print, just print the object stuff.
   void PrintSelf( ostream& os, vtkIndent index );
+
 
   // Description:
   // Give a ray type (0 = unsigned char, 1 = unsigned short,
@@ -75,7 +88,12 @@ public:
 		 float ray_position[3], float ray_increment[3],
 		 int num_steps, float pixel_value[6] );
 
+
+// Description:
+// Bogus routine right now until I figure out how to get to the
+// volume's properties from here....
   float GetZeroOpacityThreshold( vtkVolume *vol );
+
 
 protected:
   void SpecificFunctionInitialize( vtkRenderer *ren,

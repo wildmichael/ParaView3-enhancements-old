@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThresholdTextureCoords.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:48:41 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1998-09-14 13:22:00 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -69,9 +69,21 @@ public:
   const char *GetClassName() {return "vtkThresholdTextureCoords";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
+
+// Description:
+// Criterion is cells whose scalars are less than lower threshold.
   void ThresholdByLower(float lower);
+
+
+// Description:
+// Criterion is cells whose scalars are less than upper threshold.
   void ThresholdByUpper(float upper);
+
+
+// Description:
+// Criterion is cells whose scalars are between lower and upper thresholds.
   void ThresholdBetween(float lower, float upper);
+
   
   vtkGetMacro(UpperThreshold,float);
   vtkGetMacro(LowerThreshold,float);

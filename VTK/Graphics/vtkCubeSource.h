@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCubeSource.h,v $
   Language:  C++
-  Date:      $Date: 1998-08-26 12:07:56 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1998-09-14 13:21:30 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -77,10 +77,18 @@ public:
   vtkSetVector3Macro(Center,float);
   vtkGetVectorMacro(Center,float,3);
 
+
+// Description:
+// Convenience method allows creation of cube by specifying bounding box.
   void SetBounds(float xMin, float xMax,
 	         float yMin, float yMax,
 		 float zMin, float zMax);
+
+
+// Description:
+// Convenience method allows creation of cube by specifying bounding box.
   void SetBounds(float bounds[6]);
+
 
 protected:
   void Execute();

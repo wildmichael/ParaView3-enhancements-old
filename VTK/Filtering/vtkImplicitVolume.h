@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitVolume.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:45:12 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1998-09-14 13:21:40 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -68,7 +68,12 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkImplicitVolume : public vtkImplicitFunction
 {
 public:
+
+// Description
+// Construct an vtkImplicitVolume with no initial volume; the OutValue
+// set to a large negative number; and the OutGradient set to (0,0,1).
   vtkImplicitVolume();
+
   static vtkImplicitVolume *New() {return new vtkImplicitVolume;};
   const char *GetClassName() {return "vtkImplicitVolume";};
   void PrintSelf(ostream& os, vtkIndent indent);
@@ -76,8 +81,17 @@ public:
   unsigned long int GetMTime();
 
   // ImplicitFunction interface
+
+// Description
+// Evaluate the ImplicitVolume. This returns the interpolated scalar value
+// at x[3].
   float EvaluateFunction(float x[3]);
+
+
+// Description
+// Evaluate ImplicitVolume gradient.
   void EvaluateGradient(float x[3], float n[3]);
+
 
   // Description:
   // Specify the volume for the implicit function.

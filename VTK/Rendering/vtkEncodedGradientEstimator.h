@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEncodedGradientEstimator.h,v $
   Language:  C++
-  Date:      $Date: 1998-08-11 20:19:44 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-09-14 13:21:34 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,10 +56,27 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkEncodedGradientEstimator : public vtkReferenceCount
 {
 public:
+
+// Description:
+// Construct a vtkEncodedGradientEstimator with initial values of NULL for
+// the ScalarInput, EncodedNormal, and GradientMagnitude. Also,
+// indicate that the IndexTable has not yet been initialized. The
+// GradientMagnitudeRange and the GradientMangitudeTable are 
+// initialized to default values - these will change in the future
+// when magnitude of gradient opacities are included
   vtkEncodedGradientEstimator();
+
+
+// Description:
+// Destruct a vtkEncodedGradientEstimator - free up any memory used
   ~vtkEncodedGradientEstimator();
+
   const char *GetClassName() {return "vtkEncodedGradientEstimator";};
+
+// Description:
+// Print the vtkEncodedGradientEstimator
   void PrintSelf( ostream& os, vtkIndent index );
+
 
   // Description:
   // Set/Get the scalar input for which the normals will be 

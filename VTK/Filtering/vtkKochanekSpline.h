@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKochanekSpline.h,v $
   Language:  C++
-  Date:      $Date: 1998-07-17 14:26:39 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-09-14 13:21:40 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -75,12 +75,23 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkKochanekSpline : public vtkSpline
 {
 public:
+
+// Description:
+// Construct a KochanekSpline wth the following defaults:
+// DefaultBias = 0,
+// DefaultTension = 0,
+// DefaultContinuity = 0.
   vtkKochanekSpline();
+
   static vtkKochanekSpline *New() {return new vtkKochanekSpline;};
   const char *GetClassName() {return "vtkKochanekSpline";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
+
+// Description:
+// Compute Kochanek Spline coefficients.
   void Compute ();
+
 
   // Description:
   // Evaluate a 1D Kochanek spline.

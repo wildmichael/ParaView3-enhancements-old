@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAppendPolyData.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:43:01 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1998-09-14 13:21:27 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,9 +64,17 @@ public:
   const char *GetClassName() {return "vtkAppendPolyData";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
+
+// Description:
+// Add a dataset to the list of data to append.
   void AddInput(vtkPolyData *);
+
   void AddInput(vtkPolyData& in) {this->AddInput(&in);};
+
+// Description:
+// Remove a dataset from the list of data to append.
   void RemoveInput(vtkPolyData *);
+
   void RemoveInput(vtkPolyData& in) {this->RemoveInput(&in);};
   vtkPolyDataCollection *GetInput() {return &(this->InputList);};
 

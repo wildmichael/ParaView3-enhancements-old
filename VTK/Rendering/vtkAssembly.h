@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAssembly.h,v $
   Language:  C++
-  Date:      $Date: 1998-03-11 21:13:30 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1998-09-14 13:21:27 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -85,19 +85,43 @@ class vtkAssemblyPaths;
 class VTK_EXPORT vtkAssembly : public vtkActor
 {
 public:
+
+// Description:
+// Construct object with no children.
   vtkAssembly();
+
   ~vtkAssembly();
   static vtkAssembly *New() {return new vtkAssembly;};
   const char *GetClassName() {return "vtkAssembly";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
+
+// Description:
+// Copy another assembly.
   vtkAssembly &operator=(const vtkAssembly& assembly);
 
+
+
+// Description:
+// Add a part to the list of parts.
   void AddPart(vtkActor *);
+
+
+// Description:
+// Remove a part from the list of parts,
   void RemovePart(vtkActor *);
+
   vtkActorCollection *GetParts();
 
+
+// Description:
+// Render this assembly and all its parts. The rendering process is recursive.
+// Note that a mapper need not be defined. If not defined, then no geometry 
+// will be drawn for this assembly. This allows you to create "logical"
+// assemblies; that is, assemblies that only serve to group and transform
+// its parts.
   void Render(vtkRenderer *ren);
+
 
   // Description:
   // Methods to traverse the parts of an assembly. Each part (starting from
@@ -117,7 +141,11 @@ public:
 
   void ApplyProperties(); //recursive application of properties
 
+
+// Description:
+// Get the bounds for the assembly as (Xmin,Xmax,Ymin,Ymax,Zmin,Zmax).
   float *GetBounds();
+
   unsigned long int GetMTime();
 
 protected:

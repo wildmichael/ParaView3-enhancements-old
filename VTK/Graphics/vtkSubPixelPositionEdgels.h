@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSubPixelPositionEdgels.h,v $
   Language:  C++
-  Date:      $Date: 1998-06-23 19:13:33 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1998-09-14 13:21:58 $
+  Version:   $Revision: 1.10 $
 
 Copyright (c) 1993-1997 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -68,9 +68,18 @@ public:
   vtkSubPixelPositionEdgels();
   static vtkSubPixelPositionEdgels *New() {return new vtkSubPixelPositionEdgels;};
   const char *GetClassName() {return "vtkSubPixelPositionEdgels";};
+
+// Description:
+// Print the state of the class.
   void PrintSelf(ostream& os, vtkIndent indent);
 
+
+
+// Description:
+// Override update method because execution can branch two ways 
+// (Input and GradMaps)
   void Update();
+
 
   // Description:
   // Set/Get the gradient data for doing the position adjustments.

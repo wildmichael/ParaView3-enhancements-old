@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsGeometryFilter.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:48:14 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1998-09-14 13:21:57 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -65,13 +65,21 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkStructuredPointsGeometryFilter : public vtkStructuredPointsToPolyDataFilter
 {
 public:
+
+// Description:
+// Construct with initial extent of all the data
   vtkStructuredPointsGeometryFilter();
+
   static vtkStructuredPointsGeometryFilter *New() {return new vtkStructuredPointsGeometryFilter;};
   const char *GetClassName() {return "vtkStructuredPointsGeometryFilter";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
   void SetExtent(int iMin, int iMax, int jMin, int jMax, int kMin, int kMax);
+
+// Description:
+// Specify (imin,imax, jmin,jmax, kmin,kmax) indices.
   void SetExtent(int *extent);
+
   int *GetExtent() { return this->Extent;};
 
 protected:

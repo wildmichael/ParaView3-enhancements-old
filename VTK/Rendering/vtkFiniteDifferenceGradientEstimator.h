@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFiniteDifferenceGradientEstimator.h,v $
   Language:  C++
-  Date:      $Date: 1998-08-26 12:09:14 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-09-14 13:21:37 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -53,11 +53,23 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkFiniteDifferenceGradientEstimator : public vtkEncodedGradientEstimator
 {
 public:
+
+// Description:
+// Construct a vtkFiniteDifferenceGradientEstimator 
   vtkFiniteDifferenceGradientEstimator();
+
+
+// Description:
+// Destruct a vtkFiniteDifferenceGradientEstimator - free up any memory used
   ~vtkFiniteDifferenceGradientEstimator();
+
   static vtkFiniteDifferenceGradientEstimator *New() {return new vtkFiniteDifferenceGradientEstimator;};
   const char *GetClassName() {return "vtkFiniteDifferenceGradientEstimator";};
+
+// Description:
+// Print the vtkFiniteDifferenceGradientEstimator
   void PrintSelf( ostream& os, vtkIndent index );
+
 
   // Description:
   // Set/Get the spacing between samples for the finite differences

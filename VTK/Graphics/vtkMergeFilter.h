@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergeFilter.h,v $
   Language:  C++
-  Date:      $Date: 1998-04-23 19:45:16 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1998-09-14 13:21:42 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -61,7 +61,11 @@ class vtkRectilinearGrid;
 class VTK_EXPORT vtkMergeFilter : public vtkFilter
 {
 public:
+
+// Description:
+// Create object with no input or output.
   vtkMergeFilter();
+
   ~vtkMergeFilter();
   static vtkMergeFilter *New() {return new vtkMergeFilter;};
   const char *GetClassName() {return "vtkMergeFilter";};

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTexturedSphereSource.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:48:36 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1998-09-14 13:21:59 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,7 +56,12 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkTexturedSphereSource : public vtkPolyDataSource 
 {
 public:
+
+// Description:
+// Construct sphere with radius=0.5 and default resolution 8 in both Phi
+// and Theta directions.
   vtkTexturedSphereSource(int res=8);
+
   static vtkTexturedSphereSource *New() {return new vtkTexturedSphereSource;};
   const char *GetClassName() {return "vtkTexturedSphereSource";};
   void PrintSelf(ostream& os, vtkIndent indent);

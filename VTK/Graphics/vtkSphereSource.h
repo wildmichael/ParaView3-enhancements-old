@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSphereSource.h,v $
   Language:  C++
-  Date:      $Date: 1998-08-03 19:24:09 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 1998-09-14 13:21:53 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -60,7 +60,12 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkSphereSource : public vtkPolyDataSource 
 {
 public:
+
+// Description:
+// Construct sphere with radius=0.5 and default resolution 8 in both Phi
+// and Theta directions. Theta ranges from (0,360) and phi (0,180) degrees.
   vtkSphereSource(int res=8);
+
   static vtkSphereSource *New() {return new vtkSphereSource;};
   const char *GetClassName() {return "vtkSphereSource";};
   void PrintSelf(ostream& os, vtkIndent indent);

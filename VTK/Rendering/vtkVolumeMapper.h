@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeMapper.h,v $
   Language:  C++
-  Date:      $Date: 1998-08-20 20:41:13 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1998-09-14 13:22:03 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -63,9 +63,17 @@ class vtkVolume;
 class VTK_EXPORT vtkVolumeMapper : public vtkObject
 {
 public:
+
+// Description:
+// Construct a vtkVolumeMapper with empty scalar input and clipping off.
   vtkVolumeMapper();
+
   const char *GetClassName() {return "vtkVolumeMapper";};
+
+// Description:
+// Print the vtkVolumeMapper
   void PrintSelf( ostream& os, vtkIndent index );
+
 
   virtual void Render(vtkRenderer *ren, vtkVolume *vol) = 0;
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSpatialRepresentationFilter.h,v $
   Language:  C++
-  Date:      $Date: 1998-05-29 17:42:10 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-09-14 13:21:53 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -112,7 +112,11 @@ public:
   // reset requested output levels
   void ResetOutput();
 
+
+// Description:
+// Update input to this filter and the filter itself.
   void Update();
+
 
 protected:
   void Execute();

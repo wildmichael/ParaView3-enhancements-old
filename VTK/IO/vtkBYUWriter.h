@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBYUWriter.h,v $
   Language:  C++
-  Date:      $Date: 1998-07-02 12:23:23 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1998-09-14 13:21:27 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,7 +59,12 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkBYUWriter : public vtkPolyDataWriter
 {
 public:
+
+// Description:
+// Create object so that it writes displacement, scalar, and texture files
+// (if data is available).
   vtkBYUWriter();
+
   ~vtkBYUWriter();
   static vtkBYUWriter *New() {return new vtkBYUWriter;};
   const char *GetClassName() {return "vtkBYUWriter";};

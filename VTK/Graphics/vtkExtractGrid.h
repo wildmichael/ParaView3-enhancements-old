@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractGrid.h,v $
   Language:  C++
-  Date:      $Date: 1998-08-29 20:06:06 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1998-09-14 13:21:35 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -68,7 +68,11 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkExtractGrid : public vtkStructuredGridToStructuredGridFilter
 {
 public:
+
+// Description:
+// Construct object to extract all of the input data.
   vtkExtractGrid();
+
   static vtkExtractGrid *New() {return new vtkExtractGrid;};
   const char *GetClassName() {return "vtkExtractGrid";};
   void PrintSelf(ostream& os, vtkIndent indent);

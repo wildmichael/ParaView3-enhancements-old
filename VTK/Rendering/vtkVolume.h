@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume.h,v $
   Language:  C++
-  Date:      $Date: 1997-12-11 22:02:02 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1998-09-14 13:22:02 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,13 +64,27 @@ class vtkRenderer;
 class VTK_EXPORT vtkVolume : public vtkProp
 {
  public:
+
+// Description:
+// Creates a Volume with the following defaults: origin(0,0,0) 
+// position=(0,0,0) scale=1 visibility=1 pickable=1 dragable=1
+// orientation=(0,0,0).
   vtkVolume();
+
+
+// Description:
+// Destruct a volume
   ~vtkVolume();
+
   static vtkVolume *New() {return new vtkVolume;};
   const char *GetClassName() {return "vtkVolume";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
+
+// Description:
+// Shallow copy of an volume.
   vtkVolume &operator=(const vtkVolume& volume);
+
 
   virtual void Render(vtkRenderer *ren);
   virtual void Update();

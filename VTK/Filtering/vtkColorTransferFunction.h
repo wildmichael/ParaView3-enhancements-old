@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkColorTransferFunction.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:43:26 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-09-14 13:21:29 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,11 +55,23 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkColorTransferFunction : public vtkObject 
 {
 public:
+
+// Description:
+// Construct a new vtkColorTransferFunction with default values
   vtkColorTransferFunction();
+
+
+// Description:
+// Destruct a vtkColorTransferFunction
   ~vtkColorTransferFunction();
+
   static vtkColorTransferFunction *New() {return new vtkColorTransferFunction;};
   const char *GetClassName() {return "vtkColorTransferFunction";};
+
+// Description:
+// Print method for vtkColorTransferFunction
   void PrintSelf(ostream& os, vtkIndent indent);
+
 
   // Description:
   // Returns the sum of the number of function points used to specify 

@@ -4,8 +4,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFrustumCoverageCuller.h,v $
   Language:  C++
-  Date:      $Date: 1998-08-20 20:41:10 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-09-14 13:21:37 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -68,7 +68,11 @@ class vtkRenderer;
 class VTK_EXPORT vtkFrustumCoverageCuller : public vtkCuller
 {
 public:
+
+// Description:
+// Create a frustum coverage culler with default values
   vtkFrustumCoverageCuller();
+
   static vtkFrustumCoverageCuller *New() {return new vtkFrustumCoverageCuller;};
   const char *GetClassName() {return "vtkFrustumCoverageCuller";};
   void PrintSelf(ostream& os,vtkIndent indent);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTexture.h,v $
   Language:  C++
-  Date:      $Date: 1998-04-16 21:11:12 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1998-09-14 13:21:58 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -75,7 +75,11 @@ class vtkRenderer;
 class VTK_EXPORT vtkTexture : public vtkObject
 {
 public:
+
+// Description:
+// Construct object and initialize.
   vtkTexture();
+
   ~vtkTexture();
   static vtkTexture *New();
   const char *GetClassName() {return "vtkTexture";};

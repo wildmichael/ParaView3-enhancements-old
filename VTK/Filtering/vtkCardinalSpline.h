@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCardinalSpline.h,v $
   Language:  C++
-  Date:      $Date: 1998-07-17 14:26:37 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-09-14 13:21:28 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,12 +55,20 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkCardinalSpline : public vtkSpline
 {
 public:
+
+// Description:
+// Construct a Cardinal Spline.
   vtkCardinalSpline();
+
   static vtkCardinalSpline *New() {return new vtkCardinalSpline;};
   const char *GetClassName() {return "vtkCardinalSpline";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
+
+// Description
+// Compute Cardinal Splines for each dependent variable
   void Compute ();
+
 
   // Description:
   // Evaluate a 1D cardinal spline.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTubeFilter.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:48:54 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1998-09-14 13:22:00 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -70,7 +70,12 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkTubeFilter : public vtkPolyDataToPolyDataFilter
 {
 public:
+
+// Description:
+// Construct object with radius 0.5, radius variation turned off, the number 
+// of sides set to 3, and radius factor of 10.
   vtkTubeFilter();
+
   static vtkTubeFilter *New() {return new vtkTubeFilter;};
   const char *GetClassName() {return "vtkTubeFilter";};
   void PrintSelf(ostream& os, vtkIndent indent);

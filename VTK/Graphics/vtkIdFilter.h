@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIdFilter.h,v $
   Language:  C++
-  Date:      $Date: 1998-06-15 20:29:26 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-09-14 13:21:38 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,7 +58,12 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkIdFilter : public vtkDataSetToDataSetFilter 
 {
 public:
+
+// Description:
+// Construct object with PointIds and CellIds on; and ids being generated
+// as scalars.
   vtkIdFilter();
+
   static vtkIdFilter *New() {return new vtkIdFilter;};
   const char *GetClassName() {return "vtkIdFilter";};
   void PrintSelf(ostream& os, vtkIndent indent);

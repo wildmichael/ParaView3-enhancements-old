@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipPolyData.h,v $
   Language:  C++
-  Date:      $Date: 1998-08-19 17:40:43 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1998-09-14 13:21:29 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -88,7 +88,12 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkClipPolyData : public vtkPolyDataToPolyDataFilter
 {
 public:
+
+// Description:
+// Construct with user-specified implicit function; InsideOut turned off; value
+// set to 0.0; and generate clip scalars turned off.
   vtkClipPolyData(vtkImplicitFunction *cf=NULL);
+
   ~vtkClipPolyData();
   static vtkClipPolyData *New() {return new vtkClipPolyData;};
   const char *GetClassName() {return "vtkClipPolyData";};
@@ -137,7 +142,12 @@ public:
 
   vtkPolyData *GetClippedOutput() {return this->ClippedOutput;};
 
+
+// Description:
+// Specify a spatial locator for merging points. By default, 
+// an instance of vtkMergePoints is used.
   void SetLocator(vtkPointLocator *locator);
+
   void SetLocator(vtkPointLocator& locator) {this->SetLocator(&locator);};
   vtkGetObjectMacro(Locator,vtkPointLocator);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRotationalExtrusionFilter.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:47:15 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1998-09-14 13:21:51 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -84,7 +84,13 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkRotationalExtrusionFilter : public vtkPolyDataToPolyDataFilter 
 {
 public:
+
+// Description:
+// Create object with capping on, angle of 360 degrees, resolution = 12, and
+// no translation along z-axis.
+// vector (0,0,1), and point (0,0,0).
   vtkRotationalExtrusionFilter();
+
   static vtkRotationalExtrusionFilter *New() {return new vtkRotationalExtrusionFilter;};
   const char *GetClassName() {return "vtkRotationalExtrusionFilter";};
   void PrintSelf(ostream& os, vtkIndent indent);

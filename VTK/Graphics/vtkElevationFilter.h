@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkElevationFilter.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:44:19 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1998-09-14 13:21:34 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -54,7 +54,12 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkElevationFilter : public vtkDataSetToDataSetFilter 
 {
 public:
+
+// Description:
+// Construct object with LowPoint=(0,0,0) and HighPoint=(0,0,1). Scalar
+// range is (0,1).
   vtkElevationFilter();
+
   static vtkElevationFilter *New() {return new vtkElevationFilter;};
   const char *GetClassName() {return "vtkElevationFilter";};
   void PrintSelf(ostream& os, vtkIndent indent);

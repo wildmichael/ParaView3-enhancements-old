@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPicker.h,v $
   Language:  C++
-  Date:      $Date: 1998-06-19 20:37:37 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1998-09-14 13:21:44 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -132,17 +132,54 @@ public:
   vtkPoints *GetPickedPositions() {return this->PickedPositions;};
   
   
+
+// Description:
+// Perform pick operation with selection point provided. Normally the 
+// first two values for the selection point are x-y pixel coordinate, and
+// the third value is =0. Return non-zero if something was successfully picked.
   virtual int Pick(float selectionX, float selectionY, float selectionZ, 
            vtkRenderer *renderer);  
+
+
+// Description:
+// Perform pick operation with selection point provided. Normally the 
+// first two values for the selection point are x-y pixel coordinate, and
+// the third value is =0. Return non-zero if something was successfully picked.
   int Pick(float selectionPt[3], vtkRenderer *renderer);  
 
+
   // Methods to invoke during picking process
+
+// Description:
+// Specify function to be called as picking operation begins.
   void SetStartPickMethod(void (*f)(void *), void *arg);
+
+
+// Description:
+// Specify function to be called when something is picked.
   void SetPickMethod(void (*f)(void *), void *arg);
+
+
+// Description:
+// Specify function to be called after all picking operations have been
+// performed.
   void SetEndPickMethod(void (*f)(void *), void *arg);
+
+
+// Description:
+// Set a method to delete user arguments for StartPickMethod.
   void SetStartPickMethodArgDelete(void (*f)(void *));
+
+
+// Description:
+// Set a method to delete user arguments for PickMethod.
   void SetPickMethodArgDelete(void (*f)(void *));
+
+
+// Description:
+// Set a method to delete user arguments for EndPickMethod.
   void SetEndPickMethodArgDelete(void (*f)(void *));
+
 
   // Description:
   // Use these methods to control whether to limit the picking to this list
@@ -152,9 +189,21 @@ public:
   vtkGetMacro(PickFromList,int);
   vtkBooleanMacro(PickFromList,int);
 
+
+// Description:
+// Initialize list of actors in pick list.
   void InitializePickList();
+
+
+// Description:
+// Add an actor to the pick list.
   void AddPickList(vtkActor *a);
+
+
+// Description:
+// Delete an actor from the pick list.
   void DeletePickList(vtkActor *a);
+
   vtkActorCollection *GetPickList() {return this->PickList;}
 
 protected:

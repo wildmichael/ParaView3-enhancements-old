@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastMapper.h,v $
   Language:  C++
-  Date:      $Date: 1998-08-11 20:19:47 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1998-09-14 13:22:04 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -85,11 +85,23 @@ class vtkVolume;
 class VTK_EXPORT vtkVolumeRayCastMapper : public vtkVolumeMapper
 {
 public:
+
+// Description:
+// Construct a new vtkVolumeRayCastMapper with default values
   vtkVolumeRayCastMapper();
+
+
+// Description:
+// Destruct a vtkVolumeRayCastMapper - clean up any memory used
   ~vtkVolumeRayCastMapper();
+
   static vtkVolumeRayCastMapper *New() {return new vtkVolumeRayCastMapper;};
   const char *GetClassName() {return "vtkVolumeRayCastMapper";};
+
+// Description:
+// Print method for vtkVolumeRayCastMapper
   void PrintSelf( ostream& os, vtkIndent index );
+
 
   // Description:
   // Set/Get the distance between samples.  This variable is only

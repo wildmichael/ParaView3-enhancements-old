@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkConnectivityFilter.h,v $
   Language:  C++
-  Date:      $Date: 1998-04-12 13:13:40 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1998-09-14 13:21:30 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -78,7 +78,11 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkConnectivityFilter : public vtkDataSetToUnstructuredGridFilter
 {
 public:
+
+// Description:
+// Construct with default extraction mode to extract largest regions.
   vtkConnectivityFilter();
+
   ~vtkConnectivityFilter();
   static vtkConnectivityFilter *New() {return new vtkConnectivityFilter;};
   const char *GetClassName() {return "vtkConnectivityFilter";};
@@ -115,16 +119,44 @@ public:
   char *GetExtractionModeAsString();
 
   // Use with point or cell seeded extraction methods
+
+// Description:
+// Initialize list of point ids/cell ids used to seed regions.
   void InitializeSeedList();
+
+
+// Description:
+// Add a seed id (point or cell id). Note: ids are 0-offset.
   void AddSeed(int id);
+
+
+// Description:
+// Delete a seed id (point or cell id). Note: ids are 0-offset.
   void DeleteSeed(int id);
 
+
   // Use with extract specified regions 
+
+// Description:
+// Initialize list of region ids to extract.
   void InitializeSpecifiedRegionList();
+
+
+// Description:
+// Add a region id to extract. Note: ids are 0-offset.
   void AddSpecifiedRegion(int id);
+
+
+// Description:
+// Delete a region id to extract. Note: ids are 0-offset.
   void DeleteSpecifiedRegion(int id);
 
+
+
+// Description:
+// Obtain the number of connected regions.
   int GetNumberOfExtractedRegions();
+
 
   // Description:
   // The connectivity extraction algorithm works recursively. In some systems 

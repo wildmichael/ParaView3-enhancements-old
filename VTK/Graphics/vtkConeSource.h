@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkConeSource.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:43:31 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 1998-09-14 13:21:30 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,7 +57,12 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkConeSource : public vtkPolyDataSource 
 {
 public:
+
+// Description:
+// Construct with default resolution 6, height 1.0, radius 0.5, and capping
+// on.
   vtkConeSource(int res=6);
+
   static vtkConeSource *New() {return new vtkConeSource;};
   const char *GetClassName() {return "vtkConeSource";};
   void PrintSelf(ostream& os, vtkIndent indent);

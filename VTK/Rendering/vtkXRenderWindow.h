@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 1998-07-02 11:57:21 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 1998-09-14 13:22:07 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -75,28 +75,77 @@ public:
   virtual void *GetGenericContext();
   virtual void *GetGenericDrawable()  {return (void *)this->WindowId;};
 
+
+// Description:
+// Get the current size of the window in pixels.
   int     *GetSize();
+
+
+// Description:
+// Get the size of the screen in pixels
   int     *GetScreenSize();
+
+
+// Description:
+// Get the position in screen coordinates (pixels) of the window.
   int     *GetPosition();
+
+
+// Description:
+// Get this RenderWindow's X display id.
   Display *GetDisplayId();
+
+
+// Description:
+// Set the X display id for this RenderWindow to use to a pre-existing 
+// X display id.
   void     SetDisplayId(Display *);
+
   void     SetDisplayId(void *);
+
+// Description:
+// Get this RenderWindow's parent X window id.
   Window   GetParentId();
+
+
+// Description:
+// Sets the parent of the window that WILL BE created.
   void     SetParentId(Window);
+
   void     SetParentId(void *);
+
+// Description:
+// Get this RenderWindow's X window id.
   Window   GetWindowId();
+
+
+// Description:
+// Set this RenderWindow's X window id to a pre-existing window.
   void     SetWindowId(Window);
+
   void     SetWindowId(void *);
+
+// Description:
+// Specify the X window id to use if a WindowRemap is done.
   void     SetNextWindowId(Window);
+
   void     SetWindowName(char *);
+
+// Description:
+// Move the window to a new position on the display.
   void     SetPosition(int,int);
+
   virtual int      GetDesiredDepth()    = 0;
   virtual Colormap GetDesiredColormap() = 0;
   virtual Visual  *GetDesiredVisual()   = 0;
   virtual  int GetEventPending();
   
   // useful for scripting languages
+
+// Description:
+// Set this RenderWindow's X window id to a pre-existing window.
   void     SetWindowInfo(char *info);
+
 
 protected:
   Window   ParentId;

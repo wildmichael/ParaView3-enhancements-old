@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRecursiveSphereDirectionEncoder.h,v $
   Language:  C++
-  Date:      $Date: 1998-08-11 17:23:59 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-09-14 13:21:49 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -53,11 +53,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkRecursiveSphereDirectionEncoder : public vtkDirectionEncoder
 {
 public:
+
+// Description:
+// Construct the object. Initialize the index table which will be
+// used to map the normal into a patch on the recursively subdivided
+// sphere.
   vtkRecursiveSphereDirectionEncoder();
+
+
+// Description:
+// Destruct a vtkRecursiveSphereDirectionEncoder - free up any memory used
   ~vtkRecursiveSphereDirectionEncoder();
+
   static vtkRecursiveSphereDirectionEncoder *New() {return new vtkRecursiveSphereDirectionEncoder;};
   const char *GetClassName() {return "vtkRecursiveSphereDirectionEncoder";};
+
+// Description:
+// Print the vtkRecursiveSphereDirectionEncoder
   void PrintSelf( ostream& os, vtkIndent index );
+
 
   // Description:
   // Given a normal vector n, return the encoded direction  

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitTextureCoords.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:45:10 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1998-09-14 13:21:39 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -78,7 +78,12 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkImplicitTextureCoords : public vtkDataSetToDataSetFilter 
 {
 public:
+
+// Description:
+// Create object with texture dimension=2 and no r-s-t implicit functions
+// defined and FlipTexture turned off.
   vtkImplicitTextureCoords();
+
   static vtkImplicitTextureCoords *New() {return new vtkImplicitTextureCoords;};
   const char *GetClassName() {return "vtkImplicitTextureCoords";};
   void PrintSelf(ostream& os, vtkIndent indent);
@@ -105,7 +110,13 @@ public:
   vtkGetMacro(FlipTexture,int);
   vtkBooleanMacro(FlipTexture,int);
   
+
+// Description:
+// Update input to this filter and the filter itself. Note that we are 
+// overloading this method because the output is an abstract dataset type.
+// This requires special treatment.
   void Update();
+
   
 protected:
   void Execute();

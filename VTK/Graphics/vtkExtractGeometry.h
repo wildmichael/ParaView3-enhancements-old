@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractGeometry.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:44:24 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1998-09-14 13:21:35 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,7 +58,11 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkExtractGeometry : public vtkDataSetToUnstructuredGridFilter
 {
 public:
+
+// Description:
+// Construct object with ExtractInside turned on.
   vtkExtractGeometry(vtkImplicitFunction *f=NULL);
+
   static vtkExtractGeometry *New() {return new vtkExtractGeometry;};
   const char *GetClassName() {return "vtkExtractGeometry";};
   void PrintSelf(ostream& os, vtkIndent indent);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExporter.h,v $
   Language:  C++
-  Date:      $Date: 1998-04-21 19:01:53 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1998-09-14 13:21:34 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -68,12 +68,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkExporter : public vtkObject 
 {
 public:
+
+// Description:
+// Construct with no start and end write methods or arguments.
   vtkExporter();
+
   const char *GetClassName() {return "vtkExporter";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
+
+// Description:
+// Write data to output. Method executes subclasses WriteData() method, as 
+// well as StartWrite() and EndWrite() methods.
   virtual void Write();
+
+
+// Description:
+// Convenient alias for Write() method.
   void Update();
+
 
   // Description:
   // Set/Get the rendering window that contains the scene to be written.
@@ -84,10 +97,28 @@ public:
   void SetInput(vtkRenderWindow *renWin) {this->SetRenderWindow(renWin);};
   vtkRenderWindow *GetInput() {return this->GetRenderWindow();};
 
+
+// Description:
+// Specify a function to be called before data is written.
+// Function will be called with argument provided.
   void SetStartWrite(void (*f)(void *), void *arg);
+
+
+// Description:
+// Specify a function to be called after data is written.
+// Function will be called with argument provided.
   void SetEndWrite(void (*f)(void *), void *arg);
+
+
+// Description:
+// Set the arg delete method. This is used to free user memory.
   void SetStartWriteArgDelete(void (*f)(void *));
+
+
+// Description:
+// Set the arg delete method. This is used to free user memory.
   void SetEndWriteArgDelete(void (*f)(void *));
+
 
   unsigned long int GetMTime();
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataNormals.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:46:29 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-09-14 13:21:46 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -66,7 +66,12 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkPolyDataNormals : public vtkPolyDataToPolyDataFilter
 {
 public:
+
+// Description:
+// Construct with feature angle=30, splitting and consistency turned on, 
+// flipNormals turned off, and non-manifold traversal turned on.
   vtkPolyDataNormals();
+
   static vtkPolyDataNormals *New() {return new vtkPolyDataNormals;};
   const char *GetClassName() {return "vtkPolyDataNormals";};
   void PrintSelf(ostream& os, vtkIndent indent);

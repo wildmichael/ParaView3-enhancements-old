@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitModeller.h,v $
   Language:  C++
-  Date:      $Date: 1998-08-29 20:30:54 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 1998-09-14 13:21:39 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -79,12 +79,22 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkImplicitModeller : public vtkDataSetToStructuredPointsFilter 
 {
 public:
+
+// Description:
+// Construct with sample dimensions=(50,50,50), and so that model bounds are
+// automatically computed from the input. Capping is turned on with CapValue
+// equal to a large positive number.
   vtkImplicitModeller();
+
   static vtkImplicitModeller *New() {return new vtkImplicitModeller;};
   const char *GetClassName() {return "vtkImplicitModeller";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
+
+// Description:
+// Compute ModelBounds from input geometry.
   float ComputeModelBounds();
+
 
   // Description:
   // Set/Get the i-j-k dimensions on which to sample distance function.
@@ -134,10 +144,33 @@ public:
   vtkGetMacro(CapValue,float);
 
   // Special methods allow sequential appending of data to the output.
+
+// Description:
+// Special update methods handles possibility of appending data.
   void Update();
+
+
+// Description:
+// Initialize the filter for appending data. You must invoke the
+// StartAppend() method before doing successive Appends(). It's also a
+// good idea to manually specify the model bounds; otherwise the input
+// bounds for the data will be used.
   void StartAppend();
+
+
+// Description:
+// Append a data set to the existing output. To use this function,
+// you'll have to invoke the StartAppend() method before doing
+// successive appends. It's also a good idea to specify the model
+// bounds; otherwise the input model bounds is used. When you've
+// finished appending, use the EndAppend() method.
   void Append(vtkDataSet *input);
+
+
+// Description:
+// Method completes the append process.
   void EndAppend();
+
 
 protected:
   void Execute();

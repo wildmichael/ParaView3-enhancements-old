@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitWindowFunction.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:45:14 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1998-09-14 13:21:40 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -62,15 +62,27 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkImplicitWindowFunction : public vtkImplicitFunction
 {
 public:
+
+// Description:
+// Construct object with window range (0,1) and window values (0,1).
   vtkImplicitWindowFunction();
+
   ~vtkImplicitWindowFunction();
   static vtkImplicitWindowFunction *New() {return new vtkImplicitWindowFunction;};
   const char *GetClassName() {return "vtkImplicitWindowFunction";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // implicit function interface
+
+// Description
+// Evaluate window function.
   float EvaluateFunction(float x[3]);
+
+
+// Description
+// Evaluate window function gradient. Just return implicit function gradient.
   void EvaluateGradient(float x[3], float n[3]);
+
 
   // Description:
   // Specify an implicit function to operate on.

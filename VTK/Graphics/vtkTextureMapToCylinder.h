@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextureMapToCylinder.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:48:32 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1998-09-14 13:21:59 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -74,7 +74,13 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkTextureMapToCylinder : public vtkDataSetToDataSetFilter 
 {
 public:
+
+// Description:
+// Create object with cylinder axis parallel to z-axis (points (0,0,-0.5) 
+// and (0,0,0.5)). The PreventSeam ivar is set to true. The cylinder is 
+// automatically generated.
   vtkTextureMapToCylinder();
+
   static vtkTextureMapToCylinder *New() {return new vtkTextureMapToCylinder;};
   const char *GetClassName() {return "vtkTextureMapToCylinder";};
   void PrintSelf(ostream& os, vtkIndent indent);

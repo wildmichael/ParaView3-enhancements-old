@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFeatureEdges.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:44:34 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1998-09-14 13:21:36 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,7 +59,12 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkFeatureEdges : public vtkPolyDataToPolyDataFilter
 {
 public:
+
+// Description:
+// Construct object with feature angle = 30; all types of edges extracted
+// and colored.
   vtkFeatureEdges();
+
   static vtkFeatureEdges *New() {return new vtkFeatureEdges;};
   const char *GetClassName() {return "vtkFeatureEdges";};
   void PrintSelf(ostream& os, vtkIndent indent);

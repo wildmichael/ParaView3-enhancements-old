@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume16Reader.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-29 12:55:43 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1998-09-14 13:22:03 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -79,7 +79,13 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkVolume16Reader : public vtkVolumeReader
 {
 public:
+
+// Description:
+// Construct object with NULL file prefix; file pattern "%s.%d"; image range 
+// set to (1,1); data origin (0,0,0); data spacing (1,1,1); no data mask;
+// header size 0; and byte swapping turned off.
   vtkVolume16Reader();
+
   static vtkVolume16Reader *New() {return new vtkVolume16Reader;};
   const char *GetClassName() {return "vtkVolume16Reader";};
   void PrintSelf(ostream& os, vtkIndent indent);

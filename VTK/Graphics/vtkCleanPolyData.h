@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCleanPolyData.h,v $
   Language:  C++
-  Date:      $Date: 1998-05-29 17:41:44 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1998-09-14 13:21:29 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -61,7 +61,11 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkCleanPolyData : public vtkPolyDataToPolyDataFilter
 {
 public:
+
+// Description:
+// Construct object with initial tolerance of 0.0.
   vtkCleanPolyData();
+
   ~vtkCleanPolyData();
   static vtkCleanPolyData *New() {return new vtkCleanPolyData;};
   const char *GetClassName() {return "vtkCleanPolyData";};
@@ -72,7 +76,12 @@ public:
   vtkSetClampMacro(Tolerance,float,0.0,1.0);
   vtkGetMacro(Tolerance,float);
 
+
+// Description:
+// Specify a spatial locator for speeding the search process. By
+// default an instance of vtkLocator is used.
   void SetLocator(vtkPointLocator *locator);
+
   void SetLocator(vtkPointLocator& locator) {this->SetLocator(&locator);};
   vtkGetObjectMacro(Locator,vtkPointLocator);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLight.h,v $
   Language:  C++
-  Date:      $Date: 1998-06-01 21:01:07 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1998-09-14 13:21:40 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -61,7 +61,13 @@ class vtkRenderer;
 class VTK_EXPORT vtkLight : public vtkReferenceCount
 {
 public:
+
+// Description:
+// Create a light with the focal point at the origin and its position
+// set to (0,0,1). The lights color is white, intensity=1, and the light 
+// is turned on. 
   vtkLight();
+
   static vtkLight *New();
   const char *GetClassName() {return "vtkLight";};
   void PrintSelf(ostream& os, vtkIndent indent);

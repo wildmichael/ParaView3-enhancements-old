@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEdgePoints.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:44:18 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1998-09-14 13:21:34 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,7 +59,11 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkEdgePoints : public vtkDataSetToPolyDataFilter
 {
 public:
+
+// Description:
+// Construct object with contour value of 0.0.
   vtkEdgePoints();
+
   static vtkEdgePoints *New() {return new vtkEdgePoints;};
   const char *GetClassName() {return "vtkEdgePoints";};
   void PrintSelf(ostream& os, vtkIndent indent);

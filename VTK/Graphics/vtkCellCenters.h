@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellCenters.h,v $
   Language:  C++
-  Date:      $Date: 1998-06-15 20:28:52 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-09-14 13:21:28 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -63,7 +63,11 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkCellCenters : public vtkDataSetToPolyDataFilter
 {
 public:
+
+// Description:
+// Construct object with vertex cell generation turned off.
   vtkCellCenters();
+
   static vtkCellCenters *New() {return new vtkCellCenters;};
   const char *GetClassName() {return "vtkCellCenters";};
   void PrintSelf(ostream& os, vtkIndent indent);

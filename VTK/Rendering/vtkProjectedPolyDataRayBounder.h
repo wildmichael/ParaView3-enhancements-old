@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProjectedPolyDataRayBounder.h,v $
   Language:  C++
-  Date:      $Date: 1998-04-21 19:02:03 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-09-14 13:21:47 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to Lisa Sobierajski Avila who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -65,11 +65,29 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkProjectedPolyDataRayBounder : public vtkRayBounder
 {
 public:
+
+// Description:
+// The constructor for the class. Initialize everything to NULL.
   vtkProjectedPolyDataRayBounder();
+
+
+// Description:
+// Destructor for the class. Nothing needs to be done.
   ~vtkProjectedPolyDataRayBounder();
+
+
+// Description:
+// New method for the class which will return the correct type of 
+// ProjectPolyDataRayBounder
   static vtkProjectedPolyDataRayBounder *New();
+
   const char *GetClassName() {return "vtkProjectedPolyDataRayBounder";};
+
+// Description:
+// Print the object including the PolyData, the matrix source, and the
+// build time.
   void PrintSelf(ostream& os, vtkIndent indent);
+
 
   // Description:
   // Get the ray bounds given a renderer. The ray bounds are a two 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkReverseSense.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:47:12 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1998-09-14 13:21:50 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,7 +57,12 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkReverseSense : public vtkPolyDataToPolyDataFilter
 {
 public:
+
+// Description:
+// Construct object so that behavior is to reverse cell ordering and
+// leave normal orientation as is.
   vtkReverseSense();
+
   static vtkReverseSense *New() {return new vtkReverseSense;};
   const char *GetClassName() {return "vtkReverseSense";};
   void PrintSelf(ostream& os, vtkIndent indent);

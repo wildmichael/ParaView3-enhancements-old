@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLRenderer.h,v $
   Language:  C++
-  Date:      $Date: 1998-08-24 18:33:51 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1998-09-14 13:21:44 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,20 +57,45 @@ class VTK_EXPORT vtkOpenGLRenderer : public vtkRenderer
  public:
   vtkOpenGLRenderer();
 
+
+// Description:
+// Concrete open gl render method.
   void DeviceRender(void); // overides base 
+
   static vtkOpenGLRenderer *New() {return new vtkOpenGLRenderer;};
   const char *GetClassName() {return "vtkOpenGLRenderer";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
+
+// Description:
+// Internal method temporarily removes lights before reloading them
+// into graphics pipeline.
   void ClearLights(void);
 
+
+
+// Description:
+// Ask lights to load themselves into graphics pipeline.
   int UpdateLights(void);
+
 
   // stereo related stuff
   virtual float *GetCenter();
+
+// Description:
+// Convert display coordinates to view coordinates.
   virtual void DisplayToView(); 
+
+
+// Description:
+// Convert view coordinates to display coordinates.
   virtual void ViewToDisplay(); 
+
+
+// Description:
+// Is a given display point in this renderer's viewport.
   virtual int  IsInViewport(int x,int y); 
+
 };
 
 #endif
