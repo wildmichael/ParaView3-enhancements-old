@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractIterator.txx,v $
   Language:  C++
-  Date:      $Date: 2002-04-12 21:53:41 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-05-28 14:30:37 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -66,18 +66,12 @@ vtkAbstractIterator<KeyType,DataType>::vtkAbstractIterator()
 { 
   this->ReferenceCount = 1;
   this->Container = 0;
-#ifdef VTK_DEBUG_LEAKS
-  vtkDebugLeaks::ConstructClass(this->GetClassName());
-#endif
 }
 
 template<class KeyType, class DataType>
 vtkAbstractIterator<KeyType,DataType>::~vtkAbstractIterator() 
 {
   this->SetContainer(0);
-#ifdef VTK_DEBUG_LEAKS
-  vtkDebugLeaks::DestructClass(this->GetClassName());
-#endif
 }
 
 template<class KeyType, class DataType>
