@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIdList.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-12 22:22:28 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1998-05-12 22:26:37 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -109,7 +109,6 @@ void vtkIdList::IntersectWith(vtkIdList& otherIds)
 
   if (thisNumIds <= VTK_TMP_ARRAY_SIZE) 
     {//Use fast method if we can fit in temporary storage
-    int  OtherNumIds = otherIds.GetNumberOfIds();
     int  thisIds[VTK_TMP_ARRAY_SIZE];
     int  i, id;
     
@@ -122,7 +121,6 @@ void vtkIdList::IntersectWith(vtkIdList& otherIds)
     } 
   else 
     {//use slower method for extreme cases
-    int  OtherNumIds = otherIds.GetNumberOfIds();
     int  *thisIds = new int [thisNumIds];
     int  i, id;
     
