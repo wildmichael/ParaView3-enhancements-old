@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangleStrip.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-07-18 13:08:29 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1996-07-19 04:16:49 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -120,7 +120,7 @@ int vtkTriangleStrip::CellBoundary(int subId, float pcoords[3], vtkIdList& pts)
 }
 
 void vtkTriangleStrip::Contour(float value, vtkFloatScalars *cellScalars, 
-                              vtkFloatPoints *points, vtkCellArray *verts, 
+                              vtkPointLocator *locator, vtkCellArray *verts, 
                               vtkCellArray *lines, vtkCellArray *polys, 
                               vtkFloatScalars *scalars)
 {
@@ -138,8 +138,8 @@ void vtkTriangleStrip::Contour(float value, vtkFloatScalars *cellScalars,
     triScalars.SetScalar(1,cellScalars->GetScalar(i+1));
     triScalars.SetScalar(2,cellScalars->GetScalar(i+2));
 
-    tri.Contour(value, &triScalars, points, verts,
-                 lines, polys, scalars);
+    tri.Contour(value, &triScalars, locator, verts,
+                lines, polys, scalars);
     }
 }
 
