@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-09-26 10:27:54 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2000-12-07 16:14:43 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -227,7 +227,7 @@ void vtkAbstractTransform::DeepCopy(vtkAbstractTransform *transform)
 void vtkAbstractTransform::Update()
 {
   // locking is require to ensure that the class is thread-safe
-  this->UpdateMutex->Unlock();
+  this->UpdateMutex->Lock();
 
   // check to see if we are a special 'inverse' transform
   if (this->DependsOnInverse && 
