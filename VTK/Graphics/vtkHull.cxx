@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHull.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-01-09 13:45:34 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1999-03-02 23:43:52 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -413,8 +413,8 @@ void vtkHull::Execute()
 
   // Create a new set of points and polygons into which the results will
   // be stored
-  out_points = new vtkPoints();
-  out_polys  = new vtkCellArray();
+  out_points = vtkPoints::New();
+  out_polys  = vtkCellArray::New();
 
   // Compute the D value for each plane according to the vertices in the
   // geometry
