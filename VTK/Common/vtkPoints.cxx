@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-26 18:24:21 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 2003-03-31 15:41:26 $
+  Version:   $Revision: 1.48 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -32,7 +32,7 @@
 #include "vtkUnsignedLongArray.h"
 #include "vtkUnsignedShortArray.h"
 
-vtkCxxRevisionMacro(vtkPoints, "$Revision: 1.47 $");
+vtkCxxRevisionMacro(vtkPoints, "$Revision: 1.48 $");
 
 //----------------------------------------------------------------------------
 // Needed when we don't use the vtkStandardNewMacro.
@@ -226,6 +226,8 @@ void vtkPoints::SetDataType(int dataType)
       vtkErrorMacro(<<"Unsupported data type! Setting to VTK_FLOAT");
       this->SetDataType(VTK_FLOAT);
     }
+
+  this->Data->SetNumberOfComponents(3);
 }
 
 // Set the data for this object. The tuple dimension must be consistent with
