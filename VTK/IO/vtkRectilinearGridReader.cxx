@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGridReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:49 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2001-05-31 13:14:47 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -332,17 +332,17 @@ void vtkRectilinearGridReader::Execute()
 
       if ( !dimsRead ) vtkWarningMacro(<<"No dimensions read.");
       if ( !output->GetXCoordinates() || 
-      output->GetXCoordinates()->GetNumberOfScalars() < 1 )
+      output->GetXCoordinates()->GetNumberOfTuples() < 1 )
         {
         vtkWarningMacro(<<"No x coordinatess read.");
         }
       if ( !output->GetYCoordinates() || 
-      output->GetYCoordinates()->GetNumberOfScalars() < 1 )
+      output->GetYCoordinates()->GetNumberOfTuples() < 1 )
         {
         vtkWarningMacro(<<"No y coordinates read.");
         }
       if ( !output->GetZCoordinates() || 
-      output->GetZCoordinates()->GetNumberOfScalars() < 1 )
+      output->GetZCoordinates()->GetNumberOfTuples() < 1 )
         {
         vtkWarningMacro(<<"No z coordinates read.");
         }

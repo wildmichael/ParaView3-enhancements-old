@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataWriter.h,v $
   Language:  C++
-  Date:      $Date: 2001-01-26 20:46:43 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 2001-05-31 13:14:47 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -171,7 +171,7 @@ public:
 
   // Description:
   // Write out coordinates for rectilinear grids.
-  int WriteCoordinates(ostream *fp, vtkScalars *coords, int axes);
+  int WriteCoordinates(ostream *fp, vtkDataArray *coords, int axes);
 
   // Description:
   // Write out the cells of the data set.

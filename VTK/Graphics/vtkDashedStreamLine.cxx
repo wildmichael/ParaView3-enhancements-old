@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDashedStreamLine.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-21 20:39:41 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2001-05-31 13:14:47 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -41,7 +41,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 =========================================================================*/
 #include "vtkDashedStreamLine.h"
 #include "vtkObjectFactory.h"
-
+#include "vtkFloatArray.h"
 
 
 //------------------------------------------------------------------------------
@@ -70,7 +70,7 @@ void vtkDashedStreamLine::Execute()
   vtkStreamPoint *sPrev, *sPtr;
   vtkPoints *newPts;
   vtkVectors *newVectors;
-  vtkScalars *newScalars=NULL;
+  vtkFloatArray *newScalars=NULL;
   vtkCellArray *newLines;
   int i, ptId, j, pts[2];
   float tOffset, x[3], v[3], r, xPrev[3], vPrev[3], scalarPrev;
@@ -94,7 +94,7 @@ void vtkDashedStreamLine::Execute()
   newVectors->Allocate(1000);
   if ( input->GetPointData()->GetScalars() || this->SpeedScalars )
     {
-    newScalars = vtkScalars::New();
+    newScalars = vtkFloatArray::New();
     newScalars->Allocate(1000);
     }
   newLines = vtkCellArray::New();
@@ -153,9 +153,9 @@ void vtkDashedStreamLine::Execute()
         if ( newScalars ) 
           {
           s = sPrev->s + r * (sPtr->s - sPrev->s);
-          newScalars->InsertScalar(pts[0],s);
+          newScalars->InsertTuple(pts[0],&s);
           sEnd = scalarPrev + this->DashFactor * (s - scalarPrev);
-          newScalars->InsertScalar(pts[1],sEnd);
+          newScalars->InsertTuple(pts[1],&sEnd);
           }
 
         newLines->InsertNextCell(2,pts);
