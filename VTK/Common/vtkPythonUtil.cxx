@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPythonUtil.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:09:56 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2001-11-30 16:12:38 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1017,6 +1017,104 @@ void *vtkPythonUnmanglePointer(char *ptrText, int *len, const char *type)
   // couldn't unmangle: return string as void pointer if it didn't look
   // like a SWIG mangled pointer
   return (void *)ptrText;
+}
+
+//--------------------------------------------------------------------
+// These functions check an array that was sent to a method to see if
+// any of the values were changed by the method.
+// If a value was changed, then the corresponding value in the python
+// list is modified.
+
+template<class T>
+static inline
+int vtkPythonCheckFloatArray(PyObject *args, int i, T *a, int n)
+{
+  PyObject *seq = PyTuple_GET_ITEM(args, i);
+  for (i = 0; i < n; i++) {
+    PyObject *oldobj = PySequence_GetItem(seq, i);
+    T oldval = (T)PyFloat_AsDouble(oldobj);
+    Py_DECREF(oldobj);
+    if (a[i] != oldval) {
+      PyObject *newobj = PyFloat_FromDouble(a[i]);
+      int rval = PySequence_SetItem(seq, i, newobj);
+      Py_DECREF(newobj);
+      if (rval == -1) {
+        return -1;
+        }
+      }
+    }
+  return 0;
+}
+
+template<class T>
+static inline
+int vtkPythonCheckIntArray(PyObject *args, int i, T *a, int n)
+{
+  PyObject *seq = PyTuple_GET_ITEM(args, i);
+  for (i = 0; i < n; i++) {
+    PyObject *oldobj = PySequence_GetItem(seq, i);
+    T oldval = (T)PyInt_AsLong(oldobj);
+    Py_DECREF(oldobj);
+    if (a[i] != oldval) {
+      PyObject *newobj = PyInt_FromLong(a[i]);
+      int rval = PySequence_SetItem(seq, i, newobj);
+      Py_DECREF(newobj);
+      if (rval == -1) {
+        return -1;
+        }
+      }
+    }
+  return 0;
+}
+
+int vtkPythonCheckArray(PyObject *args, int i, char *a, int n)
+{
+  return vtkPythonCheckIntArray(args, i, a, n);
+}
+
+int vtkPythonCheckArray(PyObject *args, int i, unsigned char *a, int n)
+{
+  return vtkPythonCheckIntArray(args, i, a, n);
+}
+
+int vtkPythonCheckArray(PyObject *args, int i, short *a, int n)
+{
+  return vtkPythonCheckIntArray(args, i, a, n);
+}
+
+int vtkPythonCheckArray(PyObject *args, int i, unsigned short *a, int n)
+{
+  return vtkPythonCheckIntArray(args, i, a, n);
+}
+
+int vtkPythonCheckArray(PyObject *args, int i, int *a, int n)
+{
+  return vtkPythonCheckIntArray(args, i, a, n);
+}
+
+int vtkPythonCheckArray(PyObject *args, int i, unsigned int *a, int n)
+{
+  return vtkPythonCheckIntArray(args, i, a, n);
+}
+
+int vtkPythonCheckArray(PyObject *args, int i, long *a, int n)
+{
+  return vtkPythonCheckIntArray(args, i, a, n);
+}
+
+int vtkPythonCheckArray(PyObject *args, int i, unsigned long *a, int n)
+{
+  return vtkPythonCheckIntArray(args, i, a, n);
+}
+
+int vtkPythonCheckArray(PyObject *args, int i, float *a, int n)
+{
+  return vtkPythonCheckFloatArray(args, i, a, n);
+}
+
+int vtkPythonCheckArray(PyObject *args, int i, double *a, int n)
+{
+  return vtkPythonCheckFloatArray(args, i, a, n);
 }
 
 //--------------------------------------------------------------------

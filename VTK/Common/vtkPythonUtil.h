@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPythonUtil.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-14 21:00:20 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2001-11-30 16:12:38 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -134,6 +134,20 @@ extern VTK_PYTHON_EXPORT void vtkPythonDeleteObjectFromHash(PyObject *obj);
 extern VTK_PYTHON_EXPORT char *vtkPythonManglePointer(void *ptr, const char *type);
 extern VTK_PYTHON_EXPORT void *vtkPythonUnmanglePointer(char *ptrText, int *len,
                                       const char *type);
+
+// check array arguments sent through the wrappers to see if the underlying
+// C++ method changed the values, and attempt to modify the original python
+// sequence (list or tuple) if so.
+extern VTK_PYTHON_EXPORT int vtkPythonCheckArray(PyObject *args, int i, char *a, int n);
+extern VTK_PYTHON_EXPORT int vtkPythonCheckArray(PyObject *args, int i, unsigned char *a, int n);
+extern VTK_PYTHON_EXPORT int vtkPythonCheckArray(PyObject *args, int i, short *a, int n);
+extern VTK_PYTHON_EXPORT int vtkPythonCheckArray(PyObject *args, int i, unsigned short *a, int n);
+extern VTK_PYTHON_EXPORT int vtkPythonCheckArray(PyObject *args, int i, int *a, int n);
+extern VTK_PYTHON_EXPORT int vtkPythonCheckArray(PyObject *args, int i, unsigned int *a, int n);
+extern VTK_PYTHON_EXPORT int vtkPythonCheckArray(PyObject *args, int i, long *a, int n);
+extern VTK_PYTHON_EXPORT int vtkPythonCheckArray(PyObject *args, int i, unsigned long *a, int n);
+extern VTK_PYTHON_EXPORT int vtkPythonCheckArray(PyObject *args, int i, float *a, int n);
+extern VTK_PYTHON_EXPORT int vtkPythonCheckArray(PyObject *args, int i, double *a, int n);
 
 // For use by SetXXMethod() , SetXXMethodArgDelete()
 extern VTK_PYTHON_EXPORT void vtkPythonVoidFunc(void *);
