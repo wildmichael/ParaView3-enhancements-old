@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLight.h,v $
   Language:  C++
-  Date:      $Date: 2000-08-23 15:48:35 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 2000-08-25 13:43:13 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -168,13 +168,19 @@ public:
   void GetTransformedPosition(float a[3]);
   float *GetTransformedPosition();
 
-
   // Description:
   // Get the focal point of the light, modified by the transformation matrix
   // (if it exists).
   void GetTransformedFocalPoint(float &a0, float &a1, float &a2);
   void GetTransformedFocalPoint(float a[3]);
   float *GetTransformedFocalPoint();
+
+  // Description:
+  // Set the position and focal point of a light based on elevation and
+  // azimuth.  The light is moved so it is shining from the given angle.
+  // Angles are given in degrees.  If the light is a
+  // positional light, it is made directional instead.
+  void SetDirectionAngle(float elevation, float azimuth);
 
   // Description:
   // Perform deep copy of this light.
