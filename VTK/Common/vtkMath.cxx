@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMath.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-01-31 10:19:37 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1996-04-30 20:33:09 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -324,7 +324,7 @@ int vtkMath::Jacobi(float **a, float *w, float **v)
 
   if ( i >= MAX_ROTATIONS )
     {
-    cerr << "Error extracting eigenfunctions";
+    cerr << "vtkMath::Jacobi: Error extracting eigenfunctions\n";
     return 0;
     }
 
