@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSphereWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-26 18:21:21 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2003-01-16 20:45:04 $
+  Version:   $Revision: 1.23 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -34,7 +34,7 @@
 #include "vtkSphere.h"
 #include "vtkSphereSource.h"
 
-vtkCxxRevisionMacro(vtkSphereWidget, "$Revision: 1.22 $");
+vtkCxxRevisionMacro(vtkSphereWidget, "$Revision: 1.23 $");
 vtkStandardNewMacro(vtkSphereWidget);
 
 vtkSphereWidget::vtkSphereWidget()
@@ -146,12 +146,16 @@ void vtkSphereWidget::SetEnabled(int enabling)
       return;
       }
     
-    this->CurrentRenderer = 
-      this->Interactor->FindPokedRenderer(this->Interactor->GetLastEventPosition()[0],
-                                          this->Interactor->GetLastEventPosition()[1]);
-    if (this->CurrentRenderer == NULL)
+    if ( ! this->CurrentRenderer )
       {
-      return;
+      this->CurrentRenderer = 
+        this->Interactor->FindPokedRenderer(
+          this->Interactor->GetLastEventPosition()[0],
+          this->Interactor->GetLastEventPosition()[1]);
+      if (this->CurrentRenderer == NULL)
+        {
+        return;
+        }
       }
 
     this->Enabled = 1;
@@ -200,6 +204,7 @@ void vtkSphereWidget::SetEnabled(int enabling)
     this->CurrentRenderer->RemoveActor(this->HandleActor);
 
     this->InvokeEvent(vtkCommand::DisableEvent,NULL);
+    this->CurrentRenderer = NULL;
     }
 
   this->Interactor->Render();
