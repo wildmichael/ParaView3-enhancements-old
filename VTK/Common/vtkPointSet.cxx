@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSet.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-18 13:13:00 $
-  Version:   $Revision: 1.68 $
+  Date:      $Date: 2001-06-27 14:11:48 $
+  Version:   $Revision: 1.69 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -201,26 +201,26 @@ vtkIdType vtkPointSet::FindCell(float x[3], vtkCell *cell,
       {
       cellId = cellIds->GetId(0); //arbitrarily use first cell in list
       if ( gencell )
-	{
-	this->GetCell(cellId, gencell);
-	}
+        {
+        this->GetCell(cellId, gencell);
+        }
       else
-	{
-	cell = this->GetCell(cellId);
-	}
+        {
+        cell = this->GetCell(cellId);
+        }
 
       // See whether this randomly choosen cell contains the point      
       if ( ( gencell && 
-	     gencell->EvaluatePosition(x,closestPoint,subId,
-				       pcoords, dist2,weights) == 1
-	     && dist2 <= tol2 )  ||
-	   ( !gencell && 
-	     cell->EvaluatePosition(x,closestPoint,subId,
-				       pcoords, dist2,weights) == 1
-	     && dist2 <= tol2 ) )
+             gencell->EvaluatePosition(x,closestPoint,subId,
+                                       pcoords, dist2,weights) == 1
+             && dist2 <= tol2 )  ||
+           ( !gencell && 
+             cell->EvaluatePosition(x,closestPoint,subId,
+                                       pcoords, dist2,weights) == 1
+             && dist2 <= tol2 ) )
         {
-	cellIds->Delete();
-	ptIds->Delete();  
+        cellIds->Delete();
+        ptIds->Delete();  
         return cellId;
         }
       }
@@ -239,26 +239,26 @@ vtkIdType vtkPointSet::FindCell(float x[3], vtkCell *cell,
     for ( walk=0; walk < VTK_MAX_WALK; walk++ )
       {
       if ( cell )
-	{
-	cell->CellBoundary(subId, pcoords, ptIds);
-	}
+        {
+        cell->CellBoundary(subId, pcoords, ptIds);
+        }
       else
-	{
-	gencell->CellBoundary(subId, pcoords, ptIds);
-	}
+        {
+        gencell->CellBoundary(subId, pcoords, ptIds);
+        }
       this->GetCellNeighbors(cellId, ptIds, cellIds);
       if ( cellIds->GetNumberOfIds() > 0 )
         {
         cellId = cellIds->GetId(0);
-	if ( gencell )
-	  {
-	  cell = NULL;
-	  this->GetCell(cellId, gencell);
-	  }
-	else
-	  {
-	  cell = this->GetCell(cellId);
-	  }
+        if ( gencell )
+          {
+          cell = NULL;
+          this->GetCell(cellId, gencell);
+          }
+        else
+          {
+          cell = this->GetCell(cellId);
+          }
         }
       else
         {
@@ -266,15 +266,15 @@ vtkIdType vtkPointSet::FindCell(float x[3], vtkCell *cell,
         }
 
       if ( ( (!cell && 
-	      gencell->EvaluatePosition(x,closestPoint,subId,pcoords,
-					dist2,weights) == 1 ) ||
-	     (cell && cell->EvaluatePosition(x,closestPoint,
-						 subId,pcoords,
-						 dist2,weights) == 1 ) )
-	   && dist2 <= tol2 )
+              gencell->EvaluatePosition(x,closestPoint,subId,pcoords,
+                                        dist2,weights) == 1 ) ||
+             (cell && cell->EvaluatePosition(x,closestPoint,
+                                                 subId,pcoords,
+                                                 dist2,weights) == 1 ) )
+           && dist2 <= tol2 )
         {
-	cellIds->Delete();
-	ptIds->Delete();  
+        cellIds->Delete();
+        ptIds->Delete();  
         return cellId;
         }
 
