@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkJavaUtil.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-11-03 17:53:41 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1999-04-23 12:55:32 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -80,6 +80,11 @@ static void vtk_release_mutex() {
 }
 #define VTK_GET_MUTEX()  vtk_get_mutex()
 #define VTK_RELEASE_MUTEX() vtk_release_mutex()
+#elif defined(__FreeBSD__) || defined(__linux__) || defined(sgi)
+#include <pthread.h>
+pthread_mutex_t vtkGlobalMutex;
+#define VTK_GET_MUTEX()  pthread_mutex_lock(&vtkGlobalMutex)
+#define VTK_RELEASE_MUTEX() pthread_mutex_unlock(&vtkGlobalMutex)
 #else
 // for solaris
 #include <thread.h>
@@ -527,3 +532,12 @@ JNIEXPORT void vtkJavaVoidFuncArgDelete(void* arg)
   delete arg2;
 }
 
+jobject vtkJavaExportedGetObjectFromPointer(void *ptr)
+{
+	return vtkJavaGetObjectFromPointer(ptr);
+}
+
+void* vtkJavaExportedGetPointerFromObject(JNIEnv *env,jobject obj, char *result_type)
+{
+	return vtkJavaGetPointerFromObject(env, obj, result_type);
+}
