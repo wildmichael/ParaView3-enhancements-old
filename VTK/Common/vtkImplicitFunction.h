@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitFunction.h,v $
   Language:  C++
-  Date:      $Date: 1996-09-26 20:49:38 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1996-12-19 11:54:31 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -80,6 +80,7 @@ public:
   char *GetClassName() {return "vtkImplicitFunction";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
+  unsigned long int GetMTime();
   float FunctionValue(float x[3]);
   void FunctionGradient(float x[3], float g[3]);
 
