@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMultiThreader.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-06 22:53:45 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1998-03-23 18:55:51 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -640,6 +640,7 @@ void vtkMultiThreader::TerminateThread( int ThreadID )
 #endif
 
   this->SpawnedThreadActiveFlagLock[ThreadID]->Delete();
+  this->SpawnedThreadActiveFlagLock[ThreadID] = NULL;
 
 }
 
