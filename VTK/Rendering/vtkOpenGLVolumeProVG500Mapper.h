@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLVolumeProVG500Mapper.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:01:57 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1999-09-02 20:35:16 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -109,7 +109,6 @@ protected:
 		      vtkVolume    *vol,
 		      VLIPixel     *basePlane,
 		      int          size[2],
-		      float        aspect[2],
 		      VLIVector3D  hexagon[6], 
 		      VLIVector2D  textureCoords[6] );
 };

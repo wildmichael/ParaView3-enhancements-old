@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProMapper.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:01:59 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1999-09-02 20:35:16 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -269,13 +269,13 @@ protected:
 			      vtkVolume    *vol,
 			      VLIPixel     *basePlane,
 			      int          size[2],
-			      float        aspect[2],
 			      VLIVector3D  hexagon[6], 
 			      VLIVector2D  textureCoords[6] ) {};
 
   // Make the base plane size a power of 2 for OpenGL
   void CorrectBasePlaneSize( VLIPixel *inBase, int inSize[2],
-			     VLIPixel **outBase, int outSize[2] );
+			     VLIPixel **outBase, int outSize[2],
+			     VLIVector2D textureCoords[6] );
 
 
   // Make sure everything is OK for rendering
