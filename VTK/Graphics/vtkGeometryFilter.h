@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGeometryFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:11:43 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 2000-08-07 22:36:33 $
+  Version:   $Revision: 1.42 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -164,6 +164,8 @@ protected:
   void PolyDataExecute(); //special cases for performance
   void UnstructuredGridExecute();
   void StructuredGridExecute();
+  void ComputeInputUpdateExtents(vtkDataObject *output);
+  void ExecuteInformation();
 
   int PointMaximum;
   int PointMinimum;

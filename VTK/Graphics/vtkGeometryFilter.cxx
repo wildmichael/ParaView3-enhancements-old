@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGeometryFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:11:43 $
-  Version:   $Revision: 1.61 $
+  Date:      $Date: 2000-08-07 22:36:33 $
+  Version:   $Revision: 1.62 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -963,4 +963,28 @@ void vtkGeometryFilter::StructuredGridExecute()
     {
     delete [] cellVis;
     }
+}
+
+
+void vtkGeometryFilter::ComputeInputUpdateExtents(vtkDataObject *output)
+{
+  vtkPolyData *outPd;
+
+  output = output;
+  outPd = this->GetOutput();
+  this->GetInput()->SetUpdateExtent(outPd->GetUpdatePiece(), 
+                                    outPd->GetUpdateNumberOfPieces());
+}
+
+void vtkGeometryFilter::ExecuteInformation()
+{
+  if (this->GetInput() == NULL)
+    {
+    vtkErrorMacro("No Input");
+    return;
+    }
+  // I guess images do not set this properly.
+  //this->GetOutput()->SetMaximumNumberOfPieces(
+  //                    this->GetInput()->GetMaximumNumberOfPieces());
+  this->GetOutput()->SetMaximumNumberOfPieces(1000);
 }

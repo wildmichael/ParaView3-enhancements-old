@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGlyph3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:11:43 $
-  Version:   $Revision: 1.74 $
+  Date:      $Date: 2000-08-07 22:36:33 $
+  Version:   $Revision: 1.75 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -507,6 +507,8 @@ void vtkGlyph3D::ExecuteInformation()
     vtkErrorMacro("Missing input or source");
     return;
     }
+  this->GetOutput()->SetMaximumNumberOfPieces(
+                        this->GetInput()->GetMaximumNumberOfPieces());
 }
 
 
@@ -607,3 +609,13 @@ void vtkGlyph3D::PrintSelf(ostream& os, vtkIndent indent)
     }
 }
 
+void vtkGlyph3D::ComputeInputUpdateExtents( vtkDataObject *output )
+{
+  vtkPolyData *outPd;
+
+  output = output;
+  outPd = this->GetOutput();
+  this->GetSource()->SetUpdateExtent(0, 1);
+  this->GetInput()->SetUpdateExtent(outPd->GetUpdatePiece(), 
+                                    outPd->GetUpdateNumberOfPieces());
+}

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGlyph3D.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:11:44 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 2000-08-07 22:36:33 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -228,7 +228,8 @@ protected:
 
   void Execute();
   void ExecuteInformation();
-  
+  void ComputeInputUpdateExtents(vtkDataObject *output);
+
   int NumberOfSources; // Number of source objects
   vtkPolyData **Source; // Geometry to copy to each point
   int Scaling; // Determine whether scaling of geometry is performed

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataMapper.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:06:16 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2000-08-07 22:36:33 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -68,11 +68,25 @@ public:
   void SetInput(vtkPolyData *in);
   vtkPolyData *GetInput();
   
+  void Update();
+  float *GetBounds();
+
+  // Description:
+  // If you want only a part of the data, specify by seting the piece.
+  vtkSetMacro(Piece, int);
+  vtkGetMacro(Piece, int);
+  vtkSetMacro(NumberOfPieces, int);
+  vtkGetMacro(NumberOfPieces, int);
+
 protected:  
   vtkPolyDataMapper() {};
   ~vtkPolyDataMapper() {};
   vtkPolyDataMapper(const vtkPolyDataMapper&) {};
   void operator=(const vtkPolyDataMapper&) {};
+  void PrintSelf(ostream& os, vtkIndent indent);
+
+  int Piece;
+  int NumberOfPieces;
 
 };
 
