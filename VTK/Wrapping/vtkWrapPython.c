@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWrapPython.c,v $
   Language:  C++
-  Date:      $Date: 2001-02-26 05:16:58 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2001-05-12 15:50:00 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -978,7 +978,7 @@ void vtkParseOutput(FILE *fp, FileInfo *data)
   fprintf(fp,"#include \"%s.h\"\n",data->ClassName);
   fprintf(fp,"#include \"vtkPythonUtil.h\"\n\n");
   
-  fprintf(fp,"extern \"C\" { PyObject *PyVTKClass_%sNew(char *); }\n",
+  fprintf(fp,"extern \"C\" { VTK_EXPORT PyObject *PyVTKClass_%sNew(char *); }\n",
 	  data->ClassName);
   for (i = 0; i < data->NumberOfSuperClasses; i++)
     {
