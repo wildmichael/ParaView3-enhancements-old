@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractGeometry.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-10-25 23:45:04 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1995-10-28 12:52:15 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,7 +39,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkExtractGeometry.hh"
-#include "vtkMath.hh"
 
 // Description:
 // Construct object with ExtractInside turned on.
@@ -71,7 +70,6 @@ void vtkExtractGeometry::Execute()
   int ptId, numPts, numCells, i, cellId;
   vtkIdList *cellPts;
   vtkCell *cell;
-  vtkMath math;
   int numCellPts, newId, *pointMap;
   vtkPointData *pd;
   float *x;
