@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetToPolyDataFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-01-19 19:58:03 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2001-01-24 13:46:20 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -66,6 +66,10 @@ public:
   virtual void SetInput(vtkDataSet *input);
   vtkDataSet *GetInput();
   
+  // Description:
+  // Do not let images return more than requested.
+  virtual void ComputeInputUpdateExtents( vtkDataObject *output );
+
 protected:
   vtkDataSetToPolyDataFilter() {this->NumberOfRequiredInputs = 1;};
   ~vtkDataSetToPolyDataFilter() {};
