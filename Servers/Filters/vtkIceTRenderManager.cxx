@@ -5,8 +5,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIceTRenderManager.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-09-24 17:44:43 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2003-10-06 20:49:14 $
+  Version:   $Revision: 1.3 $
 
   Copyright 2003 Sandia Coporation
   Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -43,7 +43,7 @@ const int ICET_INFO_SIZE = sizeof(struct IceTInformation)/sizeof(int);
 // vtkIceTRenderManager implementation.
 //******************************************************************
 
-vtkCxxRevisionMacro(vtkIceTRenderManager, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkIceTRenderManager, "$Revision: 1.3 $");
 vtkStandardNewMacro(vtkIceTRenderManager);
 
 vtkIceTRenderManager::vtkIceTRenderManager()
@@ -559,7 +559,7 @@ void vtkIceTRenderManager::PreRenderProcessing()
   vtkRendererCollection *rens = this->RenderWindow->GetRenderers();
   vtkRenderer *ren;
   int i;
-  for (rens->InitTraversal(), i = 0; ren = rens->GetNextItem(); i++)
+  for (rens->InitTraversal(), i = 0; (ren = rens->GetNextItem()); i++)
     {
     vtkIceTRenderer *icetRen = vtkIceTRenderer::SafeDownCast(ren);
     if (icetRen == NULL)

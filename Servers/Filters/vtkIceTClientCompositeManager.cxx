@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIceTClientCompositeManager.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-09-24 17:44:43 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2003-10-06 20:49:14 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -51,7 +51,7 @@
 #endif
 
 
-vtkCxxRevisionMacro(vtkIceTClientCompositeManager, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkIceTClientCompositeManager, "$Revision: 1.4 $");
 vtkStandardNewMacro(vtkIceTClientCompositeManager);
 
 vtkCxxSetObjectMacro(vtkIceTClientCompositeManager,IceTManager,vtkIceTRenderManager);
@@ -226,7 +226,7 @@ void vtkIceTClientCompositeManager::StartRender()
   vtkLightCollection *lc;
   vtkLight *light;
   static int firstRender = 1;
-  float updateRate = this->RenderWindow->GetDesiredUpdateRate();
+  //float updateRate = this->RenderWindow->GetDesiredUpdateRate();
   
   if (firstRender)
     {

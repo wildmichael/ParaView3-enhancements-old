@@ -5,8 +5,8 @@
   Program:   Visualization Toolkit
   Module:  $RCSfile: vtkKdTree.cxx,v $
   Language:  C++
-  Date:    $Date: 2003-10-01 21:25:26 $
-  Version:   $Revision: 1.7 $
+  Date:    $Date: 2003-10-06 20:49:14 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -28,23 +28,24 @@
 =========================================================================*/
 
 #include "vtkKdTree.h"
-#include <algorithm>
-#include <vtkObjectFactory.h>
-#include <vtkDataSet.h>
-#include <vtkCamera.h>
-#include <vtkPolyData.h>
-#include <vtkRenderWindow.h>
-#include <vtkFloatArray.h>
-#include <vtkMath.h>
-#include <vtkPlanesIntersection.h>
-#include <vtkCell.h>
-#include <vtkCellArray.h>
-#include <vtkIdList.h>
-#include <vtkTimerLog.h>
-#include <vtkPolyData.h>
-#include <vtkPoints.h>
+#include "vtkObjectFactory.h"
+#include "vtkDataSet.h"
+#include "vtkCamera.h"
+#include "vtkPolyData.h"
+#include "vtkRenderWindow.h"
+#include "vtkFloatArray.h"
+#include "vtkMath.h"
+#include "vtkPlanesIntersection.h"
+#include "vtkCell.h"
+#include "vtkCellArray.h"
+#include "vtkIdList.h"
+#include "vtkTimerLog.h"
+#include "vtkPolyData.h"
+#include "vtkPoints.h"
 
-vtkCxxRevisionMacro(vtkKdTree, "$Revision: 1.7 $");
+#include <algorithm>
+
+vtkCxxRevisionMacro(vtkKdTree, "$Revision: 1.8 $");
 
 // methods for vtkKdNode -------------------------------------------
 
