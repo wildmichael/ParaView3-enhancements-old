@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVersion.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-13 23:59:06 $
-  Version:   $Revision: 1.946 $
+  Date:      $Date: 2001-08-22 19:32:43 $
+  Version:   $Revision: 1.947 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -55,11 +55,11 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "vtkObject.h"
 
-#define VTK_MAJOR_VERSION 3
-#define VTK_MINOR_VERSION 2
+#define VTK_MAJOR_VERSION 4
+#define VTK_MINOR_VERSION 0
 #define VTK_BUILD_VERSION 0
-#define VTK_VERSION "3.2.0"
-#define VTK_SOURCE_VERSION "vtk version " VTK_VERSION ", vtk source $Revision: 1.946 $, $Date: 2001-08-13 23:59:06 $ (GMT)"
+#define VTK_VERSION "4.0.0"
+#define VTK_SOURCE_VERSION "vtk version " VTK_VERSION ", vtk source $Revision: 1.947 $, $Date: 2001-08-22 19:32:43 $ (GMT)"
 
 
 class VTK_EXPORT vtkVersion : public vtkObject {
