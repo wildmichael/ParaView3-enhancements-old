@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGrid.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-07 22:32:22 $
-  Version:   $Revision: 1.57 $
+  Date:      $Date: 2002-06-13 12:36:17 $
+  Version:   $Revision: 1.58 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -181,6 +181,15 @@ public:
   void ShallowCopy(vtkDataObject *src);  
   void DeepCopy(vtkDataObject *src);
   
+  // Description:
+  // WARNING: INTERNAL METHOD - NOT FOR GENERAL USE. 
+  // THIS METHOD IS PART OF THE PIPELINE UPDATE FUNCTIONALITY.
+  // Propagate the update back up the pipeline, and perform the actual 
+  // work of updating on the way down. 
+  // This subclass version of the method adds ghost level arrays if
+  // a request is made as pieces.
+  virtual void UpdateData();
+
 protected:
   vtkRectilinearGrid();
   ~vtkRectilinearGrid();
