@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPlaneCollection.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:20:54 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-10-05 17:13:39 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -63,15 +63,6 @@ public:
   void AddItem(vtkPlane *);
 
   // Description:
-  // Remove an plane from the list.
-  void RemoveItem(vtkPlane *);
-
-  // Description:
-  // Determine whether a particular plane is present. Returns its
-  // position in the list.
-  int IsItemPresent(vtkPlane *);
-
-  // Description:
   // Get the next plane in the list.
   vtkPlane *GetNextItem();
   
@@ -86,16 +77,6 @@ protected:
 inline void vtkPlaneCollection::AddItem(vtkPlane *f) 
 {
   this->vtkCollection::AddItem((vtkObject *)f);
-}
-
-inline void vtkPlaneCollection::RemoveItem(vtkPlane *f) 
-{
-  this->vtkCollection::RemoveItem((vtkObject *)f);
-}
-
-inline int vtkPlaneCollection::IsItemPresent(vtkPlane *f) 
-{
-  return this->vtkCollection::IsItemPresent((vtkObject *)f);
 }
 
 inline vtkPlane *vtkPlaneCollection::GetNextItem() 

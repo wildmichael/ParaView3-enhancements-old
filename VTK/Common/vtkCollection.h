@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCollection.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:20:41 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1999-10-05 17:13:39 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -90,7 +90,7 @@ public:
   // GetNextItemAsObject (or GetNextItem in derived class).  The list WILL
   // be shortened if a valid index is given!  If this->Current is equal to the
   // element being removed, have it point to then next element in the list.
-  virtual void RemoveItem(int i);  
+  void RemoveItem(int i);  
 
   // Description:
   // Remove an object from the list. Removes the first object found, not

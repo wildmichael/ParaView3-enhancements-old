@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkViewport.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-03-23 13:55:36 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1999-10-05 17:13:58 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -122,6 +122,11 @@ vtkViewport::~vtkViewport()
     }
 }
 
+void vtkViewport::RemoveActor2D(vtkProp* p)
+{
+  this->Actors2D->RemoveItem(p);
+  this->RemoveProp(p);
+}
 void vtkViewport::AddProp(vtkProp *p)
 {
   this->Props->AddItem(p);

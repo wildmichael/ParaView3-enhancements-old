@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetCollection.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:20:43 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-10-05 17:13:39 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -60,17 +60,6 @@ public:
   void AddItem(vtkDataSet *ds) {
     this->vtkCollection::AddItem((vtkObject *)ds);};
   
-  // Description:
-  // Remove a dataset from the list.
-  void RemoveItem(vtkDataSet *ds) {
-    this->vtkCollection::RemoveItem((vtkObject *)ds);};
-
-  // Description:
-  // Determine whether a particular dataset is present. Returns its position
-  // in the list.
-  int IsItemPresent(vtkDataSet *ds) {
-    return this->vtkCollection::IsItemPresent((vtkObject *)ds);};
-
   // Description:
   // Get the next dataset in the list.
   vtkDataSet *GetNextItem() { 

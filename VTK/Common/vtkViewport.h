@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkViewport.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:08 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1999-10-05 17:13:58 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -85,7 +85,7 @@ public:
   // These methods are all synonyms to AddProp and RemoveProp.
   // They are here for convinience and backwards compatability.
   void AddActor2D(vtkProp* p) {this->AddProp(p);};
-  void RemoveActor2D(vtkProp* p) {this->Actors2D->RemoveItem(p);this->RemoveProp(p);};
+  void RemoveActor2D(vtkProp* p);
   vtkActor2DCollection *GetActors2D();
 
   // Description:

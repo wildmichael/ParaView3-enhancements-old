@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPropCollection.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:20:57 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-10-05 17:13:40 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,15 +64,6 @@ class VTK_EXPORT vtkPropCollection : public vtkCollection
   void AddItem(vtkProp *a);
 
   // Description:
-  // Remove an Prop from the list.
-  void RemoveItem(vtkProp *a);
-
-  // Description:
-  // Determine whether a particular Prop is present. Returns its position
-  // in the list.
-  int IsItemPresent(vtkProp *a);
-
-  // Description:
   // Get the next Prop in the list.
   vtkProp *GetNextProp();
 
@@ -91,16 +82,6 @@ protected:
 inline void vtkPropCollection::AddItem(vtkProp *a) 
 {
   this->vtkCollection::AddItem((vtkObject *)a);
-}
-
-inline void vtkPropCollection::RemoveItem(vtkProp *a) 
-{
-  this->vtkCollection::RemoveItem((vtkObject *)a);
-}
-
-inline int vtkPropCollection::IsItemPresent(vtkProp *a) 
-{
-  return this->vtkCollection::IsItemPresent((vtkObject *)a);
 }
 
 inline vtkProp *vtkPropCollection::GetNextProp() 
