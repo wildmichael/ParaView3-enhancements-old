@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTIFFReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-03-29 13:50:11 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2000-04-20 18:09:26 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -189,9 +189,9 @@ void vtkTIFFReader::ExecuteInformation()
   int numComp, bpp;
   int numSlices = 1;
   
-  if (!this->FileName && !this->FilePrefix)
+  if (!this->FileName && !this->FilePattern)
     {
-    vtkErrorMacro(<<"Either a FileName or FilePrefix must be specified.");
+    vtkErrorMacro(<<"Either a FileName or FilePattern must be specified.");
     return;
     }
 
