@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAssembly.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:50:38 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1996-09-13 16:24:31 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,14 +56,22 @@ vtkAssembly::~vtkAssembly()
 // Add a part to the list of parts.
 void vtkAssembly::AddPart(vtkActor *actor)
 {
-  this->Parts.AddItem(actor);
+  if ( ! this->Parts.IsItemPresent(actor) )
+    {
+    this->Parts.AddItem(actor);
+    this->Modified();
+    } 
 }
 
 // Description:
 // Remove a part from the list of parts,
 void vtkAssembly::RemovePart(vtkActor *actor)
 {
-  this->Parts.RemoveItem(actor);
+  if ( this->Parts.IsItemPresent(actor) )
+    {
+    this->Parts.RemoveItem(actor);
+    this->Modified();
+    } 
 }
 
 // Description:
