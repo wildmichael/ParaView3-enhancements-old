@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfObject.h,v 1.15 2003-11-07 19:19:58 clarke Exp $  */
-/*  Date : $Date: 2003-11-07 19:19:58 $ */
-/*  Version : $Revision: 1.15 $ */
+/*  Id : $Id: XdmfObject.h,v 1.16 2003-12-29 21:54:59 andy Exp $  */
+/*  Date : $Date: 2003-12-29 21:54:59 $ */
+/*  Version : $Revision: 1.16 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -59,7 +59,7 @@
 *  "less that 50-100" values, it's Light data.
 * 
 * This API is also "wrapped" using SWIG. This provides a scripting language
-* interface to Tcl, Python, Perl, and Java
+* interface to Tcl, Python, Perl, and Java.
 *
 *  
 */
