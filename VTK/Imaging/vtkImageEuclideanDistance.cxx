@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageEuclideanDistance.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-13 17:51:45 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-09-05 13:00:46 $
+  Version:   $Revision: 1.4 $
   Thanks:    Olivier Cuisenaire who developed this class
              URL: http://ltswww.epfl.ch/~cuisenai
 	     Email: Olivier.Cuisenaire@epfl.ch
@@ -595,6 +595,7 @@ void vtkImageEuclideanDistanceExecuteSaitoCached(vtkImageEuclideanDistance *self
     }
   
   free(buff);
+  free(temp);
   free(sq);
 }
 
