@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-02 21:16:23 $
-  Version:   $Revision: 1.58 $
+  Date:      $Date: 1999-01-04 20:23:52 $
+  Version:   $Revision: 1.59 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -356,15 +356,18 @@ void vtkTransform::Translate ( float x, float y, float z)
 // Obtain the transpose of the current transformation matrix.
 void vtkTransform::GetTranspose (vtkMatrix4x4 *transpose)
 {
+  vtkMatrix4x4 *temp = vtkMatrix4x4::New();
   int i, j;
 
   for (i = 0; i < 4; i++) 
     {
     for (j = 0; j < 4; j++) 
       {
-      transpose->Element[j][i] = (**this->Stack).Element[i][j];
+      temp->Element[j][i] = (**this->Stack).Element[i][j];
       }
     }    
+  transpose->DeepCopy (temp);
+  temp->Delete();
 }
 
 // Invert the current transformation matrix.
