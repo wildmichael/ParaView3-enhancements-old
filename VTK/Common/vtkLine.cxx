@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLine.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 21:02:38 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 1996-09-05 13:45:44 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -208,7 +208,7 @@ void vtkLine::Contour(float value, vtkFloatScalars *cellScalars,
   lineCase = lineCases + index;
   vert = lineCase->verts;
 
-  while ( vert[0] > -1 )
+  if ( vert[0] > -1 )
     {
     t = (value - cellScalars->GetScalar(vert[0])) /
         (cellScalars->GetScalar(vert[1]) - cellScalars->GetScalar(vert[0]));
