@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-26 15:15:36 $
-  Version:   $Revision: 1.63 $
+  Date:      $Date: 2001-01-31 20:28:06 $
+  Version:   $Revision: 1.64 $
   Thanks:    to Horst Schreiber for developing this MFC code
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1277,7 +1277,8 @@ void vtkWin32OpenGLRenderWindow::SetRGBAPixelData(int x1, int y1,
   // Turn of texturing in case it is on - some drivers have a problem
   // getting / setting pixels with texturing enabled.
   glDisable( GL_TEXTURE_2D );
-
+  glDisable( GL_LIGHTING );
+  
   /* write out a row of pixels */
   glMatrixMode( GL_MODELVIEW );
   glPushMatrix();
@@ -1305,6 +1306,9 @@ void vtkWin32OpenGLRenderWindow::SetRGBAPixelData(int x1, int y1,
     {
     glDrawPixels( width, height, GL_RGBA, GL_FLOAT, data);
     }    
+  
+  glEnable( GL_LIGHTING );
+  
 
 }
 
