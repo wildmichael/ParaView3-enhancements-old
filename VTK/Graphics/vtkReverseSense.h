@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkReverseSense.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:07:37 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1999-11-24 13:40:10 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,11 +40,13 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 // .NAME vtkReverseSense - reverse the ordering of polygonal cells and/or vertex normals
 // .SECTION Description
+// 
 // vtkReverseSense is a filter that reverses the order of polygonal cells
-// and/or reverses the direction of vertex normals. Two flags are used to
-// control these operations. Cell reversal means reversing the order of 
-// indices in the cell connectivity list. Normal reversal means multiplying
-// the normal vector by -1.
+// and/or reverses the direction of point and cell normals. Two flags are
+// used to control these operations. Cell reversal means reversing the order
+// of indices in the cell connectivity list. Normal reversal means
+// multiplying the normal vector by -1 (both point and cell normals, 
+// if present).
 
 // .SECTION Caveats
 // Normals can be operated on only if they are present in the data.
