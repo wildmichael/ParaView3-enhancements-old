@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageIterateFilter.h,v $
   Language:  C++
-  Date:      $Date: 1998-01-30 19:26:13 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-02-05 12:09:42 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -52,13 +52,13 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #define __vtkImageIterateFilter_h
 
 
-#include "vtkImageSource.h"
+#include "vtkImageFilter.h"
 #include "vtkStructuredPoints.h"
 #include "vtkStructuredPointsToImage.h"
 #include "vtkImageCache.h"
 #include "vtkMultiThreader.h"
 
-class VTK_EXPORT vtkImageIterateFilter : public vtkImageSource
+class VTK_EXPORT vtkImageIterateFilter : public vtkImageFilter
 {
 public:
   vtkImageIterateFilter();
@@ -67,56 +67,14 @@ public:
   const char *GetClassName() {return "vtkImageIterateFilter";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
-  virtual void SetInput(vtkImageCache *input);
-  void SetInput(vtkStructuredPoints *spts)
-    {this->SetInput(spts->GetStructuredPointsToImage()->GetOutput());}
-  
-  virtual void InternalUpdate(vtkImageData *outData);
   void UpdateImageInformation();
-  unsigned long int GetPipelineMTime();
-  
-  // Description:
-  // Get input to this filter.
-  vtkGetObjectMacro(Input,vtkImageCache);
 
   // Description:
-  // Turning bypass on will cause the filter to turn off and
-  // simply pass the data through.  This main purpose for this functionality
-  // is support for vtkImageDecomposedFilter.  InputMemoryLimit is ignored
-  // when Bypass in on.
-  vtkSetMacro(Bypass,int);
-  vtkGetMacro(Bypass,int);
-  vtkBooleanMacro(Bypass,int);
-
-  // Description:
-  // Get/Set the number of threads to create when rendering
-  vtkSetClampMacro( NumberOfThreads, int, 1, VTK_MAX_THREADS );
-  vtkGetMacro( NumberOfThreads, int );
-
-  // subclasses should define this function
-  virtual void ThreadedExecute(vtkImageData *inData, 
-			       vtkImageData *outData,
-			       int extent[6], int threadId);
-  
-  // For templated iteration filters
+  // Public for templated iteration filters
   vtkGetMacro(Iteration,int);
-  virtual int SplitExtent(int splitExt[6], int startExt[6], 
-			  int num, int total);
-  
   
 protected:
-  vtkImageCache *Input;     
-  vtkMultiThreader *Threader;
-  int Bypass;
-  int Updating;
-  int NumberOfThreads;
-  
-  virtual void ExecuteImageInformation();
-  virtual void ComputeRequiredInputUpdateExtent(int inExt[6],int outExt[6]);
-
   virtual void RecursiveStreamUpdate(vtkImageData *outData);
-  virtual void Execute(vtkImageData *inData, vtkImageData *outData);
-  
   
   // for filteres that execute multiple times.
   int NumberOfIterations;
