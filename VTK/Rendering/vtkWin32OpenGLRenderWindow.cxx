@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-22 19:15:21 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 1999-12-15 21:03:38 $
+  Version:   $Revision: 1.42 $
   Thanks:    to Horst Schreiber for developing this MFC code
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -1105,6 +1105,7 @@ void vtkWin32OpenGLRenderWindow::ResumeScreenRendering()
     {
     ren->SetRenderWindow(NULL);
     }
+  wglDeleteContext(this->ContextId);
   this->Mapped = this->ScreenMapped;
   this->Size[0] = this->ScreenWindowSize[0];
   this->Size[1] = this->ScreenWindowSize[1];
