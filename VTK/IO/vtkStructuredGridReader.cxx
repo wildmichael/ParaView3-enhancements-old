@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:07:53 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 1999-10-15 14:19:58 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -174,9 +174,7 @@ char *vtkStructuredGridReader::GetFieldDataName()
 // We just need to read the dimensions
 void vtkStructuredGridReader::ExecuteInformation()
 {
-  int numPts=0, npts, numCells=0, ncells;
   char line[256];
-  int dimsRead=0;
   vtkStructuredGrid *output = this->GetOutput();
   
   if (!this->Reader->OpenVTKFile() || !this->Reader->ReadHeader())
