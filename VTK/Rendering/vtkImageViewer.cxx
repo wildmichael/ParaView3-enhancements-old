@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageViewer.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-12-17 01:27:34 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1998-01-16 18:57:06 $
+  Version:   $Revision: 1.24 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -137,6 +137,7 @@ void vtkImageViewer::Render(void)
   int idx;
   vtkImageData *data;
   int *wholeExtent;
+  int displayExtent[6];
   
   if ( ! this->Input)
     {
@@ -155,15 +156,23 @@ void vtkImageViewer::Render(void)
     {
     if (this->DisplayExtent[idx*2] < wholeExtent[idx*2]) 
       {
-      this->DisplayExtent[idx*2] = wholeExtent[idx*2];
+      displayExtent[idx*2] = wholeExtent[idx*2];
+      }
+    else 
+      {
+      displayExtent[idx*2] = this->DisplayExtent[idx*2];
       }
     if (this->DisplayExtent[idx*2+1] > wholeExtent[idx*2+1]) 
       {
-      this->DisplayExtent[idx*2+1] = wholeExtent[idx*2+1];
+      displayExtent[idx*2+1] = wholeExtent[idx*2+1];
+      }
+    else 
+      {
+      displayExtent[idx*2+1] = this->DisplayExtent[idx*2+1];
       }
     }
 
-  this->Input->SetUpdateExtent(this->DisplayExtent);
+  this->Input->SetUpdateExtent(displayExtent);
 
   // Get the region from the input
   data = this->Input->UpdateAndReturnData();
