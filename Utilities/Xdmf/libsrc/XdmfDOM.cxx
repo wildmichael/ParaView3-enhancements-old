@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDOM.cxx,v 1.9 2004-01-06 23:52:58 andy Exp $  */
-/*  Date : $Date: 2004-01-06 23:52:58 $ */
-/*  Version : $Revision: 1.9 $ */
+/*  Id : $Id: XdmfDOM.cxx,v 1.10 2004-01-07 14:38:23 andy Exp $  */
+/*  Date : $Date: 2004-01-07 14:38:23 $ */
+/*  Version : $Revision: 1.10 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -911,7 +911,7 @@ if( XDMF_WORD_CMP( Attribute, "Int" ) ){
     abort();
     return XDMF_INT32_TYPE;
   }
-} else if ( XDMF_WORD_CMP( Attribute, "Float" ) ){
+} else if ( !Attribute ||  XDMF_WORD_CMP( Attribute, "Float" ) ){
   if( XDMF_WORD_CMP( Precision, "8" ) ) {
     return XDMF_FLOAT64_TYPE;
   }
