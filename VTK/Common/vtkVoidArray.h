@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoidArray.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:26:40 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 2002-02-13 22:46:31 $
+  Version:   $Revision: 1.51 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -50,6 +50,10 @@ public:
   // Description:
   // Get the data type.
   int GetDataType() {return VTK_VOID;};
+  
+  // Description:
+  // Return the size of the data type.
+  int GetDataTypeSize() { return sizeof(void*); }
   
   // Description:
   // Set the number of n-tuples in the array.

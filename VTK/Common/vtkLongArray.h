@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLongArray.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:35 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2002-02-13 22:46:29 $
+  Version:   $Revision: 1.35 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -58,6 +58,10 @@ public:
   // Description:
   // Get the data type.
   int GetDataType() {return VTK_LONG;};
+  
+  // Description:
+  // Return the size of the data type.
+  int GetDataTypeSize() { return sizeof(long); }
   
   // Description:
   // Set the number of n-tuples in the array.

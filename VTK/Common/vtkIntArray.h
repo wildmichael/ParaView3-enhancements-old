@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIntArray.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:32 $
-  Version:   $Revision: 1.71 $
+  Date:      $Date: 2002-02-13 22:46:29 $
+  Version:   $Revision: 1.72 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -51,6 +51,10 @@ public:
   // Get the data type.
   int GetDataType() 
     {return VTK_INT;}
+
+  // Description:
+  // Return the size of the data type.
+  int GetDataTypeSize() { return sizeof(int); }
 
   // Description:
   // Resize object to just fit data requirement. Reclaims extra memory.

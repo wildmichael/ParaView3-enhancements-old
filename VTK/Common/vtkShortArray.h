@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkShortArray.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:26:19 $
-  Version:   $Revision: 1.63 $
+  Date:      $Date: 2002-02-13 22:46:29 $
+  Version:   $Revision: 1.64 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -51,6 +51,10 @@ public:
   // Get the data type.
   int GetDataType() {return VTK_SHORT;};
 
+  // Description:
+  // Return the size of the data type.
+  int GetDataTypeSize() { return sizeof(short); }
+  
   // Description:
   // Set the number of n-tuples in the array.
   void SetNumberOfTuples(const vtkIdType number);

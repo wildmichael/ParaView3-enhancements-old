@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBitArray.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:11 $
-  Version:   $Revision: 1.62 $
+  Date:      $Date: 2002-02-13 22:46:27 $
+  Version:   $Revision: 1.63 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -46,6 +46,7 @@ public:
   // satisfy vtkDataArray API
   vtkDataArray *MakeObject();
   int GetDataType() {return VTK_BIT;};
+  int GetDataTypeSize() { return 0; }
   
   // Description:
   // Set the number of n-tuples in the array.

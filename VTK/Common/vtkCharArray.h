@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCharArray.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:14 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 2002-02-13 22:46:27 $
+  Version:   $Revision: 1.44 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -50,6 +50,10 @@ public:
   // Description:
   // Get the data type.
   int GetDataType() {return VTK_CHAR;};
+  
+  // Description:
+  // Return the size of the data type.
+  int GetDataTypeSize() { return sizeof(char); }
 
   // Description:
   // Set the number of tuples in the array. Note that this allocates space

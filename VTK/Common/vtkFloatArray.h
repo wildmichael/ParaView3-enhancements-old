@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFloatArray.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:23 $
-  Version:   $Revision: 1.68 $
+  Date:      $Date: 2002-02-13 22:46:29 $
+  Version:   $Revision: 1.69 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -48,9 +48,13 @@ public:
 
   // Description:
   // Get the data type.
-  int GetDataType() 
+  int GetDataType()
     {return VTK_FLOAT;}
 
+  // Description:
+  // Return the size of the data type.
+  int GetDataTypeSize() { return sizeof(float); }
+  
   // Description:
   // Set the number of n-tuples in the array.
   void SetNumberOfTuples(const vtkIdType number);

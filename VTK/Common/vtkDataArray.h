@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataArray.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:16 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 2002-02-13 22:46:28 $
+  Version:   $Revision: 1.44 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -74,6 +74,10 @@ public:
   // Return the underlying data type. An integer indicating data type is 
   // returned as specified in vtkSetGet.h.
   virtual int GetDataType() = 0;
+
+  // Description:
+  // Return the size of the underlying data type.  For a bit, 0 is returned.
+  virtual int GetDataTypeSize() = 0;
 
   // Description:
   // Set/Get the dimension (n) of the components. Must be >= 1. Make sure that
