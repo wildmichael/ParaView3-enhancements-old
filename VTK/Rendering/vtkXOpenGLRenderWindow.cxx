@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXOpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-07-17 14:16:19 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2002-07-28 17:32:27 $
+  Version:   $Revision: 1.24 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -86,7 +86,7 @@ vtkXOpenGLRenderWindowInternal::vtkXOpenGLRenderWindowInternal(
 
 
 #ifndef VTK_IMPLEMENT_MESA_CXX
-vtkCxxRevisionMacro(vtkXOpenGLRenderWindow, "$Revision: 1.23 $");
+vtkCxxRevisionMacro(vtkXOpenGLRenderWindow, "$Revision: 1.24 $");
 vtkStandardNewMacro(vtkXOpenGLRenderWindow);
 #endif
 
@@ -884,8 +884,10 @@ extern "C"
     
     if (((reinterpret_cast<XAnyEvent *>(event))->window == win) &&
         ((event->type == ButtonPress)))
+      {
       vtkXOpenGLRenderWindowFoundMatch = 1;
-    
+      }
+
     return 0; 
   }
 }

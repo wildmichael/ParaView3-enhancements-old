@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-07-02 00:19:25 $
-  Version:   $Revision: 1.88 $
+  Date:      $Date: 2002-07-28 17:32:27 $
+  Version:   $Revision: 1.89 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -37,7 +37,7 @@
 #include <GL/gl.h>
 #endif
 
-vtkCxxRevisionMacro(vtkWin32OpenGLRenderWindow, "$Revision: 1.88 $");
+vtkCxxRevisionMacro(vtkWin32OpenGLRenderWindow, "$Revision: 1.89 $");
 vtkStandardNewMacro(vtkWin32OpenGLRenderWindow);
 
 #define VTK_MAX_LIGHTS 8
@@ -177,8 +177,18 @@ void vtkWin32OpenGLRenderWindow::SetWindowName( const char * _arg )
 int vtkWin32OpenGLRenderWindow::GetEventPending()
 {
   MSG msg;
-  
-  return PeekMessage(&msg,this->WindowId,WM_LBUTTONDOWN,WM_MBUTTONDOWN,PM_NOREMOVE);
+
+  if (PeekMessage(&msg,this->WindowId,WM_MOUSEFIRST,WM_MOUSELAST,PM_NOREMOVE))
+    {
+    if ((msg.message == WM_LBUTTONDOWN) ||
+        (msg.message == WM_RBUTTONDOWN) ||
+        (msg.message == WM_MBUTTONDOWN))
+      {
+      return 1;
+      }
+    }
+
+  return 0;
 }
 
 // this is a global because we really don't think you are doing

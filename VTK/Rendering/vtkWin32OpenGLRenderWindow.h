@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-09 16:54:11 $
-  Version:   $Revision: 1.53 $
+  Date:      $Date: 2002-07-28 17:32:27 $
+  Version:   $Revision: 1.54 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -144,7 +144,8 @@ public:
   void MakeCurrent();
 
   // Description:
-  // Check to see if an event is pending for this window.
+  // Check to see if a mouse button has been pressed.
+  // All other events are ignored by this method.
   // This is a useful check to abort a long render.
   virtual  int GetEventPending();
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-18 19:03:26 $
-  Version:   $Revision: 1.123 $
+  Date:      $Date: 2002-07-28 17:32:27 $
+  Version:   $Revision: 1.124 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -290,6 +290,12 @@ public:
   vtkGetMacro(InAbortCheck,int);
   vtkSetMacro(InAbortCheck,int);
   virtual int CheckAbortStatus();
+
+  // Description:
+  // Check to see if a mouse button has been pressed.  All other events
+  // are ignored by this method.  Ideally, you want to abort the render
+  // on any event which causes the DesiredUpdateRate to switch from
+  // a high-quality rate to a more interactive rate.  
   virtual int GetEventPending() = 0;
 
   // Description:

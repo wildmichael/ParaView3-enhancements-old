@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXOpenGLRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-08 21:32:20 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2002-07-28 17:32:27 $
+  Version:   $Revision: 1.13 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -151,8 +151,9 @@ public:
   void ShowCursor();
 
   // Description:
-  // Get the properties available at runtime that would result in 
-  // the best Xwindow for 3D rendering.
+  // Check to see if a mouse button has been pressed.
+  // All other events are ignored by this method.
+  // This is a useful check to abort a long render.
   virtual  int GetEventPending();
   
   // Description:
