@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCompositeManager.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-14 18:58:20 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2002-05-16 16:18:40 $
+  Version:   $Revision: 1.29 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -35,7 +35,7 @@
  #include <mpi.h>
 #endif
 
-vtkCxxRevisionMacro(vtkCompositeManager, "$Revision: 1.28 $");
+vtkCxxRevisionMacro(vtkCompositeManager, "$Revision: 1.29 $");
 vtkStandardNewMacro(vtkCompositeManager);
 
 // Structures to communicate render info.
@@ -763,6 +763,7 @@ void vtkCompositeManager::EndRender()
 void vtkCompositeManager::ResetCamera(vtkRenderer *ren)
 {
   float bounds[6];
+  vtkCamera *cam;
 
   if (this->Controller == NULL || this->Lock)
     {
@@ -772,6 +773,17 @@ void vtkCompositeManager::ResetCamera(vtkRenderer *ren)
   this->Lock = 1;
   
   this->ComputeVisiblePropBounds(ren, bounds);
+  // Keep from setting camera from some outrageous value.
+  if (bounds[0]>bounds[1] || bounds[2]>bounds[3] || bounds[4]>bounds[5])
+    {
+    // See if the not pickable values are better.
+    ren->ComputeVisiblePropBounds(bounds);
+    if (bounds[0]>bounds[1] || bounds[2]>bounds[3] || bounds[4]>bounds[5])
+      {
+      this->Lock = 0;
+      return;
+      }
+    }
   ren->ResetCamera(bounds);
   
   this->Lock = 0;
