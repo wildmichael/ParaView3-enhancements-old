@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadricClustering.h,v $
   Language:  C++
-  Date:      $Date: 2002-10-04 16:53:59 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2002-10-28 21:34:31 $
+  Version:   $Revision: 1.31 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -68,14 +68,6 @@
 #include "vtkDataSetCollection.h"
 
 class vtkFeatureEdges;
-
-typedef struct {
-  vtkIdType VertexId;
-  // Dimension is supposed to be a flag representing the dimension of the cells
-  // contributing to the quadric. Lines: 1, Triangles: 2 (and points 0 in the future?)
-  unsigned char Dimension;
-  float Quadric[9];
-} VTK_POINT_QUADRIC;
 
 class VTK_GRAPHICS_EXPORT vtkQuadricClustering : public vtkPolyDataToPolyDataFilter
 {
@@ -269,7 +261,19 @@ protected:
   float XBinSize;
   float YBinSize;
   float ZBinSize;
-  VTK_POINT_QUADRIC* QuadricArray;
+
+  //BTX
+  typedef struct {
+    vtkIdType VertexId;
+    // Dimension is supposed to be a flag representing the dimension of the cells
+    // contributing to the quadric. 
+    // Lines: 1, Triangles: 2 (and points 0 in the future?)
+    unsigned char Dimension;
+    float Quadric[9];
+  } PointQuadricStruct;
+  //ETX
+  PointQuadricStruct* QuadricArray;
+
   vtkIdType NumberOfBinsUsed;
 
   // Have to make these instance variables if we are going to allow

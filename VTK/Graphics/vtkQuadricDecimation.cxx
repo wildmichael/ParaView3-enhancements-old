@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadricDecimation.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-03 12:52:23 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2002-10-28 21:34:31 $
+  Version:   $Revision: 1.20 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkPolyData.h"
 
-vtkCxxRevisionMacro(vtkQuadricDecimation, "$Revision: 1.19 $");
+vtkCxxRevisionMacro(vtkQuadricDecimation, "$Revision: 1.20 $");
 vtkStandardNewMacro(vtkQuadricDecimation);
 
 //----------------------------------------------------------------------------
@@ -91,7 +91,8 @@ void vtkQuadricDecimation::Execute()
     return;
     }
 
-  this->ErrorQuadrics = new VTK_ERROR_QUADRIC[input->GetNumberOfPoints()];
+  this->ErrorQuadrics = 
+    new vtkQuadricDecimation::ErrorQuadricStruct[input->GetNumberOfPoints()];
   this->Mesh->DeepCopy(input);
   input->BuildLinks();
   this->Mesh->BuildLinks();
