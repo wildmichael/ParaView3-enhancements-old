@@ -3,11 +3,9 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkBYUWriter.h,v $
   Language:  C++
-  Date:      $Date: 1994-07-20 21:46:16 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1994-08-21 20:47:27 $
+  Version:   $Revision: 1.3 $
 
-Description:
----------------------------------------------------------------------------
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
 without the express written consent of the authors.
@@ -39,26 +37,40 @@ public:
   char *GetClassName() {return "vlBYUWriter";};
   void PrintSelf(ostream& os, vlIndent indent);
 
+  // Description:
+  // Specify the name of the geometry file to write.
   vlSetStringMacro(GeometryFilename);
   vlGetStringMacro(GeometryFilename);
 
+  // Description:
+  // Specify the name of the displacement file to write.
   vlSetStringMacro(DisplacementFilename);
   vlGetStringMacro(DisplacementFilename);
 
+  // Description:
+  // Specify the name of the scalar file to write.
   vlSetStringMacro(ScalarFilename);
   vlGetStringMacro(ScalarFilename);
 
+  // Description:
+  // Specify the name of the texture file to write.
   vlSetStringMacro(TextureFilename);
   vlGetStringMacro(TextureFilename);
 
+  // Description:
+  // Turn on/off writing the displacement file.
   vlSetMacro(WriteDisplacement,int);
   vlGetMacro(WriteDisplacement,int);
   vlBooleanMacro(WriteDisplacement,int);
   
+  // Description:
+  // Turn on/off writing the scalar file.
   vlSetMacro(WriteScalar,int);
   vlGetMacro(WriteScalar,int);
   vlBooleanMacro(WriteScalar,int);
   
+  // Description:
+  // Turn on/off writing the texture file.
   vlSetMacro(WriteTexture,int);
   vlGetMacro(WriteTexture,int);
   vlBooleanMacro(WriteTexture,int);
