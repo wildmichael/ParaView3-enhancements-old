@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkLine.h,v $
   Language:  C++
-  Date:      $Date: 1994-03-12 19:00:36 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1994-03-23 14:05:33 $
+  Version:   $Revision: 1.6 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -30,6 +30,10 @@ public:
   char *GetClassName() {return "vlLine";};
 
   int CellDimension() {return 1;};
+  void Contour(float value, vlFloatScalars *cellScalars, 
+               vlFloatPoints *points, vlCellArray *verts, 
+               vlCellArray *lines, vlCellArray *polys, 
+               vlFloatScalars *s);
   float EvaluatePosition(float x[3], int& subId, float pcoords[3]);
   void EvaluateLocation(int& subId, float pcoords[3], float x[3]);
 

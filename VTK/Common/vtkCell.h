@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkCell.h,v $
   Language:  C++
-  Date:      $Date: 1994-03-12 19:01:42 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1994-03-23 14:05:24 $
+  Version:   $Revision: 1.4 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -26,6 +26,8 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 
 #include "Object.hh"
 #include "FPoints.hh"
+#include "FScalars.hh"
+#include "CellArr.hh"
 #include "IdList.hh"
 
 class vlCell : public vlObject
@@ -38,11 +40,9 @@ public:
   // Because these objects (cells and derived classes) are computational 
   // objects, and because they are used internally, do not use memory 
   // reference counting.
-  // Point coordinates for cell.
-  vlFloatPoints *GetPoints() {return &this->Points;};
 
-  // Point ids for cell.
-  vlIdList *GetPointIds() {return &this->PointIds;};
+  // Number of points in cell
+  int NumberOfPoints() {return this->PointIds.NumberOfIds();};
 
   // Dimensionality of cell (0,1,2, or 3)
   virtual int CellDimension() = 0;
@@ -55,11 +55,23 @@ public:
   // Determine global coordinate from subId and parametric coordinates
   virtual void EvaluateLocation(int& subId, float pcoords[3], float x[3]) = 0;
 
+  // Generate contouring primitives
+  virtual void Contour(float value, vlFloatScalars *cellScalars, 
+                       vlFloatPoints *points, vlCellArray *verts, 
+                       vlCellArray *lines, vlCellArray *polys, 
+                       vlFloatScalars *scalars) = 0;
+
   // Compute cell bounding box (xmin,xmax,ymin,ymax,zmin,zmax)
   float *GetBounds();
 
   // Quick intersection of cell bounding box.  Returns != 0 for hit.
   char HitBBox(float bounds[6], float origin[3], float dir[3], float coord[3]);
+
+  // Point coordinates for cell.
+  vlFloatPoints *GetPoints() {return &this->Points;};
+
+  // Point ids for cell.
+  vlIdList *GetPointIds() {return &this->PointIds;};
 
   // left public for quick computational access
   vlFloatPoints Points;

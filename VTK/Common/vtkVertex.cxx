@@ -1,10 +1,11 @@
+
 /*=========================================================================
 
   Program:   Visualization Library
   Module:    $RCSfile: vtkVertex.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-03-12 19:00:33 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1994-03-23 14:05:34 $
+  Version:   $Revision: 1.4 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -51,3 +52,18 @@ void vlPoint::EvaluateLocation(int& subId, float pcoords[3], float x[3])
   x[1] = X[1];
   x[2] = X[2];
 }
+
+void vlPoint::Contour(float value, vlFloatScalars *cellScalars, 
+                      vlFloatPoints *points,                      
+                      vlCellArray *verts, vlCellArray *lines, 
+                      vlCellArray *polys, vlFloatScalars *scalars)
+{
+  if ( value == cellScalars->GetScalar(0) )
+    {
+    int pts[1];
+    scalars->InsertNextScalar(value);
+    pts[0] = points->InsertNextPoint(this->Points.GetPoint(0));
+    verts->InsertNextCell(1,pts);
+    }
+}
+
