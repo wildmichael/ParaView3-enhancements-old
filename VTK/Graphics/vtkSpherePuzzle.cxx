@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSpherePuzzle.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-12 18:47:02 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-12-13 19:21:23 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -183,9 +183,9 @@ void vtkSpherePuzzle::Execute()
         // Lighten the active pieces
         if (this->Active && this->PieceMask[count])
           {
-          r = r + (unsigned char)((255 - r) * 0.3);
-          g = g + (unsigned char)((255 - g) * 0.3);
-          b = b + (unsigned char)((255 - b) * 0.3);
+          r = r + (unsigned char)((255 - r) * 0.4);
+          g = g + (unsigned char)((255 - g) * 0.4);
+          b = b + (unsigned char)((255 - b) * 0.4);
           }
         scalars->InsertNextValue(r);
         scalars->InsertNextValue(g);

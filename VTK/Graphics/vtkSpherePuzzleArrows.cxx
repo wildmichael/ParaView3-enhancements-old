@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSpherePuzzleArrows.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-12 18:47:03 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-12-13 19:21:23 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -104,7 +104,8 @@ void vtkSpherePuzzleArrows::Execute()
     {
     if (this->Permutation[idx] != idx)
       {
-      this->AppendArrow(idx, this->Permutation[idx], pts, polys);
+      //this->AppendArrow(idx, this->Permutation[idx], pts, polys);
+      this->AppendArrow(this->Permutation[idx], idx, pts, polys);
       }
     }
   output->SetPoints(pts);
