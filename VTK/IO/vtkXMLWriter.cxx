@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-06 02:31:26 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-12-09 15:18:44 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,7 @@
 #include "vtkPoints.h"
 #include "vtkUnsignedCharArray.h"
 
-vtkCxxRevisionMacro(vtkXMLWriter, "$Revision: 1.7 $");
+vtkCxxRevisionMacro(vtkXMLWriter, "$Revision: 1.8 $");
 vtkCxxSetObjectMacro(vtkXMLWriter, Compressor, vtkDataCompressor);
 
 //----------------------------------------------------------------------------
@@ -1361,7 +1361,7 @@ void vtkXMLWriter::WritePDataArray(vtkDataArray* a, vtkIndent indent,
                                    const char* alternateName)
 {
   ostream& os = *(this->Stream);
-  os << indent << "<DataArray";
+  os << indent << "<PDataArray";
   this->WriteWordTypeAttribute("type", a->GetDataType());
   if(alternateName)
     {
