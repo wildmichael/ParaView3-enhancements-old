@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-22 19:20:23 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1999-11-11 16:48:27 $
+  Version:   $Revision: 1.25 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -99,7 +99,7 @@ float vtkImageMapper::GetColorShift()
 
 float vtkImageMapper::GetColorScale()
 {
-  return 255.0 / this->ColorWindow;
+  return 256.0 / this->ColorWindow;
 }
 
 void vtkImageMapper::RenderStart(vtkViewport* viewport, vtkActor2D* actor)

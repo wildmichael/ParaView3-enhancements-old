@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAppendComponents.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:08:39 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1999-11-11 16:48:27 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,8 +42,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // one output.
 // .SECTION Description
 // vtkImageAppendComponents takes the components from two inputs and merges
-// them into one output. If Input1 has M compoennts, and Input2 has N 
-// components, the output will have M+N compoennts with input1
+// them into one output. If Input1 has M components, and Input2 has N 
+// components, the output will have M+N components with input1
 // components comming first.
 
 
