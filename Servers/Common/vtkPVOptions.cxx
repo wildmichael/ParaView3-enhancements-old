@@ -31,7 +31,7 @@ public:
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro(vtkPVOptions);
-vtkCxxRevisionMacro(vtkPVOptions, "$Revision: 1.12 $");
+vtkCxxRevisionMacro(vtkPVOptions, "$Revision: 1.13 $");
 
 //----------------------------------------------------------------------------
 vtkPVOptions::vtkPVOptions()
@@ -210,6 +210,12 @@ int vtkPVOptions::PostProcess()
 int vtkPVOptions::WrongArgument(const char*)
 {
   return 0;
+}
+
+//----------------------------------------------------------------------------
+const char* vtkPVOptions::GetArgv0()
+{
+  return this->Internals->CMD.GetArgv0();
 }
 
 //----------------------------------------------------------------------------
