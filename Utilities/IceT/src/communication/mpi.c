@@ -8,7 +8,7 @@
  * of authorship are reproduced on all copies.
  */
 
-/* $Id: mpi.c,v 1.7 2004-08-31 14:27:58 malaterre Exp $ */
+/* $Id: mpi.c,v 1.8 2004-08-31 15:45:33 malaterre Exp $ */
 
 #define USE_STDARG
 #include <GL/ice-t_mpi.h>
@@ -102,9 +102,9 @@ static void destroy_request(IceTCommRequest req)
 #ifdef BREAK_ON_MPI_ERROR
 static void ErrorHandler(MPI_Comm *comm, int *errorno, ...)
 {
-    (void)comm;
     char error_msg[MPI_MAX_ERROR_STRING+16];
     int mpi_error_len;
+    (void)comm;
 
     strcpy(error_msg, "MPI ERROR:\n");
     MPI_Error_string(*errorno, error_msg + strlen(error_msg), &mpi_error_len);
