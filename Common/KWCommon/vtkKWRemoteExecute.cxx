@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKWRemoteExecute.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-04-09 17:10:52 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-04-09 18:40:30 $
+  Version:   $Revision: 1.2 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -60,8 +60,9 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #else
 # include <sys/types.h>
 # include <unistd.h>
-# define SSH_COMMAND "ssh"
 #endif
+
+#define SSH_COMMAND "ssh"
 
 //----------------------------------------------------------------------------
 //============================================================================
@@ -77,7 +78,7 @@ public:
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro( vtkKWRemoteExecute );
-vtkCxxRevisionMacro(vtkKWRemoteExecute, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkKWRemoteExecute, "$Revision: 1.2 $");
 
 //----------------------------------------------------------------------------
 vtkKWRemoteExecute::vtkKWRemoteExecute()
