@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleTerrain.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-28 16:27:36 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-09-30 20:34:38 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,13 +23,14 @@
 #include "vtkExtractEdges.h"
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
+#include "vtkPolyData.h"
 #include "vtkPolyDataMapper.h"
 #include "vtkRenderWindow.h"
 #include "vtkRenderWindowInteractor.h"
 #include "vtkRenderer.h"
 #include "vtkSphereSource.h"
 
-vtkCxxRevisionMacro(vtkInteractorStyleTerrain, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkInteractorStyleTerrain, "$Revision: 1.6 $");
 vtkStandardNewMacro(vtkInteractorStyleTerrain);
 
 //----------------------------------------------------------------------------

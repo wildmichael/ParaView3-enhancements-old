@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWindowToImageFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-03 16:47:53 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2002-09-30 20:34:38 $
+  Version:   $Revision: 1.16 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,11 +18,12 @@
 #include "vtkWindowToImageFilter.h"
 
 #include "vtkCamera.h"
+#include "vtkImageData.h"
 #include "vtkObjectFactory.h"
 #include "vtkRenderWindow.h"
 #include "vtkRendererCollection.h"
 
-vtkCxxRevisionMacro(vtkWindowToImageFilter, "$Revision: 1.15 $");
+vtkCxxRevisionMacro(vtkWindowToImageFilter, "$Revision: 1.16 $");
 vtkStandardNewMacro(vtkWindowToImageFilter);
 
 //----------------------------------------------------------------------------
