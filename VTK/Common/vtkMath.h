@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMath.h,v $
   Language:  C++
-  Date:      $Date: 1996-10-15 17:09:21 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 1997-02-26 21:05:59 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -97,6 +97,16 @@ public:
 
   // Eigenvalue/vector extraction for 3x3 matrices
   static int Jacobi(float **a, float *d, float **v);
+
+  // Roots of polinomial equations
+  // 
+  static double* SolveCubic( double c0, double c1, double c2, double c3 );
+  static double* SolveQuadratic( double c0, double c1, double c2 );
+
+  static void SolveCubic( double c0, double c1, double c2, double c3, 
+			   double *r1, double *r2, double *r3, int *num_roots );
+  static void SolveQuadratic( double c0, double c1, double c2, 
+		        double *r1, double *r2, int *num_roots );
 
 protected:
   static long Seed;
