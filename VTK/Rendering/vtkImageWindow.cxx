@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-02-24 17:50:55 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-03-02 16:49:07 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,6 +42,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkImageWindow.h"
 
 #ifdef _WIN32
+  #include "vtkWin32OpenGLImageWIndow.h"
   #include "vtkWin32ImageWindow.h"
 #else
   #include "vtkXImageWindow.h"
@@ -160,6 +161,7 @@ void vtkImageWindow::GetSize(int *x, int *y)
 vtkImageWindow* vtkImageWindow::New()
 {
 #ifdef _WIN32
+  return vtkWin32OpenGLImageWindow::New();
   return vtkWin32ImageWindow::New();
 #else
     return vtkXImageWindow::New();

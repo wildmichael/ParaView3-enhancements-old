@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataMapper2D.h,v $
   Language:  C++
-  Date:      $Date: 1999-02-24 17:47:02 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1999-03-02 16:49:08 $
+  Version:   $Revision: 1.10 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -141,7 +141,7 @@ public:
   // Description:
   // Obsolete methods for legacy compatability. Do not use.
   void SetLookupTable(vtkLookupTable& lut) {this->SetLookupTable(&lut);};
-  
+
 protected:
   vtkPolyData* Input;
   vtkScalars *Colors;
