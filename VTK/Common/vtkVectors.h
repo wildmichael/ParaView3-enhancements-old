@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkVectors.h,v $
   Language:  C++
-  Date:      $Date: 1994-03-27 16:11:03 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1994-04-14 07:55:07 $
+  Version:   $Revision: 1.7 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -34,6 +34,8 @@ public:
   virtual float *GetVector(int i) = 0;
   virtual void SetVector(int i,float x[3]) = 0;       // fast insert
   virtual void InsertVector(int i, float x[3]) = 0;   // allocates memory as necessary
+  virtual void Squeeze() = 0;
+
   void GetVectors(vlIdList& ptId, vlFloatVectors& fp);
   char *GetClassName() {return "vlVectors";};
   void PrintSelf(ostream& os, vlIndent indent);

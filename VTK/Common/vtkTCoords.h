@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkTCoords.h,v $
   Language:  C++
-  Date:      $Date: 1994-03-27 16:11:07 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1994-04-14 07:55:06 $
+  Version:   $Revision: 1.5 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -34,6 +34,8 @@ public:
   virtual float *GetTCoord(int i) = 0;
   virtual void SetTCoord(int i,float *x) = 0;          // fast insert
   virtual void InsertTCoord(int i, float *x) = 0;      // allocates memory as necessary
+  virtual void Squeeze() = 0;
+
   void GetTCoords(vlIdList& ptId, vlFloatTCoords& fp);
   char *GetClassName() {return "vlTCoords";};
   void PrintSelf(ostream& os, vlIndent indent);

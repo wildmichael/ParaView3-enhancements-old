@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPointData.h,v $
   Language:  C++
-  Date:      $Date: 1994-04-11 21:20:16 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1994-04-14 07:55:04 $
+  Version:   $Revision: 1.14 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -47,6 +47,9 @@ public:
 
   // Set point data to null values
   void NullPoint(int ptId);
+
+  // Reclaim memory
+  void Squeeze();
 
   vlSetObjectMacro (Scalars, vlScalars);
   vlGetObjectMacro (Scalars, vlScalars);

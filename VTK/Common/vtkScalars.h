@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkScalars.h,v $
   Language:  C++
-  Date:      $Date: 1994-03-27 16:11:11 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1994-04-14 07:55:05 $
+  Version:   $Revision: 1.8 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -34,6 +34,8 @@ public:
   virtual float GetScalar(int i) = 0;
   virtual void SetScalar(int i, float s) = 0;     // fast insert
   virtual void InsertScalar(int i, float s) = 0;  // allocates memory as necessary
+  virtual void Squeeze() = 0;
+
   void GetScalars(vlIdList& ptId, vlFloatScalars& fs);
   char *GetClassName() {return "vlScalars";};
   void PrintSelf(ostream& os, vlIndent indent);

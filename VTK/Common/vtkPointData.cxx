@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPointData.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-04-11 21:20:14 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1994-04-14 07:55:02 $
+  Version:   $Revision: 1.15 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -342,4 +342,12 @@ void vlPointData::NullPoint (int ptId)
     this->TCoords->InsertTCoord(ptId,null);
     }
 
+}
+
+void vlPointData::Squeeze()
+{
+  if ( this->Scalars ) this->Scalars->Squeeze();
+  if ( this->Vectors ) this->Vectors->Squeeze();
+  if ( this->Normals ) this->Normals->Squeeze();
+  if ( this->TCoords ) this->TCoords->Squeeze();
 }

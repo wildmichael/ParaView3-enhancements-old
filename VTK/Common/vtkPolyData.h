@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPolyData.h,v $
   Language:  C++
-  Date:      $Date: 1994-04-11 21:20:13 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1994-04-14 07:55:01 $
+  Version:   $Revision: 1.23 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -63,7 +63,7 @@ public:
   int GetNumberOfStrips();
 
   // create verts, lines, polys, tmeshes from cell object
-  void InsertNextCell(vlCell *cell);
+  void InsertNextCell(int type, int npts, int pts[MAX_CELL_SIZE]);
 
   // following stuff supports cell structure
   vlBooleanMacro(LoadVerts,int);
