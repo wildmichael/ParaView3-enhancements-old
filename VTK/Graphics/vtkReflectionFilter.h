@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkReflectionFilter.h,v $
   Language:  C++
-  Date:      $Date: 2002-02-26 14:35:16 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-07-03 20:17:11 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -17,13 +17,15 @@
 =========================================================================*/
 // .NAME vtkReflectionFilter - reflects a data set across a plane
 // .SECTION Description
-// The vtkReflectionFilter reflects a polygonal data set across one of the
+// The vtkReflectionFilter reflects a data set across one of the
 // planes formed by the data set's bounding box.
+// Since it converts data sets into unstructured grids, it is not effeicient
+// for structured data sets.
 
 #ifndef __vtkReflectionFilter_h
 #define __vtkReflectionFilter_h
 
-#include "vtkPolyDataToPolyDataFilter.h"
+#include "vtkDataSetToUnstructuredGridFilter.h"
 
 #define VTK_USE_X_MIN 0
 #define VTK_USE_Y_MIN 1
@@ -32,12 +34,12 @@
 #define VTK_USE_Y_MAX 4
 #define VTK_USE_Z_MAX 5
 
-class VTK_GRAPHICS_EXPORT vtkReflectionFilter : public vtkPolyDataToPolyDataFilter
+class VTK_GRAPHICS_EXPORT vtkReflectionFilter : public vtkDataSetToUnstructuredGridFilter
 {
 public:
   static vtkReflectionFilter *New();
   
-  vtkTypeRevisionMacro(vtkReflectionFilter, vtkPolyDataToPolyDataFilter);
+  vtkTypeRevisionMacro(vtkReflectionFilter, vtkDataSetToUnstructuredGridFilter);
   void PrintSelf(ostream &os, vtkIndent indent);
   
   vtkSetClampMacro(Plane, int, 0, 5);
