@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToPolyDataFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-22 12:48:07 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2001-04-12 11:40:18 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1204,7 +1204,7 @@ void vtkImageToPolyDataFilter::BuildPolygons(vtkUnsignedCharArray *vtkNotUsed(po
           {//build loop
           polyVisited[polyId[j]] = 1;
           numPolyPts = 1;
-          cellId = newPolys->InsertNextCell(npts); //will update count later
+          cellId = newPolys->InsertNextCell(0); //will update count later
           newPolys->InsertCellPoint(ptId);
 
           // Update polygonal color
