@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGaussianSplatter.h,v $
   Language:  C++
-  Date:      $Date: 1995-09-08 12:51:06 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1995-10-25 23:51:01 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -44,8 +44,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // points dataset. As each point is injected, it "splats" or distributes 
 // values to neighboring voxels in the structured points dataset. Data is
 // distributed using a Gaussian distribution function. The distribution
-// function is modified using scalar values (expands distribution) or normals
-// (creates ellipsoidal distribution rather than spherical).
+// function is modified using scalar values (expands distribution) or 
+// normals/vectors (creates ellipsoidal distribution rather than spherical).
 
 #ifndef __vtkGaussianSplatter_h
 #define __vtkGaussianSplatter_h

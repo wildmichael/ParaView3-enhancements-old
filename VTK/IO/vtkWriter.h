@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWriter.h,v $
   Language:  C++
-  Date:      $Date: 1995-10-13 11:09:32 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1995-10-25 23:50:38 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -43,6 +43,10 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // vtkWriter is an abstract class for mapper objects that write their data
 // to disk (or into a communications port). All writers respond to Write()
 // method. This method insures that there is input and input is up to date.
+//
+// vtkWriter provides the convenience methods StartWrite() and EndWrite().
+// These methods are executed before and after execution of the Write() 
+// method. You can also specify arguments to these methods.
 // .SECTION Caveats
 // Every subclass of vtkWriter must implement a WriteData() method. Most likely
 // will have to create SetInput() method as well.

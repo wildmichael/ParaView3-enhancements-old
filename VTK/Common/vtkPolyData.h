@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyData.h,v $
   Language:  C++
-  Date:      $Date: 1995-10-09 16:42:13 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 1995-10-25 23:50:21 $
+  Version:   $Revision: 1.48 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,14 +40,22 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 // .NAME vtkPolyData - concrete dataset represents vertices, lines, polygons, and triangle strips
 // .SECTION Description
-// vtkPolyData is a data object that is a concrete implementation of vtkDataSet.
-// vtkPolyData represents a geometric structure consisting of vertices, lines,
-// polygons, and triangle strips. Point attribute values (e.g., scalars,
-// vectors, etc.) are also represented.
+// vtkPolyData is a data object that is a concrete implementation of 
+// vtkDataSet. vtkPolyData represents a geometric structure consisting of 
+// vertices, lines, polygons, and triangle strips. Point attribute values 
+// (e.g., scalars, vectors, etc.) are also represented.
 //
 // The actual cell types (CellType.hh) supported by vtkPolyData are: vtkVERTEX,
 // vtkPOLY_VERTEX, vtkLINE, vtkPOLYLINE, vtkTRIANGLE, vtkTRIANGLE_STRIP,
 // vtkPOLYGON, vtkRECTANGLE, and vtkQUAD.
+//
+// One important feature of vtkPolyData objects is that special traversal
+// and data manipulation methods are available to process data. These methods
+// are generally more efficient than vtkDataSet methods and should be used
+// whenever possible. For example, traversing the cells in a dataset we would
+// use GetCell(). To traverse cells with vtkPolyData we would retrieve the
+// cell array object representing polygons (for example) and then use
+// vtkCellArray's InitTraversal() and GetNextCell() methods.
 
 #ifndef __vtkPolyData_h
 #define __vtkPolyData_h

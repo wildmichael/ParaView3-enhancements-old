@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamLine.h,v $
   Language:  C++
-  Date:      $Date: 1995-10-12 11:26:36 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1995-10-25 23:50:49 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,7 +57,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // segment lengths of size StepLength. Smaller values reduce in more line 
 // primitives but smoother streamlines. The StepLength instance variable is 
 // defined in terms of time (i.e., the distance that the particle travels in
-// the specified time period) Thus the line segments will be smaller in areas
+// the specified time period). Thus the line segments will be smaller in areas
 // of low velocity and larger in regions of high velocity. (NOTE: This is
 // different than the IntegrationStepLength defined by the superclass
 // vtkStreamer. IntegrationStepLength is used to control integration step 

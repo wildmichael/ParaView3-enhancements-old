@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGeometryFilter.h,v $
   Language:  C++
-  Date:      $Date: 1995-09-08 12:50:59 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1995-10-25 23:50:54 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,7 +56,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // When vtkGeometryFilter extracts cells (or boundaries of cells) it may create
 // duplicate points. Use vtkCleanPolyData to merge duplicate points.
 // .SECTION See Also
-// vtkStructuredPointsGeometryFilter, vtkStructuredGridGeometryFilter
+// vtkStructuredPointsGeometryFilter vtkStructuredGridGeometryFilter
 
 #ifndef __vtkGeometryFilter_h
 #define __vtkGeometryFilter_h

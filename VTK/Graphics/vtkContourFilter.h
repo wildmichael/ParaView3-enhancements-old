@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkContourFilter.h,v $
   Language:  C++
-  Date:      $Date: 1995-09-11 07:55:55 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1995-10-25 23:49:46 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,6 +58,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // vtkCleanPolyData to remove the coincident points. Also, the isosurface
 // is not generated with surface normals. Use vtkPolyNormals to create them,
 // if desired.
+// .SECTION See Also
+// vtkMarchingCubes vtkSliceCubes vtkDividingCubes
 
 #ifndef __vtkContourFilter_h
 #define __vtkContourFilter_h

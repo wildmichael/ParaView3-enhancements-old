@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergeFilter.h,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:31:32 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1995-10-25 23:50:04 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,7 +41,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // .NAME vtkMergeFilter - extract separate components of data from different datasets
 // .SECTION Description
 // vtkMergeFilter is a filter that extracts separate components of data from
-// different datasets and merges them into a single dataset.
+// different datasets and merges them into a single dataset. The output from
+// this filter is of the same type as the input (i.e., vtkDataSet.)
 
 #ifndef __vtkMergeFilter_h
 #define __vtkMergeFilter_h

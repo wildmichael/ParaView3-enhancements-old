@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingCubes.h,v $
   Language:  C++
-  Date:      $Date: 1995-09-11 07:59:04 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1995-10-25 23:50:58 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -51,9 +51,11 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // The output primitives are disjoint - that is, points may
 // be generated that are coincident but distinct. You may want to use
 // vtkCleanPolyData to remove the coincident points. 
-// .SECTION See Also
+//
 // This filter is specialized to volumes. If you are interested in 
 // contouring other types of data, use the general vtkContourFilter.
+// .SECTION See Also
+// vtkContourFilter vtkSliceCubes vtkDividingCubes
 
 #ifndef __vtkMarchingCubes_h
 #define __vtkMarchingCubes_h

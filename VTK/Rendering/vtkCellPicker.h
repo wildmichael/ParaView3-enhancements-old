@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellPicker.h,v $
   Language:  C++
-  Date:      $Date: 1995-08-31 21:20:24 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1995-10-25 23:49:41 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -46,7 +46,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // returns the id of the closest cell within the tolerance along the pick
 // ray, and the dataset that was picked.
 // .SECTION See Also
-// For quick picking, see vtkPicker. To pick points, see vtkPointPicker.
+// vtkPicker vtkPointPicker
 
 #ifndef __vtkCellPicker_h
 #define __vtkCellPicker_h
@@ -69,7 +69,7 @@ public:
   vtkGetMacro(SubId,int);
 
   // Description:
-  // Get the parametric coordinates of the picked cell. Only valid is 
+  // Get the parametric coordinates of the picked cell. Only valid if 
   // pick was made.
   vtkGetVectorMacro(PCoords,float,3);
 

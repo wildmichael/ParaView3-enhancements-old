@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMaskPoints.h,v $
   Language:  C++
-  Date:      $Date: 1995-09-12 12:18:01 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1995-10-25 23:50:03 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -43,7 +43,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // vtkMaskPoints is a filter that passes through points and point attributes 
 // from input dataset. (Other geometry is not passed through). It is 
 // possible to mask every nth point, and to specify an initial offset
-// to begin masking from.
+// to begin masking from. A special random mode feature enables random 
+// selection of points.
 
 #ifndef __vtkMaskPoints_h
 #define __vtkMaskPoints_h

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointData.h,v $
   Language:  C++
-  Date:      $Date: 1995-09-06 22:08:44 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1995-10-25 23:50:23 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -44,7 +44,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // point attribute data (e.g., scalars, vectors, normals, texture 
 // coordinates, etc.) Special methods are provided to work with filter
 // objects such as passing data through filter, copying data from one 
-// point to another, and interpolating data given shape functions.
+// point to another, and interpolating data given cell interpolation weights.
 
 #ifndef __vtkPointData_h
 #define __vtkPointData_h

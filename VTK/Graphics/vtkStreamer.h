@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamer.h,v $
   Language:  C++
-  Date:      $Date: 1995-10-12 11:26:38 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1995-10-25 23:50:59 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -70,7 +70,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // their own representation of the integration path (i.e., lines, dashed 
 // lines, points, etc.).
 // .SECTION See Also
-// vtkStreamLine, vtkDashedStreamLine, vtkStreamPoints
+// vtkStreamLine vtkDashedStreamLine vtkStreamPoints
 
 #ifndef __vtkStreamer_h
 #define __vtkStreamer_h

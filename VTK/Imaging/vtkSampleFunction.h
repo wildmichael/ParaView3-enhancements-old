@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSampleFunction.h,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:31:54 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1995-10-25 23:50:37 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -46,6 +46,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // sampling. To create closed surfaces (in conjunction with the 
 // vtkContourFilter), capping can be turned on to set a particular 
 // value on the boundaries of the sample space.
+// .SECTION See Also
+// vtkImplicitModeller
 
 #ifndef __vtkSampleFunction_h
 #define __vtkSampleFunction_h
@@ -73,6 +75,7 @@ public:
   // Specify the region in space over which the sampling occurs.
   vtkSetVectorMacro(ModelBounds,float,6);
   vtkGetVectorMacro(ModelBounds,float,6);
+
   void SetModelBounds(float xmin, float xmax, float ymin, float ymax, 
                       float zmin, float zmax);
 

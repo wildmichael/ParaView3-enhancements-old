@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTetra.h,v $
   Language:  C++
-  Date:      $Date: 1995-10-09 16:42:30 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1995-10-25 23:50:39 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,7 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-// .NAME vtkTetra - a cell that represents a tetrahedron
+// .NAME vtkTetra - a 3D cell that represents a tetrahedron
 // .SECTION Description
 // vtkTetra is a concrete implementation of vtkCell to represent a 3D
 // tetrahedron.

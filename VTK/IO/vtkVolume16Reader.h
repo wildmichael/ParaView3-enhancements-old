@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume16Reader.h,v $
   Language:  C++
-  Date:      $Date: 1995-10-15 08:07:15 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1995-10-25 23:51:12 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -60,6 +60,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // you to select this data. Other important ivars include HeaderSize, which
 // allows you to skip over initial info, and SwapBytes, which turns on/off
 // byte swapping.
+// .SECTION See Also
+// vtkSliceCubes vtkMarchingCubes
 
 #ifndef __vtkVolume16Reader_h
 #define __vtkVolume16Reader_h

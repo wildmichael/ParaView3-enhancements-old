@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransformFilter.h,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:31:58 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1995-10-25 23:50:43 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -44,13 +44,15 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // associated point normals and vectors. Other point data is passed
 // through the filter.
 //
-// (An alternative method of transformation is to use vtkActors methods
+// An alternative method of transformation is to use vtkActors methods
 // to scale, rotate, and translate objects. The difference between the
 // two methods is that vtkActor's transformation simply effects where
 // objects are rendered (via the graphics pipeline), whereas
 // vtkTransformFilter actually modifies point coordinates in the 
 // visualization pipeline. This is necessary for some objects 
-// (e.g., vtkProbeFilter) that require point coordinates as input).
+// (e.g., vtkProbeFilter) that require point coordinates as input.
+// .SECTION See Also
+// vtkTransform vtkTransformPolyFilter vtkActor
 // .EXAMPLE XFormSph.cc
 
 #ifndef __vtkTransformFilter_h

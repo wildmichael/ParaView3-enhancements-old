@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetWriter.h,v $
   Language:  C++
-  Date:      $Date: 1995-08-31 21:21:30 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1995-10-25 23:50:50 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,7 +41,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // .NAME vtkDataSetWriter - write any type of vtk dataset to file
 // .SECTION Description
 // vtkDataSetWriter is an abstract class for mapper objects that write their 
-// data to disk (or into a communications port).
+// data to disk (or into a communications port). The input to this object is
+// a dataset of any type.
 
 #ifndef __vtkDataSetWriter_hh
 #define __vtkDataSetWriter_hh

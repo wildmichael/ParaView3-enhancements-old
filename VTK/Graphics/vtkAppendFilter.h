@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAppendFilter.h,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:31:27 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1995-10-25 23:49:55 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -46,6 +46,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // only if all datasets have the point attributes available. (For example, 
 // if one dataset has scalars but another does not, scalars will not be 
 // appended.)
+// .SECTION See Also
+// vtkAppendPolyData
 
 #ifndef __vtkAppendFilter_h
 #define __vtkAppendFilter_h

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetToStructuredGridFilter.h,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:32:28 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1995-10-25 23:51:11 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,7 +41,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // .NAME vtkDataSetToStructuredGridFilter - abstract filter class
 // .SECTION Description
 // vtkDataSetToStructuredGridFilter is an abstract filter class whose 
-// subclasses take as input any dataset and generate an structured
+// subclasses take as input any dataset and generate a structured
 // grid on output.
 
 #ifndef __vtkDataSetToStructuredGridFilter_h

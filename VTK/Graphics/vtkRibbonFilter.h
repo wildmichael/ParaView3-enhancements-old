@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRibbonFilter.h,v $
   Language:  C++
-  Date:      $Date: 1995-09-08 12:50:03 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1995-10-25 23:50:25 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -49,7 +49,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 //
 // The input line must not have duplicate points, or normals at points that
 // are parallel to the incoming/outgoing line segments. (Duplicate points
-// can be removed with vtkCleanPolyData).
+// can be removed with vtkCleanPolyData.)
+// .SECTION See Also
+// vtkTubeFilter
 
 #ifndef __vtkRibbonFilter_h
 #define __vtkRibbonFilter_h

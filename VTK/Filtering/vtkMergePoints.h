@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergePoints.h,v $
   Language:  C++
-  Date:      $Date: 1995-08-31 21:20:52 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1995-10-25 23:50:06 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -44,6 +44,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // The primary difference between vtkMergePoints and its superclass
 // vtkLocator is that vtkMergePoints merges precisely coincident points
 // and is therefor much faster.
+// .SECTION See Also
+// vtkCleanPolyData
 
 #ifndef __vtkMergePoints_h
 #define __vtkMergePoints_h

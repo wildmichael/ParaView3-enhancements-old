@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDividingCubes.h,v $
   Language:  C++
-  Date:      $Date: 1995-10-09 16:41:54 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1995-10-25 23:49:49 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -46,6 +46,10 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // used as a source to generate streamlines or to generate "transparent"
 // surfaces. This filter is based on the generate program written by
 // H. Cline, S. Ludke and W. Lorensen.
+//
+// The density of the point cloud is controlled by the Distance instance 
+// variable. This is a distance value in global coordinates specifying the 
+// approximate distance between points.
 
 #ifndef __vtkDividingCubes_h
 #define __vtkDividingCubes_h

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRotationalExtrusionFilter.h,v $
   Language:  C++
-  Date:      $Date: 1995-09-11 09:21:13 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1995-10-25 23:50:27 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -66,8 +66,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // like springs or corkscrews.
 //
 // .SECTION Caveats
-// If the objects sweeps 360 degrees and does not translate, capping is not
-// performed. This is because the cap is unnecessary.
+// If the objects sweeps 360 degrees, radius does not vary, and the object 
+// does not translate, capping is not performed. This is because the cap 
+// is unnecessary.
 //
 // Some polygonal objects have no free edges (e.g., sphere). When swept 
 // this will result in two separate surfaces if capping is on, or no surface

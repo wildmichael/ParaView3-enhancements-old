@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuad.h,v $
   Language:  C++
-  Date:      $Date: 1995-10-09 16:42:18 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1995-10-25 23:50:24 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,7 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-// .NAME vtkQuad - a cell that represents a four sided quadrilateral
+// .NAME vtkQuad - a cell that represents a 2D quadrilateral
 // .SECTION Description
 // vtkQuad is a concrete implementation of vtkCell to represent a 2D 
 // quadrilateral.

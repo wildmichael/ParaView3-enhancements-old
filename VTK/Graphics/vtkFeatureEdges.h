@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFeatureEdges.h,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:31:25 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1995-10-25 23:49:54 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -47,6 +47,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // dihedral angle > FeatureAngle). These edges may be extracted in any
 // combination. Edges may also be "colored" (i.e., scalar values assigned)
 // based on edge type.
+// .SECTION See Also
+// vtkFeatureVertices
 
 #ifndef __vtkFeatureEdges_h
 #define __vtkFeatureEdges_h

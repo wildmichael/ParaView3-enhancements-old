@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPLOT3DReader.h,v $
   Language:  C++
-  Date:      $Date: 1995-09-08 12:49:31 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1995-10-25 23:50:17 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -84,7 +84,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // a function of this class's gas constants (R, Gamma) and the equations used.
 // They may not be suitable for your computational domain.
 //
-//    The format of the function file is as follows. An integer indicating 
+// The format of the function file is as follows. An integer indicating 
 // number of grids, then an integer specifying number of functions per each 
 // grid. This is followed by the (integer) dimensions of each grid in the 
 // file. Finally, for each grid, and for each function, a float value per 
