@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDataStreamer.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-08 14:11:49 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2001-01-24 14:06:26 $
+  Version:   $Revision: 1.20 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -230,7 +230,7 @@ void vtkImageDataStreamer::UpdateInformation()
   if (t2 > t1)
     {
     t1 = t2;
-    this->ExtentStack.PopAll();
+    //this->ExtentStack.PopAll();
     }
   
   // on all incremental updates except the last mark as modified
