@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTIFFWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-10-01 14:57:59 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1997-10-01 18:00:48 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -491,8 +491,7 @@ void vtkTIFFWriter::WriteFile(ofstream *file, vtkImageRegion *region)
 	if ( ! file->write((char *)ptr, rowLength))
 	  {
 	  vtkErrorMacro("WriteFile: write failed");
-	  file->close();
-	  delete file;
+	  return;
 	  }
 	}
       }
