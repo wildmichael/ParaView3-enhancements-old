@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPicker.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-06-13 08:21:56 $
-  Version:   $Revision: 1.58 $
+  Date:      $Date: 2000-06-13 09:51:17 $
+  Version:   $Revision: 1.59 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -295,11 +295,12 @@ int vtkPicker::Pick(float selectionX, float selectionY, float selectionZ,
   vtkVolume *volume;
   vtkAssemblyPath *path;
   this->Transform->PostMultiply();
-  pickable = 0;
   for ( props->InitTraversal(); (prop=props->GetNextProp()); )
     {
     for ( prop->InitPathTraversal(); (path=prop->GetNextPath()); )
       {
+      pickable = 0;
+      actor = NULL;
       propCandidate = path->GetLastNode()->GetProp();
       if ( propCandidate->GetPickable() && propCandidate->GetVisibility() )
         {
@@ -369,10 +370,12 @@ int vtkPicker::Pick(float selectionX, float selectionY, float selectionZ,
               ((1.0 - t)*p1World[0] + t*p2World[0],
                (1.0 - t)*p1World[1] + t*p2World[1],
                (1.0 - t)*p1World[2] + t*p2World[2]);
-	    // this next line is for backwards compatibility only,
-	    // what it does is an extreme no-no and a better backwards
-	    // compatibility fix will have to be found
-	    this->Actors->AddItem((vtkActor *)prop);
+
+	    // backwards compatibility: also add to this->Actors
+	    if (actor)
+	      {
+	      this->Actors->AddItem(actor);
+	      }
             }
           }
 

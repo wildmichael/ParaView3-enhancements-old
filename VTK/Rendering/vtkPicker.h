@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPicker.h,v $
   Language:  C++
-  Date:      $Date: 2000-06-08 09:11:04 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2000-06-13 09:51:18 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -108,7 +108,11 @@ public:
   // Return a collection of all the actors that were intersected.
   // This collection is not sorted. (This is a convenience method
   // to maintain backward compatibility.)
-  vtkActorCollection *GetActors() {return this->Actors;};
+  vtkActorCollection *GetActors() {
+    if (this->Actors->GetNumberOfItems() != 
+	this->PickedPositions->GetNumberOfPoints()) {
+      vtkWarningMacro(<<"Not all Prop3Ds are actors, use GetProp3Ds instead");}
+    return this->Actors; };
 
   // Description:
   // Return a list of the points the the actors returned by GetActors
