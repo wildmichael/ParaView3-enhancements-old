@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPOPReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-07 14:03:09 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2001-12-07 18:24:38 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -439,6 +439,10 @@ void vtkPOPReader::ReadInformationFile()
   this->SetUFlowFileName(NULL);
   this->SetVFlowFileName(NULL);
   this->UFlowFileOffset = this->VFlowFileOffset = 0;
+  if(!this->FileName)
+    {
+    return;
+    }
   file = new ifstream(this->FileName, ios::in);
   
   while (1)
