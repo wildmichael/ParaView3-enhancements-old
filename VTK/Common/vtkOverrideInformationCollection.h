@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOverrideInformationCollection.h,v $
   Language:  C++
-  Date:      $Date: 2001-01-01 22:43:33 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-03-08 22:29:32 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,7 +39,7 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-// .NAME vtkOverrideInformationCollection - maintain a list of planes
+// .NAME vtkOverrideInformationCollection - maintain a list of override information objects
 // .SECTION Description
 // vtkOverrideInformationCollection is an object that creates and manipulates
 // lists of objects of type vtkOverrideInformation. 
