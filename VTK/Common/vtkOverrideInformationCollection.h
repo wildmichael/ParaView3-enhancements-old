@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOverrideInformationCollection.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:45 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-08-20 21:12:03 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -86,7 +86,7 @@ inline void vtkOverrideInformationCollection::AddItem(vtkOverrideInformation *f)
 
 inline vtkOverrideInformation *vtkOverrideInformationCollection::GetNextItem() 
 { 
-  return vtkOverrideInformation::SafeDownCast(this->GetNextItemAsObject());
+  return static_cast<vtkOverrideInformation *>(this->GetNextItemAsObject());
 }
 
 #endif

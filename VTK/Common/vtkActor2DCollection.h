@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor2DCollection.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:44 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2001-08-20 21:12:03 $
+  Version:   $Revision: 1.23 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -118,7 +118,7 @@ inline int vtkActor2DCollection::IsItemPresent(vtkActor2D *a)
 
 inline vtkActor2D *vtkActor2DCollection::GetNextActor2D() 
 { 
-  return vtkActor2D::SafeDownCast(this->GetNextItemAsObject());
+  return static_cast<vtkActor2D *>(this->GetNextItemAsObject());
 }
 
 inline vtkActor2D *vtkActor2DCollection::GetLastActor2D() 
@@ -129,7 +129,7 @@ inline vtkActor2D *vtkActor2DCollection::GetLastActor2D()
     }
   else
     {
-    return vtkActor2D::SafeDownCast(this->Bottom->Item);
+    return static_cast<vtkActor2D *>(this->Bottom->Item);
     }
 }
 

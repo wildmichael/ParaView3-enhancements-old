@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPlaneCollection.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:45 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2001-08-20 21:12:03 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -86,7 +86,7 @@ inline void vtkPlaneCollection::AddItem(vtkPlane *f)
 
 inline vtkPlane *vtkPlaneCollection::GetNextItem() 
 { 
-  return vtkPlane::SafeDownCast(this->GetNextItemAsObject());
+  return static_cast<vtkPlane *>(this->GetNextItemAsObject());
 }
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitFunctionCollection.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:45 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2001-08-20 21:12:03 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -86,7 +86,7 @@ inline void vtkImplicitFunctionCollection::AddItem(vtkImplicitFunction *f)
 
 inline vtkImplicitFunction *vtkImplicitFunctionCollection::GetNextItem() 
 { 
-  return vtkImplicitFunction::SafeDownCast(this->GetNextItemAsObject());
+  return static_cast<vtkImplicitFunction *>(this->GetNextItemAsObject());
 }
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObjectCollection.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:44 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-08-20 21:12:03 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -64,12 +64,12 @@ public:
   // Description:
   // Get the next data object in the list.
   vtkDataObject *GetNextItem() { 
-    return vtkDataObject::SafeDownCast(this->GetNextItemAsObject());};
+    return static_cast<vtkDataObject *>(this->GetNextItemAsObject());};
 
   // Description:
   // Get the ith data object in the list.
   vtkDataObject *GetItem(int i) { 
-    return vtkDataObject::SafeDownCast(this->GetItemAsObject(i));};
+    return static_cast<vtkDataObject *>(this->GetItemAsObject(i));};
   
 protected:
   vtkDataObjectCollection() {};

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObjectFactoryCollection.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:45 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2001-08-20 21:12:03 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to William A. Hoffman who developed this class
 
 
@@ -73,7 +73,7 @@ return new vtkObjectFactoryCollection;};
   // Description:
   // Get the next ObjectFactory in the list. Return NULL when the end of the
   // list is reached.
-  vtkObjectFactory *GetNextItem() { return vtkObjectFactory::SafeDownCast(this->GetNextItemAsObject());}
+  vtkObjectFactory *GetNextItem() { return static_cast<vtkObjectFactory *>(this->GetNextItemAsObject());}
 
 protected:
   vtkObjectFactoryCollection() {};
