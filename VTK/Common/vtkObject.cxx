@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObject.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-07-09 21:48:34 $
-  Version:   $Revision: 1.78 $
+  Date:      $Date: 2002-08-15 15:40:30 $
+  Version:   $Revision: 1.79 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -97,6 +97,10 @@ protected:
 };
 
 // ------------------------------------vtkObject----------------------
+
+//----------------------------------------------------------------------------
+// Needed when we don't use the vtkStandardNewMacro.
+vtkInstantiatorNewMacro(vtkObject);
 
 vtkObject *vtkObject::New() 
 {
@@ -258,7 +262,7 @@ vtkObject *vtkObject::SafeDownCast(vtkObject *o)
 
 void vtkObject::CollectRevisions(ostream& os)
 {
-  os << "vtkObject $Revision: 1.78 $\n";
+  os << "vtkObject $Revision: 1.79 $\n";
 }
 
 //----------------------------------Command/Observer stuff-------------------

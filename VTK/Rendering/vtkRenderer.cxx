@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-27 20:37:38 $
-  Version:   $Revision: 1.183 $
+  Date:      $Date: 2002-08-15 15:40:31 $
+  Version:   $Revision: 1.184 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -31,7 +31,12 @@
 #include "vtkTimerLog.h"
 #include "vtkVolume.h"
 
-vtkCxxRevisionMacro(vtkRenderer, "$Revision: 1.183 $");
+vtkCxxRevisionMacro(vtkRenderer, "$Revision: 1.184 $");
+
+//----------------------------------------------------------------------------
+// Needed when we don't use the vtkStandardNewMacro.
+vtkInstantiatorNewMacro(vtkRenderer);
+//----------------------------------------------------------------------------
 
 // Create a vtkRenderer with a black background, a white ambient light, 
 // two-sided lighting turned on, a viewport of (0,0,1,1), and backface culling

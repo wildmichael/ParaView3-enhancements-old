@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:39:34 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2002-08-15 15:40:31 $
+  Version:   $Revision: 1.31 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -32,7 +32,12 @@
 
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkVolumeProMapper, "$Revision: 1.30 $");
+vtkCxxRevisionMacro(vtkVolumeProMapper, "$Revision: 1.31 $");
+
+//----------------------------------------------------------------------------
+// Needed when we don't use the vtkStandardNewMacro.
+vtkInstantiatorNewMacro(vtkVolumeProMapper);
+//----------------------------------------------------------------------------
 
 // Create the mapper. No context has been created, no volume has
 // been created yet.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCamera.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-28 03:33:50 $
-  Version:   $Revision: 1.102 $
+  Date:      $Date: 2002-08-15 15:40:31 $
+  Version:   $Revision: 1.103 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,7 +25,11 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkCamera, "$Revision: 1.102 $");
+vtkCxxRevisionMacro(vtkCamera, "$Revision: 1.103 $");
+
+//----------------------------------------------------------------------------
+// Needed when we don't use the vtkStandardNewMacro.
+vtkInstantiatorNewMacro(vtkCamera);
 
 //----------------------------------------------------------------------------
 // Construct camera instance with its focal point at the origin, 

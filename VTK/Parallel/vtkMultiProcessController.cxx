@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMultiProcessController.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-14 19:54:46 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2002-08-15 15:40:30 $
+  Version:   $Revision: 1.13 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -28,6 +28,11 @@
 #include "vtkObjectFactory.h"
 #include "vtkOutputWindow.h"
 
+//----------------------------------------------------------------------------
+// Needed when we don't use the vtkStandardNewMacro.
+vtkInstantiatorNewMacro(vtkMultiProcessController);
+
+//----------------------------------------------------------------------------
 
 // Helper class to contain the RMI information.  
 // A subclass of vtkObject so that I can keep them in a collection.
@@ -47,10 +52,10 @@ protected:
   void operator=(const vtkMultiProcessControllerRMI&);
 };
 
-vtkCxxRevisionMacro(vtkMultiProcessControllerRMI, "$Revision: 1.12 $");
+vtkCxxRevisionMacro(vtkMultiProcessControllerRMI, "$Revision: 1.13 $");
 vtkStandardNewMacro(vtkMultiProcessControllerRMI);
 
-vtkCxxRevisionMacro(vtkMultiProcessController, "$Revision: 1.12 $");
+vtkCxxRevisionMacro(vtkMultiProcessController, "$Revision: 1.13 $");
 
 //----------------------------------------------------------------------------
 // An RMI function that will break the "ProcessRMIs" loop.
@@ -123,7 +128,7 @@ vtkMultiProcessController::~vtkMultiProcessController()
   this->RMIs = NULL;
 }
 
-  
+ 
 //----------------------------------------------------------------------------
 vtkMultiProcessController *vtkMultiProcessController::New()
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOutputWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-07-02 14:58:17 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2002-08-15 15:40:30 $
+  Version:   $Revision: 1.28 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,13 @@
 #include "vtkObjectFactory.h"
 #include "vtkDebugLeaks.h"
 
-vtkCxxRevisionMacro(vtkOutputWindow, "$Revision: 1.27 $");
+vtkCxxRevisionMacro(vtkOutputWindow, "$Revision: 1.28 $");
+
+//----------------------------------------------------------------------------
+// Needed when we don't use the vtkStandardNewMacro.
+vtkInstantiatorNewMacro(vtkOutputWindow);
+
+//----------------------------------------------------------------------------
 
 vtkOutputWindow* vtkOutputWindow::Instance = 0;
 vtkOutputWindowCleanup vtkOutputWindow::Cleanup;

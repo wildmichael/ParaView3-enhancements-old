@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-01 18:56:38 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 2002-08-15 15:40:31 $
+  Version:   $Revision: 1.48 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,12 @@
 #include "vtkTextProperty.h"
 #include "vtkToolkits.h"
 
-vtkCxxRevisionMacro(vtkTextMapper, "$Revision: 1.47 $");
+vtkCxxRevisionMacro(vtkTextMapper, "$Revision: 1.48 $");
+
+//----------------------------------------------------------------------------
+// Needed when we don't use the vtkStandardNewMacro.
+vtkInstantiatorNewMacro(vtkTextMapper);
+//----------------------------------------------------------------------------
 
 vtkCxxSetObjectMacro(vtkTextMapper,TextProperty,vtkTextProperty);
 

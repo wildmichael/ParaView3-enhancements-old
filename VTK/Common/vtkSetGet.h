@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSetGet.h,v $
   Language:  C++
-  Date:      $Date: 2002-07-01 22:05:23 $
-  Version:   $Revision: 1.108 $
+  Date:      $Date: 2002-08-15 15:40:30 $
+  Version:   $Revision: 1.109 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -590,6 +590,17 @@ virtual float *Get##name() \
       return static_cast<thisClass*>(ret); \
       } \
     return new thisClass; \
+  } \
+  vtkInstantiatorNewMacro(thisClass)
+
+// Macro to implement the instantiator's wrapper around the New()
+// method.  Use this macro if and only if vtkStandardNewMacro is not
+// used by the class.
+#define vtkInstantiatorNewMacro(thisClass) \
+  extern vtkObject* vtkInstantiator##thisClass##New(); \
+  vtkObject* vtkInstantiator##thisClass##New() \
+  { \
+    return thisClass::New(); \
   }
 
 // The following macros are all just there to centralize the template 

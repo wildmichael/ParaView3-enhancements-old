@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-14 19:21:41 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2002-08-15 15:40:31 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,8 +19,13 @@
 #include "vtkGraphicsFactory.h"
 #include "vtkRenderer.h"
 
-vtkCxxRevisionMacro(vtkImageActor, "$Revision: 1.11 $");
+vtkCxxRevisionMacro(vtkImageActor, "$Revision: 1.12 $");
 
+//----------------------------------------------------------------------------
+// Needed when we don't use the vtkStandardNewMacro.
+vtkInstantiatorNewMacro(vtkImageActor);
+
+//----------------------------------------------------------------------------
 vtkImageActor* vtkImageActor::New()
 {
   // First try to create the object from the vtkObjectFactory

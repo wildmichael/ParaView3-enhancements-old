@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLight.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-27 15:12:41 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 2002-08-15 15:40:31 $
+  Version:   $Revision: 1.48 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,10 +21,13 @@
 #include "vtkMatrix4x4.h"
 #include "vtkGraphicsFactory.h"
 
-vtkCxxRevisionMacro(vtkLight, "$Revision: 1.47 $");
+vtkCxxRevisionMacro(vtkLight, "$Revision: 1.48 $");
 
 vtkCxxSetObjectMacro(vtkLight,TransformMatrix,vtkMatrix4x4);
 
+//----------------------------------------------------------------------------
+// Needed when we don't use the vtkStandardNewMacro.
+vtkInstantiatorNewMacro(vtkLight);
 
 // Create a light with the focal point at the origin and its position
 // set to (0,0,1). The lights color is white, intensity=1, and the light 

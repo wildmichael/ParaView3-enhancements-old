@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDirectory.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-21 22:26:12 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2002-08-15 15:40:30 $
+  Version:   $Revision: 1.15 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -17,7 +17,22 @@
 =========================================================================*/
 #include "vtkDirectory.h"
 
-vtkCxxRevisionMacro(vtkDirectory, "$Revision: 1.14 $");
+#include "vtkDebugLeaks.h"
+
+vtkCxxRevisionMacro(vtkDirectory, "$Revision: 1.15 $");
+
+//----------------------------------------------------------------------------
+// Needed when we don't use the vtkStandardNewMacro.
+vtkInstantiatorNewMacro(vtkDirectory);
+
+//----------------------------------------------------------------------------
+vtkDirectory* vtkDirectory::New()
+{
+#ifdef VTK_DEBUG_LEAKS
+  vtkDebugLeaks::ConstructClass("vtkDirectory");
+#endif    
+  return new vtkDirectory;
+}
 
 vtkDirectory::vtkDirectory() 
   : Path(0), Files(0), NumberOfFiles(0)

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-03 16:47:52 $
-  Version:   $Revision: 1.116 $
+  Date:      $Date: 2002-08-15 15:40:30 $
+  Version:   $Revision: 1.117 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,9 +27,13 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkActor, "$Revision: 1.116 $");
+vtkCxxRevisionMacro(vtkActor, "$Revision: 1.117 $");
 
 vtkCxxSetObjectMacro(vtkActor,Texture,vtkTexture);
+
+//----------------------------------------------------------------------------
+// Needed when we don't use the vtkStandardNewMacro.
+vtkInstantiatorNewMacro(vtkActor);
 
 
 // Creates an actor with the following defaults: origin(0,0,0) 

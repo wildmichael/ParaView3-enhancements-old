@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:26:00 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 2002-08-15 15:40:30 $
+  Version:   $Revision: 1.45 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -30,7 +30,11 @@
 #include "vtkDoubleArray.h"
 #include "vtkIdTypeArray.h"
 
-vtkCxxRevisionMacro(vtkPoints, "$Revision: 1.44 $");
+vtkCxxRevisionMacro(vtkPoints, "$Revision: 1.45 $");
+
+//----------------------------------------------------------------------------
+// Needed when we don't use the vtkStandardNewMacro.
+vtkInstantiatorNewMacro(vtkPoints);
 
 //----------------------------------------------------------------------------
 vtkPoints* vtkPoints::New(int dataType)

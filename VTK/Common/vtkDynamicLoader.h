@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDynamicLoader.h,v $
   Language:  C++
-  Date:      $Date: 2002-07-01 22:18:25 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2002-08-15 15:40:30 $
+  Version:   $Revision: 1.18 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -43,7 +43,7 @@
 class VTK_COMMON_EXPORT vtkDynamicLoader : public vtkObject
 {
 public:
-  static vtkDynamicLoader *New() {return new vtkDynamicLoader;};
+  static vtkDynamicLoader* New();
   vtkTypeRevisionMacro(vtkDynamicLoader,vtkObject);
 
   //BTX

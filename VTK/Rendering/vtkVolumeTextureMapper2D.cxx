@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeTextureMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-07-22 20:27:54 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 2002-08-15 15:40:31 $
+  Version:   $Revision: 1.49 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -29,7 +29,6 @@
 #define VTK_MINUS_Y_MAJOR_DIRECTION 3
 #define VTK_PLUS_Z_MAJOR_DIRECTION  4
 #define VTK_MINUS_Z_MAJOR_DIRECTION 5
-
 
 template <class T>
 void vtkVolumeTextureMapper2D_TraverseVolume( T *data_ptr,
@@ -465,7 +464,12 @@ void vtkVolumeTextureMapper2D_TraverseVolume( T *data_ptr,
 
 }
 
-vtkCxxRevisionMacro(vtkVolumeTextureMapper2D, "$Revision: 1.48 $");
+vtkCxxRevisionMacro(vtkVolumeTextureMapper2D, "$Revision: 1.49 $");
+
+//----------------------------------------------------------------------------
+// Needed when we don't use the vtkStandardNewMacro.
+vtkInstantiatorNewMacro(vtkVolumeTextureMapper2D);
+//----------------------------------------------------------------------------
 
 vtkVolumeTextureMapper2D::vtkVolumeTextureMapper2D()
 {

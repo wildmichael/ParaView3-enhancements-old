@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDynamicLoader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:20 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2002-08-15 15:40:30 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -17,6 +17,8 @@
 =========================================================================*/
 #include "vtkDynamicLoader.h"
 
+#include "vtkDebugLeaks.h"
+
 // This file is actually 3 different implementations.
 // 1. HP machines which uses shl_load
 // 2. Apple OSX which uses NSLinkModule
@@ -25,7 +27,21 @@
 // Each part of the ifdef contains a complete implementation for
 // the static methods of vtkDynamicLoader.  
 
-vtkCxxRevisionMacro(vtkDynamicLoader, "$Revision: 1.9 $");
+vtkCxxRevisionMacro(vtkDynamicLoader, "$Revision: 1.10 $");
+
+//----------------------------------------------------------------------------
+// Needed when we don't use the vtkStandardNewMacro.
+vtkInstantiatorNewMacro(vtkDynamicLoader);
+
+//----------------------------------------------------------------------------
+vtkDynamicLoader* vtkDynamicLoader::New()
+{
+#ifdef VTK_DEBUG_LEAKS
+  vtkDebugLeaks::ConstructClass("vtkDynamicLoader");
+#endif    
+  return new vtkDynamicLoader;
+}
+
 
 // ---------------------------------------------------------------
 // 1. Implementation for HPUX  machines

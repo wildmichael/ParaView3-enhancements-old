@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProperty.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:39:10 $
-  Version:   $Revision: 1.52 $
+  Date:      $Date: 2002-08-15 15:40:31 $
+  Version:   $Revision: 1.53 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,12 @@
 
 #include <stdlib.h>
 
-vtkCxxRevisionMacro(vtkProperty, "$Revision: 1.52 $");
+vtkCxxRevisionMacro(vtkProperty, "$Revision: 1.53 $");
+
+//----------------------------------------------------------------------------
+// Needed when we don't use the vtkStandardNewMacro.
+vtkInstantiatorNewMacro(vtkProperty);
+//----------------------------------------------------------------------------
 
 // Construct object with object color, ambient color, diffuse color,
 // specular color, and edge color white; ambient coefficient=0; diffuse 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-27 15:42:04 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2002-08-15 15:40:31 $
+  Version:   $Revision: 1.39 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,12 @@
 #include "vtkLookupTable.h"
 #include "vtkPolyData.h"
 
-vtkCxxRevisionMacro(vtkPolyDataMapper2D, "$Revision: 1.38 $");
+vtkCxxRevisionMacro(vtkPolyDataMapper2D, "$Revision: 1.39 $");
+
+//----------------------------------------------------------------------------
+// Needed when we don't use the vtkStandardNewMacro.
+vtkInstantiatorNewMacro(vtkPolyDataMapper2D);
+//----------------------------------------------------------------------------
 
 vtkCxxSetObjectMacro(vtkPolyDataMapper2D,Input,vtkPolyData);
 vtkCxxSetObjectMacro(vtkPolyDataMapper2D,TransformCoordinate,vtkCoordinate);

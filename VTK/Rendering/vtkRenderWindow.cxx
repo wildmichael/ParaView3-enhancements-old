@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-08 19:18:40 $
-  Version:   $Revision: 1.127 $
+  Date:      $Date: 2002-08-15 15:40:31 $
+  Version:   $Revision: 1.128 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,7 +25,12 @@
 #include "vtkRendererCollection.h"
 #include "vtkTransform.h"
 
-vtkCxxRevisionMacro(vtkRenderWindow, "$Revision: 1.127 $");
+vtkCxxRevisionMacro(vtkRenderWindow, "$Revision: 1.128 $");
+
+//----------------------------------------------------------------------------
+// Needed when we don't use the vtkStandardNewMacro.
+vtkInstantiatorNewMacro(vtkRenderWindow);
+//----------------------------------------------------------------------------
 
 // Construct an instance of  vtkRenderWindow with its screen size 
 // set to 300x300, borders turned on, positioned at (0,0), double 

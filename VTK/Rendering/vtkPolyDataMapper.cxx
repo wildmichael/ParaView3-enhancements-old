@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:39:06 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2002-08-15 15:40:31 $
+  Version:   $Revision: 1.30 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,7 +19,11 @@
 #include "vtkRenderWindow.h"
 #include "vtkGraphicsFactory.h"
 
-vtkCxxRevisionMacro(vtkPolyDataMapper, "$Revision: 1.29 $");
+vtkCxxRevisionMacro(vtkPolyDataMapper, "$Revision: 1.30 $");
+
+//----------------------------------------------------------------------------
+// Needed when we don't use the vtkStandardNewMacro.
+vtkInstantiatorNewMacro(vtkPolyDataMapper);
 
 //----------------------------------------------------------------------------
 // return the correct type of PolyDataMapper 
