@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamer.h,v $
   Language:  C++
-  Date:      $Date: 2000-11-07 17:43:23 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 2000-11-30 22:15:22 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -241,7 +241,8 @@ public:
   // Set/get the integrator type to be used in the stream line
   // calculation. The object passed is not actually used but
   // is cloned with MakeObject by each thread/process in the
-  // process of integration. The default is 2nd order Runge Kutta.
+  // process of integration (prototype pattern). The default is 
+  // 2nd order Runge Kutta.
   vtkSetObjectMacro ( Integrator, vtkInitialValueProblemSolver );
   vtkGetObjectMacro ( Integrator, vtkInitialValueProblemSolver );
 
