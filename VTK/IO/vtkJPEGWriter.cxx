@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkJPEGWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-11 19:49:27 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2002-04-29 21:26:10 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@ extern "C" {
 #include <jpeglib.h>
 }
 
-vtkCxxRevisionMacro(vtkJPEGWriter, "$Revision: 1.9 $");
+vtkCxxRevisionMacro(vtkJPEGWriter, "$Revision: 1.10 $");
 vtkStandardNewMacro(vtkJPEGWriter);
 
 vtkJPEGWriter::vtkJPEGWriter()
@@ -152,8 +152,8 @@ void vtkJPEGWriteToMemoryTerm(j_compress_ptr cinfo)
     {
     vtkUnsignedCharArray *uc = self->GetResult();
     // we must close the array
-    int oldSize = uc->GetSize();
-    uc->SetNumberOfTuples(oldSize - cinfo->dest->free_in_buffer);
+    vtkIdType oldSize = uc->GetSize();
+    uc->SetNumberOfTuples(oldSize - static_cast<vtkIdType>(cinfo->dest->free_in_buffer));
     }
 }
 
