@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalarBarActor.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-24 00:59:13 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1999-06-30 14:33:13 $
+  Version:   $Revision: 1.16 $
 
 Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -502,4 +502,23 @@ void vtkScalarBarActor::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "Italic: " << (this->Italic ? "On\n" : "Off\n");
   os << indent << "Shadow: " << (this->Shadow ? "On\n" : "Off\n");
   os << indent << "Label Format: " << this->LabelFormat << "\n";
+}
+
+vtkCoordinate *vtkScalarBarActor::GetPosition2Coordinate() 
+{ 
+    vtkDebugMacro(<< this->GetClassName() << " (" << this << "): returning Position2Coordinate address " << this->Position2Coordinate ); 
+    return this->Position2Coordinate; 
+} 
+void vtkScalarBarActor::SetPosition2(float x[2]) 
+{
+  this->SetPosition2(x[0],x[1]);
+} 
+void vtkScalarBarActor::SetPosition2(float x, float y) 
+{ 
+  this->Position2Coordinate->SetCoordinateSystem(VTK_VIEWPORT); 
+  this->Position2Coordinate->SetValue(x,y); 
+} 
+float *vtkScalarBarActor::GetPosition2() 
+{ 
+  return this->Position2Coordinate->GetValue(); 
 }

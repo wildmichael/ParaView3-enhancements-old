@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalarBarActor.h,v $
   Language:  C++
-  Date:      $Date: 1999-06-24 00:59:13 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1999-06-30 14:33:13 $
+  Version:   $Revision: 1.15 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -99,7 +99,10 @@ public:
   // Access the Position2 instance variable. This variable controls
   // the upper right corner of the scalarbar. It is by default
   // relative to Position1 and in Normalized Viewport coordinates.
-  vtkViewportCoordinateMacro(Position2);
+  void SetPosition2(float,float);
+  void SetPosition2(float x[2]);
+  vtkCoordinate *GetPosition2Coordinate();
+  float *GetPosition2();
   
   // Description:
   // Draw the scalar bar and annotation text to the screen.
