@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProbeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-20 14:24:19 $
-  Version:   $Revision: 1.73 $
+  Date:      $Date: 2002-10-18 15:22:23 $
+  Version:   $Revision: 1.74 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,7 +19,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkImageData.h"
 
-vtkCxxRevisionMacro(vtkProbeFilter, "$Revision: 1.73 $");
+vtkCxxRevisionMacro(vtkProbeFilter, "$Revision: 1.74 $");
 vtkStandardNewMacro(vtkProbeFilter);
 
 //----------------------------------------------------------------------------
@@ -78,7 +78,8 @@ void vtkProbeFilter::Execute()
     }
 
   pd = source->GetPointData();
-
+  int size = input->GetNumberOfPoints();
+  
   // lets use a stack allocated array if possible for performance reasons
   int mcs = source->GetMaxCellSize();
   if (mcs<=256)
@@ -99,7 +100,7 @@ void vtkProbeFilter::Execute()
   // Allocate storage for output PointData
   //
   outPD = output->GetPointData();
-  outPD->InterpolateAllocate(pd);
+  outPD->InterpolateAllocate(pd, size, size);
 
   // Use tolerance as a function of size of source data
   //
