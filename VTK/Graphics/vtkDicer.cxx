@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDicer.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-07 14:21:28 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1998-12-31 17:38:42 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -101,7 +101,10 @@ void vtkDicer::BuildTree(vtkIdList *ptIds, vtkOBBNode *OBBptr)
       }
 
     // compute split normal
-    for (i=0 ; i < 3; i++) n[i] = OBBptr->Axes[0][i];
+    for (i=0 ; i < 3; i++)
+      {
+      n[i] = OBBptr->Axes[0][i];
+      }
     vtkMath::Normalize(n);
 
     //traverse cells, assigning to appropriate child list as necessary

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-26 14:21:48 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1998-12-31 17:38:43 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -78,9 +78,15 @@ void vtkExporter::Write()
     return;
     }
 
-  if ( this->StartWrite ) (*this->StartWrite)(this->StartWriteArg);
+  if ( this->StartWrite )
+    {
+    (*this->StartWrite)(this->StartWriteArg);
+    }
   this->WriteData();
-  if ( this->EndWrite ) (*this->EndWrite)(this->EndWriteArg);
+  if ( this->EndWrite )
+    {
+    (*this->EndWrite)(this->EndWriteArg);
+    }
 }
 
 // Convenient alias for Write() method.

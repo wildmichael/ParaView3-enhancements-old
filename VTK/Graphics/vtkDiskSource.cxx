@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDiskSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:03:43 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1998-12-31 17:38:42 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -76,7 +76,7 @@ void vtkDiskSource::Execute()
 // Create disk
 //
   theta = 2.0 * vtkMath::Pi() / ((float)this->CircumferentialResolution);
-  deltaRadius = (this->OuterRadius - InnerRadius) / 
+  deltaRadius = (this->OuterRadius - this->InnerRadius) / 
                        ((float)this->RadialResolution);
 
   for (i=0; i<=this->CircumferentialResolution; i++) 

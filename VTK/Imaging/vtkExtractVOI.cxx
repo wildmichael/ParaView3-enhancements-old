@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractVOI.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:41:03 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1998-12-31 17:38:44 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -67,27 +67,49 @@ void vtkExtractVOI::Execute()
   input->GetOrigin(origin);
   input->GetSpacing(ar);
 
-  for ( i=0; i < 6; i++ ) voi[i] = this->VOI[i];
+  for ( i=0; i < 6; i++ )
+    {
+    voi[i] = this->VOI[i];
+    }
 
   for ( outSize=1, dim=0, i=0; i < 3; i++ )
     {
-    if ( voi[2*i+1] >= dims[i] ) voi[2*i+1] = dims[i] - 1;
-    else if ( voi[2*i+1] < 0 ) voi[2*i+1] = 0;
+    if ( voi[2*i+1] >= dims[i] )
+      {
+      voi[2*i+1] = dims[i] - 1;
+      }
+    else if ( voi[2*i+1] < 0 )
+      {
+      voi[2*i+1] = 0;
+      }
 
-    if ( voi[2*i] > voi[2*i+1] ) voi[2*i] = voi[2*i+1];
-    else if ( voi[2*i] < 0 ) voi[2*i] = 0;
+    if ( voi[2*i] > voi[2*i+1] )
+      {
+      voi[2*i] = voi[2*i+1];
+      }
+    else if ( voi[2*i] < 0 )
+      {
+      voi[2*i] = 0;
+      }
 
-    if ( (voi[2*i+1]-voi[2*i]) > 0 ) dim++;
+    if ( (voi[2*i+1]-voi[2*i]) > 0 )
+      {
+      dim++;
+      }
 
-    if ( (rate[i] = this->SampleRate[i]) < 1 ) rate[i] = 1;
+    if ( (rate[i] = this->SampleRate[i]) < 1 )
+      {
+      rate[i] = 1;
+      }
 
     outDims[i] = (voi[2*i+1] - voi[2*i]) / rate[i] + 1;
-    if ( outDims[i] < 1 ) outDims[i] = 1;
+    if ( outDims[i] < 1 )
+      {
+      outDims[i] = 1;
+      }
 
     outAR[i] = ar[i] * this->SampleRate[i];
-
     outOrigin[i] = origin[i] + voi[2*i]*ar[i];
-
     outSize *= outDims[i];
     }
 

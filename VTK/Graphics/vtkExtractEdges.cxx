@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractEdges.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-11-05 12:29:02 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1998-12-31 17:38:43 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -104,7 +104,10 @@ void vtkExtractEdges::Execute()
   
   // Get our locator for merging points
   //
-  if ( this->Locator == NULL ) this->CreateDefaultLocator();
+  if ( this->Locator == NULL )
+    {
+    this->CreateDefaultLocator();
+    }
   this->Locator->InitPointInsertion (newPts, input->GetBounds());
 
   // Loop over all cells, extracting non-visited edges. 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkElevationFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-15 16:24:00 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1998-12-31 17:38:42 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -86,7 +86,10 @@ void vtkElevationFilter::Execute()
 
   // Set up 1D parametric system
   //
-  for (i=0; i<3; i++) diffVector[i] = this->HighPoint[i] - this->LowPoint[i];
+  for (i=0; i<3; i++)
+    {
+    diffVector[i] = this->HighPoint[i] - this->LowPoint[i];
+    }
   if ( (l = vtkMath::Dot(diffVector,diffVector)) == 0.0)
     {
     vtkErrorMacro(<< this << ": Bad vector, using (0,0,1)\n");
@@ -102,11 +105,17 @@ void vtkElevationFilter::Execute()
     if ( ! (i % 10000) ) 
       {
       this->UpdateProgress ((float)i/numPts);
-      if (this->GetAbortExecute()) break;
+      if (this->GetAbortExecute())
+	{
+	break;
+	}
       }
 
     x = input->GetPoint(i);
-    for (j=0; j<3; j++) v[j] = x[j] - this->LowPoint[j];
+    for (j=0; j<3; j++)
+      {
+      v[j] = x[j] - this->LowPoint[j];
+      }
     s = vtkMath::Dot(v,diffVector) / l;
     s = (s < 0.0 ? 0.0 : s > 1.0 ? 1.0 : s);
     newScalars->SetScalar(i,this->ScalarRange[0]+s*diffScalar);

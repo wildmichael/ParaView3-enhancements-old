@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractTensorComponents.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:41:02 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1998-12-31 17:38:44 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -111,7 +111,10 @@ void vtkExtractTensorComponents::Execute()
     }
 
   outPD->CopyAllOn();
-  if ( !this->PassTensorsToOutput ) outPD->CopyTensorsOff();
+  if ( !this->PassTensorsToOutput )
+    {
+    outPD->CopyTensorsOff();
+    }
   if ( this->ExtractScalars )
     {
     outPD->CopyScalarsOff();
@@ -232,11 +235,17 @@ void vtkExtractTensorComponents::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "Scalar Extraction Mode: ";
 
   if ( this->ScalarMode == VTK_EXTRACT_COMPONENT )
+    {
     os << "VTK_EXTRACT_COMPONENT\n";
+    }
   else if ( this->ScalarMode == VTK_EXTRACT_EFFECTIVE_STRESS )
+    {
     os << "VTK_EXTRACT_EFFECTIVE_STRESS\n";
+    }
   else
+    {
     os << "VTK_EXTRACT_DETERMINANT\n";
+    }
 
   os << indent << "Scalar Components: \n";
   os << indent << "  (row,column): (" 
