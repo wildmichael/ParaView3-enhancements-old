@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageFoo.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-19 23:17:44 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-12-20 02:31:24 $
+  Version:   $Revision: 1.2 $
 
 =========================================================================*/
 
@@ -101,7 +101,7 @@ static void vtkImageFooExecute(vtkImageFoo *self,
       {
       for (idxR = 0; idxR < rowLength; idxR++)
         {
-        // Pixel operation
+        // Pixel operation. Add foo. Dumber would be impossible.
         *outPtr = (OT)((float)(*inPtr) + foo);
         outPtr++;
         inPtr++;
