@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAppendFilter.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-14 13:21:26 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1998-10-01 17:44:31 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,23 +59,22 @@ class VTK_EXPORT vtkAppendFilter : public vtkDataSetToUnstructuredGridFilter
 {
 public:
   vtkAppendFilter();
-  static vtkAppendFilter *New() {return new vtkAppendFilter;};
-  const char *GetClassName() {return "vtkAppendFilter";};
+  ~vtkAppendFilter();
+  static vtkAppendFilter *New() {return new vtkAppendFilter;}
+  const char *GetClassName() {return "vtkAppendFilter";}
   void PrintSelf(ostream& os, vtkIndent indent);
 
-
-// Description:
-// Add a dataset to the list of data to append.
+  // Description:
+  // Add a dataset to the list of data to append.
   void AddInput(vtkDataSet *in);
+  void AddInput(vtkDataSet& in) {this->AddInput(&in);}
 
-  void AddInput(vtkDataSet& in) {this->AddInput(&in);};
-
-// Description:
-// Remove a dataset from the list of data to append.
+  // Description:
+  // Remove a dataset from the list of data to append.
   void RemoveInput(vtkDataSet *in);
-
-  void RemoveInput(vtkDataSet& in) {this->RemoveInput(&in);};
-  vtkDataSetCollection *GetInputList() {return &(this->InputList);};
+  void RemoveInput(vtkDataSet& in) {this->RemoveInput(&in);}
+  
+  vtkDataSetCollection *GetInputList() {return this->InputList;}
 
   // filter interface
   void Update();
@@ -84,7 +83,7 @@ protected:
   // Usual data generation method
   void Execute();
   // list of data sets to append together
-  vtkDataSetCollection InputList;
+  vtkDataSetCollection *InputList;
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGeometryFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:41:05 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 1998-10-01 17:44:47 $
+  Version:   $Revision: 1.44 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -235,7 +235,7 @@ void vtkGeometryFilter::Execute()
           for (j=0; j < cellCopy->GetNumberOfFaces(); j++)
             {
             face = cellCopy->GetFace(j);
-            input->GetCellNeighbors(cellId, face->PointIds, *cellIds);
+            input->GetCellNeighbors(cellId, face->PointIds, cellIds);
             if ( cellIds->GetNumberOfIds() <= 0 || 
             (!allVisible && !cellVis[cellIds->GetId(0)]) )
               {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLODActor.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-03 14:02:28 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1998-10-01 17:44:50 $
+  Version:   $Revision: 1.28 $
   
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -180,7 +180,7 @@ void vtkLODActor::Render(vtkRenderer *ren)
   if (this->Texture) this->Texture->Render(ren);
   
   // make sure the device has the same matrix
-  this->GetMatrix(*matrix);
+  this->GetMatrix(matrix);
   this->Device->SetUserMatrix(matrix);
   
   // Store information on time it takes to render.
@@ -204,7 +204,7 @@ void vtkLODActor::Render(vtkRenderer *ren)
       }
     }
 
-  delete matrix;
+  matrix->Delete();
 }
 
       
@@ -277,8 +277,6 @@ void vtkLODActor::CreateLODs()
 //----------------------------------------------------------------------------
 void vtkLODActor::UpdateSelfCreatedLODs()
 {
-  int num;
-  
   if ( this->Mapper == NULL)
     {
     vtkErrorMacro("Cannot create LODs with out a mapper.");
@@ -313,8 +311,6 @@ void vtkLODActor::UpdateSelfCreatedLODs()
 // (number two and three)
 void vtkLODActor::DeleteSelfCreatedLODs()
 {
-  vtkMapper *lowMapper, *mediumMapper;
-
   if ( ! this->SelfCreatedLODs)
     {
     return;

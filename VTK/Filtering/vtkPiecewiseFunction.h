@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPiecewiseFunction.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-14 13:21:44 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1998-10-01 17:44:53 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -52,7 +52,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 #include "vtkObject.h"
 
-class VTK_EXPORT vtkPiecewiseFunction : public vtkObject 
+class VTK_EXPORT vtkPiecewiseFunction : public vtkObject
 {
 public:
 

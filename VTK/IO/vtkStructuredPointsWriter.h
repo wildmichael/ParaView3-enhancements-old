@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsWriter.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-14 13:21:57 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1998-10-01 17:45:11 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -61,9 +61,8 @@ public:
   const char *GetClassName() {return "vtkStructuredPointsWriter";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
-
-// Description:
-// Specify the input data or filter.
+  // Description:
+  // Specify the input data or filter.
   void SetInput(vtkStructuredPoints *input);
 
   void SetInput(vtkStructuredPoints &input) {this->SetInput(&input);};

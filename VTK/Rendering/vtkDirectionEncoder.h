@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDirectionEncoder.h,v $
   Language:  C++
-  Date:      $Date: 1998-08-11 17:24:02 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-10-01 17:44:42 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,9 +56,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkDirectionEncoder_h
 #define __vtkDirectionEncoder_h
 
-#include "vtkReferenceCount.h"
+#include "vtkObject.h"
 
-class VTK_EXPORT vtkDirectionEncoder : public vtkReferenceCount
+class VTK_EXPORT vtkDirectionEncoder : public vtkObject
 {
 public:
   const char *GetClassName() {return "vtkDirectionEncoder";};

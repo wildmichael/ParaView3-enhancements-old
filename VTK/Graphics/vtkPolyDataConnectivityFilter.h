@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataConnectivityFilter.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 15:37:01 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1998-10-01 17:44:55 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -178,9 +178,9 @@ protected:
 
   int ColorRegions; //boolean turns on/off scalar gen for separate regions
   int ExtractionMode; //how to extract regions
-  vtkIdList Seeds; //id's of points or cells used to seed regions
+  vtkIdList *Seeds; //id's of points or cells used to seed regions
   int MaxRecursionDepth; //prevent excessive recursion
-  vtkIdList SpecifiedRegionIds; //regions specified for extraction
+  vtkIdList *SpecifiedRegionIds; //regions specified for extraction
   vtkIntArray *RegionSizes; //size (in cells) of each region extracted
 
   float ClosestPoint[3];

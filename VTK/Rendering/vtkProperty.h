@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProperty.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-14 13:21:48 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 1998-10-01 17:44:59 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -54,13 +54,13 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #define __vtkProperty_h
 
 #include "vtkRender.h"
-#include "vtkReferenceCount.h"
+#include "vtkObject.h"
 #include "vtkStructuredPoints.h"
 
 class vtkRenderer;
 class vtkActor;
 
-class VTK_EXPORT vtkProperty : public vtkReferenceCount
+class VTK_EXPORT vtkProperty : public vtkObject
 {
 public:
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:41:40 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1998-10-01 17:45:18 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -44,6 +44,15 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 vtkWriter::vtkWriter()
 {
   this->Input = NULL;
+}
+
+vtkWriter::~vtkWriter()
+{
+  if (this->Input != NULL)
+    {
+    this->Input->UnRegister(this);
+    this->Input = NULL;
+    }
 }
 
 // Write data to output. Method executes subclasses WriteData() method, as 

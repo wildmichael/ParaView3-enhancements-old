@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastMapper.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-14 13:22:04 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1998-10-01 17:45:17 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -217,7 +217,7 @@ protected:
   // perspective viewing transforms
   float                        *ViewRays;
   int                          ViewRaysSize[2];
-  vtkTransform                 ViewRaysTransform;
+  vtkTransform                 *ViewRaysTransform;
 
   // Accounting information
   int                          TotalStepsTaken;

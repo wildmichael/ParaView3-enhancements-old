@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-08-11 18:56:00 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-10-01 17:44:56 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -79,7 +79,9 @@ void vtkPolyDataMapper::SetInput(vtkPolyData *in)
   if (in != this->Input )
     {
     vtkDebugMacro(<<" setting Input to " << (void *)in);
+    if (this->Input) {this->Input->UnRegister(this);}
     this->Input = (vtkDataSet *) in;
+    if (this->Input) {this->Input->Register(this);}
     this->Modified();
     }
 }

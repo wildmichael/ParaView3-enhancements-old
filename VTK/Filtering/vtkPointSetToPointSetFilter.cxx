@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSetToPointSetFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:41:15 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 1998-10-01 17:44:54 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -72,7 +72,9 @@ void vtkPointSetToPointSetFilter::SetInput(vtkPointSet *input)
   if ( this->Input != input )
     {
     vtkDebugMacro(<<" setting Input to " << (void *)input);
+    if (this->Input) {this->Input->UnRegister(this);}
     this->Input = input;
+    if (this->Input) {this->Input->Register(this);}
     this->Modified();
 
     if ( this->Input == NULL ) return;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProbeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:41:16 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 1998-10-01 17:44:57 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -83,7 +83,7 @@ void vtkProbeFilter::Execute()
     if (cell)
       {
       // Interpolate the point data
-      outPD->InterpolatePoint(pd,ptId,&(cell->PointIds),weights);
+      outPD->InterpolatePoint(pd,ptId,cell->PointIds,weights);
       }
     else
       {

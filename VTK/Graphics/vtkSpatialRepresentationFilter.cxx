@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSpatialRepresentationFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:41:23 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1998-10-01 17:45:06 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,12 +58,12 @@ vtkSpatialRepresentationFilter::~vtkSpatialRepresentationFilter()
 {
   if ( this->Output ) 
     {
-	delete this->Output;
-	this->Output = NULL;
+    this->Output->Delete();
+    this->Output = NULL;
     }
   for (int i=0; i <= Level; i++) //superclass deletes OutputList[0]
     {
-    if ( this->OutputList[i] != NULL ) delete this->OutputList[i];
+    if ( this->OutputList[i] != NULL ) {this->OutputList[i]->Delete();}
     }
   if ( this->SpatialRepresentation )
     {
@@ -106,7 +106,7 @@ void vtkSpatialRepresentationFilter::ResetOutput()
   this->TerminalNodesRequested = 0;
   for ( int i=0; i <= VTK_MAX_SPATIAL_REP_LEVEL; i++)
     {
-    if ( this->OutputList[i] != NULL ) delete this->OutputList[i];
+    if ( this->OutputList[i] != NULL ) this->OutputList[i]->Delete();
     }
 }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWriter.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-14 13:22:05 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1998-10-01 17:45:18 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -68,22 +68,22 @@ class VTK_EXPORT vtkWriter : public vtkProcessObject
 {
 public:
 
-// Description:
-// Construct with no start and end write methods or arguments.
+  // Description:
+  // Construct with no start and end write methods or arguments.
   vtkWriter();
+
+  ~vtkWriter();
 
   const char *GetClassName() {return "vtkWriter";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
-
-// Description:
-// Write data to output. Method executes subclasses WriteData() method, as 
-// well as StartMethod() and EndMethod() methods.
+  // Description:
+  // Write data to output. Method executes subclasses WriteData() method, as 
+  // well as StartMethod() and EndMethod() methods.
   virtual void Write();
 
-
-// Description:
-// Convenient alias for Write() method.
+  // Description:
+  // Convenient alias for Write() method.
   void Update();
 
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProperty.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:41:18 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 1998-10-01 17:44:59 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -188,7 +188,7 @@ void vtkProperty::GetColor(float rgb[3])
  
 void vtkProperty::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkReferenceCount::PrintSelf(os,indent);
+  vtkObject::PrintSelf(os,indent);
 
   os << indent << "Ambient: " << this->Ambient << "\n";
   os << indent << "Ambient Color: (" << this->AmbientColor[0] << ", " 

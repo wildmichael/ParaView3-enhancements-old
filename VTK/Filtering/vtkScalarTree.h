@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalarTree.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-14 13:21:52 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-10-01 17:45:05 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,6 +58,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkScalarTree_h
 #define __vtkScalarTree_h
 
+#include "vtkObject.h"
 #include "vtkDataSet.h"
 
 typedef struct _vtkScalarRange

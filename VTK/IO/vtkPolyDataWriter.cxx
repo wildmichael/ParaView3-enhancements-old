@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:41:16 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-10-01 17:44:57 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -46,7 +46,9 @@ void vtkPolyDataWriter::SetInput(vtkPolyData *input)
   if ( this->Input != input )
     {
     vtkDebugMacro(<<" setting Input to " << (void *)input);
+    if (this->Input) {this->Input->UnRegister(this);}
     this->Input = (vtkDataSet *) input;
+    if (this->Input) {this->Input->Register(this);}
     this->Modified();
     }
 }

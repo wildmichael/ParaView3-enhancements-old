@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSpline.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-14 13:21:54 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-10-01 17:45:07 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,6 +64,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #define __vtkSpline_h
 
 #include <stdio.h>
+#include "vtkObject.h"
 #include "vtkPiecewiseFunction.h"
 
 class VTK_EXPORT vtkSpline : public vtkObject

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeMapper.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-14 13:22:03 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1998-10-01 17:45:16 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -53,6 +53,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkVolumeMapper_h
 #define __vtkVolumeMapper_h
 
+#include "vtkObject.h"
 #include "vtkStructuredPoints.h"
 #include "vtkImageToStructuredPoints.h"
 #include "vtkImageCache.h"

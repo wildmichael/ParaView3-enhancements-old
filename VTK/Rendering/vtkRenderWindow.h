@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-14 13:21:49 $
-  Version:   $Revision: 1.71 $
+  Date:      $Date: 1998-10-01 17:45:02 $
+  Version:   $Revision: 1.72 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -100,7 +100,7 @@ public:
 // Remove a renderer from the list of renderers.
   void RemoveRenderer(vtkRenderer *);
 
-  vtkRendererCollection *GetRenderers() {return &(this->Renderers);};
+  vtkRendererCollection *GetRenderers() {return this->Renderers;};
 
 
 // Description:
@@ -273,6 +273,7 @@ public:
   vtkGetMacro(AbortRender,int);
   vtkSetMacro(AbortRender,int);
   vtkGetMacro(InAbortCheck,int);
+  vtkSetMacro(InAbortCheck,int);
   virtual int CheckAbortStatus();
   virtual int GetEventPending() { return 0;};
   
@@ -319,7 +320,7 @@ protected:
   virtual void DoFDRender();
   virtual void DoAARender();
 
-  vtkRendererCollection Renderers;
+  vtkRendererCollection *Renderers;
   int Borders;
   int FullScreen;
   int OldScreen[5];
@@ -334,7 +335,7 @@ protected:
   int FDFrames;
   int SubFrames;               // number of sub frames
   int CurrentSubFrame;         // what one are we on
-  unsigned char* ResultFrame;  // used for any non immediate rendering
+  unsigned char *ResultFrame;  // used for any non immediate rendering
   int   SwapBuffers;
   float DesiredUpdateRate;
   FILE* PPMImageFilePtr;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-24 11:17:00 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 1998-10-01 17:44:51 $
+  Version:   $Revision: 1.49 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -69,6 +69,11 @@ vtkMapper::~vtkMapper()
     this->LookupTable->UnRegister(this);
     }
   if ( this->Colors != NULL ) this->Colors->Delete();
+  if (this->Input)
+    {
+    this->Input->UnRegister(this);
+    this->Input = NULL;
+    }
 }
 
 void vtkMapper::SetGlobalImmediateModeRendering(int val)

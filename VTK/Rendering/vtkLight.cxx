@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLight.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:41:08 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1998-10-01 17:44:50 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -107,7 +107,7 @@ vtkLight *vtkLight::New()
 
 void vtkLight::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkReferenceCount::PrintSelf(os,indent);
+  vtkObject::PrintSelf(os,indent);
 
   os << indent << "AttenuationValues: (" << this->AttenuationValues[0] << ", " 
     << this->AttenuationValues[1] << ", " << this->AttenuationValues[2] << ")\n";

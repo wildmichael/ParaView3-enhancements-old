@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitSelectionLoop.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 15:24:06 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-10-01 17:44:49 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -81,7 +81,7 @@ public:
   // Instantiate object with no initial loop.
   vtkImplicitSelectionLoop();
   ~vtkImplicitSelectionLoop();
-  static vtkImplicitSelectionLoop *New() {return new vtkImplicitSelectionLoop;};
+  static vtkImplicitSelectionLoop *New(){ return new vtkImplicitSelectionLoop;}
   const char *GetClassName() {return "vtkImplicitSelectionLoop";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -122,7 +122,7 @@ protected:
 
 private:
   void Initialize();
-  vtkPolygon Polygon;
+  vtkPolygon *Polygon;
 
   float Origin[3];
   float Bounds[6];

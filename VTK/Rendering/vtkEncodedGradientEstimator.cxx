@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEncodedGradientEstimator.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-28 18:57:56 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-10-01 17:44:42 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,13 +55,17 @@ vtkEncodedGradientEstimator::vtkEncodedGradientEstimator()
   this->GradientMagnitudes         = NULL;
   this->GradientMagnitudeScale     = 1.0;
   this->GradientMagnitudeBias      = 0.0;
-  this->NumberOfThreads            = this->Threader.GetNumberOfThreads();
+  this->Threader = vtkMultiThreader::New();
+  this->NumberOfThreads            = this->Threader->GetNumberOfThreads();
   this->DirectionEncoder           = vtkRecursiveSphereDirectionEncoder::New();
 }
 
 // Destruct a vtkEncodedGradientEstimator - free up any memory used
 vtkEncodedGradientEstimator::~vtkEncodedGradientEstimator()
 {
+  this->Threader->Delete();
+  this->Threader = NULL;
+  
   if ( this->EncodedNormals )
     {
     delete [] this->EncodedNormals;
@@ -196,7 +200,7 @@ void vtkEncodedGradientEstimator::Update( )
 // Print the vtkEncodedGradientEstimator
 void vtkEncodedGradientEstimator::PrintSelf(ostream& os, vtkIndent indent)
 {
-  this->vtkReferenceCount::PrintSelf(os, indent);
+  this->vtkObject::PrintSelf(os, indent);
 
   if ( this->ScalarInput )
     {

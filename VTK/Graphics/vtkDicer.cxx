@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDicer.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:41:00 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1998-10-01 17:44:41 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -122,7 +122,7 @@ void vtkDicer::BuildTree(vtkIdList *ptIds, vtkOBBNode *OBBptr)
 
       }//for all points
 
-    delete ptIds; //don't need to keep anymore
+    ptIds->Delete(); //don't need to keep anymore
     this->BuildTree(LHlist, LHnode);
     this->BuildTree(RHlist, RHnode);
     }//if should build tree

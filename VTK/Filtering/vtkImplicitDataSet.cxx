@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitDataSet.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:41:07 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-10-01 17:44:48 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -93,7 +93,7 @@ float vtkImplicitDataSet::EvaluateFunction(float x[3])
     numPts = cell->GetNumberOfPoints();
     for (s=0.0, i=0; i < numPts; i++)
       {
-      id = cell->PointIds.GetId(i);
+      id = cell->PointIds->GetId(i);
       s += scalars->GetScalar(id) * this->Weights[i];
       }
     return s;
@@ -153,7 +153,7 @@ void vtkImplicitDataSet::EvaluateGradient(float x[3], float n[3])
 
     for ( i=0; i < numPts; i++ ) //Weights used to hold scalar values
       {
-      id = cell->PointIds.GetId(i);
+      id = cell->PointIds->GetId(i);
       this->Weights[i] = scalars->GetScalar(id);
       }
     cell->Derivatives(subId, pcoords, this->Weights, 1, n);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRendererSource.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:47:10 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1998-10-01 17:45:04 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,6 +59,7 @@ class VTK_EXPORT vtkRendererSource : public vtkStructuredPointsSource
 {
 public:
   vtkRendererSource();
+  ~vtkRendererSource();
   static vtkRendererSource *New() {return new vtkRendererSource;};
   const char *GetClassName() {return "vtkRendererSource";};
   void PrintSelf(ostream& os, vtkIndent indent);
@@ -67,7 +68,7 @@ public:
 
   // Description:
   // Indicates what renderer to get the pixel data from.
-  vtkSetObjectMacro(Input,vtkRenderer);
+  vtkSetReferenceCountedObjectMacro(Input,vtkRenderer);
 
   // Description:
   // Returns which renderer is being used as the source for the pixel data.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-28 11:46:23 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 1998-10-01 17:44:38 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,7 +64,9 @@ void vtkDataSetMapper::SetInput(vtkDataSet *in)
 {
   if (in != this->Input )
     {
+    if (this->Input) {this->Input->UnRegister(this);}
     this->Input = in;
+    if (this->Input) {this->Input->Register(this);}
     this->Modified();
     }
 }

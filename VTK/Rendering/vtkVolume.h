@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-14 13:22:02 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1998-10-01 17:45:16 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -65,26 +65,23 @@ class VTK_EXPORT vtkVolume : public vtkProp
 {
  public:
 
-// Description:
-// Creates a Volume with the following defaults: origin(0,0,0) 
-// position=(0,0,0) scale=1 visibility=1 pickable=1 dragable=1
-// orientation=(0,0,0).
+  // Description:
+  // Creates a Volume with the following defaults: origin(0,0,0) 
+  // position=(0,0,0) scale=1 visibility=1 pickable=1 dragable=1
+  // orientation=(0,0,0).
   vtkVolume();
 
-
-// Description:
-// Destruct a volume
+  // Description:
+  // Destruct a volume
   ~vtkVolume();
 
   static vtkVolume *New() {return new vtkVolume;};
   const char *GetClassName() {return "vtkVolume";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
-
-// Description:
-// Shallow copy of an volume.
+  // Description:
+  // Shallow copy of an volume.
   vtkVolume &operator=(const vtkVolume& volume);
-
 
   virtual void Render(vtkRenderer *ren);
   virtual void Update();
@@ -101,7 +98,8 @@ class VTK_EXPORT vtkVolume : public vtkProp
   // Get the matrix from the position, origin, scale and orientation
   // This matrix is cached, so multiple GetMatrix() calls will be
   // efficient.
-  void GetMatrix(vtkMatrix4x4& m);
+  void GetMatrix(vtkMatrix4x4 *m);
+  void GetMatrix(vtkMatrix4x4 &m) {this->GetMatrix(&m);}
 
   // Description:
   // Get the bounds. GetBounds(),

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataReader.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-14 13:21:46 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-10-01 17:44:56 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,6 +55,7 @@ class VTK_EXPORT vtkPolyDataReader : public vtkPolyDataSource
 {
 public:
   vtkPolyDataReader();
+  ~vtkPolyDataReader();
   static vtkPolyDataReader *New() {return new vtkPolyDataReader;};
   const char *GetClassName() {return "vtkPolyDataReader";};
   void PrintSelf(ostream& os, vtkIndent indent);
@@ -71,14 +72,14 @@ public:
 
   // Description:
   // Specify the InputString for use when reading from a character array.
-  void SetInputString(char *in) {this->Reader.SetInputString(in);};
-  void SetInputString(char *in,int len) {this->Reader.SetInputString(in,len);};
-  char *GetInputString() { return this->Reader.GetInputString();};
+  void SetInputString(char *in) {this->Reader->SetInputString(in);}
+  void SetInputString(char *in,int len) {this->Reader->SetInputString(in,len);}
+  char *GetInputString() { return this->Reader->GetInputString();}
 
   // Description:
   // Set/Get reading from an InputString instead of the default, a file.
-  void SetReadFromInputString(int i) {this->Reader.SetReadFromInputString(i);};
-  int GetReadFromInputString() {return this->Reader.GetReadFromInputString();};
+  void SetReadFromInputString(int i) {this->Reader->SetReadFromInputString(i);}
+  int GetReadFromInputString() {return this->Reader->GetReadFromInputString();}
   vtkBooleanMacro(ReadFromInputString,int);
 
 
@@ -145,7 +146,7 @@ public:
 
 protected:
   void Execute();
-  vtkDataReader Reader;
+  vtkDataReader *Reader;
 };
 
 #endif

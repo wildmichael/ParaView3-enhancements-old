@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellLocator.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:40:54 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 1998-10-01 17:44:35 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -79,7 +79,7 @@ void vtkCellLocator::FreeSearchStructure()
 	}
       if (cellIds)
 	{
-	delete cellIds;
+	cellIds->Delete();
 	}
       }
     delete [] this->Tree;

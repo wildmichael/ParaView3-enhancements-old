@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRayCaster.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-14 13:21:48 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1998-10-01 17:45:00 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -170,7 +170,7 @@ protected:
   float		*cbuffer;
   vtkRenderer   *Renderer;
 
-  vtkViewRays   ViewRays[VTK_MAX_VIEW_RAYS_LEVEL+1];
+  vtkViewRays   *ViewRays[VTK_MAX_VIEW_RAYS_LEVEL+1];
   float         ImageScale[VTK_MAX_VIEW_RAYS_LEVEL+1];
   int		BilinearImageZoom;
   int           SelectedImageScaleIndex;

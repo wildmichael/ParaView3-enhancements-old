@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGridReader.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-14 13:22:01 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1998-10-01 17:45:14 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,7 +55,9 @@ class VTK_EXPORT vtkUnstructuredGridReader : public vtkUnstructuredGridSource
 {
 public:
   vtkUnstructuredGridReader();
-  static vtkUnstructuredGridReader *New() {return new vtkUnstructuredGridReader;};
+  ~vtkUnstructuredGridReader();
+  static vtkUnstructuredGridReader *New() 
+    {return new vtkUnstructuredGridReader;}
   const char *GetClassName() {return "vtkUnstructuredGridReader";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -63,22 +65,22 @@ public:
   unsigned long int GetMTime();
 
 
-// Description:
-// Specify file name of vtk polygonal data file to read.
+  // Description:
+  // Specify file name of vtk polygonal data file to read.
   void SetFileName(char *name);
 
   char *GetFileName();
 
   // Description:
   // Specify the InputString for use when reading from a character array.
-  void SetInputString(char *in) {this->Reader.SetInputString(in);};
-  void SetInputString(char *in,int len) {this->Reader.SetInputString(in,len);};
-  char *GetInputString() { return this->Reader.GetInputString();};
+  void SetInputString(char *in) {this->Reader->SetInputString(in);}
+  void SetInputString(char *in,int len) {this->Reader->SetInputString(in,len);}
+  char *GetInputString() { return this->Reader->GetInputString();}
 
   // Description:
   // Set/Get reading from an InputString instead of the default, a file.
-  void SetReadFromInputString(int i) {this->Reader.SetReadFromInputString(i);};
-  int GetReadFromInputString() {return this->Reader.GetReadFromInputString();};
+  void SetReadFromInputString(int i) {this->Reader->SetReadFromInputString(i);}
+  int GetReadFromInputString() {return this->Reader->GetReadFromInputString();}
   vtkBooleanMacro(ReadFromInputString,int);
 
 
@@ -145,8 +147,7 @@ public:
 
 protected:
   void Execute();
-  vtkDataReader Reader;
-
+  vtkDataReader *Reader;
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRayCaster.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:41:18 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1998-10-01 17:44:59 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -47,8 +47,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkMath.h"
 #include "vtkVoxel.h"
 #include "vtkTimerLog.h"
-
-static vtkMath math;
 
 void vtkRayCaster::NearestNeighborZoom(float *smallImage, 
 				       float *largeImage,
@@ -204,10 +202,12 @@ vtkRayCaster::vtkRayCaster()
   scale = 1.0;
   for ( i = 0; i < VTK_MAX_VIEW_RAYS_LEVEL; i++ )
     {
+    this->ViewRays[i] = vtkViewRays::New();
     this->ImageScale[i]         = scale;
     this->ViewRaysStepSize[i]   = 1.0;
     scale /= 2.0;
     }
+  this->ViewRays[VTK_MAX_VIEW_RAYS_LEVEL] = vtkViewRays::New();
 
   this->ImageScale[VTK_MAX_VIEW_RAYS_LEVEL] = 0.5;
 
@@ -216,6 +216,13 @@ vtkRayCaster::vtkRayCaster()
 // Destructor for vtkRayCaster
 vtkRayCaster::~vtkRayCaster()
 {
+  int i;
+  
+  for ( i = 0; i <= VTK_MAX_VIEW_RAYS_LEVEL; i++ )
+    {
+    this->ViewRays[i]->Delete();
+    this->ViewRays[i] = NULL;
+    }
 }
 
 // Set the scale factor for a given level. This is used during multi-
@@ -348,11 +355,11 @@ float *vtkRayCaster::GetPerspectiveViewRays(void)
   size[1] = (int)((float)(size[1]) * 
 		this->ImageScale[ this->SelectedImageScaleIndex ]);
 
-  this->ViewRays[this->SelectedImageScaleIndex].SetRenderer(this->Renderer);
-  this->ViewRays[this->SelectedImageScaleIndex].SetSize( size );
+  this->ViewRays[this->SelectedImageScaleIndex]->SetRenderer(this->Renderer);
+  this->ViewRays[this->SelectedImageScaleIndex]->SetSize( size );
 
   return 
-    this->ViewRays[this->SelectedImageScaleIndex].GetPerspectiveViewRays();
+    this->ViewRays[this->SelectedImageScaleIndex]->GetPerspectiveViewRays();
 }
 
 float *vtkRayCaster::GetParallelStartPosition(void)
@@ -373,11 +380,11 @@ float *vtkRayCaster::GetParallelStartPosition(void)
   size[1] = (int)((float)(size[1]) * 
 		this->ImageScale[ this->SelectedImageScaleIndex ]);
  
-  this->ViewRays[this->SelectedImageScaleIndex].SetRenderer(this->Renderer);
-  this->ViewRays[this->SelectedImageScaleIndex].SetSize( size );
+  this->ViewRays[this->SelectedImageScaleIndex]->SetRenderer(this->Renderer);
+  this->ViewRays[this->SelectedImageScaleIndex]->SetSize( size );
 
   return 
-    this->ViewRays[this->SelectedImageScaleIndex].GetParallelStartPosition();
+    this->ViewRays[this->SelectedImageScaleIndex]->GetParallelStartPosition();
 }
 
 float *vtkRayCaster::GetParallelIncrements(void)
@@ -398,11 +405,11 @@ float *vtkRayCaster::GetParallelIncrements(void)
   size[1] = (int)((float)(size[1]) * 
 		this->ImageScale[ this->SelectedImageScaleIndex ]);
  
-  this->ViewRays[this->SelectedImageScaleIndex].SetRenderer(this->Renderer);
-  this->ViewRays[this->SelectedImageScaleIndex].SetSize( size );
+  this->ViewRays[this->SelectedImageScaleIndex]->SetRenderer(this->Renderer);
+  this->ViewRays[this->SelectedImageScaleIndex]->SetSize( size );
 
   return 
-    this->ViewRays[this->SelectedImageScaleIndex].GetParallelIncrements();
+    this->ViewRays[this->SelectedImageScaleIndex]->GetParallelIncrements();
 }
 
 // This method returns the scale that should be applied to the viewport
@@ -897,7 +904,7 @@ int vtkRayCaster::Render(vtkRenderer *ren)
       this->ImageRenderTime[1] = this->TotalRenderTime;
     }
 
-  delete timer;
+  timer->Delete();
 
   return volume_count;
 }

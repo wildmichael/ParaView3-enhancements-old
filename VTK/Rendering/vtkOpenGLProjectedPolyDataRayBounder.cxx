@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLProjectedPolyDataRayBounder.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:41:12 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1998-10-01 17:44:52 $
+  Version:   $Revision: 1.13 $
   Thanks:    Thanks to Lisa Sobierajski Avila who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,7 +55,7 @@ vtkOpenGLProjectedPolyDataRayBounder::vtkOpenGLProjectedPolyDataRayBounder()
 vtkOpenGLProjectedPolyDataRayBounder::~vtkOpenGLProjectedPolyDataRayBounder()
 {  
   if ( this->DepthRangeBuffer )
-    delete this->DepthRangeBuffer;
+    delete [] this->DepthRangeBuffer;
 }
 
 // Create a display list from the polygons contained in pdata.
@@ -169,7 +169,7 @@ float *vtkOpenGLProjectedPolyDataRayBounder::Draw( vtkRenderer *ren,
   far_buffer = new float[ size[0] * size[1] ];
 
   if ( this->DepthRangeBuffer )
-    delete this->DepthRangeBuffer;
+    delete [] this->DepthRangeBuffer;
   this->DepthRangeBuffer = new float[ size[0] * size[1] * 2 ];
 
   // Save previous lighting state, and turn lighting off
@@ -344,8 +344,8 @@ float *vtkOpenGLProjectedPolyDataRayBounder::Draw( vtkRenderer *ren,
 
     }
 
-  delete near_buffer;
-  delete far_buffer;
+  delete [] near_buffer;
+  delete [] far_buffer;
 
   // Delete the objects we created
   transform->Delete();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGridWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:41:33 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1998-10-01 17:45:15 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -47,7 +47,9 @@ void vtkUnstructuredGridWriter::SetInput(vtkUnstructuredGrid *input)
   if ( this->Input != input )
     {
     vtkDebugMacro(<<" setting Input to " << (void *)input);
+    if (this->Input) {this->Input->UnRegister(this);}
     this->Input = (vtkDataSet *) input;
+    if (this->Input) {this->Input->Register(this);}
     this->Modified();
     }
 }

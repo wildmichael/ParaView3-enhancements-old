@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:41:13 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1998-10-01 17:44:53 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -103,8 +103,8 @@ int vtkOpenGLRenderer::UpdateLights ()
   count = 0;
   curLight= this->NumberOfLightsBound + GL_LIGHT0;
 
-  for(this->Lights.InitTraversal(); 
-      (light = this->Lights.GetNextItem()); )
+  for(this->Lights->InitTraversal(); 
+      (light = this->Lights->GetNextItem()); )
     {
     status = light->GetSwitch();
     if ((status > 0.0)&& (curLight < (GL_LIGHT0+MAX_LIGHTS)))
@@ -127,8 +127,8 @@ int vtkOpenGLRenderer::UpdateLights ()
   glMatrixMode(GL_MODELVIEW);
   glPushMatrix();
 
-  for(this->Lights.InitTraversal(); 
-      (light = this->Lights.GetNextItem()); )
+  for(this->Lights->InitTraversal(); 
+      (light = this->Lights->GetNextItem()); )
     {
 
     status = light->GetSwitch();

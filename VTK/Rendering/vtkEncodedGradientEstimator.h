@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEncodedGradientEstimator.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-14 13:21:34 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-10-01 17:44:42 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -48,12 +48,12 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkEncodedGradientEstimator_h
 #define __vtkEncodedGradientEstimator_h
 
-#include "vtkReferenceCount.h"
+#include "vtkObject.h"
 #include "vtkMultiThreader.h"
 #include "vtkStructuredPoints.h"
 #include "vtkDirectionEncoder.h"
 
-class VTK_EXPORT vtkEncodedGradientEstimator : public vtkReferenceCount
+class VTK_EXPORT vtkEncodedGradientEstimator : public vtkObject
 {
 public:
 
@@ -151,7 +151,7 @@ protected:
   // The number of threads to use when encoding normals
   int                        NumberOfThreads;
 
-  vtkMultiThreader           Threader;
+  vtkMultiThreader           *Threader;
 
   vtkDirectionEncoder        *DirectionEncoder;
 

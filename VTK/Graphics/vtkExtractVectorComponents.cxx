@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractVectorComponents.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:41:03 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1998-10-01 17:44:44 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -129,7 +129,9 @@ void vtkExtractVectorComponents::SetInput(vtkDataSet *input)
   if ( thisInput != input )
     {
     vtkDebugMacro(<<" setting Input to " << (void *)input);
+    if (this->Input) {this->Input->UnRegister(this);}
     this->Input = (vtkDataObject *)(input);
+    if (this->Input) {this->Input->Register(this);}
     thisInput = input;
     this->Modified();
 

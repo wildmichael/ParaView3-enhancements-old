@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProgrammableAttributeDataFilter.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-14 13:21:47 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-10-01 17:44:57 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -108,38 +108,34 @@ public:
   const char *GetClassName() {return "vtkProgrammableAttributeDataFilter";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
-
-// Description:
-// Add a dataset to the list of data to process.
+  // Description:
+  // Add a dataset to the list of data to process.
   void AddInput(vtkDataSet *in);
 
   void AddInput(vtkDataSet& in) {this->AddInput(&in);};
 
-// Description:
-// Remove a dataset from the list of data to process.
+  // Description:
+  // Remove a dataset from the list of data to process.
   void RemoveInput(vtkDataSet *in);
 
   void RemoveInput(vtkDataSet& in) {this->RemoveInput(&in);};
-  vtkDataSetCollection *GetInputList() {return &(this->InputList);};
+  vtkDataSetCollection *GetInputList() {return this->InputList;};
 
-
-// Description:
-// Specify the function to use to operate on the point attribute data. Note
-// that the function takes a single (void *) argument.
+  // Description:
+  // Specify the function to use to operate on the point attribute data. Note
+  // that the function takes a single (void *) argument.
   void SetExecuteMethod(void (*f)(void *), void *arg);
 
-
-// Description:
-// Set the arg delete method. This is used to free user memory.
+  // Description:
+  // Set the arg delete method. This is used to free user memory.
   void SetExecuteMethodArgDelete(void (*f)(void *));
-
 
   // filter interface - is different because of multiple input
   void Update();
 
 protected:
   void Execute();
-  vtkDataSetCollection InputList; //list of datasets to process
+  vtkDataSetCollection *InputList; //list of datasets to process
   void (*ExecuteMethod)(void *); //function to invoke
   void (*ExecuteMethodArgDelete)(void *);
   void *ExecuteMethodArg;

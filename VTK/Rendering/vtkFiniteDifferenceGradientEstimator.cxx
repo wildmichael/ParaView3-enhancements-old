@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFiniteDifferenceGradientEstimator.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-28 18:57:57 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-10-01 17:44:46 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -302,12 +302,12 @@ static VTK_THREAD_RETURN_TYPE vtkSwitchOnDataType( void *arg )
 void vtkFiniteDifferenceGradientEstimator::UpdateNormals( )
 {
   vtkDebugMacro( << "Updating Normals!" );
-  this->Threader.SetNumberOfThreads( this->NumberOfThreads );
+  this->Threader->SetNumberOfThreads( this->NumberOfThreads );
   
-  this->Threader.SetSingleMethod( vtkSwitchOnDataType,
+  this->Threader->SetSingleMethod( vtkSwitchOnDataType,
 				  (vtkObject *)this );
   
-  this->Threader.SingleMethodExecute();
+  this->Threader->SingleMethodExecute();
 }
 
 // Print the vtkFiniteDifferenceGradientEstimator

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkContourFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:40:56 $
-  Version:   $Revision: 1.56 $
+  Date:      $Date: 1998-10-01 17:44:36 $
+  Version:   $Revision: 1.57 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -276,6 +276,7 @@ void vtkContourFilter::StructuredPointsContour(int dim)
     static vtkMarchingSquares msquares;
     int i;
     
+    msquares.ReferenceCountingOff();
     msquares.SetInput((vtkStructuredPoints *)this->Input);
     msquares.SetDebug(this->Debug);
     msquares.SetNumberOfContours(numContours);
@@ -293,6 +294,7 @@ void vtkContourFilter::StructuredPointsContour(int dim)
     static vtkMarchingCubes mcubes;
     int i;
     
+    mcubes.ReferenceCountingOff();
     mcubes.SetInput((vtkStructuredPoints *)this->Input);
     mcubes.SetComputeNormals (this->ComputeNormals);
     mcubes.SetComputeGradients (this->ComputeGradients);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTexture.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:41:30 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1998-10-01 17:45:12 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -66,6 +66,11 @@ vtkTexture::~vtkTexture()
   if ( this->SelfCreatedLookupTable && this->LookupTable != NULL) 
     {
     this->LookupTable->Delete();
+    }
+  if (this->Input) 
+    {
+    this->Input->UnRegister(this);
+    this->Input = NULL;
     }
 }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetWriter.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-14 13:21:32 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1998-10-01 17:44:39 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,9 +59,8 @@ public:
   const char *GetClassName() {return "vtkDataSetWriter";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
-
-// Description:
-// Specify the input data or filter.
+  // Description:
+  // Specify the input data or filter.
   void SetInput(vtkDataSet *input);
 
   void SetInput(vtkDataSet &input) {this->SetInput(&input);};

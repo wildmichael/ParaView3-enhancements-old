@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSubPixelPositionEdgels.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-14 13:21:58 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1998-10-01 17:45:12 $
+  Version:   $Revision: 1.11 $
 
 Copyright (c) 1993-1997 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -86,6 +86,15 @@ public:
   vtkSetObjectMacro(GradMaps,vtkStructuredPoints);
   vtkGetObjectMacro(GradMaps,vtkStructuredPoints);
 
+  // Description:
+  // these methods can make the positioning look for a target scalar value
+  // instead of looking for a maximum.
+  vtkSetMacro(TargetFlag, int);
+  vtkGetMacro(TargetFlag, int);
+  vtkBooleanMacro(TargetFlag, int);
+  vtkSetMacro(TargetValue, float);
+  vtkGetMacro(TargetValue, float);
+  
 protected:
   // Usual data generation method
   void Execute();
@@ -93,6 +102,9 @@ protected:
 	    float *img, vtkVectors *inVecs, 
 	    float *result, int z, float *aspect, float *resultNormal);
   vtkStructuredPoints *GradMaps;  
+  // extension for target insted of maximum
+  int TargetFlag;
+  float TargetValue;
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLCamera.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:41:11 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1998-10-01 17:44:52 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -54,7 +54,7 @@ void vtkOpenGLCamera::Render(vtkRenderer *ren)
   float *bg_color;
   int left,right,bottom,top;
   int  *size;
-  vtkMatrix4x4 matrix;
+  vtkMatrix4x4 *matrix = vtkMatrix4x4::New();
 
   // get the bounds of the window 
   size = (ren->GetRenderWindow())->GetSize();
@@ -161,10 +161,10 @@ void vtkOpenGLCamera::Render(vtkRenderer *ren)
   ren->SetAspect(aspect);
 
   glMatrixMode( GL_PROJECTION);
-  matrix = this->GetPerspectiveTransform(aspect[0]/aspect[1],-1,1);
-  matrix.Transpose();
+  *matrix = this->GetPerspectiveTransform(aspect[0]/aspect[1],-1,1);
+  matrix->Transpose();
   // insert camera view transformation 
-  glLoadMatrixf(matrix[0]);
+  glLoadMatrixf(matrix->Element[0]);
 
   // since lookat modifies the model view matrix do a push 
   // first and set the mmode.  This will be undone in the  
@@ -172,11 +172,11 @@ void vtkOpenGLCamera::Render(vtkRenderer *ren)
   glMatrixMode(GL_MODELVIEW);
   glPushMatrix();
 
-  matrix = this->GetViewTransform();
-  matrix.Transpose();
+  *matrix = this->GetViewTransform();
+  matrix->Transpose();
   
   // insert camera view transformation 
-  glMultMatrixf(matrix[0]);
+  glMultMatrixf(matrix->Element[0]);
 
   // get the background color
   bg_color = ren->GetBackground();
@@ -199,4 +199,6 @@ void vtkOpenGLCamera::Render(vtkRenderer *ren)
     if (this->LeftEye) this->LeftEye = 0;
     else this->LeftEye = 1;
     }
+
+  matrix->Delete();
 }

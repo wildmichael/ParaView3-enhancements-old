@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitVolume.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:41:07 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1998-10-01 17:44:49 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -62,6 +62,8 @@ float vtkImplicitVolume::EvaluateFunction(float x[3])
   int numPts;
   float pcoords[3], weights[8], s;
   static vtkIdList ptIds(8);
+
+  ptIds.ReferenceCountingOff();
 
   // See if a volume is defined
   if ( !this->Volume ||

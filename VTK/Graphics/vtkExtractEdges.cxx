@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractEdges.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:41:02 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1998-10-01 17:44:43 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -117,7 +117,7 @@ void vtkExtractEdges::Execute()
       
       for ( i=0; i < numEdgePts; i++, pt1=pt2, pts[0]=pts[1] )
         {
-        pt2 = edge->PointIds.GetId(i);
+        pt2 = edge->PointIds->GetId(i);
 	x = input->GetPoint(pt2);
         if ( (pts[1]=this->Locator->IsInsertedPoint(x)) < 0 )
 	  {
@@ -138,7 +138,7 @@ void vtkExtractEdges::Execute()
   //
   //  Update ourselves.
   //
-  delete edgeTable;
+  edgeTable->Delete();
 
   output->SetPoints(newPts);
   newPts->Delete();

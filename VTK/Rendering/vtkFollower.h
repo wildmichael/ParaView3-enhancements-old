@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFollower.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-14 13:21:37 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1998-10-01 17:44:46 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -62,26 +62,25 @@ class VTK_EXPORT vtkFollower : public vtkActor
 {
  public:
 
-// Description:
-// Creates a follower with no camera set
   vtkFollower();
-
   ~vtkFollower();
+
+  // Description:
+  // Creates a follower with no camera set
   static vtkFollower *New() {return new vtkFollower;};
+
   const char *GetClassName() {return "vtkFollower";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
-
-// Description:
-// This causes the actor to be rendered. It, in turn, will render the actor's
-// property and then mapper.  
+  // Description:
+  // This causes the actor to be rendered. It, in turn, will render the actor's
+  // property and then mapper.  
   virtual void Render(vtkRenderer *ren);
 
-
-// Description:
-// Copy the follower's composite 4x4 matrix into the matrix provided.
-  virtual void GetMatrix(vtkMatrix4x4& m);
-
+  // Description:
+  // Copy the follower's composite 4x4 matrix into the matrix provided.
+  virtual void GetMatrix(vtkMatrix4x4 *m);
+  void GetMatrix(vtkMatrix4x4 &m) {this->GetMatrix(&m);}
 
   // Description:
   // Set/Get the camera to follow. If this is not set, then the follower

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLight.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-14 13:21:40 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 1998-10-01 17:44:50 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -53,12 +53,12 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkLight_h
 #define __vtkLight_h
 
-#include "vtkReferenceCount.h"
+#include "vtkObject.h"
 
 /* need for virtual function */
 class vtkRenderer;
 
-class VTK_EXPORT vtkLight : public vtkReferenceCount
+class VTK_EXPORT vtkLight : public vtkObject
 {
 public:
 

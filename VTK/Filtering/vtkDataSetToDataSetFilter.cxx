@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetToDataSetFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-28 11:46:24 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 1998-10-01 17:44:39 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -82,7 +82,9 @@ void vtkDataSetToDataSetFilter::SetInput(vtkDataSet *input)
   if ( this->Input != input )
     {
     vtkDebugMacro(<<" setting Input to " << (void *)input);
+    if (this->Input) {this->Input->UnRegister(this);}
     this->Input = input;
+    if (this->Input) {this->Input->Register(this);}
     this->Modified();
 
     if ( input == NULL )
