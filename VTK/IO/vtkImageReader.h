@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-09 12:48:59 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1997-06-10 02:12:47 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -111,6 +111,15 @@ public:
   vtkImageGetMacro(DataOrigin,float);
   float *GetDataOrigin() {return this->DataOrigin;};  
   
+  // Set/Get the memory organization in the file.  The first axis is
+  // the most colocated in memory.  This order is also used as the 
+  // coordinate system of the instance variables: DataOrigin, DataExtent, ...
+  virtual void SetDataMemoryOrder(int dim, int *order);
+  vtkImageSetMacro(DataMemoryOrder,int);
+  void GetDataMemoryOrder(int dim, int *order);
+  vtkImageGetMacro(DataMemoryOrder,int);
+  int *GetDataMemoryOrder() {return this->DataMemoryOrder;};
+  
   void UpdateImageInformation(vtkImageRegion *region);
   vtkImageSource *GetOutput();
   
@@ -123,10 +132,10 @@ public:
   void SetHeaderSize(int size);
   
   // Description:
-  // Set/Get the pixel mask. The mask is for legacy compatablilty.
-  vtkGetMacro(PixelMask,unsigned short);
-  void SetPixelMask(int val) 
-  {this->PixelMask = ((unsigned short)(val)); this->Modified();};
+  // Set/Get the Data mask. The mask is for legacy compatablilty.
+  vtkGetMacro(DataMask,unsigned short);
+  void SetDataMask(int val) 
+  {this->DataMask = ((unsigned short)(val)); this->Modified();};
   
   // Description:
   // These methods should be used instead of the SwapBytes methods.
@@ -140,11 +149,11 @@ public:
   // and VAX tend to be LittleEndian. So if the file you are reading
   // in was generated on a VAX or PC, SetFileByteOrderToLittleEndian 
   // otherwise SetFileByteOrderToBigEndian. 
-  void SetFileByteOrderToBigEndian();
-  void SetFileByteOrderToLittleEndian();
-  int GetFileByteOrder();
-  void SetFileByteOrder(int);
-  char *GetFileByteOrderAsString();
+  void SetDataByteOrderToBigEndian();
+  void SetDataByteOrderToLittleEndian();
+  int GetDataByteOrder();
+  void SetDataByteOrder(int);
+  char *GetDataByteOrderAsString();
 
   // Description:
   // Set/Get the byte swapping to explicitely swap the bytes of a file.
@@ -170,7 +179,7 @@ public:
   // (should really be called DataIncrements instead of FileIncrements ...)
   int FileIncrements[VTK_IMAGE_DIMENSIONS];
   int FileExtent[VTK_IMAGE_EXTENT_DIMENSIONS];
-  unsigned short PixelMask;  // Mask each pixel with ...
+  unsigned short DataMask;  // Mask each pixel with ...
   int SwapBytes;
   // Flips are flags for each axis specifying whether "reflect" the data.
   int Flips[VTK_IMAGE_DIMENSIONS];
@@ -180,6 +189,7 @@ protected:
   int Initialized;
   char *FileName;
 
+  int DataMemoryOrder[VTK_IMAGE_DIMENSIONS];
   int DataDimensions[VTK_IMAGE_DIMENSIONS];
   float DataSpacing[VTK_IMAGE_DIMENSIONS];
   float DataOrigin[VTK_IMAGE_DIMENSIONS];
