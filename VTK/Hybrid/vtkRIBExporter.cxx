@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRIBExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-06 04:20:58 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2000-12-06 15:13:13 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -221,7 +221,7 @@ void vtkRIBExporter::WriteData()
   vtkAssemblyPath *apath;
   for (ac->InitTraversal(); (anActor = ac->GetNextActor()); )
     {
-    for (anActor->InitPathTraversal(); apath=anActor->GetNextPath(); )
+    for (anActor->InitPathTraversal(); (apath=anActor->GetNextPath()); )
       {
       node = apath->GetLastNode();
       if ( node->GetProp()->GetVisibility () )
