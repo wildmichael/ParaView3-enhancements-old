@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataNormals.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-03 12:52:23 $
-  Version:   $Revision: 1.54 $
+  Date:      $Date: 2002-11-01 09:49:37 $
+  Version:   $Revision: 1.55 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 #include "vtkPolygon.h"
 #include "vtkTriangleStrip.h"
 
-vtkCxxRevisionMacro(vtkPolyDataNormals, "$Revision: 1.54 $");
+vtkCxxRevisionMacro(vtkPolyDataNormals, "$Revision: 1.55 $");
 vtkStandardNewMacro(vtkPolyDataNormals);
 
 // Construct with feature angle=30, splitting and consistency turned on, 
@@ -72,9 +72,14 @@ void vtkPolyDataNormals::Execute()
 
   vtkDebugMacro(<<"Generating surface normals");
 
+  if ( input==NULL )
+    {
+    return;
+    }
+
   numPolys=input->GetNumberOfPolys();
   numStrips=input->GetNumberOfStrips();
-  if ( (numPts=input->GetNumberOfPoints()) < 1 || 
+  if ( (numPts=input->GetNumberOfPoints()) < 1 ||
        (numPolys < 1 && numStrips < 1) )
     {
     vtkErrorMacro(<<"No data to generate normals for!");
