@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:11:25 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 2000-08-10 13:50:00 $
+  Version:   $Revision: 1.48 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -406,6 +406,33 @@ void vtkDataSetReader::Execute()
 
   return;
 }
+
+
+vtkPolyData *vtkDataSetReader::GetPolyDataOutput()
+{
+  return vtkPolyData::SafeDownCast(this->GetOutput());
+}
+
+vtkStructuredPoints *vtkDataSetReader::GetStructuredPointsOutput() 
+{
+  return vtkStructuredPoints::SafeDownCast(this->GetOutput());
+}
+
+vtkStructuredGrid *vtkDataSetReader::GetStructuredGridOutput() 
+{
+  return vtkStructuredGrid::SafeDownCast(this->GetOutput());
+}
+
+vtkUnstructuredGrid *vtkDataSetReader::GetUnstructuredGridOutput() 
+{
+  return vtkUnstructuredGrid::SafeDownCast(this->GetOutput());
+}
+
+vtkRectilinearGrid *vtkDataSetReader::GetRectilinearGridOutput() 
+{
+  return vtkRectilinearGrid::SafeDownCast(this->GetOutput());
+}
+
 
 //----------------------------------------------------------------------------
 void vtkDataSetReader::Update()
