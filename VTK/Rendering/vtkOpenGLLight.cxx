@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLLight.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-30 22:51:13 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2001-05-29 14:55:57 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -108,6 +108,10 @@ void vtkOpenGLLight::Render(vtkRenderer *vtkNotUsed(ren),int light_index)
     Info[1]  = -dy;
     Info[2]  = -dz;
     Info[3]  = 0.0;
+
+    glLightf((GLenum)light_index, GL_SPOT_EXPONENT, 0);
+    glLightf((GLenum)light_index, GL_SPOT_CUTOFF, 180);
+
     glLightfv((GLenum)light_index, GL_POSITION, Info );
     }
   else
