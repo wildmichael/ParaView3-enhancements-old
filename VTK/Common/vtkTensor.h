@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTensor.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-03 17:51:44 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1998-09-14 13:19:06 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,7 +56,11 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkTensor : public vtkObject
 {
 public:
+
+// Description:
+// Construct tensor initially pointing to internal storage.
   vtkTensor();
+
   static vtkTensor *New() {return new vtkTensor;};
   const char *GetClassName() {return "vtkTensor";};
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTensors.h,v $
   Language:  C++
-  Date:      $Date: 1998-06-29 17:28:31 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1998-09-14 13:19:06 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -78,7 +78,11 @@ public:
                        float t21, float t22, float t23, 
                        float t31, float t32, float t33);
 
+
+// Description:
+// Given a list of pt ids, return an array of tensors.
   void GetTensors(vtkIdList& ptId, vtkTensors& fv);
+
 
 protected:
   vtkTensor T;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor2DCollection.h,v $
   Language:  C++
-  Date:      $Date: 1998-08-22 19:03:13 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1998-09-14 13:18:52 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,15 +58,35 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkActor2DCollection : public vtkCollection
 {
  public:
+
+// Description:
+// Desctructor for the vtkActor2DCollection class. This removes all 
+// objects from the collection.
   ~vtkActor2DCollection();
+
   static vtkActor2DCollection *New() {return new vtkActor2DCollection;};
   const char *GetClassName() {return "vtkActor2DCollection";};
+
+// Description:
+// Sorts the vtkActor2DCollection by layer number.  Smaller layer
+// numbers are first.  Layer numbers can be any integer value.
   void Sort();
+
+
+// Description:
+// Add an actor to the list.  The new actor is 
+// inserted in the list according to it's layer
+// number.
   void AddItem(vtkActor2D *a);
+
   int IsItemPresent(vtkActor2D *a);
   vtkActor2D *GetNextItem();
   vtkActor2D *GetLastItem();
+
+// Description:
+// Sort and then render the collection of 2D actors.  
   void Render(vtkViewport* viewport);
+
 
 protected:
   virtual void DeleteElement(vtkCollectionElement *); 

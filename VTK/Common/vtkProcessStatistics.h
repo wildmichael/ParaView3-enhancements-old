@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProcessStatistics.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-01 16:43:54 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-09-14 13:19:04 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -50,7 +50,11 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkProcessStatistics : public vtkObject
 {
 public:
+
+// Description:
+// Construct the ProcessStatistics with eight points.
   vtkProcessStatistics();
+
   static vtkProcessStatistics *New() {return new vtkProcessStatistics;};
   const char *GetClassName() {return "vtkProcessStatistics";};
 

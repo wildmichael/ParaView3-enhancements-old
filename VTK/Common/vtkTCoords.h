@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTCoords.h,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 22:50:36 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 1998-09-14 13:19:06 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,7 +64,12 @@ public:
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // overload vtkAttributeData API
+
+// Description:
+// Set the data for this object. The tuple dimension must be consistent with
+// the object.
   void SetData(vtkDataArray *);
+
   vtkAttributeData *MakeObject();
 
   // generic access to TCoord data

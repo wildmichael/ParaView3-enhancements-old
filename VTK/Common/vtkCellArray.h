@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellArray.h,v $
   Language:  C++
-  Date:      $Date: 1998-08-22 19:03:17 $
-  Version:   $Revision: 1.59 $
+  Date:      $Date: 1998-09-14 13:18:53 $
+  Version:   $Revision: 1.60 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -102,7 +102,12 @@ public:
   void ReverseCell(int loc);
   void ReplaceCell(int loc, int npts, int *pts);
 
+
+// Description:
+// Returns the size of the largest cell. The size is the number of points
+// defining the cell.
   int GetMaxCellSize();
+
 
   // miscellaneous pointer type operations (for fast read/write operations)
   int *GetPointer();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPixel.h,v $
   Language:  C++
-  Date:      $Date: 1998-05-06 19:06:00 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 1998-09-14 13:19:01 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -54,7 +54,11 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkPixel : public vtkCell
 {
 public:
+
+// Description:
+// Construct the pixel with four points.
   vtkPixel();
+
   static vtkPixel *New() {return new vtkPixel;};
   const char *GetClassName() {return "vtkPixel";};
 

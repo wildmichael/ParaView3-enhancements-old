@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkNormals.h,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 22:50:05 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1998-09-14 13:19:01 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -74,7 +74,11 @@ public:
   int InsertNextNormal(float n[3]);
   int InsertNextNormal(float nx, float ny, float nz);
 
+
+// Description:
+// Given a list of pt ids, return an array of normals.
   void GetNormals(vtkIdList& ptId, vtkNormals& fn);
+
 };
 
 // Description:

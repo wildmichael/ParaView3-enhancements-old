@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGrid.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-03 17:51:40 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 1998-09-14 13:19:06 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -159,6 +159,8 @@ inline int vtkStructuredGrid::IsPointVisible(int ptId)
 }
 
 #endif
+
+
 
 
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStack.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:41:29 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1998-09-14 13:19:05 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -62,16 +62,36 @@ class vtkStackElement //;prevents pick-up by man page generator
 class VTK_EXPORT vtkStack : public vtkObject
 {
 public:
+
+// Description:
+// Construct with empty stack.
   vtkStack();
+
   ~vtkStack();
   void PrintSelf(ostream& os, vtkIndent indent);
   static vtkStack *New() {return new vtkStack;};
   const char *GetClassName() {return "vtkStack";};
 
+
+// Description:
+// Add an object to the top of the stack. Does not prevent duplicate entries.
   void Push(vtkObject *);
+
+
+// Description:
+// Remove an object from the top of the list.
   vtkObject *Pop();
+
+
+// Description:
+// Return the number of objects in the stack.
   vtkObject *GetTop();
+
+
+// Description:
+// Return the number of objects in the stack.
   int  GetNumberOfItems();
+
 
 protected:
   int NumberOfItems;

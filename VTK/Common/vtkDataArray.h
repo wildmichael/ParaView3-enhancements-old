@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataArray.h,v $
   Language:  C++
-  Date:      $Date: 1998-05-06 19:46:48 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-09-14 13:18:55 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -70,7 +70,11 @@ class vtkFloatArray;
 class VTK_EXPORT vtkDataArray : public vtkReferenceCount 
 {
 public:
+
+// Description:
+// Construct object with default tuple dimension (number of components) of 1.
   vtkDataArray(int numComp=1);
+
   virtual int Allocate(const int sz, const int ext=1000) = 0;
   virtual void Initialize() = 0;
   const char *GetClassName() {return "vtkDataArray";};

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyVertex.h,v $
   Language:  C++
-  Date:      $Date: 1998-06-15 20:14:54 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 1998-09-14 13:19:03 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -85,7 +85,11 @@ public:
   int Triangulate(int index, vtkIdList &ptIds, vtkPoints &pts);
   void Derivatives(int subId, float pcoords[3], float *values, 
                    int dim, float *derivs);
+
+// Description:
+// Return the center of the point cloud in parametric coordinates.
   int GetParametricCenter(float pcoords[3]);
+
 
 protected:
   vtkVertex Vertex;

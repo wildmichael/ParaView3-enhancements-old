@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGrid.h,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 22:50:53 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1998-09-14 13:19:09 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -103,3 +103,5 @@ protected:
 };
 
 #endif
+
+

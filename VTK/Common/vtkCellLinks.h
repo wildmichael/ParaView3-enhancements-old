@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellLinks.h,v $
   Language:  C++
-  Date:      $Date: 1998-08-22 19:03:19 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-09-14 13:18:54 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -70,9 +70,18 @@ public:
 
   _vtkLink_s &GetLink(int ptId);
   unsigned short GetNcells(int ptId);
+
+// Description:
+// Build the link list array.
   void BuildLinks(vtkDataSet *data);
+
   int *GetCells(int ptId);
+
+// Description:
+// Insert a new point into the cell-links data structure. The size parameter
+// is the initial size of the list.
   int InsertNextPoint(int numLinks);
+
   void InsertNextCellReference(int ptId, int cellId);
 
   void DeletePoint(int ptId);
@@ -80,7 +89,11 @@ public:
   void AddCellReference(int cellId, int ptId);
   void ResizeCellList(int ptId, int size);
 
+
+// Description:
+// Reclaim any unused memory.
   void Squeeze();
+
   void Reset();
 
 private:

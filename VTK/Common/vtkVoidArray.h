@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoidArray.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-03 17:51:59 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1998-09-14 13:19:09 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -52,10 +52,22 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkVoidArray : public vtkDataArray
 {
 public:
+
+// Description:
+// Instantiate object.
   vtkVoidArray();
+
   ~vtkVoidArray();
+
+// Description:
+// Allocate memory for this array. Delete old storage only if necessary.
   int Allocate(const int sz, const int ext=1000);
+
+
+// Description:
+// Release storage and reset array to initial state.
   void Initialize();
+
   static vtkVoidArray *New() {return new vtkVoidArray;};
   const char *GetClassName() {return "vtkVoidArray";};
   void PrintSelf(ostream& os, vtkIndent indent);
@@ -63,12 +75,37 @@ public:
   // satisfy vtkDataArray API
   vtkDataArray *MakeObject() {return new vtkVoidArray;};
   int GetDataType() {return VTK_VOID;};
+
+// Description:
+// Set the number of n-tuples in the array.
   void SetNumberOfTuples(const int number);
+
+
+// Description:
+// Get a pointer to a tuple at the ith location.
   float *GetTuple(const int i);
+
+
+// Description:
+// Copy the tuple value into a user-provided array.
   void GetTuple(const int i, float * tuple);
+
+
+// Description:
+// Set the tuple value at the ith location in the array.
   void SetTuple(const int i, const float * tuple);
+
+
+// Description:
+// Insert (memory allocation performed) the tuple into the ith location
+// in the array.
   void InsertTuple(const int i, const float * tuple);
+
+
+// Description:
+// Insert (memory allocation performed) the tuple onto the end of the array.
   int InsertNextTuple(const float * tuple);
+
   void Squeeze();
 
   // native access/insertion methods
@@ -80,7 +117,11 @@ public:
   void** GetPointer(const int id) {return this->Array + id;}
   void** WritePointer(const int id, const int number);
   void *GetVoidPointer(const int id) {return this->GetPointer(id);};
+
+// Description:
+// Deep copy of another void array.
   void DeepCopy(vtkDataArray &da);
+
 
 private:
   void** Array;  // pointer to data

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCoordinate.h,v $
   Language:  C++
-  Date:      $Date: 1998-05-22 18:23:09 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-09-14 13:18:54 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -60,8 +60,17 @@ class VTK_EXPORT vtkCoordinate : public vtkReferenceCount
 {
 public:
 
+
+// Description:
+// Creates an Coordinate with the following defaults: 
+// value of  0, 0, 0 in world  coordinates
   vtkCoordinate();
+
+
+// Description:
+// Destroy a Coordinate.  
   ~vtkCoordinate();
+
   static vtkCoordinate* New() {return new vtkCoordinate;};
   void PrintSelf(ostream& os, vtkIndent indent);
   const char *GetClassName() {return "vtkCoordinate";};

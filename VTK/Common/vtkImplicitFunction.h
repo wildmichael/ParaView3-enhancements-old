@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitFunction.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:40:26 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1998-09-14 13:18:58 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -81,8 +81,18 @@ public:
   void PrintSelf(ostream& os, vtkIndent indent);
 
   unsigned long int GetMTime();
+
+// Description:
+// Evaluate function at position x-y-z and return value. Point x[3] is
+// transformed through transform (if provided).
   float FunctionValue(float x[3]);
+
+
+// Description:
+// Evaluate function gradient at position x-y-z and pass back vector. Point
+// x[3] is transformed through transform (if provided).
   void FunctionGradient(float x[3], float g[3]);
+
 
   // Description:
   // Evaluate function at position x-y-z and return value. Must be implemented

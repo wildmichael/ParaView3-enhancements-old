@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMultiThreader.h,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 15:44:32 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1998-09-14 13:19:00 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -141,11 +141,25 @@ struct ThreadInfoStruct
 class VTK_EXPORT vtkMultiThreader : public vtkObject 
 {
 public:
+
+// Description:
+// Constructor. Default all the methods to NULL. Since the
+// ThreadInfoArray is static, the ThreadIDs can be initialized here
+// and will not change.
   vtkMultiThreader();
+
+
+// Description:
+// Destructor. Nothing allocated so nothing needs to be done here.
   ~vtkMultiThreader();
+
   static vtkMultiThreader *New() {return new vtkMultiThreader;};
   const char *GetClassName() {return "vtkMultiThreader";};
+
+// Description:
+// Print method for the multithreader
   void PrintSelf(ostream& os, vtkIndent indent);
+
 
 
   // Description:

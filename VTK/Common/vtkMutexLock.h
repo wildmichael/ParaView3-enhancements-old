@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMutexLock.h,v $
   Language:  C++
-  Date:      $Date: 1998-06-29 17:28:45 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-09-14 13:19:00 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -78,14 +78,34 @@ typedef int vtkMutexType;
 class VTK_EXPORT vtkMutexLock : public vtkObject
 {
 public:
+
+// Description:
+// Construct a new vtkMutexLock 
   vtkMutexLock();
+
+
+// Description:
+// Destruct the vtkMutexVariable
   ~vtkMutexLock();
+
   static vtkMutexLock *New() {return new vtkMutexLock;};
   const char *GetClassName() {return "vtkMutexLock";};
+
+// Description:
+// Print method for vtkMutexLock
   void PrintSelf( ostream& os, vtkIndent index );
 
+
+
+// Description:
+// Lock the vtkMutexLock
   void Lock( void );
+
+
+// Description:
+// Unlock the vtkMutexLock
   void Unlock( void );
+
 
 protected:
   vtkMutexType   MutexLock;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLogLookupTable.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:40:40 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1998-09-14 13:18:59 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,8 +64,22 @@ public:
   const char *GetClassName() {return "vtkLogLookupTable";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
+
+// Description:
+// Set the minimum/maximum scalar values for scalar mapping. Scalar values
+// less than minimum range value are clamped to minimum range value.
+// Scalar values greater than maximum range value are clamped to maximum
+// range value. (The log base 10 of these values is taken and mapping is
+// performed in logarithmic space.)
   void SetTableRange(float min, float max);
+
+
+// Description:
+// Given a scalar value v, return an rgba color value from lookup table. 
+// Mapping performed log base 10 (negative ranges are converted into positive
+// values).
   unsigned char *MapValue(float v);
+
 
 protected:
   float LogMinRange;

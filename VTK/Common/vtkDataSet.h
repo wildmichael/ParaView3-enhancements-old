@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSet.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-04 21:44:14 $
-  Version:   $Revision: 1.69 $
+  Date:      $Date: 1998-09-14 13:18:55 $
+  Version:   $Revision: 1.70 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -72,7 +72,11 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkDataSet : public vtkDataObject
 {
 public:
+
+// Description:
+// Constructor with default bounds (0,1, 0,1, 0,1).
   vtkDataSet();
+
   vtkDataSet(const vtkDataSet& ds);
   const char *GetClassName() {return "vtkDataSet";};
   void PrintSelf(ostream& os, vtkIndent indent);
@@ -176,12 +180,29 @@ public:
   virtual void Squeeze();
 
   // compute geometric bounds, center, longest side
+
+// Description:
+// Compute the data bounding box from data points.
   virtual void ComputeBounds();
+
+
+// Description:
+// Return a pointer to the geometry bounding box in the form
+// (xmin,xmax, ymin,ymax, zmin,zmax).
   float *GetBounds();
+
   void GetBounds(float bounds[6]);
+
+// Description:
+// Get the center of the bounding box.
   float *GetCenter();
+
   void GetCenter(float center[3]);
+
+// Description:
+// Return the length of the diagonal of the bounding box.
   float GetLength();
+
 
   // Restore data object to initial state,
   void Initialize();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangleStrip.h,v $
   Language:  C++
-  Date:      $Date: 1998-06-15 20:15:41 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 1998-09-14 13:19:08 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -90,10 +90,19 @@ public:
   int Triangulate(int index, vtkIdList &ptIds, vtkPoints &pts);
   void Derivatives(int subId, float pcoords[3], float *values, 
                    int dim, float *derivs);
+
+// Description:
+// Return the center of the point cloud in parametric coordinates.
   int GetParametricCenter(float pcoords[3]);
 
+
   // triangle strip specific
+
+// Description:
+// Given a list of triangle strips, decompose into a list of (triangle) 
+// polygons. The polygons are appended to the end of the list of polygons.
   void DecomposeStrips(vtkCellArray *strips, vtkCellArray *tris);
+
   
 protected:
   vtkLine Line;

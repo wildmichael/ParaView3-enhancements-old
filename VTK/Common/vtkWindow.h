@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWindow.h,v $
   Language:  C++
-  Date:      $Date: 1998-03-10 22:30:17 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-09-14 13:19:10 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,8 +55,18 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkWindow : public vtkObject
 {
 public:
+
+// Description:
+// Construct an instance of  vtkRenderWindow with its screen size 
+// set to 300x300, borders turned on, positioned at (0,0), double 
+// buffering turned on.
   vtkWindow();
+
+
+// Description:
+// Destructor for the vtkWindow object.
   ~vtkWindow();
+
   const char *GetClassName() {return "vtkWindow";};
   void PrintSelf(ostream& os, vtkIndent indent);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoxel.h,v $
   Language:  C++
-  Date:      $Date: 1998-05-06 19:06:15 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 1998-09-14 13:19:10 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -54,7 +54,11 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkVoxel : public vtkCell
 {
 public:
+
+// Description:
+// Construct the voxel with eight points.
   vtkVoxel();
+
   static vtkVoxel *New() {return new vtkVoxel;};
   const char *GetClassName() {return "vtkVoxel";};
 
