@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoxel.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-01 09:02:54 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1995-08-21 21:17:54 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -95,7 +95,7 @@ int vtkVoxel::EvaluatePosition(float x[3], float closestPoint[3],
       else if (pcoords[i] > 1.0) pc[i] = 1.0;
       else pc[i] = pcoords[i];
       }
-    this->EvaluateLocation(subId, pc, closestPoint, w);
+    this->EvaluateLocation(subId, pc, closestPoint, (float *)w);
     dist2 = math.Distance2BetweenPoints(closestPoint,x);
     return 0;
     }
