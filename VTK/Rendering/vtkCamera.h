@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCamera.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-28 03:33:50 $
-  Version:   $Revision: 1.85 $
+  Date:      $Date: 2002-11-19 13:59:39 $
+  Version:   $Revision: 1.86 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -35,6 +35,7 @@ class vtkMatrix4x4;
 class vtkPerspectiveTransform;
 class vtkRenderer;
 class vtkTransform;
+class vtkLinearTransform;
 
 class VTK_RENDERING_EXPORT vtkCamera : public vtkObject
 {
@@ -300,6 +301,13 @@ class VTK_RENDERING_EXPORT vtkCamera : public vtkObject
                                                        double farz);
 
   // Description:
+  // In addition to the instance variables such as position and orientation,
+  // you can add an additional transformation for your own use.  This 
+  // transformation is concatenated to the camera's PerspectiveTransform
+  void SetUserTransform(vtkLinearTransform *transform);
+  vtkGetObjectMacro(UserTransform,vtkLinearTransform);
+
+  // Description:
   // This method causes the camera to set up whatever is required for
   // viewing the scene. This is actually handled by an subclass of
   // vtkCamera, which is created through New()
@@ -396,6 +404,7 @@ protected:
   double ViewPlaneNormal[3];
   double ViewShear[3];
   int    UseHorizontalViewAngle;
+  vtkLinearTransform *UserTransform;
 
   vtkTransform *ViewTransform;
   vtkPerspectiveTransform *PerspectiveTransform;
