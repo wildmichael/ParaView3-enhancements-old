@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointLocator.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-03-12 21:09:21 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1997-04-16 14:28:45 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -46,25 +46,26 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class vtkNeighborPoints
 {
 public:
-  vtkNeighborPoints(const int sz, const int ext=1000):P(3*sz,3*ext){};
-  int GetNumberOfNeighbors() {return (P.GetMaxId()+1)/3;};
-  void Reset() {this->P.Reset();};
+  vtkNeighborPoints(const int sz, const int ext=1000){this->P = new vtkIntArray(3*sz,3*ext);};
+  ~vtkNeighborPoints(){this->P->Delete();}; 
+  int GetNumberOfNeighbors() {return (this->P->GetMaxId()+1)/3;};
+  void Reset() {this->P->Reset();};
 
-  int *GetPoint(int i) {return this->P.GetPtr(3*i);};
+  int *GetPoint(int i) {return this->P->GetPtr(3*i);};
   int InsertNextPoint(int *x);
 
 protected:
-  vtkIntArray P;
+  vtkIntArray *P;
 };
 // some compiler can't initialize static file scope objects -ugh
 static vtkNeighborPoints *Buckets; 
 
 inline int vtkNeighborPoints::InsertNextPoint(int *x) 
 {
-  int id = this->P.GetMaxId() + 3;
-  this->P.InsertValue(id,x[2]);
-  this->P.SetValue(id-2, x[0]);
-  this->P.SetValue(id-1, x[1]);
+  int id = this->P->GetMaxId() + 3;
+  this->P->InsertValue(id,x[2]);
+  this->P->SetValue(id-2, x[0]);
+  this->P->SetValue(id-1, x[1]);
   return id/3;
 }
 
