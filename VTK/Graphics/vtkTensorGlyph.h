@@ -1,10 +1,10 @@
 /*=========================================================================
 
-  Program:   Visualization Library
+  Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTensorGlyph.h,v $
   Language:  C++
-  Date:      $Date: 1995-12-27 10:58:40 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1996-07-12 13:08:34 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.

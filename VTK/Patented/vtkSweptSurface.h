@@ -1,10 +1,10 @@
 /*=========================================================================
 
-  Program:   Visualization Library
+  Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSweptSurface.h,v $
   Language:  C++
-  Date:      $Date: 1995-12-27 10:57:19 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1996-07-12 13:08:33 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.

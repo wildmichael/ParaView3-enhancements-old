@@ -1,10 +1,10 @@
 /*=========================================================================
 
-  Program:   Visualization Library
+  Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRecursiveDividingCubes.h,v $
   Language:  C++
-  Date:      $Date: 1995-12-27 10:58:59 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1996-07-12 13:08:27 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
