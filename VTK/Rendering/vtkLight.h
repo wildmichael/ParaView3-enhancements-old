@@ -1,16 +1,16 @@
 /*=========================================================================
 
-  Program:   OSCAR 
+  Program:   Visualization Library
   Module:    $RCSfile: vtkLight.h,v $
   Language:  C++
-  Date:      $Date: 1994-01-18 18:36:08 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1994-02-06 17:55:25 $
+  Version:   $Revision: 1.5 $
 
-Description:
----------------------------------------------------------------------------
-This file is part of the vis library
+This file is part of the Visualization Library. No part of this file or its
+contents may be copied, reproduced or altered in any way without the express
+written consent of the authors.
 
-- Ken Martin
+Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 
 =========================================================================*/
 #ifndef __vlLight_hh
@@ -33,6 +33,7 @@ protected:
 public:
   vlLight();
   char *GetClassName() {return "vlLight";};
+  void PrintSelf(ostream& os, vlIndent indent);
   virtual void Render(vlRenderer *ren,int light_index) = 0;
 
   vlSetVector3Macro(Color,float);

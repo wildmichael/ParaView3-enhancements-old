@@ -1,16 +1,16 @@
 /*=========================================================================
 
-  Program:   OSCAR 
+  Program:   Visualization Library
   Module:    $RCSfile: vtkActorCollection.h,v $
   Language:  C++
-  Date:      $Date: 1994-01-12 16:01:14 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1994-02-06 17:55:16 $
+  Version:   $Revision: 1.2 $
 
-Description:
----------------------------------------------------------------------------
-This file is part of the vis library
+This file is part of the Visualization Library. No part of this file or its
+contents may be copied, reproduced or altered in any way without the express
+written consent of the authors.
 
-- Ken Martin
+Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 
 =========================================================================*/
 #ifndef __vlActorC_hh
@@ -40,6 +40,8 @@ class vlActorCollection : public vlObject
   void AddMember(vlActor *);
   int  GetNumberOfMembers();
   vlActor *GetMember(int num);
+  void PrintSelf(ostream& os, vlIndent indent);
+  char *GetClassName() {return "vlActorCollection";};
 };
 
 #endif
