@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkColorByPart.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-04-17 15:04:05 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-04-21 14:14:30 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 #include "vtkFieldData.h"
 #include "vtkIntArray.h"
 
-vtkCxxRevisionMacro(vtkColorByPart, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkColorByPart, "$Revision: 1.2 $");
 vtkStandardNewMacro(vtkColorByPart);
 
 
@@ -52,9 +52,6 @@ vtkDataSet* vtkColorByPart::GetOutput(int idxOut)
 {
   vtkDataSet* input = NULL;
   vtkDataObject* output;
-  int idxIn = 0;
-  int numIn = this->GetNumberOfInputs();
-  int count = 0;
 
   input = this->GetInput(idxOut);
   output = this->Superclass::GetOutput(idxOut);
