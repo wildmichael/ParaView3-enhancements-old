@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPerspectiveTransform.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-09 17:56:17 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2000-04-09 19:03:21 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -63,14 +63,6 @@ public:
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
-  // Apply the transformation to an (x,y,z) coordinate.
-  // Use this if you are programming in python, tcl or Java.
-  float *TransformPoint(float x, float y, float z) {
-    return this->vtkGeneralTransform::TransformPoint(x,y,z); }
-  float *TransformPoint(const float point[3]) {
-    return this->TransformPoint(point[0],point[1],point[2]); };
-
-  // Description:
   // Apply the transformation to a coordinate.  You can use the same 
   // array to store both the input and output point.
   void TransformPoint(const float in[3], float out[3]);
@@ -79,6 +71,14 @@ public:
   // Apply the transformation to a double-precision coordinate.
   // You can use the same array to store both the input and output point.
   void TransformPoint(const double in[3], double out[3]);
+
+  // Description:
+  // Apply the transformation to an (x,y,z) coordinate.
+  // Use this if you are programming in python, tcl or Java.
+  float *TransformPoint(float x, float y, float z) {
+    return this->vtkGeneralTransform::TransformPoint(x,y,z); }
+  float *TransformPoint(const float point[3]) {
+    return this->TransformPoint(point[0],point[1],point[2]); };
 
   // Description:
   // Apply the transformation to a series of points, and append the
@@ -103,9 +103,11 @@ public:
 
   // Description:
   // Get a pointer to an internal vtkMatrix4x4 that represents
-  // the transformation.  You should call Update() before using
-  // this matrix, and you *must not* modify this matrix.
-  vtkMatrix4x4 *GetMatrixPointer() { return this->Matrix; };
+  // the transformation.  An Update() is called on the transform
+  // to ensure that the matrix is up-to-date when you get it.
+  // You should not store the matrix pointer anywhere because it
+  // might become stale.
+  vtkMatrix4x4 *GetMatrixPointer() { this->Update(); return this->Matrix; };
 
   // Description:
   // Get the inverse of this transform.  If you modify this transform,

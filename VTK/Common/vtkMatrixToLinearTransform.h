@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMatrixToLinearTransform.h,v $
   Language:  C++
-  Date:      $Date: 2000-03-27 22:54:11 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2000-04-09 19:03:21 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -47,12 +47,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // if you use it as a proxy between a matrix and vtkTransformPolyDataFilter
 // then any modifications to the matrix will automatically be reflected in
 // the output of the filter.
-// .SECTION Caveats
-// The SetMatrix() method must be called before this class is used,
-// and must only be called once.  This is because the 
-// vtkPerspectiveTransform base class needs to ensure a one-to-one 
-// correspondence between matrix and transform in order for the
-// GetMatrixPointer() method to work as expected. 
 // .SECTION See Also
 // vtkMatrix4x4 vtkMatrixToPerspectiveTransform vtkLinearTransform 
 // vtkLinearTransformConcatenation 
@@ -99,8 +93,8 @@ class VTK_EXPORT vtkMatrixToLinearTransform : public vtkLinearTransform
   unsigned long GetMTime();
 
 protected:
-  vtkMatrixToLinearTransform();
-  ~vtkMatrixToLinearTransform();
+  vtkMatrixToLinearTransform() {};
+  ~vtkMatrixToLinearTransform() {};
   vtkMatrixToLinearTransform(const vtkMatrixToLinearTransform&) {};
   void operator=(const vtkMatrixToLinearTransform&) {};
 };
