@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangle.h,v $
   Language:  C++
-  Date:      $Date: 1996-03-05 21:17:19 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1996-03-13 20:42:24 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -87,6 +87,8 @@ public:
   float Circumcircle(float  p1[2], float p2[2], float p3[2], float center[2]);
   int BarycentricCoords(float x[2], float  x1[2], float x2[2], float x3[2], 
                         float bcoords[3]);
+  int ProjectTo2D(float x1[3], float x2[3], float x3[3],
+                  float v1[2], float v2[2], float v3[2]);
 };
 
 // Description:

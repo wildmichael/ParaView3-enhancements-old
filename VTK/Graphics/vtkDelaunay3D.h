@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDelaunay3D.h,v $
   Language:  C++
-  Date:      $Date: 1996-02-26 14:58:38 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1996-03-13 20:42:21 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -93,6 +93,10 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // point is found, and then the connected tetrahedra are searched to find
 // the containing one. (In 2D, a "walk" towards the enclosing triangle is
 // performed.) If the triangulation is Delaunay, then an 
+
+// .SECTION Bugs
+// Current implementation (vtk1.1) can break down due to numerical degeneracy. Also is 
+// slower than it should be. 
 
 // .SECTION See Also
 // vtkDelaunay2D vtkGaussianSplatter vtkUnstructuredGrid
