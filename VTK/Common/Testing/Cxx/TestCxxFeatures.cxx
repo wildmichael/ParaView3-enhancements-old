@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: TestCxxFeatures.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-07-01 12:52:01 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2003-07-03 21:41:19 $
+  Version:   $Revision: 1.27 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -96,6 +96,18 @@
 /* Test inclusion of typeinfo header.  */
 
 #include <typeinfo>
+
+//----------------------------------------------------------------------------
+
+/* Test use of namespaces.  */
+namespace NamespaceTest {}
+namespace {}
+void NamespaceTestFunc() {}
+namespace NamespaceTest
+{
+  using ::NamespaceTestFunc;
+}
+using namespace NamespaceTest;
 
 //----------------------------------------------------------------------------
 
