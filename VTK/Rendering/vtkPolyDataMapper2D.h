@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataMapper2D.h,v $
   Language:  C++
-  Date:      $Date: 1998-05-26 16:30:13 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-06-15 20:38:25 $
+  Version:   $Revision: 1.4 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -37,11 +37,12 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-// .NAME vtkPolyDataMapper2D - 2D Text annotation
+// .NAME vtkPolyDataMapper2D - draw vtkPolyData onto image plane
 // .SECTION Description
-// vtkPolyDataMapper2D provides 2D text annotation support for vtk.
-// It is a Mapper2D that can be accosciated with a Actor2D
-// and placed withint a RenderWindow or ImageWindow.
+// vtkPolyDataMapper2D is a mapper that renders 3D polygonal data 
+// (vtkPolyData) onto the 2D image plane (i.e., the renderer'v viewport).
+// The 3D data is transformed into 2D data by ignoring the z-coordinate
+// of the 3D points in vtkPolyData.
 
 // .SECTION See Also
 // vtkMapper2D vtkActor2D
