@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFieldData.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:22 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 2002-09-06 21:56:07 $
+  Version:   $Revision: 1.42 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -128,15 +128,15 @@ public:
   // GetArray(i)->GetName() if ith array pointer is not NULL
   const char* GetArrayName(int i)
     {
-      vtkDataArray* da;
-      if ((da=this->GetArray(i)))
-        {
-        return da->GetName();
-        }
-      else
-        {
-        return 0;
-        }
+    vtkDataArray* da = this->GetArray(i);
+    if (da)
+      {
+      return da->GetName();
+      }
+    else
+      {
+      return 0;
+      }
     }
 
   // Description:
