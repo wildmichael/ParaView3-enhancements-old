@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOStreamWrapper.h,v $
   Language:  C++
-  Date:      $Date: 2003-01-07 15:52:50 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2003-02-07 19:30:05 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -69,9 +69,14 @@ public:
   vtkOStreamWrapper& operator << (unsigned long);
   vtkOStreamWrapper& operator << (float);
   vtkOStreamWrapper& operator << (double);
+
+  // Need to switch on bool type because this wrapper is supposed to
+  // be as transparent as possible to user code.  This example should
+  // not be used to justify using bool elsewhere in VTK.
 #ifdef VTK_COMPILER_HAS_BOOL
   vtkOStreamWrapper& operator << (bool);
 #endif
+  
 #ifdef VTK_NEED_ID_TYPE_STREAM_OPERATORS
   vtkOStreamWrapper& operator << (vtkIdType);
 #endif
