@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyle.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-20 15:19:04 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1999-08-24 13:31:13 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -1022,6 +1022,7 @@ void vtkInteractorStyle::PrintSelf(ostream& os, vtkIndent indent)
     os << indent << "Current Actor: (none)\n";
     }
 
+  os << indent << "Interactor: " << this->Interactor << "\n";
   os << indent << "Actor Picked: " <<
     (this->ActorPicked ? "Yes\n" : "No\n");
 }
