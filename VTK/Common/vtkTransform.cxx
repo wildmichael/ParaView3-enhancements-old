@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-05-06 21:15:14 $
-  Version:   $Revision: 1.95 $
+  Date:      $Date: 2001-05-28 05:36:20 $
+  Version:   $Revision: 1.96 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -562,51 +562,3 @@ void vtkTransform::GetTranspose(vtkMatrix4x4 *transpose)
   vtkMatrix4x4::Transpose(this->GetMatrix(),transpose);
 }
 
-#ifndef VTK_REMOVE_LEGACY_CODE
-//----------------------------------------------------------------------------
-// Returns the result of multiplying the currently set Point by the current 
-// transformation matrix. Point is expressed in homogeneous coordinates.
-// The setting of the PreMultiplyFlag will determine if the Point is
-// Pre or Post multiplied.
-//
-// These methods are obsolete.
-float *vtkTransform::GetPoint()
-{
-  VTK_LEGACY_METHOD(GetPoint,"3.2");
-  if (this->Concatenation->GetPreMultiplyFlag())
-    {
-    this->Matrix->PointMultiply(this->Point,this->Point);
-    }
-  else
-    {
-    this->Matrix->MultiplyPoint(this->Point,this->Point);
-    }
-  return this->Point;
-}
-
-//----------------------------------------------------------------------------
-double *vtkTransform::GetDoublePoint()
-{
-  VTK_LEGACY_METHOD(GetPoint,"3.2");
-  if (this->Concatenation->GetPreMultiplyFlag())
-    {
-    this->Matrix->PointMultiply(this->DoublePoint,this->DoublePoint);
-    }
-  else
-    {
-    this->Matrix->MultiplyPoint(this->DoublePoint,this->DoublePoint);
-    }
-  return this->DoublePoint;
-}
-
-//----------------------------------------------------------------------------
-void vtkTransform::GetPoint(float p[4])
-{
-  VTK_LEGACY_METHOD(GetPoint,"3.2");
-  float *x = this->vtkTransform::GetPoint();
-  for (int i = 0; i < 4; i++)
-    {
-    p[i] = x[i];
-    }
-}
-#endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTCoords.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:18 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 2001-05-28 05:37:42 $
+  Version:   $Revision: 1.48 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -125,13 +125,6 @@ public:
   // Get a list of texture coordinates
   void GetTCoords(vtkIdList *ptId, vtkTCoords *fv);
 
-#ifndef VTK_REMOVE_LEGACY_CODE
-  // Description:
-  // For legacy compatibility. Do not use.
-  void GetTCoords(vtkIdList& ptId, vtkTCoords& fv) 
-    {VTK_LEGACY_METHOD(GetTCoords,"3.2"); this->GetTCoords(&ptId, &fv);}
-#endif
-  
 protected:
   vtkTCoords();
   ~vtkTCoords() {};

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalars.h,v $
   Language:  C++
-  Date:      $Date: 2001-05-09 15:35:22 $
-  Version:   $Revision: 1.69 $
+  Date:      $Date: 2001-05-28 05:38:39 $
+  Version:   $Revision: 1.70 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -196,15 +196,6 @@ public:
   unsigned char *GetColor(int id) {
     return (this->*(this->CurrentColorFunction))(id);};
 
-#ifndef VTK_REMOVE_LEGACY_CODE
-  // Description:
-  // For legacy compatibility. Do not use.
-  void GetScalars(vtkIdList& ptIds, vtkScalars& fv) 
-    {VTK_LEGACY_METHOD(GetScalars,"3.2"); this->GetScalars(&ptIds, &fv);}
-  void GetScalars(int p1, int p2, vtkScalars& fs) 
-    {VTK_LEGACY_METHOD(GetScalars,"3.2"); this->GetScalars(p1, p2, &fs);}
-#endif
-  
 protected:
   vtkScalars();
   ~vtkScalars();
