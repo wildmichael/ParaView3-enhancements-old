@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObject.h,v $
   Language:  C++
-  Date:      $Date: 2003-05-08 21:47:41 $
-  Version:   $Revision: 1.95 $
+  Date:      $Date: 2003-05-09 12:43:56 $
+  Version:   $Revision: 1.96 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -140,16 +140,16 @@ public:
                             float priority=0.0);
   vtkCommand *GetCommand(unsigned long tag);
   void RemoveObserver(vtkCommand*);
+  void RemoveObservers(unsigned long event, vtkCommand *);
+  void RemoveObservers(const char *event, vtkCommand *);
+  int HasObserver(unsigned long event, vtkCommand *);
+  int HasObserver(const char *event, vtkCommand *);
   //ETX
   void RemoveObserver(unsigned long tag);
   void RemoveObservers(unsigned long event);
   void RemoveObservers(const char *event);
-  void RemoveObservers(unsigned long event, vtkCommand *);
-  void RemoveObservers(const char *event, vtkCommand *);
   int HasObserver(unsigned long event);
   int HasObserver(const char *event);
-  int HasObserver(unsigned long event, vtkCommand *);
-  int HasObserver(const char *event, vtkCommand *);
 
   // Description:
   // Allow people to add/remove/invoke observers (callbacks) to any
