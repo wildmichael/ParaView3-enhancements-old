@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCell.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-08-22 19:03:16 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 1998-09-02 14:52:59 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -280,7 +280,10 @@ void vtkCell::PrintSelf(ostream& os, vtkIndent indent)
 	}
       else
 	{
-	if ( i != (numIds-1) ) os << ", ";
+	if ( i != (numIds-1) )
+	  {
+	  os << ", ";
+	  }
 	}
       }
     os << indent << "\n";
