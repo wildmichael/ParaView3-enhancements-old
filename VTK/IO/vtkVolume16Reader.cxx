@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume16Reader.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-02-14 12:14:39 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1997-02-14 20:54:15 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -109,10 +109,10 @@ void vtkVolume16Reader::Execute()
   this->ComputeTransformedAspectRatio (aspectRatio);
 
   // calculate origin of output from data origin and transform
-  ComputeTransformedOrigin (origin);
+  this->ComputeTransformedOrigin (origin);
 
   // adjust aspect ratio and origin if aspect ratio is negative
-  AdjustAspectRatioAndOrigin (dimensions, aspectRatio, origin);
+  this->AdjustAspectRatioAndOrigin (dimensions, aspectRatio, origin);
 
   output->SetAspectRatio(aspectRatio);
   output->SetOrigin(origin);
