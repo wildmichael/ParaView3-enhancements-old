@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderLargeImage.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:10:52 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2000-05-21 07:41:34 $
+  Version:   $Revision: 1.13 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -174,6 +174,7 @@ void vtkRenderLargeImage::Execute(vtkImageData *data)
   viewAngle = cam->GetViewAngle();
   cam->SetViewAngle(asin(sin(viewAngle*3.1415926/360.0)/this->Magnification) 
 		    * 360.0 / 3.1415926);
+  cam->SetParallelScale(cam->GetParallelScale()/this->Magnification);
   
   // render each of the tiles required to fill this request
   for (y = inWindowExtent[2]; y <= inWindowExtent[3]; y++)
