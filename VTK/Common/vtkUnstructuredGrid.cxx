@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-17 21:43:38 $
-  Version:   $Revision: 1.86 $
+  Date:      $Date: 2001-03-17 22:41:15 $
+  Version:   $Revision: 1.87 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -294,6 +294,7 @@ vtkCell *vtkUnstructuredGrid::GetCell(int cellId)
     }
 
   loc = this->Locations->GetValue(cellId);
+  vtkDebugMacro(<< "location = " <<  loc);
   this->Connectivity->GetCell(loc,numPts,pts); 
 
   cell->PointIds->SetNumberOfIds(numPts);
@@ -383,9 +384,7 @@ int vtkUnstructuredGrid::InsertNextCell(int type, vtkIdList *ptIds)
   // insert type and storage information   
   vtkDebugMacro(<< "insert location " << this->Connectivity->GetInsertLocation(npts));
   this->Locations->InsertNextValue(this->Connectivity->GetInsertLocation(npts));
-  this->Types->InsertNextValue((unsigned char) type);
-  //return the number of cells
-  return this->GetNumberOfCells()-1;
+  return this->Types->InsertNextValue((unsigned char) type);
 
 }
 
@@ -398,9 +397,7 @@ int vtkUnstructuredGrid::InsertNextCell(int type, int npts, int *pts)
   // insert type and storage information
   vtkDebugMacro(<< "insert location " << this->Connectivity->GetInsertLocation(npts));
   this->Locations->InsertNextValue(this->Connectivity->GetInsertLocation(npts));
-  this->Types->InsertNextValue((unsigned char) type);
-  //return the number of cells
-  return this->GetNumberOfCells()-1;
+  return this->Types->InsertNextValue((unsigned char) type);
 
 }
 
@@ -886,4 +883,21 @@ void vtkUnstructuredGrid::GetCellNeighbors(int cellId, vtkIdList *ptIds,
         }
       }//if not the reference cell
     }//for all candidate cells attached to point
+}
+
+void vtkUnstructuredGrid::GetCellTypes(vtkCellTypes *types)
+{
+  int cellId, numCells=this->GetNumberOfCells();
+  unsigned char type;
+  types->Allocate(numCells,1000);
+  vtkDataSet::GetCellTypes(types);
+//   types->Reset();
+//   for (cellId=0; cellId < numCells; cellId++)
+//     {
+//     type = this->GetCellType(cellId);
+//     if ( ! types->IsType(type) )
+//       {
+//       types->InsertNextType(type);
+//       }
+//     }
 }
