@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaVolumeRayCastMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-20 21:17:18 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-09-06 19:19:17 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,16 +42,12 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // Make sure this is first, so any includes of gl.h can be stoped if needed
 #define VTK_IMPLEMENT_MESA_CXX
 
+#include "GL/gl_mangle.h"
+#include "GL/gl.h"
+
 #include <math.h>
 #include "vtkMesaVolumeRayCastMapper.h"
 
-
-#ifdef VTK_MANGLE_MESA
-#define USE_MGL_NAMESPACE
-#include "mesagl.h"
-#else
-#include "GL/gl.h"
-#endif
 // make sure this file is included before the #define takes place
 // so we don't get two vtkMesaVolumeRayCastMapper classes defined.
 #include "vtkOpenGLVolumeRayCastMapper.h"
@@ -64,15 +60,3 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkOpenGLVolumeRayCastMapper.cxx"
 #undef vtkOpenGLVolumeRayCastMapper
 
-//----------------------------------------------------------------------------
-vtkMesaVolumeRayCastMapper* vtkMesaVolumeRayCastMapper::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkMesaVolumeRayCastMapper");
-  if(ret)
-    {
-    return (vtkMesaVolumeRayCastMapper*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkMesaVolumeRayCastMapper;
-}

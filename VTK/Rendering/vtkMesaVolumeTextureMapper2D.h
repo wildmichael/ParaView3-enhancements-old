@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaVolumeTextureMapper2D.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:07:00 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2001-09-06 19:19:17 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -70,7 +70,7 @@ public:
   virtual void Render(vtkRenderer *ren, vtkVolume *vol);
 
   void RenderQuads( int count, float *v, float *t,
-                    unsigned char *texture, int size[2]);
+                    unsigned char *texture, int size[2], int reverseFlag);
 
 //ETX
 

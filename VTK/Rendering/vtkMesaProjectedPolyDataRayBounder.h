@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaProjectedPolyDataRayBounder.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:07:00 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2001-09-06 19:19:16 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to Lisa Sobierajski Avila who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -57,16 +57,10 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #ifndef __vtkMesaProjectedPolyDataRayBounder_h
 #define __vtkMesaProjectedPolyDataRayBounder_h
 
+
 #include "vtkToolkits.h"
 #include "vtkProjectedPolyDataRayBounder.h"
 #include "vtkPolyData.h"
-
-#ifdef VTK_MANGLE_MESA
-#define USE_MGL_NAMESPACE
-#include "mesagl.h"
-#else
-#include "GL/gl.h"
-#endif
 
 class vtkWindow;
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaImageWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-24 21:52:52 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2001-09-06 19:19:15 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,16 +39,12 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
+#include "GL/gl_mangle.h"
+#include "GL/gl.h"
+
 #include "vtkMesaImageWindow.h"
 #include "vtkMesaImager.h"
 #include "vtkObjectFactory.h"
-
-#ifdef VTK_MANGLE_MESA
-#define USE_MGL_NAMESPACE
-#include "mesagl.h"
-#else
-#include "GL/gl.h"
-#endif
 
 
 //------------------------------------------------------------------------------
