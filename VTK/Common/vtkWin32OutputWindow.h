@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OutputWindow.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:04:07 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2000-09-19 13:45:39 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -58,6 +58,10 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 class VTK_EXPORT vtkWin32OutputWindow : public vtkOutputWindow
 {
 public:
+// Methods from vtkObject
+  vtkTypeMacro(vtkWin32OutputWindow,vtkOutputWindow);
+  // Description:
+  // Create a vtkWin32OutputWindow.
   static vtkWin32OutputWindow* New();
   // Description:  Put the text into the display window.
   // New lines are converted to carriage return new lines.
