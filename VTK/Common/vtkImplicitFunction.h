@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitFunction.h,v $
   Language:  C++
-  Date:      $Date: 2003-06-14 12:51:30 $
-  Version:   $Revision: 1.52 $
+  Date:      $Date: 2003-06-15 00:01:51 $
+  Version:   $Revision: 1.53 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,8 @@
 // implicit function divides space into three regions: on the surface
 // (F(x,y,z)=w), outside of the surface (F(x,y,z)>c), and inside the
 // surface (F(x,y,z)<c). (When c is zero, positive values are outside,
-// negative values are inside, and zero is on the surface.)
+// negative values are inside, and zero is on the surface. Note also
+// that the function gradient points from inside to outside.)
 //
 // Implicit functions are very powerful. It is possible to represent almost
 // any type of geometry with the level sets w = const, especially if you use 
