@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkProperty.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-09 19:53:55 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1995-01-02 11:49:40 $
+  Version:   $Revision: 1.7 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -53,6 +53,8 @@ vlProperty::vlProperty()
   this->EdgeVisibility = 0;
   this->Backface = 0;
   this->Subdivide = 0;
+
+  this->Texture  = NULL;
 }
 
 
@@ -141,25 +143,31 @@ void vlProperty::PrintSelf(ostream& os, vlIndent indent)
   os << indent << "Interpolation: ";
   switch (this->Interpolation) 
     {
-  case 0: os << "VL_FLAT\n"; break;
-  case 1: os << "VL_GOURAUD\n"; break;
-  case 2: os << "VL_PHONG\n"; break;
-  default: os << "unknown\n";
-    os << indent << "Representation: ";
-    switch (this->Representation) 
-      {
+    case 0: os << "VL_FLAT\n"; break;
+    case 1: os << "VL_GOURAUD\n"; break;
+    case 2: os << "VL_PHONG\n"; break;
+    default: os << "unknown\n";
+    }
+  os << indent << "Representation: ";
+  switch (this->Representation) 
+    {
     case 0: os << "VL_POINTS\n"; break;
     case 1: os << "VL_WIREFRAME\n"; break;
     case 2: os << "VL_SURFACE\n"; break;
     default: os << "unknown\n";
-      }
-    os << indent << "Specular: " << this->Specular << "\n";
-    os << indent << "Specular Color: (" << this->SpecularColor[0] << ", " 
-      << this->SpecularColor[1] << ", " << this->SpecularColor[2] << ")\n";
-    os << indent << "Specular Power: " << this->SpecularPower << "\n";
-    os << indent << "Subdivide: " << (this->Subdivide ? "On\n" : "Off\n");
-    os << indent << "Transparency: " << this->Transparency << "\n";
+    }
+  os << indent << "Specular: " << this->Specular << "\n";
+  os << indent << "Specular Color: (" << this->SpecularColor[0] << ", " 
+     << this->SpecularColor[1] << ", " << this->SpecularColor[2] << ")\n";
+  os << indent << "Specular Power: " << this->SpecularPower << "\n";
+  os << indent << "Subdivide: " << (this->Subdivide ? "On\n" : "Off\n");
+  os << indent << "Transparency: " << this->Transparency << "\n";
+  if ( this->Texture )
+    {
+    os << indent << "Texture: (" << (void *)this->Texture << ")\n";
+    }
+  else
+    {
+    os << indent << "Texture: (none)\n";
     }
 }
-
-
