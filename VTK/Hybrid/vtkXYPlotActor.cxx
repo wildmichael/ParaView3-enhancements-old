@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXYPlotActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-09-28 18:38:47 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2000-10-03 14:03:38 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to Kitware & RPI/SCOREC who supported the development
              of this class.
 
@@ -423,10 +423,10 @@ int vtkXYPlotActor::RenderOpaqueGeometry(vtkViewport *viewport)
       int legPos[2], legPos2[2];
       int *p1 = this->PositionCoordinate->GetComputedViewportValue(viewport);
       int *p2 = this->Position2Coordinate->GetComputedViewportValue(viewport);
-      legPos[0] = p1[0] + this->LegendPosition[0]*(p2[0]-p1[0]);
-      legPos2[0] = legPos[0] + this->LegendPosition2[0]*(p2[0]-p1[0]);
-      legPos[1] = p1[1] + this->LegendPosition[1]*(p2[1]-p1[1]);
-      legPos2[1] = legPos[1] + this->LegendPosition2[1]*(p2[1]-p1[1]);
+      legPos[0] = (int)p1[0] + this->LegendPosition[0]*(p2[0]-p1[0]);
+      legPos2[0] = (int)legPos[0] + this->LegendPosition2[0]*(p2[0]-p1[0]);
+      legPos[1] = (int)p1[1] + this->LegendPosition[1]*(p2[1]-p1[1]);
+      legPos2[1] = (int)legPos[1] + this->LegendPosition2[1]*(p2[1]-p1[1]);
       
       this->LegendActor->GetPositionCoordinate()->SetValue(legPos[0], legPos[1]);
       this->LegendActor->GetPosition2Coordinate()->SetValue(legPos2[0], legPos2[1]);
@@ -1082,6 +1082,8 @@ void vtkXYPlotActor::CreatePlotData(int *pos, int *pos2, float xRange[2],
           numRows = numTuples;
           }
         }
+
+      lines->InsertNextCell(0); //update the count later
       numPts = (this->DataObjectPlotMode == VTK_XYPLOT_ROW ? 
                 numColumns : numRows);
 

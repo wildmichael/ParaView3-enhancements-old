@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXYPlotActor.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-28 18:38:47 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2000-10-03 14:03:38 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to Kitware & RPI/SCOREC who supported the development
              of this class.
 
@@ -169,8 +169,7 @@ public:
   // methods also control how field data is plotted. Field data is usually
   // plotted by value or index, if plotting length 1-dimensional length
   // measures are used.)
-  vtkSetClampMacro(XValues,int,
-                   VTK_XYPLOT_INDEX,VTK_XYPLOT_NORMALIZED_ARC_LENGTH);
+  vtkSetClampMacro(XValues,int,VTK_XYPLOT_INDEX,VTK_XYPLOT_VALUE);
   vtkGetMacro(XValues,int);
   void SetXValuesToIndex(){this->SetXValues(VTK_XYPLOT_INDEX);};
   void SetXValuesToArcLength() {this->SetXValues(VTK_XYPLOT_ARC_LENGTH);};
