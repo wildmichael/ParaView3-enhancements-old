@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataReader.h,v $
   Language:  C++
-  Date:      $Date: 2000-11-08 22:13:02 $
-  Version:   $Revision: 1.56 $
+  Date:      $Date: 2000-11-29 21:07:44 $
+  Version:   $Revision: 1.57 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -111,6 +111,37 @@ public:
   // after file has been read.
   vtkGetMacro(FileType,int);
 
+  // Description:
+  // How many attributes of various types are in this file? This 
+  // requires reading the file, so the filename must be set prior 
+  // to invoking this operation.
+  int GetNumberOfScalarsInFile()
+    {this->CharacterizeFile(); return this->NumberOfScalarsInFile;}
+  int GetNumberOfVectorsInFile()
+    {this->CharacterizeFile(); return this->NumberOfVectorsInFile;}
+  int GetNumberOfTensorsInFile()
+    {this->CharacterizeFile(); return this->NumberOfTensorsInFile;}
+  int GetNumberOfNormalsInFile()
+    {this->CharacterizeFile(); return this->NumberOfNormalsInFile;}
+  int GetNumberOfTCoordsInFile()
+    {this->CharacterizeFile(); return this->NumberOfTCoordsInFile;}
+  int GetNumberOfFieldDataInFile()
+    {this->CharacterizeFile(); return this->NumberOfFieldDataInFile;}
+  int GetNumberOfGhostLevelsInFile()
+    {this->CharacterizeFile(); return this->NumberOfGhostLevelsInFile;}
+  
+  // Description:
+  // What is the name of the ith attribute of a certain type are 
+  // in this file? This requires reading the file, so the filename 
+  // must be set prior to invoking this operation.
+  const char *GetScalarsNameInFile(int i);
+  const char *GetVectorsNameInFile(int i);
+  const char *GetTensorsNameInFile(int i);
+  const char *GetNormalsNameInFile(int i);
+  const char *GetTCoordsNameInFile(int i);
+  const char *GetFieldDataNameInFile(int i);
+  const char *GetGhostLevelsNameInFile(int i);
+  
   // Description:
   // Set the name of the scalar data to extract. If not specified, first 
   // scalar data encountered is extracted.
@@ -273,6 +304,7 @@ protected:
   vtkGetStringMacro(ScalarLut);
 
   vtkSource *Source;
+  char *Header;
 
   int ReadScalarData(vtkDataSetAttributes *a, int num);
   int ReadVectorData(vtkDataSetAttributes *a, int num);
@@ -285,7 +317,34 @@ protected:
 
   int ReadDataSetData(vtkDataSet *ds);
 
-  char *Header;
+  // This supports getting additional information from vtk files
+  int  NumberOfScalarsInFile;
+  char **ScalarsNameInFile;
+  int ScalarsNameAllocSize;
+  int  NumberOfVectorsInFile;
+  char **VectorsNameInFile;
+  int VectorsNameAllocSize;
+  int  NumberOfTensorsInFile;
+  char **TensorsNameInFile;
+  int TensorsNameAllocSize;
+  int  NumberOfGhostLevelsInFile;
+  char **GhostLevelsNameInFile;
+  int GhostLevelsNameAllocSize;
+  int  NumberOfTCoordsInFile;
+  char **TCoordsNameInFile;
+  int TCoordsNameAllocSize;
+  int  NumberOfNormalsInFile;
+  char **NormalsNameInFile;
+  int NormalsNameAllocSize;
+  int  NumberOfFieldDataInFile;
+  char **FieldDataNameInFile;
+  int FieldDataNameAllocSize;
+  vtkTimeStamp CharacteristicsTime;
+
+  void InitializeCharacteristics();
+  int CharacterizeFile(); //read entire file, storing important characteristics
+  void CheckFor(const char* name, char *line, int &num, char** &array, 
+                int& allocSize);
 
 };
 
