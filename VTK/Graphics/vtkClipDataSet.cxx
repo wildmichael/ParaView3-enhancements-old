@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipDataSet.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-01-17 14:28:02 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2003-03-18 20:15:00 $
+  Version:   $Revision: 1.26 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -33,7 +33,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkClipDataSet, "$Revision: 1.25 $");
+vtkCxxRevisionMacro(vtkClipDataSet, "$Revision: 1.26 $");
 vtkStandardNewMacro(vtkClipDataSet);
 vtkCxxSetObjectMacro(vtkClipDataSet,ClipFunction,vtkImplicitFunction);
 
@@ -229,11 +229,13 @@ void vtkClipDataSet::Execute()
     {
     vtkFloatArray *tmpScalars = vtkFloatArray::New();
     tmpScalars->SetNumberOfTuples(numPts);
+    tmpScalars->SetName("ClipDataSetScalars");
     inPD = vtkPointData::New();
     inPD->ShallowCopy(input->GetPointData());//copies original
+    inPD->AddArray(tmpScalars);
     if ( this->GenerateClipScalars )
       {
-      inPD->SetScalars(tmpScalars);
+      inPD->SetActiveScalars(tmpScalars->GetName());
       }
     for ( i=0; i < numPts; i++ )
       {
