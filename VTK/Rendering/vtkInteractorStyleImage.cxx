@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleImage.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-23 17:29:34 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2002-04-23 19:46:16 $
+  Version:   $Revision: 1.13 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 #include "vtkMath.h"
 #include "vtkCommand.h"
 
-vtkCxxRevisionMacro(vtkInteractorStyleImage, "$Revision: 1.12 $");
+vtkCxxRevisionMacro(vtkInteractorStyleImage, "$Revision: 1.13 $");
 vtkStandardNewMacro(vtkInteractorStyleImage);
 
 //----------------------------------------------------------------------------
@@ -64,6 +64,11 @@ void vtkInteractorStyleImage::OnMouseMove(int ctrl, int shift, int x, int y)
     {
     this->FindPokedCamera(x, y);
     this->SpinXY(x, y, this->LastPos[0], this->LastPos[1]);
+    }
+  else if (this->State == VTK_INTERACTOR_STYLE_IMAGE_PICK)
+    {
+    this->FindPokedCamera(x, y);
+    this->PickXY(x, y);
     }
 
   this->LastPos[0] = x;
@@ -196,12 +201,21 @@ void vtkInteractorStyleImage::SpinXY(int x, int y, int oldX, int oldY)
 }
 
 //----------------------------------------------------------------------------
+void vtkInteractorStyleImage::PickXY(int x, int y)
+{
+  if (this->HasObserver(vtkCommand::PickEvent)) 
+    {
+    this->InvokeEvent(vtkCommand::PickEvent, this);
+    }
+}
+
+//----------------------------------------------------------------------------
 void vtkInteractorStyleImage::OnLeftButtonDown(int ctrl, int shift, 
                                                int x, int y) 
 {
   this->UpdateInternalState(ctrl, shift, x, y);
-
   this->FindPokedRenderer(x, y);
+
   if (this->CurrentRenderer == NULL)
     {
     return;
@@ -242,11 +256,13 @@ void vtkInteractorStyleImage::OnLeftButtonUp(int ctrl, int shift,
                                              int x, int y)
 {
   this->UpdateInternalState(ctrl, shift, x, y);
+
   if (this->State == VTK_INTERACTOR_STYLE_IMAGE_WINDOW_LEVEL &&
       this->HasObserver(vtkCommand::EndWindowLevelEvent)) 
       {
       this->InvokeEvent(vtkCommand::EndWindowLevelEvent, this);
       }
+
   this->State = VTK_INTERACTOR_STYLE_IMAGE_NONE;
 }
 
@@ -256,6 +272,7 @@ void vtkInteractorStyleImage::OnMiddleButtonDown(int ctrl, int shift,
 {
   this->UpdateInternalState(ctrl, shift, x, y);
   this->FindPokedRenderer(x, y);
+
   if (this->CurrentRenderer == NULL)
     {
     return;
@@ -277,12 +294,24 @@ void vtkInteractorStyleImage::OnRightButtonDown(int ctrl, int shift,
 {
   this->UpdateInternalState(ctrl, shift, x, y);
   this->FindPokedRenderer(x, y);
+
   if (this->CurrentRenderer == NULL)
     {
     return;
     }
-  
-  this->State = VTK_INTERACTOR_STYLE_IMAGE_ZOOM;
+
+  if (shift)
+    {
+    this->State = VTK_INTERACTOR_STYLE_IMAGE_PICK;
+    if (this->HasObserver(vtkCommand::StartPickEvent)) 
+      {
+      this->InvokeEvent(vtkCommand::StartPickEvent, this);
+      }
+    }
+  else 
+    {
+    this->State = VTK_INTERACTOR_STYLE_IMAGE_ZOOM;
+    }
 }
 
 //----------------------------------------------------------------------------
@@ -290,6 +319,13 @@ void vtkInteractorStyleImage::OnRightButtonUp(int ctrl, int shift,
                                               int x, int y)
 {
   this->UpdateInternalState(ctrl, shift, x, y);
+
+  if (this->State == VTK_INTERACTOR_STYLE_IMAGE_PICK &&
+      this->HasObserver(vtkCommand::EndPickEvent)) 
+    {
+    this->InvokeEvent(vtkCommand::EndPickEvent, this);
+    }
+
   this->State = VTK_INTERACTOR_STYLE_IMAGE_NONE;
 }
 
