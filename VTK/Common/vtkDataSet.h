@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSet.h,v $
   Language:  C++
-  Date:      $Date: 1995-09-08 12:48:48 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 1995-09-12 07:25:25 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
