@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: otherTimerLog.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-05 17:47:09 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2002-08-05 20:55:32 $
+  Version:   $Revision: 1.13 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -28,7 +28,7 @@
 #include <sys/unistd.h>
 #endif
 
-void Test(ostream& strm)
+void otherTimerLogTest(ostream& strm)
 {
   // actual test
   float a = 1.0;
@@ -69,7 +69,7 @@ int otherTimerLog(int,char *[])
   vtkDebugLeaks::PromptUserOff();
 
   ostrstream vtkmsg; 
-  Test(vtkmsg);
+  otherTimerLogTest(vtkmsg);
 
   return 0;
 } 
