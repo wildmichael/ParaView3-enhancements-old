@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetSurfaceFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-30 18:37:17 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2002-05-31 20:52:47 $
+  Version:   $Revision: 1.19 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -30,7 +30,7 @@
 #include "vtkUnsignedCharArray.h"
 #include "vtkStructuredGridGeometryFilter.h"
 
-vtkCxxRevisionMacro(vtkDataSetSurfaceFilter, "$Revision: 1.18 $");
+vtkCxxRevisionMacro(vtkDataSetSurfaceFilter, "$Revision: 1.19 $");
 vtkStandardNewMacro(vtkDataSetSurfaceFilter);
 
 //----------------------------------------------------------------------------
@@ -873,6 +873,7 @@ void vtkDataSetSurfaceFilter::UnstructuredGridExecute()
           vtkErrorMacro("Missing cell type.");
           }
         } // a linear cell type
+
       else
         {//nonlinear cell
         cell->Triangulate(0,pts,coords);
@@ -888,8 +889,8 @@ void vtkDataSetSurfaceFilter::UnstructuredGridExecute()
             outPtId = this->GetOutputPointId(inPtId, input, newPts, outputPD); 
             newLines->InsertCellPoint(outPtId);
             }
-          } //1D nonlinear edge
-        else
+          }
+        else if ( cell->GetCellDimension() == 2 )
           {
           for (i=0; i < pts->GetNumberOfIds(); i+=3)
             {
@@ -904,7 +905,21 @@ void vtkDataSetSurfaceFilter::UnstructuredGridExecute()
             outPtId = this->GetOutputPointId(inPtId, input, newPts, outputPD); 
             newPolys->InsertCellPoint(outPtId);
             }
-          } //2D nonlinear face
+          } 
+        else //3D nonlinear cell
+          {
+          vtkIdList *cellIds = vtkIdList::New();
+          for (j=0; j < cell->GetNumberOfFaces(); j++)
+            {
+            face = cell->GetFace(j);
+            input->GetCellNeighbors(cellId, face->PointIds, cellIds);
+            if ( cellIds->GetNumberOfIds() <= 0)
+              {
+              ;
+              }
+            }
+          cellIds->Delete();
+          } //3d cell
         } //nonlinear cell
       } // Cell type else.
     } // for all cells.
