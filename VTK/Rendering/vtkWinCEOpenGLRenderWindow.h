@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWinCEOpenGLRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-22 19:27:36 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-08-28 17:01:02 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,8 +25,8 @@
 #define __vtkWinCEOpenGLRenderWindow_h
 
 #include "vtkOpenGLRenderWindow.h"
-#include "GL/osmesa.h"
 
+#include "GL/osmesa.h" // Needed for Mesa types
 
 class vtkIdList;
 
