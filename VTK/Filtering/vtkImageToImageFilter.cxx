@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToImageFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-06 20:59:02 $
-  Version:   $Revision: 1.52 $
+  Date:      $Date: 2002-12-17 02:07:36 $
+  Version:   $Revision: 1.53 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -17,11 +17,14 @@
 =========================================================================*/
 #include "vtkImageToImageFilter.h"
 
+#include "vtkCellData.h"
+#include "vtkDataArray.h"
 #include "vtkImageData.h"
 #include "vtkMultiThreader.h"
 #include "vtkObjectFactory.h"
+#include "vtkPointData.h"
 
-vtkCxxRevisionMacro(vtkImageToImageFilter, "$Revision: 1.52 $");
+vtkCxxRevisionMacro(vtkImageToImageFilter, "$Revision: 1.53 $");
 
 //----------------------------------------------------------------------------
 vtkImageToImageFilter::vtkImageToImageFilter()

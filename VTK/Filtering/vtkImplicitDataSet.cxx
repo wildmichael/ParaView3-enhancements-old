@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitDataSet.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-04 20:43:44 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2002-12-17 02:07:36 $
+  Version:   $Revision: 1.21 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -17,10 +17,12 @@
 =========================================================================*/
 #include "vtkImplicitDataSet.h"
 
+#include "vtkCell.h"
 #include "vtkDataSet.h"
 #include "vtkObjectFactory.h"
+#include "vtkPointData.h"
 
-vtkCxxRevisionMacro(vtkImplicitDataSet, "$Revision: 1.20 $");
+vtkCxxRevisionMacro(vtkImplicitDataSet, "$Revision: 1.21 $");
 vtkStandardNewMacro(vtkImplicitDataSet);
 vtkCxxSetObjectMacro(vtkImplicitDataSet,DataSet,vtkDataSet);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-09 17:04:46 $
-  Version:   $Revision: 1.57 $
+  Date:      $Date: 2002-12-17 02:07:36 $
+  Version:   $Revision: 1.58 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,8 +19,9 @@
 
 #include "vtkImageData.h"
 #include "vtkObjectFactory.h"
+#include "vtkPointData.h"
 
-vtkCxxRevisionMacro(vtkImageSource, "$Revision: 1.57 $");
+vtkCxxRevisionMacro(vtkImageSource, "$Revision: 1.58 $");
 
 //----------------------------------------------------------------------------
 vtkImageSource::vtkImageSource()

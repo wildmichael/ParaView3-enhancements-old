@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageInPlaceFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-04 20:43:43 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2002-12-17 02:07:36 $
+  Version:   $Revision: 1.37 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,8 +19,9 @@
 
 #include "vtkImageData.h"
 #include "vtkObjectFactory.h"
+#include "vtkPointData.h"
 
-vtkCxxRevisionMacro(vtkImageInPlaceFilter, "$Revision: 1.36 $");
+vtkCxxRevisionMacro(vtkImageInPlaceFilter, "$Revision: 1.37 $");
 
 //----------------------------------------------------------------------------
 

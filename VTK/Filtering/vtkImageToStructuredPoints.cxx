@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToStructuredPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-04 20:43:43 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 2002-12-17 02:07:36 $
+  Version:   $Revision: 1.52 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,12 +16,16 @@
 
 =========================================================================*/
 #include "vtkImageToStructuredPoints.h"
-#include "vtkStructuredPoints.h"
+
+#include "vtkCellData.h"
+#include "vtkFieldData.h"
 #include "vtkObjectFactory.h"
+#include "vtkPointData.h"
+#include "vtkStructuredPoints.h"
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkImageToStructuredPoints, "$Revision: 1.51 $");
+vtkCxxRevisionMacro(vtkImageToStructuredPoints, "$Revision: 1.52 $");
 vtkStandardNewMacro(vtkImageToStructuredPoints);
 
 //----------------------------------------------------------------------------

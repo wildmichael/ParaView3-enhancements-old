@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-04 20:43:44 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2002-12-17 02:07:36 $
+  Version:   $Revision: 1.35 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -17,10 +17,12 @@
 =========================================================================*/
 #include "vtkStructuredPointsSource.h"
 
+#include "vtkDataArray.h"
 #include "vtkObjectFactory.h"
+#include "vtkPointData.h"
 #include "vtkStructuredPoints.h"
 
-vtkCxxRevisionMacro(vtkStructuredPointsSource, "$Revision: 1.34 $");
+vtkCxxRevisionMacro(vtkStructuredPointsSource, "$Revision: 1.35 $");
 
 //----------------------------------------------------------------------------
 vtkStructuredPointsSource::vtkStructuredPointsSource()

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergePoints.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-04 20:43:44 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2002-12-17 02:07:36 $
+  Version:   $Revision: 1.37 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,10 +16,13 @@
 
 =========================================================================*/
 #include "vtkMergePoints.h"
-#include "vtkFloatArray.h"
-#include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkMergePoints, "$Revision: 1.36 $");
+#include "vtkFloatArray.h"
+#include "vtkIdList.h"
+#include "vtkObjectFactory.h"
+#include "vtkPoints.h"
+
+vtkCxxRevisionMacro(vtkMergePoints, "$Revision: 1.37 $");
 vtkStandardNewMacro(vtkMergePoints);
 
 // Determine whether point given by x[3] has been inserted into points list.
