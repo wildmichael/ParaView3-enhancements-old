@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-03-01 22:20:17 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1994-03-03 18:34:30 $
+  Version:   $Revision: 1.3 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -191,9 +191,6 @@ void vlTransform::RotateWXYZ ( float angle, float x, float y, float z)
   vlMatrix4x4 ctm;
   float   radians;
   float   w;
-  float   x;
-  float   y;
-  float   z;
   float   sum;
   float   quat[4];
   float   sin_angle;
@@ -214,17 +211,21 @@ void vlTransform::RotateWXYZ ( float angle, float x, float y, float z)
   sin_angle = sin (radians);
 
   // normalize x, y, z
-
-  if (sum = quat[1] * quat[1] + quat[2] * quat[2] + quat[3] * quat[3]) {
+  if (sum = quat[1] * quat[1] + quat[2] * quat[2] + quat[3] * quat[3]) 
+    {
     quat[1] *= sin_angle / sqrt(sum);
     quat[2] *= sin_angle / sqrt(sum);
     quat[3] *= sin_angle / sqrt(sum);
-  }
-  else {
+    }
+  else 
+    {
     return;
-  }
+    }
 
   w = cos_angle;
+  x = quat[1];
+  y = quat[2];
+  z = quat[3];
 
   ctm = 0.0;
 
@@ -538,3 +539,8 @@ void vlTransform::PrintSelf (ostream& os, vlIndent indent)
     }
 }
 
+float *vlTransform::GetVector()
+{
+  this->Stack[0]->VectorMultiply(this->Vector,this->Vector);
+  return this->Vector;
+}
