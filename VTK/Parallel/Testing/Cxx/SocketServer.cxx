@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: SocketServer.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-30 21:05:53 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-12-16 22:00:08 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -239,6 +239,15 @@ int main(int argc, char** argv)
     return 1;
     }
   da->Delete();
+
+  // Test receiving null vtkDataArray
+  vtkDoubleArray *da2 = NULL;
+  if (!comm->Send(da2, 1, 9))
+    {
+    cerr << "Client error: Error sending data." << endl;
+    CleanUp(comm, contr);
+    return 1;
+    }
 
   contr->SetCommunicator(comm);
 
