@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagePlaneWidget.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-29 18:26:39 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2002-06-21 13:21:33 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -313,7 +313,6 @@ protected:
   vtkProperty *SelectedPlaneProperty;
   void CreateDefaultProperties();
 
-  void GeneratePlane();
   void UpdateNormal();
   void UpdateOrigin();
   void GenerateTexturePlane();
