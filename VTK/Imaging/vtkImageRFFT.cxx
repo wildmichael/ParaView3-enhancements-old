@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageRFFT.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-10-31 14:06:05 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1996-11-01 18:27:19 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -54,7 +54,10 @@ vtkImageRFFT::vtkImageRFFT()
 // This method sets up multiple RFFT filters
 void vtkImageRFFT::SetDimensionality(int num)
 {
-  int idx;
+  int idx, idx2;
+  int splitOrder[VTK_IMAGE_DIMENSIONS];
+  int *axes;
+  
   
   if (num > VTK_IMAGE_DIMENSIONS)
     {
@@ -70,6 +73,13 @@ void vtkImageRFFT::SetDimensionality(int num)
       }
     this->Filters[idx] = new vtkImageRFFT1D;
     this->Filters[idx]->SetAxes(this->Axes[idx]);
+    // Splitting the principle axis will do no good (reverse order).
+    axes = this->Filters[idx]->GetAxes();
+    for (idx2 = 0; idx2 < VTK_IMAGE_DIMENSIONS; ++idx2)
+      {
+      splitOrder[idx2] = axes[VTK_IMAGE_DIMENSIONS - idx2 - 1];
+      }
+    this->Filters[idx]->SetSplitOrder(VTK_IMAGE_DIMENSIONS, splitOrder);
     }
   
   this->Dimensionality = num;
