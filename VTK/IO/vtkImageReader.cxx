@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-02-13 14:12:13 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1997-04-01 19:04:00 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder,ill Lorensen.
@@ -338,7 +338,7 @@ void vtkImageReader::Initialize()
 // This function reads in one region of one slice.
 // templated to handle different data types.
 template <class IT, class OT>
-void vtkImageReaderUpdate2(vtkImageReader *self, vtkImageRegion *region, 
+static void vtkImageReaderUpdate2(vtkImageReader *self, vtkImageRegion *region, 
 			   IT *inPtr, OT *outPtr)
 {
   int min0, max0,  min1, max1,  min2, max2,  min3, max3;
@@ -465,7 +465,7 @@ void vtkImageReaderUpdate2(vtkImageReader *self, vtkImageRegion *region,
 // This function reads in one region of one slice.
 // templated to handle different data types.
 template <class T>
-void vtkImageReaderUpdate1(vtkImageReader *self, 
+static void vtkImageReaderUpdate1(vtkImageReader *self, 
 			   vtkImageRegion *region, T *inPtr)
 {
   void *outPtr;

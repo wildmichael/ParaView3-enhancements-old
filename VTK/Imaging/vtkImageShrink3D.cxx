@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageShrink3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-02-24 16:22:14 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1997-04-01 19:04:06 $
+  Version:   $Revision: 1.16 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -135,7 +135,7 @@ void vtkImageShrink3D::ComputeOutputImageInformation(
 //----------------------------------------------------------------------------
 // The templated execute function handles all the data types.
 template <class T>
-void vtkImageShrink3DExecute(vtkImageShrink3D *self,
+static void vtkImageShrink3DExecute(vtkImageShrink3D *self,
 				   vtkImageRegion *inRegion, T *inPtr,
 				   vtkImageRegion *outRegion, T *outPtr)
 {

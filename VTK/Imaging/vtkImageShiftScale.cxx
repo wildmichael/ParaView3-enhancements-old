@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageShiftScale.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-03-13 15:57:17 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1997-04-01 19:04:02 $
+  Version:   $Revision: 1.13 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -63,7 +63,7 @@ vtkImageShiftScale::vtkImageShiftScale()
 // Description:
 // This templated function executes the filter for any type of data.
 template <class T>
-void vtkImageShiftScaleExecute(vtkImageShiftScale *self,
+static void vtkImageShiftScaleExecute(vtkImageShiftScale *self,
 			       vtkImageRegion *inRegion, T *inPtr,
 			       vtkImageRegion *outRegion, T *outPtr)
 {
