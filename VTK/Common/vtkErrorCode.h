@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkErrorCode.h,v $
   Language:  C++
-  Date:      $Date: 2003-07-29 19:27:43 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2003-08-14 11:17:31 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,9 +22,10 @@
 
 #ifndef __vtkErrorCode_h
 #define __vtkErrorCode_h
+#include "vtkSystemIncludes.h"
 
 // The superclass that all commands should be subclasses of
-class vtkErrorCode
+class VTK_COMMON_EXPORT vtkErrorCode
 {
 public:
   static const char *GetStringFromErrorCode(unsigned long event);
