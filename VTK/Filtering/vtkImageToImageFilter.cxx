@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToImageFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-10 19:17:29 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 2002-10-15 19:04:38 $
+  Version:   $Revision: 1.49 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 #include "vtkImageData.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkImageToImageFilter, "$Revision: 1.48 $");
+vtkCxxRevisionMacro(vtkImageToImageFilter, "$Revision: 1.49 $");
 
 //----------------------------------------------------------------------------
 vtkImageToImageFilter::vtkImageToImageFilter()
@@ -266,16 +266,14 @@ int vtkImageToImageFilter::SplitExtent(int splitExt[6], int startExt[6],
 }
 
 //----------------------------------------------------------------------------
-// Copydata at the end of the execute
 vtkImageData *vtkImageToImageFilter::AllocateOutputData(vtkDataObject *out)
 { 
-  vtkImageData *output = this->GetOutput();
+  vtkImageData *output = vtkImageData::SafeDownCast(out);
   vtkImageData *input = this->GetInput();
   int inExt[6];
   int outExt[6];
   vtkDataArray *inArray;
   vtkDataArray *outArray;
-
 
   input->GetExtent(inExt);
   output->SetExtent(output->GetUpdateExtent());
