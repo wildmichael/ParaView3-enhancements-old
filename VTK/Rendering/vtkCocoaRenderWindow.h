@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCocoaRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2003-01-20 15:17:52 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2003-02-05 20:38:10 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -158,6 +158,18 @@ public:
   virtual void MakeCurrent();
 
   // Description:
+  // Get report of capabilities for the render window
+  const char *ReportCapabilities();
+
+  // Description:
+  // Does this render window support OpenGL? 0-false, 1-true
+  int SupportsOpenGL();
+
+  // Description:      
+  // Is this render window using hardware acceleration? 0-false, 1-true   
+  int IsDirect();
+
+  // Description:
   // If called, allow MakeCurrent() to skip cache-check when called.
   // MakeCurrent() reverts to original behavior of cache-checking
   // on the next render.
@@ -237,6 +249,8 @@ protected:
 
   int CursorHidden;
   int ForceMakeCurrent;
+
+  char *Capabilities;
 
 private:
   vtkCocoaRenderWindow(const vtkCocoaRenderWindow&);  // Not implemented.
