@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: vtkXdmfDataArray.h,v 1.4 2004-01-04 18:02:24 andy Exp $  */
-/*  Date : $Date: 2004-01-04 18:02:24 $ */
-/*  Version : $Revision: 1.4 $ */
+/*  Id : $Id: vtkXdmfDataArray.h,v 1.5 2004-01-05 02:30:47 andy Exp $  */
+/*  Date : $Date: 2004-01-05 02:30:47 $ */
+/*  Version : $Revision: 1.5 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -42,7 +42,8 @@ public:
   char *ToArray( void ) {
     return( this->ToXdmfArray() );
     }
-  vtkDataArray *FromXdmfArray( char *ArrayName = NULL, int CopyShape = 1 );
+  vtkDataArray *FromXdmfArray( char *ArrayName = NULL, int CopyShape = 1, 
+   int rank = 1 );
   char *ToXdmfArray( vtkDataArray *DataArray = NULL, int CopyShape = 1 );
 
   void SetArray( char *TagName ) {
