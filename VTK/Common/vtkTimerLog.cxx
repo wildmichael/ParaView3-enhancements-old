@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTimerLog.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-12-09 23:13:48 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1999-12-10 00:50:37 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -406,9 +406,13 @@ void vtkTimerLog::Sleep(int ms)
 #ifdef _WIN32
   Sleep(ms);
 #else
+#ifdef VTK_USE_NANOSLEEP
   struct timespec sleep_time, remaining_time;
   sleep_time.tv_sec = ms / 1000;
   sleep_time.tv_nsec = 1000000*(ms % 1000);
   nanosleep(&sleep_time,&remaining_time);
+#elif defined(VTK_USE_USLEEP)
+  usleep(ms*1000);
+#endif
 #endif    
 }
