@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMath.h,v $
   Language:  C++
-  Date:      $Date: 2003-01-06 20:36:14 $
-  Version:   $Revision: 1.82 $
+  Date:      $Date: 2003-01-30 17:41:20 $
+  Version:   $Revision: 1.83 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -563,7 +563,7 @@ inline void vtkMath::Cross(const double x[3], const double y[3], double z[3])
 //BTX
 //----------------------------------------------------------------------------
 template<class T>
-static inline double vtkDeterminant3x3(T A[3][3])
+inline double vtkDeterminant3x3(T A[3][3])
 {
   return A[0][0]*A[1][1]*A[2][2] + A[1][0]*A[2][1]*A[0][2] + 
          A[2][0]*A[0][1]*A[1][2] - A[0][0]*A[2][1]*A[1][2] - 
