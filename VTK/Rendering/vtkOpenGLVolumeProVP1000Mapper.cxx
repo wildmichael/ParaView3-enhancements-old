@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLVolumeProVP1000Mapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:17:58 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-11-13 22:45:35 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -217,4 +217,6 @@ void vtkOpenGLVolumeProVP1000Mapper::GetDepthBufferValues(vtkRenderer *ren,
     {
     outData[i] = (unsigned int)(zData[i] * rescale);
    }
+  
+  delete [] zData;
 }
