@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkJavaUtil.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:33 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 2002-10-31 17:24:37 $
+  Version:   $Revision: 1.41 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -57,7 +57,17 @@ static void vtk_release_mutex() {
 #elif defined(__FreeBSD__) || defined(__linux__) || defined(sgi)
 #include <pthread.h>
 pthread_mutex_t vtkGlobalMutex;
-#define VTK_GET_MUTEX()  pthread_mutex_lock(&vtkGlobalMutex)
+static void vtk_get_mutex() {
+    static int inited = 0;
+    if (!inited)
+      {
+      inited = 1;
+      pthread_mutex_init ( &vtkGlobalMutex, NULL );
+      }
+    pthread_mutex_lock(&vtkGlobalMutex);
+}
+// #define VTK_GET_MUTEX()  pthread_mutex_lock(&vtkGlobalMutex)
+#define VTK_GET_MUTEX()  vtk_get_mutex()
 #define VTK_RELEASE_MUTEX() pthread_mutex_unlock(&vtkGlobalMutex)
 #else
 // for solaris
