@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGrid.h,v $
   Language:  C++
-  Date:      $Date: 2000-07-26 11:41:34 $
-  Version:   $Revision: 1.67 $
+  Date:      $Date: 2000-07-31 12:07:00 $
+  Version:   $Revision: 1.68 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -133,10 +133,6 @@ public:
   void GetPointCells(int ptId, vtkIdList &cellIds)
     {this->GetPointCells(ptId, &cellIds);}
 
-  // Description:
-  // Set the whole extent of the data.
-  vtkSetVector6Macro( WholeExtent, int );
-  
   // Description:
   // Required for the lowest common denominator for setting the UpdateExtent
   // (i.e. vtkDataSetToStructuredPointsFilter).  This assumes that WholeExtent

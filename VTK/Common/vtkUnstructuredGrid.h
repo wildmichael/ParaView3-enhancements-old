@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGrid.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:10:35 $
-  Version:   $Revision: 1.60 $
+  Date:      $Date: 2000-07-31 12:07:00 $
+  Version:   $Revision: 1.61 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -148,10 +148,6 @@ public:
   // Set / Get the piece and the number of pieces. Similar to extent in 3D.
   vtkGetMacro( Piece, int );
   vtkGetMacro( NumberOfPieces, int );
-
-  // Description:
-  // Set the maximum number of pieces. Similar to WholeExtent in 3D.
-  vtkSetMacro( MaximumNumberOfPieces, int );
 
   // Description:
   // Return the actual size of the data in kilobytes. This number

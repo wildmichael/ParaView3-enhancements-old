@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGrid.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:10:24 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2000-07-31 12:06:59 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -170,10 +170,6 @@ public:
     {this->GetCellPoints(cellId, &ptIds);}
   void GetPointCells(int ptId, vtkIdList &cellIds)
     {this->GetPointCells(ptId, &cellIds);}
-  
-  // Description:
-  // Set the whole extent of the data.
-  vtkSetVector6Macro( WholeExtent, int );
   
   // Description:
   // Required for the lowest common denominator for setting the UpdateExtent

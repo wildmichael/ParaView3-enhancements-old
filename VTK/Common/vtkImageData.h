@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.h,v $
   Language:  C++
-  Date:      $Date: 2000-07-26 11:41:34 $
-  Version:   $Revision: 1.67 $
+  Date:      $Date: 2000-07-31 12:06:59 $
+  Version:   $Revision: 1.68 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -165,10 +165,6 @@ public:
   void GetVoxelGradient(int i,int j,int k, vtkScalars *s, vtkVectors &g)
     {this->GetVoxelGradient(i, j, k, s, &g);}
 
-  // Description:
-  // Set the whole extent of the data.
-  vtkSetVector6Macro( WholeExtent, int );
-  
   // Description:
   // Set / Get the extent on just one axis
   void SetAxisUpdateExtent(int axis, int min, int max);
