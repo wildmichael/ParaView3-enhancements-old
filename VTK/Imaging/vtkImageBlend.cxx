@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageBlend.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-09-26 20:14:24 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2000-09-27 07:37:23 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to David G. Gobbi and Sebastien Barre who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -693,23 +693,6 @@ static void vtkImageBlendCompoundTransferExecute(vtkImageBlend *self,
                                                    T *outPtr,
                                                    vtkImageData *tmpData)
 {
-  float minA, maxA;
-  float scale;
-
-  if (outData->GetScalarType() == VTK_DOUBLE ||
-      outData->GetScalarType() == VTK_FLOAT)
-    {
-    minA = 0.0;
-    maxA = 1.0;
-    }
-  else
-    {
-    minA = outData->GetScalarTypeMin();
-    maxA = outData->GetScalarTypeMax();
-    }
-
-  scale = maxA - minA;
-
   // find the region to loop over
 
   int maxX, maxY, maxZ;
