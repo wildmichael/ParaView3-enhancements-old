@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamTracer.h,v $
   Language:  C++
-  Date:      $Date: 2002-11-14 16:50:41 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2002-11-17 22:19:47 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -263,6 +263,10 @@ protected:
   vtkStreamTracer();
   ~vtkStreamTracer();
 
+  // hide the superclass' AddInput() from the user and the compiler
+  void AddInput(vtkDataObject *) 
+    { vtkErrorMacro( << "AddInput() must be called with a vtkDataSet not a vtkDataObject."); };
+  
   void Execute();
   void CalculateVorticity( vtkGenericCell* cell, float pcoords[3],
                            vtkFloatArray* cellVectors, float vorticity[3] );
