@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCriticalSection.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-16 21:40:49 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2001-10-09 20:37:59 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -44,7 +44,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
 
-//------------------------------------------------------------------------------
+//----------------------------------------------------------------------------
 vtkCriticalSection* vtkCriticalSection::New()
 {
   // First try to create the object from the vtkObjectFactory
@@ -57,6 +57,11 @@ vtkCriticalSection* vtkCriticalSection::New()
   return new vtkCriticalSection;
 }
 
+// New for the SimpleCriticalSection
+vtkSimpleCriticalSection *vtkSimpleCriticalSection::New()
+{
+  return new vtkSimpleCriticalSection;
+}
 
 void vtkSimpleCriticalSection::Init()
 {
