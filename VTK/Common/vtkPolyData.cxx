@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-07 19:53:00 $
-  Version:   $Revision: 1.145 $
+  Date:      $Date: 2002-02-18 19:22:23 $
+  Version:   $Revision: 1.146 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -28,7 +28,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkCriticalSection.h"
 
-vtkCxxRevisionMacro(vtkPolyData, "$Revision: 1.145 $");
+vtkCxxRevisionMacro(vtkPolyData, "$Revision: 1.146 $");
 vtkStandardNewMacro(vtkPolyData);
 
 //----------------------------------------------------------------------------
@@ -1726,10 +1726,7 @@ void vtkPolyData::DeepCopy(vtkDataObject *dataObject)
       }
     if (polyData->Cells)
       {
-      this->Cells = vtkCellTypes::New();
-      this->Cells->DeepCopy(polyData->Cells);
-      this->Cells->Register(this);
-      this->Cells->Delete();
+      this->BuildCells();
       }
 
     if ( this->Links )
@@ -1739,10 +1736,7 @@ void vtkPolyData::DeepCopy(vtkDataObject *dataObject)
       }
     if (polyData->Links)
       {
-      this->Links = vtkCellLinks::New();
-      this->Links->DeepCopy(polyData->Links);
-      this->Links->Register(this);
-      this->Links->Delete();
+      this->BuildLinks();
       }
     }
 
