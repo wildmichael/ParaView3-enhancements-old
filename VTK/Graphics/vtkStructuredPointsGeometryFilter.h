@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStructuredPointsGeometryFilter.h,v $
   Language:  C++
-  Date:      $Date: 1995-05-14 18:45:21 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1995-05-14 18:48:48 $
+  Version:   $Revision: 1.3 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -17,7 +17,7 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 // .SECTION Description
 // vlStructuredPointsGeometryFilter is a filter that extracts geometry from a
 // structured points dataset. By specifying appropriate i-j-k indices (via the 
-// "Extent instance variable, it is possible to extract a point, a line, a 
+// "Extent" instance variable), it is possible to extract a point, a line, a 
 // plane (i.e., image), or a "volume" from dataset. (Since the output is 
 // of type polydata, the volume is actually a (n x m x o) region of points).
 //    The extent specification is zero-offset. That is, the first k-plane in
