@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor.h,v $
   Language:  C++
-  Date:      $Date: 2000-06-12 11:29:01 $
-  Version:   $Revision: 1.83 $
+  Date:      $Date: 2000-06-13 12:12:00 $
+  Version:   $Revision: 1.84 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -183,9 +183,9 @@ public:
   // in the near future. Use vtkProp::GetNextPath() (and related functionality)
   // to get the parts in an assembly (or more correctly, the paths in the
   // assembly).
-  void InitPartTraversal();
-  vtkActor *GetNextPart();
-  int GetNumberOfParts();
+  virtual void InitPartTraversal();
+  virtual vtkActor *GetNextPart();
+  virtual int GetNumberOfParts();
   
 protected:
   vtkActor();
