@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangle.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-10-02 18:51:12 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 1996-10-15 11:32:04 $
+  Version:   $Revision: 1.50 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -453,9 +453,6 @@ void vtkTriangle::ComputeNormal(vtkPoints *p, int vtkNotUsed(numPts), int *pts,
   vtkTriangle::ComputeNormal(v1,v2,v3,n);
 }
 
-// Special dot product definition for 2-vectors
-#define VTK_DOT(_x,_y) _x[0]*_y[0] + _x[1]*_y[1]
-
 // Description:
 // Compute the circumcenter (center[3]) and radius (method return value) of
 // a triangle defined by the three points x1, x2, and x3. (Note that the
@@ -486,8 +483,8 @@ float vtkTriangle::Circumcircle(float  x1[2], float x2[2], float x3[2],
   A[0] = n12;
   A[1] = n13;
 
-  rhs[0] = VTK_DOT(n12,x12);
-  rhs[1] = VTK_DOT(n13,x13);
+  rhs[0] = vtkMath::Dot2D(n12,x12);
+  rhs[1] = vtkMath::Dot2D(n13,x13);
 //
 // Solve system of equations
 //
@@ -515,7 +512,6 @@ float vtkTriangle::Circumcircle(float  x1[2], float x2[2], float x3[2],
   if ( (sum /= 3.0) > VTK_LARGE_FLOAT ) return VTK_LARGE_FLOAT;
   else return sum;
 }
-#undef VTK_DOT
 
 // Description:
 // Given a 2D point x[2], determine the barycentric coordinates of the point.
