@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkScalars.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-02-07 17:14:46 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1994-02-28 22:16:18 $
+  Version:   $Revision: 1.7 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -26,11 +26,11 @@ vlScalars::vlScalars()
   this->Range[1] = 1.0;
 }
 
-void vlScalars::GetScalars(vlIdList& ptId, vlFloatScalars& fp)
+void vlScalars::GetScalars(vlIdList& ptId, vlFloatScalars& fs)
 {
   for (int i=0; i<ptId.NumberOfIds(); i++)
     {
-    fp.InsertScalar(i,this->GetScalar(ptId[i]));
+    fs.InsertScalar(i,this->GetScalar(ptId[i]));
     }
 }
 void vlScalars::ComputeRange()
