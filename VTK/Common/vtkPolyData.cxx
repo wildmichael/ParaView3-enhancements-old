@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:30:39 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 1995-07-28 14:48:06 $
+  Version:   $Revision: 1.49 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
