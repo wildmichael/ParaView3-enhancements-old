@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-02-19 15:29:38 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 1999-03-22 19:59:12 $
+  Version:   $Revision: 1.47 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -563,7 +563,8 @@ int vtkDataWriter::WriteScalarData(FILE *fp, vtkScalars *scalars, int num)
   char *name;
   vtkLookupTable *lut;
   int dataType = scalars->GetDataType();
-
+  int numComp = scalars->GetNumberOfComponents();
+  
   if ( (lut=scalars->GetLookupTable()) == NULL || (size = lut->GetNumberOfColors()) <= 0 )
     {
     name = "default";
@@ -577,8 +578,8 @@ int vtkDataWriter::WriteScalarData(FILE *fp, vtkScalars *scalars, int num)
     {
     char format[1024];
     fprintf (fp, "SCALARS ");
-    sprintf(format,"%s %s %s\n",this->ScalarsName, "%s\nLOOKUP_TABLE", name);
-    if (this->WriteArray(fp, scalars->GetDataType(), scalars->GetData(), format, num, 1) == 0)
+    sprintf(format,"%s %%s %d\nLOOKUP_TABLE %s\n",this->ScalarsName, numComp, name);
+    if (this->WriteArray(fp, scalars->GetDataType(), scalars->GetData(), format, num, numComp) == 0)
       {
       return 0;
       }
