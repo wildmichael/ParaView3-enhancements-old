@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSet.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:41:03 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 1998-04-27 17:02:26 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -165,6 +165,7 @@ int vtkPointSet::FindCell(float x[3], vtkCell *cell, int cellId, float tol2,
   if ( ! cell )
     {
     ptId = this->Locator->FindClosestPoint(x);
+    if ( ptId < 0 ) return (-1); //if point completely outside of data
 
     this->GetPointCells(ptId, cellIds);
     if ( cellIds.GetNumberOfIds() > 0 )
