@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkImplicitModeller.h,v $
   Language:  C++
-  Date:      $Date: 1994-08-08 09:13:32 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1994-09-14 08:15:00 $
+  Version:   $Revision: 1.7 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -38,7 +38,7 @@ public:
   // Specify i-j-k dimensions on which to sample distance function.
   void SetSampleDimensions(int i, int j, int k);
   void SetSampleDimensions(int dim[3]);
-  vlGetVectorMacro(SampleDimensions,int);
+  vlGetVectorMacro(SampleDimensions,int,3);
 
   // Description:
   // Specify distance away from surface of input geometry to sample. Smaller
@@ -49,7 +49,7 @@ public:
   // Specify the position in space to perform the sampling.
   void SetModelBounds(float *bounds);
   void SetModelBounds(float xmin, float xmax, float ymin, float ymax, float zmin, float zmax);
-  vlGetVectorMacro(ModelBounds,float);
+  vlGetVectorMacro(ModelBounds,float,6);
 
   // Description:
   // The outer boundary of the structured point set can be assigned a 

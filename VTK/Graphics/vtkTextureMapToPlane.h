@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkTextureMapToPlane.h,v $
   Language:  C++
-  Date:      $Date: 1994-08-09 15:05:13 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1994-09-14 08:15:03 $
+  Version:   $Revision: 1.3 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -35,17 +35,17 @@ public:
   // Description:
   // Specify plane normal.
   vlSetVector3Macro(Normal,float);
-  vlGetVectorMacro(Normal,float);
+  vlGetVectorMacro(Normal,float,3);
 
   // Description:
   // Specify s-coordinate range for texture s-t coordinate pair.
   vlSetVector2Macro(SRange,float);
-  vlGetVectorMacro(SRange,float);
+  vlGetVectorMacro(SRange,float,2);
 
   // Description:
   // Specify t-coordinate range for texture s-t coordinate pair.
   vlSetVector2Macro(TRange,float);
-  vlGetVectorMacro(TRange,float);
+  vlGetVectorMacro(TRange,float,2);
 
   // Description:
   // Turn on/off automatic plane generation.

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkGlyph3D.h,v $
   Language:  C++
-  Date:      $Date: 1994-08-08 09:13:28 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1994-09-14 08:14:59 $
+  Version:   $Revision: 1.6 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -67,7 +67,7 @@ public:
   // Description:
   // Specify range to map scalar values into.
   vlSetVector2Macro(Range,float);
-  vlGetVectorMacro(Range,float);
+  vlGetVectorMacro(Range,float,2);
 
   // Description:
   // Turn on/off orienting of input geometry along vector/normal.

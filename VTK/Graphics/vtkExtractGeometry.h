@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkExtractGeometry.h,v $
   Language:  C++
-  Date:      $Date: 1994-08-13 08:49:13 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1994-09-14 08:14:58 $
+  Version:   $Revision: 1.3 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -39,7 +39,7 @@ public:
   // Description:
   // Set the center of the sphere.
   vlSetVector3Macro(Center,float);
-  vlGetVectorMacro(Center,float);
+  vlGetVectorMacro(Center,float,3);
 
 protected:
   // Usual data generation method

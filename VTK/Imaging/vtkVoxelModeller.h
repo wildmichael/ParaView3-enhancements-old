@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkVoxelModeller.h,v $
   Language:  C++
-  Date:      $Date: 1994-08-09 15:08:03 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1994-09-14 08:15:05 $
+  Version:   $Revision: 1.5 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -35,7 +35,7 @@ public:
 
   void SetSampleDimensions(int i, int j, int k);
   void SetSampleDimensions(int dim[3]);
-  vlGetVectorMacro(SampleDimensions,int);
+  vlGetVectorMacro(SampleDimensions,int,3);
 
   // Description:
   // Specify distance away from surface of input geometry to sample. Smaller
@@ -46,7 +46,7 @@ public:
   // Specify the position in space to perform the sampling.
   void SetModelBounds(float *bounds);
   void SetModelBounds(float xmin, float xmax, float ymin, float ymax, float zmin, float zmax);
-  vlGetVectorMacro(ModelBounds,float);
+  vlGetVectorMacro(ModelBounds,float,6);
 
   void Write(char *);
 
