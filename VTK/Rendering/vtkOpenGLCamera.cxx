@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLCamera.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-03-11 16:52:27 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1999-03-11 17:05:21 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -51,7 +51,6 @@ void vtkOpenGLCamera::Render(vtkRenderer *ren)
 {
   float aspect[2];
   float *vport;
-  int left,right,bottom,top;
   int  *size, lowerLeft[2], upperRight[2];
   vtkMatrix4x4 *matrix = vtkMatrix4x4::New();
 
@@ -112,17 +111,20 @@ void vtkOpenGLCamera::Render(vtkRenderer *ren)
     switch ((ren->GetRenderWindow())->GetStereoType())
       {
       case VTK_STEREO_CRYSTAL_EYES:
-	aspect[0] = (float)(right-left+1)/(float)(top-bottom+1);
+	aspect[0] = (float)(upperRight[0]-lowerLeft[0]+1)/
+	  (float)(upperRight[1]-lowerLeft[1]+1);
 	aspect[1] = 1.0;
 	break;
       default:
-	aspect[0] = (float)(right-left+1)/(float)(top-bottom+1);
+	aspect[0] = (float)(upperRight[0]-lowerLeft[0]+1)/
+	  (float)(upperRight[1]-lowerLeft[1]+1);
 	aspect[1] = 1.0;
       }
     }
   else
     {
-    aspect[0] = (float)(right-left+1)/(float)(top-bottom+1);
+    aspect[0] = (float)(upperRight[0]-lowerLeft[0]+1)/
+      (float)(upperRight[1]-lowerLeft[1]+1);
     aspect[1] = 1.0;
     }
   
