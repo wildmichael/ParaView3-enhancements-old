@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSource.h,v $
   Language:  C++
-  Date:      $Date: 2002-10-04 20:43:43 $
-  Version:   $Revision: 1.57 $
+  Date:      $Date: 2002-10-09 17:04:46 $
+  Version:   $Revision: 1.58 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -53,7 +53,7 @@ protected:
 
   // a helper method that sets the extent and allocates the output 
   // passed into it and returns it as an image data
-  vtkImageData *AllocateOutputData(vtkDataObject *out);
+  virtual vtkImageData *AllocateOutputData(vtkDataObject *out);
 
   void ComputeRequiredInputUpdateExtent( int *vtkNotUsed(in), 
                                          int *vtkNotUsed(out) ) 
