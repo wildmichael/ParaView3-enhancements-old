@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 21:03:32 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1996-10-11 16:26:22 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -339,13 +339,17 @@ void vtkStructuredGrid::SetDimensions(int i, int j, int k)
 // Set dimensions of structured grid dataset.
 void vtkStructuredGrid::SetDimensions(int dim[3])
 {
-  int returnStatus=this->StructuredData.SetDimensions(dim,this->Dimensions);
+  int returnStatus=vtkStructuredData::SetDimensions(dim,this->Dimensions);
 
   if ( returnStatus > -1 ) 
     {
     this->DataDescription = returnStatus;
     this->Modified();
     }
+  else
+   {
+   vtkErrorMacro (<< "Bad Dimensions, retaining previous values");
+   }
 }
 
 void vtkStructuredGrid::PrintSelf(ostream& os, vtkIndent indent)

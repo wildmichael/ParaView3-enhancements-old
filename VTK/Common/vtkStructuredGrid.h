@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGrid.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 21:03:33 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1996-10-11 16:26:23 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -79,7 +79,7 @@ public:
   void Initialize();
   int GetMaxCellSize() {return 8;}; //hexahedron is the largest
 
-  // methods specific to structured grid
+  // following methods are specific to structured grid
   void SetDimensions(int i, int j, int k);
   void SetDimensions(int dim[3]);
 
@@ -101,8 +101,6 @@ protected:
   int Blanking;
   vtkBitScalars *PointVisibility;
   void AllocatePointVisibility();
-  
-  vtkStructuredData StructuredData; //helper class
 };
 
 inline float *vtkStructuredGrid::GetPoint(int ptId) 
@@ -129,18 +127,18 @@ inline int vtkStructuredGrid::GetNumberOfCells()
 
 inline int vtkStructuredGrid::GetDataDimension()
 {
-  return this->StructuredData.GetDataDimension(this->DataDescription);
+  return vtkStructuredData::GetDataDimension(this->DataDescription);
 }
 
 inline void vtkStructuredGrid::GetCellPoints(int cellId, vtkIdList& ptIds) 
 {
-  this->StructuredData.GetCellPoints(cellId,ptIds,this->DataDescription,
+  vtkStructuredData::GetCellPoints(cellId,ptIds,this->DataDescription,
                                      this->Dimensions);
 }
 
 inline void vtkStructuredGrid::GetPointCells(int ptId, vtkIdList& cellIds) 
 {
-  this->StructuredData.GetPointCells(ptId,cellIds,this->Dimensions);
+  vtkStructuredData::GetPointCells(ptId,cellIds,this->Dimensions);
 }
 
 inline int vtkStructuredGrid::FindCell(float x[3], vtkCell *cell, float tol2, 

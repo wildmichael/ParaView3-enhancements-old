@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSet.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 21:02:06 $
-  Version:   $Revision: 1.55 $
+  Date:      $Date: 1996-10-11 16:26:19 $
+  Version:   $Revision: 1.56 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -150,10 +150,10 @@ public:
   // Locate the cell that contains a point and return the cell. Also returns
   // the subcell id, parametric coordinates and weights for subsequent
   // interpolation. This method combines the derived class methods
-  // int FindCell and vtkCell *GetCell. Derived classes may provide a more efficient
-  // implementation. See for example vtkStructuredPoints.
-  virtual vtkCell *FindAndGetCell(float x[3], vtkCell *cell, float tol2, int& subId,
-			    float pcoords[3], float *weights);
+  // int FindCell and vtkCell *GetCell. Derived classes may provide a more 
+  // efficient implementation. See for example vtkStructuredPoints.
+  virtual vtkCell *FindAndGetCell(float x[3], vtkCell *cell, float tol2, 
+                                 int& subId, float pcoords[3], float *weights);
 
   // Datasets are composite objects and need to check each part for MTime
   unsigned long int GetMTime();
