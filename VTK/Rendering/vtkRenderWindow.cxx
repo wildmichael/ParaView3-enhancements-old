@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-02 18:21:10 $
-  Version:   $Revision: 1.102 $
+  Date:      $Date: 2000-08-05 15:14:05 $
+  Version:   $Revision: 1.103 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -704,8 +704,6 @@ int vtkRenderWindow::CheckAbortStatus()
 
 void vtkRenderWindow::PrintSelf(ostream& os, vtkIndent indent)
 {
-  int  i;
-
   vtkWindow::PrintSelf(os,indent);
 
   os << indent << "Borders: " << (this->Borders ? "On\n":"Off\n");
