@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkArrayMapIterator.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-21 18:41:57 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-06-21 19:08:03 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -76,23 +76,19 @@ public:
 
   // Description:
   // Increment the iterator to the next location.
-  // Return VTK_OK if everything is ok.
-  int GoToNextItem();
+  void GoToNextItem();
 
   // Description:
   // Decrement the iterator to the next location.
-  // Return VTK_OK if everything is ok.
-  int GoToPreviousItem();
+  void GoToPreviousItem();
 
   // Description:
   // Go to the "first" item of the map.
-  // Return VTK_OK if everything is ok.
-  int GoToFirstItem();
+  void GoToFirstItem();
 
   // Description:
   // Go to the "last" item of the map.
-  // Return VTK_OK if everything is ok.
-  int GoToLastItem();
+  void GoToLastItem();
 
 protected:
   static vtkArrayMapIterator<KeyType,DataType> *New(); 
