@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObject.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-30 14:25:57 $
-  Version:   $Revision: 1.53 $
+  Date:      $Date: 2000-09-18 11:07:16 $
+  Version:   $Revision: 1.54 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -478,11 +478,9 @@ int vtkDataObject::VerifyUpdateExtent()
     case VTK_PIECES_EXTENT:
       if ( this->UpdateNumberOfPieces > this->MaximumNumberOfPieces )
 	{
-	vtkErrorMacro( << "Cannot break object into " <<
-	               this->UpdateNumberOfPieces << ". The limit is " <<
-	               this->MaximumNumberOfPieces );
-	cerr << "(" << this << "), piece " << this->UpdatePiece
-	     << ", Max " << this->MaximumNumberOfPieces << endl;
+	//vtkErrorMacro( << "Cannot break object into " <<
+	//               this->UpdateNumberOfPieces << ". The limit is " <<
+	//               this->MaximumNumberOfPieces );
 	retval = 0;
 	}
 
