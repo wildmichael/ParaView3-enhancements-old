@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCanvasSource2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-12 16:54:46 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2002-04-22 20:38:49 $
+  Version:   $Revision: 1.32 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkImageCanvasSource2D, "$Revision: 1.31 $");
+vtkCxxRevisionMacro(vtkImageCanvasSource2D, "$Revision: 1.32 $");
 vtkStandardNewMacro(vtkImageCanvasSource2D);
 
 //----------------------------------------------------------------------------
@@ -1313,8 +1313,9 @@ void vtkImageCanvasSource2D::FillPixel(int x, int y)
 //----------------------------------------------------------------------------
 void vtkImageCanvasSource2D::SetExtent(int *extent)
 {
-  this->vtkStructuredPoints::SetExtent(extent);
-  this->SetWholeExtent(extent);  
+  this->SetExtent(extent[0], extent[1], 
+                  extent[2], extent[3], 
+                  extent[4], extent[5]);
 }
 
 //----------------------------------------------------------------------------
@@ -1323,6 +1324,7 @@ void vtkImageCanvasSource2D::SetExtent(int x1, int x2, int y1, int y2,
 {
   this->vtkStructuredPoints::SetExtent(x1, x2, y1, y2, z1, z2);
   this->SetWholeExtent(x1, x2, y1, y2, z1, z2);
+  this->AllocateScalars();
 }
 
 
