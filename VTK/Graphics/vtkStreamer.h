@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamer.h,v $
   Language:  C++
-  Date:      $Date: 1998-12-31 14:10:29 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1999-02-15 01:27:30 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -113,13 +113,13 @@ public:
     };
   int GetNumberOfPoints() {return this->MaxId + 1;};
   vtkStreamPoint *GetStreamPoint(int i) {return this->Array + i;};
-  vtkStreamPoint *InsertNextStreamPoint() 
+  int InsertNextStreamPoint() 
     {
     if ( ++this->MaxId >= this->Size )
       {
       this->Resize(this->MaxId);
       }
-    return this->Array + this->MaxId;
+    return this->MaxId; //return offset from array
     }
   vtkStreamPoint *Resize(int sz); //reallocates data
   void Reset() {this->MaxId = -1;};
