@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKWArguments.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-04-14 15:00:23 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2003-04-16 20:45:49 $
+  Version:   $Revision: 1.7 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -85,7 +85,7 @@ public:
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro( vtkKWArguments );
-vtkCxxRevisionMacro(vtkKWArguments, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkKWArguments, "$Revision: 1.7 $");
 
 //----------------------------------------------------------------------------
 vtkKWArguments::vtkKWArguments()
@@ -261,10 +261,7 @@ void vtkKWArguments::AddCallbacks(CallbackStructure* callbacks)
   int cc;
   for ( cc = 0; callbacks[cc].Argument; cc ++ )
     {
-    this->Internals->Callbacks.erase(callbacks[cc].Argument);
-    this->Internals->Callbacks.insert(
-      vtkKWArgumentsInternal::CallbacksMap::value_type(callbacks[cc].Argument,
-                                                       callbacks[cc]));
+    this->Internals->Callbacks[callbacks[cc].Argument] = callbacks[cc];
     }
   this->GenerateHelp();
 }
