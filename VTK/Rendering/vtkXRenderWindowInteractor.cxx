@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-07-06 14:10:39 $
-  Version:   $Revision: 1.83 $
+  Date:      $Date: 2000-07-07 09:29:38 $
+  Version:   $Revision: 1.84 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -333,7 +333,8 @@ void vtkXRenderWindowInteractor::Disable()
   // Expose events are disabled.
   XtRemoveEventHandler(this->top,
 		    KeyPressMask | ButtonPressMask | ExposureMask |
-		    ButtonReleaseMask | EnterWindowMask,
+		    ButtonReleaseMask | EnterWindowMask |
+                    PointerMotionMask,
                     False,vtkXRenderWindowInteractorCallback,(XtPointer)this);
 
   this->Enabled = 0;
