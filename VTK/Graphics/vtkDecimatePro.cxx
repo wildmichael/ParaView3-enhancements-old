@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDecimatePro.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:02:14 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 1999-08-30 16:02:30 $
+  Version:   $Revision: 1.44 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -82,6 +82,7 @@ vtkDecimatePro::vtkDecimatePro()
   this->V = new vtkProVertexArray(VTK_MAX_TRIS_PER_VERTEX+1);
   this->T = new vtkProTriArray(VTK_MAX_TRIS_PER_VERTEX+1);
   this->EdgeLengths = vtkPriorityQueue::New();
+  this->EdgeLengths->Allocate(VTK_MAX_TRIS_PER_VERTEX);
   
   this->InflectionPoints = vtkFloatArray::New();
   this->TargetReduction = 0.90;
