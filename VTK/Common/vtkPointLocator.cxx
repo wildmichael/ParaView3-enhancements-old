@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointLocator.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-02-10 18:00:03 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1999-02-17 19:42:27 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -923,6 +923,10 @@ int vtkPointLocator::InitPointInsertion(vtkPoints *newPts, float bounds[6],
     {
     vtkErrorMacro(<<"Must define points for point insertion");
     return 0;
+    }
+  if (this->Points != NULL)
+    {
+    this->Points->UnRegister(this);
     }
   this->Points = newPts;
   this->Points->Register(this);
