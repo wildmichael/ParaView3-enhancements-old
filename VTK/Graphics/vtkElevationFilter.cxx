@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkElevationFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-08-08 09:13:25 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1994-08-09 15:07:50 $
+  Version:   $Revision: 1.13 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -90,6 +90,9 @@ void vlElevationFilter::Execute()
 //
 // Update self
 //
+  this->PointData.CopyScalarsOff();
+  this->PointData.PassData(this->Input->GetPointData());
+
   this->PointData.SetScalars(newScalars);
 }
 

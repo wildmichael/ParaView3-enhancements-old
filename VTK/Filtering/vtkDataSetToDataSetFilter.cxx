@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkDataSetToDataSetFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-07-09 06:44:14 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1994-08-09 15:07:49 $
+  Version:   $Revision: 1.12 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -30,14 +30,13 @@ vlDataSetToDataSetFilter::~vlDataSetToDataSetFilter()
 
 void vlDataSetToDataSetFilter::Update()
 {
-  vlPointData *pd;
-
   vlDataSetFilter::Update();
-  // Following copies data from this filter to internal dataset
-  pd = this->DataSet->GetPointData();
-  *pd = this->PointData;
 }
 
+// Description:
+// Initialize method is fancy: creates an internal dataset that holds
+// geometry representation. All methods directed at geometry are 
+// forwarded to internal dataset.
 void vlDataSetToDataSetFilter::Initialize()
 {
   if ( this->Input )

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkGlyph3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-08-08 09:13:27 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1994-08-09 15:07:51 $
+  Version:   $Revision: 1.10 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -84,9 +84,8 @@ void vlGlyph3D::Execute()
   int orient, scaleSource, ptIncr, cellId;
   float scale, den;
   vlMath math;
-//
-// Initialize
-//
+
+  vlDebugMacro(<<"Generating glyphs");
   this->Initialize();
 
   pd = this->Input->GetPointData();
@@ -251,7 +250,6 @@ void vlGlyph3D::Execute()
 // Description:
 // Override update method because execution can branch two ways (Input 
 // and Source)
-
 void vlGlyph3D::Update()
 {
   // make sure input is available
@@ -263,7 +261,7 @@ void vlGlyph3D::Update()
 
   if ( this->Source == NULL )
     {
-    vlErrorMacro(<< "No data to copy");
+    vlErrorMacro(<< "No source data!");
     return;
     }
 
@@ -275,7 +273,9 @@ void vlGlyph3D::Update()
   this->Source->Update();
   this->Updating = 0;
 
-  if (this->Input->GetMTime() > this->GetMTime() || this->GetMTime() > this->ExecuteTime )
+  if (this->Input->GetMTime() > this->GetMTime() || 
+  this->Source->GetMTime() > this->GetMTime() || 
+  this->GetMTime() > this->ExecuteTime )
     {
     if ( this->StartMethod ) (*this->StartMethod)(this->StartMethodArg);
     this->Execute();

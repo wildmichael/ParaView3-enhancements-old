@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkImplicitModeller.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-08-08 09:13:30 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1994-08-09 15:07:53 $
+  Version:   $Revision: 1.14 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -56,7 +56,8 @@ void vlImplicitModeller::PrintSelf(ostream& os, vlIndent indent)
     os << indent << "  Zmin,Zmax: (" << this->ModelBounds[4] << ", " << this->ModelBounds[5] << ")\n";
     }
 }
-
+// Description:
+// Specify the position in space to perform the sampling.
 void vlImplicitModeller::SetModelBounds(float *bounds)
 {
   vlImplicitModeller::SetModelBounds(bounds[0], bounds[1], bounds[2], bounds[3], bounds[4], bounds[5]);
@@ -105,9 +106,6 @@ void vlImplicitModeller::Execute()
   float closestPoint[3];
 
   vlDebugMacro(<< "Executing implicit model");
-//
-// Initialize self; create output objects
-//
   this->Initialize();
 
   numPts = this->SampleDimensions[0] * this->SampleDimensions[1] 
