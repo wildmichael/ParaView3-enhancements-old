@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSynchronizedTemplates2D.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:53 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2001-09-03 21:23:01 $
+  Version:   $Revision: 1.17 $
 
 
 
@@ -153,7 +153,7 @@ protected:
 
 private:
   //BTX
-  friend VTK_EXPORT vtkKitwareContourFilter;
+  friend class VTK_EXPORT vtkKitwareContourFilter;
   //ETX
 };
 

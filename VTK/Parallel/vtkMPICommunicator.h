@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMPICommunicator.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:53 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2001-09-03 21:23:01 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -177,7 +177,7 @@ public:
 
 //BTX
 
-  friend vtkMPIController;
+  friend class vtkMPIController;
 
 //ETX
 
