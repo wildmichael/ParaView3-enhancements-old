@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCell.h,v $
   Language:  C++
-  Date:      $Date: 1998-06-15 20:13:53 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 1998-06-25 19:50:20 $
+  Version:   $Revision: 1.46 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -106,8 +106,8 @@ public:
   virtual int GetCellDimension() = 0;
 
   // Description:
-  // Return the interpolation order of the cell.
-  virtual int GetInterpolationOrder() {return 1;}; //usually linear
+  // Return the interpolation order of the cell. Usually linear.
+  virtual int GetInterpolationOrder() {return 1;};
 
   // Description:
   // Get the point coordinates for the cell.
