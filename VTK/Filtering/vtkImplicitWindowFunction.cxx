@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitWindowFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-09-26 18:14:06 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1996-12-19 12:07:21 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -119,9 +119,11 @@ unsigned long int vtkImplicitWindowFunction::GetMTime()
   unsigned long int fMtime;
   unsigned long int mtime = this->vtkImplicitFunction::GetMTime();
 
-  if ( this->ImplicitFunction ) fMtime = this->ImplicitFunction->GetMTime();
-  if ( fMtime > mtime ) mtime = fMtime;
-
+  if ( this->ImplicitFunction )
+  {
+    fMtime = this->ImplicitFunction->GetMTime();
+    if ( fMtime > mtime ) mtime = fMtime;
+  }
   return mtime;
 }
 
