@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXTextMapper.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-22 19:37:49 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2002-08-22 19:43:42 $
+  Version:   $Revision: 1.26 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -29,7 +29,12 @@
 
 #include "vtkTextMapper.h"
 
-class vtkXTextMapperInternal;
+#include        <X11/Xlib.h>
+#include        <X11/Xutil.h>
+#include        <X11/cursorfont.h>
+#include        <X11/X.h>
+#include        <X11/keysym.h>
+
 
 class VTK_RENDERING_EXPORT vtkXTextMapper : public vtkTextMapper
 {
@@ -49,13 +54,13 @@ public:
 
 protected:
   vtkXTextMapper();
-  ~vtkXTextMapper();
+  ~vtkXTextMapper() {};
 
   // Description:
   // Actually get the size of the rectangle.
   void DetermineSize(vtkViewport *viewport, int size[2]);
 
-  vtkXTextMapperInternal *Internal;
+  Font CurrentFont;
 
   // Size of the Text.
   vtkTimeStamp  SizeMTime;
