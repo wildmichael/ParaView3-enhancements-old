@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamer.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-10-27 19:48:44 $
-  Version:   $Revision: 1.60 $
+  Date:      $Date: 2000-10-28 19:47:55 $
+  Version:   $Revision: 1.61 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -567,6 +567,7 @@ void vtkStreamer::Integrate()
     sPtr->t = 0.0;
     sPtr->s = 0.0;
     sPtr->theta = 0.0;
+    sPtr->omega = 0.0;
     
     if ( sPtr->cellId >= 0 ) //starting point in dataset
       {
