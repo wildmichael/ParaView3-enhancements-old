@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalarsToColors.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-01 07:23:49 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2000-12-02 23:22:58 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -78,6 +78,13 @@ public:
   void SetRange(float rng[2]) {this->SetRange(rng[0],rng[1]);};
   
   // Description:
+  // Higher level than MapValue:  return the color as 
+  // for the scalar value as floats in range [0,1].
+  float *GetColor(float value) {
+    this->GetColor(value,this->RGBA); return this->RGBA; };
+  void GetColor(float value, float color[4]);
+
+  // Description:
   // Map one value through the lookup table and return a color defined
   // as a RGBA unsigned char tuple (4 bytes).
   virtual unsigned char *MapValue(float v) = 0;
@@ -109,6 +116,7 @@ protected:
   vtkScalarsToColors(const vtkScalarsToColors &) {};
   void operator=(const vtkScalarsToColors &) {};
 
+  float RGBA[4];
 };
 
 #endif
