@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-04-02 18:21:15 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 1998-04-07 11:05:33 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -84,7 +84,7 @@ vtkDataWriter::vtkDataWriter()
   this->LookupTableName = new char[13];
   strcpy(this->LookupTableName,"lookup_table");
 
-  this->FieldDataName = new char[6];
+  this->FieldDataName = new char[10];
   strcpy(this->FieldDataName,"FieldData");
 }
 
