@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHomogeneousTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:25 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-07-25 17:14:41 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkHomogeneousTransform.h"
 #include "vtkMath.h"
 
-vtkCxxRevisionMacro(vtkHomogeneousTransform, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkHomogeneousTransform, "$Revision: 1.7 $");
 
 //----------------------------------------------------------------------------
 vtkHomogeneousTransform::vtkHomogeneousTransform()
@@ -145,7 +145,7 @@ void vtkHomogeneousTransform::TransformPointsNormalsVectors(vtkPoints *inPts,
                                                             vtkDataArray *inVrs, 
                                                             vtkDataArray *outVrs)
 {
-  int n = inNms->GetNumberOfTuples();
+  int n = inPts->GetNumberOfPoints();
   double (*M)[4] = this->Matrix->Element;
   double L[4][4];
   double inPnt[3],outPnt[3],inNrm[3],outNrm[3],inVec[3],outVec[3];
