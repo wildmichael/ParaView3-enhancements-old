@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSphereWidget.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-13 21:09:25 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-06-25 15:12:09 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -124,6 +124,10 @@ public:
   // Set/Get the radius of sphere. Default is .5.
   void SetRadius(float r)
     {
+    if ( r <= 0 )
+      {
+      r = .00001;
+      }
     this->SphereSource->SetRadius(r); 
     }
   float GetRadius()
