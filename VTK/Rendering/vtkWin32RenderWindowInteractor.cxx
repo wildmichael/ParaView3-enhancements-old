@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32RenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-28 01:22:35 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1998-10-28 14:43:48 $
+  Version:   $Revision: 1.26 $
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -365,6 +365,11 @@ LRESULT CALLBACK vtkHandleMessage(HWND hWnd,UINT uMsg, WPARAM wParam, LPARAM lPa
   ren = (vtkWin32OpenGLRenderWindow *)GetWindowLong(hWnd,GWL_USERDATA);
   me = (vtkWin32RenderWindowInteractor *)ren->GetInteractor();
 
+  if (me == NULL)
+    {
+    return 0;
+    }
+  
   if ((uMsg == WM_USER+13)&&(wParam == 26))
     {
     // someone is telling us to set our OldProc
