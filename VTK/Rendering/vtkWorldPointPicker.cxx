@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWorldPointPicker.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:08:31 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1999-12-27 19:54:49 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,8 +41,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkWorldPointPicker.h"
 #include "vtkObjectFactory.h"
 
-
-
 //------------------------------------------------------------------------------
 vtkWorldPointPicker* vtkWorldPointPicker::New()
 {
@@ -55,9 +53,6 @@ vtkWorldPointPicker* vtkWorldPointPicker::New()
   // If the factory was unable to create the object, then create it here.
   return new vtkWorldPointPicker;
 }
-
-
-
 
 vtkWorldPointPicker::vtkWorldPointPicker()
 {
@@ -101,10 +96,8 @@ int vtkWorldPointPicker::Pick(float selectionX, float selectionY, float selectio
     }
   else
     {
-    //
     // Get camera focal point and position. Convert to display (screen) 
     // coordinates. We need a depth value for z-buffer.
-    //
     camera = renderer->GetActiveCamera();
     camera->GetFocalPoint((float *)cameraFP); cameraFP[3] = 1.0;
 
