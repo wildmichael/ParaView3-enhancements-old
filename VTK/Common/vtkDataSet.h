@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkDataSet.h,v $
   Language:  C++
-  Date:      $Date: 1994-08-09 15:10:04 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1994-09-14 20:53:07 $
+  Version:   $Revision: 1.28 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -100,7 +100,9 @@ public:
   // compute geometric bounds, center, longest side
   virtual void ComputeBounds();
   float *GetBounds();
+  void GetBounds(float bounds[6]);
   float *GetCenter();
+  void GetCenter(float center[3]);
   float GetLength();
 
   // return pointer to this dataset's point data
