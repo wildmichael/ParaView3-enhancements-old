@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSight6BinaryReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-30 12:29:19 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-01-31 18:58:17 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -69,7 +69,7 @@ vtkEnSight6BinaryReader::vtkEnSight6BinaryReader()
   this->UnstructuredPoints = vtkPoints::New();
   this->UnstructuredNodeIds = NULL;
 
-//  this->IFile = NULL;
+  this->IFile = NULL;
 }
 
 //----------------------------------------------------------------------------
@@ -82,6 +82,12 @@ vtkEnSight6BinaryReader::~vtkEnSight6BinaryReader()
     }
   this->UnstructuredPoints->Delete();
   this->UnstructuredPoints = NULL;
+  
+  if (this->IFile)
+    {
+    fclose(this->IFile);
+    this->IFile = NULL;
+    }
 }
 
 //----------------------------------------------------------------------------
@@ -130,7 +136,8 @@ int vtkEnSight6BinaryReader::ReadGeometryFile()
   sscanf(line, " %*s %s", subLine);
   if (strcmp(subLine, "Binary") != 0)
     {
-    vtkErrorMacro("This is not an EnSight6 binary file.");
+    vtkErrorMacro("This is not an EnSight6 binary file. Try "
+                  << "vtkEnSight6Reader.");
     return 0;
     }
   // Skip the 2 description lines.  Using ReadLine instead of ReadLine
