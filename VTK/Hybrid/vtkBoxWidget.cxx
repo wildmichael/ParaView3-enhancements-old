@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBoxWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-02-12 12:54:42 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2003-04-30 21:40:13 $
+  Version:   $Revision: 1.28 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -37,7 +37,7 @@
 #include "vtkSphereSource.h"
 #include "vtkTransform.h"
 
-vtkCxxRevisionMacro(vtkBoxWidget, "$Revision: 1.27 $");
+vtkCxxRevisionMacro(vtkBoxWidget, "$Revision: 1.28 $");
 vtkStandardNewMacro(vtkBoxWidget);
 
 vtkBoxWidget::vtkBoxWidget()
@@ -1193,6 +1193,13 @@ void vtkBoxWidget::GetTransform(vtkTransform *t)
     translate[1] = center[1] + position[1];
     translate[2] = center[2] + position[2];
     }
+  else
+    {
+      translate[0] = center[0];
+      translate[1] = center[1];
+      translate[2] = center[2];
+    }
+
   t->Translate(translate[0], translate[1], translate[2]);
   
   // Orientation
