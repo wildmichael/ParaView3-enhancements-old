@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: vtkXdmfOpenGLCamera.h,v 1.2 2003-12-19 19:55:23 andy Exp $  */
-/*  Date : $Date: 2003-12-19 19:55:23 $ */
-/*  Version : $Revision: 1.2 $ */
+/*  Id : $Id: vtkXdmfOpenGLCamera.h,v 1.3 2004-04-27 17:46:25 andy Exp $  */
+/*  Date : $Date: 2004-04-27 17:46:25 $ */
+/*  Version : $Revision: 1.3 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -30,17 +30,27 @@
 class VTK_EXPORT vtkXdmfOpenGLCamera : public vtkOpenGLCamera
 {
 public:
-	static vtkXdmfOpenGLCamera *New();
-	vtkTypeMacro(vtkXdmfOpenGLCamera, vtkOpenGLCamera);
-	virtual void SetReallyLeft( int rl ){
-		this->ReallyLeft = rl;
-		}
-	virtual int GetReallyLeft(void){
-		return(this->ReallyLeft);
-		}
-	virtual void Render(vtkRenderer *ren);
+  static vtkXdmfOpenGLCamera *New();
+  vtkTypeMacro(vtkXdmfOpenGLCamera, vtkOpenGLCamera);
+  virtual void SetReallyLeft( int rl )
+    {
+    this->ReallyLeft = rl;
+    }
+  virtual int GetReallyLeft(void)
+    {
+    return(this->ReallyLeft);
+    }
+  virtual void Render(vtkRenderer *ren);
 protected:
-	int	ReallyLeft;
+  int     ReallyLeft;
+  vtkXdmfOpenGLCamera()
+    {
+    this->ReallyLeft = 0;
+    }
+  
+private:
+  vtkXdmfOpenGLCamera(const vtkXdmfOpenGLCamera&); // Not implemented
+  void operator=(const vtkXdmfOpenGLCamera&); // Not implemented
 };
 
 #endif

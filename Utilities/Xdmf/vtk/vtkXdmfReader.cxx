@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXdmfReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2004-04-23 18:58:28 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 2004-04-27 17:46:25 $
+  Version:   $Revision: 1.44 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen  
@@ -70,11 +70,11 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "XdmfAttribute.h"
 
 #include <sys/stat.h>
-#include <string>
-#include <vector>
+#include <vtkstd/string>
+#include <vtkstd/vector>
 
 vtkStandardNewMacro(vtkXdmfReader);
-vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.43 $");
+vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.44 $");
 
 #if defined(_WIN32) && (defined(_MSC_VER) || defined(__BORLANDC__))
 #  include <direct.h>
@@ -2068,6 +2068,8 @@ private:
   int ParsingComplete() { return this->Done; }
   int Valid;
   int Done;
+  vtkXdmfReaderTester(const vtkXdmfReaderTester&); // Not implemented
+  void operator=(const vtkXdmfReaderTester&); // Not implemented
 };
 vtkStandardNewMacro(vtkXdmfReaderTester);
 

@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfArray.cxx,v 1.18 2004-01-22 16:55:34 andy Exp $  */
-/*  Date : $Date: 2004-01-22 16:55:34 $ */
-/*  Version : $Revision: 1.18 $ */
+/*  Id : $Id: XdmfArray.cxx,v 1.19 2004-04-27 17:46:25 andy Exp $  */
+/*  Date : $Date: 2004-04-27 17:46:25 $ */
+/*  Version : $Revision: 1.19 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -28,10 +28,6 @@
 
 #ifndef _WIN32
 #include <unistd.h>
-#endif
-
-#if defined(IRIX64) || defined(IRIXN32)
-#else
 #endif
 
 static XdmfLength  GlobalTimeCntr = 0;

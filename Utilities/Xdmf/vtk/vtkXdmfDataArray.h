@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: vtkXdmfDataArray.h,v 1.5 2004-01-05 02:30:47 andy Exp $  */
-/*  Date : $Date: 2004-01-05 02:30:47 $ */
-/*  Version : $Revision: 1.5 $ */
+/*  Id : $Id: vtkXdmfDataArray.h,v 1.6 2004-04-27 17:46:25 andy Exp $  */
+/*  Date : $Date: 2004-04-27 17:46:25 $ */
+/*  Version : $Revision: 1.6 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -75,5 +75,7 @@ protected:
 private:
   vtkDataArray  *vtkArray;
   XdmfArray  *Array;
+  vtkXdmfDataArray(const vtkXdmfDataArray&); // Not implemented
+  void operator=(const vtkXdmfDataArray&); // Not implemented
 };
 #endif /* _vtkXdmfDataArray_h */

@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfLlist.c,v 1.2 2003-08-29 12:08:59 andy Exp $  */
-/*  Date : $Date: 2003-08-29 12:08:59 $ */
-/*  Version : $Revision: 1.2 $ */
+/*  Id : $Id: XdmfLlist.c,v 1.3 2004-04-27 17:46:25 andy Exp $  */
+/*  Date : $Date: 2004-04-27 17:46:25 $ */
+/*  Version : $Revision: 1.3 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -22,6 +22,10 @@
 /*     for more information.                                       */
 /*                                                                 */
 /*******************************************************************/
+#ifdef _MSC_VER
+#pragma warning (disable: 4115)
+#endif
+
 #include "XdmfDice.h"
 
 static  XdmfLlist_Anchor  *xdmf_master_llist = NULL;
@@ -201,7 +205,7 @@ return(&new->data);
 XdmfLlist_add_after(XDMF_LIST_KEY key, void *item_before, XDMF_LIST_KEY body_size)
 {
 char      *ptr, *dptr;
-XdmfLlist     *new, *item, *last;
+XdmfLlist     *new, *item, *last = 0;
 XdmfLlist_Anchor  *anchor;
 
 new = (XdmfLlist *)calloc(1, sizeof(XdmfLlist) + body_size);
@@ -230,7 +234,10 @@ while(item != NULL){
   }
 
 /* Not found put it at end */
-last->next = new;
+if ( last )
+  {
+  last->next = new;
+  }
 new->prev = new;
 return(&new->data);
 }

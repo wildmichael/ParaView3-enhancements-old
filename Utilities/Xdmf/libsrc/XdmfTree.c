@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfTree.c,v 1.2 2003-11-05 22:01:01 clarke Exp $  */
-/*  Date : $Date: 2003-11-05 22:01:01 $ */
-/*  Version : $Revision: 1.2 $ */
+/*  Id : $Id: XdmfTree.c,v 1.3 2004-04-27 17:46:25 andy Exp $  */
+/*  Date : $Date: 2004-04-27 17:46:25 $ */
+/*  Version : $Revision: 1.3 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -22,6 +22,10 @@
 /*     for more information.                                       */
 /*                                                                 */
 /*******************************************************************/
+#ifdef _MSC_VER
+#pragma warning (disable: 4115)
+#endif
+
 #include <XdmfDice.h>
 
 

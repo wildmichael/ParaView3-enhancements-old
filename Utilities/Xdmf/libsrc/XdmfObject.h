@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfObject.h,v 1.20 2004-02-13 20:18:50 andy Exp $  */
-/*  Date : $Date: 2004-02-13 20:18:50 $ */
-/*  Version : $Revision: 1.20 $ */
+/*  Id : $Id: XdmfObject.h,v 1.21 2004-04-27 17:46:25 andy Exp $  */
+/*  Date : $Date: 2004-04-27 17:46:25 $ */
+/*  Version : $Revision: 1.21 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -73,7 +73,14 @@
 #ifdef __cplusplus
 /* Use ANSI C++ --------------------------------------------- */
 # ifndef SWIG
+#  ifdef _MSC_VER
+#   pragma warning (push, 1)
+#   pragma warning (disable: 4702)
+#  endif
 #  include <string>
+#  ifdef _MSC_VER
+#   pragma warning(pop)
+#  endif
 #  ifdef XDMF_USE_ANSI_STDLIB
 #   include <iostream>
 #   include <strstream>
