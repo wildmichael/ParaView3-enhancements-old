@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindowTclInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-27 12:53:43 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-09-16 13:51:12 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,7 +55,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 // steal the first two elements of the TkMainInfo stuct
 // we don't care about the rest of the elements.
-typedef struct TkMainInfo
+struct TkMainInfo
 {
   int refCount;
   struct TkWindow *winPtr;
@@ -165,11 +165,7 @@ void vtkXRenderWindowTclInteractor::Initialize(XtAppContext app)
 void vtkXRenderWindowTclInteractor::Initialize()
 {
   vtkXRenderWindow *ren;
-  int depth;
-  Colormap cmap;
-  Visual  *vis;
   int *size;
-  int *position;
 
   // make sure we have a RenderWindow and camera
   if ( ! this->RenderWindow)
@@ -186,11 +182,7 @@ void vtkXRenderWindowTclInteractor::Initialize()
   this->DisplayId = ren->GetDisplayId();
   
   // get the info we need from the RenderingWindow
-  depth   = ren->GetDesiredDepth();
-  cmap    = ren->GetDesiredColormap();
-  vis     = ren->GetDesiredVisual();
   size    = ren->GetSize();
-  position= ren->GetPosition();
   
   size = ren->GetSize();
   ren->Start();
@@ -449,7 +441,6 @@ void vtkXRenderWindowTclInteractorTimer(XtPointer client_data,
   Window root,child;
   int root_x,root_y;
   int x,y;
-  float xf,yf;
   unsigned int keys;
 
   // get the pointer position
