@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfObject.h,v 1.9 2003-09-18 13:05:45 andy Exp $  */
-/*  Date : $Date: 2003-09-18 13:05:45 $ */
-/*  Version : $Revision: 1.9 $ */
+/*  Id : $Id: XdmfObject.h,v 1.10 2003-09-29 20:02:13 andy Exp $  */
+/*  Date : $Date: 2003-09-29 20:02:13 $ */
+/*  Version : $Revision: 1.10 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -72,11 +72,12 @@
 
 #ifdef __cplusplus
 // Use ANSI C++ ---------------------------------------------
-#ifdef XDMF_USE_ANSI_STDLIB
-#  include <iostream>
-#  include <strstream>
-#  include <fstream>
-#  include <iomanip>
+# ifndef SWIG
+#  ifdef XDMF_USE_ANSI_STDLIB
+#   include <iostream>
+#   include <strstream>
+#   include <fstream>
+#   include <iomanip>
 using std::cerr;
 using std::cout;
 using std::cin;
@@ -96,17 +97,18 @@ using std::hex;
 
 
 // otherwise, non-ANSI -----------------------------------------------------
-#else /* XDMF_USE_ANSI_STDLIB */
-#  include <iostream.h>
-#  if defined(_MSC_VER)
-#    include <strstrea.h>
-#  else
-#    include <strstream.h>
-#  endif
-#  include <fstream.h>
-#  include <iomanip.h>
-#endif /* XDMF_USE_ANSI_STDLIB */
-#endif
+#  else /* XDMF_USE_ANSI_STDLIB */
+#   include <iostream.h>
+#   if defined(_MSC_VER)
+#     include <strstrea.h>
+#   else
+#     include <strstream.h>
+#   endif
+#   include <fstream.h>
+#   include <iomanip.h>
+#  endif /* XDMF_USE_ANSI_STDLIB */
+# endif /* SWIG */
+#endif /* __cplusplus */
 
 #include "XdmfExport.h"
 
