@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageEllipsoidSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:33 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-09-02 12:59:32 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder,ill Lorensen.
@@ -129,10 +129,28 @@ void vtkImageEllipsoidSource::GetWholeExtent(int extent[6])
 //----------------------------------------------------------------------------
 void vtkImageEllipsoidSource::UpdateInformation()
 {
-  this->GetOutput()->SetSpacing(1.0, 1.0, 1.0);
-  this->GetOutput()->SetWholeExtent(this->WholeExtent);
-  this->GetOutput()->SetNumberOfScalarComponents(1);
-  this->GetOutput()->SetScalarType(this->OutputScalarType);
+  vtkImageData *data = this->GetOutput();
+  unsigned long mem;
+  
+  data->SetSpacing(1.0, 1.0, 1.0);
+  data->SetWholeExtent(this->WholeExtent);
+  data->SetNumberOfScalarComponents(1);
+  data->SetScalarType(this->OutputScalarType);
+
+  // What if we are trying to process a VERY large 2D image?
+  mem = data->GetScalarSize();
+  mem = mem * (this->WholeExtent[1] - this->WholeExtent[0] + 1);
+  mem = mem * (this->WholeExtent[3] - this->WholeExtent[2] + 1);
+  mem = mem / 1000;
+  mem = mem * (this->WholeExtent[5] - this->WholeExtent[4] + 1);
+  if (mem < 1)
+    {
+    mem = 1;
+    }
+  
+  data->SetEstimatedWholeMemorySize(mem);
+  // Do not allow less than 1Kb per piece.
+  data->SetMaximumNumberOfPieces(mem);
 }
 
 

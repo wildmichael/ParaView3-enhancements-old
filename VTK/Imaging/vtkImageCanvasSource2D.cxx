@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCanvasSource2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-26 17:18:46 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1999-09-02 12:59:32 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -1331,4 +1331,26 @@ void vtkImageCanvasSource2D::FillPixel(int x, int y)
       vtkErrorMacro(<< "Fill: Cannot handle ScalarType.");
     }   
 }
+
+
+
+//----------------------------------------------------------------------------
+void vtkImageCanvasSource2D::SetExtent(int *extent)
+{
+  this->vtkStructuredPoints::SetExtent(extent);
+  this->SetWholeExtent(extent);  
+}
+
+//----------------------------------------------------------------------------
+void vtkImageCanvasSource2D::SetExtent(int x1, int x2, int y1, int y2, 
+					int z1, int z2)
+{
+  this->vtkStructuredPoints::SetExtent(x1, x2, y1, y2, z1, z2);
+  this->SetWholeExtent(x1, x2, y1, y2, z1, z2);
+}
+
+
+
+
+
 

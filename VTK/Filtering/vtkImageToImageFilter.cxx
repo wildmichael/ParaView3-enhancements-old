@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToImageFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-23 19:35:29 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1999-09-02 12:59:34 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -102,11 +102,9 @@ void vtkImageToImageFilter::ExecuteInformation()
   // Setting defaults will modify the data if the sublcass overrides the 
   // defaults.  But this should be OK because ExecuteTime (and UpdateTime)
   // should be out of date anyway if this method is being called.
-  output->SetWholeExtent(input->GetWholeExtent());
-  output->SetSpacing(input->GetSpacing());
-  output->SetOrigin(input->GetOrigin());
-  output->SetScalarType(input->GetScalarType());
-  output->SetNumberOfScalarComponents(input->GetNumberOfScalarComponents());
+  
+  // Done in superclass now.
+  //output->CopyInformation(input);
 
   if (this->Bypass == 0)
     {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCanvasSource2D.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:03:06 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-09-02 12:59:32 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -117,6 +117,11 @@ public:
   // To make Canvas source more like other sources, this get output
   // method should be used.
   vtkImageData *GetOutput() {return this;}
+  
+  // Description:
+  // These methods also set the WholeExtent of this "DataObject".
+  void SetExtent(int *extent);
+  void SetExtent(int x1, int x2, int y1, int y2, int z1, int z2);
   
 protected:
   vtkImageCanvasSource2D();

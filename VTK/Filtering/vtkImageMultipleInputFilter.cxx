@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMultipleInputFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-23 18:49:16 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 1999-09-02 12:59:34 $
+  Version:   $Revision: 1.36 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -115,11 +115,7 @@ void vtkImageMultipleInputFilter::ExecuteInformation()
     }
   
   // Set the defaults from input1
-  output->SetWholeExtent(input->GetWholeExtent());
-  output->SetSpacing(input->GetSpacing());
-  output->SetOrigin(input->GetOrigin());
-  output->SetScalarType(input->GetScalarType());
-  output->SetNumberOfScalarComponents(input->GetNumberOfScalarComponents());
+  output->CopyInformation(input);
 
   if ( ! this->Bypass)
     {

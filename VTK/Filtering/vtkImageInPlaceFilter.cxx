@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageInPlaceFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-23 18:49:12 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1999-09-02 12:59:33 $
+  Version:   $Revision: 1.23 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,13 +42,10 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkImageInPlaceFilter.h"
 
   
+  
 //----------------------------------------------------------------------------
-// This method is called by the cache.  It eventually calls the
-// Execute(vtkImageData *, vtkImageData *) method.
-// Information has already been updated by this point, 
-// and outRegion is in local coordinates.
-// This method will stream to get the input, and loops over extra axes.
-// Only the UpdateExtent from output will get updated.
+// This Update method looks out of date with the latest pipeline architecture
+// (see vtkSource::Update), but it works!
 void vtkImageInPlaceFilter::InternalUpdate(vtkDataObject *data)
 {
   vtkImageData *outData = (vtkImageData *)data;
@@ -68,10 +65,6 @@ void vtkImageInPlaceFilter::InternalUpdate(vtkDataObject *data)
     }
   this->Updating = 1;
   this->AbortExecute = 0;
-  
-  // In case this update is called directly.
-  this->UpdateInformation();
-  this->GetOutput()->ClipUpdateExtentWithWholeExtent();
 
   // since cache no longer exists we must allocate the scalars here
   // This may be a bad place to allocate data (before input->update)
