@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleTrackballCamera.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-30 21:50:35 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2002-05-01 04:56:53 $
+  Version:   $Revision: 1.15 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -43,20 +43,16 @@ public:
   vtkTypeRevisionMacro(vtkInteractorStyleTrackballCamera,vtkInteractorStyle);
   void PrintSelf(ostream& os, vtkIndent indent);
 
-protected:
-  vtkInteractorStyleTrackballCamera();
-  ~vtkInteractorStyleTrackballCamera();
-
   // Description:
   // Event bindings controlling the effects of pressing mouse buttons
   // or moving the mouse.
-  virtual void OnMouseMove       (int ctrl, int shift, int x, int y);
-  virtual void OnLeftButtonDown  (int ctrl, int shift, int x, int y);
-  virtual void OnLeftButtonUp    (int ctrl, int shift, int x, int y);
-  virtual void OnMiddleButtonDown(int ctrl, int shift, int x, int y);
-  virtual void OnMiddleButtonUp  (int ctrl, int shift, int x, int y);
-  virtual void OnRightButtonDown (int ctrl, int shift, int x, int y);
-  virtual void OnRightButtonUp   (int ctrl, int shift, int x, int y);
+  virtual void OnMouseMove();
+  virtual void OnLeftButtonDown();
+  virtual void OnLeftButtonUp();
+  virtual void OnMiddleButtonDown();
+  virtual void OnMiddleButtonUp();
+  virtual void OnRightButtonDown();
+  virtual void OnRightButtonUp();
 
   // These methods for the different interactions in different modes
   // are overridden in subclasses to perform the correct motion. Since
@@ -67,6 +63,10 @@ protected:
   virtual void Pan();
   virtual void Dolly();
   
+protected:
+  vtkInteractorStyleTrackballCamera();
+  ~vtkInteractorStyleTrackballCamera();
+
   float MotionFactor;
 
 private:

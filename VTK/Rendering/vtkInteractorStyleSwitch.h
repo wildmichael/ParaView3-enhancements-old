@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleSwitch.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-29 05:17:08 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2002-05-01 04:56:53 $
+  Version:   $Revision: 1.18 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -66,14 +66,14 @@ public:
   void SetCurrentStyleToTrackballActor();
   void SetCurrentStyleToTrackballCamera();
 
-protected:
-  vtkInteractorStyleSwitch();
-  ~vtkInteractorStyleSwitch();
-  
   // Description:
   // Only care about the char event, which is used to switch between
   // different styles.
-  virtual void OnChar   (int ctrl, int shift, char keycode, int repeatcount);
+  virtual void OnChar();
+  
+protected:
+  vtkInteractorStyleSwitch();
+  ~vtkInteractorStyleSwitch();
   
   void SetCurrentStyle();
   

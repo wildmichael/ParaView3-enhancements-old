@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleUser.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-30 05:28:58 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2002-05-01 04:56:53 $
+  Version:   $Revision: 1.29 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -177,37 +177,32 @@ public:
   void StartUserInteraction();
   void EndUserInteraction();
 
-protected:
-
   // Description:
   // Generic event bindings
-  virtual void OnMouseMove       (int ctrl, int shift, int x, int y);
-  virtual void OnLeftButtonDown  (int ctrl, int shift, int x, int y);
-  virtual void OnLeftButtonUp    (int ctrl, int shift, int x, int y);
-  virtual void OnMiddleButtonDown(int ctrl, int shift, int x, int y);
-  virtual void OnMiddleButtonUp  (int ctrl, int shift, int x, int y);
-  virtual void OnRightButtonDown (int ctrl, int shift, int x, int y);
-  virtual void OnRightButtonUp   (int ctrl, int shift, int x, int y);
-
+  virtual void OnMouseMove();
+  virtual void OnLeftButtonDown();
+  virtual void OnLeftButtonUp();
+  virtual void OnMiddleButtonDown();
+  virtual void OnMiddleButtonUp();
+  virtual void OnRightButtonDown();
+  virtual void OnRightButtonUp();
 
   // Description:
   // Keyboard functions
-  virtual void OnChar      (int ctrl, int shift, char keycode, 
-                            int repeatcount);
-  virtual void OnKeyPress  (int ctrl, int shift, char keycode, char *keysym,
-                            int repeatcount);
-  virtual void OnKeyRelease(int ctrl, int shift, char keycode, char *keysym,
-                            int repeatcount);
-
+  virtual void OnChar();
+  virtual void OnKeyPress();
+  virtual void OnKeyRelease();
 
   // Description:
   // These are more esoteric events, but are useful in some cases.
-  virtual void OnExpose   (int x, int y, int width, int height);
-  virtual void OnConfigure(int width, int height);
-  virtual void OnEnter    (int x, int y);
-  virtual void OnLeave    (int x, int y);
+  virtual void OnExpose();
+  virtual void OnConfigure();
+  virtual void OnEnter();
+  virtual void OnLeave();
 
-  virtual void OnTimer(void);
+  virtual void OnTimer();
+
+protected:
 
   vtkInteractorStyleUser();
   ~vtkInteractorStyleUser();

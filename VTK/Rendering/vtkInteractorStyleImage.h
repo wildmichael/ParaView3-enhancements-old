@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleImage.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-30 05:04:42 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2002-05-01 04:56:53 $
+  Version:   $Revision: 1.14 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -60,22 +60,18 @@ public:
   vtkGetVector2Macro(WindowLevelStartPosition,int);
   vtkGetVector2Macro(WindowLevelCurrentPosition,int);
   
-protected:
-  vtkInteractorStyleImage();
-  ~vtkInteractorStyleImage();
-
   // Description:
   // Event bindings controlling the effects of pressing mouse buttons
   // or moving the mouse.
-  virtual void OnMouseMove       (int ctrl, int shift, int x, int y);
-  virtual void OnLeftButtonDown  (int ctrl, int shift, int x, int y);
-  virtual void OnLeftButtonUp    (int ctrl, int shift, int x, int y);
-  virtual void OnRightButtonDown (int ctrl, int shift, int x, int y);
-  virtual void OnRightButtonUp   (int ctrl, int shift, int x, int y);
+  virtual void OnMouseMove();
+  virtual void OnLeftButtonDown();
+  virtual void OnLeftButtonUp();
+  virtual void OnRightButtonDown();
+  virtual void OnRightButtonUp();
 
   // Description:
   // Override the "fly-to" (f keypress) for images.
-  virtual void OnChar   (int ctrl, int shift, char keycode, int repeatcount);
+  virtual void OnChar();
 
   // These methods for the different interactions in different modes
   // are overridden in subclasses to perform the correct motion. Since
@@ -89,6 +85,10 @@ protected:
   virtual void EndWindowLevel();
   virtual void StartPick();
   virtual void EndPick();
+
+protected:
+  vtkInteractorStyleImage();
+  ~vtkInteractorStyleImage();
 
   int WindowLevelStartPosition[2];
   int WindowLevelCurrentPosition[2];

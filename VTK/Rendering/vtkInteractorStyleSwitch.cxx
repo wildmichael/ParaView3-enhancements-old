@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleSwitch.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-26 21:57:20 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2002-05-01 04:56:53 $
+  Version:   $Revision: 1.17 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 #include "vtkInteractorStyleTrackballActor.h"
 #include "vtkInteractorStyleTrackballCamera.h"
 
-vtkCxxRevisionMacro(vtkInteractorStyleSwitch, "$Revision: 1.16 $");
+vtkCxxRevisionMacro(vtkInteractorStyleSwitch, "$Revision: 1.17 $");
 vtkStandardNewMacro(vtkInteractorStyleSwitch);
 
 //----------------------------------------------------------------------------
@@ -112,12 +112,9 @@ void vtkInteractorStyleSwitch::SetCurrentStyleToTrackballCamera()
 }
 
 //----------------------------------------------------------------------------
-void vtkInteractorStyleSwitch::OnChar(int vtkNotUsed(ctrl), 
-                                      int vtkNotUsed(shift), 
-                                      char keycode,
-                                      int vtkNotUsed(repeatcount)) 
+void vtkInteractorStyleSwitch::OnChar() 
 {
-  switch (keycode)
+  switch (this->Interactor->GetKeyCode())
     {
     case 'j':
     case 'J':

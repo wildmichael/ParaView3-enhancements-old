@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorObserver.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-30 21:50:35 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-05-01 04:56:53 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -108,6 +108,9 @@ public:
   vtkSetMacro(KeyPressActivationValue,char);
   vtkGetMacro(KeyPressActivationValue,char);
 
+  // Sets up the keypress-i event. 
+  virtual void OnChar();
+  
 protected:
   vtkInteractorObserver();
   ~vtkInteractorObserver();
@@ -118,9 +121,6 @@ protected:
                             void* clientdata, 
                             void* calldata);
 
-  // Sets up the keypress-i event. 
-  void OnChar(int ctrl, int shift, char keycode, int repeatcount);
-  
   // helper method for subclasses
   void ComputeDisplayToWorld(double x, double y, double z, 
                              double worldPt[4]);
