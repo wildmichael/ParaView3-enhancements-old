@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGeneralTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-06-03 15:51:54 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2000-06-05 10:39:48 $
+  Version:   $Revision: 1.28 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -936,7 +936,6 @@ void vtkTransformConcatenation::DeepCopy(vtkTransformConcatenation *concat)
   this->InverseFlag = concat->InverseFlag;
   this->PreMultiplyFlag = concat->PreMultiplyFlag;
 
-  this->MaxNumberOfTransforms = concat->MaxNumberOfTransforms;
   this->NumberOfTransforms = concat->NumberOfTransforms;
   this->NumberOfPreTransforms = concat->NumberOfPreTransforms;
 }
