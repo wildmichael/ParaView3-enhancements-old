@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXYPlotActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-11-19 20:10:35 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2000-11-19 23:30:42 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to Kitware & RPI/SCOREC who supported the development
              of this class.
 
@@ -568,10 +568,6 @@ void vtkXYPlotActor::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkActor2D::PrintSelf(os,indent);
 
-  os << indent << "Position2 Coordinate: " 
-     << this->Position2Coordinate << "\n";
-  this->Position2Coordinate->PrintSelf(os, indent.GetNextIndent());
-  
   os << indent << "Input DataSets:\n";
   this->InputList->PrintSelf(os,indent.GetNextIndent());
 
