@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-22 22:00:34 $
-  Version:   $Revision: 1.65 $
+  Date:      $Date: 2002-11-22 16:25:58 $
+  Version:   $Revision: 1.66 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -39,6 +39,8 @@
 #include "vtkRenderWindowInteractor.h"
 #include <X11/StringDefs.h> // Needed for X types in the public interface
 #include <X11/Intrinsic.h> // Needed for X types in the public interface
+
+class vtkCallbackCommand;
 
 class VTK_RENDERING_EXPORT vtkXRenderWindowInteractor : public vtkRenderWindowInteractor
 {
@@ -171,7 +173,8 @@ protected:
   void Timer(XtPointer client_data, XtIntervalId *id); 
   void Callback(Widget w, XtPointer client_data, XEvent *event, Boolean *ctd);
 
-
+  vtkCallbackCommand* BreakXtLoopCallback;
+  static void BreakXtLoop(vtkObject*, unsigned long, void*, void*);
 private:
   vtkXRenderWindowInteractor(const vtkXRenderWindowInteractor&);  // Not implemented.
   void operator=(const vtkXRenderWindowInteractor&);  // Not implemented.
