@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLabeledDataMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-15 20:37:01 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-06-26 13:43:37 $
+  Version:   $Revision: 1.2 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -55,7 +55,7 @@ vtkLabeledDataMapper::vtkLabeledDataMapper()
   this->Shadow = 1;
   this->FontFamily = VTK_ARIAL;
   this->LabelFormat = new char[8]; 
-  sprintf(this->LabelFormat,"%g");
+  strcpy(this->LabelFormat,"%g");
   this->LabeledComponent = (-1);
   this->FieldDataArray = 0;
  
