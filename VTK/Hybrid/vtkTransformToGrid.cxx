@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransformToGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-06-01 12:23:13 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2000-06-03 10:38:03 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -200,6 +200,9 @@ void vtkTransformToGrid::UpdateShiftScale()
     {
     this->DisplacementShift = 0.0f;
     this->DisplacementScale = 1.0f;
+    vtkDebugMacro(<< "displacement (scale, shift) = (" << 
+                  this->DisplacementScale << ", " << 
+                  this->DisplacementShift << ")");  
     return;
     }
 
@@ -214,6 +217,9 @@ void vtkTransformToGrid::UpdateShiftScale()
   vtkTransformToGridMinMax(this,this->GridExtent,
 			   minDisplacement,
 			   maxDisplacement);
+
+  vtkDebugMacro(<< "displacement (min, max) = (" << 
+                minDisplacement << ", " << maxDisplacement << ")");
 
   float typeMin,typeMax;
 
@@ -250,6 +256,10 @@ void vtkTransformToGrid::UpdateShiftScale()
     this->DisplacementScale = 1.0f;
     }
 
+  vtkDebugMacro(<< "displacement (scale, shift) = (" << 
+                this->DisplacementScale << ", " << 
+                this->DisplacementShift << ")");  
+
   this->ShiftScaleTime.Modified();
 }
 
@@ -283,7 +293,7 @@ static inline void vtkGridRound(float val, float& rnd)
 
 //----------------------------------------------------------------------------
 template<class T>
-void vtkTransformToGridExecute(vtkTransformToGrid *self,
+static void vtkTransformToGridExecute(vtkTransformToGrid *self,
 			       vtkImageData *grid, T *gridPtr, int extent[6], 
 			       float shift, float scale,
 			       int id)
