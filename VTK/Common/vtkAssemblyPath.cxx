@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAssemblyPath.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-06-08 09:11:03 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2000-07-13 10:28:39 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -60,7 +60,7 @@ vtkAssemblyPath* vtkAssemblyPath::New()
 vtkAssemblyPath::vtkAssemblyPath()
 {
   this->Transform = vtkTransform::New();
-  this->Transform->PostMultiply();  
+  this->Transform->PreMultiply();  
   this->TransformedProp = NULL;
 }
 
