@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRayCaster.h,v $
   Language:  C++
-  Date:      $Date: 1999-01-21 16:44:05 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1999-01-22 15:07:01 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -207,8 +207,10 @@ protected:
   void InitializeRenderBuffers( vtkRenderer *ren );
   void InitializeRayCasting( vtkRenderer *ren );
 
+//BTX
   void ComputeRowBounds( vtkRenderer *ren,
 			 struct VolumeRayCastVolumeInfoStruct *volumeInfo );
+//ETX
 
   friend VTK_THREAD_RETURN_TYPE RayCast_RenderImage( void *arg );
 
