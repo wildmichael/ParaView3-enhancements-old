@@ -3,11 +3,9 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStripper.h,v $
   Language:  C++
-  Date:      $Date: 1994-07-21 17:00:13 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1994-08-11 07:41:31 $
+  Version:   $Revision: 1.4 $
 
-Description:
----------------------------------------------------------------------------
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
 without the express written consent of the authors.
@@ -36,13 +34,19 @@ public:
   char *GetClassName() {return "vlStripper";};
   void PrintSelf(ostream& os, vlIndent indent);
 
+  // Description:
+  // Specify the maximum number of triangles in a triangle strip.
   vlSetClampMacro(MaximumStripLength,int,4,MAX_CELL_SIZE);
   vlGetMacro(MaximumStripLength,int);
 
+  // Description:
+  // Turn on/off passing of vertices through to output.
   vlBooleanMacro(PassVerts,int);
   vlSetMacro(PassVerts,int);
   vlGetMacro(PassVerts,int);
 
+  // Description:
+  // Turn on/off passing of lines through to output.
   vlBooleanMacro(PassLines,int);
   vlSetMacro(PassLines,int);
   vlGetMacro(PassLines,int);

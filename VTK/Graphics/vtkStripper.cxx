@@ -3,11 +3,9 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStripper.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-07-07 13:14:09 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1994-08-11 07:41:32 $
+  Version:   $Revision: 1.6 $
 
-Description:
----------------------------------------------------------------------------
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
 without the express written consent of the authors.
