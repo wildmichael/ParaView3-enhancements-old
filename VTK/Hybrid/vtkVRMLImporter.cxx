@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVRMLImporter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-26 15:40:54 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 2001-11-12 19:07:42 $
+  Version:   $Revision: 1.43 $
   Thanks:    Tom Citriniti who implemented and contributed this class
 
 
@@ -771,6 +771,11 @@ static const short yycheck[] = {    66,
    Bison output file, you may use that output file without restriction.
    This special exception was added by the Free Software Foundation
    in version 1.24 of Bison.  */
+
+#if defined (__digital__) && defined (__unix__)
+#define HAVE_ALLOCA_H 1
+#endif
+
 
 #ifdef __GNUC__
 #undef alloca
