@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTreeComposite.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 15:30:50 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2001-10-10 20:04:30 $
+  Version:   $Revision: 1.14 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -200,7 +200,6 @@ protected:
   vtkRenderWindowInteractor* RenderWindowInteractor;
   vtkMultiProcessController* Controller;
 
-  unsigned long StartInteractorTag;
   unsigned long EndInteractorTag;
   unsigned long StartTag;
   unsigned long EndTag;
