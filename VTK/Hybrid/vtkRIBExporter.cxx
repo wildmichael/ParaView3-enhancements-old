@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRIBExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-04-14 14:57:25 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1999-06-18 20:50:01 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -53,6 +53,9 @@ typedef float RtColor[3];
 typedef float RtPoint[3];
 typedef char   *RtPointer;
 typedef float RtFloat;
+
+vtkSafeSetStringMacro2(FilePrefix,vtkRIBExporter);
+vtkSafeSetStringMacro2(TexturePrefix,vtkRIBExporter);
 
 vtkRIBExporter::vtkRIBExporter()
 {

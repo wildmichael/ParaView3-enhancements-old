@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCubeAxesActor2D.h,v $
   Language:  C++
-  Date:      $Date: 1999-06-16 19:39:25 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-06-18 20:50:00 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thorsten Dowe who modified and improved this class.
 
 Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -138,11 +138,11 @@ public:
   
   // Description:
   // Set/Get the labels for the x, y, and z axes. By default, use "X", "Y" and "Z".
-  vtkSetStringMacro(XLabel);
+  vtkSafeSetStringMacro(XLabel);
   vtkGetStringMacro(XLabel);
-  vtkSetStringMacro(YLabel);
+  vtkSafeSetStringMacro(YLabel);
   vtkGetStringMacro(YLabel);
-  vtkSetStringMacro(ZLabel);
+  vtkSafeSetStringMacro(ZLabel);
   vtkGetStringMacro(ZLabel);
 
   // Description:
@@ -177,7 +177,7 @@ public:
   // Description:
   // Set/Get the format with which to print the labels on each of the
   // x-y-z axes.
-  vtkSetStringMacro(LabelFormat);
+  vtkSafeSetStringMacro(LabelFormat);
   vtkGetStringMacro(LabelFormat);
   
   // Description:

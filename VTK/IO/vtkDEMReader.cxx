@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDEMReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-26 13:07:23 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-06-18 20:50:01 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -49,6 +49,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #define VTK_METERS_PER_FEET .305
 #define VTK_METERS_PER_ARC_SECOND 23.111
 
+vtkSafeSetStringMacro2(FileName,vtkDEMReader);
 
 void ConvertDNotationToENotation (char *line);
 

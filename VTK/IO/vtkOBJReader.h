@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOBJReader.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-02 11:47:45 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-06-18 20:50:01 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -62,7 +62,7 @@ public:
 
   // Description:
   // Specify file name of Wavefront .obj file.
-  vtkSetStringMacro(FileName);
+  vtkSafeSetStringMacro(FileName);
   vtkGetStringMacro(FileName);
 
 protected:

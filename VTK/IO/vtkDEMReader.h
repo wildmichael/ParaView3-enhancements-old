@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDEMReader.h,v $
   Language:  C++
-  Date:      $Date: 1998-12-22 21:36:20 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1999-06-18 20:50:01 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,7 +64,7 @@ public:
 
   // Description:
   // Specify file name of Digital Elevation Model (DEM) file
-  vtkSetStringMacro(FileName);
+  vtkSafeSetStringMacro(FileName);
   vtkGetStringMacro(FileName);
 
   // Description:
