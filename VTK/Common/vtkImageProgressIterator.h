@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageProgressIterator.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:28 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-03-05 18:33:50 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -56,7 +56,7 @@ protected:
 
 #ifdef CMAKE_NO_EXPLICIT_TEMPLATE_INSTANTIATION
 // include the code
-#include "vtkImageProgressIterator.cxx"
+#include "vtkImageProgressIterator.txx"
 #endif
 
 #endif
