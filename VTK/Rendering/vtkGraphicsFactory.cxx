@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGraphicsFactory.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-06-28 17:45:56 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2000-07-14 14:16:03 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -60,6 +60,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #ifdef VTK_USE_MESA
 #include "vtkMesaActor.h"
 #include "vtkMesaCamera.h"
+#include "vtkMesaImageActor.h"
 #include "vtkMesaLight.h"
 #include "vtkMesaProperty.h"
 #include "vtkMesaPolyDataMapper.h"
@@ -240,6 +241,10 @@ vtkObject* vtkGraphicsFactory::CreateInstance(const char* vtkclassname )
     if(strcmp(vtkclassname, "vtkCamera") == 0)
       {
       return vtkMesaCamera::New();
+      }
+    if(strcmp(vtkclassname, "vtkImageActor") == 0)
+      {
+      return vtkMesaImageActor::New();
       }
     if(strcmp(vtkclassname, "vtkLight") == 0)
       {
