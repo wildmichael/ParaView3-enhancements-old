@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLPolyDataMapper.h,v $
   Language:  C++
-  Date:      $Date: 1999-03-01 19:42:27 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-06-18 15:42:26 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -75,9 +75,9 @@ class VTK_EXPORT vtkOpenGLPolyDataMapper : public vtkPolyDataMapper
 
   // Description:
   // Draw method for OpenGL.
-  void Draw(vtkRenderer *ren, vtkActor *a);
+  virtual void Draw(vtkRenderer *ren, vtkActor *a);
   
-  //BTX  begine tcl exclude
+  //BTX  begin tcl exclude
   
   // Description:
   // Get the lmcolor property, this is a pretty important little 
