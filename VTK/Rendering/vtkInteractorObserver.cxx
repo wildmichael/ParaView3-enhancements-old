@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorObserver.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-28 15:19:40 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2002-05-29 18:25:35 $
+  Version:   $Revision: 1.19 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,9 +20,10 @@
 #include "vtkCallbackCommand.h"
 #include "vtkObjectFactory.h"
 #include "vtkRenderer.h"
+#include "vtkRenderWindow.h"
 #include "vtkRenderWindowInteractor.h"
 
-vtkCxxRevisionMacro(vtkInteractorObserver, "$Revision: 1.18 $");
+vtkCxxRevisionMacro(vtkInteractorObserver, "$Revision: 1.19 $");
 
 vtkInteractorObserver::vtkInteractorObserver()
 {
@@ -106,6 +107,19 @@ void vtkInteractorObserver::ProcessEvents(vtkObject* vtkNotUsed(object),
     }
 }
 
+//----------------------------------------------------------------------------
+void vtkInteractorObserver::StartInteraction() 
+{
+  this->Interactor->GetRenderWindow()->SetDesiredUpdateRate(this->Interactor->GetDesiredUpdateRate());
+}
+
+//----------------------------------------------------------------------------
+void vtkInteractorObserver::EndInteraction() 
+{
+  this->Interactor->GetRenderWindow()->SetDesiredUpdateRate(this->Interactor->GetStillUpdateRate());
+}
+
+//----------------------------------------------------------------------------
 // Description:
 // Transform from display to world coordinates.
 // WorldPt has to be allocated as 4 vector

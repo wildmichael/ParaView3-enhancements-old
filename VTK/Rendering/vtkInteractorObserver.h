@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorObserver.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-28 15:19:40 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2002-05-29 18:25:35 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -116,13 +116,22 @@ protected:
   vtkInteractorObserver();
   ~vtkInteractorObserver();
 
-  //handles the char widget activation event. Also handles the delete event.
+  // Description:
+  // Utility routines used to start and end interaction.
+  // For example, it switches the display update rate. It does not invoke
+  // the corresponding events.
+  virtual void StartInteraction();
+  virtual void EndInteraction();
+
+  // Description:
+  // Handles the char widget activation event. Also handles the delete event.
   static void ProcessEvents(vtkObject* object, 
                             unsigned long event,
                             void* clientdata, 
                             void* calldata);
 
-  // helper method for subclasses
+  // Description:
+  // Helper method for subclasses
   void ComputeDisplayToWorld(double x, double y, double z, 
                              double worldPt[4]);
   void ComputeDisplayToWorld(double x, double y, double z, 
