@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReslice.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-25 23:11:12 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2001-08-26 01:25:23 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to David G Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1511,7 +1511,6 @@ static void vtkSetPixels1(T *&outPtr, const T *inPtr,
 }
 
 // get a pixel copy function that is appropriate for the data type
-static 
 void vtkGetSetPixelsFunc(vtkImageReslice *self,
                          void (**setpixels)(void *&out, const void *in,
                                             int numscalars, int n))
@@ -1565,7 +1564,6 @@ void vtkAllocBackgroundPixelT(vtkImageReslice *self,
     }
 }
 
-static
 void vtkAllocBackgroundPixel(vtkImageReslice *self, void **rval, 
                              int numComponents)
 {
@@ -1576,7 +1574,6 @@ void vtkAllocBackgroundPixel(vtkImageReslice *self, void **rval,
     }
 }      
 
-static
 void vtkFreeBackgroundPixel(vtkImageReslice *self, void **rval)
 {
   switch (self->GetOutput()->GetScalarType())
@@ -1589,7 +1586,6 @@ void vtkFreeBackgroundPixel(vtkImageReslice *self, void **rval)
 
 //----------------------------------------------------------------------------
 // helper function for clipping of the output with a stencil
-static
 int vtkResliceGetNextExtent(vtkImageStencilData *stencil,
                             int &r1, int &r2, int rmin, int rmax,
                             int yIdx, int zIdx, 
