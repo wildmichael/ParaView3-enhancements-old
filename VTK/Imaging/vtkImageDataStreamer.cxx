@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDataStreamer.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-01-07 09:11:16 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2000-01-10 07:16:54 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -96,7 +96,6 @@ void vtkImageDataStreamer::TriggerAsynchronousUpdate()
 //----------------------------------------------------------------------------
 void vtkImageDataStreamer::UpdateData(vtkDataObject *out)
 {
-  int            idx;
   unsigned long  inputMemorySize, newSize;
   vtkImageData   *input = this->GetInput();
   vtkImageData   *output = (vtkImageData*)out;
