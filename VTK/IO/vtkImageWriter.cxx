@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-23 14:06:27 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1999-08-19 11:18:39 $
+  Version:   $Revision: 1.20 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -497,7 +497,7 @@ void vtkImageWriter::WriteFile(ofstream *file, vtkImageData *data,
       rowLength = sizeof(unsigned char); 
       break;
     default:
-      cerr << "Execute: Unknown output ScalarType";
+      vtkErrorMacro(<< "Execute: Unknown output ScalarType");
       return; 
     }
   rowLength *= data->GetNumberOfScalarComponents();
