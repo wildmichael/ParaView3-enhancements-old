@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransformPolyDataFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:53 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2002-02-04 16:22:11 $
+  Version:   $Revision: 1.26 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,7 +19,7 @@
 #include "vtkFloatArray.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkTransformPolyDataFilter, "$Revision: 1.25 $");
+vtkCxxRevisionMacro(vtkTransformPolyDataFilter, "$Revision: 1.26 $");
 vtkStandardNewMacro(vtkTransformPolyDataFilter);
 
 vtkTransformPolyDataFilter::vtkTransformPolyDataFilter()
@@ -135,7 +135,6 @@ void vtkTransformPolyDataFilter::Execute()
   output->SetLines(input->GetLines());
   output->SetPolys(input->GetPolys());
   output->SetStrips(input->GetStrips());
-  output->SetFieldData(input->GetFieldData());
 
   if (newNormals)
     {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataNormals.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:36 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 2002-02-04 16:22:11 $
+  Version:   $Revision: 1.52 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 #include "vtkTriangleStrip.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkPolyDataNormals, "$Revision: 1.51 $");
+vtkCxxRevisionMacro(vtkPolyDataNormals, "$Revision: 1.52 $");
 vtkStandardNewMacro(vtkPolyDataNormals);
 
 // Construct with feature angle=30, splitting and consistency turned on, 
@@ -84,7 +84,6 @@ void vtkPolyDataNormals::Execute()
     output->CopyStructure(input);
     output->GetPointData()->PassData(input->GetPointData());
     output->GetCellData()->PassData(input->GetCellData());
-        output->SetFieldData(input->GetFieldData());
     return;
     }
   output->GetCellData()->PassData(input->GetCellData());

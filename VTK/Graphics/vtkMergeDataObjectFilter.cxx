@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergeDataObjectFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:29 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2002-02-04 16:22:11 $
+  Version:   $Revision: 1.16 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkMergeDataObjectFilter.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkMergeDataObjectFilter, "$Revision: 1.15 $");
+vtkCxxRevisionMacro(vtkMergeDataObjectFilter, "$Revision: 1.16 $");
 vtkStandardNewMacro(vtkMergeDataObjectFilter);
 
 //----------------------------------------------------------------------------
@@ -102,10 +102,6 @@ void vtkMergeDataObjectFilter::Execute()
       {
       output->GetPointData()->AddArray(fd->GetArray(i));
       }
-    }
-  else //( this->OutputField == VTK_DATA_OBJECT_FIELD )
-    {
-    output->SetFieldData(fd);
     }
 }
 

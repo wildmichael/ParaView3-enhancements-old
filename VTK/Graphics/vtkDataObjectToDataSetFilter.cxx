@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObjectToDataSetFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:14 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2002-02-04 16:22:10 $
+  Version:   $Revision: 1.40 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,7 +25,7 @@
 #include "vtkCellArray.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkDataObjectToDataSetFilter, "$Revision: 1.39 $");
+vtkCxxRevisionMacro(vtkDataObjectToDataSetFilter, "$Revision: 1.40 $");
 vtkStandardNewMacro(vtkDataObjectToDataSetFilter);
 
 //----------------------------------------------------------------------------
@@ -324,11 +324,6 @@ void vtkDataObjectToDataSetFilter::Execute()
       vtkErrorMacro(<<"Unsupported dataset type!");
     }
 
-  //Pass field data through to output
-  if ( this->GetOutput() )
-    {
-    this->GetOutput()->SetFieldData(input->GetFieldData());
-    }
 }
 
 // Get the output as vtkPolyData.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObject.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:16 $
-  Version:   $Revision: 1.80 $
+  Date:      $Date: 2002-02-04 16:22:10 $
+  Version:   $Revision: 1.81 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkExtentTranslator.h"
 
-vtkCxxRevisionMacro(vtkDataObject, "$Revision: 1.80 $");
+vtkCxxRevisionMacro(vtkDataObject, "$Revision: 1.81 $");
 vtkStandardNewMacro(vtkDataObject);
 
 // Initialize static member that controls global data release 
@@ -663,9 +663,32 @@ void vtkDataObject::CopyInformation( vtkDataObject *data )
 //----------------------------------------------------------------------------
 void vtkDataObject::ShallowCopy(vtkDataObject *src)
 {
+  if (!src)
+    {
+    vtkWarningMacro("Attempted to ShallowCopy from null.");
+    return;
+    }
+
   this->InternalDataObjectCopy(src);
 
-  this->SetFieldData(src->GetFieldData());
+  if (!src->FieldData)
+    {
+    this->SetFieldData(0);
+    }
+  else
+    {
+    if (this->FieldData)
+      {
+      this->FieldData->ShallowCopy(src->FieldData);
+      }
+    else
+      {
+      vtkFieldData* fd = vtkFieldData::New();
+      fd->ShallowCopy(src->FieldData);
+      this->SetFieldData(fd);
+      fd->Delete();
+      }
+    }
 }
 
 //----------------------------------------------------------------------------
