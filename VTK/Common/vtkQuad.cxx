@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuad.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-14 21:24:54 $
-  Version:   $Revision: 1.57 $
+  Date:      $Date: 1998-11-05 14:45:24 $
+  Version:   $Revision: 1.58 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -537,7 +537,7 @@ int vtkQuad::Triangulate(int vtkNotUsed(index), vtkIdList *ptIds,
   d2 = vtkMath::Distance2BetweenPoints(this->Points->GetPoint(1), 
                                    this->Points->GetPoint(3));
 
-  if ( d1 < d2 )
+  if ( d1 <= d2 )
     {
     ptIds->InsertId(0,this->PointIds->GetId(0));
     pts->InsertPoint(0,this->Points->GetPoint(0));
