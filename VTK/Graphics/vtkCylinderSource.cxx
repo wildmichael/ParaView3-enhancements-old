@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCylinderSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:33 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 2001-05-08 19:16:59 $
+  Version:   $Revision: 1.44 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -48,7 +48,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
 
-//------------------------------------------------------------------------------
+//----------------------------------------------------------------------------
 vtkCylinderSource* vtkCylinderSource::New()
 {
   // First try to create the object from the vtkObjectFactory
@@ -107,8 +107,10 @@ void vtkCylinderSource::Execute()
   newPoints->Allocate(numPts);
   newNormals = vtkNormals::New();
   newNormals->Allocate(numPts);
+  newNormals->GetData()->SetName("Normals");
   newTCoords = vtkTCoords::New();
   newTCoords->Allocate(numPts,2);
+  newTCoords->GetData()->SetName("TCoords");
 
   newPolys = vtkCellArray::New();
   newPolys->Allocate(newPolys->EstimateSize(numPolys,this->Resolution));
