@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-07-02 11:56:13 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1998-08-07 13:08:03 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -149,10 +149,24 @@ XVisualInfo *vtkOpenGLRenderWindow::GetDesiredVisualInfo()
   return ( v );
 }
 
+// Initialize static member that controls global maximum number of multisamples.
+static int vtkOpenGLRenderWindowGlobalMaximumNumberOfMultiSamples = 8;
+
+void vtkOpenGLRenderWindow::SetGlobalMaximumNumberOfMultiSamples(int val)
+{
+  if (val == vtkOpenGLRenderWindowGlobalMaximumNumberOfMultiSamples) return;
+  vtkOpenGLRenderWindowGlobalMaximumNumberOfMultiSamples = val;
+}
+
+int vtkOpenGLRenderWindow::GetGlobalMaximumNumberOfMultiSamples()
+{
+  return vtkOpenGLRenderWindowGlobalMaximumNumberOfMultiSamples;
+}
+
 vtkOpenGLRenderWindow::vtkOpenGLRenderWindow()
 {
   this->ContextId = NULL;
-  this->MultiSamples = 8;
+  this->MultiSamples = vtkOpenGLRenderWindowGlobalMaximumNumberOfMultiSamples;
   this->DisplayId = (Display *)NULL;
   this->WindowId = (Window)NULL;
   this->NextWindowId = (Window)NULL;

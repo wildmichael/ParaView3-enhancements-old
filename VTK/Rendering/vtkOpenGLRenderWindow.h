@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 1998-05-20 21:09:14 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-08-07 13:08:05 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -80,6 +80,11 @@ public:
   virtual Colormap GetDesiredColormap();
   virtual Visual  *GetDesiredVisual();
   XVisualInfo     *GetDesiredVisualInfo();
+
+  // Description:
+  // Set/Get the maximum number of multisamples
+  static void SetGlobalMaximumNumberOfMultiSamples(int val);
+  static int  GetGlobalMaximumNumberOfMultiSamples();
 
   vtkSetMacro(MultiSamples,int);
   vtkGetMacro(MultiSamples,int);
