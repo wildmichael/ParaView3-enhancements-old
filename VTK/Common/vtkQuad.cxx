@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuad.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-16 08:34:53 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1995-07-17 09:04:39 $
+  Version:   $Revision: 1.24 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -112,7 +112,7 @@ int vtkQuad::EvaluatePosition(float x[3], float closestPoint[3],
         }
       }
 
-    for (j=0; j<2; j++) fcol[j] -= x[indices[j]];
+    for (j=0; j<2; j++) fcol[j] -= closestPoint[indices[j]];
 //
 //  compute determinants and generate improvements
 //
