@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-03-23 14:18:20 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1994-04-11 17:14:57 $
+  Version:   $Revision: 1.12 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -237,7 +237,6 @@ void vlRenderer::ViewToWorld()
 void vlRenderer::WorldToView()
 {
   vlMatrix4x4 matrix;
-  int       i,j;
   float     view[4];
   float     *world;
 
