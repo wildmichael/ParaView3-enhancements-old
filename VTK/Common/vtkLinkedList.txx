@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinkedList.txx,v $
   Language:  C++
-  Date:      $Date: 2002-06-19 13:20:07 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-11-06 20:10:23 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,8 +22,9 @@
 
 #include "vtkLinkedList.h"
 
-#include "vtkLinkedListIterator.txx"
+#include "vtkAbstractList.txx"
 #include "vtkDebugLeaks.h"
+#include "vtkLinkedListIterator.txx"
 
 template <class DType>
 vtkLinkedList<DType> *vtkLinkedList<DType>::New()
