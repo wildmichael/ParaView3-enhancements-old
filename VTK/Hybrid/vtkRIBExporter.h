@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRIBExporter.h,v $
   Language:  C++
-  Date:      $Date: 2002-03-25 01:26:17 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2002-06-04 02:21:52 $
+  Version:   $Revision: 1.22 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -50,11 +50,16 @@
 #ifndef __vtkRIBExporter_h
 #define __vtkRIBExporter_h
 
-#include <stdio.h>
 #include "vtkExporter.h"
-#include "vtkRenderer.h"
-#include "vtkTexture.h"
-#include "vtkPolyData.h"
+
+class vtkActor;
+class vtkCamera;
+class vtkLight;
+class vtkPolyData;
+class vtkProperty;
+class vtkRenderer;
+class vtkTexture;
+class vtkUnsignedCharArray;
 
 class VTK_HYBRID_EXPORT vtkRIBExporter : public vtkExporter
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRIBProperty.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:30:38 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2002-06-04 02:21:52 $
+  Version:   $Revision: 1.17 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -28,7 +28,6 @@
 #ifndef __vtkRIBProperty_h
 #define __vtkRIBProperty_h
 
-#include <stdio.h>
 #include "vtkProperty.h"
 
 class vtkRIBRenderer;

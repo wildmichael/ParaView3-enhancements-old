@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLineWidget.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-29 18:26:39 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2002-06-04 02:21:52 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -72,7 +72,7 @@
 #define __vtkLineWidget_h
 
 #include "vtk3DWidget.h"
-#include "vtkLineSource.h"
+#include "vtkLineSource.h" // For passing calls to it
 
 class vtkActor;
 class vtkPolyDataMapper;

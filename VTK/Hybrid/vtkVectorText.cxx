@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectorText.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:30:42 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2002-06-04 02:21:52 $
+  Version:   $Revision: 1.30 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,9 +21,7 @@
 #include "vtkPolyDataReader.h"
 #include "vtkObjectFactory.h"
 
-#include <stdlib.h>
-
-vtkCxxRevisionMacro(vtkVectorText, "$Revision: 1.29 $");
+vtkCxxRevisionMacro(vtkVectorText, "$Revision: 1.30 $");
 vtkStandardNewMacro(vtkVectorText);
 
 char *VTK_VECTOR_TEXT_33 = (char *) "11 0.438482 "

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVRML.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:30:40 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2002-06-04 02:21:52 $
+  Version:   $Revision: 1.20 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -36,7 +36,6 @@
 #define _VTKVRML_H_
 
 #define DEFAULTINCREMENT        100
-#include <stdlib.h>
 
 #include "vtkConfigure.h"
 

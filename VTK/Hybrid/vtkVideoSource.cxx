@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVideoSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-29 21:25:59 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2002-06-04 02:21:52 $
+  Version:   $Revision: 1.28 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,6 @@
 
 #include <ctype.h>
 #include <time.h>
-#include <stdlib.h>
 
 //---------------------------------------------------------------
 // Important FrameBufferMutex rules:
@@ -61,7 +60,7 @@
 // Finally, when Execute() is reading from the FrameBuffer it must do
 // so from within a mutex lock.  Otherwise tearing artifacts might result.
 
-vtkCxxRevisionMacro(vtkVideoSource, "$Revision: 1.27 $");
+vtkCxxRevisionMacro(vtkVideoSource, "$Revision: 1.28 $");
 vtkStandardNewMacro(vtkVideoSource);
 
 #if ( _MSC_VER >= 1300 ) // Visual studio .NET

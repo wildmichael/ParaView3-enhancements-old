@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRIBLight.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:30:37 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2002-06-04 02:21:52 $
+  Version:   $Revision: 1.16 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,7 +26,6 @@
 #ifndef __vtkRIBLight_h
 #define __vtkRIBLight_h
 
-#include <stdio.h>
 #include "vtkLight.h"
 
 class vtkRIBRenderer;
