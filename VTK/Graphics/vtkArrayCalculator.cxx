@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkArrayCalculator.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-07 14:06:25 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2001-03-15 16:05:04 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -354,6 +354,8 @@ void vtkArrayCalculator::SetFunction(const char* function)
     {
     return;
     }
+
+  this->Modified();
   
   if (this->Function)
     {
