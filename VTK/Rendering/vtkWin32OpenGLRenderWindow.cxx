@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-01-26 17:41:35 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 2000-02-02 22:32:59 $
+  Version:   $Revision: 1.45 $
   Thanks:    to Horst Schreiber for developing this MFC code
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -713,17 +713,10 @@ int *vtkWin32OpenGLRenderWindow::GetScreenSize(void)
 {
   RECT rect;
 
-  // if we aren't mapped then just return the ivar 
-  if (!this->Mapped)
-    {
-    return(this->Size);
-    }
-
-  //  Find the current window size 
-  GetClientRect(this->WindowId, &rect);
-
-  this->Size[0] = rect.right;
-  this->Size[1] = rect.bottom;
+  SystemParametersInfo(SPI_GETWORKAREA, 0, &rect, 0);
+                            
+  this->Size[0] = rect.right - rect.left;
+  this->Size[1] = rect.bottom - rect.top;
   
   return this->Size;
 }
@@ -774,13 +767,6 @@ void vtkWin32OpenGLRenderWindow::SetFullScreen(int arg)
     // if window already up get its values 
     if (this->WindowId)
       {
-      //  Find the current window size 
-//      XGetWindowAttributes(this->DisplayId, 
-//			   this->WindowId, &attribs);
-      
-//      this->OldScreen[2] = attribs.width;
-//      this->OldScreen[3] = attribs.height;;
-
       temp = this->GetPosition();      
       this->OldScreen[0] = temp[0];
       this->OldScreen[1] = temp[1];
@@ -824,8 +810,9 @@ void vtkWin32OpenGLRenderWindow::PrefFullScreen()
   // use full screen 
   this->Position[0] = 0;
   this->Position[1] = 0;
-  this->Size[0] = size[0];
-  this->Size[1] = size[1];
+  this->Size[0] = size[0] - 2*GetSystemMetrics(SM_CXFRAME);
+  this->Size[1] = size[1] - 
+    2*GetSystemMetrics(SM_CYFRAME) - GetSystemMetrics(SM_CYCAPTION);
 
   // don't show borders 
   this->Borders = 0;
