@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2000-08-02 18:22:08 $
-  Version:   $Revision: 1.97 $
+  Date:      $Date: 2000-08-18 17:18:08 $
+  Version:   $Revision: 1.98 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -63,6 +63,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkGraphicsFactory.h"
 
 class vtkRenderWindowInteractor;
+
+
 
 // lets define the different types of stereo
 #define VTK_STEREO_CRYSTAL_EYES 1
@@ -396,6 +398,10 @@ protected:
   void (*AbortCheckMethod)(void *);
   void (*AbortCheckMethodArgDelete)(void *);
   void *AbortCheckMethodArg;
+
+  // This is used to try to avoid extra make current calls.
+  // Make current calls are expensive on Win32.
+  static vtkRenderWindow *CurrentRenderWindow;
 };
 
 // Description:
