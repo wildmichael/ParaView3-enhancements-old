@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-31 23:13:18 $
-  Version:   $Revision: 1.60 $
+  Date:      $Date: 2002-06-18 19:07:28 $
+  Version:   $Revision: 1.61 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -29,7 +29,7 @@
 #include "vtkUnstructuredGrid.h"
 #include "vtkUnstructuredGridReader.h"
 
-vtkCxxRevisionMacro(vtkDataSetReader, "$Revision: 1.60 $");
+vtkCxxRevisionMacro(vtkDataSetReader, "$Revision: 1.61 $");
 vtkStandardNewMacro(vtkDataSetReader);
 
 vtkDataSetReader::vtkDataSetReader()
@@ -244,7 +244,7 @@ int vtkDataSetReader::ReadOutputType()
   //
   if (!this->ReadString(line))
     {
-    vtkErrorMacro(<< "Premature EOF reading dataset keyword");
+    //vtkErrorMacro(<< "Premature EOF reading dataset keyword");
     return -1;
     }
 
@@ -254,7 +254,7 @@ int vtkDataSetReader::ReadOutputType()
     //
     if (!this->ReadString(line))
       {
-      vtkErrorMacro(<< "Premature EOF reading type");
+      //vtkErrorMacro(<< "Premature EOF reading type");
       this->CloseVTKFile ();
       return -1;
       }
@@ -282,19 +282,19 @@ int vtkDataSetReader::ReadOutputType()
       }
     else
       {
-      vtkErrorMacro(<< "Cannot read dataset type: " << line);
+      //vtkErrorMacro(<< "Cannot read dataset type: " << line);
       return -1;
       }
     }
 
   else if ( !strncmp(this->LowerCase(line),"field",(unsigned long)5) )
     {
-    vtkErrorMacro(<<"This object can only read datasets, not fields");
+    //vtkErrorMacro(<<"This object can only read datasets, not fields");
     }
   
   else
     {
-    vtkErrorMacro(<<"Expecting DATASET keyword, got " << line << " instead");
+    //vtkErrorMacro(<<"Expecting DATASET keyword, got " << line << " instead");
     }
 
   return -1;
