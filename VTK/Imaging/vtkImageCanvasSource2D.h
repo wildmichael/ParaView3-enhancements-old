@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCanvasSource2D.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:13:29 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2000-09-03 14:10:25 $
+  Version:   $Revision: 1.20 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -87,7 +87,7 @@ public:
   vtkGetObjectMacro(ImageData, vtkImageData);
   
   // Description:
-  // Set/Get DrawValue.  This is the value that is used when filling datas
+  // Set/Get DrawValue.  This is the value that is used when filling data
   // or drawing lines.
   void SetDrawColor(int dim, float *color);
   void GetDrawColor(int dim, float *color);

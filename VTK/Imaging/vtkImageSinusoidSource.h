@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSinusoidSource.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:13:59 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2000-09-03 14:10:27 $
+  Version:   $Revision: 1.18 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -80,7 +80,7 @@ public:
   vtkGetMacro(Phase, float);
 
   // Description:
-  // Set/Get the magnitude of the sinusiod.
+  // Set/Get the magnitude of the sinusoid.
   vtkSetMacro(Amplitude, float);
   vtkGetMacro(Amplitude, float);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKochanekSpline.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-01 16:28:12 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2000-09-03 14:10:25 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -80,7 +80,7 @@ public:
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
-  // Construct a KochanekSpline wth the following defaults: DefaultBias = 0,
+  // Construct a KochanekSpline with the following defaults: DefaultBias = 0,
   // DefaultTension = 0, DefaultContinuity = 0.
   static vtkKochanekSpline *New();
 

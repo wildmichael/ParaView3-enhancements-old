@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageInPlaceFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:08:30 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2000-09-03 14:10:26 $
+  Version:   $Revision: 1.24 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -47,7 +47,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // or some other object is referencing the input region.  
 
 // .SECTION See Also
-// vtkImageToImageFilter vtImageMultipleInputFilter vtkImageTwoInputFilter
+// vtkImageToImageFilter vtkImageMultipleInputFilter vtkImageTwoInputFilter
 // vtkImageTwoOutputFilter
 
 

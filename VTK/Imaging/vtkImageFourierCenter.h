@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageFourierCenter.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:08:23 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2000-09-03 14:10:26 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -43,7 +43,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // display.
 // .SECTION Description
 // Is used for dispaying images in frequency space.  FFT converts spatial
-// images into ferequency space, but puts the zero frequency at the origin.
+// images into frequency space, but puts the zero frequency at the origin.
 // This filter shifts the zero frequency to the center of the image.
 // Input and output are assumed to be floats.
 

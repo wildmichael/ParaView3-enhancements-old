@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageOpenClose3D.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:13:52 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2000-09-03 14:10:26 $
+  Version:   $Revision: 1.19 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -43,15 +43,15 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // .SECTION Description
 // vtkImageOpenClose3D performs opening or closing by having two 
 // vtkImageErodeDilates in series.  The size of operation
-// is determined by the method SetKernelSize, and the operator is an elispe.
+// is determined by the method SetKernelSize, and the operator is an ellipse.
 // OpenValue and CloseValue determine how the filter behaves.  For binary
 // images Opening and closing behaves as expected.
 // Close value is first dilated, and then eroded.
 // Open value is first eroded, and then dilated.
-// Degenerate two dimesional opening/closing can be achieved by seting the
+// Degenerate two dimensional opening/closing can be achieved by setting the
 // one axis the 3D KernelSize to 1.
 // Values other than open value and close value are not touched.
-// This enables the filter to processes segemented images containing more than
+// This enables the filter to processes segmented images containing more than
 // two tags.
 
 

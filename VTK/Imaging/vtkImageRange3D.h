@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageRange3D.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:13:55 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2000-09-03 14:10:26 $
+  Version:   $Revision: 1.17 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,7 +42,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // .NAME vtkImageRange3D - Max - min of a circular neighborhood.
 // .SECTION Description
 // vtkImageRange3D replaces a pixel with the maximum minus minimum over
-// an elipsiodal neighborhood.  If KernelSize of an axis is 1, no processing
+// an ellipsoidal neighborhood.  If KernelSize of an axis is 1, no processing
 // is done on that axis.
 
 
@@ -63,7 +63,7 @@ public:
   
   // Description:
   // This method sets the size of the neighborhood.  It also sets the 
-  // default middle of the neighborhood and computes the eliptical foot print.
+  // default middle of the neighborhood and computes the elliptical foot print.
   void SetKernelSize(int size0, int size1, int size2);
   
 protected:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageLogarithmicScale.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:13:45 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2000-09-03 14:10:26 $
+  Version:   $Revision: 1.15 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -61,7 +61,7 @@ public:
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
-  // Set/Get the scale factor for the logarithmic funciton.
+  // Set/Get the scale factor for the logarithmic function.
   vtkSetMacro(Constant,float);
   vtkGetMacro(Constant,float);
   

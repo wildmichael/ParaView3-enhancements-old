@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageClip.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:13:30 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2000-09-03 14:10:25 $
+  Version:   $Revision: 1.26 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -52,7 +52,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define __vtkImageClip_h
 
 // I did not make this a subclass of in place filter because
-// the references on the data do not matter. I make no modifiactions
+// the references on the data do not matter. I make no modifications
 // to the data.
 #include "vtkImageToImageFilter.h"
 
@@ -64,7 +64,7 @@ public:
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
-  // The whole extent of the output has to be set explicitely.
+  // The whole extent of the output has to be set explicitly.
   void SetOutputWholeExtent(int extent[6]);
   void SetOutputWholeExtent(int minX, int maxX, int minY, int maxY, 
 			    int minZ, int maxZ);

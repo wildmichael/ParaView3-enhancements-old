@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageLogic.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:13:46 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2000-09-03 14:10:26 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -41,7 +41,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 =========================================================================*/
 // .NAME vtkImageLogic - And, or, xor, nand, nor, not.
 // .SECTION Description
-// vtkImageLogic implents basic logic operations.
+// vtkImageLogic implements basic logic operations.
 // SetOperation is used to select the filter's behavior.
 // The filter can take two or one input. Inputs must have the same type.
 

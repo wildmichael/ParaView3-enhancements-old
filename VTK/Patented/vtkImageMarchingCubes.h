@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMarchingCubes.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:14:17 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2000-09-03 14:10:27 $
+  Version:   $Revision: 1.24 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -111,7 +111,7 @@ public:
   vtkBooleanMacro(ComputeScalars, int);
   
   // Description:
-  // Set/Get the computation of normals. Normal computation is failrly expensive
+  // Set/Get the computation of normals. Normal computation is fairly expensive
   // in both time and storage. If the output data will be processed by filters
   // that modify topology or geometry, it may be wise to turn Normals and Gradients off.
   vtkSetMacro(ComputeNormals, int);

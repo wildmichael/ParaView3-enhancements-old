@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageConstantPad.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:13:32 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2000-09-03 14:10:25 $
+  Version:   $Revision: 1.19 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,7 +39,7 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-// .NAME vtkImageConstantPad - Makes image larger by padding with contant.
+// .NAME vtkImageConstantPad - Makes image larger by padding with constant.
 // .SECTION Description
 // vtkImageConstantPad changes the image extent of its input.
 // Any pixels outside of the original image extent are filled with

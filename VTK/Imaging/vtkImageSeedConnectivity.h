@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSeedConnectivity.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:13:57 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2000-09-03 14:10:26 $
+  Version:   $Revision: 1.20 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -44,7 +44,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // vtkImageSeedConnectivity marks pixels connected to user supplied seeds.
 // The input must be unsigned char, and the output is also unsigned char.  If
 // a seed supplied by the user does not have pixel value "InputTrueValue",
-// then the image is scaned +x, +y, +z until a pixel is encountered with
+// then the image is scanned +x, +y, +z until a pixel is encountered with
 // value "InputTrueValue".  This new pixel is used as the seed .  Any pixel
 // with out value "InputTrueValue" is consider off.  The output pixels values
 // are 0 for any off pixel in input, "OutputTrueValue" for any pixels
@@ -74,7 +74,7 @@ public:
   void AddSeed(int i0, int i1);
 
   // Description:
-  // Set/Get what value is considered as conencting pixels.
+  // Set/Get what value is considered as connecting pixels.
   vtkSetMacro(InputConnectValue, int);
   vtkGetMacro(InputConnectValue, int);
 
@@ -89,7 +89,7 @@ public:
   vtkGetMacro(OutputUnconnectedValue, int);
   
   // Description:
-  // Get the vtkImageCOnnector used bythis filter.
+  // Get the vtkImageCOnnector used by this filter.
   vtkGetObjectMacro(Connector,vtkImageConnector);
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageShiftScale.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:13:58 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2000-09-03 14:10:26 $
+  Version:   $Revision: 1.34 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -99,7 +99,7 @@ public:
   // Description:
   // When the ClampOverflow flag is on, the data is thresholded so that
   // the output value does not exceed the max or min of the data type.
-  // By defualt, ClampOverflow is off.
+  // By default, ClampOverflow is off.
   vtkSetMacro(ClampOverflow, int);
   vtkGetMacro(ClampOverflow, int);
   vtkBooleanMacro(ClampOverflow, int);

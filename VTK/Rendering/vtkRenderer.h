@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-01 16:29:22 $
-  Version:   $Revision: 1.91 $
+  Date:      $Date: 2000-09-03 14:10:25 $
+  Version:   $Revision: 1.92 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -175,7 +175,7 @@ public:
   void CreateLight(void);
 
   // Description:
-  // Compute the bounding box of all the visibile props
+  // Compute the bounding box of all the visible props
   // Used in ResetCamera() and ResetCameraClippingRange()
   void ComputeVisiblePropBounds( float bounds[6] );
 

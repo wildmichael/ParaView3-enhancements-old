@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMathematics.h,v $
   Language:  C++
-  Date:      $Date: 2000-05-11 18:56:01 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2000-09-03 14:10:26 $
+  Version:   $Revision: 1.21 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -41,8 +41,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 =========================================================================*/
 // .NAME vtkImageMathematics - Add, subtract, multiply, divide, invert, sin, cos, exp, log.
 // .SECTION Description
-// vtkImageMathematics implents basic mathematic operations SetOperation is
-// used to select the filteres behavior.  The filter can take two or one
+// vtkImageMathematics implements basic mathematic operations SetOperation is
+// used to select the filters behavior.  The filter can take two or one
 // input.
 
 

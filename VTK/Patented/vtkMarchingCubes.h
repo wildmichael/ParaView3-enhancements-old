@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingCubes.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:14:19 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 2000-09-03 14:10:27 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -95,7 +95,7 @@ public:
   unsigned long int GetMTime();
 
   // Description:
-  // Set/Get the computation of normals. Normal computation is failrly
+  // Set/Get the computation of normals. Normal computation is fairly
   // expensive in both time and storage. If the output data will be
   // processed by filters that modify topology or geometry, it may be
   // wise to turn Normals and Gradients off.
@@ -129,7 +129,7 @@ public:
   void CreateDefaultLocator();
 
   // Description:
-  // Obsolete method for legacy compatability. Do not use.
+  // Obsolete method for legacy compatibility. Do not use.
   void SetLocator(vtkPointLocator& locator) {this->SetLocator(&locator);}
   
 protected:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageHybridMedian2D.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:08:28 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2000-09-03 14:10:26 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,7 +39,7 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-// .NAME vtkImageHybridMedian2D - Median filter that preseverse lines and 
+// .NAME vtkImageHybridMedian2D - Median filter that preserves lines and 
 // corners.
 // .SECTION Description
 // vtkImageHybridMedian2D is a median filter that preserves thin lines and

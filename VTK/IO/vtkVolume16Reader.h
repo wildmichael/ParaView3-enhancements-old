@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume16Reader.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-01 16:30:04 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2000-09-03 14:10:25 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -55,7 +55,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // read. Thus to read an image set ImageRange[0] = ImageRange[1] = slice 
 // number. The default behavior is to read a single file (i.e., image slice 1).
 //
-// The DataMask instance variable is used to read data files with imbeded
+// The DataMask instance variable is used to read data files with imbedded
 // connectivity or segmentation information. For example, some data has
 // the high order bit set to indicate connected surface. The DataMask allows
 // you to select this data. Other important ivars include HeaderSize, which

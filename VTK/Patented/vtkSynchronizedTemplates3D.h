@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSynchronizedTemplates3D.h,v $
   Language:  C++
-  Date:      $Date: 2000-08-13 22:12:27 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2000-09-03 14:10:27 $
+  Version:   $Revision: 1.15 $
 
 
 
@@ -90,7 +90,7 @@ public:
   unsigned long int GetMTime();
 
   // Description:
-  // Set/Get the computation of normals. Normal computation is failrly
+  // Set/Get the computation of normals. Normal computation is fairly
   // expensive in both time and storage. If the output data will be
   // processed by filters that modify topology or geometry, it may be
   // wise to turn Normals and Gradients off.

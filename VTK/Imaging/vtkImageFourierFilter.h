@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageFourierFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:08:23 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2000-09-03 14:10:26 $
+  Version:   $Revision: 1.24 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -44,9 +44,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // vtkImageFourierFilter is a class of filters that use complex numbers
 // this superclass is a container for methods that manipulate these structure
 // including fast Fourier transforms.  Complex numbers may become a class.
-// This should realy be a helper class.
-
-
+// This should really be a helper class.
 #ifndef __vtkImageFourierFilter_h
 #define __vtkImageFourierFilter_h
 

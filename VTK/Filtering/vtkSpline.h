@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSpline.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-01 16:29:42 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2000-09-03 14:10:25 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -100,7 +100,7 @@ public:
 
   // Description:
   // Control whether the spline is open or closed. A closed spline forms
-  // a continous loop: the first and last points are the same, and
+  // a continuous loop: the first and last points are the same, and
   // derivatives are continuous.
   vtkSetMacro(Closed,int);
   vtkGetMacro(Closed,int);

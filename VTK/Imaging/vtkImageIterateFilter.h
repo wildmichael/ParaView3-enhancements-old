@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageIterateFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:13:44 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2000-09-03 14:10:26 $
+  Version:   $Revision: 1.23 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -46,7 +46,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // and output caches are temporarily changed to "fool" the subclasses.  I
 // believe the correct solution is to pass the in and out cache to the
 // subclasses methods as arguments.  Now the data is passes.  Can the caches
-// be passed, and data retieved from the cache? 
+// be passed, and data retrieved from the cache? 
 
 #ifndef __vtkImageIterateFilter_h
 #define __vtkImageIterateFilter_h
@@ -99,7 +99,7 @@ protected:
   // Allows subclass to specify the number of iterations  
   virtual void SetNumberOfIterations(int num);
   
-  // for filteres that execute multiple times.
+  // for filters that execute multiple times.
   int NumberOfIterations;
   int Iteration;
   // A list of intermediate caches that is created when 

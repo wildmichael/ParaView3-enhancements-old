@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageResample.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:13:57 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2000-09-03 14:10:26 $
+  Version:   $Revision: 1.25 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -78,7 +78,7 @@ public:
   vtkBooleanMacro(Interpolate,int);
   
   // Description:
-  // Dimensionality is the number of axes which are considered durring
+  // Dimensionality is the number of axes which are considered during
   // execution. To process images dimensionality would be set to 2.
   // This has the same effect as setting the output spacing of the third
   // axis to 1.0

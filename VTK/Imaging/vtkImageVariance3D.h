@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageVariance3D.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:14:04 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2000-09-03 14:10:27 $
+  Version:   $Revision: 1.16 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,7 +42,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // .NAME vtkImageVariance3D - Variance in a neighborhood.
 // .SECTION Description
 // vtkImageVariance3D replaces each pixel with a measurement of 
-// pixel variance in a eliptical neighborhood centered on that pixel.
+// pixel variance in a elliptical neighborhood centered on that pixel.
 // The value computed is not exactly the variance.
 // The difference between the neighbor values and center value is computed
 // and squared for each neighbor.  These values are summed and divided by

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPostScriptWriter.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:14:09 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2000-09-03 14:10:27 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,7 +42,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // .NAME vtkPostScriptWriter - Writes an image as a PostScript file.
 // .SECTION Description
 // vtkPostScriptWriter writes an image as a PostScript file using some
-// reasonable scalings and centerd on the page which is assumed to be
+// reasonable scalings and centered on the page which is assumed to be
 // about 8.5 by 11 inches. This is based loosely off of the code from
 // pnmtops.c. Right now there aren't any real options.
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLODProp3D.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-01 16:28:14 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2000-09-03 14:10:25 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -187,7 +187,7 @@ public:
   // Description:
   // Turn on / off automatic selection of picking LOD. 
   // This is on by default. If it is off, then the SelectedLODID is 
-  // rendered regarless of rendering time or desired update rate. 
+  // rendered regardless of rendering time or desired update rate. 
   vtkSetClampMacro( AutomaticPickLODSelection, int, 0, 1 );
   vtkGetMacro( AutomaticPickLODSelection, int );
   vtkBooleanMacro( AutomaticPickLODSelection, int );

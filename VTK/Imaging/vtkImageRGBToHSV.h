@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageRGBToHSV.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:13:55 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2000-09-03 14:10:26 $
+  Version:   $Revision: 1.15 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -41,7 +41,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 =========================================================================*/
 // .NAME vtkImageRGBToHSV - Converts RGB components to HSV.
 // .SECTION Description
-// For each pixel with red, blue, and green compnents this
+// For each pixel with red, blue, and green components this
 // filter output the color coded as hue, saturation and value.
 // Output type must be the same as input type.
 

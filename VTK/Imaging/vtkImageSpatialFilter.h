@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSpatialFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:14:01 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2000-09-03 14:10:27 $
+  Version:   $Revision: 1.40 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,7 +42,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // .NAME vtkImageSpatialFilter - Filters that operate on pixel neighborhoods.
 // .SECTION Description
 // vtkImageSpatialFilter is a super class for filters that operate on an
-// input neighborhood for each output pixel. It handels even sized
+// input neighborhood for each output pixel. It handles even sized
 // neighborhoods, but their can be a half pixel shift associated with
 // processing.  This superclass has some logic for handling boundaries.  It
 // can split regions into boundary and non-boundary pieces and call different

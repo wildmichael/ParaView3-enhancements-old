@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingContourFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:14:18 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2000-09-03 14:10:27 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -124,7 +124,7 @@ public:
   unsigned long GetMTime();
 
   // Description:
-  // Set/Get the computation of normals. Normal computation is failrly
+  // Set/Get the computation of normals. Normal computation is fairly
   // expensive in both time and storage. If the output data will be
   // processed by filters that modify topology or geometry, it may be
   // wise to turn Normals and Gradients off.

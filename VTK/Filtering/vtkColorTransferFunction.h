@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkColorTransferFunction.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-01 16:26:59 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2000-09-03 14:10:24 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -150,7 +150,7 @@ public:
   // **********************************************************
   
   // Description:
-  // Depricated functions (after VTK 3.1.2) Don't use.
+  // Deprecated functions (after VTK 3.1.2) Don't use.
   // Get GetSize() instead;
   int  GetTotalSize();
   int  GetRedSize(); 
@@ -158,7 +158,7 @@ public:
   int  GetBlueSize();
 
   // Description:
-  // Depricated functions (after VTK 3.1.2) Don't use.
+  // Deprecated functions (after VTK 3.1.2) Don't use.
   // Use AddRGBPoint() or AddHSVPoint instead
   void AddRedPoint( float x, float r );
   void AddGreenPoint( float x, float g );

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageFlip.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:13:39 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2000-09-03 14:10:26 $
+  Version:   $Revision: 1.25 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -69,7 +69,7 @@ public:
 
   // Description:
   // Specify which axes will be flipped.
-  // For compatability with old scripts
+  // For compatibility with old scripts
   void SetFilteredAxes(int axis) {this->SetFilteredAxis(axis);}
   
   // Description:

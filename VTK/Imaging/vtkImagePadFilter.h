@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagePadFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:13:53 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2000-09-03 14:10:26 $
+  Version:   $Revision: 1.26 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -43,7 +43,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // .SECTION Description
 // vtkImagePadFilter Changes the image extent of an image.  If the image
 // extent is larger than the input image extent, the extra pixels are
-// filled by an alogorithm detemined by the subclass.
+// filled by an algorithm determined by the subclass.
 // The image extent of the output has to be specified.
 
 
@@ -60,7 +60,7 @@ public:
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
-  // The image extent of the output has to be set explicitely.
+  // The image extent of the output has to be set explicitly.
   void SetOutputWholeExtent(int extent[6]);
   void SetOutputWholeExtent(int minX, int maxX, int minY, int maxY, 
 			    int minZ, int maxZ);

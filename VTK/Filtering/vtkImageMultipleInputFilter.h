@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMultipleInputFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:13:51 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2000-09-03 14:10:26 $
+  Version:   $Revision: 1.36 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -45,7 +45,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // have any number of inputs. Steaming is not available in this class yet.
 
 // .SECTION See Also
-// vtkImageToImageFilter vtImageInPlaceFilter vtkImageTwoInputFilter
+// vtkImageToImageFilter vtkImageInPlaceFilter vtkImageTwoInputFilter
 // vtkImageTwoOutputFilter
 
 
@@ -82,7 +82,7 @@ public:
   // Description:
   // Turning bypass on will cause the filter to turn off and
   // simply pass the data from the first input (input0) through.  
-  // It is implemented for consistancy with vtkImageToImageFilter.
+  // It is implemented for consistency with vtkImageToImageFilter.
   vtkSetMacro(Bypass,int);
   vtkGetMacro(Bypass,int);
   vtkBooleanMacro(Bypass,int);

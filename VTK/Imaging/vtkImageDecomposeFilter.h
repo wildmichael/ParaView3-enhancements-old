@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDecomposeFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:13:35 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2000-09-03 14:10:25 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -57,14 +57,14 @@ class VTK_EXPORT vtkImageDecomposeFilter : public vtkImageIterateFilter
 {
 public:
   // Description:
-  // Construct an instance of vtkImageDecomposeFilter fitler with default
+  // Construct an instance of vtkImageDecomposeFilter filter with default
   // dimensionality 3.
   static vtkImageDecomposeFilter *New();
   vtkTypeMacro(vtkImageDecomposeFilter,vtkImageIterateFilter);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
-  // Dimensionality is the number of axes which are considered durring
+  // Dimensionality is the number of axes which are considered during
   // execution. To process images dimensionality would be set to 2.
   void SetDimensionality(int dim);
   vtkGetMacro(Dimensionality,int);

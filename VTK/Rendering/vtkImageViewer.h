@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageViewer.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:14:04 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2000-09-03 14:10:27 $
+  Version:   $Revision: 1.38 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -42,7 +42,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 =========================================================================*/
 // .NAME vtkImageViewer - Display a 2d image.
 // .SECTION Description
-// vtkImageViewer is a convinience class for displaying a 2d image.  It
+// vtkImageViewer is a convenience class for displaying a 2d image.  It
 // packages up the functionality found in vtkImageWindow, vtkImager,
 // vtkActor2D and vtkImageMapper into a single easy to use class.  Behind the
 // scenes these four classes are actually used to to provide the required

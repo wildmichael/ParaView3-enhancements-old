@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageImport.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:13:43 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2000-09-03 14:10:26 $
+  Version:   $Revision: 1.24 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -80,7 +80,7 @@ public:
   
   // Description:
   // Set/Get the data type of pixels in the imported data.
-  // As a convienience, the OutputScalarType is set to the same value.
+  // As a convenience, the OutputScalarType is set to the same value.
   vtkSetMacro(DataScalarType,int);
   void SetDataScalarTypeToDouble(){this->SetDataScalarType(VTK_DOUBLE);}
   void SetDataScalarTypeToFloat(){this->SetDataScalarType(VTK_FLOAT);}

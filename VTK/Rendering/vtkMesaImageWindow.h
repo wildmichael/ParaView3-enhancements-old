@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaImageWindow.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:14:07 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2000-09-03 14:10:27 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -122,7 +122,7 @@ public:
   virtual void EraseWindow() {this->vtkImageWindow::EraseWindow();};
 
   // Description:
-  // Override the default implmentation so that we can activly switch between
+  // Override the default implementation so that we can actively switch between
   // on and offscreen rendering.
   virtual void SetOffScreenRendering(int i);
 

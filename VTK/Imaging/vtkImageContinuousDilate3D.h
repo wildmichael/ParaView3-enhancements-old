@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageContinuousDilate3D.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:13:32 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2000-09-03 14:10:25 $
+  Version:   $Revision: 1.13 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,7 +42,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // .NAME vtkImageContinuousDilate3D - Dilate implemented as a maximum.
 // .SECTION Description
 // vtkImageContinuousDilate3D replaces a pixel with the maximum over
-// an elipsiodal neighborhood.  If KernelSize of an axis is 1, no processing
+// an ellipsoidal neighborhood.  If KernelSize of an axis is 1, no processing
 // is done on that axis.
 
 
@@ -59,7 +59,7 @@ class VTK_EXPORT vtkImageContinuousDilate3D : public vtkImageSpatialFilter
 public:
 
   // Description:
-  // Construct an instance of vtkImageContinuousDilate3D fitler.
+  // Construct an instance of vtkImageContinuousDilate3D filter.
   // By default zero values are dilated.
   static vtkImageContinuousDilate3D *New();
   vtkTypeMacro(vtkImageContinuousDilate3D,vtkImageSpatialFilter);

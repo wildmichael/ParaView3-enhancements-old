@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageGaussianSmooth.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:13:39 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2000-09-03 14:10:26 $
+  Version:   $Revision: 1.30 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -74,7 +74,7 @@ public:
 
   // Description:
   // Sets/Gets the Standard deviation of the gaussian in pixel units.
-  // These methods are provided for compatability with old scripts
+  // These methods are provided for compatibility with old scripts
   void SetStandardDeviation(float a,float b)
         {this->SetStandardDeviations(a,b,0.0);}
   void SetStandardDeviation(float a,float b,float c) 

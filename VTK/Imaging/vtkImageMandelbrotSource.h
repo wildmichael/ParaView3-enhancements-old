@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMandelbrotSource.h,v $
   Language:  C++
-  Date:      $Date: 2000-08-23 16:43:30 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2000-09-03 14:10:26 $
+  Version:   $Revision: 1.16 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -72,21 +72,21 @@ public:
   int *GetWholeExtent() {return this->WholeExtent;}
   
   // Description:
-  // Set the projection from  the 4D space (4 paramters / 2 imaginary numbers)
+  // Set the projection from  the 4D space (4 parameters / 2 imaginary numbers)
   // to the axes of the 3D Volume. 
   // 0=C_Real, 1=C_Imaginary, 2=X_Real, 4=X_Imaginary
   vtkSetVector3Macro(ProjectionAxes, int);
   vtkGetVector3Macro(ProjectionAxes, int);
 
   // Description:
-  // Imaginary and real value for C (contant in equation) 
+  // Imaginary and real value for C (constant in equation) 
   // and X (initial value).
   vtkSetVector4Macro(OriginCX, double);
   //void SetOriginCX(double cReal, double cImag, double xReal, double xImag);
   vtkGetVector4Macro(OriginCX, double);
 
   // Description:
-  // Imaginary and real value for C (contant in equation) 
+  // Imaginary and real value for C (constant in equation) 
   // and X (initial value).
   vtkSetVector4Macro(SampleCX, double);
   //void SetOriginCX(double cReal, double cImag, double xReal, double xImag);
@@ -109,7 +109,7 @@ public:
 
   // Description:
   // Convienence for Viewer.  Copy the OriginCX and the SpacingCX.
-  // What about other params ???
+  // What about other parameters ???
   void CopyOriginAndSample(vtkImageMandelbrotSource *source); 
 
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingSquares.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:14:19 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2000-09-03 14:10:27 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -119,7 +119,7 @@ public:
   void CreateDefaultLocator();
 
   // Description:
-  // Obsolete method for legacy compatability. Do not use.
+  // Obsolete method for legacy compatibility. Do not use.
   void SetLocator(vtkPointLocator& locator) {this->SetLocator(&locator);};
   
 protected:

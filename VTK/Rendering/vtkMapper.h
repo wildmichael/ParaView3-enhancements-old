@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-01 16:28:32 $
-  Version:   $Revision: 1.63 $
+  Date:      $Date: 2000-09-03 14:10:25 $
+  Version:   $Revision: 1.64 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -177,7 +177,7 @@ public:
   // tends to be slower but it can handle larger datasets.
   // The default value is immediate mode off. If you are 
   // having problems rendering a large dataset you might
-  // want to consider using imediate more rendering.
+  // want to consider using immediate more rendering.
   static void SetGlobalImmediateModeRendering(int val);
   static void GlobalImmediateModeRenderingOn() 
     {vtkMapper::SetGlobalImmediateModeRendering(1);};

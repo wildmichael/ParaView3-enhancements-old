@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageThreshold.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:14:02 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2000-09-03 14:10:27 $
+  Version:   $Revision: 1.26 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -41,7 +41,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 =========================================================================*/
 // .NAME vtkImageThreshold -  Flexible threshold
 // .SECTION Description
-// vtkImageThreshold Can do binary or continous thresholding for lower, upper
+// vtkImageThreshold Can do binary or continuous thresholding for lower, upper
 // or a range of data.  The output data type may be different than the
 // output, but defaults to the same type.
 

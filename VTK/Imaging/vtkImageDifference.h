@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDifference.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:13:35 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2000-09-03 14:10:25 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -83,7 +83,7 @@ public:
 
 
   // Description:
-  // Specify a threshold tolorance for pixel differences.
+  // Specify a threshold tolerance for pixel differences.
   vtkSetMacro(Threshold,int);
   vtkGetMacro(Threshold,int);
 
