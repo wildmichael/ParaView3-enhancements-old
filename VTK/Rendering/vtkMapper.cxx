@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-06-06 14:28:52 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 1997-06-06 21:22:17 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -115,7 +115,16 @@ vtkColorScalars *vtkMapper::GetColors()
   if (scalars &&  this->ScalarVisibility)
     {
     // if the scalars have a lookup table use it instead
-    this->SetLookupTable(scalars->GetLookupTable());
+    if (scalars->GetLookupTable())
+      {
+      this->SetLookupTable(scalars->GetLookupTable());
+      }
+    else
+      {
+      // make sure we have a lookup table
+      if ( this->LookupTable == NULL ) this->CreateDefaultLookupTable();
+      this->LookupTable->Build();
+      }
     }
   else
     {
@@ -124,10 +133,6 @@ vtkColorScalars *vtkMapper::GetColors()
     this->Colors = colors = NULL;
     return colors;
     }
-    
-  // make sure we have a lookup table
-  if ( this->LookupTable == NULL ) this->CreateDefaultLookupTable();
-  this->LookupTable->Build();
 
   //
   // create colors
