@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadraticQuad.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-18 20:22:20 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2002-06-21 09:52:10 $
+  Version:   $Revision: 1.13 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 #include "vtkFloatArray.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkQuadraticQuad, "$Revision: 1.12 $");
+vtkCxxRevisionMacro(vtkQuadraticQuad, "$Revision: 1.13 $");
 vtkStandardNewMacro(vtkQuadraticQuad);
 
 // Construct the line with two points.
@@ -384,7 +384,7 @@ void vtkQuadraticQuad::Derivatives(int vtkNotUsed(subId),
                                    float pcoords[3], float *values, 
                                    int dim, float *derivs)
 {
-  float *x0, *x1, *x2, deltaX[3], weights[3];
+  float *x0, *x1, *x2, deltaX[3], weights[8];
   int i, j;
   float functionDerivs[16];
 
