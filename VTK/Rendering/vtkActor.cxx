@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-02-25 21:47:13 $
-  Version:   $Revision: 1.80 $
+  Date:      $Date: 1999-03-11 18:18:04 $
+  Version:   $Revision: 1.81 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -201,12 +201,13 @@ int vtkActor::RenderOpaqueGeometry(vtkViewport *vp)
     return 0;
     }
 
-  // render the property
+  // make sure we have a property
   if (!this->Property)
     {
     // force creation of a property
     this->GetProperty();
     }
+
   // is this actor opaque ?
   if (this->GetIsOpaque())
     {
@@ -239,6 +240,13 @@ int vtkActor::RenderTranslucentGeometry(vtkViewport *vp)
   if ( ! this->Mapper )
     {
     return 0;
+    }
+
+  // make sure we have a property
+  if (!this->Property)
+    {
+    // force creation of a property
+    this->GetProperty();
     }
 
   // is this actor opaque ?
