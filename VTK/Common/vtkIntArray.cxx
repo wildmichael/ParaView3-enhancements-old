@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkIntArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-02-04 12:42:23 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1994-02-05 12:59:03 $
+  Version:   $Revision: 1.8 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -100,13 +100,17 @@ void vlIntArray::operator+=(vlIntArray& ia)
 
 void vlIntArray::PrintSelf(ostream& os, vlIndent indent)
 {
-  vlObject::PrintSelf(os,indent);
+  if (this->ShouldIPrint(vlIntArray::GetClassName()))
+    {
+    vlObject::PrintSelf(os,indent);
 
-  os << indent << "Array: " << this->Array << "\n";
-  os << indent << "Size: " << this->Size << "\n";
-  os << indent << "MaxId: " << this->MaxId << "\n";
-  os << indent << "Extend size: " << this->Extend << "\n";
+    os << indent << "Array: " << this->Array << "\n";
+    os << indent << "Size: " << this->Size << "\n";
+    os << indent << "MaxId: " << this->MaxId << "\n";
+    os << indent << "Extend size: " << this->Extend << "\n";
+    }
 }
+
 //
 // Private function does "reallocate"
 //
