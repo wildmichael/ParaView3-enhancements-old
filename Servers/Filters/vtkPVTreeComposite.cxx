@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkPVTreeComposite.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-24 13:13:27 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2002-06-27 21:32:40 $
+  Version:   $Revision: 1.31 $
   
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -156,7 +156,7 @@ int vtkPVTreeComposite::ShouldIComposite()
   int numProcs;
   int myId;
   int dataFlag = 0;
-  int tmp;
+  int tmp = 0;
 
   if (this->Controller == NULL)
     {
