@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-15 23:23:24 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1997-05-23 20:34:54 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,7 +56,7 @@ vtkMapper::vtkMapper()
 
   this->LookupTable = NULL;
 
-  this->ScalarsVisible = 1;
+  this->ScalarVisibility = 1;
   this->ScalarRange[0] = 0.0; this->ScalarRange[1] = 1.0;
 
   this->SelfCreatedLookupTable = 0;
@@ -90,7 +90,7 @@ void vtkMapper::operator=(const vtkMapper& m)
 {
   this->SetLookupTable(m.LookupTable);
 
-  this->SetScalarsVisible(m.ScalarsVisible);
+  this->SetScalarVisibility(m.ScalarVisibility);
   this->SetScalarRange(m.ScalarRange[0], m.ScalarRange[1]);
 
   this->SetStartRender(m.StartRender,m.StartRenderArg);
@@ -112,14 +112,15 @@ vtkColorScalars *vtkMapper::GetColors()
   // create colors
   //
   numPts = this->Input->GetNumberOfPoints();
-  if ( this->ScalarsVisible && (pd=this->Input->GetPointData()) && 
+  if ( this->ScalarVisibility && (pd=this->Input->GetPointData()) && 
        (scalars=pd->GetScalars()) )
     {
     if ( strcmp(scalars->GetScalarType(),"ColorScalar") )
       {
       if ( this->Colors == NULL ) 
 	{
-	this->Colors = new vtkAPixmap(numPts);
+	this->Colors = vtkAPixmap::New();
+	this->Colors->Allocate(numPts);
 	}
       else
 	{
@@ -298,8 +299,8 @@ void vtkMapper::PrintSelf(ostream& os, vtkIndent indent)
     {
     os << indent << "Lookup Table: (none)\n";
     }
-  os << indent << "Scalars Visible: " 
-    << (this->ScalarsVisible ? "On\n" : "Off\n");
+  os << indent << "Scalar Visibility: " 
+    << (this->ScalarVisibility ? "On\n" : "Off\n");
 
   float *range = this->GetScalarRange();
   os << indent << "Scalar Range: (" << range[0] << ", " << range[1] << ")\n";

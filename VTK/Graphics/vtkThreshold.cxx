@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThreshold.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-15 23:24:01 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1997-05-23 20:36:08 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -112,12 +112,13 @@ void vtkThreshold::Execute()
   numPts = this->Input->GetNumberOfPoints();
 
   output->Allocate(this->Input->GetNumberOfCells());
-  newPoints = new vtkFloatPoints(numPts);
+  newPoints = vtkFloatPoints::New();
+  newPoints->Allocate(numPts);
   pd = this->Input->GetPointData();
   outPD = output->GetPointData();
   outPD->CopyAllocate(pd);
 
-  pointMap = new vtkIdList(numPts); //maps old point ids into new
+  pointMap = vtkIdList::New(); //maps old point ids into new
   pointMap->SetNumberOfIds(numPts);
   for (i=0; i < numPts; i++) pointMap->SetId(i,-1);
 

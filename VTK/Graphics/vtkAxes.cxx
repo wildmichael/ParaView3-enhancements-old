@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAxes.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:50:41 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1997-05-23 20:33:41 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -66,11 +66,14 @@ void vtkAxes::Execute()
   
   vtkDebugMacro(<<"Creating x-y-z axes");
 
-  newPts = new vtkFloatPoints(numPts);
+  newPts = vtkFloatPoints::New();
+  newPts->Allocate(numPts);
   newLines = new vtkCellArray();
   newLines->Allocate(newLines->EstimateSize(numLines,2));
-  newScalars = new vtkFloatScalars(numPts);
-  newNormals = new vtkFloatNormals(numPts);
+  newScalars = vtkFloatScalars::New();
+  newScalars->Allocate(numPts);
+  newNormals = vtkFloatNormals::New();
+  newNormals->Allocate(numPts);
 //
 // Create axes
 //

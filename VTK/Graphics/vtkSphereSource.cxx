@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSphereSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-15 23:23:49 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1997-05-23 20:35:37 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -78,8 +78,10 @@ void vtkSphereSource::Execute()
   // creating triangles
   numPolys = (this->PhiResolution - 1) * 2 * this->ThetaResolution;
 
-  newPoints = new vtkFloatPoints(numPts);
-  newNormals = new vtkFloatNormals(numPts);
+  newPoints = vtkFloatPoints::New();
+  newPoints->Allocate(numPts);
+  newNormals = vtkFloatNormals::New();
+  newNormals->Allocate(numPts);
   newPolys = vtkCellArray::New();
   newPolys->Allocate(newPolys->EstimateSize(numPolys,3));
 //

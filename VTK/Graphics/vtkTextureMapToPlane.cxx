@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextureMapToPlane.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-03-12 21:12:04 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1997-05-23 20:36:05 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -86,7 +86,7 @@ void vtkTextureMapToPlane::Execute()
 //
 //  Allocate texture data
 //
-  newTCoords = new vtkFloatTCoords(numPts,2);
+  newTCoords = vtkFloatTCoords::New();
   newTCoords->SetNumberOfTCoords(numPts);
 //
 //  Compute least squares plane if on automatic mode; otherwise use

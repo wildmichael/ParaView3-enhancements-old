@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHyperStreamline.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 20:51:49 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1997-05-23 20:34:39 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -75,9 +75,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #define VTK_INTEGRATE_FORWARD 0
 #define VTK_INTEGRATE_BACKWARD 1
 #define VTK_INTEGRATE_BOTH_DIRECTIONS 2
-
-#define VTK_START_FROM_POSITION 0
-#define VTK_START_FROM_LOCATION 1
 
 //
 // Special classes for manipulating data
@@ -170,6 +167,12 @@ public:
   vtkSetClampMacro(IntegrationDirection,int,
                   VTK_INTEGRATE_FORWARD,VTK_INTEGRATE_BOTH_DIRECTIONS);
   vtkGetMacro(IntegrationDirection,int);
+  void SetIntegrationDirectionToForward()
+    {this->SetIntegrationDirection(VTK_INTEGRATE_FORWARD);};
+  void SetIntegrationDirectionToBackward()
+    {this->SetIntegrationDirection(VTK_INTEGRATE_BACKWARD);};
+  void SetIntegrationDirectionToIntegrateBothDirections()
+    {this->SetIntegrationDirection(VTK_INTEGRATE_BOTH_DIRECTIONS);};
 
   // Description:
   // Set/get terminal eigenvalue.  If major eigenvalue falls below this

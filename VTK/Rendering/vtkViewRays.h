@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkViewRays.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 20:54:28 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1997-05-23 20:36:30 $
+  Version:   $Revision: 1.5 $
 =========================================================================*/
 // .NAME vtkViewRays - provides view ray information for efficiently casting rays
 // .SECTION Description
@@ -92,12 +92,12 @@ protected:
   unsigned long   ViewRaysMTime;	// View rays modified time
 
   // Parallel camera information
-  void            CalculateParallelInfo( int size[2] );
+  void            ComputeParallelInfo( int size[2] );
   float           StartPosition[3];	// Position of lower left ray
   float           Increments[2];	// Distance to move 1 ray over in X,Y
 
   // Perspective camera information
-  void            CalculatePerspectiveInfo(float *vr_ptr,int size[2]);
+  void            ComputePerspectiveInfo(float *vr_ptr,int size[2]);
   float           *ViewRays;
   };
 #endif

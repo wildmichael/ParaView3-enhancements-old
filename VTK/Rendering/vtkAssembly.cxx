@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAssembly.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-15 23:22:48 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1997-05-23 20:33:40 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -157,7 +157,7 @@ void vtkAssembly::UpdatePaths()
 // an ordered sequence of actors, with transformations properly concatenated.
 void vtkAssembly::BuildPaths(vtkAssemblyPaths *paths, vtkActorCollection *path)
 {
-  vtkActor *part, *actor, *copy=new vtkActor, *previous;
+  vtkActor *part, *actor, *copy=vtkActor::New(), *previous;
   vtkMatrix4x4 *matrix;
   vtkActorCollection *childPath;
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinkEdgels.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-15 23:23:21 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1997-05-23 20:34:49 $
+  Version:   $Revision: 1.14 $
 
 Copyright (c) 1993-1997 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -80,7 +80,7 @@ void vtkLinkEdgels::Execute()
     }
 
   // set up the input
-  inDataPtr = inScalars->GetPtr(0);
+  inDataPtr = inScalars->GetPointer(0);
 
   // Finally do edge following to extract the edge data from the Thin image
   newPts = vtkFloatPoints::New();

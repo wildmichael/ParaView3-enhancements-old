@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-11-15 17:11:32 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 1997-05-23 20:36:50 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -429,7 +429,7 @@ void vtkXRenderWindowInteractorCallback(Widget vtkNotUsed(w),
 	    {
             for (anActor->InitPartTraversal();(aPart=anActor->GetNextPart()); )
               {
-              aPart->GetProperty()->SetWireframe();
+              aPart->GetProperty()->SetRepresentationToWireframe();
               }
 	    }
 	  
@@ -450,7 +450,7 @@ void vtkXRenderWindowInteractorCallback(Widget vtkNotUsed(w),
             for (anActor->InitPartTraversal(); 
 		 (aPart=anActor->GetNextPart()); )
               {
-              aPart->GetProperty()->SetSurface();
+              aPart->GetProperty()->SetRepresentationToSurface();
               }
 	    }
 	  

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangleFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:56:52 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1997-05-23 20:36:13 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,7 +59,7 @@ void vtkTriangleFilter::Execute()
 
   vtkDebugMacro(<<"Executing triangle filter");
 
-  newPolys = new vtkCellArray();
+  newPolys = vtkCellArray::New();
   // approximation
   numCells = input->GetNumberOfPolys() + input->GetNumberOfStrips();
   newPolys->Allocate(newPolys->EstimateSize(numCells,3),3*numCells);

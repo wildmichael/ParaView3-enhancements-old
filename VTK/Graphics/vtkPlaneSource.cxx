@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPlaneSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-15 23:23:31 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 1997-05-23 20:35:08 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -114,9 +114,12 @@ void vtkPlaneSource::Execute()
   numPts = (this->XResolution+1) * (this->YResolution+1);
   numPolys = this->XResolution * this->YResolution;
 
-  newPoints = new vtkFloatPoints(numPts);
-  newNormals = new vtkFloatNormals(numPts);
-  newTCoords = new vtkFloatTCoords(numPts,2);
+  newPoints = vtkFloatPoints::New();
+  newPoints->Allocate(numPts);
+  newNormals = vtkFloatNormals::New();
+  newNormals->Allocate(numPts);
+  newTCoords = vtkFloatTCoords::New();
+  newTCoords->Allocate(numPts,2);
 
   newPolys = vtkCellArray::New();
   newPolys->Allocate(newPolys->EstimateSize(numPolys,4));

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractGeometry.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-11-08 12:52:34 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1997-05-23 20:34:24 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -99,7 +99,8 @@ void vtkExtractGeometry::Execute()
   for (i=0; i < numPts; i++) pointMap[i] = -1;
 
   output->Allocate(numCells/4); //allocate storage for geometry/topology
-  newPts = new vtkFloatPoints(numPts/4,numPts);
+  newPts = vtkFloatPoints::New();
+  newPts->Allocate(numPts/4,numPts);
   pd = this->Input->GetPointData();
   outputPD->CopyAllocate(pd);
   

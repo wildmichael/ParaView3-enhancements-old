@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangularTexture.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-11-13 16:13:12 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1997-05-23 20:36:14 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -142,7 +142,8 @@ void vtkTriangularTexture::Execute()
     }
 
   output->SetDimensions(this->XSize,this->YSize,1);
-  newScalars = new vtkAGraymap(numPts);
+  newScalars = vtkAGraymap::New();
+  newScalars->Allocate(numPts);
 
   switch (this->TexturePattern) 
     {

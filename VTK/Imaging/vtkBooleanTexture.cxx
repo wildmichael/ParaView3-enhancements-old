@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBooleanTexture.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:50:52 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1997-05-23 20:33:45 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -72,7 +72,8 @@ void vtkBooleanTexture::Execute()
     }
 
   output->SetDimensions(this->XSize,this->YSize,1);
-  newScalars = new vtkAGraymap(numPts);
+  newScalars = vtkAGraymap::New();
+  newScalars->Allocate(numPts);
 //
 // Compute size of various regions
 //

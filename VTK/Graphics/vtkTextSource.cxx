@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-15 23:23:58 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1997-05-23 20:36:00 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -185,7 +185,7 @@ void vtkTextSource::Execute()
   // Set things up; allocate memory
   x[2] = 0;
 
-  newPoints = new vtkFloatPoints();
+  newPoints = vtkFloatPoints::New();
   newPolys = vtkCellArray::New();
   newScalars = vtkGraymap::New();
 

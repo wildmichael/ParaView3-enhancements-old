@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 1997-05-22 12:42:57 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 1997-05-23 20:35:21 $
+  Version:   $Revision: 1.52 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -164,6 +164,11 @@ public:
   // Set/Get what type of stereo rendering to use.
   vtkGetMacro(StereoType,int);
   vtkSetMacro(StereoType,int);
+  void SetStereoTypeToCrystalEyes() 
+    {this->SetStereoType(VTK_STEREO_CRYSTAL_EYES);};
+  void SetStereoTypeToRedBlue() 
+    {this->SetStereoType(VTK_STEREO_RED_BLUE);};
+  char *GetStereoTypeAsString();
 
   virtual void StereoUpdate();
   virtual void StereoMidpoint();
@@ -321,6 +326,20 @@ protected:
   void (*AbortCheckMethodArgDelete)(void *);
   void *AbortCheckMethodArg;
 };
+
+// Description:
+// Return the stereo type as a character string.
+inline char *vtkRenderWindow::GetStereoTypeAsString(void)
+{
+  if ( this->StereoType == VTK_STEREO_CRYSTAL_EYES ) 
+    {
+    return "CrystalEyes";
+    }
+  else 
+    {
+    return "RedBlue";
+    }
+}
 
 #endif
 

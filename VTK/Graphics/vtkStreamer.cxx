@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamer.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-11-18 20:55:49 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1997-05-23 20:35:44 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,6 +40,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include "vtkStreamer.h"
 #include "vtkMath.h"
+
+#define VTK_START_FROM_POSITION 0
+#define VTK_START_FROM_LOCATION 1
 
 vtkStreamArray::vtkStreamArray()
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLODActor.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-15 23:23:18 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1997-05-23 20:34:44 $
+  Version:   $Revision: 1.15 $
   
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -90,7 +90,7 @@ void vtkLODActor::Render(vtkRenderer *ren)
     this->PointSource.SetNumberOfPoints(1);
     this->MediumMapper->SetInput(this->Glyph3D.GetOutput());
     this->MediumMapper->SetScalarRange(this->Mapper->GetScalarRange());
-    this->MediumMapper->SetScalarsVisible(this->Mapper->GetScalarsVisible());
+    this->MediumMapper->SetScalarVisibility(this->Mapper->GetScalarVisibility());
     this->MaskPoints.SetInput(this->Mapper->GetInput());
     this->MaskPoints.SetMaximumNumberOfPoints(this->NumberOfCloudPoints);
     this->MaskPoints.SetRandomMode(1);

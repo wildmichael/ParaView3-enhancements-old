@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDelaunay3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-15 23:23:06 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1997-05-23 20:34:17 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -398,7 +398,8 @@ void vtkDelaunay3D::Execute()
 // Create initial bounding triangulation. Have to create bounding points.
 // Initialize mesh structure.
 //
-  points = new vtkFloatPoints(numPoints+6);
+  points = vtkFloatPoints::New();
+  points->Allocate(numPoints+6);
 
   input->GetCenter(center);
   tol = input->GetLength();

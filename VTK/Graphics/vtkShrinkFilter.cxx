@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkShrinkFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:55:32 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 1997-05-23 20:35:34 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -66,7 +66,8 @@ void vtkShrinkFilter::Execute()
     }
 
   output->Allocate(numCells);
-  newPts = new vtkFloatPoints(numPts*8,numPts);
+  newPts = vtkFloatPoints::New();
+  newPts->Allocate(numPts*8,numPts);
   pd = this->Input->GetPointData();
   outPD = output->GetPointData();
   outPD->CopyAllocate(pd,numPts*8,numPts);

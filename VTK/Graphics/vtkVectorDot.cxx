@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectorDot.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:57:05 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1997-05-23 20:36:21 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -85,7 +85,8 @@ void vtkVectorDot::Execute()
 //
 // Allocate
 //
-  newScalars = new vtkFloatScalars(numPts);
+  newScalars = vtkFloatScalars::New();
+  newScalars->Allocate(numPts);
 //
 // Compute initial scalars
 //

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMaskPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-15 23:23:25 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1997-05-23 20:34:58 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -93,7 +93,10 @@ void vtkMaskPolyData::Execute()
 // Allocate space
 //
   if ( numNewVerts )
-    newVerts = new vtkCellArray(numNewVerts);
+    {
+    newVerts = vtkCellArray::New();
+    newVerts->Allocate(numNewVerts);
+    }
 
   if ( numNewLines )
     {

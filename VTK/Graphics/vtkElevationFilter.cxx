@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkElevationFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:52:16 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1997-05-23 20:34:21 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -83,7 +83,8 @@ void vtkElevationFilter::Execute()
 //
 // Allocate
 //
-  newScalars = new vtkFloatScalars(numPts);
+  newScalars = vtkFloatScalars::New();
+  newScalars->Allocate(numPts);
 //
 // Set up 1D parametric system
 //

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpVector.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-03-12 21:12:18 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1997-05-23 20:36:47 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,7 +64,7 @@ void vtkWarpVector::Execute()
     return;
     }
 
-  newPts = new vtkFloatPoints(numPts);
+  newPts = vtkFloatPoints::New();
   newPts->SetNumberOfPoints(numPts);
 //
 // Loop over all points, adjusting locations

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThresholdPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:56:41 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1997-05-23 20:36:09 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -106,11 +106,12 @@ void vtkThresholdPoints::Execute()
     }
      
   numPts = this->Input->GetNumberOfPoints();
-  newPoints = new vtkFloatPoints(numPts);
+  newPoints = vtkFloatPoints::New();
+  newPoints->Allocate(numPts);
   pd = this->Input->GetPointData();
   outPD = output->GetPointData();
   outPD->CopyAllocate(pd);
-  verts = new vtkCellArray();
+  verts = vtkCellArray::New();
   verts->Allocate(verts->EstimateSize(numPts,1));
 
   // Check that the scalars of each point satisfy the threshold criterion

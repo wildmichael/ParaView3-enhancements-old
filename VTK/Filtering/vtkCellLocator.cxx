@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellLocator.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-04-14 00:41:53 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1997-05-23 20:33:51 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -384,7 +384,8 @@ void vtkCellLocator::BuildLocator()
           octant = this->Tree[idx];
           if ( ! octant )
             {
-            octant = new vtkIdList(numCellsPerBucket,numCellsPerBucket/2);
+            octant = vtkIdList::New();
+            octant->Allocate(numCellsPerBucket,numCellsPerBucket/2);
             this->Tree[idx] = octant;
             }
           octant->InsertNextId(cellId);
@@ -439,8 +440,10 @@ void vtkCellLocator::GenerateRepresentation(int level, vtkPolyData *pd)
     return;
     }
 
-  pts = new vtkFloatPoints(5000);
-  polys = new vtkCellArray(10000);
+  pts = vtkFloatPoints::New();
+  pts->Allocate(5000);
+  polys = vtkCellArray::New();
+  polys->Allocate(10000);
 
   //
   // Compute idx into tree at appropriate level; determine if

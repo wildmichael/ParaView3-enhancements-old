@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHedgeHog.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-15 23:23:14 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1997-05-23 20:34:37 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -68,7 +68,7 @@ void vtkHedgeHog::Execute()
     }
   outputPD->CopyAllocate(pd, 2*numPts);
 
-  newPts = new vtkFloatPoints(2*numPts); newPts->SetNumberOfPoints(2*numPts);
+  newPts = vtkFloatPoints::New(); newPts->SetNumberOfPoints(2*numPts);
   newLines = vtkCellArray::New();
   newLines->Allocate(newLines->EstimateSize(numPts,2));
 //

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEdgePoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-09-26 20:54:59 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1997-05-23 20:34:20 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -83,8 +83,10 @@ void vtkEdgePoints::Execute()
     return;
     }
 
-  newPts = new vtkFloatPoints(5000,10000);
-  newVerts = new vtkCellArray(5000,10000);
+  newPts = vtkFloatPoints::New();
+  newPts->Allocate(5000,10000);
+  newVerts = vtkCellArray::New();
+  newVerts->Allocate(5000,10000);
 
   this->Locator.InitPointInsertion (newPts, this->Input->GetBounds());
 

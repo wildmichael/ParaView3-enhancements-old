@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVRMLExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-15 23:24:06 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1997-05-23 20:36:20 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -257,7 +257,7 @@ void vtkVRMLExporter::WriteAnActor(vtkActor *anActor, FILE *fp)
   pm = vtkPolyMapper::New();
   pm->SetInput(pd);
   pm->SetScalarRange(anActor->GetMapper()->GetScalarRange());
-  pm->SetScalarsVisible(anActor->GetMapper()->GetScalarsVisible());
+  pm->SetScalarVisibility(anActor->GetMapper()->GetScalarVisibility());
   pm->SetLookupTable(anActor->GetMapper()->GetLookupTable());
 
   points = pd->GetPoints();
@@ -350,7 +350,7 @@ void vtkVRMLExporter::WriteAnActor(vtkActor *anActor, FILE *fp)
     fprintf(fp,"            texture PixelTexture {\n");
     bpp = mappedScalars->GetNumberOfValuesPerScalar();
     fprintf(fp,"              image %i %i %i\n", xsize, ysize, bpp);
-    txtrData = mappedScalars->GetPtr(0);
+    txtrData = mappedScalars->GetPointer(0);
     totalValues = xsize*ysize;
     for (i = 0; i < totalValues; i++)
       {

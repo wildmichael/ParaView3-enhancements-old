@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTubeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-15 23:24:02 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1997-05-23 20:36:15 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -107,7 +107,7 @@ void vtkTubeFilter::Execute()
     {
     vtkPolyLine lineNormalGenerator;
     deleteNormals = 1;
-    inNormals = new vtkFloatNormals(numNewPts); 
+    inNormals = vtkFloatNormals::New();
     inNormals->SetNumberOfNormals(numNewPts);
 
     if ( this->UseDefaultNormal )
@@ -144,8 +144,10 @@ void vtkTubeFilter::Execute()
     maxSpeed = inVectors->GetMaxNorm();
     }
 
-  newPts = new vtkFloatPoints(numNewPts);
-  newNormals = new vtkFloatNormals(numNewPts);
+  newPts = vtkFloatPoints::New();
+  newPts->Allocate(numNewPts);
+  newNormals = vtkFloatNormals::New();
+  newNormals->Allocate(numNewPts);
   newStrips = vtkCellArray::New();
   newStrips->Allocate(newStrips->EstimateSize(1,numNewPts));
 //

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOutlineFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-15 23:23:29 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1997-05-23 20:35:02 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,7 +57,8 @@ void vtkOutlineFilter::Execute()
 //
 // Allocate storage and create outline
 //
-  newPts = new vtkFloatPoints(8);
+  newPts = vtkFloatPoints::New();
+  newPts->Allocate(8);
   newLines = vtkCellArray::New();
   newLines->Allocate(newLines->EstimateSize(12,2));
 

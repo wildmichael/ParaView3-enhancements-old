@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeReader.h,v $
   Language:  C++
-  Date:      $Date: 1997-03-04 17:59:36 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1997-05-23 20:36:36 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -94,9 +94,9 @@ public:
   vtkGetVectorMacro(ImageRange,int,2);
 
   // Description:
-  // Specify an aspect ratio for the data.
-  vtkSetVector3Macro(DataAspectRatio,float);
-  vtkGetVectorMacro(DataAspectRatio,float,3);
+  // Specify the spacing for the data.
+  vtkSetVector3Macro(DataSpacing,float);
+  vtkGetVectorMacro(DataSpacing,float,3);
 
   // Description:
   // Specify the origin for the data.
@@ -110,7 +110,7 @@ protected:
   char *FilePrefix;
   char *FilePattern;
   int ImageRange[2];
-  float DataAspectRatio[3];
+  float DataSpacing[3];
   float DataOrigin[3];
 };
 

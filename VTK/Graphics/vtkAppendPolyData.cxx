@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAppendPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-15 23:22:47 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1997-05-23 20:33:38 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -171,7 +171,7 @@ void vtkAppendPolyData::Execute()
   if ( !userDefinedPresent ) outputPD->CopyUserDefinedOff();
   outputPD->CopyAllocate(pd,numPts);
 
-  newPts = new vtkFloatPoints(numPts);
+  newPts = vtkFloatPoints::New();
   newPts->SetNumberOfPoints(numPts);
 
   newVerts = vtkCellArray::New();

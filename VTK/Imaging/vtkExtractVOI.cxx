@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractVOI.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-02-14 12:13:48 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1997-05-23 20:34:26 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -81,7 +81,7 @@ void vtkExtractVOI::Execute()
 //
   input->GetDimensions(dims);
   input->GetOrigin(origin);
-  input->GetAspectRatio(ar);
+  input->GetSpacing(ar);
 
   for ( i=0; i < 6; i++ ) voi[i] = this->VOI[i];
 
@@ -108,7 +108,7 @@ void vtkExtractVOI::Execute()
     }
 
   output->SetDimensions(outDims);
-  output->SetAspectRatio(outAR);
+  output->SetSpacing(outAR);
   output->SetOrigin(outOrigin);
 //
 // If output same as input, just pass data through

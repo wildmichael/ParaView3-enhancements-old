@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCutter.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-15 23:22:57 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 1997-05-23 20:34:03 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -121,11 +121,16 @@ void vtkCutter::Execute()
   estimatedSize = estimatedSize / 1024 * 1024; //multiple of 1024
   if (estimatedSize < 1024) estimatedSize = 1024;
 
-  newPoints = new vtkFloatPoints(estimatedSize,estimatedSize/2);
-  newVerts = new vtkCellArray(estimatedSize,estimatedSize/2);
-  newLines = new vtkCellArray(estimatedSize,estimatedSize/2);
-  newPolys = new vtkCellArray(estimatedSize,estimatedSize/2);
-  cutScalars = new vtkFloatScalars(numPts);
+  newPoints = vtkFloatPoints::New();
+  newPoints->Allocate(estimatedSize,estimatedSize/2);
+  newVerts = vtkCellArray::New();
+  newVerts->Allocate(estimatedSize,estimatedSize/2);
+  newLines = vtkCellArray::New();
+  newLines->Allocate(estimatedSize,estimatedSize/2);
+  newPolys = vtkCellArray::New();
+  newPolys->Allocate(estimatedSize,estimatedSize/2);
+  cutScalars = vtkFloatScalars::New();
+  cutScalars->Allocate(numPts);
 
   // Interpolate data along edge. If generating cut scalars, do the necessary setup.
   if ( this->GenerateCutScalars )

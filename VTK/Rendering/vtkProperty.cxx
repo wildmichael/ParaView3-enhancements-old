@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProperty.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-04-23 18:58:25 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1997-05-23 20:35:16 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -161,36 +161,6 @@ vtkProperty *vtkProperty::New()
   return new vtkProperty;
 }
 
-void vtkProperty::SetFlat (void)
-{
-  this->Interpolation= VTK_FLAT;
-}
-
-void vtkProperty::SetGouraud (void)
-{
-  this->Interpolation = VTK_GOURAUD;
-}
-
-void vtkProperty::SetPhong (void)
-{
-  this->Interpolation = VTK_PHONG;
-}
-
-void vtkProperty::SetPoints (void)
-{
-  this->Representation = VTK_POINTS;
-}
-
-void vtkProperty::SetWireframe (void)
-{
-  this->Representation = VTK_WIREFRAME;
-}
-
-void vtkProperty::SetSurface (void)
-{
-  this->Representation = VTK_SURFACE;
-}
-
 void vtkProperty::SetColor(float R,float G,float B)
 {
   /* store the coordinates */
@@ -231,18 +201,17 @@ void vtkProperty::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "Interpolation: ";
   switch (this->Interpolation) 
     {
-    case 0: os << "VTK_FLAT\n"; break;
-    case 1: os << "VTK_GOURAUD\n"; break;
-    case 2: os << "VTK_PHONG\n"; break;
+    case VTK_FLAT: os << "VTK_FLAT\n"; break;
+    case VTK_GOURAUD: os << "VTK_GOURAUD\n"; break;
+    case VTK_PHONG: os << "VTK_PHONG\n"; break;
     default: os << "unknown\n";
     }
   os << indent << "Opacity: " << this->Opacity << "\n";
   os << indent << "Representation: ";
   switch (this->Representation) 
     {
-    case 0: os << "VTK_POINTS\n"; break;
-    case 1: os << "VTK_WIREFRAME\n"; break;
-    case 2: os << "VTK_SURFACE\n"; break;
+    case VTK_WIREFRAME: os << "VTK_WIREFRAME\n"; break;
+    case VTK_SURFACE: os << "VTK_SURFACE\n"; break;
     default: os << "unknown\n";
     }
   os << indent << "Specular: " << this->Specular << "\n";

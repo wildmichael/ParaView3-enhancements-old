@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDelaunay2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-15 23:23:05 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1997-05-23 20:34:16 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -269,7 +269,7 @@ void vtkDelaunay2D::Execute()
 // Create initial bounding triangulation. Have to create bounding points.
 // Initialize mesh structure.
 //
-  points = new vtkFloatPoints(numPoints+8); points->SetNumberOfPoints(numPoints+8);
+  points = vtkFloatPoints::New(); points->SetNumberOfPoints(numPoints+8);
   for (ptId=0; ptId < numPoints; ptId++)
     {
     points->SetPoint(ptId,inPoints->GetPoint(ptId));
@@ -430,8 +430,10 @@ void vtkDelaunay2D::Execute()
     float x1[3], x2[3], x3[3];
     int j, cellId, numNei, p1, p2, nei;
 
-    vtkCellArray *alphaVerts = new vtkCellArray(numPoints);
-    vtkCellArray *alphaLines = new vtkCellArray(numPoints);
+    vtkCellArray *alphaVerts = vtkCellArray::New();
+    alphaVerts->Allocate(numPoints);
+    vtkCellArray *alphaLines = vtkCellArray::New();
+    alphaLines->Allocate(numPoints);
 
     char *pointUse = new char[numPoints+8];
     for (ptId=0; ptId < (numPoints+8); ptId++) pointUse[ptId] = 0;
@@ -525,7 +527,8 @@ void vtkDelaunay2D::Execute()
     }
   else
     {
-    vtkCellArray *alphaTriangles = new vtkCellArray(numTriangles);
+    vtkCellArray *alphaTriangles = vtkCellArray::New();
+    alphaTriangles->Allocate(numTriangles);
     int *triPts;
 
     for (i=0; i<numTriangles; i++)

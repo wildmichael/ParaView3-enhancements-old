@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTexture.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-15 23:23:59 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1997-05-23 20:36:01 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -155,7 +155,7 @@ unsigned char *vtkTexture::MapScalarsToColors (vtkScalars *scalars)
     mappedScalars->SetColor(i, this->LookupTable->MapValue(scalars->GetScalar(i)));
     }
   
-  return this->MappedScalars->GetPtr(0);
+  return this->MappedScalars->GetPointer(0);
 }
 
 void vtkTexture::Render(vtkRenderer *ren)

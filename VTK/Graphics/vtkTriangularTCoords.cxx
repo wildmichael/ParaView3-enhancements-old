@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangularTCoords.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-15 23:24:01 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1997-05-23 20:36:14 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -94,12 +94,14 @@ void vtkTriangularTCoords::Execute()
 //
 //  Allocate texture data
 //
-  newTCoords = new vtkFloatTCoords(numNewPts,2);
+  newTCoords = vtkFloatTCoords::New();
+  newTCoords->Allocate(numNewPts,2);
 
 //
 // Allocate
 //
-  newPoints = new vtkFloatPoints(numNewPts);
+  newPoints = vtkFloatPoints::New();
+  newPoints->Allocate(numNewPts);
 
   newPolys = vtkCellArray::New();
   newPolys->Allocate(polyAllocSize);

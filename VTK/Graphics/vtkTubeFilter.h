@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTubeFilter.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 20:54:17 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1997-05-23 20:36:17 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -85,6 +85,13 @@ public:
   vtkSetClampMacro(VaryRadius,int,
                    VTK_VARY_RADIUS_OFF,VTK_VARY_RADIUS_BY_VECTOR);
   vtkGetMacro(VaryRadius,int);
+  void SetVaryRadiusToVaryRadiusOff()
+    {this->SetVaryRadius(VTK_VARY_RADIUS_OFF);};
+  void SetVaryRadiusToVaryRadiusByScalar()
+    {this->SetVaryRadius(VTK_VARY_RADIUS_BY_SCALAR);};
+  void SetVaryRadiusToVaryRadiusByVector()
+    {this->SetVaryRadius(VTK_VARY_RADIUS_BY_VECTOR);};
+  char *GetVaryRadiusAsString();
 
   // Description:
   // Set the number of sides for the tube. At a minimum, number of sides is 3.
@@ -121,6 +128,24 @@ protected:
   int UseDefaultNormal;
   
 };
+
+// Description:
+// Return the method of varying tube radius descriptive character string.
+inline char *vtkTubeFilter::GetVaryRadiusAsString(void)
+{
+  if ( this->VaryRadius == VTK_VARY_RADIUS_OFF )
+    {
+    return "VaryRadiusOff";
+    }
+  else if ( this->VaryRadius == VTK_VARY_RADIUS_BY_SCALAR ) 
+    {
+    return "VaryRadiusByScalar";
+    }
+  else 
+    {
+    return "VaryRadiusByVector";
+    }
+}
 
 
 #endif

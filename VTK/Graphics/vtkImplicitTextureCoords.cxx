@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitTextureCoords.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-10-15 17:12:56 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1997-05-23 20:34:43 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -92,9 +92,15 @@ void vtkImplicitTextureCoords::Execute()
   tCoord[0] = tCoord[1] = tCoord[2] = 0.0;
 
   if ( tcoordDim == 1 ) //force 2D map to be created
-    newTCoords = new vtkFloatTCoords(numPts,2);
+    {
+    newTCoords = vtkFloatTCoords::New();
+    newTCoords->Allocate(numPts,2);
+    }
   else
-    newTCoords = new vtkFloatTCoords(numPts,tcoordDim);
+    {
+    newTCoords = vtkFloatTCoords::New();
+    newTCoords->Allocate(numPts,tcoordDim);
+    }
 //
 // Compute implicit function values -> insert as initial texture coordinate
 //

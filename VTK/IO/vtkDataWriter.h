@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataWriter.h,v $
   Language:  C++
-  Date:      $Date: 1997-05-13 20:56:28 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1997-05-23 20:34:13 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -82,6 +82,8 @@ public:
   // Specify file type (ASCII or BINARY) for vtk data file.
   vtkSetClampMacro(FileType,int,VTK_ASCII,VTK_BINARY);
   vtkGetMacro(FileType,int);
+  void SetFileTypeToASCII() {this->SetFileType(VTK_ASCII);};
+  void SetFileTypeToBinary() {this->SetFileType(VTK_BINARY);};
 
   // Description:
   // Give a name to the scalar data. If not specified, uses default

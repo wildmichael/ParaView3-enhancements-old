@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCursor3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-15 23:22:56 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1997-05-23 20:34:02 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -49,7 +49,8 @@ vtkCursor3D::vtkCursor3D()
   vtkFloatPoints *pts;
 
   this->Focus = vtkPolyData::New();
-  pts = new vtkFloatPoints(1);
+  pts = vtkFloatPoints::New();
+  pts->Allocate(1);
   pts->vtkPoints::InsertPoint(0, 0.0, 0.0, 0.0);
   this->Focus->SetPoints(pts);
   pts->Delete();
@@ -146,8 +147,9 @@ void vtkCursor3D::Execute()
 
   if ( numPts ) 
     {
-    newPts = new vtkFloatPoints(numPts);
-    newLines = new vtkCellArray();
+    newPts = vtkFloatPoints::New();
+    newPts->Allocate(numPts);
+    newLines = new vtkCellArray;
     newLines->Allocate(newLines->EstimateSize(numLines,2));
     }
   else return;

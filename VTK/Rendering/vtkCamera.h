@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCamera.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-23 18:57:53 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 1997-05-23 20:33:49 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -164,10 +164,10 @@ class VTK_EXPORT vtkCamera : public vtkObject
 
   void SetViewPlaneNormal(float a[3]);
   void SetViewPlaneNormal(float x, float y, float z);
-  void CalcViewPlaneNormal();
-  void CalcDistance();
-  void CalcViewTransform();
-  void CalcPerspectiveTransform(float aspect, float nearz, float farz);
+  void ComputeViewPlaneNormal();
+  void ComputeDistance();
+  void ComputeViewTransform();
+  void ComputePerspectiveTransform(float aspect, float nearz, float farz);
   vtkMatrix4x4 &GetViewTransform();
   vtkMatrix4x4 &GetPerspectiveTransform(float aspect,
 					float nearz, float farz);

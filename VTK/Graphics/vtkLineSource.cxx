@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLineSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-15 23:23:19 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1997-05-23 20:34:45 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -70,8 +70,10 @@ void vtkLineSource::Execute()
   
   vtkDebugMacro(<<"Creating line");
 
-  newPoints = new vtkFloatPoints(numPts);
-  newTCoords = new vtkFloatTCoords(numPts,2);
+  newPoints = vtkFloatPoints::New();
+  newPoints->Allocate(numPts);
+  newTCoords = vtkFloatTCoords::New();
+  newTCoords->Allocate(numPts,2);
 
   newLines = vtkCellArray::New();
   newLines->Allocate(newLines->EstimateSize(numLines,2));

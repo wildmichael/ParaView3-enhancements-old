@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:55:47 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1997-05-23 20:35:42 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -62,11 +62,16 @@ void vtkStreamPoints::Execute()
   this->vtkStreamer::Integrate();
   if ( this->NumberOfStreamers <= 0 ) return;
 
-  newPts  = new vtkFloatPoints(1000);
-  newVectors  = new vtkFloatVectors(1000);
+  newPts  = vtkFloatPoints::New();
+  newPts ->Allocate(1000);
+  newVectors  = vtkFloatVectors::New();
+  newVectors ->Allocate(1000);
   if ( this->Input->GetPointData()->GetScalars() || this->SpeedScalars )
-    newScalars = new vtkFloatScalars(1000);
-  newVerts = new vtkCellArray();
+    {
+    newScalars = vtkFloatScalars::New();
+    newScalars->Allocate(1000);
+    }
+  newVerts = vtkCellArray::New();
   newVerts->Allocate(newVerts->EstimateSize(2*this->NumberOfStreamers,VTK_CELL_SIZE));
   
 //

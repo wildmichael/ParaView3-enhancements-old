@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThresholdTextureCoords.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:56:43 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1997-05-23 20:36:10 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -115,7 +115,8 @@ void vtkThresholdTextureCoords::Execute()
     }
      
   numPts = input->GetNumberOfPoints();
-  newTCoords = new vtkFloatTCoords(this->TextureDimension);
+  newTCoords = vtkFloatTCoords::New();
+  newTCoords->Allocate(this->TextureDimension);
 
   // Check that the scalars of each point satisfy the threshold criterion
   for (ptId=0; ptId < numPts; ptId++)

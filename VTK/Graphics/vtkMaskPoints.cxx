@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMaskPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-10-17 12:53:36 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1997-05-23 20:34:56 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -82,7 +82,8 @@ void vtkMaskPoints::Execute()
     {
     numNewPts = this->MaximumNumberOfPoints;
     }
-  newPts = new vtkFloatPoints(numNewPts);
+  newPts = vtkFloatPoints::New();
+  newPts->Allocate(numNewPts);
   outputPD->CopyAllocate(pd);
   //
   // Traverse points and copy

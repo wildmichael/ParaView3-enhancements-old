@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDiskSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-15 23:23:08 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1997-05-23 20:34:19 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -68,7 +68,8 @@ void vtkDiskSource::Execute()
   numPts = (this->RadialResolution + 1) * 
            (this->CircumferentialResolution + 1);
   numPolys = this->RadialResolution * this->CircumferentialResolution;
-  newPoints = new vtkFloatPoints(numPts);
+  newPoints = vtkFloatPoints::New();
+  newPoints->Allocate(numPts);
   newPolys = vtkCellArray::New();
   newPolys->Allocate(newPolys->EstimateSize(numPolys,4));
 //

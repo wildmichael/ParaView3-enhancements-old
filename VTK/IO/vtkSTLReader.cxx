@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSTLReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-15 23:23:46 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 1997-05-23 20:35:28 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -78,8 +78,10 @@ void vtkSTLReader::Execute()
     return;
     }
 
-  newPts = new vtkFloatPoints(5000,10000);
-  newPolys = new vtkCellArray(10000,20000);
+  newPts = vtkFloatPoints::New();
+  newPts->Allocate(5000,10000);
+  newPolys = vtkCellArray::New();
+  newPolys->Allocate(10000,20000);
 //
 // Depending upon file type, read differently
 //
@@ -107,8 +109,10 @@ void vtkSTLReader::Execute()
     int npts, *pts, i, nodes[3];
     float *x;
 
-    mergedPts = new vtkFloatPoints(newPts->GetNumberOfPoints()/2);
-    mergedPolys = new vtkCellArray(newPolys->GetSize());
+    mergedPts = vtkFloatPoints::New();
+    mergedPts->Allocate(newPts->GetNumberOfPoints()/2);
+    mergedPolys = vtkCellArray::New();
+    mergedPolys->Allocate(newPolys->GetSize());
 
     if ( this->Locator == NULL ) this->CreateDefaultLocator();
     this->Locator->InitPointInsertion (mergedPts, newPts->GetBounds());

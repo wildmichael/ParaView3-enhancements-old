@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectorNorm.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-03-12 21:12:12 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1997-05-23 20:36:22 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -75,7 +75,7 @@ void vtkVectorNorm::Execute()
 //
 // Allocate
 //
-  newScalars = new vtkFloatScalars(numVectors); 
+  newScalars = vtkFloatScalars::New();
   newScalars->SetNumberOfScalars(numVectors);
 
   for (maxScalar=0.0, i=0; i < numVectors; i++)

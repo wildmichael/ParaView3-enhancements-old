@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransformFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:56:45 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1997-05-23 20:36:11 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -78,9 +78,18 @@ void vtkTransformFilter::Execute()
     }
 
   numPts = inPts->GetNumberOfPoints();
-  newPts = new vtkFloatPoints(numPts);
-  if ( inVectors ) newVectors = new vtkFloatVectors(numPts);
-  if ( inNormals ) newNormals = new vtkFloatNormals(numPts);
+  newPts = vtkFloatPoints::New();
+  newPts->Allocate(numPts);
+  if ( inVectors ) 
+    {
+    newVectors = vtkFloatVectors::New();
+    newVectors->Allocate(numPts);
+    }
+  if ( inNormals ) 
+    {
+    newNormals = vtkFloatNormals::New();
+    newNormals->Allocate(numPts);
+    }
   //
   // Loop over all points, updating position
   //

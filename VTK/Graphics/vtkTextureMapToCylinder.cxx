@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextureMapToCylinder.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-03-12 21:12:03 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1997-05-23 20:36:03 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -80,7 +80,7 @@ void vtkTextureMapToCylinder::Execute()
 
   if ( this->AutomaticCylinderGeneration )
     {
-    vtkFloatPoints *pts=new vtkFloatPoints(numPts); pts->SetNumberOfPoints(numPts);
+    vtkFloatPoints *pts=vtkFloatPoints::New(); pts->SetNumberOfPoints(numPts);
     float corner[3], max[3], mid[3], min[3], size[3], l;
     vtkOBBTree OBB;
 
@@ -128,7 +128,8 @@ void vtkTextureMapToCylinder::Execute()
     vtkErrorMacro(<<"Bad cylinder axis");
     return;
     }
-  newTCoords = new vtkFloatTCoords(numPts,2);
+  newTCoords = vtkFloatTCoords::New();
+  newTCoords->Allocate(numPts,2);
 
   //loop over all points computing spherical coordinates
   for ( ptId=0; ptId < numPts; ptId++ )

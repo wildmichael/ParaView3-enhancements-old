@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-04-30 11:52:40 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1997-05-23 20:35:52 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -209,19 +209,19 @@ void vtkStructuredPointsReader::Execute()
         dimsRead = 1;
         }
 
-      else if ( ! strncmp(line,"aspect_ratio",12) )
+      else if ( !strncmp(line,"aspect_ratio",12) || !strncmp(line,"spacing",7) )
         {
         float ar[3];
         if (!(this->Reader.ReadFloat(ar) && 
 	      this->Reader.ReadFloat(ar+1) && 
 	      this->Reader.ReadFloat(ar+2)))
           {
-          vtkErrorMacro(<<"Error reading aspect ratio!");
+          vtkErrorMacro(<<"Error reading spacing!");
           this->Reader.CloseVTKFile ();
           return;
           }
 
-        output->SetAspectRatio(ar);
+        output->SetSpacing(ar);
         arRead = 1;
         }
 
@@ -270,7 +270,7 @@ void vtkStructuredPointsReader::Execute()
       }
 
       if ( !dimsRead ) vtkWarningMacro(<<"No dimensions read.");
-      if ( !arRead ) vtkWarningMacro(<<"No aspect ratio read.");
+      if ( !arRead ) vtkWarningMacro(<<"No spacing read.");
       if ( !originRead ) vtkWarningMacro(<<"No origin read.");
     }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume16Reader.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 20:54:30 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1997-05-23 20:36:32 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -139,9 +139,9 @@ protected:
   void TransformSlice (short *slice, short *pixels, int k, int dimensions[3], int bounds[3]);
   void ComputeTransformedDimensions(int dimensions[3]);
   void ComputeTransformedBounds(int bounds[6]);
-  void ComputeTransformedAspectRatio(float aspectRatio[3]);
+  void ComputeTransformedSpacing(float Spacing[3]);
   void ComputeTransformedOrigin(float origin[3]);
-  void AdjustAspectRatioAndOrigin(int dimensions[3], float aspectRatio[3], float origin[3]);
+  void AdjustSpacingAndOrigin(int dimensions[3], float Spacing[3], float origin[3]);
   vtkScalars *ReadImage(int ImageNumber);
   vtkScalars *ReadVolume(int FirstImage, int LastImage);
   int Read16BitImage(FILE *fp, short *pixels, int xsize, int ysize, 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractTensorComponents.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-04-28 19:07:35 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1997-05-23 20:34:25 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -115,25 +115,25 @@ void vtkExtractTensorComponents::Execute()
   if ( this->ExtractScalars )
     {
     outPD->CopyScalarsOff();
-    newScalars = new vtkFloatScalars(numPts);
+    newScalars = vtkFloatScalars::New();
     newScalars->SetNumberOfScalars(numPts);
     }
   if ( this->ExtractVectors ) 
     {
     outPD->CopyVectorsOff();
-    newVectors = new vtkFloatVectors(numPts);
+    newVectors = vtkFloatVectors::New();
     newVectors->SetNumberOfVectors(numPts);
     }
   if ( this->ExtractNormals ) 
     {
     outPD->CopyNormalsOff();
-    newNormals = new vtkFloatNormals(numPts);
+    newNormals = vtkFloatNormals::New();
     newNormals->SetNumberOfNormals(numPts);
     }
   if ( this->ExtractTCoords ) 
     {
     outPD->CopyTCoordsOff();
-    newTCoords = new vtkFloatTCoords(numPts,this->NumberOfTCoords);
+    newTCoords = vtkFloatTCoords::New();
     newTCoords->SetNumberOfTCoords(numPts);
     }
   outPD->PassData(pd);
