@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLPolyDataMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-03-01 19:42:26 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1999-03-17 12:51:23 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -257,7 +257,7 @@ void vtkOpenGLBeginPolyTriangleOrQuad(GLenum aGlFunction,
 	// if we were supposed to be drawing polygons but were really
 	// drawing triangles or quads, then we need to close down the
 	// triangles or quads and begin a polygon
-	if (previousGlFunction != GL_POLYGON)
+	if (previousGlFunction != 0xffff && previousGlFunction != GL_POLYGON)
 	  {
 	  glEnd();
 	  }
