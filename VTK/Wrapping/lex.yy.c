@@ -42,7 +42,7 @@ int yyleng; extern char yytext[];
 int yymorfg;
 extern char *yysptr, yysbuf[];
 int yytchar;
-FILE *yyin = {stdin}, *yyout = {stdout};
+FILE *yyin, *yyout;
 extern int yylineno;
 struct yysvf { 
 	struct yywork *yystoff;
@@ -4223,7 +4223,7 @@ char yyextra[] = {
 0,0,0,0,0,0,1,0,
 0,0,0,0,0,0,0,0,
 0};
-#ident	"$Revision: 1.11 $"
+#ident	"$Revision: 1.12 $"
 
 int yylineno =1;
 # define YYU(x) x
