@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCommand.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-10 18:25:39 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2002-11-10 18:26:32 $
+  Version:   $Revision: 1.28 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -71,7 +71,7 @@ static const char *vtkCommandEventStrings[] = {
   "PlaceWidgetEvent",
   "CursorChangedEvent",
   "ExecuteInformationEvent",
-  "RenderWindowMessage",
+  "RenderWindowMessageEvent",
   NULL
 };
 
