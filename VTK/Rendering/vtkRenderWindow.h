@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 1995-05-08 18:13:37 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1995-06-28 10:39:36 $
+  Version:   $Revision: 1.15 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -91,6 +91,11 @@ public:
   // Description:
   // Get the position in screen coordinates of the rendering window.
   virtual int *GetPosition() = 0;
+
+  // Description:
+  // Set the position of the window in screen coordinates.
+  virtual void SetPosition(int,int);
+  virtual void SetPosition(int a[2]);
 
   // Description:
   // Get the size of the window in screen coordinates.

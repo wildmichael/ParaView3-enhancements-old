@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-05-08 18:13:35 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1995-06-28 10:39:52 $
+  Version:   $Revision: 1.17 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -457,6 +457,28 @@ void vlRenderWindow::RemoveRenderers(vlRenderer *ren)
 void vlRenderWindow::SetSize(int a[2])
 {
   this->SetSize(a[0],a[1]);
+}
+
+// Description:
+// Set the size of the window in screen coordinates.
+void vlRenderWindow::SetPosition(int a[2])
+{
+  this->SetPosition(a[0],a[1]);
+}
+// Description:
+// Set the size of the window in screen coordinates.
+void vlRenderWindow::SetPosition(int x, int y)
+{
+  // if we arent mappen then just set the ivars 
+  if (!this->Mapped)
+    {
+    if ((this->Position[0] != x)||(this->Position[1] != y))
+      {
+      this->Modified();
+      }
+    this->Position[0] = x;
+    this->Position[1] = y;
+    }
 }
 
 void vlRenderWindow::PrintSelf(ostream& os, vlIndent indent)
