@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadraticQuad.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-24 20:42:34 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-05-27 10:55:11 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -15,16 +15,16 @@
      PURPOSE.  See the above copyright notice for more information.
 
 =========================================================================*/
-// .NAME vtkQuadraticQuad - cell represents a parabolic, isoparametric quad
+// .NAME vtkQuadraticQuad - cell represents a parabolic, 8-node isoparametric quad
 // .SECTION Description
 // vtkQuadraticQuad is a concrete implementation of vtkNonLinearCell to
-// represent a two-dimensional, isoparametric parabolic quadrilateral
+// represent a two-dimensional, 8-node isoparametric parabolic quadrilateral
 // element. The interpolation is the standard finite element, quadratic
 // isoparametric shape function. The cell includes a mid-edge node for each
 // of the four edges of the cell. The ordering of the eight points defining
-// the cell are point ids (1-4,5-8) where ids 1-4 define the four corner
-// vertices of the quad; ids 5-8 define the midedge nodes (1,2), (2,3),
-// (3,4), (4,1).
+// the cell are point ids (0-3,4-7) where ids 0-3 define the four corner
+// vertices of the quad; ids 4-7 define the midedge nodes (0,1), (1,2),
+// (2,3), (3,0).
 
 // .SECTION See Also
 // vtkQuadraticEdge vtkQuadraticTriangle vtkQuadraticTetra
@@ -105,7 +105,7 @@ protected:
   vtkCellData      *CellData;
   vtkFloatArray    *Scalars;
 
-  void ComputeMidQuadNode(float *weights);
+  void Subdivide(float *weights);
   void InterpolateAttributes(vtkPointData *inPd, vtkCellData *inCd,
                              vtkIdType cellId, float *weights);
 

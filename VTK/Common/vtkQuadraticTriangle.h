@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadraticTriangle.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-24 20:42:34 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-05-27 10:55:11 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,13 +18,13 @@
 // .NAME vtkQuadraticTriangle - cell represents a parabolic, isoparametric triangle
 // .SECTION Description
 // vtkQuadraticTriangle is a concrete implementation of vtkNonLinearCell to
-// represent a rwo-dimensional, isoparametric parabolic triangle. The
+// represent a two-dimensional, 6-node, isoparametric parabolic triangle. The
 // interpolation is the standard finite element, quadratic isoparametric
 // shape function. The cell includes three mid-edge nodes besides the three
 // triangle vertices. The ordering of the three points defining the cell is 
-// point ids (1-3,4-6) where id #4 is the midedge node between points
-// (1,2); id #5 is the midedge node between points (2,3); and id #6 is the 
-// midedge node between points (3,1).
+// point ids (0-2,3-5) where id #3 is the midedge node between points
+// (0,1); id #4 is the midedge node between points (1,2); and id #5 is the 
+// midedge node between points (2,0).
 
 // .SECTION See Also
 // vtkQuadraticEdge vtkQuadraticTetra

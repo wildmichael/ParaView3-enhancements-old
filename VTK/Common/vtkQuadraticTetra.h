@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadraticTetra.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-24 20:42:34 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-05-27 10:55:11 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -15,16 +15,16 @@
      PURPOSE.  See the above copyright notice for more information.
 
 =========================================================================*/
-// .NAME vtkQuadraticTetra - cell represents a parabolic, isoparametric tetrahedron
+// .NAME vtkQuadraticTetra - cell represents a parabolic, 10-node isoparametric tetrahedron
 // .SECTION Description
 // vtkQuadraticTetra is a concrete implementation of vtkNonLinearCell to
-// represent a three-dimensional, isoparametric parabolic tetrahedron. The
-// interpolation is the standard finite element, quadratic isoparametric
-// shape function. The cell includes a mid-edge node on each of the size
-// edges of the tetrahedron. The ordering of the ten points defining the cell
-// is point ids (1-4,5-10) where ids 1-4 are the four tetra vertices; and
-// point ids 5-10 are the midedge nodes between (1,2), (2,3), (3,1), (1,4),
-// (2,4), and (3,4).
+// represent a three-dimensional, 10-node, isoparametric parabolic
+// tetrahedron. The interpolation is the standard finite element, quadratic
+// isoparametric shape function. The cell includes a mid-edge node on each of
+// the size edges of the tetrahedron. The ordering of the ten points defining
+// the cell is point ids (0-3,4-9) where ids 0-3 are the four tetra
+// vertices; and point ids 4-9 are the midedge nodes between (0,1), (1,2), 
+// (2,3), (3,0), (0,3), (1,3), and (2,3).
 //
 // .SECTION See Also
 // vtkQuadraticEdge vtkQuadraticTriangle 

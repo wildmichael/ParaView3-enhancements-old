@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadraticEdge.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-24 20:42:34 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2002-05-27 10:55:11 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,10 +18,10 @@
 // .NAME vtkQuadraticEdge - cell represents a parabolic, isoparametric edge
 // .SECTION Description
 // vtkQuadraticEdge is a concrete implementation of vtkNonLinearCell to
-// represent a one-dimensional, isoparametric parabolic line. The
+// represent a one-dimensional, 3-nodes, isoparametric parabolic line. The
 // interpolation is the standard finite element, quadratic isoparametric
 // shape function. The cell includes a mid-edge node. The ordering of the
-// three points defining the cell is point ids (1,2,3) where id #3 is the
+// three points defining the cell is point ids (0,1,2) where id #2 is the
 // midedge node.
 
 // .SECTION See Also

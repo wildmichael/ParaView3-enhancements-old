@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadraticHexahedron.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-24 20:42:34 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-05-27 10:55:11 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -15,17 +15,17 @@
      PURPOSE.  See the above copyright notice for more information.
 
 =========================================================================*/
-// .NAME vtkQuadraticHexahedron - cell represents a parabolic, isoparametric hexahedron
+// .NAME vtkQuadraticHexahedron - cell represents a parabolic, 20-node isoparametric hexahedron
 // .SECTION Description
 // vtkQuadraticHexahedron is a concrete implementation of vtkNonLinearCell to
-// represent a three-dimensional, isoparametric parabolic hexahedron. The
-// interpolation is the standard finite element, quadratic isoparametric
-// shape function. The cell includes a mid-edge node. The ordering of the
-// twenty points defining the cell is point ids (1-8,9-20) where point ids
-// 1-8 are the eight corner vertices of the cube; followed by twelve midedge
-// nodes (9-20). Note that these midedge nodes correspond lie on the edges
-// defined by (1,2), (2,3), (3,4), (4,1), (5,6), (6,7), (7,8), (8,5),
-// (1,5), (2,6), (3,7), (4,8).
+// represent a three-dimensional, 20-node isoparametric parabolic
+// hexahedron. The interpolation is the standard finite element, quadratic
+// isoparametric shape function. The cell includes a mid-edge node. The
+// ordering of the twenty points defining the cell is point ids (0-7,8-19)
+// where point ids 0-7 are the eight corner vertices of the cube; followed by
+// twelve midedge nodes (8-19). Note that these midedge nodes correspond lie
+// on the edges defined by (0,1), (1,2), (2,3), (3,0), (4,5), (5,6), (6,7),
+// (7,4), (0,4), (1,5), (2,6), (3,7).
 
 // .SECTION See Also
 // vtkQuadraticEdge vtkQUadraticTriangle vtkQuadraticTetra
