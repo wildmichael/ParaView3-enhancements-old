@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFrustumCoverageCuller.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-07-02 16:13:06 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-07-02 19:48:40 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -226,6 +226,8 @@ float vtkFrustumCoverageCuller::OuterCullMethod( vtkRenderer *ren,
   // The allocated render times are now initialized
   initialized = 1;
   
+  delete [] allocatedTimeList;
+
   return total_time;
 }
 
