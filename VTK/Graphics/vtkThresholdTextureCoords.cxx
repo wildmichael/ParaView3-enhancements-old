@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkThresholdTextureCoords.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-14 21:09:37 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1995-06-14 21:12:20 $
+  Version:   $Revision: 1.2 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -21,6 +21,7 @@ vlThresholdTextureCoords::vlThresholdTextureCoords()
 {
   this->LowerThreshold = 0.0;
   this->UpperThreshold = 1.0;
+  this->TextureDimension = 2;
 
   this->ThresholdFunction = &vlThresholdTextureCoords::Upper;
 }
