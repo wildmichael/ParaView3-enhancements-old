@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageOpenClose3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:47:44 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-02-01 12:30:01 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -118,6 +118,19 @@ void vtkImageOpenClose3D::DebugOn()
   if (this->Filter1)
     {
     this->Filter1->DebugOn();
+    }
+}
+//----------------------------------------------------------------------------
+void vtkImageOpenClose3D::DebugOff()
+{
+  this->vtkObject::DebugOff();
+  if (this->Filter0)
+    {
+    this->Filter0->DebugOff();
+    }
+  if (this->Filter1)
+    {
+    this->Filter1->DebugOff();
     }
 }
 

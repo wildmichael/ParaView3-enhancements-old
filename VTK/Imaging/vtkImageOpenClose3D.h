@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageOpenClose3D.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:47:44 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1999-02-01 12:30:01 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -73,22 +73,19 @@ public:
   const char *GetClassName() {return "vtkImageOpenClose3D";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
-
   // Description:
   // This method considers the sub filters MTimes when computing this objects
   // modified time.
   unsigned long int GetMTime();
-
   
   // Description:
   // Turn debugging output on. (in sub filters also)
   void DebugOn();
-
+  void DebugOff();
 
   // Description:
   // Pass modified message to sub filters.
   void Modified();
-
   
   // Foward Source messages to filter1
 
@@ -96,7 +93,6 @@ public:
   // This method sets the cache object of the filter.
   // It justs feeds the request to the sub filter.
   void SetCache(vtkImageCache *cache);
-
   
   // Description:
   // This method returns the l;ast cache of the internal pipline.
@@ -128,13 +124,11 @@ public:
   // Selects the size of gaps or objects removed.
   void SetKernelSize(int size0, int size1, int size2);
 
-
   // Description:
   // Determines the value that will opened.  
   // Open value is first eroded, and then dilated.
   void SetOpenValue(float value);
   float GetOpenValue();
-
 
   // Description:
   // Determines the value that will closed.
@@ -146,7 +140,6 @@ public:
   // Needed for Progress functions
   vtkGetObjectMacro(Filter0, vtkImageDilateErode3D);
   vtkGetObjectMacro(Filter1, vtkImageDilateErode3D);
-
 
 protected:
   
