@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDirectionEncoder.h,v $
   Language:  C++
-  Date:      $Date: 1999-04-06 19:46:17 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-09-21 14:58:07 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -85,6 +85,10 @@ public:
   virtual float *GetDecodedGradientTable( void )=0;
 
 protected:
+  vtkDirectionEncoder() {};
+  ~vtkDirectionEncoder() {};
+  vtkDirectionEncoder(const vtkDirectionEncoder &) {};
+  void operator=(const vtkDirectionEncoder &) {};
 }; 
 
 

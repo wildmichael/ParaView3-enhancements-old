@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCuller.h,v $
   Language:  C++
-  Date:      $Date: 1999-04-22 14:14:13 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-09-21 14:57:45 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -67,6 +67,11 @@ public:
 		      int& listLength, int& initialized )=0;
 
 protected:
+  vtkCuller() {};
+  ~vtkCuller() {};
+  vtkCuller(const vtkCuller &) {};
+  void operator=(const vtkCuller &) {};
+  
 };
                                          
 #endif
