@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVRMLImporter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-07-30 17:24:12 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2000-07-31 15:43:52 $
+  Version:   $Revision: 1.12 $
   Thanks:    Tom Citriniti who implemented and contributed this class
 
 
@@ -5859,7 +5859,6 @@ vtkVRMLImporter::exitField()
         {
         this->CurrentScalars->InsertNextScalar(i);
         }
-      yylval.vec3f->Reset();yylval.vec3f->Delete(); yylval.vec3f = NULL;
       if (creatingDEF) 
         {
         useList += new vtkVRMLUseStruct(curDEFName, this->CurrentPoints);
