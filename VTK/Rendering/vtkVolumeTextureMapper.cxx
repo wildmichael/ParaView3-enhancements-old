@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeTextureMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:39:42 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2002-03-05 20:16:13 $
+  Version:   $Revision: 1.22 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 #include "vtkRenderer.h"
 #include "vtkFiniteDifferenceGradientEstimator.h"
 
-vtkCxxRevisionMacro(vtkVolumeTextureMapper, "$Revision: 1.21 $");
+vtkCxxRevisionMacro(vtkVolumeTextureMapper, "$Revision: 1.22 $");
 
 vtkVolumeTextureMapper::vtkVolumeTextureMapper()
 {
@@ -78,13 +78,6 @@ void vtkVolumeTextureMapper::Update()
     this->GetInput()->UpdateInformation();
     this->GetInput()->SetUpdateExtentToWholeExtent();
     this->GetInput()->Update();
-    }
-
-  if ( this->GetRGBTextureInput() )
-    {
-    this->GetRGBTextureInput()->UpdateInformation();
-    this->GetRGBTextureInput()->SetUpdateExtentToWholeExtent();
-    this->GetRGBTextureInput()->Update();
     }
 }
 

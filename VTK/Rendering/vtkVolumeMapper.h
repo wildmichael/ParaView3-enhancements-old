@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeMapper.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:39:34 $
-  Version:   $Revision: 1.54 $
+  Date:      $Date: 2002-03-05 20:16:10 $
+  Version:   $Revision: 1.55 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -100,11 +100,6 @@ public:
     {this->SetCroppingRegionFlags( VTK_CROP_CROSS );};
   void SetCroppingRegionFlagsToInvertedCross() 
     {this->SetCroppingRegionFlags( VTK_CROP_INVERTED_CROSS );};
-
-  // Description:
-  // Set/Get the rgb texture input data
-  void SetRGBTextureInput( vtkImageData *rgbTexture );
-  virtual vtkImageData *GetRGBTextureInput();
 
   // Description:
   // Return bounding box (array of six floats) of data expressed as

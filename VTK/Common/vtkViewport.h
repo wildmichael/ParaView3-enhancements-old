@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkViewport.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:26:39 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2002-03-05 20:16:08 $
+  Version:   $Revision: 1.38 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -210,7 +210,8 @@ public:
   // return (0,0).
   int *GetSize();
   int *GetOrigin();
-
+  void GetTiledSize(int *width, int *height);
+  
   // The following methods describe the public pick interface for picking
   // Props in a viewport.
 

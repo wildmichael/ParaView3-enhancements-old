@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkViewport.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-22 16:42:36 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 2002-03-05 20:16:08 $
+  Version:   $Revision: 1.50 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,7 +25,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-vtkCxxRevisionMacro(vtkViewport, "$Revision: 1.49 $");
+vtkCxxRevisionMacro(vtkViewport, "$Revision: 1.50 $");
 
 // Create a vtkViewport with a black background, a white ambient light, 
 // two-sided lighting turned on, a viewport of (0,0,1,1), and backface culling
@@ -216,6 +216,39 @@ void vtkViewport::WorldToView()
 
 }
 
+void vtkViewport::GetTiledSize(int *width, int *height)
+{  
+  float *vport = this->GetViewport();
+  float *tileViewPort = this->VTKWindow->GetTileViewport();
+  int  lowerLeft[2];
+  
+  float vpu, vpv;
+  vpu = (vport[0] < tileViewPort[0]) ? tileViewPort[0] : vport[0];
+  vpu = (vpu > tileViewPort[2]) ? tileViewPort[2] : vpu;
+  vpv = (vport[1] < tileViewPort[1]) ? tileViewPort[1] : vport[1];
+  vpv = (vpv > tileViewPort[3]) ? tileViewPort[3] : vpv;
+  this->NormalizedDisplayToDisplay(vpu,vpv);
+  lowerLeft[0] = (int)(vpu+0.5);
+  lowerLeft[1] = (int)(vpv+0.5);
+  float vpu2, vpv2;
+  vpu2 = (vport[2] > tileViewPort[2]) ? tileViewPort[2] : vport[2];
+  vpu2 = (vpu2 < tileViewPort[0]) ? tileViewPort[0] : vpu2;
+  vpv2 = (vport[3] > tileViewPort[3]) ? tileViewPort[3] : vport[3];
+  vpv2 = (vpv2 < tileViewPort[1]) ? tileViewPort[1] : vpv2;
+  this->NormalizedDisplayToDisplay(vpu2,vpv2);
+  int usize = (int)(vpu2 + 0.5) - lowerLeft[0];
+  int vsize = (int)(vpv2 + 0.5) - lowerLeft[1];  
+  if (usize < 0)
+    {
+    usize = 0;
+    }
+  if (vsize < 0)
+    {
+    vsize = 0;
+    }
+  *width = usize;
+  *height = vsize;
+}
 
 // Return the size of the viewport in display coordinates.
 int *vtkViewport::GetSize()

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastMapper.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:39:41 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 2002-03-05 20:16:13 $
+  Version:   $Revision: 1.45 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -36,13 +36,6 @@ class  vtkRenderer;
 class  vtkVolume;
 class  vtkVolumeTransform;
 class  vtkPlaneCollection;
-class  vtkPoints;
-class  vtkCellArray;
-class  vtkTCoords;
-class  vtkPolyData;
-class  vtkTexture;
-class  vtkActor;
-class  vtkPolyDataMapper;
 class  vtkMultiThreader;
 class  vtkTimerLog;
 
