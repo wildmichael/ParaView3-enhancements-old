@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitModeller.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-12-27 10:54:05 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1996-07-19 13:05:10 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -62,7 +62,7 @@ vtkImplicitModeller::vtkImplicitModeller()
   this->SampleDimensions[2] = 50;
 
   this->Capping = 1;
-  this->CapValue = VTK_LARGE_FLOAT;
+  this->CapValue = sqrt(VTK_LARGE_FLOAT) / 3.0;
 }
 
 void vtkImplicitModeller::SetModelBounds(float xmin, float xmax, float ymin, 
