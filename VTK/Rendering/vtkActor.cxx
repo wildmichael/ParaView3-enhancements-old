@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-24 00:58:21 $
-  Version:   $Revision: 1.85 $
+  Date:      $Date: 1999-08-27 21:11:45 $
+  Version:   $Revision: 1.86 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -319,14 +319,15 @@ float *vtkActor::GetBounds()
   int i,n;
   float *bounds, bbox[24], *fptr;
   float *result;
-  vtkMatrix4x4 *matrix = vtkMatrix4x4::New();
+  //vtkMatrix4x4 *matrix = vtkMatrix4x4::New();
+  double matrix[16];
 
   vtkDebugMacro( << "Getting Bounds" );
 
   // get the bounds of the Mapper if we have one
   if (!this->Mapper)
     {
-    matrix->Delete();
+      //matrix->Delete();
     return this->Bounds;
     }
 
@@ -398,7 +399,7 @@ float *vtkActor::GetBounds()
     this->BoundsMTime.Modified();
     }
 
-  matrix->Delete();
+  //matrix->Delete();
   return this->Bounds;
 }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProp3D.h,v $
   Language:  C++
-  Date:      $Date: 1999-04-28 22:22:54 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-08-27 21:11:45 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -137,6 +137,7 @@ class VTK_EXPORT vtkProp3D : public vtkProp
   // matrix is cached, so multiple GetMatrix() calls will be efficient.
   virtual vtkMatrix4x4 *GetMatrixPointer();
   virtual void GetMatrix(vtkMatrix4x4 *m);
+  virtual void GetMatrix(double m[16]);
 
   // Description:
   // Get the bounds for this Prop3D as (Xmin,Xmax,Ymin,Ymax,Zmin,Zmax).

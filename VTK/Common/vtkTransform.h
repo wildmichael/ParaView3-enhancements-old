@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransform.h,v $
   Language:  C++
-  Date:      $Date: 1999-04-29 15:59:28 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 1999-08-27 21:11:44 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -220,10 +220,12 @@ class VTK_EXPORT vtkTransform : public vtkObject
   // The setting of the PreMultiply flag determines whether the matrix
   // is PreConcatenated or PostConcatenated.
   void Concatenate(vtkMatrix4x4 *matrix);
+  void Concatenate(double Elements[16]);
 
   // Description:
   // Multiplies matrices a and b and stores the result in c.
   void Multiply4x4(vtkMatrix4x4 *a, vtkMatrix4x4 *b, vtkMatrix4x4 *c);
+  void Multiply4x4(double a[16], double b[16], double c[16]);
 
   // Description:
   // Multiply a xyzw point by the transform and store the result in out.
