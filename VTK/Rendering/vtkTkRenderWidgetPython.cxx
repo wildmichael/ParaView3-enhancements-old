@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkRenderWidgetPython.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-30 20:04:28 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-09-04 17:52:41 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -17,5 +17,4 @@
 =========================================================================*/
 
 #define VTK_PYTHON_BUILD
-#include "vtkPythonUtil.h"
 #include "vtkTkRenderWidget.cxx"
