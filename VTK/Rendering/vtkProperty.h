@@ -3,11 +3,11 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProperty.h,v $
   Language:  C++
-  Date:      $Date: 1996-06-14 11:23:42 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1996-08-02 19:57:36 $
+  Version:   $Revision: 1.24 $
 
 
-Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
+Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
 
 This software is copyrighted by Ken Martin, Will Schroeder and Bill Lorensen.
 The following terms apply to all files associated with the software unless
@@ -74,15 +74,9 @@ public:
   // Description:
   // This method causes the property to set up whatever is required for
   // its instance variables. This is actually handled by an instance of
-  // vtkPropertyDevice, which is created automatically. 
-  virtual void Render(vtkRenderer *ren);
-
-  // Description:
-  // This method causes the property to set up whatever is required for
-  // its instance variables. This is actually handled by an instance of
-  // vtkPropertyDevice, which is created automatically. This optional
-  // method include the invoking actor as an argument and can be
-  // implemented by property devices that require the actor.
+  // vtkPropertyDevice, which is created automatically. This
+  // method includes the invoking actor as an argument which can
+  // be used by property devices that require the actor.
   virtual void Render(vtkRenderer *ren, vtkActor *anActor);
 
   // Description:

@@ -3,11 +3,11 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAppendFilter.h,v $
   Language:  C++
-  Date:      $Date: 1996-01-11 10:02:36 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1996-08-02 19:53:30 $
+  Version:   $Revision: 1.15 $
 
 
-Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
+Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
 
 This software is copyrighted by Ken Martin, Will Schroeder and Bill Lorensen.
 The following terms apply to all files associated with the software unless

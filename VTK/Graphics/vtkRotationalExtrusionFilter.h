@@ -3,11 +3,11 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRotationalExtrusionFilter.h,v $
   Language:  C++
-  Date:      $Date: 1995-12-27 10:57:04 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1996-08-02 19:58:00 $
+  Version:   $Revision: 1.13 $
 
 
-Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
+Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
 
 This software is copyrighted by Ken Martin, Will Schroeder and Bill Lorensen.
 The following terms apply to all files associated with the software unless

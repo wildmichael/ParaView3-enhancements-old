@@ -3,11 +3,11 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextureMapToCylinder.h,v $
   Language:  C++
-  Date:      $Date: 1996-07-12 13:08:36 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1996-08-02 19:59:37 $
+  Version:   $Revision: 1.3 $
 
 
-Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
+Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
 
 This software is copyrighted by Ken Martin, Will Schroeder and Bill Lorensen.
 The following terms apply to all files associated with the software unless

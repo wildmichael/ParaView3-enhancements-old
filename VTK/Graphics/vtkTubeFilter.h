@@ -3,11 +3,11 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTubeFilter.h,v $
   Language:  C++
-  Date:      $Date: 1996-07-03 19:02:04 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1996-08-02 20:00:03 $
+  Version:   $Revision: 1.16 $
 
 
-Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
+Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
 
 This software is copyrighted by Ken Martin, Will Schroeder and Bill Lorensen.
 The following terms apply to all files associated with the software unless

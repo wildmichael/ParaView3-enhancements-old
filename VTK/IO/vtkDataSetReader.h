@@ -3,11 +3,11 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetReader.h,v $
   Language:  C++
-  Date:      $Date: 1996-03-20 21:48:57 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1996-08-02 19:54:31 $
+  Version:   $Revision: 1.14 $
 
 
-Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
+Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
 
 This software is copyrighted by Ken Martin, Will Schroeder and Bill Lorensen.
 The following terms apply to all files associated with the software unless

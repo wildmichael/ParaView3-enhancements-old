@@ -3,11 +3,11 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPoints.h,v $
   Language:  C++
-  Date:      $Date: 1996-06-26 20:40:31 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1996-08-02 19:56:53 $
+  Version:   $Revision: 1.24 $
 
 
-Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
+Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
 
 This software is copyrighted by Ken Martin, Will Schroeder and Bill Lorensen.
 The following terms apply to all files associated with the software unless

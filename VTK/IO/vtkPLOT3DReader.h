@@ -3,11 +3,11 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPLOT3DReader.h,v $
   Language:  C++
-  Date:      $Date: 1996-05-30 14:20:49 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1996-08-02 19:56:34 $
+  Version:   $Revision: 1.16 $
 
 
-Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
+Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
 
 This software is copyrighted by Ken Martin, Will Schroeder and Bill Lorensen.
 The following terms apply to all files associated with the software unless

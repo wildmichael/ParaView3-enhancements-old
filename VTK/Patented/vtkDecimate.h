@@ -3,11 +3,11 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDecimate.h,v $
   Language:  C++
-  Date:      $Date: 1996-07-12 13:09:27 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1996-08-02 19:54:43 $
+  Version:   $Revision: 1.23 $
 
 
-Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
+Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
 
 This software is copyrighted by Ken Martin, Will Schroeder and Bill Lorensen.
 The following terms apply to all files associated with the software unless

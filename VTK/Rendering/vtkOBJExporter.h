@@ -3,11 +3,11 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOBJExporter.h,v $
   Language:  C++
-  Date:      $Date: 1996-07-16 15:33:09 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1996-08-02 19:56:19 $
+  Version:   $Revision: 1.2 $
 
 
-Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
+Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
 
 This software is copyrighted by Ken Martin, Will Schroeder and Bill Lorensen.
 The following terms apply to all files associated with the software unless

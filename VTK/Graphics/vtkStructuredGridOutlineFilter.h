@@ -3,11 +3,11 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridOutlineFilter.h,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:31:42 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1996-08-02 19:58:57 $
+  Version:   $Revision: 1.10 $
 
 
-Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
+Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
 
 This software is copyrighted by Ken Martin, Will Schroeder and Bill Lorensen.
 The following terms apply to all files associated with the software unless

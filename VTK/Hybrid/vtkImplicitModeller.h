@@ -3,11 +3,11 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitModeller.h,v $
   Language:  C++
-  Date:      $Date: 1996-07-19 17:03:55 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1996-08-02 19:55:44 $
+  Version:   $Revision: 1.18 $
 
 
-Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
+Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
 
 This software is copyrighted by Ken Martin, Will Schroeder and Bill Lorensen.
 The following terms apply to all files associated with the software unless

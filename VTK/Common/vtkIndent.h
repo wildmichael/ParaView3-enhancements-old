@@ -3,11 +3,11 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIndent.h,v $
   Language:  C++
-  Date:      $Date: 1995-08-15 16:51:41 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1996-08-02 19:55:46 $
+  Version:   $Revision: 1.9 $
 
 
-Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
+Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
 
 This software is copyrighted by Ken Martin, Will Schroeder and Bill Lorensen.
 The following terms apply to all files associated with the software unless
