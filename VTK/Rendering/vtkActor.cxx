@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:34:19 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 1995-08-13 16:34:01 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -361,6 +361,18 @@ float *vtkActor::GetBounds()
     }
 
   return this->Bounds;
+}
+
+// Description:
+// Get the center of the bounding box in world coordinates
+float *vtkActor::GetCenter()
+{
+  this->GetBounds();
+  this->Center[0] = (this->Bounds[1] + this->Bounds[0])/2.0;
+  this->Center[1] = (this->Bounds[3] + this->Bounds[2])/2.0;
+  this->Center[2] = (this->Bounds[5] + this->Bounds[4])/2.0;
+  
+  return this->Center;
 }
 
 // Description:
