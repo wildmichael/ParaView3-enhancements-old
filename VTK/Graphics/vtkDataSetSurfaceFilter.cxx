@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetSurfaceFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-19 17:52:06 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2002-09-26 12:07:14 $
+  Version:   $Revision: 1.22 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,21 +16,23 @@
 
 =========================================================================*/
 #include "vtkDataSetSurfaceFilter.h"
+
+#include "vtkHexahedron.h"
 #include "vtkMergePoints.h"
 #include "vtkObjectFactory.h"
-#include "vtkUnstructuredGrid.h"
-#include "vtkStructuredGrid.h"
-#include "vtkStructuredPoints.h"
+#include "vtkPolyData.h"
+#include "vtkPyramid.h"
 #include "vtkRectilinearGrid.h"
+#include "vtkStructuredGrid.h"
+#include "vtkStructuredGridGeometryFilter.h"
+#include "vtkStructuredPoints.h"
 #include "vtkTetra.h"
-#include "vtkHexahedron.h"
+#include "vtkUnsignedCharArray.h"
+#include "vtkUnstructuredGrid.h"
 #include "vtkVoxel.h"
 #include "vtkWedge.h"
-#include "vtkPyramid.h"
-#include "vtkUnsignedCharArray.h"
-#include "vtkStructuredGridGeometryFilter.h"
 
-vtkCxxRevisionMacro(vtkDataSetSurfaceFilter, "$Revision: 1.21 $");
+vtkCxxRevisionMacro(vtkDataSetSurfaceFilter, "$Revision: 1.22 $");
 vtkStandardNewMacro(vtkDataSetSurfaceFilter);
 
 //----------------------------------------------------------------------------

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHedgeHog.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:23 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2002-09-26 12:07:14 $
+  Version:   $Revision: 1.39 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,9 +16,14 @@
 
 =========================================================================*/
 #include "vtkHedgeHog.h"
-#include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkHedgeHog, "$Revision: 1.38 $");
+#include "vtkCellArray.h"
+#include "vtkObjectFactory.h"
+#include "vtkPointData.h"
+#include "vtkPoints.h"
+#include "vtkPolyData.h"
+
+vtkCxxRevisionMacro(vtkHedgeHog, "$Revision: 1.39 $");
 vtkStandardNewMacro(vtkHedgeHog);
 
 vtkHedgeHog::vtkHedgeHog()

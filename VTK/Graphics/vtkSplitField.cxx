@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSplitField.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-01 14:30:24 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2002-09-26 12:07:14 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,10 +16,12 @@
 
 =========================================================================*/
 #include "vtkSplitField.h"
-#include "vtkObjectFactory.h"
-#include "vtkDataSetAttributes.h"
 
-vtkCxxRevisionMacro(vtkSplitField, "$Revision: 1.10 $");
+#include "vtkDataSet.h"
+#include "vtkDataSetAttributes.h"
+#include "vtkObjectFactory.h"
+
+vtkCxxRevisionMacro(vtkSplitField, "$Revision: 1.11 $");
 vtkStandardNewMacro(vtkSplitField);
 
 char vtkSplitField::FieldLocationNames[3][12] 

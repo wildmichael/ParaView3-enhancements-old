@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGlyph3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-07-03 16:01:09 $
-  Version:   $Revision: 1.103 $
+  Date:      $Date: 2002-09-26 12:07:14 $
+  Version:   $Revision: 1.104 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,13 +16,16 @@
 
 =========================================================================*/
 #include "vtkGlyph3D.h"
-#include "vtkTransform.h"
+
+#include "vtkDataSet.h"
+#include "vtkFloatArray.h"
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
+#include "vtkPolyData.h"
+#include "vtkTransform.h"
 #include "vtkUnsignedCharArray.h"
-#include "vtkFloatArray.h"
 
-vtkCxxRevisionMacro(vtkGlyph3D, "$Revision: 1.103 $");
+vtkCxxRevisionMacro(vtkGlyph3D, "$Revision: 1.104 $");
 vtkStandardNewMacro(vtkGlyph3D);
 
 // Construct object with scaling on, scaling mode is by scalar value,

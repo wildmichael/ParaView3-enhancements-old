@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBrownianPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-04 11:17:20 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2002-09-26 12:07:14 $
+  Version:   $Revision: 1.35 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,11 +16,13 @@
 
 =========================================================================*/
 #include "vtkBrownianPoints.h"
+
+#include "vtkDataSet.h"
 #include "vtkMath.h"
 #include "vtkFloatArray.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkBrownianPoints, "$Revision: 1.34 $");
+vtkCxxRevisionMacro(vtkBrownianPoints, "$Revision: 1.35 $");
 vtkStandardNewMacro(vtkBrownianPoints);
 
 vtkBrownianPoints::vtkBrownianPoints()

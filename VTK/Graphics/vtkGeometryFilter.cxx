@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGeometryFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-19 17:52:06 $
-  Version:   $Revision: 1.89 $
+  Date:      $Date: 2002-09-26 12:07:14 $
+  Version:   $Revision: 1.90 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,18 +16,20 @@
 
 =========================================================================*/
 #include "vtkGeometryFilter.h"
+
+#include "vtkHexahedron.h"
 #include "vtkMergePoints.h"
 #include "vtkObjectFactory.h"
-#include "vtkUnstructuredGrid.h"
+#include "vtkPolyData.h"
+#include "vtkPyramid.h"
 #include "vtkStructuredGrid.h"
 #include "vtkTetra.h"
-#include "vtkHexahedron.h"
+#include "vtkUnsignedCharArray.h"
+#include "vtkUnstructuredGrid.h"
 #include "vtkVoxel.h"
 #include "vtkWedge.h"
-#include "vtkPyramid.h"
-#include "vtkUnsignedCharArray.h"
 
-vtkCxxRevisionMacro(vtkGeometryFilter, "$Revision: 1.89 $");
+vtkCxxRevisionMacro(vtkGeometryFilter, "$Revision: 1.90 $");
 vtkStandardNewMacro(vtkGeometryFilter);
 
 // Construct with all types of clipping turned off.

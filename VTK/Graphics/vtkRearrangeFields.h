@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRearrangeFields.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:42 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-09-26 12:07:14 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -59,6 +59,8 @@
 #define __vtkRearrangeFields_h
 
 #include "vtkDataSetToDataSetFilter.h"
+
+#include "vtkDataSetAttributes.h" // Needed for NUM_ATTRIBUTES
 
 class vtkFieldData;
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFieldDataToAttributeDataFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:21 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2002-09-26 12:07:14 $
+  Version:   $Revision: 1.35 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,9 +16,12 @@
 
 =========================================================================*/
 #include "vtkFieldDataToAttributeDataFilter.h"
+
+#include "vtkDataArray.h"
+#include "vtkDataSet.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkFieldDataToAttributeDataFilter, "$Revision: 1.34 $");
+vtkCxxRevisionMacro(vtkFieldDataToAttributeDataFilter, "$Revision: 1.35 $");
 vtkStandardNewMacro(vtkFieldDataToAttributeDataFilter);
 
 // Instantiate object with no input and no defined output.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProgrammableGlyphFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:40 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2002-09-26 12:07:14 $
+  Version:   $Revision: 1.25 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,12 +16,16 @@
 
 =========================================================================*/
 #include "vtkProgrammableGlyphFilter.h"
-#include "vtkTransform.h"
+
+#include "vtkCellData.h"
+#include "vtkDataSet.h"
 #include "vtkFloatArray.h"
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
+#include "vtkPolyData.h"
+#include "vtkTransform.h"
 
-vtkCxxRevisionMacro(vtkProgrammableGlyphFilter, "$Revision: 1.24 $");
+vtkCxxRevisionMacro(vtkProgrammableGlyphFilter, "$Revision: 1.25 $");
 vtkStandardNewMacro(vtkProgrammableGlyphFilter);
 
 // Construct object with scaling on, scaling mode is by scalar value, 

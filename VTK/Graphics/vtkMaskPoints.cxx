@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMaskPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:29 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2002-09-26 12:07:14 $
+  Version:   $Revision: 1.40 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,10 +16,15 @@
 
 =========================================================================*/
 #include "vtkMaskPoints.h"
+
+#include "vtkDataSet.h"
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
+#include "vtkPointData.h"
+#include "vtkPoints.h"
+#include "vtkPolyData.h"
 
-vtkCxxRevisionMacro(vtkMaskPoints, "$Revision: 1.39 $");
+vtkCxxRevisionMacro(vtkMaskPoints, "$Revision: 1.40 $");
 vtkStandardNewMacro(vtkMaskPoints);
 
 //----------------------------------------------------------------------------

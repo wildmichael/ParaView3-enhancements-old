@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCutter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-22 21:16:54 $
-  Version:   $Revision: 1.66 $
+  Date:      $Date: 2002-09-26 12:07:14 $
+  Version:   $Revision: 1.67 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,15 +16,19 @@
 
 =========================================================================*/
 #include "vtkCutter.h"
-#include "vtkMergePoints.h"
-#include "vtkImplicitFunction.h"
+
 #include "vtkContourValues.h"
-#include "vtkObjectFactory.h"
+#include "vtkDataSet.h"
 #include "vtkFloatArray.h"
+#include "vtkGenericCell.h"
+#include "vtkImplicitFunction.h"
+#include "vtkMergePoints.h"
+#include "vtkObjectFactory.h"
+#include "vtkPolyData.h"
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkCutter, "$Revision: 1.66 $");
+vtkCxxRevisionMacro(vtkCutter, "$Revision: 1.67 $");
 vtkStandardNewMacro(vtkCutter);
 
 // Construct with user-specified implicit function; initial value of 0.0; and

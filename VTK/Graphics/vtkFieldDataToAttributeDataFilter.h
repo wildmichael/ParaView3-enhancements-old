@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFieldDataToAttributeDataFilter.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:21 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2002-09-26 12:07:14 $
+  Version:   $Revision: 1.29 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -63,6 +63,10 @@
 
 #define VTK_CELL_DATA 0
 #define VTK_POINT_DATA 1
+
+class vtkDataArray;
+class vtkDataSetAttributes;
+class vtkFieldData;
 
 class VTK_GRAPHICS_EXPORT vtkFieldDataToAttributeDataFilter : public vtkDataSetToDataSetFilter
 {

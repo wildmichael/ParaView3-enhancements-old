@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOutlineCornerFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:31 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-09-26 12:07:14 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,10 +16,13 @@
 
 =========================================================================*/
 #include "vtkOutlineCornerFilter.h"
-#include "vtkOutlineCornerSource.h"
-#include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkOutlineCornerFilter, "$Revision: 1.6 $");
+#include "vtkDataSet.h"
+#include "vtkObjectFactory.h"
+#include "vtkOutlineCornerSource.h"
+#include "vtkPolyData.h"
+
+vtkCxxRevisionMacro(vtkOutlineCornerFilter, "$Revision: 1.7 $");
 vtkStandardNewMacro(vtkOutlineCornerFilter);
 
 vtkOutlineCornerFilter::vtkOutlineCornerFilter ()

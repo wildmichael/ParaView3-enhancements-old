@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectorNorm.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:55 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2002-09-26 12:07:15 $
+  Version:   $Revision: 1.39 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -15,12 +15,17 @@
      PURPOSE.  See the above copyright notice for more information.
 
 =========================================================================*/
-#include <math.h>
 #include "vtkVectorNorm.h"
-#include "vtkObjectFactory.h"
-#include "vtkFloatArray.h"
 
-vtkCxxRevisionMacro(vtkVectorNorm, "$Revision: 1.38 $");
+#include "vtkCellData.h"
+#include "vtkDataSet.h"
+#include "vtkFloatArray.h"
+#include "vtkObjectFactory.h"
+#include "vtkPointData.h"
+
+#include <math.h>
+
+vtkCxxRevisionMacro(vtkVectorNorm, "$Revision: 1.39 $");
 vtkStandardNewMacro(vtkVectorNorm);
 
 // Construct with normalize flag off.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkArrayCalculator.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-07-30 18:46:50 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2002-09-26 12:07:14 $
+  Version:   $Revision: 1.23 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,11 +16,14 @@
 
 =========================================================================*/
 #include "vtkArrayCalculator.h"
-#include "vtkFunctionParser.h"
-#include "vtkDoubleArray.h"
-#include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkArrayCalculator, "$Revision: 1.22 $");
+#include "vtkDataSet.h"
+#include "vtkDoubleArray.h"
+#include "vtkFunctionParser.h"
+#include "vtkObjectFactory.h"
+#include "vtkPointData.h"
+
+vtkCxxRevisionMacro(vtkArrayCalculator, "$Revision: 1.23 $");
 vtkStandardNewMacro(vtkArrayCalculator);
 
 vtkArrayCalculator::vtkArrayCalculator()

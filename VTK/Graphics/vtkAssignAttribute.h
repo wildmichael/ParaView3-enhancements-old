@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAssignAttribute.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:04 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-09-26 12:07:14 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -58,6 +58,8 @@
 #define __vtkAssignAttribute_h
 
 #include "vtkDataSetToDataSetFilter.h"
+
+#include "vtkDataSetAttributes.h" // Needed for NUM_ATTRIBUTES
 
 class vtkFieldData;
 

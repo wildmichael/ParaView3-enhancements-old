@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergeFields.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-01 14:30:24 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2002-09-26 12:07:14 $
+  Version:   $Revision: 1.13 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,11 +16,13 @@
 
 =========================================================================*/
 #include "vtkMergeFields.h"
-#include "vtkObjectFactory.h"
+
+#include "vtkDataSet.h"
 #include "vtkDataSetAttributes.h"
 #include "vtkFloatArray.h"
+#include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkMergeFields, "$Revision: 1.12 $");
+vtkCxxRevisionMacro(vtkMergeFields, "$Revision: 1.13 $");
 vtkStandardNewMacro(vtkMergeFields);
 
 char vtkMergeFields::FieldLocationNames[3][12] 

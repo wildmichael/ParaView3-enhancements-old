@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamLine.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-07 20:00:34 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 2002-09-26 12:07:14 $
+  Version:   $Revision: 1.52 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,13 +16,16 @@
 
 =========================================================================*/
 #include "vtkStreamLine.h"
-#include "vtkObjectFactory.h"
-#include "vtkPolyLine.h"
+
+#include "vtkDataSet.h"
+#include "vtkFloatArray.h"
 #include "vtkFloatArray.h"
 #include "vtkMath.h"
-#include "vtkFloatArray.h"
+#include "vtkObjectFactory.h"
+#include "vtkPolyData.h"
+#include "vtkPolyLine.h"
 
-vtkCxxRevisionMacro(vtkStreamLine, "$Revision: 1.51 $");
+vtkCxxRevisionMacro(vtkStreamLine, "$Revision: 1.52 $");
 vtkStandardNewMacro(vtkStreamLine);
 
 // Construct object with step size set to 1.0.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkContourFilter.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:12 $
-  Version:   $Revision: 1.65 $
+  Date:      $Date: 2002-09-26 12:07:14 $
+  Version:   $Revision: 1.66 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -55,6 +55,8 @@
 #include "vtkDataSetToPolyDataFilter.h"
 #include "vtkContourValues.h"
 #include "vtkScalarTree.h"
+
+class vtkPointLocator;
 
 class VTK_GRAPHICS_EXPORT vtkContourFilter : public vtkDataSetToPolyDataFilter
 {

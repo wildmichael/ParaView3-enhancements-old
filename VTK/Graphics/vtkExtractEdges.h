@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractEdges.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:18 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2002-09-26 12:07:14 $
+  Version:   $Revision: 1.33 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,6 +27,8 @@
 #define __vtkExtractEdges_h
 
 #include "vtkDataSetToPolyDataFilter.h"
+
+class vtkPointLocator;
 
 class VTK_GRAPHICS_EXPORT vtkExtractEdges : public vtkDataSetToPolyDataFilter
 {

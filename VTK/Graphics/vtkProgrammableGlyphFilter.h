@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProgrammableGlyphFilter.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:40 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2002-09-26 12:07:14 $
+  Version:   $Revision: 1.20 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -64,6 +64,8 @@
 #define VTK_COLOR_BY_SOURCE 1
 
 #include "vtkDataSetToPolyDataFilter.h"
+
+class vtkPointData;
 
 class VTK_GRAPHICS_EXPORT vtkProgrammableGlyphFilter : public vtkDataSetToPolyDataFilter
 {

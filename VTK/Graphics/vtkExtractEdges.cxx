@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractEdges.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-22 21:16:54 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 2002-09-26 12:07:14 $
+  Version:   $Revision: 1.43 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,11 +16,17 @@
 
 =========================================================================*/
 #include "vtkExtractEdges.h"
+
+#include "vtkCellData.h"
+#include "vtkDataSet.h"
 #include "vtkEdgeTable.h"
+#include "vtkGenericCell.h"
 #include "vtkMergePoints.h"
 #include "vtkObjectFactory.h"
+#include "vtkPointData.h"
+#include "vtkPolyData.h"
 
-vtkCxxRevisionMacro(vtkExtractEdges, "$Revision: 1.42 $");
+vtkCxxRevisionMacro(vtkExtractEdges, "$Revision: 1.43 $");
 vtkStandardNewMacro(vtkExtractEdges);
 
 // Construct object.

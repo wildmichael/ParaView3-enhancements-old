@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDicer.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:17 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2002-09-26 12:07:14 $
+  Version:   $Revision: 1.31 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,9 +16,11 @@
 
 =========================================================================*/
 #include "vtkDicer.h"
+
+#include "vtkDataSet.h"
 #include "vtkMath.h"
 
-vtkCxxRevisionMacro(vtkDicer, "$Revision: 1.30 $");
+vtkCxxRevisionMacro(vtkDicer, "$Revision: 1.31 $");
 
 // Instantiate object.
 vtkDicer::vtkDicer()

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGeometryFilter.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:21 $
-  Version:   $Revision: 1.55 $
+  Date:      $Date: 2002-09-26 12:07:14 $
+  Version:   $Revision: 1.56 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -48,6 +48,8 @@
 #define __vtkGeometryFilter_h
 
 #include "vtkDataSetToPolyDataFilter.h"
+
+class vtkPointLocator;
 
 class VTK_GRAPHICS_EXPORT vtkGeometryFilter : public vtkDataSetToPolyDataFilter
 {

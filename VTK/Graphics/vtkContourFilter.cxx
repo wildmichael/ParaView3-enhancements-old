@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkContourFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-22 21:16:54 $
-  Version:   $Revision: 1.93 $
+  Date:      $Date: 2002-09-26 12:07:14 $
+  Version:   $Revision: 1.94 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,17 +16,20 @@
 
 =========================================================================*/
 #include "vtkContourFilter.h"
+
 #include "vtkCell.h"
-#include "vtkMergePoints.h"
+#include "vtkContourGrid.h"
 #include "vtkContourValues.h"
-#include "vtkSimpleScalarTree.h"
+#include "vtkMergePoints.h"
 #include "vtkObjectFactory.h"
+#include "vtkPolyData.h"
+#include "vtkSimpleScalarTree.h"
 #include "vtkTimerLog.h"
 #include "vtkUnstructuredGrid.h"
-#include "vtkContourGrid.h"
 
 #include <math.h>
-vtkCxxRevisionMacro(vtkContourFilter, "$Revision: 1.93 $");
+
+vtkCxxRevisionMacro(vtkContourFilter, "$Revision: 1.94 $");
 vtkStandardNewMacro(vtkContourFilter);
 
 // Construct object with initial range (0,1) and single contour value

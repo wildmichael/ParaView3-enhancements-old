@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamTracer.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-30 18:11:46 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-09-26 12:07:14 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -69,8 +69,11 @@
 #include "vtkDataSetToPolyDataFilter.h"
 #include "vtkInitialValueProblemSolver.h"
 
-class vtkInterpolatedVelocityField;
+class vtkDataArray;
+class vtkFloatArray;
+class vtkGenericCell;
 class vtkIdList;
+class vtkInterpolatedVelocityField;
 
 class VTK_GRAPHICS_EXPORT vtkStreamTracer : public vtkDataSetToPolyDataFilter
 {

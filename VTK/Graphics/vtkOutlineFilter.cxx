@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOutlineFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:31 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2002-09-26 12:07:14 $
+  Version:   $Revision: 1.30 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,10 +16,13 @@
 
 =========================================================================*/
 #include "vtkOutlineFilter.h"
-#include "vtkOutlineSource.h"
-#include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkOutlineFilter, "$Revision: 1.29 $");
+#include "vtkDataSet.h"
+#include "vtkObjectFactory.h"
+#include "vtkOutlineSource.h"
+#include "vtkPolyData.h"
+
+vtkCxxRevisionMacro(vtkOutlineFilter, "$Revision: 1.30 $");
 vtkStandardNewMacro(vtkOutlineFilter);
 
 vtkOutlineFilter::vtkOutlineFilter ()

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellDerivatives.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:10 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2002-09-26 12:07:14 $
+  Version:   $Revision: 1.22 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,13 +16,15 @@
 
 =========================================================================*/
 #include "vtkCellDerivatives.h"
+
+#include "vtkDataSet.h"
 #include "vtkFloatArray.h"
 #include "vtkObjectFactory.h"
 #include "vtkTensor.h"
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkCellDerivatives, "$Revision: 1.21 $");
+vtkCxxRevisionMacro(vtkCellDerivatives, "$Revision: 1.22 $");
 vtkStandardNewMacro(vtkCellDerivatives);
 
 vtkCellDerivatives::vtkCellDerivatives()

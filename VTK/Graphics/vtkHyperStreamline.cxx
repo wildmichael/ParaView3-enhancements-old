@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHyperStreamline.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-13 09:53:14 $
-  Version:   $Revision: 1.52 $
+  Date:      $Date: 2002-09-26 12:07:14 $
+  Version:   $Revision: 1.53 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,11 +16,16 @@
 
 =========================================================================*/
 #include "vtkHyperStreamline.h"
+
+#include "vtkCellArray.h"
+#include "vtkDataSet.h"
+#include "vtkFloatArray.h"
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
-#include "vtkFloatArray.h"
+#include "vtkPointData.h"
+#include "vtkPolyData.h"
 
-vtkCxxRevisionMacro(vtkHyperStreamline, "$Revision: 1.52 $");
+vtkCxxRevisionMacro(vtkHyperStreamline, "$Revision: 1.53 $");
 vtkStandardNewMacro(vtkHyperStreamline);
 
 //

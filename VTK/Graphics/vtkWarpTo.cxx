@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpTo.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:56 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2002-09-26 12:07:15 $
+  Version:   $Revision: 1.37 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,10 +16,13 @@
 
 =========================================================================*/
 #include "vtkWarpTo.h"
+
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
+#include "vtkPointSet.h"
+#include "vtkPoints.h"
 
-vtkCxxRevisionMacro(vtkWarpTo, "$Revision: 1.36 $");
+vtkCxxRevisionMacro(vtkWarpTo, "$Revision: 1.37 $");
 vtkStandardNewMacro(vtkWarpTo);
 
 vtkWarpTo::vtkWarpTo() 

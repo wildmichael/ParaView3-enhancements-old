@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIdFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:23 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2002-09-26 12:07:14 $
+  Version:   $Revision: 1.18 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,10 +16,15 @@
 
 =========================================================================*/
 #include "vtkIdFilter.h"
+
+#include "vtkCellData.h"
+#include "vtkDataSet.h"
+#include "vtkDataSet.h"
 #include "vtkIdTypeArray.h"
 #include "vtkObjectFactory.h"
+#include "vtkPointData.h"
 
-vtkCxxRevisionMacro(vtkIdFilter, "$Revision: 1.17 $");
+vtkCxxRevisionMacro(vtkIdFilter, "$Revision: 1.18 $");
 vtkStandardNewMacro(vtkIdFilter);
 
 // Construct object with PointIds and CellIds on; and ids being generated

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellCenters.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:09 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2002-09-26 12:07:14 $
+  Version:   $Revision: 1.19 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,9 +16,16 @@
 
 =========================================================================*/
 #include "vtkCellCenters.h"
-#include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkCellCenters, "$Revision: 1.18 $");
+#include "vtkCell.h"
+#include "vtkCellData.h"
+#include "vtkDataSet.h"
+#include "vtkObjectFactory.h"
+#include "vtkPointData.h"
+#include "vtkPoints.h"
+#include "vtkPolyData.h"
+
+vtkCxxRevisionMacro(vtkCellCenters, "$Revision: 1.19 $");
 vtkStandardNewMacro(vtkCellCenters);
 
 // Construct object with vertex cell generation turned off.

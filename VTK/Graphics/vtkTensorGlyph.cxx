@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTensorGlyph.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:50 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 2002-09-26 12:07:14 $
+  Version:   $Revision: 1.49 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,12 +16,18 @@
 
 =========================================================================*/
 #include "vtkTensorGlyph.h"
-#include "vtkTransform.h"
+
+#include "vtkCell.h"
+#include "vtkCellArray.h"
+#include "vtkDataSet.h"
+#include "vtkFloatArray.h"
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
-#include "vtkFloatArray.h"
+#include "vtkPointData.h"
+#include "vtkPolyData.h"
+#include "vtkTransform.h"
 
-vtkCxxRevisionMacro(vtkTensorGlyph, "$Revision: 1.48 $");
+vtkCxxRevisionMacro(vtkTensorGlyph, "$Revision: 1.49 $");
 vtkStandardNewMacro(vtkTensorGlyph);
 
 // Construct object with scaling on and scale factor 1.0. Eigenvalues are 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextureMapToCylinder.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:51 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2002-09-26 12:07:15 $
+  Version:   $Revision: 1.27 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,13 +16,15 @@
 
 =========================================================================*/
 #include "vtkTextureMapToCylinder.h"
-#include "vtkMath.h"
+
+#include "vtkDataSet.h"
+#include "vtkFloatArray.h"
 #include "vtkLine.h"
+#include "vtkMath.h"
 #include "vtkOBBTree.h"
 #include "vtkObjectFactory.h"
-#include "vtkFloatArray.h"
 
-vtkCxxRevisionMacro(vtkTextureMapToCylinder, "$Revision: 1.26 $");
+vtkCxxRevisionMacro(vtkTextureMapToCylinder, "$Revision: 1.27 $");
 vtkStandardNewMacro(vtkTextureMapToCylinder);
 
 // Create object with cylinder axis parallel to z-axis (points (0,0,-0.5) 
