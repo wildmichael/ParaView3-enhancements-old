@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPOPReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-07 18:24:38 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2001-12-28 13:25:14 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -674,7 +674,7 @@ void vtkPOPReader::ReadFlow()
   float v0, v2, w0, u0, u2;
   float du, dv, dw;
   int uvInc0, uvInc1, uvInc2;
-  int vMin, vMax, wMax;
+  int vMin, vMax;
   vtkPoints *pts;
   float *pp;
   int pfInc1, pfInc2;
@@ -787,7 +787,6 @@ void vtkPOPReader::ReadFlow()
   uvInc2 = uvInc1 * (ext[3]-ext[2]+1);
   vMin = ext[2];
   vMax = ext[3];
-  wMax = ext[5];
 
   reader->Delete();
   reader = NULL;

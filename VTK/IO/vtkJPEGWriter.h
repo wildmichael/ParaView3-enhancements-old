@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkJPEGWriter.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:31 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-12-28 13:24:48 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -66,8 +66,8 @@ public:
 
   // Description:
   // Compression quality. 0 = Low quality, 100 = High quality
-  vtkSetClampMacro(Quality, unsigned int, 0, 100);
-  vtkGetMacro(Quality, unsigned int);
+  vtkSetClampMacro(Quality, int, 0, 100);
+  vtkGetMacro(Quality, int);
 
   // Description:
   // Progressive JPEG generation.
@@ -82,7 +82,7 @@ protected:
   void WriteSlice(vtkImageData *data);
 
 private:
-  unsigned int Quality;
+  int Quality;
   unsigned int Progressive;
 
 private:

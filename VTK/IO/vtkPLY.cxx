@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPLY.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-07 20:45:44 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2001-12-28 13:24:48 $
+  Version:   $Revision: 1.13 $
   Thanks:    Mike Dresser MD/PhD
              Director of Core Facility for Imaging
              Program in Molecular and Cell Biology
@@ -2087,10 +2087,9 @@ double vtkPLY::old_write_ascii_item(FILE *fp, char *item, int type)
       double_value = *pdouble;
       fprintf (fp, "%g ", double_value);
       return (double_value);
-    default:
-      fprintf (stderr, "old_write_ascii_item: bad type = %d\n", type);
-      exit (-1);
   }
+  fprintf (stderr, "old_write_ascii_item: bad type = %d\n", type);
+  exit (-1);
 }
 
 
