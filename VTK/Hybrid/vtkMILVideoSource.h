@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMILVideoSource.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:25 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2001-03-05 02:38:58 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -86,16 +86,27 @@ public:
   void PrintSelf(ostream& os, vtkIndent indent);   
 
   // Description:
-  // See vtkVideoSource
-  void Initialize();
-  void ReleaseSystemResources();
+  // Standard VCR functionality: Record incoming video.
+  void Record();
 
-  void Grab(int n);
-  void Grab() { this->Grab(1); };
+  // Description:
+  // Standard VCR functionality: Play recorded video.
   void Play();
+
+  // Description:
+  // Standard VCR functionality: Stop recording or playing.
   void Stop();
 
+  // Description:
+  // Grab a single video frame.
+  void Grab();
+ 
+  // Description:
+  // Request a particular frame size (set the third value to 1).
   void SetFrameSize(int x, int y, int z);
+  
+  // Description:
+  // Request a particular output format (default: VTK_RGB).
   void SetOutputFormat(int format);
 
   // Description:
@@ -181,6 +192,16 @@ public:
   vtkGetMacro(MILSysID,long);
   vtkGetMacro(MILDigID,long);
   vtkGetMacro(MILBufID,long);
+
+  // Description:
+  // Initialize the driver (this is called automatically when the
+  // first grab is done).
+  void Initialize();
+
+  // Description:
+  // Free the driver (this is called automatically inside the
+  // destructor).
+  void ReleaseSystemResources();
 
   // Description:
   // For internal use only
