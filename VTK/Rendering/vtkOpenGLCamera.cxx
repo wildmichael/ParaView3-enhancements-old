@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLCamera.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-05-26 09:16:10 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2000-06-02 11:33:32 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -142,10 +142,9 @@ void vtkOpenGLCamera::Render(vtkRenderer *ren)
   matrix->Transpose();
   if(ren->GetIsPicking())
     {
-    GLint viewport[4];
-    glGetIntegerv( GL_VIEWPORT, viewport);
+    int size[2]; size[0] = usize; size[1] = vsize;
     glLoadIdentity();
-    vtkgluPickMatrix(ren->GetPickX(), ren->GetPickY(), 1, 1, viewport);
+    vtkgluPickMatrix(ren->GetPickX(), ren->GetPickY(), 1, 1, lowerLeft, size);
     glMultMatrixd(matrix->Element[0]);
     }
   else
