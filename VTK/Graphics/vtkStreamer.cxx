@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamer.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:37:10 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1995-08-03 10:47:46 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -226,6 +226,8 @@ void vtkStreamer::Integrate()
   float d, step, dir, vNext[3], tol2, p[3];
   float w[MAX_CELL_SIZE], dist2;
   float closestPoint[3];
+  cellVectors.ReferenceCountingOff();
+  cellScalars.ReferenceCountingOff();
   
   vtkDebugMacro(<<"Generating streamers");
   this->Initialize();
