@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkActor.h,v $
   Language:  C++
-  Date:      $Date: 1995-05-10 16:04:32 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1995-06-29 16:11:24 $
+  Version:   $Revision: 1.17 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -67,6 +67,13 @@ class vlActor : public vlObject
   // Description:
   // Returns the Mapper that this actor is getting it's data from.
   vlGetObjectMacro(Mapper,vlMapper);
+
+  // Description:
+  // Set a user defined matrix to concatenate with.  
+  vlSetObjectMacro(UserMatrix,vlMatrix4x4);
+  // Description:
+  // Returns the user defined transformation matrix.
+  vlGetObjectMacro(UserMatrix,vlMatrix4x4);
 
   // Description:
   // Get the position of the actor.
@@ -160,6 +167,7 @@ class vlActor : public vlObject
   void AddOrientation(float a[3]);
 
 protected:
+  vlMatrix4x4 *UserMatrix;
   vlProperty *Property; 
   vlTexture *Texture; 
   vlMapper *Mapper;
