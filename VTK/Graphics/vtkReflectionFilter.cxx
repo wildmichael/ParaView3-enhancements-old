@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkReflectionFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-28 19:56:56 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-07-02 20:08:39 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkReflectionFilter.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkReflectionFilter, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkReflectionFilter, "$Revision: 1.6 $");
 vtkStandardNewMacro(vtkReflectionFilter);
 
 //---------------------------------------------------------------------------
@@ -56,7 +56,7 @@ void vtkReflectionFilter::Execute()
   vtkIdType i;
 
   vtkIdList *tmpIds = vtkIdList::New();
-  for (i = 0; i < numPts; i++)
+  for (i = 0; i < numCells; i++)
     {
     tmpIds->InsertNextId(i);
     }
