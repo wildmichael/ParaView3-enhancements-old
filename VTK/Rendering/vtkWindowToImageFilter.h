@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWindowToImageFilter.h,v $
   Language:  C++
-  Date:      $Date: 2002-02-21 22:14:26 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-03-19 16:19:45 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -69,7 +69,13 @@ public:
   // The magnification of the current render window
   vtkSetClampMacro(Magnification,int,1,2048);
   vtkGetMacro(Magnification,int);
-
+  // Description:
+  // Set/Get the flag that determines which buffer to read from.
+  // The default is to read from the front buffer.   
+  vtkBooleanMacro(ReadFrontBuffer, int);
+  vtkGetMacro(ReadFrontBuffer, int);
+  vtkSetMacro(ReadFrontBuffer, int);
+  
 protected:
   vtkWindowToImageFilter();
   ~vtkWindowToImageFilter();
@@ -77,6 +83,7 @@ protected:
   // vtkWindow is not a vtkDataObject, so we need our own ivar.
   vtkWindow *Input;
   int Magnification;
+  int ReadFrontBuffer;
   void ExecuteInformation();
   void ExecuteData(vtkDataObject *data);
 private:
