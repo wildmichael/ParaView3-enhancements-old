@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-02-14 12:20:34 $
-  Version:   $Revision: 1.73 $
+  Date:      $Date: 1997-02-18 15:53:32 $
+  Version:   $Revision: 1.74 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -598,7 +598,7 @@ int vtkPolyData::InsertNextCell(int type, int npts, int *pts)
       pixPts[2] = pts[3];
       pixPts[3] = pts[2];
       this->Polys->InsertNextCell(npts,pixPts);
-      id = this->Cells->InsertNextCell(type, this->Polys->GetLocation(npts));
+      id = this->Cells->InsertNextCell(VTK_QUAD, this->Polys->GetLocation(npts));
       break;
       }
 
@@ -655,7 +655,7 @@ int vtkPolyData::InsertNextCell(int type, vtkIdList &pts)
       pixPts[2] = pts.GetId(3);
       pixPts[3] = pts.GetId(2);
       this->Polys->InsertNextCell(4,pixPts);
-      id = this->Cells->InsertNextCell(type, this->Polys->GetLocation(npts));
+      id = this->Cells->InsertNextCell(VTK_QUAD, this->Polys->GetLocation(npts));
       break;
       }
 
