@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGridSynchronizedTemplates3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-27 15:50:44 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 2001-06-28 13:05:05 $
+  Version:   $Revision: 1.43 $
 
 
 
@@ -585,11 +585,6 @@ static void ContourGrid(vtkGridSynchronizedTemplates3D *self,
                 outCellId = newPolys->InsertNextCell(3,ptIds);
                 outCD->CopyData(inCD, inCellId, outCellId);
                 }
-              }
-            else
-              {
-              int kkk;
-              kkk=0;
               }
             }
           inPtPtrX += 3;
