@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPVCompositeBuffer.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-05-20 20:07:28 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2003-07-22 22:23:05 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 #include "vtkUnsignedCharArray.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkPVCompositeBuffer, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkPVCompositeBuffer, "$Revision: 1.3 $");
 vtkStandardNewMacro(vtkPVCompositeBuffer);
 
 //-------------------------------------------------------------------------
@@ -33,6 +33,21 @@ vtkPVCompositeBuffer::vtkPVCompositeBuffer()
 }
 
   
+//-------------------------------------------------------------------------
+vtkUnsignedCharArray* vtkPVCompositeBuffer::GetPData()
+{
+  if (this->PData == NULL)
+    {
+    return NULL;
+    }
+  if (this->PData->GetNumberOfTuples() != this->UncompressedLength)
+    {
+    vtkErrorMacro("This buffer looks compressed.");
+    }
+  return this->PData;
+}
+
+
 //-------------------------------------------------------------------------
 vtkPVCompositeBuffer::~vtkPVCompositeBuffer()
 {

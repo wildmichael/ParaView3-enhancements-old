@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkPVEnSightMasterServerReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-05-15 19:19:20 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2003-07-22 22:23:05 $
+  Version:   $Revision: 1.7 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -63,7 +63,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro(vtkPVEnSightMasterServerReader);
-vtkCxxRevisionMacro(vtkPVEnSightMasterServerReader, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkPVEnSightMasterServerReader, "$Revision: 1.7 $");
 
 #ifdef VTK_USE_MPI
 vtkCxxSetObjectMacro(vtkPVEnSightMasterServerReader, Controller,
@@ -533,7 +533,7 @@ static int vtkPVEnSightMasterServerReaderGetLineFromStream(
       }
 
     // The fail bit may be set.  Clear it.
-    is.clear(is.rdstate() & ~std::ios::failbit);
+    is.clear(is.rdstate() & ~ios::failbit);
     }
   return haveData;
 }

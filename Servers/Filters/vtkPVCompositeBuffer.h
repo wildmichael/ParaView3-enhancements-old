@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPVCompositeBuffer.h,v $
   Language:  C++
-  Date:      $Date: 2003-05-20 20:07:31 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2003-07-22 22:23:05 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -38,6 +38,10 @@ public:
   static vtkPVCompositeBuffer *New();
   vtkTypeRevisionMacro(vtkPVCompositeBuffer,vtkObject);
   void PrintSelf(ostream& os, vtkIndent indent);
+
+  // Description:
+  // Access to the color buffer.  Used when the buffer has not been compressed.
+  vtkUnsignedCharArray* GetPData();
 
 protected:
   vtkPVCompositeBuffer();

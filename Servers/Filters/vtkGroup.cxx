@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGroup.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-04-02 16:29:49 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2003-07-22 22:23:05 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 #include "vtkCellData.h"
 #include "vtkFieldData.h"
 
-vtkCxxRevisionMacro(vtkGroup, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkGroup, "$Revision: 1.3 $");
 vtkStandardNewMacro(vtkGroup);
 
 //----------------------------------------------------------------------------
@@ -116,6 +116,7 @@ void vtkGroup::ExecuteInformation()
     else
       {
       output->CopyInformation(input);
+      output->SetPipelineMTime(input->GetPipelineMTime());
       }
     } 
 }
