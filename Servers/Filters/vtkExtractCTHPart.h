@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractCTHPart.h,v $
   Language:  C++
-  Date:      $Date: 2002-11-14 20:08:42 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-04-08 20:17:07 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -30,6 +30,7 @@
 class vtkPlane;
 class vtkDataArray;
 class vtkFloatArray;
+class vtkStringList;
 
 class VTK_EXPORT vtkExtractCTHPart : public vtkRectilinearGridToPolyDataFilter
 {
@@ -43,10 +44,18 @@ public:
   static vtkExtractCTHPart *New();
 
   // Description:
-  // Specify which volume fraction to extract.
-  vtkGetStringMacro(InputScalarsSelection);
-  void SelectInputScalars(const char *fieldName) 
-    {this->SetInputScalarsSelection(fieldName);}
+  // Names of cell volume fraction arrays to extract.
+  void RemoveAllVolumeArrayNames();
+  void AddVolumeArrayName(char* arrayName);
+  int GetNumberOfVolumeArrayNames();
+  const char* GetVolumeArrayName(int idx);
+
+  // Description:
+  int GetNumberOfOutputs();
+  vtkPolyData* GetOutput(int idx);
+  vtkPolyData* GetOutput() { return this->GetOutput(0); }
+  void SetOutput(int idx, vtkPolyData* d);
+  void SetOutput(vtkPolyData* d) { this->SetOutput(0, d); }
 
   // Description:
   // Turn clipping on or off.  It is off by default.
@@ -61,7 +70,7 @@ public:
 
   // Description:
   // Look at clip plane to compute MTime.
-  unsigned long GetMTime();
+  unsigned long GetMTime();    
 
 protected:
   vtkExtractCTHPart();
@@ -69,11 +78,11 @@ protected:
 
   void ComputeInputUpdateExtents(vtkDataObject *output);
   void Execute();
+  void ExecutePart(const char* arrayName, vtkPolyData* output);
   void ExecuteCellDataToPointData(vtkDataArray *cellVolumeFraction, 
                        vtkFloatArray *pointVolumeFraction, int *dims);
 
-  char *InputScalarsSelection;
-  vtkSetStringMacro(InputScalarsSelection);
+  vtkStringList *VolumeArrayNames;
 
   int Clipping;
   vtkPlane *ClipPlane;
