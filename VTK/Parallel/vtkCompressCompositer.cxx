@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCompressCompositer.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-06-06 17:41:18 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2003-06-06 17:52:10 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -56,7 +56,7 @@
 
 #include "vtkTimerLog.h"
 
-vtkCxxRevisionMacro(vtkCompressCompositer, "$Revision: 1.9 $");
+vtkCxxRevisionMacro(vtkCompressCompositer, "$Revision: 1.10 $");
 vtkStandardNewMacro(vtkCompressCompositer);
 
 
@@ -125,7 +125,8 @@ int vtkCompressCompositerCompress(float *zIn, P *pIn, float *zOut, P *pOut,
   int length = 0;
   int compressCount;
 
-  endZ = zIn+numPixels;
+  // Do not go past the last pixel (zbuf check/correct)
+  endZ = zIn+numPixels-1;
   if (*zIn < 0.0 || *zIn > 1.0)
     {
     *zIn = 1.0;
@@ -163,6 +164,10 @@ int vtkCompressCompositerCompress(float *zIn, P *pIn, float *zOut, P *pOut,
         } 
       }
     }
+  // Put the last pixel in.
+  *pOut = *pIn;
+  *zOut = *zIn;
+
   return length;
 }
 
