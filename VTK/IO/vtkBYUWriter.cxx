@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBYUWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-07-29 21:17:00 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 2003-07-30 13:12:50 $
+  Version:   $Revision: 1.50 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,7 @@
 # include <unistd.h> /* unlink */
 #endif
 
-vtkCxxRevisionMacro(vtkBYUWriter, "$Revision: 1.49 $");
+vtkCxxRevisionMacro(vtkBYUWriter, "$Revision: 1.50 $");
 vtkStandardNewMacro(vtkBYUWriter);
 
 // Create object so that it writes displacement, scalar, and texture files
@@ -94,6 +94,8 @@ void vtkBYUWriter::WriteData()
     if (this->ErrorCode == vtkErrorCode::OutOfDiskSpaceError)
       {
       fclose(geomFp);
+      vtkErrorMacro("Ran out of disk space; deleting file: "
+                    << this->GeometryFileName);
       unlink(this->GeometryFileName);
       return;
       }
@@ -105,34 +107,52 @@ void vtkBYUWriter::WriteData()
     fclose(geomFp);
     unlink(this->GeometryFileName);
     unlink(this->DisplacementFileName);
+    vtkErrorMacro("Ran out of disk space; deleting files: "
+                  << this->GeometryFileName << " "
+                  << this->DisplacementFileName);
     return;
     }
   this->WriteScalarFile(numPts);
   if (this->ErrorCode == vtkErrorCode::OutOfDiskSpaceError)
     {
+    ostrstream errorMessage;
     fclose(geomFp);
     unlink(this->GeometryFileName);
+    errorMessage << "Ran out of disk space; deleting files: "
+                 << this->GeometryFileName << " ";
     if (this->DisplacementFileName)
       {
       unlink(this->DisplacementFileName);
+      errorMessage << this->DisplacementFileName << " ";
       }
     unlink(this->ScalarFileName);
+    errorMessage << this->ScalarFileName << endl;
+    vtkErrorMacro( << errorMessage.str());
+    errorMessage.rdbuf()->freeze(0);
     return;
     }
   this->WriteTextureFile(numPts);
   if (this->ErrorCode == vtkErrorCode::OutOfDiskSpaceError)
     {
     fclose(geomFp);
+    ostrstream errorMessage;
     unlink(this->GeometryFileName);
+    errorMessage << "Ran out of disk space; deleting files: "
+                 << this->GeometryFileName << " ";
     if (this->DisplacementFileName)
       {
       unlink(this->DisplacementFileName);
+      errorMessage << this->DisplacementFileName << " ";
       }
     if (this->ScalarFileName)
       {
       unlink(this->ScalarFileName);
+      errorMessage << this->ScalarFileName << " ";
       }
     unlink(this->TextureFileName);
+    errorMessage << this->TextureFileName << endl;
+    vtkErrorMacro( << errorMessage.str());
+    errorMessage.rdbuf()->freeze(0);
     return;
     }
 
