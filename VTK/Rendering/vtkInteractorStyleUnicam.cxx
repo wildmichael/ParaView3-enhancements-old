@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleUnicam.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-29 13:42:39 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2001-08-10 12:07:59 $
+  Version:   $Revision: 1.12 $
 
 =========================================================================*/
 
@@ -70,6 +70,7 @@ vtkInteractorStyleUnicam::vtkInteractorStyleUnicam()
 vtkInteractorStyleUnicam::~vtkInteractorStyleUnicam() 
 {
   this->InteractionPicker->Delete();
+  this->FocusSphere->Delete();
 }
 
 void vtkInteractorStyleUnicam::PrintSelf(ostream& os, vtkIndent indent) 
