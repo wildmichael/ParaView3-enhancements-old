@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSweptSurface.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-16 17:06:38 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 2002-06-20 14:46:56 $
+  Version:   $Revision: 1.52 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -54,17 +54,17 @@
 #ifndef __vtkSweptSurface_h
 #define __vtkSweptSurface_h
 
-#include "vtkStructuredPointsToStructuredPointsFilter.h"
+#include "vtkImageToImageFilter.h"
 
 class vtkTransformCollection;
 class vtkTransform;
 class vtkMatrix4x4;
 
-class VTK_PATENTED_EXPORT vtkSweptSurface : public vtkStructuredPointsToStructuredPointsFilter
+class VTK_PATENTED_EXPORT vtkSweptSurface : public vtkImageToImageFilter
 {
 public:
   static vtkSweptSurface *New();
-  vtkTypeRevisionMacro(vtkSweptSurface,vtkStructuredPointsToStructuredPointsFilter);
+  vtkTypeRevisionMacro(vtkSweptSurface,vtkImageToImageFilter);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
@@ -150,8 +150,9 @@ protected:
   vtkSweptSurface();
   ~vtkSweptSurface();
 
-  void Execute();
-  void ExecuteInformation();
+  virtual void ExecuteData(vtkDataObject *);
+  virtual void ExecuteInformation();
+  void ComputeInputUpdateExtent(int inExt[6], int outExt[6]);
 
   void ComputeBounds(float origin[3], float ar[3], float bbox[24]);
   int ComputeNumberOfSteps(vtkTransform *t1, vtkTransform *t2, float bbox[24]);
