@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObject.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-05-08 21:47:41 $
-  Version:   $Revision: 1.84 $
+  Date:      $Date: 2003-11-04 13:53:41 $
+  Version:   $Revision: 1.85 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 #include "vtkCommand.h"
 #include "vtkTimeStamp.h"
 
-vtkCxxRevisionMacro(vtkObject, "$Revision: 1.84 $");
+vtkCxxRevisionMacro(vtkObject, "$Revision: 1.85 $");
 
 // Initialize static member that controls warning display
 static int vtkObjectGlobalWarningDisplay = 1;
@@ -478,16 +478,18 @@ int vtkSubjectHelper::InvokeEvent(unsigned long event, void *callData,
     if (!elem->Visited &&
         elem->Event == event || elem->Event == vtkCommand::AnyEvent)
       {
-      int abort = 0;
       elem->Visited = 1;
-      elem->Command->SetAbortFlagPointer(&abort);
+      vtkCommand* command = elem->Command;
+      command->Register(command);
       elem->Command->Execute(self,event,callData);
       // if the command set the abort flag, then stop firing events
       // and return
-      if(abort)
+      if(command->GetAbortFlag())
         {
+        command->UnRegister();
         return 1;
         }
+      command->UnRegister();
       }
     if (this->ListModified)
       {

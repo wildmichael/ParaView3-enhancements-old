@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCommand.h,v $
   Language:  C++
-  Date:      $Date: 2002-11-10 18:26:32 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 2003-11-04 13:53:40 $
+  Version:   $Revision: 1.43 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -87,9 +87,9 @@ public:
   // Set/Get the abort flag. If this is set to true no further
   // commands are executed.
   void SetAbortFlag(int f)  
-    { if(this->AbortFlag) *this->AbortFlag = f; }
+    { this->AbortFlag = f; }
   int GetAbortFlag() 
-    { return (this->AbortFlag) ? *this->AbortFlag: 0; }
+    { return this->AbortFlag; }
   void AbortFlagOn() 
     { this->SetAbortFlag(1); }
   void AbortFlagOff() 
@@ -157,13 +157,9 @@ public:
 //ETX
 
 protected:
-  int* AbortFlag;
+  int AbortFlag;
   vtkCommand();
   virtual ~vtkCommand() {}
-
-  //helper function for manipulating abort flag
-  void SetAbortFlagPointer(int* f)  
-    { this->AbortFlag = f; }
 
   friend class vtkSubjectHelper;
 //BTX
