@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkParse.y,v $
   Language:  C++
-  Date:      $Date: 2000-07-12 15:07:38 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2000-10-25 10:34:47 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -50,7 +50,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkParse.h"
     
   FileInfo data;
-  static FunctionInfo *currentFunction;
+  FunctionInfo *currentFunction;
 
   FILE *fhint;
   char temps[2048];
