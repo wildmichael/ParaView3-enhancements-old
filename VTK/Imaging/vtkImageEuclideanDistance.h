@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageEuclideanDistance.h,v $
   Language:  C++
-  Date:      $Date: 2001-07-24 19:30:05 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-08-10 20:51:00 $
+  Version:   $Revision: 1.5 $
   Thanks:    Olivier Cuisenaire who developed this class
              URL: http://ltswww.epfl.ch/~cuisenai
 	     Email: Olivier.Cuisenaire@epfl.ch
@@ -135,8 +135,8 @@ public:
 protected:
   vtkImageEuclideanDistance();
   ~vtkImageEuclideanDistance() {}
-  vtkImageEuclideanDistance(const vtkImageEuclideanDistance&) {}
-  void operator=(const vtkImageEuclideanDistance&) {}
+  vtkImageEuclideanDistance(const vtkImageEuclideanDistance&);
+  void operator=(const vtkImageEuclideanDistance&);
 
   float MaximumDistance;
   int Initialize;
