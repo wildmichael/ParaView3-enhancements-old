@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSocketController.h,v $
   Language:  C++
-  Date:      $Date: 2001-06-14 17:40:51 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-08-08 15:26:27 $
+  Version:   $Revision: 1.4 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -128,6 +128,8 @@ public:
     return vtkSocketCommunicator::SafeDownCast(this->Communicator)->
       GetSwapBytesInReceivedData();
     }
+
+
 
 //BTX
 
