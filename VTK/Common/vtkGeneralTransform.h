@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGeneralTransform.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-30 18:19:36 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2000-04-30 23:17:40 $
+  Version:   $Revision: 1.22 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -196,7 +196,7 @@ protected:
   //-------------------------------------------------------------------------
   // A helper class (not derived from vtkObject) to make it more efficient
   // to derive vtk*TransformConcatenation classes
-  class vtkSimpleTransformConcatenation
+  class VTK_EXPORT vtkSimpleTransformConcatenation
   {
   public:
     static vtkSimpleTransformConcatenation *New(
