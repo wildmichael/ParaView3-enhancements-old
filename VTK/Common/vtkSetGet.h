@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkSetGet.h,v $
   Language:  C++
-  Date:      $Date: 1994-05-08 07:25:55 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1994-07-11 22:27:02 $
+  Version:   $Revision: 1.10 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -28,6 +28,12 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 // For super speedy execution define __vlNoDebug
 //
 //#define __vlNoDebug
+
+//
+// Some constants used throughout code
+//
+#define LARGE_FLOAT 1.0e29
+#define LARGE_INTEGER 2147483646 /* 2**31 - 1 */
 
 //
 // Set built-in type.  Creates member Set"name"() (e.g., SetVisibility());
@@ -70,7 +76,7 @@ void Set##name (char* _arg) \
     } \
    else \
     { \
-    name = 0; \
+    name = NULL; \
     } \
   Modified(); \
   } 
@@ -90,8 +96,6 @@ char* Get##name () { \
 // Create member Set"name"() (e.q., SetRadius()). #defines are 
 // convienience for clamping open-ended values.
 //
-#define LARGE_FLOAT 1.0e29
-#define LARGE_INTEGER 2147483646 /* 2**31 - 1 */
 #define vlSetClampMacro(name,type,min,max) \
 void Set##name (type _arg) \
   { \
@@ -113,9 +117,9 @@ void Set##name (type* _arg) \
   if (Debug)   cerr << "In " __FILE__ << ", line " << __LINE__ << "\n" << this->GetClassName() << " (" << this << "): setting " << #name " to " << &_arg << "\n\n"; \
   if (name != _arg) \
     { \
-    if (name != 0) name->UnRegister(this); \
+    if (name != NULL) name->UnRegister(this); \
     name = _arg; \
-    name->Register(this); \
+    if (name != NULL) name->Register(this); \
     this->Modified(); \
     } \
   } 
