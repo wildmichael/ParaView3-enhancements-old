@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-19 17:51:12 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 2001-12-30 13:23:57 $
+  Version:   $Revision: 1.44 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -207,7 +207,6 @@ void vtkDataArray::CreateDefaultLookupTable()
   // otherwise problems with InsertScalar trying to map through 
   // non built lut
   this->LookupTable->Build();
-  this->LookupTable->Register(this);
 }
 
 void vtkDataArray::SetLookupTable(vtkLookupTable* lut)
