@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLoopSubdivisionFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-11-14 15:20:20 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2000-11-29 16:08:34 $
+  Version:   $Revision: 1.5 $
   Thanks:    This work was supported bt PHS Research Grant No. 1 P41 RR13218-01
              from the National Center for Research Resources
 
@@ -329,7 +329,7 @@ void vtkLoopSubdivisionFilter::ComputeInputUpdateExtents(vtkDataObject *output)
 
   numPieces = output->GetUpdateNumberOfPieces();
   ghostLevel = output->GetUpdateGhostLevel();
-  if (numPieces > 1)
+  if (numPieces > 1 && this->NumberOfSubdivisions > 0)
     {
     this->GetInput()->SetUpdateGhostLevel(ghostLevel + 1);
     }
