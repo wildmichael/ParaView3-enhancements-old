@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObjectToDataSetFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-05-31 13:14:47 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2001-06-02 13:05:35 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -712,7 +712,7 @@ int vtkDataObjectToDataSetFilter::ConstructPoints(vtkRectilinearGrid *rg)
       this->PointComponentRange[0][1],
       this->PointNormalize[0]) == 0 )
       {
-      XPts->Delete(); YPts->Delete(); ZPts->Delete(); 
+      XPts->Delete();
       return 0;
       }
     }
@@ -738,7 +738,7 @@ int vtkDataObjectToDataSetFilter::ConstructPoints(vtkRectilinearGrid *rg)
       this->PointComponentRange[1][1],
       this->PointNormalize[1]) == 0 )
       {
-      XPts->Delete(); YPts->Delete(); ZPts->Delete(); 
+      XPts->Delete(); YPts->Delete();
       return 0;
       }
     }
