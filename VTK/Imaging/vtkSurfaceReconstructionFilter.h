@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSurfaceReconstructionFilter.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-17 20:02:16 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2002-06-17 20:08:00 $
+  Version:   $Revision: 1.17 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -29,12 +29,12 @@
 #ifndef __vtkSurfaceReconstructionFilter_h
 #define __vtkSurfaceReconstructionFilter_h
 
-#include "vtkDataSetToImageFilter.h"
+#include "vtkDataSetToStructuredPointsFilter.h"
 
-class VTK_IMAGING_EXPORT vtkSurfaceReconstructionFilter : public vtkDataSetToImageFilter
+class VTK_IMAGING_EXPORT vtkSurfaceReconstructionFilter : public vtkDataSetToStructuredPointsFilter
 {
 public:
-  vtkTypeRevisionMacro(vtkSurfaceReconstructionFilter,vtkDataSetToImageFilter);
+  vtkTypeRevisionMacro(vtkSurfaceReconstructionFilter,vtkDataSetToStructuredPointsFilter);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
@@ -61,8 +61,7 @@ protected:
   vtkSurfaceReconstructionFilter();
   ~vtkSurfaceReconstructionFilter() {};
 
-  virtual ExecuteInformation();
-  virtual void ExecuteData(vtkDataObject *);
+  void Execute();
 
   int NeighborhoodSize;
   float SampleSpacing;
