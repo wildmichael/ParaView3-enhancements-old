@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfXMLParser.h,v 1.2 2003-09-29 16:00:41 andy Exp $  */
-/*  Date : $Date: 2003-09-29 16:00:41 $ */
-/*  Version : $Revision: 1.2 $ */
+/*  Id : $Id: XdmfXMLParser.h,v 1.3 2004-04-28 18:37:21 andy Exp $  */
+/*  Date : $Date: 2004-04-28 18:37:21 $ */
+/*  Version : $Revision: 1.3 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -31,7 +31,7 @@
 extern "C" {
 #endif 
 
-#include "expat.h"
+#include "xdmf_expat.h"
 
 typedef struct {
         XDMF_TREE_NODE *Root;
