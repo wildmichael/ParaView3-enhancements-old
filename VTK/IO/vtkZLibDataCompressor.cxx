@@ -14,15 +14,9 @@
 =========================================================================*/
 #include "vtkZLibDataCompressor.h"
 #include "vtkObjectFactory.h"
-#include "vtkToolkits.h" // for VTK_USE_SYSTEM_ZLIB
+#include "vtk_zlib.h"
 
-#ifdef VTK_USE_SYSTEM_ZLIB
-# include <zlib.h>
-#else
-# include "vtk_zlib.h"
-#endif
-
-vtkCxxRevisionMacro(vtkZLibDataCompressor, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkZLibDataCompressor, "$Revision: 1.6 $");
 vtkStandardNewMacro(vtkZLibDataCompressor);
 
 //----------------------------------------------------------------------------
