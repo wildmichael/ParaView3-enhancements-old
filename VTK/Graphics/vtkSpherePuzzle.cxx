@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSpherePuzzle.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-13 19:21:23 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-12-17 14:36:11 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -208,6 +208,8 @@ void vtkSpherePuzzle::Execute()
   tmp->GetPointData()->PassData(append->GetOutput()->GetPointData());
   tmp->GetPointData()->SetScalars(scalars);
 
+  sphere->Delete();
+  scalars->Delete();
   append->Delete();
   tf->Delete();
 }
