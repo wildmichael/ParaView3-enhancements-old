@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetReader.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:11 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 2002-02-27 12:39:43 $
+  Version:   $Revision: 1.52 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -74,6 +74,11 @@ public:
   // If there is no output, execute anyway.  Execute creates an output.
   void Update();
   
+  // Description:
+  // This method can be used to find out the type of output expected without
+  // needing to read the whole file.
+  int ReadOutputType();
+
 protected:
   vtkDataSetReader();
   ~vtkDataSetReader();
