@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractVectorComponents.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-13 13:59:21 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2001-06-21 19:19:06 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -191,8 +191,8 @@ void vtkExtractVectorComponents::Execute()
   vtkDataArray *vectors, *vectorsc;
   vtkDataArray *vx, *vy, *vz;
   vtkDataArray *vxc, *vyc, *vzc;
-  vtkPointData *pd, *outVx, *outVy, *outVz;
-  vtkCellData *cd, *outVxc, *outVyc, *outVzc;
+  vtkPointData *pd, *outVx, *outVy=0, *outVz=0;
+  vtkCellData *cd, *outVxc, *outVyc=0, *outVzc=0;
 
   vtkDebugMacro(<<"Extracting vector components...");
 
