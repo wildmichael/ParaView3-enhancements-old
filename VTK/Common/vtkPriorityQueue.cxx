@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPriorityQueue.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-01-23 20:27:55 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1997-03-05 18:43:10 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -188,7 +188,7 @@ vtkPriorityItem *vtkPriorityQueue::Resize(const int sz)
 void vtkPriorityQueue::Reset()
 {
   this->MaxId = -1;
-  for (int i=0; i < this->ItemLocation.GetSize(); i++)
+  for (int i=0; i <= this->ItemLocation.GetMaxId(); i++)
     this->ItemLocation.SetValue(i,-1);
   this->ItemLocation.Reset();
 }
