@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClientCompositeManager.h,v $
   Language:  C++
-  Date:      $Date: 2003-06-05 18:15:29 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2003-06-12 18:25:51 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -152,6 +152,12 @@ public:
   float GetZBufferValue(int x, int y);
   void GatherZBufferValueRMI(int x, int y);
 
+  // Description:
+  // Turn on and off Squirt compression
+  vtkBooleanMacro(UseSquirt, int);
+  vtkSetClampMacro(UseSquirt, int, 0, 1);
+  vtkGetMacro(UseSquirt, int);
+
 protected:
   vtkClientCompositeManager();
   ~vtkClientCompositeManager();
@@ -222,6 +228,8 @@ protected:
   int UseRGB;
 
   int UseCompositing;
+
+  int UseSquirt;
 
 private:
   vtkClientCompositeManager(const vtkClientCompositeManager&); // Not implemented
