@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleTerrain.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-01 13:07:17 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-05-02 13:31:06 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 #include "vtkPolyDataMapper.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkInteractorStyleTerrain, "$Revision: 1.8 $");
+vtkCxxRevisionMacro(vtkInteractorStyleTerrain, "$Revision: 1.9 $");
 vtkStandardNewMacro(vtkInteractorStyleTerrain);
 
 vtkInteractorStyleTerrain::vtkInteractorStyleTerrain()
@@ -174,9 +174,7 @@ void vtkInteractorStyleTerrain::ProcessEvents(vtkObject* object,
                         XY[0], XY[1]);
       break;
     case vtkCommand::CharEvent:
-      self->OnChar(rwi->GetControlKey(), rwi->GetShiftKey(),
-                   rwi->GetKeyCode(), rwi->GetRepeatCount(),
-                   XY[0], XY[1]);
+      self->OnChar();
       break;
     case vtkCommand::DeleteEvent:
       self->Interactor = 0;
@@ -380,13 +378,11 @@ void vtkInteractorStyleTerrain::OnMouseMove (int vtkNotUsed(ctrl), int shift,
 }
 
 
-void vtkInteractorStyleTerrain::OnChar(int vtkNotUsed(ctrl), 
-                                       int vtkNotUsed(shift),
-                                       char keycode, 
-                                       int vtkNotUsed(repeatcount),
-                                       int X, int Y)
+void vtkInteractorStyleTerrain::OnChar()
 {
-  switch (keycode)
+  int *XY = this->Interactor->GetEventPosition();
+
+  switch (this->Interactor->GetKeyCode())
     {
     case 'e' :
     case 'E' :

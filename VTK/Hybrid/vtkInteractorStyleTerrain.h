@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleTerrain.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-20 10:11:49 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-05-02 13:31:06 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -106,8 +106,7 @@ protected:
   void OnRightButtonDown(int ctrl, int shift, int X, int Y);
   void OnRightButtonUp(int ctrl, int shift, int X, int Y);
   void OnMouseMove(int ctrl, int shift, int X, int Y);
-  void OnChar(int ctrl, int shift, char keycode, int repeatcount, 
-              int X, int Y);
+  void OnChar();
 
   // Internal helper attributes
   int LatLongLines;
