@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObjectFactory.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-02 17:07:38 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2001-03-14 21:25:58 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -467,12 +467,13 @@ void vtkObjectFactory::SetEnableFlag(int flag,
       if(!subclassName)
         {
         this->OverrideArray[i].EnabledFlag = flag;
-        return;
         }
-      if(strcmp(this->OverrideArray[i].OverrideWithName, subclassName) == 0)
+      else 
         {
-	this->OverrideArray[i].EnabledFlag = flag;
-	return;
+        if(strcmp(this->OverrideArray[i].OverrideWithName, subclassName) == 0)
+          {
+          this->OverrideArray[i].EnabledFlag = flag;
+          }
         }
       }
     }
