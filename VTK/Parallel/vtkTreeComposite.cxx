@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTreeComposite.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-15 17:37:56 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2001-08-31 13:23:23 $
+  Version:   $Revision: 1.18 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -385,8 +385,6 @@ vtkTreeComposite::SetRenderWindowInteractor(vtkRenderWindowInteractor *iren)
   
   if (this->RenderWindowInteractor)
     {
-    this->RenderWindowInteractor->UnRegister(this);
-    this->RenderWindowInteractor =  NULL;
     if (this->Controller->GetLocalProcessId() > 0)
       {
       this->RenderWindowInteractor->RemoveObserver(this->StartInteractorTag);
@@ -395,6 +393,8 @@ vtkTreeComposite::SetRenderWindowInteractor(vtkRenderWindowInteractor *iren)
       {
       this->RenderWindowInteractor->RemoveObserver(this->EndInteractorTag);
       }
+    this->RenderWindowInteractor->UnRegister(this);
+    this->RenderWindowInteractor =  NULL;
     }
   if (iren)
     {
