@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextSource.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:38:43 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1995-08-15 19:24:25 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,10 +38,11 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-// .NAME vtkTextSource - create a Text centered at the origin
+// .NAME vtkTextSource - create polygonal text
 // .SECTION Description
 // vtkTextSource converts a text string into polygons.  This way you can 
-// insert text into your renderings.
+// insert text into your renderings. It uses the 9x15 font from X windows.
+// you can specify if you want the background to be drawn or not.
 
 #ifndef __vtkTextSource_h
 #define __vtkTextSource_h
@@ -61,7 +62,7 @@ public:
   vtkGetStringMacro(Text);
 
   // Description:
-  // Controlls whether or not a background is drawn with the text.
+  // Controls whether or not a background is drawn with the text.
   vtkSetMacro(Backing,int);
   vtkGetMacro(Backing,int);
   vtkBooleanMacro(Backing,int);
