@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkVectorDot.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-04-27 10:10:23 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1995-05-05 08:19:33 $
+  Version:   $Revision: 1.2 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -43,11 +43,19 @@ void vlVectorDot::Execute()
   vlDebugMacro(<<"Generating vector/normal dot product!");
   this->Initialize();
 
-  if ( ((numPts=input->GetNumberOfPoints()) < 1) ||
-  ((inVectors=pd->GetVectors()) == NULL) ||
-  ((inNormals=pd->GetNormals()) == NULL ) )
+  if ( (numPts=input->GetNumberOfPoints()) < 1 )
     {
-    vlErrorMacro(<< "No input!");
+    vlErrorMacro(<< "No points!");
+    return;
+    }
+  if ( (inVectors=pd->GetVectors()) == NULL )
+    {
+    vlErrorMacro(<< "No vectors defined!");
+    return;
+    }
+  if ( (inNormals=pd->GetNormals()) == NULL )
+    {
+    vlErrorMacro(<< "No normals defined!");
     return;
     }
 //
