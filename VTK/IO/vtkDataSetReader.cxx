@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:43:54 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1998-01-16 15:28:18 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -47,6 +47,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 vtkDataSetReader::vtkDataSetReader()
 {
+  this->Reader.SetSource(this);
 }
 
 // Description:
@@ -55,6 +56,7 @@ void vtkDataSetReader::SetFileName(char *name)
 {
   this->Reader.SetFileName(name);
 }
+
 char *vtkDataSetReader::GetFileName() 
 {
   return this->Reader.GetFileName();
