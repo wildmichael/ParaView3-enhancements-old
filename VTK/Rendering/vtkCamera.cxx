@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkCamera.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-02-06 12:16:21 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1995-04-10 09:41:44 $
+  Version:   $Revision: 1.19 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -861,7 +861,7 @@ void vlCamera::PrintSelf(ostream& os, vlIndent indent)
   this->GetOrientation();
 
   os << indent << "Clipping Range: (" << this->ClippingRange[0] << ", " 
-    << this->ClippingRange[2] << ")\n";
+    << this->ClippingRange[1] << ")\n";
   os << indent << "Distance: " << this->Distance << "\n";
   os << indent << "Eye Angle: " << this->EyeAngle << "\n";
   os << indent << "Focal Disk: " << this->FocalDisk << "\n";
