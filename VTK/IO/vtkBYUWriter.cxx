@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkBYUWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-02-14 15:30:18 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1995-05-02 18:44:13 $
+  Version:   $Revision: 1.7 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -39,14 +39,24 @@ vlBYUWriter::~vlBYUWriter()
 }
 
 // Description:
+// Specify the input data or filter.
+void vlBYUWriter::SetInput(vlPolyData *input)
+{
+  if ( this->Input != input )
+    {
+    vlDebugMacro(<<" setting Input to " << (void *)input);
+    this->Input = (vlDataSet *) input;
+    this->Modified();
+    }
+}
+
+// Description:
 // Write out data in MOVIE.BYU format.
 void vlBYUWriter::WriteData()
 {
   FILE *geomFp;
   vlPolyData *input=(vlPolyData *)this->Input;
   int numPts=input->GetNumberOfPoints();
-
-  input->Update();
 
   if ( numPts < 1 )
     {
@@ -216,7 +226,6 @@ void vlBYUWriter::WriteTextureFile(int numPts)
 
 void vlBYUWriter::PrintSelf(ostream& os, vlIndent indent)
 {
-  vlPolyFilter::_PrintSelf(os,indent);
   vlWriter::PrintSelf(os,indent);
 
   os << indent << "Geometry Filename: " << this->GeometryFilename << "\n";

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkBYUWriter.h,v $
   Language:  C++
-  Date:      $Date: 1995-02-14 15:30:19 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1995-05-02 18:44:14 $
+  Version:   $Revision: 1.5 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -27,9 +27,9 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 
 #include <stdio.h>
 #include "Writer.hh"
-#include "PolyF.hh"
+#include "PolyData.hh"
 
-class vlBYUWriter : public vlWriter, public vlPolyFilter
+class vlBYUWriter : public vlWriter
 {
 public:
   vlBYUWriter();
@@ -37,6 +37,10 @@ public:
   char *GetClassName() {return "vlBYUWriter";};
   void PrintSelf(ostream& os, vlIndent indent);
 
+  void SetInput(vlPolyData *input);
+  void SetInput(vlPolyData &input) {this->SetInput(&input);};
+  vlPolyData *GetInput() {return (vlPolyData *)this->Input;};
+                               
   // Description:
   // Specify the name of the geometry file to write.
   vlSetStringMacro(GeometryFilename);
@@ -77,7 +81,6 @@ public:
 
 protected:
   void WriteData();
-  void Execute() {this->Write();};
 
   char *GeometryFilename;
   char *DisplacementFilename;

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkUnstructuredGridWriter.h,v $
   Language:  C++
-  Date:      $Date: 1995-02-15 10:09:50 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1995-05-02 18:44:20 $
+  Version:   $Revision: 1.3 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -24,9 +24,9 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 #define __vlUnstructuredGridWriter_hh
 
 #include "vlDataW.hh"
-#include "UGridF.hh"
+#include "UGrid.hh"
 
-class vlUnstructuredGridWriter : public vlDataWriter, public vlUnstructuredGridFilter
+class vlUnstructuredGridWriter : public vlDataWriter
 {
 public:
   vlUnstructuredGridWriter() {};
@@ -34,15 +34,12 @@ public:
   char *GetClassName() {return "vlUnstructuredGridWriter";};
   void PrintSelf(ostream& os, vlIndent indent);
 
-  // Multiple inheritance/Object interface
-  void Modified();
-  unsigned long int GetMTime();
-  void DebugOn();
-  void DebugOff();
-
+  void SetInput(vlUnstructuredGrid *input);
+  void SetInput(vlUnstructuredGrid &input) {this->SetInput(&input);};
+  vlUnstructuredGrid *GetInput() {return (vlUnstructuredGrid *)this->Input;};
+                               
 protected:
   void WriteData();
-  void Execute() {this->Write();};
 
 };
 

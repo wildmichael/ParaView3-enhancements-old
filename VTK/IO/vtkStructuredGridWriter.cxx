@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStructuredGridWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-05-01 21:05:37 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1995-05-02 18:44:16 $
+  Version:   $Revision: 1.4 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -15,6 +15,18 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 =========================================================================*/
 #include "vlSGridW.hh"
 
+// Description:
+// Specify the input data or filter.
+void vlStructuredGridWriter::SetInput(vlStructuredGrid *input)
+{
+  if ( this->Input != input )
+    {
+    vlDebugMacro(<<" setting Input to " << (void *)input);
+    this->Input = (vlDataSet *) input;
+    this->Modified();
+    }
+}
+
 void vlStructuredGridWriter::WriteData()
 {
   FILE *fp;
@@ -23,7 +35,7 @@ void vlStructuredGridWriter::WriteData()
 
   vlDebugMacro(<<"Writing vl structured grid...");
 
-  if ( !(fp=this->OpenVLFile(this->Filename)) || !this->WriteHeader(fp) )
+  if ( !(fp=this->OpenVLFile()) || !this->WriteHeader(fp) )
       return;
 //
 // Write structured grid specific stuff
@@ -38,33 +50,7 @@ void vlStructuredGridWriter::WriteData()
   this->WritePointData(fp, input);
 }
 
-void vlStructuredGridWriter::Modified()
-{
-  this->vlDataWriter::Modified();
-  this->vlStructuredGridFilter::_Modified();
-}
-
-unsigned long int vlStructuredGridWriter::GetMTime()
-{
-  unsigned long dtime = this->vlDataWriter::GetMTime();
-  unsigned long ftime = this->vlStructuredGridFilter::_GetMTime();
-  return (dtime > ftime ? dtime : ftime);
-}
-
-void vlStructuredGridWriter::DebugOn()
-{
-  vlDataWriter::DebugOn();
-  vlStructuredGridFilter::_DebugOn();
-}
-
-void vlStructuredGridWriter::DebugOff()
-{
-  vlDataWriter::DebugOff();
-  vlStructuredGridFilter::_DebugOff();
-}
-
 void vlStructuredGridWriter::PrintSelf(ostream& os, vlIndent indent)
 {
   vlDataWriter::PrintSelf(os,indent);
-  vlStructuredGridFilter::_PrintSelf(os,indent);
 }
