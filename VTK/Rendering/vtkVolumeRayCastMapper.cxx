@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-01-04 22:26:13 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1998-01-16 21:23:54 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -1183,8 +1183,7 @@ cout << "Updating normals!\n";
 }
 
 
-void vtkVolumeRayCastMapper::UpdateTransferFunctions( vtkRenderer *ren, 
-						  vtkVolume *vol )
+void vtkVolumeRayCastMapper::UpdateTransferFunctions( vtkRenderer *ren, vtkVolume *vol )
 {
   int                       data_type;
   vtkVolumeProperty         *volume_property;
@@ -1209,29 +1208,41 @@ void vtkVolumeRayCastMapper::UpdateTransferFunctions( vtkRenderer *ren,
   gray_transfer_function    = volume_property->GetGrayTransferFunction();
   color_channels            = volume_property->GetColorChannels();
 
+  if ( this->ScalarInput->GetPointData()->GetScalars() == NULL )
+    {
+    vtkErrorMacro(<<"Need scalar data to volume render");
+    return;
+    }
+    
   data_type = this->ScalarInput->GetPointData()->GetScalars()->GetDataType();
 
   if ( scalar_opacity_transfer_function == NULL )
     {
-      vtkErrorMacro( << "Error: no transfer function!" );
+    vtkErrorMacro( << "Error: no transfer function!" );
+    return;
     }
   else if ( this->ScalarOpacityTFArray == NULL ||
 	    scalar_opacity_transfer_function->GetMTime() >
 	    this->ScalarOpacityTFArrayMTime ||
 	    volume_property->GetScalarOpacityMTime() >
 	    this->ScalarOpacityTFArrayMTime )
+    {
     scalar_opacity_tf_needs_updating = 1;
+    }
 
   if ( gradient_opacity_transfer_function == NULL )
     {
-      vtkErrorMacro( << "Error: no gradient magnitude opacity function!" );
+    vtkErrorMacro( << "Error: no gradient magnitude opacity function!" );
+    return;
     }
   else if ( gradient_opacity_transfer_function->GetMTime() >
 	    this->GradientOpacityTFArrayMTime ||
 	    volume_property->GetGradientOpacityMTime() >
 	    this->GradientOpacityTFArrayMTime )
+    {
     gradient_opacity_tf_needs_updating = 1;
-
+    }
+  
   switch ( color_channels )
     {
     case 1:
