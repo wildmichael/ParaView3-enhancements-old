@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-30 01:06:02 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 1997-07-08 10:44:37 $
+  Version:   $Revision: 1.51 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -208,6 +208,8 @@ public:
   void SetEndRenderMethod(void (*f)(void *), void *arg);
   void SetStartRenderMethodArgDelete(void (*f)(void *));
   void SetEndRenderMethodArgDelete(void (*f)(void *));
+
+  float GetZ (int x, int y);
 
 protected:
   void UpdateViewRays();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-06-30 01:06:00 $
-  Version:   $Revision: 1.67 $
+  Date:      $Date: 1997-07-08 10:44:15 $
+  Version:   $Revision: 1.68 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -356,6 +356,25 @@ void vtkRenderer::ResetCamera(float bounds[6])
 void vtkRenderer::SetRenderWindow(vtkRenderWindow *renwin)
 {
   this->RenderWindow = renwin;
+}
+
+// Description:
+// Given a pixel location, return the Z value
+float vtkRenderer::GetZ (int x, int y)
+{
+  float *zPtr;
+  float z;
+
+  zPtr = this->RenderWindow->GetZbufferData (x, y, x, y);
+  if (zPtr)
+    {
+    z = *zPtr;
+    }
+  else
+    {
+    z = 1.0;
+    }
+  return z;
 }
 
 // Description:
