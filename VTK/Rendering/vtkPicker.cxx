@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPicker.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-02-19 21:19:48 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1997-04-03 13:57:31 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -224,6 +224,7 @@ int vtkPicker::Pick(float selectionX, float selectionY, float selectionZ,
 //  transformed to actors coordinates!  Reduces overall computation!!!).
 //
   actors = renderer->GetActors();
+  this->Transform.PostMultiply();
   for ( actors->InitTraversal(); (actor=actors->GetNextItem()); )
     {
     for ( actor->InitPartTraversal(); (part=actor->GetNextPart()); )
@@ -241,7 +242,6 @@ int vtkPicker::Pick(float selectionX, float selectionY, float selectionZ,
         {
         this->Transform.SetMatrix(part->vtkProp::GetMatrix());
         this->Transform.Push();
-        this->Transform.Transpose();
         this->Transform.Inverse();
 
         this->Transform.SetPoint(p1World);
