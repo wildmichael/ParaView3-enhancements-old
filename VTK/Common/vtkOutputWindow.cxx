@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOutputWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-09-14 15:32:03 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2000-09-14 16:56:36 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -99,7 +99,7 @@ void vtkOutputWindow::DisplayText(const char* txt)
       }
     if(c == 'q')
       {
-      this->PromptUser = false;
+      this->PromptUser = 0;
       }
     }
 }
