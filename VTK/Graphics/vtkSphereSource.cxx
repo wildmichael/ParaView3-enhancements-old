@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSphereSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-27 17:16:27 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 2001-04-25 11:26:45 $
+  Version:   $Revision: 1.52 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -129,6 +129,7 @@ void vtkSphereSource::Execute()
   newPoints->Allocate(numPts);
   newNormals = vtkNormals::New();
   newNormals->Allocate(numPts);
+  newNormals->GetData()->SetName("Normals");
   
   newPolys = vtkCellArray::New();
   newPolys->Allocate(newPolys->EstimateSize(numPolys, 3));
