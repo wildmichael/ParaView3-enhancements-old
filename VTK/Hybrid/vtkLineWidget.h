@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLineWidget.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-25 20:38:59 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2002-08-19 19:08:44 $
+  Version:   $Revision: 1.14 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -227,6 +227,7 @@ protected:
   vtkCellPicker *HandlePicker;
   vtkCellPicker *LinePicker;
   vtkActor *CurrentHandle;
+  float LastPickPosition[3];
   
   // Methods to manipulate the hexahedron.
   void MovePoint1(double *p1, double *p2);
