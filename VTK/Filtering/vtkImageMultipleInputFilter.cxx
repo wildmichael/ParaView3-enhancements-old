@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMultipleInputFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-01-09 20:14:41 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1998-02-16 16:11:26 $
+  Version:   $Revision: 1.18 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -327,14 +327,13 @@ void vtkImageMultipleInputFilter::RecursiveStreamUpdate(vtkImageData *outData,
       }
     }
 
-  
   // No Streaming required.
   for (idx = 0; idx < this->NumberOfInputs; ++idx)
     {
     // Get the input region (Update extent was set at start of this method).
     inDatas[idx] = this->Inputs[idx]->UpdateAndReturnData();
     }
-  
+
   // The StartMethod call is placed here to be after updating the input.
   if ( this->StartMethod ) (*this->StartMethod)(this->StartMethodArg);
   // fill the output region 

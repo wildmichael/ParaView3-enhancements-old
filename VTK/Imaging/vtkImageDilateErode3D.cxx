@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDilateErode3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-11 20:12:34 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1998-02-16 16:11:19 $
+  Version:   $Revision: 1.17 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -54,12 +54,7 @@ vtkImageDilateErode3D::vtkImageDilateErode3D()
   this->ErodeValue = 255.0;
   this->HandleBoundaries = 1;
   this->Mask = NULL;
-  this->KernelSize[0] = 1;
-  this->KernelSize[1] = 1;
-  this->KernelSize[2] = 1;
-  this->KernelSize[3] = 1;
-
-  this->SetFilteredAxes(VTK_IMAGE_X_AXIS, VTK_IMAGE_Y_AXIS, VTK_IMAGE_Z_AXIS);
+  this->SetKernelSize(3, 3, 3);
 }
 
 
@@ -71,17 +66,6 @@ void vtkImageDilateErode3D::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "Erode Value: " << this->ErodeValue << "\n";
 }
 
-//----------------------------------------------------------------------------
-void vtkImageDilateErode3D::SetFilteredAxes(int axis0, int axis1, int axis2)
-{
-  int axes[3];
-  
-  axes[0] = axis0;
-  axes[1] = axis1;
-  axes[2] = axis2;
-  this->vtkImageSpatialFilter::SetFilteredAxes(3, axes);
-}
-  
 //----------------------------------------------------------------------------
 // Description:
 // This method sets the size of the neighborhood.  It also sets the 

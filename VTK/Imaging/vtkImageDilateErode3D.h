@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDilateErode3D.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 21:16:03 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1998-02-16 16:11:20 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -61,8 +61,6 @@ public:
   const char *GetClassName() {return "vtkImageDilateErode3D";};
   void PrintSelf(ostream& os, vtkIndent indent);
   
-  void SetFilteredAxes(int axis0, int axis1, int axis2);
-
   // Set/Get the size of the neighood.
   void SetKernelSize(int size0, int size1, int size2);
   
@@ -75,15 +73,15 @@ public:
 
   // Description:
   // Get the Mask used as a footprint.
-  vtkGetObjectMacro(Mask, vtkImageRegion);
+  vtkGetObjectMacro(Mask, vtkImageData);
   
 protected:
   float DilateValue;
   float ErodeValue;
-  vtkImageRegion *Mask;
+  vtkImageData *Mask;
     
-  void ExecuteCenter(vtkImageRegion *inRegion, vtkImageRegion *outRegion);
-  void Execute(vtkImageRegion *inRegion, vtkImageRegion *outRegion);
+  void ThreadedExecute(vtkImageData *inData, vtkImageData *outData,
+		       int outExt[6], int id);
   void ComputeMask();
 };
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCanvasSource2D.h,v $
   Language:  C++
-  Date:      $Date: 1998-01-16 19:52:44 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-02-16 16:11:18 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -102,6 +102,11 @@ public:
   void DrawSegment3D(float *p0, float *p1);
 
   void FillPixel(int x, int y);
+  
+  // Description:
+  // To make Canvas source more like other sources, this get output
+  // method should be used.
+  vtkImageData *GetOutput() {return this;}
   
 protected:
   vtkImageData *ImageData;
