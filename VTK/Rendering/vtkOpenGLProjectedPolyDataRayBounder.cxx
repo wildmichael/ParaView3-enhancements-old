@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLProjectedPolyDataRayBounder.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:12:07 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2000-11-10 20:33:37 $
+  Version:   $Revision: 1.27 $
   Thanks:    Thanks to Lisa Sobierajski Avila who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -45,7 +45,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkObjectFactory.h"
 
 
-
+#ifndef VTK_IMPLEMENT_MESA_CXX
 //------------------------------------------------------------------------------
 vtkOpenGLProjectedPolyDataRayBounder* vtkOpenGLProjectedPolyDataRayBounder::New()
 {
@@ -58,6 +58,7 @@ vtkOpenGLProjectedPolyDataRayBounder* vtkOpenGLProjectedPolyDataRayBounder::New(
   // If the factory was unable to create the object, then create it here.
   return new vtkOpenGLProjectedPolyDataRayBounder;
 }
+#endif
 
 
 

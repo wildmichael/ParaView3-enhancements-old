@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaProjectedPolyDataRayBounder.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:05:50 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2000-11-10 20:33:37 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -69,3 +69,16 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define vtkOpenGLProjectedPolyDataRayBounder vtkMesaProjectedPolyDataRayBounder
 #include "vtkOpenGLProjectedPolyDataRayBounder.cxx"
 #undef vtkOpenGLProjectedPolyDataRayBounder
+
+//-----------------------------------------------------------------------------
+vtkMesaProjectedPolyDataRayBounder* vtkMesaProjectedPolyDataRayBounder::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkMesaProjectedPolyDataRayBounder");
+  if(ret)
+    {
+    return (vtkMesaProjectedPolyDataRayBounder*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkMesaProjectedPolyDataRayBounder;
+}

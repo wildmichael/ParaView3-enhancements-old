@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLPolyDataMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-10-20 13:58:11 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 2000-11-10 20:33:37 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -60,6 +60,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkObjectFactory.h"
 #include "vtkCommand.h"
 
+#ifndef VTK_IMPLEMENT_MESA_CXX
 //--------------------------------------------------------------------------
 vtkOpenGLPolyDataMapper* vtkOpenGLPolyDataMapper::New()
 {
@@ -72,6 +73,7 @@ vtkOpenGLPolyDataMapper* vtkOpenGLPolyDataMapper::New()
   // If the factory was unable to create the object, then create it here.
   return new vtkOpenGLPolyDataMapper;
 }
+#endif
 
 // Construct empty object.
 vtkOpenGLPolyDataMapper::vtkOpenGLPolyDataMapper()
