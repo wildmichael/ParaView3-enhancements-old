@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObjectBase.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-24 17:02:49 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-06-24 19:51:25 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -120,7 +120,7 @@ private:
   friend VTK_COMMON_EXPORT ostream& operator<<(ostream& os, vtkObjectBase& o);
   //ETX
 
-private:
+protected:
 //BTX
   vtkObjectBase(const vtkObjectBase&) {}
   void operator=(const vtkObjectBase&) {}
