@@ -3,8 +3,8 @@
 Program:   Visualization Toolkit
 Module:    $RCSfile: vtkWin32OpenGLRenderWindow.cxx,v $
 Language:  C++
-Date:      $Date: 2003-08-21 13:16:10 $
-Version:   $Revision: 1.116 $
+Date:      $Date: 2003-08-26 19:28:11 $
+Version:   $Revision: 1.117 $
 
 Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -38,7 +38,7 @@ PURPOSE.  See the above copyright notice for more information.
 #include <GL/gl.h>
 #endif
 
-vtkCxxRevisionMacro(vtkWin32OpenGLRenderWindow, "$Revision: 1.116 $");
+vtkCxxRevisionMacro(vtkWin32OpenGLRenderWindow, "$Revision: 1.117 $");
 vtkStandardNewMacro(vtkWin32OpenGLRenderWindow);
 
 #define VTK_MAX_LIGHTS 8
@@ -451,7 +451,15 @@ void vtkWin32OpenGLRenderWindow::SetupPixelFormat(HDC hDC, DWORD dwFlags,
                      "Invalid pixel format, no OpenGL support",
                      "Error",
                      MB_ICONERROR | MB_OK);
-          exit(1);
+          if (this->HasObserver(vtkCommand::ExitEvent))
+            {
+              this->InvokeEvent(vtkCommand::ExitEvent, NULL);
+              return;
+            }
+          else
+            {
+              exit(1);
+            }
         }         
     }
   else
@@ -462,7 +470,15 @@ void vtkWin32OpenGLRenderWindow::SetupPixelFormat(HDC hDC, DWORD dwFlags,
         {
           MessageBox(WindowFromDC(hDC), "ChoosePixelFormat failed.", "Error",
                      MB_ICONERROR | MB_OK);
-          exit(1);
+          if (this->HasObserver(vtkCommand::ExitEvent))
+            {
+              this->InvokeEvent(vtkCommand::ExitEvent, NULL);
+              return;
+            }
+          else
+            {
+              exit(1);
+            }
         }
       DescribePixelFormat(hDC, pixelFormat,sizeof(pfd), &pfd); 
       if (SetPixelFormat(hDC, pixelFormat, &pfd) != TRUE) 
@@ -470,7 +486,15 @@ void vtkWin32OpenGLRenderWindow::SetupPixelFormat(HDC hDC, DWORD dwFlags,
           // int err = GetLastError();
           MessageBox(WindowFromDC(hDC), "SetPixelFormat failed.", "Error",
                      MB_ICONERROR | MB_OK);
-          exit(1);
+          if (this->HasObserver(vtkCommand::ExitEvent))
+            {
+              this->InvokeEvent(vtkCommand::ExitEvent, NULL);
+              return;
+            }
+          else
+            {
+              exit(1);
+            }
         }
     }
   if (debug && (dwFlags & PFD_STEREO) && !(pfd.dwFlags & PFD_STEREO))

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXOpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-08-21 13:16:10 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 2003-08-26 19:28:11 $
+  Version:   $Revision: 1.47 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -87,7 +87,7 @@ vtkXOpenGLRenderWindowInternal::vtkXOpenGLRenderWindowInternal(
 
 
 #ifndef VTK_IMPLEMENT_MESA_CXX
-vtkCxxRevisionMacro(vtkXOpenGLRenderWindow, "$Revision: 1.46 $");
+vtkCxxRevisionMacro(vtkXOpenGLRenderWindow, "$Revision: 1.47 $");
 vtkStandardNewMacro(vtkXOpenGLRenderWindow);
 #endif
 
@@ -392,15 +392,40 @@ void vtkXOpenGLRenderWindow::WindowInitialize (void)
     if(!glXQueryExtension(this->DisplayId, NULL, NULL)) 
       {
       vtkErrorMacro("GLX not found.  Aborting.");
-      abort();
+      if (this->HasObserver(vtkCommand::ExitEvent))
+        {
+          this->InvokeEvent(vtkCommand::ExitEvent, NULL);
+          return;
+        }
+      else
+        {
+        abort();
+        }
       }
     
     this->Internal->ContextId = glXCreateContext(this->DisplayId, v, 0, GL_TRUE);
 
+    if (this->HasObserver(vtkCommand::ExitEvent))
+      {
+        this->InvokeEvent(vtkCommand::ExitEvent, NULL);
+      }
+    else
+      {
+        cout <<"no exit event" << endl;
+      }
+
     if(!this->Internal->ContextId)
       {
       vtkErrorMacro("Cannot create GLX context.  Aborting.");
-      abort();
+      if (this->HasObserver(vtkCommand::ExitEvent))
+        {
+          this->InvokeEvent(vtkCommand::ExitEvent, NULL);
+          return;
+        }
+      else
+        {
+        abort();
+        }
       }
     this->MakeCurrent();
     
