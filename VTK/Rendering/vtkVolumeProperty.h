@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProperty.h,v $
   Language:  C++
-  Date:      $Date: 1998-01-04 22:23:16 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1998-02-26 19:07:34 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -97,6 +97,11 @@ public:
 	{this->SetInterpolationType(VTK_LINEAR_INTERPOLATION);};
   char *GetInterpolationTypeAsString(void);
 
+  // Description:
+  // Get the modified time for this object (or the properties registered
+  // with this object).
+  unsigned long int GetMTime();
+  
   // Description:
   // Set the color of a volume to a gray level transfer function. This 
   // will also set the ColorChannels to 1.

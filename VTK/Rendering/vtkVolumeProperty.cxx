@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProperty.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-01-04 22:23:17 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1998-02-26 19:07:35 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -85,6 +85,68 @@ vtkVolumeProperty::~vtkVolumeProperty()
   if( this->SelfCreatedGOTFun && this->GradientOpacity )
     this->GradientOpacity->Delete();
 }
+
+
+
+unsigned long int vtkVolumeProperty::GetMTime()
+{
+  unsigned long mTime=this->vtkObject::GetMTime();
+  unsigned long time;
+
+  // Color MTimes
+  if (this->ColorChannels == 1)
+    {
+    if (this->GrayTransferFunction)
+      {
+      // time that Gray transfer function pointer was set
+      time = this->GrayTransferFunctionMTime;
+      mTime = (mTime > time ? mTime : time);
+
+      // time that Gray transfer function was last modified
+      time = this->GrayTransferFunction->GetMTime();
+      mTime = (mTime > time ? mTime : time);
+      }
+    }
+  else if (this->ColorChannels == 3)
+    {
+    if (this->RGBTransferFunction)
+      {
+      // time that RGB transfer function pointer was set
+      time = this->RGBTransferFunctionMTime;
+      mTime = (mTime > time ? mTime : time);
+
+      // time that RGB transfer function was last modified
+      time = this->RGBTransferFunction->GetMTime();
+      mTime = (mTime > time ? mTime : time);
+      }
+    }
+
+  // Opacity MTimes
+  if (this->ScalarOpacity)
+    {
+    // time that Scalar opacity transfer function pointer was set
+    time = this->ScalarOpacityMTime;
+    mTime = (mTime > time ? mTime : time);
+
+    // time that Scalar opacity transfer function was last modified
+    time = this->ScalarOpacity->GetMTime();
+    mTime = (mTime > time ? mTime : time);
+    }
+
+  if (this->GradientOpacity)
+    {
+    // time that Gradient opacity transfer function pointer was set
+    time = this->GradientOpacityMTime;
+    mTime = (mTime > time ? mTime : time);
+
+    // time that Gradient opacity transfer function was last modified
+    time = this->GradientOpacity->GetMTime();
+    mTime = (mTime > time ? mTime : time);
+    }
+      
+  return mTime;
+}
+
 
 // Description:
 // Set the color of a volume to a gray transfer function
