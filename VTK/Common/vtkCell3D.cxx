@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCell3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-07-09 12:06:23 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2003-07-09 15:19:30 $
+  Version:   $Revision: 1.34 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 #include "vtkPointData.h"
 #include "vtkPoints.h"
 
-vtkCxxRevisionMacro(vtkCell3D, "$Revision: 1.33 $");
+vtkCxxRevisionMacro(vtkCell3D, "$Revision: 1.34 $");
 
 vtkCell3D::~vtkCell3D()
 {
@@ -72,8 +72,6 @@ void vtkCell3D::Clip(float value, vtkDataArray *cellScalars,
   // initial bounds is in the (0,1) cube.
   this->Triangulator->InitTriangulation(0.0,1.0, 0.0,1.0, 0.0,1.0,
                                         (numPts + numEdges));
-  this->Triangulator->SetTemplateParameters(this->GetCellType(),
-                                            numPts,numEdges);
 
   // Inject cell points into triangulation. Recall that the PreSortedOff() 
   // flag was set which means that the triangulator will order the points 
@@ -115,7 +113,7 @@ void vtkCell3D::Clip(float value, vtkDataArray *cellScalars,
   // are a heck of a lot faster.
   if ( allInside )
     {
-    this->Triangulator->Triangulate();
+    this->Triangulator->TemplateTriangulate(this->GetCellType(),numPts,numEdges);
     this->Triangulator->AddTetras(0,tets);
     return;
     }
