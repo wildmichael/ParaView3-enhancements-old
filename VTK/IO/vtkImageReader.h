@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:10 $
-  Version:   $Revision: 1.53 $
+  Date:      $Date: 2001-03-12 19:26:05 $
+  Version:   $Revision: 1.54 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -246,8 +246,7 @@ protected:
   int DataVOI[6];
   
   void ExecuteInformation();
-  void Execute() { this->vtkImageSource::Execute(); };
-  void Execute(vtkImageData *data);
+  void ExecuteData(vtkDataObject *data);
   virtual void ComputeDataIncrements();
 };
 

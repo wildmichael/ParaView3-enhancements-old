@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader2.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-08 20:21:04 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-03-12 19:26:05 $
+  Version:   $Revision: 1.2 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -595,9 +595,8 @@ static void vtkImageReader2Update(vtkImageReader2 *self, vtkImageData *data,
   int outIncr[3];
   OT *outPtr1, *outPtr2;
   long streamRead;
-  int idx0, idx1, idx2, nComponents;
+  int idx1, idx2, nComponents;
   int outExtent[6];
-  int comp;
   unsigned long count = 0;
   unsigned long target;
   

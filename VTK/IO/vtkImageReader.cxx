@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-30 13:10:03 $
-  Version:   $Revision: 1.78 $
+  Date:      $Date: 2001-03-12 19:26:05 $
+  Version:   $Revision: 1.79 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -828,8 +828,10 @@ static void vtkImageReaderUpdate1(vtkImageReader *self,
 //----------------------------------------------------------------------------
 // This function reads a data from a file.  The datas extent/axes
 // are assumed to be the same as the file extent/order.
-void vtkImageReader::Execute(vtkImageData *data)
+void vtkImageReader::ExecuteData(vtkDataObject *output)
 {
+  vtkImageData *data = this->AllocateOutputData(output);
+  
   void *ptr = NULL;
   int *ext;
   
