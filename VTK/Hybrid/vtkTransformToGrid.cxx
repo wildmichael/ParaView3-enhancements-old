@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransformToGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-13 21:11:07 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2002-06-17 14:10:53 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 #include "vtkIdentityTransform.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkTransformToGrid, "$Revision: 1.9 $");
+vtkCxxRevisionMacro(vtkTransformToGrid, "$Revision: 1.10 $");
 vtkStandardNewMacro(vtkTransformToGrid);
 
 vtkCxxSetObjectMacro(vtkTransformToGrid,Input,vtkAbstractTransform);
@@ -112,10 +112,8 @@ void vtkTransformToGrid::ExecuteInformation()
 // Return the maximum absolute displacement of the transform over
 // the entire grid extent -- this is extremely robust and extremely
 // inefficient, it should be possible to do much better than this.
-static void vtkTransformToGridMinMax(vtkTransformToGrid *self,
-                                     int extent[6],
-                                     float &minDisplacement,
-                                     float &maxDisplacement)
+void vtkTransformToGridMinMax(vtkTransformToGrid *self, int extent[6],
+                              float &minDisplacement, float &maxDisplacement)
 {
   vtkAbstractTransform *transform = self->GetInput();
   transform->Update();
@@ -242,37 +240,36 @@ void vtkTransformToGrid::UpdateShiftScale()
 //----------------------------------------------------------------------------
 // macros to ensure proper round-to-nearest behaviour
 
-static inline void vtkGridRound(float val, unsigned char& rnd)
+inline void vtkGridRound(float val, unsigned char& rnd)
 {
   rnd = (unsigned char)(val+0.5f);
 }
 
-static inline void vtkGridRound(float val, char& rnd)
+inline void vtkGridRound(float val, char& rnd)
 {
   rnd = (char)((val+128.5f)-128);
 }
 
-static inline void vtkGridRound(float val, short& rnd)
+inline void vtkGridRound(float val, short& rnd)
 {
   rnd = (short)((int)(val+32768.5f)-32768);
 }
 
-static inline void vtkGridRound(float val, unsigned short& rnd)
+inline void vtkGridRound(float val, unsigned short& rnd)
 {
   rnd = (unsigned short)(val+0.5f);
 }
 
-static inline void vtkGridRound(float val, float& rnd)
+inline void vtkGridRound(float val, float& rnd)
 {
   rnd = (float)(val);
 }
 
 //----------------------------------------------------------------------------
 template<class T>
-static void vtkTransformToGridExecute(vtkTransformToGrid *self,
+void vtkTransformToGridExecute(vtkTransformToGrid *self,
                                vtkImageData *grid, T *gridPtr, int extent[6], 
-                               float shift, float scale,
-                               int id)
+                               float shift, float scale, int id)
 {
   vtkAbstractTransform *transform = self->GetInput();
   int isIdentity = 0;

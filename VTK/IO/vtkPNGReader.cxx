@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPNGReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:18 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2002-06-17 14:10:26 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 
 #include <png.h>
 
-vtkCxxRevisionMacro(vtkPNGReader, "$Revision: 1.10 $");
+vtkCxxRevisionMacro(vtkPNGReader, "$Revision: 1.11 $");
 vtkStandardNewMacro(vtkPNGReader);
 
 void vtkPNGReader::ExecuteInformation()
@@ -135,8 +135,8 @@ void vtkPNGReader::ExecuteInformation()
 
 
 template <class OT>
-static void vtkPNGReaderUpdate2(vtkPNGReader *self, OT *outPtr,
-                                int *outExt, int *outInc, long pixSize)
+void vtkPNGReaderUpdate2(vtkPNGReader *self, OT *outPtr,
+                         int *outExt, int *outInc, long pixSize)
 {
   unsigned int ui;
   int i;
@@ -250,8 +250,7 @@ static void vtkPNGReaderUpdate2(vtkPNGReader *self, OT *outPtr,
 // This function reads in one data of data.
 // templated to handle different data types.
 template <class OT>
-static void vtkPNGReaderUpdate(vtkPNGReader *self, vtkImageData *data, 
-                               OT *outPtr)
+void vtkPNGReaderUpdate(vtkPNGReader *self, vtkImageData *data, OT *outPtr)
 {
   int outIncr[3];
   int outExtent[6];

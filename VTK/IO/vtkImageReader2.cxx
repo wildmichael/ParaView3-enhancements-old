@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader2.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-04 11:19:42 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2002-06-17 14:10:26 $
+  Version:   $Revision: 1.18 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 
 #include <sys/stat.h>
 
-vtkCxxRevisionMacro(vtkImageReader2, "$Revision: 1.17 $");
+vtkCxxRevisionMacro(vtkImageReader2, "$Revision: 1.18 $");
 vtkStandardNewMacro(vtkImageReader2);
 
 #ifdef read
@@ -605,8 +605,7 @@ void vtkImageReader2::SeekFile(int i, int j, int k)
 // This function reads in one data of data.
 // templated to handle different data types.
 template <class OT>
-static void vtkImageReader2Update(vtkImageReader2 *self, vtkImageData *data,
-                                  OT *outPtr)
+void vtkImageReader2Update(vtkImageReader2 *self, vtkImageData *data, OT *outPtr)
 {
   int outIncr[3];
   OT *outPtr1, *outPtr2;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSynchronizedTemplates3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-11 18:08:59 $
-  Version:   $Revision: 1.63 $
+  Date:      $Date: 2002-06-17 14:10:39 $
+  Version:   $Revision: 1.64 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -44,7 +44,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkExtentTranslator.h"
 
-vtkCxxRevisionMacro(vtkSynchronizedTemplates3D, "$Revision: 1.63 $");
+vtkCxxRevisionMacro(vtkSynchronizedTemplates3D, "$Revision: 1.64 $");
 vtkStandardNewMacro(vtkSynchronizedTemplates3D);
 
 //----------------------------------------------------------------------------
@@ -158,9 +158,8 @@ void vtkSynchronizedTemplates3DInitializeOutput(int *ext,vtkImageData *input,
 //----------------------------------------------------------------------------
 // Calculate the gradient using central difference.
 template <class T>
-static void vtkSTComputePointGradient(int i, int j, int k, T *s, int *wholeExt, 
-                                      int yInc, int zInc, float *spacing,
-                                      float n[3])
+void vtkSTComputePointGradient(int i, int j, int k, T *s, int *wholeExt, 
+                               int yInc, int zInc, float *spacing, float n[3])
 {
   float sp, sm;
 
@@ -260,9 +259,8 @@ if (ComputeScalars) \
 // Contouring filter specialized for images
 //
 template <class T>
-static void ContourImage(vtkSynchronizedTemplates3D *self, int *exExt,
-                         vtkImageData *data, vtkPolyData *output,
-                         T *ptr, int threadId)
+void ContourImage(vtkSynchronizedTemplates3D *self, int *exExt,
+                  vtkImageData *data, vtkPolyData *output, T *ptr, int threadId)
 {
   int *inExt = self->GetInput()->GetExtent();
   int xdim = exExt[1] - exExt[0] + 1;

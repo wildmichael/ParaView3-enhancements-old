@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeTextureMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-03 16:47:53 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 2002-06-17 14:11:08 $
+  Version:   $Revision: 1.46 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -32,12 +32,11 @@
 
 
 template <class T>
-static void 
-VolumeTextureMapper2D_TraverseVolume( T *data_ptr,
-                                      int size[3],
-                                      int axis,
-                                      int directionFlag,
-                                      vtkVolumeTextureMapper2D *me )
+void vtkVolumeTextureMapper2D_TraverseVolume( T *data_ptr,
+                                              int size[3],
+                                              int axis,
+                                              int directionFlag,
+                                              vtkVolumeTextureMapper2D *me )
 {
   int              i, j, k;
   int              kstart, kend, kinc;
@@ -466,7 +465,7 @@ VolumeTextureMapper2D_TraverseVolume( T *data_ptr,
 
 }
 
-vtkCxxRevisionMacro(vtkVolumeTextureMapper2D, "$Revision: 1.45 $");
+vtkCxxRevisionMacro(vtkVolumeTextureMapper2D, "$Revision: 1.46 $");
 
 vtkVolumeTextureMapper2D::vtkVolumeTextureMapper2D()
 {
@@ -820,28 +819,28 @@ void vtkVolumeTextureMapper2D::GenerateTexturesAndRenderQuads( vtkRenderer *ren,
       {
       case VTK_UNSIGNED_CHAR:
         this->InitializeRender( ren, vol, VTK_PLUS_X_MAJOR_DIRECTION );
-        VolumeTextureMapper2D_TraverseVolume
+        vtkVolumeTextureMapper2D_TraverseVolume
           ( (unsigned char *)inputPointer, size, 0, 1, this );
         
         this->InitializeRender( ren, vol, VTK_PLUS_Y_MAJOR_DIRECTION );
-        VolumeTextureMapper2D_TraverseVolume
+        vtkVolumeTextureMapper2D_TraverseVolume
           ( (unsigned char *)inputPointer, size, 1, 1, this );
         
         this->InitializeRender( ren, vol, VTK_PLUS_Z_MAJOR_DIRECTION );
-        VolumeTextureMapper2D_TraverseVolume
+        vtkVolumeTextureMapper2D_TraverseVolume
           ( (unsigned char *)inputPointer, size, 2, 1, this );
         break;
       case VTK_UNSIGNED_SHORT:
         this->InitializeRender( ren, vol, VTK_PLUS_X_MAJOR_DIRECTION );
-        VolumeTextureMapper2D_TraverseVolume
+        vtkVolumeTextureMapper2D_TraverseVolume
           ( (unsigned short *)inputPointer, size, 0, 1, this );
-
+        
         this->InitializeRender( ren, vol, VTK_PLUS_Y_MAJOR_DIRECTION );
-        VolumeTextureMapper2D_TraverseVolume
+        vtkVolumeTextureMapper2D_TraverseVolume
           ( (unsigned short *)inputPointer, size, 1, 1, this );
-
+        
         this->InitializeRender( ren, vol, VTK_PLUS_Z_MAJOR_DIRECTION );
-        VolumeTextureMapper2D_TraverseVolume
+        vtkVolumeTextureMapper2D_TraverseVolume
           ( (unsigned short *)inputPointer, size, 2, 1, this );
         break;
       }
@@ -862,32 +861,32 @@ void vtkVolumeTextureMapper2D::GenerateTexturesAndRenderQuads( vtkRenderer *ren,
         switch ( this->MajorDirection )
           {
           case VTK_PLUS_X_MAJOR_DIRECTION:
-            VolumeTextureMapper2D_TraverseVolume
+            vtkVolumeTextureMapper2D_TraverseVolume
               ( (unsigned char *)inputPointer, size, 0, 1, this );
             break;
             
           case VTK_MINUS_X_MAJOR_DIRECTION:
-            VolumeTextureMapper2D_TraverseVolume
+            vtkVolumeTextureMapper2D_TraverseVolume
               ( (unsigned char *)inputPointer, size, 0, 0, this );
             break;
             
           case VTK_PLUS_Y_MAJOR_DIRECTION:
-            VolumeTextureMapper2D_TraverseVolume
+            vtkVolumeTextureMapper2D_TraverseVolume
               ( (unsigned char *)inputPointer, size, 1, 1, this );
             break;
             
           case VTK_MINUS_Y_MAJOR_DIRECTION:
-            VolumeTextureMapper2D_TraverseVolume
+            vtkVolumeTextureMapper2D_TraverseVolume
               ( (unsigned char *)inputPointer, size, 1, 0, this );
             break;
             
           case VTK_PLUS_Z_MAJOR_DIRECTION:
-            VolumeTextureMapper2D_TraverseVolume
+            vtkVolumeTextureMapper2D_TraverseVolume
               ( (unsigned char *)inputPointer, size, 2, 1, this );
             break;
             
           case VTK_MINUS_Z_MAJOR_DIRECTION:
-            VolumeTextureMapper2D_TraverseVolume
+            vtkVolumeTextureMapper2D_TraverseVolume
               ( (unsigned char *)inputPointer, size, 2, 0, this );
             break;
           }
@@ -896,32 +895,32 @@ void vtkVolumeTextureMapper2D::GenerateTexturesAndRenderQuads( vtkRenderer *ren,
         switch ( this->MajorDirection )
           {
           case VTK_PLUS_X_MAJOR_DIRECTION:
-            VolumeTextureMapper2D_TraverseVolume
+            vtkVolumeTextureMapper2D_TraverseVolume
               ( (unsigned short *)inputPointer, size, 0, 1, this );
             break;
             
           case VTK_MINUS_X_MAJOR_DIRECTION:
-            VolumeTextureMapper2D_TraverseVolume
+            vtkVolumeTextureMapper2D_TraverseVolume
               ( (unsigned short *)inputPointer, size, 0, 0, this );
             break;
             
           case VTK_PLUS_Y_MAJOR_DIRECTION:
-            VolumeTextureMapper2D_TraverseVolume
+            vtkVolumeTextureMapper2D_TraverseVolume
               ( (unsigned short *)inputPointer, size, 1, 1, this );
             break;
             
           case VTK_MINUS_Y_MAJOR_DIRECTION:
-            VolumeTextureMapper2D_TraverseVolume
+            vtkVolumeTextureMapper2D_TraverseVolume
               ( (unsigned short *)inputPointer, size, 1, 0, this );
             break;
             
           case VTK_PLUS_Z_MAJOR_DIRECTION:
-            VolumeTextureMapper2D_TraverseVolume
+            vtkVolumeTextureMapper2D_TraverseVolume
               ( (unsigned short *)inputPointer, size, 2, 1, this );
             break;
             
           case VTK_MINUS_Z_MAJOR_DIRECTION:
-            VolumeTextureMapper2D_TraverseVolume
+            vtkVolumeTextureMapper2D_TraverseVolume
               ( (unsigned short *)inputPointer, size, 2, 0, this );
             break;
           }

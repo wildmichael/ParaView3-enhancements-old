@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCommunicator.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-31 23:13:44 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2002-06-17 14:11:22 $
+  Version:   $Revision: 1.14 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -31,10 +31,10 @@
 #include "vtkUnsignedCharArray.h"
 #include "vtkUnsignedLongArray.h"
 
-vtkCxxRevisionMacro(vtkCommunicator, "$Revision: 1.13 $");
+vtkCxxRevisionMacro(vtkCommunicator, "$Revision: 1.14 $");
 
 template <class T>
-static int SendDataArray(T* data, int length, int handle, int tag, vtkCommunicator *self)
+int SendDataArray(T* data, int length, int handle, int tag, vtkCommunicator *self)
 {
 
   self->Send(data, length, handle, tag);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGridSynchronizedTemplates3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-04 02:07:27 $
-  Version:   $Revision: 1.59 $
+  Date:      $Date: 2002-06-17 14:10:39 $
+  Version:   $Revision: 1.60 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -44,7 +44,7 @@
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkGridSynchronizedTemplates3D, "$Revision: 1.59 $");
+vtkCxxRevisionMacro(vtkGridSynchronizedTemplates3D, "$Revision: 1.60 $");
 vtkStandardNewMacro(vtkGridSynchronizedTemplates3D);
 
 //----------------------------------------------------------------------------
@@ -171,8 +171,8 @@ void vtkGridSynchronizedTemplates3DInitializeOutput(int *ext,
 // Given a linear gradient assumption find gradient that minimizes
 // error squared for + and - (*3) neighbors).
 template <class T>
-static void ComputeGridPointGradient(int i, int j, int k, int inExt[6], 
-                            int incY, int incZ, T *sc, float *pt, float g[3])
+void ComputeGridPointGradient(int i, int j, int k, int inExt[6], 
+                              int incY, int incZ, T *sc, float *pt, float g[3])
 {
   float N[6][3];
   double NtN[3][3], NtNi[3][3];
@@ -340,9 +340,8 @@ if (ComputeScalars) \
 //----------------------------------------------------------------------------
 // Contouring filter specialized for images
 template <class T>
-static void ContourGrid(vtkGridSynchronizedTemplates3D *self,
-                        int vtkNotUsed(threadId),
-                        int *exExt, T *scalars, vtkPolyData *output)
+void ContourGrid(vtkGridSynchronizedTemplates3D *self, int vtkNotUsed(threadId),
+                 int *exExt, T *scalars, vtkPolyData *output)
 {
   vtkStructuredGrid *input = (vtkStructuredGrid *)self->GetInput();
   int *inExt = input->GetExtent();

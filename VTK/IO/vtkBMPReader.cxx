@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBMPReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-29 20:25:11 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2002-06-17 14:10:26 $
+  Version:   $Revision: 1.33 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,7 +19,7 @@
 #include "vtkByteSwap.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkBMPReader, "$Revision: 1.32 $");
+vtkCxxRevisionMacro(vtkBMPReader, "$Revision: 1.33 $");
 vtkStandardNewMacro(vtkBMPReader);
 
 #ifdef read
@@ -313,8 +313,7 @@ void vtkBMPReader::ComputeDataIncrements()
 // This function reads in one data of data.
 // templated to handle different data types.
 template <class OT>
-static void vtkBMPReaderUpdate2(vtkBMPReader *self, vtkImageData *data, 
-                                OT *outPtr)
+void vtkBMPReaderUpdate2(vtkBMPReader *self, vtkImageData *data, OT *outPtr)
 {
   int inIncr[3], outIncr[3];
   OT *outPtr0, *outPtr1, *outPtr2;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSynchronizedTemplates2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 22:02:32 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2002-06-17 14:10:39 $
+  Version:   $Revision: 1.24 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -41,7 +41,7 @@
 #include "vtkSynchronizedTemplates2D.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkSynchronizedTemplates2D, "$Revision: 1.23 $");
+vtkCxxRevisionMacro(vtkSynchronizedTemplates2D, "$Revision: 1.24 $");
 vtkStandardNewMacro(vtkSynchronizedTemplates2D);
 
 //----------------------------------------------------------------------------
@@ -101,9 +101,9 @@ unsigned long vtkSynchronizedTemplates2D::GetMTime()
 // Contouring filter specialized for images
 //
 template <class T>
-static void ContourImage(vtkSynchronizedTemplates2D *self,
-                         T *scalars, vtkPoints *newPts,
-                         vtkDataArray *newScalars, vtkCellArray *lines)
+void vtkContourImage(vtkSynchronizedTemplates2D *self,
+                     T *scalars, vtkPoints *newPts,
+                     vtkDataArray *newScalars, vtkCellArray *lines)
 {
   float *values = self->GetValues();
   int numContours = self->GetNumberOfContours();
@@ -442,7 +442,7 @@ void vtkSynchronizedTemplates2D::Execute()
       }
     switch (inScalars->GetDataType())
       {
-      vtkTemplateMacro5(ContourImage,this,(VTK_TT *)scalars, newPts,
+      vtkTemplateMacro5(vtkContourImage,this,(VTK_TT *)scalars, newPts,
                         newScalars, newLines);
       }//switch
     }
@@ -458,7 +458,7 @@ void vtkSynchronizedTemplates2D::Execute()
       newScalars->Allocate(5000,25000);
       }
     float *scalars =image->GetPointer(0);
-    ContourImage(this, scalars, newPts, newScalars, newLines);
+    vtkContourImage(this, scalars, newPts, newScalars, newLines);
     image->Delete();
     }
 

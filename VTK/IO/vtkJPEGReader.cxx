@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkJPEGReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-24 20:01:34 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2002-06-17 14:10:26 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@ extern "C" {
 }
 
 
-vtkCxxRevisionMacro(vtkJPEGReader, "$Revision: 1.10 $");
+vtkCxxRevisionMacro(vtkJPEGReader, "$Revision: 1.11 $");
 vtkStandardNewMacro(vtkJPEGReader);
 
 
@@ -133,8 +133,8 @@ void vtkJPEGReader::ExecuteInformation()
 }
 
 template <class OT>
-static void vtkJPEGReaderUpdate2(vtkJPEGReader *self, OT *outPtr,
-                                int *outExt, int *outInc, long)
+void vtkJPEGReaderUpdate2(vtkJPEGReader *self, OT *outPtr,
+                          int *outExt, int *outInc, long)
 {
   unsigned int ui;
   int i;
@@ -223,8 +223,7 @@ static void vtkJPEGReaderUpdate2(vtkJPEGReader *self, OT *outPtr,
 // This function reads in one data of data.
 // templated to handle different data types.
 template <class OT>
-static void vtkJPEGReaderUpdate(vtkJPEGReader *self, vtkImageData *data, 
-                               OT *outPtr)
+void vtkJPEGReaderUpdate(vtkJPEGReader *self, vtkImageData *data, OT *outPtr)
 {
   int outIncr[3];
   int outExtent[6];
