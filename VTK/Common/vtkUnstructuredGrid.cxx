@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-30 18:37:17 $
-  Version:   $Revision: 1.105 $
+  Date:      $Date: 2002-05-31 15:11:01 $
+  Version:   $Revision: 1.106 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -37,7 +37,7 @@
 #include "vtkQuadraticHexahedron.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkUnstructuredGrid, "$Revision: 1.105 $");
+vtkCxxRevisionMacro(vtkUnstructuredGrid, "$Revision: 1.106 $");
 vtkStandardNewMacro(vtkUnstructuredGrid);
 
 vtkUnstructuredGrid::vtkUnstructuredGrid ()
@@ -129,6 +129,10 @@ vtkUnstructuredGrid::~vtkUnstructuredGrid()
   this->Wedge->Delete();
   this->Pyramid->Delete();
   this->QuadraticEdge->Delete();
+  this->QuadraticTriangle->Delete();
+  this->QuadraticQuad->Delete();
+  this->QuadraticTetra->Delete();
+  this->QuadraticHexahedron->Delete();
 }
 
 // Copy the geometric and topological structure of an input unstructured grid.
