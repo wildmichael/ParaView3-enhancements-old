@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExporter.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:52:19 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1997-02-14 20:53:21 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -45,7 +45,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // the geometric and topological data for an object, where an exporter
 // can write out material properties, lighting, camera parameters etc.
 // The concrete subclasses of this class may not write out all of this
-// information. For example vtkOBJWriter writes out Wavefront obj files
+// information. For example vtkOBJExporter writes out Wavefront obj files
 // which do not include support for camera parameters.
 //
 // vtkExporter provides the convenience methods StartWrite() and EndWrite().

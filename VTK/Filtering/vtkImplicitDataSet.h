@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitDataSet.h,v $
   Language:  C++
-  Date:      $Date: 1996-10-11 16:28:05 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1997-02-14 20:53:22 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,7 +57,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // has scalar data associated with it.
 
 // .SECTION See Also
-// vtkImplicitFunction vtkImplicitVolume vtkClipper vtkCutter
+// vtkImplicitFunction vtkImplicitVolume vtkClipPolyData vtkCutter
 // vtkImplicitWindowFunction
 
 #ifndef __vtkImplicitDataSet_h

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitVolume.h,v $
   Language:  C++
-  Date:      $Date: 1996-10-11 16:28:07 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1997-02-14 20:53:23 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,7 +56,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // Works for 3D structured points datasets, 0D-2D datasets won't work properly.
 
 // .SECTION See Also
-// vtkImplicitFunction vtkImplicitDataSet vtkClipper vtkCutter
+// vtkImplicitFunction vtkImplicitDataSet vtkClipPolyData vtkCutter
 // vtkImplicitWindowFunction
 
 #ifndef __vtkImplicitVolume_h

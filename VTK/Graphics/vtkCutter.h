@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCutter.h,v $
   Language:  C++
-  Date:      $Date: 1996-09-27 18:58:36 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1997-02-14 20:53:19 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -45,7 +45,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // corresponding to the implicit function F(x,y,z) = value(s), where
 // you can specify one or more values used to cut with.
 // .SECTION See Also
-// vtkImplicitFunction vtkClipper
+// vtkImplicitFunction vtkClipPolyData
 
 #ifndef __vtkCutter_h
 #define __vtkCutter_h

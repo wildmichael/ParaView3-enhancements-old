@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitWindowFunction.h,v $
   Language:  C++
-  Date:      $Date: 1996-10-11 16:34:38 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1997-02-14 20:53:25 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -51,7 +51,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 //
 
 // .SECTION See Also
-// vtkImplictFunction
+// vtkImplicitFunction
 
 #ifndef __vtkImplicitWindowFunction_h
 #define __vtkImplicitWindowFunction_h
