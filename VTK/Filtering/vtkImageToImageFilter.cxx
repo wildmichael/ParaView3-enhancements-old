@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToImageFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-10 12:28:31 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1999-10-08 19:38:15 $
+  Version:   $Revision: 1.19 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -355,13 +355,13 @@ int vtkImageToImageFilter::SplitExtent(int splitExt[6], int startExt[6],
   // start with same extent
   memcpy(splitExt, startExt, 6 * sizeof(int));
 
-  splitAxis = 2;
-  min = startExt[4];
-  max = startExt[5];
+  splitAxis = 0;
+  min = startExt[0];
+  max = startExt[1];
   while (min == max)
     {
-    splitAxis--;
-    if (splitAxis < 0)
+    ++splitAxis;
+    if (splitAxis > 2)
       { // cannot split
       vtkDebugMacro("  Cannot Split");
       return 1;
