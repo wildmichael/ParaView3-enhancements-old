@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageOpenClose3D.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:48 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-08-03 10:41:07 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -94,11 +94,6 @@ public:
   // It justs feeds the request to the sub filter.
   vtkImageData *GetOutput();
 
-  // Description:
-  // A method used internally, which is part of the vtkImageToImageFilter API.
-  // Return the maximum MTime of this filter, and all of the previous filters
-  // in the pipline.
-  unsigned long GetPipelineMTime();
 
   // Foward filter messages
 

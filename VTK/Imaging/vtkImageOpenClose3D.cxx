@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageOpenClose3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:47 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-08-03 10:41:06 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -207,36 +207,6 @@ unsigned long int vtkImageOpenClose3D::GetMTime()
   
 
 
-
-//----------------------------------------------------------------------------
-// This Method returns the MTime of the pipeline before this filter.
-// It propagates the message back.
-unsigned long int vtkImageOpenClose3D::GetPipelineMTime()
-{
-  unsigned long int time1, time2;
-
-  // This objects MTime
-  time1 = this->GetMTime();
-
-  if ( ! this->Filter1)
-    {
-    vtkWarningMacro(<< "GetPipelineMTime: Sub filter not created yet.");
-    return 0;
-    }
-  else
-    {
-    // Pipeline mtime
-    time2 = this->Filter1->GetPipelineMTime();
-    
-    // Return the larger of the two
-    if (time2 > time1)
-      {
-      time1 = time2;
-      }
-    }
-  
-  return time1;
-}
 
 
 

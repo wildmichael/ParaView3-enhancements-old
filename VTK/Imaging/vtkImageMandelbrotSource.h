@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMandelbrotSource.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-01 21:30:41 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1999-08-03 10:41:05 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -99,7 +99,6 @@ public:
   void Zoom(double factor);
   void Pan(double x, double y, double z);
 
-  void UpdateInformation();
 
 protected:
   int WholeExtent[6];
@@ -111,6 +110,7 @@ protected:
   int JuliaSet;
   
   void Execute(vtkImageData *outData);
+  void ExecuteInformation();
   unsigned short EvaluateSet(double x, double y, double z);
 };
 
