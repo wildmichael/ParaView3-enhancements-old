@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPlaneWidget.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-20 12:40:03 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2002-08-21 17:28:01 $
+  Version:   $Revision: 1.15 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -229,6 +229,7 @@ public:
   // and unselected can be manipulated.
   virtual void SetPlaneProperty(vtkProperty*);
   vtkGetObjectMacro(PlaneProperty,vtkProperty);
+  vtkGetObjectMacro(SelectedPlaneProperty,vtkProperty);
   
 protected:
   vtkPlaneWidget();
