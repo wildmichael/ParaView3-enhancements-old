@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPLOT3DReader.h,v $
   Language:  C++
-  Date:      $Date: 2000-10-05 17:47:26 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2000-10-06 18:26:49 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -198,8 +198,9 @@ public:
   vtkGetMacro(Wvinf,float);
 
   // Description:
-  // Get the number number of grids.
-  vtkGetMacro(NumGrids, int);
+  // Get the number of grids. This is valid only after a
+  // read has been performed.
+  vtkGetMacro(NumberOfGrids, int);
 
 protected:
   vtkPLOT3DReader();
@@ -227,8 +228,8 @@ protected:
 
   //temporary variables used during read
   float *TempStorage;
-  int NumPts;
-  int NumGrids;
+  int NumberOfPoints;
+  int NumberOfGrids;
 
   //supplied in PLOT3D file
   float Fsmach;
