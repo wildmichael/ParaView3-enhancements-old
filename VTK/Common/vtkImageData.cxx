@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-07-23 12:24:56 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1996-07-26 17:03:06 $
+  Version:   $Revision: 1.6 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -67,6 +67,25 @@ vtkImageData::~vtkImageData()
     this->Scalars = NULL;
     }
 }
+
+
+
+
+//----------------------------------------------------------------------------
+// Description:
+// Returns the number of references that exist to this data.
+// If reference count is 1 then you can modify the data without worrying.
+int vtkImageData::GetReferenceCount()
+{
+  int dataCount;
+  int scalarCount;
+  
+  dataCount = this->GetRefCount();
+  scalarCount = this->Scalars->GetRefCount();
+  
+  return dataCount + scalarCount - 1;
+}
+
 
 
 

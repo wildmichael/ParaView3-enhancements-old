@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.h,v $
   Language:  C++
-  Date:      $Date: 1996-07-26 12:37:40 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1996-07-26 17:03:07 $
+  Version:   $Revision: 1.7 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -78,6 +78,8 @@ public:
   vtkImageData();
   ~vtkImageData();
   char *GetClassName() {return "vtkImageData";};
+
+  int GetReferenceCount();
 
   // Description:
   // Get the vtkScalars that contain the actual data.
