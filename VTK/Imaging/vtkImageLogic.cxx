@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageLogic.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:09:00 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2000-01-18 14:25:06 $
+  Version:   $Revision: 1.16 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -284,11 +284,19 @@ void vtkImageLogic::ThreadedExecute(vtkImageData **inData,
 				    vtkImageData *outData,
 				    int outExt[6], int id)
 {
-  void *in1Ptr = inData[0]->GetScalarPointerForExtent(outExt);
-  void *outPtr = outData->GetScalarPointerForExtent(outExt);
+  void *in1Ptr;
+  void *outPtr;
   
   vtkDebugMacro(<< "Execute: inData = " << inData 
 		<< ", outData = " << outData);
+  
+  if (inData[0] == NULL)
+    {
+    vtkErrorMacro(<< "Input " << 0 << " must be specified.");
+    return;
+    }
+  in1Ptr = inData[0]->GetScalarPointerForExtent(outExt);
+  outPtr = outData->GetScalarPointerForExtent(outExt);
   
   // this filter expects that input is the same type as output.
   if (inData[0]->GetScalarType() != outData->GetScalarType())
@@ -349,8 +357,15 @@ void vtkImageLogic::ThreadedExecute(vtkImageData **inData,
     }
   else
     {
-    void *in2Ptr = inData[1]->GetScalarPointerForExtent(outExt);
+    void *in2Ptr;
     
+    if (inData[1] == NULL)
+      {
+      vtkErrorMacro(<< "Input " << 1 << " must be specified.");
+      return;
+      }
+    in2Ptr = inData[1]->GetScalarPointerForExtent(outExt);
+
     // this filter expects that inputs that have the same number of components
     if (inData[0]->GetNumberOfScalarComponents() != 
         inData[1]->GetNumberOfScalarComponents())

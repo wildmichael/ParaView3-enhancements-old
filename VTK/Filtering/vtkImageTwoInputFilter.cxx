@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageTwoInputFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:09:20 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2000-01-18 14:25:07 $
+  Version:   $Revision: 1.15 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -63,6 +63,7 @@ vtkImageTwoInputFilter* vtkImageTwoInputFilter::New()
 //----------------------------------------------------------------------------
 vtkImageTwoInputFilter::vtkImageTwoInputFilter()
 {
+  this->NumberOfRequiredInputs = 2;
   this->SetNumberOfInputs(2);
   this->Inputs[0] = NULL;
   this->Inputs[1] = NULL;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMask.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-03 16:38:37 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2000-01-18 14:25:06 $
+  Version:   $Revision: 1.19 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -214,11 +214,30 @@ void vtkImageMask::ThreadedExecute(vtkImageData **inData,
 				   vtkImageData *outData,
 				   int outExt[6], int id)
 {
-  void *inPtr1 = inData[0]->GetScalarPointerForExtent(outExt);
-  void *inPtr2 = inData[1]->GetScalarPointerForExtent(outExt);
-  void *outPtr = outData->GetScalarPointerForExtent(outExt);
+  void *inPtr1;
+  void *inPtr2;
+  void *outPtr;
   int *tExt;
   
+  vtkDebugMacro(<< "Execute: inData = " << inData 
+		<< ", outData = " << outData);
+  
+
+  if (inData[0] == NULL)
+    {
+    vtkErrorMacro(<< "Input " << 0 << " must be specified.");
+    return;
+    }
+  if (inData[1] == NULL)
+    {
+    vtkErrorMacro(<< "Input " << 1 << " must be specified.");
+    return;
+    }
+
+inPtr1 = inData[0]->GetScalarPointerForExtent(outExt);
+  inPtr2 = inData[1]->GetScalarPointerForExtent(outExt);
+  outPtr = outData->GetScalarPointerForExtent(outExt);
+
   tExt = inData[1]->GetExtent();
   if (tExt[0] > outExt[0] || tExt[1] < outExt[1] || 
       tExt[2] > outExt[2] || tExt[3] < outExt[3] ||

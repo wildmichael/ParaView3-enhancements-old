@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCorrelation.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-01-07 09:11:15 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2000-01-18 14:25:05 $
+  Version:   $Revision: 1.16 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -235,13 +235,28 @@ void vtkImageCorrelation::ThreadedExecute(vtkImageData **inData,
 					  vtkImageData *outData,
 					  int outExt[6], int id)
 {
-  int *in2Extent = this->GetInput(1)->GetWholeExtent();
-  void *in1Ptr = inData[0]->GetScalarPointerForExtent(outExt);
-  void *in2Ptr = inData[1]->GetScalarPointerForExtent(in2Extent);
-  float *outPtr = (float *)outData->GetScalarPointerForExtent(outExt);
+  int *in2Extent;
+  void *in1Ptr;
+  void *in2Ptr;
+  float *outPtr;
   
   vtkDebugMacro(<< "Execute: inData = " << inData << ", outData = " << outData);
   
+  if (inData[0] == NULL)
+    {
+    vtkErrorMacro(<< "Input " << 0 << " must be specified.");
+    return;
+    }
+  if (inData[1] == NULL)
+    {
+    vtkErrorMacro(<< "Input " << 1 << " must be specified.");
+    return;
+    }
+  in2Extent = this->GetInput(1)->GetWholeExtent();
+  in1Ptr = inData[0]->GetScalarPointerForExtent(outExt);
+  in2Ptr = inData[1]->GetScalarPointerForExtent(in2Extent);
+  outPtr = (float *)outData->GetScalarPointerForExtent(outExt);
+
   // this filter expects that input is the same type as output.
   if (inData[0]->GetScalarType() != inData[1]->GetScalarType())
     {
