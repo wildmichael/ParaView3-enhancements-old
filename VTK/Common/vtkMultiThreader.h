@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMultiThreader.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:45 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2002-05-15 23:40:28 $
+  Version:   $Revision: 1.39 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -144,7 +144,7 @@ public:
   // Description:
   // Set/Get the value which is used to initialize the NumberOfThreads
   // in the constructor.  Initially this default is set to the number of 
-  // processors or 8 (which ever is less).
+  // processors or VTK_MAX_THREADS (which ever is less).
   static void SetGlobalDefaultNumberOfThreads(int val);
   static int  GetGlobalDefaultNumberOfThreads();
 

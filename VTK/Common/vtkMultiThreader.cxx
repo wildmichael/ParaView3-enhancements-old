@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMultiThreader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:45 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2002-05-15 23:40:28 $
+  Version:   $Revision: 1.38 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkMultiThreader.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkMultiThreader, "$Revision: 1.37 $");
+vtkCxxRevisionMacro(vtkMultiThreader, "$Revision: 1.38 $");
 vtkStandardNewMacro(vtkMultiThreader);
 
 // These are the includes necessary for multithreaded rendering on an SGI
@@ -82,6 +82,9 @@ int vtkMultiThreader::GetGlobalDefaultNumberOfThreads()
 #elif defined(_SC_NPROC_ONLN)
     num = sysconf( _SC_NPROC_ONLN );
 #endif
+#if defined(__SVR4) && defined(sun)
+    pthread_setconcurrency(num);
+#endif
 #endif
 
 #ifdef _WIN32
@@ -102,10 +105,10 @@ int vtkMultiThreader::GetGlobalDefaultNumberOfThreads()
 #endif  
 #endif
   
-    // Lets limit the number of threads to 8
-    if (num > 8)
+    // Lets limit the number of threads to VTK_MAX_THREADS
+    if (num > VTK_MAX_THREADS)
       {
-      num = 8;
+      num = VTK_MAX_THREADS;
       }
 
     vtkMultiThreaderGlobalDefaultNumberOfThreads = num;
