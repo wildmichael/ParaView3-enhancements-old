@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMultiThreader.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-17 17:48:25 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1997-10-29 12:39:34 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,7 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-// .NAME vtkMultiThreader.h - A class for performing multithreaded execution
+// .NAME vtkMultiThreader - A class for performing multithreaded execution
 // .SECTION Description
 // vtkMultithreader is a class that provides support for multithreaded
 // execution using sproc() on an SGI, or pthread_create on any platform
