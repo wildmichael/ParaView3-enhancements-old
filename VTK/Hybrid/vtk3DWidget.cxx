@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtk3DWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-05 11:53:07 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2002-09-05 14:46:01 $
+  Version:   $Revision: 1.14 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,7 +25,7 @@
 #include "vtkRenderer.h"
 #include "vtkRenderWindow.h"
 
-vtkCxxRevisionMacro(vtk3DWidget, "$Revision: 1.13 $");
+vtkCxxRevisionMacro(vtk3DWidget, "$Revision: 1.14 $");
 
 vtkCxxSetObjectMacro(vtk3DWidget,Prop3D,vtkProp3D);
 vtkCxxSetObjectMacro(vtk3DWidget,Input,vtkDataSet);
@@ -123,7 +123,7 @@ float vtk3DWidget::SizeHandles(float factor)
   if ( !this->ValidPick || !(renderer=this->CurrentRenderer) || 
        !(camera=renderer->GetActiveCamera()) )
     {
-    return (this->HandleSize * this->InitialLength);
+    return (this->HandleSize * factor * this->InitialLength);
     }
   else
     {
@@ -152,7 +152,7 @@ float vtk3DWidget::SizeHandles(float factor)
         (windowUpperRight[i] - windowLowerLeft[i]);
       }
 
-    return ((float)sqrt(radius) * this->HandleSize);
+    return ((float)sqrt(radius) * factor * this->HandleSize);
     }
 }
 

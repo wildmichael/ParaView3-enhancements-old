@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBoxWidget.h,v $
   Language:  C++
-  Date:      $Date: 2002-09-05 11:53:07 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2002-09-05 14:46:01 $
+  Version:   $Revision: 1.13 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -245,6 +245,7 @@ protected:
   void HighlightFace(int cellId);
   void HighlightOutline(int highlight);
   void ComputeNormals();
+  virtual void SizeHandles();
   
   // wireframe outline
   vtkActor          *HexOutline;
