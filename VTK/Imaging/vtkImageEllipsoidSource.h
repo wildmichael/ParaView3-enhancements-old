@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageEllipsoidSource.h,v $
   Language:  C++
-  Date:      $Date: 1998-02-16 16:39:02 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-06-29 17:27:16 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,8 +38,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-// .NAME vtkImageEllipsoidSource - Create a binary image of a elipsoid.
-// EllipsoidSource creates a binary image of a elipsoid.  It was created
+// .NAME vtkImageEllipsoidSource - Create a binary image of an ellipsoid.
+// .SECTION Description
+// vtkImageEllipsoidSource creates a binary image of a elipsoid.  It was created
 // as an example of a simple source, and to test the mask filter.
 // It is also used internally in vtkImageDilateErode3D.
 
