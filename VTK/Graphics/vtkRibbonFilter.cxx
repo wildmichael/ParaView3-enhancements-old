@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRibbonFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-13 11:58:09 $
-  Version:   $Revision: 1.63 $
+  Date:      $Date: 2002-08-13 12:51:43 $
+  Version:   $Revision: 1.64 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkFloatArray.h"
 
-vtkCxxRevisionMacro(vtkRibbonFilter, "$Revision: 1.63 $");
+vtkCxxRevisionMacro(vtkRibbonFilter, "$Revision: 1.64 $");
 vtkStandardNewMacro(vtkRibbonFilter);
 
 // Construct ribbon so that width is 0.1, the width does 
@@ -41,7 +41,15 @@ vtkRibbonFilter::vtkRibbonFilter()
   
   this->GenerateTCoords = 0;
   this->TextureLength = 1.0;
+
+  this->InputVectorsSelection = NULL;
 }
+
+vtkRibbonFilter::~vtkRibbonFilter()
+{
+  this->SetInputVectorsSelection(NULL);
+}
+
 
 void vtkRibbonFilter::Execute()
 {
@@ -107,7 +115,8 @@ void vtkRibbonFilter::Execute()
   outPD->CopyAllocate(pd,numNewPts);
 
   int generateNormals = 0;
-  if ( !(inNormals=pd->GetNormals()) || this->UseDefaultNormal )
+  inNormals = pd->GetNormals(this->InputVectorsSelection);
+  if ( !inNormals || this->UseDefaultNormal )
     {
     deleteNormals = 1;
     inNormals = vtkFloatArray::New();
