@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageViewer.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 21:17:37 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1997-07-10 11:36:38 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -111,9 +111,7 @@ void vtkImageViewer::PrintSelf(ostream& os, vtkIndent indent)
      << vtkImageAxisNameMacro(this->PermutationAxes[3]) << ")\n";
   os << indent << "DisplayExtent: (" << this->DisplayExtent[0] << ", " 
      << this->DisplayExtent[1] << ", " << this->DisplayExtent[2] << ", " 
-     << this->DisplayExtent[3] << ", " << this->DisplayExtent[4] << ", " 
-     << this->DisplayExtent[5] << ", " << this->DisplayExtent[6] << ", " 
-     << this->DisplayExtent[7] << ")\n";
+     << this->DisplayExtent[3] << ")\n";
   os << indent << "ColorWindow: " << this->ColorWindow << "\n";
   os << indent << "ColorLevel: " << this->ColorLevel << "\n";
   if (this->ColorFlag)
