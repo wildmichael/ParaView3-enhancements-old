@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLVolumeTextureMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-31 05:42:29 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1999-09-02 20:26:54 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,9 +64,9 @@ void vtkOpenGLVolumeTextureMapper2D::Render(vtkRenderer *ren, vtkVolume *vol)
   int                i, numClipPlanes;
   double             planeEquation[4];
 
-
   timer = vtkTimerLog::New();
   timer->StartTimer();
+
 
   // Let the superclass take care of some initialization
   this->vtkVolumeTextureMapper2D::InitializeRender( ren, vol );
@@ -160,8 +160,13 @@ void vtkOpenGLVolumeTextureMapper2D::RenderRectangle( float v[12],
 						      unsigned char *texture,
 						      int size[2])
 {
+#ifdef GL_VERSION_1_1
+  glTexImage2D( GL_TEXTURE_2D, 0, GL_RGBA8, size[0], size[1], 
+		0, GL_RGBA, GL_UNSIGNED_BYTE, texture );
+#else
   glTexImage2D( GL_TEXTURE_2D, 0, 4, size[0], size[1], 
 		0, GL_RGBA, GL_UNSIGNED_BYTE, texture );
+#endif
 
   glBegin( GL_POLYGON );
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeTextureMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-01 00:10:38 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1999-09-02 20:26:53 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -125,6 +125,9 @@ void vtkVolumeTextureMapper::InitializeRender( vtkRenderer *ren,
   float *tmpArray;
   int   colorChannels;
 
+  // Hang on to the render window - we'll need it to test for abort
+  this->RenderWindow = ren->GetRenderWindow();
+
   vol->UpdateTransferFunctions( ren );
 
   vol->UpdateScalarOpacityforSampleSize( ren, this->SampleDistance );
@@ -231,6 +234,9 @@ void vtkVolumeTextureMapper::InitializeRender( vtkRenderer *ren,
     {
     this->GradientMagnitudes = NULL;
     }
+
+  this->GetInput()->GetOrigin( this->DataOrigin );
+  this->GetInput()->GetSpacing( this->DataSpacing );
 }
 
 // Print the vtkVolumeTextureMapper
