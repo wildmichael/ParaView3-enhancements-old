@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDelaunay3D.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:48 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 2001-09-25 20:14:53 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -180,23 +180,6 @@ public:
   vtkUnstructuredGrid *InitPointInsertion(float center[3], float length, 
                                           vtkIdType numPts, vtkPoints* &pts);
 
-  // Description:
-  // This is a helper method used with InsertPoint() to create 
-  // tetrahedronalizations of points. Its purpose is construct an initial
-  // Delaunay triangulation into which to inject other points. You must
-  // specify the number of points you wish to insert, and then define an
-  // initial Delaunay tetrahedronalization. This is defined by specifying 
-  // the number of tetrahedra, and a list of points coordinates defining
-  // the tetra (total of 4*numTetra points). The method returns a pointer 
-  // to an unstructured grid. Use this pointer to manipulate the mesh as
-  // necessary. You must delete (with Delete()) the mesh when done.
-  // Note: The points you insert using InsertPoint() will range from
-  // (0,numPtsToInsert-1). Make sure that numPtsToInsert is large enough to
-  // accommodate this.
-  vtkUnstructuredGrid *InitPointInsertion(vtkIdType numPtsToInsert,
-                          int numTetra, vtkPoints *boundingTetraPts,
-                          float bounds[6], vtkPoints* &pts);
-  
   // Description:
   // This is a helper method used with InitPointInsertion() to create
   // tetrahedronalizations of points. Its purpose is to inject point at
