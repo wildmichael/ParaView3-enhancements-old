@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagePlaneWidget.h,v $
   Language:  C++
-  Date:      $Date: 2003-11-04 20:13:43 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2003-11-04 22:39:37 $
+  Version:   $Revision: 1.39 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -416,7 +416,18 @@ protected:
   int MiddleButtonAutoModifier;
   int RightButtonAutoModifier;
 
-//BTX - manage the state of the widget
+  //BTX
+  enum
+  {
+    NO_BUTTON     = 0,
+    LEFT_BUTTON   = 1,
+    MIDDLE_BUTTON = 2,
+    RIGHT_BUTTON  = 3
+  };
+  //ETX
+  int LastButtonPressed;
+
+  //BTX - manage the state of the widget
   int State;
   enum WidgetState
   {
@@ -430,7 +441,7 @@ protected:
     Scaling,
     Outside
   };
-//ETX
+  //ETX
 
   // Handles the events
   static void ProcessEvents(vtkObject* object,
