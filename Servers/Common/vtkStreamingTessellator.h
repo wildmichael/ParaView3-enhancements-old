@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamingTessellator.h,v $
   Language:  C++
-  Date:      $Date: 2004-04-15 00:39:10 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2004-04-22 21:25:26 $
+  Version:   $Revision: 1.3 $
 
   Copyright 2003 Sandia Corporation.
   Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -76,17 +76,14 @@
 
 #include <vtkObject.h>
 
-#include <vtkSystemIncludes.h>
-
 class vtkSubdivisionAlgorithm ;
 
-class VTK_EXPORT vtkStreamingTessellator
-  : public vtkObject
+class VTK_EXPORT vtkStreamingTessellator : public vtkObject
 {
   public:
     vtkTypeRevisionMacro(vtkStreamingTessellator,vtkObject);
     static vtkStreamingTessellator* New();
-    virtual void PrintSelf( ostream&, vtkIndent );
+    virtual void PrintSelf( ostream& os, vtkIndent indent );
 
     //BTX
     typedef void (*EdgeProcessorFunction)( const double*, const double*, vtkSubdivisionAlgorithm*, void*, const void* );
@@ -238,8 +235,8 @@ class VTK_EXPORT vtkStreamingTessellator
     void AdaptivelySample1Facet( double* v1, double* v2, int maxDepth ) const ;
 
   private:
-    vtkStreamingTessellator( const vtkStreamingTessellator& );
-    void operator = ( const vtkStreamingTessellator& );
+    vtkStreamingTessellator( const vtkStreamingTessellator& ); // Not implemented.
+    void operator = ( const vtkStreamingTessellator& ); // Not implemented.
 };
 
 //BTX

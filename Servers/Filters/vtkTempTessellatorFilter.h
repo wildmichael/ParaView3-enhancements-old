@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTempTessellatorFilter.h,v $
   Language:  C++
-  Date:      $Date: 2004-04-15 00:39:10 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2004-04-22 21:25:26 $
+  Version:   $Revision: 1.3 $
 
   Copyright 2003 Sandia Corporation.
   Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -51,18 +51,17 @@
 // .SECTION See Also
 // vtkDataSetToUnstructuredGridFilter vtkDataSet vtkStreamingTessellator vtkDataSetSubdivisionAlgorithm
 
-#include <vtkDataSet.h>
-#include <vtkUnstructuredGrid.h>
 #include <vtkDataSetToUnstructuredGridFilter.h>
 
 class vtkDataArray;
-
+class vtkDataSet;
+class vtkDataSetSubdivisionAlgorithm;
+class vtkPoints;
 class vtkStreamingTessellator;
 class vtkSubdivisionAlgorithm;
-class vtkDataSetSubdivisionAlgorithm;
+class vtkUnstructuredGrid;
 
-class VTK_EXPORT vtkTempTessellatorFilter
-  : public vtkDataSetToUnstructuredGridFilter
+class VTK_EXPORT vtkTempTessellatorFilter : public vtkDataSetToUnstructuredGridFilter
 {
   public:
     vtkTypeRevisionMacro(vtkTempTessellatorFilter,vtkDataSetToUnstructuredGridFilter);
