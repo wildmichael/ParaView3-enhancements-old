@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-18 16:05:11 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-03-18 16:08:32 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -158,6 +158,9 @@ void vtkImageMapper::Render(vtkViewport* viewport, vtkActor2D* actor)
   // adjusted by so that we can take that into account in the
   // positioning of the actor
   // Now clip to imager extents
+  // initialize PositionAdjustment to zero
+  this->PositionAdjustment[0] = 0;
+  this->PositionAdjustment[1] = 0;
   if (displayExtent[0] < 0) 
     {
     this->PositionAdjustment[0] = -1*displayExtent[0];
