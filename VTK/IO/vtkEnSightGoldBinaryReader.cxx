@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSightGoldBinaryReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:12 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2002-05-30 18:23:54 $
+  Version:   $Revision: 1.19 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,7 @@
 
 #include <ctype.h>
 
-vtkCxxRevisionMacro(vtkEnSightGoldBinaryReader, "$Revision: 1.18 $");
+vtkCxxRevisionMacro(vtkEnSightGoldBinaryReader, "$Revision: 1.19 $");
 vtkStandardNewMacro(vtkEnSightGoldBinaryReader);
 
 //----------------------------------------------------------------------------
@@ -80,7 +80,8 @@ int vtkEnSightGoldBinaryReader::ReadGeometryFile(char* fileName, int timeStep)
   
   this->ReadLine(line);
   sscanf(line, " %*s %s", subLine);
-  if (strcmp(subLine, "Binary") != 0)
+  if (strcmp(subLine, "Binary") != 0 &&
+      strcmp(subLine, "binary") != 0)
     {
     vtkErrorMacro("This is not a binary data set. Try "
                   << "vtkEnSightGoldReader.");

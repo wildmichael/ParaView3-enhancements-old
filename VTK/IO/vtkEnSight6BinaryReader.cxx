@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSight6BinaryReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:12 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2002-05-30 18:23:54 $
+  Version:   $Revision: 1.18 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,7 +26,7 @@
 #include "vtkByteSwap.h"
 #include <ctype.h>
 
-vtkCxxRevisionMacro(vtkEnSight6BinaryReader, "$Revision: 1.17 $");
+vtkCxxRevisionMacro(vtkEnSight6BinaryReader, "$Revision: 1.18 $");
 vtkStandardNewMacro(vtkEnSight6BinaryReader);
 
 //----------------------------------------------------------------------------
@@ -96,7 +96,8 @@ int vtkEnSight6BinaryReader::ReadGeometryFile(char* fileName, int timeStep)
   
   this->ReadLine(line);
   sscanf(line, " %*s %s", subLine);
-  if (strcmp(subLine, "Binary") != 0)
+  if (strcmp(subLine, "Binary") != 0 &&
+      strcmp(subLine, "binary") != 0)
     {
     vtkErrorMacro("This is not an EnSight6 binary file. Try "
                   << "vtkEnSight6Reader.");
