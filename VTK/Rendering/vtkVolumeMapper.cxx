@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:58 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2001-01-24 17:02:36 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -68,6 +68,7 @@ void vtkVolumeMapper::Update()
     {
     this->GetInput()->UpdateInformation();
     this->GetInput()->SetUpdateExtentToWholeExtent();
+    this->GetInput()->RequestExactExtentOn();
     this->GetInput()->Update();
     }
 
@@ -75,6 +76,7 @@ void vtkVolumeMapper::Update()
     {
     this->GetRGBTextureInput()->UpdateInformation();
     this->GetRGBTextureInput()->SetUpdateExtentToWholeExtent();
+    this->GetRGBTextureInput()->RequestExactExtentOn();
     this->GetRGBTextureInput()->Update();
     }
 }
