@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-05-10 15:10:53 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1994-05-12 03:41:40 $
+  Version:   $Revision: 1.14 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -77,7 +77,7 @@ void vlRenderer::DoLights()
 
   if (!this->UpdateLights())
     {
-    cerr << this->GetClassName() << " : No lights are on, creating one.\n";
+    vlErrorMacro(<<"No lights are on, creating one.");
     light1 = this->RenderWindow->MakeLight();
     this->AddLights(light1);
     light1->SetPosition(this->ActiveCamera->GetPosition());
@@ -92,7 +92,7 @@ void vlRenderer::DoCameras()
 
   if (!this->UpdateCameras())
     {
-    cerr << this->GetClassName() << " : No cameras are on, creating one.\n";
+    vlErrorMacro(<< "No cameras are on, creating one.");
     cam1 = this->RenderWindow->MakeCamera();
     this->SetActiveCamera(cam1);
     this->ResetCamera();
@@ -105,7 +105,7 @@ void vlRenderer::DoActors()
 
   if (!this->UpdateActors())
     {
-    cerr << "No actors are on.\n";
+    vlErrorMacro(<< "No actors are on.");
     }
 }
 
