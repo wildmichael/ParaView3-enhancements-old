@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAppendPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-03-06 21:10:59 $
-  Version:   $Revision: 1.57 $
+  Date:      $Date: 2000-03-16 12:56:35 $
+  Version:   $Revision: 1.58 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -570,6 +570,11 @@ void vtkAppendPolyData::Execute()
     {
     output->GetPointData()->SetTensors(newPtTensors);
     newPtTensors->Delete();
+    }
+  if (newPtField)
+    {
+    output->GetPointData()->SetFieldData(newPtField);
+    newPtField->Delete();
     }
   
   if ( newVerts->GetNumberOfCells() > 0 )
