@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectors.h,v $
   Language:  C++
-  Date:      $Date: 1995-08-31 21:21:26 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1995-09-13 07:32:39 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -78,7 +78,7 @@ public:
   virtual float *GetVector(int id) = 0;
 
   // Description:
-  // Copy vector componenets into user provided array v[3] for specified
+  // Copy vector components into user provided array v[3] for specified
   // point id.
   virtual void GetVector(int id, float v[3]);
 
