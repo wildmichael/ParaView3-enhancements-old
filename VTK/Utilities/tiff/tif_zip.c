@@ -1,4 +1,4 @@
-/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/tiff/Attic/tif_zip.c,v 1.1 2002-01-29 22:38:25 andy Exp $ */
+/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/tiff/Attic/tif_zip.c,v 1.2 2002-01-30 13:38:05 andy Exp $ */
 
 /*
  * Copyright (c) 1995-1997 Sam Leffler
@@ -228,7 +228,8 @@ ZIPPostEncode(TIFF* tif)
                 switch (state) {
                 case Z_STREAM_END:
                 case Z_OK:
-                    if (sp->stream.avail_out != tif->tif_rawdatasize) {
+                    if ((tsize_t)sp->stream.avail_out != 
+                        tif->tif_rawdatasize) {
                             tif->tif_rawcc =
                                 tif->tif_rawdatasize - sp->stream.avail_out;
                             TIFFFlushData1(tif);
