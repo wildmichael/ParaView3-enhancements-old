@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLookupTable.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-05-22 03:23:55 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 1999-05-25 17:59:36 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -306,15 +306,11 @@ void vtkLookupTable::MapScalarsThroughTable(void *input,
 void vtkLookupTable::MapScalarsThroughTable(vtkScalars *scalars, 
 					    unsigned char *output)
 {
-  int dimensions = scalars->GetNumberOfComponents();
-  int inputIncrements = scalars->GetNumberOfComponents();
-  int outputIncrements = 4;
-
-  MapScalarsThroughTable(scalars->GetVoidPointer(0),
-			 output,
-			 scalars->GetDataType(),
-			 scalars->GetNumberOfScalars(),
-			 scalars->GetNumberOfComponents());
+  this->MapScalarsThroughTable(scalars->GetVoidPointer(0),
+			       output,
+			       scalars->GetDataType(),
+			       scalars->GetNumberOfScalars(),
+			       scalars->GetNumberOfComponents());
 }
 
 // Specify the number of values (i.e., colors) in the lookup
