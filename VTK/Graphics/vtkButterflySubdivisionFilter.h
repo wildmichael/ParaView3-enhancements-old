@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkButterflySubdivisionFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 20:01:36 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1999-12-09 19:04:00 $
+  Version:   $Revision: 1.2 $
   Thanks:    This work was supported bt PHS Research Grant No. 1 P41 RR13218-01
              from the National Center for Research Resources
 
@@ -46,7 +46,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // user can specifiy the NumberOfSubdivisions. This filter implements the
 // 8-point butterfly scheme described in: Zorin, D., Schroder, P., and
 // Sweldens, W., "Interpolating Subdivisions for Meshes with Arbitrary
-// Topology," Computer Grapgucs Proceedings, Annual Conference Series,
+// Topology," Computer Graphics Proceedings, Annual Conference Series,
 // 1996, ACM SIGGRAPH, pp.189-192. This scheme improves previous
 // butterfly subdivisions with special treatment of vertices with valence
 // other than 6.
