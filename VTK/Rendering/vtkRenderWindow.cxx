@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:36:37 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1995-08-13 16:32:44 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -68,6 +68,7 @@ vtkRenderWindow::vtkRenderWindow()
   this->SubFrames = 0;
   this->AccumulationBuffer = NULL;
   this->CurrentSubFrame = 0;
+  this->DesiredUpdateRate = 0;
   this->ResultFrame = NULL;
   this->Filename = NULL;
   this->Erase = 1;
@@ -90,6 +91,24 @@ vtkRenderWindow::~vtkRenderWindow()
     }
 }
 
+void vtkRenderWindow::SetDesiredUpdateRate(float rate)
+{
+  vtkRenderer *aren;
+
+  if (this->DesiredUpdateRate != rate)
+    {
+    for (this->Renderers.InitTraversal(); 
+	 aren = this->Renderers.GetNextItem(); )
+      {
+      aren->SetAllocatedRenderTime(1.0/
+				   (rate*this->Renderers.GetNumberOfItems()));
+      }
+    this->DesiredUpdateRate = rate;
+    this->Modified();
+    }
+}
+
+
 // Description:
 // Ask each renderer to render an image. Synchronize this process.
 void vtkRenderWindow::Render()
@@ -97,8 +116,9 @@ void vtkRenderWindow::Render()
   int *size;
   int x,y;
   float *p1;
-  
+
   vtkDebugMacro(<< "Starting Render Method.\n");
+
   
   if ( this->Interactor && ! this->Interactor->GetInitialized() )
     this->Interactor->Initialize();
