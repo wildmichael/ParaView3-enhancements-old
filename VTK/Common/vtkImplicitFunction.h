@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitFunction.h,v $
   Language:  C++
-  Date:      $Date: 1996-12-19 11:54:31 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1997-02-14 20:51:32 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -65,7 +65,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // vtkTransform
 // vtkSphere vtkCylinder vtkImplicitBoolean vtkPlane vtkPlanes
 // vtkQuadric vtkImplicitVolume
-// vtkSampleFunction vtkCutter vtkClipper
+// vtkSampleFunction vtkCutter vtkClipPolyData
 
 #ifndef __vtkImplicitFunction_h
 #define __vtkImplicitFunction_h
