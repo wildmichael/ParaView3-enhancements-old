@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSobel2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-17 14:30:21 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1997-08-28 15:31:30 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -81,7 +81,7 @@ void vtkImageSobel2D::SetFilteredAxes(int axis0, int axis1)
 //----------------------------------------------------------------------------
 void vtkImageSobel2D::ExecuteImageInformation()
 {
-  this->Output->SetNumberOfScalarComponents(this->NumberOfFilteredAxes);
+  this->Output->SetNumberOfScalarComponents(2);
 }
 
 
@@ -98,7 +98,7 @@ void vtkImageSobel2D::ComputeRequiredInputUpdateExtent()
   this->Output->GetUpdateExtent(extent);
   
   // grow input extent.
-  for (idx = 0; idx < this->NumberOfFilteredAxes; ++idx)
+  for (idx = 0; idx < 2; ++idx)
     {
     axis = this->FilteredAxes[idx];
     extent[axis*2] -= 1;
