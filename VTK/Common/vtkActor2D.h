@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor2D.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-04 14:20:31 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2002-01-08 14:33:28 $
+  Version:   $Revision: 1.35 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -78,7 +78,7 @@ public:
 
   // Description:
   // Set/Get the vtkMapper2D which defines the data to be drawn.
-  void SetMapper(vtkMapper2D *mapper);
+  virtual void SetMapper(vtkMapper2D *mapper);
   vtkGetObjectMacro(Mapper, vtkMapper2D);
 
   // Description:
