@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor2DCollection.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-04-20 17:13:24 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1998-04-23 15:02:30 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -49,6 +49,11 @@ void vtkActor2DCollection::DeleteElement(vtkCollectionElement *e)
 {
   ((vtkActor2D *)(e->Item))->UnRegister(this); 
   vtkCollection::DeleteElement(e);
+}
+
+vtkActor2DCollection::~vtkActor2DCollection()
+{
+  this->RemoveAllItems();
 }
 
 // Description:
