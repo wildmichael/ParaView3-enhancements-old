@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-04-16 21:20:57 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1999-04-19 15:50:55 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -469,9 +469,9 @@ void vtkClipPolyData::UnRegister(vtkObject *o)
   // and I am not being unregistered by my data, break the loop.
   if (this->ReferenceCount == 3 && this->Output != NULL &&
       this->Output->GetSource() == this && o != this->Output &&
-      this->Output->GetReferenceCount() == 1 &&
+      this->Output->GetNetReferenceCount() == 1 &&
       this->ClippedOutput && 
-      this->ClippedOutput->GetReferenceCount() == 1 &&
+      this->ClippedOutput->GetNetReferenceCount() == 1 &&
       o != this->ClippedOutput && 
       this->ClippedOutput->GetSource() == this)
     {
@@ -483,7 +483,7 @@ void vtkClipPolyData::UnRegister(vtkObject *o)
   // and I am not being unregistered by my data, break the loop.
   if (this->ReferenceCount == 2 && this->Output != NULL &&
       this->Output->GetSource() == this && o != this->Output &&
-      this->Output->GetReferenceCount() == 1)
+      this->Output->GetNetReferenceCount() == 1)
     {
     this->Output->SetSource(NULL);
     }
@@ -493,7 +493,7 @@ void vtkClipPolyData::UnRegister(vtkObject *o)
   if (this->ReferenceCount == 2 && this->ClippedOutput != NULL &&
       this->ClippedOutput->GetSource() == this && 
       o != this->ClippedOutput &&
-      this->ClippedOutput->GetReferenceCount() == 1)
+      this->ClippedOutput->GetNetReferenceCount() == 1)
     {
     this->ClippedOutput->SetSource(NULL);
     }

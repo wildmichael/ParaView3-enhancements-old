@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProgrammableFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-04-16 21:20:59 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-04-19 15:51:01 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -229,11 +229,11 @@ void vtkProgrammableFilter::UnRegister(vtkObject *o)
   // If we have two references and one of them is my data
   // and I am not being unregistered by my data, break the loop.
   if (this->ReferenceCount == 6 &&
-      this->OutputPolyData->GetReferenceCount() == 1 &&
-      this->OutputStructuredGrid->GetReferenceCount() == 1 &&
-      this->OutputUnstructuredGrid->GetReferenceCount() == 1 &&
-      this->OutputStructuredPoints->GetReferenceCount() == 1 &&
-      this->OutputRectilinearGrid->GetReferenceCount() == 1)
+      this->OutputPolyData->GetNetReferenceCount() == 1 &&
+      this->OutputStructuredGrid->GetNetReferenceCount() == 1 &&
+      this->OutputUnstructuredGrid->GetNetReferenceCount() == 1 &&
+      this->OutputStructuredPoints->GetNetReferenceCount() == 1 &&
+      this->OutputRectilinearGrid->GetNetReferenceCount() == 1)
     {
     this->OutputPolyData->SetSource(NULL);
     this->OutputStructuredGrid->SetSource(NULL);

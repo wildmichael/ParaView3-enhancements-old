@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSetToPointSetFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-04-16 21:20:59 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 1999-04-19 15:51:00 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -203,9 +203,9 @@ void vtkPointSetToPointSetFilter::UnRegister(vtkObject *o)
   // If we have two references and one of them is my data
   // and I am not being unregistered by my data, break the loop.
   if (this->ReferenceCount == 4 &&
-      this->PolyData->GetReferenceCount() == 1 &&
-      this->StructuredGrid->GetReferenceCount() == 1 &&
-      this->UnstructuredGrid->GetReferenceCount() == 1)
+      this->PolyData->GetNetReferenceCount() == 1 &&
+      this->StructuredGrid->GetNetReferenceCount() == 1 &&
+      this->UnstructuredGrid->GetNetReferenceCount() == 1)
     {
     this->PolyData->SetSource(NULL);
     this->StructuredGrid->SetSource(NULL);
