@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkApproximatingSubdivisionFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 20:01:33 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1999-11-13 20:50:49 $
+  Version:   $Revision: 1.2 $
   Thanks:    This work was supported bt PHS Research Grant No. 1 P41 RR13218-01
              from the National Center for Research Resources
 
@@ -63,6 +63,15 @@ void vtkApproximatingSubdivisionFilter::Execute()
   vtkIntArray *edgeData;
 
   vtkDebugMacro(<< "Generating subdivision surface using approximating scheme");
+
+  numPts=input->GetNumberOfPoints();
+  numCells=input->GetNumberOfCells();
+
+  if (numPts < 1 || numCells < 1)
+    {
+    vtkErrorMacro(<<"No data to approximate!");
+    return;
+    }
 
   //
   // Initialize and check input
@@ -159,7 +168,7 @@ int vtkApproximatingSubdivisionFilter::FindEdge (vtkPolyData *mesh, int cellId, 
       }
     }
     // found the edge, return the stored value
-    return edgeData->GetComponent(currentCellId,edgeId);
+    return (int) edgeData->GetComponent(currentCellId,edgeId);
 }
 
 int vtkApproximatingSubdivisionFilter::InterpolatePosition (
