@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageIterator.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-10-26 19:59:17 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-11-15 18:03:57 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -57,24 +57,10 @@ vtkImageIterator<DType>::vtkImageIterator(vtkImageData *id, int *ext)
   this->EndPointer = 
     (DType *)id->GetScalarPointer(ext[1],ext[3],ext[5]) +this->Increments[0];
 
-  // handle y z volumes quickly as well
-  if (id->GetExtent()[1] == id->GetExtent()[0])
-    {
-    this->SpanEndPointer = this->Pointer + 
-      this->Increments[1]*(ext[3] - ext[2] + 1);
-    this->SliceEndPointer = this->EndPointer;
-    this->ContinuousIncrements[0] = this->ContinuousIncrements[1];
-    this->ContinuousIncrements[1] = this->ContinuousIncrements[2];
-    this->Increments[0] = this->Increments[1];
-    this->Increments[1] = this->Increments[2];
-    }
-  else // normal volumes
-    {
-    this->SpanEndPointer = 
-      this->Pointer + this->Increments[0]*(ext[1] - ext[0] + 1);
-    this->SliceEndPointer = 
-      this->Pointer + this->Increments[1]*(ext[3] - ext[2] + 1);
-    }
+  this->SpanEndPointer = 
+    this->Pointer + this->Increments[0]*(ext[1] - ext[0] + 1);
+  this->SliceEndPointer = 
+    this->Pointer + this->Increments[1]*(ext[3] - ext[2] + 1);
 }
   
   
