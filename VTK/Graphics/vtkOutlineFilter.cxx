@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOutlineFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:12:59 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1999-08-17 15:19:34 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -84,6 +84,6 @@ void vtkOutlineFilter::ExecuteInformation()
   //
 
   this->OutlineSource->UpdateInformation();
-  output->SetEstimatedMemorySize(
-    this->OutlineSource->GetOutput()->GetEstimatedMemorySize());
+  output->SetEstimatedWholeMemorySize(
+    this->OutlineSource->GetOutput()->GetEstimatedWholeMemorySize());
 }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:02 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1999-08-17 15:19:34 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -101,7 +101,7 @@ void vtkPointSource::ExecuteInformation()
   // convert to KBytes
   size = 1 + size / 1000;
   
-  this->GetOutput()->SetEstimatedMemorySize(size);
+  this->GetOutput()->SetEstimatedWholeMemorySize(size);
 }
 
 

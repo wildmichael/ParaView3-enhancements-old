@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkConeSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:12:40 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 1999-08-17 15:19:33 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -212,7 +212,7 @@ void vtkConeSource::ExecuteInformation()
   // convert to kilobytes
   size = (size / 1000) + 1;
   
-  this->GetOutput()->SetEstimatedMemorySize(size);
+  this->GetOutput()->SetEstimatedWholeMemorySize(size);
 }
 
 //----------------------------------------------------------------------------

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridOutlineFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:11 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1999-08-17 15:19:35 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -349,7 +349,7 @@ void vtkStructuredGridOutlineFilter::UpdateInformation()
     {
     size = 1;
     }
-  output->SetEstimatedMemorySize(size);
+  output->SetEstimatedWholeMemorySize(size);
 }
 
 
