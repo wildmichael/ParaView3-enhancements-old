@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSight6BinaryReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-29 20:48:07 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-01-30 12:29:19 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -90,7 +90,6 @@ int vtkEnSight6BinaryReader::ReadGeometryFile()
   char line[80], subLine[80];
   int partId;
   int lineRead;
-  int useListedIds = 0;
   float point[3];
   float *coordinateArray;
   int i;
