@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkTriangle.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-02-26 10:18:02 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1995-05-29 13:18:55 $
+  Version:   $Revision: 1.17 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -33,6 +33,32 @@ vlTriangle::vlTriangle(const vlTriangle& t)
 }
 
 int vlTriangle::EvaluatePosition(float x[3], float closestPoint[3],
+                                 int& subId, float pcoords[3], 
+                                 float& dist2, float weights[MAX_CELL_SIZE])
+{
+  int i;
+  float distanceToLine;
+  vlLine *aLine;
+  int inOut;
+
+  // find the distance to the plane of the triangle
+  inOut = this->_EvaluatePosition (x, closestPoint, subId, pcoords, dist2, weights);
+
+  // now find distance to each line of the triangle
+  for (i = 0; i < 3; i++) {
+    // get the edge
+    aLine = (vlLine *) this->GetEdge (i);
+    // find distance to edge
+    aLine->EvaluatePosition (x, closestPoint, subId, pcoords, distanceToLine, weights);
+    // if its closer, replace old distance
+    if (distanceToLine < dist2) {
+      dist2 = distanceToLine;
+    }
+  }
+  return inOut;
+}
+
+int vlTriangle::_EvaluatePosition(float x[3], float closestPoint[3],
                                  int& subId, float pcoords[3], 
                                  float& dist2, float weights[MAX_CELL_SIZE])
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkTriangle.h,v $
   Language:  C++
-  Date:      $Date: 1995-02-26 10:18:03 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1995-05-29 13:18:57 $
+  Version:   $Revision: 1.14 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -54,6 +54,11 @@ public:
 
   void TriangleCenter(float p1[3], float p2[3], float p3[3], float center[3]);
   float TriangleArea(float p1[3], float p2[3], float p3[3]);
+
+private:
+  int _EvaluatePosition(float x[3], float closestPoint[3],
+                       int& subId, float pcoords[3],
+                       float& dist2, float weights[MAX_CELL_SIZE]);
 
 };
 
