@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyData.h,v $
   Language:  C++
-  Date:      $Date: 1999-01-28 19:02:53 $
-  Version:   $Revision: 1.71 $
+  Date:      $Date: 1999-03-01 19:29:52 $
+  Version:   $Revision: 1.72 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -207,6 +207,16 @@ public:
   // Create upward links from points to cells that use each point. Enables
   // topologically complex queries.
   void BuildLinks();
+
+  // Description:
+  // Release data structure that allows random access of the cells. This must
+  // be done before a 2nd call to BuildLinks(). DeleteCells implicitly deletes
+  // the links as well since they are no longer valid.
+  void DeleteCells();
+
+  // Description:
+  // Release the upward links from point to cells that use each point.
+  void DeleteLinks();
   
   // Description:
   // Special (efficient) operations on poly data. Use carefully.
