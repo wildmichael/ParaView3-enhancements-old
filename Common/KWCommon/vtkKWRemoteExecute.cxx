@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKWRemoteExecute.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-04-17 21:16:02 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2003-04-18 19:36:11 $
+  Version:   $Revision: 1.7 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -45,17 +45,9 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkString.h"
 #include "vtkMultiThreader.h"
 
-#ifdef _MSC_VER
-#pragma warning (push, 2)
-#endif
-
-#include <vector>
-#include <map>
-#include <string>
-
-#ifdef _MSC_VER
-#pragma warning(pop)
-#endif
+#include <vtkstd/vector>
+#include <vtkstd/map>
+#include <vtkstd/string>
 
 #ifdef _WIN32
 #else
@@ -79,7 +71,7 @@ public:
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro( vtkKWRemoteExecute );
-vtkCxxRevisionMacro(vtkKWRemoteExecute, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkKWRemoteExecute, "$Revision: 1.7 $");
 
 //----------------------------------------------------------------------------
 vtkKWRemoteExecute::vtkKWRemoteExecute()
