@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGridTransform.h,v $
   Language:  C++
-  Date:      $Date: 2000-06-06 01:24:54 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2000-06-11 14:37:13 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -122,6 +122,8 @@ protected:
   // Copy this transform from another of the same type.
   void InternalDeepCopy(vtkAbstractTransform *transform);
 
+  // Description:
+  // Internal functions for calculating the transformation.
   void ForwardTransformPoint(const float in[3], float out[3]);
   void ForwardTransformPoint(const double in[3], double out[3]);
 
@@ -132,6 +134,11 @@ protected:
 
   void InverseTransformPoint(const float in[3], float out[3]);
   void InverseTransformPoint(const double in[3], double out[3]);
+
+  void InverseTransformDerivative(const float in[3], float out[3],
+				  float derivative[3][3]);
+  void InverseTransformDerivative(const double in[3], double out[3],
+				  double derivative[3][3]);
 
 //BTX
   void (*InterpolationFunction)(float point[3], float displacement[3],
