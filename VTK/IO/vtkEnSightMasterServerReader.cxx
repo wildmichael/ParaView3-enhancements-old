@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSightMasterServerReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-19 19:12:39 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-06-21 12:58:19 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkString.h"
 
-vtkCxxRevisionMacro(vtkEnSightMasterServerReader, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkEnSightMasterServerReader, "$Revision: 1.3 $");
 vtkStandardNewMacro(vtkEnSightMasterServerReader);
 
 //----------------------------------------------------------------------------
@@ -57,9 +57,6 @@ void vtkEnSightMasterServerReader::Execute()
     vtkErrorMacro("Cannot update piece: " << this->CurrentPiece);
     return;
     }
-  //cout << "Updating piece: " << this->CurrentPiece 
-  //     << " which is in the file: " 
-  //     << this->PieceCaseFileName << endl;
   if ( !this->Reader )
     {
     this->Reader = vtkGenericEnSightReader::New();
@@ -103,11 +100,10 @@ int vtkEnSightMasterServerReader::DetermineFileName(int piece)
     strcpy(line, this->CaseFileName);
     }
 
-  //cout << "ExecuteInformation" << endl;
   this->IS = new ifstream(line, ios::in);;
   if ( this->IS->fail() )
     {
-    //cout << "Cannot open file: " << line << endl;
+    vtkErrorMacro("Cannot open file: " << line);
     return VTK_ERROR;
     }
   char result[1024];
@@ -151,7 +147,6 @@ int vtkEnSightMasterServerReader::DetermineFileName(int piece)
         }
       currentserver ++;
       }
-    //cout << "Read: " << result << endl;
     }
   if ( piece == -1 && currentserver != numberservers )
     {
@@ -160,7 +155,7 @@ int vtkEnSightMasterServerReader::DetermineFileName(int piece)
     //<< currentserver << ")" << endl;
     return VTK_ERROR;
     }
-  //cout << "Number of servers is: " << numberservers << endl;
+
   this->MaxNumberOfPieces = numberservers;
   delete this->IS;
   this->IS = 0;
