@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-07 16:00:29 $
-  Version:   $Revision: 1.77 $
+  Date:      $Date: 2001-12-11 21:05:59 $
+  Version:   $Revision: 1.78 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -314,6 +314,14 @@ void vtkVolumeRayCastMapper::Render( vtkRenderer *ren, vtkVolume *vol )
     this->GetRGBTextureInput()->Update();
     }
 
+  int scalarType = this->GetInput()->GetPointData()->GetScalars()->GetDataType();
+  if (scalarType != VTK_UNSIGNED_SHORT && scalarType != VTK_UNSIGNED_CHAR)
+    {
+    vtkErrorMacro ("Cannot volume render data of type " 
+                   << vtkImageScalarTypeNameMacro(scalarType) 
+                   << ", only unsigned char or unsigned short.");
+    return;
+    }
   // Start timing now. We didn't want to capture the update of the
   // input data in the times
   this->Timer->StartTimer();
