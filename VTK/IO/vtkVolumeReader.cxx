@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:49:26 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1997-08-12 14:13:54 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -46,7 +46,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 vtkVolumeReader::vtkVolumeReader()
 {
   this->FilePrefix = NULL;
-  this->FilePattern = strdup ("%s.%d");
+  this->FilePattern = new char[strlen("%s.%d") + 1];
+    strcpy (this->FilePattern, "%s.%d");
   this->ImageRange[0] = this->ImageRange[1] = 1;
   this->DataOrigin[0] = this->DataOrigin[1] = this->DataOrigin[2] = 0.0;
   this->DataSpacing[0] = this->DataSpacing[1] = this->DataSpacing[2] = 1.0;
