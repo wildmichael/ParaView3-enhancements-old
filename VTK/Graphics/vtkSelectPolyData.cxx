@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSelectPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-07 19:41:55 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2002-06-18 19:03:26 $
+  Version:   $Revision: 1.24 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkFloatArray.h"
 
-vtkCxxRevisionMacro(vtkSelectPolyData, "$Revision: 1.23 $");
+vtkCxxRevisionMacro(vtkSelectPolyData, "$Revision: 1.24 $");
 vtkStandardNewMacro(vtkSelectPolyData);
 
 // Description:
@@ -588,7 +588,7 @@ void vtkSelectPolyData::PrintSelf(ostream& os, vtkIndent indent)
     }
 }
 
-void vtkSelectPolyData::UnRegister(vtkObject *o)
+void vtkSelectPolyData::UnRegister(vtkObjectBase *o)
 {
   // detect the circular loop source <-> data
   // If we have two references and one of them is my data

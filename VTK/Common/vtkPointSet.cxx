@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSet.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-07 22:11:59 $
-  Version:   $Revision: 1.74 $
+  Date:      $Date: 2002-06-18 19:03:26 $
+  Version:   $Revision: 1.75 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 #include "vtkSource.h"
 #include "vtkPointLocator.h"
 
-vtkCxxRevisionMacro(vtkPointSet, "$Revision: 1.74 $");
+vtkCxxRevisionMacro(vtkPointSet, "$Revision: 1.75 $");
 
 vtkCxxSetObjectMacro(vtkPointSet,Points,vtkPoints);
 
@@ -306,7 +306,7 @@ void vtkPointSet::Squeeze()
 }
 
 //----------------------------------------------------------------------------
-void vtkPointSet::UnRegister(vtkObject *o)
+void vtkPointSet::UnRegister(vtkObjectBase *o)
 {
   // detect the circular loop source <-> data
   // If we have two references and one of them is my data

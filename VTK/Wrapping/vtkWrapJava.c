@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWrapJava.c,v $
   Language:  C++
-  Date:      $Date: 2002-06-06 12:52:07 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2002-06-18 19:03:26 $
+  Version:   $Revision: 1.37 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -744,7 +744,10 @@ void vtkParseOutput(FILE *fp, FileInfo *data)
 
     fprintf(fp,"  return tmp;\n");
     fprintf(fp,"}\n");
+    }
 
+  if (!strcmp("vtkObject",data->ClassName))
+    {
     fprintf(fp,"\nextern \"C\" JNIEXPORT jint JNICALL Java_vtk_vtkObject_AddObserver(JNIEnv *env,jobject obj, jstring id0, jobject id1, jstring id2)\n");
     fprintf(fp,"{\n  vtkObject *op;\n");
 

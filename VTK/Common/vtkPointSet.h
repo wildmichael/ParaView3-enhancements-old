@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSet.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-07 22:11:59 $
-  Version:   $Revision: 1.58 $
+  Date:      $Date: 2002-06-18 19:03:26 $
+  Version:   $Revision: 1.59 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -79,7 +79,7 @@ public:
 
   // Description:
   // Detect reference loop PointSet <-> locator.
-  void UnRegister(vtkObject *o);
+  virtual void UnRegister(vtkObjectBase *o);
   
   // Description:
   // Get the net reference count. That is the count minus

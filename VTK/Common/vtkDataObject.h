@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObject.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-08 01:08:03 $
-  Version:   $Revision: 1.66 $
+  Date:      $Date: 2002-06-18 19:03:26 $
+  Version:   $Revision: 1.67 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -108,7 +108,7 @@ public:
   vtkGetObjectMacro(FieldData,vtkFieldData);
   
   // Handle the source/data loop.
-  void UnRegister(vtkObject *o);
+  virtual void UnRegister(vtkObjectBase *o);
 
   // Description:
   // Get the net reference count. That is the count minus

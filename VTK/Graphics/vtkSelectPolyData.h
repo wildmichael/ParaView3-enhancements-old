@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSelectPolyData.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:44 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2002-06-18 19:03:26 $
+  Version:   $Revision: 1.21 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -154,7 +154,7 @@ public:
 
   // Description:
   // Handle the source/data loop.
-  void UnRegister(vtkObject *o);
+  virtual void UnRegister(vtkObjectBase *o);
 
   // Description:
   // Test to see if this object is in a reference counting loop.

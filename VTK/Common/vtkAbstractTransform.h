@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractTransform.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:09 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2002-06-18 19:03:26 $
+  Version:   $Revision: 1.19 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -242,7 +242,7 @@ public:
   // Description:
   // Needs a special UnRegister() implementation to avoid
   // circular references.
-  void UnRegister(vtkObject *O);
+  virtual void UnRegister(vtkObjectBase *O);
 
   // Description:
   // This method is deprecated in the base class.  It is still valid

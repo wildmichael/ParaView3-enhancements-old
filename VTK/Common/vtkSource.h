@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSource.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:26:20 $
-  Version:   $Revision: 1.67 $
+  Date:      $Date: 2002-06-18 19:03:26 $
+  Version:   $Revision: 1.68 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -95,7 +95,7 @@ public:
 
   // Description:
   // Handle the source/data loop.
-  void UnRegister(vtkObject *o);
+  virtual void UnRegister(vtkObjectBase *o);
   
   // Description:
   // Test to see if this object is in a reference counting loop.

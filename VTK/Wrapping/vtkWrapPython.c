@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWrapPython.c,v $
   Language:  C++
-  Date:      $Date: 2002-06-18 12:11:42 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 2002-06-18 19:03:26 $
+  Version:   $Revision: 1.50 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -1115,7 +1115,7 @@ void vtkParseOutput(FILE *fp, FileInfo *data)
     fprintf(fp,"                        \"%s\",modulename,%sDoc,0);\n}\n\n",
             data->ClassName, data->ClassName);
     }
-  else if (!data->IsAbstract)
+  else if (!data->IsAbstract && strcmp(data->ClassName,"vtkObjectBase"))
     {
     fprintf(fp,"PyObject *PyVTKObject_%sNew(PyObject *vtkNotUsed(self), PyObject *args)\n{\n",data->ClassName);
     fprintf(fp,"  if (!(PyArg_ParseTuple(args, \"\")))\n    {\n");

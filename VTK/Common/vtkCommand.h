@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCommand.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-03 12:40:25 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2002-06-18 19:03:26 $
+  Version:   $Revision: 1.34 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -47,6 +47,7 @@
 
 #include "vtkWin32Header.h"
 
+class vtkObjectBase;
 class vtkObject;
 
 // The superclass that all commands should be subclasses of
@@ -63,7 +64,7 @@ public:
   // Description:
   // Increase the reference count (mark as used by another object).
   void Register();
-  void Register(vtkObject *) 
+  void Register(vtkObjectBase *) 
     { this->Register(); }
   
   // Description:
@@ -71,7 +72,7 @@ public:
   // the same effect as invoking Delete() (i.e., it reduces the reference
   // count by 1).
   void UnRegister();
-  void UnRegister(vtkObject *) 
+  void UnRegister(vtkObjectBase *) 
     { this->UnRegister(); }
   
   // Description:

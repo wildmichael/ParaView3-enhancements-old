@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObject.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-11 20:45:57 $
-  Version:   $Revision: 1.85 $
+  Date:      $Date: 2002-06-18 19:03:26 $
+  Version:   $Revision: 1.86 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkSource.h"
 
-vtkCxxRevisionMacro(vtkDataObject, "$Revision: 1.85 $");
+vtkCxxRevisionMacro(vtkDataObject, "$Revision: 1.86 $");
 vtkStandardNewMacro(vtkDataObject);
 
 vtkCxxSetObjectMacro(vtkDataObject,FieldData,vtkFieldData);
@@ -458,7 +458,7 @@ void vtkDataObject::SetSource(vtkSource *arg)
 
 
 //----------------------------------------------------------------------------
-void vtkDataObject::UnRegister(vtkObject *o)
+void vtkDataObject::UnRegister(vtkObjectBase *o)
 {
   // detect the circular loop source <-> data
   // If we have two references and one of them is my data

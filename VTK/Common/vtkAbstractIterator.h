@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractIterator.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-16 23:16:26 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2002-06-18 19:03:26 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,13 +26,15 @@
 // VTK Iterators are not reliable when adding or deleting elements 
 // from the container. Use iterators for traversing only.
 
-#include "vtkContainer.h"
-
 #ifndef __vtkAbstractIterator_h
 #define __vtkAbstractIterator_h
 
+#include "vtkObjectBase.h"
+
+class vtkContainer;
+
 template<class KeyType, class DataType>
-class  vtkAbstractIterator 
+class  vtkAbstractIterator : public vtkObjectBase
 {
   friend class vtkContainer;
 
@@ -40,23 +42,6 @@ public:
   // Description:
   // Return the class name as a string.
   virtual const char* GetClassName() const { return "vtkAbstractIterator"; }
-
-  // Description:
-  // The counterpart to New(), Delete simply calls UnRegister to lower the
-  // reference count by one. It is no different than calling UnRegister.
-  void Delete() { this->UnRegister(); }
-  
-  // Description:
-  // Increase the reference count of this container.
-  void Register();
-  void Register(vtkObject *) { this->Register(); }
-  
-  // Description:
-  // Decrease the reference count (release by another object). This has
-  // the same effect as invoking Delete() (i.e., it reduces the reference
-  // count by 1).
-  void UnRegister();
-  void UnRegister(vtkObject *) { this->UnRegister(); }
 
   // Description:
   // Retrieve the key from the iterator. For lists, the key is the

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractIterator.txx,v $
   Language:  C++
-  Date:      $Date: 2002-06-16 23:16:26 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-06-18 19:03:26 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -44,22 +44,9 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define __vtkAbstractIterator_txx
 
 #include "vtkAbstractIterator.h"
+
 #include "vtkDebugLeaks.h"
-
-template<class KeyType, class DataType>
-void vtkAbstractIterator<KeyType,DataType>::Register()
-{
-  this->ReferenceCount++;
-}
-
-template<class KeyType, class DataType>
-void vtkAbstractIterator<KeyType,DataType>::UnRegister()
-{
-  if (--this->ReferenceCount <= 0)
-    {
-    delete this;
-    }
-}
+#include "vtkContainer.h"
 
 template<class KeyType, class DataType>
 vtkAbstractIterator<KeyType,DataType>::vtkAbstractIterator() 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:08 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2002-06-18 19:03:26 $
+  Version:   $Revision: 1.22 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 #include "vtkDebugLeaks.h"
 #include "vtkCriticalSection.h"
 
-vtkCxxRevisionMacro(vtkAbstractTransform, "$Revision: 1.21 $");
+vtkCxxRevisionMacro(vtkAbstractTransform, "$Revision: 1.22 $");
 
 //----------------------------------------------------------------------------
 vtkAbstractTransform::vtkAbstractTransform()
@@ -331,7 +331,7 @@ unsigned long vtkAbstractTransform::GetMTime()
 //----------------------------------------------------------------------------
 // We need to handle the circular reference between a transform and its
 // inverse.
-void vtkAbstractTransform::UnRegister(vtkObject *o)
+void vtkAbstractTransform::UnRegister(vtkObjectBase *o)
 {
   if (this->InUnRegister)
     { // we don't want to go into infinite recursion...
@@ -380,7 +380,7 @@ protected:
   void operator=(const vtkSimpleTransform&);
 };
 
-vtkCxxRevisionMacro(vtkSimpleTransform, "$Revision: 1.21 $");
+vtkCxxRevisionMacro(vtkSimpleTransform, "$Revision: 1.22 $");
 
 //----------------------------------------------------------------------------
 vtkTransformConcatenation::vtkTransformConcatenation()

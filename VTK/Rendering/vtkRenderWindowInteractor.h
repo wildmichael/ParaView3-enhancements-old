@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-27 16:12:01 $
-  Version:   $Revision: 1.97 $
+  Date:      $Date: 2002-06-18 19:03:26 $
+  Version:   $Revision: 1.98 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -65,7 +65,7 @@ public:
   // Description:
   // This Method detects loops of RenderWindow-Interactor,
   // so objects are freed properly.
-  void UnRegister(vtkObject *o);
+  virtual void UnRegister(vtkObjectBase *o);
 
   // Description:
   // Start the event loop. This is provided so that you do not have to

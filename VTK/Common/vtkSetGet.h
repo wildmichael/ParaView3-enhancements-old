@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSetGet.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-16 15:51:53 $
-  Version:   $Revision: 1.105 $
+  Date:      $Date: 2002-06-18 19:03:26 $
+  Version:   $Revision: 1.106 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -127,7 +127,6 @@
 (((type) == VTK_UNSIGNED_SHORT) ? "unsigned short" : \
 (((type) == VTK_UNSIGNED_CHAR) ? "unsigned char" : \
 "Undefined"))))))
-  
   
 //
 // Set built-in type.  Creates member Set"name"() (e.g., SetVisibility());
@@ -621,7 +620,7 @@ virtual float *Get##name() \
 //
 #define vtkTypeMacro(thisClass,superclass) \
   typedef superclass Superclass; \
-  virtual const char *GetClassName() {return #thisClass;} \
+  virtual const char *GetClassName() const {return #thisClass;} \
   static int IsTypeOf(const char *type) \
   { \
     if ( !strcmp(#thisClass,type) ) \
@@ -652,7 +651,6 @@ virtual float *Get##name() \
   { \
     return thisClass::SafeDownCast(this->NewInstanceInternal()); \
   }
-
 
 // Version of vtkTypeMacro that adds the CollectRevisions method.
 #define vtkTypeRevisionMacro(thisClass,superclass) \

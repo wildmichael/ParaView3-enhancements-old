@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractList.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-16 23:16:26 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2002-06-18 19:03:26 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -68,7 +68,8 @@ class vtkAbstractList : public vtkContainer
 {
 public:
   typedef vtkContainer Superclass;
-  const char* GetClassName() const { return "vtkAbstractList"; }
+  static vtkAbstractList<DType>* New();
+  virtual const char* GetClassName() const { return "vtkAbstractList"; }
 
   // Just to avoid typing over and over, let us define some typedefs.
   // They will not work in subclasses, but this header file will 

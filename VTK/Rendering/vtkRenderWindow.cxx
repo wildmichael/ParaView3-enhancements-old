@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-03 16:47:53 $
-  Version:   $Revision: 1.125 $
+  Date:      $Date: 2002-06-18 19:03:26 $
+  Version:   $Revision: 1.126 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,7 +25,7 @@
 #include "vtkRendererCollection.h"
 #include "vtkTransform.h"
 
-vtkCxxRevisionMacro(vtkRenderWindow, "$Revision: 1.125 $");
+vtkCxxRevisionMacro(vtkRenderWindow, "$Revision: 1.126 $");
 
 // Construct an instance of  vtkRenderWindow with its screen size 
 // set to 300x300, borders turned on, positioned at (0,0), double 
@@ -990,7 +990,7 @@ void vtkRenderWindow::CopyResultFrame(void)
 
 // treat renderWindow and interactor as one object.
 // it might be easier if the GetReference count method were redefined.
-void vtkRenderWindow::UnRegister(vtkObject *o)
+void vtkRenderWindow::UnRegister(vtkObjectBase *o)
 {
   if (this->Interactor && this->Interactor->GetRenderWindow() == this &&
       this->Interactor != o)

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObjectBase.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-26 22:51:27 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-06-18 19:03:26 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -113,7 +113,8 @@ void vtkObjectBase::Register(vtkObjectBase* o)
   this->ReferenceCount++;
   if ( o )
     {
-    vtkBaseDebugMacro(<< "Registered by " << o->GetClassName() << " (" << o 
+    vtkBaseDebugMacro(<< "Registered by " << this->GetClassName() 
+                      << " " << o->GetClassName() << " (" << o 
                       << "), ReferenceCount = " << this->ReferenceCount);
     }
   else
@@ -141,7 +142,8 @@ void vtkObjectBase::UnRegister(vtkObjectBase* o)
   else
     {
     vtkBaseDebugMacro(
-      << "UnRegistered by NULL, ReferenceCount = "
+      << "UnRegistered " << this->GetClassName() 
+      << " by NULL, ReferenceCount = "
       << (this->ReferenceCount-1));
     }
 
@@ -158,5 +160,5 @@ void vtkObjectBase::UnRegister(vtkObjectBase* o)
 
 void vtkObjectBase::CollectRevisions(ostream& os)
 {
-  os << "vtkObjectBase $Revision: 1.1 $\n";
+  os << "vtkObjectBase $Revision: 1.2 $\n";
 }

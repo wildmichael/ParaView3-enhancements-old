@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWrapTcl.c,v $
   Language:  C++
-  Date:      $Date: 2002-05-03 17:34:55 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2002-06-18 19:03:26 $
+  Version:   $Revision: 1.26 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -660,7 +660,7 @@ void vtkParseOutput(FILE *fp, FileInfo *data)
     }
   
   /* add the default print method to Object */
-  if (!strcmp("vtkObject",data->ClassName))
+  if (!strcmp("vtkObjectBase",data->ClassName))
     {
     fprintf(fp,"  if ((!strcmp(\"Print\",argv[1]))&&(argc == 2))\n    {\n");
     fprintf(fp,"    ostrstream buf;\n");
@@ -669,7 +669,9 @@ void vtkParseOutput(FILE *fp, FileInfo *data)
     fprintf(fp,"    Tcl_SetResult(interp,buf.str(),TCL_VOLATILE);\n");
     fprintf(fp,"    delete buf.str();\n");
     fprintf(fp,"    return TCL_OK;\n    }\n");
-
+    }
+  if (!strcmp("vtkObject",data->ClassName))
+    {
     fprintf(fp,"  if ((!strcmp(\"AddObserver\",argv[1]))&&(argc >= 4))\n    {\n");
     fprintf(fp,"    error = 0;\n");
     fprintf(fp,"    if (argc > 4 && Tcl_GetDouble(interp,argv[4],&tempd) != TCL_OK) error = 1;\n");

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractList.txx,v $
   Language:  C++
-  Date:      $Date: 2002-06-16 23:16:26 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-06-18 19:03:26 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,6 +21,16 @@
 #define __vtkAbstractList_txx
 
 #include "vtkAbstractList.h"
+#include "vtkDebugLeaks.h"
+
+template<class DType>
+vtkAbstractList<DType>* vtkAbstractList<DType>::New()
+{
+#ifdef VTK_DEBUG_LEAKS
+  vtkDebugLeaks::ConstructClass("vtkAbstractList");
+#endif
+  return new vtkAbstractList<DType>;
+}
 
 template<class DataType>
 vtkAbstractList<DataType>::vtkAbstractList() {}
