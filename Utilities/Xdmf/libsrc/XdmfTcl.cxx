@@ -8,6 +8,7 @@
  * interface file instead. 
  * ----------------------------------------------------------------------------- */
 
+#include <stdarg.h>
 
 #ifdef __cplusplus
 template<class T> class SwigValueWrapper {
@@ -290,7 +291,7 @@ SWIG_UnpackData(char *c, void *ptr, int sz) {
 #endif
 
 /*
- * $Header: /cvsroot/ParaView3/ParaView3/Utilities/Xdmf/libsrc/Attic/XdmfTcl.cxx,v 1.14 2004-01-15 21:55:04 andy Exp $
+ * $Header: /cvsroot/ParaView3/ParaView3/Utilities/Xdmf/libsrc/Attic/XdmfTcl.cxx,v 1.15 2004-01-15 22:01:00 andy Exp $
  * 
  * swigtcl8.swg
  */
