@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractIterator.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-18 19:03:26 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2002-06-20 21:12:26 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -55,6 +55,11 @@ public:
   //virtual int GetData(DataType&) = 0;
 
   // Description:
+  // Retrieve the key and data of the current element.
+  // This method returns VTK_OK if key and data were retrieved correctly.
+  // virtual int GetKeyAndData(KeyType&, DataType&) = 0;
+  
+  // Description:
   // Set the container for this iterator.
   void SetContainer(vtkContainer*);
 
@@ -68,14 +73,13 @@ public:
   //virtual void InitTraversal()=0;
 
   // Description:
-  // Check if the iterator is at the end of the container. Return 
-  // VTK_OK if it is.
+  // Check if the iterator is at the end of the container. Return 1
+  // for yes, 0 for no.
   //virtual int IsDoneWithTraversal()=0;
 
   // Description:
   // Increment the iterator to the next location.
-  // Return VTK_OK if everything is ok.
-  //virtual int GoToNextItem() = 0;
+  //virtual void GoToNextItem() = 0;
 
 protected:
   vtkAbstractIterator();

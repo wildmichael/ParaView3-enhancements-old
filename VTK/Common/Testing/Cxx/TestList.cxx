@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: TestList.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-19 13:20:07 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-06-20 21:12:26 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen  
@@ -234,7 +234,7 @@ int TestVectorList()
   vtkVector<const char*>::IteratorType *it = strings->NewIterator();
   //cout << "Try iterator" << endl;
   it->GoToFirstItem();
-  while ( it->IsDoneWithTraversal() != VTK_OK )
+  while ( !it->IsDoneWithTraversal() )
     {
     const char* str = 0;
     vtkIdType idx = 0;
@@ -252,7 +252,7 @@ int TestVectorList()
     it->GoToNextItem();
     }
   it->GoToLastItem();
-  while( it->IsDoneWithTraversal() != VTK_OK )
+  while( !it->IsDoneWithTraversal() )
     {
     const char* str = 0;
     vtkIdType idx = 0;
