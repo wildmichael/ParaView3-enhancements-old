@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkUnstructuredGridReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-05-03 14:03:22 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1995-05-24 08:04:55 $
+  Version:   $Revision: 1.5 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -215,7 +215,7 @@ void vlUnstructuredGridReader::Execute()
           {
           for (int i=0; i<size; i++)
             {
-            if ((retStat=fscanf(fp,"%d",types[i])) == EOF || retStat < 1) 
+            if ((retStat=fscanf(fp,"%d",types+i)) == EOF || retStat < 1) 
               {
               vlErrorMacro(<<"Error reading cell types!");
               return;
