@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWrapPython.c,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:14:41 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2000-07-31 00:00:42 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -190,7 +190,10 @@ void do_return(FILE *fp)
   
   switch (currentFunction->ReturnType%1000)
     {
-    case 303: 
+    case 303:
+      fprintf(fp,"      if (temp%i == NULL) {\n",MAX_ARGS);
+      fprintf(fp,"        Py_INCREF(Py_None);\n");
+      fprintf(fp,"        return Py_None;\n        }\n");
       fprintf(fp,"      return PyString_FromString(temp%i);\n",MAX_ARGS);
     break;
     case 109:
