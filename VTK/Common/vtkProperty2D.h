@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProperty2D.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:05:04 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1999-11-30 16:40:34 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -75,8 +75,20 @@ public:
   vtkSetMacro(Opacity, float);
 
   // Description:
-  // Have the device specific subclass rneder this property.
-  void Render (vtkViewport* vtkNotUsed(viewport))  {}
+  // Set/Get the diameter of a Point. The size is expressed in screen units.
+  // This is only implemented for OpenGL. The default is 1.0.
+  vtkSetClampMacro(PointSize,float,0,VTK_LARGE_FLOAT);
+  vtkGetMacro(PointSize,float);
+
+  // Description:
+  // Set/Get the width of a Line. The width is expressed in screen units.
+  // This is only implemented for OpenGL. The default is 1.0.
+  vtkSetClampMacro(LineWidth,float,0,VTK_LARGE_FLOAT);
+  vtkGetMacro(LineWidth,float);
+
+  // Description:
+  // Have the device specific subclass render this property.
+  virtual void Render (vtkViewport* vtkNotUsed(viewport))  {}
   
 protected:
   vtkProperty2D();
@@ -85,7 +97,9 @@ protected:
   void operator=(const vtkProperty2D&) {};
 
   float Color[3];
-  float   Opacity;
+  float Opacity;
+  float PointSize;
+  float LineWidth;
 };
   
   

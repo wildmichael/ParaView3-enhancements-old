@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProperty2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:05:04 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-11-30 16:40:34 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -65,6 +65,8 @@ vtkProperty2D* vtkProperty2D::New()
 vtkProperty2D::vtkProperty2D()
 {
   this->Opacity = 1.0;
+  this->PointSize = 1.0;
+  this->LineWidth = 1.0;
   this->Color[0] = 1.0;
   this->Color[1] = 1.0;
   this->Color[2] = 1.0;  
@@ -82,8 +84,11 @@ void vtkProperty2D::PrintSelf(ostream& os, vtkIndent indent)
 
   os << indent << "Opacity: " << this->Opacity << "\n";
   os << indent << "Color: (" << this->Color[0] << ", "
-			     << this->Color[1] << ", "
-			     << this->Color[2] << ")\n";
+     << this->Color[1] << ", "
+     << this->Color[2] << ")\n";
+  os << indent << "Point size: " << this->PointSize << "\n";
+  os << indent << "Line width: " << this->LineWidth << "\n";
+  
 }
 
 
