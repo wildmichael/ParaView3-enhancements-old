@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMPICommunicator.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-21 18:33:21 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2002-06-24 12:49:39 $
+  Version:   $Revision: 1.20 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,7 +26,7 @@
 
 #include "vtkMPI.h"
 
-vtkCxxRevisionMacro(vtkMPICommunicator, "$Revision: 1.19 $");
+vtkCxxRevisionMacro(vtkMPICommunicator, "$Revision: 1.20 $");
 vtkStandardNewMacro(vtkMPICommunicator);
 
 vtkCxxSetObjectMacro(vtkMPICommunicator,Group,vtkMPIGroup);
@@ -48,13 +48,13 @@ vtkMPICommunicatorOpaqueComm::vtkMPICommunicatorOpaqueComm()
 // overloaded functions for vtkIdType
 #ifdef VTK_HAS_ID_TYPE
 # ifdef VTK_USE_64BIT_IDS
-MPI_Datatype vtkMPICommunicatorGetMPIType();
+MPI_Datatype vtkMPICommunicatorGetMPIType()
 {
   return MPI_LONG_LONG;
 }
 # endif
 #else
-MPI_Datatype vtkMPICommunicatorGetMPIType();
+MPI_Datatype vtkMPICommunicatorGetMPIType()
 {
   return MPI_INT;
 }
