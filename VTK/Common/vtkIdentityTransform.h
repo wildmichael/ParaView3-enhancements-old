@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIdentityTransform.h,v $
   Language:  C++
-  Date:      $Date: 2000-03-05 23:13:31 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2000-04-09 17:56:18 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -72,6 +72,14 @@ public:
   void TransformPoint(const double in[3], double out[3]);
 
   // Description:
+  // Apply the transformation to an (x,y,z) coordinate.
+  // Use this if you are programming in python, tcl or Java.
+  float *TransformPoint(float x, float y, float z) {
+    return this->vtkGeneralTransform::TransformPoint(x,y,z); }
+  float *TransformPoint(const float point[3]) {
+    return this->TransformPoint(point[0],point[1],point[2]); };
+
+  // Description:
   // Apply the transformation to a series of points, and append the
   // results to outPts.  
   void TransformPoints(vtkPoints *inPts, vtkPoints *outPts);
@@ -79,12 +87,12 @@ public:
   // Description:
   // Apply the transformation to a series of normals, and append the
   // results to outNms.  
-  virtual void TransformNormals(vtkNormals *inNms, vtkNormals *outNms);
+  void TransformNormals(vtkNormals *inNms, vtkNormals *outNms);
 
   // Description:
   // Apply the transformation to a series of vectors, and append the
   // results to outVrs.  
-  virtual void TransformVectors(vtkVectors *inVrs, vtkVectors *outVrs);
+  void TransformVectors(vtkVectors *inVrs, vtkVectors *outVrs);
 
   // Description:
   // Apply the transformation to a combination of points, normals

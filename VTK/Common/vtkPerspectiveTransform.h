@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPerspectiveTransform.h,v $
   Language:  C++
-  Date:      $Date: 2000-03-20 19:25:10 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2000-04-09 17:56:17 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -61,6 +61,14 @@ public:
 
   vtkTypeMacro(vtkPerspectiveTransform,vtkGeneralTransform);
   void PrintSelf(ostream& os, vtkIndent indent);
+
+  // Description:
+  // Apply the transformation to an (x,y,z) coordinate.
+  // Use this if you are programming in python, tcl or Java.
+  float *TransformPoint(float x, float y, float z) {
+    return this->vtkGeneralTransform::TransformPoint(x,y,z); }
+  float *TransformPoint(const float point[3]) {
+    return this->TransformPoint(point[0],point[1],point[2]); };
 
   // Description:
   // Apply the transformation to a coordinate.  You can use the same 
