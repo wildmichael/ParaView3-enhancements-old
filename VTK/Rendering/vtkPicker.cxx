@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPicker.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-18 13:51:29 $
-  Version:   $Revision: 1.62 $
+  Date:      $Date: 2000-10-05 13:52:05 $
+  Version:   $Revision: 1.63 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -432,6 +432,7 @@ void vtkPicker::Initialize()
   this->vtkAbstractPropPicker::Initialize();
 
   this->Actors->RemoveAllItems();
+  this->Prop3Ds->RemoveAllItems();
   this->PickedPositions->Reset();
   
   this->MapperPosition[0] = 0.0;
