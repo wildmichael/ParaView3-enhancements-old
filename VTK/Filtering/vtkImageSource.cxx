@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-06 22:54:13 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1998-03-26 22:49:52 $
+  Version:   $Revision: 1.24 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -237,106 +237,6 @@ void vtkImageSource::CheckCache()
     {
     this->Output = vtkImageSimpleCache::New();
     this->Output->SetSource(this);
-    this->Modified();
-    }
-}
-
-
-
-void vtkImageSource::UpdateProgress(float amount)
-{
-  this->Progress = amount;
-  if ( this->ProgressMethod )
-    {
-    (*this->ProgressMethod)(this->ProgressMethodArg);
-    }
-}
-
-//----------------------------------------------------------------------------
-// Description:
-// Specify function to be called before object executes.
-void vtkImageSource::SetStartMethod(void (*f)(void *), void *arg)
-{
-  if ( f != this->StartMethod || arg != this->StartMethodArg )
-    {
-    // delete the current arg if there is one and a delete meth
-    if ((this->StartMethodArg)&&(this->StartMethodArgDelete))
-      {
-      (*this->StartMethodArgDelete)(this->StartMethodArg);
-      }
-    this->StartMethod = f;
-    this->StartMethodArg = arg;
-    this->Modified();
-    }
-}
-
-// Description:
-// Specify function to be called to show progress of filter
-void vtkImageSource::SetProgressMethod(void (*f)(void *), void *arg)
-{
-  if ( f != this->ProgressMethod || arg != this->ProgressMethodArg )
-    {
-    // delete the current arg if there is one and a delete meth
-    if ((this->ProgressMethodArg)&&(this->ProgressMethodArgDelete))
-      {
-      (*this->ProgressMethodArgDelete)(this->ProgressMethodArg);
-      }
-    this->ProgressMethod = f;
-    this->ProgressMethodArg = arg;
-    this->Modified();
-    }
-}
-
-//----------------------------------------------------------------------------
-// Description:
-// Specify function to be called after object executes.
-void vtkImageSource::SetEndMethod(void (*f)(void *), void *arg)
-{
-  if ( f != this->EndMethod || arg != this->EndMethodArg )
-    {
-    // delete the current arg if there is one and a delete meth
-    if ((this->EndMethodArg)&&(this->EndMethodArgDelete))
-      {
-      (*this->EndMethodArgDelete)(this->EndMethodArg);
-      }
-    this->EndMethod = f;
-    this->EndMethodArg = arg;
-    this->Modified();
-    }
-}
-
-
-//----------------------------------------------------------------------------
-// Description:
-// Set the arg delete method. This is used to free user memory.
-void vtkImageSource::SetStartMethodArgDelete(void (*f)(void *))
-{
-  if ( f != this->StartMethodArgDelete)
-    {
-    this->StartMethodArgDelete = f;
-    this->Modified();
-    }
-}
-
-// Description:
-// Set the arg delete method. This is used to free user memory.
-void vtkImageSource::SetProgressMethodArgDelete(void (*f)(void *))
-{
-  if ( f != this->ProgressMethodArgDelete)
-    {
-    this->ProgressMethodArgDelete = f;
-    this->Modified();
-    }
-}
-
-//----------------------------------------------------------------------------
-// Description:
-// Set the arg delete method. This is used to free user memory.
-void vtkImageSource::SetEndMethodArgDelete(void (*f)(void *))
-{
-  if ( f != this->EndMethodArgDelete)
-    {
-    this->EndMethodArgDelete = f;
     this->Modified();
     }
 }

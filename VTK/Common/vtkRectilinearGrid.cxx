@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:41:17 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-03-26 22:50:22 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -51,7 +51,7 @@ vtkRectilinearGrid::vtkRectilinearGrid()
   this->Dimensions[2] = 1;
   this->DataDescription = VTK_SINGLE_POINT;
 
-  vtkFloatScalars *fs=vtkFloatScalars::New(); fs->Allocate(1);
+  vtkScalars *fs=vtkScalars::New(); fs->Allocate(1);
   fs->InsertScalar(0, 0.0);
   this->XCoordinates = fs; fs->Register(this);
   this->YCoordinates = fs; fs->Register(this);

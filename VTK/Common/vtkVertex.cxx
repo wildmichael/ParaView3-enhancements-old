@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVertex.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:42:05 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1998-03-26 22:50:55 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -51,12 +51,11 @@ vtkVertex::vtkVertex()
   this->PointIds.SetNumberOfIds(1);
 }
 
-// Description:
-// Deep copy of cell.
-vtkVertex::vtkVertex(const vtkVertex& p)
+vtkCell *vtkVertex::MakeObject()
 {
-  this->Points = p.Points;
-  this->PointIds = p.PointIds;
+  vtkCell *cell = vtkVertex::New();
+  cell->ShallowCopy(*this);
+  return cell;
 }
 
 int vtkVertex::EvaluatePosition(float x[3], float closestPoint[3],
@@ -112,7 +111,7 @@ int vtkVertex::CellBoundary(int vtkNotUsed(subId), float pcoords[3],
 
 }
 
-void vtkVertex::Contour(float value, vtkFloatScalars *cellScalars, 
+void vtkVertex::Contour(float value, vtkScalars *cellScalars, 
 			vtkPointLocator *locator,
 			vtkCellArray *verts, 
 			vtkCellArray *vtkNotUsed(lines), 
@@ -172,7 +171,7 @@ int vtkVertex::IntersectWithLine(float p1[3], float p2[3], float tol, float& t,
   return 0;
 }
 
-int vtkVertex::Triangulate(int vtkNotUsed(index),vtkIdList &ptIds, vtkFloatPoints &pts)
+int vtkVertex::Triangulate(int vtkNotUsed(index),vtkIdList &ptIds, vtkPoints &pts)
 {
   pts.Reset();
   ptIds.Reset();
@@ -198,7 +197,7 @@ void vtkVertex::Derivatives(int vtkNotUsed(subId),
     }
 }
 
-void vtkVertex::Clip(float value, vtkFloatScalars *cellScalars, 
+void vtkVertex::Clip(float value, vtkScalars *cellScalars, 
                      vtkPointLocator *locator, vtkCellArray *verts,
                      vtkPointData *inPD, vtkPointData *outPD,
                      int insideOut)

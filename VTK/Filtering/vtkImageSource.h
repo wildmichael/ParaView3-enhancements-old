@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSource.h,v $
   Language:  C++
-  Date:      $Date: 1998-03-06 22:54:12 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1998-03-26 22:49:52 $
+  Version:   $Revision: 1.24 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -52,10 +52,11 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #define __vtkImageSource_h
 
 #include "vtkImageData.h"
+#include "vtkProcessObject.h"
+
 class vtkImageCache;
 
-
-class VTK_EXPORT vtkImageSource : public vtkObject
+class VTK_EXPORT vtkImageSource : public vtkProcessObject
 {
 public:
   vtkImageSource();
@@ -63,6 +64,10 @@ public:
   const char *GetClassName() {return "vtkImageSource";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
+  virtual void SetReleaseDataFlag(int value);
+  int  GetReleaseDataFlag();
+  vtkBooleanMacro(ReleaseDataFlag, int);
+  
   virtual void InterceptCacheUpdate();
   virtual void InternalUpdate(vtkImageData *data);
   virtual void Update();
@@ -75,34 +80,6 @@ public:
   virtual void SetCache(vtkImageCache *cache);
   vtkImageCache *GetCache();
 
-  virtual void SetReleaseDataFlag(int value);
-  int  GetReleaseDataFlag();
-  vtkBooleanMacro(ReleaseDataFlag, int);
-  
-  // Description:
-  // Set/Get the AbortExecute flag for the filter. It's up to the filter writer
-  // to handle premature ending of a filter
-  vtkSetMacro(AbortExecute,int);
-  vtkGetMacro(AbortExecute,int);
-  vtkBooleanMacro(AbortExecute,int);
-
-  // Description:
-  // Specify progress of a filter.
-  vtkSetClampMacro(Progress,float,0.0,1.0);
-  vtkGetMacro(Progress,float);
-
-  virtual void SetStartMethod(void (*f)(void *), void *arg);
-  virtual void SetProgressMethod(void (*f)(void *), void *arg);
-  virtual void SetEndMethod(void (*f)(void *), void *arg);
-  virtual void SetStartMethodArgDelete(void (*f)(void *));
-  virtual void SetProgressMethodArgDelete(void (*f)(void *));
-  virtual void SetEndMethodArgDelete(void (*f)(void *));
-  
-  // Description:
-  // Update the progress of a filter. If a ProgressMEthod, exists, 
-  // executes it. Then sets the Progress ivar to amount.
-  void UpdateProgress(float amount);
-
   // Description:
   // subclass can over ride this method to do custom streaming and
   // splitting for multiprocessing.
@@ -112,18 +89,6 @@ public:
 protected:
   vtkImageCache *Output;
 
-  void (*StartMethod)(void *);
-  void (*StartMethodArgDelete)(void *);
-  void *StartMethodArg;
-  void (*ProgressMethod)(void *);
-  void *ProgressMethodArg;
-  void (*ProgressMethodArgDelete)(void *);
-  void (*EndMethod)(void *);
-  void (*EndMethodArgDelete)(void *);
-  void *EndMethodArg;
-  float Progress;
-  int AbortExecute;
-  
   virtual void Execute(vtkImageData *data); 
   virtual void CheckCache();
 };

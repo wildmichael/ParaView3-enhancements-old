@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGrid.h,v $
   Language:  C++
-  Date:      $Date: 1998-01-16 21:18:41 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-03-26 22:50:23 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -75,7 +75,7 @@ public:
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // dataset interface
-  vtkDataSet *MakeObject() {return new vtkRectilinearGrid(*this);};
+  vtkDataObject *MakeObject() {return new vtkRectilinearGrid;};
   void CopyStructure(vtkDataSet *ds);
   void Initialize();
   int GetNumberOfCells();

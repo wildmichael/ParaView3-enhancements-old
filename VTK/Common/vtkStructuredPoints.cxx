@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-12-05 19:11:39 $
-  Version:   $Revision: 1.54 $
+  Date:      $Date: 1998-03-26 22:50:33 $
+  Version:   $Revision: 1.55 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -456,7 +456,7 @@ void vtkStructuredPoints::ComputeBounds()
 // from which the gradient is to be computed. This method will treat 
 // only 3D structured point datasets (i.e., volumes).
 void vtkStructuredPoints::GetVoxelGradient(int i, int j, int k, vtkScalars *s, 
-                                          vtkFloatVectors& g)
+                                          vtkVectors& g)
 {
   float gv[3];
   int ii, jj, kk, idx=0;

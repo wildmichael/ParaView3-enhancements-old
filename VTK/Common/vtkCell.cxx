@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCell.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:39:46 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1998-03-26 22:49:19 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,8 +42,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 // Description:
 // Construct cell.
-vtkCell::vtkCell():
-Points(VTK_CELL_SIZE), PointIds(VTK_CELL_SIZE)
+vtkCell::vtkCell()
 {
   this->Points.ReferenceCountingOff();
 }  
@@ -63,6 +62,18 @@ void vtkCell::Initialize(int npts, int *pts, vtkPoints *p)
     }
 }
  
+void vtkCell::ShallowCopy(vtkCell& c)
+{
+  this->Points.ShallowCopy(c.Points);
+  this->PointIds.ShallowCopy(c.PointIds);
+}
+
+void vtkCell::DeepCopy(vtkCell& c)
+{
+  this->Points.DeepCopy(c.Points);
+  this->PointIds.DeepCopy(c.PointIds);
+}
+
 #define VTK_RIGHT 0
 #define VTK_LEFT 1
 #define VTK_MIDDLE 2

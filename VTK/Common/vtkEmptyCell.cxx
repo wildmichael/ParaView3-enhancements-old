@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEmptyCell.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:40:06 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-03-26 22:49:33 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -74,7 +74,7 @@ int vtkEmptyCell::CellBoundary(int vtkNotUsed(subId),
 }
 
 void vtkEmptyCell::Contour(float vtkNotUsed(value), 
-                          vtkFloatScalars *vtkNotUsed(cellScalars), 
+                          vtkScalars *vtkNotUsed(cellScalars), 
                           vtkPointLocator *vtkNotUsed(locator),
                           vtkCellArray *vtkNotUsed(verts), 
                           vtkCellArray *vtkNotUsed(lines), 
@@ -99,7 +99,7 @@ int vtkEmptyCell::IntersectWithLine(float vtkNotUsed(p1)[3],
 }
 
 int vtkEmptyCell::Triangulate(int vtkNotUsed(index),
-                             vtkIdList& ptIds, vtkFloatPoints& pts)
+                             vtkIdList& ptIds, vtkPoints& pts)
 {
   pts.Reset();
   ptIds.Reset();
@@ -116,7 +116,7 @@ void vtkEmptyCell::Derivatives(int vtkNotUsed(subId),
 }
 
 void vtkEmptyCell::Clip(float vtkNotUsed(value), 
-                       vtkFloatScalars *vtkNotUsed(cellScalars), 
+                       vtkScalars *vtkNotUsed(cellScalars), 
                        vtkPointLocator *vtkNotUsed(locator), 
                        vtkCellArray *vtkNotUsed(verts),    
                        vtkPointData *vtkNotUsed(inPD), 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:41:31 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 1998-03-26 22:50:31 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -285,7 +285,7 @@ void vtkStructuredGrid::AllocatePointVisibility()
 {
   if ( !this->PointVisibility )
     {
-    this->PointVisibility = vtkBitScalars::New();
+    this->PointVisibility = vtkScalars::New(VTK_BIT,1);
     this->PointVisibility->Allocate(this->GetNumberOfPoints(),1000);
     this->PointVisibility->Register((vtkObject *)this);
     for (int i=0; i<this->GetNumberOfPoints(); i++)
