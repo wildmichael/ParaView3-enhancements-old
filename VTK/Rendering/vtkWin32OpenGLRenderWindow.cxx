@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-31 20:28:06 $
-  Version:   $Revision: 1.64 $
+  Date:      $Date: 2001-02-13 16:40:15 $
+  Version:   $Revision: 1.65 $
   Thanks:    to Horst Schreiber for developing this MFC code
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -111,6 +111,8 @@ vtkWin32OpenGLRenderWindow::~vtkWin32OpenGLRenderWindow()
     // can't set WindowId=NULL, needed for DestroyWindow
     this->DeviceContext = NULL;
     
+    // clear the extra data before calling destroy
+    SetWindowLong(this->WindowId,4,(LONG)0);
     DestroyWindow(this->WindowId);
     }
   this->TextureResourceIds->Delete();
