@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCommand.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:15 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2002-03-18 17:34:57 $
+  Version:   $Revision: 1.25 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -54,6 +54,13 @@ public:
   static const char *GetStringFromEventId(unsigned long event);
   static unsigned long GetEventIdFromString(const char *event);
 
+  // Description:  
+  // Set/Get the abort flag.  If this is set to true no further commands are
+  // executed.
+  void SetAbortFlagPointer(int* f)  { this->AbortFlag = f;}
+  void SetAbortFlag(int f)  { if(this->AbortFlag) *this->AbortFlag = f;}
+  int GetAbortFlag() { return (this->AbortFlag) ? *this->AbortFlag: 0;}
+  
 //BTX
   // all the currently defined events
   // developers can use -- vtkCommand::UserEvent + int to
@@ -100,8 +107,9 @@ public:
   };
 //ETX
 protected:
+  int* AbortFlag;
   int ReferenceCount;      // Number of uses of this object by other objects
-  vtkCommand() { this->ReferenceCount = 1;};
+  vtkCommand() { this->AbortFlag = 0; this->ReferenceCount = 1;};
   virtual ~vtkCommand() {};
 };
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObject.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-29 16:34:38 $
-  Version:   $Revision: 1.82 $
+  Date:      $Date: 2002-03-18 17:34:58 $
+  Version:   $Revision: 1.83 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -173,13 +173,18 @@ public:
   // pattern. An observer is added by specifying an event to respond to
   // and a vtkCommand to execute. It returns an unsigned long tag which
   // can be used later to remove the event or retrieve the command.
+  // When events are invoked, the observers are called in the order they
+  // were added.   If a priority value is specified, then the higher 
+  // priority commands are called first.  A command may set an abort
+  // flag to stop processing of the event.
   //BTX
-  unsigned long AddObserver(unsigned long event, vtkCommand *);
-  unsigned long AddObserver(const char *event, vtkCommand *);
+  unsigned long AddObserver(unsigned long event, vtkCommand *, float priority=0.0);
+  unsigned long AddObserver(const char *event, vtkCommand *, float priority=0.0);
   vtkCommand *GetCommand(unsigned long tag);
   void InvokeEvent(unsigned long event, void *callData);
   void InvokeEvent(const char *event, void *callData);
   //ETX
+  void RemoveObserver(vtkCommand*);
   void RemoveObserver(unsigned long tag);
   int HasObserver(unsigned long event);
   int HasObserver(const char *event);
