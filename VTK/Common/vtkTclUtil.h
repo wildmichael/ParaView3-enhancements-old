@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTclUtil.h,v $
   Language:  C++
-  Date:      $Date: 2000-11-13 16:59:38 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2000-11-14 21:11:31 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -55,6 +55,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #endif
 
 extern VTKTCL_EXPORT void vtkTclDeleteObjectFromHash(vtkObject *,
+						     unsigned long eventId,
                                                      void *, void *);
 extern VTKTCL_EXPORT void vtkTclGenericDeleteObject(ClientData cd);
 
