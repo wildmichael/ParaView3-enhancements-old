@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLPolyDataMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-22 03:20:36 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 1999-11-30 16:31:01 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -2691,6 +2691,12 @@ void vtkOpenGLPolyDataMapper::Draw(vtkRenderer *aren, vtkActor *act)
     glEnable( GL_LIGHTING);
     }
 
+  // disable shading if we are rendering points, but have no normals
+  if (!n && rep == VTK_POINTS)
+    {
+    glDisable( GL_LIGHTING);
+    }
+  
   // do tstrips
   aPrim = prims[2];
   aGlFunction = glFunction[2];
