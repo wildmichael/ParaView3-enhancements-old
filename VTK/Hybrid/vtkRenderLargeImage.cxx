@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderLargeImage.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-01-16 21:20:28 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-08-21 12:01:54 $
+  Version:   $Revision: 1.4 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder,ill Lorensen.
 
@@ -159,7 +159,10 @@ void vtkRenderLargeImage::Execute(vtkImageData *data)
 							    size[1] - 1, 1);
       // now stuff the pixels into the data row by row
       colStart = inExtent[0] - x*size[0];
-      if (colStart < 0) colStart = 0;
+      if (colStart < 0)
+	{
+	colStart = 0;
+	}
       colEnd = size[0] - 1;
       if (colEnd > (inExtent[1] - x*size[0]))
 	{
@@ -174,7 +177,10 @@ void vtkRenderLargeImage::Execute(vtkImageData *data)
 	(y*size[1] - inExtent[2])*inIncr[1];
 
       rowStart = inExtent[2] - y*size[1];
-      if (rowStart < 0) rowStart = 0;
+      if (rowStart < 0)
+	{
+	rowStart = 0;
+	}
       rowEnd = size[1] - 1;
       if (rowEnd > (inExtent[3] - y*size[1]))
 	{

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEarthSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:08:23 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1998-08-21 12:01:47 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to Tom Johnson at Johnson Scientific International who
              developed and contributed this class.
 
@@ -6867,7 +6867,10 @@ void vtkEarthSource::Execute()
     {
     // read a polygon
     npts = vtkEarthData[offset++];
-    if ((npts == 0) || (actualpolys > maxPolys)) break;
+    if ((npts == 0) || (actualpolys > maxPolys))
+      {
+      break;
+      }
     
     land  = vtkEarthData[offset++];
     

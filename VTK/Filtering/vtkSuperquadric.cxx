@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSuperquadric.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-08-19 12:05:32 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-08-21 12:01:56 $
+  Version:   $Revision: 1.5 $
   Thanks:    Mike Halle, Brigham and Women's Hospital
 
 
@@ -72,7 +72,9 @@ static float VTK_MIN_SUPERQUADRIC_ROUNDNESS = 1e-24;
 void vtkSuperquadric::SetThetaRoundness(float e) 
 {
   if(e < VTK_MIN_SUPERQUADRIC_ROUNDNESS)
+    {
     e = VTK_MIN_SUPERQUADRIC_ROUNDNESS;
+    }
 
   if (this->ThetaRoundness != e)
     {
@@ -84,7 +86,9 @@ void vtkSuperquadric::SetThetaRoundness(float e)
 void vtkSuperquadric::SetPhiRoundness(float e) 
 {
   if(e < VTK_MIN_SUPERQUADRIC_ROUNDNESS)
+    {
     e = VTK_MIN_SUPERQUADRIC_ROUNDNESS;
+    }
 
   if (this->PhiRoundness != e)
     {

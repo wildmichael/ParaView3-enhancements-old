@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOBJReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-07-09 14:42:04 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-08-21 12:01:50 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -158,7 +158,10 @@ void vtkOBJReader::Execute()
       ptr = line;
       while ((ptr = (char *) strchr (ptr, (int) ' '))) 
         {
-        while (*ptr == ' ') ptr++;
+        while (*ptr == ' ')
+	  {
+	  ptr++;
+	  }
         if ( sscanf(ptr, "%d", &objPtId) == 1 ) 
           {
           polys->InsertCellPoint(ptId++);

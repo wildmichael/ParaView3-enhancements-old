@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRIBProperty.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-07-08 11:52:28 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-08-21 12:01:53 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -53,10 +53,22 @@ vtkRIBProperty::vtkRIBProperty ()
 
 vtkRIBProperty::~vtkRIBProperty()
 {
-  if (this->SurfaceShader) delete [] this->SurfaceShader;
-  if (this->DisplacementShader) delete [] this->DisplacementShader;
-  if (this->Declarations) delete [] this->Declarations;
-  if (this->Property) this->Property->Delete ();
+  if (this->SurfaceShader)
+    {
+    delete [] this->SurfaceShader;
+    }
+  if (this->DisplacementShader)
+    {
+    delete [] this->DisplacementShader;
+    }
+  if (this->Declarations)
+    {
+    delete [] this->Declarations;
+    }
+  if (this->Property)
+    {
+    this->Property->Delete ();
+    }
 }
 
 void vtkRIBProperty::Render(vtkActor *anActor, vtkRenderer *ren)
@@ -70,7 +82,10 @@ void vtkRIBProperty::Render(vtkActor *anActor, vtkRenderer *ren)
 
 void vtkRIBProperty::SetVariable (char *variable, char *value)
 {
-  if (this->Declarations) delete [] this->Declarations;
+  if (this->Declarations)
+    {
+    delete [] this->Declarations;
+    }
 
   // format of line is: Declare "variable" "type"\n
   this->Declarations = new char [strlen ("Declare ") +
@@ -108,7 +123,10 @@ void vtkRIBProperty::AddVariable (char *variable, char *value)
 
 void vtkRIBProperty::SetParameter (char *parameter, char *value)
 {
-  if (this->Parameters) delete [] this->Parameters;
+  if (this->Parameters)
+    {
+    delete [] this->Parameters;
+    }
 
   // format of line is: "parameter" "value"
   this->Parameters = new char [strlen (parameter) +
