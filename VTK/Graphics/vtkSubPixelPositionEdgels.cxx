@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSubPixelPositionEdgels.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-10-20 13:58:11 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2000-11-30 20:22:34 $
+  Version:   $Revision: 1.30 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -160,6 +160,12 @@ void vtkSubPixelPositionEdgels::Move(int xdim, int ydim, int zdim,
       result[0] = x;
       result[1] = y;
       result[2] = z;
+      for (i = 0; i < 3; i++)
+	{
+	resultNormal[i] = 
+	  inVecs->GetVector(x + xdim*y)[i];
+	}
+      vtkMath::Normalize(resultNormal);
       }
     else 
       {
@@ -242,6 +248,12 @@ void vtkSubPixelPositionEdgels::Move(int xdim, int ydim, int zdim,
       result[0] = x;
       result[1] = y;
       result[2] = z;
+      for (i = 0; i < 3; i++)
+	{
+	resultNormal[i] = 
+	  inVecs->GetVector(x + xdim*y + xdim*ydim*z)[i];
+	}
+      vtkMath::Normalize(resultNormal);
       }
     else 
       {
