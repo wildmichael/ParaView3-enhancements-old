@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWeightedTransformFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2004-03-23 18:04:57 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2004-03-23 22:14:02 $
+  Version:   $Revision: 1.15 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -28,7 +28,7 @@
 #include "vtkPointData.h"
 #include "vtkPointSet.h"
 
-vtkCxxRevisionMacro(vtkWeightedTransformFilter, "$Revision: 1.14 $");
+vtkCxxRevisionMacro(vtkWeightedTransformFilter, "$Revision: 1.15 $");
 vtkStandardNewMacro(vtkWeightedTransformFilter);
 
 // helper functions.  Can't easily get to these in Matrix4x4 as written.
@@ -57,6 +57,11 @@ vtkWeightedTransformFilter::vtkWeightedTransformFilter()
   this->Transforms = NULL;
   this->NumberOfTransforms = 0;
 
+  this->CellDataWeightArray = NULL;
+  this->WeightArray = NULL;
+  this->CellDataTransformIndexArray = NULL;
+  this->TransformIndexArray = NULL;
+  
   // we use methods so that strings get dynamically allocated
   this->SetCellDataWeightArray("");
   this->SetWeightArray("");
