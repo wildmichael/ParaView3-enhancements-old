@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPerspectiveTransform.h,v $
   Language:  C++
-  Date:      $Date: 2000-03-04 21:47:50 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2000-03-04 23:47:56 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -97,7 +97,7 @@ public:
   // Description:
   // Get the inverse of this transform.  If you modify this transform,
   // the returned inverse transform will automatically update.
-  vtkPerspectiveTransform *GetInverse() {
+  vtkGeneralTransform *GetInverse() {
     return (vtkPerspectiveTransform *)this->VirtualGetInverse(); };
 
   // Description:
