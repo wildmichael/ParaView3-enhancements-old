@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkDataSetMapper.h,v $
   Language:  C++
-  Date:      $Date: 1994-02-05 13:03:48 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1994-03-06 18:11:57 $
+  Version:   $Revision: 1.4 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -31,10 +31,12 @@ public:
   char *GetClassName() {return "vlDataSetMapper";};
   void PrintSelf(ostream& os, vlIndent indent);
   void Render(vlRenderer *ren);
+  float *GetBounds();
   virtual void SetInput(vlDataSet *in);
   virtual vlDataSet* GetInput();
 
 protected:
+  int CreateMapper();
   vlDataSet *Input;
   vlMapper *Mapper;
 };
