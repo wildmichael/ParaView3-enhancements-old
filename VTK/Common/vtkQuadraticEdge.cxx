@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadraticEdge.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-17 11:58:06 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2002-05-21 17:28:27 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 #include "vtkFloatArray.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkQuadraticEdge, "$Revision: 1.9 $");
+vtkCxxRevisionMacro(vtkQuadraticEdge, "$Revision: 1.10 $");
 vtkStandardNewMacro(vtkQuadraticEdge);
 
 // Construct the line with two points.
@@ -228,15 +228,15 @@ int vtkQuadraticEdge::Triangulate(int vtkNotUsed(index), vtkIdList *ptIds,
 }
 
 void vtkQuadraticEdge::Derivatives(int vtkNotUsed(subId), 
-                                   float pcoords[3], float *values, 
-                                   int dim, float *derivs)
+                                   float pcoords[3], float *vtkNotUsed(values), 
+                                   int vtkNotUsed(dim), float *derivs)
 {
-  float *x0, *x1, *x2, deltaX[3], weights[3];
-  int i, j;
+//  float *x0, *x1, *x2, deltaX[3], weights[3];
+  float weights[3];
 
-  x0 = this->Points->GetPoint(0);
-  x1 = this->Points->GetPoint(1);
-  x2 = this->Points->GetPoint(2);
+//  x0 = this->Points->GetPoint(0);
+//  x1 = this->Points->GetPoint(1);
+//  x2 = this->Points->GetPoint(2);
 
   this->InterpolationFunctions(pcoords,weights);
   this->InterpolationDerivs(pcoords,derivs);
