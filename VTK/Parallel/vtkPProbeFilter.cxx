@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPProbeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-02-28 17:30:04 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2003-04-18 20:27:42 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,30 +19,26 @@
 
 #include "vtkIdTypeArray.h"
 #include "vtkMultiProcessController.h"
-#include "vtkSocketController.h"
 #include "vtkObjectFactory.h"
 #include "vtkPointData.h"
 #include "vtkCellData.h"
 #include "vtkPolyData.h"
 
-vtkCxxRevisionMacro(vtkPProbeFilter, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkPProbeFilter, "$Revision: 1.6 $");
 vtkStandardNewMacro(vtkPProbeFilter);
 
 vtkCxxSetObjectMacro(vtkPProbeFilter, Controller, vtkMultiProcessController);
-vtkCxxSetObjectMacro(vtkPProbeFilter, SocketController, vtkSocketController);
 
 //----------------------------------------------------------------------------
 vtkPProbeFilter::vtkPProbeFilter()
 {
   this->Controller = 0;
-  this->SocketController = 0;
 }
 
 //----------------------------------------------------------------------------
 vtkPProbeFilter::~vtkPProbeFilter()
 {
   this->SetController(0);
-  this->SetSocketController(0);
 }
 
 //----------------------------------------------------------------------------
@@ -119,27 +115,6 @@ void vtkPProbeFilter::ExecuteData(vtkDataObject *)
     remoteProbeOutput->Delete();
     delete [] tuple;
     }
-
-  // Handle client server.
-  // Client only had Socket controller.
-  // Server node zero has Socket controller and default controller.
-  if (this->SocketController)
-    {
-    if (this->Controller && procid == 0)
-      {
-      this->SocketController->Send(output, 1, 1973);
-      }
-    else if (this->Controller == NULL)
-      {   // Client
-      vtkDataSet *remoteProbeOutput = output->NewInstance();
-      this->SocketController->Receive(remoteProbeOutput, 1, 1973);
-      output->CopyStructure(remoteProbeOutput);
-      output->GetPointData()->PassData(remoteProbeOutput->GetPointData());
-      output->GetCellData()->PassData(remoteProbeOutput->GetCellData());
-      output->GetFieldData()->PassData(remoteProbeOutput->GetFieldData());
-      remoteProbeOutput->Delete();
-      }
-    }
 }
 
 //----------------------------------------------------------------------------
@@ -164,5 +139,4 @@ void vtkPProbeFilter::PrintSelf(ostream& os, vtkIndent indent)
 {
   this->Superclass::PrintSelf(os,indent);
   os << indent << "Controller " << this->Controller << endl;
-  os << indent << "SocketController " << this->SocketController << endl;
 }
