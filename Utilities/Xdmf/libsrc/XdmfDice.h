@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDice.h,v 1.2 2003-04-11 17:57:52 andy Exp $  */
-/*  Date : $Date: 2003-04-11 17:57:52 $ */
-/*  Version : $Revision: 1.2 $ */
+/*  Id : $Id: XdmfDice.h,v 1.3 2003-08-29 12:10:09 andy Exp $  */
+/*  Date : $Date: 2003-08-29 12:10:09 $ */
+/*  Version : $Revision: 1.3 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -77,6 +77,7 @@ extern   int    XdmfLlist_init ICE_ARGS((XDMF_LIST_KEY key));
 extern   void    *XdmfLlist_add_to_tail ICE_ARGS((XDMF_LIST_KEY key, XDMF_LIST_KEY body_size));
 extern   void    *XdmfLlist_add_to_head ICE_ARGS((XDMF_LIST_KEY key, XDMF_LIST_KEY body_size));
 extern   void    XdmfLlist_delete_item ICE_ARGS((XDMF_LIST_KEY key, void *item_to_delete));
+extern   void    XdmfLlist_remove_anchor ICE_ARGS((XDMF_LIST_KEY key));
 extern   void    *XdmfLlist_first_member ICE_ARGS((XDMF_LIST_KEY key));
 extern   void    *XdmfLlist_next_member(void *member);
 extern   void    *XdmfLlist_add_before ICE_ARGS((XDMF_LIST_KEY key, void *item_after, XDMF_LIST_KEY body_size));
