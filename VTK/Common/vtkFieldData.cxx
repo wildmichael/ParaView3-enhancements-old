@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFieldData.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-14 15:30:13 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2001-12-18 19:00:08 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -234,7 +234,7 @@ vtkFieldData::~vtkFieldData()
 }
 
 // Release all data but do not delete object.
-void vtkFieldData::Initialize()
+void vtkFieldData::InitializeFields()
 {
   int i;
 
@@ -252,6 +252,13 @@ void vtkFieldData::Initialize()
   this->NumberOfArrays = 0;
   this->NumberOfActiveArrays = 0;
 
+}
+
+// Release all data but do not delete object.
+// Also initialize copy flags.
+void vtkFieldData::Initialize()
+{
+  this->InitializeFields();
   this->CopyAllOn();
   this->ClearFieldFlags();
 }

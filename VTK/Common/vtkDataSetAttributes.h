@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetAttributes.h,v $
   Language:  C++
-  Date:      $Date: 2001-12-17 13:47:24 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 2001-12-18 19:00:08 $
+  Version:   $Revision: 1.46 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -66,6 +66,7 @@ public:
 
   // Description:
   // Initialize all of the object's data to NULL
+  // Also, clear the copy flags.
   virtual void Initialize();
 
   // Description:
@@ -433,6 +434,10 @@ protected:
                         vtkIdType toId, vtkIdType id1, vtkIdType id2, float t);
   void InterpolateTuple(vtkDataArray *fromData1, vtkDataArray *fromData2, 
                         vtkDataArray *toData, vtkIdType id, float t);
+
+  // Description:
+  // Initialize all of the object's data to NULL
+  virtual void InitializeFields();
 
   int AttributeIndices[NUM_ATTRIBUTES]; //index to attribute array in field data
   int CopyAttributeFlags[NUM_ATTRIBUTES]; //copy flag for attribute data

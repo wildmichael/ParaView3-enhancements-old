@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetAttributes.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-17 13:47:23 $
-  Version:   $Revision: 1.53 $
+  Date:      $Date: 2001-12-18 19:00:08 $
+  Version:   $Revision: 1.54 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -211,6 +211,12 @@ void vtkDataSetAttributes::ShallowCopy(vtkFieldData *fd)
 }
 
 // Initialize all of the object's data to NULL
+void vtkDataSetAttributes::InitializeFields()
+{
+  this->vtkFieldData::InitializeFields();
+}
+
+// Initialize all of the object's data to NULL
 void vtkDataSetAttributes::Initialize()
 {
 //
@@ -378,7 +384,7 @@ void vtkDataSetAttributes::CopyAllocate(vtkDataSetAttributes* pd,
   // If we are not copying on self
   if ( pd != this )
     {
-    this->Initialize();
+    this->InitializeFields();
     }
 
   // Create various point data depending upon input

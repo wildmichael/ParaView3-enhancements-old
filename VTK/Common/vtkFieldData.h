@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFieldData.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:09:25 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2001-12-18 19:00:09 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -80,6 +80,7 @@ public:
 
   // Description:
   // Release all data but do not delete object.
+  // Also, clear the copy flags.
   virtual void Initialize();
 
   // Description:
@@ -379,6 +380,10 @@ protected:
   void SetArray(int i, vtkDataArray *array);
 
   virtual void RemoveArray(int index);
+
+  // Description:
+  // Release all data but do not delete object.
+  virtual void InitializeFields();
 
 //BTX
 
