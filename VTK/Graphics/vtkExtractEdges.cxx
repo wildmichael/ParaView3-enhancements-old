@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractEdges.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-05-07 15:15:46 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 2003-05-07 19:27:02 $
+  Version:   $Revision: 1.46 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,7 @@
 #include "vtkPointData.h"
 #include "vtkPolyData.h"
 
-vtkCxxRevisionMacro(vtkExtractEdges, "$Revision: 1.45 $");
+vtkCxxRevisionMacro(vtkExtractEdges, "$Revision: 1.46 $");
 vtkStandardNewMacro(vtkExtractEdges);
 
 // Construct object.
@@ -160,7 +160,7 @@ void vtkExtractEdges::Execute()
         for ( i=0; i < numEdgePts; i++, pt1=pt2, pts[0]=pts[1] )
           {
           pt2 = edgeIds->GetId(i);
-          x = edgePts->GetPoint(pt2);
+          x = edgePts->GetPoint(i);
           if ( this->Locator->InsertUniquePoint(x, pts[1]) )
             {
             outPD->CopyData (pd,pt2,pts[1]);
