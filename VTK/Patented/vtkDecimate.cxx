@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDecimate.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 19:58:13 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 1997-12-11 12:09:20 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -148,6 +148,7 @@ void vtkDecimate::Execute()
   float ar, error;
   int totalEliminated=0;
   int size;
+  int abort = 0;
   vtkPolyData *input=(vtkPolyData *)this->Input;
 
   // do it this way because some compilers can't handle construction of
@@ -226,14 +227,14 @@ void vtkDecimate::Execute()
 //
 //************************************ Outer Loop ***************************
 
-  while ( reduction < this->TargetReduction && iteration < this->MaximumIterations ) 
+  while ( reduction < this->TargetReduction && iteration < this->MaximumIterations && !abort) 
     {
     trisEliminated = 1;
 
 //******************************** Subiterations ****************************
 
     for (sub=0; sub < this->MaximumSubIterations && trisEliminated &&
-    reduction < this->TargetReduction; sub++) 
+    reduction < this->TargetReduction && !abort; sub++) 
       {
       for (i=0; i < VTK_NUMBER_STATISTICS; i++) this->Stats[i] = 0;
       trisEliminated = 0;
@@ -241,9 +242,19 @@ void vtkDecimate::Execute()
 //  For every vertex that is used by two or more elements and has a loop
 //  of simple enough complexity...
 //
-      for (ptId=0; ptId < numPts; ptId++)
+      for (ptId=0; ptId < numPts && !abort; ptId++)
         {
-        if ( ! (ptId % 5000) ) vtkDebugMacro(<<"vertex #" << ptId);
+        if ( ! (ptId % 5000) )
+	  {
+          this->UpdateProgress (reduction / this->TargetReduction);
+          if (this->GetAbortExecute())
+            {
+            abort = 1;
+            break;
+            }
+
+	  vtkDebugMacro(<<"vertex #" << ptId);
+	  }
 
         // compute allowable error for this vertex
         Mesh->GetPoint(ptId,X);
