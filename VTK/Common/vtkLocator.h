@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkLocator.h,v $
   Language:  C++
-  Date:      $Date: 1994-04-08 08:07:56 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1994-04-11 21:20:09 $
+  Version:   $Revision: 1.2 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -69,7 +69,7 @@ protected:
   vlIdList **HashTable; // lists of point ids in cells
   int NumberOfCells; // total size of hash table
   float H[3]; // width of each cell in x-y-z directions
-  
+  vlTimeStamp SubDivideTime;  
 };
 
 #endif

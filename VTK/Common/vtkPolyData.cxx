@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-04-08 08:06:32 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1994-04-11 21:20:11 $
+  Version:   $Revision: 1.21 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -550,3 +550,28 @@ void vlPolyData::GetPointCells(int ptId, vlIdList *cellIds)
     cellIds->InsertId(i,cells[i]);
     }
 }
+
+
+void vlPolyData::InsertNextCell(vlCell *cell)
+{
+
+  switch (cell->GetCellType())
+    {
+    case vlPOINT: case vlPOLY_POINTS:
+     this->Verts->InsertNextCell(cell);
+     break;
+
+    case vlLINE: case vlPOLY_LINE:
+     this->Lines->InsertNextCell(cell);
+      break;
+
+    case vlTRIANGLE: case vlQUAD: case vlPOLYGON:
+     this->Polys->InsertNextCell(cell);
+      break;
+
+    case vlTRIANGLE_STRIP:
+     this->Strips->InsertNextCell(cell);
+      break;
+    }
+}
+

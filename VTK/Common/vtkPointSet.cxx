@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPointSet.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-04-08 10:48:33 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1994-04-11 21:20:10 $
+  Version:   $Revision: 1.3 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -58,11 +58,13 @@ void vlPointSet::PrintSelf(ostream& os, vlIndent indent)
 int vlPointSet::FindCell(float x[3], float tol2)
 {
   int i;
-  int closestCell = 0;
+  int closestCell = -1;
   vlCell *cell;
   int ptId, cellId;
   float dist2;
   static vlIdList cellIds(MAX_CELL_SIZE);
+  int subId;
+  float pcoords[3], weights[MAX_CELL_SIZE];
 
   if ( !this->Points ) return -1;
 
@@ -87,7 +89,7 @@ int vlPointSet::FindCell(float x[3], float tol2)
       {
       cellId = cellIds.GetId(i);
       cell = this->GetCell(cellId);
-//      cell->EvaluatePosition(,,,dist2);
+      cell->EvaluatePosition(x,subId,pcoords,dist2,weights);
       if ( dist2 == 0.0 ) return cellId;
  
       if ( dist2 < tol2 )
@@ -96,4 +98,5 @@ int vlPointSet::FindCell(float x[3], float tol2)
         }
       }
     }
+  return closestCell;
 }

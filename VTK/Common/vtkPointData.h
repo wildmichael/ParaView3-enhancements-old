@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPointData.h,v $
   Language:  C++
-  Date:      $Date: 1994-04-05 07:43:13 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1994-04-11 21:20:16 $
+  Version:   $Revision: 1.13 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -44,6 +44,9 @@ public:
   // use to interpolate data
   void InterpolateInitialize(vlPointData* pd, int sze=0, int ext=1000, int sFlg=1, int vFlg=1, int nFlg=1, int tFlg=1);
   void InterpolatePoint(vlPointData *fromPd, int toId, vlIdList *ptIds, float *weights);
+
+  // Set point data to null values
+  void NullPoint(int ptId);
 
   vlSetObjectMacro (Scalars, vlScalars);
   vlGetObjectMacro (Scalars, vlScalars);

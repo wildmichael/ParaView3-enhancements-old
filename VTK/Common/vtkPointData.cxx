@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPointData.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-04-05 07:43:14 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1994-04-11 21:20:14 $
+  Version:   $Revision: 1.14 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -316,4 +316,30 @@ void vlPointData::InterpolatePoint(vlPointData *fromPd, int toId, vlIdList *ptId
       }
     this->TCoords->InsertTCoord(toId,tc);
     }
+}
+
+void vlPointData::NullPoint (int ptId)
+{
+  static float null[3] = {0.0, 0.0, 0.0};
+
+  if ( this->Scalars )
+    {
+    this->Scalars->InsertScalar(ptId, 0.0);
+    }
+
+  if ( this->Vectors )
+    {
+    this->Vectors->InsertVector(ptId,null);
+    }
+
+  if ( this->Normals )
+    {
+    this->Normals->InsertNormal(ptId,null);
+    }
+
+  if ( this->TCoords )
+    {
+    this->TCoords->InsertTCoord(ptId,null);
+    }
+
 }
