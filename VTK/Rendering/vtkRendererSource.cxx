@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRendererSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:26:18 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1995-07-10 17:11:20 $
+  Version:   $Revision: 1.4 $
 
 This file is part of the Visualization Toolkit. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -70,7 +70,7 @@ void vtkRendererSource::Execute()
   outScalars = new vtkPixmap;
 
   pixels = (this->Input->GetRenderWindow())->GetPixelData((int)x1,(int)y1,
-							  (int)x2,(int)y2);
+							  (int)x2,(int)y2,1);
 
   // copy scalars over
   memcpy(outScalars->WritePtr(0,numOutPts),pixels,3*numOutPts);
