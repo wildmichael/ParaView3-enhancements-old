@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkCursor3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-08-10 13:20:19 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1994-11-09 19:57:24 $
+  Version:   $Revision: 1.4 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -303,24 +303,21 @@ void vlCursor3D::Execute()
 
 void vlCursor3D::PrintSelf(ostream& os, vlIndent indent)
 {
-  if (this->ShouldIPrint(vlCursor3D::GetClassName()))
-    {
-    vlPolySource::PrintSelf(os,indent);
+  vlPolySource::PrintSelf(os,indent);
 
-    os << indent << "ModelBounds: \n";
-    os << indent << "  Xmin,Xmax: (" << this->ModelBounds[0] << ", " << this->ModelBounds[1] << ")\n";
-    os << indent << "  Ymin,Ymax: (" << this->ModelBounds[2] << ", " << this->ModelBounds[3] << ")\n";
-    os << indent << "  Zmin,Zmax: (" << this->ModelBounds[4] << ", " << this->ModelBounds[5] << ")\n";
+  os << indent << "ModelBounds: \n";
+  os << indent << "  Xmin,Xmax: (" << this->ModelBounds[0] << ", " << this->ModelBounds[1] << ")\n";
+  os << indent << "  Ymin,Ymax: (" << this->ModelBounds[2] << ", " << this->ModelBounds[3] << ")\n";
+  os << indent << "  Zmin,Zmax: (" << this->ModelBounds[4] << ", " << this->ModelBounds[5] << ")\n";
 
-    os << indent << "Focal Point: (" << this->FocalPoint[0] << ", "
-                 << this->FocalPoint[1] << ", "
-                 << this->FocalPoint[2] << ")\n";
+  os << indent << "Focal Point: (" << this->FocalPoint[0] << ", "
+               << this->FocalPoint[1] << ", "
+               << this->FocalPoint[2] << ")\n";
 
-    os << indent << "Outline: " << (this->Outline ? "On\n" : "Off\n");
-    os << indent << "Axes: " << (this->Axes ? "On\n" : "Off\n");
-    os << indent << "XShadows: " << (this->XShadows ? "On\n" : "Off\n");
-    os << indent << "YShadows: " << (this->YShadows ? "On\n" : "Off\n");
-    os << indent << "ZShadows: " << (this->ZShadows ? "On\n" : "Off\n");
-    os << indent << "Wrap: " << (this->Wrap ? "On\n" : "Off\n");
-    }
+  os << indent << "Outline: " << (this->Outline ? "On\n" : "Off\n");
+  os << indent << "Axes: " << (this->Axes ? "On\n" : "Off\n");
+  os << indent << "XShadows: " << (this->XShadows ? "On\n" : "Off\n");
+  os << indent << "YShadows: " << (this->YShadows ? "On\n" : "Off\n");
+  os << indent << "ZShadows: " << (this->ZShadows ? "On\n" : "Off\n");
+  os << indent << "Wrap: " << (this->Wrap ? "On\n" : "Off\n");
 }

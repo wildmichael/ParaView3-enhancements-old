@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkUnstructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-10-27 21:37:24 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1994-11-09 19:56:48 $
+  Version:   $Revision: 1.14 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -187,10 +187,7 @@ int vlUnstructuredGrid::GetNumberOfCells()
 
 void vlUnstructuredGrid::PrintSelf(ostream& os, vlIndent indent)
 {
-  if (this->ShouldIPrint(vlUnstructuredGrid::GetClassName()))
-    {
-    vlDataSet::PrintSelf(os,indent);
-    }
+  vlDataSet::PrintSelf(os,indent);
 }
 
 // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPLOT3DReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-05-15 19:21:39 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1994-11-09 19:57:51 $
+  Version:   $Revision: 1.3 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -57,14 +57,11 @@ vlPLOT3DReader::~vlPLOT3DReader()
 
 void vlPLOT3DReader::PrintSelf(ostream& os, vlIndent indent)
 {
-  if (this->ShouldIPrint(vlPLOT3DReader::GetClassName()))
-    {
-    vlStructuredGridSource::PrintSelf(os,indent);
+  vlStructuredGridSource::PrintSelf(os,indent);
 
-    os << indent << "XYZ Filename: " << this->XYZFilename << "\n";
-    os << indent << "Q Filename: " << this->QFilename << "\n";
-    os << indent << "Function Filename: " << this->FunctionFilename << "\n";
-    }
+  os << indent << "XYZ Filename: " << this->XYZFilename << "\n";
+  os << indent << "Q Filename: " << this->QFilename << "\n";
+  os << indent << "Function Filename: " << this->FunctionFilename << "\n";
 }
 
 void vlPLOT3DReader::Execute()

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkAxes.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-09-29 14:06:36 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1994-11-09 19:57:11 $
+  Version:   $Revision: 1.5 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -100,14 +100,11 @@ void vlAxes::Execute()
 
 void vlAxes::PrintSelf(ostream& os, vlIndent indent)
 {
-  if (this->ShouldIPrint(vlAxes::GetClassName()))
-    {
-    vlPolySource::PrintSelf(os,indent);
+  vlPolySource::PrintSelf(os,indent);
 
-    os << indent << "Origin: (" << this->Origin[0] << ", "
-                 << this->Origin[1] << ", "
-                 << this->Origin[2] << ")\n";
+  os << indent << "Origin: (" << this->Origin[0] << ", "
+               << this->Origin[1] << ", "
+               << this->Origin[2] << ")\n";
 
-    os << indent << "Scale Factor: " << this->ScaleFactor << "\n";
-    }
+  os << indent << "Scale Factor: " << this->ScaleFactor << "\n";
 }

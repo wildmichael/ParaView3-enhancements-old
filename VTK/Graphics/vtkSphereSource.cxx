@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkSphereSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-08-09 15:24:54 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1994-11-09 19:58:10 $
+  Version:   $Revision: 1.9 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -132,12 +132,9 @@ void vlSphereSource::Execute()
 
 void vlSphereSource::PrintSelf(ostream& os, vlIndent indent)
 {
-  if (this->ShouldIPrint(vlSphereSource::GetClassName()))
-    {
-    vlPolySource::PrintSelf(os,indent);
+  vlPolySource::PrintSelf(os,indent);
 
-    os << indent << "Theta Resolution: " << this->ThetaResolution << "\n";
-    os << indent << "Phi Resolution: " << this->PhiResolution << "\n";
-    os << indent << "Radius: " << this->Radius << "\n";
-    }
+  os << indent << "Theta Resolution: " << this->ThetaResolution << "\n";
+  os << indent << "Phi Resolution: " << this->PhiResolution << "\n";
+  os << indent << "Radius: " << this->Radius << "\n";
 }

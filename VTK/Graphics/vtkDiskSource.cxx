@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkDiskSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-05-15 19:23:28 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1994-11-09 19:57:39 $
+  Version:   $Revision: 1.3 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -94,13 +94,10 @@ void vlDiskSource::Execute()
 
 void vlDiskSource::PrintSelf(ostream& os, vlIndent indent)
 {
-  if (this->ShouldIPrint(vlDiskSource::GetClassName()))
-    {
-    vlPolySource::PrintSelf(os,indent);
+  vlPolySource::PrintSelf(os,indent);
 
-    os << indent << "InnerRadius: " << this->InnerRadius << "\n";
-    os << indent << "OuterRadius: " << this->OuterRadius << "\n";
-    os << indent << "RadialResolution: " << this->RadialResolution << "\n";
-    os << indent << "CircumferentialResolution: " << this->CircumferentialResolution << "\n";
-    }
+  os << indent << "InnerRadius: " << this->InnerRadius << "\n";
+  os << indent << "OuterRadius: " << this->OuterRadius << "\n";
+  os << indent << "RadialResolution: " << this->RadialResolution << "\n";
+  os << indent << "CircumferentialResolution: " << this->CircumferentialResolution << "\n";
 }

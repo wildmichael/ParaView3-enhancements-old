@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkCylinderSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-10-10 16:28:10 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1994-11-09 19:57:34 $
+  Version:   $Revision: 1.14 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -162,13 +162,10 @@ void vlCylinderSource::Execute()
 
 void vlCylinderSource::PrintSelf(ostream& os, vlIndent indent)
 {
-  if (this->ShouldIPrint(vlCylinderSource::GetClassName()))
-    {
-    vlPolySource::PrintSelf(os,indent);
+  vlPolySource::PrintSelf(os,indent);
 
-    os << indent << "Resolution: " << this->Resolution << "\n";
-    os << indent << "Height: " << this->Height << "\n";
-    os << indent << "Radius: " << this->Radius << "\n";
-    os << indent << "Capping: " << (this->Capping ? "On\n" : "Off\n");
-    }
+  os << indent << "Resolution: " << this->Resolution << "\n";
+  os << indent << "Height: " << this->Height << "\n";
+  os << indent << "Radius: " << this->Radius << "\n";
+  os << indent << "Capping: " << (this->Capping ? "On\n" : "Off\n");
 }

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-06 19:41:25 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1994-11-09 19:58:36 $
+  Version:   $Revision: 1.4 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -43,26 +43,23 @@ void vlWriter::SetEndWrite(void (*f)(void *), void *arg)
 
 void vlWriter::PrintSelf(ostream& os, vlIndent indent)
 {
-  if (this->ShouldIPrint(vlWriter::GetClassName()))
+  vlObject::PrintSelf(os,indent);
+
+  if ( this->StartWrite )
     {
-    vlObject::PrintSelf(os,indent);
+    os << indent << "Start Write: (" << (void *)this->StartWrite << ")\n";
+    }
+  else
+    {
+    os << indent << "Start Write: (none)\n";
+    }
 
-    if ( this->StartWrite )
-      {
-      os << indent << "Start Write: (" << this->StartWrite << ")\n";
-      }
-    else
-      {
-      os << indent << "Start Write: (none)\n";
-      }
-
-    if ( this->EndWrite )
-      {
-      os << indent << "End Write: (" << this->EndWrite << ")\n";
-      }
-    else
-      {
-      os << indent << "End Write: (none)\n";
-      }
-   }
+  if ( this->EndWrite )
+    {
+    os << indent << "End Write: (" << (void *)this->EndWrite << ")\n";
+    }
+  else
+    {
+    os << indent << "End Write: (none)\n";
+    }
 }

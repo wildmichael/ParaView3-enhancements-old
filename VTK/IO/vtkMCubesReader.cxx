@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkMCubesReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-09-30 21:49:42 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1994-11-09 19:57:47 $
+  Version:   $Revision: 1.2 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -181,13 +181,10 @@ void vlMCubesReader::CreateDefaultLocator()
 
 void vlMCubesReader::PrintSelf(ostream& os, vlIndent indent)
 {
-  if (this->ShouldIPrint(vlMCubesReader::GetClassName()))
-    {
-    vlPolySource::PrintSelf(os,indent);
+  vlPolySource::PrintSelf(os,indent);
 
-    os << indent << "Filename: " << this->Filename << "\n";
-    os << indent << "Limits Filename: " << this->LimitsFilename << "\n";
-    os << indent << "Normals: " << (this->Normals ? "On\n" : "Off\n");
-    os << indent << "FlipNormals: " << (this->FlipNormals ? "On\n" : "Off\n");
-    }
+  os << indent << "Filename: " << this->Filename << "\n";
+  os << indent << "Limits Filename: " << this->LimitsFilename << "\n";
+  os << indent << "Normals: " << (this->Normals ? "On\n" : "Off\n");
+  os << indent << "FlipNormals: " << (this->FlipNormals ? "On\n" : "Off\n");
 }

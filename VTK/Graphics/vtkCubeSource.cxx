@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkCubeSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-05-15 19:23:35 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1994-11-09 19:57:20 $
+  Version:   $Revision: 1.11 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -114,13 +114,10 @@ void vlCubeSource::Execute()
 
 void vlCubeSource::PrintSelf(ostream& os, vlIndent indent)
 {
-  if (this->ShouldIPrint(vlCubeSource::GetClassName()))
-    {
-    vlPolySource::PrintSelf(os,indent);
+  vlPolySource::PrintSelf(os,indent);
 
-    os << indent << "X Length: " << this->XLength << "\n";
-    os << indent << "Y Length: " << this->YLength << "\n";
-    os << indent << "Z Length: " << this->ZLength << "\n";
-    }
+  os << indent << "X Length: " << this->XLength << "\n";
+  os << indent << "Y Length: " << this->YLength << "\n";
+  os << indent << "Z Length: " << this->ZLength << "\n";
 }
 

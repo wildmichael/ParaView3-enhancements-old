@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkXRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-10-17 13:52:10 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1994-11-09 19:58:53 $
+  Version:   $Revision: 1.2 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -125,13 +125,10 @@ void vlXRenderWindow::SetDisplayId(Display  *arg)
 
 void vlXRenderWindow::PrintSelf(ostream& os, vlIndent indent)
 {
-  if (this->ShouldIPrint(vlXRenderWindow::GetClassName()))
-    {
-    this->vlRenderWindow::PrintSelf(os,indent);
+  this->vlRenderWindow::PrintSelf(os,indent);
 
-    os << indent << "Color Map: " << this->ColorMap << "\n";
-    os << indent << "Display Id: " << this->GetDisplayId() << "\n";
-    os << indent << "Next Window Id: " << this->NextWindowId << "\n";
-    os << indent << "Window Id: " << this->GetWindowId() << "\n";
-    }
+  os << indent << "Color Map: " << this->ColorMap << "\n";
+  os << indent << "Display Id: " << this->GetDisplayId() << "\n";
+  os << indent << "Next Window Id: " << this->NextWindowId << "\n";
+  os << indent << "Window Id: " << this->GetWindowId() << "\n";
 }

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPointSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-09-29 14:06:37 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1994-11-09 19:58:01 $
+  Version:   $Revision: 1.10 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -63,15 +63,12 @@ void vlPointSource::Execute()
 
 void vlPointSource::PrintSelf(ostream& os, vlIndent indent)
 {
-  if (this->ShouldIPrint(vlPointSource::GetClassName()))
-    {
-    vlPolySource::PrintSelf(os,indent);
+  vlPolySource::PrintSelf(os,indent);
 
-    os << indent << "Number Of Points: " << this->NumberOfPoints << "\n";
-    os << indent << "Radius: " << this->Radius << "\n";
-    os << indent << "Center: (" << this->Center[0] << ", "
-                                << this->Center[1] << ", "
-                                << this->Center[2] << ")\n";
+  os << indent << "Number Of Points: " << this->NumberOfPoints << "\n";
+  os << indent << "Radius: " << this->Radius << "\n";
+  os << indent << "Center: (" << this->Center[0] << ", "
+                              << this->Center[1] << ", "
+                              << this->Center[2] << ")\n";
 
-    }
 }
