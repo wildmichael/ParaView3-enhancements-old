@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkTransform.h,v $
   Language:  C++
-  Date:      $Date: 1994-03-08 12:23:41 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1994-04-29 13:56:26 $
+  Version:   $Revision: 1.4 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -135,9 +135,7 @@ class vlTransform : public vlObject
   //  same as either of the two input matrices.
   void VectorMultiply (float in[4],float out[4]) 
      {this->Stack[0]->VectorMultiply(in,out);};
-  //  Multiplies two 4 x 4 matrices and produces a
-  //  4 x 4 matrix. The output matrix can be the
-  //  same as either of the two input matrices.
+  //  Multiply a vector in homo coords and store in another vector
   vlSetVector4Macro(Vector,float);
   float *GetVector();
 };
