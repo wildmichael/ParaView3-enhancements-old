@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.h,v $
   Language:  C++
-  Date:      $Date: 1998-06-01 21:01:13 $
-  Version:   $Revision: 1.61 $
+  Date:      $Date: 1998-06-12 19:11:44 $
+  Version:   $Revision: 1.62 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -146,12 +146,13 @@ public:
 
   void ResetCamera();
   void ResetCamera(float bounds[6]);
+  void ResetCamera(float xmin, float xmax, float ymin, float ymax, 
+                   float zmin, float zmax);
 
   void SetRenderWindow(vtkRenderWindow *);
   vtkRenderWindow *GetRenderWindow() {return RenderWindow;};
   virtual vtkWindow *GetVTKWindow();
   
-
   // Description:
   // Turn on/off two-sided lighting of surfaces. If two-sided lighting is
   // off, then only the side of the surface facing the light(s) will be lit,

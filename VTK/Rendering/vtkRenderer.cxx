@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-01 21:01:11 $
-  Version:   $Revision: 1.80 $
+  Date:      $Date: 1998-06-12 19:11:45 $
+  Version:   $Revision: 1.81 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -435,6 +435,23 @@ void vtkRenderer::ResetCamera(float bounds[6])
   this->ActiveCamera->SetClippingRange(distance/10.0,distance*5.0);
 }
   
+// Description:
+// Alternative version of ResetCamera(bounds[6]);
+void vtkRenderer::ResetCamera(float xmin, float xmax, float ymin, float ymax, 
+			      float zmin, float zmax)
+{
+  float bounds[6];
+
+  bounds[0] = xmin;
+  bounds[1] = xmax;
+  bounds[2] = ymin;
+  bounds[3] = ymax;
+  bounds[4] = zmin;
+  bounds[5] = zmax;
+
+  this->ResetCamera(bounds);
+}
+
 // Description:
 // Specify the rendering window in which to draw. This is automatically set
 // when the renderer is created by MakeRenderer.  The user probably
