@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKWWin32RegisteryUtilities.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-29 00:15:36 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-06-24 13:40:28 $
+  Version:   $Revision: 1.2 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -39,9 +39,10 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-
 #include "vtkKWWin32RegisteryUtilities.h"
+
 #include "vtkObjectFactory.h"
+#include "vtkString.h"
 
 vtkStandardNewMacro( vtkKWWin32RegisteryUtilities );
 
@@ -55,7 +56,8 @@ vtkKWWin32RegisteryUtilities::~vtkKWWin32RegisteryUtilities()
 }
 
 int vtkKWWin32RegisteryUtilities::OpenInternal(const char *toplevel,
-					       const char *subkey, int readonly)
+					       const char *subkey, 
+					       int readonly)
 {
   int res = 0;
   ostrstream str;
@@ -113,8 +115,9 @@ int vtkKWWin32RegisteryUtilities::SetValueInternal(const char *key,
 						   const char *value)
 {
   int res = 1;
+  DWORD len = (DWORD) vtkString::Length(value);
   res = ( RegSetValueEx(this->HKey, key, 0, REG_SZ, 
 			(CONST BYTE *)(const char *)value, 
-			strlen(value)+1) == ERROR_SUCCESS );
+			len+1) == ERROR_SUCCESS );
   return res;
 }
