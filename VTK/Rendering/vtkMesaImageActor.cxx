@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaImageActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-07-14 14:15:22 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2000-07-14 15:05:25 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -67,5 +67,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // Make sure vtkMesaImageActor is a copy of vtkOpenGLImageActor
 // with vtkOpenGLImageActor replaced with vtkMesaImageActor
 #define vtkOpenGLImageActor vtkMesaImageActor
+#define vtkOpenGLRenderWindow vtkMesaRenderWindow
 #include "vtkOpenGLImageActor.cxx"
 #undef vtkOpenGLImageActor
+#undef vtkOpenGLRenderWindow
