@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorEventRecorder.h,v $
   Language:  C++
-  Date:      $Date: 2002-07-31 17:40:35 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-08-01 14:57:38 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -99,6 +99,8 @@ protected:
     Recording
   };
 //ETX
+
+  static float StreamVersion;
 
 private:
   vtkInteractorEventRecorder(const vtkInteractorEventRecorder&);  // Not implemented.
