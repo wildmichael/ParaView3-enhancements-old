@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLImageActor.h,v $
   Language:  C++
-  Date:      $Date: 2000-06-28 17:45:23 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2000-08-04 08:25:48 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -80,7 +80,6 @@ protected:
 
   vtkTimeStamp   LoadTime;
   long          Index;
-  static   long GlobalIndex;
   vtkRenderWindow *RenderWindow;   // RenderWindow used for previous render
   float Coords[12];
   float TCoords[8];

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLTexture.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:06:02 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2000-08-04 08:25:48 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -81,7 +81,6 @@ protected:
 
   vtkTimeStamp   LoadTime;
   long          Index;
-  static   long GlobalIndex;
   vtkRenderWindow *RenderWindow;   // RenderWindow used for previous render
 };
 
