@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagePlaneWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-11 22:19:46 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 2002-11-14 20:37:05 $
+  Version:   $Revision: 1.50 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -42,13 +42,14 @@
 #include "vtkTextureMapToPlane.h"
 #include "vtkTransform.h"
 
-vtkCxxRevisionMacro(vtkImagePlaneWidget, "$Revision: 1.49 $");
+vtkCxxRevisionMacro(vtkImagePlaneWidget, "$Revision: 1.50 $");
 vtkStandardNewMacro(vtkImagePlaneWidget);
 
 vtkCxxSetObjectMacro(vtkImagePlaneWidget, PlaneProperty, vtkProperty);
 vtkCxxSetObjectMacro(vtkImagePlaneWidget, SelectedPlaneProperty, vtkProperty);
 vtkCxxSetObjectMacro(vtkImagePlaneWidget, CursorProperty, vtkProperty);
 vtkCxxSetObjectMacro(vtkImagePlaneWidget, MarginProperty, vtkProperty);
+vtkCxxSetObjectMacro(vtkImagePlaneWidget, TexturePlaneProperty, vtkProperty);
 
 vtkImagePlaneWidget::vtkImagePlaneWidget() : vtkPolyDataSourceWidget()
 {
@@ -147,6 +148,7 @@ vtkImagePlaneWidget::vtkImagePlaneWidget() : vtkPolyDataSourceWidget()
   //
   this->PlaneProperty         = 0;
   this->SelectedPlaneProperty = 0;
+  this->TexturePlaneProperty  = 0;
   this->CursorProperty        = 0;
   this->MarginProperty        = 0;
   this->CreateDefaultProperties();
@@ -206,6 +208,11 @@ vtkImagePlaneWidget::~vtkImagePlaneWidget()
   this->TexturePlaneActor->Delete();
   this->ColorMap->Delete();
   this->Texture->Delete();
+
+  if ( this->TexturePlaneProperty )
+    {
+    this->TexturePlaneProperty->Delete();
+    }
 
   if ( this->ImageData )
     {
@@ -276,6 +283,7 @@ void vtkImagePlaneWidget::SetEnabled(int enabling)
 
     //add the TexturePlaneActor
     this->CurrentRenderer->AddProp(this->TexturePlaneActor);
+    this->TexturePlaneActor->SetProperty(this->TexturePlaneProperty);
 
     // Add the cross-hair cursor
     this->CurrentRenderer->AddProp(this->CursorActor);
@@ -461,7 +469,17 @@ void vtkImagePlaneWidget::PrintSelf(ostream& os, vtkIndent indent)
   else
     {
     os << indent << "Margin Property: (none)\n";
-    }    
+    }
+
+  if ( this->TexturePlaneProperty )
+    {
+    os << indent << "TexturePlane Property: "
+       << this->TexturePlaneProperty << "\n";
+    }
+  else
+    {
+    os << indent << "TexturePlane Property: (none)\n";
+    }
 
   float *o = this->PlaneSource->GetOrigin();
   float *pt1 = this->PlaneSource->GetPoint1();
@@ -971,6 +989,13 @@ void vtkImagePlaneWidget::CreateDefaultProperties()
     this->MarginProperty->SetColor(0,0,1);
     this->MarginProperty->SetRepresentationToWireframe();
     this->MarginProperty->SetInterpolationToFlat();
+    }
+
+  if ( ! this->TexturePlaneProperty )
+    {
+    this->TexturePlaneProperty = vtkProperty::New();
+    this->TexturePlaneProperty->SetAmbient(1);
+    this->TexturePlaneProperty->SetInterpolationToFlat();
     }
 }
 
