@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoidArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-06 19:47:04 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1998-06-03 19:12:09 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -61,7 +61,7 @@ vtkVoidArray::~vtkVoidArray()
 // Allocate memory for this array. Delete old storage only if necessary.
 int vtkVoidArray::Allocate(const int sz, const int ext)
 {
-  if ( sz > this->Size || this->Array == NULL )
+  if ( sz > this->Size || this->Array != NULL )
     {
     delete [] this->Array;
 

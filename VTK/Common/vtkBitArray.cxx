@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBitArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-06 19:46:45 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1998-06-03 19:12:10 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -99,7 +99,7 @@ int vtkBitArray::Allocate(const int sz, const int ext)
 {
   if ( sz > this->Size )
     {
-    if (( this->Array == NULL ) && (!this->SaveUserArray))
+    if (( this->Array != NULL ) && (!this->SaveUserArray))
       {
       delete [] this->Array;
       }
