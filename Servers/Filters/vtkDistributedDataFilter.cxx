@@ -5,8 +5,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDistributedDataFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-10-01 00:29:03 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2003-10-03 00:48:17 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -91,7 +91,7 @@ static char * makeEntry(char *s)
 
 // Timing data ---------------------------------------------
 
-vtkCxxRevisionMacro(vtkDistributedDataFilter, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkDistributedDataFilter, "$Revision: 1.4 $");
 
 vtkStandardNewMacro(vtkDistributedDataFilter);
 
@@ -133,7 +133,16 @@ vtkDistributedDataFilter::~vtkDistributedDataFilter()
     this->TimerLog = 0;
     }
 }
+vtkPKdTree *vtkDistributedDataFilter::GetKdtree()
+{
+  if (this->Kdtree == NULL)
+    {
+    this->Kdtree = vtkPKdTree::New();
+    this->Kdtree->SetController(this->Controller);
+    }
 
+  return this->Kdtree;
+}
 unsigned long vtkDistributedDataFilter::GetMTime()
 {
   unsigned long t1, t2;

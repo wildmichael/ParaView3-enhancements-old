@@ -5,8 +5,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDistributedDataFilter.h,v $
   Language:  C++
-  Date:      $Date: 2003-10-01 00:29:03 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2003-10-03 00:48:17 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -121,7 +121,7 @@ public:
   //   or other tree building default parameters.  See vtkPKdTree and 
   //   vtkKdTree for more information about these options.
 
-  vtkPKdTree *GetKdtree(){return this->Kdtree;}
+  vtkPKdTree *GetKdtree();
 
   // Description:
   //   Each cell in the data set is associated with one of the
