@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCamera.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-04-27 19:56:55 $
-  Version:   $Revision: 1.65 $
+  Date:      $Date: 1999-06-17 14:56:10 $
+  Version:   $Revision: 1.66 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -105,12 +105,6 @@ vtkCamera::~vtkCamera()
 #ifdef VTK_USE_OGLR
 #include "vtkOpenGLCamera.h"
 #endif
-#ifdef VTK_USE_SBR
-#include "vtkStarbaseCamera.h"
-#endif
-#ifdef VTK_USE_XGLR
-#include "vtkXGLCamera.h"
-#endif
 #ifdef _WIN32
 #include "vtkOpenGLCamera.h"
 #endif
@@ -119,12 +113,6 @@ vtkCamera *vtkCamera::New()
 {
   char *temp = vtkRenderWindow::GetRenderLibrary();
   
-#ifdef VTK_USE_SBR
-  if (!strcmp("Starbase",temp))
-    {
-    return vtkStarbaseCamera::New();
-    }
-#endif
 #ifdef VTK_USE_OGLR
   if (!strcmp("OpenGL",temp))
     {
@@ -135,12 +123,6 @@ vtkCamera *vtkCamera::New()
   if (!strcmp("Win32OpenGL",temp))
     {
     return vtkOpenGLCamera::New();
-    }
-#endif
-#ifdef VTK_USE_XGLR
-  if (!strcmp("XGL",temp))
-    {
-    return vtkXGLCamera::New();
     }
 #endif
   

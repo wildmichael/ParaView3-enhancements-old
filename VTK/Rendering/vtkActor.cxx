@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-04-22 14:14:12 $
-  Version:   $Revision: 1.83 $
+  Date:      $Date: 1999-06-17 14:56:09 $
+  Version:   $Revision: 1.84 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -103,12 +103,6 @@ vtkActor& vtkActor::operator=(const vtkActor& actor)
 #ifdef VTK_USE_OGLR
 #include "vtkOpenGLActor.h"
 #endif
-#ifdef VTK_USE_SBR
-#include "vtkStarbaseActor.h"
-#endif
-#ifdef VTK_USE_XGLR
-#include "vtkXGLActor.h"
-#endif
 #ifdef _WIN32
 #include "vtkOpenGLActor.h"
 #endif
@@ -117,12 +111,6 @@ vtkActor *vtkActor::New()
 {
   char *temp = vtkRenderWindow::GetRenderLibrary();
   
-#ifdef VTK_USE_SBR
-  if (!strcmp("Starbase",temp))
-    {
-    return vtkStarbaseActor::New();
-    }
-#endif
 #ifdef VTK_USE_OGLR
   if (!strcmp("OpenGL",temp))
     {
@@ -133,12 +121,6 @@ vtkActor *vtkActor::New()
   if (!strcmp("Win32OpenGL",temp))
     {
     return vtkOpenGLActor::New();
-    }
-#endif
-#ifdef VTK_USE_XGLR
-  if (!strcmp("XGL",temp))
-    {
-    return vtkXGLActor::New();
     }
 #endif
   
