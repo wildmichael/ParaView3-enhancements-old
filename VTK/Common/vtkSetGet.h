@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSetGet.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-06 11:01:31 $
-  Version:   $Revision: 1.103 $
+  Date:      $Date: 2002-05-13 13:52:01 $
+  Version:   $Revision: 1.104 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -627,7 +627,18 @@ virtual float *Get##name() \
       return static_cast<thisClass *>(o); \
       } \
     return NULL;\
+  } \
+  protected: \
+  virtual vtkObject *NewInstanceInternal() const \
+  { \
+    return thisClass::New(); \
+  } \
+  public: \
+  thisClass *NewInstance() const \
+  { \
+    return thisClass::SafeDownCast(this->NewInstanceInternal()); \
   }
+
 
 // Version of vtkTypeMacro that adds the CollectRevisions method.
 #define vtkTypeRevisionMacro(thisClass,superclass) \

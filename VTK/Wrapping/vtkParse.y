@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkParse.y,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:35:49 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2002-05-13 13:52:01 $
+  Version:   $Revision: 1.37 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -842,6 +842,17 @@ macro:
    currentFunction->ArgTypes[0] = 1303;
    currentFunction->ArgCounts[0] = 0;
    currentFunction->ReturnType = 4;
+   output_function();
+
+   currentFunction->Signature = (char *)malloc(2048);
+   sigAllocatedLength = 2048;
+   sprintf(currentFunction->Signature, "%s *NewInstance ();",
+	   $<str>3);
+   sprintf(temps,"NewInstance"); 
+   currentFunction->Name = vtkstrdup(temps);
+   currentFunction->NumberOfArguments = 0;
+   currentFunction->ReturnType = 309;
+   currentFunction->ReturnClass = vtkstrdup($<str>3);
    output_function();
    }
 ;
