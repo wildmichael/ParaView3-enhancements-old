@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBoxWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-05 14:46:01 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2002-12-12 13:06:55 $
+  Version:   $Revision: 1.24 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -35,7 +35,7 @@
 #include "vtkRenderWindowInteractor.h"
 #include "vtkTransform.h"
 
-vtkCxxRevisionMacro(vtkBoxWidget, "$Revision: 1.23 $");
+vtkCxxRevisionMacro(vtkBoxWidget, "$Revision: 1.24 $");
 vtkStandardNewMacro(vtkBoxWidget);
 
 vtkBoxWidget::vtkBoxWidget()
@@ -536,8 +536,14 @@ void vtkBoxWidget::OnLeftButtonDown()
 
   // Okay, we can process this. Try to pick handles first;
   // if no handles picked, then pick the bounding box.
+  vtkRenderer *ren = this->Interactor->FindPokedRenderer(X,Y);
+  if ( ren != this->CurrentRenderer )
+    {
+    this->State = vtkBoxWidget::Outside;
+    return;
+    }
+  
   vtkAssemblyPath *path;
-  this->Interactor->FindPokedRenderer(X,Y);
   this->HandlePicker->Pick(X,Y,0.0,this->CurrentRenderer);
   path = this->HandlePicker->GetPath();
   if ( path != NULL )
@@ -608,8 +614,14 @@ void vtkBoxWidget::OnMiddleButtonDown()
 
   // Okay, we can process this. Try to pick handles first;
   // if no handles picked, then pick the bounding box.
+  vtkRenderer *ren = this->Interactor->FindPokedRenderer(X,Y);
+  if ( ren != this->CurrentRenderer )
+    {
+    this->State = vtkBoxWidget::Outside;
+    return;
+    }
+  
   vtkAssemblyPath *path;
-  this->Interactor->FindPokedRenderer(X,Y);
   this->HandlePicker->Pick(X,Y,0.0,this->CurrentRenderer);
   path = this->HandlePicker->GetPath();
   if ( path != NULL )
@@ -672,8 +684,14 @@ void vtkBoxWidget::OnRightButtonDown()
 
   // Okay, we can process this. Try to pick handles first;
   // if no handles picked, then pick the bounding box.
+  vtkRenderer *ren = this->Interactor->FindPokedRenderer(X,Y);
+  if ( ren != this->CurrentRenderer )
+    {
+    this->State = vtkBoxWidget::Outside;
+    return;
+    }
+  
   vtkAssemblyPath *path;
-  this->Interactor->FindPokedRenderer(X,Y);
   this->HandlePicker->Pick(X,Y,0.0,this->CurrentRenderer);
   path = this->HandlePicker->GetPath();
   if ( path != NULL )
