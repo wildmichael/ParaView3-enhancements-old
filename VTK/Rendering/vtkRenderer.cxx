@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:07:35 $
-  Version:   $Revision: 1.124 $
+  Date:      $Date: 1999-10-15 14:27:44 $
+  Version:   $Revision: 1.125 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -84,7 +84,6 @@ vtkRenderer::vtkRenderer()
   
   this->Cullers = vtkCullerCollection::New();  
   vtkFrustumCoverageCuller *cull = vtkFrustumCoverageCuller::New();
-  cull->SetSortingStyleToBackToFront();
   this->Cullers->AddItem(cull);
   cull->Delete();
 }
