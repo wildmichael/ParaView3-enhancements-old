@@ -25,7 +25,7 @@
  #include <mpi.h>
 #endif
 
-vtkCxxRevisionMacro(vtkCompositer, "$Revision: 1.8 $");
+vtkCxxRevisionMacro(vtkCompositer, "$Revision: 1.9 $");
 vtkStandardNewMacro(vtkCompositer);
 
 //-------------------------------------------------------------------------
@@ -149,7 +149,7 @@ void vtkCompositer::DeleteArray(vtkDataArray* da)
 //-------------------------------------------------------------------------
 void vtkCompositer::PrintSelf(ostream& os, vtkIndent indent)
 {
-  this->vtkObject::PrintSelf(os, indent);
+  this->Superclass::PrintSelf(os, indent);
   os << indent << "Controller: (" << this->Controller << ")\n";
   os << indent << "NumberOfProcesses: " << this->NumberOfProcesses << endl;
 }
