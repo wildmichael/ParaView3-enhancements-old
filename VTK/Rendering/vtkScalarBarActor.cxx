@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalarBarActor.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-18 20:48:58 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1999-06-21 14:05:41 $
+  Version:   $Revision: 1.14 $
 
 Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -38,9 +38,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkScalarBarActor.h"
-
-vtkSafeSetStringMacro2(LabelFormat,vtkScalarBarActor);
-vtkSafeSetStringMacro2(Title,vtkScalarBarActor);
 
 // Instantiate object with 64 maximum colors; 5 labels; font size 12
 // of font Arial (bolding, italic, shadows on); %%-#6.3g label

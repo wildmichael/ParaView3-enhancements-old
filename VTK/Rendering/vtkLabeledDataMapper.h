@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLabeledDataMapper.h,v $
   Language:  C++
-  Date:      $Date: 1999-06-18 20:48:58 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1999-06-21 14:05:41 $
+  Version:   $Revision: 1.12 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -171,7 +171,7 @@ public:
   // id only one value is printed. See also the ivar LabeledComponent which
   // can be used to specify the component to print if you want to only print
   // one of several.
-  vtkSafeSetStringMacro(LabelFormat);
+  vtkSetStringMacro(LabelFormat);
   vtkGetStringMacro(LabelFormat);
 
   // Description:

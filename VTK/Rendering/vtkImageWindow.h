@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageWindow.h,v $
   Language:  C++
-  Date:      $Date: 1999-06-18 20:48:57 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-06-21 14:05:41 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -157,7 +157,7 @@ public:
   // Description:
   // Set/Get the FileName used for saving images. See the SaveImageAsPPM 
   // method.
-  vtkSafeSetStringMacro(FileName);
+  vtkSetStringMacro(FileName);
   vtkGetStringMacro(FileName);
 
 protected:

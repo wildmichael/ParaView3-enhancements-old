@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-18 20:48:57 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1999-06-21 14:05:40 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,8 +40,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 
 #include "vtkImageWindow.h"
-
-vtkSafeSetStringMacro2(FileName,vtkImageWindow);
 
 #ifdef _WIN32
   #include "vtkWin32OpenGLImageWindow.h"
