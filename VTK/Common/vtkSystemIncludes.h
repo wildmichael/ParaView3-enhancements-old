@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSystemIncludes.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-22 19:05:53 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2002-05-29 12:17:02 $
+  Version:   $Revision: 1.17 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -55,6 +55,7 @@ using std::istrstream;
 using std::strstream;
 using std::ofstream;
 using std::ifstream;
+using std::fstream;
 
 // otherwise, non-ANSI -----------------------------------------------------
 #else
