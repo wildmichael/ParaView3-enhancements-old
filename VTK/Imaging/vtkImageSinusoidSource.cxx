@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSinusoidSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-08 15:50:47 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2001-03-16 15:00:01 $
+  Version:   $Revision: 1.29 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -79,7 +79,7 @@ vtkImageSinusoidSource::vtkImageSinusoidSource()
   
 }
 
-void vtkImageSinusoidSource::SetDirection(float *v)
+void vtkImageSinusoidSource::SetDirection(float v[3])
 {
   this->SetDirection(v[0],v[1],v[2]);
 }

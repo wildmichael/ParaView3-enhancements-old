@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSinusoidSource.h,v $
   Language:  C++
-  Date:      $Date: 2001-03-08 13:55:31 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2001-03-16 15:00:01 $
+  Version:   $Revision: 1.22 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -66,7 +66,7 @@ public:
   // Set/Get the direction vector which determines the sinusoidal
   // orientation. The magnitude is ignored.
   void SetDirection(float,float,float);
-  void SetDirection(float *);
+  void SetDirection(float dir[3]);
   vtkGetVector3Macro(Direction, float);
   
   // Description:
