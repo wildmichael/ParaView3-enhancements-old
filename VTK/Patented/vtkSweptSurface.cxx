@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkSweptSurface.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-01 21:01:09 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1995-08-02 10:45:51 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -159,18 +159,18 @@ void vtkSweptSurface::Execute()
     else if ( this->Interpolation < 0 ) numSteps = 1;
     else numSteps = this->ComputeNumberOfSteps(transform1,transform2);
 
+    for (i=0; i<3; i++)
+      {
+      position1[i] = position2[i];
+      orient1[i] = orient2[i];
+      }
+    t.GetPosition(position2[0], position2[1], position2[2]);
+    t.GetOrientation(orient2[0], orient2[1], orient2[2]);
+
     for (stepNum=0; stepNum < numSteps; stepNum++)
       {
       // linearly interpolate position and orientation
       time = (float) stepNum / numSteps;
-
-      for (i=0; i<3; i++)
-        {
-        position1[i] = position2[i];
-        orient1[i] = orient2[i];
-        }
-      t.GetPosition(position2[0], position2[1], position2[2]);
-      t.GetOrientation(orient2[0], orient2[1], orient2[2]);
 
       for (i=0; i<3; i++)
         {
