@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLookupTable.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:10:08 $
-  Version:   $Revision: 1.52 $
+  Date:      $Date: 2000-09-01 07:23:06 $
+  Version:   $Revision: 1.53 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -176,7 +176,7 @@ public:
   unsigned char *WritePointer(const int id, const int number);
 
   // Description:
-  // Sets/Gets the range of scalars which will eb mapped.
+  // Sets/Gets the range of scalars which will be mapped.
   virtual float *GetRange() {return this->GetTableRange();};
   virtual void SetRange(float min, float max) {this->SetTableRange(min,max);};
   void SetRange(float rng[2]) {this->SetRange(rng[0],rng[1]);};

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEarthSource.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:10:44 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2000-09-01 07:24:25 $
+  Version:   $Revision: 1.19 $
   Thanks:    Thanks to Tom Johnson at Johnson Scientific International who
              developed and contributed this class. Also see
              ftp://www.ou.edu/pub/simtelnet/msdos/worldmap and the
@@ -48,7 +48,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // of the major continents of the earth. The OnRatio determines
 // how much of the data is actually used. The radius defines the radius
 // of the sphere at which the continents are placed. Obtains data from
-// an imbeded array of coordinates.
+// an imbedded array of coordinates.
 
 #ifndef __vtkEarthSource_h
 #define __vtkEarthSource_h

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMultiThreader.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:10:11 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2000-09-01 07:23:14 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -174,7 +174,7 @@ public:
   static int  GetGlobalDefaultNumberOfThreads();
 
   // These methods are excluded from Tcl wrapping 1) because the
-  // wrapper barfs on them and 2) because they really shouldn't be
+  // wrapper gives up on them and 2) because they really shouldn't be
   // called from a script anyway.
   //BTX 
   

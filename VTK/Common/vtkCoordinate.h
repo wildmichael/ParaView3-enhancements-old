@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCoordinate.h,v $
   Language:  C++
-  Date:      $Date: 2000-05-24 16:57:52 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2000-09-01 07:22:12 $
+  Version:   $Revision: 1.19 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -56,7 +56,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //  NORMALIZED DISPLAY -  x-y (0,1) normalized values
 //  VIEWPORT -            x-y pixel values in viewport
 //  NORMALIZED VIEWPORT - x-y (0,1) normalized value in viewport
-//  VIEW -                x-y-z (-1,1) values in camera coords. (z is depth)
+//  VIEW -                x-y-z (-1,1) values in camera coordinates. (z is depth)
 //  WORLD -               x-y-z global coordinate values
 //</PRE>
 //

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFileOutputWindow.h,v $
   Language:  C++
-  Date:      $Date: 2000-05-25 08:13:11 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2000-09-01 07:22:38 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,7 +42,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // .NAME vtkFileOutputWindow - File Specific output window class
 // .SECTION Description
 // Writes debug/warning/error output to a log file instead of the console.
-// To use this class, instatiate it and then call SetInstance(this).
+// To use this class, instantiate it and then call SetInstance(this).
 // 
 
 #ifndef __vtkFileOutputWindow_h

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOutputWindow.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:10:13 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2000-09-01 07:23:22 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,9 +39,9 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-// .NAME vtkOutputWindow - base class for writting debug output to a console
+// .NAME vtkOutputWindow - base class for writing debug output to a console
 // .SECTION Description
-// This class is used to encapsulate all text ouput, so that it will work
+// This class is used to encapsulate all text output, so that it will work
 // with operating systems that have a stdout and stderr, and ones that
 // do not.  (i.e windows does not).  Sub-classes can be provided which can
 // redirect the output to a window.
@@ -101,7 +101,7 @@ public:
   vtkBooleanMacro(PromptUser,int);
   vtkSetMacro(PromptUser, int);
 //BTX
-  // use this as a way of memory managment when the
+  // use this as a way of memory management when the
   // program exits the SmartPointer will be deleted which
   // will delete the Instance singleton
   static vtkOutputWindowSmartPointer SmartPointer;

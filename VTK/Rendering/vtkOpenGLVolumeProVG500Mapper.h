@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLVolumeProVG500Mapper.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:04:21 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2000-09-01 07:24:45 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -56,7 +56,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //
 //   http://www.3dvolumegraphics.com/3dvolumegraphics/product/index.htm
 //
-// If you encouter any problems with this class, please inform Kitware, Inc.
+// If you encounter any problems with this class, please inform Kitware, Inc.
 // at kitware@kitware.com.
 //
 //

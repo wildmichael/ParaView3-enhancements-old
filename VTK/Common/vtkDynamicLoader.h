@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDynamicLoader.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:03:07 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2000-09-01 07:22:28 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to William A. Hoffman who developed this class
 
 
@@ -83,7 +83,7 @@ public:
 
   // Description:
   // Attempt to detach a dynamic library from the
-  // process.  A value of true is returned if it is sucessful.
+  // process.  A value of true is returned if it is successful.
   static int CloseLibrary(vtkLibHandle);
   //ETX
   

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTimeStamp.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:03:55 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2000-09-01 07:23:54 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -84,7 +84,7 @@ public:
     return (this->ModifiedTime < ts.ModifiedTime);};
 
   // Description:
-  // Allow for typcasting to unsigned long.
+  // Allow for typecasting to unsigned long.
   operator unsigned long() {return this->ModifiedTime;};
 
 private:

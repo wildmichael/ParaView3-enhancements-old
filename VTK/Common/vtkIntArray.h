@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIntArray.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:10:04 $
-  Version:   $Revision: 1.54 $
+  Date:      $Date: 2000-09-01 07:22:56 $
+  Version:   $Revision: 1.55 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -133,7 +133,7 @@ public:
 
   // Description:
   // Get the address of a particular data index. Performs no checks
-  // to verify that the memroy has been allocated etc.
+  // to verify that the memory has been allocated etc.
   int *GetPointer(const int id) {return this->Array + id;}
   void *GetVoidPointer(const int id) {return (void *)this->GetPointer(id);};
 

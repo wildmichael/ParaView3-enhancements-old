@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAssemblyNode.h,v $
   Language:  C++
-  Date:      $Date: 2000-07-05 11:59:18 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2000-09-01 07:22:00 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -59,8 +59,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //
 // vtkAssemblyNode does not reference count its association with vtkProp.
 // Therefore, do not create an assembly node, associate a prop with it,
-// delete the prop, and then try to dereference the prop...the program
-// will break. (Reason: vtkAssemblyPath (which uses vtkAssemblyNode)
+// delete the prop, and then try to dereference the prop. The program
+// will break! (Reason: vtkAssemblyPath (which uses vtkAssemblyNode)
 // create self-referencing loops that destroy reference counting.)
 
 // .SECTION see also

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageBlockReader.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:10:45 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2000-09-01 07:24:31 $
+  Version:   $Revision: 1.10 $
   
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -65,7 +65,7 @@ public:
   vtkGetVector3Macro(Divisions, int);
 
   // Description:
-  // The number of points along any axis that belong to more than one peice.
+  // The number of points along any axis that belong to more than one piece.
   vtkSetMacro(Overlap, int);
   vtkGetMacro(Overlap, int);
 

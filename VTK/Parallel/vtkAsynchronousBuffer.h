@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAsynchronousBuffer.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:10:39 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2000-09-01 07:24:11 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,12 +42,12 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // .NAME vtkAsynchronousBuffer - For pipeline execution in multiple threads.
 // .SECTION Description
 // vtkAsynchronousBuffer will allow a non-blocking  update of a pipeline.
-// When Blocking is off, the a call to Update returns imediately, and
+// When Blocking is off, the a call to Update returns immediately, and
 // the Update continues in another thread. An abort mechanism has not
 // been implemented.
 // WARNING:  While the buffer is updating, the upstream pipeline cannot
 // be modified or caused to update by the main thread.
-// WARNING: This object is currently in developement, and its API may
+// WARNING: This object is currently in development, and its API may
 // change in the future (or the class may go away completely).
 
 // .SECTION See Also
@@ -105,7 +105,7 @@ public:
   // asynchronous update.
   vtkGetMacro(Finished, unsigned char); 
   
-  // This ivar is public so thread func. can have access.
+  // This ivar is public so thread function. can have access.
   // I do not think we need a lock on this variable.
   unsigned char Finished;
   unsigned char OutputConsumed;

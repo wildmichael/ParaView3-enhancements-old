@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRayCastStructures.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:03:45 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2000-09-01 07:23:46 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -65,7 +65,7 @@ typedef struct
   // ray.
   int   Pixel[2];
 
-  // The world coordiante location of the camera is important for the
+  // The world coordinate location of the camera is important for the
   // ray caster to be able to return a Z value for the intersection
   float CameraPosition[3];
 

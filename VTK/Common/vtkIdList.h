@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIdList.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:09:59 $
-  Version:   $Revision: 1.61 $
+  Date:      $Date: 2000-09-01 07:22:48 $
+  Version:   $Revision: 1.62 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -116,7 +116,7 @@ public:
   void DeepCopy(vtkIdList *ids);
 
   // Description:
-  // Delete specified id from list. Will remove all occurences of id in list.
+  // Delete specified id from list. Will remove all occurrences of id in list.
   void DeleteId(int id);
 
   // Description:

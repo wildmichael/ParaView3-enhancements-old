@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetAttributes.h,v $
   Language:  C++
-  Date:      $Date: 2000-08-16 10:59:47 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2000-09-01 07:22:26 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -107,7 +107,7 @@ public:
   
   // Description:
   // Interpolate data set attributes from other data set attributes
-  // given cell or point ids and asociated interpolation weights.
+  // given cell or point ids and associated interpolation weights.
   void InterpolatePoint(vtkDataSetAttributes *fromPd, int toId, 
                         vtkIdList *ids, float *weights);
   
@@ -275,7 +275,7 @@ protected:
   void InterpolateTuple(vtkDataArray *fromData1, vtkDataArray *fromData2, 
                         vtkDataArray *toData, int id, float t);
   
-  // support manipulation and access of atribute data
+  // support manipulation and access of attribute data
   vtkScalars *Scalars;
   vtkVectors *Vectors;
   vtkNormals *Normals;

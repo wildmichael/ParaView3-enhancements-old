@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProcessObject.h,v $
   Language:  C++
-  Date:      $Date: 2000-05-15 20:16:40 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2000-09-01 07:23:40 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -59,7 +59,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // Another method, ProgressMethod() can be specified. Some filters invoke this 
 // method periodically during their execution. The use is similar to that of 
 // StartMethod() and EndMethod(). Filters may also check their AbortExecute
-// flag to determine whether to prematurally end their execution.
+// flag to determine whether to prematurely end their execution.
 //
 // An important feature of subclasses of vtkProcessObject is that it is
 // possible to control the memory-management model (i.e., retain output
@@ -144,7 +144,7 @@ public:
 
   // Description:
   // Return an array with all the inputs of this process object.
-  // This is useful for tracing back in the pipeline to contruct
+  // This is useful for tracing back in the pipeline to construct
   // graphs etc.
   vtkDataObject **GetInputs() {return this->Inputs;};
   vtkGetMacro(NumberOfInputs,int);

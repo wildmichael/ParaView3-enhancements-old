@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDEMReader.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:10:42 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2000-09-01 07:24:22 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,7 +39,7 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-// .NAME vtkDEMReader - read a ditigal elevation model (DEM) file
+// .NAME vtkDEMReader - read a digital elevation model (DEM) file
 // .SECTION Description
 // vtkDEMReader reads digital elevation files and creates image data.
 // Digital elevation files are produced by the
@@ -48,7 +48,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // The reader reads the entire dem file and create a vtkImageData that
 // contains a single scalar component that is the elevation in meters.
 // The spacing is also expressed in meters. A number of get methods
-// provide acees to fields on the header.
+// provide access to fields on the header.
 #ifndef __vtkDEMReader_h
 #define __vtkDEMReader_h
 

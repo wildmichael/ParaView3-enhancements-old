@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalarsToColors.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:03:47 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2000-09-01 07:23:49 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -72,7 +72,7 @@ public:
   virtual void Build() {};
   
   // Description:
-  // Sets/Gets the range of scalars which will eb mapped.
+  // Sets/Gets the range of scalars which will be mapped.
   virtual float *GetRange() = 0;
   virtual void SetRange(float min, float max) = 0;
   void SetRange(float rng[2]) {this->SetRange(rng[0],rng[1]);};

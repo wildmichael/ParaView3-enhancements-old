@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFieldData.h,v $
   Language:  C++
-  Date:      $Date: 2000-05-19 15:52:22 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2000-09-01 07:22:36 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -166,7 +166,7 @@ public:
   void SetNumberOfTuples(const int number);
 
   // Description:
-  // Return a tuple consisting of a concatentation of all data from all
+  // Return a tuple consisting of a concatenation of all data from all
   // the different arrays. Note that everything is converted to and from
   // float values.
   float *GetTuple(const int i);
@@ -178,7 +178,7 @@ public:
 
   // Description:
   // Set the tuple value at the ith location. Set operations
-  // mean that no range chaecking is performed, so they're faster.
+  // mean that no range checking is performed, so they're faster.
   void SetTuple(const int i, const float * tuple);
 
   // Description:

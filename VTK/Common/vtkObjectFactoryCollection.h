@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObjectFactoryCollection.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:03:31 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2000-09-01 07:23:19 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to William A. Hoffman who developed this class
 
 
@@ -42,7 +42,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 =========================================================================*/
 // .NAME vtkObjectFactoryCollection - maintain a list of object factories
 // .SECTION Description
-// vtkObjectFactoryCollection is an object that creates amn manipulates lists
+// vtkObjectFactoryCollection is an object that creates and manipulates lists
 // of object of type vtkObjectFactory.
 
 // .SECTION see also

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBitArray.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:09:46 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 2000-09-01 07:22:04 $
+  Version:   $Revision: 1.48 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -101,7 +101,7 @@ public:
   int InsertNextTuple(const double * tuple);
 
   // Description:
-  // Free any uunrequired memory.
+  // Free any unneeded memory.
   void Squeeze();
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRIBProperty.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:10:52 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2000-09-01 07:24:55 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -43,7 +43,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // .SECTION Description
 // vtkRIBProperty is a subclass of vtkProperty that allows the user to
 // specify named shaders for use with RenderMan. Both a surface shader
-// and displacement shadr can be specified. Parameters for the shaders
+// and displacement shader can be specified. Parameters for the shaders
 // can be declared and set.
 //
 // .SECTION See Also

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFloatArray.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:09:56 $
-  Version:   $Revision: 1.53 $
+  Date:      $Date: 2000-09-01 07:22:41 $
+  Version:   $Revision: 1.54 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -155,7 +155,7 @@ public:
 
   // Description:
   // Get the address of a particular data index. Performs no checks
-  // to verify that the memroy has been allocated etc.
+  // to verify that the memory has been allocated etc.
   void *GetVoidPointer(const int id) {return (void *)this->GetPointer(id);};
   float *GetPointer(const int id) {return this->Array + id;}
 

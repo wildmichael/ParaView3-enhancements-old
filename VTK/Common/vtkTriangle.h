@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangle.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:03:58 $
-  Version:   $Revision: 1.58 $
+  Date:      $Date: 2000-09-01 07:24:01 $
+  Version:   $Revision: 1.59 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -59,7 +59,7 @@ public:
 
   // Description:
   // Create a new cell and copy this triangle's information into the
-  // cell. Returns a poiner to the new cell created.
+  // cell. Returns a pointer to the new cell created.
   vtkCell *MakeObject();
 
   // Description:
@@ -129,7 +129,7 @@ public:
   // Barycentric coordinates are a natural coordinate system for simplices that
   // express a position as a linear combination of the vertices. For a 
   // triangle, there are three barycentric coordinates (because there are
-  // fourthree vertices), and the sum of the coordinates must equal 1. If a 
+  // three vertices), and the sum of the coordinates must equal 1. If a 
   // point x is inside a simplex, then all three coordinates will be strictly 
   // positive.  If two coordinates are zero (so the third =1), then the 
   // point x is on a vertex. If one coordinates are zero, the point x is on an 

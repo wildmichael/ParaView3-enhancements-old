@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractTransform.h,v $
   Language:  C++
-  Date:      $Date: 2000-07-06 14:51:27 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2000-09-01 07:21:57 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,8 +42,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // .NAME vtkAbstractTransform - superclass for all geometric transformations
 // .SECTION Description
 // vtkAbstractTransform is the superclass for all VTK geometric 
-// transformations.  The VTK transform heirarchy is split into two
-// major branches: warp transformations and homogenous (including linear)
+// transformations.  The VTK transform hierarchy is split into two
+// major branches: warp transformations and homogeneous (including linear)
 // transformations.  The latter can be represented in terms of a 4x4
 // transformation matrix, the former cannot.  
 // <p>Transformations can be pipelined through two mechanisms:  

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkJavaUtil.h,v $
   Language:  C++
-  Date:      $Date: 2000-07-10 13:26:10 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2000-09-01 07:22:59 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -72,7 +72,7 @@ extern JNIEXPORT jobject vtkJavaCreateNewJavaStubForObject(JNIEnv *env, vtkObjec
 extern JNIEXPORT jobject vtkJavaCreateNewJavaStub(JNIEnv *env,
               const char* fullclassname, void* obj);
 
-// this is the void pointer parm passed to the vtk callback routines on
+// this is the void pointer parameter passed to the vtk callback routines on
 // behalf of the Java interface for callbacks.
 struct vtkJavaVoidFuncArg 
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCGMWriter.h,v $
   Language:  C++
-  Date:      $Date: 2000-05-26 11:33:53 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2000-09-01 07:24:13 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -50,7 +50,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //
 // Note: During output of the polygonal data, stringle strips are converted
 // to triangles, and polylines to lines. Also, due to limitations in the CGM 
-// color model, only 256 colors are avilable to the color pallette.
+// color model, only 256 colors are available to the color palette.
 
 // .SECTION Caveats
 // The class vtkImageToPolyDataFilter is convenient for converting a raster

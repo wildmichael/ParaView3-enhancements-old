@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPriorityQueue.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:10:20 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2000-09-01 07:23:38 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,7 +42,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // .NAME vtkPriorityQueue - an list of ids arranged in priority order
 // .SECTION Description
 // vtkPriorityQueue is a general object for creating and manipulating lists
-// of object ids (e.g., point or cell ids). Object ids are sorted acccording
+// of object ids (e.g., point or cell ids). Object ids are sorted according
 // to a user-specified priority, where entries at the top of the queue have
 // the smallest values.
 //

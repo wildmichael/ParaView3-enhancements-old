@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSet.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:09:52 $
-  Version:   $Revision: 1.94 $
+  Date:      $Date: 2000-09-01 07:22:23 $
+  Version:   $Revision: 1.95 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -54,7 +54,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //
 // Attribute data in vtk is either point data (data at points) or cell data
 // (data at cells). Typically filters operate on point data, but some may
-// operate on cell data, both cell and point data, eithoer one, or none.
+// operate on cell data, both cell and point data, either one, or none.
 
 // .SECTION See Also
 // vtkPointSet vtkStructuredPoints vtkStructuredGrid vtkUnstructuredGrid

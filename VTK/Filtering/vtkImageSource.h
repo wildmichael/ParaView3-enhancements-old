@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSource.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:03:19 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 2000-09-01 07:22:54 $
+  Version:   $Revision: 1.44 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -75,7 +75,7 @@ public:
   int *GetExecuteExtent() {return this->ExecuteExtent;}
   
   // Description:
-  // Legacy compatability.  Do not use.
+  // Legacy compatibility.  Do not use.
   virtual void InterceptCacheUpdate() {this->LegacyHack = 0;}
   int LegacyHack;
     
