@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-21 20:26:26 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2002-03-22 20:51:45 $
+  Version:   $Revision: 1.40 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkVolumeMapper.h"
 #include "vtkImageClip.h"
 
-vtkCxxRevisionMacro(vtkVolumeMapper, "$Revision: 1.39 $");
+vtkCxxRevisionMacro(vtkVolumeMapper, "$Revision: 1.40 $");
 
 // Construct a vtkVolumeMapper with empty scalar input and clipping off.
 vtkVolumeMapper::vtkVolumeMapper()
@@ -123,6 +123,23 @@ void vtkVolumeMapper::PrintSelf(ostream& os, vtkIndent indent)
 {
   this->Superclass::PrintSelf(os,indent);
 
+  os << indent << "Independent Components: " << 
+    (this->IndependentComponents ? "On\n" : "Off\n");
+  
+  os << indent << "Component Blend Mode: ";
+  switch ( this->ComponentBlendMode )
+    {
+    case vtkVolumeMapper::ComponentBlendAdd: 
+      os << "Add\n"; 
+      break;
+    case vtkVolumeMapper::ComponentBlendMaxOpacity:
+      os << "Maximum Opacity\n";
+      break;
+    default:
+      os << "Unknown\n";
+      break;
+    }
+  
   os << indent << "Cropping: " << (this->Cropping ? "On\n" : "Off\n");
 
   os << indent << "Cropping Region Planes: " << endl 
