@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFiniteDifferenceGradientEstimator.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-19 17:25:04 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1999-11-19 21:02:32 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -44,6 +44,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkUnsignedCharArray.h"
 #include "vtkShortArray.h"
 #include "vtkUnsignedShortArray.h"
+#include "vtkIntArray.h"
 #include "vtkUnsignedIntArray.h"
 #include "vtkLongArray.h"
 #include "vtkUnsignedLongArray.h"

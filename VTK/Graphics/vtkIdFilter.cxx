@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIdFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:06:37 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-11-19 21:02:32 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,6 +39,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkIdFilter.h"
+#include "vtkIntArray.h"
 #include "vtkObjectFactory.h"
 
 
