@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetToDataObjectFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-02 21:33:35 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-12-10 14:51:58 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -236,6 +236,7 @@ void vtkDataSetToDataObjectFilter::Execute()
           }
         fd->SetArray(arrayNum, types);
         fd->SetArrayName(arrayNum++, "CellTypes");
+	types->Delete();
         }
       }
 
@@ -354,6 +355,7 @@ void vtkDataSetToDataObjectFilter::Execute()
                 <<"arrays");
   
   this->Output->SetFieldData(fd);
+  fd->Delete();
 }
 
 void vtkDataSetToDataObjectFilter::PrintSelf(ostream& os, vtkIndent indent)
