@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLImageMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-03-29 16:48:21 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2000-06-02 11:34:17 $
+  Version:   $Revision: 1.31 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -510,10 +510,8 @@ void vtkOpenGLImageMapper::RenderData(vtkViewport* viewport,
   glLoadIdentity();
   if(viewport->GetIsPicking())
     {
-    GLint glviewport[4];
-    glGetIntegerv( GL_VIEWPORT, glviewport);
     vtkgluPickMatrix(viewport->GetPickX(), viewport->GetPickY(),
-		     1, 1, glviewport);
+		     1, 1, viewport->GetOrigin(), vsize);
     }
   glMatrixMode( GL_MODELVIEW );
   glPushMatrix();

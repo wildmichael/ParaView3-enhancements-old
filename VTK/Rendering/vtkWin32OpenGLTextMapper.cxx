@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-05-31 16:43:59 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2000-06-02 11:34:17 $
+  Version:   $Revision: 1.23 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -322,10 +322,8 @@ void vtkWin32OpenGLTextMapper::RenderOpaqueGeometry(vtkViewport* viewport,
   glLoadIdentity();
   if(viewport->GetIsPicking())
     {
-    GLint glviewport[4];
-    glGetIntegerv( GL_VIEWPORT, glviewport);
     vtkgluPickMatrix(viewport->GetPickX(), viewport->GetPickY(),
-		     1, 1, glviewport);
+		     1, 1, viewport->GetOrigin(), viewport->GetSize());
     }
   
   glMatrixMode( GL_MODELVIEW );
