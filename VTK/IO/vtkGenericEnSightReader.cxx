@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGenericEnSightReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-09-23 15:02:08 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 2003-10-24 17:10:58 $
+  Version:   $Revision: 1.49 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -30,7 +30,7 @@
 
 #include <vtkstd/string>
 
-vtkCxxRevisionMacro(vtkGenericEnSightReader, "$Revision: 1.48 $");
+vtkCxxRevisionMacro(vtkGenericEnSightReader, "$Revision: 1.49 $");
 vtkStandardNewMacro(vtkGenericEnSightReader);
 
 vtkCxxSetObjectMacro(vtkGenericEnSightReader,TimeSets, 
@@ -204,8 +204,17 @@ void vtkGenericEnSightReader::Execute()
     vtkDataObject* output = this->GetOutput(i);
     if ( ! output )
       {
-      output = this->Reader->GetOutput(i);
-      this->SetNthOutput(i, output);
+      // Copy the output rather than setting directly.
+      // When we set directly, the internal reader looses its output.
+      //  Next execute, a new output is added, 
+      // and another partid is added too.
+      vtkDataObject* tmp = this->Reader->GetOutput(i);
+      output = tmp->NewInstance();
+      output->ShallowCopy(tmp);
+      this->SetNthOutput(i, output); // law: this causes the extra partid bug
+      output->Delete();
+      // Used later.
+      //output = NULL;
       }
     else
       {
