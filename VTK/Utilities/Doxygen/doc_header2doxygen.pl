@@ -1,5 +1,5 @@
 #!/usr/bin/env perl
-# Time-stamp: <2001-10-17 09:50:47 barre>
+# Time-stamp: <2001-10-17 16:29:58 barre>
 #
 # Convert VTK headers to doxygen format
 #
@@ -236,13 +236,13 @@ foreach my $source (@files) {
         last if $line =~ /\/\/ \.NAME/;
 
         # Date. Example:
-        # Date:      $Date: 2001-10-17 14:57:15 $
+        # Date:      $Date: 2001-10-18 01:20:20 $
 
         if ($line =~ /^\s*Date:\s*(.*)$/) {
             $date = $1;
 
         # Version. Example:
-        # Version:   $Revision: 1.3 $
+        # Version:   $Revision: 1.4 $
 
         } elsif ($line =~ /^\s*Version:\s*(.*)$/) {
             $revision = $1;
@@ -497,7 +497,6 @@ foreach my $source (@files) {
                  $dest, 
                  O_WRONLY|O_TRUNC|O_CREAT|$open_file_as_text)) {
         my $dir = dirname($dest);
-        print $dest, " : ", $dir, "\n";
         mkpath($dir);
         sysopen(DEST_FILE, 
                 $dest, 
