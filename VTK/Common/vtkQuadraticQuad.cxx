@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadraticQuad.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-05 20:42:34 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-06-07 10:24:43 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 #include "vtkFloatArray.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkQuadraticQuad, "$Revision: 1.7 $");
+vtkCxxRevisionMacro(vtkQuadraticQuad, "$Revision: 1.8 $");
 vtkStandardNewMacro(vtkQuadraticQuad);
 
 // Construct the line with two points.
@@ -213,8 +213,11 @@ void vtkQuadraticQuad::InterpolateAttributes(vtkPointData *inPd,
     {
     this->PointData->CopyData(inPd,this->PointIds->GetId(i),i);
     }
+
   // now interpolate the center point
+  this->PointIds->SetNumberOfIds(8);
   this->PointData->InterpolatePoint(inPd, 8, this->PointIds, weights);
+  this->PointIds->SetNumberOfIds(9);
   
   // copy the cell data over to the linear cell
   this->CellData->CopyData(inCd,cellId,0);
