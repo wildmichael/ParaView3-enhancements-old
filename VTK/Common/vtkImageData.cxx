@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-13 15:23:27 $
-  Version:   $Revision: 1.135 $
+  Date:      $Date: 2002-06-14 15:13:44 $
+  Version:   $Revision: 1.136 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -33,8 +33,9 @@
 #include "vtkLongArray.h"
 #include "vtkFloatArray.h"
 #include "vtkDoubleArray.h"
+#include "vtkBitArray.h"
 
-vtkCxxRevisionMacro(vtkImageData, "$Revision: 1.135 $");
+vtkCxxRevisionMacro(vtkImageData, "$Revision: 1.136 $");
 vtkStandardNewMacro(vtkImageData);
 
 //----------------------------------------------------------------------------
@@ -1533,6 +1534,9 @@ void vtkImageData::AllocateScalars()
   // allocate the new scalars
   switch (this->ScalarType)
     {
+    case VTK_BIT:
+      scalars = vtkBitArray::New();
+      break;
     case VTK_UNSIGNED_CHAR:
       scalars = vtkUnsignedCharArray::New();
       break;
