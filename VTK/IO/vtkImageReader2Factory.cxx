@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader2Factory.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:15 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-01-29 20:24:47 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -28,7 +28,7 @@
 #include "vtkImageReader2Collection.h"
 #include "vtkObjectFactoryCollection.h"
 
-vtkCxxRevisionMacro(vtkImageReader2Factory, "$Revision: 1.8 $");
+vtkCxxRevisionMacro(vtkImageReader2Factory, "$Revision: 1.9 $");
 vtkStandardNewMacro(vtkImageReader2Factory);
 
 class vtkCleanUpImageReader2Factory
@@ -153,12 +153,13 @@ void vtkImageReader2Factory::InitializeReaders()
 
 void vtkImageReader2Factory::GetRegisteredReaders(vtkImageReader2Collection* collection)
 {
+  vtkImageReader2Factory::InitializeReaders();
   // get all dynamic readers
   vtkObjectFactory::CreateAllInstance("vtkImageReaderObject",
                                       collection);
   // get the current registered readers
   vtkImageReader2* ret;
-    for(vtkImageReader2Factory::AvailiableReaders->InitTraversal();
+  for(vtkImageReader2Factory::AvailiableReaders->InitTraversal();
       (ret = vtkImageReader2Factory::AvailiableReaders->GetNextItem());)
     {
     collection->AddItem(ret);
