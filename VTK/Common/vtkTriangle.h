@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangle.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-30 12:49:49 $
-  Version:   $Revision: 1.73 $
+  Date:      $Date: 2001-11-30 19:14:14 $
+  Version:   $Revision: 1.74 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -188,10 +188,8 @@ public:
   // quadric as a 4x4 matrix or a vtkQuadric.  (from Peter
   // Lindstrom's Siggraph 2000 paper, "Out-of-Core Simplification of
   // Large Polygonal Models")
-//BTX
   static void ComputeQuadric(float x1[3], float x2[3], float x3[3],
                              float quadric[4][4]);
-//ETX
   static void ComputeQuadric(float x1[3], float x2[3], float x3[3],
                              vtkQuadric *quadric);
   

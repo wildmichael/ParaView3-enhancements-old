@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHomogeneousTransform.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-30 12:49:48 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2001-11-30 19:14:13 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -95,7 +95,6 @@ public:
   vtkHomogeneousTransform *GetHomogeneousInverse() {
     return (vtkHomogeneousTransform *)this->GetInverse(); };
 
-//BTX
   // Description:
   // This will calculate the transformation without calling Update.
   // Meant for use only within other VTK classes.
@@ -110,7 +109,7 @@ public:
                                    float derivative[3][3]);
   void InternalTransformDerivative(const double in[3], double out[3],
                                    double derivative[3][3]);
-//ETX
+
 protected:
   vtkHomogeneousTransform();
   ~vtkHomogeneousTransform();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractTransform.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-30 12:49:47 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2001-11-30 19:14:13 $
+  Version:   $Revision: 1.16 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -230,7 +230,6 @@ public:
   // transform needs an update.
   void Update();
 
-//BTX
   // Description:
   // This will calculate the transformation without calling Update.
   // Meant for use only within other VTK classes.
@@ -246,7 +245,7 @@ public:
                                            float derivative[3][3]) = 0;
   virtual void InternalTransformDerivative(const double in[3], double out[3],
                                            double derivative[3][3]) = 0;
-//ETX
+
   // Description:
   // Make another transform of the same type.
   virtual vtkAbstractTransform *MakeTransform() = 0;
