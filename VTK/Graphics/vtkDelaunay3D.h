@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDelaunay3D.h,v $
   Language:  C++
-  Date:      $Date: 1996-01-29 08:07:43 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1996-02-01 14:28:39 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -120,7 +120,7 @@ public:
   // Description:
   // Specify a multiplier to control the size of the initial, bounding
   // Delaunay triangulation.
-  vtkSetClampMacro(Offset,float,0.75,VTK_LARGE_FLOAT);
+  vtkSetClampMacro(Offset,float,2.5,VTK_LARGE_FLOAT);
   vtkGetMacro(Offset,float);
 
   // Description:
