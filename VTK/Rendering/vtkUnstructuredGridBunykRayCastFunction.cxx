@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGridBunykRayCastFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-12-05 22:50:32 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2003-12-06 02:28:24 $
+  Version:   $Revision: 1.14 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -34,7 +34,7 @@
 #include "vtkColorTransferFunction.h"
 #include "vtkVolumeProperty.h"
 
-vtkCxxRevisionMacro(vtkUnstructuredGridBunykRayCastFunction, "$Revision: 1.13 $");
+vtkCxxRevisionMacro(vtkUnstructuredGridBunykRayCastFunction, "$Revision: 1.14 $");
 vtkStandardNewMacro(vtkUnstructuredGridBunykRayCastFunction);
 
 #define VTK_BUNYKRCF_NUMLISTS 100000
@@ -1306,8 +1306,9 @@ void vtkUnstructuredGridBunykRayCastFunction::PrintSelf(ostream& os, vtkIndent i
 {
   this->Superclass::PrintSelf(os,indent);
   
-  // Do not want to print this->ViewToWorldMatrix or this->ImageOrigin - these are internal
-  // ivar and not part of the public API for this class
+  // Do not want to print this->ViewToWorldMatrix , this->ImageViewportSize
+  // or this->ImageOrigin - these are internal ivar and not part of the
+  // public API for this class
 }
 
 
