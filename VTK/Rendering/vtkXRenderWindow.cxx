@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-02-22 14:16:14 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 1999-09-18 16:09:45 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -288,12 +288,14 @@ void vtkXRenderWindow::SetWindowName(char * name)
     {
     if( XStringListToTextProperty( &name, 1, &win_name_text_prop ) == 0 )
       {
+      XFree (win_name_text_prop.value);
       vtkWarningMacro(<< "Can't rename window"); 
       return;
       }
     
     XSetWMName( this->DisplayId, this->WindowId, &win_name_text_prop );
     XSetWMIconName( this->DisplayId, this->WindowId, &win_name_text_prop );
+    XFree (win_name_text_prop.value);
     }
 }
 
