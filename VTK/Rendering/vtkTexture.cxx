@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTexture.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-15 15:40:31 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 2002-08-29 14:51:35 $
+  Version:   $Revision: 1.48 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,13 +16,14 @@
 
 =========================================================================*/
 #include "vtkTexture.h"
+
 #include "vtkRenderer.h"
 #include "vtkRenderWindow.h"
 #include "vtkGraphicsFactory.h"
+#include "vtkImageData.h"
+#include "vtkLookupTable.h"
 
-#include <stdlib.h>
-
-vtkCxxRevisionMacro(vtkTexture, "$Revision: 1.47 $");
+vtkCxxRevisionMacro(vtkTexture, "$Revision: 1.48 $");
 
 //----------------------------------------------------------------------------
 // Needed when we don't use the vtkStandardNewMacro.

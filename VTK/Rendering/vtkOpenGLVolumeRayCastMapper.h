@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLVolumeRayCastMapper.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-22 19:27:36 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-08-29 14:51:35 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -29,13 +29,6 @@
 #define __vtkOpenGLVolumeRayCastMapper_h
 
 #include "vtkVolumeRayCastMapper.h"
-#ifndef VTK_IMPLEMENT_MESA_CXX
-  #ifdef __APPLE__
-    #include <OpenGL/gl.h>
-  #else
-    #include <GL/gl.h>
-  #endif
-#endif
 
 class VTK_RENDERING_EXPORT vtkOpenGLVolumeRayCastMapper : public vtkVolumeRayCastMapper
 {

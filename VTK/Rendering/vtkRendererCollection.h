@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRendererCollection.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-22 18:39:31 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 2002-08-29 14:51:35 $
+  Version:   $Revision: 1.44 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -28,7 +28,7 @@
 #define __vtkRendererCollection_h
 
 #include "vtkCollection.h"
-#include "vtkRenderer.h"
+#include "vtkRenderer.h" // Needed for static cast
 
 class VTK_RENDERING_EXPORT vtkRendererCollection : public vtkCollection
 {

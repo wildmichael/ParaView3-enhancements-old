@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeMapper.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-22 18:39:31 $
-  Version:   $Revision: 1.58 $
+  Date:      $Date: 2002-08-29 14:51:35 $
+  Version:   $Revision: 1.59 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -30,10 +30,10 @@
 #define __vtkVolumeMapper_h
 
 #include "vtkAbstractMapper3D.h"
-#include "vtkImageData.h"
 
 class vtkRenderer;
 class vtkVolume;
+class vtkImageData;
 
 #define VTK_CROP_SUBVOLUME              0x0002000
 #define VTK_CROP_FENCE                  0x2ebfeba
@@ -56,7 +56,7 @@ public:
 
   // Description:
   // Set/Get the input data
-  void SetInput( vtkImageData * );
+  virtual void SetInput( vtkImageData * );
   vtkImageData *GetInput();
 
   // Description:

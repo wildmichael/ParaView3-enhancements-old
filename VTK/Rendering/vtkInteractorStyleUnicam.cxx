@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleUnicam.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-28 16:27:36 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2002-08-29 14:51:35 $
+  Version:   $Revision: 1.29 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -38,8 +38,25 @@
 #include "vtkTransform.h"
 #include "vtkWorldPointPicker.h"
 
-vtkCxxRevisionMacro(vtkInteractorStyleUnicam, "$Revision: 1.28 $");
+vtkCxxRevisionMacro(vtkInteractorStyleUnicam, "$Revision: 1.29 $");
 vtkStandardNewMacro(vtkInteractorStyleUnicam);
+
+// define 'TheTime()' function-- returns time in elapsed seconds
+#if defined(_WIN32) || defined(WIN32)
+#include <winbase.h>
+
+static double TheTime() 
+  {return double(GetTickCount())/1000.0;}
+#else
+#include <sys/time.h>
+
+static double TheTime() 
+{
+  struct timeval ts; struct timezone tz;
+  gettimeofday(&ts, &tz);
+  return (double)(ts.tv_sec + ts.tv_usec/1e6);
+}
+#endif
 
 vtkInteractorStyleUnicam::vtkInteractorStyleUnicam()
 {

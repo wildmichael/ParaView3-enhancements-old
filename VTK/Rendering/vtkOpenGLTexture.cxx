@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLTexture.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-22 18:39:31 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 2002-08-29 14:51:35 $
+  Version:   $Revision: 1.50 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -15,10 +15,14 @@
      PURPOSE.  See the above copyright notice for more information.
 
 =========================================================================*/
-#include <math.h>
-#include <string.h>
+#include "vtkOpenGLTexture.h"
 
+#include "vtkImageData.h"
+#include "vtkLookupTable.h"
+#include "vtkObjectFactory.h"
+#include "vtkOpenGLRenderer.h"
 #include "vtkRenderWindow.h"
+
 #ifdef VTK_USE_CARBON
  #include <OpenGL/gl.h>
  #include "vtkCarbonRenderWindow.h"
@@ -34,18 +38,17 @@
   #endif
  #endif
 #endif
-#include "vtkOpenGLRenderer.h"
-#include "vtkOpenGLTexture.h"
+
 #ifndef VTK_IMPLEMENT_MESA_CXX
  #ifndef __APPLE__
   #include <GL/gl.h>
  #endif
 #endif
-#include "vtkObjectFactory.h"
 
+#include <math.h>
 
 #ifndef VTK_IMPLEMENT_MESA_CXX
-vtkCxxRevisionMacro(vtkOpenGLTexture, "$Revision: 1.49 $");
+vtkCxxRevisionMacro(vtkOpenGLTexture, "$Revision: 1.50 $");
 vtkStandardNewMacro(vtkOpenGLTexture);
 #endif
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProVP1000Mapper.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-22 18:39:31 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-08-29 14:51:35 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -53,9 +53,9 @@
 #include "vtkVolumeProMapper.h"
 
 #ifdef _WIN32
-#include "VolumePro1000/inc/vli.h"
+#include "VolumePro1000/inc/vli.h" // Needed for VLI internal types
 #else
-#include "vli3/include/vli.h"
+#include "vli3/include/vli.h" // Needed for VLI internal types
 #endif
 
 #define VTK_VOLUME_16BIT 3

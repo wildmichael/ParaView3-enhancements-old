@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeTextureMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-28 19:01:17 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2002-08-29 14:51:35 $
+  Version:   $Revision: 1.25 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,11 +19,12 @@
 
 #include "vtkEncodedGradientShader.h"
 #include "vtkFiniteDifferenceGradientEstimator.h"
+#include "vtkImageData.h"
 #include "vtkRenderer.h"
 #include "vtkVolume.h"
 #include "vtkVolumeProperty.h"
 
-vtkCxxRevisionMacro(vtkVolumeTextureMapper, "$Revision: 1.24 $");
+vtkCxxRevisionMacro(vtkVolumeTextureMapper, "$Revision: 1.25 $");
 
 vtkVolumeTextureMapper::vtkVolumeTextureMapper()
 {

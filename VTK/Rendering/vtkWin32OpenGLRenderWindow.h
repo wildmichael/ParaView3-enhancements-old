@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-22 19:27:36 $
-  Version:   $Revision: 1.57 $
+  Date:      $Date: 2002-08-29 14:51:35 $
+  Version:   $Revision: 1.58 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,8 +25,9 @@
 #define __vtkWin32OpenGLRenderWindow_h
 
 #include "vtkOpenGLRenderWindow.h"
+
 #ifndef VTK_IMPLEMENT_MESA_CXX
-#include <GL/gl.h>
+#include <GL/gl.h> // Needed for mesa internals
 #endif
 
 class vtkIdList;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProMapper.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-22 18:39:31 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2002-08-29 14:51:35 $
+  Version:   $Revision: 1.31 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -50,8 +50,8 @@
 #define __vtkVolumeProMapper_h
 
 #include "vtkVolumeMapper.h"
-#include "vtkToolkits.h"
-#include "vtkVersion.h"
+#include "vtkToolkits.h" // Needed for VTK_HAVE_VP1000
+#include "vtkVersion.h" // Needed for VTK_*_VERSION
 
 //BTX
 #if defined (VTK_HAVE_VP1000) || defined (VTK_FORCE_COMPILE_VP1000)

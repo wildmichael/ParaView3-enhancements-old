@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTexture.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-13 19:26:49 $
-  Version:   $Revision: 1.56 $
+  Date:      $Date: 2002-08-29 14:51:35 $
+  Version:   $Revision: 1.57 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -45,12 +45,13 @@
 #define __vtkTexture_h
 
 #include "vtkProcessObject.h"
-#include "vtkImageData.h"
-#include "vtkLookupTable.h"
 
+class vtkImageData;
+class vtkLookupTable;
 class vtkRenderer;
-class vtkWindow;
 class vtkUnsignedCharArray;
+class vtkWindow;
+class vtkDataArray;
 
 #define VTK_TEXTURE_QUALITY_DEFAULT 0
 #define VTK_TEXTURE_QUALITY_16BIT   16

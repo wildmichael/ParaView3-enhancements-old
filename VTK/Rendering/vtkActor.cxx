@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-28 16:27:36 $
-  Version:   $Revision: 1.118 $
+  Date:      $Date: 2002-08-29 14:51:35 $
+  Version:   $Revision: 1.119 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,6 +19,7 @@
 
 #include "vtkAssemblyPaths.h"
 #include "vtkGraphicsFactory.h"
+#include "vtkImageData.h"
 #include "vtkLinearTransform.h"
 #include "vtkMapper.h"
 #include "vtkPropCollection.h"
@@ -29,7 +30,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkActor, "$Revision: 1.118 $");
+vtkCxxRevisionMacro(vtkActor, "$Revision: 1.119 $");
 
 vtkCxxSetObjectMacro(vtkActor,Texture,vtkTexture);
 

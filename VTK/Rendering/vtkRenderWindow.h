@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-09 14:11:56 $
-  Version:   $Revision: 1.129 $
+  Date:      $Date: 2002-08-29 14:51:35 $
+  Version:   $Revision: 1.130 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -42,7 +42,6 @@
 #define __vtkRenderWindow_h
 
 #include "vtkWindow.h"
-#include "vtkGraphicsFactory.h"
 
 class vtkFloatArray;
 class vtkRenderWindowInteractor;
@@ -91,8 +90,7 @@ public:
 
   // Description:
   // What rendering library has the user requested
-  static const char *GetRenderLibrary() {
-    return vtkGraphicsFactory::GetRenderLibrary();};
+  static const char *GetRenderLibrary();
 
   // Description:
   // Return the collection of renderers in the render window.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-22 19:27:36 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2002-08-29 14:51:35 $
+  Version:   $Revision: 1.31 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,10 +24,10 @@
 #ifndef __vtkMesaRenderWindow_h
 #define __vtkMesaRenderWindow_h
 
-#include "MangleMesaInclude/gl_mangle.h"
-#include <MangleMesaInclude/gl.h>
-
 #include "vtkRenderWindow.h"
+
+#include "MangleMesaInclude/gl_mangle.h" // Needed for GLuint
+#include <MangleMesaInclude/gl.h> // Needed for GLuint
 
 class vtkIdList;
 
