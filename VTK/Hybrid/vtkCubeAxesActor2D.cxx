@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCubeAxesActor2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-05 21:13:26 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2001-11-07 21:27:32 $
+  Version:   $Revision: 1.25 $
   Thanks:    Thorsten Dowe who modified and improved this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -66,6 +66,7 @@ vtkCubeAxesActor2D::vtkCubeAxesActor2D()
   this->Bounds[2] = -1.0; this->Bounds[3] = 1.0;
   this->Bounds[4] = -1.0; this->Bounds[5] = 1.0;
 
+  this->UseRanges = 0;
   this->Ranges[0] = 0; this->Ranges[1] = 0;
   this->Ranges[2] = 0; this->Ranges[3] = 0;
   this->Ranges[4] = 0; this->Ranges[5] = 0;
