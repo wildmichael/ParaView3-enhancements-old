@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCleanPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:25:03 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1995-07-12 08:38:11 $
+  Version:   $Revision: 1.11 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -100,14 +100,48 @@ void vtkCleanPolyData::Execute()
 //
 // Begin to adjust topology.
 //
-  // Vertices are just renumbered.
+  // Vertices are renumbered and we remove duplicate vertices
   if ( inVerts->GetNumberOfCells() > 0 )
     {
-    newVerts = new vtkCellArray(inVerts->GetSize());
+    int resultingNumPoints;
+    int found;
+    int nnewpts, *newpts;
+    int k;
+
+    newVerts = new vtkCellArray;
     for (inVerts->InitTraversal(); inVerts->GetNextCell(npts,pts); )
       {
-      for (j=0; j < npts; j++) updatedPts[j] = Index[pts[j]];
-      newVerts->InsertNextCell(npts, updatedPts);
+      resultingNumPoints = 0;
+      for (j=0; j < npts; j++) 
+	{
+	// is the vertex already there
+	found = 0;
+	for (newVerts->InitTraversal(); newVerts->GetNextCell(nnewpts,newpts);)
+	  {
+	  for (k = 0; k < nnewpts; k++)
+	    {
+	    if (newpts[k] == Index[pts[j]])
+	      {
+	      found = 1;
+	      }
+	    }
+	  }
+	for (k = 0; k < resultingNumPoints; k++)
+	  {
+	  if (updatedPts[k] == Index[pts[j]])
+	    {
+	    found = 1;
+	    }
+	  }
+	if (!found)
+	  {
+	  updatedPts[resultingNumPoints++] = Index[pts[j]];
+	  }
+	}
+      if (resultingNumPoints)
+	{
+	newVerts->InsertNextCell(resultingNumPoints, updatedPts);
+	}
       }
     newVerts->Squeeze();
     }
