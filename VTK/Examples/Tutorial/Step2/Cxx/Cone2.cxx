@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: Cone2.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-16 17:42:22 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-11-13 21:40:32 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -28,14 +28,20 @@
 #include "vtkActor.h"
 #include "vtkRenderer.h"
 
-class myCallback : public vtkCommand
+// Callback for the interaction
+class vtkMyCallback : public vtkCommand
 {
 public:
-  static myCallback *New() {
-    return new myCallback; }
-  virtual void Execute(vtkObject *caller, unsigned long, void *callData)
+  static vtkMyCallback *New() 
+    { return new vtkMyCallback; }
+  void Delete()
+    { delete this; }
+  virtual void Execute(vtkObject *caller, unsigned long, void*)
     {
-    cerr << "Starting to Render\n";
+      vtkRenderer *renderer = reinterpret_cast<vtkRenderer*>(caller);
+      cout << renderer->GetActiveCamera()->GetPosition()[0] << " "
+           << renderer->GetActiveCamera()->GetPosition()[1] << " "
+           << renderer->GetActiveCamera()->GetPosition()[2] << "\n";
     }
 };
 
