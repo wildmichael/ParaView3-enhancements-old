@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBandedPolyDataContourFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-01 15:08:05 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2002-02-03 21:54:02 $
+  Version:   $Revision: 1.21 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 #include "vtkObjectFactory.h"
 #include <float.h>
 
-vtkCxxRevisionMacro(vtkBandedPolyDataContourFilter, "$Revision: 1.20 $");
+vtkCxxRevisionMacro(vtkBandedPolyDataContourFilter, "$Revision: 1.21 $");
 vtkStandardNewMacro(vtkBandedPolyDataContourFilter);
 
 // Construct object.
@@ -175,7 +175,6 @@ void vtkBandedPolyDataContourFilter::Execute()
   vtkCellData *outCD = output->GetCellData();
   vtkPoints *inPts = input->GetPoints();
   vtkDataArray *inScalars = pd->GetScalars();
-  int numPts, numCells;
   int abort=0;
   vtkPoints *newPts;
   int i, j, idx, npts, cellId=0;
@@ -184,6 +183,7 @@ void vtkBandedPolyDataContourFilter::Execute()
   vtkIdType v, vR, *intPts;
   int intLoc, intsIdx, reverse;
   int numIntPts, intsInc;
+  vtkIdType numPts, numCells, estimatedSize;
 
   vtkDebugMacro(<<"Executing banded contour filter");
 
@@ -236,13 +236,24 @@ void vtkBandedPolyDataContourFilter::Execute()
   this->ClipIndex[1] = this->ComputeScalarIndex(
     this->ContourValues->GetValue(this->ContourValues->GetNumberOfContours()-1));
 
+  //
+  // Estimate allocation size, stolen from vtkContourGrid...
+  //
+  estimatedSize = (vtkIdType) pow ((double) numCells, .75);
+  estimatedSize *= this->NumberOfClipValues;
+  estimatedSize = estimatedSize / 1024 * 1024; // multiple of 1024
+  if (estimatedSize < 1024)
+    {
+    estimatedSize = 1024;
+    }
+
   // The original set of points and point data are copied. Later on 
   // intersection points due to clipping will be created.
   newPts = vtkPoints::New();
 
-  // here is a problem.  If I don't allocate a massive chunk (i.e. 30*numPts), 
+  // here is a problem.  If I don't allocate a massive chunk, 
   // I get a segfault when using a large number of bands
-  newPts->Allocate(3*numPts);
+  newPts->Allocate(estimatedSize,estimatedSize);
 
   outPD->InterpolateAllocate(pd,3*numPts,numPts);
   vtkDataArray *outScalars = outPD->GetScalars();
