@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTIFFReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-01 15:59:48 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2002-02-01 16:55:18 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -53,7 +53,7 @@ public:
   int Initialize();
   void Clean();
   int CanRead();
-  int Open( char *filename );
+  int Open( const char *filename );
   TIFF *Image;
   unsigned int Width;
   unsigned int Height;
@@ -65,7 +65,7 @@ public:
   unsigned long int TileDepth;
 };
 
-int TIFFInternal::Open( char *filename )
+int TIFFInternal::Open( const char *filename )
 {
   this->Clean();
   this->Image = TIFFOpen(filename, "r");
@@ -594,3 +594,10 @@ int vtkTIFFReader::EvaluateImageAt( void* out, void* in )
   return increment;
 }
 
+int vtkTIFFReader::CanReadFile(const char* fname)
+{
+  TIFFInternal tf;
+  int res = tf.Open(fname);
+  tf.Clean();
+  return res;
+}
