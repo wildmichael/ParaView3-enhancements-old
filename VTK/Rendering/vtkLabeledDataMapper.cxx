@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLabeledDataMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-24 21:52:52 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2001-04-03 21:22:35 $
+  Version:   $Revision: 1.22 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -149,20 +149,17 @@ void vtkLabeledDataMapper::RenderOpaqueGeometry(vtkViewport *viewport,
   char string[1024], format[1024];
   float val, x[3];
   vtkDataSet *input=this->GetInput();
-  vtkPointData *pd=input->GetPointData();
-  vtkDataArray *data;
-  float *tuple = NULL;
-  vtkFieldData *fd;
-
   if ( ! input )
     {
     vtkErrorMacro(<<"Need input data to render labels");
     return;
     }
-  else
-    {
-    input->Update();
-    }
+  vtkPointData *pd=input->GetPointData();
+  vtkDataArray *data;
+  float *tuple;
+  vtkFieldData *fd;
+
+  input->Update();
 
   // Check to see whether we have to rebuild everything
   if ( this->GetMTime() > this->BuildTime || 
