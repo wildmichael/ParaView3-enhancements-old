@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataConnectivityFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:04:32 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1998-04-07 18:06:32 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -136,7 +136,7 @@ void vtkPolyDataConnectivityFilter::Execute()
   for ( i=0; i < numPts; i++ ) PointMap[i] = -1;
 
   NewScalars = vtkScalars::New();
-  NewScalars->Allocate(numPts);
+  NewScalars->SetNumberOfScalars(numPts);
   newPts = vtkPoints::New();
   newPts->Allocate(numPts);
   //
