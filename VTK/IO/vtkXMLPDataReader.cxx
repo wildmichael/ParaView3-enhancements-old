@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLPDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-16 18:23:06 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-10-29 14:33:47 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 #include "vtkXMLDataElement.h"
 #include "vtkXMLDataReader.h"
 
-vtkCxxRevisionMacro(vtkXMLPDataReader, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkXMLPDataReader, "$Revision: 1.2 $");
 
 //----------------------------------------------------------------------------
 vtkXMLPDataReader::vtkXMLPDataReader()
@@ -300,7 +300,6 @@ int vtkXMLPDataReader::ReadPieceData()
   //vtkXMLDataElement* eCellData = this->PCellDataElement;
   
   // Copy point data and cell data for this piece.
-  int a=0;
   int i;
   for(i=0;i < output->GetPointData()->GetNumberOfArrays();++i)
     {
@@ -308,7 +307,6 @@ int vtkXMLPDataReader::ReadPieceData()
     this->CopyArrayForPoints(input->GetPointData()->GetArray(i),
                              output->GetPointData()->GetArray(i));
     }
-  a=0;
   for(i=0;i < output->GetCellData()->GetNumberOfArrays();++i)
     {
     this->CopyArrayForCells(input->GetCellData()->GetArray(i),
