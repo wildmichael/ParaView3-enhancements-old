@@ -1,10 +1,10 @@
-n/*=========================================================================
+/*=========================================================================
 
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointWidget.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-27 19:38:47 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-06-27 19:56:57 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
