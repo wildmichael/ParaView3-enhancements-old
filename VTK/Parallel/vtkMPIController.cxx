@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMPIController.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-26 20:49:39 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-02-16 14:39:18 $
+  Version:   $Revision: 1.3 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -209,6 +209,7 @@ void vtkMPIController::Finalize()
     { 
     vtkMPIController::WorldRMICommunicator->Delete();
     vtkMPIController::WorldRMICommunicator = 0;
+    vtkMPICommunicator::WorldCommunicator->Delete();
     MPI_Finalize();
     vtkMPIController::Initialized = 0;
     this->Modified();

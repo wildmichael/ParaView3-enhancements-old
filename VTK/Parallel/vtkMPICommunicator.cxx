@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMPICommunicator.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-16 16:40:01 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-02-16 14:39:18 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -87,11 +87,7 @@ vtkMPICommunicator* vtkMPICommunicator::GetWorldCommunicator()
       comm->Group->AddProcessId(i);
       }
     comm->Initialized = 1;
-    // To prevent the singleton from being deleted
-    // before Finalize().
-    // Note that Delete() is still public and malicious or erroneous
-    // code can still delete this singleton.
-    comm->Register(0);
+    comm->KeepHandleOn();
     vtkMPICommunicator::WorldCommunicator = comm;
     }
   return vtkMPICommunicator::WorldCommunicator;
