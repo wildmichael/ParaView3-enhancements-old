@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-24 14:34:48 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2001-05-09 15:35:22 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -54,6 +54,7 @@ vtkDataArray::vtkDataArray(int numComp)
   this->Size = 0;
   this->MaxId = -1;
   this->LookupTable = NULL;
+  this->ActiveComponent = 0;
 
   this->NumberOfComponents = (numComp < 1 ? 1 : numComp);
   this->Name = 0;
@@ -122,6 +123,28 @@ float vtkDataArray::GetComponent(const int i, const int j)
   return c;
 }
 
+float vtkDataArray::GetComponent(const int i)
+{
+  return this->GetComponent(i, this->ActiveComponent);
+}
+
+void vtkDataArray::SetActiveComponent(int i)
+{
+  if (i == this->ActiveComponent)
+    {
+    return;
+    }
+
+  if (i >= this->NumberOfComponents)
+    {
+    vtkWarningMacro("Active component has to be < " << this->NumberOfComponents);
+    return;
+    }
+
+  this->ActiveComponent = i;
+  this->Modified();
+}
+
 void vtkDataArray::SetComponent(const int i, const int j, const float c)
 {
   float *tuple=new float[this->NumberOfComponents];
@@ -142,6 +165,11 @@ void vtkDataArray::SetComponent(const int i, const int j, const float c)
   this->SetTuple(i,tuple);
 
   delete [] tuple;
+}
+
+void vtkDataArray::SetComponent(const int i, const float c)
+{
+  this->SetComponent(i, this->ActiveComponent, c);
 }
 
 void vtkDataArray::InsertComponent(const int i, const int j, const float c)
@@ -344,4 +372,5 @@ void vtkDataArray::PrintSelf(ostream& os, vtkIndent indent)
     {
     os << indent << "LookupTable: (none)\n";
     }
+  os << indent << "Active Component: " << this->ActiveComponent << "\n";
 }
