@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-13 16:33:30 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1995-08-15 18:47:30 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -129,7 +129,8 @@ void  vtkRenderWindowInteractor::FindPokedCamera(int x,int y)
 
 // Description:
 // When pick action successfully selects actor, this method highlights the 
-// actor appropriately.
+// actor appropriately. Currently this is done by placing a bounding box
+// around the actor.
 void vtkRenderWindowInteractor::HighlightActor(vtkActor *actor)
 {
   if ( ! this->OutlineActor )
@@ -207,7 +208,7 @@ vtkPicker *vtkRenderWindowInteractor::CreateDefaultPicker()
 }
 
 // Description:
-// Set the user method. This method is invokedon a ctrl-u.
+// Set the user method. This method is invoked on a <u> keypress.
 void vtkRenderWindowInteractor::SetUserMethod(void (*f)(void *), void *arg)
 {
   if ( f != this->UserMethod || arg != this->UserMethodArg )
