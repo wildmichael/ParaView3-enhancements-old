@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMath.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-02-02 20:02:43 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 1999-02-03 12:18:50 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -547,6 +547,8 @@ int vtkMath::JacobiN(float **a, int n, float *w, float **v)
       }
     }
 
+  delete [] b;
+  delete [] z;
   return 1;
 }
 
