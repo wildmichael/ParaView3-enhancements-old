@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTexturedSphereSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-13 14:35:11 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2001-11-13 14:14:00 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -122,9 +122,9 @@ void vtkTexturedSphereSource::Execute()
       newPoints->InsertNextPoint(x);
 
       if ( (norm = vtkMath::Norm(x)) == 0.0 )
-	{
-	norm = 1.0;
-	}
+        {
+        norm = 1.0;
+        }
       x[0] /= norm; x[1] /= norm; x[2] /= norm; 
       newNormals->InsertNextTuple(x);
 

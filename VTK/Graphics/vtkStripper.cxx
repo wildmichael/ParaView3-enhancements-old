@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStripper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-02 16:19:41 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 2001-11-13 14:13:59 $
+  Version:   $Revision: 1.51 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -162,9 +162,9 @@ void vtkStripper::Execute()
       visited[cellId] = 1;
       if ( Mesh->GetCellType(cellId) == VTK_TRIANGLE )
         {
-	//  Got a starting point for the strip.  Initialize.  Find a neighbor
-	//  to extend strip.
-	//
+        //  Got a starting point for the strip.  Initialize.  Find a neighbor
+        //  to extend strip.
+        //
         numStrips++;
         numPts = 3;
 
@@ -184,8 +184,8 @@ void vtkStripper::Execute()
             break;
             }
           }
-	//  If no unvisited neighbor, just create the strip of one triangle.
-	//
+        //  If no unvisited neighbor, just create the strip of one triangle.
+        //
         if ( i >= 3 ) 
           {
           pts[0] = triPts[0];;
@@ -195,58 +195,58 @@ void vtkStripper::Execute()
           } 
         else // continue strip 
           { 
-	  //  Have a neighbor.  March along grabbing new points
-	  //
+          //  Have a neighbor.  March along grabbing new points
+          //
           while ( neighbor >= 0 )
             {
             visited[neighbor] = 1;
             Mesh->GetCellPoints(neighbor,numTriPts, triPts);
 
             for (i=0; i<3; i++)
-	      {
+              {
               if ( triPts[i] != pts[numPts-2] && 
               triPts[i] != pts[numPts-1] )
-		{
+                {
                 break;
-		}
-	      }
+                }
+              }
 
-	    // only add the triangle to the strip if it isn't degenerate.
-	    if (i < 3)
-	      {
-	      pts[numPts] = triPts[i];
-	      Mesh->GetCellEdgeNeighbors(neighbor, pts[numPts], 
-					 pts[numPts-1], cellIds);
-	      numPts++;
-	      }
-	    
-	    if ( numPts > longestStrip )
-	      {
-	      longestStrip = numPts;
-	      }
-	    
-	    // note: if updates value of neighbor
-	    // Note2: for a degenerate triangle this test will
-	    // correctly fail because the visited[neighbor] will
-	    // now be visited
-	    if ( cellIds->GetNumberOfIds() <= 0 || 
-		 visited[neighbor=cellIds->GetId(0)] ||
-		 Mesh->GetCellType(neighbor) != VTK_TRIANGLE ||
-		 numPts >= (this->MaximumLength+2) )
-	      {
-	      newStrips->InsertNextCell(numPts,pts);
-	      neighbor = (-1);
-	      }
-	    } // while
-	  } // else continue strip
-	} // if triangle
+            // only add the triangle to the strip if it isn't degenerate.
+            if (i < 3)
+              {
+              pts[numPts] = triPts[i];
+              Mesh->GetCellEdgeNeighbors(neighbor, pts[numPts], 
+                                         pts[numPts-1], cellIds);
+              numPts++;
+              }
+            
+            if ( numPts > longestStrip )
+              {
+              longestStrip = numPts;
+              }
+            
+            // note: if updates value of neighbor
+            // Note2: for a degenerate triangle this test will
+            // correctly fail because the visited[neighbor] will
+            // now be visited
+            if ( cellIds->GetNumberOfIds() <= 0 || 
+                 visited[neighbor=cellIds->GetId(0)] ||
+                 Mesh->GetCellType(neighbor) != VTK_TRIANGLE ||
+                 numPts >= (this->MaximumLength+2) )
+              {
+              newStrips->InsertNextCell(numPts,pts);
+              neighbor = (-1);
+              }
+            } // while
+          } // else continue strip
+        } // if triangle
       
       else if ( Mesh->GetCellType(cellId) == VTK_LINE )
         {
-	//
-	//  Got a starting point for the line.  Initialize.  Find a neighbor
-	//  to extend poly-line.
-	//
+        //
+        //  Got a starting point for the line.  Initialize.  Find a neighbor
+        //  to extend poly-line.
+        //
         numLines++;
         numPts = 2;
 
@@ -268,34 +268,34 @@ void vtkStripper::Execute()
               }
             }
           }
-	//  If no unvisited neighbor, just create the poly-line from one line.
-	//
+        //  If no unvisited neighbor, just create the poly-line from one line.
+        //
         if ( !foundOne ) 
           {
-	  newLines->InsertNextCell(2,linePts);
+          newLines->InsertNextCell(2,linePts);
           } 
         else // continue poly-line
           { 
-	  //  Have a neighbor.  March along grabbing new points
-	  //
+          //  Have a neighbor.  March along grabbing new points
+          //
           while ( neighbor >= 0 )
             {
             visited[neighbor] = 1;
             Mesh->GetCellPoints(neighbor, numLinePts, linePts);
 
             for (i=0; i<2; i++)
-	      {
+              {
               if ( linePts[i] != pts[numPts-1] )
-		{
+                {
                 break;
-		}
-	      }
+                }
+              }
             pts[numPts] = linePts[i];
             Mesh->GetPointCells(pts[numPts], cellIds);
             if ( ++numPts > longestLine )
-	      {
-	      longestLine = numPts;
-	      }
+              {
+              longestLine = numPts;
+              }
 
             // get new neighbor
             for ( j=0; j < cellIds->GetNumberOfIds(); j++ )

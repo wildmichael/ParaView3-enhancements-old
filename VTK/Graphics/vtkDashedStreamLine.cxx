@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDashedStreamLine.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-13 14:35:11 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2001-11-13 14:13:52 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -168,9 +168,9 @@ void vtkDashedStreamLine::Execute()
           vPrev[j] = v[j];
           }
         if ( newScalars )
-	  {
-	  scalarPrev = s;
-	  }
+          {
+          scalarPrev = s;
+          }
         tOffset += this->StepLength;
 
         } // while

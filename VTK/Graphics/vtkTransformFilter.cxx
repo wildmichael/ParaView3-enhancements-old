@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransformFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-02 16:42:19 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2001-11-13 14:14:01 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -131,8 +131,8 @@ void vtkTransformFilter::Execute()
   if ( inVectors || inNormals )
     {
     this->Transform->TransformPointsNormalsVectors(inPts,newPts,
-						   inNormals,newNormals,
-						   inVectors,newVectors);
+                                                   inNormals,newNormals,
+                                                   inVectors,newVectors);
     }
   else
     {

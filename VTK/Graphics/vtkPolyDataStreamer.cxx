@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataStreamer.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-18 17:16:40 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2001-11-13 14:13:56 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -138,7 +138,7 @@ void vtkPolyDataStreamer::Execute()
       {
       for (j = 0; j < input->GetNumberOfCells(); ++j)
         {
-	tmp = static_cast<float>(inPiece);
+        tmp = static_cast<float>(inPiece);
         pieceColors->InsertNextTuple(&tmp);
         }
       }

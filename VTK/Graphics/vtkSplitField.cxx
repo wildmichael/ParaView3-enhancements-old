@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSplitField.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-02 16:42:07 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-11-13 14:13:59 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -129,7 +129,7 @@ void vtkSplitField::SetInputField(int attributeType, int fieldLoc)
 }
 
 void vtkSplitField::SetInputField(const char* name,
-				  const char* fieldLoc)
+                                  const char* fieldLoc)
 {
   if ( !name || !fieldLoc)
     {
@@ -278,11 +278,11 @@ void vtkSplitField::Execute()
       {
       outputArray = this->SplitArray(inputArray, before->Index);
       if (outputArray)
-	{
-	outputArray->SetName(before->FieldName);
-	outputFD->AddArray(outputArray);
-	outputArray->UnRegister(this);
-	}
+        {
+        outputArray->SetName(before->FieldName);
+        outputFD->AddArray(outputArray);
+        outputArray->UnRegister(this);
+        }
       }
     } 
   while (cur);
@@ -291,7 +291,7 @@ void vtkSplitField::Execute()
 // fast pointer copy
 template <class T>
 static void CopyTuples(T* input, T* output, vtkIdType numTuples, 
-		       int numComp, int component)
+                       int numComp, int component)
 {
   for (int i=0; i<numTuples; i++)
     {
@@ -316,21 +316,21 @@ vtkDataArray* vtkSplitField::SplitArray(vtkDataArray* da, int component)
     switch (output->GetDataType())
       {
       vtkTemplateMacro5(CopyTuples, (VTK_TT *)da->GetVoidPointer(0), 
-			(VTK_TT *)output->GetVoidPointer(0), numTuples,
-			da->GetNumberOfComponents(), component );
+                        (VTK_TT *)output->GetVoidPointer(0), numTuples,
+                        da->GetNumberOfComponents(), component );
       // This is not supported by the template macro.
       // Switch to using the float interface.
       case VTK_BIT:
       {
       for(int i=0; i<numTuples; i++)
-	{
-	output->SetComponent(i, 0, da->GetComponent(i, component));
-	}
+        {
+        output->SetComponent(i, 0, da->GetComponent(i, component));
+        }
       }
       break;
       default:
-	vtkErrorMacro(<<"Sanity check failed: Unsupported data type.");
-	return 0;
+        vtkErrorMacro(<<"Sanity check failed: Unsupported data type.");
+        return 0;
       }
     }
   

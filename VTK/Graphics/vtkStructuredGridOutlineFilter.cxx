@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridOutlineFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-10-31 16:36:10 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2001-11-13 14:13:59 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -119,7 +119,7 @@ void vtkStructuredGridOutlineFilter::Execute()
         inc = zInc;
       break;
       case 1:
-	    // start (xMax, 0, 0) increment z axis.
+            // start (xMax, 0, 0) increment z axis.
         if (ext[1] >= wExt[1] && ext[2] <= wExt[2])
           {
           edgeFlag = 1;

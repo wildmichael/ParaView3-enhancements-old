@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadricDecimation.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-06 14:13:20 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2001-11-13 14:13:57 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -626,7 +626,7 @@ float vtkQuadricDecimation::ComputeCost(vtkIdType edgeId, float x[3],
     for (i = 0; i < this->AttributeComponents[0]; i++)
       {
       pd->GetScalars()->InsertComponent(edgeId, components,
-					newPoint[3 + components]);
+                                        newPoint[3 + components]);
       components++;
       }
     }
@@ -665,7 +665,7 @@ float vtkQuadricDecimation::ComputeCost(vtkIdType edgeId, float x[3],
   if (this->AttributeComponents[4] > 0)
     {
     pd->GetTensors()->InsertTuple9(edgeId, newPoint[3 + components],
-				   newPoint[3 + components+1],
+                                   newPoint[3 + components+1],
                                    newPoint[3 + components+2],
                                    newPoint[3 + components+3],
                                    newPoint[3 + components+4],
@@ -681,8 +681,8 @@ float vtkQuadricDecimation::ComputeCost(vtkIdType edgeId, float x[3],
     for (i = 0; i < this->AttributeComponents[5]; i++)
       {
       pd->InsertComponent(edgeId, this->AttributeComponents[5]
-			  - (this->NumberOfComponents - components),
-			  newPoint[3 + components]);
+                          - (this->NumberOfComponents - components),
+                          newPoint[3 + components]);
       components++;
       }
     }
@@ -746,7 +746,7 @@ float vtkQuadricDecimation::ComputeCost(vtkIdType edgeId, float x[3],
 
 //----------------------------------------------------------------------------
 void vtkQuadricDecimation::FindAffectedEdges(vtkIdType p1Id, vtkIdType p2Id,
-					     vtkIdList *edges)
+                                             vtkIdList *edges)
 {
   vtkIdList *cellIds = vtkIdList::New();
   vtkIdType edgeId, pointId;

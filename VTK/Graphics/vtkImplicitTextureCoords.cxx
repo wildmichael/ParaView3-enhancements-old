@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitTextureCoords.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-28 13:33:50 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2001-11-13 14:13:54 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -158,13 +158,13 @@ void vtkImplicitTextureCoords::Execute()
     for (i=0; i<tcoordDim; i++)
       {
       if (tCoord[i] < min[i])
-	{
-	min[i] = tCoord[i];
-	}
+        {
+        min[i] = tCoord[i];
+        }
       if (tCoord[i] > max[i])
-	{
-	max[i] = tCoord[i];
-	}
+        {
+        max[i] = tCoord[i];
+        }
       }
 
     newTCoords->InsertTuple(ptId,tCoord);
@@ -179,13 +179,13 @@ void vtkImplicitTextureCoords::Execute()
     if ( max[i] > 0.0 && min[i] < 0.0 ) //have positive & negative numbers
       {
       if ( max[i] > (-min[i]) )
-	{
-	scale[i] = 0.499 / max[i]; //scale into 0.5->1
-	}
+        {
+        scale[i] = 0.499 / max[i]; //scale into 0.5->1
+        }
       else
-	{
-	scale[i] = -0.499 / min[i]; //scale into 0->0.5
-	}
+        {
+        scale[i] = -0.499 / min[i]; //scale into 0->0.5
+        }
       }
     else if ( max[i] > 0.0 ) //have positive numbers only
       {

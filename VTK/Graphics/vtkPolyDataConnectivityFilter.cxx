@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataConnectivityFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-02 16:41:57 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2001-11-13 14:13:56 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -460,7 +460,7 @@ void vtkPolyDataConnectivityFilter::TraverseAndMark ()
             {
             this->PointMap[ptId] = this->PointNumber++;
             this->NewScalars->SetComponent(this->PointMap[ptId], 0,
-					   this->RegionNumber);
+                                           this->RegionNumber);
             }
 
           this->Mesh->GetPointCells(ptId,ncells,cells);
@@ -475,10 +475,10 @@ void vtkPolyDataConnectivityFilter::TraverseAndMark ()
               float s, range[2];
 
               this->Mesh->GetCellPoints(cellId, this->NeighborCellPointIds);
-	      numScalars = this->NeighborCellPointIds->GetNumberOfIds();
-	      this->CellScalars->SetNumberOfTuples(numScalars);
+              numScalars = this->NeighborCellPointIds->GetNumberOfIds();
+              this->CellScalars->SetNumberOfTuples(numScalars);
               this->InScalars->GetTuples(this->NeighborCellPointIds,
-					 this->CellScalars);
+                                         this->CellScalars);
               range[0] = VTK_LARGE_FLOAT; range[1] = -VTK_LARGE_FLOAT;
               for (ii=0; ii < numScalars;  ii++)
                 {

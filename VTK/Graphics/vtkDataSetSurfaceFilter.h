@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetSurfaceFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:36:55 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2001-11-13 14:13:49 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -91,9 +91,9 @@ protected:
 
   // Helper methods.
   void ExecuteFaceStrips(vtkDataSet *input, int maxFlag, int *ext,
-			 int aAxis, int bAxis, int cAxis);
+                         int aAxis, int bAxis, int cAxis);
   void ExecuteFaceQuads(vtkDataSet *input, int maxFlag, int *ext,
-			int aAxis, int bAxis, int cAxis);
+                        int aAxis, int bAxis, int cAxis);
 
   void InitializeQuadHash(vtkIdType numPoints);
   void DeleteQuadHash();

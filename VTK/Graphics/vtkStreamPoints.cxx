@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-13 14:35:11 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2001-11-13 14:13:59 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -130,7 +130,7 @@ void vtkStreamPoints::Execute()
 
           // add point to line
           id = newPts->InsertNextPoint(x);
-	  pts->InsertNextId(id);
+          pts->InsertNextId(id);
           newVectors->InsertTuple(id,v);
 
           if ( newScalars ) 

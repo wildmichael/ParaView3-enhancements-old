@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextureMapToSphere.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-13 14:35:11 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2001-11-13 14:14:00 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -122,13 +122,13 @@ void vtkTextureMapToSphere::Execute()
         {
         phi = 0.0;
         if ( diff > 0.0 )
-	  {
-	  tc[1] = 0.0;
-	  }
+          {
+          tc[1] = 0.0;
+          }
         else
-	  {
-	  tc[1] = 1.0;
-	  }
+          {
+          tc[1] = 1.0;
+          }
         }
       else
         {
@@ -148,13 +148,13 @@ void vtkTextureMapToSphere::Execute()
       if ( fabs((diff=x[0]-this->Center[0])) > r )
         {
         if ( diff > 0.0 )
-	  {
-	  thetaX = 0.0;
-	  }
+          {
+          thetaX = 0.0;
+          }
         else
-	  {
-	  thetaX = vtkMath::Pi();
-	  }
+          {
+          thetaX = vtkMath::Pi();
+          }
         }
       else
         {
@@ -164,13 +164,13 @@ void vtkTextureMapToSphere::Execute()
       if ( fabs((diff=x[1]-this->Center[1])) > r )
         {
         if ( diff > 0.0 )
-	  {
-	  thetaY = PiOverTwo;
-	  }
+          {
+          thetaY = PiOverTwo;
+          }
         else
-	  {
-	  thetaY = -PiOverTwo;
-	  }
+          {
+          thetaY = -PiOverTwo;
+          }
         }
       else
         {

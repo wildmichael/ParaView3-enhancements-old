@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSelectPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 18:11:26 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2001-11-13 14:13:58 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -219,9 +219,9 @@ void vtkSelectPolyData::Execute()
         neiId = neighbors->GetId(j);
         inPts->GetPoint(neiId, neiX);
         for (k=0; k<3; k++)
-	  {
-	  dir[k] = neiX[k] - x[k];
-	  }
+          {
+          dir[k] = neiX[k] - x[k];
+          }
         if ( neiId != prevId && vtkMath::Dot(dir,vec) > 0.0 ) //candidate
           {
           dist2 = vtkLine::DistanceToLine(neiX, x0, x1);
@@ -311,9 +311,9 @@ void vtkSelectPolyData::Execute()
         if ( cellMarks->GetValue(id) == VTK_LARGE_INTEGER )
           {
           if ( currentFrontNumber > maxFront )
-	    {
-	    maxFrontCell = id;
-	    }
+            {
+            maxFrontCell = id;
+            }
           cellMarks->SetValue(id, currentFrontNumber);
           this->Mesh->GetCellPoints(id,npts,pts);
           for (k=0; k<npts; k++)
@@ -484,7 +484,7 @@ void vtkSelectPolyData::Execute()
           }//for all loop edges
           closestDist2 = sqrt((double)closestDist2);
           selectionScalars->SetComponent(j,0,
-					 closestDist2*pointMarks->GetValue(j));
+                                         closestDist2*pointMarks->GetValue(j));
         }
       }
 

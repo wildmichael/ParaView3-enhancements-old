@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpLens.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-02 18:08:08 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2001-11-13 14:14:02 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -95,7 +95,7 @@ vtkWarpLens::vtkWarpLens()
   this->FormatWidth = 1.0;
   this->FormatHeight = 1.0;
   this->ImageWidth = 1;
-  this->ImageHeight = 1;	
+  this->ImageHeight = 1;        
 }
 
 void vtkWarpLens::Execute()
@@ -167,7 +167,7 @@ void vtkWarpLens::Execute()
     newPixel[1] = (newY - this->PrincipalPoint[1]) / 
       this->FormatHeight * this->ImageHeight * -1; 
 
-    newPixel[2] = pixel[2];		// pixel color
+    newPixel[2] = pixel[2];             // pixel color
     newPts->SetPoint(ptId, newPixel);
     }
 

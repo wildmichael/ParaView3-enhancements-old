@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProgrammableGlyphFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-02 16:41:59 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2001-11-13 14:13:57 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -191,9 +191,9 @@ void vtkProgrammableGlyphFilter::Execute()
       {
       this->UpdateProgress ((float)this->PointId/numPts);
       if (this->GetAbortExecute())
-	{
-	break;
-	}
+        {
+        break;
+        }
       }
 
     input->GetPoint(this->PointId, this->Point);

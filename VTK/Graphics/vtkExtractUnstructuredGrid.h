@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractUnstructuredGrid.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-01 18:02:49 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2001-11-13 14:13:49 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -116,7 +116,7 @@ public:
   // Description:
   // Specify a (xmin,xmax, ymin,ymax, zmin,zmax) bounding box to clip data.
   void SetExtent(float xMin, float xMax, float yMin, float yMax, 
-		 float zMin, float zMax);
+                 float zMin, float zMax);
 
   // Description:
   // Set / get a (xmin,xmax, ymin,ymax, zmin,zmax) bounding box to clip data.

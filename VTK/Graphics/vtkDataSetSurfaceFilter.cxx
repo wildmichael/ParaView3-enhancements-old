@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetSurfaceFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-10-31 16:36:09 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2001-11-13 14:13:53 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -280,8 +280,8 @@ void vtkDataSetSurfaceFilter::StructuredExecute(vtkDataSet *input, int *ext)
 
 //----------------------------------------------------------------------------
 void vtkDataSetSurfaceFilter::ExecuteFaceStrips(vtkDataSet *input, 
-					      int maxFlag, int *ext,
-					      int aAxis, int bAxis, int cAxis)
+                                              int maxFlag, int *ext,
+                                              int aAxis, int bAxis, int cAxis)
 {
   vtkPolyData  *output;
   vtkPoints    *outPts;
@@ -416,8 +416,8 @@ void vtkDataSetSurfaceFilter::ExecuteFaceStrips(vtkDataSet *input,
 
 //----------------------------------------------------------------------------
 void vtkDataSetSurfaceFilter::ExecuteFaceQuads(vtkDataSet *input, 
-					     int maxFlag, int *ext,
-					     int aAxis, int bAxis, int cAxis)
+                                             int maxFlag, int *ext,
+                                             int aAxis, int bAxis, int cAxis)
 {
   vtkPolyData  *output;
   vtkPoints    *outPts;
@@ -1102,7 +1102,7 @@ void vtkDataSetSurfaceFilter::InsertQuadInHash(vtkIdType a, vtkIdType b,
         // We have a match.
         quad->SourceId = -1;
         // That is all we need to do.  Hide any quad shared by two or more cells.
-	//cerr << "   Duplicate\n";
+        //cerr << "   Duplicate\n";
         return;
         }
       }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataNormals.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-28 19:31:21 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 2001-11-13 14:13:56 $
+  Version:   $Revision: 1.49 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -118,7 +118,7 @@ void vtkPolyDataNormals::Execute()
     output->CopyStructure(input);
     output->GetPointData()->PassData(input->GetPointData());
     output->GetCellData()->PassData(input->GetCellData());
-	output->SetFieldData(input->GetFieldData());
+        output->SetFieldData(input->GetFieldData());
     return;
     }
   output->GetCellData()->PassData(input->GetCellData());

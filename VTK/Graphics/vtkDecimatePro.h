@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDecimatePro.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:36:56 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 2001-11-13 14:13:49 $
+  Version:   $Revision: 1.49 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -155,9 +155,9 @@ public:
   ~vtkProTriArray()
     {
       if (this->Array)
-	{
-	delete [] this->Array;
-	}
+        {
+        delete [] this->Array;
+        }
     };
   vtkIdType GetNumberOfTriangles() {return this->MaxId + 1;};
   void InsertNextTriangle(vtkProLocalTri& t) 

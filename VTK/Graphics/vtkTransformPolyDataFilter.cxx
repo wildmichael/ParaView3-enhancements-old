@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransformPolyDataFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-02 16:42:20 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2001-11-13 14:14:01 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -127,8 +127,8 @@ void vtkTransformPolyDataFilter::Execute()
   if ( inVectors || inNormals )
     {
     this->Transform->TransformPointsNormalsVectors(inPts,newPts,
-						   inNormals,newNormals,
-						   inVectors,newVectors);
+                                                   inNormals,newNormals,
+                                                   inVectors,newVectors);
     }
   else
     {

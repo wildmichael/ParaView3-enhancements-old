@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMassProperties.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-25 13:43:24 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2001-11-13 14:13:55 $
+  Version:   $Revision: 1.20 $
   Thanks:    Thanks to Abdalmajeid M. Alyassin who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -230,7 +230,7 @@ void vtkMassProperties::Execute()
 
     // determine max unit normal component...
     //
-    absu[0] = fabs(u[0]); absu[1] = fabs(u[1]); absu[2] = fabs(u[2]);	
+    absu[0] = fabs(u[0]); absu[1] = fabs(u[1]); absu[2] = fabs(u[2]);   
 
     if (( absu[0] > absu[1]) && ( absu[0] > absu[2]) )
       {

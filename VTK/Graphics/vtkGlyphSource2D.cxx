@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGlyphSource2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-18 17:16:40 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2001-11-13 14:13:54 $
+  Version:   $Revision: 1.8 $
   Thanks:    Tim Smith who sponsored and encouraged the development
              of this class.
 
@@ -506,7 +506,7 @@ void vtkGlyphSource2D::CreateHookedArrow(vtkPoints *pts, vtkCellArray *lines,
 
 void vtkGlyphSource2D::CreateDash(vtkPoints *pts, vtkCellArray *lines,
                                   vtkCellArray *polys, vtkUnsignedCharArray *colors,
-								  float scale)
+                                                                  float scale)
 {
   vtkIdType ptIds[5];
   ptIds[0] = pts->InsertNextPoint(-0.5, -0.1, 0.0);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadricClustering.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:12 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2001-11-13 14:13:50 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -215,7 +215,7 @@ protected:
   // Description:
   // Determine the representative point for this bin.
   void ComputeRepresentativePoint(float quadric[9], vtkIdType binId,
-				  float point[3]);
+                                  float point[3]);
 
   // Description:
   // Add triangles to the quadric array.  If geometry flag is on then

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractUnstructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-28 13:33:49 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2001-11-13 14:13:53 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -110,9 +110,9 @@ void vtkExtractUnstructuredGrid::SetExtent(float extent[6])
     for (i=0; i<3; i++)
       {
       if ( extent[2*i+1] < extent[2*i] )
-	{
-	extent[2*i+1] = extent[2*i];
-	}
+        {
+        extent[2*i+1] = extent[2*i];
+        }
       this->Extent[2*i] = extent[2*i];
       this->Extent[2*i+1] = extent[2*i+1];
       }
@@ -194,9 +194,9 @@ void vtkExtractUnstructuredGrid::Execute()
             }
           }
         if ( i >= numIds )
-	  {
-	  cellVis[cellId] = 1;
-	  }
+          {
+          cellVis[cellId] = 1;
+          }
         }
       }
     }
@@ -263,7 +263,7 @@ void vtkExtractUnstructuredGrid::Execute()
 
       newCellId = output->InsertNextCell(input->GetCellType(cellId), cellIds);
       outputCD->CopyData(cd, cellId, newCellId);
-	
+        
       } //if cell is visible
     } //for all cells
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInterpolateDataSetAttributes.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-02 16:41:53 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2001-11-13 14:13:54 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -234,9 +234,9 @@ void vtkInterpolateDataSetAttributes::Execute()
       {
       this->UpdateProgress ((float)i/numPts * 0.50);
       if (this->GetAbortExecute())
-	{
-	break;
-	}
+        {
+        break;
+        }
       }
 
     outputPD->InterpolateTime(inputPD, input2PD, i, t);
@@ -249,9 +249,9 @@ void vtkInterpolateDataSetAttributes::Execute()
       {
       this->UpdateProgress (0.5 + (float)i/numCells * 0.50);
       if (this->GetAbortExecute())
-	{
-	break;
-	}
+        {
+        break;
+        }
       }
 
     outputCD->InterpolateTime(inputCD, input2CD, i, t);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpLens.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:21 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2001-11-13 14:13:51 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -108,15 +108,15 @@ protected:
 
   void Execute();
 
-  float PrincipalPoint[2]; 	// The calibrated principal point of camera/lens in mm
-  float K1; 			// Symmetric radial distortion parameters
+  float PrincipalPoint[2];      // The calibrated principal point of camera/lens in mm
+  float K1;                     // Symmetric radial distortion parameters
   float K2;
-  float P1;			// Decentering distortion parameters
+  float P1;                     // Decentering distortion parameters
   float P2;
-  float FormatWidth;		// imager format width in mm
-  float FormatHeight;		// imager format height in mm
-  int ImageWidth;		// image width in pixels
-  int ImageHeight;		// image height in pixels
+  float FormatWidth;            // imager format width in mm
+  float FormatHeight;           // imager format height in mm
+  int ImageWidth;               // image width in pixels
+  int ImageHeight;              // image height in pixels
 private:
   vtkWarpLens(const vtkWarpLens&);  // Not implemented.
   void operator=(const vtkWarpLens&);  // Not implemented.

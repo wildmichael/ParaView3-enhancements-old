@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSpatialRepresentationFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-24 20:38:06 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2001-11-13 14:13:59 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -152,10 +152,10 @@ void vtkSpatialRepresentationFilter::GenerateOutput()
     for ( i=0; i <= this->Level; i++ )
       {
       if ( i < this->NumberOfOutputs && this->Outputs[i] != NULL )
-	{
-	output = (vtkPolyData *)(this->Outputs[i]);
-	output->Initialize();
-	}
+        {
+        output = (vtkPolyData *)(this->Outputs[i]);
+        output->Initialize();
+        }
       }
     }
 

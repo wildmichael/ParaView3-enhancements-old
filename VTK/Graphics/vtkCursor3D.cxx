@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCursor3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-18 13:13:02 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2001-11-13 14:13:52 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -126,13 +126,13 @@ void vtkCursor3D::Execute()
     for (i=0; i<3; i++)
       {
       if ( this->FocalPoint[i] < this->ModelBounds[2*i] )
-	{
+        {
         this->FocalPoint[i] = this->ModelBounds[2*i];
-	}
+        }
       if ( this->FocalPoint[i] > this->ModelBounds[2*i+1] )
-	{
+        {
         this->FocalPoint[i] = this->ModelBounds[2*i+1];
-	}
+        }
       }
     }
 //
@@ -443,9 +443,9 @@ void vtkCursor3D::SetModelBounds(float xmin, float xmax, float ymin, float ymax,
     for (int i=0; i<3; i++)
       {
       if ( this->ModelBounds[2*i] > this->ModelBounds[2*i+1] )
-	{
-	this->ModelBounds[2*i] = this->ModelBounds[2*i+1];
-	}
+        {
+        this->ModelBounds[2*i] = this->ModelBounds[2*i+1];
+        }
       }
     }
 }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkConnectivityFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-02 16:41:44 $
-  Version:   $Revision: 1.60 $
+  Date:      $Date: 2001-11-13 14:13:52 $
+  Version:   $Revision: 1.61 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -407,7 +407,7 @@ void vtkConnectivityFilter::TraverseAndMark ()
             {
             this->PointMap[ptId] = this->PointNumber++;
             this->NewScalars->SetComponent(this->PointMap[ptId], 0,
-					   this->RegionNumber);
+                                           this->RegionNumber);
             }
 
           input->GetPointCells(ptId,this->CellIds);
@@ -423,11 +423,11 @@ void vtkConnectivityFilter::TraverseAndMark ()
               float s, range[2];
 
               input->GetCellPoints(cellId, this->NeighborCellPointIds);
-	      numScalars = this->NeighborCellPointIds->GetNumberOfIds();
-	      this->CellScalars->SetNumberOfComponents(this->InScalars->GetNumberOfComponents());
-	      this->CellScalars->SetNumberOfTuples(numScalars);
+              numScalars = this->NeighborCellPointIds->GetNumberOfIds();
+              this->CellScalars->SetNumberOfComponents(this->InScalars->GetNumberOfComponents());
+              this->CellScalars->SetNumberOfTuples(numScalars);
               this->InScalars->GetTuples(this->NeighborCellPointIds,
-					 this->CellScalars);
+                                         this->CellScalars);
               range[0] = VTK_LARGE_FLOAT; range[1] = -VTK_LARGE_FLOAT;
               for (ii=0; ii < numScalars;  ii++)
                 {

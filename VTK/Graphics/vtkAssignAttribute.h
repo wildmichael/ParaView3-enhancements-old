@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAssignAttribute.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:36:43 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-11-13 14:13:48 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -107,7 +107,7 @@ public:
   // Helper method used by other language bindings. Allows the caller to
   // specify arguments as strings instead of enums.
   void Assign(const char* name, const char* attributeType, 
-	      const char* attributeLoc);
+              const char* attributeLoc);
 
 
 //BTX

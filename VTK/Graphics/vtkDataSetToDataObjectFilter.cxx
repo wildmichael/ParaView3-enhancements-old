@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetToDataObjectFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-26 15:21:25 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2001-11-13 14:13:53 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -169,25 +169,25 @@ void vtkDataSetToDataObjectFilter::Execute()
       if ( pd->GetVerts()->GetNumberOfCells() > 0 )
         {
         ca = pd->GetVerts();
-	ca->GetData()->SetName("Verts");
+        ca->GetData()->SetName("Verts");
         fd->AddArray( ca->GetData() );
         }
       if ( pd->GetLines()->GetNumberOfCells() > 0 )
         {
         ca = pd->GetLines();
-	ca->GetData()->SetName("Lines");
+        ca->GetData()->SetName("Lines");
         fd->AddArray( ca->GetData() );
         }
       if ( pd->GetPolys()->GetNumberOfCells() > 0 )
         {
         ca = pd->GetPolys();
-	ca->GetData()->SetName("Polys");
+        ca->GetData()->SetName("Polys");
         fd->AddArray( ca->GetData() );
         }
       if ( pd->GetStrips()->GetNumberOfCells() > 0 )
         {
         ca = pd->GetStrips();
-	ca->GetData()->SetName("Strips");
+        ca->GetData()->SetName("Strips");
         fd->AddArray( ca->GetData() );
         }
       }
@@ -239,7 +239,7 @@ void vtkDataSetToDataObjectFilter::Execute()
       vtkCellArray *ca=((vtkUnstructuredGrid *)input)->GetCells();
       if ( ca != NULL && ca->GetNumberOfCells() > 0 )
         {
-	ca->GetData()->SetName("Cells");
+        ca->GetData()->SetName("Cells");
         fd->AddArray( ca->GetData() );
 
         vtkIdType numCells=input->GetNumberOfCells();
@@ -249,9 +249,9 @@ void vtkDataSetToDataObjectFilter::Execute()
           {
           types->SetValue(i, input->GetCellType(i));
           }
-	types->SetName("CellTypes");
+        types->SetName("CellTypes");
         fd->AddArray( types ); 
-	types->Delete();
+        types->Delete();
         }
       }
 
@@ -319,7 +319,7 @@ vtkDataSet *vtkDataSetToDataObjectFilter::GetInput()
 
 //----------------------------------------------------------------------------
 void vtkDataSetToDataObjectFilter::ComputeInputUpdateExtents(
-					    vtkDataObject *vtkNotUsed(output))
+                                            vtkDataObject *vtkNotUsed(output))
 {
   if (this->GetInput())
     {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThreshold.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-02 16:42:14 $
-  Version:   $Revision: 1.52 $
+  Date:      $Date: 2001-11-13 14:14:01 $
+  Version:   $Revision: 1.53 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -208,25 +208,25 @@ void vtkThreshold::Execute()
     if ( usePointScalars )
       {
       if (this->AllScalars)
-	{
-	keepCell = 1;
-	for ( i=0; keepCell && (i < numCellPts); i++)
-	  {
-	  ptId = cellPts->GetId(i);
-	  keepCell = 
-	    (this->*(this->ThresholdFunction))(pointScalars->GetComponent(ptId,0));
-	  }
-	}
+        {
+        keepCell = 1;
+        for ( i=0; keepCell && (i < numCellPts); i++)
+          {
+          ptId = cellPts->GetId(i);
+          keepCell = 
+            (this->*(this->ThresholdFunction))(pointScalars->GetComponent(ptId,0));
+          }
+        }
       else
-	{
-	keepCell = 0;
-	for ( i=0; (!keepCell) && (i < numCellPts); i++)
-	  {
-	  ptId = cellPts->GetId(i);
-	  keepCell = 
-	    (this->*(this->ThresholdFunction))(pointScalars->GetComponent(ptId,0));
-	  }
-	}
+        {
+        keepCell = 0;
+        for ( i=0; (!keepCell) && (i < numCellPts); i++)
+          {
+          ptId = cellPts->GetId(i);
+          keepCell = 
+            (this->*(this->ThresholdFunction))(pointScalars->GetComponent(ptId,0));
+          }
+        }
       }
     else //use cell scalars
       {

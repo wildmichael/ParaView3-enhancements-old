@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTubeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-02 16:42:22 $
-  Version:   $Revision: 1.54 $
+  Date:      $Date: 2001-11-13 14:14:01 $
+  Version:   $Revision: 1.55 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -192,7 +192,7 @@ void vtkTubeFilter::Execute()
       singlePolyline->InsertNextCell( npts, pts );
     
       if ( !lineNormalGenerator->GenerateSlidingNormals(inPts,singlePolyline,
-							inNormals) )
+                                                        inNormals) )
         {
         vtkErrorMacro(<< "No normals for line!\n");
         if (deleteNormals)
@@ -333,7 +333,7 @@ void vtkTubeFilter::Execute()
         {
         sFactor = 1.0 + ((this->RadiusFactor - 1.0) * 
                   (inScalars->GetComponent(pts[j],0) - range[0]) 
-			 / (range[1]-range[0]));
+                         / (range[1]-range[0]));
         if ((range[1] - range[0]) == 0.0)
           {
           vtkErrorMacro(<< "Dividing by zero");

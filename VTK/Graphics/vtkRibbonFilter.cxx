@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRibbonFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-02 16:42:06 $
-  Version:   $Revision: 1.54 $
+  Date:      $Date: 2001-11-13 14:13:58 $
+  Version:   $Revision: 1.55 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -148,7 +148,7 @@ void vtkRibbonFilter::Execute()
     else
       {
       if ( !lineNormalGenerator->GenerateSlidingNormals(inPts,inLines,
-							inNormals) )
+                                                        inNormals) )
         {
         vtkErrorMacro(<< "No normals for line!\n");
         inNormals->Delete();
@@ -268,7 +268,7 @@ void vtkRibbonFilter::Execute()
         {
         sFactor = 1.0 + ((this->WidthFactor - 1.0) * 
               (inScalars->GetComponent(pts[j],0) - range[0]) / 
-			 (range[1]-range[0]));
+                         (range[1]-range[0]));
         }
       for (i=0; i<3; i++)
         {
@@ -329,8 +329,8 @@ void vtkRibbonFilter::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "Width Factor: " << this->WidthFactor << "\n";
   os << indent << "Use Default Normal: " << this->UseDefaultNormal << "\n";
   os << indent << "Default Normal: " << "( " << 
-	this->DefaultNormal[0] << ", " <<
-	this->DefaultNormal[1] << ", " <<
-	this->DefaultNormal[2] << " )\n";
+        this->DefaultNormal[0] << ", " <<
+        this->DefaultNormal[1] << ", " <<
+        this->DefaultNormal[2] << " )\n";
 }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBrownianPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-27 13:24:31 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2001-11-13 14:13:51 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -103,30 +103,30 @@ void vtkBrownianPoints::Execute()
       {
       this->UpdateProgress ((float)i/numPts);
       if (this->GetAbortExecute())
-	{
-	break;
-	}
+        {
+        break;
+        }
       }
 
     speed = vtkMath::Random(this->MinimumSpeed,this->MaximumSpeed);
     if ( speed != 0.0 )
       {
       for (j=0; j<3; j++)
-	{
-	v[j] = vtkMath::Random(0,speed);
-	}
+        {
+        v[j] = vtkMath::Random(0,speed);
+        }
       norm = vtkMath::Norm(v);
       for (j=0; j<3; j++)
-	{
+        {
         v[j] *= (speed / norm);
-	}
+        }
       }
     else
       {
       for (j=0; j<3; j++)
-	{
-	v[j] = 0.0;
-	}
+        {
+        v[j] = 0.0;
+        }
       }
 
     newVectors->SetTuple(i,v);

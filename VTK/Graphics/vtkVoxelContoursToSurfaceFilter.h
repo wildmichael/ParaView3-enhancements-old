@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoxelContoursToSurfaceFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:21 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2001-11-13 14:13:50 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -115,7 +115,7 @@ protected:
   void    SortLineList();
   
   void    CastLines( float *slice, float gridOrigin[3], 
-		     int gridSize[3], int type );
+                     int gridSize[3], int type );
 
   void    PushDistances( float *ptr, int gridSize[3], int chunkSize );
 private:

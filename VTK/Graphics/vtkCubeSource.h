@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCubeSource.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:36:52 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2001-11-13 14:13:49 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -80,8 +80,8 @@ public:
   // Description:
   // Convenience method allows creation of cube by specifying bounding box.
   void SetBounds(float xMin, float xMax,
-	         float yMin, float yMax,
-		 float zMin, float zMax);
+                 float yMin, float yMax,
+                 float zMin, float zMax);
   void SetBounds(float bounds[6]);
 
 
