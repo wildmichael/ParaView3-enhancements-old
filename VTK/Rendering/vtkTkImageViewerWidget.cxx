@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkImageViewerWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-12-08 20:03:39 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1999-12-08 20:20:48 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -718,9 +718,7 @@ vtkTkImageViewerWidget_MakeImageViewer(struct vtkTkImageViewerWidget *self)
     ImageWindow->SetParentId(Tk_WindowId(Tk_Parent(self->TkWin) ));
     }
 
-  self->ImageViewer->Render();  
-  XSelectInput(dpy, Tk_WindowId(self->TkWin), VTK_ALL_EVENTS_MASK);
-	
+  self->ImageViewer->Render();  	
   return TCL_OK;
 }
 #endif
