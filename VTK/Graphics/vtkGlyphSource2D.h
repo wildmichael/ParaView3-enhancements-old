@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGlyphSource2D.h,v $
   Language:  C++
-  Date:      $Date: 2000-08-31 07:30:49 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2000-09-01 11:57:11 $
+  Version:   $Revision: 1.2 $
   Thanks:    Tim Smith who sponsored and encouraged the development
              of this class.
 
@@ -161,7 +161,7 @@ protected:
 
   void Execute();
 
-  float Center[2];
+  float Center[3];
   float Scale;
   float Scale2;
   float Color[3];
