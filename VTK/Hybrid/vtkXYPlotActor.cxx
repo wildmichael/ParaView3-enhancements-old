@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXYPlotActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-26 14:47:17 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2001-04-26 15:38:41 $
+  Version:   $Revision: 1.15 $
   Thanks:    Thanks to Kitware & RPI/SCOREC who supported the development
              of this class.
 
@@ -1473,7 +1473,7 @@ void vtkXYPlotActor::ClipPlotData(int *pos, int *pos2, vtkPolyData *pd)
           n = this->ClipPlanes->GetNormals()->GetNormal(j);
           if ( vtkPlane::IntersectWithLine(x1,x2,n,px,t,xint) && t >= 0 && t <= 1.0 )
             {
-            newPts[1] = newPoints->InsertNextPoint(x1);
+            newPts[1] = newPoints->InsertNextPoint(xint);
             break;
             }
           }
