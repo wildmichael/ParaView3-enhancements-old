@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVRMLImporter.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:30:42 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2002-05-27 15:01:50 $
+  Version:   $Revision: 1.16 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -67,18 +67,19 @@
 
 // Includes for the yacc/lex parser
 #include "vtkVRML.h"
-
 #include "vtkImporter.h"
-class  vtkActor;
-class  vtkProperty;
-class  vtkCamera;
-class  vtkLight;
-class  vtkTransform;
-class  vtkSource;
-class  vtkLookupTable;
-class  vtkFloatArray;
-class  vtkPolyDataMapper;
+
+class vtkActor;
+class vtkProperty;
+class vtkCamera;
+class vtkLight;
+class vtkTransform;
+class vtkSource;
+class vtkLookupTable;
+class vtkFloatArray;
+class vtkPolyDataMapper;
 class vtkPoints;
+class vtkIdTypeArray;
 
 class VTK_HYBRID_EXPORT vtkVRMLImporter : public vtkImporter
 {

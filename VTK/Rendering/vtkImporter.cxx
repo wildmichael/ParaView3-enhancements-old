@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImporter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:35 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2002-05-27 15:01:50 $
+  Version:   $Revision: 1.21 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -17,8 +17,11 @@
 =========================================================================*/
 #include "vtkImporter.h"
 #include "vtkRendererCollection.h"
+#include "vtkRenderWindow.h"
 
-vtkCxxRevisionMacro(vtkImporter, "$Revision: 1.20 $");
+vtkCxxRevisionMacro(vtkImporter, "$Revision: 1.21 $");
+
+vtkCxxSetObjectMacro(vtkImporter,RenderWindow,vtkRenderWindow);
 
 vtkImporter::vtkImporter ()
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImporter.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:35 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2002-05-27 15:01:50 $
+  Version:   $Revision: 1.24 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -45,13 +45,10 @@
 #ifndef __vtkImporter_h
 #define __vtkImporter_h
 
-#include <stdio.h>
 #include "vtkObject.h"
-#include "vtkRenderWindow.h"
-#include "vtkRenderer.h"
-#include "vtkPolyData.h"
-#include "vtkActorCollection.h"
-#include "vtkLightCollection.h"
+
+class vtkRenderWindow;
+class vtkRenderer;
 
 class VTK_RENDERING_EXPORT vtkImporter : public vtkObject
 {
@@ -72,7 +69,7 @@ public:
   // specified, the first vtkRenderer it has will be used to import the
   // objects. If the vtkRenderWindow has no Renderer, one will be created and
   // can be accessed using GetRenderer.
-  vtkSetObjectMacro(RenderWindow,vtkRenderWindow);
+  virtual void SetRenderWindow(vtkRenderWindow*);
   vtkGetObjectMacro(RenderWindow,vtkRenderWindow);
 
 
@@ -88,10 +85,10 @@ protected:
 
   virtual int ImportBegin () {return 1;};
   virtual void ImportEnd () {};
-  virtual void ImportActors (vtkRenderer *vtkNotUsed(renderer)) {};
-  virtual void ImportCameras (vtkRenderer *vtkNotUsed(renderer)) {};
-  virtual void ImportLights (vtkRenderer *vtkNotUsed(renderer)) {};
-  virtual void ImportProperties (vtkRenderer *vtkNotUsed(renderer)) {};
+  virtual void ImportActors (vtkRenderer*) {};
+  virtual void ImportCameras (vtkRenderer*) {};
+  virtual void ImportLights (vtkRenderer*) {};
+  virtual void ImportProperties (vtkRenderer*) {};
 
   vtkRenderer *Renderer;
   vtkRenderWindow *RenderWindow;
