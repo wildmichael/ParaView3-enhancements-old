@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-02 16:19:41 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2001-07-23 03:52:24 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -90,7 +90,8 @@ void vtkStreamPoints::Execute()
   newPts ->Allocate(1000);
   newVectors  = vtkVectors::New();
   newVectors ->Allocate(1000);
-  if ( input->GetPointData()->GetScalars() || this->SpeedScalars )
+  if ( input->GetPointData()->GetScalars() || this->SpeedScalars 
+    || this->OrientationScalars)
     {
     newScalars = vtkScalars::New();
     newScalars->Allocate(1000);
