@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkJavaUtil.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:40:34 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1997-07-27 15:55:34 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -50,6 +50,12 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifdef _WIN32
 #include "vtkSetGet.h"
 #include "vtkWin32Header.h"
+
+// include stdmutex for borland
+#ifndef _MSC_VER
+#include <stdmutex.h>
+#endif
+
 #include "vtkObject.h"
 HANDLE vtkGlobalMutex = NULL;
 #define VTK_GET_MUTEX() WaitForSingleObject(vtkGlobalMutex,INFINITE)
