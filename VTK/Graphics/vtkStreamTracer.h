@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamTracer.h,v $
   Language:  C++
-  Date:      $Date: 2002-11-06 20:11:19 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-11-12 19:58:17 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -133,7 +133,7 @@ public:
   // Description:
   // Set/get the integrator type to be used in the stream line
   // calculation. The object passed is not actually used but
-  // is cloned with MakeObject in the process of integration 
+  // is cloned with NewInstance in the process of integration 
   // (prototype pattern). The default is 2nd order Runge Kutta.
   // The integrator can also be changed using SetIntegratorType.
   // The recognized solvers are:
