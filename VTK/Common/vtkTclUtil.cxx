@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTclUtil.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-07 16:24:36 $
-  Version:   $Revision: 1.53 $
+  Date:      $Date: 2000-09-07 10:34:41 $
+  Version:   $Revision: 1.54 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -462,6 +462,7 @@ int vtkTclNewInstanceCommand(ClientData cd, Tcl_Interp *interp,
   int is_new;
   char temps[80];
   vtkTclCommandStruct *cs = (vtkTclCommandStruct *)cd;
+  Tcl_CmdInfo cinf;
 
   if (argc != 2)
     {
@@ -485,6 +486,13 @@ int vtkTclNewInstanceCommand(ClientData cd, Tcl_Interp *interp,
     return TCL_ERROR;
     }
 
+  // Make sure we are not clobbering a built in command
+  if (Tcl_GetCommandInfo(interp,argv[1],&cinf))
+    {
+    Tcl_SetResult(interp, argv[1], TCL_VOLATILE);
+    vtkGenericWarningMacro(<< argv[1] << ": a tcl/tk command with that name already exists.");
+    }
+
   ClientData temp;
   if (!strcmp("ListInstances",argv[1]))
     {
@@ -500,7 +508,6 @@ int vtkTclNewInstanceCommand(ClientData cd, Tcl_Interp *interp,
   Tcl_SetHashValue(entry,(ClientData)(strdup(argv[1])));
   
   // check to see if we can find the command function based on class name
-  Tcl_CmdInfo cinf;
   char *tstr = strdup(((vtkObject *)temp)->GetClassName());
   if (Tcl_GetCommandInfo(interp,tstr,&cinf))
     {
