@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkShrinkPolyData.h,v $
   Language:  C++
-  Date:      $Date: 1994-02-05 13:01:27 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1994-04-21 13:59:57 $
+  Version:   $Revision: 1.12 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -33,7 +33,7 @@ public:
   vlGetMacro(ShrinkFactor,float);
 
 protected:
-  void Execute();
+  virtual void Execute();
   float ShrinkFactor;
 };
 
