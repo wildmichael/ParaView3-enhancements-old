@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLImager.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-05-24 16:58:32 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2000-05-25 15:29:44 $
+  Version:   $Revision: 1.9 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -64,7 +64,7 @@ vtkOpenGLImager* vtkOpenGLImager::New()
 
 int vtkOpenGLImager::RenderOpaqueGeometry()
 {
-  int *size, lowerLeft[2], upperRight[2];
+  int *size, lowerLeft[2];
 
   /* get physical window dimensions */
   size = this->VTKWindow->GetSize();
@@ -93,7 +93,7 @@ int vtkOpenGLImager::RenderOpaqueGeometry()
 
 void vtkOpenGLImager::Erase()
 {
-  int *size, lowerLeft[2], upperRight[2];
+  int *size, lowerLeft[2];
 
   /* get physical window dimensions */
   size = this->VTKWindow->GetSize();

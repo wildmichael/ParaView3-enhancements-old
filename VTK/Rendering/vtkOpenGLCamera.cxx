@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLCamera.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-05-24 17:26:02 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2000-05-25 15:29:32 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -69,7 +69,7 @@ void vtkOpenGLCamera::Render(vtkRenderer *ren)
 {
   float aspect[2];
   float *vport;
-  int  *size, lowerLeft[2], upperRight[2];
+  int  *size, lowerLeft[2];
   vtkMatrix4x4 *matrix = vtkMatrix4x4::New();
 
   // get the bounds of the window 

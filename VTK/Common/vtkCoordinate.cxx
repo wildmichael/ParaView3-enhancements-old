@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCoordinate.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-05-24 16:57:52 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2000-05-25 15:29:22 $
+  Version:   $Revision: 1.20 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -432,7 +432,8 @@ float *vtkCoordinate::GetComputedFloatDisplayValue(vtkViewport* viewport)
     {
     float *RefValue;
     
-    this->ReferenceCoordinate->GetComputedFloatDisplayValue(viewport);
+    RefValue = 
+      this->ReferenceCoordinate->GetComputedFloatDisplayValue(viewport);
     val[0] += RefValue[0];
     val[1] += RefValue[1];
     }

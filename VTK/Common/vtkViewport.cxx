@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkViewport.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-05-25 09:54:27 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2000-05-25 15:29:22 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -229,7 +229,7 @@ int *vtkViewport::GetSize()
 {  
   if ( this->VTKWindow )
     {
-    int  *size, lowerLeft[2];
+    int  lowerLeft[2];
     float *vport = this->GetViewport();
     
     float vpu, vpv;
