@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVideoSource.h,v $
   Language:  C++
-  Date:      $Date: 1999-12-09 12:26:34 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1999-12-09 16:38:29 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -292,6 +292,7 @@ protected:
 
   int VideoChannel;
   int VideoInput;
+  int VideoInputForColor;
   int VideoFormat;
 
   float Opacity;
