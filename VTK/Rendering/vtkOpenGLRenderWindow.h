@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:12:08 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2000-09-01 16:28:47 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -130,7 +130,7 @@ public:
   // Description:
   // Prescribe that the window be created in a stereo-capable mode. This
   // method must be called before the window is realized. This method
-  // overrrides the superclass method since this class can actually check
+  // overrides the superclass method since this class can actually check
   // whether the window has been realized yet.
   virtual void SetStereoCapableWindow(int capable);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32RenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 2000-07-17 14:05:00 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2000-09-01 16:30:27 $
+  Version:   $Revision: 1.32 $
   
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -96,8 +96,8 @@ public:
 
   // Description:
   // Win32 specific application terminate, calls ClassExitMethod then
-  // calls PostQuitMessage(0) to terminate app. An application can Specify
-  // ExitMethod for alternative behaviour (i.e. suppresion of keyboard exit)
+  // calls PostQuitMessage(0) to terminate the application. An application can Specify
+  // ExitMethod for alternative behavior (i.e. suppression of keyboard exit)
   void TerminateApp(void);
 
   // Description:

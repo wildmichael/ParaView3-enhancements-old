@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRayCaster.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:12:25 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2000-09-01 16:29:08 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -147,7 +147,7 @@ public:
 
   // Description:
   // Get the number of samples taken during the last image rendered.
-  // This is the number of samples for ray casted images only - any
+  // This is the number of samples for ray cast images only - any
   // samples taken from other types of mapper will be reported in that
   // mapper directly
   int GetNumberOfSamplesTaken();

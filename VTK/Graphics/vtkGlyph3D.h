@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGlyph3D.h,v $
   Language:  C++
-  Date:      $Date: 2000-08-07 22:36:33 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 2000-09-01 16:27:52 $
+  Version:   $Revision: 1.44 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -60,7 +60,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // vector magnitude.
 // 
 // .SECTION Caveats
-// The scaling of the glyphs is controled by the ScaleFactor ivar multiplied
+// The scaling of the glyphs is controlled by the ScaleFactor ivar multiplied
 // by the scalar value at each point (if VTK_SCALE_BY_SCALAR is set), or
 // multiplied by the vector magnitude (if VTK_SCALE_BY_VECTOR is set),
 // Alternatively (if VTK_SCALE_BY_VECTORCOMPONENTS is set), the scaling

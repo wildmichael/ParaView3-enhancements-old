@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume.h,v $
   Language:  C++
-  Date:      $Date: 2000-06-08 09:11:05 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 2000-09-01 16:30:01 $
+  Version:   $Revision: 1.51 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -296,10 +296,10 @@ protected:
   // The corrected scalar opacity transfer function array - this is identical
   // to the opacity transfer function array when the step size is 1.
   // In other cases, it is corrected to reflect the new material thickness
-  // modelled by a step size different than 1.
+  // modeled by a step size different than 1.
   float                        *CorrectedScalarOpacityArray;
 
-  // CorrectedStepSize is the step size corrently modelled by
+  // CorrectedStepSize is the step size currently modeled by
   // CorrectedArray.  It is used to determine when the 
   // CorrectedArray needs to be updated to match SampleDistance
   // in the volume mapper.

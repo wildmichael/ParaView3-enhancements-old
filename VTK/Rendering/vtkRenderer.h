@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.h,v $
   Language:  C++
-  Date:      $Date: 2000-08-23 15:48:35 $
-  Version:   $Revision: 1.90 $
+  Date:      $Date: 2000-09-01 16:29:22 $
+  Version:   $Revision: 1.91 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -91,7 +91,7 @@ public:
   // Description:
   // Add/Remove different types of props to the renderer.
   // These methods are all synonyms to AddProp and RemoveProp.
-  // They are here for convinience and backwards compatability.
+  // They are here for convenience and backwards compatibility.
   void AddActor(vtkProp *p) {this->AddProp(p);};
   void AddVolume(vtkProp *p) {this->AddProp(p);};
   void RemoveActor(vtkProp *p) {this->Actors->RemoveItem(p);this->RemoveProp(p);};
@@ -255,7 +255,7 @@ public:
   vtkGetMacro(Layer, int);
 
   // Description:
-  // Returns a bool indicating if this renderer is transparent.  It is
+  // Returns a boolean indicating if this renderer is transparent.  It is
   // transparent if it is not in the deepest layer of its render window.
   int  Transparent();
 

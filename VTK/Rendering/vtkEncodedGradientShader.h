@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEncodedGradientShader.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:11:34 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2000-09-01 16:27:33 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -45,7 +45,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // .SECTION Description
 // vtkEncodedGradientShader computes shading tables for encoded normals 
 // that indicates the amount of diffuse and specular illumination that is 
-// recieved from all light sources at a surface location with that normal.
+// received from all light sources at a surface location with that normal.
 // For diffuse illumination this is accurate, but for specular illumination
 // it is approximate for perspective projections since the center view
 // direction is always used as the view direction. Since the shading table is

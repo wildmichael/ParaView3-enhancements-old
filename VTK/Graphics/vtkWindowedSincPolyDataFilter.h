@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWindowedSincPolyDataFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:13:18 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2000-09-01 16:30:31 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -118,13 +118,13 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // between the edges is less than the EdgeAngle ivar.
 //
 // The total smoothing can be controlled by using two ivars. The 
-// NumberOfIterations determines the maximum numper of smoothing passes.
+// NumberOfIterations determines the maximum number of smoothing passes.
 // The NumberOfIterations corresponds to the degree of the polynomial that
 // is used to approximate the windowed sinc function. Ten or twenty
 // iterations is all the is usually necessary. Contrast this with
 // vtkSmoothPolyDataFilter which usually requires 100 to 200 smoothing
 // iterations. vtkSmoothPolyDataFilter is also not an approximation to
-// an ideal low-pass filter, which can cause the geomtry to shrink as the
+// an ideal low-pass filter, which can cause the geometry to shrink as the
 // amount of smoothing increases.
 //
 // The second ivar is the specification of the PassBand for the windowed

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataMapper.h,v $
   Language:  C++
-  Date:      $Date: 2000-08-21 19:58:43 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2000-09-01 16:28:57 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -74,7 +74,7 @@ public:
   void Update();
 
   // Description:
-  // If you want only a part of the data, specify by seting the piece.
+  // If you want only a part of the data, specify by setting the piece.
   vtkSetMacro(Piece, int);
   vtkGetMacro(Piece, int);
   vtkSetMacro(NumberOfPieces, int);

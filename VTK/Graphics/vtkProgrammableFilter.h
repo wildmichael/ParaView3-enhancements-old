@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProgrammableFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:06:21 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2000-09-01 16:29:05 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -53,7 +53,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // input and output types.
 
 // .SECTION Caveats
-// The filter correctlymanages modified time and network execution in most
+// The filter correctly manages modified time and network execution in most
 // cases. However, if you change the definition of the filter function,
 // you'll want to send a manual Modified() method to the filter to force it
 // to reexecute.

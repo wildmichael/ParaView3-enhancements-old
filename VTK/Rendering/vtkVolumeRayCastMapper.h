@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastMapper.h,v $
   Language:  C++
-  Date:      $Date: 2000-08-14 16:29:53 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2000-09-01 16:30:17 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -68,7 +68,7 @@ class vtkPlaneCollection;
 // Macro for rounding x
 #define vtkRoundFuncMacro(x)   (int)((x)+0.5)
 
-// Macro for trilinear interpolation - do four linear interpolations on
+// Macro for tri-linear interpolation - do four linear interpolations on
 // edges, two linear interpolations between pairs of edges, then a final
 // interpolation between faces
 #define vtkTrilinFuncMacro(v,x,y,z,a,b,c,d,e,f,g,h)         \

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFieldDataToAttributeDataFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-08-21 19:58:43 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2000-09-01 16:27:46 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -66,7 +66,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // vtkDataObjectToDataSetFilter.  vtkDataObjectToDataSetFilter filter
 // generates dataset topology and geometry and passes its input field data
 // along to its output. Then this filter is used to generate the attribute
-// data to go along with the daraset.
+// data to go along with the dataset.
 
 // .SECTION Caveats
 // Make sure that the data you extract is consistent. That is, if you have N

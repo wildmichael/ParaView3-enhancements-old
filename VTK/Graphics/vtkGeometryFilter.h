@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGeometryFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-08-07 22:36:33 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 2000-09-01 16:27:49 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -62,7 +62,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // in some cases. For example, if you've run vtkPolyDataNormals to
 // generate normals, which may split meshes and create duplicate
 // vertices, vtkGeometryFilter will merge these points back
-// together. Turn merging off to prevent this from occuring.
+// together. Turn merging off to prevent this from occurring.
 
 // .SECTION See Also
 // vtkStructuredPointsGeometryFilter vtkStructuredGridGeometryFilter

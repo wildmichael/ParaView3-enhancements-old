@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSelectVisiblePoints.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:12:37 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2000-09-01 16:29:36 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -60,7 +60,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 // .SECTION Caveats
 // You must carefully synchronize the execution of this filter. The
-// filter refers to a renderer, which is modified everytime a render
+// filter refers to a renderer, which is modified every time a render
 // occurs. Therefore, the filter is always out of date, and always
 // executes. You may have to perform two rendering passes, or if you
 // are using this filter in conjunction with vtkLabeledPointMapper,

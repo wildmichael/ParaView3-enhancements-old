@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 2000-07-17 01:55:20 $
-  Version:   $Revision: 1.71 $
+  Date:      $Date: 2000-09-01 16:29:15 $
+  Version:   $Revision: 1.72 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -135,7 +135,7 @@ public:
 
   // Description:
   // This function is called on 'q','e' keypress if exitmethod is not
-  // specified and should be overidden by platform dependent subclasses
+  // specified and should be overridden by platform dependent subclasses
   // to provide a termination procedure if one is required.
   virtual void TerminateApp(void) {};
 
@@ -259,7 +259,7 @@ protected:
   int   EventPosition[2];
   int   Size[2];
   
-  // user methods that can be used to override default behaviour
+  // user methods that can be used to override default behavior
   void (*StartPickMethod)(void *);
   void (*StartPickMethodArgDelete)(void *);
   void *StartPickMethodArg;

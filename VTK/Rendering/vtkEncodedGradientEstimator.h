@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEncodedGradientEstimator.h,v $
   Language:  C++
-  Date:      $Date: 2000-07-28 15:05:15 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2000-09-01 16:27:31 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -137,7 +137,7 @@ public:
   // Description:
   // If the data in each slice is only contained within a circle circumscribed
   // within the slice, and the slice is square, then don't compute anything
-  // outside the cirle. This circle through the slices forms a cylinder.
+  // outside the circle. This circle through the slices forms a cylinder.
   vtkSetMacro( CylinderClip, int );
   vtkGetMacro( CylinderClip, int );
   vtkBooleanMacro( CylinderClip, int );

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProperty.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:13:07 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2000-09-01 16:30:11 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -180,7 +180,7 @@ public:
 //BTX
   // Description:
   // WARNING: INTERNAL METHOD - NOT INTENDED FOR GENERAL USE
-  // UpdateMTimes performes a Modified() on all TimeStamps.
+  // UpdateMTimes performs a Modified() on all TimeStamps.
   // This is used by vtkVolume when the property is set, so
   // that any other object that might have been caching
   // information for the property will rebuild.

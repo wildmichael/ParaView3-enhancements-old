@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamer.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:12:44 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2000-09-01 16:29:44 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -234,7 +234,7 @@ public:
 //BTX
 
   // Description:
-  // These methods were added to allow access to these variablse from the
+  // These methods were added to allow access to these variables from the
   // threads. 
   // Not intended for general use.
   vtkGetMacro( NumberOfStreamers, int );

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractVOI.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:11:38 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2000-09-01 16:27:41 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -44,7 +44,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // .SECTION Description
 // vtkExtractVOI is a filter that selects a portion of an input structured
 // points dataset, or subsamples an input dataset. (The selected portion of
-// interested is referred toas the Volume Of Interest, or VOI.) The output of
+// interested is referred to as the Volume Of Interest, or VOI.) The output of
 // this filter is a structured points dataset. The filter treats input data
 // of any topological dimension (i.e., point, line, image, or volume) and can
 // generate output data of any topological dimension.
@@ -83,7 +83,7 @@ public:
   vtkGetVectorMacro(VOI,int,6);
 
   // Description:
-  // Set the sampling rate in the i, j, and k directisons. If the rate is >
+  // Set the sampling rate in the i, j, and k directions. If the rate is >
   // 1, then the resulting VOI will be subsampled representation of the
   // input.  For example, if the SampleRate=(2,2,2), every other point will
   // be selected, resulting in a volume 1/8th the original size.

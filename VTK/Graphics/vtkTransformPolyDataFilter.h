@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransformPolyDataFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-06-06 01:24:55 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2000-09-01 16:29:56 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -72,7 +72,7 @@ public:
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
-  // Return the MTime also considering the trnasform.
+  // Return the MTime also considering the transform.
   unsigned long GetMTime();
 
   // Description:

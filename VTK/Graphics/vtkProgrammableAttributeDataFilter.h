@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProgrammableAttributeDataFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:12:19 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2000-09-01 16:29:01 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -47,7 +47,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // convert vectors to normals; compute scalar values as a function of
 // vectors, texture coords, and/or any other point data attribute; and so
 // on. The filter takes multiple inputs (input plus an auxiliary input list),
-// so you can write procedures that combine several datset point
+// so you can write procedures that combine several dataset point
 // attributes. Note that the output of the filter is the same type
 // (topology/geometry) as the input.
 //

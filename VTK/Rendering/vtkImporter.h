@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImporter.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:11:52 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2000-09-01 16:28:03 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,7 +42,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // .NAME vtkImporter - importer abstract class
 // .SECTION Description
 // vtkImporter is an abstract class that specifies the protocol for
-// importing actors, cameras, lights and proeperties into a
+// importing actors, cameras, lights and properties into a
 // vtkRenderWindow. The following takes place:
 // 1) Create a RenderWindow and Renderer if none is provided.
 // 2) Open the import file

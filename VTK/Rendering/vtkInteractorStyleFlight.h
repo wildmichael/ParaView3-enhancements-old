@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleFlight.h,v $
   Language:  C++
-  Date:      $Date: 2000-05-10 11:29:41 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2000-09-01 16:28:09 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to John Biddiscombe of the Rutherford Appleton Laboratory
              who developed this class.
 
@@ -58,7 +58,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // Stationary 'look' can be achieved by holding both mouse buttons down
 // and steering with the mouse.
 // Stationary 'look' can also be achieved by holding 'Z' (or 'A') and
-// steering with mouse in orward (or reverse) motion mode.
+// steering with mouse in forward (or reverse) motion mode.
 // By default, one "step" of motion corresponds to 1/250th of the diagonal
 // of bounding box of visible actors, '+' and '-' keys allow user to
 // increase or decrease step size.

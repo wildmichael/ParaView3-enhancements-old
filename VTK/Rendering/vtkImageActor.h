@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageActor.h,v $
   Language:  C++
-  Date:      $Date: 2000-07-24 11:36:08 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2000-09-01 16:27:54 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,7 +42,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // .NAME vtkImageActor - represents an image (data & properties) in a rendered scene
 //
 // .SECTION Description
-// vtkImageActor is used to represent an imge entity in a rendering scene.
+// vtkImageActor is used to represent an image entity in a rendering scene.
 
 // .SECTION see also
 // vtkImageData vtkProp
@@ -80,7 +80,7 @@ public:
   vtkBooleanMacro(Interpolate,int);
 
   // Description:
-  // The image extent of the output has to be set explicitely.
+  // The image extent of the output has to be set explicitly.
   void SetDisplayExtent(int extent[6]);
   void SetDisplayExtent(int minX, int maxX, int minY, int maxY, 
 			    int minZ, int maxZ);

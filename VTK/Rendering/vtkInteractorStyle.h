@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyle.h,v $
   Language:  C++
-  Date:      $Date: 2000-08-01 14:37:44 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2000-09-01 16:28:07 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -173,8 +173,8 @@ public:
   virtual void OnRightButtonUp  (int ctrl, int shift, int X, int Y);
 
   // Description:
-  // OnChar implements keybaord functions, but subclasses can override this 
-  // behaviour
+  // OnChar implements keyboard functions, but subclasses can override this 
+  // behavior
   virtual void OnChar   (int ctrl, int shift, char keycode, int repeatcount);
   virtual void OnKeyDown(int ctrl, int shift, char keycode, int repeatcount);
   virtual void OnKeyUp  (int ctrl, int shift, char keycode, int repeatcount);
@@ -185,7 +185,7 @@ public:
   virtual void OnTimer();
 
   // Description:
-  // Callbacks so that the applicaiton can override the default behaviour.
+  // Callbacks so that the application can override the default behaviour.
   void SetLeftButtonPressMethod(void (*f)(void *), void *arg);
   void SetLeftButtonPressMethodArgDelete(void (*f)(void *));
   void SetLeftButtonReleaseMethod(void (*f)(void *), void *arg);

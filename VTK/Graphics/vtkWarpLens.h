@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpLens.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:13:14 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2000-09-01 16:30:22 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -62,7 +62,7 @@ public:
   vtkGetMacro(Kappa,float);
 
   // Description:
-  // Set the center of the lense distortion
+  // Set the center of the lens distortion
   vtkSetVector2Macro(Center,float);
   vtkGetVectorMacro(Center,float,2);
 

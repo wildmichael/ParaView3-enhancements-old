@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2000-08-21 02:18:46 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2000-09-01 16:30:25 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -109,7 +109,7 @@ public:
   virtual void SetPosition(int,int);
   
   // Description:
-  // Return the scrren size.
+  // Return the screen size.
   virtual int *GetScreenSize();
 
   // Description:
@@ -165,7 +165,7 @@ public:
   // Description:
   // Prescribe that the window be created in a stereo-capable mode. This
   // method must be called before the window is realized. This method
-  // overrrides the superclass method since this class can actually check
+  // overrides the superclass method since this class can actually check
   // whether the window has been realized yet.
   virtual void SetStereoCapableWindow(int capable);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinearSubdivisionFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:05:40 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2000-09-01 16:28:22 $
+  Version:   $Revision: 1.6 $
   Thanks:    This work was supported bt PHS Research Grant No. 1 P41 RR13218-01
              from the National Center for Research Resources
 
@@ -42,7 +42,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 =========================================================================*/
 // .NAME vtkLinearSubdivisionFilter - generate a subdivision surface using the Linear Scheme
 // .SECTION Description
-// vtkLinearSubdivisionFilter is a filter that geneartes output by
+// vtkLinearSubdivisionFilter is a filter that generates output by
 // subdividing its input polydata. Each subdivision iteration create 4
 // new triangles for each triangle in the polydata.
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSmoothPolyDataFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:12:40 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2000-09-01 16:29:38 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -54,7 +54,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // of vertices that directly attach to each vertex.) Next, an iteration
 // phase begins over all vertices. For each vertex v, the coordinates of v
 // are modified according to an average of the connected vertices.  (A
-// relazation factor is available to control the amount of displacement of
+// relaxation factor is available to control the amount of displacement of
 // v).  The process repeats for each vertex. This pass over the list of
 // vertices is a single iteration. Many iterations (generally around 20 or
 // so) are repeated until the desired result is obtained.
@@ -86,7 +86,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // is less than the EdgeAngle ivar.
 //
 // The total smoothing can be controlled by using two ivars. The 
-// NumberOfIterations is a cap on the maximum numper of smoothing passes.
+// NumberOfIterations is a cap on the maximum number of smoothing passes.
 // The Convergence ivar is a limit on the maximum point motion. If the 
 // maximum motion during an iteration is less than Convergence, then the 
 // smoothing process terminates. (Convergence is expressed as a fraction of 

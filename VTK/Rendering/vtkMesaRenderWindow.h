@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2000-07-25 11:34:16 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2000-09-01 16:28:40 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -184,8 +184,8 @@ public:
   void RegisterTextureResource (GLuint id);
   
   // Description:
-  // Override the default implmentation so that we can activly switch between
-  // on and offscreen rendering.
+  // Override the default implementation so that we can activley switch between
+  // on and off screen rendering.
   virtual void SetOffScreenRendering(int i);
   
   // Description:

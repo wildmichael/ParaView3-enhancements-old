@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMaskPoints.h,v $
   Language:  C++
-  Date:      $Date: 2000-07-07 15:34:21 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2000-09-01 16:28:35 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -86,7 +86,7 @@ public:
   // Description:
   // Generate output polydata vertices as well as points. A useful
   // convenience method because vertices are drawn (they are topology) while
-  // points are not (they are geometry). By defulat this method is off.
+  // points are not (they are geometry). By default this method is off.
   vtkSetMacro(GenerateVertices,int);
   vtkGetMacro(GenerateVertices,int);
   vtkBooleanMacro(GenerateVertices,int);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSTLReader.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:12:34 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 2000-09-01 16:29:28 $
+  Version:   $Revision: 1.47 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -47,7 +47,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // ASCII or binary.
 //
 // .stl files are quite inefficient since they duplicate vertex 
-// definitions. By setting the Merging boolean you can control wether the 
+// definitions. By setting the Merging boolean you can control whether the 
 // point data is merged after reading. Merging is performed by default, 
 // however, merging requires a large amount of temporary storage since a 
 // 3D hash table must be constructed.
@@ -101,7 +101,7 @@ public:
   void CreateDefaultLocator();
 
   // Description:
-  // For legacy compatibiltiy. Do not use.
+  // For legacy compatibility. Do not use.
   void SetLocator(vtkPointLocator& locator) {this->SetLocator(&locator);};
 
 protected:

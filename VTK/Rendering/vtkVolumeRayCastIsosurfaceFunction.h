@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastIsosurfaceFunction.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:13:09 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2000-09-01 16:30:15 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -46,7 +46,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // intersects a ray with an analytic isosurface in a scalar field. The color
 // and shading parameters are defined in the vtkVolumeProperty of the 
 // vtkVolume, as well as the interpolation type to use when locating the
-// surface (either a nearest neighbor approach or a trilinear interpolation
+// surface (either a nearest neighbor approach or a tri-linear interpolation
 // approach)
 //
 // .SECTION See Also

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPlaneSource.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:12:13 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 2000-09-01 16:28:52 $
+  Version:   $Revision: 1.44 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -51,7 +51,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // resolution of the plane (i.e., number of subdivisions) is
 // controlled by the ivars XResolution and YResolution.
 //
-// There are three conveience methods that allow you to easily move
+// There are three convenience methods that allow you to easily move
 // the plane.  The first, SetNormal(), allows you to specify the plane
 // normal. The effect of this method is to rotate the plane around the
 // center of the plane, aligning the plane normal with the specified
