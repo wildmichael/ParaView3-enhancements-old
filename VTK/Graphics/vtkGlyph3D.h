@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGlyph3D.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:49 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 2001-08-30 12:38:11 $
+  Version:   $Revision: 1.48 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -220,6 +220,15 @@ public:
   void SetIndexModeToOff() {this->SetIndexMode(VTK_INDEXING_OFF);};
   const char *GetIndexModeAsString();
 
+  // Description:
+  // Enable/disable the generation of point ids as part of the output. The point
+  // ids are the id of the input generating point. The point ids are stored in the
+  // output point field data and named "InputPointIds". Point generation is useful 
+  // for debugging and pick operations.
+  vtkSetMacro(GeneratePointIds,int);
+  vtkGetMacro(GeneratePointIds,int);
+  vtkBooleanMacro(GeneratePointIds,int);
+
 protected:
   vtkGlyph3D();
   ~vtkGlyph3D();
@@ -241,6 +250,8 @@ protected:
   int VectorMode; // Orient/scale via normal or via vector data
   int Clamping; // whether to clamp scale factor
   int IndexMode; // what to use to index into glyph table
+  int GeneratePointIds; // produce input points ids for each output point
+   
 };
 
 // Description:
