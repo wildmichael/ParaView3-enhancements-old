@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkMatrix4x4.h,v $
   Language:  C++
-  Date:      $Date: 1994-03-08 12:22:53 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1994-04-14 14:43:00 $
+  Version:   $Revision: 1.5 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -26,7 +26,7 @@ class vlMatrix4x4 : public vlObject
   vlMatrix4x4 ();
   void operator= (float element);
   void operator= (vlMatrix4x4& source);
-  float *operator[](const unsigned int i) const {return &(Element[i][0]);};
+  float *operator[](const unsigned int i) {return &(Element[i][0]);};
 
   //  Calculate the inverse of in and
   //  return it in out.
