@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-06-04 16:19:56 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2000-08-03 16:40:47 $
+  Version:   $Revision: 1.30 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -217,7 +217,7 @@ void vtkTextMapper::SetInput(const char *input)
 // Determine the number of lines in the Input string (delimited by "\n").
 int vtkTextMapper::GetNumberOfLines(const char *input)
 {
-  if ( input == NULL )
+  if ( input == NULL || input[0] == '\0')
     {
     return 0;
     }
