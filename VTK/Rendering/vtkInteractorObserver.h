@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorObserver.h,v $
   Language:  C++
-  Date:      $Date: 2003-09-19 19:41:09 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2003-09-22 18:38:22 $
+  Version:   $Revision: 1.16 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -63,7 +63,7 @@ public:
   // observers; disabling it removes the observers. Prior to enabling the
   // vtkInteractorObserver you must set the render window interactor (via
   // SetInteractor()).
-  virtual void SetEnabled(int) = 0;
+  virtual void SetEnabled(int) {};
   int GetEnabled() {return this->Enabled;}
   void EnabledOn() {this->SetEnabled(1);}
   void EnabledOff() {this->SetEnabled(0);}
