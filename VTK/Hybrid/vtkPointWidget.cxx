@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-27 19:38:47 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-07-31 19:25:19 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -28,7 +28,7 @@
 #include "vtkRenderWindow.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkPointWidget, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkPointWidget, "$Revision: 1.2 $");
 vtkStandardNewMacro(vtkPointWidget);
 
 vtkPointWidget::vtkPointWidget()
@@ -57,6 +57,7 @@ vtkPointWidget::vtkPointWidget()
 
   //Manage the picking stuff
   this->CursorPicker = vtkCellPicker::New();
+  this->CursorPicker->PickFromListOn();
   this->CursorPicker->AddPickList(this->Actor);
   this->CursorPicker->SetTolerance(0.005); //need some fluff
 
