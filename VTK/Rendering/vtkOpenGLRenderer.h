@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLRenderer.h,v $
   Language:  C++
-  Date:      $Date: 1998-07-02 16:10:54 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-08-24 18:33:51 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,8 +64,6 @@ class VTK_EXPORT vtkOpenGLRenderer : public vtkRenderer
 
   void ClearLights(void);
 
-  int UpdateVolumes(void);
-  int UpdateCameras(void);
   int UpdateLights(void);
 
   // stereo related stuff

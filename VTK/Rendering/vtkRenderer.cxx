@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-08-20 20:41:11 $
-  Version:   $Revision: 1.85 $
+  Date:      $Date: 1998-08-24 18:33:53 $
+  Version:   $Revision: 1.86 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -218,6 +218,43 @@ void vtkRenderer::Render(void)
 void vtkRenderer::Render2D()
 {
   this->Actors2D->Render(this);
+}
+
+// Description:
+// Ask volumes to render themselves.
+int vtkRenderer::UpdateVolumes()
+{
+  int volume_count=0;    // Number of visible volumes
+
+  volume_count = this->VisibleVolumeCount();
+
+  // Render the volumes
+  if ( volume_count > 0 )
+    {
+
+    // Render the volume
+    this->RayCaster->Render((vtkRenderer *)this);
+    }
+
+  return volume_count;
+}
+
+// Description:
+// Ask active camera to load its view matrix.
+int vtkRenderer::UpdateCameras ()
+{
+  if (!this->ActiveCamera)
+    {
+    vtkDebugMacro(<< "No cameras are on, creating one.");
+    // the get method will automagically create a camera
+    // and reset it since one hasn't been specified yet
+    this->GetActiveCamera();
+    }
+
+  // update the viewing transformation
+  this->ActiveCamera->Render((vtkRenderer *)this);
+
+  return 1;
 }
 
 // Description:

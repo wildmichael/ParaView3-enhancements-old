@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.h,v $
   Language:  C++
-  Date:      $Date: 1998-07-02 16:12:14 $
-  Version:   $Revision: 1.63 $
+  Date:      $Date: 1998-08-24 18:33:55 $
+  Version:   $Revision: 1.64 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -125,12 +125,12 @@ public:
   // Description:
   // Ask the volumes to build and draw themselves.
   // Returns the number of volumes processed.
-  virtual int UpdateVolumes(void) {return 0;};
+  virtual int UpdateVolumes(void);
 
   // Description:
   // Ask the active camera to do whatever it needs to do prior to rendering.
   // Creates a camera if none found active.
-  virtual int UpdateCameras(void) {return 0;};
+  virtual int UpdateCameras(void);
 
   // Description:
   // Ask all lights to load themselves into rendering pipeline.
