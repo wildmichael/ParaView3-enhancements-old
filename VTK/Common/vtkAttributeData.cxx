@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAttributeData.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-28 18:49:49 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2001-09-11 14:45:53 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -51,6 +51,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkUnsignedLongArray.h"
 #include "vtkFloatArray.h"
 #include "vtkDoubleArray.h"
+#include "vtkIdTypeArray.h"
 
 // Construct object with an initial data array of type dataType (by default
 // dataType is VTK_FLOAT.
@@ -155,6 +156,11 @@ void vtkAttributeData::SetDataType(int dataType)
     case VTK_DOUBLE:
       this->Data->Delete();
       this->Data = vtkDoubleArray::New();
+      break;
+
+    case VTK_ID_TYPE:
+      this->Data->Delete();
+      this->Data = vtkIdTypeArray::New();
       break;
 
     default:
