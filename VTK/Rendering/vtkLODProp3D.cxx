@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLODProp3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-26 19:07:19 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1999-09-01 16:21:51 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -819,6 +819,12 @@ void vtkLODProp3D::SetAllocatedRenderTime( float t )
   this->LODs[this->SelectedLODIndex].Prop3D->SetAllocatedRenderTime( t );
   this->EstimatedRenderTime = 0.0;
   this->AllocatedRenderTime = t;
+
+  // Push the matrix down into the selected LOD
+  vtkMatrix4x4 *matrix = vtkMatrix4x4::New();
+  this->GetMatrix( matrix );
+  this->LODs[this->SelectedLODIndex].Prop3D->SetUserMatrix( matrix );
+  matrix->Delete();
 
 }
 
