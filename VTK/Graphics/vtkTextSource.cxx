@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkTextSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-05-04 17:19:16 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1995-05-04 17:28:30 $
+  Version:   $Revision: 1.2 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -177,10 +177,10 @@ void vlTextSource::Execute()
 	    if (!drawing)
 	      {
 	      x[0] = pos*vlfont_width + col; 
-	      x[1] = row;
+	      x[1] = vlfont_height - row;
 	      newPoints->InsertNextPoint(x);
 	      x[0] = pos*vlfont_width + col + 1; 
-	      x[1] = row;
+	      x[1] = vlfont_height - row;
 	      newPoints->InsertNextPoint(x);
 	      drawing = 1;
 	      }
@@ -191,10 +191,10 @@ void vlTextSource::Execute()
 	    if (drawing)
 	      {
 	      x[0] = pos*vlfont_width + col + 1; 
-	      x[1] = row;
+	      x[1] = vlfont_height - row;
 	      newPoints->InsertNextPoint(x);
 	      x[0] = pos*vlfont_width + col; 
-	      x[1] = row;
+	      x[1] = vlfont_height - row;
 	      newPoints->InsertNextPoint(x);
 
 	      pts[0] = numPolys*4;
