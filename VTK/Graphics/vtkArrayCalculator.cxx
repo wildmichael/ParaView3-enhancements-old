@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkArrayCalculator.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-27 19:48:35 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2001-11-27 19:51:26 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -163,7 +163,7 @@ void vtkArrayCalculator::SetResultArrayName(const char* name)
     vtkErrorMacro("The result array must have a name.");
     return;
     }
-  if (strcmp(this->ResultArrayName, name) == 0)
+  if (this->ResultArrayName != NULL && strcmp(this->ResultArrayName, name) == 0)
     {
     return;
     }
