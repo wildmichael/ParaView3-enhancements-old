@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMultipleInputFilter.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 21:17:03 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1997-07-11 20:13:00 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -104,6 +104,7 @@ protected:
   vtkImageCache **Inputs;     // An Array of the inputs to the filter
   vtkImageRegion **Regions;   // We need an array for inputs.
   int Bypass;
+  int Updating;
   
   // Called to allocate the input array.  Copies old inputs.
   void SetNumberOfInputs(int num);

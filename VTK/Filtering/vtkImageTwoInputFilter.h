@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageTwoInputFilter.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 21:17:34 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1997-07-11 20:13:14 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -100,6 +100,7 @@ protected:
   vtkImageCache *Input1;     // One of the inputs to the filter
   vtkImageCache *Input2;     // One of the inputs to the filter
   int Bypass;
+  int Updating;
 
   virtual void SetFilteredAxes(int num, int *axes);
   virtual void ExecuteImageInformation(vtkImageCache *in1, vtkImageCache *in2,
