@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageClip.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-17 14:29:08 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1997-08-15 13:07:21 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -81,7 +81,7 @@ public:
   void SetOutputAxisWholeExtent(int axis, int min, int max);
   
   void ResetOutputWholeExtent();
-  void Update();
+  void InternalUpdate();
 
 protected:
   // Time when OutputImageExtent was computed.

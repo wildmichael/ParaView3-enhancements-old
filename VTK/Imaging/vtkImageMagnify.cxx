@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMagnify.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 21:16:48 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1997-08-15 13:07:24 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -133,9 +133,6 @@ void vtkImageMagnify::SetFilteredAxes(int num, int *axes)
   this->vtkImageDecomposedFilter::SetFilteredAxes(num, axes);
   this->InitializeParameters();
 }
-
-
-
 
 
 

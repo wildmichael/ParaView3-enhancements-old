@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageClip.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-17 14:29:06 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1997-08-15 13:07:20 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -215,7 +215,7 @@ void vtkImageClip::ResetOutputWholeExtent()
 //----------------------------------------------------------------------------
 // Description:
 // This method simply copies by reference the input data to the output.
-void vtkImageClip::Update()
+void vtkImageClip::InternalUpdate()
 {
   // Make sure the Input has been set.
   if ( ! this->Input)
@@ -343,6 +343,8 @@ static void vtkImageClipCompute(vtkImageRegion *region, T *ptr)
   int found, best, count = 0;
   int axes[5];
 
+  backGround = 0;
+  
   // Find back ground pixel.
   for (idx = 0; idx < 32; ++idx)
     {
