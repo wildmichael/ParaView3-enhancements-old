@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThreshold.h,v $
   Language:  C++
-  Date:      $Date: 2003-01-09 19:21:05 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 2003-03-25 14:58:57 $
+  Version:   $Revision: 1.45 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -89,23 +89,17 @@ public:
   vtkGetMacro(AllScalars,int);
   vtkBooleanMacro(AllScalars,int);
   
-protected:
-  vtkThreshold();
-  ~vtkThreshold();
-
-//BTX
-  // This is temporary solution. The vtkCutMaterial must be able
-  // to call SelectInputScalars().
-  friend class vtkCutMaterial;
-
   // Description:
   // If you want to threshold by an arbitrary array, then set its name here.
   // By default this in NULL and the filter will use the active scalar array.
   vtkGetStringMacro(InputScalarsSelection);
   virtual void SelectInputScalars(const char *fieldName) 
     {this->SetInputScalarsSelection(fieldName);}
-//ETX
-  
+
+protected:
+  vtkThreshold();
+  ~vtkThreshold();
+
   // Usual data generation method
   void Execute();
 

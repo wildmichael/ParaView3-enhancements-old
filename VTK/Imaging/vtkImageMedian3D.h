@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMedian3D.h,v $
   Language:  C++
-  Date:      $Date: 2003-01-09 19:21:05 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2003-03-25 14:59:18 $
+  Version:   $Revision: 1.28 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -45,6 +45,14 @@ public:
   // Description:
   // Return the number of elements in the median mask
   vtkGetMacro(NumberOfElements,int);
+
+  // Description:
+  // If you want the neighborhood median of an arbitrary point 
+  // scalar array, then set its name here.
+  // By default this in NULL and the filter will use the active scalar array.
+  vtkGetStringMacro(InputScalarsSelection);
+  void SelectInputScalars(const char *fieldName) 
+    {this->SetInputScalarsSelection(fieldName);}  
 
 protected:
   vtkImageMedian3D();

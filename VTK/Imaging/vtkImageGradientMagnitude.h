@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageGradientMagnitude.h,v $
   Language:  C++
-  Date:      $Date: 2003-01-09 19:21:05 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2003-03-25 14:59:18 $
+  Version:   $Revision: 1.36 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -50,6 +50,14 @@ public:
   vtkSetClampMacro(Dimensionality,int,2,3);
   vtkGetMacro(Dimensionality,int);
   
+  // Description:
+  // If you want to compute the gradient magnitude of an arbitrary point 
+  // scalar array, then set its name here.
+  // By default this in NULL and the filter will use the active scalar array.
+  vtkGetStringMacro(InputScalarsSelection);
+  void SelectInputScalars(const char *fieldName) 
+    {this->SetInputScalarsSelection(fieldName);}  
+
 protected:
   vtkImageGradientMagnitude();
   ~vtkImageGradientMagnitude() {};

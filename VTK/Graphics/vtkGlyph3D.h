@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGlyph3D.h,v $
   Language:  C++
-  Date:      $Date: 2003-01-09 19:21:05 $
-  Version:   $Revision: 1.56 $
+  Date:      $Date: 2003-03-25 14:58:57 $
+  Version:   $Revision: 1.57 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -210,6 +210,27 @@ public:
   // are named "InputPointIds", but this can be changed with this function.
   vtkSetStringMacro(PointIdsName);
   vtkGetStringMacro(PointIdsName);
+
+  // Description:
+  // If you want to use an arbitrary scalars array, then set its name here.
+  // By default this in NULL and the filter will use the active scalar array.
+  vtkGetStringMacro(InputScalarsSelection);
+  void SelectInputScalars(const char *fieldName) 
+    {this->SetInputScalarsSelection(fieldName);}
+
+  // Description:
+  // If you want to use an arbitrary vectors array, then set its name here.
+  // By default this in NULL and the filter will use the active vector array.
+  vtkGetStringMacro(InputVectorsSelection);
+  void SelectInputVectors(const char *fieldName) 
+    {this->SetInputVectorsSelection(fieldName);}
+
+  // Description:
+  // If you want to use an arbitrary normals array, then set its name here.
+  // By default this in NULL and the filter will use the active normal array.
+  vtkGetStringMacro(InputNormalsSelection);
+  void SelectInputNormals(const char *fieldName) 
+    {this->SetInputNormalsSelection(fieldName);}
 
 protected:
   vtkGlyph3D();

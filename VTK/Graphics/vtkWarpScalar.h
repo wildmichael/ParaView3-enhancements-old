@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpScalar.h,v $
   Language:  C++
-  Date:      $Date: 2003-01-09 19:21:05 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2003-03-25 14:58:57 $
+  Version:   $Revision: 1.40 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -76,6 +76,13 @@ public:
   vtkGetMacro(XYPlane,int);
   vtkBooleanMacro(XYPlane,int);
 
+  // Description:
+  // If you want to warp by an arbitrary scalar array, then set its name here.
+  // By default this in NULL and the filter will use the active scalar array.
+  vtkGetStringMacro(InputScalarsSelection);
+  void SelectInputScalars(const char *fieldName) 
+    {this->SetInputScalarsSelection(fieldName);}
+  
 protected:
   vtkWarpScalar();
   ~vtkWarpScalar();

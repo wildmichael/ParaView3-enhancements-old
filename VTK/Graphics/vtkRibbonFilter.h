@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRibbonFilter.h,v $
   Language:  C++
-  Date:      $Date: 2003-01-09 19:21:05 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 2003-03-25 14:58:57 $
+  Version:   $Revision: 1.44 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -120,6 +120,13 @@ public:
   // texture space.
   vtkSetClampMacro(TextureLength,float,0.000001,VTK_LARGE_INTEGER);
   vtkGetMacro(TextureLength,float);
+
+  // Description:
+  // If you want to use an arbitrary normals array, then set its name here.
+  // By default this in NULL and the filter will use the active normal array.
+  vtkGetStringMacro(InputVectorsSelection);
+  void SelectInputVectors(const char *fieldName) 
+    {this->SetInputVectorsSelection(fieldName);}
 
 protected:
   vtkRibbonFilter();

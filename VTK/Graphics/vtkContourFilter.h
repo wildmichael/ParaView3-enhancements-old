@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkContourFilter.h,v $
   Language:  C++
-  Date:      $Date: 2003-01-09 19:21:05 $
-  Version:   $Revision: 1.69 $
+  Date:      $Date: 2003-03-25 14:58:57 $
+  Version:   $Revision: 1.70 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -133,6 +133,13 @@ public:
   // specified. The locator is used to merge coincident points.
   void CreateDefaultLocator();
 
+  // Description:
+  // If you want to contour by an arbitrary array, then set its name here.
+  // By default this in NULL and the filter will use the active scalar array.
+  vtkGetStringMacro(InputScalarsSelection);
+  virtual void SelectInputScalars(const char *fieldName) 
+    {this->SetInputScalarsSelection(fieldName);}
+
 protected:
   vtkContourFilter();
   ~vtkContourFilter();
@@ -149,21 +156,6 @@ protected:
   
   char *InputScalarsSelection;
   vtkSetStringMacro(InputScalarsSelection);
-
-//BTX
-
-  // This is temporary solution. The sub-classes must be able
-  // to call SelectInputScalars() on other instances.
-  friend class vtkKitwareContourFilter;
-
-  // Description:
-  // If you want to contour by an arbitrary array, then set its name here.
-  // By default this in NULL and the filter will use the active scalar array.
-  vtkGetStringMacro(InputScalarsSelection);
-  virtual void SelectInputScalars(const char *fieldName) 
-    {this->SetInputScalarsSelection(fieldName);}
-
-//ETX
 
 private:
   vtkContourFilter(const vtkContourFilter&);  // Not implemented.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageContinuousErode3D.h,v $
   Language:  C++
-  Date:      $Date: 2003-01-09 19:21:05 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2003-03-25 14:59:18 $
+  Version:   $Revision: 1.23 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -45,6 +45,14 @@ public:
   // default middle of the neighborhood and computes the elliptical foot print.
   void SetKernelSize(int size0, int size1, int size2);
 
+  // Description:
+  // If you want to erode by an arbitrary point scalar array, 
+  // then set its name here.
+  // By default this in NULL and the filter will use the active scalar array.
+  vtkGetStringMacro(InputScalarsSelection);
+  void SelectInputScalars(const char *fieldName) 
+    {this->SetInputScalarsSelection(fieldName);}  
+  
 protected:
   vtkImageContinuousErode3D();
   ~vtkImageContinuousErode3D();
