@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfObject.h,v 1.5 2003-05-21 18:35:33 clarke Exp $  */
-/*  Date : $Date: 2003-05-21 18:35:33 $ */
-/*  Version : $Revision: 1.5 $ */
+/*  Id : $Id: XdmfObject.h,v 1.6 2003-06-03 11:21:26 andy Exp $  */
+/*  Date : $Date: 2003-06-03 11:21:26 $ */
+/*  Version : $Revision: 1.6 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -145,6 +145,7 @@ typedef ICE_DOUBLE  XDMF_DOUBLE;
 #ifndef SWIG
 typedef XDMF_32_INT  XdmfBoolean;
 typedef XDMF_CHAR *  XdmfString;
+typedef const XDMF_CHAR *  XdmfConstString;
 typedef XDMF_PTR  XdmfPointer;
 typedef  XDMF_8_INT  XdmfInt8;
 typedef XDMF_32_INT  XdmfInt32;

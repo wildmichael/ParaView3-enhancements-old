@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDOM.cxx,v 1.2 2003-03-04 15:24:31 andy Exp $  */
-/*  Date : $Date: 2003-03-04 15:24:31 $ */
-/*  Version : $Revision: 1.2 $ */
+/*  Id : $Id: XdmfDOM.cxx,v 1.3 2003-06-03 11:21:26 andy Exp $  */
+/*  Date : $Date: 2003-06-03 11:21:26 $ */
+/*  Version : $Revision: 1.3 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -903,7 +903,7 @@ return XDMF_FLOAT32_TYPE;
 
 
 XdmfParameter *
-XdmfDOM::FindParameter( XdmfString ParameterName, XdmfXNode *Node ) {
+XdmfDOM::FindParameter( XdmfConstString ParameterName, XdmfXNode *Node ) {
 
 char    *Attribute;
 XdmfInt32  i, NumberOfParameters;
