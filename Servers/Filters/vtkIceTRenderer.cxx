@@ -14,7 +14,7 @@
 =========================================================================*/
 /* -*- c++ -*- *******************************************************/
 
-/* $Id: vtkIceTRenderer.cxx,v 1.10 2004-01-22 20:16:34 lawcc Exp $ */
+/* $Id: vtkIceTRenderer.cxx,v 1.11 2004-03-29 18:43:57 lawcc Exp $ */
 
 #include "vtkIceTRenderer.h"
 
@@ -38,7 +38,7 @@ static vtkIceTRenderer *currentRenderer;
 // vtkIceTRenderer implementation.
 //******************************************************************
 
-vtkCxxRevisionMacro(vtkIceTRenderer, "$Revision: 1.10 $");
+vtkCxxRevisionMacro(vtkIceTRenderer, "$Revision: 1.11 $");
 vtkStandardNewMacro(vtkIceTRenderer);
 
 vtkIceTRenderer::vtkIceTRenderer()
@@ -315,6 +315,11 @@ int vtkIceTRenderer::UpdateGeometry()
 
   delete[] visible;
   return this->NumberOfPropsRendered;
+}
+
+void vtkIceTRenderer::StereoMidpoint()
+{
+  this->ComposeNextFrame = 1;
 }
 
 void vtkIceTRenderer::PrintSelf(ostream &os, vtkIndent indent)
