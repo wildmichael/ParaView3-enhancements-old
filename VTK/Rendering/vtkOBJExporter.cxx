@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOBJExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:45:43 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1997-07-25 14:47:29 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -69,15 +69,15 @@ void vtkOBJExporter::WriteData()
     }
 
   // first make sure there is only one renderer in this rendering window
-  if (this->Input->GetRenderers()->GetNumberOfItems() > 1)
+  if (this->RenderWindow->GetRenderers()->GetNumberOfItems() > 1)
     {
     vtkErrorMacro(<< "obj files only support on renderer per window.");
     return;
     }
 
   // get the renderer
-  this->Input->GetRenderers()->InitTraversal();
-  ren = this->Input->GetRenderers()->GetNextItem();
+  this->RenderWindow->GetRenderers()->InitTraversal();
+  ren = this->RenderWindow->GetRenderers()->GetNextItem();
   
   // make sure it has at least one actor
   if (ren->GetActors()->GetNumberOfItems() < 1)

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:44:20 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1997-07-25 14:47:28 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -44,7 +44,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // Construct with no start and end write methods or arguments.
 vtkExporter::vtkExporter()
 {
-  this->Input = NULL;
+  this->RenderWindow = NULL;
   this->StartWrite = NULL;
   this->StartWriteArgDelete = NULL;
   this->StartWriteArg = NULL;
@@ -59,9 +59,9 @@ vtkExporter::vtkExporter()
 void vtkExporter::Write()
 {
   // make sure input is available
-  if ( !this->Input )
+  if ( !this->RenderWindow )
     {
-    vtkErrorMacro(<< "No input!");
+    vtkErrorMacro(<< "No render window provided!");
     return;
     }
 
@@ -140,13 +140,13 @@ void vtkExporter::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkObject::PrintSelf(os,indent);
 
-  if ( this->Input )
+  if ( this->RenderWindow )
     {
-    os << indent << "Input: (" << (void *)this->Input << ")\n";
+    os << indent << "Render Window: (" << (void *)this->RenderWindow << ")\n";
     }
   else
     {
-    os << indent << "Input: (none)\n";
+    os << indent << "Render Window: (none)\n";
     }
 
   if ( this->StartWrite )
