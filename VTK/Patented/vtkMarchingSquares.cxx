@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkMarchingSquares.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-06-08 13:05:19 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1996-07-08 20:27:16 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -333,7 +333,7 @@ void vtkMarchingSquares::Execute()
   inScalars->GetNumberOfValuesPerScalar() == 1 )
     {
     unsigned char *scalars = ((vtkUnsignedCharScalars *)inScalars)->GetPtr(0);
-    newScalars = (vtkUnsignedCharScalars *) new vtkUnsignedCharScalars(5000,25000);
+    newScalars = new vtkUnsignedCharScalars(5000,25000);
     ContourImage(scalars,newScalars,roi,dir,start,end,offset,ar,origin,
                  this->Values,this->NumberOfContours,newPts,newLines);
     }
@@ -341,7 +341,7 @@ void vtkMarchingSquares::Execute()
   else if ( !strcmp(type,"short") )
     {
     short *scalars = ((vtkShortScalars *)inScalars)->GetPtr(0);
-    newScalars = (vtkShortScalars *) new vtkShortScalars(5000,25000);
+    newScalars = new vtkShortScalars(5000,25000);
     ContourImage(scalars,newScalars,roi,dir,start,end,offset,ar,origin,
                  this->Values,this->NumberOfContours,newPts,newLines);
     }
@@ -349,7 +349,7 @@ void vtkMarchingSquares::Execute()
   else if ( !strcmp(type,"float") )
     {
     float *scalars = ((vtkFloatScalars *)inScalars)->GetPtr(0);
-    newScalars = (vtkFloatScalars *) new vtkFloatScalars(5000,25000);
+    newScalars = new vtkFloatScalars(5000,25000);
     ContourImage(scalars,newScalars,roi,dir,start,end,offset,ar,origin,
                  this->Values,this->NumberOfContours,newPts,newLines);
     }
@@ -357,7 +357,7 @@ void vtkMarchingSquares::Execute()
   else if ( !strcmp(type,"int") )
     {
     int *scalars = ((vtkIntScalars *)inScalars)->GetPtr(0);
-    newScalars = (vtkIntScalars *) new vtkFloatScalars(5000,25000);
+    newScalars = new vtkFloatScalars(5000,25000);
     ContourImage(scalars,newScalars,roi,dir,start,end,offset,ar,origin,
                  this->Values,this->NumberOfContours,newPts,newLines);
     }
@@ -366,12 +366,10 @@ void vtkMarchingSquares::Execute()
     {
     vtkFloatScalars *image = new vtkFloatScalars(dataSize);
     inScalars->GetScalars(0,dataSize,*image);
-    newScalars = (vtkFloatScalars *) new vtkFloatScalars(5000,25000);
-
+    newScalars = new vtkFloatScalars(5000,25000);
     float *scalars = image->GetPtr(0);
     ContourImage(scalars,newScalars,roi,dir,start,end,offset,ar,origin,
                  this->Values,this->NumberOfContours,newPts,newLines);
-
     delete image;
     }
   
