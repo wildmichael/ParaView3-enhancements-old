@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStripper.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-06-12 21:27:58 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1994-07-07 13:14:09 $
+  Version:   $Revision: 1.5 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -45,6 +45,7 @@ void vlStripper::Execute()
   this->Initialize();
 
   // build cell structure.  Only operate with polygons and triangle strips.
+  Mesh.SetPoints(this->Input->GetPoints());
   Mesh.SetPolys(this->Input->GetPolys());
   Mesh.SetStrips(this->Input->GetStrips());
 

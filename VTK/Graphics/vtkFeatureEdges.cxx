@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkFeatureEdges.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-06-12 21:27:56 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1994-07-07 13:14:05 $
+  Version:   $Revision: 1.4 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -61,6 +61,7 @@ void vlFeatureEdges::Execute()
     }
 
   // build cell structure.  Only operate with polygons.
+  Mesh.SetPoints(this->Input->GetPoints());
   Mesh.SetPolys(this->Input->GetPolys());
 //
 //  Allocate storage for lines/points
