@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSightReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-30 18:23:54 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2002-05-31 15:59:46 $
+  Version:   $Revision: 1.31 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,7 +25,7 @@
 
 #include <ctype.h>
 
-vtkCxxRevisionMacro(vtkEnSightReader, "$Revision: 1.30 $");
+vtkCxxRevisionMacro(vtkEnSightReader, "$Revision: 1.31 $");
 
 //----------------------------------------------------------------------------
 vtkEnSightReader::vtkEnSightReader()
@@ -236,7 +236,7 @@ void vtkEnSightReader::Execute()
   char* fileName;
   int filenameNum;
   
-  if (!this->ReadCaseFile())
+  if ( ! this->CaseFileRead)
     {
     vtkErrorMacro("error reading case file");
     return;
@@ -424,6 +424,7 @@ void vtkEnSightReader::Update()
 {
   int i;
   
+  this->UpdateInformation();
   this->Execute();
   
   for (i = 0; i < this->GetNumberOfOutputs(); i++)
@@ -433,6 +434,11 @@ void vtkEnSightReader::Update()
       this->GetOutput(i)->DataHasBeenGenerated();
       }
     }
+}
+//----------------------------------------------------------------------------
+void vtkEnSightReader::UpdateInformation()
+{
+  this->CaseFileRead = this->ReadCaseFile();
 }
 
 //----------------------------------------------------------------------------

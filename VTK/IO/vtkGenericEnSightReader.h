@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGenericEnSightReader.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:13 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2002-05-31 15:59:46 $
+  Version:   $Revision: 1.13 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -48,6 +48,7 @@ public:
   vtkGetStringMacro(FilePath);
   
   void Update();
+  void UpdateInformation();
   
   // Description:
   // Get the number of variables of a particular type.
@@ -98,6 +99,10 @@ public:
   // Get the minimum or maximum time value for this data set.
   vtkGetMacro(MinimumTimeValue, float);
   vtkGetMacro(MaximumTimeValue, float);
+  
+  // Description:
+  // Get the time values per time set
+  vtkGetObjectMacro(TimeSetTimeValuesCollection, vtkCollection);
   
 protected:
   vtkGenericEnSightReader();
@@ -181,6 +186,10 @@ protected:
   float TimeValue;
   float MinimumTimeValue;
   float MaximumTimeValue;
+  
+  vtkCollection *TimeSetTimeValuesCollection;
+  vtkSetObjectMacro(TimeSetTimeValuesCollection, vtkCollection);
+  
 private:
   vtkGenericEnSightReader(const vtkGenericEnSightReader&);  // Not implemented.
   void operator=(const vtkGenericEnSightReader&);  // Not implemented.
