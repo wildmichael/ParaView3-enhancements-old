@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObject.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-17 19:55:05 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1999-09-17 20:04:00 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -331,13 +331,6 @@ long vtkDataObject::GetPipelineMTime()
 {
   return this->Information->GetPipelineMTime();
 }
-
-//----------------------------------------------------------------------------
-void vtkDataObject::PreUpdate() 
-{
-  // For now does nothing
-}
-
 
 //----------------------------------------------------------------------------
 unsigned long vtkDataObject::GetActualMemorySize()
