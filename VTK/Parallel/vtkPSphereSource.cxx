@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPSphereSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:34:49 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-08-12 15:20:30 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkLargeInteger.h"
 
-vtkCxxRevisionMacro(vtkPSphereSource, "$Revision: 1.8 $");
+vtkCxxRevisionMacro(vtkPSphereSource, "$Revision: 1.9 $");
 vtkStandardNewMacro(vtkPSphereSource);
 
 //----------------------------------------------------------------------------
@@ -254,4 +254,9 @@ unsigned long vtkPSphereSource::GetEstimatedMemorySize()
   sz >>= 10;
   
   return sz.CastToUnsignedLong();
+}
+
+void vtkPSphereSource::PrintSelf(ostream& os, vtkIndent indent)
+{
+  this->Superclass::PrintSelf(os, indent);
 }

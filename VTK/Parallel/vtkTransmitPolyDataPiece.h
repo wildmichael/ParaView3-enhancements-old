@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransmitPolyDataPiece.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-17 01:50:34 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-08-12 15:20:30 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -52,8 +52,6 @@ public:
 protected:
   vtkTransmitPolyDataPiece();
   ~vtkTransmitPolyDataPiece();
-  vtkTransmitPolyDataPiece(const vtkTransmitPolyDataPiece&);
-  void operator=(const vtkTransmitPolyDataPiece&);
 
   // Data generation method
   void Execute();
@@ -69,6 +67,10 @@ protected:
 
   int CreateGhostCells;
   vtkMultiProcessController *Controller;
+
+private:
+  vtkTransmitPolyDataPiece(const vtkTransmitPolyDataPiece&); // Not implemented
+  void operator=(const vtkTransmitPolyDataPiece&); // Not implemented
 };
 
 #endif

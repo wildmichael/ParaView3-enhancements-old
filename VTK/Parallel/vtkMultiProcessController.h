@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMultiProcessController.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-29 12:01:16 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2002-08-12 15:20:30 $
+  Version:   $Revision: 1.18 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -40,7 +40,9 @@
 #ifndef __vtkMultiProcessController_h
 #define __vtkMultiProcessController_h
 
-#include "vtkCommunicator.h"
+#include "vtkObject.h"
+
+#include "vtkCommunicator.h" // Needed for direct access to communicator
 
 class vtkDataSet;
 class vtkImageData;

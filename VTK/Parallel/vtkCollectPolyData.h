@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCollectPolyData.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-17 01:50:34 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-08-12 15:20:30 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -56,8 +56,6 @@ public:
 protected:
   vtkCollectPolyData();
   ~vtkCollectPolyData();
-  vtkCollectPolyData(const vtkCollectPolyData&);
-  void operator=(const vtkCollectPolyData&);
 
   // Data generation method
   void ComputeInputUpdateExtents(vtkDataObject *output);
@@ -68,6 +66,10 @@ protected:
   int Collected;
 
   vtkMultiProcessController *Controller;
+
+private:
+  vtkCollectPolyData(const vtkCollectPolyData&); // Not implemented
+  void operator=(const vtkCollectPolyData&); // Not implemented
 };
 
 #endif

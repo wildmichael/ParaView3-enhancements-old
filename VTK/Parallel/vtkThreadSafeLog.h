@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThreadSafeLog.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-17 01:50:34 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-08-12 15:20:30 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,6 @@
 #ifndef __vtkThreadSafeLog_h
 #define __vtkThreadSafeLog_h
 
-
 #include "vtkObject.h"
 
 #define VTK_THREAD_SAFE_LOG_MAX 1000
@@ -31,7 +30,8 @@ class VTK_PARALLEL_EXPORT vtkThreadSafeLog : public vtkObject
 {
 public:
   static vtkThreadSafeLog *New();
-  const char *GetClassName() {return "vtkThreadSafeLog";};
+  vtkTypeRevisionMacro(vtkThreadSafeLog, vtkObject);
+  virtual void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // some of the timeing features of vtkTimerLog.

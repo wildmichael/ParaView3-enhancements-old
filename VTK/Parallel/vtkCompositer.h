@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCompositer.h,v $
   Language:  C++
-  Date:      $Date: 2002-07-26 13:49:23 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-08-12 15:20:30 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -59,12 +59,13 @@ public:
 protected:
   vtkCompositer();
   ~vtkCompositer();
-  vtkCompositer(const vtkCompositer&);
-  void operator=(const vtkCompositer&);
   
   vtkMultiProcessController *Controller;
   int NumberOfProcesses;
 
+private:
+  vtkCompositer(const vtkCompositer&); // Not implemented
+  void operator=(const vtkCompositer&); // Not implemented
 };
 
 #endif

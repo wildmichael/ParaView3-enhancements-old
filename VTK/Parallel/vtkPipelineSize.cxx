@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPipelineSize.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:34:53 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2002-08-12 15:20:30 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,7 +26,7 @@
 #include "vtkPSphereSource.h"
 #include "vtkPolyDataMapper.h"
 
-vtkCxxRevisionMacro(vtkPipelineSize, "$Revision: 1.10 $");
+vtkCxxRevisionMacro(vtkPipelineSize, "$Revision: 1.11 $");
 vtkStandardNewMacro(vtkPipelineSize);
 
 unsigned long 
@@ -356,3 +356,7 @@ unsigned long vtkPipelineSize::GetNumberOfSubPieces(unsigned long memoryLimit,
   return subDivisions;
 }
 
+void vtkPipelineSize::PrintSelf(ostream& os, vtkIndent indent)
+{
+  this->Superclass::PrintSelf(os, indent);
+}

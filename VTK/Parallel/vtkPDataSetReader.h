@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPDataSetReader.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-18 19:06:27 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2002-08-12 15:20:30 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -67,8 +67,6 @@ public:
 protected:
   vtkPDataSetReader();
   ~vtkPDataSetReader();
-  vtkPDataSetReader(const vtkPDataSetReader&);
-  void operator=(const vtkPDataSetReader&);
 
   virtual void ExecuteInformation();
   void ReadPVTKFileInformation(ifstream *fp);
@@ -97,6 +95,10 @@ protected:
   int NumberOfPieces;
   char **PieceFileNames;
   int **PieceExtents;
+
+private:
+  vtkPDataSetReader(const vtkPDataSetReader&); // Not implemented
+  void operator=(const vtkPDataSetReader&); // Not implemented
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCompressCompositer.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-17 01:50:34 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-08-12 15:20:30 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -46,8 +46,6 @@ public:
 protected:
   vtkCompressCompositer();
   ~vtkCompressCompositer();
-  vtkCompressCompositer(const vtkCompressCompositer&);
-  void operator=(const vtkCompressCompositer&);
   
   void Compress(vtkFloatArray *zIn, vtkDataArray *pIn,
                 vtkFloatArray *zOut, vtkDataArray *pOut);
@@ -64,6 +62,9 @@ protected:
 
   vtkTimerLog *Timer;
 
+private:
+  vtkCompressCompositer(const vtkCompressCompositer&); // Not implemented
+  void operator=(const vtkCompressCompositer&); // Not implemented
 };
 
 #endif

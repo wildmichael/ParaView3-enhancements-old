@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPDataSetWriter.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-17 01:50:34 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-08-12 15:20:30 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -80,8 +80,6 @@ public:
 protected:
   vtkPDataSetWriter();
   ~vtkPDataSetWriter();
-  vtkPDataSetWriter(const vtkPDataSetWriter&);
-  void operator=(const vtkPDataSetWriter&);
 
 //BTX
   ostream *OpenFile();
@@ -103,6 +101,10 @@ protected:
   int UseRelativeFileNames;
 
   char *FilePattern;
+
+private:
+  vtkPDataSetWriter(const vtkPDataSetWriter&); // Not implemented
+  void operator=(const vtkPDataSetWriter&); // Not implemented
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSharedMemoryCommunicator.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-17 01:50:34 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2002-08-12 15:20:30 $
+  Version:   $Revision: 1.14 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -41,10 +41,8 @@ class vtkSimpleCriticalSection;
 
 class VTK_PARALLEL_EXPORT vtkSharedMemoryCommunicator : public vtkCommunicator
 {
-
 public:
-
-  vtkTypeRevisionMacro( vtkSharedMemoryCommunicator,vtkObject);
+  vtkTypeRevisionMacro( vtkSharedMemoryCommunicator,vtkCommunicator);
   
   // Description:
   // Creates an empty communicator.

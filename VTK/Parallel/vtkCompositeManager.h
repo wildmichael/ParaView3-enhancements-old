@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCompositeManager.h,v $
   Language:  C++
-  Date:      $Date: 2002-07-26 13:49:23 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2002-08-12 15:20:30 $
+  Version:   $Revision: 1.15 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -190,8 +190,6 @@ public:
 protected:
   vtkCompositeManager();
   ~vtkCompositeManager();
-  vtkCompositeManager(const vtkCompositeManager&);
-  void operator=(const vtkCompositeManager&);
   
   void SetRendererSize(int x, int y);
   void MagnifyBuffer(vtkDataArray *localPdata, vtkDataArray* magPdata,
@@ -251,6 +249,10 @@ protected:
   int Manual;
 
   int FirstRender;
+
+private:
+  vtkCompositeManager(const vtkCompositeManager&); // Not implemented
+  void operator=(const vtkCompositeManager&); // Not implemented
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTreeCompositer.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-24 11:30:14 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-08-12 15:20:30 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -70,9 +70,10 @@ public:
 protected:
   vtkTreeCompositer();
   ~vtkTreeCompositer();
-  vtkTreeCompositer(const vtkTreeCompositer&);
-  void operator=(const vtkTreeCompositer&);
-  
+
+private:
+  vtkTreeCompositer(const vtkTreeCompositer&); // Not implemented
+  void operator=(const vtkTreeCompositer&); // Not implemented
 };
 
 #endif

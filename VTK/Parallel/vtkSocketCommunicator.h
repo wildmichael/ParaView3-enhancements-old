@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSocketCommunicator.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-04 00:18:26 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2002-08-12 15:20:30 $
+  Version:   $Revision: 1.27 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -34,8 +34,9 @@
 #ifndef __vtkSocketCommunicator_h
 #define __vtkSocketCommunicator_h
 
-#include "vtkByteSwap.h"
 #include "vtkCommunicator.h"
+
+#include "vtkByteSwap.h" // Needed for vtkSwap macros
 
 #ifdef VTK_WORDS_BIGENDIAN
 # define vtkSwap4 vtkByteSwap::Swap4LE

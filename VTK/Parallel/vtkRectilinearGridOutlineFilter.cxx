@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGridOutlineFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-13 13:39:48 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-08-12 15:20:30 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkRectilinearGridOutlineFilter.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkRectilinearGridOutlineFilter, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkRectilinearGridOutlineFilter, "$Revision: 1.4 $");
 vtkStandardNewMacro(vtkRectilinearGridOutlineFilter);
 
 
@@ -203,4 +203,7 @@ void vtkRectilinearGridOutlineFilter::Execute()
   output->Squeeze();
 }
 
-
+void vtkRectilinearGridOutlineFilter::PrintSelf(ostream& os, vtkIndent indent)
+{
+  this->Superclass::PrintSelf(os, indent);
+}

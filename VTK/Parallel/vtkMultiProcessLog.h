@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMultiProcessLog.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-17 01:50:34 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-08-12 15:20:30 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,10 @@
 #ifndef __vtkMultiProcessLog_h
 #define __vtkMultiProcessLog_h
 
-#include "vtkThreadSafeLog.h"
+
+#include "vtkObject.h"
+
+class vtkThreadSafeLog;
 
 #define VTK_MULTI_PROCESS_LOG_MAX 1000
 
@@ -30,7 +33,8 @@ class VTK_PARALLEL_EXPORT vtkMultiProcessLog : public vtkObject
 {
 public:
   static vtkMultiProcessLog *New();
-  const char *GetClassName() {return "vtkMultiProcessLog";};
+  vtkTypeRevisionMacro(vtkMultiProcessLog,vtkObject);
+  virtual void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // I want all the events in one process to share a log.
