@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCamera.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:28 $
-  Version:   $Revision: 1.98 $
+  Date:      $Date: 2002-02-26 17:58:01 $
+  Version:   $Revision: 1.99 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkCamera, "$Revision: 1.98 $");
+vtkCxxRevisionMacro(vtkCamera, "$Revision: 1.99 $");
 
 //----------------------------------------------------------------------------
 // Construct camera instance with its focal point at the origin, 
@@ -475,7 +475,7 @@ void vtkCamera::SetParallelProjection(int flag)
 //----------------------------------------------------------------------------
 void vtkCamera::SetViewAngle(double angle)
 {
-  double min =   1.0;
+  double min =   0.00000001;
   double max = 179.0;
 
   if ( this->ViewAngle != angle )
