@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2002-10-24 15:27:55 $
-  Version:   $Revision: 1.60 $
+  Date:      $Date: 2002-10-25 18:18:40 $
+  Version:   $Revision: 1.61 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -108,7 +108,7 @@ public:
   virtual void *GetGenericParentId()  {return (void *)this->ParentId;};
   virtual void *GetGenericContext()   {return (void *)this->DeviceContext;};
   virtual void *GetGenericDrawable()  {return (void *)this->WindowId;};
-  virtual void SetDisplayId(void *) {};
+  virtual void SetDisplayId(void *);
 
   // Description:
   // Get the window id.
@@ -142,12 +142,6 @@ public:
   // Description:
   // Make this windows OpenGL context the current context.
   void MakeCurrent();
-
-  // Description:
-  // If called, allow MakeCurrent() to skip cache-check when called.
-  // MakeCurrent() reverts to original behavior of cache-checking
-  // on the next render.
-  void SetForceMakeCurrent();
 
   // Description:
   // Check to see if a mouse button has been pressed.
