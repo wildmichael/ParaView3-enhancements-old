@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCityBlockDistance.h,v $
   Language:  C++
-  Date:      $Date: 1998-06-04 17:21:09 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-06-08 14:04:46 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,7 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-// .NAME vtkImageCityBlockDistance1D - 1,2 or 3D distance map.
+// .NAME vtkImageCityBlockDistance - 1,2 or 3D distance map.
 // .SECTION Description
 // vtkImageCityBlockDistance creates a distance map using the city block
 // (Manhatten) distance measure.  The input is a mask.  Zero values are
