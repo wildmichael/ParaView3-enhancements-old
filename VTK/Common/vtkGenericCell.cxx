@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGenericCell.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:24 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2002-03-06 15:39:59 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -31,9 +31,10 @@
 #include "vtkVoxel.h"
 #include "vtkWedge.h"
 #include "vtkPyramid.h"
+#include "vtkQuadraticEdge.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkGenericCell, "$Revision: 1.11 $");
+vtkCxxRevisionMacro(vtkGenericCell, "$Revision: 1.12 $");
 vtkStandardNewMacro(vtkGenericCell);
 
 // Construct cell.
@@ -74,9 +75,9 @@ int vtkGenericCell::GetCellDimension()
   return this->Cell->GetCellDimension();
 }
 
-int vtkGenericCell::GetInterpolationOrder()
+int vtkGenericCell::IsLinear()
 {
-  return this->Cell->GetInterpolationOrder();
+  return this->Cell->IsLinear();
 }
 
 int vtkGenericCell::GetNumberOfEdges()
@@ -219,6 +220,9 @@ void vtkGenericCell::SetCellType(int cellType)
         break;
       case VTK_PYRAMID:
         this->Cell = vtkPyramid::New();
+        break;
+      case VTK_QUADRATIC_EDGE:
+        this->Cell = vtkQuadraticEdge::New();
         break;
       default:
         vtkErrorMacro(<<"Unsupported cell type! Setting to vtkEmptyCell");

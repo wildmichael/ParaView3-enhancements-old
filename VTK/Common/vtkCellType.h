@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellType.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:14 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2002-03-06 15:39:59 $
+  Version:   $Revision: 1.20 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -33,6 +33,7 @@
 // you'll also have to modify the readers/writers and regression tests
 // (example scripts) to reflect the new cell addition.
 
+// Linear cells
 #define VTK_EMPTY_CELL 0
 #define VTK_VERTEX 1
 #define VTK_POLY_VERTEX 2
@@ -49,6 +50,12 @@
 #define VTK_WEDGE 13
 #define VTK_PYRAMID 14
 
+// Higher order, isoparametric cells
+#define VTK_QUADRATIC_EDGE     21
+#define VTK_QUADRATIC_TRIANGLE 22
+#define VTK_QUADRATIC_TETRA    23
+
+// Parametric splines and such
 #define VTK_PARAMETRIC_CURVE 51
 #define VTK_PARAMETRIC_SURFACE 52
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCell3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:12 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2002-03-06 15:39:59 $
+  Version:   $Revision: 1.21 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 #include "vtkPointLocator.h"
 #include "vtkMarchingCubesCases.h"
 
-vtkCxxRevisionMacro(vtkCell3D, "$Revision: 1.20 $");
+vtkCxxRevisionMacro(vtkCell3D, "$Revision: 1.21 $");
 
 vtkCell3D::~vtkCell3D()
 {
@@ -112,8 +112,7 @@ void vtkCell3D::Clip(float value, vtkDataArray *cellScalars,
 
       // generate edge intersection point
       this->Points->GetPoint(edges[0],p1);
-  
-    this->Points->GetPoint(edges[1],p2);
+      this->Points->GetPoint(edges[1],p2);
       for (i=0; i<3; i++)
         {
         x[i] = p1[i] + t * (p2[i] - p1[i]);

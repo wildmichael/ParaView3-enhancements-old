@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCell.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:12 $
-  Version:   $Revision: 1.74 $
+  Date:      $Date: 2002-03-06 15:39:59 $
+  Version:   $Revision: 1.75 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -88,16 +88,24 @@ public:
   virtual int GetCellDimension() = 0;
 
   // Description:
-  // Return the interpolation order of the cell. Usually linear.
-  virtual int GetInterpolationOrder() {return 1;};
+  // Non-linear cells require special treatment 
+  // beyond the usual cell type and connectivity list information.
+  // Most cells in VTK are implicit cells.
+  virtual int IsLinear() {return 1;}
+
+  // Description:
+  // Explicit cells require additional representational information
+  // beyond the usual cell type and connectivity list information.
+  // Most cells in VTK are implicit cells.
+  virtual int IsExplicitCell() {return 0;}
 
   // Description:
   // Get the point coordinates for the cell.
-  vtkPoints *GetPoints() {return this->Points;};
+  vtkPoints *GetPoints() {return this->Points;}
 
   // Description:
   // Return the number of points in the cell.
-  int GetNumberOfPoints() {return this->PointIds->GetNumberOfIds();};
+  int GetNumberOfPoints() {return this->PointIds->GetNumberOfIds();}
 
   // Description:
   // Return the number of edges in the cell.
@@ -109,11 +117,11 @@ public:
 
   // Description:
   // Return the list of point ids defining the cell.
-  vtkIdList *GetPointIds() {return this->PointIds;};
+  vtkIdList *GetPointIds() {return this->PointIds;}
 
   // Description:
   // For cell point i, return the actual point id.
-  vtkIdType GetPointId(int ptId) {return this->PointIds->GetId(ptId);};
+  vtkIdType GetPointId(int ptId) {return this->PointIds->GetId(ptId);}
 
   // Description:
   // Return the edge cell from the edgeId of the cell.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGenericCell.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:24 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2002-03-06 15:39:59 $
+  Version:   $Revision: 1.22 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -45,7 +45,7 @@ public:
   void DeepCopy(vtkCell *c);
   int GetCellType();
   int GetCellDimension();
-  int GetInterpolationOrder();
+  int IsLinear();
   int GetNumberOfEdges();
   int GetNumberOfFaces();
   vtkCell *GetEdge(int edgeId);
@@ -95,6 +95,9 @@ public:
   void SetCellTypeToHexahedron() {this->SetCellType(VTK_HEXAHEDRON);}
   void SetCellTypeToWedge() {this->SetCellType(VTK_WEDGE);}
   void SetCellTypeToPyramid() {this->SetCellType(VTK_PYRAMID);}
+  void SetCellTypeToQuadraticEdge() {this->SetCellType(VTK_QUADRATIC_EDGE);}
+  void SetCellTypeToQuadraticTriangle() {this->SetCellType(VTK_QUADRATIC_TRIANGLE);}
+  void SetCellTypeToQuadraticTetra() {this->SetCellType(VTK_QUADRATIC_TETRA);}
 
 protected:
   vtkGenericCell();
