@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkParseJava.c,v $
   Language:  C++
-  Date:      $Date: 2002-11-19 21:24:06 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2002-12-03 23:42:24 $
+  Version:   $Revision: 1.23 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -426,7 +426,10 @@ void vtkParseOutput(FILE *fp, FileInfo *data)
 
   if (!strcmp("vtkObject",data->ClassName))
     {
+    /* Add the Print method to vtkObject. */
     fprintf(fp,"  public native String Print();\n");
+    /* Add the PrintRevisions method to vtkObject. */
+    fprintf(fp,"  public native String PrintRevisions();\n");
     }
 
   if (!strcmp("vtkObject",data->ClassName))
