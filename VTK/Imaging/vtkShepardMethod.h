@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkShepardMethod.h,v $
   Language:  C++
-  Date:      $Date: 2001-02-26 14:51:20 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2001-08-03 11:43:41 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
