@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-17 21:31:38 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1997-08-26 18:33:32 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -250,6 +250,10 @@ void vtkXRenderWindow::SetWindowInfo(char *info)
 void vtkXRenderWindow::SetWindowId(void *arg)
 {
   this->SetWindowId((Window)arg);
+}
+void vtkXRenderWindow::SetParentId(void *arg)
+{
+  this->SetParentId((Window)arg);
 }
 
 

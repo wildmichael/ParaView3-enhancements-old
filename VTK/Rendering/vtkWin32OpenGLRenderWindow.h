@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-27 15:56:34 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1997-08-26 18:33:31 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -85,16 +85,23 @@ public:
   int *GetScreenSize();
   int *GetPosition();
 
+  virtual SetWindowName(char *);
+  
   void SetWindowInfo(char *);
   //BTX
-  HWND      GetWindowId();
-  void      SetWindowId(void *foo) {this->SetWindowId((HWND)foo);};
-  void		SetWindowId(HWND);
-  void    SetParentId(void *foo) {this->SetParentId((HWND)foo);};
-  void		SetParentId(HWND);
-  void		SetContextId(HGLRC);	// hsr
-  void		SetDeviceContext(HDC);	// hsr
-  void      SetNextWindowId(HWND);
+  virtual void *GetGenericDisplayId() {return NULL;};
+  virtual void *GetGenericWindowId()  {return (void *)this->WindowId;};
+  virtual void *GetGenericParentId()  {return (void *)this->ParentId;};
+  virtual void SetDisplayId(void *) {};
+  
+  HWND  GetWindowId();
+  void  SetWindowId(void *foo) {this->SetWindowId((HWND)foo);};
+  void  SetWindowId(HWND);
+  void  SetParentId(void *foo) {this->SetParentId((HWND)foo);};
+  void  SetParentId(HWND);
+  void  SetContextId(HGLRC);	// hsr
+  void  SetDeviceContext(HDC);	// hsr
+  void  SetNextWindowId(HWND);
   //ETX
 
   // supply base class virtual function

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 1997-08-25 16:37:03 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1997-08-26 18:33:33 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -69,6 +69,9 @@ public:
   void PrintSelf(ostream& os, vtkIndent indent);
   
   // Xwindow get set functions
+  virtual void *GetGenericDisplayId() {return (void *)this->DisplayId;};
+  virtual void *GetGenericWindowId()  {return (void *)this->WindowId;};
+  virtual void *GetGenericParentId()  {return (void *)this->ParentId;};
   int     *GetSize();
   int     *GetScreenSize();
   int     *GetPosition();
@@ -77,6 +80,7 @@ public:
   void     SetDisplayId(void *);
   Window   GetParentId();
   void     SetParentId(Window);
+  void     SetParentId(void *);
   Window   GetWindowId();
   void     SetWindowId(Window);
   void     SetWindowId(void *);

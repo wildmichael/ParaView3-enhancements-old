@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-29 19:25:33 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1997-08-26 18:33:30 $
+  Version:   $Revision: 1.14 $
   Thanks:    to Horst Schreiber for developing this MFC code
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -75,6 +75,27 @@ vtkWin32OpenGLRenderWindow::vtkWin32OpenGLRenderWindow()
 vtkWin32OpenGLRenderWindow::~vtkWin32OpenGLRenderWindow()
 {
   if (this->WindowId && this->OwnWindow) DestroyWindow(this->WindowId);
+}
+
+void vtkWin32OpenGLRenderWindow::SetWindowName( char * _arg )
+{
+  vtkDebugMacro("Debug: In " __FILE__ << ", line " << __LINE__ << "\n" 
+         << this->GetClassName() << " (" << this << "): setting " 
+         << WindowName  << " to " << _arg << "\n\n");
+
+  if ( WindowName && _arg && (!strcmp(WindowName,_arg))) return;
+  if (WindowName) delete [] WindowName;
+  if( _arg )
+    {
+    WindowName = new char[strlen(_arg)+1];
+    strcpy(WindowName,_arg);
+    }
+  else
+    {
+    WindowName = NULL;
+    }
+  if (this->WindowId) SetWindowText(this->WindowId,this->WindowName);
+  this->Modified();
 }
 
 int vtkWin32OpenGLRenderWindow::GetEventPending()
@@ -785,7 +806,7 @@ void vtkWin32OpenGLRenderWindow::SetPixelData(int x1, int y1, int x2, int y2,
   
   // now write the binary info one row at a time 
   p_data = data;
-  for (yloop = y_low; yloop <= y_hi; yloop--)
+  for (yloop = y_low; yloop <= y_hi; yloop++)
     {
     for (xloop = 0; xloop <= (abs(x2-x1)); xloop++)
       {
