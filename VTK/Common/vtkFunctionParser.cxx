@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFunctionParser.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-02-16 22:06:58 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2001-02-24 18:17:08 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -964,7 +964,7 @@ void vtkFunctionParser::RemoveSpaces()
   this->FunctionLength = 0;
   length = strlen(this->Function);
   
-  tempString = new char[length];
+  tempString = new char[length+1];
   for (i = 0; i < length; i++)
     {
     if (!isspace(this->Function[i]))
