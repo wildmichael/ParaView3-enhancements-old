@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadricClustering.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-10-04 12:56:59 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2000-10-04 13:47:55 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -233,6 +233,7 @@ int vtkQuadricClustering::HashPoint(float point[3])
   return binId;
 }
 
+
 //----------------------------------------------------------------------------
 void vtkQuadricClustering::ComputeRepresentativePoint(float quadric[4][4],
 						      int binId,
@@ -268,7 +269,7 @@ void vtkQuadricClustering::ComputeRepresentativePoint(float quadric[4][4],
       }
     }
   
-#define SVTHRESHOLD 1E-3
+#define VTK_SVTHRESHOLD 1E-3
   float invsig, maxW = 0.0;
   vtkMath::SingularValueDecomposition3x3(A, U, w, VT);
   for (i = 0; i < 3; i++)
@@ -284,7 +285,7 @@ void vtkQuadricClustering::ComputeRepresentativePoint(float quadric[4][4],
       {
       if (i == j)
 	{
-	if ( (w[i] / maxW) > SVTHRESHOLD)
+	if ( (w[i] / maxW) > VTK_SVTHRESHOLD)
 	  {
 	  // If this is true, then w[i] != 0, so this division is ok.
 	  invsig = 1.0/w[i];
