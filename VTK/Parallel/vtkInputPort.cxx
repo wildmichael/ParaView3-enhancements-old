@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInputPort.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-12 19:55:24 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-08-17 21:06:47 $
+  Version:   $Revision: 1.4 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -65,9 +65,6 @@ vtkInputPort* vtkInputPort::New()
 }
 
 
-
-
-
 //----------------------------------------------------------------------------
 vtkInputPort::vtkInputPort()
 {
@@ -121,10 +118,10 @@ vtkPolyData *vtkInputPort::GetPolyDataOutput()
       {
       return (vtkPolyData*)(output);
       }
-    else
-      {
-      vtkWarningMacro("vtkInputPort: Changing data type of output.");
-      }
+//      else
+//        {
+//        vtkWarningMacro("vtkInputPort: Changing data type of output.");
+//        }
     }
   
   output = vtkPolyData::New();
@@ -153,10 +150,10 @@ vtkUnstructuredGrid *vtkInputPort::GetUnstructuredGridOutput()
       {
       return (vtkUnstructuredGrid*)(output);
       }
-    else
-      {
-      vtkWarningMacro("vtkInputPort: Changing data type of output.");
-      }
+//      else
+//        {
+//        vtkWarningMacro("vtkInputPort: Changing data type of output.");
+//        }
     }
   
   output = vtkUnstructuredGrid::New();
@@ -184,10 +181,10 @@ vtkStructuredGrid *vtkInputPort::GetStructuredGridOutput()
       {
       return (vtkStructuredGrid*)(output);
       }
-    else
-      {
-      vtkWarningMacro("vtkInputPort: Changing data type of output.");
-      }
+//      else
+//        {
+//        vtkWarningMacro("vtkInputPort: Changing data type of output.");
+//        }
     }
   
   output = vtkStructuredGrid::New();
@@ -216,10 +213,10 @@ vtkRectilinearGrid *vtkInputPort::GetRectilinearGridOutput()
       {
       return (vtkRectilinearGrid*)(output);
       }
-    else
-      {
-      vtkWarningMacro("vtkInputPort: Changing data type of output.");
-      }
+//      else
+//        {
+//        vtkWarningMacro("vtkInputPort: Changing data type of output.");
+//        }
     }
   
   output = vtkRectilinearGrid::New();
@@ -248,10 +245,10 @@ vtkStructuredPoints *vtkInputPort::GetStructuredPointsOutput()
       {
       return (vtkStructuredPoints*)(output);
       }
-    else
-      {
-      vtkWarningMacro("vtkInputPort: Changing data type of output.");
-      }
+//      else
+//        {
+//        vtkWarningMacro("vtkInputPort: Changing data type of output.");
+//        }
     }
   
   output = vtkStructuredPoints::New();
@@ -280,10 +277,10 @@ vtkImageData *vtkInputPort::GetImageDataOutput()
       {
       return (vtkImageData*)(output);
       }
-    else
-      {
-      vtkWarningMacro("vtkInputPort: Changing data type of output.");
-      }
+//      else
+//        {
+//        vtkWarningMacro("vtkInputPort: Changing data type of output.");
+//        }
     }
   
   output = vtkImageData::New();
