@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCamera.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-16 22:04:44 $
-  Version:   $Revision: 1.60 $
+  Date:      $Date: 2000-04-17 02:04:06 $
+  Version:   $Revision: 1.61 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -124,7 +124,7 @@ class VTK_EXPORT vtkCamera : public vtkObject
     this->SetClippingRange(a[0], a[1]); };
   vtkGetVector2Macro(ClippingRange,double);
   void GetClippingRange(float a[2]) {
-    double tmp[2]; this->GetFocalPoint(tmp); 
+    double tmp[2]; this->GetClippingRange(tmp); 
     a[0] = tmp[0]; a[1] = tmp[1]; }; 
 
   // Description:
