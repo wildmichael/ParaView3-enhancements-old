@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleTrackballActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-07-21 11:01:56 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2000-08-01 17:04:27 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,7 +42,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkInteractorStyleTrackballActor.h"
 #include "vtkObjectFactory.h"
 #include "vtkMath.h"
-#include "vtkPropPicker.h"
 
 //----------------------------------------------------------------------------
 vtkInteractorStyleTrackballActor *vtkInteractorStyleTrackballActor::New() 
@@ -86,7 +85,7 @@ vtkInteractorStyleTrackballActor::vtkInteractorStyleTrackballActor()
   
   this->Radius = 0.0;
   
-  this->InteractionPicker = vtkPropPicker::New();
+  this->InteractionPicker = vtkCellPicker::New();
 }
 
 //----------------------------------------------------------------------------
@@ -123,7 +122,7 @@ void vtkInteractorStyleTrackballActor::OnMouseMove(int vtkNotUsed(ctrl),
   else if (this->State == VTK_INTERACTOR_STYLE_ACTOR_SCALE)
     {
     this->FindPokedCamera(x, y);
-    this->SpinXY(x, y, this->LastPos[0], this->LastPos[1]);
+    this->ScaleXY(x, y, this->LastPos[0], this->LastPos[1]);
     }
 
   this->LastPos[0] = x;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleJoystickActor.h,v $
   Language:  C++
-  Date:      $Date: 2000-07-21 11:01:56 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2000-08-01 17:04:27 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -46,6 +46,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define __vtkInteractorStyleJoystickActor_h
 
 #include "vtkInteractorStyle.h"
+#include "vtkCellPicker.h"
 
 
 #define VTK_INTERACTOR_STYLE_ACTOR_NONE    0
@@ -111,7 +112,8 @@ protected:
   float MotionVector[3];
   double ViewPoint[3];
   double ViewFocus[3];
-  vtkAbstractPropPicker *InteractionPicker;
+//  vtkAbstractPropPicker *InteractionPicker;
+  vtkCellPicker *InteractionPicker;
 };
 
 #endif
