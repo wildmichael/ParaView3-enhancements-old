@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageEllipsoidSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-29 22:26:29 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2001-03-08 13:52:33 $
+  Version:   $Revision: 1.21 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -269,10 +269,12 @@ static void vtkImageEllipsoidSourceExecute(vtkImageEllipsoidSource *self,
 }
 
 //----------------------------------------------------------------------------
-void vtkImageEllipsoidSource::Execute(vtkImageData *data)
+void vtkImageEllipsoidSource::ExecuteData(vtkDataObject *output)
 {
   int *extent;
   void *ptr;
+  
+  vtkImageData *data = this->AllocateOutputData(output);
   
   extent = this->GetOutput()->GetUpdateExtent();
   ptr = data->GetScalarPointerForExtent(extent);
