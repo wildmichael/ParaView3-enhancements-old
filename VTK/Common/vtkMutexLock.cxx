@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMutexLock.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-04 19:07:41 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-08-05 19:18:38 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,7 +41,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkMutexLock.h"
 
 // Construct a new vtkMutexLock 
-vtkMutexLock::vtkMutexLock()
+vtkSimpleMutexLock::vtkSimpleMutexLock()
 {
 #ifdef VTK_USE_SPROC
   init_lock( &this->MutexLock );
@@ -62,7 +62,7 @@ vtkMutexLock::vtkMutexLock()
 }
 
 // Destruct the vtkMutexVariable
-vtkMutexLock::~vtkMutexLock()
+vtkSimpleMutexLock::~vtkSimpleMutexLock()
 {
 #ifdef _WIN32
   CloseHandle(this->MutexLock);
@@ -74,7 +74,7 @@ vtkMutexLock::~vtkMutexLock()
 }
 
 // Lock the vtkMutexLock
-void vtkMutexLock::Lock()
+void vtkSimpleMutexLock::Lock()
 {
 #ifdef VTK_USE_SPROC
   spin_lock( &this->MutexLock );
@@ -90,7 +90,7 @@ void vtkMutexLock::Lock()
 }
 
 // Unlock the vtkMutexLock
-void vtkMutexLock::Unlock()
+void vtkSimpleMutexLock::Unlock()
 {
 #ifdef VTK_USE_SPROC
   release_lock( &this->MutexLock );
@@ -105,8 +105,9 @@ void vtkMutexLock::Unlock()
 #endif
 }
 
-// Print method for vtkMutexLock
+
 void vtkMutexLock::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkObject::PrintSelf(os,indent);  
+  vtkObject::PrintSelf(os, indent);
 }
+
