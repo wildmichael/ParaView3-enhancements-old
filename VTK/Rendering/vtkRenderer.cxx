@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-12-05 18:42:20 $
-  Version:   $Revision: 1.75 $
+  Date:      $Date: 1997-12-08 14:31:39 $
+  Version:   $Revision: 1.76 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -203,12 +203,17 @@ void vtkRenderer::Render(void)
     y2 = (int)(this->Viewport[3]*(this->RenderWindow->GetSize()[1] - 1));
     this->BackingImage = this->RenderWindow->GetPixelData(x1,y1,x2,y2,0);
     }
-  
+    
   if (this->EndRenderMethod) 
     {
     (*this->EndRenderMethod)(this->EndRenderMethodArg);
     }
   this->RenderTime.Modified();
+}
+
+void vtkRenderer::Render2D()
+{
+  this->Actors2D.Render(this);
 }
 
 vtkWindow *vtkRenderer::GetVTKWindow()

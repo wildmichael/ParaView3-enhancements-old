@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.h,v $
   Language:  C++
-  Date:      $Date: 1997-12-04 21:56:20 $
-  Version:   $Revision: 1.56 $
+  Date:      $Date: 1997-12-08 14:31:37 $
+  Version:   $Revision: 1.57 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -175,6 +175,8 @@ public:
 
   vtkGetObjectMacro(RayCaster,vtkRayCaster);
   float GetZ (int x, int y);
+
+  void Render2D();
 
 protected:
 
