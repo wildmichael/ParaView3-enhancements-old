@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-07-04 22:02:24 $
-  Version:   $Revision: 1.54 $
+  Date:      $Date: 2002-10-04 16:53:59 $
+  Version:   $Revision: 1.55 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkImageSource.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkImageSource, "$Revision: 1.54 $");
+vtkCxxRevisionMacro(vtkImageSource, "$Revision: 1.55 $");
 
 //----------------------------------------------------------------------------
 vtkImageSource::vtkImageSource()
@@ -82,6 +82,13 @@ vtkImageData *vtkImageSource::AllocateOutputData(vtkDataObject *out)
     vtkWarningMacro("Call to AllocateOutputData with non vtkImageData output");
     return NULL;
     }
+
+  // I would like to eliminate this method which requires extra "information"
+  // That is not computed in the graphics pipeline.
+  // Until I can eliminate the method, I will reexecute the ExecuteInformation
+  // before the execute.
+  this->ExecuteInformation();
+
   res->SetExtent(res->GetUpdateExtent());
   res->AllocateScalars();
 

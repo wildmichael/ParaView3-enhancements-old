@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAxisActor2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-27 12:51:37 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2002-10-04 16:53:59 $
+  Version:   $Revision: 1.32 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 #include "vtkTextProperty.h"
 #include "vtkViewport.h"
 
-vtkCxxRevisionMacro(vtkAxisActor2D, "$Revision: 1.31 $");
+vtkCxxRevisionMacro(vtkAxisActor2D, "$Revision: 1.32 $");
 vtkStandardNewMacro(vtkAxisActor2D);
 
 vtkCxxSetObjectMacro(vtkAxisActor2D,LabelTextProperty,vtkTextProperty);

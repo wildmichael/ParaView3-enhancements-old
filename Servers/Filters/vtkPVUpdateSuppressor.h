@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPVUpdateSuppressor.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-13 13:35:46 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-10-04 16:53:58 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -47,18 +47,31 @@ public:
 
   // Description:
   // Overwrite UpdateData so that it will not propagate update.
-  void UpdateData(vtkDataObject *output);
+  void UpdateData(vtkDataObject *);
+  void UpdateInformation();
+  void PropagateUpdateExtent(vtkDataObject *);
+  void TriggerAsynchronousUpdate();
 
   // Description:
   // Set number of pieces and piece on the data.
-  virtual void SetUpdateNumberOfPieces(int);
-  virtual void SetUpdatePiece(int);
+  // This causes the filter to ingore the request from the output.
+  // It is here because the user may not have celled update on the output
+  // before calling force update (it is an easy fix).
+  vtkSetMacro(UpdatePiece, int);
+  vtkGetMacro(UpdatePiece, int);
+  vtkSetMacro(UpdateNumberOfPieces, int);
+  vtkGetMacro(UpdateNumberOfPieces, int);
 
 protected:
   vtkPVUpdateSuppressor();
   ~vtkPVUpdateSuppressor();
 
   void Execute();
+
+  int UpdatePiece;
+  int UpdateNumberOfPieces;
+
+  vtkTimeStamp UpdateTime;
 
 private:
   vtkPVUpdateSuppressor(const vtkPVUpdateSuppressor&);  // Not implemented.

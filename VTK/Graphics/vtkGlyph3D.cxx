@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGlyph3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-26 12:07:14 $
-  Version:   $Revision: 1.104 $
+  Date:      $Date: 2002-10-04 16:53:59 $
+  Version:   $Revision: 1.105 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,7 +25,7 @@
 #include "vtkTransform.h"
 #include "vtkUnsignedCharArray.h"
 
-vtkCxxRevisionMacro(vtkGlyph3D, "$Revision: 1.104 $");
+vtkCxxRevisionMacro(vtkGlyph3D, "$Revision: 1.105 $");
 vtkStandardNewMacro(vtkGlyph3D);
 
 // Construct object with scaling on, scaling mode is by scalar value,
@@ -253,12 +253,17 @@ void vtkGlyph3D::Execute()
     {
     newScalars =  inScalars->MakeObject ();
     newScalars->Allocate(inScalars->GetNumberOfComponents()*numPts*numSourcePts);
+    newScalars->SetName(inScalars->GetName());
     }
   else if ( (this->ColorMode == VTK_COLOR_BY_SCALE) && inScalars)
     {
     newScalars = vtkFloatArray::New();
     newScalars->Allocate(numPts*numSourcePts);
     newScalars->SetName("GlyphScale");
+    if (this->ScaleMode == VTK_SCALE_BY_SCALAR)
+      {
+      newScalars->SetName(inScalars->GetName());
+      }
     }
   else if ( (this->ColorMode == VTK_COLOR_BY_VECTOR) && haveVectors)
     {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-30 17:40:15 $
-  Version:   $Revision: 1.139 $
+  Date:      $Date: 2002-10-04 16:53:59 $
+  Version:   $Revision: 1.140 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -35,7 +35,7 @@
 #include "vtkDoubleArray.h"
 #include "vtkBitArray.h"
 
-vtkCxxRevisionMacro(vtkImageData, "$Revision: 1.139 $");
+vtkCxxRevisionMacro(vtkImageData, "$Revision: 1.140 $");
 vtkStandardNewMacro(vtkImageData);
 
 //----------------------------------------------------------------------------
@@ -813,6 +813,14 @@ void vtkImageData::ComputeBounds()
   float *origin = this->GetOrigin();
   float *spacing = this->GetSpacing();
   
+  if ( this->Extent[0] > this->Extent[1] || 
+       this->Extent[2] > this->Extent[3] ||
+       this->Extent[4] > this->Extent[5] )
+    {
+    this->Bounds[0] = this->Bounds[2] = this->Bounds[4] =  VTK_LARGE_FLOAT;
+    this->Bounds[1] = this->Bounds[3] = this->Bounds[5] = -VTK_LARGE_FLOAT;
+    return;
+    }
   this->Bounds[0] = origin[0] + (this->Extent[0] * spacing[0]);
   this->Bounds[2] = origin[1] + (this->Extent[2] * spacing[1]);
   this->Bounds[4] = origin[2] + (this->Extent[4] * spacing[2]);
@@ -1519,7 +1527,8 @@ void vtkImageData::AllocateScalars()
 
   // if we currently have scalars then just adjust the size
   scalars = this->PointData->GetScalars();
-  if (scalars && scalars->GetDataType() == this->ScalarType) 
+  if (scalars && scalars->GetDataType() == this->ScalarType
+      && scalars->GetReferenceCount() == 1) 
     {
     scalars->SetNumberOfComponents(this->GetNumberOfScalarComponents());
     scalars->SetNumberOfTuples((this->Extent[1] - this->Extent[0] + 1)*

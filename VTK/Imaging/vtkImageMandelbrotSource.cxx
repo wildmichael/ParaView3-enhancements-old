@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMandelbrotSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-31 14:38:44 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2002-10-04 16:53:59 $
+  Version:   $Revision: 1.33 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,7 +19,7 @@
 #include "vtkImageData.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkImageMandelbrotSource, "$Revision: 1.32 $");
+vtkCxxRevisionMacro(vtkImageMandelbrotSource, "$Revision: 1.33 $");
 vtkStandardNewMacro(vtkImageMandelbrotSource);
 
 //----------------------------------------------------------------------------
@@ -326,6 +326,14 @@ void vtkImageMandelbrotSource::ExecuteData(vtkDataObject *output)
   unsigned long count = 0;
   unsigned long target;
   
+  // Name the array appropriately.
+  data->GetPointData()->GetScalars()->SetName("Iterations");
+
+  if (data->GetNumberOfPoints() <= 0)
+    {
+    return;
+    }
+
   // Copy origin into pixel
   for (idx0 = 0; idx0 < 4; ++idx0)
     {
@@ -382,8 +390,6 @@ void vtkImageMandelbrotSource::ExecuteData(vtkDataObject *output)
     ptr += inc2;
     }
   
-  // Name the array appropriately.
-  data->GetPointData()->GetScalars()->SetName("Iterations");
 }
 
 

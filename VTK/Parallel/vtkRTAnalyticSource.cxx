@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRTAnalyticSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-30 20:35:49 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2002-10-04 16:53:59 $
+  Version:   $Revision: 1.13 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkRTAnalyticSource, "$Revision: 1.12 $");
+vtkCxxRevisionMacro(vtkRTAnalyticSource, "$Revision: 1.13 $");
 vtkStandardNewMacro(vtkRTAnalyticSource);
 
 //----------------------------------------------------------------------------
@@ -102,7 +102,7 @@ void vtkRTAnalyticSource::ExecuteInformation()
 
 void vtkRTAnalyticSource::ExecuteData(vtkDataObject *output)
 {
-  vtkImageData *data = this->AllocateOutputData(output);
+  vtkImageData *data;
   float *outPtr;
   int idxX, idxY, idxZ;
   int maxX, maxY, maxZ;
@@ -113,17 +113,21 @@ void vtkRTAnalyticSource::ExecuteData(vtkDataObject *output)
   double temp2;
   unsigned long count = 0;
   unsigned long target;
-  
+
+  data = this->AllocateOutputData(output);
   if (data->GetScalarType() != VTK_FLOAT)
     {
     vtkErrorMacro("Execute: This source only outputs doubles");
     return;
     }
-
-  data->GetPointData()->GetScalars()->SetName("RTData");
+  if (data->GetNumberOfPoints() <= 0)
+    {
+    return;
+    }
 
   outExt = data->GetExtent();
   whlExt = data->GetWholeExtent();
+  data->GetPointData()->GetScalars()->SetName("RTData");
 
   // find the region to loop over
   maxX = outExt[1] - outExt[0];

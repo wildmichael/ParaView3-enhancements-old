@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadricClustering.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:41 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2002-10-04 16:53:59 $
+  Version:   $Revision: 1.30 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -113,7 +113,8 @@ public:
   // Description:
   // Set/Get the number of divisions along each axis for the spatial bins.
   // The number of spatial bins is NumberOfXDivisions*NumberOfYDivisions*
-  // NumberOfZDivisions.
+  // NumberOfZDivisions.  The filter may choose to ignore large numbers of 
+  // divisions if input has few points.
   void SetNumberOfXDivisions(int num);
   void SetNumberOfYDivisions(int num);
   void SetNumberOfZDivisions(int num);
@@ -251,6 +252,10 @@ protected:
   int NumberOfXDivisions;
   int NumberOfYDivisions;
   int NumberOfZDivisions;
+
+  // Used internally.
+  // can be smaller than user values when input numb er of points is small.
+  int NumberOfDivisions[3];
 
   // Since there are two was of specifing the grid, we have this flag
   // to indicate which the user has set.  When this flag is on, 

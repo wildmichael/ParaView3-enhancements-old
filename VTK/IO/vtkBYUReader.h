@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBYUReader.h,v $
   Language:  C++
-  Date:      $Date: 2002-09-23 15:41:38 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 2002-10-04 16:53:59 $
+  Version:   $Revision: 1.44 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalarBarActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-26 17:16:19 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 2002-10-04 16:53:59 $
+  Version:   $Revision: 1.45 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,7 +26,7 @@
 #include "vtkViewport.h"
 #include "vtkWindow.h"
 
-vtkCxxRevisionMacro(vtkScalarBarActor, "$Revision: 1.44 $");
+vtkCxxRevisionMacro(vtkScalarBarActor, "$Revision: 1.45 $");
 vtkStandardNewMacro(vtkScalarBarActor);
 
 vtkCxxSetObjectMacro(vtkScalarBarActor,LookupTable,vtkScalarsToColors);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTubeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-03 12:52:23 $
-  Version:   $Revision: 1.67 $
+  Date:      $Date: 2002-10-04 16:53:59 $
+  Version:   $Revision: 1.68 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 #include "vtkPolyData.h"
 #include "vtkPolyLine.h"
 
-vtkCxxRevisionMacro(vtkTubeFilter, "$Revision: 1.67 $");
+vtkCxxRevisionMacro(vtkTubeFilter, "$Revision: 1.68 $");
 vtkStandardNewMacro(vtkTubeFilter);
 
 // Construct object with radius 0.5, radius variation turned off, the number 
@@ -86,7 +86,6 @@ void vtkTubeFilter::Execute()
       !(inLines = input->GetLines()) || 
        (numLines = inLines->GetNumberOfCells()) < 1 )
     {
-    vtkWarningMacro(<< " No input data!");
     return;
     }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetAttributes.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-21 22:26:12 $
-  Version:   $Revision: 1.60 $
+  Date:      $Date: 2002-10-04 16:53:59 $
+  Version:   $Revision: 1.61 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -33,7 +33,7 @@
 #include "vtkIdTypeArray.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkDataSetAttributes, "$Revision: 1.60 $");
+vtkCxxRevisionMacro(vtkDataSetAttributes, "$Revision: 1.61 $");
 vtkStandardNewMacro(vtkDataSetAttributes);
 
 //--------------------------------------------------------------------------
@@ -1297,7 +1297,7 @@ vtkDataArray* vtkDataSetAttributes::GetTensors()
 
 vtkDataArray* vtkDataSetAttributes::GetScalars(const char* name)
 {
-  if (name == NULL)
+  if (name == NULL || name[0] == '\0')
     {
     return this->GetScalars();
     }
@@ -1312,7 +1312,7 @@ vtkDataArray* vtkDataSetAttributes::GetScalars(const char* name)
 
 vtkDataArray* vtkDataSetAttributes::GetVectors(const char* name)
 {
-  if (name == NULL)
+  if (name == NULL || name[0] == '\0')
     {
     return this->GetVectors();
     }
@@ -1327,7 +1327,7 @@ vtkDataArray* vtkDataSetAttributes::GetVectors(const char* name)
 
 vtkDataArray* vtkDataSetAttributes::GetNormals(const char* name)
 {
-  if (name == NULL)
+  if (name == NULL || name[0] == '\0')
     {
     return this->GetNormals();
     }
@@ -1342,7 +1342,7 @@ vtkDataArray* vtkDataSetAttributes::GetNormals(const char* name)
 
 vtkDataArray* vtkDataSetAttributes::GetTCoords(const char* name)
 {
-  if (name == NULL)
+  if (name == NULL || name[0] == '\0')
     {
     return this->GetTCoords();
     }
@@ -1357,7 +1357,7 @@ vtkDataArray* vtkDataSetAttributes::GetTCoords(const char* name)
 
 vtkDataArray* vtkDataSetAttributes::GetTensors(const char* name)
 {
-  if (name == NULL)
+  if (name == NULL || name[0] == '\0')
     {
     return this->GetTensors();
     }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCutter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-26 12:07:14 $
-  Version:   $Revision: 1.67 $
+  Date:      $Date: 2002-10-04 16:53:59 $
+  Version:   $Revision: 1.68 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -28,7 +28,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkCutter, "$Revision: 1.67 $");
+vtkCxxRevisionMacro(vtkCutter, "$Revision: 1.68 $");
 vtkStandardNewMacro(vtkCutter);
 
 // Construct with user-specified implicit function; initial value of 0.0; and
@@ -115,7 +115,6 @@ void vtkCutter::Execute()
 
   if ( numPts < 1 )
     {
-    vtkErrorMacro(<<"No data to cut");
     return;
     }
 

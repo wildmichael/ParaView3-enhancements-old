@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkImageViewerWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-18 13:52:01 $
-  Version:   $Revision: 1.59 $
+  Date:      $Date: 2002-10-04 16:53:59 $
+  Version:   $Revision: 1.60 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.

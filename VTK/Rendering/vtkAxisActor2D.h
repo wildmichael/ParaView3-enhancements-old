@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAxisActor2D.h,v $
   Language:  C++
-  Date:      $Date: 2002-09-26 17:21:09 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2002-10-04 16:53:59 $
+  Version:   $Revision: 1.28 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.

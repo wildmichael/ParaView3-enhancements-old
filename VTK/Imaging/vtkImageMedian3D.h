@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMedian3D.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:33:07 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2002-10-04 16:53:59 $
+  Version:   $Revision: 1.25 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -45,15 +45,29 @@ public:
   // Description:
   // Return the number of elements in the median mask
   vtkGetMacro(NumberOfElements,int);
+
+  // Description:
+  // If you want to warp by an arbitrary scalar array, then set its name here.
+  // By default this in NULL and the filter will use the active scalar array.
+  vtkGetStringMacro(InputScalarsSelection);
+  void SelectInputScalars(const char *fieldName) 
+    {this->SetInputScalarsSelection(fieldName);}
   
 protected:
   vtkImageMedian3D();
-  ~vtkImageMedian3D() {};
+  ~vtkImageMedian3D();
 
   int NumberOfElements;
 
   void ThreadedExecute(vtkImageData *inData, vtkImageData *outData, 
                        int extent[6], int id);
+
+  void ExecuteInformation(vtkImageData *inData, vtkImageData *outData);
+  // Called by the superclass
+  void ExecuteInformation() { this->Superclass::ExecuteInformation(); }
+
+  char *InputScalarsSelection;
+  vtkSetStringMacro(InputScalarsSelection);
 
 private:
   vtkImageMedian3D(const vtkImageMedian3D&);  // Not implemented.

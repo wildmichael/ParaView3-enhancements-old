@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStripper.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-03 12:52:23 $
-  Version:   $Revision: 1.61 $
+  Date:      $Date: 2002-10-04 16:53:59 $
+  Version:   $Revision: 1.62 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkPolyData.h"
 
-vtkCxxRevisionMacro(vtkStripper, "$Revision: 1.61 $");
+vtkCxxRevisionMacro(vtkStripper, "$Revision: 1.62 $");
 vtkStandardNewMacro(vtkStripper);
 
 // Construct object with MaximumLength set to 1000.
@@ -65,7 +65,7 @@ void vtkStripper::Execute()
   Mesh->BuildLinks();
 
   // check input
-  if ( (numCells=Mesh->GetNumberOfCells()) < 1 )
+  if ( (numCells=Mesh->GetNumberOfCells()) < 1  && inStrips->GetNumberOfCells() < 1)
     {
     Mesh->Delete();
     vtkDebugMacro(<<"No data to strip!");
