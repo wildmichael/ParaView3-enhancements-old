@@ -1,3 +1,18 @@
+/*=========================================================================
+
+  Program:   Visualization Library
+  Module:    $RCSfile: vtkDataSet.h,v $
+  Language:  C++
+  Date:      $Date: 1994-02-04 12:49:50 $
+  Version:   $Revision: 1.14 $
+
+This file is part of the Visualization Library. No part of this file or its 
+contents may be copied, reproduced or altered in any way without the express
+written consent of the authors.
+
+Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994 
+
+=========================================================================*/
 //
 // Abstract class for specifying dataset behaviour
 //
@@ -17,7 +32,7 @@ class vlDataSet : virtual public vlObject
 public:
   vlDataSet();
   char *GetClassName() {return "vlDataSet";};
-  void PrintSelf(ostream& os);
+  void PrintSelf(ostream& os, vlIndent indent);
   virtual vlDataSet *MakeObject() = 0;
   virtual int NumCells() = 0;
   virtual int NumPoints() = 0;

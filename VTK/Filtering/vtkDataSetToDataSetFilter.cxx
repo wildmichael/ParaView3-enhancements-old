@@ -1,3 +1,18 @@
+/*=========================================================================
+
+  Program:   Visualization Library
+  Module:    $RCSfile: vtkDataSetToDataSetFilter.cxx,v $
+  Language:  C++
+  Date:      $Date: 1994-02-04 12:49:59 $
+  Version:   $Revision: 1.6 $
+
+This file is part of the Visualization Library. No part of this file or its 
+contents may be copied, reproduced or altered in any way without the express
+written consent of the authors.
+
+Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994 
+
+=========================================================================*/
 #include "DS2DSF.hh"
 #include "PolyData.hh"
 
