@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32Header.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-03 15:59:29 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2002-05-11 18:34:35 $
+  Version:   $Revision: 1.26 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -35,7 +35,9 @@
 #endif
 
 #ifdef VTK_USE_ANSI_STDLIB
+#ifndef NOMINMAX
 #define NOMINMAX
+#endif
 #endif
 
 #include <windows.h>
