@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProbeFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:50 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2001-08-21 15:49:53 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -52,6 +52,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define __vtkProbeFilter_h
 
 #include "vtkDataSetToDataSetFilter.h"
+#include "vtkIdTypeArray.h"
 
 class VTK_EXPORT vtkProbeFilter : public vtkDataSetToDataSetFilter
 {
@@ -79,6 +80,8 @@ public:
   vtkGetMacro(SpatialMatch, int);
   vtkBooleanMacro(SpatialMatch, int);
 
+  vtkGetObjectMacro(ValidPoints, vtkIdTypeArray);
+  
 protected:
   vtkProbeFilter();
   ~vtkProbeFilter();
@@ -91,8 +94,7 @@ protected:
   void ExecuteInformation();
   void ComputeInputUpdateExtents(vtkDataObject *output);
 
+  vtkIdTypeArray *ValidPoints;
 };
 
 #endif
-
-
