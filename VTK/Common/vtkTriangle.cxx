@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangle.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-05-07 11:38:55 $
-  Version:   $Revision: 1.95 $
+  Date:      $Date: 2003-07-21 20:35:31 $
+  Version:   $Revision: 1.96 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -29,7 +29,7 @@
 #include "vtkPolygon.h"
 #include "vtkQuadric.h"
 
-vtkCxxRevisionMacro(vtkTriangle, "$Revision: 1.95 $");
+vtkCxxRevisionMacro(vtkTriangle, "$Revision: 1.96 $");
 vtkStandardNewMacro(vtkTriangle);
 
 // Construct the triangle with three points.
@@ -890,8 +890,8 @@ void vtkTriangle::Clip(float value, vtkDataArray *cellScalars,
           }
         if ( locator->InsertUniquePoint(x, pts[i]) )
           {
-          int p1 = this->PointIds->GetId(e1);
-          int p2 = this->PointIds->GetId(e2);
+          vtkIdType p1 = this->PointIds->GetId(e1);
+          vtkIdType p2 = this->PointIds->GetId(e2);
           outPd->InterpolateEdge(inPd,pts[i],p1,p2,t);
           }
         }
