@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-30 15:20:21 $
-  Version:   $Revision: 1.56 $
+  Date:      $Date: 1999-10-01 12:56:21 $
+  Version:   $Revision: 1.57 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -160,11 +160,6 @@ ostream *vtkDataWriter::OpenVTKFile()
     vtkErrorMacro(<< "No FileName specified! Can't write!");
     return NULL;
     }
-  if (input == NULL)
-    {
-    vtkErrorMacro(<< "No input! Can't write!");
-    return NULL;    
-    }
   
   vtkDebugMacro(<<"Opening vtk file for writing...");
 
@@ -179,6 +174,11 @@ ostream *vtkDataWriter::OpenVTKFile()
       this->OutputStringAllocatedLength = 0;
       }
     // Allocate the new output string. (Note: this will only work with binary).
+    if (input == NULL)
+      {
+      vtkErrorMacro(<< "No input! Can't write!");
+      return NULL;    
+      }
     input->Update();
     this->OutputStringAllocatedLength = 500 
       + 1000 * input->GetActualMemorySize();
