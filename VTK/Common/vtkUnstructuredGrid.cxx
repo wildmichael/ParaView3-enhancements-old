@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-26 18:24:22 $
-  Version:   $Revision: 1.109 $
+  Date:      $Date: 2003-07-09 21:28:01 $
+  Version:   $Revision: 1.110 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -46,7 +46,7 @@
 #include "vtkVoxel.h"
 #include "vtkWedge.h"
 
-vtkCxxRevisionMacro(vtkUnstructuredGrid, "$Revision: 1.109 $");
+vtkCxxRevisionMacro(vtkUnstructuredGrid, "$Revision: 1.110 $");
 vtkStandardNewMacro(vtkUnstructuredGrid);
 
 vtkUnstructuredGrid::vtkUnstructuredGrid ()
@@ -894,6 +894,10 @@ void vtkUnstructuredGrid::GetCellNeighbors(vtkIdType cellId, vtkIdList *ptIds,
       }
     }
 
+  if (minNumCells == VTK_LARGE_INTEGER && numPts == 0) {
+    vtkErrorMacro("input point ids empty.");
+    minNumCells = 0;
+  }
   //Now for each cell, see if it contains all the points
   //in the ptIds list.
   for (i=0; i<minNumCells; i++)
