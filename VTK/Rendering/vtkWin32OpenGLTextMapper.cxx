@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-04-02 13:17:54 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-07-19 19:35:18 $
+  Version:   $Revision: 1.8 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -190,6 +190,15 @@ void vtkWin32OpenGLTextMapper::RenderOpaqueGeometry(vtkViewport* viewport,
   int size[2];
   this->GetSize(viewport, size);
 
+  // Get the window information for display
+  vtkWindow*  window = viewport->GetVTKWindow();
+  // Get the device context from the window
+  HDC hdc = (HDC) window->GetGenericContext();
+ 
+  // Select the font
+  HFONT hOldFont = (HFONT) SelectObject(hdc, this->Font);
+  
+
   // Get the position of the text actor
   POINT ptDestOff;
   int* actorPos = 
@@ -299,5 +308,8 @@ void vtkWin32OpenGLTextMapper::RenderOpaqueGeometry(vtkViewport* viewport,
   glMatrixMode( GL_MODELVIEW);
   glPopMatrix();
   glEnable( GL_LIGHTING);
+
+  // Restore the state
+  SelectObject(hdc, hOldFont);
 }
 

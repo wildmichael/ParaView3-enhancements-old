@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-21 14:05:40 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1999-07-19 19:35:17 $
+  Version:   $Revision: 1.15 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -223,11 +223,6 @@ void vtkImageWindow::Render()
     return;
     }
  
-/*  if (this->DoubleBuffer)
-    {
-    this->SwapBuffers();
-    }
-*/
   if (this->Erase)
     {
     this->EraseWindow();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32PolyDataMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-03-11 18:31:58 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1999-07-19 19:35:18 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -177,7 +177,7 @@ void vtkWin32PolyDataMapper2D::RenderOverlay(vtkViewport* viewport,
 	rgba = c->GetColor(pts[j]);
 	}
       npen = (HPEN) CreatePen(PS_SOLID,0,RGB(rgba[0],rgba[1],rgba[2]));
-      pen = (HPEN) SelectObject(hdc,pen);
+      pen = (HPEN) SelectObject(hdc,npen);
       DeleteObject(pen);
       pen = npen;
       nbrush = (HBRUSH)CreateSolidBrush(RGB(rgba[0],rgba[1],rgba[2]));
@@ -242,6 +242,9 @@ void vtkWin32PolyDataMapper2D::RenderOverlay(vtkViewport* viewport,
   
   SelectObject(hdc, oldPen);
   DeleteObject(pen);
+
+  SelectObject(hdc, oldBrush);
+  DeleteObject(brush);
 }
 
 
