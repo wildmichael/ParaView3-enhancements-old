@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkNonLinearCell.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-08 21:02:28 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2003-10-15 19:58:46 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,25 +21,25 @@
 #include "vtkDataSet.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkNonLinearCell, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkNonLinearCell, "$Revision: 1.4 $");
 
 vtkNonLinearCell::vtkNonLinearCell()
 {
   this->Error = 0.10;
 }
 
-void vtkNonLinearCell::Tesselate(vtkIdType vtkNotUsed(cellId), 
-                                 vtkDataSet* vtkNotUsed(input), 
-                                 vtkPolyData* vtkNotUsed(output), 
-                                 vtkPointLocator* vtkNotUsed(locator))
+void vtkNonLinearCell::Tessellate(vtkIdType vtkNotUsed(cellId), 
+                                  vtkDataSet* vtkNotUsed(input), 
+                                  vtkPolyData* vtkNotUsed(output), 
+                                  vtkPointLocator* vtkNotUsed(locator))
 {
   vtkWarningMacro(<<"This method should be implemented by a subclass");
 }
 
-void vtkNonLinearCell::Tesselate(vtkIdType vtkNotUsed(cellId), 
-                                 vtkDataSet* vtkNotUsed(input), 
-                                 vtkUnstructuredGrid* vtkNotUsed(output), 
-                                 vtkPointLocator* vtkNotUsed(locator))
+void vtkNonLinearCell::Tessellate(vtkIdType vtkNotUsed(cellId), 
+                                  vtkDataSet* vtkNotUsed(input), 
+                                  vtkUnstructuredGrid* vtkNotUsed(output), 
+                                  vtkPointLocator* vtkNotUsed(locator))
 {
   vtkWarningMacro(<<"This method should be implemented by a subclass");
 }

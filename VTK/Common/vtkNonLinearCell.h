@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkNonLinearCell.h,v $
   Language:  C++
-  Date:      $Date: 2003-01-06 20:36:14 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2003-10-15 19:58:46 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -73,9 +73,9 @@ public:
   // than directly in the vtkPolyData.  (Note: the input dataset and cellId
   // are used if the cell requires access to its owning dataset.) This method
   // is called when the topological dimension of the cell is 2D or less.
-  virtual void Tesselate(vtkIdType cellId, 
-                         vtkDataSet *input, vtkPolyData *output, 
-                         vtkPointLocator *locator=NULL);
+  virtual void Tessellate(vtkIdType cellId, 
+                          vtkDataSet *input, vtkPolyData *output, 
+                          vtkPointLocator *locator=NULL);
   
   // Description:
   // This method tessellates the cell returning unstructured grid. (The Error
@@ -88,9 +88,9 @@ public:
   // vtkUnstructuredGrid.  (Note: the input dataset and cellId are used if
   // the cell requires access to its owning dataset.) This method is called
   // when the topological dimension of the cell is 3D.
-  virtual void Tesselate(vtkIdType cellId, 
-                         vtkDataSet *input, vtkUnstructuredGrid *output, 
-                         vtkPointLocator *locator=NULL);
+  virtual void Tessellate(vtkIdType cellId, 
+                          vtkDataSet *input, vtkUnstructuredGrid *output, 
+                          vtkPointLocator *locator=NULL);
   
 
 protected:
@@ -99,7 +99,7 @@ protected:
 
   float Error;
 
-  // inline helper for tesselation- used by subclasses
+  // inline helper for tessellation- used by subclasses
   vtkIdType InsertPoint(vtkPointLocator *locator, vtkPoints *pts, float *x)
     {
       if ( locator != NULL ) 
