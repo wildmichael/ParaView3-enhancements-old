@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMathematics.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-02 10:04:16 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2000-09-25 01:22:37 $
+  Version:   $Revision: 1.31 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -198,6 +198,9 @@ static void vtkImageMathematicsExecute1(vtkImageMathematics *self,
 	    break;
 	  case VTK_ADDC:
 	    *outPtr = (T)((T)constantc + *in1Ptr);
+	    break;
+	  case VTK_REPLACECBYK:
+	    *outPtr = (*in1Ptr == (T)constantc)?((T)constantk):(*in1Ptr);
 	    break;
 	  case VTK_CONJUGATE:
 	    outPtr[0] = in1Ptr[0];
