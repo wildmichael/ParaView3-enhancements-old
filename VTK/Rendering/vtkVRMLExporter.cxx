@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVRMLExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-06 14:43:25 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1998-10-11 13:21:51 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -241,6 +241,12 @@ void vtkVRMLExporter::WriteAnActor(vtkActor *anActor, FILE *fp)
   vtkTransform *trans;
   int totalValues;
   
+  // see if the actor has a mapper. it could be an assembly
+  if (anActor->GetMapper() == NULL)
+    {
+    return;
+    }
+
   // first stuff out the transform
   trans = vtkTransform::New();
   trans->SetMatrix(*(anActor->vtkProp::GetMatrixPointer()));

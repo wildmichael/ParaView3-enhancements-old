@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOBJExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-06 14:43:21 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1998-10-11 13:21:51 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -137,6 +137,12 @@ void vtkOBJExporter::WriteAnActor(vtkActor *anActor, FILE *fpObj, FILE *fpMtl,
   vtkTransform *trans = vtkTransform::New();
   int npts, *indx;
   
+  // see if the actor has a mapper. it could be an assembly
+  if (anActor->GetMapper() == NULL)
+    {
+    return;
+    }
+
   // write out the material properties to the mat file
   prop = anActor->GetProperty();
   fprintf(fpMtl,"newmtl mtl%i\n",idStart);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIVExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-06 14:43:20 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1998-10-11 13:21:51 $
+  Version:   $Revision: 1.10 $
   Thanks:    to Jon A. Webb of Visual Interface Inc.
 
 
@@ -257,6 +257,12 @@ void vtkIVExporter::WriteAnActor(vtkActor *anActor, FILE *fp)
   unsigned char *c;
   vtkTransform *trans;
   
+  // see if the actor has a mapper. it could be an assembly
+  if (anActor->GetMapper() == NULL)
+    {
+    return;
+    }
+
   fprintf(fp,"%sSeparator {\n", indent);
   indent_more;
 
