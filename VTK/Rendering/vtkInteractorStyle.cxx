@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyle.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:40 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2001-01-18 15:51:40 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -83,6 +83,8 @@ vtkInteractorStyle::vtkInteractorStyle()
   this->MiddleButtonReleaseTag = 0;
   this->RightButtonPressTag = 0;
   this->RightButtonReleaseTag = 0;
+  
+  this->LastPos[0] = this->LastPos[1] = 0;
 }
 
 //----------------------------------------------------------------------------
