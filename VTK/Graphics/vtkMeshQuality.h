@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMeshQuality.h,v $
   Language:  C++
-  Date:      $Date: 2004-12-09 00:40:22 $ 
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2004-12-09 21:42:31 $ 
+  Version:   $Revision: 1.7 $
 
   Copyright 2003 Sandia Corporation.
   Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -131,15 +131,15 @@ public:
   // Description:
   // These methods are deprecated. Use Get/SetSaveCellQuality() instead.
   //
-  // Formerly, SetRadiusRation could be used to disable computation
+  // Formerly, SetRatio could be used to disable computation
   // of the tetrahedral radius ratio so that volume alone could be computed.
   // Now, cell quality is always computed, but you may decide not
   // to store the result for each cell.
   // This allows average cell quality of a mesh to be
   // calculated without requiring per-cell storage.
-  virtual void SetRadiusRatio( int r ) { this->SetSaveCellQuality( r ); }
-  int GetRadiusRatio() { return this->GetSaveCellQuality(); }
-  vtkBooleanMacro(RadiusRatio,int);
+  virtual void SetRatio( int r ) { this->SetSaveCellQuality( r ); }
+  int GetRatio() { return this->GetSaveCellQuality(); }
+  vtkBooleanMacro(Ratio,int);
 
   // Description:
   // These methods are deprecated. The functionality of computing cell
