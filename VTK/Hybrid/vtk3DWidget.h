@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtk3DWidget.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-03 14:33:41 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-04-03 18:58:10 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -32,7 +32,7 @@
 // input, and then invoking the "On" method to activate it. (You can also
 // specify a bounding box to help position the widget.) Prior to invoking the
 // On() method, the user may also wish to use the PlaceWidget() to initially
-// position it. The 'W' (for "widget") keypresses also can be used to
+// position it. The 'i' (for "interactor") keypresses also can be used to
 // turn the widgets on and off (methods exist to change the key value
 // and enable keypress activiation).
 // 
