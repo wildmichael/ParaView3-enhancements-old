@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleUser.h,v $
   Language:  C++
-  Date:      $Date: 2000-10-05 06:44:34 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2000-10-20 22:57:16 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -123,6 +123,12 @@ public:
   void SetLeaveMethodArgDelete(void (*f)(void *));
 
   // Description:
+  // Set a method that will be called continuously at a fairly rapid
+  // rate (fast enough to be used for interaction).
+  void SetTimerMethod(void (*f)(void *), void *arg);
+  void SetTimerMethodArgDelete(void (*f)(void *));
+
+  // Description:
   // Get the most recent mouse position during mouse motion.  
   // In your user interaction method, you must use this to track
   // the mouse movement.  Do not use GetEventPosition(), which records
@@ -213,6 +219,10 @@ protected:
   void (*ConfigureMethod)(void *);
   void (*ConfigureMethodArgDelete)(void *);
   void *ConfigureMethodArg;
+
+  void (*TimerMethod)(void *);
+  void (*TimerMethodArgDelete)(void *);
+  void *TimerMethodArg;
 };
 
 #endif

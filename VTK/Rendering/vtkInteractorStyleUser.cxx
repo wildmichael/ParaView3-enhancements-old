@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleUser.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-10-05 06:44:34 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2000-10-20 22:57:16 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -84,6 +84,9 @@ vtkInteractorStyleUser::vtkInteractorStyleUser()
   this->CharMethod = NULL;
   this->CharMethodArgDelete = NULL;
   this->CharMethodArg = NULL;
+  this->TimerMethod = NULL;
+  this->TimerMethodArgDelete = NULL;
+  this->TimerMethodArg = NULL;
 
   this->LastPos[0] = this->LastPos[1] = 0;
   this->OldPos[0] = this->OldPos[1] = 0;
@@ -324,6 +327,35 @@ void vtkInteractorStyleUser::SetCharMethodArgDelete(void (*f)(void *))
 }
 
 //----------------------------------------------------------------------------
+void vtkInteractorStyleUser::SetTimerMethod(void (*f)(void *), void *arg)
+{
+  if ( f != this->TimerMethod || 
+       arg != this->TimerMethodArg )
+    {
+    // delete the current arg if there is one and a delete meth
+    if ((this->TimerMethodArg)&&
+        (this->TimerMethodArgDelete))
+      {
+      (*this->TimerMethodArgDelete)(this->TimerMethodArg);
+      }
+    this->TimerMethod = f;
+    this->TimerMethodArg = arg;
+    this->Modified();
+    }
+}
+
+//----------------------------------------------------------------------------
+// Called when a void* argument is being discarded.  Lets the user free it.
+void vtkInteractorStyleUser::SetTimerMethodArgDelete(void (*f)(void *))
+{
+  if ( f != this->TimerMethodArgDelete)
+    {
+    this->TimerMethodArgDelete = f;
+    this->Modified();
+    }
+}
+
+//----------------------------------------------------------------------------
 void  vtkInteractorStyleUser::StartUserInteraction() 
 {
   if (this->State != VTKIS_START) 
@@ -350,6 +382,14 @@ void vtkInteractorStyleUser::OnTimer(void)
   if (this->State != VTKIS_USERINTERACTION)
     {
     this->vtkInteractorStyleTrackball::OnTimer();
+    }
+  else 
+    {
+    if (this->TimerMethod)
+      {
+      (*this->TimerMethod)(this->TimerMethodArg);
+      }
+    this->Interactor->CreateTimer(VTKI_TIMER_UPDATE);
     }
 }
 
