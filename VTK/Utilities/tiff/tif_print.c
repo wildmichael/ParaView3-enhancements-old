@@ -1,4 +1,4 @@
-/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/tiff/Attic/tif_print.c,v 1.1 2002-01-29 22:38:22 andy Exp $ */
+/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/tiff/Attic/tif_print.c,v 1.2 2003-10-08 12:33:09 andy Exp $ */
 
 /*
  * Copyright (c) 1988-1997 Sam Leffler
@@ -65,7 +65,7 @@ static const char *orientNames[] = {
  * to the specified stdio file stream.
  */
 void
-TIFFPrintDirectory(TIFF* tif, FILE* fd, long flags)
+TEXPORT TIFFPrintDirectory(TIFF* tif, FILE* fd, long flags)
 {
         register TIFFDirectory *td;
         char *sep;

@@ -1,4 +1,4 @@
-/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/tiff/Attic/tif_open.c,v 1.2 2002-01-30 14:16:09 andy Exp $ */
+/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/tiff/Attic/tif_open.c,v 1.3 2003-10-08 12:33:08 andy Exp $ */
 
 /*
  * Copyright (c) 1988-1997 Sam Leffler
@@ -122,7 +122,7 @@ _TIFFgetMode(const char* mode, const char* module)
 }
 
 TIFF*
-TIFFClientOpen(
+TEXPORT TIFFClientOpen(
         const char* name, const char* mode,
         thandle_t clientdata,
         TIFFReadWriteProc readproc,

@@ -1,4 +1,4 @@
-/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/tiff/Attic/tif_write.c,v 1.1 2002-01-29 22:38:25 andy Exp $ */
+/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/tiff/Attic/tif_write.c,v 1.2 2003-10-08 12:33:09 andy Exp $ */
 
 /*
  * Copyright (c) 1988-1997 Sam Leffler
@@ -50,7 +50,7 @@ static  int TIFFAppendToStrip(TIFF*, tstrip_t, tidata_t, tsize_t);
 static  int TIFFSetupStrips(TIFF*);
 
 int
-TIFFWriteScanline(TIFF* tif, tdata_t buf, uint32 row, tsample_t sample)
+TEXPORT TIFFWriteScanline(TIFF* tif, tdata_t buf, uint32 row, tsample_t sample)
 {
         static const char module[] = "TIFFWriteScanline";
         register TIFFDirectory *td;

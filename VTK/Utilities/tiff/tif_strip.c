@@ -1,4 +1,4 @@
-/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/tiff/Attic/tif_strip.c,v 1.2 2002-02-04 14:31:08 andy Exp $ */
+/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/tiff/Attic/tif_strip.c,v 1.3 2003-10-08 12:33:09 andy Exp $ */
 
 /*
  * Copyright (c) 1991-1997 Sam Leffler
@@ -131,7 +131,7 @@ TIFFStripSize(TIFF* tif)
  * to certain heuristics.
  */
 uint32
-TIFFDefaultStripSize(TIFF* tif, uint32 request)
+TEXPORT TIFFDefaultStripSize(TIFF* tif, uint32 request)
 {
         return (*tif->tif_defstripsize)(tif, request);
 }
