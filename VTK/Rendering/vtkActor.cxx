@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkActor.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-01-05 13:40:00 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1995-01-12 16:47:25 $
+  Version:   $Revision: 1.22 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -29,6 +29,7 @@ vlActor::vlActor()
 {
   this->Mapper = NULL;
   this->Property = NULL;
+  this->Texture = NULL;
 
   this->Origin[0] = 0.0;
   this->Origin[1] = 0.0;
