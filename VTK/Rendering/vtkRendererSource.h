@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRendererSource.h,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:32:19 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1996-01-11 10:03:25 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -61,6 +61,8 @@ public:
   vtkRendererSource();
   char *GetClassName() {return "vtkRendererSource";};
   void PrintSelf(ostream& os, vtkIndent indent);
+
+  unsigned long int GetMTime();
 
   // Description:
   // Indicates what renderer to get the pixel data from.
