@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGridSynchronizedTemplates3D.h,v $
   Language:  C++
-  Date:      $Date: 2001-09-03 21:23:01 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2001-10-03 15:30:23 $
+  Version:   $Revision: 1.22 $
 
 
 
@@ -71,7 +71,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkMultiThreader.h"
 #include "vtkKitwareContourFilter.h"
 
-class VTK_EXPORT vtkGridSynchronizedTemplates3D : public vtkStructuredGridToPolyDataFilter
+class VTK_PATENTED_EXPORT vtkGridSynchronizedTemplates3D : public vtkStructuredGridToPolyDataFilter
 {
 public:
   static vtkGridSynchronizedTemplates3D *New();
@@ -194,7 +194,7 @@ protected:
 
 private:
   //BTX
-  friend class VTK_EXPORT vtkKitwareContourFilter;
+  friend class VTK_PATENTED_EXPORT vtkKitwareContourFilter;
   //ETX
 };
 

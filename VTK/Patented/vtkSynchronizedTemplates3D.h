@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSynchronizedTemplates3D.h,v $
   Language:  C++
-  Date:      $Date: 2001-09-03 21:23:01 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2001-10-03 15:30:27 $
+  Version:   $Revision: 1.21 $
 
 
 
@@ -73,7 +73,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkMultiThreader.h"
 #include "vtkKitwareContourFilter.h"
 
-class VTK_EXPORT vtkSynchronizedTemplates3D : public vtkPolyDataSource
+class VTK_PATENTED_EXPORT vtkSynchronizedTemplates3D : public vtkPolyDataSource
 {
 public:
   static vtkSynchronizedTemplates3D *New();
@@ -204,7 +204,7 @@ protected:
 
 private:
   //BTX
-  friend class VTK_EXPORT vtkKitwareContourFilter;
+  friend class VTK_PATENTED_EXPORT vtkKitwareContourFilter;
   //ETX
   
 };

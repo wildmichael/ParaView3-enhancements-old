@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSweptSurface.h,v $
   Language:  C++
-  Date:      $Date: 2001-09-12 20:19:42 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 2001-10-03 15:30:26 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -80,7 +80,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkStructuredPointsToStructuredPointsFilter.h"
 #include "vtkTransformCollection.h"
 
-class VTK_EXPORT vtkSweptSurface : public vtkStructuredPointsToStructuredPointsFilter
+class VTK_PATENTED_EXPORT vtkSweptSurface : public vtkStructuredPointsToStructuredPointsFilter
 {
 public:
   static vtkSweptSurface *New();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKitwareObjectFactory.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 22:07:05 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2001-10-03 15:30:24 $
+  Version:   $Revision: 1.9 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -53,7 +53,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "vtkObjectFactory.h"
 
-class VTK_EXPORT vtkKitwareObjectFactory : public vtkObjectFactory
+class VTK_PATENTED_EXPORT vtkKitwareObjectFactory : public vtkObjectFactory
 {
 public:
   static vtkKitwareObjectFactory *New() {return new vtkKitwareObjectFactory;};
@@ -67,5 +67,5 @@ protected:
   virtual vtkObject* CreateObject(const char* vtkclassname );
 };
 
-extern "C" VTK_EXPORT vtkObjectFactory* vtkLoad();
+extern "C" VTK_PATENTED_EXPORT vtkObjectFactory* vtkLoad();
 #endif
