@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleImage.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-23 19:46:16 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-04-24 13:46:11 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -80,9 +80,9 @@ public:
   
   // Description:
   // Some useful information for interaction
-  vtkSetClampMacro(State,int,VTK_INTERACTOR_STYLE_IMAGE_NONE,VTK_INTERACTOR_STYLE_IMAGE_PICK);
   vtkGetMacro(State,int);
-  
+  const char *GetStateAsString(void);
+
 protected:
   vtkInteractorStyleImage();
   ~vtkInteractorStyleImage();
@@ -102,5 +102,39 @@ private:
   vtkInteractorStyleImage(const vtkInteractorStyleImage&);  // Not implemented.
   void operator=(const vtkInteractorStyleImage&);  // Not implemented.
 };
+
+// Description:
+// Return the interpolation type as a descriptive character string.
+inline const char *vtkInteractorStyleImage::GetStateAsString(void)
+{
+  if (this->State == VTK_INTERACTOR_STYLE_IMAGE_NONE)
+    {
+    return "None";
+    }
+  else if (this->State == VTK_INTERACTOR_STYLE_IMAGE_WINDOW_LEVEL)
+    {
+    return "WindowLevel";
+    }
+  else if (this->State == VTK_INTERACTOR_STYLE_IMAGE_PAN)
+    {
+    return "Pan";
+    }
+  else if (this->State == VTK_INTERACTOR_STYLE_IMAGE_ZOOM)
+    {
+    return "Zoom";
+    }
+  else if (this->State == VTK_INTERACTOR_STYLE_IMAGE_SPIN)
+    {
+    return "Spin";
+    }
+  else if (this->State == VTK_INTERACTOR_STYLE_IMAGE_PICK)
+    {
+    return "Pick";
+    }
+  else
+    {
+    return "Unknown (error)";
+    }
+}
 
 #endif
