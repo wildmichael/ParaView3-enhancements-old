@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkShepardMethod.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:33:45 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2002-06-17 20:25:55 $
+  Version:   $Revision: 1.39 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkFloatArray.h"
 
-vtkCxxRevisionMacro(vtkShepardMethod, "$Revision: 1.38 $");
+vtkCxxRevisionMacro(vtkShepardMethod, "$Revision: 1.39 $");
 vtkStandardNewMacro(vtkShepardMethod);
 
 // Construct with sample dimensions=(50,50,50) and so that model bounds are
@@ -96,7 +96,37 @@ float vtkShepardMethod::ComputeModelBounds(float origin[3], float spacing[3])
   return maxDist;  
 }
 
-void vtkShepardMethod::Execute()
+void vtkShepardMethod::ExecuteInformation()
+{
+  int i;
+  float ar[3], origin[3];
+  vtkImageData *output = this->GetOutput();
+  
+  output->SetScalarType(VTK_FLOAT);
+  output->SetNumberOfScalarComponents(1);
+  
+  output->SetWholeExtent(0, this->SampleDimensions[0]-1,
+                         0, this->SampleDimensions[1]-1,
+                         0, this->SampleDimensions[2]-1);
+
+  for (i=0; i < 3; i++)
+    {
+    origin[i] = this->ModelBounds[2*i];
+    if ( this->SampleDimensions[i] <= 1 )
+      {
+      ar[i] = 1;
+      }
+    else
+      {
+      ar[i] = (this->ModelBounds[2*i+1] - this->ModelBounds[2*i])
+              / (this->SampleDimensions[i] - 1);
+      }
+    }
+  output->SetOrigin(origin);
+  output->SetSpacing(ar);
+}
+
+void vtkShepardMethod::ExecuteData(vtkDataObject *outp)
 {
   vtkIdType ptId, i;
   int j, k;
@@ -104,12 +134,13 @@ void vtkShepardMethod::Execute()
   
   float maxDistance, distance2, inScalar;
   vtkDataArray *inScalars;
-  vtkFloatArray *newScalars;
   vtkIdType numPts, numNewPts, idx;
   int min[3], max[3];
   int jkFactor;
   vtkDataSet *input = this->GetInput();
-  vtkStructuredPoints *output = this->GetOutput();
+  vtkImageData *output = this->AllocateOutputData(outp);
+  vtkFloatArray *newScalars = 
+    vtkFloatArray::SafeDownCast(output->GetPointData()->GetScalars());
 
   vtkDebugMacro(<< "Executing Shepard method");
 
@@ -132,9 +163,6 @@ void vtkShepardMethod::Execute()
   numNewPts = this->SampleDimensions[0] * this->SampleDimensions[1] 
               * this->SampleDimensions[2];
 
-  newScalars = vtkFloatArray::New();
-  newScalars->SetNumberOfTuples(numNewPts);
-
   sum = new float[numNewPts];
   for (i=0; i<numNewPts; i++) 
     {
@@ -142,7 +170,6 @@ void vtkShepardMethod::Execute()
     sum[i] = 0.0;
     }
 
-  output->SetDimensions(this->GetSampleDimensions());
   maxDistance = this->ComputeModelBounds(origin,spacing);
 
   // Traverse all input points. 
@@ -253,8 +280,6 @@ void vtkShepardMethod::Execute()
   // Update self
   //
   delete [] sum;
-  output->GetPointData()->SetScalars(newScalars);
-  newScalars->Delete();
 }
 
 // Set the i-j-k dimensions on which to sample the distance function.

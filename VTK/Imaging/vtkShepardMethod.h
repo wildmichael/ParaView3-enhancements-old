@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkShepardMethod.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:33:45 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2002-06-17 20:25:55 $
+  Version:   $Revision: 1.38 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -38,12 +38,12 @@
 #ifndef __vtkShepardMethod_h
 #define __vtkShepardMethod_h
 
-#include "vtkDataSetToStructuredPointsFilter.h"
+#include "vtkDataSetToImageFilter.h"
 
-class VTK_IMAGING_EXPORT vtkShepardMethod : public vtkDataSetToStructuredPointsFilter 
+class VTK_IMAGING_EXPORT vtkShepardMethod : public vtkDataSetToImageFilter 
 {
 public:
-  vtkTypeRevisionMacro(vtkShepardMethod,vtkDataSetToStructuredPointsFilter);
+  vtkTypeRevisionMacro(vtkShepardMethod,vtkDataSetToImageFilter);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
@@ -92,7 +92,8 @@ protected:
   vtkShepardMethod();
   ~vtkShepardMethod() {};
 
-  void Execute();
+  virtual void ExecuteInformation();
+  virtual void ExecuteData(vtkDataObject *);
 
   int SampleDimensions[3];
   float MaximumDistance;
