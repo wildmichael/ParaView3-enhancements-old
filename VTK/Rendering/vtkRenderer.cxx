@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-02-19 21:53:21 $
-  Version:   $Revision: 1.98 $
+  Date:      $Date: 1999-02-22 14:16:48 $
+  Version:   $Revision: 1.99 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -72,6 +72,7 @@ vtkRenderer::vtkRenderer()
   this->BackingImage = NULL;
   this->LastRenderTimeInSeconds = -1.0;
   
+  this->RenderWindow = NULL;
   this->Lights = vtkLightCollection::New();
   this->Actors = vtkActorCollection::New();
   this->Actors->Register(this);
