@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageExport.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:05 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2001-02-06 01:54:42 $
+  Version:   $Revision: 1.21 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 
@@ -52,7 +52,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define __vtkImageExport_h
 
 #include "vtkProcessObject.h"
-#include "vtkImageFlip.h"
+#include "vtkImageData.h"
 
 class VTK_EXPORT vtkImageExport : public vtkProcessObject
 {
@@ -110,30 +110,40 @@ public:
 
   // Description:
   // Set/Get whether the data goes to the exported memory starting 
-  // in the lower left corner or upper left corner.
+  // in the lower left corner or upper left corner.  Default: On.
+  // WARNING: this flag is used only with the Export() method,
+  // it is ignored by GetPointerToData().
   vtkBooleanMacro(ImageLowerLeft, int);
   vtkGetMacro(ImageLowerLeft, int);
   vtkSetMacro(ImageLowerLeft, int);
-  
+
   // Description:
-  // The main interface: export to the memory pointed to
+  // Set the void pointer to export to.
+  void SetExportVoidPointer(void *);
+  void *GetExportVoidPointer() { return this->ExportVoidPointer; };
+
+  // Description:
+  // The main interface: export to the memory pointed to by
+  // SetExportVoidPointer(), or specify a pointer directly.
+  void Export() { this->Export(this->ExportVoidPointer); };
   virtual void Export(void *);
 
   // Description:
-  // An alternative to Export(): Use with caution. 
+  // An alternative to Export(): Use with caution.   
   // Get a pointer to the image memory
-  // (the pointer might be different each time this is called)
+  // (the pointer might be different each time this is called).
+  // WARNING: This method ignores the ImageLowerLeft flag.
   void *GetPointerToData();
-
+  
 protected:
   vtkImageExport();
   ~vtkImageExport();
   vtkImageExport(const vtkImageExport&) {};
   void operator=(const vtkImageExport&) {};
 
-  vtkImageFlip *ImageFlip;
   int ImageLowerLeft;
   int DataDimensions[3];
+  void *ExportVoidPointer;
 };
 
 #endif
