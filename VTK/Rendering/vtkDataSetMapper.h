@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkDataSetMapper.h,v $
   Language:  C++
-  Date:      $Date: 1994-07-09 06:47:53 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1994-08-05 09:02:13 $
+  Version:   $Revision: 1.6 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -13,9 +13,15 @@ written consent of the authors.
 Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994 
 
 =========================================================================*/
-//
-// DataSetMapper takes DataSet as input
-//
+// .NAME vlDataSetMapper - map vlDataSet and derived classes to graphics primitives
+// .SECTION Description
+// vlDataSetMapper is a mapper to map data sets (i.e., vlDataSet and 
+// all derived classes) to graphics primitives. The mapping procedure
+// is as follows: all 0-D, 1-D, and 2-D cells are converted into points,
+// lines, and polygons/triangle strips and mapped. The 2-D faces of
+// 3-D cells are mapped only if they are used by only one cell, i.e.,
+// on the boundary of the data set.
+
 #ifndef __vlDataSetMapper_h
 #define __vlDataSetMapper_h
 
@@ -33,6 +39,9 @@ public:
   void PrintSelf(ostream& os, vlIndent indent);
   void Render(vlRenderer *ren);
   float *GetBounds();
+
+  // Description:
+  // Specify the input data to map.
   virtual void SetInput(vlDataSet *in);
   virtual vlDataSet* GetInput();
 
