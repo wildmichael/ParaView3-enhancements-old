@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectors.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-25 14:31:42 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1999-10-06 18:42:14 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,8 +41,16 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkVectors.h"
 #include "vtkMath.h"
 
+vtkVectors *vtkVectors::New(int dataType)
+{
+  vtkVectors *res = new vtkVectors();
+  res->SetDataType(dataType);
+  res->GetData()->SetNumberOfComponents(3);
+  return res;
+}
+
 // Construct object with an initial data array of type float.
-vtkVectors::vtkVectors(int dataType) : vtkAttributeData(dataType)
+vtkVectors::vtkVectors() 
 {
   this->MaxNorm = 0.0;
   this->Data->SetNumberOfComponents(3);

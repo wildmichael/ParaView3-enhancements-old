@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalars.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:20:59 $
-  Version:   $Revision: 1.58 $
+  Date:      $Date: 1999-10-06 18:42:13 $
+  Version:   $Revision: 1.59 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -78,8 +78,8 @@ class vtkScalarsToColors;
 class VTK_EXPORT vtkScalars : public vtkAttributeData
 {
 public:
-  static vtkScalars *New(int dataType=VTK_FLOAT, int numComp=1) 
-    {return new vtkScalars(dataType,numComp);};
+  static vtkScalars *New() {return new vtkScalars;};
+  static vtkScalars *New(int dataType, int numComp=1);
 
   const char *GetClassName() {return "vtkScalars";};
   void PrintSelf(ostream& os, vtkIndent indent);
@@ -203,7 +203,7 @@ public:
     {this->GetScalars(p1, p2, &fs);}
 
 protected:
-  vtkScalars(int dataType=VTK_FLOAT, int numComp=1);
+  vtkScalars();
   ~vtkScalars();
   vtkScalars(const vtkScalars&) {};
   void operator=(const vtkScalars&) {};
@@ -234,7 +234,7 @@ protected:
 
 inline vtkAttributeData *vtkScalars::MakeObject()
 {
-  return new vtkScalars(this->GetDataType(),this->GetNumberOfComponents());
+  return vtkScalars::New(this->GetDataType(),this->GetNumberOfComponents());
 }
 
 inline void vtkScalars::SetNumberOfComponents(int num)

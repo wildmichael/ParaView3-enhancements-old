@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTensors.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-02-17 21:24:59 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1999-10-06 18:42:16 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,8 +40,17 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include "vtkTensors.h"
 
+
+vtkTensors *vtkTensors::New(int dataType)
+{
+  vtkTensors *res = new vtkTensors();
+  res->SetDataType(dataType);
+  res->GetData()->SetNumberOfComponents(9);
+  return res;
+}
+
 // Construct object with an initial data array of type float.
-vtkTensors::vtkTensors(int dataType) : vtkAttributeData(dataType)
+vtkTensors::vtkTensors()
 {
   this->Data->SetNumberOfComponents(9);
   this->T = vtkTensor::New();

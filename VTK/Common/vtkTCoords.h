@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTCoords.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:02 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 1999-10-06 18:42:15 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,8 +57,9 @@ class vtkTCoords;
 class VTK_EXPORT vtkTCoords : public vtkAttributeData
 {
 public:
-  static vtkTCoords *New(int dataType=VTK_FLOAT, int dim=2) 
-    {return new vtkTCoords(dataType,dim);};
+  static vtkTCoords *New(int dataType, int dim=2);
+  static vtkTCoords *New() {return new vtkTCoords;};
+
 
   const char *GetClassName() {return "vtkTCoords";};
   void PrintSelf(ostream& os, vtkIndent indent);
@@ -125,7 +126,7 @@ public:
   void GetTCoords(vtkIdList& ptId, vtkTCoords& fv) {this->GetTCoords(&ptId, &fv);}
 
 protected:
-  vtkTCoords(int dataType=VTK_FLOAT, int dim=2);
+  vtkTCoords();
   ~vtkTCoords() {};
   vtkTCoords(const vtkTCoords&) {};
   void operator=(const vtkTCoords&) {};
@@ -134,7 +135,7 @@ protected:
 
 inline vtkAttributeData *vtkTCoords::MakeObject()
 {
-  return new vtkTCoords(this->GetDataType(), this->GetNumberOfComponents());
+  return vtkTCoords::New(this->GetDataType(), this->GetNumberOfComponents());
 }
 
 inline void vtkTCoords::SetNumberOfComponents(int num)

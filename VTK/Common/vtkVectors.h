@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectors.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:07 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 1999-10-06 18:42:14 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -54,15 +54,16 @@ class vtkVectors;
 class VTK_EXPORT vtkVectors : public vtkAttributeData
 {
 public:
-  static vtkVectors *New(int dataType=VTK_FLOAT) {
-    return new vtkVectors(dataType);};
+  static vtkVectors *New(int dataType);
+  static vtkVectors *New() {return new vtkVectors;};
+
 
   const char *GetClassName() {return "vtkVectors";};
   void PrintSelf(ostream& os, vtkIndent indent);
   
   // Description:
   // Create a copy of this object.
-  vtkAttributeData *MakeObject(){return new vtkVectors(this->GetDataType());};
+  vtkAttributeData *MakeObject(){return vtkVectors::New(this->GetDataType());};
 
   // Description:
   // Return number of vectors in array.
@@ -126,7 +127,7 @@ public:
 
 
 protected:
-  vtkVectors(int dataType=VTK_FLOAT);
+  vtkVectors();
   ~vtkVectors() {};
   vtkVectors(const vtkVectors&) {};
   void operator=(const vtkVectors&) {};
