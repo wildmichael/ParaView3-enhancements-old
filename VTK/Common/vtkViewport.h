@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkViewport.h,v $
   Language:  C++
-  Date:      $Date: 2002-03-05 20:16:08 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2002-04-26 21:01:04 $
+  Version:   $Revision: 1.39 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -103,12 +103,11 @@ public:
   // as you go up the screen.
   vtkSetVector3Macro(DisplayPoint,float);
   vtkGetVectorMacro(DisplayPoint,float,3);
-  void GetDisplayPoint(double *a) 
+  void GetDisplayPoint(double a[3]) 
     {
       a[0] = this->DisplayPoint[0];
       a[1] = this->DisplayPoint[1];
       a[2] = this->DisplayPoint[2];
-      a[3] = 1.0;
     };
 
   // Description:
@@ -123,7 +122,7 @@ public:
   // homogeneous coordinates. 
   vtkSetVector4Macro(WorldPoint,float);
   vtkGetVectorMacro(WorldPoint,float,4);
-  void GetWorldPoint(double *a) 
+  void GetWorldPoint(double a[4]) 
     {
       a[0] = this->WorldPoint[0];
       a[1] = this->WorldPoint[1];
