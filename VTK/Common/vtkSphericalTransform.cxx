@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSphericalTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-25 21:18:15 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-03-26 08:11:29 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 #include <math.h>
 #include <stdlib.h>
 
-vtkCxxRevisionMacro(vtkSphericalTransform, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkSphericalTransform, "$Revision: 1.3 $");
 vtkStandardNewMacro(vtkSphericalTransform);
 
 //----------------------------------------------------------------------------
@@ -98,16 +98,16 @@ static void vtkRectangularToSpherical(const T inPoint[3], T outPoint[3])
   T z = inPoint[2];
   
   T RR = x*x + y*y;
-  T rr = RR + z*z;
+  T r = sqrt(RR + z*z);
 
-  outPoint[0] = sqrt(rr);
-  if (rr == 0)
+  outPoint[0] = r;
+  if (r == 0)
     {
     outPoint[1] = 0;
     }
   else
     {
-    outPoint[1] = atan2(sqrt(RR), z);
+    outPoint[1] = acos(z/r);
     }
   if (RR == 0)
     {
