@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProperty.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:49:23 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1997-07-14 20:23:10 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -74,9 +74,12 @@ void vtkVolumeProperty::SetColor( vtkPiecewiseFunction *function )
   if( this->GrayTransferFunction != function )
     {
     this->GrayTransferFunction	= function;
-    this->ColorChannels		= 1;
-
     this->GrayTransferFunctionMTime.Modified();
+    this->Modified();
+    }
+  if ( this->ColorChannels != 1 )
+    {
+    this->ColorChannels		= 1;
     this->Modified();
     }
 }
@@ -88,9 +91,12 @@ void vtkVolumeProperty::SetColor( vtkColorTransferFunction *function )
   if( this->RGBTransferFunction != function )
     {
     this->RGBTransferFunction	= function;
-    this->ColorChannels		= 3;
-
     this->RGBTransferFunctionMTime.Modified();
+    this->Modified();
+    }
+  if ( this->ColorChannels != 3 )
+    {
+    this->ColorChannels		= 3;
     this->Modified();
     }
 }
