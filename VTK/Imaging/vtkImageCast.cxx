@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCast.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-12-23 19:32:33 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1998-01-16 19:52:44 $
+  Version:   $Revision: 1.15 $
   Thanks:    Thanks to Abdalmajeid M. Alyassin who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -115,7 +115,6 @@ static void vtkImageCastExecute(vtkImageCast *self,
   // Loop through ouput pixels
   for (idxZ = 0; idxZ <= maxZ; idxZ++)
     {
-    if (!id) self->UpdateProgress((float)idxZ/(float)(maxZ));
     for (idxY = 0; idxY <= maxY; idxY++)
       {
       if (!id) 
