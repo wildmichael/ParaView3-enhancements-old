@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGL2PSExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-06-10 18:50:29 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2003-06-11 19:58:29 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 #include "vtkRenderWindow.h"
 #include "gl2ps.h"
 
-vtkCxxRevisionMacro(vtkGL2PSExporter, "$Revision: 1.4 $");
+vtkCxxRevisionMacro(vtkGL2PSExporter, "$Revision: 1.5 $");
 vtkStandardNewMacro(vtkGL2PSExporter);
 
 vtkGL2PSExporter::vtkGL2PSExporter()
@@ -128,7 +128,7 @@ void vtkGL2PSExporter::WriteData()
   
 
   // Setup the file.
-  fName = new char [strlen(this->FilePrefix) + 4] ;
+  fName = new char [strlen(this->FilePrefix) + 5] ;
   if (this->FileFormat == PS_FILE)
     {
     sprintf(fName, "%s.ps", this->FilePrefix);
