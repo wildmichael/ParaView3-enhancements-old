@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageWindow.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:58 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1999-07-30 20:07:46 $
+  Version:   $Revision: 1.13 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -130,6 +130,10 @@ public:
   // Add an imager to the window's list of imagers
   // to be rendered.
   void AddImager(vtkImager* im);
+
+  // Description:
+  // Return the collection of imagers for this window.
+  vtkImagerCollection *GetImagers() {return this->Imagers;};
 
   // Description:
   // Remove an imager from the window
