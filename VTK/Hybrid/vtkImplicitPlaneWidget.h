@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitPlaneWidget.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-02 16:11:22 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-08-03 11:05:16 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -277,6 +277,7 @@ protected:
   vtkTransform *Transform;
   
   // Methods to manipulate the plane
+  void ConstrainOrigin(float x[3]);
   void Rotate(int X, int Y, double *p1, double *p2, double *vpn);
   void TranslatePlane(double *p1, double *p2);
   void TranslateOutline(double *p1, double *p2);
