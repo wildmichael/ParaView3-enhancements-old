@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSynchronizedTemplates2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-15 15:53:47 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2001-12-10 21:29:28 $
+  Version:   $Revision: 1.19 $
 
 
 
@@ -90,11 +90,13 @@ vtkSynchronizedTemplates2D::vtkSynchronizedTemplates2D()
 {
   this->ContourValues = vtkContourValues::New();
   this->ComputeScalars = 1;
+  this->InputScalarsSelection = NULL;
 }
 
 vtkSynchronizedTemplates2D::~vtkSynchronizedTemplates2D()
 {
   this->ContourValues->Delete();
+  this->SetInputScalarsSelection(NULL);
 }
 
 
@@ -433,7 +435,7 @@ void vtkSynchronizedTemplates2D::Execute()
     }
   ext = input->GetUpdateExtent();
   pd = input->GetPointData();
-  inScalars = pd->GetScalars();
+  inScalars = pd->GetScalars(this->InputScalarsSelection);
   if ( inScalars == NULL )
     {
     vtkErrorMacro(<<"Scalars must be defined for contouring");

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKitwareContourFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:24:46 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2001-12-10 21:29:28 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -248,6 +248,7 @@ void vtkKitwareContourFilter::StructuredPointsContour(int dim)
     syncTemp2D->GetOutput()->SetUpdateExtent(thisOutput->GetUpdatePiece(),
                                              thisOutput->GetUpdateNumberOfPieces(),
                                              thisOutput->GetUpdateGhostLevel());
+    syncTemp2D->SelectInputScalars(this->InputScalarsSelection);
     syncTemp2D->Update();
     output = syncTemp2D->GetOutput();
     output->Register(this);
@@ -275,6 +276,7 @@ void vtkKitwareContourFilter::StructuredPointsContour(int dim)
     syncTemp3D->GetOutput()->SetUpdateExtent(thisOutput->GetUpdatePiece(),
                                              thisOutput->GetUpdateNumberOfPieces(),
                                              thisOutput->GetUpdateGhostLevel());
+    syncTemp3D->SelectInputScalars(this->InputScalarsSelection);
     syncTemp3D->Update();
     output = syncTemp3D->GetOutput();
     output->Register(this);
@@ -317,6 +319,7 @@ void vtkKitwareContourFilter::StructuredGridContour(int dim)
     output->SetUpdateNumberOfPieces(thisOutput->GetUpdateNumberOfPieces());
     output->SetUpdatePiece(thisOutput->GetUpdatePiece());
     output->SetUpdateGhostLevel(thisOutput->GetUpdateGhostLevel());
+    gridTemp3D->SelectInputScalars(this->InputScalarsSelection);
     gridTemp3D->Update();
     output->Register(this);
     gridTemp3D->Delete();
@@ -347,6 +350,7 @@ void vtkKitwareContourFilter::DataSetContour()
     contour->SetValue(i,values[i]);
     }
 
+  contour->SelectInputScalars(this->InputScalarsSelection);
   contour->Update();
   this->SetOutput(output);
   contour->Delete();

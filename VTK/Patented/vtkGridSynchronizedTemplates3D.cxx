@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGridSynchronizedTemplates3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-15 15:53:47 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 2001-12-10 21:29:27 $
+  Version:   $Revision: 1.48 $
 
 
 
@@ -110,6 +110,7 @@ vtkGridSynchronizedTemplates3D::vtkGridSynchronizedTemplates3D()
     {
     this->Threads[idx] = NULL;
     }
+  this->InputScalarsSelection = NULL;
 }
 
 //----------------------------------------------------------------------------
@@ -117,6 +118,7 @@ vtkGridSynchronizedTemplates3D::~vtkGridSynchronizedTemplates3D()
 {
   this->ContourValues->Delete();
   this->Threader->Delete();
+  this->SetInputScalarsSelection(NULL);
 }
 
 //----------------------------------------------------------------------------
@@ -678,7 +680,7 @@ void vtkGridSynchronizedTemplates3D::ThreadedExecute(int *exExt, int threadId)
 {
   vtkStructuredGrid *input= this->GetInput();
   vtkPointData *pd = input->GetPointData();
-  vtkDataArray *inScalars = pd->GetScalars();
+  vtkDataArray *inScalars = pd->GetScalars(this->InputScalarsSelection);
   vtkPolyData *output = this->GetOutput();
   long dataSize;
   

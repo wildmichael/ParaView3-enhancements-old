@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGridSynchronizedTemplates3D.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:38:03 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2001-12-10 21:29:27 $
+  Version:   $Revision: 1.24 $
 
 
 
@@ -168,6 +168,13 @@ public:
   // from the input will be larger than this value (KiloBytes).
   void SetInputMemoryLimit(long limit);
 
+  // Description:
+  // If you want to contour by an arbitrary array, then set its name here.
+  // By default this in NULL and the filter will use the active scalar array.
+  vtkGetStringMacro(InputScalarsSelection);
+  void SelectInputScalars(const char *fieldName) 
+    {this->SetInputScalarsSelection(fieldName);}
+  
 protected:
   vtkGridSynchronizedTemplates3D();
   ~vtkGridSynchronizedTemplates3D();
@@ -189,6 +196,9 @@ protected:
 
   vtkPolyData *Threads[VTK_MAX_THREADS];
   void InitializeOutput(int *ext,vtkPolyData *o);
+
+  char *InputScalarsSelection;
+  vtkSetStringMacro(InputScalarsSelection);
 
 private:
   //BTX
