@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSphereSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:41:24 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1998-12-30 16:32:37 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -148,7 +148,10 @@ void vtkSphereSource::Execute()
       x[2] = n[2] + this->Center[2];
       newPoints->InsertNextPoint(x);
 
-      if ( (norm = vtkMath::Norm(n)) == 0.0 ) norm = 1.0;
+      if ( (norm = vtkMath::Norm(n)) == 0.0 )
+	{
+	norm = 1.0;
+	}
       n[0] /= norm; n[1] /= norm; n[2] /= norm; 
       newNormals->InsertNextNormal(n);
       }

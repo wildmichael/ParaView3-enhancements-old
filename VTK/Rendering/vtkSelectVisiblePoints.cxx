@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSelectVisiblePoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-11-03 21:19:58 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-12-30 16:32:35 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -71,7 +71,10 @@ void vtkSelectVisiblePoints::Execute()
   float x[4], dx[3], z, diff;
   int selection[4];
 
-  if ( numPts < 1 ) return;
+  if ( numPts < 1 )
+    {
+    return;
+    }
   
   outPts = vtkPoints::New();
   outPts->Allocate(numPts/2+1);
@@ -80,7 +83,10 @@ void vtkSelectVisiblePoints::Execute()
   // specify a selection window to avoid querying 
   if ( this->SelectionWindow )
     {
-    for (int i=0; i<4; i++) selection[i] = this->Selection[i];
+	for (int i=0; i<4; i++)
+      {
+      selection[i] = this->Selection[i];
+      }
     }
   else
     {
@@ -106,7 +112,10 @@ void vtkSelectVisiblePoints::Execute()
       {
       z = this->Renderer->GetZ(dx[0], dx[1]);
       diff = fabs(z-dx[2]);
-      if ( diff <= this->Tolerance ) visible = 1;
+      if ( diff <= this->Tolerance )
+	{
+	visible = 1;
+	}
       }
 
     if ( (visible && !this->SelectInvisible) ||

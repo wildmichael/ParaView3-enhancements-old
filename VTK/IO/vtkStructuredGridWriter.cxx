@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:45:10 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1998-12-30 16:32:39 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -62,7 +62,9 @@ void vtkStructuredGridWriter::WriteData()
   vtkDebugMacro(<<"Writing vtk structured grid...");
 
   if ( !(fp=this->OpenVTKFile()) || !this->WriteHeader(fp) )
+    {
       return;
+    }
 //
 // Write structured grid specific stuff
 //

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:45:10 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 1998-12-30 16:32:39 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -161,11 +161,19 @@ void vtkStructuredPointsReader::Execute()
   vtkStructuredPoints *output=(vtkStructuredPoints *)this->Output;
   
   vtkDebugMacro(<<"Reading vtk structured points file...");
-  if ( this->Debug ) this->Reader->DebugOn();
-  else this->Reader->DebugOff();
+  if ( this->Debug )
+    {
+    this->Reader->DebugOn();
+    }
+  else
+    {
+    this->Reader->DebugOff();
+    }
 
   if (!this->Reader->OpenVTKFile() || !this->Reader->ReadHeader())
+    {
       return;
+    }
 //
 // Read structured points specific stuff
 //
@@ -200,7 +208,10 @@ void vtkStructuredPointsReader::Execute()
     numPts = output->GetNumberOfPoints(); // get default
     while (1)
       {
-      if (!this->Reader->ReadString(line)) break;
+      if (!this->Reader->ReadString(line))
+	{
+	break;
+	}
 
       if ( ! strncmp(this->Reader->LowerCase(line),"dimensions",10) )
         {

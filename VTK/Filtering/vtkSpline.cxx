@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSpline.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-06 20:26:33 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1998-12-30 16:32:37 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,9 +59,18 @@ vtkSpline::vtkSpline ()
 
 vtkSpline::~vtkSpline ()
 {
-  if (this->PiecewiseFunction) this->PiecewiseFunction->Delete();
-  if (this->Coefficients) delete [] this->Coefficients;
-  if (this->Intervals) delete [] this->Intervals;
+  if (this->PiecewiseFunction)
+    {
+    this->PiecewiseFunction->Delete();
+    }
+  if (this->Coefficients)
+    {
+    delete [] this->Coefficients;
+    }
+  if (this->Intervals)
+    {
+    delete [] this->Intervals;
+    }
 }
 
 // Add a point to the Piecewise Functions containing the data

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-30 00:52:18 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 1998-12-30 16:32:38 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -159,11 +159,19 @@ void vtkStructuredGridReader::Execute()
   vtkStructuredGrid *output=(vtkStructuredGrid *)this->Output;
   
   vtkDebugMacro(<<"Reading vtk structured grid file...");
-  if ( this->Debug ) this->Reader->DebugOn();
-  else this->Reader->DebugOff();
+  if ( this->Debug )
+    {
+    this->Reader->DebugOn();
+    }
+  else
+    {
+    this->Reader->DebugOff();
+    }
 
   if (!this->Reader->OpenVTKFile() || !this->Reader->ReadHeader())
-      return;
+    {
+    return;
+    }
   //
   // Read structured grid specific stuff
   //
@@ -197,7 +205,10 @@ void vtkStructuredGridReader::Execute()
     //
     while (1)
       {
-      if (!this->Reader->ReadString(line)) break;
+      if (!this->Reader->ReadString(line))
+	{
+	break;
+	}
 
       if ( ! strncmp(this->Reader->LowerCase(line),"dimensions",10) )
         {

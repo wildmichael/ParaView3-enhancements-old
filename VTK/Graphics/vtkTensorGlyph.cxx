@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTensorGlyph.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-29 14:53:34 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 1998-12-30 16:32:40 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -351,8 +351,10 @@ void vtkTensorGlyph::Update()
     }
 
   // prevent chasing our tail
-  if (this->Updating) return;
-
+  if (this->Updating)
+      {
+      return;
+      }
   this->Updating = 1;
   this->Input->Update();
   this->Source->Update();

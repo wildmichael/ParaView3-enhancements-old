@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:45:11 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1998-12-30 16:32:40 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -63,7 +63,9 @@ void vtkStructuredPointsWriter::WriteData()
   vtkDebugMacro(<<"Writing vtk structured points...");
 
   if ( !(fp=this->OpenVTKFile()) || !this->WriteHeader(fp) )
+      {
       return;
+      }
 //
 // Write structured points specific stuff
 //
