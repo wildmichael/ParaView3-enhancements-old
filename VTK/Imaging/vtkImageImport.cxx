@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageImport.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-08 17:54:54 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1999-09-10 12:28:28 $
+  Version:   $Revision: 1.17 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -141,8 +141,7 @@ void vtkImageImport::ExecuteInformation()
     }
   
   output->SetEstimatedWholeMemorySize(mem);
-  // Do not allow less than 1Kb per piece.
-  output->SetMaximumNumberOfPieces(mem);
+
 }
 
 //----------------------------------------------------------------------------

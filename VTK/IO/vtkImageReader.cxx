@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-02 13:01:25 $
-  Version:   $Revision: 1.53 $
+  Date:      $Date: 1999-09-10 12:28:30 $
+  Version:   $Revision: 1.54 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder,ill Lorensen.
@@ -452,8 +452,6 @@ void vtkImageReader::UpdateInformation()
     }
   
   output->SetEstimatedWholeMemorySize(mem);
-  // Do not allow less than 1Kb per piece.
-  output->SetMaximumNumberOfPieces(mem);
 }
 
 

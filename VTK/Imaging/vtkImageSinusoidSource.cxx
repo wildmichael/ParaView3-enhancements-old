@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSinusoidSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-02 13:01:26 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1999-09-10 12:28:31 $
+  Version:   $Revision: 1.16 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder,ill Lorensen.
@@ -159,8 +159,6 @@ void vtkImageSinusoidSource::UpdateInformation()
     }
   
   output->SetEstimatedWholeMemorySize(mem);
-  // Do not allow less than 1Kb per piece.
-  output->SetMaximumNumberOfPieces(mem);
 }
 
 void vtkImageSinusoidSource::Execute(vtkImageData *data)

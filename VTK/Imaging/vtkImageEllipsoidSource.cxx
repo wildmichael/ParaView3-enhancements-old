@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageEllipsoidSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-02 12:59:32 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1999-09-10 12:28:28 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder,ill Lorensen.
@@ -149,8 +149,6 @@ void vtkImageEllipsoidSource::UpdateInformation()
     }
   
   data->SetEstimatedWholeMemorySize(mem);
-  // Do not allow less than 1Kb per piece.
-  data->SetMaximumNumberOfPieces(mem);
 }
 
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCanvasSource2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-02 12:59:32 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-09-10 12:28:26 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -51,7 +51,7 @@ vtkImageCanvasSource2D::vtkImageCanvasSource2D()
     {
     this->DrawColor[idx] = 0.0;
     }
-  this->NumberOfScalarComponents = 1;
+  this->SetNumberOfScalarComponents(1);
   this->ImageData = this;
 }
 

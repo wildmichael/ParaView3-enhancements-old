@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToImageFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-09 20:01:58 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1999-09-10 12:28:31 $
+  Version:   $Revision: 1.18 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -268,7 +268,7 @@ void vtkImageToImageFilter::Execute()
       {
       vtkErrorMacro("No Input.");
       return;
-      }    
+      }
     this->GetOutput()->GetPointData()->PassData(inData->GetPointData());
     this->GetOutput()->SetExtent( this->GetInput()->GetExtent() );
     }

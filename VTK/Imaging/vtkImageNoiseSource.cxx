@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageNoiseSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-02 12:59:34 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-09-10 12:28:30 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder,ill Lorensen.
@@ -118,8 +118,6 @@ void vtkImageNoiseSource::UpdateInformation()
     }
   
   output->SetEstimatedWholeMemorySize(mem);
-  // Do not allow less than 1Kb per piece.
-  output->SetMaximumNumberOfPieces(mem);
 }
 
 void vtkImageNoiseSource::Execute(vtkImageData *data)

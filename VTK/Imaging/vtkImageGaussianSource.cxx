@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageGaussianSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-02 12:59:33 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-09-10 12:28:28 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder,ill Lorensen.
@@ -121,8 +121,6 @@ void vtkImageGaussianSource::UpdateInformation()
     }
   
   output->SetEstimatedWholeMemorySize(mem);
-  // Do not allow less than 1Kb per piece.
-  output->SetMaximumNumberOfPieces(mem);
 }
 
 void vtkImageGaussianSource::Execute(vtkImageData *data)
