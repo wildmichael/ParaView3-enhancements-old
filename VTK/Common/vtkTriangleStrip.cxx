@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangleStrip.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-03-12 21:09:41 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 1997-04-07 11:27:46 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -285,9 +285,9 @@ void vtkTriangleStrip::DecomposeStrips(vtkCellArray *strips, vtkCellArray *polys
     {
     p1 = pts[0];
     p2 = pts[1];
-    p3 = pts[2];
     for (i=0; i<(npts-2); i++)
       {
+      p3 = pts[i+2];
       polys->InsertNextCell(3);
       if ( (i % 2) ) // flip ordering to preserve consistency
         {
@@ -303,7 +303,6 @@ void vtkTriangleStrip::DecomposeStrips(vtkCellArray *strips, vtkCellArray *polys
         }
       p1 = p2;
       p2 = p3;
-      p3 = pts[3+i];
       }
     }
 }
