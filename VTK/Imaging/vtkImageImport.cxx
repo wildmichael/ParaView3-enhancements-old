@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageImport.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-25 21:10:26 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1999-08-26 21:16:29 $
+  Version:   $Revision: 1.13 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,11 +59,16 @@ vtkImageImport::vtkImageImport()
     this->DataSpacing[idx] = 1.0;
     this->DataOrigin[idx] = 0.0;
     }
+  this->SaveUserArray = 0;
 }
 
 //----------------------------------------------------------------------------
 vtkImageImport::~vtkImageImport()
 { 
+  if ((this->ImportVoidPointer) && (!this->SaveUserArray))
+    {
+    delete [] this->ImportVoidPointer;
+    }
 }
 
 //----------------------------------------------------------------------------
@@ -138,14 +143,36 @@ void vtkImageImport::Execute(vtkImageData *data)
 }
 
 
+void vtkImageImport::CopyImportVoidPointer(void *ptr, int size)
+{
+  unsigned char *mem = new unsigned char [size];
+  memcpy(mem,ptr,size);
+  this->SetImportVoidPointer(mem,0);
+}
+
 void vtkImageImport::SetImportVoidPointer(void *ptr)
+{
+  this->SetImportVoidPointer(ptr,1);
+}
+
+void vtkImageImport::SetImportVoidPointer(void *ptr, int save)
 {
   if (ptr != this->ImportVoidPointer)
     {
+    if ((this->ImportVoidPointer) && (!this->SaveUserArray))
+      {
+      vtkDebugMacro (<< "Deleting the array...");
+      delete [] this->ImportVoidPointer;
+      }
+    else 
+      {
+      vtkDebugMacro (<<"Warning, array not deleted, but will point to new array.");
+      }
     this->Modified();
     }
   this->ImportVoidPointer = ptr;
 }
+
 
 //----------------------------------------------------------------------------
 void vtkImageImport::ModifyOutputUpdateExtent()
