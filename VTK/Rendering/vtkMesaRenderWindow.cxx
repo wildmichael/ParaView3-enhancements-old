@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-03-08 15:57:15 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2000-04-07 20:13:55 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -100,7 +100,6 @@ XVisualInfo *vtkMesaRenderWindowTryForVisual(Display *DisplayId,
 XVisualInfo *vtkMesaRenderWindow::GetDesiredVisualInfo()
 {
   XVisualInfo   *v = NULL;
-  int           multi;
   int           stereo = 0;
   
   // get the default display connection 
