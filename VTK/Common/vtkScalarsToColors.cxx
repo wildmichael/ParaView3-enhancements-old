@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalarsToColors.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-10-01 17:49:38 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2001-10-01 23:48:48 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -168,7 +168,7 @@ vtkUnsignedCharArray *vtkScalarsToColors::ConvertUnsignedCharToRGBA(
     switch (numComp)
       {
       case 1:
-        alpha = this->Alpha*255;
+        alpha = (unsigned char)(this->Alpha*255);
         for (i=0; i<numTuples; i++)
           {
           *nptr++ = *cptr;
@@ -184,12 +184,12 @@ vtkUnsignedCharArray *vtkScalarsToColors::ConvertUnsignedCharToRGBA(
           *nptr++ = *cptr;
           *nptr++ = *cptr;
           *nptr++ = *cptr++;
-          *nptr++ = (*cptr)*this->Alpha; cptr++;
+          *nptr++ = (unsigned char) ((*cptr)*this->Alpha); cptr++;
           }
         break;
 
       case 3:
-        alpha = this->Alpha*255;
+        alpha = (unsigned char)(this->Alpha*255);
         for (i=0; i<numTuples; i++)
           {
           *nptr++ = *cptr++;
@@ -205,7 +205,7 @@ vtkUnsignedCharArray *vtkScalarsToColors::ConvertUnsignedCharToRGBA(
           *nptr++ = *cptr++;
           *nptr++ = *cptr++;
           *nptr++ = *cptr++;
-          *nptr++ = (*cptr)*this->Alpha; cptr++;
+          *nptr++ = (unsigned char)((*cptr)*this->Alpha); cptr++;
           }
         break;
 
