@@ -1,13 +1,11 @@
 /*=========================================================================
 
   Program:   Visualization Library
-  Module:    SPtsSrc.cc
+  Module:    $RCSfile: vtkStructuredPointsSource.cxx,v $
   Language:  C++
-  Date:      7/13/94
-  Version:   1.1
+  Date:      $Date: 1994-08-10 13:20:22 $
+  Version:   $Revision: 1.3 $
 
-Description:
----------------------------------------------------------------------------
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
 without the express written consent of the authors.

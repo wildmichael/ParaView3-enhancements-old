@@ -1,13 +1,11 @@
 /*=========================================================================
 
   Program:   Visualization Library
-  Module:    SampleF.cc
+  Module:    $RCSfile: vtkSampleFunction.cxx,v $
   Language:  C++
-  Date:      7/15/94
-  Version:   1.2
+  Date:      $Date: 1994-08-10 13:20:25 $
+  Version:   $Revision: 1.4 $
 
-Description:
----------------------------------------------------------------------------
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
 without the express written consent of the authors.

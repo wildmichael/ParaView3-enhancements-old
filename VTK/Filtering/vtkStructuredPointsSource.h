@@ -1,13 +1,11 @@
 /*=========================================================================
 
   Program:   Visualization Library
-  Module:    SPtsSrc.hh
+  Module:    $RCSfile: vtkStructuredPointsSource.h,v $
   Language:  C++
-  Date:      7/13/94
-  Version:   1.1
+  Date:      $Date: 1994-08-10 13:20:23 $
+  Version:   $Revision: 1.3 $
 
-Description:
----------------------------------------------------------------------------
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
 without the express written consent of the authors.
@@ -15,8 +13,7 @@ without the express written consent of the authors.
 Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994 
 
 =========================================================================*/
-
-// .NAME vlStructuredPointsSource - generate vlStructuredPoints data
+// .NAME vlStructuredPointsSource - abstract class whose subclasses generate structured points data
 // .SECTION Description
 // vlStructuredPointsSource is an abstract class whose subclasses
 // generate vlStructuredPoints data.
