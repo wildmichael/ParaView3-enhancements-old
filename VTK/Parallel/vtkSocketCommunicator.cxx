@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSocketCommunicator.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-01-15 23:48:44 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2003-01-26 00:45:37 $
+  Version:   $Revision: 1.39 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -57,7 +57,7 @@
     return 0; \
     }
 
-vtkCxxRevisionMacro(vtkSocketCommunicator, "$Revision: 1.38 $");
+vtkCxxRevisionMacro(vtkSocketCommunicator, "$Revision: 1.39 $");
 vtkStandardNewMacro(vtkSocketCommunicator);
 
 //----------------------------------------------------------------------------
@@ -372,7 +372,7 @@ int vtkSocketCommunicator::ReceiveMessage(char *data, int *length,
 
   *length = recv( this->Socket, data, maxlength, 0 );
 
-#ifdef _MSC_VER 
+#if defined(_MSC_VER) || defined(__MINGW32__)
   if ( GetLastError( ) == WSAECONNRESET )
     {
     if ( this->IsConnected )

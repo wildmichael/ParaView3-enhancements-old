@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: otherTimerLog.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-05 20:55:32 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2003-01-26 00:45:37 $
+  Version:   $Revision: 1.14 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,6 +26,8 @@
 // this is needed for the unlink call
 #if defined(__CYGWIN__)
 #include <sys/unistd.h>
+#elif defined(_WIN32)
+#include <io.h>
 #endif
 
 void otherTimerLogTest(ostream& strm)

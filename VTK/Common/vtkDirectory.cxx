@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDirectory.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-01-24 21:41:42 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2003-01-26 00:45:37 $
+  Version:   $Revision: 1.21 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 
 #include <sys/stat.h>
 
-vtkCxxRevisionMacro(vtkDirectory, "$Revision: 1.20 $");
+vtkCxxRevisionMacro(vtkDirectory, "$Revision: 1.21 $");
 
 //----------------------------------------------------------------------------
 // Needed when we don't use the vtkStandardNewMacro.
@@ -83,7 +83,7 @@ void vtkDirectory::PrintSelf(ostream& os, vtkIndent indent)
 
 // First microsoft and borland compilers
 
-#if defined(_MSC_VER) || defined(__BORLANDC__)
+#if defined(_MSC_VER) || defined(__BORLANDC__) || defined(__MINGW32__)
 #include <windows.h>
 #include <io.h>
 #include <ctype.h>
@@ -213,7 +213,8 @@ const char* vtkDirectory::GetCurrentWorkingDirectory(char* buf,
 
 int vtkDirectory::CreateDirectory(const char* dir)
 {
-#if defined(_WIN32) && (defined(_MSC_VER) || defined(__BORLANDC__))
+#if defined(_WIN32) && (defined(_MSC_VER) || defined(__BORLANDC__) \
+                        || defined(__MINGW32__))
   return _mkdir(dir) == 0;
 #else 
   return mkdir(dir, 00777) == 0;

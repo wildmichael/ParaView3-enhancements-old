@@ -1,4 +1,4 @@
-/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/tiff/Attic/tif_jpeg.c,v 1.3 2002-06-24 22:02:59 andy Exp $ */
+/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/tiff/Attic/tif_jpeg.c,v 1.4 2003-01-26 00:45:37 mumit Exp $ */
 
 /*
  * Copyright (c) 1994-1997 Sam Leffler
@@ -46,11 +46,6 @@
 
 #ifdef FAR
 #undef FAR
-#endif
-
-/* The windows RPCNDR.H file defines boolean. */
-#ifdef __RPCNDR_H__
-#define HAVE_BOOLEAN
 #endif
 
 #include "jpeglib.h"
