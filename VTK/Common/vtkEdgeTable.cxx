@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEdgeTable.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:09:55 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2000-05-23 08:53:39 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -433,11 +433,11 @@ int vtkEdgeTable::InitPointInsertion(vtkPoints *newPts, int estSize)
     {
     this->Points->Delete();
     }
-  this->Points = newPts;
-  this->Points->Register(this);
-
   // Set up the edge insertion
   this->InitEdgeInsertion(estSize,1);
+
+  this->Points = newPts;
+  this->Points->Register(this);
 
   return 1;
 }
