@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLODProp3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-04 20:04:42 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-10-06 13:07:46 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -254,7 +254,7 @@ float vtkLODProp3D::GetLODEstimatedRenderTime( int id )
 
   if ( index != VTK_INVALID_LOD_INDEX )
     {
-    return GetLODIndexEstimatedRenderTime( index );
+    return this->GetLODIndexEstimatedRenderTime( index );
     }
   else
     {
