@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPolyVertex.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-04-05 07:43:18 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1994-04-14 22:14:58 $
+  Version:   $Revision: 1.8 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -39,6 +39,9 @@ int vlPolyPoints::EvaluatePosition(float x[3], int& subId, float pcoords[3],
       }
     }
 
+  for (i=0; i<numPts; i++) weights[i] = 0.0;
+  weights[subId] = 1.0;
+
   if (minDist2 == 0.0)
     {
     return 1;
@@ -50,8 +53,6 @@ int vlPolyPoints::EvaluatePosition(float x[3], int& subId, float pcoords[3],
     pcoords[0] = -10.0;
     }
 
-  for (i=0; i<numPts; i++) weights[i] = 0.0;
-  weights[subId] = 1.0;
 }
 
 void vlPolyPoints::EvaluateLocation(int& subId, float pcoords[3], 
