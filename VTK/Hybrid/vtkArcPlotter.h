@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkArcPlotter.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:50 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-10-03 13:21:21 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -75,7 +75,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define VTK_PLOT_TENSORS    5
 #define VTK_PLOT_FIELD_DATA 6
 
-class VTK_EXPORT vtkArcPlotter : public vtkPolyDataToPolyDataFilter 
+class VTK_HYBRID_EXPORT vtkArcPlotter : public vtkPolyDataToPolyDataFilter 
 {
 public:
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXYPlotActor.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:51 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2001-10-03 13:21:26 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to Kitware & RPI/SCOREC who supported the development
              of this class.
 
@@ -115,7 +115,7 @@ class vtkAppendPolyData;
 class vtkPlanes;
 class vtkIntArray;
 
-class VTK_EXPORT vtkXYPlotActor : public vtkActor2D
+class VTK_HYBRID_EXPORT vtkXYPlotActor : public vtkActor2D
 {
 public:
   vtkTypeMacro(vtkXYPlotActor,vtkActor2D);

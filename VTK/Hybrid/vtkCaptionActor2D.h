@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCaptionActor2D.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 20:45:12 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-10-03 13:21:22 $
+  Version:   $Revision: 1.2 $
   Thanks:    Tim Smith who sponsored and encouraged the development
              of this class.
 
@@ -90,7 +90,7 @@ class vtkGlyph3D;
 class vtkAppendPolyData;
 class vtkActor;
 
-class VTK_EXPORT vtkCaptionActor2D : public vtkActor2D
+class VTK_HYBRID_EXPORT vtkCaptionActor2D : public vtkActor2D
 {
 public:
   vtkTypeMacro(vtkCaptionActor2D,vtkActor2D);

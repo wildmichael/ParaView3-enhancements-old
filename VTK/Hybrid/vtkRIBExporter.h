@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRIBExporter.h,v $
   Language:  C++
-  Date:      $Date: 2001-09-28 20:31:32 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2001-10-03 13:21:24 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -80,7 +80,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkTexture.h"
 #include "vtkPolyData.h"
 
-class VTK_EXPORT vtkRIBExporter : public vtkExporter
+class VTK_HYBRID_EXPORT vtkRIBExporter : public vtkExporter
 {
 public:
   static vtkRIBExporter *New();

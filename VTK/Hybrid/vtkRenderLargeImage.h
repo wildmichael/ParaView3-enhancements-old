@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderLargeImage.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:51 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2001-10-03 13:21:25 $
+  Version:   $Revision: 1.19 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -49,7 +49,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkImageSource.h"
 #include "vtkRenderer.h"
 
-class VTK_EXPORT vtkRenderLargeImage : public vtkImageSource
+class VTK_HYBRID_EXPORT vtkRenderLargeImage : public vtkImageSource
 {
 public:
   static vtkRenderLargeImage *New();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMILVideoSource.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:51 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2001-10-03 13:21:24 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -78,7 +78,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define VTK_MIL_SECAM         4
 #define VTK_MIL_NONSTANDARD   5       
 
-class VTK_EXPORT vtkMILVideoSource : public vtkVideoSource
+class VTK_HYBRID_EXPORT vtkMILVideoSource : public vtkVideoSource
 {
 public:
   static vtkMILVideoSource *New();

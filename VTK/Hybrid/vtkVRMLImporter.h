@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVRMLImporter.h,v $
   Language:  C++
-  Date:      $Date: 2001-09-12 16:09:31 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2001-10-03 13:21:25 $
+  Version:   $Revision: 1.12 $
   Thanks:    Tom Citriniti who implemented and contributed this class
 
 
@@ -105,7 +105,7 @@ class  vtkFloatArray;
 class  vtkPolyDataMapper;
 class vtkPoints;
 
-class VTK_EXPORT vtkVRMLImporter : public vtkImporter
+class VTK_HYBRID_EXPORT vtkVRMLImporter : public vtkImporter
 {
 public:
   static vtkVRMLImporter *New();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToPolyDataFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-09-12 16:09:31 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2001-10-03 13:21:23 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -100,7 +100,7 @@ class vtkStructuredPoints;
 class vtkEdgeTable;
 class vtkAppendPolyData;
 
-class VTK_EXPORT vtkImageToPolyDataFilter : public vtkStructuredPointsToPolyDataFilter
+class VTK_HYBRID_EXPORT vtkImageToPolyDataFilter : public vtkStructuredPointsToPolyDataFilter
 {
 public:
   vtkTypeMacro(vtkImageToPolyDataFilter,vtkStructuredPointsToPolyDataFilter);

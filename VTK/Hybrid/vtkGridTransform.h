@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGridTransform.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:50 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2001-10-03 13:21:23 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,7 +58,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #define VTK_GRID_LINEAR 1
 #define VTK_GRID_CUBIC 3
 
-class VTK_EXPORT vtkGridTransform : public vtkWarpTransform
+class VTK_HYBRID_EXPORT vtkGridTransform : public vtkWarpTransform
 {
 public:
   static vtkGridTransform *New();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32VideoSource.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:51 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2001-10-03 13:21:26 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -55,7 +55,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <winuser.h>
 #include <vfw.h>
 
-class VTK_EXPORT vtkWin32VideoSource : public vtkVideoSource
+class VTK_HYBRID_EXPORT vtkWin32VideoSource : public vtkVideoSource
 {
 public:
   static vtkWin32VideoSource *New();

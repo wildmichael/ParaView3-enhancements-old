@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRIBProperty.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:51 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2001-10-03 13:21:25 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -57,7 +57,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 class vtkRIBRenderer;
 
-class VTK_EXPORT vtkRIBProperty : public vtkProperty
+class VTK_HYBRID_EXPORT vtkRIBProperty : public vtkProperty
 {
 public:
   static vtkRIBProperty *New();

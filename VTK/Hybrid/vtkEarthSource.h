@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEarthSource.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:50 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2001-10-03 13:21:22 $
+  Version:   $Revision: 1.22 $
   Thanks:    Thanks to Tom Johnson at Johnson Scientific International who
              developed and contributed this class. Also see
              ftp://www.ou.edu/pub/simtelnet/msdos/worldmap and the
@@ -55,7 +55,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "vtkPolyDataSource.h"
 
-class VTK_EXPORT vtkEarthSource : public vtkPolyDataSource 
+class VTK_HYBRID_EXPORT vtkEarthSource : public vtkPolyDataSource 
 {
 public:
   static vtkEarthSource *New();

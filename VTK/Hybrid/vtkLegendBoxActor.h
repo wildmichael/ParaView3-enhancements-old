@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLegendBoxActor.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:51 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2001-10-03 13:21:24 $
+  Version:   $Revision: 1.8 $
   Thanks:    Tim Smith who sponsored and encouraged the development
              of this class.
 
@@ -72,7 +72,7 @@ class vtkPolyDataMapper2D;
 class vtkTransformPolyDataFilter;
 class vtkTransform;
 
-class VTK_EXPORT vtkLegendBoxActor : public vtkActor2D
+class VTK_HYBRID_EXPORT vtkLegendBoxActor : public vtkActor2D
 {
 public:
   vtkTypeMacro(vtkLegendBoxActor,vtkActor2D);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCubeAxesActor2D.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:50 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2001-10-03 13:21:22 $
+  Version:   $Revision: 1.24 $
   Thanks:    Thorsten Dowe who modified and improved this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -73,7 +73,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define VTK_FLY_OUTER_EDGES 0
 #define VTK_FLY_CLOSEST_TRIAD 1
 
-class VTK_EXPORT vtkCubeAxesActor2D : public vtkActor2D
+class VTK_HYBRID_EXPORT vtkCubeAxesActor2D : public vtkActor2D
 {
 public:
   vtkTypeMacro(vtkCubeAxesActor2D,vtkActor2D);

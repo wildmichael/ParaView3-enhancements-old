@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVRML.h,v $
   Language:  C++
-  Date:      $Date: 2001-09-26 15:40:54 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2001-10-03 13:21:25 $
+  Version:   $Revision: 1.17 $
   Thanks:    Tom Citriniti who implemented and contributed this class
 
 
@@ -91,7 +91,7 @@ struct vtkVRMLAllocator
 };
 
 template <class T> 
-class VTK_EXPORT VectorType
+class VTK_HYBRID_EXPORT VectorType
 {
 protected:
   T *Data;
