@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGraphicsFactory.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-15 18:03:14 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2001-11-15 21:07:00 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -146,6 +146,10 @@ vtkObject* vtkGraphicsFactory::CreateInstance(const char* vtkclassname )
       return vtkXOpenGLRenderWindow::New();
       }
     }
+  if(strcmp(vtkclassname, "vtkRenderWindowInteractor") == 0)
+    {
+    return vtkXRenderWindowInteractor::New();
+    }
 #endif
 
 #ifdef _WIN32
@@ -160,7 +164,8 @@ vtkObject* vtkGraphicsFactory::CreateInstance(const char* vtkclassname )
       return vtkWin32OpenGLRenderWindow::New();
       }
     }
-#else
+#endif
+
 #ifdef VTK_USE_QUARTZ
   if(strcmp(vtkclassname, "vtkRenderWindowInteractor") == 0)
     {
@@ -170,13 +175,6 @@ vtkObject* vtkGraphicsFactory::CreateInstance(const char* vtkclassname )
     {
     return vtkQuartzRenderWindow::New();
     }
-
-  #else
-  if(strcmp(vtkclassname, "vtkRenderWindowInteractor") == 0)
-    {
-    return vtkXRenderWindowInteractor::New();
-    }
-  #endif
 #endif
 
 #if defined(VTK_USE_OGLR) || defined(_WIN32) || defined(VTK_USE_QUARTZ)
