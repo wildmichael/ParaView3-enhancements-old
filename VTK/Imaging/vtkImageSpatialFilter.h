@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSpatialFilter.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-16 21:09:16 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1998-12-29 17:07:03 $
+  Version:   $Revision: 1.27 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -66,14 +66,16 @@ public:
   // Get the Kernel size.
   int *GetKernelSize() {return this->KernelSize;}
   
-  // users shouldn't access these directly but templated functions need to
+  // Description:
+  // Get the Kernel middle.
+  int *GetKernelMiddle() {return this->KernelMiddle;}
+
+protected:
   int   KernelSize[3];
   int   KernelMiddle[3];      // Index of kernel origin
   int   Strides[3];      // Shrink factor
   int   HandleBoundaries;     // Output shrinks if boundaries aren't handled
 
-protected:
-  
   void ExecuteImageInformation();
   void ComputeOutputWholeExtent(int extent[6], int handleBoundaries);
   void ComputeRequiredInputUpdateExtent(int extent[6], int wholeExtent[6]);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-16 21:09:15 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1998-12-29 17:07:02 $
+  Version:   $Revision: 1.32 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -192,13 +192,11 @@ public:
   vtkGetMacro(SwapBytes,int);
   vtkBooleanMacro(SwapBytes,int);
 
+  vtkGetMacro(File,ifstream *);
+  vtkGetVectorMacro(DataIncrements,int,4);
+
   // Warning !!!
   // following should only be used by methods or template helpers, not users
-  ifstream *File;
-  int DataIncrements[4];
-  int DataExtent[6];
-  unsigned short DataMask;  // Mask each pixel with ...
-  int SwapBytes;
   void ComputeInverseTransformedExtent(int inExtent[6],
 				       int outExtent[6]);
   void ComputeInverseTransformedIncrements(int inIncr[3],
@@ -227,6 +225,12 @@ protected:
   char *FilePattern;
   int NumberOfScalarComponents;
   int FileLowerLeft;
+
+  ifstream *File;
+  int DataIncrements[4];
+  int DataExtent[6];
+  unsigned short DataMask;  // Mask each pixel with ...
+  int SwapBytes;
 
   int FileDimensionality;
   int HeaderSize;

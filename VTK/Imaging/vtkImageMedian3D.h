@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMedian3D.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-16 21:09:13 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1998-12-29 17:07:01 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -66,10 +66,12 @@ public:
   // default middle of the neighborhood 
   void SetKernelSize(int size0, int size1, int size2);
 
-  // used in median calc
-  int NumberOfElements;
+  // Description:
+  // Return the number of elements in the median mask
+  vtkGetMacro(NumberOfElements,int);
   
 protected:
+  int NumberOfElements;
 
   void ThreadedExecute(vtkImageData *inData, vtkImageData *outData, 
 		       int extent[6], int id);

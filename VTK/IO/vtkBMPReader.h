@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBMPReader.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-16 21:09:04 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-12-29 17:06:59 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -79,10 +79,14 @@ public:
   // Returns the depth of the BMP, either 8 or 24.
   vtkGetMacro(Depth,int);
 
+  // Description:
+  // Returns the color lut.
+  vtkGetMacro(Colors,unsigned char *);
+
+protected:
   unsigned char *Colors;
   short Depth;
   
-protected:
   virtual void ComputeDataIncrements();
   virtual void UpdateImageInformation();
   virtual void Execute(vtkImageData *out);

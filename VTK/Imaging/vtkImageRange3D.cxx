@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageRange3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:48:12 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-12-29 17:07:01 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -180,8 +180,8 @@ static void vtkImageRange3DExecute(vtkImageRange3D *self,
   
   
   // Get ivars of this object (easier than making friends)
-  kernelSize = self->KernelSize;
-  kernelMiddle = self->KernelMiddle;
+  kernelSize = self->GetKernelSize();
+  kernelMiddle = self->GetKernelMiddle();
   hoodMin0 = - kernelMiddle[0];
   hoodMin1 = - kernelMiddle[1];
   hoodMin2 = - kernelMiddle[2];

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageWriter.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-26 14:22:07 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1998-12-29 17:07:03 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -103,9 +103,6 @@ public:
   // The main interface which triggers the writer to start.
   virtual void Write();
 
-  // Public for templated function
-  char *InternalFileName;
-
 protected:
   vtkImageCache *Input;
   int FileDimensionality;
@@ -114,6 +111,7 @@ protected:
   char *FileName;
   int FileNumber;
   int FileLowerLeft;
+  char *InternalFileName;
   
   void RecursiveWrite(int dim, vtkImageCache *region, ofstream *file);
   void RecursiveWrite(int dim, vtkImageCache *cache, 
