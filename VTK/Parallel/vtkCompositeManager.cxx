@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCompositeManager.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-15 14:20:22 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2001-12-07 14:03:08 $
+  Version:   $Revision: 1.7 $
 
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1081,6 +1081,8 @@ void vtkCompositeManager::PrintSelf(ostream& os, vtkIndent indent)
     {
     os << indent << "UseCompositing: Off\n";
     }
+
+  os << indent << "Controller: (" << this->Controller << ")\n"; 
 }
 
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRTAnalyticSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:26:01 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2001-12-07 14:03:10 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -224,6 +224,11 @@ void vtkRTAnalyticSource::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "XMag: " << this->XMag << endl;
   os << indent << "YMag: " << this->YMag << endl;
   os << indent << "ZMag: " << this->ZMag << endl;
+
+  os << indent << "WholeExtent: " << this->WholeExtent[0]
+     << ", " << this->WholeExtent[1] << ", " << this->WholeExtent[2]
+     << ", " << this->WholeExtent[3] << ", " << this->WholeExtent[4]
+     << ", " << this->WholeExtent[5] << endl;
 
 }
 

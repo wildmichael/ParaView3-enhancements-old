@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSocketCommunicator.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:26:01 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2001-12-07 14:03:10 $
+  Version:   $Revision: 1.28 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -110,6 +110,7 @@ void vtkSocketCommunicator::PrintSelf(ostream& os, vtkIndent indent)
 
   os << indent << "SwapBytesInReceivedData: " << this->SwapBytesInReceivedData
      << endl;
+  os << indent << "IsConnected: " << this->IsConnected << endl;
 }
 
 static inline int checkForError(int id, int maxId)

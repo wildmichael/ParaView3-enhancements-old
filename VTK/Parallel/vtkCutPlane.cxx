@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkCutPlane.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-10-31 16:36:12 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-12-07 14:03:09 $
+  Version:   $Revision: 1.3 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -97,4 +97,6 @@ void vtkCutPlane::PrintSelf(ostream& os,
      << this->Origin[1] << ", " << this->Origin[2] << endl;
   os << indent << "Normal: " << this->Normal[0] << ", "
      << this->Normal[1] << ", " << this->Normal[2] << endl;
+
+  os << indent << "Offset: " << this->Offset << endl;
 }
