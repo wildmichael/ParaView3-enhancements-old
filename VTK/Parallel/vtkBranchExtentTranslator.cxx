@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBranchExtentTranslator.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-11-30 12:30:03 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2000-11-30 12:37:27 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -172,7 +172,7 @@ void vtkBranchExtentTranslator::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "Original Source: (" << this->OriginalSource << ")\n";
 
   os << indent << "AssignedPiece: " << this->AssignedPiece << endl;
-  os << indent << "AssignedNumberOfPiece: " << this->AssignedNumberOfPiece << endl;
+  os << indent << "AssignedNumberOfPieces: " << this->AssignedNumberOfPieces << endl;
 }
 
 
