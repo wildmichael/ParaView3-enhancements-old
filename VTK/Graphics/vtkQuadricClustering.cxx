@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadricClustering.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-26 22:13:07 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 2002-04-09 17:13:04 $
+  Version:   $Revision: 1.41 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 #include "vtkFeatureEdges.h"
 #include "vtkTimerLog.h"
 
-vtkCxxRevisionMacro(vtkQuadricClustering, "$Revision: 1.40 $");
+vtkCxxRevisionMacro(vtkQuadricClustering, "$Revision: 1.41 $");
 vtkStandardNewMacro(vtkQuadricClustering);
 
 //----------------------------------------------------------------------------
@@ -1330,3 +1330,4 @@ void vtkQuadricClustering::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "UseFeaturePoints: " << this->UseFeaturePoints << endl;
   os << indent << "CopyCellData : " << this->CopyCellData << endl;
 }
+
