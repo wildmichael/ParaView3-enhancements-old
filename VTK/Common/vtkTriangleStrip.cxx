@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangleStrip.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-11-05 13:45:42 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 1998-11-06 13:53:58 $
+  Version:   $Revision: 1.51 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -358,7 +358,7 @@ void vtkTriangleStrip::Clip(float value, vtkScalars *cellScalars,
 }
 
 // Return the center of the point cloud in parametric coordinates.
-inline int vtkTriangleStrip::GetParametricCenter(float pcoords[3])
+int vtkTriangleStrip::GetParametricCenter(float pcoords[3])
 {
   pcoords[0] = pcoords[1] = 0.333333; pcoords[2] = 0.0;
   return ((this->Points->GetNumberOfPoints()-2) / 2);

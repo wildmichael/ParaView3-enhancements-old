@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTetra.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-14 21:24:59 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 1998-11-06 13:53:58 $
+  Version:   $Revision: 1.49 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -593,7 +593,7 @@ void vtkTetra::InterpolationFunctions(float pcoords[3], float sf[4])
   sf[3] = pcoords[2];
 }
 
-inline void vtkTetra::InterpolationDerivs(float derivs[12])
+void vtkTetra::InterpolationDerivs(float derivs[12])
 {
   // r-derivatives
   derivs[0] = -1.0;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyLine.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-14 21:24:53 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 1998-11-06 13:53:57 $
+  Version:   $Revision: 1.49 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -454,7 +454,7 @@ void vtkPolyLine::Clip(float value, vtkScalars *cellScalars,
 }
 
 // Return the center of the point cloud in parametric coordinates.
-inline int vtkPolyLine::GetParametricCenter(float pcoords[3])
+int vtkPolyLine::GetParametricCenter(float pcoords[3])
 {
   pcoords[0] = 0.5; pcoords[1] = pcoords[2] = 0.0;
   return ((this->Points->GetNumberOfPoints() - 1) / 2);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCharArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-14 21:24:43 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1998-11-06 13:53:57 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -197,7 +197,7 @@ char *vtkCharArray::Resize(const int sz)
 
 // Set the number of tuples in the array. Note that this allocates space
 // depending on the tuple dimension.
-inline void vtkCharArray::SetNumberOfTuples(const int number)
+void vtkCharArray::SetNumberOfTuples(const int number)
 {
   this->SetNumberOfValues(number*this->NumberOfComponents);
 }
