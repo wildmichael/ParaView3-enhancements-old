@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKWIcon.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-05-01 21:01:19 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2003-05-02 19:33:14 $
+  Version:   $Revision: 1.15 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -52,7 +52,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro( vtkKWIcon );
-vtkCxxRevisionMacro(vtkKWIcon, "$Revision: 1.14 $");
+vtkCxxRevisionMacro(vtkKWIcon, "$Revision: 1.15 $");
 
 //----------------------------------------------------------------------------
 vtkKWIcon::vtkKWIcon()
@@ -292,6 +292,14 @@ void vtkKWIcon::SetImageData(int image)
         image_annotate_buffer_length);
       break;
 
+    case vtkKWIcon::ICON_AXES:
+      this->SetImageData(
+        image_axes, 
+        image_axes_width, image_axes_height,
+        image_axes_pixel_size, 
+        image_axes_buffer_length);
+      break;
+
     case vtkKWIcon::ICON_CONTOURS:
       this->SetImageData(
         image_contours, 
@@ -386,6 +394,14 @@ void vtkKWIcon::SetImageData(int image)
         image_minus_width, image_minus_height,
         image_minus_pixel_size, 
         image_minus_buffer_length);
+      break;      
+
+    case vtkKWIcon::ICON_MOVE:
+      this->SetImageData(
+        image_move, 
+        image_move_width, image_move_height,
+        image_move_pixel_size, 
+        image_move_buffer_length);
       break;      
 
     case vtkKWIcon::ICON_PLUS:

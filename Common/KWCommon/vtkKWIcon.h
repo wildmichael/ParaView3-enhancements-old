@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKWIcon.h,v $
   Language:  C++
-  Date:      $Date: 2003-05-01 21:01:19 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2003-05-02 19:33:14 $
+  Version:   $Revision: 1.13 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -74,6 +74,7 @@ public:
   enum { 
     ICON_NOICON = 0,
     ICON_ANNOTATE,
+    ICON_AXES,
     ICON_CONTOURS,
     ICON_CUT,
     ICON_ERROR,
@@ -86,6 +87,7 @@ public:
     ICON_MACROS,
     ICON_MATERIAL,
     ICON_MINUS,
+    ICON_MOVE,
     ICON_PLUS,
     ICON_PREFERENCES,
     ICON_QUESTION,
