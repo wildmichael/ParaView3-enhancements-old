@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangle.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:26:58 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1995-07-10 07:26:14 $
+  Version:   $Revision: 1.22 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -23,7 +23,6 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 static vtkPolygon poly;
 static vtkMath math;
 static vtkPlane plane;
-static vtkLine line;
 
 // Description:
 // Deep copy of cell.
@@ -235,9 +234,10 @@ void vtkTriangle::Contour(float value, vtkFloatScalars *cellScalars,
 
 vtkCell *vtkTriangle::GetEdge(int edgeId)
 {
+  static vtkLine line;
   int edgeIdPlus1 = edgeId + 1;
 
-  if ((edgeIdPlus1 + 1) > 2) edgeIdPlus1 = 0;
+  if (edgeIdPlus1 > 2) edgeIdPlus1 = 0;
 
   // load point id's
   line.PointIds.SetId(0,this->PointIds.GetId(edgeId));
