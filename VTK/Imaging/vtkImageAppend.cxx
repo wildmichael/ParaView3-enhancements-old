@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAppend.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-10-27 15:29:44 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2000-10-27 18:56:00 $
+  Version:   $Revision: 1.18 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -285,10 +285,11 @@ void vtkImageAppend::InitOutput(int outExt[6], vtkImageData *outData)
   int outIncX, outIncY, outIncZ;
   int rowLength;
   int typeSize;
-  unsigned char *outPtr;
+  unsigned char *outPtrZ, *outPtrY;
+  
 
   typeSize = outData->GetScalarSize();  
-  outPtr = (unsigned char *)(outData->GetScalarPointer());
+  outPtrZ = (unsigned char *)(outData->GetScalarPointerForExtent(outExt));
 
   // Get increments to march through data 
   outData->GetIncrements(outIncX, outIncY, outIncZ);
@@ -305,12 +306,13 @@ void vtkImageAppend::InitOutput(int outExt[6], vtkImageData *outData)
   // Loop through input pixels
   for (idxZ = 0; idxZ <= maxZ; idxZ++)
     {
+    outPtrY = outPtrZ;
     for (idxY = 0; idxY <= maxY; idxY++)
       {
-      memset(outPtr, 0, rowLength);
-      outPtr += outIncY;
+      memset(outPtrY, 0, rowLength);
+      outPtrY += outIncY;
       }
-    outPtr += outIncZ;
+    outPtrZ += outIncZ;
     }
 }
 //----------------------------------------------------------------------------
