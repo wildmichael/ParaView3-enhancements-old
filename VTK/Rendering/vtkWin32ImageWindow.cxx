@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32ImageWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-22 21:08:09 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1998-06-01 15:19:58 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -257,7 +257,12 @@ vtkWin32ImageWindow::vtkWin32ImageWindow()
 //----------------------------------------------------------------------------
 vtkWin32ImageWindow::~vtkWin32ImageWindow()
 {
-  if (this->WindowId && this->OwnWindow) DestroyWindow(this->WindowId);
+  if (this->WindowId && this->OwnWindow)
+    {
+    DestroyWindow(this->WindowId);
+    // mark the window as being removed...
+    SetWindowLong(this->WindowId,GWL_USERDATA,(LONG)0);
+    }
 }
 
 
@@ -651,6 +656,10 @@ LRESULT APIENTRY vtkWin32ImageWindowWndProc(HWND hWnd, UINT message,
   vtkWin32ImageWindow *me =   
     (vtkWin32ImageWindow *)GetWindowLong(hWnd,GWL_USERDATA);
 
+  // if we have entered this event proc for a window that has already
+  // been destroyed, do nothing.
+  if (!me && (message != WM_CREATE)) return DefWindowProc(hWnd, message, wParam, lParam);
+  
   switch (message) 
     {
     case WM_CREATE:
@@ -735,7 +744,9 @@ LRESULT APIENTRY vtkWin32ImageWindowWndProc(HWND hWnd, UINT message,
 //----------------------------------------------------------------------------
 void vtkWin32ImageWindow::MakeDefaultWindow() 
 {
-  static int count = 0;
+  // start count at 1 so window names start at 1 and string length calculation
+  // avoids log10(1)
+  static int count = 1;
 
   vtkDebugMacro (<< "vtkWin32ImageWindow::MakeDefaultWindow");
 
