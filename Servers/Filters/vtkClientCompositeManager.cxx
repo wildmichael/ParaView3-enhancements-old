@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClientCompositeManager.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-08 13:19:09 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-11-08 21:06:07 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -46,7 +46,7 @@
  #include <mpi.h>
 #endif
 
-vtkCxxRevisionMacro(vtkClientCompositeManager, "$Revision: 1.4 $");
+vtkCxxRevisionMacro(vtkClientCompositeManager, "$Revision: 1.5 $");
 vtkStandardNewMacro(vtkClientCompositeManager);
 
 vtkCxxSetObjectMacro(vtkClientCompositeManager,Compositer,vtkCompositer);
@@ -233,7 +233,6 @@ void vtkClientCompositeManager::StartRender()
   
   vtkDebugMacro("StartRender");
   
-  vtkRenderWindow* renWin = this->RenderWindow;
   vtkMultiProcessController *controller = this->ClientController;
 
   if (controller == NULL)
@@ -242,6 +241,7 @@ void vtkClientCompositeManager::StartRender()
     }
 
   // Make sure they all swp buffers at the same time.
+  //vtkRenderWindow* renWin = this->RenderWindow;
   //renWin->SwapBuffersOff();
 
   // Trigger the satellite processes to start their render routine.
@@ -1333,6 +1333,13 @@ void vtkClientCompositeManager::PrintSelf(ostream& os, vtkIndent indent)
     os << indent << "Tiled display with dimensions: " 
        << this->TiledDimensions[0] << ", " << this->TiledDimensions[1] << endl;
     }
+  
+  os << indent << "UseChar: " << this->UseChar << endl;
+  os << indent << "UseRGB: " << this->UseRGB << endl;
+  os << indent << "ClientFlag: " << this->ClientFlag << endl;
+
+  os << indent << "Compositer: " << this->Compositer << endl;
+
 }
 
 
