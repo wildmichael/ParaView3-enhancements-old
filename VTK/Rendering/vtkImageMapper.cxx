@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:33 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 2002-03-26 13:38:02 $
+  Version:   $Revision: 1.43 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,13 +19,12 @@
 #include "vtkImageMapper.h"
 
 #include "vtkActor2D.h"
-#include "vtkImager.h"
 #include "vtkViewport.h"
 #include "vtkWindow.h"
 #include "vtkImageData.h"
 #include "vtkImagingFactory.h"
 
-vtkCxxRevisionMacro(vtkImageMapper, "$Revision: 1.42 $");
+vtkCxxRevisionMacro(vtkImageMapper, "$Revision: 1.43 $");
 
 #define VTK_RINT(x) ((x > 0.0) ? (int)(x + 0.5) : (int)(x - 0.5))
 
