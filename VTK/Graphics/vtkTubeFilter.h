@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTubeFilter.h,v $
   Language:  C++
-  Date:      $Date: 1995-12-27 10:57:42 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1996-05-31 15:34:42 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -95,6 +95,19 @@ public:
   vtkSetMacro(RadiusFactor,float);
   vtkGetMacro(RadiusFactor,float);
 
+  // Description:
+  // Set the default normal to use if no normals are supplied, and the
+  // DefaultNormalOn is set.
+  vtkSetVector3Macro(DefaultNormal,float);
+  vtkGetVector3Macro(DefaultNormal,float);
+
+  // Description:
+  // Set a boolean to control whether to use default normals.
+  // DefaultNormalOn is set.
+  vtkSetMacro(UseDefaultNormal,int);
+  vtkGetMacro(UseDefaultNormal,int);
+  vtkBooleanMacro(UseDefaultNormal,int);
+
 protected:
   // Usual data generation method
   void Execute();
@@ -103,7 +116,11 @@ protected:
   int VaryRadius; //controls radius variation
   int NumberOfSides; //number of sides to create tube
   float RadiusFactor; //maxium allowablew radius
+  float DefaultNormal[3];
+  int UseDefaultNormal;
+  
 };
+
 
 #endif
 
