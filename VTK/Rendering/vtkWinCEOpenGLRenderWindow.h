@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWinCEOpenGLRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2002-10-24 11:48:27 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-10-24 15:27:55 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -139,7 +139,7 @@ public:
   // If called, allow MakeCurrent() to skip cache-check when called.
   // MakeCurrent() reverts to original behavior of cache-checking
   // on the next render.
-  void SetForceMakeCurrent() { this->ForceMakeCurrent = 1;};
+  void SetForceMakeCurrent();
 
   // Description:
   // Check to see if an event is pending for this window.
