@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkRenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 1994-12-09 18:33:06 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1995-02-20 15:37:45 $
+  Version:   $Revision: 1.10 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -69,7 +69,9 @@ public:
   virtual void HighlightActor(vlActor *actor);
 
   void SetStartPickMethod(void (*f)(void *), void *arg);
+  void SetStartPickMethodArgDelete(void (*f)(void *));
   void SetEndPickMethod(void (*f)(void *), void *arg);
+  void SetEndPickMethodArgDelete(void (*f)(void *));
 
   void SetPicker(vlPicker *picker);
   void SetPicker(vlPicker& picker) {this->SetPicker(&picker);};
@@ -81,6 +83,9 @@ public:
   // Description:
   // Create default picker. Used to create one when none is specified.
   virtual vlPicker *CreateDefaultPicker();
+
+  void SetUserMethod(void (*f)(void *), void *arg);
+  void SetUserMethodArgDelete(void (*f)(void *));
 
 protected:
   vlRenderWindow *RenderWindow;
@@ -107,9 +112,15 @@ protected:
 
   // methods called prior to and after picking
   void (*StartPickMethod)(void *);
+  void (*StartPickMethodArgDelete)(void *);
   void *StartPickMethodArg;
   void (*EndPickMethod)(void *);
+  void (*EndPickMethodArgDelete)(void *);
   void *EndPickMethodArg;
+  void (*UserMethod)(void *);
+  void (*UserMethodArgDelete)(void *);
+  void *UserMethodArg;
+
 };
 
 #endif
