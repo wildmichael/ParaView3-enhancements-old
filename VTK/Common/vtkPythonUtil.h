@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPythonUtil.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-20 17:14:53 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2000-10-25 14:15:24 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -53,6 +53,7 @@ extern vtkObject *vtkPythonGetPointerFromObject(PyObject *obj, char *type);
 extern PyObject *vtkPythonGetObjectFromPointer(vtkObject *ptr);
 extern void vtkPythonAddObjectToHash(PyObject *obj, vtkObject *anInstance);
 extern void vtkPythonDeleteObjectFromHash(PyObject *obj);
+extern PyObject *vtkPythonGetObjectFromObject(PyObject *arg, const char *type);
 
 extern char *vtkPythonManglePointer(void *ptr, const char *type);
 extern void *vtkPythonUnmanglePointer(char *ptrText, int *len,
