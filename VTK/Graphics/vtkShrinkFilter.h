@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkShrinkFilter.h,v $
   Language:  C++
-  Date:      $Date: 1994-02-07 17:14:42 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1994-05-31 14:16:07 $
+  Version:   $Revision: 1.11 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -19,16 +19,18 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 #ifndef __vlShrinkFilter_h
 #define __vlShrinkFilter_h
 
-#include "DataSetF.hh"
-#include "PolyData.hh"
+#include "DS2UGrid.hh"
 
-class vlShrinkFilter : public vlDataSetFilter
+class vlShrinkFilter : public vlDataSetToUnstructuredGridFilter
 {
 public:
   vlShrinkFilter(const float sf=0.5) {this->ShrinkFactor = sf;};
   ~vlShrinkFilter() {};
   char *GetClassName() {return "vlShrinkFilter";};
   void PrintSelf(ostream& os, vlIndent indent);
+
+  vlSetMacro(ShrinkFactor,float);
+  vlGetMacro(ShrinkFactor,float);
 
 protected:
   void Execute();
