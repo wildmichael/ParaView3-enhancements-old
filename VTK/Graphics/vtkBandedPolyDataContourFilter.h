@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBandedPolyDataContourFilter.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-24 15:08:02 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2002-01-28 14:28:54 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -137,6 +137,7 @@ protected:
   float *ClipValues;
   int   NumberOfClipValues;
   int ClipIndex[2]; //indices outside of this range (inclusive) are clipped
+  float ClipTolerance; //used to clean up numerical problems
   
   //the second output
   int GenerateContourEdges;
