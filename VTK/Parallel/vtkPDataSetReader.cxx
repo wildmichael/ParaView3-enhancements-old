@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPDataSetReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-18 19:06:23 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2002-06-18 19:16:31 $
+  Version:   $Revision: 1.15 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -31,7 +31,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkSource.h"
 
-vtkCxxRevisionMacro(vtkPDataSetReader, "$Revision: 1.14 $");
+vtkCxxRevisionMacro(vtkPDataSetReader, "$Revision: 1.15 $");
 vtkStandardNewMacro(vtkPDataSetReader);
 
 //----------------------------------------------------------------------------
@@ -996,8 +996,8 @@ void vtkPDataSetReader::UnstructuredGridExecute()
     { // This duplicates functionality of the pipeline super classes ...
     return;
     }
-  startPiece = updatePiece * updateNumberOfPieces / this->NumberOfPieces;
-  endPiece = ((updatePiece+1) * updateNumberOfPieces / this->NumberOfPieces) - 1;
+  startPiece = updatePiece * this->NumberOfPieces / updateNumberOfPieces;
+  endPiece = ((updatePiece+1) * this->NumberOfPieces / updateNumberOfPieces) - 1;
 
   vtkDataSetReader *reader;
   vtkAppendFilter *append = vtkAppendFilter::New();
