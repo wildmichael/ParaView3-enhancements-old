@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLight.h,v $
   Language:  C++
-  Date:      $Date: 2003-01-07 15:08:46 $
-  Version:   $Revision: 1.55 $
+  Date:      $Date: 2003-04-28 20:07:32 $
+  Version:   $Revision: 1.56 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -71,9 +71,20 @@ public:
   virtual void Render(vtkRenderer *, int) {};
 
   // Description:
-  // Set/Get the color of the light.
-  vtkSetVector3Macro(Color,float);
-  vtkGetVectorMacro(Color,float,3);
+  // Set/Get the color of the light. It is possible to set the ambient,
+  // diffuse and specular colors separately. The SetColor() method sets
+  // the diffuse and specular colors to the same color (this is a feature
+  // to preserve backward compatbility.)
+  vtkSetVector3Macro(AmbientColor,float);
+  vtkGetVectorMacro(AmbientColor,float,3);
+  vtkSetVector3Macro(DiffuseColor,float);
+  vtkGetVectorMacro(DiffuseColor,float,3);
+  vtkSetVector3Macro(SpecularColor,float);
+  vtkGetVectorMacro(SpecularColor,float,3);
+  void SetColor(float, float, float); 
+  void SetColor(float a[3]) { this->SetColor(a[0], a[1], a[2]); }
+  void GetColor(float rgb[3]);
+  float *GetColor();
 
   // Description:
   // Set/Get the position of the light.
@@ -213,7 +224,9 @@ protected:
   float FocalPoint[3];
   float Position[3];
   float Intensity;
-  float Color[3];
+  float AmbientColor[3];
+  float DiffuseColor[3];
+  float SpecularColor[3];
   int   Switch;
   int   Positional;
   float Exponent;
@@ -223,6 +236,7 @@ protected:
   float TransformedFocalPointReturn[3];
   float TransformedPositionReturn[3];
   int LightType;
+
 private:
   vtkLight(const vtkLight&);  // Not implemented.
   void operator=(const vtkLight&);  // Not implemented.
