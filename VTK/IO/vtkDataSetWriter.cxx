@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:11 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2002-05-31 23:13:18 $
+  Version:   $Revision: 1.34 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -15,15 +15,16 @@
      PURPOSE.  See the above copyright notice for more information.
 
 =========================================================================*/
+#include "vtkDataSet.h"
 #include "vtkDataSetWriter.h"
-#include "vtkPolyDataWriter.h"
-#include "vtkStructuredPointsWriter.h"
-#include "vtkStructuredGridWriter.h"
-#include "vtkUnstructuredGridWriter.h"
-#include "vtkRectilinearGridWriter.h"
 #include "vtkObjectFactory.h"
+#include "vtkPolyDataWriter.h"
+#include "vtkRectilinearGridWriter.h"
+#include "vtkStructuredGridWriter.h"
+#include "vtkStructuredPointsWriter.h"
+#include "vtkUnstructuredGridWriter.h"
 
-vtkCxxRevisionMacro(vtkDataSetWriter, "$Revision: 1.33 $");
+vtkCxxRevisionMacro(vtkDataSetWriter, "$Revision: 1.34 $");
 vtkStandardNewMacro(vtkDataSetWriter);
 
 //----------------------------------------------------------------------------

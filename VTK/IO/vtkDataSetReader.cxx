@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-27 12:39:44 $
-  Version:   $Revision: 1.59 $
+  Date:      $Date: 2002-05-31 23:13:18 $
+  Version:   $Revision: 1.60 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,14 +16,20 @@
 
 =========================================================================*/
 #include "vtkDataSetReader.h"
-#include "vtkPolyDataReader.h"
-#include "vtkStructuredPointsReader.h"
-#include "vtkStructuredGridReader.h"
-#include "vtkRectilinearGridReader.h"
-#include "vtkUnstructuredGridReader.h"
-#include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkDataSetReader, "$Revision: 1.59 $");
+#include "vtkObjectFactory.h"
+#include "vtkPolyData.h"
+#include "vtkPolyDataReader.h"
+#include "vtkRectilinearGrid.h"
+#include "vtkRectilinearGridReader.h"
+#include "vtkStructuredGrid.h"
+#include "vtkStructuredGridReader.h"
+#include "vtkStructuredPoints.h"
+#include "vtkStructuredPointsReader.h"
+#include "vtkUnstructuredGrid.h"
+#include "vtkUnstructuredGridReader.h"
+
+vtkCxxRevisionMacro(vtkDataSetReader, "$Revision: 1.60 $");
 vtkStandardNewMacro(vtkDataSetReader);
 
 vtkDataSetReader::vtkDataSetReader()
@@ -336,4 +342,9 @@ void vtkDataSetReader::Update()
 void vtkDataSetReader::PrintSelf(ostream& os, vtkIndent indent)
 {
   this->Superclass::PrintSelf(os,indent);
+}
+
+vtkDataSet *vtkDataSetReader::GetOutput(int idx)
+{
+  return static_cast<vtkDataSet *>(this->vtkSource::GetOutput(idx)); 
 }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkParticleReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:19 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2002-05-31 23:13:18 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,11 +22,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkByteSwap.h"
 
-#include <stdio.h>
-#include <ctype.h>
-#include <string.h>
-
-vtkCxxRevisionMacro(vtkParticleReader, "$Revision: 1.10 $");
+vtkCxxRevisionMacro(vtkParticleReader, "$Revision: 1.11 $");
 vtkStandardNewMacro(vtkParticleReader);
 
 // These are copied right from vtkImageReader.

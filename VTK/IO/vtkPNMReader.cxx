@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPNMReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-30 22:39:24 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2002-05-31 23:13:18 $
+  Version:   $Revision: 1.26 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,9 +18,7 @@
 #include "vtkPNMReader.h"
 #include "vtkObjectFactory.h"
 
-#include <stdio.h>
-
-vtkCxxRevisionMacro(vtkPNMReader, "$Revision: 1.25 $");
+vtkCxxRevisionMacro(vtkPNMReader, "$Revision: 1.26 $");
 vtkStandardNewMacro(vtkPNMReader);
 
 char vtkPNMReaderGetChar(FILE *fp)

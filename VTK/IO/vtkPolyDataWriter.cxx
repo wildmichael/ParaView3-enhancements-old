@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:20 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2002-05-31 23:13:18 $
+  Version:   $Revision: 1.18 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,9 +16,11 @@
 
 =========================================================================*/
 #include "vtkPolyDataWriter.h"
-#include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkPolyDataWriter, "$Revision: 1.17 $");
+#include "vtkObjectFactory.h"
+#include "vtkPolyData.h"
+
+vtkCxxRevisionMacro(vtkPolyDataWriter, "$Revision: 1.18 $");
 vtkStandardNewMacro(vtkPolyDataWriter);
 
 //----------------------------------------------------------------------------

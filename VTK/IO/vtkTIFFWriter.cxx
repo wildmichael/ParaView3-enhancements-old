@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTIFFWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:24 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2002-05-31 23:13:18 $
+  Version:   $Revision: 1.21 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,9 +16,11 @@
 
 =========================================================================*/
 #include "vtkTIFFWriter.h"
-#include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkTIFFWriter, "$Revision: 1.20 $");
+#include "vtkObjectFactory.h"
+#include "vtkImageData.h"
+
+vtkCxxRevisionMacro(vtkTIFFWriter, "$Revision: 1.21 $");
 vtkStandardNewMacro(vtkTIFFWriter);
 
 #if (_MIPS_SZLONG == 64)

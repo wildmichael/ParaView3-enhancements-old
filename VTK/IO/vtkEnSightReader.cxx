@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSightReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-31 15:59:46 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2002-05-31 23:13:18 $
+  Version:   $Revision: 1.32 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,16 +16,16 @@
 
 =========================================================================*/
 #include "vtkEnSightReader.h"
-#include "vtkObjectFactory.h"
-#include "vtkUnstructuredGrid.h"
-#include "vtkStructuredGrid.h"
-#include "vtkRectilinearGrid.h"
-#include "vtkStructuredPoints.h"
+
+#include "vtkCollection.h"
 #include "vtkFloatArray.h"
+#include "vtkObjectFactory.h"
+#include "vtkRectilinearGrid.h"
+#include "vtkStructuredGrid.h"
+#include "vtkStructuredPoints.h"
+#include "vtkUnstructuredGrid.h"
 
-#include <ctype.h>
-
-vtkCxxRevisionMacro(vtkEnSightReader, "$Revision: 1.31 $");
+vtkCxxRevisionMacro(vtkEnSightReader, "$Revision: 1.32 $");
 
 //----------------------------------------------------------------------------
 vtkEnSightReader::vtkEnSightReader()

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:22 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2002-05-31 23:13:18 $
+  Version:   $Revision: 1.32 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,9 +16,11 @@
 
 =========================================================================*/
 #include "vtkStructuredGridWriter.h"
-#include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkStructuredGridWriter, "$Revision: 1.31 $");
+#include "vtkObjectFactory.h"
+#include "vtkStructuredGrid.h"
+
+vtkCxxRevisionMacro(vtkStructuredGridWriter, "$Revision: 1.32 $");
 vtkStandardNewMacro(vtkStructuredGridWriter);
 
 //----------------------------------------------------------------------------

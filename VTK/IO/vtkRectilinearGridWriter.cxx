@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGridWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:21 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2002-05-31 23:13:18 $
+  Version:   $Revision: 1.19 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,9 +16,11 @@
 
 =========================================================================*/
 #include "vtkRectilinearGridWriter.h"
-#include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkRectilinearGridWriter, "$Revision: 1.18 $");
+#include "vtkObjectFactory.h"
+#include "vtkRectilinearGrid.h"
+
+vtkCxxRevisionMacro(vtkRectilinearGridWriter, "$Revision: 1.19 $");
 vtkStandardNewMacro(vtkRectilinearGridWriter);
 
 //----------------------------------------------------------------------------
