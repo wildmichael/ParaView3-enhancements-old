@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPythonUtil.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-19 19:37:16 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 2002-12-01 03:28:33 $
+  Version:   $Revision: 1.49 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -62,6 +62,13 @@ vtkPythonUtil::~vtkPythonUtil()
 {
   this->ObjectHash->Delete();
   this->ClassHash->Delete();
+}
+
+//--------------------------------------------------------------------
+void vtkPythonHashDelete()
+{
+  delete vtkPythonHash;
+  vtkPythonHash = 0;
 }
 
 //--------------------------------------------------------------------
@@ -1179,6 +1186,7 @@ void vtkPythonAddClassToHash(PyObject *vtkclass, const char *classname)
   if (vtkPythonHash == NULL)
     {
     vtkPythonHash = new vtkPythonUtil();
+    Py_AtExit(vtkPythonHashDelete);
     }
 
 #ifdef VTKPYTHONDEBUG
@@ -1208,6 +1216,7 @@ void vtkPythonAddObjectToHash(PyObject *obj, vtkObjectBase *ptr)
   if (vtkPythonHash == NULL)
     {
     vtkPythonHash = new vtkPythonUtil();
+    Py_AtExit(vtkPythonHashDelete);
     }
 
 #ifdef VTKPYTHONDEBUG
