@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyData.h,v $
   Language:  C++
-  Date:      $Date: 2002-12-26 18:24:21 $
-  Version:   $Revision: 1.122 $
+  Date:      $Date: 2003-03-17 08:58:47 $
+  Version:   $Revision: 1.123 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -238,7 +238,7 @@ public:
   // Description:
   // Determine whether two points form an edge. If they do, return non-zero.
   // Make sure BuildLinks() has been called first.
-  int IsEdge(int v1, int v2);
+  int IsEdge(vtkIdType p1, vtkIdType p2);
 
   // Description:
   // Determine whether a point is used by a particular cell. If it is, return
@@ -470,24 +470,6 @@ inline int vtkPolyData::IsPointUsedByCell(vtkIdType ptId, vtkIdType cellId)
   for (vtkIdType i=0; i < npts; i++)
     {
     if ( pts[i] == ptId )
-      {
-      return 1;
-      }
-    }
-
-  return 0;
-}
-
-inline int vtkPolyData::IsEdge(int p1, int p2)
-{
-  unsigned short int ncells;
-  int i;
-  vtkIdType *cells;
-  
-  this->GetPointCells(p1,ncells,cells);
-  for (i=0; i < ncells; i++)
-    {
-    if ( this->IsPointUsedByCell(p2,cells[i]) )
       {
       return 1;
       }

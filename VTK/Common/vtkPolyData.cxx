@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-01-17 14:08:41 $
-  Version:   $Revision: 1.150 $
+  Date:      $Date: 2003-03-17 08:58:47 $
+  Version:   $Revision: 1.151 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -34,7 +34,7 @@
 #include "vtkTriangleStrip.h"
 #include "vtkVertex.h"
 
-vtkCxxRevisionMacro(vtkPolyData, "$Revision: 1.150 $");
+vtkCxxRevisionMacro(vtkPolyData, "$Revision: 1.151 $");
 vtkStandardNewMacro(vtkPolyData);
 
 //----------------------------------------------------------------------------
@@ -1607,6 +1607,64 @@ void vtkPolyData::GetCellNeighbors(vtkIdType cellId, vtkIdList *ptIds,
         }
       }
     }
+}
+
+int vtkPolyData::IsEdge(vtkIdType p1, vtkIdType p2)
+{
+  unsigned short int ncells;
+  vtkIdType cellType;
+  vtkIdType npts;
+  vtkIdType i, j;
+  vtkIdType *cells, *pts;
+   
+  this->GetPointCells(p1,ncells,cells);
+  for (i=0; i<ncells; i++)
+    {
+    cellType = this->GetCellType(cells[i]);
+    switch (cellType)
+      {
+      case VTK_EMPTY_CELL: case VTK_VERTEX: case VTK_POLY_VERTEX:
+        break;
+      case VTK_LINE: case VTK_POLY_LINE:
+        this->GetCellPoints(cells[i],npts,pts);
+        for (j=0; j<npts-1; j++)
+          {
+          if (((pts[j]==p1)&&(pts[j+1]==p2))||((pts[j]==p2)&&(pts[j+1]==p1)))
+            {
+            return 1;
+            }
+          }
+        break;
+      case VTK_TRIANGLE_STRIP:
+        this->GetCellPoints(cells[i],npts,pts);
+        for (j=0; j<npts-2; j++)
+          {
+          if ((((pts[j]==p1)&&(pts[j+1]==p2))||((pts[j]==p2)&&(pts[j+1]==p1)))||
+             (((pts[j]==p1)&&(pts[j+2]==p2))||((pts[j]==p2)&&(pts[j+2]==p1))))
+            {
+            return 1;
+            }
+          }
+        if (((pts[npts-2]==p1)&&(pts[npts-1]==p2))||((pts[npts-2]==p2)&&(pts[npts-1]==p1)))
+          {
+          return 1;
+          }
+        break;
+      default:
+        this->GetCellPoints(cells[i],npts,pts);
+        for (j=0; j<npts; j++)
+          {
+          if (p1==pts[j])
+            {
+            if ((pts[(j-1+npts)%npts]==p2)||(pts[(j+1)%npts]==p2))
+              {
+              return 1;
+              }
+            }
+          }
+      }
+    }
+  return 0;
 }
 
 //----------------------------------------------------------------------------
