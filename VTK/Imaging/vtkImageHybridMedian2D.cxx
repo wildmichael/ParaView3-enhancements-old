@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageHybridMedian2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-04-25 11:41:19 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2003-04-25 19:50:23 $
+  Version:   $Revision: 1.18 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 #include <vtkstd/algorithm>
 #include <vtkstd/numeric>
 
-vtkCxxRevisionMacro(vtkImageHybridMedian2D, "$Revision: 1.17 $");
+vtkCxxRevisionMacro(vtkImageHybridMedian2D, "$Revision: 1.18 $");
 vtkStandardNewMacro(vtkImageHybridMedian2D);
 
 //----------------------------------------------------------------------------
@@ -45,7 +45,6 @@ void vtkImageHybridMedian2DExecute(vtkImageHybridMedian2D *self,
                              vtkImageData *outData, T *outPtr2,
                              int outExt[6], int id)
 {
-  int inExt[6];
   int idx0, idx1, idx2, idxC;
   int inInc0, inInc1, inInc2;
   int outInc0, outInc1, outInc2;
