@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: BoxWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-04 18:56:20 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-04-06 11:03:45 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -38,7 +38,7 @@ public:
     { return new vtkMyCallback; }
   void Delete()
     { delete this; }
-  virtual void Execute(vtkObject *caller, unsigned long, void *callData)
+  virtual void Execute(vtkObject *caller, unsigned long, void*)
     {
       vtkBoxWidget *boxWidget = reinterpret_cast<vtkBoxWidget*>(caller);
       boxWidget->GetTransform(this->Transform);
