@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkArrayCalculator.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:02 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2002-01-25 19:16:21 $
+  Version:   $Revision: 1.21 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 #include "vtkDoubleArray.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkArrayCalculator, "$Revision: 1.20 $");
+vtkCxxRevisionMacro(vtkArrayCalculator, "$Revision: 1.21 $");
 vtkStandardNewMacro(vtkArrayCalculator);
 
 vtkArrayCalculator::vtkArrayCalculator()
@@ -730,6 +730,8 @@ void vtkArrayCalculator::RemoveAllVariables()
     this->SelectedVectorComponents = NULL;
     }
   this->NumberOfVectorArrays = 0;
+
+  this->FunctionParser->RemoveAllVariables();
 }
 
 char* vtkArrayCalculator::GetScalarArrayName(int i)
