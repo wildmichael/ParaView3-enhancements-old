@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFunctionParser.h,v $
   Language:  C++
-  Date:      $Date: 2003-03-10 20:10:37 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2003-03-10 20:49:37 $
+  Version:   $Revision: 1.15 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -172,6 +172,7 @@ protected:
 
   int CheckSyntax();
   void RemoveSpaces();
+  char* RemoveSpacesFrom(const char* variableName);
   
   int BuildInternalFunctionStructure();
   void BuildInternalSubstringStructure(int beginIndex, int endIndex);
