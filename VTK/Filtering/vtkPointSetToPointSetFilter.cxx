@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPointSetToPointSetFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-08-09 15:07:56 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1994-08-21 19:15:23 $
+  Version:   $Revision: 1.6 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -44,11 +44,12 @@ void vlPointSetToPointSetFilter::Update()
 
 void vlPointSetToPointSetFilter::Initialize()
 {
-  if ( this->Input )
+  if ( this->Input != NULL )
     {
+    vlDataSet *ds=this->Input->MakeObject();
     this->PointSet->UnRegister(this);
     // copies input geometry to internal data set
-    this->PointSet = this->Input->MakeObject(); 
+    this->PointSet = ds;
     this->PointSet->Register(this);
     }
   else
