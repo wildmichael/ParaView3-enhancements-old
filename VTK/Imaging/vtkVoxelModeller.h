@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkVoxelModeller.h,v $
   Language:  C++
-  Date:      $Date: 1994-05-12 07:52:36 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1994-06-10 08:42:50 $
+  Version:   $Revision: 1.3 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -41,6 +41,8 @@ public:
   void SetModelBounds(float *bounds);
   void SetModelBounds(float xmin, float xmax, float ymin, float ymax, float zmin, float zmax);
   vlGetVectorMacro(ModelBounds,float);
+
+  void Write(char *);
 
 protected:
   void Execute();
