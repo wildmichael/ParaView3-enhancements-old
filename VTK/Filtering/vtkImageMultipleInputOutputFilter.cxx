@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMultipleInputOutputFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-02-16 18:46:05 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-02-16 18:51:40 $
+  Version:   $Revision: 1.2 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -98,7 +98,7 @@ void vtkImageMultipleInputOutputFilter::ExecuteInformation()
   vtkImageData *output;
   vtkImageData *input = this->GetInput(0);
   
-  if ( input == NULL || output == NULL)
+  if ( input == NULL)
     {
     return;
     }
