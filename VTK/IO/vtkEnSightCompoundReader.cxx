@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSightCompoundReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-05 21:46:57 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-06-06 14:57:10 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,7 +26,7 @@
 #include "vtkUnstructuredGrid.h"
 #include "vtkString.h"
 
-vtkCxxRevisionMacro(vtkEnSightCompoundReader, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkEnSightCompoundReader, "$Revision: 1.3 $");
 vtkStandardNewMacro(vtkEnSightCompoundReader);
 
 //----------------------------------------------------------------------------
@@ -183,4 +183,9 @@ void vtkEnSightCompoundReader::UpdateInformation()
 void vtkEnSightCompoundReader::PrintSelf(ostream& os, vtkIndent indent)
 {
   this->Superclass::PrintSelf(os,indent);
+  os << indent << "Current piece: " << this->CurrentPiece << endl;
+  os << indent << "Piece Case File name: " 
+     << (this->PieceCaseFileName?this->PieceCaseFileName:"<none>") << endl;
+  os << indent << "Maximum numbe of pieces: " << this->MaxNumberOfPieces 
+     << endl;
 }
