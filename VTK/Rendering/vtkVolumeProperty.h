@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProperty.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:49:23 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1997-07-16 21:45:12 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -101,7 +101,7 @@ public:
 
   // Description:
   // Get the gray transfer function.
-  vtkGetObjectMacro(GrayTransferFunction, vtkPiecewiseFunction);
+  vtkPiecewiseFunction *GetGrayTransferFunction();
 
   // Description:
   // Get the time that the GrayTransferFunction was set
@@ -114,7 +114,7 @@ public:
 
   // Description:
   // Get the RGB transfer function.
-  vtkGetObjectMacro(RGBTransferFunction, vtkColorTransferFunction);
+  vtkColorTransferFunction *GetRGBTransferFunction();
 
   // Description:
   // Get the time that the RGBTransferFunction was set
@@ -126,7 +126,7 @@ public:
 
   // Description:
   // Get the opacity transfer function.
-  vtkGetObjectMacro(OpacityTransferFunction, vtkPiecewiseFunction);
+  vtkPiecewiseFunction *GetOpacityTransferFunction();
 
   // Description:
   // Get the time that the OpacityTransferFunction was set
@@ -166,12 +166,15 @@ protected:
 
   vtkPiecewiseFunction		*GrayTransferFunction;
   vtkTimeStamp			GrayTransferFunctionMTime;
+  int				SelfCreatedGTFun;
 
   vtkColorTransferFunction	*RGBTransferFunction;
   vtkTimeStamp			RGBTransferFunctionMTime;
+  int				SelfCreatedRGBTFun;
 
   vtkPiecewiseFunction		*OpacityTransferFunction;
   vtkTimeStamp			OpacityTransferFunctionMTime;
+  int				SelfCreatedOTFun;
 
   int				Shade;
   float				Ambient;
