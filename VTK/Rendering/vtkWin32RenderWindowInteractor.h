@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32RenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:13:18 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2000-07-17 14:05:00 $
+  Version:   $Revision: 1.31 $
   
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -107,6 +107,7 @@ public:
 
   //BTX
   friend VTK_EXPORT LRESULT CALLBACK vtkHandleMessage(HWND hwnd,UINT uMsg, WPARAM w, LPARAM l);
+  friend VTK_EXPORT LRESULT CALLBACK vtkHandleMessage2(HWND hwnd,UINT uMsg, WPARAM w, LPARAM l, vtkWin32RenderWindowInteractor *me);
 
   // Description:
   // Various methods that a Win32 window can redirect to this class to be 
