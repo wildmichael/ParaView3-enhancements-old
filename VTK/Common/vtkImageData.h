@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.h,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 22:49:51 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1998-03-30 21:09:19 $
+  Version:   $Revision: 1.33 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -74,8 +74,8 @@ public:
   
   // Description:
   // Set the data scalar type of the regions created by this cache.
-  vtkSetMacro(ScalarType,int);
-  vtkGetMacro(ScalarType,int);
+  void SetScalarType(int);
+  int GetScalarType();
 
   // Description:
   // Set the size of the scalar type in bytes.
