@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnsignedLongArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-12 16:07:45 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2001-12-19 17:51:14 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -149,6 +149,12 @@ void vtkUnsignedLongArray::Initialize()
 // Deep copy of another unsigned long array.
 void vtkUnsignedLongArray::DeepCopy(vtkDataArray *sa)
 {
+  // Do nothing on a NULL input.
+  if (sa == NULL)
+    {
+    return;
+    }
+
   if ( sa->GetDataType() != VTK_UNSIGNED_LONG )
     {
     vtkDataArray::DeepCopy(sa);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDoubleArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-12 16:07:44 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2001-12-19 17:51:13 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -151,6 +151,12 @@ void vtkDoubleArray::Initialize()
 // Deep copy of another double array.
 void vtkDoubleArray::DeepCopy(vtkDataArray *fa)
 {
+  // Do nothing on a NULL input.
+  if (fa == NULL)
+    {
+    return;
+    }
+
   if (fa->GetDataType() != VTK_DOUBLE)
     {
     vtkDataArray::DeepCopy(fa);

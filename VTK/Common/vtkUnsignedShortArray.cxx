@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnsignedShortArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-21 15:21:51 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2001-12-19 17:51:14 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -147,6 +147,12 @@ void vtkUnsignedShortArray::Initialize()
 // Deep copy of another unsigned short array.
 void vtkUnsignedShortArray::DeepCopy(vtkDataArray *sa)
 {
+  // Do nothing on a NULL input.
+  if (sa == NULL)
+    {
+    return;
+    }
+
   if ( sa->GetDataType() != VTK_UNSIGNED_SHORT )
     {
     vtkDataArray::DeepCopy(sa);

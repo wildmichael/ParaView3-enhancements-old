@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFloatArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:09:41 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 2001-12-19 17:51:13 $
+  Version:   $Revision: 1.52 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -145,6 +145,12 @@ void vtkFloatArray::Initialize()
 // Deep copy of another float array.
 void vtkFloatArray::DeepCopy(vtkDataArray *fa)
 {
+  // Do nothing on a NULL input.
+  if ( fa == NULL)
+    {
+    return;
+    }
+
   if ( fa->GetDataType() != VTK_FLOAT )
     {
     vtkDataArray::DeepCopy(fa);

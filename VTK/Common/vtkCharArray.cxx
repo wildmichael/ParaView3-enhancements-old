@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCharArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:09:36 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2001-12-19 17:51:12 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -149,6 +149,12 @@ void vtkCharArray::Initialize()
 // Deep copy of another char array.
 void vtkCharArray::DeepCopy(vtkDataArray *ia)
 {
+  // Do nothing on a NULL input.
+  if (ia == NULL)
+    {
+    return;
+    }
+
   if ( this != ia )
     {
     if ((this->Array) && (!this->SaveUserArray))

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLongArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-12 16:07:44 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2001-12-19 17:51:13 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -147,6 +147,12 @@ void vtkLongArray::Initialize()
 // Deep copy of another long array.
 void vtkLongArray::DeepCopy(vtkDataArray *sa)
 {
+  // Do nothing on a NULL input.
+  if (sa == NULL)
+    {
+    return;
+    }
+
   if ( sa->GetDataType() != VTK_LONG )
     {
       vtkDataArray::DeepCopy(sa);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBitArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-16 13:01:59 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 2001-12-19 17:51:12 $
+  Version:   $Revision: 1.48 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -158,6 +158,12 @@ void vtkBitArray::Initialize()
 // Deep copy of another bit array.
 void vtkBitArray::DeepCopy(vtkDataArray *ia)
 {
+  // Do nothing on a NULL input.
+  if (ia == NULL)
+    {
+    return;
+    }
+
   if (ia->GetDataType() != VTK_BIT)
     {
     vtkDataArray::DeepCopy(ia);

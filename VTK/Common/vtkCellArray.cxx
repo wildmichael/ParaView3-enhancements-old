@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-12 12:47:42 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2001-12-19 17:51:12 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -70,6 +70,12 @@ vtkCellArray::vtkCellArray()
 
 void vtkCellArray::DeepCopy (vtkCellArray *ca)
 {
+  // Do nothing on a NULL input.
+  if (ca == NULL)
+    {
+    return;
+    }
+
   this->Ia->DeepCopy(ca->Ia);
   this->NumberOfCells = ca->NumberOfCells;
   this->InsertLocation = 0;

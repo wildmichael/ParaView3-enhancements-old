@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnsignedCharArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:10:02 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 2001-12-19 17:51:13 $
+  Version:   $Revision: 1.52 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -148,6 +148,12 @@ void vtkUnsignedCharArray::Initialize()
 // Deep copy of another unsigned char array.
 void vtkUnsignedCharArray::DeepCopy(vtkDataArray *ia)
 {
+  // Do nothing on a NULL input.
+  if (ia == NULL)
+    {
+    return;
+    }
+
   if ( ia->GetDataType() != VTK_UNSIGNED_CHAR )
     {
       vtkDataArray::DeepCopy(ia);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-07 14:35:12 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 2001-12-19 17:51:12 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -100,6 +100,13 @@ const char* vtkDataArray::GetName()
 
 void vtkDataArray::DeepCopy(vtkDataArray *da)
 {
+
+  // Match the behavior of the old AttributeData
+  if ( da == NULL )
+    {
+    return;
+    }
+
   if ( this != da )
     {
     int numTuples = da->GetNumberOfTuples();

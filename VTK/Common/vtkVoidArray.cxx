@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoidArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-21 15:21:51 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2001-12-19 17:51:14 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -113,6 +113,12 @@ void vtkVoidArray::Initialize()
 // Deep copy of another void array.
 void vtkVoidArray::DeepCopy(vtkDataArray *da)
 {
+  // Do nothing on a NULL input.
+  if (da == NULL)
+    {
+    return;
+    }
+
   if ( da->GetDataType() != VTK_VOID )
     {
     vtkDataArray::DeepCopy(da);

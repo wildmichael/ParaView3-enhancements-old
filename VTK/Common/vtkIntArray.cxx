@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIntArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:09:46 $
-  Version:   $Revision: 1.57 $
+  Date:      $Date: 2001-12-19 17:51:13 $
+  Version:   $Revision: 1.58 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -145,6 +145,12 @@ void vtkIntArray::Initialize()
 // Deep copy of another integer array.
 void vtkIntArray::DeepCopy(vtkDataArray *ia)
 {
+  // Do nothing on a NULL input.
+  if (ia == NULL)
+    {
+    return;
+    }
+
   if ( ia->GetDataType() != VTK_INT )
     {
       vtkDataArray::DeepCopy(ia);
