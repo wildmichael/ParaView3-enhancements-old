@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyle.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-23 21:40:43 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2000-03-01 18:19:54 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -117,8 +117,8 @@ public:
   // OnChar implements keybaord functions, but subclasses can override this 
   // behaviour
   virtual void OnChar   (int ctrl, int shift, char keycode, int repeatcount);
-  virtual void OnKeyDown(int ctrl, int shift, char keycode, int repeatcount) {};
-  virtual void OnKeyUp  (int ctrl, int shift, char keycode, int repeatcount) {};
+  virtual void OnKeyDown(int ctrl, int shift, char keycode, int repeatcount);
+  virtual void OnKeyUp  (int ctrl, int shift, char keycode, int repeatcount);
 
   // Description:
   // OnTimer calls RotateCamera, RotateActor etc which should be overridden by

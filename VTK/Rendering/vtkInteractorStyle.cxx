@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyle.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-23 21:40:42 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2000-03-01 18:19:53 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -614,6 +614,18 @@ void  vtkInteractorStyle::EndTimer()
 //----------------------------------------------------------------------------
 // Intercept any keypresses which are style independent here and do the rest in
 // subclasses - none really required yet!
+//----------------------------------------------------------------------------
+void vtkInteractorStyle::OnKeyDown(int ctrl, int shift, char keycode, int vtkNotUsed(repeatcount))
+{
+  this->CtrlKey  = ctrl;
+  this->ShiftKey = shift;
+}
+//----------------------------------------------------------------------------
+void vtkInteractorStyle::OnKeyUp  (int ctrl, int shift, char keycode, int vtkNotUsed(repeatcount)) 
+{
+  this->CtrlKey  = ctrl;
+  this->ShiftKey = shift;
+}
 //----------------------------------------------------------------------------
 void vtkInteractorStyle::OnChar(int ctrl, int shift, 
                                 char keycode, int vtkNotUsed(repeatcount)) 
