@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeTextureMapper2D.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-27 15:18:38 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2001-08-30 19:01:20 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -121,9 +121,12 @@ protected:
   vtkVolumeTextureMapper2D(const vtkVolumeTextureMapper2D&);
   void operator=(const vtkVolumeTextureMapper2D&);
 
-  void InitializeRender( vtkRenderer *ren, vtkVolume *vol );
+  void InitializeRender( vtkRenderer *ren, vtkVolume *vol )
+    {this->InitializeRender( ren, vol, -1 );}
+  
+  void InitializeRender( vtkRenderer *ren, vtkVolume *vol, int majorDirection );
 
-  void GenerateTexturesAndRenderQuads();
+  void GenerateTexturesAndRenderQuads( vtkRenderer *ren, vtkVolume *vol );
 
   int  MajorDirection;
   int  TargetTextureSize[2];
@@ -135,6 +138,7 @@ protected:
   unsigned char  *Texture;
   int             TextureSize;
   int             SaveTextures;
+  vtkTimeStamp    TextureMTime;
   
   int             AxisTextureSize[3][3];
   void            ComputeAxisTextureSize( int axis, int *size );
