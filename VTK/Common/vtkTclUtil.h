@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTclUtil.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-27 01:13:56 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1999-04-30 01:39:30 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -74,12 +74,29 @@ extern VTKTCL_EXPORT void vtkTclListInstances(Tcl_Interp *interp,
 					      ClientData arg);
 extern VTKTCL_EXPORT int  vtkTclInDelete();
 
+extern VTKTCL_EXPORT int vtkTclNewInstanceCommand(ClientData cd, 
+						  Tcl_Interp *interp,
+						  int argc, char *argv[]);
+extern VTKTCL_EXPORT void vtkTclDeleteCommandStruct(ClientData cd);
+extern VTKTCL_EXPORT 
+void vtkTclCreateNew(Tcl_Interp *interp, char *cname,
+		     ClientData (*NewCommand)(),
+		     int (*CommandFunction)(ClientData cd,
+					    Tcl_Interp *interp,
+					    int argc, char *argv[]));
+
 typedef  struct _vtkTclVoidFuncArg 
 {
   Tcl_Interp *interp;
   char *command;
 } vtkTclVoidFuncArg;
 
+struct vtkTclCommandStruct
+{
+  ClientData (*NewCommand)();
+  int (*CommandFunction)(ClientData cd, Tcl_Interp *interp,
+                         int argc, char *argv[]);
+};
 
 #endif
 
