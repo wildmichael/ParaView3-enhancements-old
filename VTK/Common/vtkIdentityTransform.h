@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIdentityTransform.h,v $
   Language:  C++
-  Date:      $Date: 2000-03-05 04:01:26 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2000-03-05 23:13:31 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -65,6 +65,10 @@ public:
   // Apply the transformation to a coordinate.  You can use the same 
   // array to store both the input and output point.
   void TransformPoint(const float in[3], float out[3]);
+
+  // Description:
+  // Apply the transformation to a double-precision coordinate.  
+  // You can use the same array to store both the input and output point.
   void TransformPoint(const double in[3], double out[3]);
 
   // Description:
@@ -132,8 +136,6 @@ protected:
   ~vtkIdentityTransform();
   vtkIdentityTransform(const vtkIdentityTransform&) {};
   void operator=(const vtkIdentityTransform&) {};
-
-  static vtkIdentityTransform *TheIdentityTransform;
 };
 
 #endif

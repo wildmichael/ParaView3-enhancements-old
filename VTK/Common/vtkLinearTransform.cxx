@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinearTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-03-05 19:04:17 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2000-03-05 23:13:31 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -54,7 +54,7 @@ void vtkLinearTransform::PrintSelf(ostream& os, vtkIndent indent)
 
 //------------------------------------------------------------------------
 template <class T>
-static inline void vtkLinearTransformPoint(const T in[3], T out[3], 
+static inline void vtkLinearTransformPoint(T in[3], T out[3], 
 					   double matrix[4][4])
 {
   float x = in[0];
@@ -71,7 +71,7 @@ void vtkLinearTransform::TransformPoint(const float in[3], float out[3])
 {
   this->Update();
 
-  vtkLinearTransformPoint(in,out,this->Matrix->Element);
+  vtkLinearTransformPoint((float *)in,out,this->Matrix->Element);
 }
 
 //------------------------------------------------------------------------
@@ -80,14 +80,14 @@ void vtkLinearTransform::TransformPoint(const double in[3], double out[3])
 {
   this->Update();
 
-  vtkLinearTransformPoint(in,out,this->Matrix->Element);
+  vtkLinearTransformPoint((double *)in,out,this->Matrix->Element);
 }
 
 //------------------------------------------------------------------------
 void vtkLinearTransform::InternalTransformPoint(const float in[3], 
 						float out[3])
 {
-  vtkLinearTransformPoint(in,out,this->Matrix->Element);
+  vtkLinearTransformPoint((float *)in,out,this->Matrix->Element);
 }
 
 //----------------------------------------------------------------------------
@@ -97,7 +97,7 @@ void vtkLinearTransform::InternalTransformDerivative(const float in[3],
 {
   double (*matrix)[4] = this->Matrix->Element;
 
-  vtkLinearTransformPoint(in,out,matrix);
+  vtkLinearTransformPoint((float *)in,out,matrix);
 
   for (int i = 0; i < 3; i++)
     {
@@ -146,7 +146,7 @@ void vtkLinearTransform::TransformPoints(vtkPoints *inPts,
     {
     inPts->GetPoint(i,point);
 
-    vtkLinearTransformPoint(point,point,matrix);
+    vtkLinearTransformPoint((float *)point,point,matrix);
 
     outPts->InsertNextPoint(point);
     }

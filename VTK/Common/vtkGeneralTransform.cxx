@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGeneralTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-03-05 19:04:16 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2000-03-05 23:13:29 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -48,13 +48,10 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 void vtkGeneralTransform::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkObject::PrintSelf(os, indent);
-
-  os << indent << "TransformType: " << this->TransformType << "\n";
 }
 
 //------------------------------------------------------------------------
-// Default TransformPoint:  Call Update(), then call the appropriate
-// 
+// Update() and perform the transformation.
 void vtkGeneralTransform::TransformPoint(const float input[3],
 					 float output[3])
 {
