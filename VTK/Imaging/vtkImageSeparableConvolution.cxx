@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSeparableConvolution.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-12 19:44:16 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-12-13 19:22:33 $
+  Version:   $Revision: 1.2 $
   Thanks:    
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -51,7 +51,7 @@ static void ExecuteConvolve ( float* kernel, int kernelSize, float* image, float
   
   int center = (int) ( (kernelSize - 1 ) / 2.0 );
 
-  int i, j, k, kStart, kEnd, iStart, iEnd, count;
+  int i, j, kStart, iStart, iEnd, count;
   for ( i = 0; i < imageSize; ++i )
     {
     iStart = i - center;
@@ -122,7 +122,7 @@ void vtkImageSeparableConvolution::ExecuteInformation(vtkImageData *input, vtkIm
 void vtkImageSeparableConvolution::ComputeInputUpdateExtent(int inExt[6],
                                                             int outExt[6])
 {
-  int *wholeExtent, *extent;
+  int *extent;
 
   if ( ! this->GetInput())
     {
