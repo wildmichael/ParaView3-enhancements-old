@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGlyph3D.h,v $
   Language:  C++
-  Date:      $Date: 1995-09-06 17:47:31 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1995-09-06 17:57:21 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -83,8 +83,8 @@ public:
   // Either scale by scalar or by vector/normal magnitude.
   vtkSetMacro(ScaleMode,int);
   vtkGetMacro(ScaleMode,int);
-  void ScaleByScalar() {this->SetScaleMode(SCALE_BY_SCALAR);};
-  void ScaleByVector() {this->SetScaleMode(SCALE_BY_VECTOR);};
+  void ScaleByScalar() {this->SetScaleMode(VTK_SCALE_BY_SCALAR);};
+  void ScaleByVector() {this->SetScaleMode(VTK_SCALE_BY_VECTOR);};
 
   // Description:
   // Specify scale factor to scale object by.
@@ -106,8 +106,8 @@ public:
   // Specify whether to use vector or normal to perform vector operations.
   vtkSetMacro(VectorMode,int);
   vtkGetMacro(VectorMode,int);
-  void UseVector() {this->SetVectorMode(USE_VECTOR);};
-  void UseNormal() {this->SetVectorMode(USE_NORMAL);};
+  void UseVector() {this->SetVectorMode(VTK_USE_VECTOR);};
+  void UseNormal() {this->SetVectorMode(VTK_USE_NORMAL);};
 
 protected:
   void Execute();
