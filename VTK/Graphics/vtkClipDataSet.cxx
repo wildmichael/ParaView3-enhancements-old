@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipDataSet.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-03 12:52:22 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2002-09-16 15:02:21 $
+  Version:   $Revision: 1.19 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,10 +21,11 @@
 #include "vtkMergePoints.h"
 #include "vtkObjectFactory.h"
 #include "vtkUnstructuredGrid.h"
+#include "vtkClipVolume.h"
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkClipDataSet, "$Revision: 1.18 $");
+vtkCxxRevisionMacro(vtkClipDataSet, "$Revision: 1.19 $");
 vtkStandardNewMacro(vtkClipDataSet);
 
 //----------------------------------------------------------------------------
@@ -126,6 +127,15 @@ void vtkClipDataSet::Execute()
   
   vtkDebugMacro(<< "Clipping dataset");
   
+  int inputObjectType = input->GetDataObjectType();
+
+  if ( inputObjectType == VTK_STRUCTURED_POINTS || 
+       inputObjectType == VTK_IMAGE_DATA )
+     {
+     this->ClipVolume();
+     return;
+     }
+
   // Initialize self; create output objects
   //
   if ( numPts < 1 )
@@ -363,6 +373,26 @@ void vtkClipDataSet::CreateDefaultLocator()
     this->Locator->Register(this);
     this->Locator->Delete();
     }
+}
+
+//----------------------------------------------------------------------------
+void vtkClipDataSet::ClipVolume()
+{
+  vtkClipVolume *clipVolume = vtkClipVolume::New();
+  clipVolume->SetInput((vtkImageData *)this->GetInput());
+  clipVolume->SetGenerateClipScalars(this->GenerateClipScalars);
+  clipVolume->SetGenerateClippedOutput(this->GenerateClippedOutput);
+  clipVolume->SetInsideOut(this->InsideOut);
+  clipVolume->SetClipFunction(this->ClipFunction);
+  clipVolume->SetDebug(this->Debug);
+  clipVolume->Update();
+  vtkUnstructuredGrid *clipOutput = clipVolume->GetOutput();
+
+  vtkUnstructuredGrid *output = this->GetOutput();
+  output->CopyStructure(clipOutput);
+  output->GetPointData()->ShallowCopy(clipOutput->GetPointData());
+  output->GetCellData()->ShallowCopy(clipOutput->GetCellData());
+  clipVolume->Delete();
 }
 
 

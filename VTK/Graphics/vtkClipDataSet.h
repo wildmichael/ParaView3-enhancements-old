@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipDataSet.h,v $
   Language:  C++
-  Date:      $Date: 2002-09-03 12:52:22 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2002-09-16 15:02:21 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -159,6 +159,9 @@ protected:
 
   char *InputScalarsSelection;
   vtkSetStringMacro(InputScalarsSelection);
+
+  //helper functions
+  void ClipVolume();
 
 private:
   vtkClipDataSet(const vtkClipDataSet&);  // Not implemented.
