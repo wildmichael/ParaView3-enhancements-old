@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGlyph3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-09 11:50:29 $
-  Version:   $Revision: 1.94 $
+  Date:      $Date: 2001-09-10 14:21:30 $
+  Version:   $Revision: 1.95 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -77,6 +77,7 @@ vtkGlyph3D::vtkGlyph3D()
   this->IndexMode = VTK_INDEXING_OFF;
   this->NumberOfRequiredInputs = 1;
   this->GeneratePointIds = 0;
+  this->PointIdsName = NULL;
   this->SetPointIdsName("InputPointIds");
 }
 

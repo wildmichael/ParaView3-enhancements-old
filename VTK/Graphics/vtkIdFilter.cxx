@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIdFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-09 11:50:29 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2001-09-10 14:21:31 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -68,6 +68,7 @@ vtkIdFilter::vtkIdFilter()
   this->PointIds = 1;
   this->CellIds = 1;
   this->FieldData = 0;
+  this->IdsArrayName = NULL;
   this->SetIdsArrayName("vtkIdFilter_Ids");
 }
 
