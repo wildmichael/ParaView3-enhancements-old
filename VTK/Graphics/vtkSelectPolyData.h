@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSelectPolyData.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-26 14:21:58 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1999-04-22 13:29:16 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -175,6 +175,14 @@ public:
 
   // Overload GetMTime() because we depend on Loop
   unsigned long int GetMTime();
+
+  // Description:
+  // Handle the source/data loop.
+  void UnRegister(vtkObject *o);
+
+  // Description:
+  // Test to see if this object is in a reference counting loop.
+  virtual int InRegisterLoop(vtkObject *);
 
 protected:
   void Execute();
