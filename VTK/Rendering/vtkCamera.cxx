@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCamera.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-05-12 18:50:26 $
-  Version:   $Revision: 1.105 $
+  Date:      $Date: 2003-11-05 18:39:28 $
+  Version:   $Revision: 1.106 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,7 +25,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkCamera, "$Revision: 1.105 $");
+vtkCxxRevisionMacro(vtkCamera, "$Revision: 1.106 $");
 
 //----------------------------------------------------------------------------
 // Needed when we don't use the vtkStandardNewMacro.
@@ -735,6 +735,12 @@ void vtkCamera::ComputePerspectiveTransform(double aspect,
 {
   this->PerspectiveTransform->Identity();
 
+  // apply user defined transform last if there is one 
+  if (this->UserTransform)
+    {
+    this->PerspectiveTransform->Concatenate(this->UserTransform->GetMatrix());
+    }
+
   // adjust Z-buffer range
   this->PerspectiveTransform->AdjustZBuffer(-1, +1, nearz, farz);
 
@@ -804,11 +810,6 @@ void vtkCamera::ComputePerspectiveTransform(double aspect,
                                       this->ViewShear[2]*this->Distance);
     }
   
-  // apply user defined transform last if there is one 
-  if (this->UserTransform)
-    {
-    this->PerspectiveTransform->Concatenate(this->UserTransform->GetMatrix());
-    }
 }
 
 //----------------------------------------------------------------------------
