@@ -3,8 +3,8 @@
  Program:   Visualization Toolkit
  Module:    $RCSfile: vtkSource.cxx,v $
  Language:  C++
- Date:      $Date: 2001-07-27 19:06:30 $
- Version:   $Revision: 1.80 $
+ Date:      $Date: 2001-08-01 18:23:19 $
+ Version:   $Revision: 1.81 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -193,6 +193,15 @@ void vtkSource::UpdateInformation()
     // because our InformationTime will be more recent than
     // the MTime of our output.
     this->Modified();
+    for (idx = 0; idx < this->NumberOfOutputs; ++idx)
+      {
+      output = this->GetOutput(idx);
+      if (output)
+        {
+        output->SetPipelineMTime(this->GetMTime());
+        }  
+      }
+    
     return;
     }
 
