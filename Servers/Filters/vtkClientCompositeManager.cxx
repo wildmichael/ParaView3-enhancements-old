@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClientCompositeManager.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-07 16:17:19 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-11-08 13:19:09 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -46,7 +46,7 @@
  #include <mpi.h>
 #endif
 
-vtkCxxRevisionMacro(vtkClientCompositeManager, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkClientCompositeManager, "$Revision: 1.4 $");
 vtkStandardNewMacro(vtkClientCompositeManager);
 
 vtkCxxSetObjectMacro(vtkClientCompositeManager,Compositer,vtkCompositer);
@@ -600,6 +600,7 @@ void vtkClientCompositeManager::RenderRMI()
 //-------------------------------------------------------------------------
 void vtkClientCompositeManager::SatelliteStartRender()
 {
+  int renIdx;
   int i, j, myId, numProcs;
   vtkClientRenderWindowInfo winInfo;
   vtkClientRendererInfo renInfo;
@@ -652,7 +653,8 @@ void vtkClientCompositeManager::SatelliteStartRender()
   // Synchronize the renderers.
   rens = renWin->GetRenderers();
   rens->InitTraversal();
-  for (i = 0; i < winInfo.NumberOfRenderers; ++i)
+  // This is misleading.  We do not support multiple renderers.
+  for (renIdx = 0; renIdx < winInfo.NumberOfRenderers; ++renIdx)
     {
     // Receive the camera information.
 
@@ -687,7 +689,7 @@ void vtkClientCompositeManager::SatelliteStartRender()
       lc->InitTraversal();
       light = lc->GetNextItem();
 
-      if (this->Tiled == 0)
+      if (this->Tiled)
         {
         int x, y;
         // Figure out the tile indexes.
