@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellLocator.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:11:12 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 2000-05-26 06:21:34 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -186,6 +186,11 @@ public:
   // Description:
   // Get the cells in a particular bucket.
   virtual vtkIdList *GetCells(int bucket);
+
+  // Description:
+  // Return number of buckets availabe : Ensure Locator has been built
+  // before attempting to access (octants)buckets
+  virtual int GetNumberOfBuckets(void);
 
   // Description:
   // Satisfy vtkLocator abstract interface
