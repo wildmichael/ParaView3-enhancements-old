@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSTLWriter.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 20:53:07 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1997-05-29 01:52:58 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,8 +64,8 @@ public:
 
   // Description:
   // Specify the name of the file to write.
-  vtkSetStringMacro(Filename);
-  vtkGetStringMacro(Filename);
+  vtkSetStringMacro(FileName);
+  vtkGetStringMacro(FileName);
 
   // Description:
   // Specify type of file to write (ascii or binary).
@@ -75,7 +75,7 @@ public:
 protected:
   void WriteData();
 
-  char *Filename;
+  char *FileName;
   int FileType;
 
   void WriteBinarySTL(vtkPoints *pts, vtkCellArray *polys);

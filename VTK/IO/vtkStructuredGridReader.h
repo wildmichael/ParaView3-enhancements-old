@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridReader.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 20:53:37 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1997-05-29 01:53:00 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -62,10 +62,8 @@ public:
   // overload because of vtkDataReader ivar
   unsigned long int GetMTime();
 
-  void SetFilename(char *name);
-  char *GetFilename();
-  void SetFileName(char *str){this->SetFilename(str);}
-  char *GetFileName(){return this->GetFilename();}
+  void SetFileName(char *name);
+  char *GetFileName();
 
   // Description:
   // Specify the InputString for use when reading from a character array.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGridReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-23 20:36:19 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1997-05-29 01:53:06 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -54,13 +54,13 @@ unsigned long int vtkUnstructuredGridReader::GetMTime()
 
 // Description:
 // Specify file name of vtk polygonal data file to read.
-void vtkUnstructuredGridReader::SetFilename(char *name) 
+void vtkUnstructuredGridReader::SetFileName(char *name) 
 {
-  this->Reader.SetFilename(name);
+  this->Reader.SetFileName(name);
 }
-char *vtkUnstructuredGridReader::GetFilename() 
+char *vtkUnstructuredGridReader::GetFileName() 
 {
-  return this->Reader.GetFilename();
+  return this->Reader.GetFileName();
 }
 
 // Description:

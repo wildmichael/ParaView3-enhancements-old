@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMCubesReader.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 20:52:06 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1997-05-29 01:52:33 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -87,15 +87,13 @@ public:
 
   // Description:
   // Specify file name of marching cubes file.
-  vtkSetStringMacro(Filename);
-  vtkGetStringMacro(Filename);
-  void SetFileName(char *str){this->SetFilename(str);}
-  char *GetFileName(){return this->GetFilename();}
+  vtkSetStringMacro(FileName);
+  vtkGetStringMacro(FileName);
 
   // Description:
   // Specify file name of marching cubes limits file.
-  vtkSetStringMacro(LimitsFilename);
-  vtkGetStringMacro(LimitsFilename);
+  vtkSetStringMacro(LimitsFileName);
+  vtkGetStringMacro(LimitsFileName);
 
   // Description:
   // Specify whether to flip normals in opposite direction. Flipping ONLY changes
@@ -122,8 +120,8 @@ public:
 protected:
   void Execute();
 
-  char *Filename;
-  char *LimitsFilename;
+  char *FileName;
+  char *LimitsFileName;
   vtkPointLocator *Locator;
   int SelfCreatedLocator;
   int FlipNormals;

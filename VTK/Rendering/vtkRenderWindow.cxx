@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-28 16:40:18 $
-  Version:   $Revision: 1.54 $
+  Date:      $Date: 1997-05-29 01:52:50 $
+  Version:   $Revision: 1.55 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -73,7 +73,7 @@ vtkRenderWindow::vtkRenderWindow()
   this->CurrentSubFrame = 0;
   this->DesiredUpdateRate = 0.0001;
   this->ResultFrame = NULL;
-  this->Filename = NULL;
+  this->FileName = NULL;
   this->Erase = 1;
   this->SwapBuffers = 1;
   this->PPMImageFilePtr = NULL;
@@ -754,8 +754,8 @@ void vtkRenderWindow::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "Stereo Render: " 
      << (this->StereoRender ? "On\n":"Off\n");
 
-  os << indent << "Filename: " 
-     << (this->Filename ? this->Filename : "(none)") << "\n";
+  os << indent << "FileName: " 
+     << (this->FileName ? this->FileName : "(none)") << "\n";
 
   if ( this->AbortCheckMethod )
     {
@@ -781,9 +781,9 @@ void vtkRenderWindow::SaveImageAsPPM()
 int vtkRenderWindow::OpenPPMImageFile()
 {
   //  open the ppm file and write header 
-  if ( this->Filename != NULL && *this->Filename != '\0')
+  if ( this->FileName != NULL && *this->FileName != '\0')
     {
-    this->PPMImageFilePtr = fopen(this->Filename,"wb");
+    this->PPMImageFilePtr = fopen(this->FileName,"wb");
     if (!this->PPMImageFilePtr)
       {
       vtkErrorMacro(<< "RenderWindow unable to open image file for writing\n");

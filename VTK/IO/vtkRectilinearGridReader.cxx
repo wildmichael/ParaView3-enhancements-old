@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGridReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-13 01:29:30 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1997-05-29 01:52:48 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -53,13 +53,13 @@ unsigned long int vtkRectilinearGridReader::GetMTime()
 
 // Description:
 // Specify file name of vtk polygonal data file to read.
-void vtkRectilinearGridReader::SetFilename(char *name) 
+void vtkRectilinearGridReader::SetFileName(char *name) 
 {
-  this->Reader.SetFilename(name);
+  this->Reader.SetFileName(name);
 }
-char *vtkRectilinearGridReader::GetFilename() 
+char *vtkRectilinearGridReader::GetFileName() 
 {
-  return this->Reader.GetFilename();
+  return this->Reader.GetFileName();
 }
 
 // Description:

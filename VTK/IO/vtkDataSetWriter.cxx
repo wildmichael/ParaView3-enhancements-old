@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:51:52 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1997-05-29 01:52:28 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -98,7 +98,7 @@ void vtkDataSetWriter::WriteData()
     return;
     }
 
-  writer->SetFilename(this->Filename);
+  writer->SetFileName(this->FileName);
   writer->SetScalarsName(this->ScalarsName);
   writer->SetVectorsName(this->VectorsName);
   writer->SetNormalsName(this->NormalsName);

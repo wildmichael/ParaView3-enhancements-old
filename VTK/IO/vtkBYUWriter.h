@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBYUWriter.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 20:50:43 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1997-05-29 01:52:20 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -65,31 +65,23 @@ public:
 
   // Description:
   // Specify the name of the geometry file to write.
-  vtkSetStringMacro(GeometryFilename);
-  vtkGetStringMacro(GeometryFilename);
-  void SetGeometryFileName(char *str){this->SetGeometryFilename(str);}
-  char *GetGeometryFileName(){return this->GetGeometryFilename();}
+  vtkSetStringMacro(GeometryFileName);
+  vtkGetStringMacro(GeometryFileName);
 
   // Description:
   // Specify the name of the displacement file to write.
-  vtkSetStringMacro(DisplacementFilename);
-  vtkGetStringMacro(DisplacementFilename);
-  void SetDisplacementFileName(char *str){this->SetDisplacementFilename(str);}
-  char *GetDisplacementFileName(){return this->GetDisplacementFilename();}
+  vtkSetStringMacro(DisplacementFileName);
+  vtkGetStringMacro(DisplacementFileName);
 
   // Description:
   // Specify the name of the scalar file to write.
-  vtkSetStringMacro(ScalarFilename);
-  vtkGetStringMacro(ScalarFilename);
-  void SetScalarFileName(char *str){this->SetScalarFilename(str);}
-  char *GetScalarFileName(){return this->GetScalarFilename();}
+  vtkSetStringMacro(ScalarFileName);
+  vtkGetStringMacro(ScalarFileName);
 
   // Description:
   // Specify the name of the texture file to write.
-  vtkSetStringMacro(TextureFilename);
-  vtkGetStringMacro(TextureFilename);
-  void SetTextureFileName(char *str){this->SetTextureFilename(str);}
-  char *GetTextureFileName(){return this->GetTextureFilename();}
+  vtkSetStringMacro(TextureFileName);
+  vtkGetStringMacro(TextureFileName);
 
   // Description:
   // Turn on/off writing the displacement file.
@@ -112,10 +104,10 @@ public:
 protected:
   void WriteData();
 
-  char *GeometryFilename;
-  char *DisplacementFilename;
-  char *ScalarFilename;
-  char *TextureFilename;
+  char *GeometryFileName;
+  char *DisplacementFileName;
+  char *ScalarFileName;
+  char *TextureFileName;
   int WriteDisplacement;
   int WriteScalar;
   int WriteTexture;

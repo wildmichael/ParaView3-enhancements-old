@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-04-30 11:52:39 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1997-05-29 01:52:59 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -53,13 +53,13 @@ unsigned long int vtkStructuredGridReader::GetMTime()
 
 // Description:
 // Specify file name of vtk polygonal data file to read.
-void vtkStructuredGridReader::SetFilename(char *name) 
+void vtkStructuredGridReader::SetFileName(char *name) 
 {
-  this->Reader.SetFilename(name);
+  this->Reader.SetFileName(name);
 }
-char *vtkStructuredGridReader::GetFilename() 
+char *vtkStructuredGridReader::GetFileName() 
 {
-  return this->Reader.GetFilename();
+  return this->Reader.GetFileName();
 }
 
 // Description:
