@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearSynchronizedTemplates.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-05-06 13:41:08 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2003-05-06 18:00:30 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -50,7 +50,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkRectilinearSynchronizedTemplates, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkRectilinearSynchronizedTemplates, "$Revision: 1.4 $");
 vtkStandardNewMacro(vtkRectilinearSynchronizedTemplates);
 
 //----------------------------------------------------------------------------
@@ -232,12 +232,12 @@ if (NeedGradients) \
 { \
   if (!g0) \
     { \
-    self->ComputeSpacing(data, i, j, k, wholeExt, spacing); \
-    vtkRSTComputePointGradient(i, j, k, s0, wholeExt, xInc, yInc, zInc, spacing, n0); \
+    self->ComputeSpacing(data, i, j, k, exExt, spacing); \
+    vtkRSTComputePointGradient(i, j, k, s0, exExt, xInc, yInc, zInc, spacing, n0); \
     g0 = 1; \
     } \
-  self->ComputeSpacing(data, i2, j2, k2, wholeExt, spacing); \
-  vtkRSTComputePointGradient(i2, j2, k2, s, wholeExt, xInc, yInc, zInc, spacing, n1); \
+  self->ComputeSpacing(data, i2, j2, k2, exExt, spacing); \
+  vtkRSTComputePointGradient(i2, j2, k2, s, exExt, xInc, yInc, zInc, spacing, n1); \
   for (jj=0; jj<3; jj++) \
     { \
     n[jj] = n0[jj] + t * (n1[jj] - n0[jj]); \
