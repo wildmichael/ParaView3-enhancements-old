@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVertex.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-09-30 16:30:21 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1996-10-03 00:26:43 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -191,9 +191,24 @@ void vtkVertex::Derivatives(int vtkNotUsed(subId),
 }
 
 void vtkVertex::Clip(float value, vtkFloatScalars *cellScalars, 
-                     vtkPointLocator *locator, vtkCellArray *pts,
-                     vtkPointData *inPd, vtkPointData *outPd,
+                     vtkPointLocator *locator, vtkCellArray *verts,
+                     vtkPointData *inPD, vtkPointData *outPD,
                      int insideOut)
 {
+  float s, *x;
+  int pts[1];
+    
+  s = cellScalars->GetScalar(0);
+
+  if ( ( !insideOut && s > value) || (insideOut && s <= value) )
+    {
+    x = this->Points.GetPoint(0);
+    if ( (pts[0] = locator->IsInsertedPoint(x)) < 0 )
+      {
+      pts[0] = locator->InsertNextPoint(x);
+      outPD->CopyData(inPD,this->PointIds.GetId(0),pts[0]);
+      }
+    verts->InsertNextCell(1,pts);
+    }
 
 }

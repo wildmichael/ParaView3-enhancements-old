@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyLine.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-09-30 16:30:03 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 1996-10-03 00:26:46 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -540,5 +540,21 @@ void vtkPolyLine::Clip(float value, vtkFloatScalars *cellScalars,
                        vtkPointData *inPd, vtkPointData *outPd,
                        int insideOut)
 {
+  int i;
+  vtkFloatScalars lineScalars(2); lineScalars.ReferenceCountingOff();
+  static vtkLine line;
 
+  for ( i=0; i < this->Points.GetNumberOfPoints()-1; i++)
+    {
+    line.Points.SetPoint(0,this->Points.GetPoint(i));
+    line.Points.SetPoint(1,this->Points.GetPoint(i+1));
+
+    line.PointIds.SetId(0,this->PointIds.GetId(i));
+    line.PointIds.SetId(1,this->PointIds.GetId(i+1));
+
+    lineScalars.SetScalar(0,cellScalars->GetScalar(i));
+    lineScalars.SetScalar(1,cellScalars->GetScalar(i+1));
+
+    line.Clip(value, &lineScalars, locator, lines, inPd, outPd, insideOut);
+    }
 }
