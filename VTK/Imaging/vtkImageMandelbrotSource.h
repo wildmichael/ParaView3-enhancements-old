@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMandelbrotSource.h,v $
   Language:  C++
-  Date:      $Date: 2001-03-08 13:56:41 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2001-05-28 06:07:55 $
+  Version:   $Revision: 1.21 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -107,13 +107,6 @@ public:
   // What about other parameters ???
   void CopyOriginAndSample(vtkImageMandelbrotSource *source); 
 
-#ifndef VTK_REMOVE_LEGACY_CODE
-  // Description:
-  // Convienence/Legacy - set all the spacing values the same.
-  void SetSample(double v) 
-    {VTK_LEGACY_METHOD(SetSampleCX,"3.2"); this->SetSampleCX(v, v, v, v);}
-#endif
-  
 protected:
   vtkImageMandelbrotSource();
   ~vtkImageMandelbrotSource();
