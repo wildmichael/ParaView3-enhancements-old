@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObject.h,v $
   Language:  C++
-  Date:      $Date: 2000-10-09 01:01:04 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 2000-10-10 13:01:11 $
+  Version:   $Revision: 1.48 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -315,8 +315,8 @@ public:
   // Locality is used internally by the pipeline update mechanism.
   // It is used to get parralel execution when a filter has multiple
   // inputs with ports upstream.
-  vtkSetMacro(Locality, int);
-  vtkGetMacro(Locality, int);
+  vtkSetMacro(Locality, float);
+  vtkGetMacro(Locality, float);
 
 protected:
 
