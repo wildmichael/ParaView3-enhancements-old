@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCommand.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-11-16 04:15:46 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2000-11-23 20:28:28 $
+  Version:   $Revision: 1.2 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -45,7 +45,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 // this list should only contain the initial, contiguous
 // set of events and should not include UserEvent
-static char *vtkCommandEventStrings[] = {
+static const char *vtkCommandEventStrings[] = {
   "NoEvent", 
   "DeleteEvent",
   "StartEvent",
@@ -65,7 +65,7 @@ vtkCommand *vtkCommand::New()
   return new vtkCallbackCommand; 
 }
 
-char *vtkCommand::GetStringFromEventId(unsigned long event)
+const char *vtkCommand::GetStringFromEventId(unsigned long event)
 {
   static unsigned long numevents = 0;
   

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCommand.h,v $
   Language:  C++
-  Date:      $Date: 2000-11-22 17:54:58 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2000-11-23 20:28:28 $
+  Version:   $Revision: 1.11 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -62,7 +62,7 @@ public:
   void Delete() {delete this;};
 
   virtual void Execute(vtkObject *caller, unsigned long, void *callData) = 0;
-  static char *GetStringFromEventId(unsigned long event);
+  static const char *GetStringFromEventId(unsigned long event);
   static unsigned long GetEventIdFromString(const char *event);
 
 //BTX
