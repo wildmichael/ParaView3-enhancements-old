@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCoordinate.h,v $
   Language:  C++
-  Date:      $Date: 2000-11-30 22:28:18 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2000-12-10 13:46:52 $
+  Version:   $Revision: 1.21 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -158,7 +158,7 @@ public:
   // when set as the TransformCoordinate in 2D-Mappers, the user
   // can customize display of 2D polygons
   virtual float *GetComputedUserDefinedValue(vtkViewport *)
-    { return Value; }
+    { return this->Value; }
 
 protected:
   vtkCoordinate();

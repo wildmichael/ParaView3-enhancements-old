@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCoordinate.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-11-30 22:28:18 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2000-12-10 13:46:52 $
+  Version:   $Revision: 1.23 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen
 All rights reserved.
@@ -413,9 +413,9 @@ float *vtkCoordinate::GetComputedFloatDisplayValue(vtkViewport* viewport)
       break; // do not remove this break statement!
     case VTK_USERDEFINED:
         this->GetComputedUserDefinedValue(viewport);
-	      val[0] = ComputedUserDefinedValue[0];
-	      val[1] = ComputedUserDefinedValue[1];
-	      val[2] = ComputedUserDefinedValue[2];
+	      val[0] = this->ComputedUserDefinedValue[0];
+	      val[1] = this->ComputedUserDefinedValue[1];
+	      val[2] = this->ComputedUserDefinedValue[2];
         break;
     }
 
