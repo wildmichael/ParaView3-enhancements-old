@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLODActor.h,v $
   Language:  C++
-  Date:      $Date: 2000-07-07 16:19:22 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2000-09-27 19:01:05 $
+  Version:   $Revision: 1.37 $
   
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -91,6 +91,11 @@ public:
   // This causes the actor to be rendered. It, in turn, will render the actor's
   // property and then mapper.  
   virtual void Render(vtkRenderer *, vtkMapper *);
+
+  // Description:
+  // This method is used internally by the rendering process.
+  // We overide the superclass method to properly set the estimated render time.
+  int RenderOpaqueGeometry(vtkViewport *viewport);
 
   // Description:
   // Release any graphics resources that are being consumed by this actor.
