@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCollection.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-09-12 07:21:09 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1995-09-15 07:33:23 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -84,7 +84,7 @@ void vtkCollection::AddItem(vtkObject *a)
 
 // Description:
 // Remove an object from the list. Removes the first object found, not
-// all occurences. If no object found, list is unaffected.
+// all occurrences. If no object found, list is unaffected.
 void vtkCollection::RemoveItem(vtkObject *a)
 {
   int i;
