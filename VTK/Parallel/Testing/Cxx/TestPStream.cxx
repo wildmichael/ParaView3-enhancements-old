@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: TestPStream.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-11-12 15:00:44 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2003-11-13 20:19:38 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -17,7 +17,7 @@
 =========================================================================*/
 #include "vtkActor.h"
 #include "vtkCamera.h"
-#include "vtkCompositeManager.h"
+#include "vtkCompositeRenderManager.h"
 #include "vtkDebugLeaks.h"
 #include "vtkDistributedStreamTracer.h"
 #include "vtkLineSource.h"
@@ -170,8 +170,9 @@ void MyMain( vtkMultiProcessController *controller, void *arg )
   vtkRenderWindowInteractor *iren = vtkRenderWindowInteractor::New();
   iren->SetRenderWindow(renWin);
 
-  vtkCompositeManager* compManager = vtkCompositeManager::New();
+  vtkCompositeRenderManager* compManager = vtkCompositeRenderManager::New();
   compManager->SetRenderWindow(renWin);
+  compManager->SetController(controller);
   compManager->InitializePieces();
  
   if (myId)
