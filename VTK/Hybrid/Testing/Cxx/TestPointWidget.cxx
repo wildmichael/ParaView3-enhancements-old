@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: TestPointWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-08 20:59:05 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-08-12 12:22:23 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -647,8 +647,9 @@ int TestPointWidget( int argc, char *argv[] )
     iren->Start();
     }
 
-  myCallback->Delete();
+  recorder->Off();
   recorder->Delete();
+  myCallback->Delete();
   pointWidget->Delete();
   pl3d->Delete();
   point->Delete();

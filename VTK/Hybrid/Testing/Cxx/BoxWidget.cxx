@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: BoxWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-12 11:58:38 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-08-12 12:22:23 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -527,6 +527,8 @@ int BoxWidget( int argc, char *argv[] )
     }
 
   // Clean up
+  recorder->Off();
+  recorder->Delete();
   t->Delete();
   myCallback->Delete();
   boxWidget->Delete();

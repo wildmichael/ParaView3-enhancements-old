@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: TestLineWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-09 10:46:04 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-08-12 12:22:23 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -357,8 +357,9 @@ int TestLineWidget( int argc, char *argv[] )
     iren->Start();
     }
 
-  myCallback->Delete();
+  recorder->Off();
   recorder->Delete();
+  myCallback->Delete();
   seeds->Delete();
   lineWidget->Delete();
   pl3d->Delete();

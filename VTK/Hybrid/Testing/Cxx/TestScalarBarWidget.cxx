@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: TestScalarBarWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-09 20:21:13 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-08-12 12:22:23 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -440,6 +440,7 @@ int TestScalarBarWidget( int argc, char *argv[] )
     iren->Start();
     }
   
+  recorder->Off();
   recorder->Delete();
   scalarWidget->Delete();
   pl3d->Delete();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: TestImplicitPlaneWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-08 20:59:05 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-08-12 12:22:23 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -530,8 +530,9 @@ int TestImplicitPlaneWidget( int argc, char *argv[] )
     iren->Start();
     }
 
-  myCallback->Delete();
+  recorder->Off();
   recorder->Delete();
+  myCallback->Delete();
   sphere->Delete();
   cone->Delete();
   glyph->Delete();
