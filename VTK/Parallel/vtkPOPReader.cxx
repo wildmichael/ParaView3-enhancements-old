@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPOPReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-27 16:28:28 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2002-03-01 13:58:26 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,7 +25,7 @@
 #include "vtkImageWrapPad.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkPOPReader, "$Revision: 1.11 $");
+vtkCxxRevisionMacro(vtkPOPReader, "$Revision: 1.12 $");
 vtkStandardNewMacro(vtkPOPReader);
 
 //----------------------------------------------------------------------------
@@ -966,6 +966,7 @@ void vtkPOPReader::PrintSelf(ostream& os, vtkIndent indent)
      << this->ClipExtent[3] << ", " << this->ClipExtent[4] << ", "
      << this->ClipExtent[5] << endl;
 
+  os << indent << "NumberOfGhostLevels = " << this->NumberOfGhostLevels << endl;
 
 }
 
