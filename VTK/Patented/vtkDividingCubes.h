@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDividingCubes.h,v $
   Language:  C++
-  Date:      $Date: 1995-09-12 07:31:38 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1995-10-09 16:41:54 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -78,14 +78,13 @@ public:
 
 protected:
   void Execute();
-  void SubDivide(float origin[3], float h[3], float values[8]);
-  void AddPoint(float x[3]);
+  void SubDivide(float origin[3], int dim[3], float h[3], float values[8]);
 
   float Value;
   float Distance;
   int Increment;
 
-  // wworking variables
+  // working variable
   int Count;
 };
 
