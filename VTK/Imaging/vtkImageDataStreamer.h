@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDataStreamer.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-24 15:49:26 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2000-12-24 16:13:54 $
+  Version:   $Revision: 1.16 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -128,9 +128,6 @@ public:
   vtkGetMacro( IncrementalUpdate, int );
   vtkBooleanMacro( IncrementalUpdate, int );
 
-// Don't change the numbers here - they are used in the code
-// to indicate array indices.
-
 
 protected:
   vtkImageDataStreamer();
@@ -147,6 +144,9 @@ protected:
   vtkImageDataStreamerExtentStack ExtentStack;
 
 //BTX
+
+// Don't change the numbers here - they are used in the code
+// to indicate array indices.
 
   enum Modes {
     VTK_IMAGE_DATA_STREAMER_X_SLAB_MODE=0,
