@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActorCollection.h,v $
   Language:  C++
-  Date:      $Date: 1996-02-27 17:55:25 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1996-05-22 20:56:47 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -62,6 +62,7 @@ class vtkActorCollection : public vtkCollection
   void RemoveItem(vtkActor *a);
   int IsItemPresent(vtkActor *a);
   vtkActor *GetNextItem();
+  vtkActor *GetLastItem();
 };
 
 // Description:
@@ -91,6 +92,14 @@ inline int vtkActorCollection::IsItemPresent(vtkActor *a)
 inline vtkActor *vtkActorCollection::GetNextItem() 
 { 
   return (vtkActor *)(this->GetNextItemAsObject());
+}
+
+// Description:
+// Get the last actor in the list.
+inline vtkActor *vtkActorCollection::GetLastItem() 
+{ 
+  if ( this->Bottom == NULL ) return NULL;
+  else return (vtkActor *)(this->Bottom->Item);
 }
 
 #endif

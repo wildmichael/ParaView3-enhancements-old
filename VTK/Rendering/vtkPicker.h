@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPicker.h,v $
   Language:  C++
-  Date:      $Date: 1995-12-27 10:56:40 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1996-05-22 20:56:53 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -101,6 +101,11 @@ public:
   vtkGetVectorMacro(MapperPosition,float,3);
 
   // Description:
+  // Return assembly that was picked. The assembly may be the same as the 
+  // actor.
+  vtkGetObjectMacro(Assembly,vtkActor);
+
+  // Description:
   // Return actor that was picked.
   vtkGetObjectMacro(Actor,vtkActor);
 
@@ -120,8 +125,10 @@ public:
   int Pick(float selectionPt[3], vtkRenderer *renderer);  
 
 protected:
-  void MarkPicked(vtkActor *a, vtkMapper *m, float tMin, float mapperPos[3]);
-  virtual void IntersectWithLine(float p1[3], float p2[3], float tol, vtkActor *a, vtkMapper *m);
+  void MarkPicked(vtkActor *assem, vtkActor *a, vtkMapper *m, 
+                  float tMin, float mapperPos[3]);
+  virtual void IntersectWithLine(float p1[3], float p2[3], float tol, 
+                                 vtkActor *assem, vtkActor *a, vtkMapper *m);
   virtual void Initialize();
 
   vtkRenderer *Renderer; //pick occurred in this renderer's viewport
@@ -129,6 +136,7 @@ protected:
   float Tolerance; //tolerance for computation (% of window)
   float PickPosition[3]; //selection point in world coordinates
   float MapperPosition[3]; //selection point in untransformed coordinates
+  vtkActor *Assembly; //selected assembly
   vtkActor *Actor; //selected actor
   vtkMapper *Mapper; //selected mapper
   vtkDataSet *DataSet; //selected dataset

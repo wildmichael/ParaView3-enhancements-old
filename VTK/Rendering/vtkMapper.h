@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper.h,v $
   Language:  C++
-  Date:      $Date: 1995-12-27 10:56:27 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1996-05-22 20:56:52 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -106,6 +106,11 @@ public:
   virtual float *GetBounds() = 0;
 
   float *GetCenter();
+
+  // Description:
+  // Update the network connected to this mapper.
+  virtual void Update();
+
   virtual vtkDataSet *GetInput() {return this->Input;};
 
 protected:
