@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsGeometryFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-03-16 15:06:02 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2001-07-02 16:19:41 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -92,5 +92,3 @@ protected:
 };
 
 #endif
-
-

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStripper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-21 15:21:52 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 2001-07-02 16:19:41 $
+  Version:   $Revision: 1.50 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -66,13 +66,14 @@ vtkStripper::vtkStripper()
 
 void vtkStripper::Execute()
 {
-  int longestStrip, longestLine, cellId, i, j, numCells, numPts;
-  int numLines, numStrips, nei;
+  vtkIdType cellId, numCells, i;
+  int longestStrip, longestLine, j, numPts;
+  vtkIdType numLines, numStrips, nei;
   vtkCellArray *newStrips=NULL, *inStrips, *newLines=NULL, *inLines, *inPolys;
   vtkIdType numLinePts;
   vtkIdList *cellIds;
-  int neighbor=0, foundOne;
-  vtkIdType *pts;
+  int foundOne;
+  vtkIdType *pts, neighbor=0;
   vtkPolyData *Mesh;
   char *visited;
   vtkIdType numStripPts;
@@ -148,7 +149,7 @@ void vtkStripper::Execute()
   longestLine = 0; numLines = 0;
 
   int abort=0;
-  int progressInterval=numCells/20 + 1;
+  vtkIdType progressInterval=numCells/20 + 1;
   for ( cellId=0; cellId < numCells && !abort; cellId++)
     {
     if ( !(cellId % progressInterval) ) 
@@ -361,7 +362,6 @@ void vtkStripper::Execute()
   // pass through verts
   output->SetVerts(input->GetVerts());
   cellIds->Delete();
-
 }
 
 void vtkStripper::PrintSelf(ostream& os, vtkIndent indent)
@@ -369,6 +369,4 @@ void vtkStripper::PrintSelf(ostream& os, vtkIndent indent)
   vtkPolyDataToPolyDataFilter::PrintSelf(os,indent);
 
   os << indent << "Maximum Length: " << this->MaximumLength << "\n";
-
 }
-

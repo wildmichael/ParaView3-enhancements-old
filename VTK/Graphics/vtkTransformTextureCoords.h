@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransformTextureCoords.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:56 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2001-07-02 16:19:42 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -136,5 +136,3 @@ protected:
 };
 
 #endif
-
-

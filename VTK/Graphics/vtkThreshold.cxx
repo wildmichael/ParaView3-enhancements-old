@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThreshold.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-23 19:05:08 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 2001-07-02 16:19:42 $
+  Version:   $Revision: 1.49 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -105,12 +105,13 @@ void vtkThreshold::ThresholdBetween(float lower, float upper)
   
 void vtkThreshold::Execute()
 {
-  int cellId, newCellId;
+  vtkIdType cellId, newCellId;
   vtkIdList *cellPts, *pointMap;
   vtkIdList *newCellPts = vtkIdList::New();
   vtkCell *cell;
   vtkPoints *newPoints;
-  int i, ptId, newId, numPts, numCellPts;
+  int i, ptId, newId, numPts;
+  int numCellPts;
   float *x;
   vtkDataSet *input = this->GetInput();
   if (!input)

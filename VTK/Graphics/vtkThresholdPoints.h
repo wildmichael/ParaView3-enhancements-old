@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThresholdPoints.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:55 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2001-07-02 16:19:42 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -100,5 +100,3 @@ protected:
 };
 
 #endif
-
-
