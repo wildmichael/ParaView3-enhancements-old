@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkPVInformation.h,v $
   Language:  C++
-  Date:      $Date: 2003-06-03 18:59:31 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-10-06 21:58:01 $
+  Version:   $Revision: 1.2 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -73,10 +73,17 @@ public:
   virtual int GetMessageLength(); 
   virtual void WriteMessage(unsigned char* msg);
 
+  // Description:
+  // Set/get whether to gather information only from the root.
+  vtkGetMacro(RootOnly, int);
+  vtkSetMacro(RootOnly, int);
+  
 protected:
-  vtkPVInformation() {};
+  vtkPVInformation();
   ~vtkPVInformation() {};
 
+  int RootOnly;
+  
   vtkPVInformation(const vtkPVInformation&); // Not implemented
   void operator=(const vtkPVInformation&); // Not implemented
 };

@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkPVTreeComposite.h,v $
   Language:  C++
-  Date:      $Date: 2003-05-22 17:28:53 $
-  Version:   $Revision: 1.19 $  
+  Date:      $Date: 2003-10-06 21:58:01 $
+  Version:   $Revision: 1.20 $  
   
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
