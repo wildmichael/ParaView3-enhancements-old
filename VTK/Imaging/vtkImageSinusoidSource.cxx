@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSinusoidSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-29 22:26:29 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2001-03-08 13:51:36 $
+  Version:   $Revision: 1.27 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -168,8 +168,9 @@ void vtkImageSinusoidSource::ExecuteInformation()
   output->SetNumberOfScalarComponents(1);
 }
 
-void vtkImageSinusoidSource::Execute(vtkImageData *data)
+void vtkImageSinusoidSource::ExecuteData(vtkDataObject *output)
 {
+  vtkImageData *data = this->GetOutput();
   float *outPtr;
   int idxX, idxY, idxZ;
   int maxX, maxY, maxZ;

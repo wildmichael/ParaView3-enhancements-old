@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageGridSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:06 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-03-08 13:52:03 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -173,11 +173,12 @@ static void vtkImageGridSourceExecute(vtkImageGridSource *self,
 }  
 
 //----------------------------------------------------------------------------
-void vtkImageGridSource::Execute(vtkImageData *data)
+void vtkImageGridSource::ExecuteData(vtkDataObject *output)
 {
+  vtkImageData *data = this->AllocateOutputData(output);
   int *outExt = data->GetExtent();
   void *outPtr = data->GetScalarPointerForExtent(outExt);
-
+  
   // Call the correct templated function for the output
   switch (this->GetDataScalarType())
     {
