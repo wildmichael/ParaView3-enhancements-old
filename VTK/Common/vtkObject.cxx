@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObject.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-15 17:35:59 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1995-09-15 07:57:06 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -117,7 +117,7 @@ void vtkObject::DebugOn()
 }
 
 // Description:
-// Turn debuggin output off.
+// Turn debugging output off.
 void vtkObject::DebugOff()
 {
   this->Debug = 0;

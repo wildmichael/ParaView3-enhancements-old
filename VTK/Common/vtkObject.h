@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObject.h,v $
   Language:  C++
-  Date:      $Date: 1995-09-06 18:10:14 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1995-09-15 07:57:16 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -45,7 +45,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // debugging, and printing. Most objects created within the vtk 
 // framework should be a subclass of vtkObject or one of its children.
 // The few exceptions tend to be very small helper classes that usually
-// never get instantiated or situtations where mutliple inheritance
+// never get instantiated or situations where multiple inheritance
 // gets in the way.  Then LWObject might be required.
 
 // .SECTION see also
