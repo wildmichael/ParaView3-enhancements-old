@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkExtractVOI.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-06-08 13:05:14 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1996-07-09 14:02:00 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -97,7 +97,7 @@ void vtkExtractVOI::Execute()
 
     if ( (rate[i] = this->SampleRate[i]) < 1 ) rate[i] = 1;
 
-    outDims[i] = (voi[2*i+1] - voi[2*i] + 1) / this->SampleRate[i];
+    outDims[i] = (voi[2*i+1] - voi[2*i]) / rate[i] + 1;
     if ( outDims[i] < 1 ) outDims[i] = 1;
 
     outAR[i] = ar[i] * this->SampleRate[i];
