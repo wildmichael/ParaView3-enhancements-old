@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalars.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-14 21:24:55 $
-  Version:   $Revision: 1.54 $
+  Date:      $Date: 1998-12-23 19:56:31 $
+  Version:   $Revision: 1.55 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -255,9 +255,10 @@ inline void vtkScalars::InsertScalar(int id, float s)
 
 inline int vtkScalars::InsertNextScalar(float s)
 {
-  int id=this->Data->GetMaxId()+1;
+  int tupleSize = this->Data->GetNumberOfComponents();
+  int id=(this->Data->GetMaxId() + tupleSize)/tupleSize;
   this->Data->InsertComponent(id,this->ActiveComponent,s);
-  return this->Data->GetNumberOfTuples();
+  return id;
 }
 
 // These include files are placed here so that if Scalars.h is included 
