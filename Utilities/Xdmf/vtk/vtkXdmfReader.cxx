@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXdmfReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-04-16 17:53:14 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2003-04-23 21:09:59 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen  
@@ -69,7 +69,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <vector>
 
 vtkStandardNewMacro(vtkXdmfReader);
-vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.7 $");
 
 #if defined(_WIN32) && (defined(_MSC_VER) || defined(__BORLANDC__))
 #  include <direct.h>
@@ -553,7 +553,8 @@ void vtkXdmfReader::Execute()
         status = this->CellDataArraySelection->ArrayIsEnabled(name);
         }
       }
-    attrNode = this->DOM->FindElement("Attribute", cc);
+    // attrNode = this->DOM->FindElement("Attribute", cc);
+    attrNode = Attribute->GetCurrentElement();
     // dataNode = this->DOM->FindElement("DataStructure", 0, attrNode);
     // Find the DataTransform or DataStructure below the <Attribute>
     dataNode = this->DOM->FindElement(NULL, 0, attrNode);
