@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSweptSurface.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 22:11:59 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 1999-10-13 14:54:02 $
+  Version:   $Revision: 1.51 $
 
 
 Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -54,6 +54,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkSweptSurface.h"
 #include "vtkVoxel.h"
 #include "vtkMath.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkSweptSurface* vtkSweptSurface::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkSweptSurface");
+  if(ret)
+    {
+    return (vtkSweptSurface*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkSweptSurface;
+}
+
+
+
 
 // Description:
 // Construct object with SampleDimensions = (50,50,50), FillValue = 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSliceCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 22:11:59 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 1999-10-13 14:54:01 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -67,6 +67,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkUnsignedLongArray.h"
 #include "vtkDoubleArray.h"
 #include "vtkFloatArray.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkSliceCubes* vtkSliceCubes::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkSliceCubes");
+  if(ret)
+    {
+    return (vtkSliceCubes*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkSliceCubes;
+}
+
+
+
 
 // Description:
 // Construct with NULL reader, output FileName specification, and limits 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSynchronizedTemplates3D.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:22:48 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1999-10-13 14:54:04 $
+  Version:   $Revision: 1.6 $
 
 
 
@@ -74,8 +74,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkSynchronizedTemplates3D : public vtkPolyDataSource
 {
 public:
-  static vtkSynchronizedTemplates3D *New() {
-    return new vtkSynchronizedTemplates3D;};
+  static vtkSynchronizedTemplates3D *New();
   const char *GetClassName() {return "vtkSynchronizedTemplates3D";};
   void PrintSelf(ostream& os, vtkIndent indent);
   

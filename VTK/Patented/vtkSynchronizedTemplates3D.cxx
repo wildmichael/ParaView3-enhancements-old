@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSynchronizedTemplates3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-12 14:52:28 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-10-13 14:54:04 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -65,6 +65,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkSynchronizedTemplates3D.h"
 #include "vtkMath.h"
 #include "vtkUnstructuredInformation.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkSynchronizedTemplates3D* vtkSynchronizedTemplates3D::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkSynchronizedTemplates3D");
+  if(ret)
+    {
+    return (vtkSynchronizedTemplates3D*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkSynchronizedTemplates3D;
+}
+
+
+
 
 //----------------------------------------------------------------------------
 // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSynchronizedTemplates2D.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:22:47 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-10-13 14:54:03 $
+  Version:   $Revision: 1.4 $
 
 
 
@@ -72,8 +72,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkSynchronizedTemplates2D : public vtkStructuredPointsToPolyDataFilter
 {
 public:
-  static vtkSynchronizedTemplates2D *New() {
-    return new vtkSynchronizedTemplates2D;};
+  static vtkSynchronizedTemplates2D *New();
   const char *GetClassName() {return "vtkSynchronizedTemplates2D";};
   void PrintSelf(ostream& os, vtkIndent indent);
 

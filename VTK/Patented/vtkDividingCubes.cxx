@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDividingCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 22:11:57 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1999-10-13 14:53:57 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,6 +56,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkMath.h"
 #include "vtkVoxel.h"
 #include "vtkFloatArray.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkDividingCubes* vtkDividingCubes::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkDividingCubes");
+  if(ret)
+    {
+    return (vtkDividingCubes*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkDividingCubes;
+}
+
+
+
 
 // Description:
 // Construct object with Value=0.0, Distance=0.1, and Increment=1.

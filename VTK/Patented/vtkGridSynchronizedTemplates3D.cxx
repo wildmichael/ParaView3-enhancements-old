@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGridSynchronizedTemplates3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 12:39:44 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-10-13 14:53:57 $
+  Version:   $Revision: 1.8 $
 
 
 
@@ -66,6 +66,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkGridSynchronizedTemplates3D.h"
 #include "vtkUnstructuredInformation.h"
 #include "vtkMath.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkGridSynchronizedTemplates3D* vtkGridSynchronizedTemplates3D::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkGridSynchronizedTemplates3D");
+  if(ret)
+    {
+    return (vtkGridSynchronizedTemplates3D*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkGridSynchronizedTemplates3D;
+}
+
+
+
 
 
 

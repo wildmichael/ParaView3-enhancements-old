@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMarchingCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 22:11:58 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1999-10-13 14:53:58 $
+  Version:   $Revision: 1.28 $
 
 Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -54,6 +54,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include <math.h>
 #include "vtkMarchingCubesCases.h"
 #include "vtkImageMarchingCubes.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkImageMarchingCubes* vtkImageMarchingCubes::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageMarchingCubes");
+  if(ret)
+    {
+    return (vtkImageMarchingCubes*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkImageMarchingCubes;
+}
+
+
+
 
 //----------------------------------------------------------------------------
 // Description:

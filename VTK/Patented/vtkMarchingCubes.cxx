@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 22:11:58 $
-  Version:   $Revision: 1.60 $
+  Date:      $Date: 1999-10-13 14:53:59 $
+  Version:   $Revision: 1.61 $
 
 
 Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -67,6 +67,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkUnsignedLongArray.h"
 #include "vtkDoubleArray.h"
 #include "vtkFloatArray.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkMarchingCubes* vtkMarchingCubes::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkMarchingCubes");
+  if(ret)
+    {
+    return (vtkMarchingCubes*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkMarchingCubes;
+}
+
+
+
 
 // Description:
 // Construct object with initial range (0,1) and single contour value

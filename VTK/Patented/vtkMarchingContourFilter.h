@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingContourFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-08 15:11:31 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1999-10-13 14:53:59 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -105,7 +105,7 @@ public:
   // Description:
   // Construct object with initial range (0,1) and single contour value
   // of 0.0.
-  static vtkMarchingContourFilter *New() {return new vtkMarchingContourFilter;};
+  static vtkMarchingContourFilter *New();
 
   // Description:
   // Methods to set / get contour values.

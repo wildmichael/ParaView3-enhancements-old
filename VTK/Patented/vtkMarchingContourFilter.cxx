@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingContourFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-08 15:11:31 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1999-10-13 14:53:59 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,6 +64,25 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkMarchingSquares.h"
 #include "vtkMarchingCubes.h"
 #include "vtkImageMarchingCubes.h"
+#include "vtkObjectFactory.h"
+
+
+
+//------------------------------------------------------------------------------
+vtkMarchingContourFilter* vtkMarchingContourFilter::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkMarchingContourFilter");
+  if(ret)
+    {
+    return (vtkMarchingContourFilter*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkMarchingContourFilter;
+}
+
+
+
 
 // Construct object with initial range (0,1) and single contour value
 // of 0.0.
