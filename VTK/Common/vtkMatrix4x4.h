@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMatrix4x4.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-11 22:59:14 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 2000-04-12 19:49:25 $
+  Version:   $Revision: 1.50 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -186,6 +186,15 @@ class VTK_EXPORT vtkMatrix4x4 : public vtkObject
     {this->Invert(&in,&out);}
   void Transpose(vtkMatrix4x4 &in,vtkMatrix4x4 &out)
     {this->Transpose(&in,&out);}
+  void PointMultiply(const float in[4], float out[4]);
+  void PointMultiply(const double in[4], double out[4]);
+//BTX
+  static void PointMultiply(const double Elements[16], 
+			    const float in[4], float out[4]);
+  static void PointMultiply(const double Elements[16], 
+			    const double in[4], double out[4]);
+//ETX
+
 
 protected:
   vtkMatrix4x4();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMatrix4x4.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-11 22:59:15 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 2000-04-12 19:49:26 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -198,6 +198,36 @@ void vtkMatrix4x4::MultiplyPoint(const double Elements[16],
       v4 * elem[i][3];
     }
   
+}
+
+// Multiply a point (in homogeneous coordinates) by the transpose
+// of the matrix.
+void vtkMatrix4x4::PointMultiply(const float in[4],float result[4])
+{
+  vtkMatrix4x4::PointMultiply(&this->Element[0][0], in, result);
+  vtkWarningMacro("PointMultiply: this method is deprecated");
+}
+
+void vtkMatrix4x4::PointMultiply(const double Elements[16], 
+				 const float in[4], float result[4])
+{
+  double newElements[16];
+  vtkMatrix4x4::Transpose(Elements,newElements);
+  vtkMatrix4x4::MultiplyPoint(newElements,in,result);
+}
+
+void vtkMatrix4x4::PointMultiply(const double in[4],double result[4])
+{
+  vtkMatrix4x4::PointMultiply(&this->Element[0][0], in, result);
+  vtkWarningMacro("PointMultiply: this method is deprecated");
+}
+
+void vtkMatrix4x4::PointMultiply(const double Elements[16], 
+				 const double in[4], double result[4])
+{
+  double newElements[16];
+  vtkMatrix4x4::Transpose(Elements,newElements);
+  vtkMatrix4x4::MultiplyPoint(newElements,in,result);
 }
 
 // Multiplies matrices a and b and stores the result in c.
