@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRendererSource.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:07:37 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1999-10-12 15:22:39 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -89,6 +89,9 @@ protected:
   void operator=(const vtkRendererSource&) {};
 
   void Execute();
+  
+  void UpdateInformation();
+  
   vtkRenderer *Input;
   int WholeWindow;
 };
