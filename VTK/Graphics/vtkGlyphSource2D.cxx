@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGlyphSource2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:02 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-01-26 20:48:16 $
+  Version:   $Revision: 1.4 $
   Thanks:    Tim Smith who sponsored and encouraged the development
              of this class.
 
@@ -44,6 +44,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkGlyphSource2D.h"
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
+#include "vtkUnsignedCharArray.h"
 
 //--------------------------------------------------------------------------
 vtkGlyphSource2D* vtkGlyphSource2D::New()
