@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageConstantPad.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 21:15:46 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1997-07-17 16:51:40 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -50,6 +50,8 @@ vtkImageConstantPad::vtkImageConstantPad()
 {
   // execute function handles four axes.
   this->NumberOfExecutionAxes = 4;
+
+  this->Constant = 0.0;
 }
 
 
