@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLDataParser.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-31 21:58:34 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2003-01-31 22:21:29 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 #include "vtkBase64InputStream.h"
 #include "vtkDataCompressor.h"
 
-vtkCxxRevisionMacro(vtkXMLDataParser, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkXMLDataParser, "$Revision: 1.7 $");
 vtkStandardNewMacro(vtkXMLDataParser);
 vtkCxxSetObjectMacro(vtkXMLDataParser, Compressor, vtkDataCompressor);
 
@@ -104,7 +104,7 @@ int vtkXMLDataParser::Parse()
   int result = this->Superclass::Parse();
   
   // Check that the input is okay.
-  if(!this->CheckPrimaryAttributes())
+  if(result && !this->CheckPrimaryAttributes())
     {
     result = 0;
     }
