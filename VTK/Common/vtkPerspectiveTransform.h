@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPerspectiveTransform.h,v $
   Language:  C++
-  Date:      $Date: 2000-03-04 23:47:56 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2000-03-05 04:01:24 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -97,8 +97,9 @@ public:
   // Description:
   // Get the inverse of this transform.  If you modify this transform,
   // the returned inverse transform will automatically update.
-  vtkGeneralTransform *GetInverse() {
-    return (vtkPerspectiveTransform *)this->VirtualGetInverse(); };
+  vtkGeneralTransform *GetInverse();
+  vtkPerspectiveTransform *GetPerspectiveInverse() {
+    return (vtkPerspectiveTransform *)this->GetInverse(); };
 
   // Description:
   // This will calculate the transformation without calling Update.
@@ -117,8 +118,6 @@ protected:
   ~vtkPerspectiveTransform() { if (this->Matrix) { this->Matrix->Delete(); } };
   vtkPerspectiveTransform(const vtkPerspectiveTransform&) {};
   void operator=(const vtkPerspectiveTransform&) {};
-
-  vtkGeneralTransform *VirtualGetInverse();
 
   vtkMatrix4x4 *Matrix;
 };

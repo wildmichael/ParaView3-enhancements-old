@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPerspectiveTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-03-04 21:47:50 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2000-03-05 04:01:23 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -217,7 +217,7 @@ void vtkPerspectiveTransform::TransformPointsNormalsVectors(vtkPoints *inPts,
 //----------------------------------------------------------------------------
 // The vtkPerspectiveTransformInverse is a special-purpose class.
 // See vtkPerspectiveTransformInverse.h for more details.
-vtkGeneralTransform *vtkPerspectiveTransform::VirtualGetInverse()
+vtkGeneralTransform *vtkPerspectiveTransform::GetInverse()
 {
   if (this->MyInverse == NULL)
     {

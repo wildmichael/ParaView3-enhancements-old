@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinearTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-03-04 21:47:51 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2000-03-05 04:01:24 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -205,7 +205,7 @@ void vtkLinearTransform::TransformVectors(vtkVectors *inNms,
 //----------------------------------------------------------------------------
 // The vtkLinearTransformInverse is a special-purpose class.
 // See vtkLinearTransformInverse.h for more details.
-vtkGeneralTransform *vtkLinearTransform::VirtualGetInverse()
+vtkGeneralTransform *vtkLinearTransform::GetInverse()
 {
   if (this->MyInverse == NULL)
     {

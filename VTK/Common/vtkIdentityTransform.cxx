@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIdentityTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-03-04 21:47:52 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2000-03-05 04:01:25 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -216,7 +216,7 @@ void vtkIdentityTransform::TransformVectors(vtkVectors *inNms,
 }
 
 //----------------------------------------------------------------------------
-vtkGeneralTransform *vtkIdentityTransform::VirtualGetInverse()
+vtkGeneralTransform *vtkIdentityTransform::GetInverse()
 {
   return this;
 }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGeneralTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-03-04 21:47:49 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2000-03-05 04:01:22 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -172,7 +172,7 @@ void vtkGeneralTransform::TransformPointsNormalsVectors(vtkPoints *inPts,
 //----------------------------------------------------------------------------
 // The vtkGeneralTransformInverse is a special-purpose class.
 // See vtkGeneralTransformInverse.h for more details.
-vtkGeneralTransform *vtkGeneralTransform::VirtualGetInverse()
+vtkGeneralTransform *vtkGeneralTransform::GetInverse()
 {
   if (this->MyInverse == NULL)
     {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIdentityTransform.h,v $
   Language:  C++
-  Date:      $Date: 2000-03-04 23:47:57 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2000-03-05 04:01:26 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -103,7 +103,7 @@ public:
 
   // Description:
   // Get the inverse of this transform, i.e. the transform itself.
-  vtkGeneralTransform *GetInverse() { return this; };
+  vtkGeneralTransform *GetInverse();
 
   // Description:
   // Make a transform of the same type.  This will actually
@@ -132,8 +132,6 @@ protected:
   ~vtkIdentityTransform();
   vtkIdentityTransform(const vtkIdentityTransform&) {};
   void operator=(const vtkIdentityTransform&) {};
-
-  vtkGeneralTransform *VirtualGetInverse();
 
   static vtkIdentityTransform *TheIdentityTransform;
 };
