@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLPolyDataMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:07:00 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 1999-10-22 03:20:36 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -271,6 +271,11 @@ void vtkOpenGLPolyDataMapper::Render(vtkRenderer *ren, vtkActor *act)
       timer->StopTimer();      
 
       glEndList();
+      }
+    else
+      {
+      this->ReleaseGraphicsResources(ren->GetRenderWindow());
+      this->RenderWindow = ren->GetRenderWindow();
       }
     this->BuildTime.Modified();
     }
