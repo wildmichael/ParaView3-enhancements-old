@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaImageMapper.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:38:15 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2001-11-13 14:17:23 $
+  Version:   $Revision: 1.9 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -69,7 +69,7 @@ public:
   // Called by the Render function in vtkImageMapper.  Actually draws
   // the image to the screen.
   void RenderData(vtkViewport* viewport, vtkImageData* data, 
-		  vtkActor2D* actor);
+                  vtkActor2D* actor);
 
 protected:
   vtkMesaImageMapper();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeTextureMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-09 20:32:49 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2001-11-13 14:18:12 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -66,7 +66,7 @@ vtkVolumeTextureMapper::~vtkVolumeTextureMapper()
 }
 
 void vtkVolumeTextureMapper::SetGradientEstimator( 
-				      vtkEncodedGradientEstimator *gradest )
+                                      vtkEncodedGradientEstimator *gradest )
 {
 
   // If we are setting it to its current value, don't do anything
@@ -111,7 +111,7 @@ void vtkVolumeTextureMapper::Update()
 }
 
 void vtkVolumeTextureMapper::InitializeRender( vtkRenderer *ren,
-					       vtkVolume *vol )
+                                               vtkVolume *vol )
 {
   int   size, i, j, k;
   float *AArray;
@@ -185,7 +185,7 @@ void vtkVolumeTextureMapper::InitializeRender( vtkRenderer *ren,
   if ( this->Shade )
     {
     this->GradientShader->UpdateShadingTable( ren, vol, 
-					      this->GradientEstimator );
+                                              this->GradientEstimator );
     this->EncodedNormals = 
       this->GradientEstimator->GetEncodedNormals();
 
@@ -260,7 +260,7 @@ void vtkVolumeTextureMapper::PrintSelf(ostream& os, vtkIndent indent)
   if ( this->GradientEstimator )
     {
       os << indent << "Gradient Estimator: " << (this->GradientEstimator) <<
-	endl;
+        endl;
     }
   else
     {

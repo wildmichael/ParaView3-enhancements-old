@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:38:37 $
-  Version:   $Revision: 1.60 $
+  Date:      $Date: 2001-11-13 14:17:38 $
+  Version:   $Revision: 1.61 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -191,7 +191,7 @@ protected:
 
   int BreakLoopFlag;
   XtIntervalId AddTimeOut(XtAppContext app_context, unsigned long interval,
-			  XtTimerCallbackProc proc, XtPointer client_data) ;
+                          XtTimerCallbackProc proc, XtPointer client_data) ;
   void Timer(XtPointer client_data, XtIntervalId *id); 
   void Callback(Widget w, XtPointer client_data, XEvent *event, Boolean *ctd);
 

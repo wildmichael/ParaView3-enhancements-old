@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLightKit.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:24 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2001-11-13 14:17:50 $
+  Version:   $Revision: 1.6 $
   Thanks:    Michael Halle, Brigham and Women's Hospital
 
 
@@ -350,7 +350,7 @@ void vtkLightKit::InitializeWarmthFunctions() {
 
   for(int i = 0; i < 4; i++) {
     this->WarmthFunction[i]->BuildFunctionFromTable(0.0, 1.0, len,
-						   &warmthTable[i], 4);
+                                                   &warmthTable[i], 4);
   }
 }
 

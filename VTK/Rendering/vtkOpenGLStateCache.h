@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLStateCache.h,v $
   Language:  C++
-  Date:      $Date: 2001-09-25 15:23:40 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-11-13 14:17:25 $
+  Version:   $Revision: 1.2 $
   Thanks:    to John Schalf who developed this class
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -298,7 +298,7 @@ public:
           fv[2]!=LightModelfv_LIGHT_MODEL_AMBIENT_bucket[2])){
       fv[0]=LightModelfv_LIGHT_MODEL_AMBIENT_bucket[0];
       fv[1]=LightModelfv_LIGHT_MODEL_AMBIENT_bucket[1];
-      fv[2]=LightModelfv_LIGHT_MODEL_AMBIENT_bucket[2];	
+      fv[2]=LightModelfv_LIGHT_MODEL_AMBIENT_bucket[2]; 
       ::glLightModelfv(e,fv);
       }
     }
@@ -342,7 +342,7 @@ public:
       val[0]=f;
       ::glLightf(light,pname,f);
       if(pname==GL_SPOT_CUTOFF) // invalidate integer spot cutoff
-	Lighti_SPOT_CUTOFF_buckets[light-GL_LIGHT0]=-1;
+        Lighti_SPOT_CUTOFF_buckets[light-GL_LIGHT0]=-1;
       }
   }
   

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAxisActor2D.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:38:06 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2001-11-13 14:17:17 $
+  Version:   $Revision: 1.20 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -239,8 +239,8 @@ public:
   // to create text of different size-factor is usually =1 but you can
   // adjust the font size by making factor larger or smaller.
   static int SetFontSize(vtkViewport *viewport, vtkTextMapper *textMapper, 
-			 int *size, float factor, 
-			 int &stringWidth, int &stringHeight);
+                         int *size, float factor, 
+                         int &stringWidth, int &stringHeight);
 
   // Description:
   // Shallow copy of an axis actor. Overloads the virtual vtkProp method.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-26 19:09:17 $
-  Version:   $Revision: 1.112 $
+  Date:      $Date: 2001-11-13 14:17:29 $
+  Version:   $Revision: 1.113 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -251,7 +251,7 @@ public:
   virtual unsigned char *GetRGBACharPixelData(int ,int ,int ,int ,int ) {
     return (unsigned char*)NULL;}
   virtual void SetRGBACharPixelData(int ,int ,int ,int ,unsigned char *, int,
-				    int blend=0) { blend = blend;}
+                                    int blend=0) { blend = blend;}
   
 
   // Description:

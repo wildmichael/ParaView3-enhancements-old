@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPicker.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:38:20 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 2001-11-13 14:17:26 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -110,7 +110,7 @@ public:
   // to maintain backward compatibility.)
   vtkActorCollection *GetActors() {
     if (this->Actors->GetNumberOfItems() != 
-	this->PickedPositions->GetNumberOfPoints()) {
+        this->PickedPositions->GetNumberOfPoints()) {
       vtkWarningMacro(<<"Not all Prop3Ds are actors, use GetProp3Ds instead");}
     return this->Actors; };
 

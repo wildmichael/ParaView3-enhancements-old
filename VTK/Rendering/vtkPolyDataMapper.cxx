@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-10-21 14:06:47 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2001-11-13 14:18:00 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -137,8 +137,8 @@ float *vtkPolyDataMapper::GetBounds()
     // if the bounds indicate NAN and subpieces are being used then 
     // return NULL
     if (((this->Bounds[0] == -VTK_LARGE_FLOAT) || 
-	 (this->Bounds[0] == VTK_LARGE_FLOAT)) &&
-	this->NumberOfSubPieces > 1)
+         (this->Bounds[0] == VTK_LARGE_FLOAT)) &&
+        this->NumberOfSubPieces > 1)
       {
       return NULL;
       }

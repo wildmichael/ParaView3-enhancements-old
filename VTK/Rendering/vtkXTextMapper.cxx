@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-12 14:43:34 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2001-11-13 14:18:24 $
+  Version:   $Revision: 1.30 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -231,7 +231,7 @@ void vtkXTextMapper::DetermineSize(vtkViewport *viewport, int *size)
   XCharStruct overall;
   // XTextExtents does not require a trip to the server
   XTextExtents(fontStruct, this->Input, strlen(this->Input),
-		    &direction, &ascent, &descent, &overall);
+                    &direction, &ascent, &descent, &overall);
   size[1] = ascent + descent;
   size[0] = overall.width;
   this->CurrentFont = fontStruct->fid;

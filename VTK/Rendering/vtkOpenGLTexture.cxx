@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLTexture.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-02 16:43:18 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 2001-11-13 14:17:57 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -326,22 +326,22 @@ void vtkOpenGLTexture::Load(vtkRenderer *ren)
     if (this->Quality == VTK_TEXTURE_QUALITY_32BIT)
       {
       switch (bytesPerPixel)
-	{
-	case 1: internalFormat = GL_LUMINANCE8; break;
-	case 2: internalFormat = GL_LUMINANCE8_ALPHA8; break;
-	case 3: internalFormat = GL_RGB8; break;
-	case 4: internalFormat = GL_RGBA8; break;
-	}
+        {
+        case 1: internalFormat = GL_LUMINANCE8; break;
+        case 2: internalFormat = GL_LUMINANCE8_ALPHA8; break;
+        case 3: internalFormat = GL_RGB8; break;
+        case 4: internalFormat = GL_RGBA8; break;
+        }
       }
     else if (this->Quality == VTK_TEXTURE_QUALITY_16BIT)
       {
       switch (bytesPerPixel)
-	{
-	case 1: internalFormat = GL_LUMINANCE4; break;
-	case 2: internalFormat = GL_LUMINANCE4_ALPHA4; break;
-	case 3: internalFormat = GL_RGB4; break;
-	case 4: internalFormat = GL_RGBA4; break;
-	}
+        {
+        case 1: internalFormat = GL_LUMINANCE4; break;
+        case 2: internalFormat = GL_LUMINANCE4_ALPHA4; break;
+        case 3: internalFormat = GL_RGB4; break;
+        case 4: internalFormat = GL_RGBA4; break;
+        }
       }
 #endif
     glTexImage2D( GL_TEXTURE_2D, 0 , internalFormat,

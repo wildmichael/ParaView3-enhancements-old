@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuartzImageMapper.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:38:22 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-11-13 14:17:27 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -70,10 +70,10 @@ public:
   // Called by the Render function in vtkImageMapper.  Actually draws
   // the image to the screen.
   void RenderData(vtkViewport* viewport, vtkImageData* data, 
-		  vtkActor2D* actor);
+                  vtkActor2D* actor);
 
-  unsigned char *DataOut;	// the data in the DIBSection
-  void *HBitmap;			// our handle to the DIBSection
+  unsigned char *DataOut;       // the data in the DIBSection
+  void *HBitmap;                        // our handle to the DIBSection
 
 protected:
   vtkQuartzImageMapper();

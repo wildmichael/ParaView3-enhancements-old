@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleUser.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:38:13 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2001-11-13 14:17:21 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -201,9 +201,9 @@ protected:
 
   void OnChar(int ctrl, int shift, char keycode, int repeatcount);
   void OnKeyPress(int ctrl, int shift, char keycode, char *keysym,
-		  int repeatcount);
+                  int repeatcount);
   void OnKeyRelease(int ctrl, int shift, char keycode, char *keysym,
-		    int repeatcount);
+                    int repeatcount);
 
   void OnLeftButtonDown(int ctrl, int shift, int X, int Y);
   void OnLeftButtonUp(int ctrl, int shift, int X, int Y);

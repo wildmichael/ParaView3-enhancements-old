@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLCamera.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-06 19:19:18 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 2001-11-13 14:17:53 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -109,11 +109,11 @@ void vtkOpenGLCamera::Render(vtkRenderer *ren)
           }
         break;
       case VTK_STEREO_LEFT:
-	this->LeftEye = 1;
-	break;
+        this->LeftEye = 1;
+        break;
       case VTK_STEREO_RIGHT:
-	this->LeftEye = 0;
-	break;
+        this->LeftEye = 0;
+        break;
       default:
         break;
       }
@@ -139,7 +139,7 @@ void vtkOpenGLCamera::Render(vtkRenderer *ren)
 
   glMatrixMode( GL_PROJECTION);
   matrix->DeepCopy(this->GetPerspectiveTransformMatrix(aspect[0]/aspect[1],
-						       -1,1));
+                                                       -1,1));
   matrix->Transpose();
   if(ren->GetIsPicking())
     {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGraphicsFactory.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-21 15:56:16 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2001-11-13 14:17:42 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -111,7 +111,7 @@ const char *vtkGraphicsFactory::GetRenderLibrary()
       temp = "Win32OpenGL";
       }
     else if (strcmp("OpenGL",temp) && 
-	     strcmp("Win32OpenGL",temp))
+             strcmp("Win32OpenGL",temp))
       {
       vtkGenericWarningMacro(<<"VTK_RENDERER set to unsupported type:" << temp);
       temp = NULL;
@@ -237,7 +237,7 @@ vtkObject* vtkGraphicsFactory::CreateInstance(const char* vtkclassname )
       }
     }
 #endif
-	
+        
  vtkGenericWarningMacro("Attempting to create an OpenGL  based object with a VTK that is not linked/configured with OpenGL.");
   abort();
   return 0;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastMapper.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-01 16:29:26 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 2001-11-13 14:17:33 $
+  Version:   $Revision: 1.42 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -205,7 +205,7 @@ protected:
   void                         *ScalarDataPointer;
 
   void                         UpdateShadingTables( vtkRenderer *ren, 
-						    vtkVolume *vol );
+                                                    vtkVolume *vol );
 
   void ComputeMatrices( vtkImageData *data, vtkVolume *vol );
   virtual void RenderTexture( vtkVolume *vol, vtkRenderer *ren)=0;

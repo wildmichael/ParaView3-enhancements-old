@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32ImageMapper.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:38:33 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2001-11-13 14:17:34 $
+  Version:   $Revision: 1.21 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -72,7 +72,7 @@ public:
   // Called by the Render function in vtkImageMapper.  Actually draws
   // the image to the screen.
   void RenderData(vtkViewport* viewport, vtkImageData* data,
-		  vtkActor2D* actor);
+                  vtkActor2D* actor);
 
   // Description:
   // Compute modified time including lookuptable
@@ -108,8 +108,8 @@ public:
     int DisplayExtent[6], float cwindow, float clevel, float cshift, float cscale,
     vtkLookupTable *lut);
 
-  unsigned char *DataOut;	// the data in the DIBSection
-  HBITMAP HBitmap;			// our handle to the DIBSection
+  unsigned char *DataOut;       // the data in the DIBSection
+  HBITMAP HBitmap;                      // our handle to the DIBSection
 
 protected:
   vtkLookupTable *LookupTable;

@@ -3,8 +3,8 @@
    Program:   Visualization Toolkit
    Module:    $RCSfile: vtkOOGLExporter.cxx,v $
    Language:  C++
-   Date:      $Date: 2001-11-07 18:28:50 $
-   Version:   $Revision: 1.3 $
+   Date:      $Date: 2001-11-13 14:17:53 $
+   Version:   $Revision: 1.4 $
    Thanks:    to Jeremy D. Gill of The J. P. Robarts Research Institute
  
  Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -429,7 +429,7 @@ void vtkOOGLExporter::WriteAnActor(vtkActor *anActor, FILE *fp, int count)
 
     // make sure using unsigned char data of color scalars type
     if (aTexture->GetMapColorScalarsThroughLookupTable () ||
-	(scalars->GetDataType() != VTK_UNSIGNED_CHAR) )
+        (scalars->GetDataType() != VTK_UNSIGNED_CHAR) )
       {
       mappedScalars = aTexture->GetMappedScalars ();
       }
@@ -600,7 +600,7 @@ void vtkOOGLExporter::WriteAnActor(vtkActor *anActor, FILE *fp, int count)
         for (i = 0; i < points->GetNumberOfPoints(); i++)
           {
           float *p = points->GetPoint(i);
-	  c = (unsigned char *)colors->GetPointer(4*i);
+          c = (unsigned char *)colors->GetPointer(4*i);
            
           fprintf (fp,"%s%g %g %g %g %g %g %g\n", indent,
                    p[0], p[1], p[2],
@@ -632,9 +632,9 @@ void vtkOOGLExporter::WriteAnActor(vtkActor *anActor, FILE *fp, int count)
         fprintf(fp, "%s}\n", indent); // finish of polygon list
          
         VTK_INDENT_LESS; 
-	
+        
         }
-	
+        
       else if (pd->GetNumberOfStrips())
         { // write triangle strips
         cells = pd->GetStrips();

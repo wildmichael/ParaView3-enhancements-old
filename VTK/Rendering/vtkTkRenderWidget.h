@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkRenderWidget.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:55 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2001-11-13 14:17:30 $
+  Version:   $Revision: 1.15 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -66,8 +66,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 struct vtkTkRenderWidget
 {
-  Tk_Window  TkWin;		/* Tk window structure */
-  Tcl_Interp *Interp;		/* Tcl interpreter */
+  Tk_Window  TkWin;             /* Tk window structure */
+  Tcl_Interp *Interp;           /* Tcl interpreter */
   int Width;
   int Height;
   vtkRenderWindow *RenderWindow;

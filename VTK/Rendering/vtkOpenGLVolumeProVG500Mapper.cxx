@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLVolumeProVG500Mapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-10 17:54:09 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2001-11-13 14:17:58 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -60,11 +60,11 @@ vtkOpenGLVolumeProVG500Mapper* vtkOpenGLVolumeProVG500Mapper::New()
 }
 
 void vtkOpenGLVolumeProVG500Mapper::RenderHexagon(  vtkRenderer  *ren,
-						    vtkVolume    *vol,
-						    VLIPixel     *basePlane,
-						    int          size[2],
-						    VLIVector3D  hexagon[6],
-						    VLIVector2D  textureCoords[6] )
+                                                    vtkVolume    *vol,
+                                                    VLIPixel     *basePlane,
+                                                    int          size[2],
+                                                    VLIVector3D  hexagon[6],
+                                                    VLIVector2D  textureCoords[6] )
 {
   vtkTransform   *t;
   int            i;
@@ -129,10 +129,10 @@ void vtkOpenGLVolumeProVG500Mapper::RenderHexagon(  vtkRenderer  *ren,
   glColor3f(1.0,1.0,1.0);
 #ifdef GL_VERSION_1_1
   glTexImage2D( GL_TEXTURE_2D, 0, GL_RGBA8, size[0], size[1], 
-		0, GL_RGBA, GL_UNSIGNED_BYTE, basePlane );
+                0, GL_RGBA, GL_UNSIGNED_BYTE, basePlane );
 #else
   glTexImage2D( GL_TEXTURE_2D, 0, 4, size[0], size[1], 
-		0, GL_RGBA, GL_UNSIGNED_BYTE, basePlane );
+                0, GL_RGBA, GL_UNSIGNED_BYTE, basePlane );
 #endif
 
   

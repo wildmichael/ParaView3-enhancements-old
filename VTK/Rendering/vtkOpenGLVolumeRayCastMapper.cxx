@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLVolumeRayCastMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-01 16:29:25 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2001-11-13 14:17:59 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -175,11 +175,11 @@ void vtkOpenGLVolumeRayCastMapper::RenderTexture( vtkVolume *vol,
 #ifdef GL_VERSION_1_1
   glTexImage2D( GL_TEXTURE_2D, 0, GL_RGBA8, 
                 this->ImageMemorySize[0], this->ImageMemorySize[1], 
-		0, GL_RGBA, GL_UNSIGNED_BYTE, this->Image );
+                0, GL_RGBA, GL_UNSIGNED_BYTE, this->Image );
 #else
   glTexImage2D( GL_TEXTURE_2D, 0, 4, 
                 this->ImageMemorySize[0], this->ImageMemorySize[1], 
-		0, GL_RGBA, GL_UNSIGNED_BYTE, this->Image );
+                0, GL_RGBA, GL_UNSIGNED_BYTE, this->Image );
 #endif
 
   float tcoords[8];

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLPolyDataMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-02 16:43:17 $
-  Version:   $Revision: 1.63 $
+  Date:      $Date: 2001-11-13 14:17:55 $
+  Version:   $Revision: 1.64 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -2547,7 +2547,7 @@ void vtkOpenGLPolyDataMapper::Draw(vtkRenderer *aren, vtkActor *act)
   
   // how do we draw points
   void (*draw0)(vtkCellArray *, GLenum, vtkIdType &, vtkPoints *, 
-		vtkDataArray *,
+                vtkDataArray *,
                 vtkUnsignedCharArray *, vtkDataArray *, vtkOpenGLRenderer *, 
                 int &);
 
@@ -2634,7 +2634,7 @@ void vtkOpenGLPolyDataMapper::Draw(vtkRenderer *aren, vtkActor *act)
 
   // how do we draw tstrips
   void (*draw2)(vtkCellArray *, GLenum, vtkIdType &, vtkPoints *, 
-		vtkDataArray *,
+                vtkDataArray *,
                 vtkUnsignedCharArray *, vtkDataArray *, vtkOpenGLRenderer *, 
                 int &);
   void (*draw2W)(vtkCellArray *, GLenum, vtkIdType &, vtkPoints *,

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractPicker.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-01 15:27:16 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2001-11-13 14:17:17 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -108,7 +108,7 @@ public:
   // the third value is =0. Return non-zero if something was successfully 
   // picked.
   virtual int Pick(float selectionX, float selectionY, float selectionZ, 
-		   vtkRenderer *renderer) = 0;
+                   vtkRenderer *renderer) = 0;
 
   // Description: Perform pick operation with selection point
   // provided. Normally the first two values for the selection point

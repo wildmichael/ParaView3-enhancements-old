@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-30 15:35:18 $
-  Version:   $Revision: 1.76 $
+  Date:      $Date: 2001-11-13 14:18:04 $
+  Version:   $Revision: 1.77 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -141,9 +141,9 @@ void vtkRenderWindowInteractor::SetRenderWindow(vtkRenderWindow *aren)
       {
       this->RenderWindow->Register(this);
       if (this->RenderWindow->GetInteractor() != this)
-	{
-	this->RenderWindow->SetInteractor(this);
-	}
+        {
+        this->RenderWindow->SetInteractor(this);
+        }
       }
     }
 }
@@ -163,9 +163,9 @@ void vtkRenderWindowInteractor::SetInteractorStyle(vtkInteractorStyle *aren)
       {
       this->InteractorStyle->Register(this);
       if (this->InteractorStyle->GetInteractor() != this)
-	{
-	this->InteractorStyle->SetInteractor(this);
-	}
+        {
+        this->InteractorStyle->SetInteractor(this);
+        }
       }
     }
 }

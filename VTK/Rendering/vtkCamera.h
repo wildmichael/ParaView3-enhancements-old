@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCamera.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:38:06 $
-  Version:   $Revision: 1.78 $
+  Date:      $Date: 2001-11-13 14:17:18 $
+  Version:   $Revision: 1.79 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -292,8 +292,8 @@ class VTK_RENDERING_EXPORT vtkCamera : public vtkObject
   // Z-buffer values that map to the near and far clipping planes.
   // The viewport coordinates are in the range ([-1,+1],[-1,+1],[nearz,farz]).
   vtkMatrix4x4 *GetPerspectiveTransformMatrix(double aspect,
-					      double nearz, 
-					      double farz);
+                                              double nearz, 
+                                              double farz);
 
   // Description:
   // Return the concatenation of the ViewTransform and the 
@@ -303,8 +303,8 @@ class VTK_RENDERING_EXPORT vtkCamera : public vtkObject
   // Z-buffer values that map to the near and far clipping planes.
   // The viewport coordinates are in the range ([-1,+1],[-1,+1],[nearz,farz]).
   vtkMatrix4x4 *GetCompositePerspectiveTransformMatrix(double aspect, 
-						       double nearz, 
-						       double farz);
+                                                       double nearz, 
+                                                       double farz);
 
   // Description:
   // This method causes the camera to set up whatever is required for
@@ -382,7 +382,7 @@ protected:
   void ComputeViewTransform();
   void ComputePerspectiveTransform(double aspect, double nearz, double farz);
   void ComputeCompositePerspectiveTransform(double aspect, 
-					    double nearz, double farz);
+                                            double nearz, double farz);
   void ComputeCameraLightTransform();
 
   double WindowCenter[2];

@@ -4,8 +4,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFrustumCoverageCuller.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:38:08 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2001-11-13 14:17:19 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -93,10 +93,10 @@ public:
   // Set the sorting style - none, front-to-back or back-to-front
   // The default is none
   vtkSetClampMacro( SortingStyle, int,
-	VTK_CULLER_SORT_NONE, VTK_CULLER_SORT_BACK_TO_FRONT );
+        VTK_CULLER_SORT_NONE, VTK_CULLER_SORT_BACK_TO_FRONT );
   vtkGetMacro(SortingStyle,int);
   void SetSortingStyleToNone()
-	{this->SetSortingStyle(VTK_CULLER_SORT_NONE);};
+        {this->SetSortingStyle(VTK_CULLER_SORT_NONE);};
   void SetSortingStyleToBackToFront()
     {this->SetSortingStyle(VTK_CULLER_SORT_BACK_TO_FRONT);};
   void SetSortingStyleToFrontToBack()
@@ -111,7 +111,7 @@ public:
   // This method should only be called by vtkRenderer as part of
   // the render process
   float Cull( vtkRenderer *ren, vtkProp **propList,
-	      int& listLength, int& initialized );
+              int& listLength, int& initialized );
 //ETX
 
 protected:

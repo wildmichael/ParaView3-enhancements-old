@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLight.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:41 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 2001-11-13 14:17:49 $
+  Version:   $Revision: 1.44 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -90,8 +90,8 @@ void vtkLight::SetDirectionAngle(float elevation, float azimuth)
   azimuth   *= vtkMath::DegreesToRadians();
 
   this->SetPosition(cos(elevation)*sin(azimuth), 
-		    sin(elevation), 
-		    cos(elevation)*cos(azimuth));
+                    sin(elevation), 
+                    cos(elevation)*cos(azimuth));
 
   this->SetFocalPoint(0.0, 0.0, 0.0);
   this->SetPositional(0);

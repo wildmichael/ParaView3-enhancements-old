@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkParallelCoordinatesActor.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:38:20 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2001-11-13 14:17:26 $
+  Version:   $Revision: 1.14 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -192,7 +192,7 @@ private:
   
   // font characteristics
   int   NumberOfLabels; //along each axis
-  int	Bold;
+  int   Bold;
   int   Italic;
   int   Shadow;
   int   FontFamily;

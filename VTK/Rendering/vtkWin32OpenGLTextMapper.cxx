@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-24 15:48:29 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2001-11-13 14:18:16 $
+  Version:   $Revision: 1.31 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -352,7 +352,7 @@ vtkDebugMacro (<< "RenderOpaqueGeometry");
   if(viewport->GetIsPicking())
     {
     vtkgluPickMatrix(viewport->GetPickX(), viewport->GetPickY(),
-		     1, 1, viewport->GetOrigin(), viewport->GetSize());
+                     1, 1, viewport->GetOrigin(), viewport->GetSize());
     }
   
   glMatrixMode( GL_MODELVIEW );
@@ -395,8 +395,8 @@ vtkDebugMacro (<< "RenderOpaqueGeometry");
     // set the colors for the foreground
     glColor4ub(shadowRed, shadowGreen, shadowBlue, alpha);
     glRasterPos3f((2.0 * (GLfloat)(rect.left) / vsize[0] - 1), 
-		  (2.0 * (GLfloat)(rect.bottom) / vsize[1] - 1), 
-		  (front)?(-1):(.9999));
+                  (2.0 * (GLfloat)(rect.bottom) / vsize[1] - 1), 
+                  (front)?(-1):(.9999));
 
     // Draw the shadow text
     glCallLists (strlen(this->Input), GL_UNSIGNED_BYTE, this->Input);  
@@ -406,8 +406,8 @@ vtkDebugMacro (<< "RenderOpaqueGeometry");
   // set the colors for the foreground
   glColor4ub(red, green, blue, alpha);
   glRasterPos3f((2.0 * (GLfloat)(rect.left) / vsize[0] - 1), 
-		(2.0 * (GLfloat)(rect.bottom) / vsize[1] - 1), 
-		(front)?(-1):(.9999));
+                (2.0 * (GLfloat)(rect.bottom) / vsize[1] - 1), 
+                (front)?(-1):(.9999));
 
   // display a string: // indicate start of glyph display lists 
   glCallLists (strlen(this->Input), GL_UNSIGNED_BYTE, this->Input);  

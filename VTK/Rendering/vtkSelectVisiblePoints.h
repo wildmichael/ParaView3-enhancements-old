@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSelectVisiblePoints.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:38:25 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2001-11-13 14:17:29 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -89,10 +89,10 @@ public:
   void SetRenderer(vtkRenderer* ren)
     {
       if (this->Renderer != ren)
-	{
-	this->Renderer = ren;
-	this->Modified();
-	}
+        {
+        this->Renderer = ren;
+        this->Modified();
+        }
     }
   vtkRenderer* GetRenderer() { return this->Renderer; }
 

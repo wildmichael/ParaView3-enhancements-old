@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPropPicker.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-07 22:27:05 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2001-11-13 14:18:01 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -85,7 +85,7 @@ int vtkPropPicker::Pick(float selectionX, float selectionY,
 
 // Pick from the given collection
 int vtkPropPicker::PickProp(float selectionX, float selectionY,
-			    vtkRenderer *renderer, vtkPropCollection* pickfrom)
+                            vtkRenderer *renderer, vtkPropCollection* pickfrom)
 {
   this->PickFromProps = pickfrom;
   int ret = this->PickProp(selectionX, selectionY, renderer);

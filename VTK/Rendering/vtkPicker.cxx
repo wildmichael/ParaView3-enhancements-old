@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPicker.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-07 22:27:04 $
-  Version:   $Revision: 1.69 $
+  Date:      $Date: 2001-11-13 14:18:00 $
+  Version:   $Revision: 1.70 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -314,16 +314,16 @@ int vtkPicker::Pick(float selectionX, float selectionY, float selectionZ,
           }
         else if ( (prop3D=vtkLODProp3D::SafeDownCast(propCandidate)) != NULL )
           {
-		  LODId = prop3D->GetPickLODID();
+                  LODId = prop3D->GetPickLODID();
           mapper = prop3D->GetLODMapper(LODId);
 
           // if the mapper is a vtkMapper (as opposed to a vtkVolumeMapper), then
           // check the transparency to see if the object is pickable
-		  if ( vtkMapper::SafeDownCast(mapper) != NULL)
-		    {
-		    prop3D->GetLODProperty(LODId, &tempProperty);
+                  if ( vtkMapper::SafeDownCast(mapper) != NULL)
+                    {
+                    prop3D->GetLODProperty(LODId, &tempProperty);
             if ( tempProperty->GetOpacity() <= 0.0 )
-			  {
+                          {
               pickable = 0;
               }
             }

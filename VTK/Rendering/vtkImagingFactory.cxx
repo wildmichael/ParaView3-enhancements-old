@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagingFactory.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-02 13:56:26 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2001-11-13 14:17:43 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -97,7 +97,7 @@ const char *vtkImagingFactoryGetRenderLibrary()
       temp = "Win32OpenGL";
       }
     else if (strcmp("Mesa",temp) && strcmp("OpenGL",temp) && 
-	     strcmp("Win32OpenGL",temp))
+             strcmp("Win32OpenGL",temp))
       {
       vtkGenericWarningMacro(<<"VTK_RENDERER set to unsupported type:" << temp);
       temp = NULL;

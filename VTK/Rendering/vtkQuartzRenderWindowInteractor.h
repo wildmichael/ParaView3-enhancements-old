@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuartzRenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-13 01:38:32 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2001-11-13 14:17:28 $
+  Version:   $Revision: 1.6 $
   
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -160,11 +160,11 @@ protected:
   ~vtkQuartzRenderWindowInteractor();
 
   void   *WindowId;
-  void	 *ApplicationId;
+  void   *ApplicationId;
   int     TimerId;
   void   *OldProc;
   int     InstallMessageProc;
-  int	whichButtonDown; //0=none, 1=left, 2=middle, 3=right
+  int   whichButtonDown; //0=none, 1=left, 2=middle, 3=right
 
   //BTX
   // Description:

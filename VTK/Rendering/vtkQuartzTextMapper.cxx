@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuartzTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-02 01:49:03 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-11-13 14:18:02 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -119,23 +119,23 @@ void vtkQuartzTextMapper::GetSize(vtkViewport* viewport, int *size)
     {
     case VTK_ARIAL:
       strcpy(fontname, "Arial");
-	//  family = FF_SWISS;
-	  break;
-	case VTK_TIMES:
+        //  family = FF_SWISS;
+          break;
+        case VTK_TIMES:
       strcpy(fontname, "Times Roman");
-	 // family = FF_ROMAN;
-	  break;
-	case VTK_COURIER:
+         // family = FF_ROMAN;
+          break;
+        case VTK_COURIER:
       strcpy(fontname, "Courier");
-	//  family = FF_MODERN;
-	  break;
-	default:
+        //  family = FF_MODERN;
+          break;
+        default:
       strcpy(fontname, "Arial");
-	//  family = FF_SWISS;
-	  break;
+        //  family = FF_SWISS;
+          break;
     }
 //  fontStruct.lfHeight = MulDiv(this->FontSize, 
-//			       window->GetDPI(), 72);  
+//                             window->GetDPI(), 72);  
   // height in logical units
 //  fontStruct.lfWidth = 0;  // default width
 //  fontStruct.lfEscapement = 0;
@@ -174,7 +174,7 @@ void vtkQuartzTextMapper::GetSize(vtkViewport* viewport, int *size)
 
   // Calculate the size of the bounding rectangle
 //  size[1] = DrawText(hdc, this->Input, strlen(this->Input), &rect, 
-//		     DT_CALCRECT|DT_LEFT|DT_NOPREFIX);
+//                   DT_CALCRECT|DT_LEFT|DT_NOPREFIX);
 //  size[0] = rect.right - rect.left + 1;
   this->LastSize[0] = size[0];
   this->LastSize[1] = size[1];
@@ -183,7 +183,7 @@ void vtkQuartzTextMapper::GetSize(vtkViewport* viewport, int *size)
 }
 
 void vtkQuartzTextMapper::RenderOverlay(vtkViewport* viewport, 
-				       vtkActor2D* actor)
+                                       vtkActor2D* actor)
 {
   vtkDebugMacro (<< "RenderOverlay");
 

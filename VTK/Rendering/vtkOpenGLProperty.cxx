@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLProperty.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-14 04:21:42 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2001-11-13 14:17:57 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -74,7 +74,7 @@ vtkOpenGLProperty* vtkOpenGLProperty::New()
 
 // Implement base class method.
 void vtkOpenGLProperty::Render(vtkActor *vtkNotUsed(anActor),
-			     vtkRenderer *vtkNotUsed(ren))
+                             vtkRenderer *vtkNotUsed(ren))
 {
   int i;
   GLenum method;
@@ -175,7 +175,7 @@ void vtkOpenGLProperty::Render(vtkActor *vtkNotUsed(anActor),
 
 // Implement base class method.
 void vtkOpenGLProperty::BackfaceRender(vtkActor *vtkNotUsed(anActor),
-			     vtkRenderer *vtkNotUsed(ren))
+                             vtkRenderer *vtkNotUsed(ren))
 {
   int i;
   float Info[4];

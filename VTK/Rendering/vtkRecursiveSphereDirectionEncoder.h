@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRecursiveSphereDirectionEncoder.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:38:24 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2001-11-13 14:17:28 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -102,7 +102,7 @@ public:
   // of directions is 16643, with 16386 unique directions and a 
   // zero normal.
   vtkSetClampMacro( RecursionDepth, int, 0, 6 );
-  vtkGetMacro( RecursionDepth, int );					     
+  vtkGetMacro( RecursionDepth, int );                                        
 
 protected:
   vtkRecursiveSphereDirectionEncoder();

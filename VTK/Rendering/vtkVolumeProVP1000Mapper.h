@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProVP1000Mapper.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-08 21:21:58 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-11-13 14:17:32 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -95,9 +95,9 @@ public:
   virtual void Render( vtkRenderer *, vtkVolume * );
   virtual int GetAvailableBoardMemory();
   virtual void GetLockSizesForBoardMemory( unsigned int type,
-					   unsigned int *xSize,
-					   unsigned int *ySize,
-					   unsigned int *zSize );
+                                           unsigned int *xSize,
+                                           unsigned int *ySize,
+                                           unsigned int *zSize );
 protected:
   vtkVolumeProVP1000Mapper();
   ~vtkVolumeProVP1000Mapper();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-20 21:12:11 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2001-11-13 14:18:10 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -50,9 +50,9 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // reentrant requirements reasons. At the end, the SpecificFunctionInitialize
 // is called to give the subclass a chance to do its thing.
 void vtkVolumeRayCastFunction::FunctionInitialize( 
-				vtkRenderer *ren, 
-				vtkVolume *vol,
-				VTKVRCStaticInfo *staticInfo )
+                                vtkRenderer *ren, 
+                                vtkVolume *vol,
+                                VTKVRCStaticInfo *staticInfo )
 {
   vtkVolumeRayCastMapper *mapper = 
     vtkVolumeRayCastMapper::SafeDownCast( vol->GetMapper() );
@@ -96,7 +96,7 @@ void vtkVolumeRayCastFunction::FunctionInitialize(
     staticInfo->RGBDataIncrement[0] = 3;
     staticInfo->RGBDataIncrement[1] = 3*staticInfo->RGBDataSize[0];
     staticInfo->RGBDataIncrement[2] = 3*( staticInfo->RGBDataSize[0] * 
-					  staticInfo->RGBDataSize[1] );
+                                          staticInfo->RGBDataSize[1] );
 
     staticInfo->RGBDataPointer = (unsigned char *)
       mapper->GetRGBTextureInput()->GetPointData()->

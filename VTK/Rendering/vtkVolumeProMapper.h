@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProMapper.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-08 21:21:58 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2001-11-13 14:17:31 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -111,14 +111,14 @@ public:
   // Description:
   // Set the blend mode
   vtkSetClampMacro( BlendMode, int,
-	VTK_BLEND_MODE_COMPOSITE, VTK_BLEND_MODE_MIN_INTENSITY );
+        VTK_BLEND_MODE_COMPOSITE, VTK_BLEND_MODE_MIN_INTENSITY );
   vtkGetMacro(BlendMode,int);
   void SetBlendModeToComposite() 
-	{this->SetBlendMode(VTK_BLEND_MODE_COMPOSITE);};
+        {this->SetBlendMode(VTK_BLEND_MODE_COMPOSITE);};
   void SetBlendModeToMaximumIntensity() 
-	{this->SetBlendMode(VTK_BLEND_MODE_MAX_INTENSITY);};
+        {this->SetBlendMode(VTK_BLEND_MODE_MAX_INTENSITY);};
   void SetBlendModeToMinimumIntensity() 
-	{this->SetBlendMode(VTK_BLEND_MODE_MIN_INTENSITY);};
+        {this->SetBlendMode(VTK_BLEND_MODE_MIN_INTENSITY);};
   const char *GetBlendModeAsString(void);
 
   // Description:
@@ -135,7 +135,7 @@ public:
   // Description:
   // Set the type of the cursor
   vtkSetClampMacro( CursorType, int, 
-		    VTK_CURSOR_TYPE_CROSSHAIR, VTK_CURSOR_TYPE_PLANE );
+                    VTK_CURSOR_TYPE_CROSSHAIR, VTK_CURSOR_TYPE_PLANE );
   vtkGetMacro( CursorType, int );
   void SetCursorTypeToCrossHair()
     { this->SetCursorType( VTK_CURSOR_TYPE_CROSSHAIR ); };
@@ -221,9 +221,9 @@ public:
   vtkGetMacro( MinorBoardVersion, int );
   virtual int GetAvailableBoardMemory() { return 0; }
   virtual void GetLockSizesForBoardMemory( unsigned int vtkNotUsed(type),
-					   unsigned int * vtkNotUsed(xSize),
-					   unsigned int * vtkNotUsed(ySize),
-					   unsigned int * vtkNotUsed(zSize)) {};
+                                           unsigned int * vtkNotUsed(xSize),
+                                           unsigned int * vtkNotUsed(ySize),
+                                           unsigned int * vtkNotUsed(zSize)) {};
 
   // Description:
   // Specify whether any geometry intersects the volume.

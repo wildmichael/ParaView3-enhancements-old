@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkImageViewerWidget.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:14 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2001-11-13 14:17:30 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -64,8 +64,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 struct vtkTkImageViewerWidget
 {
-  Tk_Window  TkWin;		/* Tk window structure */
-  Tcl_Interp *Interp;		/* Tcl interpreter */
+  Tk_Window  TkWin;             /* Tk window structure */
+  Tcl_Interp *Interp;           /* Tcl interpreter */
   int Width;
   int Height;
   vtkImageViewer *ImageViewer;

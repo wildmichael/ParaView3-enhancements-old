@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImager.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-10-10 14:30:20 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2001-11-13 14:17:42 $
+  Version:   $Revision: 1.27 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -83,7 +83,7 @@ int vtkImager::RenderOpaqueGeometry()
   this->InvokeEvent(vtkCommand::StartEvent,NULL);
   
   for ( this->Props->InitTraversal(); 
-	(tempActor = this->Props->GetNextProp());)
+        (tempActor = this->Props->GetNextProp());)
     {
     // Make sure that the actor is visible before rendering
     if (tempActor->GetVisibility() == 1)
@@ -105,7 +105,7 @@ int vtkImager::RenderTranslucentGeometry()
   vtkDebugMacro (<< "vtkImager::RenderTranslucent");
   
   for ( this->Props->InitTraversal(); 
-	(tempActor = this->Props->GetNextProp());)
+        (tempActor = this->Props->GetNextProp());)
     {
     // Make sure that the actor is visible before rendering
     if (tempActor->GetVisibility() == 1)
@@ -157,8 +157,8 @@ void vtkImager::SetImageWindow(vtkImageWindow* win)
     // context specific) information (such as display lists and texture ids)
     this->Props->InitTraversal();
     for ( aProp = this->Props->GetNextProp();
-	  aProp != NULL;
-	  aProp = this->Props->GetNextProp() )
+          aProp != NULL;
+          aProp = this->Props->GetNextProp() )
       {
       aProp->ReleaseGraphicsResources(this->VTKWindow);
       }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLVolumeTextureMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-10 17:54:10 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2001-11-13 14:17:59 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -114,8 +114,8 @@ void vtkOpenGLVolumeTextureMapper2D::Render(vtkRenderer *ren, vtkVolume *vol)
       planeEquation[1] = plane->GetNormal()[1]; 
       planeEquation[2] = plane->GetNormal()[2];
       planeEquation[3] = -(planeEquation[0]*plane->GetOrigin()[0]+
-			   planeEquation[1]*plane->GetOrigin()[1]+
-			   planeEquation[2]*plane->GetOrigin()[2]);
+                           planeEquation[1]*plane->GetOrigin()[1]+
+                           planeEquation[2]*plane->GetOrigin()[2]);
       glClipPlane((GLenum)(GL_CLIP_PLANE0+i),planeEquation);
       }
     }
@@ -178,7 +178,7 @@ void vtkOpenGLVolumeTextureMapper2D::Render(vtkRenderer *ren, vtkVolume *vol)
   if ( this->TimeToDraw == 0.0 )
     {
     this->TimeToDraw = 0.0001;
-    }	
+    }   
 }
 
 void vtkOpenGLVolumeTextureMapper2D::RenderQuads( int numQuads,
@@ -189,10 +189,10 @@ void vtkOpenGLVolumeTextureMapper2D::RenderQuads( int numQuads,
 {
 #ifdef GL_VERSION_1_1
   glTexImage2D( GL_TEXTURE_2D, 0, GL_RGBA8, size[0], size[1], 
-		0, GL_RGBA, GL_UNSIGNED_BYTE, texture );
+                0, GL_RGBA, GL_UNSIGNED_BYTE, texture );
 #else
   glTexImage2D( GL_TEXTURE_2D, 0, 4, size[0], size[1], 
-		0, GL_RGBA, GL_UNSIGNED_BYTE, texture );
+                0, GL_RGBA, GL_UNSIGNED_BYTE, texture );
 #endif
 
   glBegin( GL_QUADS );

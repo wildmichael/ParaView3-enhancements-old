@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalarBarActor.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:38:25 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2001-11-13 14:17:29 $
+  Version:   $Revision: 1.35 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -189,7 +189,7 @@ protected:
   int   Orientation;
   char  *Title;
 
-  int	Bold;
+  int   Bold;
   int   Italic;
   int   Shadow;
   int   FontFamily;

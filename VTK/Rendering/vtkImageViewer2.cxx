@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageViewer2.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-07 22:27:04 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-11-13 14:17:43 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -144,21 +144,21 @@ public:
       
       // scale by current values
       if (fabs(window) > 0.01)
-	{
-	dx = dx * window;
-	}
+        {
+        dx = dx * window;
+        }
       else
-	{
-	dx = dx * (window < 0 ? -0.01 : 0.01);
-	}
+        {
+        dx = dx * (window < 0 ? -0.01 : 0.01);
+        }
       if (fabs(level) > 0.01)
-	{
-	dy = dy * level;
-	}
+        {
+        dy = dy * level;
+        }
       else
-	{
-	dy = dy * (level < 0 ? -0.01 : 0.01);
-	}
+        {
+        dy = dy * (level < 0 ? -0.01 : 0.01);
+        }
       
       // abs so that direction does not flip
       if (window < 0.0) 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyle.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-30 15:35:18 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 2001-11-13 14:17:44 $
+  Version:   $Revision: 1.44 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -815,7 +815,7 @@ void vtkInteractorStyle::OnChar(int ctrl, int shift,
 // enters or leaves the window.
 //----------------------------------------------------------------------------
 void vtkInteractorStyle::OnConfigure(int vtkNotUsed(width), 
-				     int vtkNotUsed(height))
+                                     int vtkNotUsed(height))
 {
 }
 //----------------------------------------------------------------------------

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-19 18:54:32 $
-  Version:   $Revision: 1.109 $
+  Date:      $Date: 2001-11-13 14:17:38 $
+  Version:   $Revision: 1.110 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -385,16 +385,16 @@ float *vtkActor::GetBounds()
     for (i = 0; i < 8; i++)
       {
       for (n = 0; n < 3; n++)
-	{
-	if (bbox[i*3+n] < this->Bounds[n*2]) 
-	  {
-	  this->Bounds[n*2] = bbox[i*3+n];
-	  }
-	if (bbox[i*3+n] > this->Bounds[n*2+1]) 
-	  {
-	  this->Bounds[n*2+1] = bbox[i*3+n];
-	  }
-	}
+        {
+        if (bbox[i*3+n] < this->Bounds[n*2]) 
+          {
+          this->Bounds[n*2] = bbox[i*3+n];
+          }
+        if (bbox[i*3+n] > this->Bounds[n*2+1]) 
+          {
+          this->Bounds[n*2+1] = bbox[i*3+n];
+          }
+        }
       }
     this->BoundsMTime.Modified();
     }

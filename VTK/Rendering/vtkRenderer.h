@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:38:24 $
-  Version:   $Revision: 1.100 $
+  Date:      $Date: 2001-11-13 14:17:28 $
+  Version:   $Revision: 1.101 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -203,8 +203,8 @@ public:
   // This method is called from ResetCameraClippingRange()
   void ResetCameraClippingRange( float bounds[6] );
   void ResetCameraClippingRange( float xmin, float xmax, 
-				 float ymin, float ymax, 
-				 float zmin, float zmax);
+                                 float ymin, float ymax, 
+                                 float zmin, float zmax);
 
   // Description:
   // Automatically set up the camera based on the visible actors.

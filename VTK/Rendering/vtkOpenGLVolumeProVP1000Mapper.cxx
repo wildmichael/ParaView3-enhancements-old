@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLVolumeProVP1000Mapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-08 21:21:57 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-11-13 14:17:58 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -163,11 +163,11 @@ void vtkOpenGLVolumeProVP1000Mapper::RenderImageBuffer(vtkRenderer  *ren,
 #ifdef GL_VERSION_1_1
   glTexImage2D( GL_TEXTURE_2D, 0, GL_RGBA8, 
                 textureSize[0], textureSize[1],
-		0, GL_RGBA, GL_UNSIGNED_BYTE, textureData );
+                0, GL_RGBA, GL_UNSIGNED_BYTE, textureData );
 #else
   glTexImage2D( GL_TEXTURE_2D, 0, 4, 
                 textureSize[0], textureSize[1],
-		0, GL_RGBA, GL_UNSIGNED_BYTE, textureData );
+                0, GL_RGBA, GL_UNSIGNED_BYTE, textureData );
 #endif 
   
   tCoords[0][0] = 0.0;

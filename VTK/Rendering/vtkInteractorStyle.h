@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyle.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:38:11 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2001-11-13 14:17:20 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -180,9 +180,9 @@ public:
   virtual void OnKeyDown(int ctrl, int shift, char keycode, int repeatcount);
   virtual void OnKeyUp  (int ctrl, int shift, char keycode, int repeatcount);
   virtual void OnKeyPress(int ctrl, int shift, char keycode, char *keysym, 
-			  int repeatcount);
+                          int repeatcount);
   virtual void OnKeyRelease(int ctrl, int shift, char keycode, char *keysym,
-			    int repeatcount);
+                            int repeatcount);
 
   // Description:
   // These are more esoteric events, but are useful in some cases.

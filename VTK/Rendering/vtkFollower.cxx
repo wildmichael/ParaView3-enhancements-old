@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFollower.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-10-10 14:30:21 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2001-11-13 14:17:41 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -127,13 +127,13 @@ void vtkFollower::GetMatrix(vtkMatrix4x4 *result)
     else
       {
       distance = sqrt(
-	(pos[0] - this->Position[0])*(pos[0] - this->Position[0]) +
+        (pos[0] - this->Position[0])*(pos[0] - this->Position[0]) +
         (pos[1] - this->Position[1])*(pos[1] - this->Position[1]) +
         (pos[2] - this->Position[2])*(pos[2] - this->Position[2]));
       for (i = 0; i < 3; i++)
-	{
+        {
         Rz[i] = (pos[i] - this->Position[i])/distance;
-	}
+        }
       }
   
     vtkMath::Cross(vup,Rz,Rx);

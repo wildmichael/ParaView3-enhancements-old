@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMesaTextMapper.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:38:36 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2001-11-13 14:17:37 $
+  Version:   $Revision: 1.9 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -72,7 +72,7 @@ public:
   // Description:
   // An internal function used for caching font display lists.
   static int GetListBaseForFont(vtkTextMapper *tm, vtkViewport *vp,
-				Font);
+                                Font);
 
 protected:
   vtkXMesaTextMapper();
