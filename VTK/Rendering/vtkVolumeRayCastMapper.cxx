@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-16 15:26:14 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1997-07-16 15:35:39 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -69,6 +69,8 @@ vtkVolumeRayCastMapper::vtkVolumeRayCastMapper()
   this->OpacityTFArray          = NULL;
   this->RGBTFArray              = NULL;
   this->GrayTFArray             = NULL;
+  this->CorrectedOpacityTFArray = NULL;
+  this->CorrectedStepSize       = -1;
 }
 
 // Description:
