@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: TestImageIterator.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-19 20:43:58 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-04-25 14:10:48 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,7 @@
 #include "vtkImageData.h"
 
 template<class T>
-int DoTest(T*)
+inline int DoTest(T*)
 {
   int ext[6] = { 0, 0, 0, 0, 0, 0 };
   vtkImageData *id = vtkImageData::New();
@@ -40,6 +40,7 @@ int DoTest(T*)
   id->Delete();
   return 0;
 }
+
 
 int main()
 {
