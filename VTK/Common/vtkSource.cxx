@@ -3,8 +3,8 @@
  Program:   Visualization Toolkit
  Module:    $RCSfile: vtkSource.cxx,v $
  Language:  C++
- Date:      $Date: 2001-02-28 22:55:28 $
- Version:   $Revision: 1.78 $
+ Date:      $Date: 2001-07-25 11:44:38 $
+ Version:   $Revision: 1.79 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -265,6 +265,8 @@ void vtkSource::UpdateInformation()
 
 void vtkSource::PropagateUpdateExtent(vtkDataObject *output)
 {
+  int idx;
+
   // check flag to avoid executing forever if there is a loop
   if (this->Updating)
     {
@@ -284,6 +286,20 @@ void vtkSource::PropagateUpdateExtent(vtkDataObject *output)
 	<< " method and allocate your own data.");  
     }
   
+  // If the user defines a ComputeInputUpdateExtent method,
+  // I want RequestExactUpdateExtent to be off by default (User does nothing else).
+  // Otherwise, the ComputeInputUpdateExtent in this superclass sets
+  // RequestExactExtent to on.  The reason for this initialization here is 
+  // if this sources shares an input with another, we do not want the input's
+  // RequestExactExtent "state" to interfere with each other.
+  for (idx = 0; idx < this->NumberOfInputs; ++idx)
+    {
+    if (this->Inputs[idx] != NULL)
+      {
+      this->Inputs[idx]->RequestExactExtentOff();
+      }
+    }  
+      
   // Give the subclass a chance to request a larger extent on 
   // the inputs. This is necessary when, for example, a filter
   // requires more data at the "internal" boundaries to 
@@ -295,7 +311,7 @@ void vtkSource::PropagateUpdateExtent(vtkDataObject *output)
   // Now that we know the input update extent, propogate this
   // through all the inputs.
   this->Updating = 1;
-  for (int idx = 0; idx < this->NumberOfInputs; ++idx)
+  for (idx = 0; idx < this->NumberOfInputs; ++idx)
     {
     if (this->Inputs[idx] != NULL)
       {
