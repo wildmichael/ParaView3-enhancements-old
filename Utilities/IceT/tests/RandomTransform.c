@@ -1,5 +1,5 @@
 /* -*- c -*- *****************************************************************
-** $Id: RandomTransform.c,v 1.7 2003-08-12 20:35:26 kmorel Exp $
+** $Id: RandomTransform.c,v 1.8 2003-08-12 20:40:27 kmorel Exp $
 **
 ** Copyright (C) 2003 Sandia Corporation
 ** Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -298,7 +298,7 @@ int RandomTransform(int argc, char *argv[])
 
   /* Set up OpenGL. */
     glClearColor(background_color[0], background_color[1],
-		 background_color[2], 0.0);
+		 background_color[2], 1.0);
     glDisable(GL_LIGHTING);
 
     glMatrixMode(GL_PROJECTION);
