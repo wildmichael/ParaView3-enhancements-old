@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataNormals.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-14 21:25:22 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1998-11-03 01:17:23 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -119,7 +119,10 @@ void vtkPolyDataNormals::Execute()
       polys = vtkCellArray::New();
       polys->Allocate(polys->EstimateSize(numStrips,5));
       }
-    strip->DecomposeStrips(inStrips,polys);
+    for ( inStrips->InitTraversal(); inStrips->GetNextCell(npts,pts); )
+      {
+      strip->DecomposeStrip(npts, pts, polys);
+      }
     OldMesh->SetPolys(polys);
     polys->Delete();
     numPolys = polys->GetNumberOfCells();//added some new triangles
