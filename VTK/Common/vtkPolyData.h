@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPolyData.h,v $
   Language:  C++
-  Date:      $Date: 1994-09-30 17:09:10 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 1994-10-04 14:25:16 $
+  Version:   $Revision: 1.35 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -81,6 +81,10 @@ public:
   // special operations on cell
   void ReverseCell(int cellId);
   void ReplaceCell(int cellId, vlIdList& ptIds);
+  void GetCellEdgeNeighbors(int cellId, int p1, int p2, vlIdList& cellIds);
+  void GetCellPoints(int cellId, int& npts, int* &pts);
+  void BuildCells();
+  void BuildLinks();
 
 protected:
   // points inherited
@@ -97,8 +101,6 @@ protected:
   // built only when necessary
   vlCellList *Cells;
   vlLinkList *Links;
-  void BuildCells();
-  void BuildLinks();
 
 };
 
