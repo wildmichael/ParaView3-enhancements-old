@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDataDesc.h,v 1.6 2004-01-15 21:43:56 andy Exp $  */
-/*  Date : $Date: 2004-01-15 21:43:56 $ */
-/*  Version : $Revision: 1.6 $ */
+/*  Id : $Id: XdmfDataDesc.h,v 1.7 2004-01-21 20:25:34 andy Exp $  */
+/*  Date : $Date: 2004-01-21 20:25:34 $ */
+/*  Version : $Revision: 1.7 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -211,6 +211,9 @@ protected:
   hssize_t  Start[XDMF_MAX_DIMENSION];
   hsize_t    Stride[XDMF_MAX_DIMENSION];
   hsize_t    Count[XDMF_MAX_DIMENSION];
+
+  void SetShapeString(XdmfConstString shape);
+  XdmfString ShapeString;
 };
 
 #endif // __XdmfDataDesc_h

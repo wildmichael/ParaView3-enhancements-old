@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXdmfWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2004-01-10 00:09:46 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2004-01-21 20:25:34 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen  
@@ -72,7 +72,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro(vtkXdmfWriter);
-vtkCxxRevisionMacro(vtkXdmfWriter, "$Revision: 1.10 $");
+vtkCxxRevisionMacro(vtkXdmfWriter, "$Revision: 1.11 $");
 
 //----------------------------------------------------------------------------
 vtkXdmfWriter::vtkXdmfWriter()
@@ -104,6 +104,7 @@ vtkXdmfWriter::~vtkXdmfWriter()
     }
   this->SetHDF5ArrayName(0);
   this->SetDomainName(0);
+  this->SetGridName(0);
 }
 
 //----------------------------------------------------------------------------

@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfTransform.h,v 1.5 2003-11-07 19:19:58 clarke Exp $  */
-/*  Date : $Date: 2003-11-07 19:19:58 $ */
-/*  Version : $Revision: 1.5 $ */
+/*  Id : $Id: XdmfTransform.h,v 1.6 2004-01-21 20:25:34 andy Exp $  */
+/*  Date : $Date: 2004-01-21 20:25:34 $ */
+/*  Version : $Revision: 1.6 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -72,7 +72,7 @@ public :
 
   XdmfString  GetTransform( void ) { return( this->DataTransform ); };
 //! Return a Data Desc from a DOM Element
-  XdmfDataDesc  *ElementToDataDesc( XdmfXNode *Element );
+  XdmfDataDesc  *ElementToDataDesc( XdmfXNode *Element, int store = 1 );
   XdmfArray  *ElementToArray( XdmfXNode *Element );
 //! Create/Modify a DOM Element based on Data Desc
   XdmfXNode    *DataDescToElement( XdmfDataDesc *Desc, XdmfString HeavyDataName,

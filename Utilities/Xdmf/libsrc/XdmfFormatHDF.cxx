@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfFormatHDF.cxx,v 1.6 2004-01-15 21:43:56 andy Exp $  */
-/*  Date : $Date: 2004-01-15 21:43:56 $ */
-/*  Version : $Revision: 1.6 $ */
+/*  Id : $Id: XdmfFormatHDF.cxx,v 1.7 2004-01-21 20:25:34 andy Exp $  */
+/*  Date : $Date: 2004-01-21 20:25:34 $ */
+/*  Version : $Revision: 1.7 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -62,7 +62,7 @@ if( Data && strlen( Data ) > 1 ){
     NewArray = Array = new XdmfArray( NumberType );
     }
   if( Desc == NULL ){
-    NewDesc = Desc = this->ElementToDataDesc( Element );
+    NewDesc = Desc = this->ElementToDataDesc( Element, 0 );
     }
   if( Desc ){
     XdmfHDF  H5;

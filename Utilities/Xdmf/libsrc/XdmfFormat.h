@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfFormat.h,v 1.5 2003-11-07 19:19:58 clarke Exp $  */
-/*  Date : $Date: 2003-11-07 19:19:58 $ */
-/*  Version : $Revision: 1.5 $ */
+/*  Id : $Id: XdmfFormat.h,v 1.6 2004-01-21 20:25:34 andy Exp $  */
+/*  Date : $Date: 2004-01-21 20:25:34 $ */
+/*  Version : $Revision: 1.6 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -67,7 +67,7 @@ public :
 
   XdmfString  GetFormat( void ) { return( this->DataFormat ); };
 //! Return a Data Desc from a DOM Element
-  XdmfDataDesc  *ElementToDataDesc( XdmfXNode *Element );
+  XdmfDataDesc  *ElementToDataDesc( XdmfXNode *Element, int store = 1 );
 //! Return Data Desc from Compound Element ( Used Internally )
   XdmfDataDesc  *ElementToCompoundDataDesc( XdmfXNode *Element );
 //! Create/Modify a DOM Element based on Data Desc
@@ -75,6 +75,8 @@ public :
 
 protected :
   char  DataFormat[ XDMF_MAX_STRING_LENGTH ];
+
+  XdmfDataDesc* LocalDataDesc;
 };
 
 #endif
