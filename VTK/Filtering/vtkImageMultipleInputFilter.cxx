@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMultipleInputFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-16 13:46:56 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1997-07-16 16:02:19 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -246,8 +246,7 @@ void vtkImageMultipleInputFilter::AddInput(vtkImageCache *input)
 
 //----------------------------------------------------------------------------
 // Description:
-// Set an Input of this filter. If a ScalarType has not been set,
-// then the ScalarType of the input is used.
+// Set an Input of this filter. 
 void vtkImageMultipleInputFilter::SetInput(int num, vtkImageCache *input)
 {
   if (num < 0)
@@ -434,6 +433,8 @@ void vtkImageMultipleInputFilter::UpdateImageInformation()
   this->Output->SetWholeExtent(this->Inputs[0]->GetWholeExtent());
   this->Output->SetSpacing(this->Inputs[0]->GetSpacing());
   this->Output->SetOrigin(this->Inputs[0]->GetOrigin());
+  this->Output->SetNumberOfScalarComponents(
+			    this->Inputs[0]->GetNumberOfScalarComponents());
   if ( ! this->Bypass)
     {
     // Let the subclass modify the default.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-11 20:23:28 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 1997-07-16 16:01:58 $
+  Version:   $Revision: 1.31 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -281,10 +281,6 @@ void vtkImageData::SetExtent(int num, int *extent)
   int idx, modified = 0;
   vtkDebugMacro(<< "SetExtent: ...");
 
-  if (this->GetReferenceCount() > 1)
-    {
-    vtkWarningMacro(<< "SetExtent: This object has more than one reference!");
-    }
   if (this->ScalarsAllocated)
     {
     vtkErrorMacro(<< "SetExtent: Data object has already been allocated.");

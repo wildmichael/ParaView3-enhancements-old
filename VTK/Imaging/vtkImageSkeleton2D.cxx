@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSkeleton2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-16 13:46:59 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1997-07-16 16:02:20 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -80,8 +80,8 @@ static unsigned char VTK_IMAGE_SKELETON2D_CASES[] =
   0, 0, 0, 0,   0, 0, 0, 0,    // 216-223
   0, 0, 0, 0,   0, 0, 0, 0,    // 224-231
   0, 0, 0, 0,   0, 0, 0, 0,    // 232-239
-  2, 2, 2, 0,   2, 0, 0, 0,    // 240-247
-  2, 0, 0, 0,   0, 0, 0, 2     // 248-255
+  2, 2, 2, 2,   2, 2, 2, 2,    // 240-247
+  2, 2, 2, 2,   2, 2, 2, 2     // 248-255
 };
 
   
