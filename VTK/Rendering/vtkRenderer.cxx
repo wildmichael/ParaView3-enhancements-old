@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-09-25 12:40:02 $
-  Version:   $Revision: 1.159 $
+  Date:      $Date: 2000-09-27 19:01:47 $
+  Version:   $Revision: 1.160 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -327,15 +327,12 @@ void vtkRenderer::Render(void)
     t2 = vtkTimerLog::GetCurrentTime();
     this->LastRenderTimeInSeconds = (float) (t2 - t1);
 
-    if (this->LastRenderTimeInSeconds == 0)
+    if (this->LastRenderTimeInSeconds == 0.0)
       {
-      this->TimeFactor = VTK_LARGE_FLOAT;
+      this->LastRenderTimeInSeconds = 0.0001;
       }
-    else
-      {
-      this->TimeFactor = totalEstimate 
-                          / this->LastRenderTimeInSeconds;
-      }
+    this->TimeFactor = totalEstimate / this->LastRenderTimeInSeconds;
+    //this->TimeFactor = 1.0;
     }
 }
 
