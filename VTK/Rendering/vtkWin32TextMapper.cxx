@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32TextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-06 21:16:58 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1999-07-13 17:46:56 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -46,6 +46,14 @@ vtkWin32TextMapper::vtkWin32TextMapper()
   this->LastSize[0] = 0;
   this->LastSize[1] = 0;
   this->Font = 0;
+}
+
+vtkWin32TextMapper::~vtkWin32TextMapper()
+{
+  if ( this->Font )
+    {
+    DeleteObject( this->Font );
+    }
 }
 
 void vtkWin32TextMapper::GetSize(vtkViewport* viewport, int *size)
