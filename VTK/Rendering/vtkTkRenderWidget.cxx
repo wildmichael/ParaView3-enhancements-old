@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkRenderWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-04-16 21:57:34 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1998-04-23 15:06:07 $
+  Version:   $Revision: 1.22 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -489,6 +489,8 @@ static int vtkTkRenderWidget_MakeRenderWindow(struct vtkTkRenderWidget *self)
     return TCL_OK;
     }
   
+  dpy = Tk_Display(self->TkWin);
+
   if (winPtr->window != None) 
     {
     // XDestroyWindow(dpy, winPtr->window);

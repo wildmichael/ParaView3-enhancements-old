@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-04-08 21:47:24 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 1998-04-23 15:05:52 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -308,7 +308,6 @@ void vtkXRenderWindowInteractorCallback(Widget vtkNotUsed(w),
 					XEvent *event, 
 					Boolean *vtkNotUsed(ctd))
 {
-  XEvent marker;
   vtkXRenderWindowInteractor *me;
 
   me = (vtkXRenderWindowInteractor *)client_data;
