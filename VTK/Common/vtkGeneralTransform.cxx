@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGeneralTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-05-01 15:09:14 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2000-05-02 22:22:38 $
+  Version:   $Revision: 1.25 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -228,6 +228,20 @@ void vtkGeneralTransform::UnRegister(vtkObject *o)
     this->MyInverse->Delete();
     this->MyInverse = NULL;
     this->InUnRegister = 0;
+    }
+  // for transforms with a concatenation, check to see whether we
+  // are being used as an inverse transform
+  else if (this->Concatenation && 
+	   this->Concatenation->GetNumberOfTransforms() > 0)
+    {
+    vtkGeneralTransform *transform = this->Concatenation->GetTransform(0);
+    if (transform->MyInverse == this && this->ReferenceCount == 2 &&
+	transform->GetReferenceCount() == 1)
+      {
+      this->InUnRegister = 1;
+      this->Concatenation->Identity();
+      this->InUnRegister = 0;
+      }
     }
 
   this->vtkObject::UnRegister(o);
