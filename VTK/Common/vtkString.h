@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkString.h,v $
   Language:  C++
-  Date:      $Date: 2002-07-09 20:47:38 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-10-07 14:46:52 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -54,11 +54,22 @@ public:
   static int Compare(const char* str1, const char* str2);
 
   // Description:
+  // This method compare two strings. It is similar to Compare, but it
+  // ignores case.
+  static int CompareCase(const char* str1, const char* str2);
+
+  // Description:
   // This method compare two strings. It is similar to strcmp, but it
   // can handle null pointers. Also it only returns C style true or
   // false versus compare which returns also which one is greater.
   static int Equals(const char* str1, const char* str2)
     { return vtkString::Compare(str1, str2) == 0; }
+
+  // Description:
+  // This method compare two strings. It is similar to Equals, but it
+  // ignores case.
+  static int EqualsCase(const char* str1, const char* str2)
+    { return vtkString::CompareCase(str1, str2) == 0; }
 
   // Description:
   // Check if the first string starts with the second one.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkString.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-07-09 21:33:51 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-10-07 14:46:52 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkString.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkString, "$Revision: 1.4 $");
+vtkCxxRevisionMacro(vtkString, "$Revision: 1.5 $");
 vtkStandardNewMacro(vtkString);
  
 //----------------------------------------------------------------------------
@@ -133,5 +133,29 @@ char* vtkString::Append(const char* str1, const char* str2)
     strcat(newstr, str2);
     }
   return newstr;
+}
+
+#if defined( _WIN32 ) && !defined(__CYGWIN__)
+#  if defined(__BORLANDC__)
+#    define STRCASECMP stricmp
+#  else
+#    define STRCASECMP _stricmp
+#  endif
+#else
+#  define STRCASECMP strcasecmp
+#endif
+
+//----------------------------------------------------------------------------
+int vtkString::CompareCase(const char* str1, const char* str2)
+{
+  if ( !str1 )
+    {
+    return -1;
+    }
+  if ( !str2 )
+    {
+    return 1;
+    }
+  return STRCASECMP(str1, str2);
 }
 
