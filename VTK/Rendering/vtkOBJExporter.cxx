@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOBJExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-06 04:20:59 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2000-12-06 15:12:34 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -130,7 +130,7 @@ void vtkOBJExporter::WriteData()
   vtkAssemblyPath *apath;
   for (ac->InitTraversal(); (anActor = ac->GetNextActor()); )
     {
-    for (anActor->InitPathTraversal(); apath=anActor->GetNextPath(); )
+    for (anActor->InitPathTraversal(); (apath=anActor->GetNextPath()); )
       {
       aPart=(vtkActor *)apath->GetLastNode()->GetProp();
       this->WriteAnActor(aPart, fpObj, fpMtl, idStart);
