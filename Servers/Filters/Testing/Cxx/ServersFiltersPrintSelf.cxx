@@ -1,7 +1,7 @@
 /*=========================================================================
 
   Program:   ParaView
-  Module:    $RCSfile: test.cxx,v $
+  Module:    $RCSfile: ServersFiltersPrintSelf.cxx,v $
 
   Copyright (c) Kitware, Inc.
   All rights reserved.
