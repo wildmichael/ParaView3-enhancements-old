@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkImageWindowWidget.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-16 21:09:20 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-03-25 21:50:37 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,8 +55,11 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #define __vtkTkImageWindowWidget_h
 
 #include "vtkImageWindow.h"
+#include <tcl.h>
+#include <tk.h>
+#ifndef VTK_PYTHON_BUILD
 #include "vtkTclUtil.h"
-
+#endif
 struct vtkTkImageWindowWidget
 {
   Tk_Window  TkWin;		/* Tk window structure */

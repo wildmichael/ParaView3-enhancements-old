@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkImageViewerWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-02-24 17:51:33 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1999-03-25 21:50:37 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,8 +41,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include <stdlib.h>
 
 #include "vtkTkImageViewerWidget.h"
-#include <tcl.h>
-#include <tk.h>
 
 #ifdef _WIN32
 #include "vtkWin32ImageWindow.h"
@@ -475,16 +473,20 @@ static int vtkTkImageViewerWidget_MakeImageViewer(struct vtkTkImageViewerWidget 
     // Make the ImageViewer window.
     self->ImageViewer = vtkImageViewer::New();
     ImageViewer = (vtkImageViewer *)(self->ImageViewer);
+#ifndef VTK_PYTHON_BUILD
     vtkTclGetObjectFromPointer(self->Interp, self->ImageViewer,
 			       vtkImageViewerCommand);
+#endif
     self->IV = strdup(self->Interp->result);
     self->Interp->result[0] = '\0';
     }
   else
     {
+#ifndef VTK_PYTHON_BUILD
     ImageViewer = (vtkImageViewer *)
       vtkTclGetPointerFromObject(self->IV, "vtkImageViewer", self->Interp,
 				 new_flag);
+#endif
     if (ImageViewer != self->ImageViewer)
       {
       if (self->ImageViewer != NULL)
@@ -638,16 +640,20 @@ vtkTkImageViewerWidget_MakeImageViewer(struct vtkTkImageViewerWidget *self)
     // Make the ImageViewer window.
     self->ImageViewer = vtkImageViewer::New();
     ImageViewer = self->ImageViewer;
+#ifndef VTK_PYTHON_BUILD
     vtkTclGetObjectFromPointer(self->Interp, self->ImageViewer,
 			       vtkImageViewerCommand);
+#endif
     self->IV = strdup(self->Interp->result);
     self->Interp->result[0] = '\0';
     }
   else
     {
+#ifndef VTK_PYTHON_BUILD
     ImageViewer = (vtkImageViewer *)
       vtkTclGetPointerFromObject(self->IV, "vtkImageViewer", self->Interp,
 				 new_flag);
+#endif
     if (ImageViewer != self->ImageViewer)
       {
       if (self->ImageViewer != NULL)
