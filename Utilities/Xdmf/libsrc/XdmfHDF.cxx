@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfHDF.cxx,v 1.20 2004-08-18 15:40:21 andy Exp $  */
-/*  Date : $Date: 2004-08-18 15:40:21 $ */
-/*  Version : $Revision: 1.20 $ */
+/*  Id : $Id: XdmfHDF.cxx,v 1.21 2004-08-25 13:30:41 clarke Exp $  */
+/*  Date : $Date: 2004-08-25 13:30:41 $ */
+/*  Version : $Revision: 1.21 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -283,14 +283,18 @@ hid_t    Directory;
 if( path ) {
   XdmfConstString lastcolon;
 
+  XdmfDebug("CreateDataset Creating  " << path);
   // Skip Colons
     lastcolon = strrchr( path, ':' );
   if( lastcolon != NULL ){
     path = lastcolon;
     path++;
     }
+  XdmfDebug("Setting Path to " << path);
   this->SetPath( path );
-  }
+  }else {
+      XdmfDebug("CreateDataset passed NULL path");
+	}
 XdmfDebug( "Creating HDF Dataset " <<
   this->Path << "  Rank = " << this->GetRank() );
 
@@ -678,6 +682,7 @@ if( AllowCreate ) {
 } else {
   this->File = H5Fopen(FullFileName.str(), flags, this->AccessPlist);
 }
+XdmfDebug("this->File = " << this->File);
 FullFileName.rdbuf()->freeze(0);
 if( this->File < 0 ){
   XdmfDebug("Open failed, Checking for Create");

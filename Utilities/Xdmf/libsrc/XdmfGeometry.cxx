@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfGeometry.cxx,v 1.7 2004-08-24 15:30:18 clarke Exp $  */
-/*  Date : $Date: 2004-08-24 15:30:18 $ */
-/*  Version : $Revision: 1.7 $ */
+/*  Id : $Id: XdmfGeometry.cxx,v 1.8 2004-08-25 13:30:41 clarke Exp $  */
+/*  Date : $Date: 2004-08-25 13:30:41 $ */
+/*  Version : $Revision: 1.8 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -232,7 +232,7 @@ if( ( this->GeometryType == XDMF_GEOMETRY_X_Y_Z ) ||
       case XDMF_GEOMETRY_X_Y :
         points = new XdmfArray;
         points->CopyType( TmpArray );
-        points->SetNumberOfElements( TmpArray->GetNumberOfElements() / 2 * 3 );
+        points->SetNumberOfElements( TmpArray->GetNumberOfElements() * 3 );
         break;
       default :
         points = TmpArray;
