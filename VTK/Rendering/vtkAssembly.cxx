@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAssembly.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-14 21:25:07 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1998-11-05 13:41:20 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -92,15 +92,22 @@ void vtkAssembly::Render(vtkRenderer *ren)
 {
   vtkActor *actor;
   vtkActorCollection *path;
+  float fraction;
 
   this->UpdatePaths();
 
+  // for allocating render time between components
+  // simple equal allocation
+  fraction = this->AllocatedRenderTime 
+    / (float)(this->Paths->GetNumberOfItems());
+  
   // render the Paths
   for ( this->Paths->InitTraversal(); (path = this->Paths->GetNextItem()); )
     {
     actor = path->GetLastItem();
     if ( actor->GetVisibility() )
       {
+      actor->SetAllocatedRenderTime(fraction);
       actor->Render(ren);
       }
     }

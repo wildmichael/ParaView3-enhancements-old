@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLODActor.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-30 12:19:43 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1998-11-05 13:41:21 $
+  Version:   $Revision: 1.23 $
   
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -107,6 +107,9 @@ class VTK_EXPORT vtkLODActor : public vtkActor
   // When this objects gets modified, this method also modifies the object.
   void Modified();
   
+  // Description:
+  // Used to construct assembly paths and perform part traversal.
+  void BuildPaths(vtkAssemblyPaths *paths, vtkActorCollection *path);
   
 protected:
   vtkActor            *Device;

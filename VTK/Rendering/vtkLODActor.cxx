@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLODActor.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-30 12:19:42 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1998-11-05 13:41:20 $
+  Version:   $Revision: 1.32 $
   
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -354,5 +354,32 @@ void vtkLODActor::Modified()
 {
   this->Device->Modified();
   this->vtkActor::Modified();
+}
+
+// This method is used in conjunction with the assembly object to build a copy
+// of the assembly hierarchy. This hierarchy can then be traversed for 
+// rendering or other operations.
+void vtkLODActor::BuildPaths(vtkAssemblyPaths *vtkNotUsed(paths), 
+                          vtkActorCollection *path)
+{
+  vtkLODActor *copy= vtkLODActor::New();
+  vtkActor *previous;
+  vtkMapper *mapper;
+
+  // shallow copy
+  *((vtkActor *)copy) = *this;
+  this->LODMappers->InitTraversal();
+  while ( (mapper = this->LODMappers->GetNextItem()) )
+    {
+    copy->AddLODMapper(mapper);
+    }
+  
+  previous = path->GetLastItem();
+  vtkMatrix4x4 *matrix = vtkMatrix4x4::New();
+  matrix->DeepCopy(previous->vtkProp::GetMatrixPointer());
+  copy->SetUserMatrix(matrix);
+  matrix->Delete();
+
+  path->AddItem(copy);
 }
 
