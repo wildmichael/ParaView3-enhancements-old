@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2002-12-13 22:27:33 $
-  Version:   $Revision: 1.133 $
+  Date:      $Date: 2003-02-13 15:48:16 $
+  Version:   $Revision: 1.134 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -308,6 +308,10 @@ public:
   vtkSetMacro(InAbortCheck,int);
   virtual int CheckAbortStatus();
 
+  vtkGetMacro(IsPicking,int);
+  vtkSetMacro(IsPicking,int);
+  vtkBooleanMacro(IsPicking,int);
+  
   // Description:
   // Check to see if a mouse button has been pressed.  All other events
   // are ignored by this method.  Ideally, you want to abort the render
@@ -437,6 +441,7 @@ protected:
   void (*AbortCheckMethodArgDelete)(void *);
   void *AbortCheckMethodArg;
   int CurrentCursor;
+  int IsPicking;
 
 private:
   vtkRenderWindow(const vtkRenderWindow&);  // Not implemented.

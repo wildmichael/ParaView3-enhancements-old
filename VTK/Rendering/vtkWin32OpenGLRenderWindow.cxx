@@ -3,8 +3,8 @@
 Program:   Visualization Toolkit
 Module:    $RCSfile: vtkWin32OpenGLRenderWindow.cxx,v $
 Language:  C++
-Date:      $Date: 2003-02-12 14:06:05 $
-Version:   $Revision: 1.110 $
+Date:      $Date: 2003-02-13 15:48:16 $
+Version:   $Revision: 1.111 $
 
 Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -38,7 +38,7 @@ PURPOSE.  See the above copyright notice for more information.
 #include <GL/gl.h>
 #endif
 
-vtkCxxRevisionMacro(vtkWin32OpenGLRenderWindow, "$Revision: 1.110 $");
+vtkCxxRevisionMacro(vtkWin32OpenGLRenderWindow, "$Revision: 1.111 $");
 vtkStandardNewMacro(vtkWin32OpenGLRenderWindow);
 
 #define VTK_MAX_LIGHTS 8
@@ -199,25 +199,34 @@ int vtkWin32OpenGLRenderWindow::GetEventPending()
 void vtkWin32OpenGLRenderWindow::MakeCurrent()
 {
   // Try to avoid doing anything (for performance).
-  if (this->ContextId)
+  if (this->ContextId != wglGetCurrentContext())
     { 
-    if (wglMakeCurrent(this->DeviceContext, this->ContextId) != TRUE) 
+    if(this->IsPickingOn)
       {
-      LPVOID lpMsgBuf;
-      ::FormatMessage( 
-        FORMAT_MESSAGE_ALLOCATE_BUFFER | 
-        FORMAT_MESSAGE_FROM_SYSTEM | 
-        FORMAT_MESSAGE_IGNORE_INSERTS,
-        NULL,
-        GetLastError(),
-        MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
-        (LPTSTR) &lpMsgBuf,
-        0,
-        NULL 
-        );
-      vtkErrorMacro("wglMakeCurrent failed in MakeCurrent(), error: " 
-                    << (LPCTSTR)lpMsgBuf);
-      ::LocalFree( lpMsgBuf );
+      vtkErrorMacro("Attempting to call MakeCurrent for a different window"
+                    " than the one doing the picking, this can causes crashes"
+                    " and/or bad pick results");
+      }
+    else 
+      {
+      if (wglMakeCurrent(this->DeviceContext, this->ContextId) != TRUE) 
+        {
+        LPVOID lpMsgBuf;
+        ::FormatMessage( 
+          FORMAT_MESSAGE_ALLOCATE_BUFFER | 
+          FORMAT_MESSAGE_FROM_SYSTEM | 
+          FORMAT_MESSAGE_IGNORE_INSERTS,
+          NULL,
+          GetLastError(),
+          MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
+          (LPTSTR) &lpMsgBuf,
+          0,
+          NULL 
+          );
+        vtkErrorMacro("wglMakeCurrent failed in MakeCurrent(), error: " 
+                      << (LPCTSTR)lpMsgBuf);
+        ::LocalFree( lpMsgBuf );
+        }
       }
     }
 }

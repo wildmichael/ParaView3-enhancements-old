@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-02 14:59:36 $
-  Version:   $Revision: 1.130 $
+  Date:      $Date: 2003-02-13 15:48:16 $
+  Version:   $Revision: 1.131 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,7 +25,7 @@
 #include "vtkRendererCollection.h"
 #include "vtkTransform.h"
 
-vtkCxxRevisionMacro(vtkRenderWindow, "$Revision: 1.130 $");
+vtkCxxRevisionMacro(vtkRenderWindow, "$Revision: 1.131 $");
 
 //----------------------------------------------------------------------------
 // Needed when we don't use the vtkStandardNewMacro.
@@ -37,6 +37,7 @@ vtkInstantiatorNewMacro(vtkRenderWindow);
 // buffering turned on, stereo capable off.
 vtkRenderWindow::vtkRenderWindow()
 {
+  this->IsPicking = 0;
   this->Borders = 1;
   this->FullScreen = 0;
   this->OldScreen[0] = this->OldScreen[1] = 0;
