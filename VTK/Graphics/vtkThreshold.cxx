@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThreshold.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-12-12 21:12:38 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1996-12-13 16:08:44 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -214,6 +214,11 @@ vtkThresholdLinkedList *vtkThreshold::ComputeCellsToKeep()
       } // satisfied thresholding
     } // for all cells
 
+  if (this->Connectivity)
+    {
+    return this->ComputeConnectedCells(cellsToKeep);
+    }
+  
   return cellsToKeep;
 }
 
@@ -278,7 +283,7 @@ vtkThreshold::ComputeConnectedCells(vtkThresholdLinkedList *seeds)
 	  end->Next = (vtkThresholdLinkedList *)
 	    malloc(sizeof(vtkThresholdLinkedList));
 	  end->Next->Next = NULL;
-	  end->Id = neighborId;
+	  end->Next->Id = neighborId;
 	  end = end->Next;
 	  visitedList->SetId(neighborId, 0);
 	  }
