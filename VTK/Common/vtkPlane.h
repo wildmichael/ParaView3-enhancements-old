@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPlane.h,v $
   Language:  C++
-  Date:      $Date: 1995-02-26 10:18:04 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1995-03-08 16:45:38 $
+  Version:   $Revision: 1.11 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -39,7 +39,7 @@ public:
   // ImplicitFunction interface
   float Evaluate(float x, float y, float z);
   float Evaluate(float normal[3], float origin[3], float x[3]);
-  void EvaluateNormal(float x, float y, float z, float n[3]);
+  void EvaluateGradient(float x, float y, float z, float g[3]);
 
   vlSetVector3Macro(Normal,float);
   vlGetVectorMacro(Normal,float,3);

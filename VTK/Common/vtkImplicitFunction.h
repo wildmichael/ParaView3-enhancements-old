@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkImplicitFunction.h,v $
   Language:  C++
-  Date:      $Date: 1994-08-12 08:51:54 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1995-03-08 16:45:41 $
+  Version:   $Revision: 1.5 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -33,8 +33,8 @@ public:
   virtual float Evaluate(float x, float y, float z) = 0;
 
   // Description:
-  // Evaluate function normal at position x-y-z and pass back vector.
-  virtual void EvaluateNormal(float x, float y, float z, float n[3]) = 0;
+  // Evaluate function gradient at position x-y-z and pass back vector.
+  virtual void EvaluateGradient(float x, float y, float z, float g[3]) = 0;
 
 };
 

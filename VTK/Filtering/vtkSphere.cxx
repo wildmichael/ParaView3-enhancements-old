@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkSphere.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-02-26 10:18:09 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1995-03-08 16:45:39 $
+  Version:   $Revision: 1.6 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -37,8 +37,8 @@ float vlSphere::Evaluate(float x, float y, float z)
 }
 
 // Description
-// Evaluate sphere normal.
-void vlSphere::EvaluateNormal(float x, float y, float z, float n[3])
+// Evaluate sphere gradient.
+void vlSphere::EvaluateGradient(float x, float y, float z, float n[3])
 {
   n[0] = 2.0 * (x - this->Center[0]);
   n[1] = 2.0 * (y - this->Center[1]);

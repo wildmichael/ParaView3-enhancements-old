@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPlane.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-02-26 10:18:05 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1995-03-08 16:45:37 $
+  Version:   $Revision: 1.10 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -55,8 +55,8 @@ float vlPlane::Evaluate(float x, float y, float z)
 }
 
 // Description
-// Evaluate plane normal at point (x,y,z).
-void vlPlane::EvaluateNormal(float x, float y, float z, float n[3])
+// Evaluate function gradient at point (x,y,z).
+void vlPlane::EvaluateGradient(float x, float y, float z, float n[3])
 {
   for (int i=0; i<3; i++) n[i] = this->Normal[i];
 }

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkImplicitBoolean.h,v $
   Language:  C++
-  Date:      $Date: 1995-02-26 10:20:24 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1995-03-08 16:45:42 $
+  Version:   $Revision: 1.2 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -47,7 +47,7 @@ public:
 
   // ImplicitFunction interface
   float Evaluate(float x, float y, float z);
-  void EvaluateNormal(float x, float y, float z, float n[3]);
+  void EvaluateGradient(float x, float y, float z, float g[3]);
 
   // Override modified time retrieval because of object dependencies.
   unsigned long int GetMTime();

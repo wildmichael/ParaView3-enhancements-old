@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkImplicitBoolean.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-02-26 13:23:02 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1995-03-08 16:45:43 $
+  Version:   $Revision: 1.3 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -108,8 +108,8 @@ float vlImplicitBoolean::Evaluate(float x, float y, float z)
 }
 
 // Description
-// Evaluate sphere normal.
-void vlImplicitBoolean::EvaluateNormal(float x, float y, float z, float n[3])
+// Evaluate gradient of boolean combination.
+void vlImplicitBoolean::EvaluateGradient(float x, float y, float z, float g[3])
 {
   float value, v;
   vlImplicitFunction *f;
@@ -122,7 +122,7 @@ void vlImplicitBoolean::EvaluateNormal(float x, float y, float z, float n[3])
       if ( (v=f->Evaluate(x,y,z)) < value )
         {
         value = v;
-        f->EvaluateNormal(x,y,z,n);
+        f->EvaluateGradient(x,y,z,g);
         }
       }
     }
@@ -135,21 +135,21 @@ void vlImplicitBoolean::EvaluateNormal(float x, float y, float z, float n[3])
       if ( (v=f->Evaluate(x,y,z)) > value ) 
         {
         value = v;
-        f->EvaluateNormal(x,y,z,n);
+        f->EvaluateGradient(x,y,z,g);
         }
       }
     }
 
   else //difference
     {
-    float nTemp[3];
+    float gTemp[3];
     vlImplicitFunction *firstF;
     this->FunctionList.InitTraversal();
     if ( (firstF = this->FunctionList.GetNextItem()) != NULL )
       {
       value = firstF->Evaluate(x,y,z);
-      firstF->EvaluateNormal(x,y,z,nTemp); 
-      n[0] = -1.0*nTemp[0]; n[1] = -1.0*nTemp[1]; n[2] = -1.0*nTemp[2];
+      firstF->EvaluateGradient(x,y,z,gTemp); 
+      g[0] = -1.0*gTemp[0]; g[1] = -1.0*gTemp[1]; g[2] = -1.0*gTemp[2];
       }
 
     for (this->FunctionList.InitTraversal(); 
@@ -160,8 +160,8 @@ void vlImplicitBoolean::EvaluateNormal(float x, float y, float z, float n[3])
         if ( (v=(-1.0)*f->Evaluate(x,y,z)) > value )
           {
           value = v;
-          f->EvaluateNormal(x,y,z,nTemp);
-          n[0] = -1.0*nTemp[0]; n[1] = -1.0*nTemp[1]; n[2] = -1.0*nTemp[2];
+          f->EvaluateGradient(x,y,z,gTemp);
+          g[0] = -1.0*gTemp[0]; g[1] = -1.0*gTemp[1]; g[2] = -1.0*gTemp[2];
           }
         }
       }
