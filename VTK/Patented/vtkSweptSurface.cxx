@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSweptSurface.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-03-03 17:16:12 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 1999-03-05 12:01:42 $
+  Version:   $Revision: 1.47 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -457,9 +457,6 @@ void vtkSweptSurface::ComputeFootprint (vtkMatrix4x4 *m, int inDim[3],
     indicies[2 * ii] = (int) ((workBounds[2 * ii] - origin[ii]) / spacing[ii]);
     indicies[2 * ii + 1] = (int) ((workBounds[2 * ii + 1] - origin[ii]) / spacing[ii]) + 1;
     }
-  vtkDebugMacro (<< "indicies: " << indicies[0] << ", " << indicies[1] << ", "
-                                 << indicies[2] << ", " << indicies[3] << ", "
-                                 << indicies[4] << ", " << indicies[5]);
 }
 
 unsigned long int vtkSweptSurface::GetMTime()
