@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingSquares.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:38:04 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2001-11-13 14:24:44 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -101,7 +101,7 @@ public:
   vtkSetVectorMacro(ImageRange,int,6);
   vtkGetVectorMacro(ImageRange,int,6);
   void SetImageRange(int imin, int imax, int jmin, int jmax, 
-		     int kmin, int kmax);
+                     int kmin, int kmax);
 
   // Methods to set contour values
   void SetValue(int i, float value);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-02 16:43:07 $
-  Version:   $Revision: 1.74 $
+  Date:      $Date: 2001-11-13 14:24:46 $
+  Version:   $Revision: 1.75 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -337,18 +337,18 @@ static void vtkMarchingCubesComputeGradient(vtkMarchingCubes *self,T *scalars, i
           value = values[contNum];
           // Build the case table
           for ( ii=0, index = 0; ii < 8; ii++)
-	    {
+            {
             if ( s[ii] >= value )
-	      {
+              {
               index |= CASE_MASK[ii];
-	      }
-	    }
+              }
+            }
           if ( index == 0 || index == 255 ) //no surface
-	    {
-	    continue;
-	    }
+            {
+            continue;
+            }
 
-	  triCase = triCases+ index;
+          triCase = triCases+ index;
           edge = triCase->edges;
 
           for ( ; edge[0] > -1; edge += 3 )
@@ -375,13 +375,13 @@ static void vtkMarchingCubesComputeGradient(vtkMarchingCubes *self,T *scalars, i
                     n[2] = n1[2] + t * (n2[2] - n1[2]);
                     }
                   if (ComputeScalars)
-		    {
-		    newScalars->InsertTuple(ptIds[ii],&value);
-		    }
+                    {
+                    newScalars->InsertTuple(ptIds[ii],&value);
+                    }
                   if (ComputeGradients)
-		    {
-		    newGradients->InsertTuple(ptIds[ii],n);
-		    }
+                    {
+                    newGradients->InsertTuple(ptIds[ii],n);
+                    }
                   if (ComputeNormals)
                     {
                     vtkMath::Normalize(n);

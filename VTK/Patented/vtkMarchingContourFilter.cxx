@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingContourFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-02 16:43:06 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2001-11-13 14:24:46 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -179,11 +179,11 @@ void vtkMarchingContourFilter::Execute()
       int dim = input->GetCell(0)->GetCellDimension();
       
       if ( input->GetCell(0)->GetCellDimension() >= 2 ) 
-	{
-	vtkDebugMacro(<< "Image");
-	this->ImageContour(dim);
-	return;
-	}
+        {
+        vtkDebugMacro(<< "Image");
+        this->ImageContour(dim);
+        return;
+        }
       }
     }
   
