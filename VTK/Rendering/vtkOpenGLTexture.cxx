@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLTexture.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-05-03 21:03:12 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1999-05-25 18:47:17 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -270,6 +270,7 @@ void vtkOpenGLTexture::ReleaseGraphicsResources(vtkWindow *renWin)
   glDeleteLists(this->Index,1);
 #endif
   this->Index = 0;
+  this->Modified();
 }
 
 static int FindPowerOfTwo(int i)
