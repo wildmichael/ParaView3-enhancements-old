@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellDerivatives.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:22 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2001-03-02 12:52:54 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -137,9 +137,10 @@ void vtkCellDerivatives::Execute()
     vtkTensor *tens = vtkTensor::New();
 
     // Loop over all cells computing derivatives
+    int progressInterval = numCells/20 + 1;
     for (cellId=0; cellId < numCells; cellId++)
       {
-      if ( ! (cellId % 20000) ) 
+      if ( ! (cellId % progressInterval) ) 
         {
         vtkDebugMacro(<<"Computing cell #" << cellId);
         this->UpdateProgress ((float)cellId/numCells);
