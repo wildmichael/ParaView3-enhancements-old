@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: TestCxxFeatures.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-07-26 19:14:07 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-07-27 15:09:09 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -214,7 +214,8 @@ int TestIfScopeHelper(int i)
       result = 0;
       }
     }
-  return result;
+  int x = result;
+  return x;
 }
 
 int TestIfScope()
