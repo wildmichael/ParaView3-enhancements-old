@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDummyController.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-27 19:45:21 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-06-28 13:51:45 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -37,8 +37,8 @@ public:
 
   // Description:
   // This method is for setting up the processes.
-  virtual void Initialize(int* argc, char*** argv, int) {}
-  virtual void Initialize(int* argc, char*** argv) {}
+  virtual void Initialize(int*, char***, int) {}
+  virtual void Initialize(int*, char***) {}
   virtual void Finalize() {}
   virtual void Finalize(int) {}
 
