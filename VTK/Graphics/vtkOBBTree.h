@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOBBTree.h,v $
   Language:  C++
-  Date:      $Date: 2002-11-03 22:51:55 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 2003-07-03 11:31:37 $
+  Version:   $Revision: 1.41 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -146,7 +146,7 @@ public:
 
   // Description:
   // Returns true if line intersects node.
-  int LineIntersectsNode( vtkOBBNode *pA, float B0[3], float B1[3] );
+  int LineIntersectsNode( vtkOBBNode *pA, float b0[3], float b1[3] );
 
   // Description:
   // Returns true if triangle (optionally transformed) intersects node.
