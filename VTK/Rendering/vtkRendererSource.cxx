@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRendererSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-26 18:20:41 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 2003-02-28 17:35:13 $
+  Version:   $Revision: 1.50 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,7 +26,7 @@
 #include "vtkRenderer.h"
 #include "vtkUnsignedCharArray.h"
 
-vtkCxxRevisionMacro(vtkRendererSource, "$Revision: 1.49 $");
+vtkCxxRevisionMacro(vtkRendererSource, "$Revision: 1.50 $");
 vtkStandardNewMacro(vtkRendererSource);
 
 vtkCxxSetObjectMacro(vtkRendererSource,Input,vtkRenderer);
@@ -59,6 +59,12 @@ void vtkRendererSource::ExecuteData(vtkDataObject *outp)
   vtkImageData *output = this->AllocateOutputData(outp);
   vtkUnsignedCharArray *outScalars = 
     vtkUnsignedCharArray::SafeDownCast(output->GetPointData()->GetScalars());
+
+  if (this->Input == NULL)
+    {
+    return;
+    }
+
   if (this->DepthValuesInScalars)
     {
     outScalars->SetName("RGBValues");
