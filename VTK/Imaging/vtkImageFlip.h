@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageFlip.h,v $
   Language:  C++
-  Date:      $Date: 1997-03-25 21:57:34 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1997-04-18 20:09:11 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,6 +55,7 @@ class VTK_EXPORT vtkImageFlip : public vtkImageFilter
 {
 public:
   vtkImageFlip();
+  vtkImageFlip *New() {return new vtkImageFlip;};
   char *GetClassName() {return "vtkImageFlip";};
 
   // Description:

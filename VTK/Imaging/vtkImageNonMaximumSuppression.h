@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageNonMaximumSuppression.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-07 20:32:18 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1997-04-18 20:09:27 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,6 +57,7 @@ class VTK_EXPORT vtkImageNonMaximumSuppression : public vtkImageTwoInputFilter
 {
 public:
   vtkImageNonMaximumSuppression();
+  vtkImageNonMaximumSuppression *New() {return new vtkImageNonMaximumSuppression;};
   char *GetClassName() {return "vtkImageNonMaximumSuppression";};
   
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageWrapPad.h,v $
   Language:  C++
-  Date:      $Date: 1997-03-04 18:00:56 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1997-04-18 20:09:38 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,6 +56,7 @@ class VTK_EXPORT vtkImageWrapPad : public vtkImagePadFilter
 {
 public:
   vtkImageWrapPad();
+  vtkImageWrapPad *New() {return new vtkImageWrapPad;};
   char *GetClassName() {return "vtkImageWrapPad";};
 
 protected:

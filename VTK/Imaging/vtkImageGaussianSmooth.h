@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageGaussianSmooth.h,v $
   Language:  C++
-  Date:      $Date: 1997-03-04 18:00:19 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1997-04-18 20:09:13 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,6 +55,7 @@ class VTK_EXPORT vtkImageGaussianSmooth : public vtkImageDecomposedFilter
 {
 public:
   vtkImageGaussianSmooth();
+  vtkImageGaussianSmooth *New() {return new vtkImageGaussianSmooth;};
   char *GetClassName() {return "vtkImageGaussianSmooth";};
 
   void SetDimensionality(int num);
