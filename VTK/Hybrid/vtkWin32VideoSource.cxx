@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32VideoSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-12 16:09:32 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2001-10-14 15:34:33 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -504,7 +504,8 @@ void vtkWin32VideoSource::InternalGrab(LPVIDEOHDR lpVHdr)
                                        0.001 * lpVHdr->dwTimeCaptured;
 
   unsigned char *ptr = (unsigned char *)
-    reinterpret_cast<vtkUnsignedCharArray*>(this->FrameBuffer[index])->GetPointer(0));
+    ((reinterpret_cast<vtkUnsignedCharArray*>(this->FrameBuffer[index])) \
+     ->GetPointer(0));
 
   // the DIB has rows which are multiples of 4 bytes
   int outBytesPerRow = ((this->FrameBufferExtent[1]-

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   $RCSfile: vtkMILVideoSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-12 16:09:31 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2001-10-14 15:34:34 $
+  Version:   $Revision: 1.13 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -546,7 +546,10 @@ void vtkMILVideoSource::InternalGrab()
     this->StartTimeStamp = this->FrameBufferTimeStamps[index];
     }
 
-  void *ptr = reinterpret_cast<vtkDataArray *>(this->FrameBuffer[index])->GetVoidPointer(0);
+
+  void *ptr = ((reinterpret_cast<vtkUnsignedCharArray*>( \
+		       this->FrameBuffer[index]))->GetPointer(0));
+
   int depth = this->FrameBufferBitsPerPixel/8;
 
   int offsetX = this->FrameBufferExtent[0];
