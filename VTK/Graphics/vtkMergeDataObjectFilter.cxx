@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergeDataObjectFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-01-07 09:13:40 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2000-01-23 15:48:28 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -98,11 +98,19 @@ vtkDataObject *vtkMergeDataObjectFilter::GetDataObject()
 void vtkMergeDataObjectFilter::Execute()
 {
   vtkDataObject *dataObject=this->GetDataObject();
-  vtkFieldData *fd=dataObject->GetFieldData();
+  vtkFieldData *fd;
   vtkDataSet *input=this->GetInput();
   vtkDataSet *output=this->GetOutput();
   
   vtkDebugMacro(<<"Merging dataset and data object");
+
+  if (dataObject == NULL)
+    {
+    vtkErrorMacro(<< "Data Object's Field Data is NULL.");
+    return;
+    }
+
+  fd=dataObject->GetFieldData();
 
   // First, copy the input to the output as a starting point
   output->CopyStructure( input );

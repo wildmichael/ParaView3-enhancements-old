@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGlyph3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-01-07 09:13:37 $
-  Version:   $Revision: 1.68 $
+  Date:      $Date: 2000-01-23 15:48:28 $
+  Version:   $Revision: 1.69 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -118,12 +118,21 @@ void vtkGlyph3D::Execute()
   pts->Allocate(VTK_CELL_SIZE);
 
   pd = input->GetPointData();
+  if (pd == NULL)
+    {
+      vtkErrorMacro(<< "Point data is NULL");
+      return;
+    }
   inScalars = pd->GetScalars();
   inVectors = pd->GetVectors();
   inNormals = pd->GetNormals();
 
   numPts = input->GetNumberOfPoints();
-
+  if (numPts < 1)
+    {
+    vtkErrorMacro(<<"No points to glyph!");
+    return;
+    }
   //
   // Check input for consistency
   //

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProgrammableGlyphFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-17 17:56:39 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2000-01-23 15:48:29 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -135,6 +135,12 @@ void vtkProgrammableGlyphFilter::Execute()
   if ( numPts < 1 )
     {
     vtkErrorMacro(<<"No input points to glyph");
+    }
+
+  if (this->GetSource() == NULL)
+    {
+    vtkErrorMacro (<< "Source is NULL.");
+    return;
     }
 
   sourcePD = this->GetSource()->GetPointData();

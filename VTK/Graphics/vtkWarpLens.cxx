@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpLens.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-01-07 09:13:54 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2000-01-23 15:48:30 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -87,14 +87,13 @@ void vtkWarpLens::Execute()
   offset = this->Center[0]*(1.0 + this->Kappa*r);
 
   inPts = input->GetPoints();  
-  numPts = inPts->GetNumberOfPoints();
-
   if (!inPts )
     {
     vtkErrorMacro(<<"No input data");
     return;
     }
 
+  numPts = inPts->GetNumberOfPoints();
   newPts = vtkPoints::New(); 
   newPts->SetNumberOfPoints(numPts);
 
