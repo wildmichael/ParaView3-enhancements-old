@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkDataSetToDataSetFilter.h,v $
   Language:  C++
-  Date:      $Date: 1994-02-04 12:49:58 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1994-02-05 13:03:51 $
+  Version:   $Revision: 1.6 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -29,6 +29,7 @@ public:
   vlDataSetToDataSetFilter();
   ~vlDataSetToDataSetFilter();
   char *GetClassName() {return "vlDataSetToDataSetFilter";};
+  void PrintSelf(ostream& os, vlIndent indent);
   vlDataSet *MakeObject() {return this->DataSet->MakeObject();};
   int NumCells() {return this->DataSet->NumCells();}
   int NumPoints() {return this->DataSet->NumPoints();}

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkCylinderSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-02-04 12:51:09 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1994-02-05 13:03:53 $
+  Version:   $Revision: 1.10 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -158,4 +158,24 @@ void vlCylinderSource::Execute()
 
   newPolys->Squeeze(); // since we've estimated size; reclaim some space
   this->SetPolys(newPolys);
+}
+
+void vlCylinderSource::PrintSelf(ostream& os, vlIndent indent)
+{
+  if (this->ShouldIPrint(vlCylinderSource::GetClassName()))
+    {
+    vlPolySource::PrintSelf(os,indent);
+
+    os << indent << "Resolution: " << this->Resolution << "\n";
+    os << indent << "Height: " << this->Height << "\n";
+    os << indent << "Radius: " << this->Radius << "\n";
+    if ( this->Capping )
+      {
+      os << indent << "Capping is on.\n";
+       }
+    else
+      {
+      os << indent << "Capping is off.\n";
+       }
+    }
 }

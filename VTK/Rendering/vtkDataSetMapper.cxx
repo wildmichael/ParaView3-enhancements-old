@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkDataSetMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-02-04 12:49:54 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1994-02-05 13:03:48 $
+  Version:   $Revision: 1.6 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -85,3 +85,29 @@ void vlDataSetMapper::Render(vlRenderer *ren)
   this->Mapper->Render(ren);
 }
 
+void vlDataSetMapper::PrintSelf(ostream& os, vlIndent indent)
+{
+  if (this->ShouldIPrint(vlDataSetMapper::GetClassName()))
+    {
+    vlMapper::PrintSelf(os,indent);
+
+    if ( this->Input )
+      {
+      os << indent << "Input: (" << this->Input << ")\n";
+      }
+    else
+      {
+      os << indent << "Input: (none)\n";
+      }
+
+    if ( this->Mapper )
+      {
+      os << indent << "Mapper: (" << this->Mapper << ")\n";
+      os << indent << "Mapper type: " << this->Mapper->GetClassName() << "\n";
+      }
+    else
+      {
+      os << indent << "Mapper: (none)\n";
+      }
+   }
+}

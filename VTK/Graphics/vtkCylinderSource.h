@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkCylinderSource.h,v $
   Language:  C++
-  Date:      $Date: 1994-02-04 12:51:07 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1994-02-05 13:03:52 $
+  Version:   $Revision: 1.7 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -28,7 +28,7 @@ class vlCylinderSource : public vlPolySource
 public:
   vlCylinderSource(int res=6);
   char *GetClassName() {return "vlCylinderSource";};
-  void Execute();
+  void PrintSelf(ostream& os, vlIndent indent);
 
   vlSetClampMacro(Height,float,0.0,LARGE_FLOAT)
   vlGetMacro(Height,float);
@@ -44,6 +44,7 @@ public:
   vlBooleanMacro(Capping,int);
 
 protected:
+  void Execute();
   float Height;
   float Radius;
   int Resolution;

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkLineSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-02-04 12:47:45 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1994-02-05 13:03:42 $
+  Version:   $Revision: 1.7 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -82,4 +82,22 @@ void vlLineSource::Execute()
   this->SetPoints(newPoints);
   this->PointData.SetTCoords(newTCoords);
   this->SetLines(newLines);
+}
+
+void vlLineSource::PrintSelf(ostream& os, vlIndent indent)
+{
+  if (this->ShouldIPrint(vlLineSource::GetClassName()))
+    {
+    vlPolySource::PrintSelf(os,indent);
+
+    os << indent << "Resolution: " << this->Resolution << "\n";
+
+    os << indent << "Point 1: (" << this->Pt1[0] << ", "
+                                  << this->Pt1[1] << ", "
+                                  << this->Pt1[2] << ")\n";
+
+    os << indent << "Point 2: (" << this->Pt2[0] << ", "
+                                  << this->Pt2[1] << ", "
+                                  << this->Pt2[2] << ")\n";
+    }
 }

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkLineSource.h,v $
   Language:  C++
-  Date:      $Date: 1994-02-04 12:47:44 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1994-02-05 13:03:41 $
+  Version:   $Revision: 1.7 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -28,6 +28,7 @@ class vlLineSource : public vlPolySource
 public:
   vlLineSource(int res=1);
   char *GetClassName() {return "vlLineSource";};
+  void PrintSelf(ostream& os, vlIndent indent);
 
   vlSetVector3Macro(Pt1,float);
   vlGetVectorMacro(Pt1,float);

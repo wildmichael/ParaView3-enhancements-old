@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkCubeSource.h,v $
   Language:  C++
-  Date:      $Date: 1994-02-04 12:51:10 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1994-02-05 13:03:54 $
+  Version:   $Revision: 1.6 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -26,6 +26,7 @@ class vlCubeSource : public vlPolySource
 public:
   vlCubeSource(float xL=1.0, float yL=1.0, float zL=1.0);
   char *GetClassName() {return "vlCubeSource";};
+  void PrintSelf(ostream& os, vlIndent indent);
 
   vlSetClampMacro(XLength,float,0.0,LARGE_FLOAT);
   vlGetMacro(XLength,float);

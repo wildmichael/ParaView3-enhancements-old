@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkConeSource.h,v $
   Language:  C++
-  Date:      $Date: 1994-02-04 12:51:16 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1994-02-05 13:03:58 $
+  Version:   $Revision: 1.7 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -30,6 +30,7 @@ class vlConeSource : public vlPolySource
 public:
   vlConeSource(int res=6);
   char *GetClassName() {return "vlConeSource";};
+  void PrintSelf(ostream& os, vlIndent indent);
 
   vlSetClampMacro(Height,float,0.0,LARGE_FLOAT)
   vlGetMacro(Height,float);

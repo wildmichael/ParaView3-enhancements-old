@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkCubeSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-02-04 12:51:12 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1994-02-05 13:03:55 $
+  Version:   $Revision: 1.8 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -110,4 +110,16 @@ void vlCubeSource::Execute()
 
   newPolys->Squeeze(); // since we've estimated size; reclaim some space
   this->SetPolys(newPolys);
+}
+
+void vlCubeSource::PrintSelf(ostream& os, vlIndent indent)
+{
+  if (this->ShouldIPrint(vlCubeSource::GetClassName()))
+    {
+    vlPolySource::PrintSelf(os,indent);
+
+    os << indent << "XLength: " << this->XLength << "\n";
+    os << indent << "YLength: " << this->YLength << "\n";
+    os << indent << "ZLength: " << this->ZLength << "\n";
+    }
 }
