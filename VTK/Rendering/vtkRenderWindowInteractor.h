@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-02 13:26:32 $
-  Version:   $Revision: 1.95 $
+  Date:      $Date: 2002-05-13 14:24:55 $
+  Version:   $Revision: 1.96 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -202,7 +202,7 @@ public:
   // Description:
   // Render the scene. Just pass the render call on to the 
   // associated vtkRenderWindow.
-  void Render();
+  virtual void Render();
 
   // Description:
   // Given a position x, move the current camera's focal point to x.
