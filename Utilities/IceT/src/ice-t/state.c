@@ -8,7 +8,7 @@
  * of authorship are reproduced on all copies.
  */
 
-/* $Id: state.c,v 1.4 2003-07-23 19:48:00 kmorel Exp $ */
+/* $Id: state.c,v 1.5 2003-08-12 20:35:26 kmorel Exp $ */
 
 #include <state.h>
 
@@ -129,6 +129,7 @@ void icetStateSetDefaults(void)
 
     icetEnable(ICET_FLOATING_VIEWPORT);
     icetDisable(ICET_ORDERED_COMPOSITE);
+    icetDisable(ICET_CORRECT_COLORED_BACKGROUND);
     icetEnable(ICET_DISPLAY);
     icetDisable(ICET_DISPLAY_COLORED_BACKGROUND);
     icetDisable(ICET_DISPLAY_INFLATE);

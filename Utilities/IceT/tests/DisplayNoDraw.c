@@ -1,5 +1,5 @@
 /* -*- c -*- *****************************************************************
-** $Id: DisplayNoDraw.c,v 1.2 2003-07-14 19:58:55 kmorel Exp $
+** $Id: DisplayNoDraw.c,v 1.3 2003-08-12 20:35:26 kmorel Exp $
 **
 ** Copyright (C) 2003 Sandia Corporation
 ** Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -97,6 +97,7 @@ int DisplayNoDraw(int argc, char *argv[])
 		* other process is drawing the clear screen. */
 		&& ((num_proc > 2) || (iteration != 1)) ) {
 		int p;
+		int bad_count = 0;
 		printf("Checking pixels.\n");
 		color_buffer = icetGetColorBuffer();
 		for (p = 0; p < SCREEN_WIDTH*SCREEN_HEIGHT*4; p++) {
@@ -104,12 +105,15 @@ int DisplayNoDraw(int argc, char *argv[])
 			char filename[256];
 			printf("BAD PIXEL %d.%d\n", p/4, p%4);
 			printf("    Expected 255, got %d\n", color_buffer[p]);
-			result = TEST_FAILED;
-			sprintf(filename, "DisplayNoDraw_%s_%d.ppm",
-				icetGetStrategyName(), iteration);
-			write_ppm(filename, color_buffer,
-				  SCREEN_WIDTH, SCREEN_HEIGHT);
-			break;
+			bad_count++;
+			if (bad_count >= 10) {
+			    result = TEST_FAILED;
+			    sprintf(filename, "DisplayNoDraw_%s_%d.ppm",
+				    icetGetStrategyName(), iteration);
+			    write_ppm(filename, color_buffer,
+				      SCREEN_WIDTH, SCREEN_HEIGHT);
+			    break;
+			}
 		    }
 		}
 	    }

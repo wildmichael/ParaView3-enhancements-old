@@ -8,7 +8,7 @@
  * of authorship are reproduced on all copies.
  */
 
-/* $Id: image.h,v 1.2 2003-07-14 19:58:55 kmorel Exp $ */
+/* $Id: image.h,v 1.3 2003-08-12 20:35:26 kmorel Exp $ */
 
 #ifndef _ICET_IMAGE_H_
 #define _ICET_IMAGE_H_
@@ -85,5 +85,23 @@ ICET_EXPORT void   icetCompressedSubComposite(IceTImage destBuffer,
 					      GLuint offset, GLuint pixels,
 					      const IceTSparseImage srcBuffer,
 					      int srcOnTop);
+
+#define ICET_OVER(src, dest)				\
+{							\
+    GLuint dfactor = 255 - (src)[3];			\
+    (dest)[0] = ((dest)[0]*dfactor)/255 + (src)[0];	\
+    (dest)[1] = ((dest)[1]*dfactor)/255 + (src)[1];	\
+    (dest)[2] = ((dest)[2]*dfactor)/255 + (src)[2];	\
+    (dest)[3] = ((dest)[3]*dfactor)/255 + (src)[3];	\
+}
+
+#define ICET_UNDER(src, dest)				\
+{							\
+    GLuint sfactor = 255 - (dest)[3];			\
+    (dest)[0] = (dest)[0] + ((src)[0]*sfactor)/255;	\
+    (dest)[1] = (dest)[1] + ((src)[1]*sfactor)/255;	\
+    (dest)[2] = (dest)[2] + ((src)[2]*sfactor)/255;	\
+    (dest)[3] = (dest)[3] + ((src)[3]*sfactor)/255;	\
+}
 
 #endif /* _ICET_IMAGE_H_ */
