@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGenericEnSightReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-02-01 20:13:14 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2001-02-09 14:54:52 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -759,6 +759,8 @@ void vtkGenericEnSightReader::PrintSelf(ostream& os, vtkIndent indent)
 
   os << indent << "CaseFileName: "
      << (this->CaseFileName ? this->CaseFileName : "(none)") << endl;
+  os << indent << "FilePath: "
+     << (this->FilePath ? this->FilePath : "(none)") << endl;
   os << indent << "NumberOfComplexScalarsPerNode: "
      << this->NumberOfComplexScalarsPerNode << endl;
   os << indent << "NumberOfVectorsPerElement :"
