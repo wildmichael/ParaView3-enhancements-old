@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInterpolatedVelocityField.h,v $
   Language:  C++
-  Date:      $Date: 2003-02-11 21:08:33 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2003-10-07 19:18:06 $
+  Version:   $Revision: 1.18 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -133,6 +133,8 @@ protected:
   vtkInterpolatedVelocityFieldDataSetsType* DataSets;
 
   int FunctionValues(vtkDataSet* ds, float* x, float* f);
+
+  static const float TOLERANCE_SCALE;
 
 private:
   vtkInterpolatedVelocityField(const vtkInterpolatedVelocityField&);  // Not implemented.
