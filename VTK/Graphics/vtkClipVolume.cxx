@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipVolume.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-07-29 09:36:08 $
-  Version:   $Revision: 1.57 $
+  Date:      $Date: 2003-07-30 11:10:09 $
+  Version:   $Revision: 1.58 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -33,7 +33,7 @@
 #include "vtkIntArray.h"
 #include "vtkUnsignedCharArray.h"
 
-vtkCxxRevisionMacro(vtkClipVolume, "$Revision: 1.57 $");
+vtkCxxRevisionMacro(vtkClipVolume, "$Revision: 1.58 $");
 vtkStandardNewMacro(vtkClipVolume);
 vtkCxxSetObjectMacro(vtkClipVolume,ClipFunction,vtkImplicitFunction);
 
@@ -438,7 +438,7 @@ void vtkClipVolume::ClipTets(float value, vtkTetra *clipTetra,
   // Tesselate this cell as if it were inside
   vtkIdType ntetra = tetraPts->GetNumberOfPoints() / 4;
   int i, id, j, k, numNew;
-  vtkIdType npts, *pts;
+  vtkIdType npts=0, *pts;
   
   // Clip each tetrahedron
   for (i=0; i<ntetra; i++)
