@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMapToRGBA.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-19 20:10:41 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-11-27 07:58:32 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -52,12 +52,5 @@ vtkImageMapToRGBA* vtkImageMapToRGBA::New()
     }
   // If the factory was unable to create the object, then create it here.
   return new vtkImageMapToRGBA;
-}
-
-//----------------------------------------------------------------------------
-// Constructor sets default values
-vtkImageMapToRGBA::vtkImageMapToRGBA()
-{
-  vtkWarningMacro(<<"vtkImageMapToRGBA is deprecated, use vtkImageMapToColors");
 }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMapToRGBA.h,v $
   Language:  C++
-  Date:      $Date: 1999-11-19 20:10:40 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-11-27 07:58:31 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,9 +40,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 // .NAME vtkImageMapToRGBA - map the input image through a lookup table
 // .SECTION Description
-// The vtkImageMapToRGBA filter will take an input image of any valid
-// scalar type, and map the first component of the image through a
-// lookup table.  The result is an RGBA image of type VTK_UNSIGNED_CHAR.
+// This filter has been replaced by vtkImageMapToColors, which provided
+// additional features.  Use vtkImageMapToColors instead.
 
 // .SECTION See Also
 // vtkLookupTable
@@ -60,7 +59,7 @@ public:
   const char *GetClassName() {return "vtkImageMapToRGBA";};
 
 protected:
-  vtkImageMapToRGBA();
+  vtkImageMapToRGBA() {};
   ~vtkImageMapToRGBA() {};
   vtkImageMapToRGBA(const vtkImageMapToRGBA&) {};
   void operator=(const vtkImageMapToRGBA&) {};
