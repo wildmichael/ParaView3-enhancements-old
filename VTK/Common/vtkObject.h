@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObject.h,v $
   Language:  C++
-  Date:      $Date: 2002-07-08 13:08:08 $
-  Version:   $Revision: 1.90 $
+  Date:      $Date: 2002-07-16 22:00:43 $
+  Version:   $Revision: 1.91 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -148,11 +148,6 @@ public:
   // the same effect as invoking Delete() (i.e., it reduces the reference
   // count by 1).
   virtual void UnRegister(vtkObjectBase* o);
-
-  // Description:
-  // Return the current reference count of this object.
-  int  GetReferenceCount() 
-    {return this->Superclass::GetReferenceCount();}
 
   // Description:
   // Allow people to add/remove/invoke observers (callbacks) to any VTK
