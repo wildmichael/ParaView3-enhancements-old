@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRayCaster.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-10-16 18:07:08 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-02-18 15:49:33 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -562,6 +562,7 @@ int vtkRayCaster::Render(vtkRenderer *ren)
   int actor_count = 0;     // Number of visible actors
 
   int destroy_hw_buffer;   // Specifies if rendering will destroy FB contents
+  int something_in_hardware_buffer; // do we need to mix with FB contents
   int image_location;      // Specifies where rendering will place image
   int prev_image_location; // Specifies where previous rendering placed image
 
@@ -605,14 +606,22 @@ int vtkRayCaster::Render(vtkRenderer *ren)
   actor_count = ren->VisibleActorCount();
 
   image_location = VR_NONE;
-
-  if ( actor_count )
-    prev_image_location = VR_HARDWARE;
-  else
-    prev_image_location = VR_NONE;
-
+  something_in_hardware_buffer = FALSE;
+  
   // Get the background color
   background = ren->GetBackground();
+
+  // has something been rendered by the hardware
+  if ( actor_count || (background[0] != 0.0) || (background[1] != 0.0)
+       || (background[2] != 0.0))
+  {
+    prev_image_location = VR_HARDWARE;
+    something_in_hardware_buffer = TRUE;
+  }
+  else {
+    prev_image_location = VR_NONE;
+    something_in_hardware_buffer = FALSE;
+  }
 
   // Get the physical window dimensions
   rw_size = ren->GetRenderWindow()->GetSize();
@@ -667,7 +676,7 @@ int vtkRayCaster::Render(vtkRenderer *ren)
 
         case VR_HARDWARE:
 
-          if( destroy_hw_buffer )
+          if( destroy_hw_buffer || something_in_hardware_buffer )
             {
             // Store the color and zbuffer data
             prev_cdata = ren->GetRenderWindow()->GetRGBAPixelData( 
