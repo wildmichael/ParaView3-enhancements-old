@@ -1,4 +1,4 @@
-/* "$Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/tiff/Attic/mkg3states.c,v 1.1 2002-01-29 22:38:18 andy Exp $ */
+/* "$Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/tiff/Attic/mkg3states.c,v 1.2 2002-01-30 13:51:29 andy Exp $ */
 
 /*
  * Copyright (c) 1991-1997 Sam Leffler
@@ -333,8 +333,8 @@ FillTable(TIFFFaxTabEnt *T, int Size, struct proto *P, int State)
 static  char* storage_class = "";
 static  char* const_class = "";
 static  int packoutput = 1;
-static  char* prebrace = "";
-static  char* postbrace = "";
+static  char* prebrace = "{ ";
+static  char* postbrace = " }";
 
 void
 WriteTable(FILE* fd, const TIFFFaxTabEnt* T, int Size, const char* name)

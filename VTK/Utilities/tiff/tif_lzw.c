@@ -1,4 +1,4 @@
-/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/tiff/Attic/tif_lzw.c,v 1.1 2002-01-29 22:38:21 andy Exp $ */
+/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/tiff/Attic/tif_lzw.c,v 1.2 2002-01-30 13:51:30 andy Exp $ */
 
 /*
  * Copyright (c) 1988-1997 Sam Leffler
@@ -161,7 +161,8 @@ static  int LZWDecode(TIFF*, tidata_t, tsize_t, tsample_t);
 #ifdef LZW_COMPAT
 static  int LZWDecodeCompat(TIFF*, tidata_t, tsize_t, tsample_t);
 #endif
-static  void cl_hash(LZWEncodeState*);
+/* This function is never used.
+   static  void cl_hash(LZWEncodeState*); */
 
 /*
  * LZW Decoder.

@@ -1,4 +1,4 @@
-/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/tiff/Attic/tif_jpeg.c,v 1.1 2002-01-29 22:38:21 andy Exp $ */
+/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/tiff/Attic/tif_jpeg.c,v 1.2 2002-01-30 13:51:30 andy Exp $ */
 
 /*
  * Copyright (c) 1994-1997 Sam Leffler
@@ -746,7 +746,7 @@ JPEGDecode(TIFF* tif, tidata_t buf, tsize_t cc, tsample_t s)
         tsize_t nrows;
 
         /* data is expected to be read in multiples of a scanline */
-        if (nrows = sp->cinfo.d.image_height)
+        if ((nrows = sp->cinfo.d.image_height))
                 do {
                         JSAMPROW bufptr = (JSAMPROW)buf;
 
@@ -772,7 +772,7 @@ JPEGDecodeRaw(TIFF* tif, tidata_t buf, tsize_t cc, tsample_t s)
         tsize_t nrows;
 
         /* data is expected to be read in multiples of a scanline */
-        if (nrows = sp->cinfo.d.image_height) {
+        if ((nrows = sp->cinfo.d.image_height)) {
                 /* Cb,Cr both have sampling factors 1, so this is correct */
                 JDIMENSION clumps_per_line = sp->cinfo.d.comp_info[1].downsampled_width;
                 int samples_per_clump = sp->samplesperclump;
