@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOrderedTriangulator.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-06 19:55:03 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2002-06-06 20:58:08 $
+  Version:   $Revision: 1.37 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 #include "vtkEdgeTable.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkOrderedTriangulator, "$Revision: 1.36 $");
+vtkCxxRevisionMacro(vtkOrderedTriangulator, "$Revision: 1.37 $");
 vtkStandardNewMacro(vtkOrderedTriangulator);
 
 #ifdef _WIN32_WCE
@@ -1099,6 +1099,36 @@ vtkIdType vtkOrderedTriangulator::AddTetras(int classification,
 
   return numTetras;
 }
+
+vtkIdType vtkOrderedTriangulator::AddTetras(int classification, 
+                                            vtkIdList *ptIds, 
+                                            vtkPoints *pts)
+{
+  vtkOTLinkedList<vtkOTTetra*>::Iterator tptr;
+  vtkOTTetra::TetraClassification type; //inside, outside
+  vtkIdType numTetras=0;
+  int i;
+
+  // loop over all tetras getting the ones with the classification requested
+  for (tptr=this->Mesh->Tetras.Begin(); 
+       tptr != this->Mesh->Tetras.End(); ++tptr)
+    {
+    type = (*tptr)->GetType();
+
+    if ( type == classification || classification == vtkOTTetra::All)
+      {
+      numTetras++;
+      for (i=0; i<4; i++)
+        {
+        ptIds->InsertNextId((*tptr)->Points[i]->Id);
+        pts->InsertNextPoint((*tptr)->Points[i]->X);
+        }
+      }
+    }//for all tetras
+
+  return numTetras;
+}
+
 
 vtkIdType vtkOrderedTriangulator::AddTetras(int classification, 
                                             vtkUnstructuredGrid *ugrid)
