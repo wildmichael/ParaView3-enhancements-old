@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangleStrip.h,v $
   Language:  C++
-  Date:      $Date: 1998-05-06 19:06:11 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 1998-06-15 20:15:41 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -90,6 +90,7 @@ public:
   int Triangulate(int index, vtkIdList &ptIds, vtkPoints &pts);
   void Derivatives(int subId, float pcoords[3], float *values, 
                    int dim, float *derivs);
+  int GetParametricCenter(float pcoords[3]);
 
   // triangle strip specific
   void DecomposeStrips(vtkCellArray *strips, vtkCellArray *tris);

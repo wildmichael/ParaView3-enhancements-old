@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangle.h,v $
   Language:  C++
-  Date:      $Date: 1998-05-06 19:06:10 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 1998-06-15 20:15:40 $
+  Version:   $Revision: 1.44 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -86,6 +86,7 @@ public:
   int Triangulate(int index, vtkIdList &ptIds, vtkPoints &pts);
   void Derivatives(int subId, float pcoords[3], float *values, 
                    int dim, float *derivs);
+  int GetParametricCenter(float pcoords[3]);
 
   // triangle specific
   static void TriangleCenter(float p1[3], float p2[3], float p3[3], 
@@ -106,6 +107,14 @@ protected:
   vtkLine Line;
 
 };
+
+// Description:
+// Return the center of the triangle in parametric coordinates.
+inline int vtkTriangle::GetParametricCenter(float pcoords[3])
+{
+  pcoords[0] = pcoords[1] = 0.333; pcoords[2] = 0.0;
+  return 0;
+}
 
 // Description:
 // Compute the triangle normal from three points.
