@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMedian3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:33:06 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2002-05-08 13:18:53 $
+  Version:   $Revision: 1.28 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkImageMedian3D.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkImageMedian3D, "$Revision: 1.27 $");
+vtkCxxRevisionMacro(vtkImageMedian3D, "$Revision: 1.28 $");
 vtkStandardNewMacro(vtkImageMedian3D);
 
 //----------------------------------------------------------------------------
@@ -132,42 +132,41 @@ double *vtkImageMedian3DAccumulateMedian(int &UpNum, int &DownNum,
 
 
   // Case: value is below median 
-  if (val <= *(Median))
+  // If we got here, val < *(Median)
+
+  // move the median if necessary
+  if (DownNum > UpNum)
     {
-    // move the median if necessary
-    if (DownNum > UpNum)
-      {
-      // Move the median Down one 
-      --Median;
-      --DownNum;
-      ++UpNum;
-      --DownMax;
-      ++UpMax;
-      }
-    // find the position for val in the sorted array
-    max = (DownNum < DownMax) ? DownNum : DownMax;
-    ptr = Median;
-    idx = 0;
-    while (idx < max && val <= *ptr)
-      {
-      --ptr;
-      ++idx;
-      }
-    // place val and move all others up
-    while (idx < max)
-      {
-      temp = *ptr;
-      *ptr = val;
-      val = temp;
-      --ptr;
-      ++idx;
-      }
-    *ptr = val;
-    // Update counts
-    ++DownNum;
-    --UpMax;
-    return Median;
+    // Move the median Down one 
+    --Median;
+    --DownNum;
+    ++UpNum;
+    --DownMax;
+    ++UpMax;
     }
+  // find the position for val in the sorted array
+  max = (DownNum < DownMax) ? DownNum : DownMax;
+  ptr = Median;
+  idx = 0;
+  while (idx < max && val <= *ptr)
+    {
+    --ptr;
+    ++idx;
+    }
+  // place val and move all others up
+  while (idx < max)
+    {
+    temp = *ptr;
+    *ptr = val;
+    val = temp;
+    --ptr;
+    ++idx;
+    }
+  *ptr = val;
+  // Update counts
+  ++DownNum;
+  --UpMax;
+
   return Median;
 }
 

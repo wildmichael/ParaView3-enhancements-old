@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCompositeManager.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-06 12:07:59 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2002-05-08 13:18:53 $
+  Version:   $Revision: 1.27 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -35,7 +35,7 @@
  #include <mpi.h>
 #endif
 
-vtkCxxRevisionMacro(vtkCompositeManager, "$Revision: 1.26 $");
+vtkCxxRevisionMacro(vtkCompositeManager, "$Revision: 1.27 $");
 vtkStandardNewMacro(vtkCompositeManager);
 
 // Structures to communicate render info.
@@ -57,6 +57,20 @@ struct vtkCompositeRendererInfo
   float LightFocalPoint[3];
   float Background[3];
 };
+
+#define vtkInitializeVector3(v) { v[0] = 0; v[1] = 0; v[2] = 0; }
+#define vtkInitializeVector2(v) { v[0] = 0; v[1] = 0; }
+#define vtkInitializeCompositeRendererInfoMacro(r)      \
+  {                                                     \
+  vtkInitializeVector3(r.CameraPosition);               \
+  vtkInitializeVector3(r.CameraFocalPoint);             \
+  vtkInitializeVector3(r.CameraViewUp);                 \
+  vtkInitializeVector2(r.CameraClippingRange);          \
+  vtkInitializeVector3(r.LightPosition);                \
+  vtkInitializeVector3(r.LightFocalPoint);              \
+  vtkInitializeVector3(r.Background);                   \
+  }
+  
 
 
 //-------------------------------------------------------------------------
@@ -449,6 +463,7 @@ void vtkCompositeManager::RenderRMI()
   vtkMultiProcessController *controller = this->Controller;
   
   vtkDebugMacro("RenderRMI");
+  vtkInitializeCompositeRendererInfoMacro(renInfo);
   
   // Receive the window size.
   controller->Receive((char*)(&winInfo), 

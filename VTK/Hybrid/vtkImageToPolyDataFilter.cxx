@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToPolyDataFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-07 13:54:43 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2002-05-08 13:18:53 $
+  Version:   $Revision: 1.19 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 #include "vtkEdgeTable.h"
 #include "vtkAppendPolyData.h"
 
-vtkCxxRevisionMacro(vtkImageToPolyDataFilter, "$Revision: 1.18 $");
+vtkCxxRevisionMacro(vtkImageToPolyDataFilter, "$Revision: 1.19 $");
 
 vtkImageToPolyDataFilter::vtkImageToPolyDataFilter()
 {
@@ -773,7 +773,8 @@ void vtkImageToPolyDataFilter::GeneratePolygons(vtkPolyData *edges,
 {
   vtkCellArray *newPolys, *inPolys;
   int i, numPts;
-  vtkIdType *pts, npts;
+  vtkIdType *pts = 0;
+  vtkIdType npts = 0;
   
   // Copy the points via reference counting
   //

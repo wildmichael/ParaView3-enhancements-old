@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageBlend.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:31:52 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2002-05-08 13:18:53 $
+  Version:   $Revision: 1.25 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkImageBlend.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkImageBlend, "$Revision: 1.24 $");
+vtkCxxRevisionMacro(vtkImageBlend, "$Revision: 1.25 $");
 vtkStandardNewMacro(vtkImageBlend);
 
 //----------------------------------------------------------------------------
@@ -231,7 +231,9 @@ static void vtkImageBlendExecute(vtkImageBlend *self, int extent[6],
                                  float opacity, int id)
 {
   int idxX, idxY, idxZ;
-  int minX, maxX, iter;
+  int minX = 0;
+  int maxX = 0;
+  int iter;
   int inIncX, inIncY, inIncZ;
   int outIncX, outIncY, outIncZ;
   int inC, outC;

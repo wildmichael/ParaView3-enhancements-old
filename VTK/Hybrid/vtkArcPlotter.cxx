@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkArcPlotter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-27 16:26:50 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2002-05-08 13:18:53 $
+  Version:   $Revision: 1.17 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 #include "vtkFloatArray.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkArcPlotter, "$Revision: 1.16 $");
+vtkCxxRevisionMacro(vtkArcPlotter, "$Revision: 1.17 $");
 vtkStandardNewMacro(vtkArcPlotter);
 
 vtkArcPlotter::vtkArcPlotter()
@@ -70,7 +70,8 @@ void vtkArcPlotter::Execute()
   vtkIdType numPts, i;
   float x[3], normal[3], point[3], aveNormal[3];
   int id;
-  vtkIdType *pts, npts;
+  vtkIdType *pts = 0;
+  vtkIdType npts = 0;
   float *x1, *x2, x21[3], n[3];
   vtkFloatArray *lineNormals;
   vtkPoints *newPts;
