@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMesaRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2002-11-19 18:49:31 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2002-11-19 19:29:54 $
+  Version:   $Revision: 1.15 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -210,6 +210,7 @@ protected:
   int      ScreenSize[2];
   int      CursorHidden;
   int      ForceMakeCurrent;
+  int      UsingHardware;
 
   // we must keep track of the cursors we are using
   Cursor XCArrow;
