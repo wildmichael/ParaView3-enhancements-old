@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObjectSource.h,v $
   Language:  C++
-  Date:      $Date: 1998-12-02 21:29:07 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-12-03 16:24:55 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,7 +38,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-// .NAME vtkDataObjectSource - abstract class specifies interface for field source (or objects that generate field output)
+// .NAME vtkDataObjectSource - abstract class specifies interface for
+//  field source (or objects that generate field output)
 
 // .SECTION Description
 // vtkDataObjectSource is an abstract object that specifies behavior and
@@ -78,7 +79,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #define __vtkDataObjectSource_h
 
 #include "vtkSource.h"
-#include "vtkFieldData.h"
+
+class vtkDataObject;
 
 class VTK_EXPORT vtkDataObjectSource : public vtkSource
 {
