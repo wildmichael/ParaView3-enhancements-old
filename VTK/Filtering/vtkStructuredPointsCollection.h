@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsCollection.h,v $
   Language:  C++
-  Date:      $Date: 1997-03-04 17:58:51 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1997-04-18 19:30:23 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -52,6 +52,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkStructuredPointsCollection : public vtkCollection
 {
 public:
+  vtkStructuredPointsCollection *New() {return new vtkStructuredPointsCollection;};
   char *GetClassName() {return "vtkStructuredPointsCollection";};
 
   void AddItem(vtkStructuredPoints *);
