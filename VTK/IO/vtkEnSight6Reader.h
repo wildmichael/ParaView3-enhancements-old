@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSight6Reader.h,v $
   Language:  C++
-  Date:      $Date: 2001-01-17 14:48:28 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-05-29 17:11:50 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -81,16 +81,23 @@ protected:
   virtual int ReadGeometryFile();
 
   // Description:
+  // Read the measured geometry file.  If an error occurred, 0 is returned;
+  // otherwise 1.
+  virtual int ReadMeasuredGeometryFile();
+
+  // Description:
   // Read scalars per node for this dataset.  If an error occurred, 0 is
   // returned; otherwise 1.  If there will be more than one component in
   // the scalars array, we assume that 0 is the first component added to the array.
   virtual int ReadScalarsPerNode(char* fileName, char* description,
-				 int numberOfComponents = 1, int component = 0);
+                                 int measured = 0, int numberOfComponents = 1,
+                                 int component = 0);
   
   // Description:
   // Read vectors per node for this dataset.  If an error occurred, 0 is
   // returned; otherwise 1.
-  virtual int ReadVectorsPerNode(char* fileName, char* description);
+  virtual int ReadVectorsPerNode(char* fileName, char* description,
+                                 int measured = 0);
 
   // Description:
   // Read tensors per node for this dataset.  If an error occurred, 0 is
