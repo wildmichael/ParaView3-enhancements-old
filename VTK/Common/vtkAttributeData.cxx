@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAttributeData.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-17 19:41:27 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2000-01-14 21:28:19 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -61,6 +61,13 @@ vtkAttributeData::vtkAttributeData(int dataType)
   this->SetDataType(dataType);
 }
 
+vtkAttributeData::vtkAttributeData()
+{
+  this->Data = vtkFloatArray::New();
+  this->Data->Register(this);
+  this->Data->Delete();
+}
+
 vtkAttributeData::~vtkAttributeData()
 {
   this->Data->UnRegister(this);
@@ -86,27 +93,6 @@ int vtkAttributeData::GetDataType()
 void vtkAttributeData::SetDataType(int dataType)
 {
   if ( dataType == this->Data->GetDataType() )
-    {
-    return;
-    }
-  // special cases
-  if (dataType == VTK_UNSIGNED_INT 
-      && this->Data->GetDataType() == VTK_UNSIGNED_SHORT)
-    {
-    return;
-    }
-  if (dataType == VTK_LONG 
-      && this->Data->GetDataType() == VTK_INT)
-    {
-    return;
-    }
-  if (dataType == VTK_UNSIGNED_LONG 
-      && this->Data->GetDataType() == VTK_UNSIGNED_SHORT)
-    {
-    return;
-    }
-  if (dataType == VTK_UNSIGNED_INT 
-      && this->Data->GetDataType() == VTK_UNSIGNED_SHORT)
     {
     return;
     }

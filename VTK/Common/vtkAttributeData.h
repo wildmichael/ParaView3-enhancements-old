@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAttributeData.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-17 19:41:36 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2000-01-14 21:28:19 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -139,7 +139,8 @@ public:
 protected:
   // Construct object with an initial data array of type dataType (by default
   // dataType is VTK_FLOAT.
-  vtkAttributeData(int dataType=VTK_FLOAT);
+  vtkAttributeData();
+  vtkAttributeData(int dataType);
   ~vtkAttributeData();
   vtkAttributeData(const vtkAttributeData&) {};
   void operator=(const vtkAttributeData&) {};
