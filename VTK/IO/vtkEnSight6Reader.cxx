@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSight6Reader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-24 14:13:33 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2001-01-29 20:48:07 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1850,7 +1850,7 @@ int vtkEnSight6Reader::CreateStructuredGridOutput(int partId,
         {
         if (!iblanks[j])
           {
-          ((vtkStructuredGrid*)this->GetOutput(partId))->BlankPoint(i);
+          ((vtkStructuredGrid*)this->GetOutput(partId))->BlankPoint(i*numLines+j);
           }
         }
       }

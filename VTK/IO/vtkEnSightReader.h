@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSightReader.h,v $
   Language:  C++
-  Date:      $Date: 2001-01-17 14:48:28 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-01-29 20:48:07 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -244,7 +244,7 @@ protected:
   // Description:
   // Determine the element type from a line read a file.  Return -1 for
   // invalid element type.
-  int GetElementType(char line[256]);
+  int GetElementType(char* line);
 
   char* FilePath;
   

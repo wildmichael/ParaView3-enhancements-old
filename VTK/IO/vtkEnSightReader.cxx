@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSightReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-23 14:18:23 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2001-01-29 20:48:07 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1187,7 +1187,7 @@ char* vtkEnSightReader::GetDescription(int n, int type)
   return NULL;
 }
 
-int vtkEnSightReader::GetElementType(char line[256])
+int vtkEnSightReader::GetElementType(char* line)
 {
   if (strcmp(line, "point") == 0)
     {
