@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyData.h,v $
   Language:  C++
-  Date:      $Date: 2000-08-30 14:25:57 $
-  Version:   $Revision: 1.101 $
+  Date:      $Date: 2000-09-04 08:34:30 $
+  Version:   $Revision: 1.102 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -107,6 +107,14 @@ public:
   int GetCellType(int cellId);
   void GetCellBounds(int cellId, float bounds[6]);
   void GetCellNeighbors(int cellId, vtkIdList *ptIds, vtkIdList *cellIds);
+  
+  // Description:
+  // Copy cells listed in idList from pd, including points, point data,
+  // and cell data.  This method assumes that point and cell data have
+  // been allocated.  If you pass in a point locator, then the points
+  // won't be duplicated in the output.
+  void CopyCells(vtkPolyData *pd, vtkIdList *idList,
+		 vtkPointLocator *locator = NULL);
   
   // Description:
   // Copy a cells point ids into list provided. (Less efficient.)
