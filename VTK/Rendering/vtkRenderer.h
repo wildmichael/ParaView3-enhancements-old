@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.h,v $
   Language:  C++
-  Date:      $Date: 1995-08-15 19:16:05 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1995-09-12 12:57:05 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -122,7 +122,7 @@ public:
   // Description:
   // Get a device specific geometry representation. vtkMapper and its
   // subclasses need to get device specific GeometryPrimitives to
-  // render their polygons, lines, triangle strips and verticies.
+  // render their polygons, lines, triangle strips and vertices.
   // This method which must be supplied by subclasses of vtkRenderer
   // takes a string indicating what type of primitive to create.
   virtual vtkGeometryPrimitive *GetPrimitive(char *) = 0;
@@ -167,7 +167,7 @@ public:
 
   // Description:
   // Specify a point location in world coordinates. This method takes 
-  // homogeneus coordinates. 
+  // homogeneous coordinates. 
   vtkSetVector4Macro(WorldPoint,float);
   vtkGetVectorMacro(WorldPoint,float,4);
 
