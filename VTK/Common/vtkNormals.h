@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkNormals.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:34:38 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1995-07-28 14:50:39 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.

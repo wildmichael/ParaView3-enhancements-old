@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIntArray.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:34:20 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1995-07-28 14:50:21 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.

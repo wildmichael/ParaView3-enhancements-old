@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMatrix4x4.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:34:36 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1995-07-28 14:50:37 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.

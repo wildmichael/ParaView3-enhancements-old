@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalars.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:35:27 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1995-07-28 14:51:26 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
