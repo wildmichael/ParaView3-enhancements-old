@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObject.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-21 19:58:43 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 2000-08-30 08:51:15 $
+  Version:   $Revision: 1.52 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -575,7 +575,8 @@ int vtkDataObject::UpdateExtentIsOutsideOfTheExtent()
     {
     case VTK_PIECES_EXTENT:
       if ( this->UpdatePiece != this->Piece ||
-	   this->UpdateNumberOfPieces != this->NumberOfPieces )
+	   this->UpdateNumberOfPieces != this->NumberOfPieces ||
+	   this->UpdateGhostLevel != this->GhostLevel)
 	{
         return 1;
 	}
