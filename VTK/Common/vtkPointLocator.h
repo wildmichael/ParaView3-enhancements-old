@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointLocator.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 21:03:04 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1996-11-14 21:51:21 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -103,6 +103,7 @@ public:
 protected:
   // place points in appropriate buckets
   void GetBucketNeighbors(int ijk[3], int ndivs[3], int level);
+  void GetOverlappingBuckets(float x[3], int ijk[3], float dist);
   void GenerateFace(int face, int i, int j, int k, 
                     vtkFloatPoints *pts, vtkCellArray *polys);
 
