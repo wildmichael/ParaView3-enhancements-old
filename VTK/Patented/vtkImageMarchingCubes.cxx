@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMarchingCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 21:20:42 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1997-07-23 11:31:58 $
+  Version:   $Revision: 1.5 $
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -223,10 +223,10 @@ void vtkImageMarchingCubes::Execute()
       {
       extent[5] = zMax;
       }
-    inRegion->SetExtent(3, extent);
     // Get the chunk from the input
     this->Input->Update();
     inRegion = this->Input->GetScalarRegion();
+    inRegion->SetExtent(3, extent);
     
     this->March(inRegion, chunkMin, chunkMax, numContours, values);
     }
