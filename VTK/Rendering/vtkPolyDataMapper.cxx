@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-31 13:56:39 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2001-02-01 21:23:46 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -107,7 +107,8 @@ void vtkPolyDataMapper::Update()
   if (this->GetInput()) 
     {
     currentPiece = this->NumberOfSubPieces * this->Piece;
-    input->SetUpdateExtent(currentPiece, nPieces, this->GhostLevel);
+    input->SetUpdateExtent(currentPiece, this->NumberOfSubPieces*nPieces, 
+                           this->GhostLevel);
     }
 
   this->vtkMapper::Update();

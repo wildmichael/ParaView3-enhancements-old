@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataMapper.h,v $
   Language:  C++
-  Date:      $Date: 2001-01-31 13:56:39 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2001-02-01 21:23:46 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -87,6 +87,8 @@ public:
   vtkGetMacro(Piece, int);
   vtkSetMacro(NumberOfPieces, int);
   vtkGetMacro(NumberOfPieces, int);
+  vtkSetMacro(NumberOfSubPieces, int);
+  vtkGetMacro(NumberOfSubPieces, int);
 
   // Description:
   // Set the number of ghost cells to return.
