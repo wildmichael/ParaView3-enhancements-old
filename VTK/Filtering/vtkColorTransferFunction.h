@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkColorTransferFunction.h,v $
   Language:  C++
-  Date:      $Date: 1999-04-27 12:41:12 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1999-04-29 14:58:23 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -61,6 +61,7 @@ public:
   static vtkColorTransferFunction *New() {
     return new vtkColorTransferFunction;};
   const char *GetClassName() {return "vtkColorTransferFunction";};
+  void DeepCopy( vtkColorTransferFunction *f );
 
   // Description:
   // Print method for vtkColorTransferFunction

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkColorTransferFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:44:35 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-04-29 14:58:23 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -317,4 +317,14 @@ void vtkColorTransferFunction::SetClamping(int val) {
 // Gets the clamping value
 int vtkColorTransferFunction::GetClamping() {
   return this->Clamping;
+}
+
+void vtkColorTransferFunction::DeepCopy( vtkColorTransferFunction *f )
+{
+  this->Red->DeepCopy(f->GetRedFunction());
+  this->Green->DeepCopy(f->GetGreenFunction());
+  this->Blue->DeepCopy(f->GetBlueFunction());
+  
+  this->Clamping     = f->Clamping;
+  this->UpdateRange();
 }
