@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkCylinderSource.h,v $
   Language:  C++
-  Date:      $Date: 1994-02-05 13:03:52 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1994-03-12 19:01:38 $
+  Version:   $Revision: 1.8 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -21,7 +21,7 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 
 #include "PolySrc.hh"
 
-#define MAX_RESOLUTION MAX_VERTS
+#define MAX_RESOLUTION MAX_CELL_SIZE
 
 class vlCylinderSource : public vlPolySource 
 {
