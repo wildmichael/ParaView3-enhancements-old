@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGreedyTerrainDecimation.h,v $
   Language:  C++
-  Date:      $Date: 2003-03-31 18:04:33 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2003-03-31 21:30:03 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -191,7 +191,7 @@ protected:
   void GetTerrainPoint(int i, int j, double x[3]);
   void ComputeImageCoordinates(vtkIdType inputPtId, int ij[2]);
   int InCircle (double x[3], double x1[3], double x2[3], double x3[3]);
-  vtkIdType FindTriangle(double x[3], vtkIdType ptIds[3], vtkIdType tri,
+  int FindTriangle(double x[3], vtkIdType ptIds[3], vtkIdType tri,
                          double tol, vtkIdType nei[3], vtkIdList *neighbors);
   void CheckEdge(vtkIdType ptId, double x[3], vtkIdType p1, vtkIdType p2,
                  vtkIdType tri);
