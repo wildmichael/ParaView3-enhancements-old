@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProp.h,v $
   Language:  C++
-  Date:      $Date: 2000-06-08 09:11:03 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2000-06-11 11:54:33 $
+  Version:   $Revision: 1.20 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -148,7 +148,7 @@ public:
   // These methods are used by subclasses to place a matrix (if any) in the
   // prop prior to rendering. Generally used only for picking. See vtkProp3D
   // for more information.
-  virtual void PokeMatrix(vtkMatrix4x4 *matrix) {};
+  virtual void PokeMatrix(vtkMatrix4x4 *vtkNotUsed(matrix)) {};
   virtual vtkMatrix4x4 *GetMatrixPointer() {return NULL;};
 
 //BTX  

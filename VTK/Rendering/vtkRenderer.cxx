@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-06-08 09:11:05 $
-  Version:   $Revision: 1.145 $
+  Date:      $Date: 2000-06-11 11:54:34 $
+  Version:   $Revision: 1.146 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1188,7 +1188,6 @@ vtkAssemblyPath* vtkRenderer::PickProp(float selectionX, float selectionY)
 // Before each Prop is rendered the pick id is incremented
 void vtkRenderer::PickRender(vtkPropCollection *props)
 {
-  double   t1, t2;
   vtkProp  *aProp;
   vtkAssemblyPath *path;
 

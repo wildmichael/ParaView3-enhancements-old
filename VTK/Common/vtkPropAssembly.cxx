@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPropAssembly.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-06-08 09:11:03 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2000-06-11 11:54:34 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -398,7 +398,6 @@ void vtkPropAssembly::BuildPaths(vtkAssemblyPaths *paths,
                                  vtkAssemblyPath *path)
 {
   vtkProp *prop;
-  vtkAssemblyPath *childPath;
 
   for ( this->Parts->InitTraversal(); 
         (prop = this->Parts->GetNextProp()); )
