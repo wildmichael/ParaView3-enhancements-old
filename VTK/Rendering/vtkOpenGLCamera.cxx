@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLCamera.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:44 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2001-02-26 15:19:44 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -132,11 +132,8 @@ void vtkOpenGLCamera::Render(vtkRenderer *ren)
   glEnable( GL_SCISSOR_TEST );
   glScissor(lowerLeft[0],lowerLeft[1], usize, vsize);
     
-  /* for stereo we have to fiddle with aspect */
-  aspect[0] = (float)(usize)/(float)(vsize);
-  aspect[1] = 1.0;
-  
-  ren->SetAspect(aspect);
+  ren->ComputeAspect();
+  ren->GetAspect(aspect);
 
   glMatrixMode( GL_PROJECTION);
   matrix->DeepCopy(this->GetPerspectiveTransformMatrix(aspect[0]/aspect[1],
