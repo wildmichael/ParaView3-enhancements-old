@@ -33,7 +33,7 @@
 # include <io.h> /* unlink */
 #endif
 
-vtkCxxRevisionMacro(vtkXMLWriter, "$Revision: 1.31 $");
+vtkCxxRevisionMacro(vtkXMLWriter, "$Revision: 1.32 $");
 vtkCxxSetObjectMacro(vtkXMLWriter, Compressor, vtkDataCompressor);
 
 //----------------------------------------------------------------------------
@@ -2124,7 +2124,7 @@ void vtkXMLWriter::DestroyStringArray(int numStrings, char** strings)
       delete [] strings[i];
       }
     }
-  delete strings;
+  delete [] strings;
 }
 
 //----------------------------------------------------------------------------
