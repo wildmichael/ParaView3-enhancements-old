@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMatrix4x4.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-14 21:24:50 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 1998-10-15 09:55:07 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -120,6 +120,8 @@ class VTK_EXPORT vtkMatrix4x4 : public vtkObject
   // Description: 
   // For legacy compatibility. Do not use.
   float *operator[](const unsigned int i) {return &(this->Element[i][0]);};
+  const float *operator[](unsigned int i) const
+    { return &(this->Element[i][0]); }  
   void operator= (float element);
   vtkMatrix4x4& operator= (const vtkMatrix4x4& source);
   void Adjoint(vtkMatrix4x4 &in,vtkMatrix4x4 &out){this->Adjoint(&in,&out);}
@@ -128,8 +130,6 @@ class VTK_EXPORT vtkMatrix4x4 : public vtkObject
     {this->Invert(&in,&out);}
   void Transpose(vtkMatrix4x4 &in,vtkMatrix4x4 &out)
     {this->Transpose(&in,&out);}
-  const float *operator[](unsigned int i) const
-    { return &(this->Element[i][0]); }  
 };
 
 inline void vtkMatrix4x4::SetElement (int i, int j, float value)
