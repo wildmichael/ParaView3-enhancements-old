@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLandmarkTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-05-10 20:04:52 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2001-05-11 11:08:01 $
+  Version:   $Revision: 1.17 $
   Thanks:    Thanks to Tim Hutton and David G. Gobbi who developed this class.
 
 Redistribution and use in source and binary forms, with or without
@@ -97,6 +97,8 @@ void vtkLandmarkTransform::PrintSelf(ostream& os, vtkIndent indent)
  
 void vtkLandmarkTransform::InternalUpdate()
 {
+  int i, j;
+
   if (this->SourceLandmarks == NULL || this->TargetLandmarks == NULL)
     {
     this->Matrix->Identity();
@@ -128,8 +130,6 @@ void vtkLandmarkTransform::InternalUpdate()
     this->Matrix->Identity();
     return;
     }
-
-  int i;
 
   // -- find the centroid of each set --
 
@@ -220,9 +220,9 @@ void vtkLandmarkTransform::InternalUpdate()
     vtkMath::Multiply3x3(AAT,M,M);
 
     // this->Matrix = M^t
-    for(int i=0;i<3;++i) 
+    for(i=0;i<3;++i) 
       {
-      for(int j=0;j<3;++j)
+      for(j=0;j<3;++j)
 	{
 	this->Matrix->Element[i][j] = M[j][i];
 	}

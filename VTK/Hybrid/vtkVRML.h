@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVRML.h,v $
   Language:  C++
-  Date:      $Date: 2001-05-07 19:05:34 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2001-05-11 11:08:01 $
+  Version:   $Revision: 1.9 $
   Thanks:    Tom Citriniti who implemented and contributed this class
 
 
@@ -271,7 +271,7 @@ public:
       return vrmlPointerList::AllocateMemory(n);
     }
 
-  void operator delete(void *ptr)
+  void operator delete(void *)
     {
     }
 

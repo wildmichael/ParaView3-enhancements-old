@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVRMLImporter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-05-08 12:30:40 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2001-05-11 11:08:01 $
+  Version:   $Revision: 1.24 $
   Thanks:    Tom Citriniti who implemented and contributed this class
 
 
@@ -158,7 +158,7 @@ class VrmlNodeType {
       return vrmlPointerList::AllocateMemory(n);
     }
 
-  void operator delete(void *ptr) {}
+  void operator delete(void *vtkNotUsed(ptr)) {}
 
   typedef struct {
     char *name;
@@ -169,7 +169,7 @@ class VrmlNodeType {
 	return vrmlPointerList::AllocateMemory(n);
       }
     
-    void operator delete(void *ptr) {}
+    void operator delete(void *vtkNotUsed(ptr)) {}
 
   } NameTypeRec;
         
@@ -5334,7 +5334,7 @@ class vtkVRMLUseStruct {
       return vrmlPointerList::AllocateMemory(n);
     }
 
-  void operator delete(void *ptr) {}
+  void operator delete(void *vtkNotUsed(ptr)) {}
 };
 
 VectorType<vtkVRMLUseStruct *> useList;
