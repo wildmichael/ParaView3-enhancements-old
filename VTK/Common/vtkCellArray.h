@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkCellArray.h,v $
   Language:  C++
-  Date:      $Date: 1994-04-15 16:11:06 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1994-05-15 19:23:39 $
+  Version:   $Revision: 1.18 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -28,8 +28,9 @@ class vlCellArray : public vlObject
 {
 public:
   vlCellArray() : NumberOfCells(0), Location(0) {};
-  int Initialize(const int sz, const int ext=1000) 
-    {return this->Ia.Initialize(sz,ext);};
+  int Allocate(const int sz, const int ext=1000) 
+    {return this->Ia.Allocate(sz,ext);};
+  void Initialize() {return this->Ia.Initialize();};
   vlCellArray (const int sz, const int ext=1000):NumberOfCells(0),Location(0),Ia(sz,ext){};
   vlCellArray(const vlCellArray& ca);
   ~vlCellArray() {};

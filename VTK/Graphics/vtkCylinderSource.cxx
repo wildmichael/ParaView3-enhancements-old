@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkCylinderSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-02-07 17:17:26 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1994-05-15 19:23:34 $
+  Version:   $Revision: 1.12 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -63,7 +63,7 @@ void vlCylinderSource::Execute()
   newTCoords = new vlFloatTCoords(numPts,2);
 
   newPolys = new vlCellArray;
-  newPolys->Initialize(newPolys->EstimateSize(numPolys,this->Resolution));
+  newPolys->Allocate(newPolys->EstimateSize(numPolys,this->Resolution));
 //
 // Generate points and point data for sides
 //

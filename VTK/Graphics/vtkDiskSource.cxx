@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkDiskSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-02-23 16:23:41 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1994-05-15 19:23:28 $
+  Version:   $Revision: 1.2 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -51,7 +51,7 @@ void vlDiskSource::Execute()
   numPolys = this->RadialResolution * this->CircumferentialResolution;
   newPoints = new vlFloatPoints(numPts);
   newPolys = new vlCellArray;
-  newPolys->Initialize(newPolys->EstimateSize(numPolys,4));
+  newPolys->Allocate(newPolys->EstimateSize(numPolys,4));
 //
 // Create disk
 //

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkDataSetToStructuredPointsFilter.h,v $
   Language:  C++
-  Date:      $Date: 1994-03-03 20:03:07 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1994-05-15 19:23:33 $
+  Version:   $Revision: 1.3 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -23,7 +23,7 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 #define __vlDataSetToStructuredPointsFilter_h
 
 #include "DataSetF.hh"
-#include "SPoints.hh"
+#include "StrPts.hh"
 
 class vlDataSetToStructuredPointsFilter : public vlStructuredPoints, public vlDataSetFilter
 {

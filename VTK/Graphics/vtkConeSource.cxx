@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkConeSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-02-07 17:17:30 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1994-05-15 19:23:36 $
+  Version:   $Revision: 1.9 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -49,20 +49,20 @@ void vlConeSource::Execute()
     numPts = 2;
     numLines =  1;
     newLines = new vlCellArray;
-    newLines->Initialize(newLines->EstimateSize(numLines,numPts));
+    newLines->Allocate(newLines->EstimateSize(numLines,numPts));
   
   case 1: case 2:
     numPts = 2*this->Resolution + 1;
     numPolys = this->Resolution;
     newPolys = new vlCellArray;
-    newPolys->Initialize(newPolys->EstimateSize(numPolys,3));
+    newPolys->Allocate(newPolys->EstimateSize(numPolys,3));
     break;
 
   default:
     numPts = this->Resolution + 1;
     numPolys = this->Resolution + 1;
     newPolys = new vlCellArray;
-    newPolys->Initialize(newPolys->EstimateSize(numPolys,this->Resolution));
+    newPolys->Allocate(newPolys->EstimateSize(numPolys,this->Resolution));
     break;
   }
   newPoints = new vlFloatPoints(numPts);

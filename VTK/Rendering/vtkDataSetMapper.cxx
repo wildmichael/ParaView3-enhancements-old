@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkDataSetMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-05-08 08:53:44 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1994-05-15 19:23:32 $
+  Version:   $Revision: 1.10 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -20,8 +20,8 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 
 vlDataSetMapper::vlDataSetMapper()
 {
-  this->Input = 0;
-  this->Mapper = 0;
+  this->Input = NULL;
+  this->Mapper = NULL;
 }
 
 vlDataSetMapper::~vlDataSetMapper()

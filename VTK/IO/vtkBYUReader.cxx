@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkBYUReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-05-10 14:51:28 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1994-05-15 19:23:44 $
+  Version:   $Revision: 1.3 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -23,10 +23,10 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 
 vlBYUReader::vlBYUReader()
 {
-  this->GeometryFilename = 0;
-  this->DisplacementFilename = 0;
-  this->ScalarFilename = 0;
-  this->TextureFilename = 0;
+  this->GeometryFilename = NULL;
+  this->DisplacementFilename = NULL;
+  this->ScalarFilename = NULL;
+  this->TextureFilename = NULL;
 
   this->ReadDisplacement = 1;
   this->ReadScalar = 1;
