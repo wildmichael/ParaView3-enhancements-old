@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDivergence.h,v $
   Language:  C++
-  Date:      $Date: 1998-04-09 17:47:53 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1998-04-09 19:45:46 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -65,7 +65,6 @@ public:
 protected:
   int Dimensionality;
 
-  void ExecuteImageInformation();
   void ComputeRequiredInputUpdateExtent(int inExt[6], int outExt[6]);
   void ThreadedExecute(vtkImageData *inData, vtkImageData *outData,
 		       int ext[6], int id);

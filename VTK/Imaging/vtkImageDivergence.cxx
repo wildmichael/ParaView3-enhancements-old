@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDivergence.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-04-09 17:47:51 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-04-09 19:45:45 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -47,12 +47,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 vtkImageDivergence::vtkImageDivergence()
 {
   this->Dimensionality = 2;
-}
-
-//----------------------------------------------------------------------------
-void vtkImageDivergence::ExecuteImageInformation()
-{
-  this->Output->SetNumberOfScalarComponents(1);
 }
 
 //----------------------------------------------------------------------------
@@ -158,31 +152,27 @@ static void vtkImageDivergenceExecute(vtkImageDivergence *self,
 	{
 	useXMin = ((idxX + outExt[0]) <= wholeExtent[0]) ? 0 : -inIncs[0];
 	useXMax = ((idxX + outExt[0]) >= wholeExtent[1]) ? 0 : inIncs[0];
-	sum = 0.0;
 	for (idxC = 0; idxC < maxC; idxC++)
 	  {
 	  // do X axis
 	  d = (float)(inPtr[useXMin]);
 	  d -= (float)(inPtr[useXMax]);
-	  d *= r[0]; // multiply by the data spacing
-	  sum = sum + d * r[0];
+	  sum = d * r[0];
 	  // do y axis
 	  d = (float)(inPtr[useYMin]);
 	  d -= (float)(inPtr[useYMax]);
-	  d *= r[1]; // multiply by the data spacing
 	  sum = sum + d * r[1];
 	  if (axesNum == 3)
 	    {
 	    // do z axis
 	    d = (float)(inPtr[useZMin]);
 	    d -= (float)(inPtr[useZMax]);
-	    d *= r[2]; // multiply by the data spacing
 	    sum = sum + d * r[2];
 	    }
+	  *outPtr = (T)sum;
 	  inPtr++;
+	  outPtr++;
 	  }
-	*outPtr = (T)sum;
-	outPtr++;
 	}
       outPtr += outIncY;
       inPtr += inIncY;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageLaplacian.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-17 14:29:52 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1998-04-09 19:45:48 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -63,15 +63,17 @@ public:
   const char *GetClassName() {return "vtkImageLaplacian";};
   void PrintSelf(ostream& os, vtkIndent indent);
   
-  void SetFilteredAxes(int num, int *axes);
-  vtkImageSetMacro(FilteredAxes,int);
-
-  // For templated function
-  vtkGetMacro(NumberOfFilteredAxes,int);
+  // Description:
+  // Determines how the input is interpreted (set of 2d slices ...)
+  vtkSetClampMacro(Dimensionality,int,2,3);
+  vtkGetMacro(Dimensionality,int);
   
 protected:
-  void ComputeRequiredInputUpdateExtent();
-  void Execute(vtkImageRegion *inRegion, vtkImageRegion *outRegion);
+  int Dimensionality;
+
+  void ComputeRequiredInputUpdateExtent(int inExt[6], int outExt[6]);
+  void ThreadedExecute(vtkImageData *inData, vtkImageData *outData,
+		       int ext[6], int id);
 };
 
 #endif
