@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkJPEGReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-05 02:17:44 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-12-07 16:28:47 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -112,7 +112,7 @@ void vtkJPEGReader::ExecuteInformation()
 
 template <class OT>
 static void vtkJPEGReaderUpdate2(vtkJPEGReader *self, OT *outPtr,
-                                int *outExt, int *outInc, long pixSize)
+                                int *outExt, int *outInc, long)
 {
   unsigned int ui;
   int i;
