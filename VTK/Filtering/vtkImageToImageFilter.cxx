@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToImageFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-28 17:10:42 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-07-30 12:06:39 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -191,7 +191,7 @@ void vtkImageToImageFilter::RecursiveStreamUpdate(vtkImageData *outData)
 {
   int memory;
   vtkImageData *inData;
-  int inExt[6], outExt[6], splitExt[6];
+  int inExt[6], outExt[6];
     
   // abort if required
   if (this->AbortExecute) 
@@ -246,7 +246,6 @@ void vtkImageToImageFilter::UpdateInformation()
   vtkImageData *input = this->GetInput();
   vtkImageData *output = this->GetOutput();
   int *iTmp;
-  float *fTmp;
   
   // Make sure the Input has been set.
   if ( ! input)
