@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCoordinate.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-03-01 16:33:21 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2000-03-01 22:39:50 $
+  Version:   $Revision: 1.15 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -192,7 +192,7 @@ float *vtkCoordinate::GetComputedWorldValue(vtkViewport* viewport)
     ival = this->ReferenceCoordinate->GetComputedDisplayValue(viewport);
     RefValue[0] = (float)(ival[0]);
     RefValue[1] = (float)(ival[1]);
-    RefValue[2] = (float)(ival[2]);
+    RefValue[2] = 0.0;
     
     // convert to current coordinate system
     switch (this->CoordinateSystem)
@@ -243,6 +243,7 @@ float *vtkCoordinate::GetComputedWorldValue(vtkViewport* viewport)
     float *RefValue;
     
     RefValue = this->ReferenceCoordinate->GetComputedWorldValue(viewport);
+
     val[0] += RefValue[0];
     val[1] += RefValue[1];
     val[2] += RefValue[2];
