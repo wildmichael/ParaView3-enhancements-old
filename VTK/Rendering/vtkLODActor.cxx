@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLODActor.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-02-24 17:36:49 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 1999-02-25 13:51:14 $
+  Version:   $Revision: 1.36 $
   
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -88,7 +88,7 @@ void vtkLODActor::PrintSelf(ostream& os, vtkIndent indent)
 
 
 //----------------------------------------------------------------------------
-void vtkLODActor::Render(vtkRenderer *ren)
+void vtkLODActor::Render(vtkRenderer *ren, vtkMapper *m)
 {
   float myTime, bestTime, tempTime;
   double aTime;

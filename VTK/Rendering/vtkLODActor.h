@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLODActor.h,v $
   Language:  C++
-  Date:      $Date: 1999-02-19 21:53:16 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1999-02-25 13:51:15 $
+  Version:   $Revision: 1.25 $
   
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -85,8 +85,7 @@ class VTK_EXPORT vtkLODActor : public vtkActor
   // Description:
   // This causes the actor to be rendered. It, in turn, will render the actor's
   // property and then mapper.  
-  virtual void Render(vtkRenderer *ren);
-  virtual void Render(vtkRenderer *, vtkMapper *) {};
+  virtual void Render(vtkRenderer *, vtkMapper *);
 
   // Description:
   // Release any graphics resources that are being consumed by this actor.
