@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkElevationFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:36 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 2001-04-25 13:09:08 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -151,6 +151,7 @@ void vtkElevationFilter::Execute()
 
   this->GetOutput()->GetCellData()->PassData(input->GetCellData());
 
+  newScalars->GetData()->SetName("Elevation");
   this->GetOutput()->GetPointData()->SetScalars(newScalars);
   newScalars->Delete();
 }
