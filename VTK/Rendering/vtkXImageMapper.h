@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXImageMapper.h,v $
   Language:  C++
-  Date:      $Date: 1999-03-03 21:05:39 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-03-11 17:39:56 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -78,10 +78,6 @@ public:
   // Called by the Render function in vtkImageMapper.  Actually draws
   // the image to the screen.
   void RenderData(vtkViewport* viewport, vtkImageData* data, vtkActor2D* actor);
-
-  // Description:
-  // Returns the X specific compositing operator.
-  int GetCompositingMode(vtkActor2D* actor);
 
   // Description:
   // Returns the depth of the X window

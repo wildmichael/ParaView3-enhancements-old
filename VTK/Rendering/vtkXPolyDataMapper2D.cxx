@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXPolyDataMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-02-24 18:34:11 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-03-11 17:39:57 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,39 +42,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include <math.h>
 #include "vtkXPolyDataMapper2D.h"
 #include "vtkXImageWindow.h"
-
-int vtkXPolyDataMapper2D::GetCompositingMode(vtkActor2D* actor)
-{
-
-  vtkProperty2D* tempProp = actor->GetProperty();
-  int compositeMode = tempProp->GetCompositingOperator();
-
-  switch (compositeMode)
-  {
-  case VTK_BLACK:
-	  return GXclear;
-  case VTK_NOT_DEST:
-	  return GXinvert;
-  case VTK_SRC_AND_DEST:
-	  return GXand;
-  case VTK_SRC_OR_DEST:
-	  return  GXor;
-  case VTK_NOT_SRC:
-	  return GXcopyInverted;
-  case VTK_SRC_XOR_DEST:
-	  return GXxor;
-  case VTK_SRC_AND_notDEST:
-	  return GXandReverse;
-  case VTK_SRC:
-	  return GXcopy;
-  case VTK_WHITE:
-	  return GXset;
-  default:
-	  return GXcopy;
-  }
-
-}
-
 
 void vtkXPolyDataMapper2D::RenderOverlay(vtkViewport* viewport, vtkActor2D* actor)
 {
@@ -159,10 +126,6 @@ void vtkXPolyDataMapper2D::RenderOverlay(vtkViewport* viewport, vtkActor2D* acto
   XSetFillStyle(displayId, gc, FillSolid);
   
   tran = actor->GetProperty()->GetOpacity();
-
-  // Set the compositing mode for the actor
-  int compositeMode = this->GetCompositingMode(actor);
-  XSetFunction(displayId, gc, compositeMode);
 
   // Transform the points, if necessary
   p = input->GetPoints();

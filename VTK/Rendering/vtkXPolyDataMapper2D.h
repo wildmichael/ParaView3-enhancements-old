@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXPolyDataMapper2D.h,v $
   Language:  C++
-  Date:      $Date: 1999-02-24 18:34:11 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-03-11 17:39:57 $
+  Version:   $Revision: 1.5 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -57,10 +57,6 @@ public:
   const char *GetClassName() {return "vtkXPolyDataMapper2D";};
   static vtkXPolyDataMapper2D *New() 
     {return new vtkXPolyDataMapper2D;};
-
-  // Description:
-  // Return the appropriate X compositing mode for an actor.
-  int GetCompositingMode(vtkActor2D* actor);
 
   // Description:
   // Actually draw the poly data.

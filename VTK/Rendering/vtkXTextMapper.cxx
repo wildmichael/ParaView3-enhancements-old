@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-03-09 21:13:41 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1999-03-11 17:39:57 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -95,38 +95,6 @@ void vtkXTextMapper::SetFontSize(int size)
       this->FontMTime.Modified();
     }
   return;
-}
-
-int vtkXTextMapper::GetCompositingMode(vtkActor2D* actor)
-{
-
-  vtkProperty2D* tempProp = actor->GetProperty();
-  int compositeMode = tempProp->GetCompositingOperator();
-
-  switch (compositeMode)
-  {
-  case VTK_BLACK:
-	  return GXclear;
-  case VTK_NOT_DEST:
-	  return GXinvert;
-  case VTK_SRC_AND_DEST:
-	  return GXand;
-  case VTK_SRC_OR_DEST:
-	  return  GXor;
-  case VTK_NOT_SRC:
-	  return GXcopyInverted;
-  case VTK_SRC_XOR_DEST:
-	  return GXxor;
-  case VTK_SRC_AND_notDEST:
-	  return GXandReverse;
-  case VTK_SRC:
-	  return GXcopy;
-  case VTK_WHITE:
-	  return GXset;
-  default:
-	  return GXcopy;
-  }
-
 }
 
 void vtkXTextMapper::GetSize(vtkViewport* viewport, int *size)
@@ -320,10 +288,6 @@ void vtkXTextMapper::RenderOverlay(vtkViewport* viewport, vtkActor2D* actor)
     }
   
     
-  // Set the compositing mode for the actor
-  int compositeMode = this->GetCompositingMode(actor);
-  XSetFunction(displayId, gc, compositeMode);
- 
   // Get the drawable to draw into
   Drawable drawable = (Drawable) window->GetGenericDrawable();
   if (!drawable) vtkErrorMacro(<<"Window returned NULL drawable!");

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXTextMapper.h,v $
   Language:  C++
-  Date:      $Date: 1999-02-24 18:34:11 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1999-03-11 17:39:57 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -69,10 +69,6 @@ public:
   // Set the font size used by the mapper.  If the font size is 
   // available, the code will use the nearest available size.
   void SetFontSize(int size);
-
-  // Description:
-  // Return the X compositing mode being used.
-  int GetCompositingMode(vtkActor2D* actor);
 
   // Description:
   // Draw the text to the screen.
