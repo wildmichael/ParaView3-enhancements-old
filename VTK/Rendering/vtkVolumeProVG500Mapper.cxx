@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProVG500Mapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-14 16:29:53 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2000-08-22 18:45:10 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -593,6 +593,22 @@ void vtkVolumeProVG500Mapper::UpdateCursor( vtkRenderer *vtkNotUsed(ren), vtkVol
       {
       cursor->SetType( VLICursor::kPlane );
       }
+    
+    cursor->SetColor( VLICursor::kXAxis, 
+                      this->CursorXAxisColor[0],
+                      this->CursorXAxisColor[1],
+                      this->CursorXAxisColor[2] );
+    
+    cursor->SetColor( VLICursor::kYAxis, 
+                      this->CursorYAxisColor[0],
+                      this->CursorYAxisColor[1],
+                      this->CursorYAxisColor[2] );
+    
+    cursor->SetColor( VLICursor::kZAxis, 
+                      this->CursorZAxisColor[0],
+                      this->CursorZAxisColor[1],
+                      this->CursorZAxisColor[2] );
+                      
     }
 
   this->Context->SetCursor( *cursor );
