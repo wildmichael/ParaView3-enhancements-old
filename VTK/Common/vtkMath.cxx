@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMath.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-30 22:28:02 $
-  Version:   $Revision: 1.58 $
+  Date:      $Date: 2000-05-02 06:22:02 $
+  Version:   $Revision: 1.59 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1508,7 +1508,7 @@ static inline void vtkTranspose3x3(T A[3][3], T2 AT[3][3])
   tmp = A[1][0];
   AT[1][0] = A[0][1];
   AT[0][1] = tmp;
-  tmp = A[0][2];
+  tmp = A[2][0];
   AT[2][0] = A[0][2];
   AT[0][2] = tmp;
   tmp = A[2][1];
