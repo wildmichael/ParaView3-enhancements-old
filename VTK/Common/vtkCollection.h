@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkCollection.h,v $
   Language:  C++
-  Date:      $Date: 1994-09-16 12:50:54 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1994-11-01 23:09:04 $
+  Version:   $Revision: 1.6 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -43,6 +43,7 @@ public:
 
   void AddItem(vlObject *);
   void RemoveItem(vlObject *);
+  void RemoveAllItems();
   int  IsItemPresent(vlObject *);
   int  GetNumberOfItems();
   void InitTraversal();

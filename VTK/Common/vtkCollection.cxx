@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkCollection.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-09-16 12:50:53 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1994-11-01 23:09:03 $
+  Version:   $Revision: 1.6 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -30,12 +30,7 @@ vlCollection::vlCollection()
 
 vlCollection::~vlCollection()
 {
-  vlCollectionElement *p;  
-
-  for ( p=this->Top; p != NULL; p = p->Next )
-    {
-    delete p;
-    }
+  this->RemoveAllItems();
 }
 
 // Description:
@@ -101,6 +96,21 @@ void vlCollection::RemoveItem(vlObject *a)
       elem = elem->Next;
       }
     }
+}
+
+// Description:
+// Remove all object from the list.
+void vlCollection::RemoveAllItems()
+{
+  vlCollectionElement *p;  
+
+  for ( p=this->Top; p != NULL; p = p->Next )
+    {
+    delete p;
+    }
+
+  this->NumberOfItems = 0;
+  this->Top = this->Bottom = this->Current = NULL;
 }
 
 // Description:
