@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStructuredPointsToPolyDataFilter.h,v $
   Language:  C++
-  Date:      $Date: 1994-08-08 09:16:28 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1994-11-06 19:34:42 $
+  Version:   $Revision: 1.3 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -29,9 +29,12 @@ class vlStructuredPointsToPolyDataFilter : public vlPolyData,
                                               public vlStructuredPointsFilter
 {
 public:
-  void Update();
   char *GetClassName() {return "vlDataSetToPolyDataFilter";};
   void PrintSelf(ostream& os, vlIndent indent);
+
+  void Modified();
+  unsigned long int GetMTime();
+  void Update();
 };
 
 #endif

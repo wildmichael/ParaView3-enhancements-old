@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkTransformFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-09-29 14:07:58 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1994-11-06 19:34:52 $
+  Version:   $Revision: 1.6 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -27,6 +27,7 @@ void vlTransformFilter::Execute()
   vlNormals *inNormals;
   vlFloatNormals *newNormals=NULL;
   int numPts;
+  vlPointSet *input=(vlPointSet *)this->Input;
 
   vlDebugMacro(<<"Executing transformation");
   this->Initialize();
@@ -39,8 +40,8 @@ void vlTransformFilter::Execute()
     return;
     }
 
-  inPts = this->Input->GetPoints();
-  pd = this->Input->GetPointData();
+  inPts = input->GetPoints();
+  pd = input->GetPointData();
   inVectors = pd->GetVectors();
   inNormals = pd->GetNormals();
 
@@ -75,7 +76,7 @@ void vlTransformFilter::Execute()
 //
   this->PointData.CopyVectorsOff();
   this->PointData.CopyNormalsOff();
-  this->PointData.PassData(this->Input->GetPointData());
+  this->PointData.PassData(input->GetPointData());
 
   this->SetPoints(newPts);
   this->PointData.SetNormals(newNormals);

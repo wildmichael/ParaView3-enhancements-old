@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStructuredGridOutlineFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-08-05 09:08:42 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1994-11-06 19:34:38 $
+  Version:   $Revision: 1.2 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -13,9 +13,9 @@ without the express written consent of the authors.
 Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994 
 
 =========================================================================*/
-#include "StrOutlF.hh"
+#include "SGOutlF.hh"
 
-void vlStructuredOutlineFilter::Execute()
+void vlStructuredGridOutlineFilter::Execute()
 {
   vlFloatPoints *newPts;
   vlCellArray *newLines;

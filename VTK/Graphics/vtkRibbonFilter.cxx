@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkRibbonFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-08-08 09:16:26 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1994-11-06 19:34:31 $
+  Version:   $Revision: 1.9 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -42,19 +42,19 @@ void vlRibbonFilter::Execute()
   vlMath math;
   float theta;
   int deleteNormals=0;
+  vlPolyData *input=(vlPolyData *)this->Input;
 //
 // Initialize
 //
   this->Initialize();
 
-  inPts = this->Input->GetPoints();
-  pd = this->Input->GetPointData();
+  inPts = input->GetPoints();
+  pd = input->GetPointData();
   // copy scalars, vectors, tcoords.  Normals are computed here.
   this->PointData.CopyNormalsOff();
   this->PointData.CopyAllocate(pd);
 
-  if ( !(inLines = this->Input->GetLines()) || 
-  inLines->GetNumberOfCells() < 1 )
+  if ( !(inLines = input->GetLines()) || inLines->GetNumberOfCells() < 1 )
     {
     vlErrorMacro(<< ": No input data!\n");
     return;

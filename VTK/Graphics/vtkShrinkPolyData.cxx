@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkShrinkPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-09-29 14:07:55 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1994-11-06 19:34:47 $
+  Version:   $Revision: 1.17 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -28,23 +28,24 @@ void vlShrinkPolyData::Execute()
   vlCellArray *newVerts, *newLines, *newPolys;
   int newIds[MAX_CELL_SIZE];
   float *p1, *p2, *p3, pt[3];
+  vlPolyData *input=(vlPolyData *)this->Input;
 //
 // Initialize
 //
   this->Initialize();
 
-  inPts = this->Input->GetPoints();
-  pd = this->Input->GetPointData();
+  inPts = input->GetPoints();
+  pd = input->GetPointData();
 
-  inVerts = this->Input->GetVerts();
-  inLines = this->Input->GetLines();
-  inPolys = this->Input->GetPolys();
-  inStrips = this->Input->GetStrips();
+  inVerts = input->GetVerts();
+  inLines = input->GetLines();
+  inPolys = input->GetPolys();
+  inStrips = input->GetStrips();
 //
 // Count the number of new points and other primitives that 
 // need to be created.
 //
-  numNewPts = this->Input->GetNumberOfVerts();
+  numNewPts = input->GetNumberOfVerts();
   numNewLines = 0;
   numNewPolys = 0;
   poly_alloc_size = 0;
@@ -70,7 +71,7 @@ void vlShrinkPolyData::Execute()
 //
   newPoints = new vlFloatPoints(numNewPts);
 
-  newVerts = new vlCellArray(this->Input->GetNumberOfVerts());
+  newVerts = new vlCellArray(input->GetNumberOfVerts());
 
   newLines = new vlCellArray;
   newLines->Allocate(numNewLines*3);
