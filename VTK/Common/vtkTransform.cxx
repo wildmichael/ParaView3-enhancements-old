@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:41:47 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 1997-08-11 19:30:12 $
+  Version:   $Revision: 1.49 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -626,9 +626,9 @@ float *vtkTransform::GetScale()
 
   for (i = 0; i < 3; i++) 
     {
-    scale[i] = sqrt (temp.Element[i][0] * temp.Element[i][0] +
-                     temp.Element[i][1] * temp.Element[i][1] +
-                     temp.Element[i][2] * temp.Element[i][2]);
+    scale[i] = sqrt (temp.Element[0][i] * temp.Element[0][i] +
+                     temp.Element[1][i] * temp.Element[1][i] +
+                     temp.Element[2][i] * temp.Element[2][i]);
     }
 
   return scale;
