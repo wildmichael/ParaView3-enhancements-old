@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKWEventMap.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-13 15:47:12 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-12-30 19:58:06 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkKWEventMap.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkKWEventMap, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkKWEventMap, "$Revision: 1.2 $");
 vtkStandardNewMacro(vtkKWEventMap);
 
 vtkKWEventMap::vtkKWEventMap()
@@ -61,6 +61,14 @@ vtkKWEventMap::~vtkKWEventMap()
   if (this->KeySymEvents)
     {
     delete [] this->MouseEvents;
+    }
+}
+
+void vtkKWEventMap::AddMouseEvent(struct MouseEvent *me)
+{
+  if (me)
+    {
+    this->AddMouseEvent(me->Button, me->Modifier, me->Action);
     }
 }
 
@@ -224,6 +232,14 @@ void vtkKWEventMap::AddKeySymEvent(char *keySym, char *action)
   this->NumberOfKeySymEvents++;
 }
 
+void vtkKWEventMap::SetMouseEvent(struct MouseEvent *me)
+{
+  if (me)
+    {
+    this->SetMouseEvent(me->Button, me->Modifier, me->Action);
+    }
+}
+
 void vtkKWEventMap::SetMouseEvent(int button, int modifier, char *action)
 {
   int i;
@@ -289,6 +305,14 @@ void vtkKWEventMap::SetKeySymEvent(char *keySym, char *action)
       strcpy(this->KeySymEvents[i].Action, action);
       break;
       }
+    }
+}
+
+void vtkKWEventMap::RemoveMouseEvent(struct MouseEvent *me)
+{
+  if (me)
+    {
+    this->RemoveMouseEvent(me->Button, me->Modifier, me->Action);
     }
 }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKWEventMap.h,v $
   Language:  C++
-  Date:      $Date: 2002-12-13 15:47:12 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-12-30 19:58:06 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -30,23 +30,11 @@ public:
   static vtkKWEventMap *New();
   vtkTypeRevisionMacro(vtkKWEventMap, vtkObject);
   void PrintSelf(ostream& os, vtkIndent indent);
-  
-  void AddMouseEvent(int button, int modifier, char *action);
-  void AddKeyEvent(char key, int modifier, char *action);
-  void AddKeySymEvent(char *keySym, char *action);
-  
-  void SetMouseEvent(int button, int modifier, char *action);
-  void SetKeyEvent(char key, int modifier, char *action);
-  void SetKeySymEvent(char *keySym, char *action);
-  
-  void RemoveMouseEvent(int button, int modifier, char *action);
-  void RemoveKeyEvent(char key, int modifier, char *action);
-  void RemoveKeySymEvent(char *keySym, char *action);
-  
-  char* FindMouseAction(int button, int modifier);
-  char* FindKeyAction(char key, int modifier);
-  char* FindKeySymAction(char *keySym);
-  
+
+  // In the following code:
+  // button:   0 = Left, 1 = Middle, 2 = Right
+  // modifier: 0 = button only, 1 = button + shift, 2 = button + control
+
 //BTX
   struct MouseEvent
   {
@@ -67,7 +55,27 @@ public:
     char *KeySym;
     char *Action;
   };
+
+  void AddMouseEvent(struct MouseEvent *me);
+  void SetMouseEvent(struct MouseEvent *me);
+  void RemoveMouseEvent(struct MouseEvent *me);
 //ETX
+  
+  void AddMouseEvent(int button, int modifier, char *action);
+  void AddKeyEvent(char key, int modifier, char *action);
+  void AddKeySymEvent(char *keySym, char *action);
+  
+  void SetMouseEvent(int button, int modifier, char *action);
+  void SetKeyEvent(char key, int modifier, char *action);
+  void SetKeySymEvent(char *keySym, char *action);
+  
+  void RemoveMouseEvent(int button, int modifier, char *action);
+  void RemoveKeyEvent(char key, int modifier, char *action);
+  void RemoveKeySymEvent(char *keySym, char *action);
+  
+  char* FindMouseAction(int button, int modifier);
+  char* FindKeyAction(char key, int modifier);
+  char* FindKeySymAction(char *keySym);
   
 protected:
   vtkKWEventMap();
