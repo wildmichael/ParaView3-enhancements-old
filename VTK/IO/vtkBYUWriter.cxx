@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBYUWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-11-05 17:17:40 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1995-11-27 11:29:57 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -132,7 +132,7 @@ void vtkBYUWriter::WriteGeometryFile(FILE *geomFile, int numPts)
     }
 
   fprintf (geomFile, "%d %d %d %d\n", 1, numPts, numPolys, numEdges);
-  fprintf (geomFile, "%d %d", 1, numPolys);
+  fprintf (geomFile, "%d %d\n", 1, numPolys);
 //
 // Write data
 //
@@ -140,7 +140,7 @@ void vtkBYUWriter::WriteGeometryFile(FILE *geomFile, int numPts)
   for (i=0; i < numPts; i++)
     {
     x = inPts->GetPoint(i);
-    fprintf(geomFile, "%e %e %e", x[0], x[1], x[2]);
+    fprintf(geomFile, "%e %e %e ", x[0], x[1], x[2]);
     if ( (i % 2) ) fprintf(geomFile, "\n");
     }
   if ( (numPts % 2) ) fprintf(geomFile, "\n");
