@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGlyphSource2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-31 07:30:49 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2000-09-02 10:42:57 $
+  Version:   $Revision: 1.2 $
   Thanks:    Tim Smith who sponsored and encouraged the development
              of this class.
 
@@ -472,8 +472,6 @@ void vtkGlyphSource2D::CreateThickArrow(vtkPoints *pts, vtkCellArray *lines,
 void vtkGlyphSource2D::CreateHookedArrow(vtkPoints *pts, vtkCellArray *lines,
                                          vtkCellArray *polys, vtkUnsignedCharArray *colors)
 {
-  int ptIds[4];
-
   if ( this->Filled )
     {
     //create two convex polygons
@@ -497,6 +495,7 @@ void vtkGlyphSource2D::CreateHookedArrow(vtkPoints *pts, vtkCellArray *lines,
     }
   else
     {
+    int ptIds[3];
     ptIds[0] = pts->InsertNextPoint( -0.5, 0.0, 0.0);
     ptIds[1] = pts->InsertNextPoint( 0.5,  0.0, 0.0);
     ptIds[2] = pts->InsertNextPoint( 0.375,0.1, 0.0);
@@ -523,13 +522,13 @@ void vtkGlyphSource2D::CreateDash(vtkPoints *pts, vtkCellArray *lines,
     }
   else
     {
-    int ptIds[2];
-    ptIds[0] = pts->InsertNextPoint(-0.5*scale, 0.0, 0.0);
-    ptIds[1] = pts->InsertNextPoint( 0.5*scale, 0.0, 0.0);
+    int ptIds2D[2];
+    ptIds2D[0] = pts->InsertNextPoint(-0.5*scale, 0.0, 0.0);
+    ptIds2D[1] = pts->InsertNextPoint( 0.5*scale, 0.0, 0.0);
     colors->InsertNextValue(this->RGB[0]);
     colors->InsertNextValue(this->RGB[1]);
     colors->InsertNextValue(this->RGB[2]);
-    lines->InsertNextCell(2,ptIds);
+    lines->InsertNextCell(2,ptIds2D);
     }
   colors->InsertNextValue(this->RGB[0]);
   colors->InsertNextValue(this->RGB[1]);
