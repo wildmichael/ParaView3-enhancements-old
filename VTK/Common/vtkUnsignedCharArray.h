@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnsignedCharArray.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-14 21:25:01 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 1998-12-23 19:57:29 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -107,14 +107,15 @@ public:
 
   // Description:
   // Return the data component at the ith tuple and jth component location.
-  // Note that i<NumberOfTuples and j<NumberOfComponents.
+  // Note that i is less then NumberOfTuples and j is less then 
+  // NumberOfComponents.
   float GetComponent(const int i, const int j);
 
   // Description:
   // Set the data component at the ith tuple and jth component location.
-  // Note that i<NumberOfTuples and j<NumberOfComponents. Make sure enough
-  // memory has been allocated (use SetNumberOfTuples() and 
-  // SetNumberOfComponents()).
+  // Note that i is less then NumberOfTuples and j is less then 
+  // NumberOfComponents. Make sure enough memory has been allocated (use 
+  // SetNumberOfTuples() and  SetNumberOfComponents()).
   void SetComponent(const int i, const int j, const float c);
 
   // Description:
