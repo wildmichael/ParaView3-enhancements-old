@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkVoxelModeller.h,v $
   Language:  C++
-  Date:      $Date: 1994-05-11 12:52:31 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1994-05-12 07:52:36 $
+  Version:   $Revision: 1.2 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -31,6 +31,10 @@ public:
 
   float ComputeModelBounds();
 
+  void SetSampleDimensions(int i, int j, int k);
+  void SetSampleDimensions(int dim[3]);
+  vlGetVectorMacro(SampleDimensions,int);
+
   vlSetClampMacro(MaximumDistance,float,0.0,1.0);
   vlGetMacro(MaximumDistance,float);
 
@@ -40,6 +44,7 @@ public:
 
 protected:
   void Execute();
+  int SampleDimensions[3];
   float MaximumDistance;
   float ModelBounds[6];
 };

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkUnstructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-05-08 08:54:17 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1994-05-12 07:52:37 $
+  Version:   $Revision: 1.3 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -150,7 +150,7 @@ vlCell *vlUnstructuredGrid::GetCell(int cellId)
   for (i=0; i<numPts; i++)
     {
     cell->PointIds.SetId(i,pts[i]);
-    cell->Points.SetPoint(i,this->Points->GetPoint(i));
+    cell->Points.SetPoint(i,this->Points->GetPoint(pts[i]));
     }
 
   return cell;

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPolygon.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-04-14 15:30:05 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1994-05-12 07:52:39 $
+  Version:   $Revision: 1.12 $
 
 Description:
 ---------------------------------------------------------------------------

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-05-08 08:53:53 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1994-05-12 07:52:40 $
+  Version:   $Revision: 1.25 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -151,7 +151,7 @@ vlCell *vlPolyData::GetCell(int cellId)
   for (i=0; i<numPts; i++)
     {
     cell->PointIds.SetId(i,pts[i]);
-    cell->Points.SetPoint(i,this->Points->GetPoint(i));
+    cell->Points.SetPoint(i,this->Points->GetPoint(pts[i]));
     }
 
   return cell;
