@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindowTclInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-05 20:08:23 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-10-05 20:28:02 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -61,8 +61,7 @@ struct TkMainInfo
   struct TkWindow *winPtr;
 };
 
-#if ((TK_MAJOR_VERSION <= 4)||
-     ((TK_MAJOR_VERSION == 8)&&(TK_MINOR_VERSION == 0)))
+#if ((TK_MAJOR_VERSION <= 4)||((TK_MAJOR_VERSION == 8)&&(TK_MINOR_VERSION == 0)))
 extern TkMainInfo *tkMainWindowList;
 #else
 extern "C" {TkMainInfo *TkGetMainInfoList();}
@@ -183,8 +182,7 @@ void vtkXRenderWindowTclInteractor::Initialize()
   ren = (vtkXRenderWindow *)(this->RenderWindow);
 
   // use the same display as tcl/tk
-#if ((TK_MAJOR_VERSION <= 4)||
-     ((TK_MAJOR_VERSION == 8)&&(TK_MINOR_VERSION == 0)))
+#if ((TK_MAJOR_VERSION <= 4)||((TK_MAJOR_VERSION == 8)&&(TK_MINOR_VERSION == 0)))
   ren->SetDisplayId(Tk_Display(tkMainWindowList->winPtr));
 #else
   ren->SetDisplayId(Tk_Display(TkGetMainInfoList()->winPtr));
