@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageShrink3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-12 16:13:39 $
-  Version:   $Revision: 1.56 $
+  Date:      $Date: 2003-10-15 13:29:48 $
+  Version:   $Revision: 1.57 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkImageShrink3D, "$Revision: 1.56 $");
+vtkCxxRevisionMacro(vtkImageShrink3D, "$Revision: 1.57 $");
 vtkStandardNewMacro(vtkImageShrink3D);
 
 //----------------------------------------------------------------------------
@@ -259,12 +259,11 @@ void vtkImageShrink3DExecute(vtkImageShrink3D *self,
   tmpInc2 = inInc2 * factor2;
   outData->GetContinuousIncrements(outExt,outInc0, outInc1, outInc2);
 
-  target = (unsigned long)((outExt[5] - outExt[4] + 1)*
-                           (outExt[3] - outExt[2] + 1)/50.0);
-  target++;
-
   maxX = outExt[1] - outExt[0];
   maxC = inData->GetNumberOfScalarComponents();
+  target = (unsigned long)(maxC*(outExt[5] - outExt[4] + 1)*
+                           (outExt[3] - outExt[2] + 1)/50.0);
+  target++;
   
   if (self->GetMean())
     {
