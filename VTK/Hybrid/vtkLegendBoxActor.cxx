@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLegendBoxActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-09-20 10:11:04 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2000-09-22 09:10:25 $
+  Version:   $Revision: 1.4 $
   Thanks:    Tim Smith who sponsored and encouraged the development
              of this class.
 
@@ -334,7 +334,19 @@ float* vtkLegendBoxActor::GetEntryColor(int i)
 // resources to release.
 void vtkLegendBoxActor::ReleaseGraphicsResources(vtkWindow *win)
 {
-  this->vtkActor2D::ReleaseGraphicsResources(win);
+  if ( this->BorderActor )
+    {
+    this->BorderActor->ReleaseGraphicsResources(win);
+    }
+  
+  if (this->TextMapper != NULL )
+    {
+    for (int i=0; i < this->NumberOfEntries; i++)
+      {
+      this->TextActor[i]->ReleaseGraphicsResources(win);
+      this->SymbolActor[i]->ReleaseGraphicsResources(win);
+      }
+    }
 }
 
 void vtkLegendBoxActor::SetWidth(float w)
