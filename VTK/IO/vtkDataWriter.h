@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataWriter.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:11:28 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2000-07-11 09:10:23 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -94,7 +94,9 @@ public:
   // the next call to write ...
   vtkGetMacro(OutputStringLength, int);  
   vtkGetStringMacro(OutputString);
-
+  unsigned char *GetBinaryOutputString() {
+      return (unsigned char *)this->OutputString;};
+      
   // Description:
   // This convenience method returns the string, sets the IVAR to NULL,
   // so that the user is responsible for deleting the string.
