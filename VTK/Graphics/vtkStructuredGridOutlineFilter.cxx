@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridOutlineFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-21 19:58:43 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2000-08-21 20:44:41 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -360,8 +360,7 @@ void vtkStructuredGridOutlineFilter::ConvertPiece(int piece, int numPieces,
     start = end = piece;
     return;
     }
-  start = piece *
-   / numPieces;
+  start = piece * 12 / numPieces;
   end = ((piece+1) * 12 / numPieces) - 1;
 }
 
