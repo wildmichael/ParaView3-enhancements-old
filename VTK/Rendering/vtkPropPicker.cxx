@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPropPicker.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-01 15:27:17 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2001-11-07 22:27:05 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -43,6 +43,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkWorldPointPicker.h"
 #include "vtkAssemblyNode.h"
 #include "vtkObjectFactory.h"
+#include "vtkCommand.h"
 
 
 vtkPropPicker* vtkPropPicker::New()

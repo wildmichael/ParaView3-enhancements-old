@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractPicker.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-01 15:27:16 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-11-07 22:27:04 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,7 +40,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include "vtkAbstractPicker.h"
 #include "vtkObjectFactory.h"
-
+#include "vtkCommand.h"
 
 // Construct object with initial tolerance of 1/40th of window. There are no
 // pick methods and picking is performed from the renderer's actors.

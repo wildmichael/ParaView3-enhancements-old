@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageViewer2.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 14:56:47 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-11-07 22:27:04 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,7 +42,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkImageViewer2.h"
 #include "vtkObjectFactory.h"
 #include "vtkInteractorStyleImage.h"
-
+#include "vtkCommand.h"
 
 //----------------------------------------------------------------------------
 vtkImageViewer2* vtkImageViewer2::New()

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPicker.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-01 15:27:17 $
-  Version:   $Revision: 1.68 $
+  Date:      $Date: 2001-11-07 22:27:04 $
+  Version:   $Revision: 1.69 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -48,6 +48,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkVolume.h"
 #include "vtkObjectFactory.h"
 #include "vtkLODProp3D.h"
+#include "vtkCommand.h"
 
 //-----------------------------------------------------------------------------
 vtkPicker* vtkPicker::New()
