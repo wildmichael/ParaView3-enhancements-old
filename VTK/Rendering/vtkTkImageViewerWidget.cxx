@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkImageViewerWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-05-15 21:39:20 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2001-08-03 15:55:36 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -199,9 +199,9 @@ int vtkTkImageViewerWidget_Widget(ClientData clientData, Tcl_Interp *interp,
 //     * Creates an event handler for this window
 //     * Creates a command that handles this object
 //     * Configures this vtkTkImageViewerWidget for the given arguments
-static int vtkTkImageViewerWidget_Cmd(ClientData clientData, 
-				      Tcl_Interp *interp, 
-				      int argc, char **argv)
+int vtkTkImageViewerWidget_Cmd(ClientData clientData, 
+			       Tcl_Interp *interp, 
+			       int argc, char **argv)
 {
   char *name;
   Tk_Window main = (Tk_Window)clientData;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkRenderWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-19 11:52:14 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 2001-08-03 15:55:36 $
+  Version:   $Revision: 1.52 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -201,8 +201,8 @@ int vtkTkRenderWidget_Widget(ClientData clientData, Tcl_Interp *interp,
 //     * Creates an event handler for this window
 //     * Creates a command that handles this object
 //     * Configures this vtkTkRenderWidget for the given arguments
-static int vtkTkRenderWidget_Cmd(ClientData clientData, Tcl_Interp *interp, 
-                               int argc, char **argv)
+int vtkTkRenderWidget_Cmd(ClientData clientData, Tcl_Interp *interp, 
+			  int argc, char **argv)
 {
   char *name;
   Tk_Window main = (Tk_Window)clientData;
