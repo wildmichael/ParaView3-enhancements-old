@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRungeKutta2.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-14 22:32:14 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-02-21 18:15:36 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkRungeKutta2.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkRungeKutta2, "$Revision: 1.8 $");
+vtkCxxRevisionMacro(vtkRungeKutta2, "$Revision: 1.9 $");
 vtkStandardNewMacro(vtkRungeKutta2);
 
 vtkRungeKutta2::vtkRungeKutta2() 
@@ -42,13 +42,13 @@ int vtkRungeKutta2::ComputeNextStep(float* xprev, float* dxprev, float* xnext,
   if (!this->FunctionSet)
     {
     vtkErrorMacro("No derivative functions are provided!");
-    return NotInitialized;
+    return NOT_INITIALIZED;
     }
 
   if (!this->Initialized)
     {
     vtkErrorMacro("Integrator not initialized!");
-    return NotInitialized;
+    return NOT_INITIALIZED;
     }
   
   numDerivs = this->FunctionSet->GetNumberOfFunctions();
@@ -69,7 +69,7 @@ int vtkRungeKutta2::ComputeNextStep(float* xprev, float* dxprev, float* xnext,
     }
   else if ( !this->FunctionSet->FunctionValues(this->Vals, this->Derivs) )
     {
-    return OutOfDomain;
+    return OUT_OF_DOMAIN;
     }
 
   // Half-step
@@ -82,7 +82,7 @@ int vtkRungeKutta2::ComputeNextStep(float* xprev, float* dxprev, float* xnext,
   // Obtain the derivatives at x_i + dt/2 * dx_i
   if (!this->FunctionSet->FunctionValues(this->Vals, this->Derivs))
     {
-    return OutOfDomain;
+    return OUT_OF_DOMAIN;
     }
     
   // Calculate x_i using improved values of derivatives

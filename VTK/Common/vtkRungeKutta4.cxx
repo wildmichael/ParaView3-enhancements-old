@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRungeKutta4.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-14 22:32:15 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-02-21 18:15:36 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkRungeKutta4.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkRungeKutta4, "$Revision: 1.8 $");
+vtkCxxRevisionMacro(vtkRungeKutta4, "$Revision: 1.9 $");
 vtkStandardNewMacro(vtkRungeKutta4);
 
 vtkRungeKutta4::vtkRungeKutta4() 
@@ -72,13 +72,13 @@ int vtkRungeKutta4::ComputeNextStep(float* xprev, float* dxprev, float* xnext,
   if (!this->FunctionSet)
     {
     vtkErrorMacro("No derivative functions are provided!");
-    return NotInitialized;
+    return NOT_INITIALIZED;
     }
 
   if (!this->Initialized)
     {
     vtkErrorMacro("Integrator not initialized!");
-    return NotInitialized;
+    return NOT_INITIALIZED;
     }
   
   numDerivs = this->FunctionSet->GetNumberOfFunctions();
@@ -100,7 +100,7 @@ int vtkRungeKutta4::ComputeNextStep(float* xprev, float* dxprev, float* xnext,
     }
   else if ( !this->FunctionSet->FunctionValues(this->Vals, this->Derivs) )
     {
-    return OutOfDomain;
+    return OUT_OF_DOMAIN;
     }
 
   for(i=0; i<numVals-1; i++)
@@ -112,7 +112,7 @@ int vtkRungeKutta4::ComputeNextStep(float* xprev, float* dxprev, float* xnext,
   // 2
   if (!this->FunctionSet->FunctionValues(this->Vals, this->NextDerivs[0]))
     {
-    return OutOfDomain;
+    return OUT_OF_DOMAIN;
     }
     
   for(i=0; i<numVals-1; i++)
@@ -124,7 +124,7 @@ int vtkRungeKutta4::ComputeNextStep(float* xprev, float* dxprev, float* xnext,
   // 3
   if (!this->FunctionSet->FunctionValues(this->Vals, this->NextDerivs[1]))
     {
-    return OutOfDomain;
+    return OUT_OF_DOMAIN;
     }
 
   for(i=0; i<numVals-1; i++)
@@ -136,7 +136,7 @@ int vtkRungeKutta4::ComputeNextStep(float* xprev, float* dxprev, float* xnext,
   // 4
   if (!this->FunctionSet->FunctionValues(this->Vals, this->NextDerivs[2]))
     {
-    return OutOfDomain;
+    return OUT_OF_DOMAIN;
     }
 
   for(i=0; i<numDerivs; i++)

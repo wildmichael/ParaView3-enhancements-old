@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInitialValueProblemSolver.h,v $
   Language:  C++
-  Date:      $Date: 2002-02-14 22:32:14 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2002-02-21 18:15:36 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -110,9 +110,9 @@ public:
 //BTX
   enum ErrorCodes
   {
-    OutOfDomain = 1,
-    NotInitialized = 2,
-    UnexpectedValue = 3
+    OUT_OF_DOMAIN = 1,
+    NOT_INITIALIZED = 2,
+    UNEXPECTED_VALUE = 3
   };
 //ETX
 
