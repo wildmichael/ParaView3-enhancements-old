@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPushPipeline.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-06 13:55:36 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-08-07 12:59:26 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -103,7 +103,7 @@ public:
   vtkPushPipeline *PushPipeline;
 };
 
-vtkCxxRevisionMacro(vtkPushPipeline, "$Revision: 1.4 $");
+vtkCxxRevisionMacro(vtkPushPipeline, "$Revision: 1.5 $");
 vtkStandardNewMacro(vtkPushPipeline);
 
 vtkPushPipeline::vtkPushPipeline()
@@ -257,7 +257,7 @@ void vtkPushPipeline::Trace(vtkProcessObject *po)
 {
   // add the po to the map
   this->AddPusher(po);
-  vtkPushPipelineProcessInfo *dref;
+  vtkPushPipelineProcessInfo *dref = NULL;
   this->ProcessMap->GetItem(po,dref);
   if (dref->Marked)
     {
@@ -344,7 +344,7 @@ vtkPushPipeline::GetPushProcessInfo(vtkProcessObject *pusher)
 vtkPushPipelineDataInfo *
 vtkPushPipeline::GetPushDataInfo(vtkDataObject *dao)
 {
-  vtkPushPipelineDataInfo *res;
+  vtkPushPipelineDataInfo *res = NULL;
   this->DataMap->GetItem(dao,res);
   return res;
 }
