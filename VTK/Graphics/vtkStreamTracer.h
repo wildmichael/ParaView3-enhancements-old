@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamTracer.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-25 12:04:44 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-05-03 13:05:12 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -247,7 +247,7 @@ protected:
 
   void Execute();
   void CalculateVorticity( vtkGenericCell* cell, float pcoords[3],
-			   vtkFloatArray* cellVectors, float vorticity[3] );
+                           vtkFloatArray* cellVectors, float vorticity[3] );
   void Integrate(vtkDataArray* seedSource, vtkIdList* seedIds);
 
 
@@ -270,18 +270,18 @@ protected:
   IntervalInformation InitialIntegrationStep;
 
   void SetIntervalInformation(int unit, float interval,
-			      IntervalInformation& currentValues);
+                              IntervalInformation& currentValues);
   void SetIntervalInformation(int unit,IntervalInformation& currentValues);
-  static float ConvertToTime(IntervalInformation& interval, 
-			     float cellLength, float speed);
-  static float ConvertToLength(IntervalInformation& interval, 
-			       float cellLength, float speed);
-  static float ConvertToCellLength(IntervalInformation& interval, 
-				   float cellLength, float speed);
+  static float ConvertToTime(IntervalInformation& interval,
+                             float cellLength, float speed);
+  static float ConvertToLength(IntervalInformation& interval,
+                               float cellLength, float speed);
+  static float ConvertToCellLength(IntervalInformation& interval,
+                                   float cellLength, float speed);
   static float ConvertToUnit(IntervalInformation& interval, int unit,
-			     float cellLength, float speed);
-  void ConvertIntervals(float& step, float& minStep, float& maxStep, 
-			int direction, float cellLength, float speed);
+                             float cellLength, float speed);
+  void ConvertIntervals(float& step, float& minStep, float& maxStep,
+                        int direction, float cellLength, float speed);
 //ETX
 
 
@@ -290,7 +290,6 @@ protected:
   // Prototype showing the integrator type to be set by the user.
   vtkInitialValueProblemSolver* Integrator;
 
-  int IntegratorType;
   float MaximumError;
   vtkIdType MaximumNumberOfSteps;
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamTracer.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-01 20:55:46 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-05-03 13:05:12 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,7 +25,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkPolyLine.h"
 
-vtkCxxRevisionMacro(vtkStreamTracer, "$Revision: 1.4 $");
+vtkCxxRevisionMacro(vtkStreamTracer, "$Revision: 1.5 $");
 vtkStandardNewMacro(vtkStreamTracer);
 
 const float vtkStreamTracer::EPSILON = 1.0E-12;
@@ -336,9 +336,9 @@ float vtkStreamTracer::ConvertToUnit(vtkStreamTracer::IntervalInformation& inter
   return retVal;
 }
 
-void vtkStreamTracer::ConvertIntervals(float& step, float& minStep, 
-				       float& maxStep, int direction,
-				       float cellLength, float speed)
+void vtkStreamTracer::ConvertIntervals(float& step, float& minStep,
+                                       float& maxStep, int direction,
+                                       float cellLength, float speed)
 {
   step = direction * this->ConvertToTime(
     this->InitialIntegrationStep, cellLength, speed);
@@ -912,7 +912,6 @@ void vtkStreamTracer::PrintSelf(ostream& os, vtkIndent indent)
   os << endl;
 
   os << indent << "Integrator: " << this->Integrator << endl;
-  os << indent << "Integrator type: " << this->IntegratorType << endl;
   os << indent << "Maximum error: " << this->MaximumError << endl;
   os << indent << "Max. number of steps: " << this->MaximumNumberOfSteps 
      << endl;
