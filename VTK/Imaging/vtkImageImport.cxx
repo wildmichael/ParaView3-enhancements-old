@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageImport.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-26 21:16:29 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1999-09-01 17:28:48 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -170,6 +170,7 @@ void vtkImageImport::SetImportVoidPointer(void *ptr, int save)
       }
     this->Modified();
     }
+  this->SaveUserArray = save;
   this->ImportVoidPointer = ptr;
 }
 
