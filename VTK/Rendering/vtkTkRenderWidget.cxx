@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkRenderWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-04-23 15:06:07 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1998-05-21 12:54:11 $
+  Version:   $Revision: 1.23 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -317,7 +317,8 @@ static void vtkTkRenderWidget_EventProc(ClientData clientData,
       if ((eventPtr->xexpose.count == 0)
 	    /* && !self->UpdatePending*/) 
 	      {
-	      self->RenderWindow->Render();
+	      // let the user bind expose events
+	      // self->RenderWindow->Render();
 	      }
       break;
     case ConfigureNotify:
