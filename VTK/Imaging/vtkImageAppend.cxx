@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAppend.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-11-03 16:33:24 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-11-04 18:52:31 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -286,6 +286,13 @@ void vtkImageAppend::ThreadedExecute(vtkImageData **inData,
 }
 
 
+
+//----------------------------------------------------------------------------
+void vtkImageAppend::PrintSelf(ostream& os, vtkIndent indent)
+{
+  this->vtkImageMultipleInputFilter::PrintSelf(os, indent);
+  os << indent << "AppendAxis: " << this->AppendAxis << endl;
+}
 
 
 
