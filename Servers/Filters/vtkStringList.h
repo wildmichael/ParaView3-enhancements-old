@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkStringList.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-26 16:45:13 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-05-12 17:30:36 $
+  Version:   $Revision: 1.5 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -55,6 +55,7 @@ class VTK_EXPORT vtkStringList : public vtkObject
 public:
   static vtkStringList* New();
   vtkTypeMacro(vtkStringList,vtkObject);
+  void PrintSelf(ostream& os, vtkIndent indent);
   
 //BTX
   // Description:

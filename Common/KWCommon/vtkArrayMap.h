@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkArrayMap.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-29 13:14:17 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-05-12 17:30:36 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -65,6 +65,7 @@ class vtkArrayMap : public vtkAbstractMap<KeyType,DataType>
   friend class vtkArrayMapIterator<KeyType,DataType>;
   
 public:
+  typedef vtkAbstractMap<KeyType,DataType> Superclass;
   typedef vtkArrayMapIterator<KeyType,DataType> IteratorType;
 
   // Cannot use this macro because of the comma in the type name.

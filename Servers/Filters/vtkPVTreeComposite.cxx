@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkPVTreeComposite.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-06 12:10:46 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2002-05-12 17:30:36 $
+  Version:   $Revision: 1.24 $
   
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -331,13 +331,6 @@ vtkPVTreeComposite::~vtkPVTreeComposite()
     vtkErrorMacro("A receive is still pending.");
     }  
     
-}
-
-
-//----------------------------------------------------------------------------
-void vtkPVTreeComposite::PrintSelf(ostream& os, vtkIndent indent)
-{
-  vtkCompositeManager::PrintSelf(os, indent);
 }
 
 
@@ -796,20 +789,11 @@ vtkPVTreeComposite::~vtkPVTreeComposite()
   this->SetRenderView(NULL);
 }
 
-
-//----------------------------------------------------------------------------
-void vtkPVTreeComposite::PrintSelf(ostream& os, vtkIndent indent)
-{
-  vtkCompositeManager::PrintSelf(os, indent);
-}
-
-
 //----------------------------------------------------------------------------
 void vtkPVTreeComposite::CheckForAbortRender()
 {
   this->vtkCompositeManager::CheckForAbortRender();
 }
-
 
 //----------------------------------------------------------------------------
 int vtkPVTreeComposite::CheckForAbortComposite()
@@ -817,11 +801,12 @@ int vtkPVTreeComposite::CheckForAbortComposite()
   return this->vtkCompositeManager::CheckForAbortComposite();
 }
 
-
-
 #endif  // VTK_USE_MPI
 
-
-
-
-
+//----------------------------------------------------------------------------
+void vtkPVTreeComposite::PrintSelf(ostream& os, vtkIndent indent)
+{
+  this->Superclass::PrintSelf(os,indent);
+  os << indent << "EnableAbort: " << this->GetEnableAbort() << endl;
+  os << indent << "RenderView: " << this->GetRenderView() << endl;
+}

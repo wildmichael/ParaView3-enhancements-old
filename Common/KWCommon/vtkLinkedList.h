@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinkedList.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-29 13:14:17 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-05-12 17:30:36 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -55,6 +55,7 @@ class vtkLinkedList : public vtkAbstractList<DType>
   friend class vtkLinkedListIterator<DType>;
 
 public:
+  typedef vtkAbstractList<DType> Superclass;
   typedef vtkLinkedListIterator<DType> IteratorType;
 
   static vtkLinkedList<DType> *New() { return new vtkLinkedList<DType>(); }  

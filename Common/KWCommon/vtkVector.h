@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVector.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-29 13:14:17 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-05-12 17:30:36 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -54,6 +54,7 @@ class vtkVector : public vtkAbstractList<DType>
   friend class vtkVectorIterator<DType>;
 
 public:
+  typedef vtkAbstractList<DType> Superclass;
   typedef vtkVectorIterator<DType> IteratorType;
   
   static vtkVector<DType> *New() { return new vtkVector<DType>(); }  

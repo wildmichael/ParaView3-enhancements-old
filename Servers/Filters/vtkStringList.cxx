@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkStringList.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-26 16:45:12 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-05-12 17:30:36 $
+  Version:   $Revision: 1.4 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -191,4 +191,11 @@ void vtkStringList::Reallocate(int num)
   // Set the new array.
   this->Strings = tmp;
   tmp = NULL;
+}
+
+//----------------------------------------------------------------------------
+void vtkStringList::PrintSelf(ostream& os, vtkIndent indent)
+{
+  this->Superclass::PrintSelf(os,indent);
+  os << indent << "NumberOfStrings: " << this->GetNumberOfStrings() << endl;
 }
