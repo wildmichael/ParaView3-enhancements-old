@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMagnify.h,v $
   Language:  C++
-  Date:      $Date: 1996-10-03 12:04:49 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1996-10-16 12:27:03 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -65,6 +65,7 @@ public:
   vtkImageSetMacro(MagnificationFactors,int);
   void GetMagnificationFactors(int num, int *factors);
   vtkImageGetMacro(MagnificationFactors,int);
+  int *GetMagnificationFactors() {return this->MagnificationFactors;};  
   
   // Description:
   // Turn interpolation on and off (pixel replication)
