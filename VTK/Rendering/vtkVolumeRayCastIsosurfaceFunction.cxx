@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastIsosurfaceFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:18:11 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2001-12-19 19:12:53 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1268,6 +1268,9 @@ void vtkVolumeRayCastIsosurfaceFunction::CastRay(
           CastRay_NN
             ( this, (unsigned short *)data_ptr, dynamicInfo, staticInfo );
           break;
+        default:
+          vtkWarningMacro ( << "Unsigned char and unsigned short are the only supported datatypes for rendering" );
+          break;
         }
     }
   else if ( staticInfo->InterpolationType == VTK_LINEAR_INTERPOLATION )
@@ -1282,6 +1285,9 @@ void vtkVolumeRayCastIsosurfaceFunction::CastRay(
         case VTK_UNSIGNED_SHORT:
           CastRay_Trilin
             ( this, (unsigned short *)data_ptr, dynamicInfo, staticInfo );
+          break;
+        default:
+          vtkWarningMacro ( << "Unsigned char and unsigned short are the only supported datatypes for rendering" );
           break;
         }
     }
