@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergePoints.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:45:38 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1997-12-01 18:29:37 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,7 +42,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // .SECTION Description
 // vtkMergePoints is a locator object to quickly locate points in 3D.
 // The primary difference between vtkMergePoints and its superclass
-// vtkLocator is that vtkMergePoints merges precisely coincident points
+// vtkPointLocator is that vtkMergePoints merges precisely coincident points
 // and is therefore much faster.
 // .SECTION See Also
 // vtkCleanPolyData
