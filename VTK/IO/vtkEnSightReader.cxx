@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSightReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-09 21:40:03 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-01-09 21:56:59 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1303,6 +1303,7 @@ void vtkEnSightReader::SetCaseFileName(char* fileName)
     strncpy(newFileName, this->CaseFileName + position, numChars - position);
     this->SetCaseFileName(newFileName);
     delete [] path;
+    delete [] newFileName;
     }
       
   this->Modified();
