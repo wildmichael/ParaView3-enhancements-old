@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkMergeFilter.h,v $
   Language:  C++
-  Date:      $Date: 1994-11-06 19:37:47 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1994-11-15 11:10:46 $
+  Version:   $Revision: 1.8 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -21,7 +21,8 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 #ifndef __vlMergeFilter_h
 #define __vlMergeFilter_h
 
-#include "DS2UGrid.hh"
+#include "DataSet.hh"
+#include "Filter.hh"
 
 class vlMergeFilter : public vlDataSet, public vlFilter
 {
@@ -34,11 +35,11 @@ public:
 
   // dataset interface
   vlDataSet *MakeObject() {return this->Geometry->MakeObject();};
-  int GetNumberOfCells() {return this->Geometry->GetNumberOfCells();}
-  int GetNumberOfPoints() {return this->Geometry->GetNumberOfPoints();}
-  float *GetPoint(int i) {return this->Geometry->GetPoint(i);}
-  vlCell *GetCell(int cellId) {return this->Geometry->GetCell(cellId);}
-  int GetCellType(int cellId) {return this->Geometry->GetCellType(cellId);}
+  int GetNumberOfCells() {return this->Geometry->GetNumberOfCells();};
+  int GetNumberOfPoints() {return this->Geometry->GetNumberOfPoints();};
+  float *GetPoint(int i) {return this->Geometry->GetPoint(i);};
+  vlCell *GetCell(int cellId) {return this->Geometry->GetCell(cellId);};
+  int GetCellType(int cellId) {return this->Geometry->GetCellType(cellId);};
   void Initialize();
   void GetCellPoints(int cellId, vlIdList& ptIds)
     {this->Geometry->GetCellPoints(cellId, ptIds);};
@@ -77,6 +78,16 @@ public:
   vlSetObjectMacro(TCoords,vlDataSet);
   vlGetObjectMacro(TCoords,vlDataSet);
 
+  // Description:
+  // Specify object from which to extract tensor data.
+  vlSetObjectMacro(Tensors,vlDataSet);
+  vlGetObjectMacro(Tensors,vlDataSet);
+
+  // Description:
+  // Specify object from which to extract user defined data.
+  vlSetObjectMacro(UserDefined,vlDataSet);
+  vlGetObjectMacro(UserDefined,vlDataSet);
+
 protected:
   // Usual data generation method
   void Execute();
@@ -86,6 +97,8 @@ protected:
   vlDataSet *Vectors;  // vectors
   vlDataSet *Normals;  // normals
   vlDataSet *TCoords;  // texture coords
+  vlDataSet *Tensors;  // tensors
+  vlDataSet *UserDefined;  // user defined
 };
 
 #endif
