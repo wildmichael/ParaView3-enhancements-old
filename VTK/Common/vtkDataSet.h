@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSet.h,v $
   Language:  C++
-  Date:      $Date: 1997-05-13 21:04:59 $
-  Version:   $Revision: 1.60 $
+  Date:      $Date: 1997-06-20 19:25:12 $
+  Version:   $Revision: 1.61 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -115,6 +115,14 @@ public:
   // Description:
   // Get type of cell with cellId such that: 0 <= cellId < NumberOfCells.
   virtual int GetCellType(int cellId) = 0;
+
+  // Description:
+  // Get a list of types of cells in a dataset. The list consists of an array
+  // of types (not necessarily in any order), with a single entry per type.
+  // For example a dataset 5 triangles, 3 lines, and 100 hexahedra would
+  // result a list of three entries, corresponding to the types VTK_TRIANGLE,
+  // VTK_LINE, and VTK_HEXAHEDRON.
+  virtual void GetCellTypes(vtkIdList *types);
 
   // Description:
   // Topological inquiry to get points defining cell.
