@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLTexture.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-27 15:37:43 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1998-05-12 11:34:09 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -243,9 +243,6 @@ void vtkOpenGLTexture::Load(vtkRenderer *vtkNotUsed(ren))
   glCallList ((GLuint) this->Index);
 #endif
   
-  // if we're doing texture, assume blending must be on.
-  glEnable(GL_BLEND);
-
   // don't accept fragments if they have zero opacity. this will stop the
   // zbuffer from be blocked by totally transparent texture fragments.
   glAlphaFunc (GL_GREATER, (GLclampf) 0);
