@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFileOutputWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-05-25 08:13:11 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2000-11-08 12:04:43 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -80,7 +80,7 @@ void vtkFileOutputWindow::Initialize()
     {
     if (!this->FileName)
       {
-      char* fileName = "vtkMessageLog.log";
+      char* fileName = (char *) "vtkMessageLog.log";
       this->FileName = new char[strlen(fileName)+1];
       strcpy(this->FileName, fileName);
       }
