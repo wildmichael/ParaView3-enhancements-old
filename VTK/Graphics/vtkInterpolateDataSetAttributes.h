@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInterpolateDataSetAttributes.h,v $
   Language:  C++
-  Date:      $Date: 1998-12-02 21:35:31 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1999-04-15 20:52:32 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -121,6 +121,10 @@ public:
   // Specify interpolation parameter t.
   vtkSetClampMacro(T,float,0.0,VTK_LARGE_FLOAT);
   vtkGetMacro(T,float);
+
+  // Description:
+  // Handle the source/data loop.
+  void UnRegister(vtkObject *o);
 
 protected:
   void Execute();

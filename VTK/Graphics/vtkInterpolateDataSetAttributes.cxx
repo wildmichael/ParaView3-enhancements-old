@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInterpolateDataSetAttributes.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-01-05 13:11:37 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-04-15 20:52:32 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -401,3 +401,24 @@ void vtkInterpolateDataSetAttributes::PrintSelf(ostream& os, vtkIndent indent)
 
 
 
+void vtkInterpolateDataSetAttributes::UnRegister(vtkObject *o)
+{
+  // detect the circular loop source <-> data
+  // If we have two references and one of them is my data
+  // and I am not being unregistered by my data, break the loop.
+  if (this->ReferenceCount == 6 &&
+      this->PolyData->GetReferenceCount() == 1 &&
+      this->StructuredGrid->GetReferenceCount() == 1 &&
+      this->UnstructuredGrid->GetReferenceCount() == 1 &&
+      this->StructuredPoints->GetReferenceCount() == 1 &&
+      this->RectilinearGrid->GetReferenceCount() == 1)
+    {
+    this->PolyData->SetSource(NULL);
+    this->StructuredGrid->SetSource(NULL);
+    this->UnstructuredGrid->SetSource(NULL);
+    this->StructuredPoints->SetSource(NULL);
+    this->RectilinearGrid->SetSource(NULL);
+    }
+  
+  this->vtkObject::UnRegister(o);
+}
