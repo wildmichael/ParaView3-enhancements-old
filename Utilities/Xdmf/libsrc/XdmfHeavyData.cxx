@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfHeavyData.cxx,v 1.1 2002-12-02 17:11:03 clarke Exp $  */
-/*  Date : $Date: 2002-12-02 17:11:03 $ */
-/*  Version : $Revision: 1.1 $ */
+/*  Id : $Id: XdmfHeavyData.cxx,v 1.2 2003-09-30 15:59:02 andy Exp $  */
+/*  Date : $Date: 2003-09-30 15:59:02 $ */
+/*  Version : $Revision: 1.2 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -28,13 +28,61 @@ XdmfHeavyData::XdmfHeavyData() {
 
   // Defaults
   this->SetDomain( "FILE" );
+  this->FileName = 0;
   this->SetFileName( "XdmfHeavyData.dod" );
   this->SetPath( "/" );
   this->SetAccess( "r" );
   this->SetNdgmHost("");
+  this->WorkingDirectory  = 0;
   this->SetWorkingDirectory("");
 
 }
 
 XdmfHeavyData::~XdmfHeavyData() {
+  this->SetWorkingDirectory(0);
 }
+
+void XdmfHeavyData::SetWorkingDirectory( char *String )
+{
+  if ( String == this->WorkingDirectory )
+    {
+    return;
+    }
+  if ( String && this->WorkingDirectory && strcmp(String, this->WorkingDirectory) == 0 )
+    {
+    return;
+    }
+  if ( this->WorkingDirectory )
+    {
+    delete [] this->WorkingDirectory;
+    this->WorkingDirectory = 0;
+    }
+  if ( String )
+    {
+    this->WorkingDirectory = new char [ strlen(String) + 1 ];
+    strcpy(this->WorkingDirectory, String);
+    }
+}
+
+void XdmfHeavyData::SetFileName( char *String )
+{
+  if ( String == this->FileName )
+    {
+    return;
+    }
+  if ( String && this->FileName && strcmp(String, this->FileName) == 0 )
+    {
+    return;
+    }
+  if ( this->FileName )
+    {
+    delete [] this->FileName;
+    this->FileName = 0;
+    }
+  if ( String )
+    {
+    this->FileName = new char [ strlen(String) + 1 ];
+    strcpy(this->FileName, String);
+    }
+}
+

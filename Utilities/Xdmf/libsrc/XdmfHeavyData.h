@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfHeavyData.h,v 1.3 2003-09-29 16:00:41 andy Exp $  */
-/*  Date : $Date: 2003-09-29 16:00:41 $ */
-/*  Version : $Revision: 1.3 $ */
+/*  Id : $Id: XdmfHeavyData.h,v 1.4 2003-09-30 15:59:02 andy Exp $  */
+/*  Date : $Date: 2003-09-30 15:59:02 $ */
+/*  Version : $Revision: 1.4 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -55,7 +55,7 @@ public:
 //! Get the default Pathname for File:/Dataset
         XdmfGetValueMacro(WorkingDirectory, XdmfString);
 //! Set the default Pathname for File:/Dataset
-        void SetWorkingDirectory( char *String ) { strcpy( this->WorkingDirectory, String ); }
+        void SetWorkingDirectory( char *String );
 
 
 //! Get the current domain
@@ -68,9 +68,7 @@ public:
 //! Get the current filename
   XdmfGetValueMacro(FileName, XdmfString);
 //! Set the current filename
-  void SetFileName( XdmfString File ) {
-    strcpy( this->FileName, File );
-    } ;
+  void SetFileName( XdmfString File );
 
 //! Get the current HeavyData Dataset path
   XdmfGetValueMacro(Path, XdmfString);
@@ -95,10 +93,10 @@ values can be :
 protected:
 
   char    NdgmHost[XDMF_MAX_STRING_LENGTH];
-  char    WorkingDirectory[XDMF_MAX_STRING_LENGTH];
+  char    *WorkingDirectory;
   char    Access[XDMF_MAX_STRING_LENGTH];
   char    Domain[XDMF_MAX_STRING_LENGTH];
-  char    FileName[XDMF_MAX_STRING_LENGTH];
+  char    *FileName;
   char    Path[XDMF_MAX_STRING_LENGTH];
 };
 
