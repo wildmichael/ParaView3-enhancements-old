@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-11-13 12:12:19 $
-  Version:   $Revision: 1.53 $
+  Date:      $Date: 1998-11-15 20:44:49 $
+  Version:   $Revision: 1.54 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -1892,7 +1892,6 @@ void vtkRenderWindowInteractor::TrackballDollyActor(int x, int y)
       {
       this->InteractionActor->AddPosition(this->MotionVector);
       }
-    //    this->HighlightActor(this->InteractionActor);
   
     this->OldX = x;
     this->OldY = y;
