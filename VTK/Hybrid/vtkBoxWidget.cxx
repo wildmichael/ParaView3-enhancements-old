@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBoxWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-30 12:50:29 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2002-08-01 13:05:39 $
+  Version:   $Revision: 1.16 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -32,11 +32,12 @@
 #include "vtkSphereSource.h"
 #include "vtkRenderWindowInteractor.h"
 
-vtkCxxRevisionMacro(vtkBoxWidget, "$Revision: 1.15 $");
+vtkCxxRevisionMacro(vtkBoxWidget, "$Revision: 1.16 $");
 vtkStandardNewMacro(vtkBoxWidget);
 
 vtkBoxWidget::vtkBoxWidget()
 {
+  this->State = vtkBoxWidget::Start;
   this->EventCallbackCommand->SetCallback(vtkBoxWidget::ProcessEvents);
   
   // Enable/disable the translation, rotation, and scaling of the widget
