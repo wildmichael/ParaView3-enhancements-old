@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSocketController.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-27 16:14:59 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-08-16 21:40:49 $
+  Version:   $Revision: 1.2 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -86,7 +86,7 @@ void vtkSocketController::Initialize(int* , char***)
     return;
     }
 
-#ifdef _WIN32
+#if defined(_WIN32) && !defined(__CYGWIN__)
   WSAData wsaData;  
   if (WSAStartup(WSA_VERSION, &wsaData))
     {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSocketCommunicator.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-09 20:37:59 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2001-08-16 21:40:49 $
+  Version:   $Revision: 1.19 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -42,7 +42,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkSocketController.h"
 #include "vtkObjectFactory.h"
 
-#ifdef _WIN32
+#if defined(_WIN32) && !defined(__CYGWIN__)
 #define WSA_VERSION MAKEWORD(1,1)
 #define vtkCloseSocketMacro(sock) (closesocket(sock))
 #else

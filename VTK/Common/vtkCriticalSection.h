@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCriticalSection.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:42:14 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2001-08-16 21:40:49 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -74,14 +74,14 @@ typedef abilock_t vtkCritSecType;
 typedef pthread_mutex_t vtkCritSecType;
 #endif
  
-#ifdef _WIN32
+#ifdef VTK_USE_WIN32_THREADS
 #include <winbase.h>
 typedef CRITICAL_SECTION vtkCritSecType;
 #endif
 
 #ifndef VTK_USE_SPROC
 #ifndef VTK_USE_PTHREADS
-#ifndef _WIN32
+#ifndef VTK_USE_WIN32_THREADS
 typedef int vtkCritSecType;
 #endif
 #endif

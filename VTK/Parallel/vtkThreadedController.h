@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThreadedController.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:53 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-08-16 21:40:49 $
+  Version:   $Revision: 1.4 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -129,7 +129,7 @@ protected:
   typedef pthread_t ThreadIdType;
 #elif defined VTK_USE_SPROC
   typedef pid_t ThreadIdType;
-#elif defined _WIN32
+#elif defined VTK_USE_WIN32_THREADS
   typedef DWORD ThreadIdType;
 #else
   typedef int ThreadIdType;
@@ -147,7 +147,7 @@ protected:
   static void SignalNextThread();
   static void InitializeBarrier();
   static void WaitForNextThread();
-#ifdef _WIN32
+#ifdef VTK_USE_WIN32_THREADS
   static HANDLE BarrierEndedEvent;
   static HANDLE NextThread;
 #else

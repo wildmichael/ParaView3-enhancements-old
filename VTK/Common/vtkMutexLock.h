@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMutexLock.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:42:14 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2001-08-16 21:40:49 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -48,6 +48,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #ifndef __vtkMutexVariable_h
 #define __vtkMutexVariable_h
 
+
 #include "vtkObject.h"
 
 //BTX
@@ -62,14 +63,14 @@ typedef abilock_t vtkMutexType;
 typedef pthread_mutex_t vtkMutexType;
 #endif
  
-#ifdef _WIN32
+#ifdef VTK_USE_WIN32_THREADS
 #include <winbase.h>
 typedef HANDLE vtkMutexType;
 #endif
 
 #ifndef VTK_USE_SPROC
 #ifndef VTK_USE_PTHREADS
-#ifndef _WIN32
+#ifndef VTK_USE_WIN32_THREADS
 typedef int vtkMutexType;
 #endif
 #endif

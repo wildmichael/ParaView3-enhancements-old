@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCriticalSection.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-04 18:45:44 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2001-08-16 21:40:49 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -64,7 +64,7 @@ void vtkSimpleCriticalSection::Init()
   init_lock( &this->CritSec );
 #endif
   
-#ifdef _WIN32
+#ifdef VTK_USE_WIN32_THREADS
   //this->MutexLock = CreateMutex( NULL, FALSE, NULL ); 
   InitializeCriticalSection(&this->CritSec);
 #endif
@@ -82,7 +82,7 @@ void vtkSimpleCriticalSection::Init()
 // Destruct the vtkMutexVariable
 vtkSimpleCriticalSection::~vtkSimpleCriticalSection()
 {
-#ifdef _WIN32
+#ifdef VTK_USE_WIN32_THREADS
   //CloseHandle(this->MutexLock);
   DeleteCriticalSection(&this->CritSec);
 #endif
@@ -99,7 +99,7 @@ void vtkSimpleCriticalSection::Lock()
   spin_lock( &this->CritSec );
 #endif
 
-#ifdef _WIN32
+#ifdef VTK_USE_WIN32_THREADS
   //WaitForSingleObject( this->MutexLock, INFINITE );
   EnterCriticalSection(&this->CritSec);
 #endif
@@ -116,7 +116,7 @@ void vtkSimpleCriticalSection::Unlock()
   release_lock( &this->CritSec );
 #endif
 
-#ifdef _WIN32
+#ifdef VTK_USE_WIN32_THREADS
   //ReleaseMutex( this->MutexLock );
   LeaveCriticalSection(&this->CritSec);
 #endif

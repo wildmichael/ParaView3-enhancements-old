@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractTransform.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-13 14:35:10 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2001-08-16 21:40:49 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -69,7 +69,9 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkPoints.h"
 #include "vtkNormals.h"
 #include "vtkVectors.h"
-#include "vtkMutexLock.h"
+
+class vtkSimpleMutexLock;
+
 
 class VTK_EXPORT vtkAbstractTransform : public vtkObject
 {
