@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMPIController.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-02-16 14:39:18 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-04-11 17:41:43 $
+  Version:   $Revision: 1.4 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -268,6 +268,19 @@ void vtkMPIController::SetCommunicator(vtkMPICommunicator* comm)
 }
 
   
+void vtkMPIController::Barrier()
+{
+  vtkMPICommunicator* comm = (vtkMPICommunicator*)this->Communicator;
+  int err;
+  if ( (err = MPI_Barrier(*(comm->Handle)) ) 
+       != MPI_SUCCESS ) 
+    {
+    char *msg = vtkMPIController::ErrorString(err);
+    vtkErrorMacro("MPI error occured: " << msg);
+    delete[] msg;
+    }
+}
+
 //----------------------------------------------------------------------------
 // Execute the method set as the SingleMethod.
 void vtkMPIController::SingleMethodExecute()
