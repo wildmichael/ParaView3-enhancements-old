@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadricClustering.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-10-10 15:03:54 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2000-10-19 13:07:52 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -523,4 +523,6 @@ void vtkQuadricClustering::PrintSelf(ostream& os, vtkIndent indent)
      << "\n";
   os << indent << "Number of Z Divisions: " << this->NumberOfZDivisions
      << "\n";
+  os << indent << "Number of Expected Inputs: "
+     << this->NumberOfExpectedInputs << "\n";
 }
