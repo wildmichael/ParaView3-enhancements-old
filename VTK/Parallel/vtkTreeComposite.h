@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTreeComposite.h,v $
   Language:  C++
-  Date:      $Date: 2001-03-23 12:42:32 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-03-23 18:51:14 $
+  Version:   $Revision: 1.3 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -136,6 +136,13 @@ public:
   vtkSetMacro(ReductionFactor, int);
   vtkGetMacro(ReductionFactor, int);
 
+  // Description:
+  // This flag tells the compositer to use char values for pixel data rather than float.
+  // Default is float.  I have seen some artifacts on some systems with char.
+  vtkSetMacro(UseChar, int);
+  vtkGetMacro(UseChar, int);
+  vtkBooleanMacro(UseChar, int);
+  
 //BTX
 
   enum Tags {
@@ -164,10 +171,12 @@ protected:
   unsigned long EndTag;
   unsigned long ResetCameraTag;
   unsigned long ResetCameraClippingRangeTag;
+  int UseChar;
   
-  void Composite(int flag);
+  void Composite();
   void ReduceBuffer(float *localZdata, float *localPdata, 
-                    int windowSize[2], int flag);
+                    int windowSize[2]);
+  void MagnifyBuffer(float *localPdata, int windowSize[2]);
 
   // Convenience method used internally. It set up the start observer
   // and allows the render window's interactor to be set before or after
