@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: BoxWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-03 18:57:36 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-04-04 18:56:20 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -92,7 +92,7 @@ int main( int argc, char *argv[] )
   // Configure the box widget including callbacks
   vtkTransform *t = vtkTransform::New();
   boxWidget->SetProp3D(maceActor);
-  boxWidget->PlaceWidget(maceActor->GetBounds());
+  boxWidget->PlaceWidget();
 
   vtkMyCallback *myCallback = vtkMyCallback::New();
   myCallback->Transform = t;
@@ -119,6 +119,7 @@ int main( int argc, char *argv[] )
   sphere->Delete();
   cone->Delete();
   glyph->Delete();
+  append->Delete();
   maceMapper->Delete();
   maceActor->Delete();
   boxWidget->Delete();
