@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGenericEnSightReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-06-13 17:29:18 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 2003-06-17 13:16:16 $
+  Version:   $Revision: 1.45 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -30,7 +30,7 @@
 
 #include <vtkstd/string>
 
-vtkCxxRevisionMacro(vtkGenericEnSightReader, "$Revision: 1.44 $");
+vtkCxxRevisionMacro(vtkGenericEnSightReader, "$Revision: 1.45 $");
 vtkStandardNewMacro(vtkGenericEnSightReader);
 
 vtkCxxSetObjectMacro(vtkGenericEnSightReader,TimeSets, 
@@ -364,10 +364,10 @@ int vtkGenericEnSightReader::DetermineEnSightVersion()
               } // end if IFile == NULL
           
             this->ReadBinaryLine(binaryLine);
+            binaryLine[80] = '\0';
             sscanf(binaryLine, " %*s %s", subLine);
             // If the file is ascii, there might not be a null
             // terminator. This leads to a UMR in sscanf
-            binaryLine[80] = '\0';
             if (strcmp(subLine, "Binary") == 0 ||
                 strcmp(subLine, "binary") == 0)
               {
