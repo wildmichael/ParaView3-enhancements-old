@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-08 00:23:25 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2001-04-24 20:37:25 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -141,7 +141,10 @@ int vtkImageActor::RenderOpaqueGeometry(vtkViewport* viewport)
   vtkDebugMacro(<< "vtkImageActor::RenderOpaqueGeometry");
 
   vtkImageData *input = this->GetInput();
-  
+  if (!input)
+    {
+    return 0;
+    }
   // make sure the data is available
   input->UpdateInformation();
 
