@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIntArray.h,v $
   Language:  C++
-  Date:      $Date: 2001-06-21 15:21:51 $
-  Version:   $Revision: 1.61 $
+  Date:      $Date: 2001-06-21 21:28:01 $
+  Version:   $Revision: 1.62 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -165,8 +165,8 @@ public:
   // from deleting the array when it cleans up or reallocates memory.
   // The class uses the actual array provided; it does not copy the data 
   // from the suppled array.
-  void SetArray(int* array, int size, int save);
-  void SetVoidArray(void *array,int size, int save) 
+  void SetArray(int* array, vtkIdType size, int save);
+  void SetVoidArray(void *array,vtkIdType size, int save) 
     {this->SetArray((int*)array, size, save);};
 
 protected:
