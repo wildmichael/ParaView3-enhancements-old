@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDecimatePro.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:44:07 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1997-11-13 16:23:05 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -1194,7 +1194,7 @@ int vtkDecimatePro::CollapseEdge(int type, int ptId, int collapseId, int pt1,
   for ( i=0; i < nverts; i++ ) verts[i] = V->Array[i].id;
   for ( i=0; i < nverts; i++ )
     {
-    this->Delete(verts[i]);
+    this->DeleteId(verts[i]);
     this->Insert(verts[i]);
     }
 

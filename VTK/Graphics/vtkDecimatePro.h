@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDecimatePro.h,v $
   Language:  C++
-  Date:      $Date: 1997-09-17 14:29:21 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1997-11-13 16:23:04 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -304,7 +304,7 @@ private:
   void DeleteQueue() {if (this->Queue) delete this->Queue; this->Queue=NULL;};
   void Insert(int id, float error= -1.0);
   int Pop(float &error);
-  float Delete(int id) {return this->Queue->Delete(id);};
+  float DeleteId(int id) {return this->Queue->DeleteId(id);};
   void Reset() {this->Queue->Reset();};
 
   vtkPriorityQueue *Queue;
