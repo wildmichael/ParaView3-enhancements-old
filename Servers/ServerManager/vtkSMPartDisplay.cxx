@@ -46,7 +46,7 @@
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro(vtkSMPartDisplay);
-vtkCxxRevisionMacro(vtkSMPartDisplay, "$Revision: 1.13 $");
+vtkCxxRevisionMacro(vtkSMPartDisplay, "$Revision: 1.14 $");
 
 
 //----------------------------------------------------------------------------s
@@ -282,6 +282,7 @@ vtkSMPartDisplay::~vtkSMPartDisplay()
   
   this->SetSource(0);
   this->SetProcessModule(0);
+  this->SetVolumeRenderField(0);
 }
 
 //----------------------------------------------------------------------------
