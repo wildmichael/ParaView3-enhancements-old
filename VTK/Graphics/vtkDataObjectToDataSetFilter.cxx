@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObjectToDataSetFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-07-27 08:58:45 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2000-08-01 08:35:56 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -240,7 +240,6 @@ vtkDataObject *vtkDataObjectToDataSetFilter::GetInput()
 //----------------------------------------------------------------------------
 void vtkDataObjectToDataSetFilter::ExecuteInformation()
 {
-  int npts;
   vtkDataObject *input = this->GetInput();
 
   switch (this->DataSetType)
