@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeTextureMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:59 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2001-01-16 21:04:27 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1388,6 +1388,10 @@ void vtkVolumeTextureMapper2D::GenerateTexturesAndRenderQuads()
 	  break;
 	}
       break;
+    default:
+      vtkErrorMacro(
+        "vtkVolumeTextureMapper2D only works with short or char data.\n" << 
+        "Input type: " << inputType << " given.");
     }
 
 }
