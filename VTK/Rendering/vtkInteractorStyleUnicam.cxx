@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleUnicam.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-30 12:50:12 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2001-01-01 14:23:10 $
+  Version:   $Revision: 1.6 $
   Thanks:    contributed by A. Forsberg, Brown University, December 2000
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -121,8 +121,9 @@ void vtkInteractorStyleUnicam::SetWorldUpVector(float x, float y, float z)
 }
 
 //----------------------------------------------------------------------------
-void vtkInteractorStyleUnicam::OnLeftButtonDown(int ctrl, int shift, 
-                                                    int X, int Y) 
+void vtkInteractorStyleUnicam::OnLeftButtonDown(int vtkNotUsed(ctrl),
+						int vtkNotUsed(shift), 
+						int X, int Y) 
 {
   this->ButtonDown = VTK_UNICAM_BUTTON_LEFT;
   this->Interactor->CreateTimer(VTKI_TIMER_UPDATE);
@@ -213,8 +214,9 @@ void vtkInteractorStyleUnicam::OnMouseMove(int ctrl, int shift, int X, int Y)
 }
 
 //----------------------------------------------------------------------------
-void vtkInteractorStyleUnicam::OnLeftButtonUp(int ctrl, int shift, 
-					       int X, int Y) 
+void vtkInteractorStyleUnicam::OnLeftButtonUp(int vtkNotUsed(ctrl),
+					      int vtkNotUsed(shift), 
+					      int X, int Y) 
 {
   this->ButtonDown = VTK_UNICAM_NONE;
 
@@ -272,8 +274,9 @@ void vtkInteractorStyleUnicam::OnLeftButtonUp(int ctrl, int shift,
 }
 
 //----------------------------------------------------------------------------
-void vtkInteractorStyleUnicam::OnLeftButtonMove(int ctrl, int shift,
-						 int X, int Y)
+void vtkInteractorStyleUnicam::OnLeftButtonMove(int vtkNotUsed(ctrl),
+						int vtkNotUsed(shift),
+						int X, int Y)
 {
   switch (state) 
     {

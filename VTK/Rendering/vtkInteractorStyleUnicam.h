@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleUnicam.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-29 21:46:12 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-01-01 14:23:10 $
+  Version:   $Revision: 1.4 $
   Thanks:    contributed by A. Forsberg, Brown University, December 2000
 
 
@@ -154,8 +154,8 @@ public:
   virtual   void OnMouseMove(int ctrl, int shift, int X, int Y);
   
   virtual   void OnLeftButtonMove  (int ctrl, int shift, int X, int Y);
-  virtual   void OnMiddleButtonMove(int ctrl, int shift, int X, int Y) {}
-  virtual   void OnRightButtonMove (int ctrl, int shift, int X, int Y) {}
+  virtual   void OnMiddleButtonMove(int , int , int , int) {}
+  virtual   void OnRightButtonMove (int , int , int , int) {}
 
   // Description:
   // OnTimer calls RotateCamera, RotateActor etc which should be overridden by
