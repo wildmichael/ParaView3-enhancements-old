@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSightReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-15 20:42:43 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2001-06-18 14:19:37 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1041,7 +1041,6 @@ int vtkEnSightReader::ReadCaseFile()
 	sscanf(line, "%*s %s", subLine);
 	if (strncmp(subLine, "numbers", 7) == 0)
 	  {
-	  vtkIdList *filenameNumbers = vtkIdList::New();
 	  strcpy(formatLine, "%*s %*s");
 	  strcpy(subLine, "%*s %*s");
 	  for (i = 0; i < numTimeSteps; i++)
