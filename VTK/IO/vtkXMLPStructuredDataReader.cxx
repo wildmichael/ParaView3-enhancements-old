@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLPStructuredDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-16 18:23:06 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-10-23 15:49:47 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 #include "vtkDataSet.h"
 #include "vtkTableExtentTranslator.h"
 
-vtkCxxRevisionMacro(vtkXMLPStructuredDataReader, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkXMLPStructuredDataReader, "$Revision: 1.2 $");
 
 //----------------------------------------------------------------------------
 vtkXMLPStructuredDataReader::vtkXMLPStructuredDataReader()
@@ -131,6 +131,13 @@ vtkXMLPStructuredDataReader::ReadPrimaryElement(vtkXMLDataElement* ePrimary)
   output->SetWholeExtent(extent);  
   
   return 1;
+}
+
+//----------------------------------------------------------------------------
+void vtkXMLPStructuredDataReader::SetupEmptyOutput()
+{
+  // Special extent to indicate no input.
+  this->GetOutputAsDataSet()->SetUpdateExtent(1, 0, 1, 0, 1, 0);
 }
 
 //----------------------------------------------------------------------------

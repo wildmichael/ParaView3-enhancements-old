@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLReader.h,v $
   Language:  C++
-  Date:      $Date: 2002-10-16 18:23:07 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-10-23 15:49:47 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -98,6 +98,9 @@ protected:
   
   // Test if the reader can read a file with the given version number.
   virtual int CanReadFileVersion(int major, int minor);
+  
+  // Setup the output with no data available.  Used in error cases.
+  virtual void SetupEmptyOutput()=0;
   
   // Setup the output's information and data without allocation.
   virtual void SetupOutputInformation();

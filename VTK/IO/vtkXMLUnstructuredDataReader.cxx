@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLUnstructuredDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-16 18:23:07 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-10-23 15:49:47 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 #include "vtkCellArray.h"
 #include "vtkPointSet.h"
 
-vtkCxxRevisionMacro(vtkXMLUnstructuredDataReader, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkXMLUnstructuredDataReader, "$Revision: 1.2 $");
 
 //----------------------------------------------------------------------------
 vtkXMLUnstructuredDataReader::vtkXMLUnstructuredDataReader()
@@ -90,6 +90,13 @@ vtkXMLUnstructuredDataReader
     return this->CreateDataArray(eArray);
     }
   return 0;
+}
+
+//----------------------------------------------------------------------------
+void vtkXMLUnstructuredDataReader::SetupEmptyOutput()
+{
+  // No pieces means no input.
+  this->GetOutputAsDataSet()->SetUpdateExtent(0, 0);
 }
 
 //----------------------------------------------------------------------------

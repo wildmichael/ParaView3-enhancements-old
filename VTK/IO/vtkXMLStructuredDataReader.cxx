@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLStructuredDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-17 13:09:36 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-10-23 15:49:47 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 #include "vtkXMLDataParser.h"
 #include "vtkDataSet.h"
 
-vtkCxxRevisionMacro(vtkXMLStructuredDataReader, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkXMLStructuredDataReader, "$Revision: 1.3 $");
 
 //----------------------------------------------------------------------------
 vtkXMLStructuredDataReader::vtkXMLStructuredDataReader()
@@ -71,6 +71,13 @@ int vtkXMLStructuredDataReader::ReadPrimaryElement(vtkXMLDataElement* ePrimary)
     }
   
   return this->Superclass::ReadPrimaryElement(ePrimary);  
+}
+
+//----------------------------------------------------------------------------
+void vtkXMLStructuredDataReader::SetupEmptyOutput()
+{
+  // Special extent to indicate no input.
+  this->GetOutputAsDataSet()->SetUpdateExtent(1, 0, 1, 0, 1, 0);
 }
 
 //----------------------------------------------------------------------------

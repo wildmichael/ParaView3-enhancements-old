@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-18 16:22:37 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-10-23 15:49:47 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -32,7 +32,7 @@
 
 #include <sys/stat.h>
 
-vtkCxxRevisionMacro(vtkXMLReader, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkXMLReader, "$Revision: 1.3 $");
 
 //----------------------------------------------------------------------------
 vtkXMLReader::vtkXMLReader()
@@ -224,6 +224,10 @@ void vtkXMLReader::ExecuteInformation()
   else
     {
     vtkErrorMacro("Error parsing input file.  ExecuteInformation aborting.");
+    
+    // The output should be empty to prevent the rest of the pipeline
+    // from executing.
+    this->SetupEmptyOutput();
     }
   
   // Close the file to prevent resource leaks.

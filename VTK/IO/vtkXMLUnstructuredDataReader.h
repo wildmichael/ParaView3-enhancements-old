@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLUnstructuredDataReader.h,v $
   Language:  C++
-  Date:      $Date: 2002-10-16 18:23:07 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-10-23 15:49:47 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -66,6 +66,7 @@ protected:
   // Pipeline execute data driver.  Called by vtkXMLReader.
   void ReadXMLData();
   
+  virtual void SetupEmptyOutput();
   virtual void GetOutputUpdateExtent(int& piece, int& numberOfPieces,
                                      int& ghostLevel)=0;
   virtual void SetupOutputTotals();
