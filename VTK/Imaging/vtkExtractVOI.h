@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractVOI.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-08 18:41:55 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1999-08-29 19:02:19 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -67,7 +67,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkExtractVOI : public vtkStructuredPointsToStructuredPointsFilter
 {
 public:
-  vtkExtractVOI();
   const char *GetClassName() {return "vtkExtractVOI";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -91,6 +90,9 @@ public:
   vtkGetVectorMacro(SampleRate, int, 3);
 
 protected:
+  vtkExtractVOI();
+  ~vtkExtractVOI() {};
+
   void Execute();
 
   int VOI[6];

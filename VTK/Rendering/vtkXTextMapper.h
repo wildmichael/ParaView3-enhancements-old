@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXTextMapper.h,v $
   Language:  C++
-  Date:      $Date: 1999-04-02 13:19:25 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-08-29 19:03:28 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -80,6 +80,9 @@ public:
   void GetSize(vtkViewport* viewport, int size[2]);
 
 protected:
+  vtkXTextMapper() {};
+  ~vtkXTextMapper() {};
+
   Font CurrentFont;
 };
 

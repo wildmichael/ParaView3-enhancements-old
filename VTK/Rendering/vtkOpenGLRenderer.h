@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLRenderer.h,v $
   Language:  C++
-  Date:      $Date: 1999-01-07 22:43:19 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-08-29 19:02:31 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,7 +55,6 @@ protected:
   int NumberOfLightsBound;
 
 public:
-  vtkOpenGLRenderer();
   static vtkOpenGLRenderer *New() {return new vtkOpenGLRenderer;};
   const char *GetClassName() {return "vtkOpenGLRenderer";};
   void PrintSelf(ostream& os, vtkIndent indent);
@@ -74,6 +73,11 @@ public:
   // Description:
   // Ask lights to load themselves into graphics pipeline.
   int UpdateLights(void);
+  
+protected:
+  vtkOpenGLRenderer();
+  ~vtkOpenGLRenderer() {};
+  
 
 };
 

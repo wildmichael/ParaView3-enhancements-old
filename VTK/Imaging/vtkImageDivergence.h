@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDivergence.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-05 19:22:11 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1999-08-29 19:03:09 $
+  Version:   $Revision: 1.13 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -53,7 +53,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkImageDivergence : public vtkImageToImageFilter
 {
 public:
-  vtkImageDivergence();
   static vtkImageDivergence *New() {return new vtkImageDivergence;};
   const char *GetClassName() {return "vtkImageDivergence";};
   void PrintSelf(ostream& os, vtkIndent indent);
@@ -64,6 +63,9 @@ public:
   vtkGetMacro(Dimensionality,int);
 
 protected:
+  vtkImageDivergence();
+  ~vtkImageDivergence() {};
+
   int Dimensionality;
 
   void ComputeRequiredInputUpdateExtent(int inExt[6], int outExt[6]);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32ImageMapper.h,v $
   Language:  C++
-  Date:      $Date: 1999-04-30 14:59:58 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-08-29 19:03:26 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,8 +57,6 @@ class vtkImageActor2D;
 class VTK_EXPORT vtkWin32ImageMapper : public vtkImageMapper
 {
 public:
-  vtkWin32ImageMapper();
-  ~vtkWin32ImageMapper();
   static vtkWin32ImageMapper *New() {return new vtkWin32ImageMapper;};
   const char *GetClassName() {return "vtkWin32ImageMapper";};
   
@@ -77,6 +75,8 @@ public:
   HBITMAP HBitmap;			// our handle to the DIBSection
 
 protected:
+  vtkWin32ImageMapper();
+  ~vtkWin32ImageMapper();
 
 };
 

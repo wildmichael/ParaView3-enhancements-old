@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDividingCubes.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-14 21:25:32 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1999-08-29 19:03:29 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -72,8 +72,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkDividingCubes : public vtkStructuredPointsToPolyDataFilter
 {
 public:
-  vtkDividingCubes();
-  ~vtkDividingCubes();
   static vtkDividingCubes *New() {return new vtkDividingCubes;};
   const char *GetClassName() {return "vtkDividingCubes";};
   void PrintSelf(ostream& os, vtkIndent indent);
@@ -96,6 +94,8 @@ public:
   vtkGetMacro(Increment,int);
 
 protected:
+  vtkDividingCubes();
+  ~vtkDividingCubes();
   void Execute();
   void SubDivide(float origin[3], int dim[3], float h[3], float values[8]);
 

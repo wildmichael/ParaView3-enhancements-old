@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32PolyDataMapper2D.h,v $
   Language:  C++
-  Date:      $Date: 1999-03-11 18:31:59 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-08-29 19:03:27 $
+  Version:   $Revision: 1.7 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -63,6 +63,8 @@ public:
   virtual void RenderOverlay(vtkViewport* viewport, vtkActor2D* actor);
 
 protected:
+  vtkWin32PolyDataMapper2D() {};
+  ~vtkWin32PolyDataMapper2D() {};
   
 };
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIVWriter.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:42:23 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-08-29 19:01:56 $
+  Version:   $Revision: 1.9 $
   Thanks:    to Jon A. Webb for contributing this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,6 +59,9 @@ public:
   const char *GetClassName() {return "vtkIVWriter";};
 
 protected:
+  vtkIVWriter() {};
+  ~vtkIVWriter() {};
+
   void WriteData();
   void WritePolyData(vtkPolyData *polyData, FILE *fp);
 };

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSampleFunction.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:08 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1999-08-29 19:02:44 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,8 +59,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkSampleFunction : public vtkStructuredPointsSource
 {
 public:
-  vtkSampleFunction();
-  ~vtkSampleFunction();
   const char *GetClassName() {return "vtkSampleFunction";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -118,6 +116,8 @@ public:
   unsigned long GetMTime();
 
 protected:
+  vtkSampleFunction();
+  ~vtkSampleFunction();
   void Execute();
   void ExecuteInformation();
   void Cap(vtkScalars *s);

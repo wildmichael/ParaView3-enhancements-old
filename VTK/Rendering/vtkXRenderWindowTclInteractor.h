@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindowTclInteractor.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-27 12:53:43 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-08-29 19:03:04 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -63,8 +63,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkXRenderWindowTclInteractor : public vtkRenderWindowInteractor
 {
 public:
-  vtkXRenderWindowTclInteractor();
-  ~vtkXRenderWindowTclInteractor();
   static vtkXRenderWindowTclInteractor *New() {
     return new vtkXRenderWindowTclInteractor;};
   const char *GetClassName() {return "vtkXRenderWindowTclInteractor";};
@@ -166,6 +164,9 @@ public:
   friend void vtkXRenderWindowTclInteractorTimer(XtPointer,XtIntervalId *);
 
 protected:
+  vtkXRenderWindowTclInteractor();
+  ~vtkXRenderWindowTclInteractor();
+
   Widget TopLevelShell;
 
   Display *DisplayId;

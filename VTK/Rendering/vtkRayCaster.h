@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRayCaster.h,v $
   Language:  C++
-  Date:      $Date: 1999-04-22 14:14:27 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1999-08-29 19:02:39 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -63,8 +63,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkRayCaster : public vtkObject
 {
 public:
-  vtkRayCaster();
-  ~vtkRayCaster();
   static vtkRayCaster *New() {return new vtkRayCaster;};
   const char *GetClassName() {return "vtkRayCaster";};
   void PrintSelf(ostream& os, vtkIndent indent);
@@ -213,6 +211,8 @@ public:
 //ETX
 
 protected:
+  vtkRayCaster();
+  ~vtkRayCaster();
 
   // Description:
   // Zoom the small image up the full size using nearest neighbor 

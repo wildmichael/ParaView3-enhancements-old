@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDilateErode3D.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-16 21:09:08 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1999-08-29 19:03:08 $
+  Version:   $Revision: 1.16 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,13 +58,9 @@ class vtkImageEllipsoidSource;
 class VTK_EXPORT vtkImageDilateErode3D : public vtkImageSpatialFilter
 {
 public:
-
   // Description:
   // Construct an instance of vtkImageDilateErode3D fitler.
   // By default zero values are dilated.
-  vtkImageDilateErode3D();
-
-  ~vtkImageDilateErode3D();
   static vtkImageDilateErode3D *New() 
     {return new vtkImageDilateErode3D;};
   const char *GetClassName() {return "vtkImageDilateErode3D";};
@@ -84,6 +80,9 @@ public:
   vtkGetMacro(ErodeValue, float);
 
 protected:
+  vtkImageDilateErode3D();
+  ~vtkImageDilateErode3D();
+
   vtkImageEllipsoidSource *Ellipse;
   float DilateValue;
   float ErodeValue;

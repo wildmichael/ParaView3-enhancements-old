@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCullerCollection.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-07 13:11:04 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-08-29 19:02:08 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -83,6 +83,11 @@ class VTK_EXPORT vtkCullerCollection : public vtkCollection
   // Description:
   // Get the last Culler in the list.
   vtkCuller *GetLastItem();
+  
+protected:
+  vtkCullerCollection() {};
+  ~vtkCullerCollection() {};
+  
 };
 
 

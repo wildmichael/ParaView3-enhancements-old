@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXOpenGLTextMapper.h,v $
   Language:  C++
-  Date:      $Date: 1999-03-09 21:15:43 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1999-08-29 19:03:28 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,7 +55,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkXOpenGLTextMapper : public vtkXTextMapper
 {
 public:
-  vtkXOpenGLTextMapper();
   const char *GetClassName() {return "vtkXOpenGLTextMapper";};
   static vtkXOpenGLTextMapper *New() {
     return new vtkXOpenGLTextMapper;};
@@ -77,6 +76,8 @@ public:
 				Font);
 
 protected:
+  vtkXOpenGLTextMapper();
+  ~vtkXOpenGLTextMapper() {};
 };
 
 

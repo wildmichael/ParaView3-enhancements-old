@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSkeleton2D.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-05 19:22:20 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-08-29 19:03:20 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -60,7 +60,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkImageSkeleton2D : public vtkImageIterateFilter
 {
 public:
-  vtkImageSkeleton2D();
   static vtkImageSkeleton2D *New() {return new vtkImageSkeleton2D;};
   const char *GetClassName() {return "vtkImageSkeleton2D";};
   void PrintSelf(ostream& os, vtkIndent indent);
@@ -76,6 +75,9 @@ public:
   void SetNumberOfIterations(int num);
   
 protected:
+  vtkImageSkeleton2D();
+  ~vtkImageSkeleton2D() {};
+
   int Prune;
 
   void ComputeRequiredInputUpdateExtent(int *extent, int *wholeExtent);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXPolyDataMapper2D.h,v $
   Language:  C++
-  Date:      $Date: 1999-03-11 17:39:57 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1999-08-29 19:03:28 $
+  Version:   $Revision: 1.6 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -63,6 +63,8 @@ public:
   void RenderOverlay(vtkViewport* viewport, vtkActor2D* actor);
 
 protected:
+  vtkXPolyDataMapper2D() {};
+  ~vtkXPolyDataMapper2D() {};
   
 };
 

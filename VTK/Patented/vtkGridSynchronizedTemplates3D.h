@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGridSynchronizedTemplates3D.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-17 15:38:21 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-08-29 19:03:30 $
+  Version:   $Revision: 1.4 $
 
 
 
@@ -72,10 +72,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkGridSynchronizedTemplates3D : public vtkStructuredGridToPolyDataFilter
 {
 public:
-  vtkGridSynchronizedTemplates3D();
   static vtkGridSynchronizedTemplates3D *New() {
     return new vtkGridSynchronizedTemplates3D;};
-  ~vtkGridSynchronizedTemplates3D();
   const char *GetClassName() {return "vtkGridSynchronizedTemplates3D";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -178,6 +176,9 @@ public:
   void SetInputMemoryLimit(long limit);
 
 protected:
+  vtkGridSynchronizedTemplates3D();
+  ~vtkGridSynchronizedTemplates3D();
+
   int ComputeNormals;
   int ComputeGradients;
   int ComputeScalars;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXImageWindow.h,v $
   Language:  C++
-  Date:      $Date: 1999-04-23 12:57:17 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1999-08-29 19:03:27 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -63,8 +63,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkXImageWindow : public vtkImageWindow
 {
 public:
-  vtkXImageWindow();
-  ~vtkXImageWindow();
   static vtkXImageWindow *New() {return new vtkXImageWindow;};
   const char *GetClassName() {return "vtkXImageWindow";};
   void PrintSelf(ostream& os, vtkIndent indent);
@@ -159,9 +157,12 @@ public:
 
 
 protected:
+  vtkXImageWindow();
+  ~vtkXImageWindow();
+
   // X stuff
   Window               ParentId;
-  Window	           WindowId;
+  Window	       WindowId;
   Display             *DisplayId;
   Visual              *VisualId;
   int                  VisualDepth;

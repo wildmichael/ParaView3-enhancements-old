@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectorNorm.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-08 18:42:29 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1999-08-29 19:02:57 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -62,7 +62,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkVectorNorm : public vtkDataSetToDataSetFilter 
 {
 public:
-  vtkVectorNorm();
   const char *GetClassName() {return "vtkVectorNorm";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -95,6 +94,8 @@ public:
   char *GetAttributeModeAsString();
 
 protected:
+  vtkVectorNorm();
+  ~vtkVectorNorm() {};
   void Execute();
 
   int Normalize;  // normalize 0<=n<=1 if true.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMagnitude.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-23 18:49:15 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-08-29 19:03:15 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,6 +56,8 @@ public:
   const char *GetClassName() {return "vtkImageMagnitude";};
 
 protected:
+  vtkImageMagnitude() {};
+  ~vtkImageMagnitude() {};
 
   void ExecuteInformation(vtkImageData *inData, vtkImageData *outData);
   void ThreadedExecute(vtkImageData *inData, vtkImageData *outData,

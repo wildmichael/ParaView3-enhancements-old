@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32ImageWindow.h,v $
   Language:  C++
-  Date:      $Date: 1999-02-24 17:49:45 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-08-29 19:03:26 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -61,15 +61,13 @@ public:
   HWND      WindowId;
   HWND      ParentId;
 
-  // Description:
-  // Swap the front and back buffers. Normally not called by the user.
-  void SwapBuffers();
-
-  vtkWin32ImageWindow();
-  ~vtkWin32ImageWindow();
   static vtkWin32ImageWindow *New() {return new vtkWin32ImageWindow;};
   const char *GetClassName() {return "vtkWin32ImageWindow";};
   void PrintSelf(ostream& os, vtkIndent indent);
+
+  // Description:
+  // Swap the front and back buffers. Normally not called by the user.
+  void SwapBuffers();
 
   // output to the viewer.
   vtkWin32ImageWindow *GetOutput(){return this;};
@@ -130,6 +128,9 @@ public:
   unsigned char *GetMemoryData(){return this->MemoryData;};
 
 protected:
+  vtkWin32ImageWindow();
+  ~vtkWin32ImageWindow();
+
   // the following is used to support rendering into memory
   BITMAPINFO MemoryDataHeader;
   HBITMAP MemoryBuffer;

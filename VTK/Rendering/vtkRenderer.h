@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-19 21:49:53 $
-  Version:   $Revision: 1.75 $
+  Date:      $Date: 1999-08-29 19:02:42 $
+  Version:   $Revision: 1.76 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -74,8 +74,6 @@ class vtkCuller;
 class VTK_EXPORT vtkRenderer : public vtkViewport
 {
 public:
-  vtkRenderer();
-  ~vtkRenderer();
   const char *GetClassName() {return "vtkRenderer";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -283,6 +281,8 @@ public:
   vtkGetMacro( NumberOfPropsRenderedAsGeometry, int );
 
 protected:
+  vtkRenderer();
+  ~vtkRenderer();
   vtkRayCaster *RayCaster;
 
   vtkCamera *ActiveCamera;

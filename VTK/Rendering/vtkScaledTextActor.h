@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScaledTextActor.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-19 15:16:30 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1999-08-29 19:03:25 $
+  Version:   $Revision: 1.2 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -55,8 +55,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkScaledTextActor : public vtkActor2D
 {
 public:
-  vtkScaledTextActor();
-  ~vtkScaledTextActor();
   const char *GetClassName() {return "vtkScaledTextActor";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -94,6 +92,9 @@ public:
   float GetHeight();
   
 protected:
+  vtkScaledTextActor();
+  ~vtkScaledTextActor();
+
   vtkActor2D *TextActor;
   vtkCoordinate *Position2Coordinate;
   vtkTimeStamp  BuildTime;

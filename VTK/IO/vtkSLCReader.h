@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSLCReader.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:08 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1999-08-29 19:02:43 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -54,14 +54,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkSLCReader : public vtkStructuredPointsSource 
 {
 public:
-  vtkSLCReader();
-  ~vtkSLCReader()
-    {
-    if (this->FileName)
-      {
-      delete [] this->FileName;
-      }
-  };
   static vtkSLCReader *New() {return new vtkSLCReader;};
   const char *GetClassName() {return "vtkSLCReader";};
   void PrintSelf(ostream& os, vtkIndent indent);
@@ -72,22 +64,27 @@ public:
   vtkGetStringMacro(FileName);
 
 protected:
-  // Description:
+  vtkSLCReader();
+  ~vtkSLCReader()
+    {
+    if (this->FileName)
+      {
+      delete [] this->FileName;
+      }
+    };
+
   // Stores the FileName of the SLC file to read.
   char *FileName;
 
-  // Description:
   // Reads the file name and builds a vtkStructuredPoints dataset.
   void Execute();
 
-  // Description:
   // Not used now, but will be needed when this is made into an 
   // imaging filter.
   // Sets WholeExtent, Origin, Spacing, ScalarType 
   // and NumberOfComponents of output.
   void ExecuteInformation2();
   
-  // Description:
   // Decodes an array of eight bit run-length encoded data.
   unsigned char *Decode8BitData( unsigned char *in_ptr, int size );
 };

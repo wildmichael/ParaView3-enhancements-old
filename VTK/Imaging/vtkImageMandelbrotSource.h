@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMandelbrotSource.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-23 10:25:40 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-08-29 19:03:15 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,8 +58,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkImageMandelbrotSource : public vtkImageSource
 {
 public:
-  vtkImageMandelbrotSource();
-  ~vtkImageMandelbrotSource();
   static vtkImageMandelbrotSource *New() {return new vtkImageMandelbrotSource;};
   const char *GetClassName() {return "vtkImageMandelbrotSource";};
   void PrintSelf(ostream& os, vtkIndent indent);   
@@ -108,6 +106,9 @@ public:
 
 
 protected:
+  vtkImageMandelbrotSource();
+  ~vtkImageMandelbrotSource();
+
   int ProjectionAxes[3];
 
   // WholeExtent in 3 space (after projection).

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 1999-06-21 14:07:56 $
-  Version:   $Revision: 1.82 $
+  Date:      $Date: 1999-08-29 19:02:41 $
+  Version:   $Revision: 1.83 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -78,8 +78,6 @@ class vtkPolyDataMapperDevice;
 class VTK_EXPORT vtkRenderWindow : public vtkWindow
 {
 public:
-  vtkRenderWindow();
-  ~vtkRenderWindow();
   const char *GetClassName() {return "vtkRenderWindow";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -342,6 +340,8 @@ public:
   virtual void MakeCurrent() {};
 
 protected:
+  vtkRenderWindow();
+  ~vtkRenderWindow();
   virtual void DoStereoRender();
   virtual void DoFDRender();
   virtual void DoAARender();

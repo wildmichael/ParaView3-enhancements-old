@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastMIPFunction.h,v $
   Language:  C++
-  Date:      $Date: 1999-04-22 14:14:37 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-08-29 19:03:00 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -65,8 +65,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkVolumeRayCastMIPFunction : public vtkVolumeRayCastFunction
 {
 public:
-  vtkVolumeRayCastMIPFunction();
-  ~vtkVolumeRayCastMIPFunction();
   static vtkVolumeRayCastMIPFunction *New() {
     return new vtkVolumeRayCastMIPFunction;};
   const char *GetClassName() {return "vtkVolumeRayCastMIPFunction";};
@@ -96,6 +94,8 @@ public:
 
 
 protected:
+  vtkVolumeRayCastMIPFunction();
+  ~vtkVolumeRayCastMIPFunction();
   int MaximizeMethod;
 
 //BTX

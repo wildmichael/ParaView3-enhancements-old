@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRIBExporter.h,v $
   Language:  C++
-  Date:      $Date: 1999-06-21 14:04:49 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-08-29 19:01:57 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -82,8 +82,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkRIBExporter : public vtkExporter
 {
 public:
-  vtkRIBExporter();
-  ~vtkRIBExporter();
   static vtkRIBExporter *New() {return new vtkRIBExporter;};
   const char *GetClassName() {return "vtkRIBExporter";};
   void PrintSelf(ostream& os, vtkIndent indent);
@@ -131,6 +129,9 @@ public:
   vtkBooleanMacro(Background,int);
 
 protected:
+  vtkRIBExporter();
+  ~vtkRIBExporter();
+
   int Background;
   int Size[2];
   int PixelSamples[2];

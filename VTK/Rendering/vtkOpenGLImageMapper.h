@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLImageMapper.h,v $
   Language:  C++
-  Date:      $Date: 1999-04-30 14:59:57 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1999-08-29 19:03:24 $
+  Version:   $Revision: 1.3 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -56,8 +56,6 @@ class vtkImageActor2D;
 class VTK_EXPORT vtkOpenGLImageMapper : public vtkImageMapper
 {
 public:
-  vtkOpenGLImageMapper();
-  ~vtkOpenGLImageMapper();
   static vtkOpenGLImageMapper *New() {return new vtkOpenGLImageMapper;};
   const char *GetClassName() {return "vtkOpenGLImageMapper";};
   
@@ -73,6 +71,8 @@ public:
 		  vtkActor2D* actor);
 
 protected:
+  vtkOpenGLImageMapper();
+  ~vtkOpenGLImageMapper();
 
 };
 

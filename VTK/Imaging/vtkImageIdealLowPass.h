@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageIdealLowPass.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:39 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1999-08-29 19:03:12 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,7 +56,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkImageIdealLowPass : public vtkImageToImageFilter
 {
 public:
-  vtkImageIdealLowPass();
   static vtkImageIdealLowPass *New() 
     {return new vtkImageIdealLowPass;};
   const char *GetClassName() {return "vtkImageIdealLowPass";};
@@ -77,6 +76,9 @@ public:
   float GetZCutOff() {return this->CutOff[2];}
 
 protected:
+  vtkImageIdealLowPass();
+  ~vtkImageIdealLowPass() {};
+
   float CutOff[3];
   
   void ThreadedExecute(vtkImageData *inData, vtkImageData *outData,

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTexture.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:17 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 1999-08-29 19:02:52 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -79,8 +79,6 @@ class vtkWindow;
 class VTK_EXPORT vtkTexture : public vtkObject
 {
 public:
-  vtkTexture();
-  ~vtkTexture();
   static vtkTexture *New();
   const char *GetClassName() {return "vtkTexture";};
   void PrintSelf(ostream& os, vtkIndent indent);
@@ -149,6 +147,8 @@ public:
   unsigned char *MapScalarsToColors (vtkScalars *scalars);
 
 protected:
+  vtkTexture();
+  ~vtkTexture();
   int   Repeat;
   int   Interpolate;
   int   MapColorScalarsThroughLookupTable;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPLOT3DReader.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:00 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 1999-08-29 19:02:32 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -108,8 +108,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkPLOT3DReader : public vtkStructuredGridSource 
 {
 public:
-  vtkPLOT3DReader();
-  ~vtkPLOT3DReader();
   static vtkPLOT3DReader *New() {return new vtkPLOT3DReader;};
   const char *GetClassName() {return "vtkPLOT3DReader";};
   void PrintSelf(ostream& os, vtkIndent indent);
@@ -199,6 +197,9 @@ public:
   vtkGetMacro(Wvinf,float);
 
 protected:
+  vtkPLOT3DReader();
+  ~vtkPLOT3DReader();
+
   void Execute();
   void ExecuteInformation();
   int GetFileType(FILE *fp);

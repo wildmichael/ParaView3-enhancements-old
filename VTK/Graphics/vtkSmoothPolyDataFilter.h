@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSmoothPolyDataFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-24 21:07:34 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-08-29 19:02:46 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -123,7 +123,6 @@ class vtkSmoothPoints;
 class VTK_EXPORT vtkSmoothPolyDataFilter : public vtkPolyDataToPolyDataFilter
 {
 public:
-  vtkSmoothPolyDataFilter();
   const char *GetClassName() {return "vtkSmoothPolyDataFilter";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -198,6 +197,8 @@ public:
   vtkPolyData *GetSource();
   
 protected:
+  vtkSmoothPolyDataFilter();
+  ~vtkSmoothPolyDataFilter() {};
   void Execute();
 
   float Convergence;

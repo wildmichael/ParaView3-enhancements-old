@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLLight.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-08 18:42:05 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1999-08-29 19:02:30 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,6 +59,10 @@ public:
   // Description:
   // Implement base class method.
   void Render(vtkRenderer *ren,int light_index);
+  
+protected:  
+  vtkOpenGLLight() {};
+  ~vtkOpenGLLight() {};
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDecimate.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-23 21:19:51 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 1999-08-29 19:03:29 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -113,6 +113,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 #define VTK_NUMBER_STATISTICS 12
 
+//BTX - begin tcl exclude
 // Special structures for building loops
 typedef struct _vtkLocalVertex 
   {
@@ -133,8 +134,6 @@ typedef struct _vtkLocalTri
 
 //
 // Special classes for manipulating data
-//
-//BTX - begin tcl exclude
 //
 class vtkVertexArray { //;prevent man page generation
 public:
@@ -172,8 +171,6 @@ public:
 class VTK_EXPORT vtkDecimate : public vtkPolyDataToPolyDataFilter
 {
 public:
-  vtkDecimate();
-  ~vtkDecimate();
   static vtkDecimate *New() {return new vtkDecimate;};
   const char *GetClassName() {return "vtkDecimate";};
   void PrintSelf(ostream& os, vtkIndent indent);
@@ -268,6 +265,8 @@ public:
   vtkGetMacro(MaximumNumberOfSquawks,int);
   
 protected:
+  vtkDecimate();
+  ~vtkDecimate();
   void Execute();
 
   float InitialFeatureAngle; // dihedral angle constraint

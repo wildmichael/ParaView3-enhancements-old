@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCorrelation.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-23 18:49:08 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-08-29 19:03:08 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,7 +57,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkImageCorrelation : public vtkImageTwoInputFilter
 {
 public:
-  vtkImageCorrelation();
   static vtkImageCorrelation *New() {return new vtkImageCorrelation;};
   const char *GetClassName() {return "vtkImageCorrelation";};
   void PrintSelf(ostream& os, vtkIndent indent);
@@ -68,6 +67,9 @@ public:
   vtkGetMacro(Dimensionality,int);
   
 protected:
+  vtkImageCorrelation();
+  ~vtkImageCorrelation() {};
+
   int Dimensionality;
   void ExecuteInformation(vtkImageData **inDatas, vtkImageData *outData);
   virtual void ComputeRequiredInputUpdateExtent(int inExt[6], int outExt[6],

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPostScriptWriter.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:14:00 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1999-08-29 19:03:25 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,6 +58,9 @@ public:
   const char *GetClassName() {return "vtkPostScriptWriter";};
 
 protected:
+  vtkPostScriptWriter() {};
+  ~vtkPostScriptWriter() {};
+
   virtual void WriteFile(ofstream *file, vtkImageData *data, int extent[6]);
   virtual void WriteFileHeader(ofstream *, vtkImageData *);
   virtual void WriteFileTrailer(ofstream *, vtkImageData *);

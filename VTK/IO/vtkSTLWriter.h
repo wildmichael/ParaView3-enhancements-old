@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSTLWriter.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-08 18:42:16 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1999-08-29 19:02:44 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,11 +59,12 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkSTLWriter : public vtkPolyDataWriter
 {
 public:
-  vtkSTLWriter();
   static vtkSTLWriter *New() {return new vtkSTLWriter;};
   const char *GetClassName() {return "vtkSTLWriter";};
 
 protected:
+  vtkSTLWriter();
+  ~vtkSTLWriter() {};
   void WriteData();
 
   void WriteBinarySTL(vtkPoints *pts, vtkCellArray *polys);

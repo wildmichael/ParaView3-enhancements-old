@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBYUReader.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-30 11:28:36 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1999-08-29 19:02:03 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -54,9 +54,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkBYUReader : public vtkPolyDataSource 
 {
 public:
-  vtkBYUReader();
-  ~vtkBYUReader();
   static vtkBYUReader *New() {return new vtkBYUReader;};
+
   const char *GetClassName() {return "vtkBYUReader";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -105,6 +104,9 @@ public:
   vtkGetMacro(PartNumber,int);
 
 protected:
+  vtkBYUReader();
+  ~vtkBYUReader();
+
   void Execute();
   // This source does not know how to generate pieces yet.
   int ComputeDivisionExtents(vtkDataObject *output, 

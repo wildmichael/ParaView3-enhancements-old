@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSampleFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-18 13:04:38 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 1999-08-29 19:02:44 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -181,7 +181,7 @@ void vtkSampleFunction::Execute()
   if ( this->ComputeNormals )
     {
     float n[3];
-    newNormals = new vtkNormals(); 
+    newNormals = vtkNormals::New(); 
     newNormals->SetNumberOfNormals(numPts);
     for (ptId=0; ptId < numPts; ptId++ )
       {

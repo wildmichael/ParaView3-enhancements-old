@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUGFacetReader.h,v $
   Language:  C++
-  Date:      $Date: 1999-06-21 14:07:58 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1999-08-29 19:02:56 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -54,8 +54,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkUGFacetReader : public vtkPolyDataSource 
 {
 public:
-  vtkUGFacetReader();
-  ~vtkUGFacetReader();
   const char *GetClassName() {return "vtkUGFacetReader";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -111,6 +109,8 @@ public:
   void SetLocator(vtkPointLocator& locator) {this->SetLocator(&locator);};
 
 protected:
+  vtkUGFacetReader();
+  ~vtkUGFacetReader();
   void Execute();
 
   char *FileName;

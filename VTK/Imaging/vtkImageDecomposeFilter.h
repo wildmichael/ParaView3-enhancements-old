@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDecomposeFilter.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:47:42 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-08-29 19:03:08 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,12 +55,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkImageDecomposeFilter : public vtkImageIterateFilter
 {
 public:
-
   // Description:
   // Construct an instance of vtkImageDecomposeFilter fitler with default
   // dimensionality 3.
-  vtkImageDecomposeFilter();
-
   static vtkImageDecomposeFilter *New() {return new vtkImageDecomposeFilter;};
   const char *GetClassName() {return "vtkImageDecomposeFilter";};
   void PrintSelf(ostream& os, vtkIndent indent);
@@ -84,6 +81,9 @@ public:
 		     int &min2, int &max2);
   
 protected:
+  vtkImageDecomposeFilter();
+  ~vtkImageDecomposeFilter() {};
+
   int Dimensionality;
 
 

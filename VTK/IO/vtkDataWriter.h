@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataWriter.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:12:49 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 1999-08-29 19:02:14 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -68,8 +68,6 @@ class vtkDataArray;
 class VTK_EXPORT vtkDataWriter : public vtkWriter
 {
 public:
-  vtkDataWriter();
-  ~vtkDataWriter();
   const char *GetClassName() {return "vtkDataWriter";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -191,6 +189,9 @@ public:
 
 
 protected:
+  vtkDataWriter();
+  ~vtkDataWriter();
+
   int WriteToOutputString;
   char *OutputString;
   int OutputStringLength;

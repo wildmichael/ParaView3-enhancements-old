@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTensorGlyph.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:17 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1999-08-29 19:02:52 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -77,8 +77,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkTensorGlyph : public vtkDataSetToPolyDataFilter
 {
 public:
-  vtkTensorGlyph();
-  ~vtkTensorGlyph();
   const char *GetClassName() {return "vtkTensorGlyph";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -141,6 +139,8 @@ public:
   vtkGetMacro(MaxScaleFactor,float);
 
 protected:
+  vtkTensorGlyph();
+  ~vtkTensorGlyph();
   void Execute();
 
   int Scaling; // Determine whether scaling of geometry is performed

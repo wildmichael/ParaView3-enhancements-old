@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLImager.h,v $
   Language:  C++
-  Date:      $Date: 1999-03-02 16:48:10 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1999-08-29 19:03:24 $
+  Version:   $Revision: 1.2 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -63,6 +63,8 @@ public:
   int RenderOpaqueGeometry();
 
 protected:
+  vtkOpenGLImager() {};
+  ~vtkOpenGLImager() {};
 };
 
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageIslandRemoval2D.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-23 18:49:13 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1999-08-29 19:03:13 $
+  Version:   $Revision: 1.19 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -52,25 +52,20 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 #include "vtkImageToImageFilter.h"
 
-
-
+//BTX
 typedef struct{
   void *inPtr;
   void *outPtr;
   int idx0;
   int idx1;
   } vtkImage2DIslandPixel;
-
-
+//ETX
 
 class VTK_EXPORT vtkImageIslandRemoval2D : public vtkImageToImageFilter
 {
 public:
-
   // Description:
   // Constructor: Sets default filter to be identity.
-  vtkImageIslandRemoval2D();
-
   static vtkImageIslandRemoval2D *New() {return new vtkImageIslandRemoval2D;};
   const char *GetClassName() {return "vtkImageIslandRemoval2D";};
   void PrintSelf(ostream& os, vtkIndent indent);
@@ -97,6 +92,9 @@ public:
   vtkGetMacro(ReplaceValue, float);
   
 protected:
+  vtkImageIslandRemoval2D();
+  ~vtkImageIslandRemoval2D() {};
+
   int AreaThreshold;
   int SquareNeighborhood;
   float IslandValue;

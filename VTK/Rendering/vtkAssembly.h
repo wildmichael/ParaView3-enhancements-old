@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAssembly.h,v $
   Language:  C++
-  Date:      $Date: 1999-03-01 19:42:24 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1999-08-29 19:02:01 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -86,9 +86,8 @@ class vtkAssemblyPaths;
 class VTK_EXPORT vtkAssembly : public vtkActor
 {
 public:
-  vtkAssembly();
-  ~vtkAssembly();
   static vtkAssembly *New() {return new vtkAssembly;};
+
   const char *GetClassName() {return "vtkAssembly";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -158,6 +157,9 @@ public:
   vtkAssembly &operator=(const vtkAssembly& assembly);
 
 protected:
+  vtkAssembly();
+  ~vtkAssembly();
+
   vtkActorCollection *Parts;
 
   // stuff that follows is used to build the assembly hierarchy

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProMapper.h,v $
   Language:  C++
-  Date:      $Date: 1999-06-16 20:10:50 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1999-08-29 19:01:59 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -111,10 +111,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 class VTK_EXPORT vtkVolumeProMapper : public vtkVolumeMapper
 {
- public:
-
-  vtkVolumeProMapper();
-  ~vtkVolumeProMapper();
+public:
   const char *GetClassName() {return "vtkVolumeProMapper";};
   void PrintSelf( ostream& os, vtkIndent index );
 
@@ -239,7 +236,9 @@ class VTK_EXPORT vtkVolumeProMapper : public vtkVolumeMapper
 				   unsigned int *ySize,
 				   unsigned int *zSize );
  
- protected:
+protected:
+  vtkVolumeProMapper();
+  ~vtkVolumeProMapper();
 
   // Update the camera - set the camera matrix
   void UpdateCamera( vtkRenderer *, vtkVolume * );

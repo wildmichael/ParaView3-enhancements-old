@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTexturedSphereSource.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-08 18:42:26 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1999-08-29 19:02:53 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,7 +56,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkTexturedSphereSource : public vtkPolyDataSource 
 {
 public:
-  vtkTexturedSphereSource(int res=8);
   const char *GetClassName() {return "vtkTexturedSphereSource";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -91,6 +90,8 @@ public:
   vtkGetMacro(Phi,float);
 
 protected:
+  vtkTexturedSphereSource(int res=8);
+  ~vtkTexturedSphereSource() {};
   void Execute();
   float Radius;
   float Theta;

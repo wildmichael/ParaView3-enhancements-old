@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImager.h,v $
   Language:  C++
-  Date:      $Date: 1999-02-25 21:47:16 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-08-29 19:03:23 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -61,7 +61,6 @@ class vtkImageWindow;
 class VTK_EXPORT vtkImager : public vtkViewport
 { 
 public:
-  vtkImager();
   static vtkImager *New();
   const char *GetClassName() {return "vtkImager";};
 
@@ -91,6 +90,9 @@ public:
   void Erase(){vtkErrorMacro(<<"vtkImager::Erase - Not implemented!");};
 
 protected:
+  vtkImager();
+  ~vtkImager() {};
+
 };
 
 

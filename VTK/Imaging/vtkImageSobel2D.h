@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSobel2D.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-23 18:49:22 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-08-29 19:03:20 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -54,12 +54,14 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkImageSobel2D : public vtkImageSpatialFilter
 {
 public:
-  vtkImageSobel2D();
   static vtkImageSobel2D *New() {return new vtkImageSobel2D;};
   const char *GetClassName() {return "vtkImageSobel2D";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
 protected:
+  vtkImageSobel2D();
+  ~vtkImageSobel2D() {};
+
   void ThreadedExecute(vtkImageData *inData, vtkImageData *outData,
 		       int outExt[6], int id);
   void ExecuteInformation(vtkImageData *inData, vtkImageData *outData);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastIsosurfaceFunction.h,v $
   Language:  C++
-  Date:      $Date: 1999-04-22 14:14:36 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-08-29 19:02:59 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -61,8 +61,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkVolumeRayCastIsosurfaceFunction : public vtkVolumeRayCastFunction
 {
 public:
-  vtkVolumeRayCastIsosurfaceFunction();
-  ~vtkVolumeRayCastIsosurfaceFunction();
   const char *GetClassName() {return "vtkVolumeRayCastIsosurfaceFunction";};
   void PrintSelf( ostream& os, vtkIndent index );
 
@@ -95,6 +93,8 @@ public:
 //ETX
 
 protected:
+  vtkVolumeRayCastIsosurfaceFunction();
+  ~vtkVolumeRayCastIsosurfaceFunction();
 
 //BTX
   void SpecificFunctionInitialize( vtkRenderer *ren,

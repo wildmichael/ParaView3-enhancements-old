@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSTLReader.h,v $
   Language:  C++
-  Date:      $Date: 1999-06-21 14:07:57 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 1999-08-29 19:02:44 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -66,8 +66,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkSTLReader : public vtkPolyDataSource 
 {
 public:
-  vtkSTLReader();
-  ~vtkSTLReader();
   const char *GetClassName() {return "vtkSTLReader";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -106,6 +104,9 @@ public:
   void SetLocator(vtkPointLocator& locator) {this->SetLocator(&locator);};
 
 protected:
+  vtkSTLReader();
+  ~vtkSTLReader();
+
   char *FileName;
   int Merging;
   vtkPointLocator *Locator;

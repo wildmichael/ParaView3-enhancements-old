@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageImport.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-26 21:16:29 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1999-08-29 19:03:12 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,8 +56,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkImageImport : public vtkImageSource
 {
 public:
-  vtkImageImport();
-  ~vtkImageImport();
   static vtkImageImport *New() {return new vtkImageImport;};
   const char *GetClassName() {return "vtkImageImport";};
   void PrintSelf(ostream& os, vtkIndent indent);   
@@ -122,7 +120,9 @@ public:
   void ExecuteInformation();
   
 protected:
-  // Description:
+  vtkImageImport();
+  ~vtkImageImport();
+
   // Generate more than requested.  Called by the superclass before
   // an execute, and before output memory is allocated.
   void ModifyOutputUpdateExtent();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataMapper2D.h,v $
   Language:  C++
-  Date:      $Date: 1999-06-24 00:59:13 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1999-08-29 19:03:25 $
+  Version:   $Revision: 1.12 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -67,8 +67,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkPolyDataMapper2D : public vtkMapper2D
 {
 public:
-  vtkPolyDataMapper2D();
-  ~vtkPolyDataMapper2D();
   const char *GetClassName() {return "vtkPolyDataMapper2D";};
   static vtkPolyDataMapper2D *New();
   void PrintSelf(ostream& os, vtkIndent indent);
@@ -139,6 +137,9 @@ public:
   vtkGetObjectMacro(TransformCoordinate, vtkCoordinate);
 
 protected:
+  vtkPolyDataMapper2D();
+  ~vtkPolyDataMapper2D();
+
   vtkPolyData* Input;
   vtkScalars *Colors;
   vtkScalarsToColors *LookupTable;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLImageWindow.h,v $
   Language:  C++
-  Date:      $Date: 1999-03-09 21:13:40 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-08-29 19:03:26 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -54,8 +54,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkWin32OpenGLImageWindow : public vtkImageWindow
 {
 public:
-  vtkWin32OpenGLImageWindow();
-  ~vtkWin32OpenGLImageWindow();
   static vtkWin32OpenGLImageWindow *New() {
     return new vtkWin32OpenGLImageWindow;};
   const char *GetClassName() {return "vtkWin32OpenGLImageWindow";};
@@ -171,7 +169,10 @@ public:
   // Clean up device contexts, rendering contexts, etc.
   void Clean();
 
- protected:
+protected:
+  vtkWin32OpenGLImageWindow();
+  ~vtkWin32OpenGLImageWindow();
+
   HINSTANCE ApplicationInstance;
   HPALETTE  Palette;
   HPALETTE  OldPalette;

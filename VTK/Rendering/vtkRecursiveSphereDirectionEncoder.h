@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRecursiveSphereDirectionEncoder.h,v $
   Language:  C++
-  Date:      $Date: 1999-02-09 04:29:34 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-08-29 19:02:41 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,9 +57,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkRecursiveSphereDirectionEncoder : public vtkDirectionEncoder
 {
 public:
-
-  vtkRecursiveSphereDirectionEncoder();
-  ~vtkRecursiveSphereDirectionEncoder();
   const char *GetClassName() {return "vtkRecursiveSphereDirectionEncoder";};
   void PrintSelf( ostream& os, vtkIndent index );
 
@@ -107,6 +104,9 @@ public:
   vtkGetMacro( RecursionDepth, int );					     
 
 protected:
+  vtkRecursiveSphereDirectionEncoder();
+  ~vtkRecursiveSphereDirectionEncoder();
+
   // How far to recursively divide the sphere
   int                     RecursionDepth;
   

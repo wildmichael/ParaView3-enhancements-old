@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAccumulate.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-23 18:49:06 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-08-29 19:03:05 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to C. Charles Law who developed this class
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,7 +55,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkImageAccumulate : public vtkImageToImageFilter
 {
 public:
-  vtkImageAccumulate();
   static vtkImageAccumulate *New() {return new vtkImageAccumulate;};
   const char *GetClassName() {return "vtkImageAccumulate";};
   void PrintSelf(ostream& os, vtkIndent indent);
@@ -79,6 +78,9 @@ public:
   int *GetComponentExtent() {return this->ComponentExtent;}
   
 protected:
+  vtkImageAccumulate();
+  ~vtkImageAccumulate() {};
+
   float ComponentSpacing[3];
   float ComponentOrigin[3];
   int ComponentExtent[6];

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkShepardMethod.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-08 18:42:17 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1999-08-29 19:02:45 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -65,7 +65,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkShepardMethod : public vtkDataSetToStructuredPointsFilter 
 {
 public:
-  vtkShepardMethod();
   const char *GetClassName() {return "vtkShepardMethod";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -112,6 +111,8 @@ public:
   vtkGetMacro(NullValue,float);
 
 protected:
+  vtkShepardMethod();
+  ~vtkShepardMethod() {};
   void Execute();
 
   int SampleDimensions[3];

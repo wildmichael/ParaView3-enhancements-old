@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageVariance3D.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-23 18:49:25 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-08-29 19:03:22 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,8 +59,6 @@ class vtkImageEllipsoidSource;
 class VTK_EXPORT vtkImageVariance3D : public vtkImageSpatialFilter
 {
 public:
-  vtkImageVariance3D();
-  ~vtkImageVariance3D();
   static vtkImageVariance3D *New() 
     {return new vtkImageVariance3D;};
   const char *GetClassName() {return "vtkImageVariance3D";};
@@ -72,6 +70,9 @@ public:
   void SetKernelSize(int size0, int size1, int size2);
   
 protected:
+  vtkImageVariance3D();
+  ~vtkImageVariance3D();
+
   vtkImageEllipsoidSource *Ellipse;
     
   void ExecuteInformation(vtkImageData *inData, vtkImageData *outData);

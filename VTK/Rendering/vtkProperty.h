@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProperty.h,v $
   Language:  C++
-  Date:      $Date: 1999-06-05 23:47:19 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 1999-08-29 19:02:38 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,7 +64,6 @@ class vtkActor;
 class VTK_EXPORT vtkProperty : public vtkObject
 {
 public:
-  vtkProperty();
   const char *GetClassName() {return "vtkProperty";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -208,6 +207,9 @@ public:
   vtkBooleanMacro(FrontfaceCulling,int);
 
 protected:
+  vtkProperty();
+  ~vtkProperty() {};
+
   float Color[3];
   float AmbientColor[3];
   float DiffuseColor[3];

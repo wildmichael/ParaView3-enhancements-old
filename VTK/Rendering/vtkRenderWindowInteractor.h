@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-27 13:25:03 $
-  Version:   $Revision: 1.59 $
+  Date:      $Date: 1999-08-29 19:02:42 $
+  Version:   $Revision: 1.60 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -67,8 +67,6 @@ class vtkCellPicker;
 class VTK_EXPORT vtkRenderWindowInteractor : public vtkObject
 {
 public:
-  vtkRenderWindowInteractor();
-  ~vtkRenderWindowInteractor();
   static vtkRenderWindowInteractor *New();
   const char *GetClassName() {return "vtkRenderWindowInteractor";};
   void PrintSelf(ostream& os, vtkIndent indent);
@@ -229,6 +227,9 @@ public:
   void Render();
   
 protected:
+  vtkRenderWindowInteractor();
+  ~vtkRenderWindowInteractor();
+
   vtkRenderWindow    *RenderWindow;
   vtkInteractorStyle *InteractorStyle;
   // used to track picked objects in actor mode

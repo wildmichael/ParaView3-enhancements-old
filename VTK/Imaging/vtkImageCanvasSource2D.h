@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCanvasSource2D.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:28 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1999-08-29 19:03:06 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -73,19 +73,10 @@ public:
 class VTK_EXPORT vtkImageCanvasSource2D : public vtkStructuredPoints
 {
 public:
-
   // Description:
   // Construct an instance of vtkImageCanvasSource2D with no data.
-  vtkImageCanvasSource2D();
-
-
-  // Description:
-  // Destructor: Deleting a vtkImageCanvasSource2D automatically deletes the
-  // associated vtkImageData.  However, since the data is reference counted,
-  // it may not actually be deleted.
-  ~vtkImageCanvasSource2D();
-
   static vtkImageCanvasSource2D *New() {return new vtkImageCanvasSource2D;};
+
   const char *GetClassName() {return "vtkImageCanvasSource2D";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -128,6 +119,12 @@ public:
   vtkImageData *GetOutput() {return this;}
   
 protected:
+  vtkImageCanvasSource2D();
+  // Destructor: Deleting a vtkImageCanvasSource2D automatically deletes the
+  // associated vtkImageData.  However, since the data is reference counted,
+  // it may not actually be deleted.
+  ~vtkImageCanvasSource2D();
+
   vtkImageData *ImageData;
   float DrawColor[4];
   

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageContinuousErode3D.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-16 21:09:07 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-08-29 19:03:07 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,13 +56,9 @@ class vtkImageEllipsoidSource;
 class VTK_EXPORT vtkImageContinuousErode3D : public vtkImageSpatialFilter
 {
 public:
-
   // Description:
   // Construct an instance of vtkImageContinuousErode3D fitler.
   // By default zero values are eroded.
-  vtkImageContinuousErode3D();
-
-  ~vtkImageContinuousErode3D();
   static vtkImageContinuousErode3D *New() 
     {return new vtkImageContinuousErode3D;};
   const char *GetClassName() {return "vtkImageContinuousErode3D";};
@@ -75,6 +71,9 @@ public:
 
   
 protected:
+  vtkImageContinuousErode3D();
+  ~vtkImageContinuousErode3D();
+
   vtkImageEllipsoidSource *Ellipse;
     
   void ThreadedExecute(vtkImageData *inData, vtkImageData *outData, 

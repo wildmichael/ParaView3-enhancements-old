@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransformTextureCoords.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-08 18:42:27 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1999-08-29 19:02:55 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -63,7 +63,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkTransformTextureCoords : public vtkDataSetToDataSetFilter 
 {
 public:
-  vtkTransformTextureCoords();
   const char *GetClassName() {return "vtkTransformTextureCoords";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -121,6 +120,8 @@ public:
   vtkBooleanMacro(FlipT,int);
 
 protected:
+  vtkTransformTextureCoords();
+  ~vtkTransformTextureCoords() {};
   void Execute();
 
   float Origin[3]; //point around which map rotates

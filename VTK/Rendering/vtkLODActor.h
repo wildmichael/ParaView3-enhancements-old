@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLODActor.h,v $
   Language:  C++
-  Date:      $Date: 1999-03-01 19:42:25 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1999-08-29 19:02:26 $
+  Version:   $Revision: 1.27 $
   
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -70,9 +70,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 class VTK_EXPORT vtkLODActor : public vtkActor
 {
- public:
-  vtkLODActor();
-  ~vtkLODActor();
+public:
   const char *GetClassName() {return "vtkLODActor";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -117,6 +115,9 @@ class VTK_EXPORT vtkLODActor : public vtkActor
   void BuildPaths(vtkAssemblyPaths *paths, vtkActorCollection *path);
   
 protected:
+  vtkLODActor();
+  ~vtkLODActor();
+
   vtkActor            *Device;
   vtkMapperCollection *LODMappers;
 

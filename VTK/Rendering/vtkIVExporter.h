@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIVExporter.h,v $
   Language:  C++
-  Date:      $Date: 1999-06-21 14:08:53 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-08-29 19:02:22 $
+  Version:   $Revision: 1.7 $
   Thanks:    to Jon A. Webb of Visual Interface Inc.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,8 +56,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkIVExporter : public vtkExporter
 {
 public:
-  vtkIVExporter();
-  ~vtkIVExporter();
   static vtkIVExporter *New() {return new vtkIVExporter;};
   const char *GetClassName() {return "vtkIVExporter";};
   void PrintSelf(ostream& os, vtkIndent indent);
@@ -68,6 +66,9 @@ public:
   vtkGetStringMacro(FileName);
 
 protected:
+  vtkIVExporter();
+  ~vtkIVExporter();
+
   void WriteData();
   void WriteALight(vtkLight *aLight, FILE *fp);
   void WriteAnActor(vtkActor *anActor, FILE *fp);

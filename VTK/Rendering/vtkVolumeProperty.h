@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProperty.h,v $
   Language:  C++
-  Date:      $Date: 1999-03-12 22:12:18 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1999-08-29 19:02:59 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -80,8 +80,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkVolumeProperty : public vtkObject
 {
 public:
-  vtkVolumeProperty();
-  ~vtkVolumeProperty();
   static vtkVolumeProperty *New() {return new vtkVolumeProperty;};
   const char *GetClassName() {return "vtkVolumeProperty";};
   void PrintSelf(ostream& os, vtkIndent indent);
@@ -209,6 +207,8 @@ public:
   void UpdateMTimes(); 
 
 protected:
+  vtkVolumeProperty();
+  ~vtkVolumeProperty();
 
   int				InterpolationType;
 

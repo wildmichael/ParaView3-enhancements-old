@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAppend.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-23 18:49:06 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-08-29 19:03:05 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -61,8 +61,6 @@ class VTK_EXPORT vtkImageAppend : public vtkImageMultipleInputFilter
 public:
   static vtkImageAppend *New(){return new vtkImageAppend;};
   const char *GetClassName() {return "vtkImageAppend";};
-  vtkImageAppend();
-  ~vtkImageAppend();
   void PrintSelf(ostream& os, vtkIndent indent);
   
   // Description:
@@ -71,6 +69,9 @@ public:
   vtkGetMacro(AppendAxis, int);
   
 protected:
+  vtkImageAppend();
+  ~vtkImageAppend();
+
   int AppendAxis;
   // Array holds the AppendAxisExtent shift for each input.
   int *Shifts;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpLens.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-19 11:51:55 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-08-29 19:03:01 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -73,7 +73,7 @@ void vtkWarpLens::Execute()
     return;
     }
 
-  newPts = new vtkPoints; 
+  newPts = vtkPoints::New(); 
   newPts->SetNumberOfPoints(numPts);
 
   //

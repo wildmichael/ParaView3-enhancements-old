@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageGaussianSource.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:37 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-08-29 19:03:11 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -52,7 +52,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkImageGaussianSource : public vtkImageSource
 {
 public:
-  vtkImageGaussianSource();
   static vtkImageGaussianSource *New() {return new vtkImageGaussianSource;};
   const char *GetClassName() {return "vtkImageGaussianSource";};
   void PrintSelf(ostream& os, vtkIndent indent);
@@ -79,7 +78,10 @@ public:
 
   void UpdateInformation();
 
-private:
+protected:
+  vtkImageGaussianSource();
+  ~vtkImageGaussianSource() {};
+
   float StandardDeviation;
   int WholeExtent[6];
   float Center[3];

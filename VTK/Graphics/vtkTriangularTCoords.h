@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangularTCoords.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:48:51 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-08-29 19:02:55 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -65,6 +65,8 @@ public:
   void PrintSelf(ostream& os, vtkIndent indent);
 
 protected:
+  vtkTriangularTCoords() {};
+  ~vtkTriangularTCoords() {};
   // Usual data generation method
   void Execute();
 };

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBMPReader.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:25 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-08-29 19:03:04 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -68,8 +68,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkBMPReader : public vtkImageReader
 {
 public:
-  vtkBMPReader();
-  ~vtkBMPReader();
   static vtkBMPReader *New() {return new vtkBMPReader;};
   const char *GetClassName() {return "vtkBMPReader";};
 
@@ -86,6 +84,9 @@ public:
 //ETX
 
 protected:
+  vtkBMPReader();
+  ~vtkBMPReader();
+
   unsigned char *Colors;
   short Depth;
   

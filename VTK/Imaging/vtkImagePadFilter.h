@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagePadFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-23 18:49:18 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1999-08-29 19:03:18 $
+  Version:   $Revision: 1.16 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -54,7 +54,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkImagePadFilter : public vtkImageToImageFilter
 {
 public:
-  vtkImagePadFilter();
   static vtkImagePadFilter *New() {return new vtkImagePadFilter;};
   const char *GetClassName() {return "vtkImagePadFilter";};
   void PrintSelf(ostream& os, vtkIndent indent);
@@ -73,6 +72,9 @@ public:
   vtkGetMacro(OutputNumberOfScalarComponents, int);
   
 protected:
+  vtkImagePadFilter();
+  ~vtkImagePadFilter() {};
+
   int OutputWholeExtent[6];
   int OutputNumberOfScalarComponents;
 

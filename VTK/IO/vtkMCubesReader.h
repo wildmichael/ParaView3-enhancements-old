@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMCubesReader.h,v $
   Language:  C++
-  Date:      $Date: 1999-06-21 14:07:54 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 1999-08-29 19:02:27 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -81,8 +81,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkMCubesReader : public vtkPolyDataSource 
 {
 public:
-  vtkMCubesReader();
-  ~vtkMCubesReader();
   const char *GetClassName() {return "vtkMCubesReader";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -134,6 +132,9 @@ public:
   void SetLocator(vtkPointLocator& locator) {this->SetLocator(&locator);};
 
 protected:
+  vtkMCubesReader();
+  ~vtkMCubesReader();
+
   void Execute();
 
   char *FileName;

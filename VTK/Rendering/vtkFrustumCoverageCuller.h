@@ -4,8 +4,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFrustumCoverageCuller.h,v $
   Language:  C++
-  Date:      $Date: 1999-04-23 20:53:03 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-08-29 19:02:20 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -72,7 +72,6 @@ class vtkRenderer;
 class VTK_EXPORT vtkFrustumCoverageCuller : public vtkCuller
 {
 public:
-  vtkFrustumCoverageCuller();
   static vtkFrustumCoverageCuller *New() {
     return new vtkFrustumCoverageCuller;};
   const char *GetClassName() {return "vtkFrustumCoverageCuller";};
@@ -116,6 +115,8 @@ public:
 //ETX
 
 protected:
+  vtkFrustumCoverageCuller();
+  ~vtkFrustumCoverageCuller() {};
 
   float        MinimumCoverage;
   float        MaximumCoverage;

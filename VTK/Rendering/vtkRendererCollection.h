@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRendererCollection.h,v $
   Language:  C++
-  Date:      $Date: 1999-02-24 17:36:17 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1999-08-29 19:02:42 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -85,6 +85,10 @@ class VTK_EXPORT vtkRendererCollection : public vtkCollection
   // Forward the Render() method to each renderer in the list.
   void Render();
   void RenderOverlay();
+
+protected:  
+  vtkRendererCollection() {};
+  ~vtkRendererCollection() {};
 };
 
 

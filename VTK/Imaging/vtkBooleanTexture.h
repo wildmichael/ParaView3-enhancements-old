@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBooleanTexture.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-07 13:11:00 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1999-08-29 19:02:03 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -72,8 +72,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkBooleanTexture : public vtkStructuredPointsSource
 {
 public:
-  vtkBooleanTexture();
   static vtkBooleanTexture *New() {return new vtkBooleanTexture;};
+
   const char *GetClassName() {return "vtkBooleanTexture";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -138,6 +138,9 @@ public:
   vtkGetVectorMacro(OutOn,unsigned char,2);
 
 protected:
+  vtkBooleanTexture();
+  ~vtkBooleanTexture() {};
+
   void Execute();
 
   int XSize;

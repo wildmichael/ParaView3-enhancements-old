@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProp3D.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-27 21:11:45 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1999-08-29 19:02:38 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -63,9 +63,7 @@ class vtkAbstractMapper;
 
 class VTK_EXPORT vtkProp3D : public vtkProp
 {
- public:
-  vtkProp3D();
-  ~vtkProp3D();
+public:
   const char *GetClassName() {return "vtkProp3D";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -249,6 +247,9 @@ class VTK_EXPORT vtkProp3D : public vtkProp
 
 
 protected:
+  vtkProp3D();
+  ~vtkProp3D();
+
   vtkMatrix4x4  *UserMatrix;
   vtkMatrix4x4  *Matrix;
   vtkTimeStamp  MatrixMTime;

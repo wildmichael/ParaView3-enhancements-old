@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEncodedGradientShader.h,v $
   Language:  C++
-  Date:      $Date: 1999-04-07 20:33:36 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-08-29 19:02:17 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -67,8 +67,6 @@ class vtkEncodedGradientEstimator;
 class VTK_EXPORT vtkEncodedGradientShader : public vtkObject
 {
 public:
-  vtkEncodedGradientShader();
-  ~vtkEncodedGradientShader();
   static vtkEncodedGradientShader *New() {
     return new vtkEncodedGradientShader;};
   const char *GetClassName() {return "vtkEncodedGradientShader";};
@@ -100,6 +98,9 @@ public:
   float *GetBlueSpecularShadingTable(  vtkVolume *vol );
 
 protected:
+  vtkEncodedGradientShader();
+  ~vtkEncodedGradientShader();
+
 
   // Description:
   // Build a shading table for a light with the specified direction,

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageWriter.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:59 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1999-08-29 19:03:23 $
+  Version:   $Revision: 1.13 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -58,8 +58,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkImageWriter : public vtkProcessObject
 {
 public:
-  vtkImageWriter();
-  ~vtkImageWriter();
   static vtkImageWriter *New() {return new vtkImageWriter;};
   const char *GetClassName() {return "vtkImageWriter";};
   void PrintSelf(ostream& os, vtkIndent indent);
@@ -100,6 +98,9 @@ public:
   virtual void Write();
 
 protected:
+  vtkImageWriter();
+  ~vtkImageWriter();
+
   int FileDimensionality;
   char *FilePrefix;
   char *FilePattern;

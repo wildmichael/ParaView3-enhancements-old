@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpVector.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:22 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1999-08-29 19:03:02 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,8 +55,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkWarpVector : public vtkPointSetToPointSetFilter
 {
 public:
-  vtkWarpVector();
-  ~vtkWarpVector();
   static vtkWarpVector *New() {return new vtkWarpVector;};
   const char *GetClassName() {return "vtkWarpVector";};
   void PrintSelf(ostream& os, vtkIndent indent);
@@ -76,6 +74,8 @@ public:
   void ThreadedExecute(int threadId, int numThreads);
 
 protected:
+  vtkWarpVector();
+  ~vtkWarpVector();
   void Execute();
   int SplitPointRange(int threadId, int threadCount, int &min, int &max);
   float ScaleFactor;

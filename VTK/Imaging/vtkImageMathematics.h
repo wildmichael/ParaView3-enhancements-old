@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMathematics.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-23 18:49:16 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-08-29 19:03:16 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -74,7 +74,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkImageMathematics : public vtkImageTwoInputFilter
 {
 public:
-  vtkImageMathematics();
   static vtkImageMathematics *New() {return new vtkImageMathematics;};
   const char *GetClassName() {return "vtkImageMathematics";};
   void PrintSelf(ostream& os, vtkIndent indent);
@@ -108,6 +107,9 @@ public:
   vtkGetMacro(ConstantC,double);
 
 protected:
+  vtkImageMathematics();
+  ~vtkImageMathematics() {};
+
   int Operation;
   double ConstantK;
   double ConstantC;

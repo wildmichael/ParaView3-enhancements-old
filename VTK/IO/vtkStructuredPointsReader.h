@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsReader.h,v $
   Language:  C++
-  Date:      $Date: 1998-11-03 20:22:39 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1999-08-29 19:02:50 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -54,8 +54,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkStructuredPointsReader : public vtkStructuredPointsSource
 {
 public:
-  vtkStructuredPointsReader();
-  ~vtkStructuredPointsReader();
   static vtkStructuredPointsReader *New() 
     {return new vtkStructuredPointsReader;}
   const char *GetClassName() {return "vtkStructuredPointsReader";};
@@ -134,6 +132,8 @@ public:
   char *GetFieldDataName();
 
 protected:
+  vtkStructuredPointsReader();
+  ~vtkStructuredPointsReader();
   void Execute();
   vtkDataReader *Reader;
 };

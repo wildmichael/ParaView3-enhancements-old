@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapperCollection.h,v $
   Language:  C++
-  Date:      $Date: 1999-01-05 13:12:50 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-08-29 19:02:28 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -83,6 +83,10 @@ class VTK_EXPORT vtkMapperCollection : public vtkCollection
   // Description:
   // Get the last mapper in the list.
   vtkMapper *GetLastItem();
+  
+protected:  
+  vtkMapperCollection() {};
+  ~vtkMapperCollection() {};
 };
 
 

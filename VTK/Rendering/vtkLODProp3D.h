@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLODProp3D.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-25 19:14:29 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1999-08-29 19:02:26 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -48,7 +48,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // scenes. 
 
 // .SECTION See Also
-// vtkProp3D vtkActor vtkVolume
+// vtkProp3D vtkActor vtkVolume vtkLODActor
 
 #ifndef __vtkLODProp3D_h
 #define __vtkLODProp3D_h
@@ -73,12 +73,11 @@ typedef struct
 
 class VTK_EXPORT vtkLODProp3D : public vtkProp3D
 {
- public:
-  vtkLODProp3D();
-  ~vtkLODProp3D();
+public:
+  static vtkLODProp3D *New() {return new vtkLODProp3D;};
+
   const char *GetClassName() {return "vtkLODProp3D";};
   void PrintSelf(ostream& os, vtkIndent indent);
-  static vtkLODProp3D *New() {return new vtkLODProp3D;};
 
   // Description:
   // Standard vtkProp method to get 3D bounds of a 3D prop
@@ -193,6 +192,8 @@ class VTK_EXPORT vtkLODProp3D : public vtkProp3D
 //ETX
 
 protected:
+  vtkLODProp3D();
+  ~vtkLODProp3D();
 
   vtkLODProp3DEntry *LODs;
   int               NumberOfEntries;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeReader.h,v $
   Language:  C++
-  Date:      $Date: 1999-06-21 14:08:01 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1999-08-29 19:03:00 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -74,8 +74,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkVolumeReader : public vtkStructuredPointsSource
 {
 public:
-  vtkVolumeReader();
-  ~vtkVolumeReader();
   const char *GetClassName() {return "vtkVolumeReader";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -109,6 +107,9 @@ public:
   virtual vtkStructuredPoints *GetImage(int ImageNumber) = 0;
 
 protected:
+  vtkVolumeReader();
+  ~vtkVolumeReader();
+
   char *FilePrefix;
   char *FilePattern;
   int ImageRange[2];

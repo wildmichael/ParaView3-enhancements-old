@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagePermute.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-23 18:49:18 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1999-08-29 19:03:18 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -54,7 +54,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkImagePermute : public vtkImageToImageFilter
 {
 public:
-  vtkImagePermute();
   static vtkImagePermute *New() {return new vtkImagePermute;};
   const char *GetClassName() {return "vtkImagePermute";};
   void PrintSelf(ostream& os, vtkIndent indent);
@@ -65,6 +64,9 @@ public:
   vtkGetVector3Macro(FilteredAxes, int);
   
 protected:
+  vtkImagePermute();
+  ~vtkImagePermute() {};
+
   int  FilteredAxes[3];
   void ExecuteInformation(vtkImageData *inData, vtkImageData *outData);
   void ComputeRequiredInputUpdateExtent(int inExt[6], int outExt[6]);

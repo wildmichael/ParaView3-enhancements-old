@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageGradientMagnitude.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-23 18:49:12 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1999-08-29 19:03:12 $
+  Version:   $Revision: 1.16 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,7 +58,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkImageGradientMagnitude : public vtkImageToImageFilter
 {
 public:
-  vtkImageGradientMagnitude();
   static vtkImageGradientMagnitude *New() 
     {return new vtkImageGradientMagnitude;};
   const char *GetClassName() {return "vtkImageGradientMagnitude";};
@@ -77,6 +76,9 @@ public:
   vtkGetMacro(Dimensionality,int);
   
 protected:
+  vtkImageGradientMagnitude();
+  ~vtkImageGradientMagnitude() {};
+
   int HandleBoundaries;
   int Dimensionality;
   

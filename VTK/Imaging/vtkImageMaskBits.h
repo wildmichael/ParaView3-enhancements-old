@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMaskBits.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:45 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1999-08-29 19:03:16 $
+  Version:   $Revision: 1.3 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -53,8 +53,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 class VTK_EXPORT vtkImageMaskBits : public vtkImageToImageFilter
 {
- public:
-  vtkImageMaskBits();
+public:
   static vtkImageMaskBits *New()
     {return new vtkImageMaskBits;};
   const char *GetClassName() {return "vtkImageMaskBits";};
@@ -83,6 +82,9 @@ class VTK_EXPORT vtkImageMaskBits : public vtkImageToImageFilter
    
   
 protected:
+  vtkImageMaskBits();
+  ~vtkImageMaskBits() {};
+
   void ThreadedExecute(vtkImageData *inData, vtkImageData *outData, 
 		       int ext[6], int id);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 1999-04-23 13:01:55 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 1999-08-29 19:03:03 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -61,8 +61,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkXRenderWindow : public vtkRenderWindow
 {
 public:
-  vtkXRenderWindow();
-  ~vtkXRenderWindow();
   static vtkXRenderWindow *New() 
   {return (vtkXRenderWindow *)(vtkRenderWindow::New());};
   const char *GetClassName() {return "vtkXRenderWindow";};
@@ -139,6 +137,9 @@ public:
   void     SetWindowInfo(char *info);
 
 protected:
+  vtkXRenderWindow();
+  ~vtkXRenderWindow();
+
   Window   ParentId;
   Window   WindowId;
   Window   NextWindowId;

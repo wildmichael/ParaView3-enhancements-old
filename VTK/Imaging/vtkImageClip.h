@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageClip.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-23 18:49:08 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1999-08-29 19:03:07 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,7 +58,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkImageClip : public vtkImageToImageFilter
 {
 public:
-  vtkImageClip();
   static vtkImageClip *New() {return new vtkImageClip;};
   const char *GetClassName() {return "vtkImageClip";};
   void PrintSelf(ostream& os, vtkIndent indent);
@@ -83,6 +82,9 @@ public:
   vtkBooleanMacro(ClipData, int);
 
 protected:
+  vtkImageClip();
+  ~vtkImageClip() {};
+
   // Time when OutputImageExtent was computed.
   vtkTimeStamp CTime;
   int Initialized; // Set the OutputImageExtent for the first time.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageIterateFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-23 18:49:13 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1999-08-29 19:03:13 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,8 +57,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkImageIterateFilter : public vtkImageToImageFilter
 {
 public:
-  vtkImageIterateFilter();
-  ~vtkImageIterateFilter();
   static vtkImageIterateFilter *New() {return new vtkImageIterateFilter;};
   const char *GetClassName() {return "vtkImageIterateFilter";};
   void PrintSelf(ostream& os, vtkIndent indent);
@@ -70,6 +68,8 @@ public:
   vtkGetMacro(NumberOfIterations,int);  
   
 protected:
+  vtkImageIterateFilter();
+  ~vtkImageIterateFilter();
 
   // Superclass API. Sets defaults, then calls 
   // ExecuteInformation(vtkImageData *inData, vtkImageData *outData)

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeMapper.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:21 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1999-08-29 19:02:59 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -74,8 +74,6 @@ class vtkWindow;
 class VTK_EXPORT vtkVolumeMapper : public vtkAbstractMapper
 {
 public:
-  vtkVolumeMapper();
-  ~vtkVolumeMapper();
   const char *GetClassName() {return "vtkVolumeMapper";};
   void PrintSelf( ostream& os, vtkIndent index );
 
@@ -164,6 +162,8 @@ public:
 
 
 protected:
+  vtkVolumeMapper();
+  ~vtkVolumeMapper();
   int                  Clipping;
   float                ClippingPlanes[6];
   int                  ClippingRegionFlags;

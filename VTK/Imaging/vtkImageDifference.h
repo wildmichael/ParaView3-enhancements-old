@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDifference.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-23 18:49:09 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1999-08-29 19:03:08 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -53,8 +53,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkImageDifference : public vtkImageTwoInputFilter
 {
 public:
-
-  vtkImageDifference();
   static vtkImageDifference *New() {return new vtkImageDifference;};
   const char *GetClassName() {return "vtkImageDifference";};
   void PrintSelf(ostream& os, vtkIndent indent);
@@ -106,6 +104,9 @@ public:
   vtkBooleanMacro(Averaging,int);
 
 protected:
+  vtkImageDifference();
+  ~vtkImageDifference() {};
+
   float ErrorPerThread[VTK_MAX_THREADS];
   float ThresholdedErrorPerThread[VTK_MAX_THREADS];
   int AllowShift;

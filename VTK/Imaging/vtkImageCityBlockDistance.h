@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCityBlockDistance.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-23 18:49:07 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1999-08-29 19:03:06 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -62,12 +62,13 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkImageCityBlockDistance : public vtkImageDecomposeFilter
 {
 public:
-  vtkImageCityBlockDistance();
   static vtkImageCityBlockDistance *New() 
     {return new vtkImageCityBlockDistance;};
   const char *GetClassName() {return "vtkImageCityBlockDistance";};
   
 protected:
+  vtkImageCityBlockDistance();
+  ~vtkImageCityBlockDistance() {};
 
   void ComputeRequiredInputUpdateExtent(int inExt[6], int outExt[6]);
   void Execute(vtkImageData *inData, vtkImageData *outData);

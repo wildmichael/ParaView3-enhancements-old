@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamPoints.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-08 18:42:20 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1999-08-29 19:02:48 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,7 +56,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkStreamPoints : public vtkStreamer
 {
 public:
-  vtkStreamPoints();
   const char *GetClassName() {return "vtkStreamPoints";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -70,6 +69,9 @@ public:
   vtkGetMacro(TimeIncrement,float);
 
 protected:
+  vtkStreamPoints();
+  ~vtkStreamPoints() {};
+
   // Convert streamer array into vtkPolyData
   void Execute();
 

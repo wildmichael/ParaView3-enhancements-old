@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTIFFWriter.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:14:01 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-08-29 19:03:26 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,6 +55,9 @@ public:
   const char *GetClassName() {return "vtkTIFFWriter";};
 
 protected:
+  vtkTIFFWriter() {};
+  ~vtkTIFFWriter() {};
+
   virtual void WriteFile(ofstream *file, vtkImageData *data, 
 			 int ext[6]);
   virtual void WriteFileHeader(ofstream *, vtkImageData *);

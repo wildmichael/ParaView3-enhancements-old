@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageResample.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-23 18:49:20 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1999-08-29 19:03:19 $
+  Version:   $Revision: 1.15 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,7 +55,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkImageResample : public vtkImageToImageFilter
 {
 public:
-  vtkImageResample();
   static vtkImageResample *New() {return new vtkImageResample;};
   const char *GetClassName() {return "vtkImageResample";};
   void PrintSelf(ostream& os, vtkIndent indent);
@@ -86,6 +85,9 @@ public:
   vtkGetMacro(Dimensionality,int);
 
 protected:
+  vtkImageResample();
+  ~vtkImageResample() {};
+
   float MagnificationFactors[3];
   float OutputSpacing[3];
   int Interpolate;

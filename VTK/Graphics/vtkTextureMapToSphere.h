@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextureMapToSphere.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-08 18:42:26 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1999-08-29 19:02:53 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -72,7 +72,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkTextureMapToSphere : public vtkDataSetToDataSetFilter 
 {
 public:
-  vtkTextureMapToSphere();
   const char *GetClassName() {return "vtkTextureMapToSphere";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -103,6 +102,8 @@ public:
   vtkBooleanMacro(PreventSeam,int);
 
 protected:
+  vtkTextureMapToSphere();
+  ~vtkTextureMapToSphere() {};
   void Execute();
 
   float Center[3];

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalarBarActor.h,v $
   Language:  C++
-  Date:      $Date: 1999-06-30 14:33:13 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1999-08-29 19:03:25 $
+  Version:   $Revision: 1.16 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -83,8 +83,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkScalarBarActor : public vtkActor2D
 {
 public:
-  vtkScalarBarActor();
-  ~vtkScalarBarActor();
   const char *GetClassName() {return "vtkScalarBarActor";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -193,6 +191,9 @@ public:
   vtkGetStringMacro(Title);
 
 protected:
+  vtkScalarBarActor();
+  ~vtkScalarBarActor();
+
   vtkScalarsToColors *LookupTable;
   int   MaximumNumberOfColors;
   int   NumberOfLabels;

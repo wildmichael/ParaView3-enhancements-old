@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeCollection.h,v $
   Language:  C++
-  Date:      $Date: 1999-03-23 13:55:42 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1999-08-29 19:02:58 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -89,6 +89,9 @@ class VTK_EXPORT vtkVolumeCollection : public vtkPropCollection
   // where possible.
   vtkVolume *GetNextItem() { return this->GetNextVolume(); };
 
+protected:
+  vtkVolumeCollection() {};
+  ~vtkVolumeCollection() {};
 };
 
 

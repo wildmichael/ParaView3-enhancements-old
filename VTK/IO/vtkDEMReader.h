@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDEMReader.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-23 18:43:02 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1999-08-29 19:01:55 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,8 +56,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkDEMReader : public vtkImageSource
 {
 public:
-  vtkDEMReader();
-  ~vtkDEMReader();
   static vtkDEMReader *New() {return new vtkDEMReader;};
   const char *GetClassName() {return "vtkDEMReader";};
   void PrintSelf(ostream& os, vtkIndent indent);
@@ -138,6 +136,9 @@ public:
   void UpdateInformation();
 
 protected:
+  vtkDEMReader();
+  ~vtkDEMReader();
+
   vtkTimeStamp ReadHeaderTime;
   int NumberOfColumns;
   int NumberOfRows;

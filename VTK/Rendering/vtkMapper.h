@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-02 19:48:28 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 1999-08-29 19:02:28 $
+  Version:   $Revision: 1.48 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -89,8 +89,6 @@ class vtkActor;
 class VTK_EXPORT vtkMapper : public vtkAbstractMapper
 {
 public:
-  vtkMapper();
-  ~vtkMapper();
   const char *GetClassName() {return "vtkMapper";};
   void PrintSelf(ostream& os, vtkIndent indent);
   void operator=(const vtkMapper& m);
@@ -228,6 +226,9 @@ public:
   vtkGetObjectMacro(ClippingPlanes,vtkPlaneCollection);
 
 protected:
+  vtkMapper();
+  ~vtkMapper();
+
   vtkScalars *Colors;
 
   vtkScalarsToColors *LookupTable;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSelectPolyData.h,v $
   Language:  C++
-  Date:      $Date: 1999-05-04 14:36:11 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-08-29 19:02:45 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -115,9 +115,8 @@ public:
   // Instantiate object with InsideOut turned off, and 
   // GenerateSelectionScalars turned off. The unselected output
   // is not generated, and the inside mode is the smallest region.
-  vtkSelectPolyData();
-  ~vtkSelectPolyData();
   static vtkSelectPolyData *New() {return new vtkSelectPolyData;};
+
   const char *GetClassName() {return "vtkSelectPolyData";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -185,6 +184,8 @@ public:
   virtual int InRegisterLoop(vtkObject *);
 
 protected:
+  vtkSelectPolyData();
+  ~vtkSelectPolyData();
   void Execute();
 
   int GenerateSelectionScalars;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMapper.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:44 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-08-29 19:03:15 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -60,8 +60,6 @@ class vtkActor2D;
 class VTK_EXPORT vtkImageMapper : public vtkMapper2D
 {
 public:
-  vtkImageMapper();
-  ~vtkImageMapper();
   const char *GetClassName() {return "vtkImageMapper";};
   static vtkImageMapper *New();
   void PrintSelf(ostream& os, vtkIndent indent);
@@ -108,6 +106,9 @@ public:
   float GetColorScale();
 
 protected:
+  vtkImageMapper();
+  ~vtkImageMapper();
+
   vtkImageData* Input;
   float ColorWindow;
   float ColorLevel;

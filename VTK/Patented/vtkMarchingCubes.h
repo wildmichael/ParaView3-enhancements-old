@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingCubes.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-26 14:22:10 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1999-08-29 19:03:31 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -75,9 +75,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkMarchingCubes : public vtkStructuredPointsToPolyDataFilter
 {
 public:
-  vtkMarchingCubes();
   static vtkMarchingCubes *New() {return new vtkMarchingCubes;};
-  ~vtkMarchingCubes();
   const char *GetClassName() {return "vtkMarchingCubes";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -133,6 +131,8 @@ public:
   void SetLocator(vtkPointLocator& locator) {this->SetLocator(&locator);}
   
 protected:
+  vtkMarchingCubes();
+  ~vtkMarchingCubes();
   void Execute();
 
   vtkContourValues *ContourValues;

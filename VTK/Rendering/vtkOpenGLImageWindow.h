@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLImageWindow.h,v $
   Language:  C++
-  Date:      $Date: 1999-04-23 12:57:18 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-08-29 19:03:24 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,8 +58,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkOpenGLImageWindow : public vtkXImageWindow
 {
 public:
-  vtkOpenGLImageWindow();
-  ~vtkOpenGLImageWindow();
   static vtkOpenGLImageWindow *New() {
     return new vtkOpenGLImageWindow;};
   const char *GetClassName() {return "vtkOpenGLImageWindow";};
@@ -118,7 +116,9 @@ public:
 
   GLXContext ContextId;
 
- protected:
+protected:
+  vtkOpenGLImageWindow();
+  ~vtkOpenGLImageWindow();
 };
 
 

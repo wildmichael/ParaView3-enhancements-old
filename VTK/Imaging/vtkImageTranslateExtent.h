@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageTranslateExtent.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-23 18:49:24 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1999-08-29 19:03:22 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -51,7 +51,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkImageTranslateExtent : public vtkImageToImageFilter
 {
 public:
-  vtkImageTranslateExtent();
   static vtkImageTranslateExtent *New() {return new vtkImageTranslateExtent;};
   const char *GetClassName() {return "vtkImageTranslateExtent";};
   void PrintSelf(ostream& os, vtkIndent indent);
@@ -67,6 +66,9 @@ public:
   void InternalUpdate(vtkDataObject *data);
 
 protected:
+  vtkImageTranslateExtent();
+  ~vtkImageTranslateExtent() {};
+
   int Translation[3];
   
   void ExecuteInformation(vtkImageData *inData, vtkImageData *outData);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkViewRays.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-26 14:22:02 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1999-08-29 19:02:58 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -84,9 +84,7 @@ class vtkRenderer;
 
 class VTK_EXPORT vtkViewRays :public vtkObject
   {
-  public:
-  vtkViewRays(void);
-  ~vtkViewRays(void);
+public:
   static vtkViewRays *New() {return new vtkViewRays;};
   const char *GetClassName() {return "vtkViewRays";};
   void PrintSelf(ostream& os,vtkIndent indent);
@@ -120,6 +118,9 @@ class VTK_EXPORT vtkViewRays :public vtkObject
   float *GetParallelIncrements(void);
 
 protected:
+  vtkViewRays(void);
+  ~vtkViewRays(void);
+
   vtkRenderer     *Renderer;		// Renderer contains a camera
   int             Size[2];		// Number of view rays
   unsigned long   ViewRaysCamMtime;	// Camera modified time

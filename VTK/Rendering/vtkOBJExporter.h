@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOBJExporter.h,v $
   Language:  C++
-  Date:      $Date: 1999-06-21 14:07:55 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1999-08-29 19:02:30 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,8 +58,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkOBJExporter : public vtkExporter
 {
 public:
-  vtkOBJExporter();
-  ~vtkOBJExporter();
   static vtkOBJExporter *New() {return new vtkOBJExporter;};
   const char *GetClassName() {return "vtkOBJExporter";};
   void PrintSelf(ostream& os, vtkIndent indent);
@@ -71,6 +69,9 @@ public:
   vtkGetStringMacro(FilePrefix);
 
 protected:
+  vtkOBJExporter();
+  ~vtkOBJExporter();
+
   void WriteData();
   void WriteAnActor(vtkActor *anActor, FILE *fpObj, FILE *fpMat, int &id);
   char *FilePrefix;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastMapper.h,v $
   Language:  C++
-  Date:      $Date: 1999-05-25 15:12:14 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1999-08-29 19:03:00 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -82,8 +82,6 @@ class vtkVolumeTransform;
 class VTK_EXPORT vtkVolumeRayCastMapper : public vtkVolumeMapper
 {
 public:
-  vtkVolumeRayCastMapper();
-  ~vtkVolumeRayCastMapper();
   static vtkVolumeRayCastMapper *New() {return new vtkVolumeRayCastMapper;};
   const char *GetClassName() {return "vtkVolumeRayCastMapper";};
   void PrintSelf( ostream& os, vtkIndent index );
@@ -151,6 +149,8 @@ public:
 //ETX
 
 protected:
+  vtkVolumeRayCastMapper();
+  ~vtkVolumeRayCastMapper();
 
   vtkVolumeRayCastFunction     *VolumeRayCastFunction;
 

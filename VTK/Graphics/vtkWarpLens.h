@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpLens.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-08 18:42:32 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-08-29 19:03:01 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -51,7 +51,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkWarpLens : public vtkPointSetToPointSetFilter
 {
 public:
-  vtkWarpLens();
   static vtkWarpLens *New() {return new vtkWarpLens;};
   const char *GetClassName() {return "vtkWarpLens";};
   void PrintSelf(ostream& os, vtkIndent indent);
@@ -67,6 +66,8 @@ public:
   vtkGetVectorMacro(Center,float,2);
 
 protected:
+  vtkWarpLens();
+  ~vtkWarpLens() {};
   void Execute();
 
   float Kappa;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSpatialRepresentationFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:09 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1999-08-29 19:02:46 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -88,8 +88,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkSpatialRepresentationFilter : public vtkPolyDataSource
 {
 public:
-  vtkSpatialRepresentationFilter();
-  ~vtkSpatialRepresentationFilter();
   static vtkSpatialRepresentationFilter *New() {
     return new vtkSpatialRepresentationFilter;};
   const char *GetClassName() {return "vtkSpatialRepresentationFilter";};
@@ -129,6 +127,8 @@ public:
   vtkDataSet *GetInput();
 
 protected:
+  vtkSpatialRepresentationFilter();
+  ~vtkSpatialRepresentationFilter();
   void Execute();
   void GenerateOutput();
 

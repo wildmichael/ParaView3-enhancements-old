@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransformPolyDataFilter.h,v $
   Language:  C++
-  Date:      $Date: 1998-11-04 19:19:33 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-08-29 19:02:54 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -66,8 +66,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkTransformPolyDataFilter : public vtkPolyDataToPolyDataFilter
 {
 public:
-  vtkTransformPolyDataFilter();
-  ~vtkTransformPolyDataFilter();
   static vtkTransformPolyDataFilter *New() {
     return new vtkTransformPolyDataFilter;};
   const char *GetClassName() {return "vtkTransformPolyDataFilter";};
@@ -83,6 +81,8 @@ public:
   vtkGetObjectMacro(Transform,vtkTransform);
 
 protected:
+  vtkTransformPolyDataFilter();
+  ~vtkTransformPolyDataFilter();
   void Execute();
   vtkTransform *Transform;
 };

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAxisActor2D.h,v $
   Language:  C++
-  Date:      $Date: 1999-06-21 14:05:40 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-08-29 19:03:04 $
+  Version:   $Revision: 1.5 $
 
 Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -80,8 +80,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkAxisActor2D : public vtkActor2D
 {
 public:
-  vtkAxisActor2D();
-  ~vtkAxisActor2D();
   const char *GetClassName() {return "vtkAxisActor2D";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -244,6 +242,9 @@ public:
 			 int &stringWidth, int &stringHeight);
 
 protected:
+  vtkAxisActor2D();
+  ~vtkAxisActor2D();
+
   vtkCoordinate *Point1Coordinate;
   vtkCoordinate *Point2Coordinate;
   char  *Title;
