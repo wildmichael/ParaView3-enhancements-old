@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-19 18:54:35 $
-  Version:   $Revision: 1.172 $
+  Date:      $Date: 2001-09-26 18:51:56 $
+  Version:   $Revision: 1.173 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -842,6 +842,12 @@ void vtkRenderer::ResetCameraClippingRange( float bounds[6] )
       }
     }
   
+  // Do not let the range behind the camera throw off the calculation.
+  if (range[0] < 0.0)
+    {
+    range[0] = 0.0;
+    }
+
   // Give ourselves a little breathing room
   range[0] = 0.99*range[0] - (range[1] - range[0])*0.5;
   range[1] = 1.01*range[1] + (range[1] - range[0])*0.5;
