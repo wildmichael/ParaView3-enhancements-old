@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDice.h,v 1.4 2003-09-29 16:00:41 andy Exp $  */
-/*  Date : $Date: 2003-09-29 16:00:41 $ */
-/*  Version : $Revision: 1.4 $ */
+/*  Id : $Id: XdmfDice.h,v 1.5 2004-04-16 07:37:45 dcthomp Exp $  */
+/*  Date : $Date: 2004-04-16 07:37:45 $ */
+/*  Version : $Revision: 1.5 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -29,10 +29,14 @@
 extern "C" {
 #endif 
 
+#include "XdmfConfig.h"
+
 #include "ice.h"
 #include "stdio.h"
 #include "stdlib.h"
-#include "malloc.h"
+#ifdef XDMF_HAVE_MALLOC_H
+#  include "malloc.h"
+#endif
 
 typedef unsigned long   XDMF_LIST_KEY;
 
