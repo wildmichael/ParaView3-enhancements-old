@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTclUtil.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-10-23 21:05:05 $
-  Version:   $Revision: 1.57 $
+  Date:      $Date: 2000-11-07 17:43:17 $
+  Version:   $Revision: 1.58 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -556,7 +556,7 @@ void vtkTclDeleteCommandStruct(ClientData cd)
   delete cs;
 }
 
-void vtkTclCreateNew(Tcl_Interp *interp, char *cname,
+void vtkTclCreateNew(Tcl_Interp *interp, const char *cname,
                      ClientData (*NewCommand)(),
                      int (*CommandFunction)(ClientData cd,
 					    Tcl_Interp *interp,
@@ -565,7 +565,7 @@ void vtkTclCreateNew(Tcl_Interp *interp, char *cname,
   vtkTclCommandStruct *cs = new vtkTclCommandStruct;
   cs->NewCommand = NewCommand;
   cs->CommandFunction = CommandFunction;
-  Tcl_CreateCommand(interp,cname,vtkTclNewInstanceCommand,
+  Tcl_CreateCommand(interp,(char *) cname,vtkTclNewInstanceCommand,
                    (ClientData *)cs,
                    (Tcl_CmdDeleteProc *)vtkTclDeleteCommandStruct);
 }

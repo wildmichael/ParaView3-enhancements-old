@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTclUtil.h,v $
   Language:  C++
-  Date:      $Date: 2000-10-24 12:52:06 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2000-11-07 17:43:17 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -78,7 +78,7 @@ extern VTKTCL_EXPORT int vtkTclNewInstanceCommand(ClientData cd,
 						  int argc, char *argv[]);
 extern VTKTCL_EXPORT void vtkTclDeleteCommandStruct(ClientData cd);
 extern VTKTCL_EXPORT 
-void vtkTclCreateNew(Tcl_Interp *interp, char *cname,
+void vtkTclCreateNew(Tcl_Interp *interp, const char *cname,
 		     ClientData (*NewCommand)(),
 		     int (*CommandFunction)(ClientData cd,
 					    Tcl_Interp *interp,
@@ -102,11 +102,11 @@ public:
       
       if (res == TCL_ERROR)
         {
-        if (Tcl_GetVar(this->Interp,"errorInfo",0))
+        if (Tcl_GetVar(this->Interp,(char *) "errorInfo",0))
           {
           vtkGenericWarningMacro("Error returned from vtk/tcl callback:\n" <<
                                  this->StringCommand << endl <<
-                                 Tcl_GetVar(this->Interp,"errorInfo",0) <<
+                                 Tcl_GetVar(this->Interp,(char *) "errorInfo",0) <<
                                  " at line number " << this->Interp->errorLine);
           }
         else
