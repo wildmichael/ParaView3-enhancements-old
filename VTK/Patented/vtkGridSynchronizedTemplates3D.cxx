@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGridSynchronizedTemplates3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-17 14:10:39 $
-  Version:   $Revision: 1.60 $
+  Date:      $Date: 2002-07-02 18:00:21 $
+  Version:   $Revision: 1.61 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -44,7 +44,7 @@
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkGridSynchronizedTemplates3D, "$Revision: 1.60 $");
+vtkCxxRevisionMacro(vtkGridSynchronizedTemplates3D, "$Revision: 1.61 $");
 vtkStandardNewMacro(vtkGridSynchronizedTemplates3D);
 
 //----------------------------------------------------------------------------
@@ -712,6 +712,13 @@ void vtkGridSynchronizedTemplates3D::ThreadedExecute(int *exExt, int threadId)
     float *scalars = image->GetPointer(0);
     ContourGrid(this, threadId, exExt, scalars, output);
     image->Delete();
+    }
+
+  // Lets set the name of the scalars here.
+  if (this->ComputeScalars)
+    {
+    vtkDataArray *outScalars = output->GetPointData()->GetScalars();
+    outScalars->SetName(inScalars->GetName());
     }
 }
 

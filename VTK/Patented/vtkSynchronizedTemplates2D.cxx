@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSynchronizedTemplates2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-17 14:10:39 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2002-07-02 18:00:21 $
+  Version:   $Revision: 1.25 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -41,7 +41,7 @@
 #include "vtkSynchronizedTemplates2D.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkSynchronizedTemplates2D, "$Revision: 1.24 $");
+vtkCxxRevisionMacro(vtkSynchronizedTemplates2D, "$Revision: 1.25 $");
 vtkStandardNewMacro(vtkSynchronizedTemplates2D);
 
 //----------------------------------------------------------------------------
@@ -460,6 +460,12 @@ void vtkSynchronizedTemplates2D::Execute()
     float *scalars =image->GetPointer(0);
     vtkContourImage(this, scalars, newPts, newScalars, newLines);
     image->Delete();
+    }
+
+  // Lets set the name of the scalars here.
+  if (newScalars)
+    {
+    newScalars->SetName(inScalars->GetName());
     }
 
   vtkDebugMacro(<<"Created: " 
