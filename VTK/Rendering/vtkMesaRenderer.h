@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaRenderer.h,v $
   Language:  C++
-  Date:      $Date: 1999-12-19 17:42:44 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1999-12-20 13:49:01 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -86,8 +86,8 @@ protected:
   virtual void StartPick(unsigned int pickFromSize){};
   virtual void SetPickId(unsigned int pickID){};
   virtual void DonePick(){};
-  virtual unsigned int GetPickedID(){};
-  virtual float GetPickedZ(){};
+  virtual unsigned int GetPickedID(){return 0;};
+  virtual float GetPickedZ(){return 0;};
   //ETX
 
 };
