@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractVectorComponents.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-21 19:19:06 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2001-06-27 13:49:58 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -295,7 +295,6 @@ void vtkExtractVectorComponents::Execute()
     vzc->SetNumberOfTuples(numVectors);
     sprintf(newName, "%s-z", name);
     vzc->SetName(newName);
-    delete[] newName;
 
     switch (vectorsc->GetDataType())
       {
@@ -329,6 +328,8 @@ void vtkExtractVectorComponents::Execute()
     vyc->Delete();
     vzc->Delete();
     }
+  delete[] newName;
+
 }
 
 
