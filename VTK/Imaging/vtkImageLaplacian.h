@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageLaplacian.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:32:51 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2002-03-04 19:01:03 $
+  Version:   $Revision: 1.31 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 // vtkimageLaplacian computes the Laplacian (like a second derivative)
 // of a scalar image.  The operation is the same as taking the
 // divergence after a gradient.  Boundaries are handled, so the input
-// is the same as the output.  The output is always float.
+// is the same as the output.
 // Dimensionality determines how the input regions are interpreted.
 // (images, or volumes). The Dimensionality defaults to two.
 
