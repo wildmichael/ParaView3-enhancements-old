@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMultiProcessController.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:34:40 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2002-03-18 20:47:35 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -47,10 +47,10 @@ protected:
   void operator=(const vtkMultiProcessControllerRMI&);
 };
 
-vtkCxxRevisionMacro(vtkMultiProcessControllerRMI, "$Revision: 1.9 $");
+vtkCxxRevisionMacro(vtkMultiProcessControllerRMI, "$Revision: 1.10 $");
 vtkStandardNewMacro(vtkMultiProcessControllerRMI);
 
-vtkCxxRevisionMacro(vtkMultiProcessController, "$Revision: 1.9 $");
+vtkCxxRevisionMacro(vtkMultiProcessController, "$Revision: 1.10 $");
 
 //----------------------------------------------------------------------------
 // An RMI function that will break the "ProcessRMIs" loop.
@@ -296,6 +296,24 @@ void vtkMultiProcessController::TriggerRMI(int remoteProcessId,
     this->RMICommunicator->Send((char*)arg, argLength, remoteProcessId,  
                                  RMI_ARG_TAG);
     } 
+}
+
+//----------------------------------------------------------------------------
+void vtkMultiProcessController::TriggerBreakRMIs()
+{
+  int idx, num;
+
+  if (this->GetLocalProcessId() != 0)
+    {
+    vtkErrorMacro("Break should be triggered from process 0.");
+    return;
+    }
+
+  num = this->GetNumberOfProcesses();
+  for (idx = 1; idx < num; ++idx)
+    {
+    this->TriggerRMI(idx, NULL, 0, BREAK_RMI_TAG);
+    }
 }
 
 //----------------------------------------------------------------------------

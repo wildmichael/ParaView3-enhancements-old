@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMultiProcessController.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:34:40 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2002-03-18 20:47:40 $
+  Version:   $Revision: 1.14 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -167,6 +167,11 @@ public:
   // Description:
   // A method to trigger a method invocation in another process.
   void TriggerRMI(int remoteProcessId, void *arg, int argLength, int tag);
+
+  // Description:
+  // A conveniance method.  Called on process 0 to break "ProcessRMIs" loop
+  // on all other processes.
+  void TriggerBreakRMIs();
 
   // Description:
   // Convenience method when the arg is a string. 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCompositeManager.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-07 19:34:13 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2002-03-18 20:47:23 $
+  Version:   $Revision: 1.17 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,7 @@
 #include "vtkMesaRenderWindow.h"
 #endif
 
-vtkCxxRevisionMacro(vtkCompositeManager, "$Revision: 1.16 $");
+vtkCxxRevisionMacro(vtkCompositeManager, "$Revision: 1.17 $");
 
 // Structures to communicate render info.
 struct vtkCompositeRenderWindowInfo 
@@ -75,6 +75,8 @@ vtkCompositeManager::vtkCompositeManager()
   this->SetBuffersTime = 0.0;
   this->CompositeTime = 0.0;
   this->MaxRenderTime = 0.0;
+
+  this->Manual = 0;
 
   this->Timer = vtkTimerLog::New();
 }
@@ -558,8 +560,10 @@ void vtkCompositeManager::StartRender()
   
   for (id = 1; id < numProcs; ++id)
     {
-    
-    controller->TriggerRMI(id, NULL, 0, vtkCompositeManager::RENDER_RMI_TAG);
+    if (this->Manual == 0)
+      {
+      controller->TriggerRMI(id, NULL, 0, vtkCompositeManager::RENDER_RMI_TAG);
+      }
     // Synchronize the size of the windows.
     controller->Send((char*)(&winInfo), 
                      sizeof(vtkCompositeRenderWindowInfo), id, 
@@ -953,7 +957,7 @@ void vtkCompositeManager::Composite()
     {
     delete [] localZdata;
     }
-  
+   
   timer->Delete();
   timer = NULL;
 }
