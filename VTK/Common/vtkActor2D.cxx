@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-16 15:58:14 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1998-10-28 14:07:31 $
+  Version:   $Revision: 1.15 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,7 +56,7 @@ vtkActor2D::~vtkActor2D()
   if (this->Mapper != NULL)
     {
     this->Mapper->UnRegister(this);
-    this->Mapper == NULL;
+    this->Mapper = NULL;
     }
 }
 
