@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAppendPolyData.h,v $
   Language:  C++
-  Date:      $Date: 2001-04-04 23:42:22 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 2001-04-15 17:59:01 $
+  Version:   $Revision: 1.46 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -126,6 +126,7 @@ protected:
 
   // An efficient way to append data/cells.
   void AppendData(vtkDataArray *dest, vtkDataArray *src, int offset);
+  void AppendDifferentPoints(vtkDataArray *dest, vtkDataArray *src, int offset);
   int *AppendCells(int *pDest, vtkCellArray *src, int offset);
 
  private:
