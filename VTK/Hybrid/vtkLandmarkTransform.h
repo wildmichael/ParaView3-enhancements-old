@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLandmarkTransform.h,v $
   Language:  C++
-  Date:      $Date: 2000-03-07 17:01:33 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2000-03-07 19:48:51 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to Tim Hutton and David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -139,5 +139,5 @@ inline const char *vtkLandmarkTransform::GetModeAsString()
       return "Unrecognized";
     }
 }
-
+//ETX
 #endif
