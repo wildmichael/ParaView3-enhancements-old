@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:03:50 $
-  Version:   $Revision: 1.61 $
+  Date:      $Date: 2000-03-21 16:47:14 $
+  Version:   $Revision: 1.62 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -173,7 +173,21 @@ void vtkStructuredGrid::Initialize()
   this->Blanking = 0;
 }
 
+
 //----------------------------------------------------------------------------
+int vtkStructuredGrid::UpdateExtentIsOutsideOfTheExtent()
+{
+  if ( this->UpdateExtent[0] < this->Extent[0] ||
+       this->UpdateExtent[1] > this->Extent[1] ||
+       this->UpdateExtent[2] < this->Extent[2] ||
+       this->UpdateExtent[3] > this->Extent[3] ||
+       this->UpdateExtent[4] < this->Extent[4] ||
+       this->UpdateExtent[5] > this->Extent[5] )
+    {
+    return 1;
+    }
+  return 0;
+}
 
 void vtkStructuredGrid::ModifyExtentForUpdateExtent()
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:03:17 $
-  Version:   $Revision: 1.79 $
+  Date:      $Date: 2000-03-21 16:47:12 $
+  Version:   $Revision: 1.80 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -1597,6 +1597,22 @@ void vtkImageData::SetExtent(int *extent)
   this->Dimensions[1] = extent[3] - extent[2] + 1;
   this->Dimensions[2] = extent[5] - extent[4] + 1;
   this->ComputeIncrements();
+}
+
+//----------------------------------------------------------------------------
+
+int vtkImageData::UpdateExtentIsOutsideOfTheExtent()
+{
+  if ( this->UpdateExtent[0] < this->Extent[0] ||
+       this->UpdateExtent[1] > this->Extent[1] ||
+       this->UpdateExtent[2] < this->Extent[2] ||
+       this->UpdateExtent[3] > this->Extent[3] ||
+       this->UpdateExtent[4] < this->Extent[4] ||
+       this->UpdateExtent[5] > this->Extent[5] )
+    {
+    return 1;
+    }
+  return 0;
 }
 
 //----------------------------------------------------------------------------

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPoints.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:03:52 $
-  Version:   $Revision: 1.69 $
+  Date:      $Date: 2000-03-21 16:47:15 $
+  Version:   $Revision: 1.70 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -74,6 +74,10 @@ public:
   // The update extent is set to the whole extent, since this is required by
   // vtkStructuredPoints data object.
   virtual void ModifyExtentForUpdateExtent();
+
+  // Description:
+  // Internal method in a class we hope to remove
+  virtual void PropagateUpdateExtent();
 
 protected:
   vtkStructuredPoints();

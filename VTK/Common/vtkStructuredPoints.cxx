@@ -3,8 +3,8 @@
 
   Module:    $RCSfile: vtkStructuredPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:03:51 $
-  Version:   $Revision: 1.81 $
+  Date:      $Date: 2000-03-21 16:47:14 $
+  Version:   $Revision: 1.82 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -70,6 +70,13 @@ void vtkStructuredPoints::ModifyExtentForUpdateExtent()
   this->SetUpdateExtent( this->WholeExtent );
 }
 
+void vtkStructuredPoints::PropagateUpdateExtent()
+{
+  // Make sure the extent is the whole extent
+  this->SetUpdateExtent( this->WholeExtent );
+
+  this->vtkImageData::PropagateUpdateExtent();
+}
 
 
 

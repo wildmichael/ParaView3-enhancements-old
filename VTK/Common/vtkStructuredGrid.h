@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGrid.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:03:51 $
-  Version:   $Revision: 1.61 $
+  Date:      $Date: 2000-03-21 16:47:14 $
+  Version:   $Revision: 1.62 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -157,6 +157,10 @@ public:
   void SetExtent(int extent[6]);
   void SetExtent(int x1, int x2, int y1, int y2, int z1, int z2);
   vtkGetVector6Macro(Extent,int);
+
+  // Description:
+  // Return non zero if the UpdateExtent is outside of the Extent
+  virtual int UpdateExtentIsOutsideOfTheExtent();
 
   // Description:
   // Return the actual size of the data in kilobytes. This number

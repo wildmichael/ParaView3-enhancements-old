@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObject.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:03:04 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2000-03-21 16:47:12 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -286,6 +286,15 @@ public:
   // It sets the DataReleased flag to 0, and sets a new UpdateTime.
   void DataHasBeenGenerated();
 
+  // Description:
+  // Return non zero if the UpdateExtent is outside of the Extent
+  virtual int UpdateExtentIsOutsideOfTheExtent();
+  
+  // Description:
+  // make the output data ready for new data to be inserted. For most 
+  // objects we just call Initialize. But for imagedata we leave the old
+  // data in case the memory can be reused.
+  virtual void PrepareForNewData() {this->Initialize();};
 
 protected:
 
@@ -364,6 +373,9 @@ protected:
   // This does not include the MTime of this data object.
   unsigned long PipelineMTime;
 
+  // Was the update extent propogated down the pipeline
+  int LastUpdateExtentWasOutsideOfTheExtent;
+  
   // How many upstream filters are local to the process.
   // This will have to change to a float for Kens definition of locality.
   float Locality;  

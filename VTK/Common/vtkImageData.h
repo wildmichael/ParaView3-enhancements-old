@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:03:18 $
-  Version:   $Revision: 1.59 $
+  Date:      $Date: 2000-03-21 16:47:13 $
+  Version:   $Revision: 1.60 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -299,9 +299,19 @@ public:
   void CopyTypeSpecificInformation( vtkDataObject *image );
 
   // Description:
+  // Return non zero if the UpdateExtent is outside of the Extent
+  virtual int UpdateExtentIsOutsideOfTheExtent();
+
+  // Description:
   // Needs to be overridden from vtkDataObject so that we can call
   // the correct version of SetExtent rather than just doing a memcpy.
   virtual void ModifyExtentForUpdateExtent();
+
+  // Description:
+  // make the output data ready for new data to be inserted. For most 
+  // objects we just call Initialize. But for imagedata we leave the old
+  // data in case the memory can be reused.
+  virtual void PrepareForNewData() {};
 
   void SetMemoryLimit( int vtkNotUsed(x) ) 
     { vtkErrorMacro( << "Memory limit no longer supported - use streamer" ); };

@@ -3,8 +3,8 @@
  Program:   Visualization Toolkit
  Module:    $RCSfile: vtkSource.cxx,v $
  Language:  C++
- Date:      $Date: 2000-02-04 17:03:48 $
- Version:   $Revision: 1.61 $
+ Date:      $Date: 2000-03-21 16:47:13 $
+ Version:   $Revision: 1.62 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -347,7 +347,7 @@ void vtkSource::UpdateData(vtkDataObject *vtkNotUsed(output))
     {
     if (this->Outputs[idx])
       {
-      this->Outputs[idx]->Initialize(); 
+      this->Outputs[idx]->PrepareForNewData(); 
       }
     }
  
