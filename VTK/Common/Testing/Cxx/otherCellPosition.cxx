@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: otherCellPosition.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-15 15:29:39 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-08-05 17:47:09 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -36,7 +36,7 @@
 #include "vtkTriangle.h"
 #include "vtkTriangleStrip.h"
 
-int Test(ostream& strm)
+int TestOCP(ostream& strm)
 {
   // actual test
   vtkIdList *ids = vtkIdList::New();
@@ -429,10 +429,10 @@ int Test(ostream& strm)
   return 0;
 }
 
-int main()
+int otherCellPosition(int, char *[])
 {
   vtkDebugLeaks::PromptUserOff();
 
   ostrstream vtkmsg; 
-  return Test(vtkmsg);
+  return TestOCP(vtkmsg);
 } 

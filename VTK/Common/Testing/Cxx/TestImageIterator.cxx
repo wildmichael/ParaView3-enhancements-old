@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: TestImageIterator.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-25 14:10:48 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-08-05 17:47:09 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -42,7 +42,7 @@ inline int DoTest(T*)
 }
 
 
-int main()
+int TestImageIterator(int,char *[])
 {
   vtkDebugLeaks::PromptUserOff();
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: otherRectilinearGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-15 15:29:40 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-08-05 17:47:09 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,7 @@
 #include "vtkLongArray.h"
 #include "vtkShortArray.h"
 
-int Test(ostream& strm)
+int TestORG(ostream& strm)
 {
   int i, j, k;
   // actual test
@@ -594,10 +594,10 @@ int Test(ostream& strm)
   return 0;
 }
 
-int main()
+int otherRectilinearGrid(int,char *[])
 {
   vtkDebugLeaks::PromptUserOff();
 
   ostrstream vtkmsg; 
-  return Test(vtkmsg);
+  return TestORG(vtkmsg);
 } 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: TestContainers.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-16 23:16:34 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-08-05 17:47:09 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 #include "vtkAbstractMap.h"
 #include "vtkAbstractIterator.h"
 
-int main(int argc, char** vtkNotUsed(argv))
+int TestContainers(int argc, char *[])
 {
   // Let us for now just create pointers so that we see that
   // it can parse through the header file.
@@ -32,7 +32,7 @@ int main(int argc, char** vtkNotUsed(argv))
 
   // This is here so that it does not complain about 
   // pointers not being used
-  if ( cnt && alist && amap && iter || (argc > 1) )
+  if ( cnt && alist && amap && iter || (argc > 10) )
     {
     return 1;
     }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: otherLookupTable.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-15 15:38:55 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-08-05 17:47:09 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 #include "vtkLogLookupTable.h"
 #include "vtkDebugLeaks.h"
 
-void Test(vtkLookupTable *lut1)
+void TestOLT(vtkLookupTable *lut1)
 {
   // actual test
  
@@ -116,24 +116,24 @@ void Test(vtkLookupTable *lut1)
 }
 
 
-int main()
+int otherLookupTable(int,char *[])
 {
   vtkDebugLeaks::PromptUserOff();
 
   vtkLookupTable *lut1 = vtkLookupTable::New();
   lut1->SetAlpha(1.0);
   lut1->SetScaleToLinear();
-  Test(lut1);
+  TestOLT(lut1);
   lut1->SetAlpha(.5);
-  Test(lut1);
+  TestOLT(lut1);
   lut1->Delete();
 
   vtkLogLookupTable *lut2 = vtkLogLookupTable::New();
   lut2->SetAlpha(1.0);
   lut2->SetScaleToLog10();
-  Test(lut2);
+  TestOLT(lut2);
   lut2->SetAlpha(.5);
-  Test(lut2);
+  TestOLT(lut2);
   lut2->Delete();
 
   return 0;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: otherFieldData.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-15 15:29:39 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-08-05 17:47:09 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 #include "vtkFloatArray.h"
 #include "vtkIdList.h"
 
-int main()
+int otherFieldData(int,char *[])
 {
   vtkDebugLeaks::PromptUserOff();
 

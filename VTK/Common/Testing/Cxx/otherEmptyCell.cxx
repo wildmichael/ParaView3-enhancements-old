@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: otherEmptyCell.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-15 15:29:39 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-08-05 17:47:09 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,7 @@
 
 #include "vtkDebugLeaks.h"
 
-void Test(ostream& strm)
+void TestOEC(ostream& strm)
 {
   vtkEmptyCell *cell = vtkEmptyCell::New();
   vtkCell *cell2 = cell->MakeObject();
@@ -93,12 +93,12 @@ void Test(ostream& strm)
   strm << "Testing EmptyCell Complete" << endl;
 }
 
-int main()
+int otherEmptyCell(int , char *[])
 {
   vtkDebugLeaks::PromptUserOff();
 
   ostrstream vtkmsg; 
-  Test(vtkmsg);
+  TestOEC(vtkmsg);
 
   return 0;
 } 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: ObjectFactory.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-15 15:29:38 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2002-08-05 17:47:09 $
+  Version:   $Revision: 1.17 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -41,7 +41,7 @@ private:
   void operator=(const vtkTestVertex&);
 };
 
-vtkCxxRevisionMacro(vtkTestVertex, "$Revision: 1.16 $");
+vtkCxxRevisionMacro(vtkTestVertex, "$Revision: 1.17 $");
 
 class vtkTestVertex2 : public vtkVertex
 {
@@ -59,7 +59,7 @@ private:
   void operator=(const vtkTestVertex2&);
 };
 
-vtkCxxRevisionMacro(vtkTestVertex2, "$Revision: 1.16 $");
+vtkCxxRevisionMacro(vtkTestVertex2, "$Revision: 1.17 $");
 
 VTK_CREATE_CREATE_FUNCTION(vtkTestVertex);
 VTK_CREATE_CREATE_FUNCTION(vtkTestVertex2);
@@ -105,7 +105,7 @@ void TestNewVertex(vtkVertex* v, const char* expectedClassName)
 }
 
 
-int main()
+int ObjectFactory(int, char *[])
 {
   vtkDebugLeaks::PromptUserOff();
   vtkGenericWarningMacro("Test Generic Warning");

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: otherStructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-15 15:29:40 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-08-05 17:47:09 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -28,7 +28,7 @@
 
 #include "vtkDebugLeaks.h"
 
-int Test(ostream& strm)
+int TestOSG(ostream& strm)
 {
   int i, j, k;
   // actual test
@@ -627,10 +627,10 @@ int Test(ostream& strm)
   return 0;
 }
 
-int main()
+int otherStructuredGrid(int,char *[])
 {
   vtkDebugLeaks::PromptUserOff();
 
   ostrstream vtkmsg; 
-  return Test(vtkmsg);
+  return TestOSG(vtkmsg);
 } 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: TestList.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-20 21:12:26 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-08-05 17:47:09 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen  
@@ -585,7 +585,7 @@ int TestLinkedList()
   return error;
 }
 
-int main()
+int TestList(int,char *[])
 {
   int res = 0;
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: otherCellArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-15 15:29:38 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-08-05 17:47:09 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,7 @@
 #include "vtkIdTypeArray.h"
 #include "vtkQuad.h"
 
-int Test(ostream& strm)
+int TestCellArray(ostream& strm)
 {
   // actual test
   strm << "Test CellArray Start" << endl;
@@ -82,10 +82,10 @@ int Test(ostream& strm)
   return 0;
 }
 
-int main()
+int otherCellArray(int,char *[])
 {
   vtkDebugLeaks::PromptUserOff();
 
   ostrstream vtkmsg; 
-  return Test(vtkmsg);
+  return TestCellArray(vtkmsg);
 } 

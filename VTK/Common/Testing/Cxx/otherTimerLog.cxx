@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: otherTimerLog.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-15 15:37:47 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2002-08-05 17:47:09 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -64,7 +64,7 @@ void Test(ostream& strm)
 }
 
 
-int main()
+int otherTimerLog(int,char *[])
 {
   vtkDebugLeaks::PromptUserOff();
 
