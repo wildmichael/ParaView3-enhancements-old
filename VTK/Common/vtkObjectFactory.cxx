@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObjectFactory.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-21 21:57:26 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2002-06-21 15:46:50 $
+  Version:   $Revision: 1.35 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,17 +16,18 @@
 
 =========================================================================*/
 #include "vtkObjectFactory.h"
-#include "vtkObjectFactoryCollection.h"
-#include "vtkDynamicLoader.h"
-#include "vtkDirectory.h"
-#include "vtkVersion.h"
-#include <stdlib.h>
-#include <ctype.h>
-#include "vtkOverrideInformationCollection.h"
-#include "vtkOverrideInformation.h"
-#include "vtkDebugLeaks.h"
 
-vtkCxxRevisionMacro(vtkObjectFactory, "$Revision: 1.34 $");
+#include "vtkDebugLeaks.h"
+#include "vtkDirectory.h"
+#include "vtkDynamicLoader.h"
+#include "vtkObjectFactoryCollection.h"
+#include "vtkOverrideInformation.h"
+#include "vtkOverrideInformationCollection.h"
+#include "vtkVersion.h"
+
+#include <ctype.h>
+
+vtkCxxRevisionMacro(vtkObjectFactory, "$Revision: 1.35 $");
 
 vtkObjectFactoryCollection* vtkObjectFactory::RegisteredFactories = 0;
 

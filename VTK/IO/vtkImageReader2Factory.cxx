@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader2Factory.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-31 23:53:13 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2002-06-21 15:46:50 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,19 +16,20 @@
 
 =========================================================================*/
 #include "vtkImageReader2Factory.h"
-#include "vtkObjectFactory.h"
-#include "vtkImageReader2.h"
+
+#include "vtkBMPReader.h"
 #include "vtkGESignaReader.h"
+#include "vtkImageReader2.h"
+#include "vtkImageReader2Collection.h"
+#include "vtkJPEGReader.h"
+#include "vtkObjectFactory.h"
+#include "vtkObjectFactoryCollection.h"
 #include "vtkPNGReader.h"
 #include "vtkPNMReader.h"
-#include "vtkJPEGReader.h"
-#include "vtkTIFFReader.h"
-#include "vtkBMPReader.h"
 #include "vtkSLCReader.h"
-#include "vtkImageReader2Collection.h"
-#include "vtkObjectFactoryCollection.h"
+#include "vtkTIFFReader.h"
 
-vtkCxxRevisionMacro(vtkImageReader2Factory, "$Revision: 1.10 $");
+vtkCxxRevisionMacro(vtkImageReader2Factory, "$Revision: 1.11 $");
 vtkStandardNewMacro(vtkImageReader2Factory);
 
 class vtkCleanUpImageReader2Factory
