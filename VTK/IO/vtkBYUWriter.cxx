@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBYUWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-07-30 13:12:50 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 2003-07-30 14:50:39 $
+  Version:   $Revision: 1.51 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,7 @@
 # include <unistd.h> /* unlink */
 #endif
 
-vtkCxxRevisionMacro(vtkBYUWriter, "$Revision: 1.50 $");
+vtkCxxRevisionMacro(vtkBYUWriter, "$Revision: 1.51 $");
 vtkStandardNewMacro(vtkBYUWriter);
 
 // Create object so that it writes displacement, scalar, and texture files
@@ -126,7 +126,7 @@ void vtkBYUWriter::WriteData()
       errorMessage << this->DisplacementFileName << " ";
       }
     unlink(this->ScalarFileName);
-    errorMessage << this->ScalarFileName << endl;
+    errorMessage << this->ScalarFileName << ends;
     vtkErrorMacro( << errorMessage.str());
     errorMessage.rdbuf()->freeze(0);
     return;
@@ -150,7 +150,7 @@ void vtkBYUWriter::WriteData()
       errorMessage << this->ScalarFileName << " ";
       }
     unlink(this->TextureFileName);
-    errorMessage << this->TextureFileName << endl;
+    errorMessage << this->TextureFileName << ends;
     vtkErrorMacro( << errorMessage.str());
     errorMessage.rdbuf()->freeze(0);
     return;
