@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPVGeometryFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-11-12 22:00:48 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2003-11-13 19:07:52 $
+  Version:   $Revision: 1.18 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -38,7 +38,7 @@
 #include "vtkStructuredGridOutlineFilter.h"
 #include "vtkUnstructuredGrid.h"
 
-vtkCxxRevisionMacro(vtkPVGeometryFilter, "$Revision: 1.17 $");
+vtkCxxRevisionMacro(vtkPVGeometryFilter, "$Revision: 1.18 $");
 vtkStandardNewMacro(vtkPVGeometryFilter);
 
 //----------------------------------------------------------------------------
@@ -413,5 +413,6 @@ void vtkPVGeometryFilter::PrintSelf(ostream& os, vtkIndent indent)
     os << indent << "OutlineFlag: Off\n";
     }
   
-  os << indent << "UseOutline: " << this->UseOutline << endl;
+  os << indent << "UseOutline: " << (this->UseOutline?"on":"off") << endl;
+  os << indent << "UseStrips: " << (this->UseStrips?"on":"off") << endl;
 }
