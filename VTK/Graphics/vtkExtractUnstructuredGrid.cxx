@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractUnstructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:44:28 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1997-08-28 14:24:01 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -101,7 +101,6 @@ void vtkExtractUnstructuredGrid::SetExtent(float *extent)
     this->Modified();
     for (i=0; i<3; i++)
       {
-      if ( extent[2*i] < 0 ) extent[2*i] = 0;
       if ( extent[2*i+1] < extent[2*i] ) extent[2*i+1] = extent[2*i];
       this->Extent[2*i] = extent[2*i];
       this->Extent[2*i+1] = extent[2*i+1];
