@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamTracer.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-03 13:05:12 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-08-30 18:11:46 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -240,6 +240,15 @@ public:
   vtkSetMacro(RotationScale, float);
   vtkGetMacro(RotationScale, float);
 
+  // Description:
+  // If you want to generate traces using an arbitrary vector array, 
+  // then set its name here. By default this in NULL and the filter will 
+  // use the active vector array.
+  vtkGetStringMacro(InputVectorsSelection);
+  void SelectInputVectors(const char *fieldName) 
+    {this->SetInputVectorsSelection(fieldName);}
+  
+
 protected:
 
   vtkStreamTracer();
@@ -249,6 +258,9 @@ protected:
   void CalculateVorticity( vtkGenericCell* cell, float pcoords[3],
                            vtkFloatArray* cellVectors, float vorticity[3] );
   void Integrate(vtkDataArray* seedSource, vtkIdList* seedIds);
+
+  vtkSetStringMacro(InputVectorsSelection);
+  char *InputVectorsSelection;
 
 
   // starting from global x-y-z position

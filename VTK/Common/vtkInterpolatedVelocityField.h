@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInterpolatedVelocityField.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:32 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2002-08-30 18:11:46 $
+  Version:   $Revision: 1.13 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -93,6 +93,15 @@ public:
   // Caching statistics.
   vtkGetMacro(CacheHit, int);
   vtkGetMacro(CacheMiss, int);
+
+  // Description:
+  // If you want to work with an arbitrary vector array, then set its name 
+  // here. By default this in NULL and the filter will use the active vector 
+  // array.
+  vtkGetStringMacro(VectorsSelection);
+  void SelectVectors(const char *fieldName) 
+    {this->SetVectorsSelection(fieldName);}
+  
   
 protected:
   vtkInterpolatedVelocityField();
@@ -107,6 +116,10 @@ protected:
   int CacheHit;
   int CacheMiss;
   int Caching;
+
+  vtkSetStringMacro(VectorsSelection);
+  char *VectorsSelection;
+
 private:
   vtkInterpolatedVelocityField(const vtkInterpolatedVelocityField&);  // Not implemented.
   void operator=(const vtkInterpolatedVelocityField&);  // Not implemented.
