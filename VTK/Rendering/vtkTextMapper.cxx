@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-30 20:32:46 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-04-27 17:12:26 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -68,6 +68,16 @@ vtkTextMapper *vtkTextMapper::New()
     return vtkXTextMapper::New();
 #endif
 
+}
+
+
+vtkTextMapper::~vtkTextMapper()
+{
+  if (this->Input)
+    {
+    delete [] this->Input;
+    this->Input = NULL;
+    }
 }
 
 
