@@ -8,7 +8,7 @@
  * of authorship are reproduced on all copies.
  */
 
-/* $Id: ice-t.h,v 1.6 2003-08-12 20:35:26 kmorel Exp $ */
+/* $Id: ice-t.h,v 1.7 2003-08-22 22:37:03 kmorel Exp $ */
 
 #ifndef _ICET_H_
 #define _ICET_H_
@@ -17,7 +17,11 @@
 
 #include <stdlib.h>
 
-#include <GL/gl.h>
+#ifdef __APPLE__
+#  include <OpenGL/gl.h>
+#else
+#  include <GL/gl.h>
+#endif
 
 #ifdef __cplusplus
 extern "C" {
