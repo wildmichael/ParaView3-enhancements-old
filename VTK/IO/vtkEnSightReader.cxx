@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSightReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-04-15 19:18:55 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 2003-04-16 12:39:38 $
+  Version:   $Revision: 1.45 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -39,7 +39,7 @@
 #pragma warning(pop)
 #endif
 
-vtkCxxRevisionMacro(vtkEnSightReader, "$Revision: 1.44 $");
+vtkCxxRevisionMacro(vtkEnSightReader, "$Revision: 1.45 $");
 
 //----------------------------------------------------------------------------
 typedef vtkstd::vector< vtkSmartPointer<vtkIdList> > vtkEnSightReaderCellIdsTypeBase;
@@ -103,7 +103,7 @@ vtkEnSightReader::vtkEnSightReader()
 //----------------------------------------------------------------------------
 vtkEnSightReader::~vtkEnSightReader()
 {
-  int i, j;
+  int i;
 
   if (this->CellIds)
     {
@@ -1940,7 +1940,7 @@ vtkIdList* vtkEnSightReader::GetCellIds(int index, int cellType)
     }
   
   // Get the index of the actual vtkIdList requested.
-  int cellIdsIndex = index*16 + cellType;
+  unsigned int cellIdsIndex = index*16 + cellType;
   
   // Make sure the container is large enough for this index.
   if(cellIdsIndex+1 > this->CellIds->size())
