@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCommand.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-28 13:34:22 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2002-01-08 14:38:18 $
+  Version:   $Revision: 1.15 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -77,6 +77,7 @@ static const char *vtkCommandEventStrings[] = {
   "WindowLevelEvent",
   "NextDataEvent",
   "PushDataStartEvent",
+  "SetOutputEvent",
   "EndOfDataEvent",
   "ErrorEvent",
   "WarningEvent",
