@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastFunction.h,v $
   Language:  C++
-  Date:      $Date: 1997-08-18 14:54:28 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-01-04 22:26:12 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -76,6 +76,8 @@ public:
 			   vtkVolumeRayCastMapper *mapper,
 			   float *opacity_tf_array,
 			   float *corrected_opacity_tf_array,
+			   float *gradient_opacity_tf_array,
+			   float gradient_opacity_constant,
 			   float *rgb_tf_array,
 			   float *gray_tf_array,
 			   int   tf_array_size);
@@ -102,8 +104,10 @@ public:
   // which is not a member method.
   float                        *RGBTFArray;
   float                        *GrayTFArray;
-  float                        *OpacityTFArray;
-  float                        *CorrectedOpacityTFArray;
+  float                        *ScalarOpacityTFArray;
+  float                        *CorrectedScalarOpacityTFArray;
+  float                        *GradientOpacityTFArray;
+  float                        GradientOpacityConstant;
   int                          TFArraySize;
   int                          Shading;
   int                          ColorChannels;
@@ -117,6 +121,7 @@ public:
   float                        *GreenSpecularShadingTable;
   float                        *BlueSpecularShadingTable;
   unsigned short               *EncodedNormals;
+  unsigned char                *GradientMagnitudes;
 
 protected:
 
