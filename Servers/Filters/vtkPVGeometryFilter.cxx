@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkPVGeometryFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-10-10 14:16:30 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2001-10-10 17:12:01 $
+  Version:   $Revision: 1.7 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -250,8 +250,8 @@ void vtkPVGeometryFilter::UnstructuredGridExecute(vtkUnstructuredGrid *input)
   for (id = 0; id < numCells && this->OutlineFlag == 0; ++id)
     {
     type = input->GetCellType(id);
-    if (type != VTK_TETRA || type != VTK_VOXEL || type != VTK_HEXAHEDRON
-        || type != VTK_WEDGE || type != VTK_PYRAMID)
+    if (type == VTK_TETRA || type == VTK_VOXEL || type == VTK_HEXAHEDRON
+        || type == VTK_WEDGE || type == VTK_PYRAMID)
       {
       this->OutlineFlag = 1;
       } 
