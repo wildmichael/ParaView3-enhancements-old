@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkCellArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-09-12 21:22:28 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1995-05-03 05:58:47 $
+  Version:   $Revision: 1.3 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -20,4 +20,19 @@ vlCellArray::vlCellArray (const vlCellArray& ca)
   this->NumberOfCells = ca.NumberOfCells;
   this->Location = 0;
   this->Ia = ca.Ia;
+}
+
+// Description:
+// Returns the size of the largest cell. The size is the number of points
+// defining the cell.
+int vlCellArray::GetMaxCellSize()
+{
+  int i, npts, maxSize=0;
+
+  for (i=0; i<this->Ia.GetMaxId(); i+=npts+1)
+    {
+    if ( (npts=this->Ia.GetValue(i)) > maxSize )
+      maxSize = npts;
+    }
+  return maxSize;
 }
