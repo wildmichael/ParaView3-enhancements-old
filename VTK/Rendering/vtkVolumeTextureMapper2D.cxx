@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeTextureMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-20 16:15:14 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 2002-03-08 16:06:15 $
+  Version:   $Revision: 1.43 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -463,7 +463,7 @@ VolumeTextureMapper2D_TraverseVolume( T *data_ptr,
 
 }
 
-vtkCxxRevisionMacro(vtkVolumeTextureMapper2D, "$Revision: 1.42 $");
+vtkCxxRevisionMacro(vtkVolumeTextureMapper2D, "$Revision: 1.43 $");
 
 vtkVolumeTextureMapper2D::vtkVolumeTextureMapper2D()
 {
@@ -844,8 +844,11 @@ void vtkVolumeTextureMapper2D::GenerateTexturesAndRenderQuads( vtkRenderer *ren,
       }
     
     this->MajorDirection = savedDirection;
-    this->RenderSavedTexture();
-    this->TextureMTime.Modified();
+    if ( !ren->GetRenderWindow()->GetAbortRender() ) 
+      {
+      this->RenderSavedTexture();
+      this->TextureMTime.Modified();
+      }
     }
   else
     {
