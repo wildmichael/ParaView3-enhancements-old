@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCastToConcrete.h,v $
   Language:  C++
-  Date:      $Date: 1996-07-17 20:37:35 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1996-07-21 13:29:57 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -75,6 +75,7 @@ class vtkCastToConcrete : public vtkDataSetFilter
 
 public:
   vtkCastToConcrete();
+  ~vtkCastToConcrete();
   char *GetClassName() {return "vtkCastToConcrete";};
 
   // filter interface (special pass-thru)
@@ -90,11 +91,10 @@ protected:
   void Execute(); //insures compatibility; satisfies abstract api in vtkFilter
   
   // objects used in the casting process
-  vtkPolyData PolyData;
-  vtkStructuredPoints StructuredPoints;
-  vtkStructuredGrid StructuredGrid;
-  vtkUnstructuredGrid UnstructuredGrid;
-
+  vtkPolyData *PolyData;
+  vtkStructuredPoints *StructuredPoints;
+  vtkStructuredGrid *StructuredGrid;
+  vtkUnstructuredGrid *UnstructuredGrid;
 };
 
 #endif
