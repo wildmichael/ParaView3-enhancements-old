@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointWidget.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-07 23:12:10 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-08-20 12:40:04 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -228,6 +228,9 @@ protected:
   vtkProperty *Property;
   vtkProperty *SelectedProperty;
   void CreateDefaultProperties();
+  
+  // Keep track of last pick position
+  float LastPickPosition[3];
   
 private:
   vtkPointWidget(const vtkPointWidget&);  //Not implemented

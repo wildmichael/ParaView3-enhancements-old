@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPlaneWidget.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-06 19:19:23 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2002-08-20 12:40:03 $
+  Version:   $Revision: 1.14 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -340,6 +340,9 @@ protected:
   void CreateDefaultProperties();
   
   void GeneratePlane();
+  
+  // Keep track of last pick position
+  float LastPickPosition[3];
   
 private:
   vtkPlaneWidget(const vtkPlaneWidget&);  //Not implemented
