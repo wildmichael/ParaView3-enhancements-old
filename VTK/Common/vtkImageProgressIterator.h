@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageProgressIterator.h,v $
   Language:  C++
-  Date:      $Date: 2002-03-07 13:05:28 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-03-11 16:04:45 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -29,8 +29,8 @@
 #include "vtkImageIterator.h"
 class vtkProcessObject;
 
-template<class DType> class VTK_COMMON_EXPORT vtkImageProgressIterator : 
-  public vtkImageIterator<DType> 
+template<class DType>
+class vtkImageProgressIterator : public vtkImageIterator<DType> 
 {
 public:        
 

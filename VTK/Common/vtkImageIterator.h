@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageIterator.h,v $
   Language:  C++
-  Date:      $Date: 2002-03-07 13:05:27 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-03-11 16:04:45 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -29,7 +29,8 @@
 #include "vtkWin32Header.h"
 class vtkImageData;
 
-template<class DType> class VTK_COMMON_EXPORT vtkImageIterator 
+template<class DType>
+class vtkImageIterator 
 {
 public:        
   typedef DType *SpanIterator;
@@ -58,7 +59,7 @@ public:
     
   // Description:
   // tets if the end of the extent has been reached
-  bool IsAtEnd()
+  int IsAtEnd()
     {
     return (this->Pointer >= this->EndPointer);
     }
