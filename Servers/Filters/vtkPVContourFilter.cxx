@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPVContourFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-04 18:35:32 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2000-08-04 20:09:47 $
+  Version:   $Revision: 1.8 $
 
 Copyright (c) 1998-2000 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -168,7 +168,7 @@ void vtkPVContourFilter::ContourValueChanged()
   
   ac = this->GetPVData()->GetActorComposite();
   window->GetMainView()->AddComposite(ac);
-  window->GetMainView()->SetSelectedComposite(ac);
+  window->GetMainView()->SetSelectedComposite(this);
 }
 
 
