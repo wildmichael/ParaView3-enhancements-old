@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataArraySelection.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-04-14 13:57:11 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2003-04-15 13:34:55 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -30,7 +30,7 @@
 #pragma warning(pop)
 #endif
 
-vtkCxxRevisionMacro(vtkDataArraySelection, "$Revision: 1.11 $");
+vtkCxxRevisionMacro(vtkDataArraySelection, "$Revision: 1.12 $");
 vtkStandardNewMacro(vtkDataArraySelection);
 
 class vtkDataArraySelectionArrayNamesType: public vtkstd::vector<vtkstd::string> {};
@@ -229,12 +229,13 @@ int vtkDataArraySelection::AddArray(const char* name)
 //----------------------------------------------------------------------------
 void vtkDataArraySelection::SetArrays(const char* const* names, int numArrays)
 {
-  this->SetArrays(names, numArrays, 1);
+  this->SetArraysWithDefault(names, numArrays, 1);
 }
 
 //----------------------------------------------------------------------------
-void vtkDataArraySelection::SetArrays(const char* const* names, int numArrays,
-                                      int defaultStatus)
+void vtkDataArraySelection::SetArraysWithDefault(const char* const* names,
+                                                 int numArrays,
+                                                 int defaultStatus)
 {
   // This function is called only by the filter owning the selection.
   // It should not call Modified() because array settings are not
