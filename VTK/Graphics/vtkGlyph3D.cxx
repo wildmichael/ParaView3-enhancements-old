@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGlyph3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-31 17:38:47 $
-  Version:   $Revision: 1.58 $
+  Date:      $Date: 1999-01-02 13:58:14 $
+  Version:   $Revision: 1.59 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -246,7 +246,9 @@ void vtkGlyph3D::Execute()
       {
       s = inScalars->GetScalar(inPtId);
       if ( this->ScaleMode == VTK_SCALE_BY_SCALAR || this->ScaleMode == VTK_DATA_SCALING_OFF )
+	{
         scale = s;
+	}
       }
 
     if ( haveVectors )
@@ -516,7 +518,9 @@ void vtkGlyph3D::Update()
     for (i=0; i<this->NumberOfSources; i++)
       {
       if ( this->Source[i] != NULL && this->Source[i]->GetDataReleased() ) 
+	{
         this->Source[i]->ForceUpdate();
+	}
       }
 
     if ( this->StartMethod )
