@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThinPlateSplineTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-01-29 00:15:25 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2000-01-29 13:53:09 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to David G. Gobbi who developed this class 
              based on code from vtkThinPlateSplineMeshWarp.cxx
 	     written Tim Hutton.
@@ -87,41 +87,6 @@ static inline void FillMatrixWithZeros(double** m,int x,int y)
       {
       m[i][j]=0.0;
       }
-    }
-}
-static inline void TransposeMatrix(double*** m,int x,int y) 
-{
-  double swap,*a,*b;
-  int r,c;
-  if(x==y)
-    {
-    // matrix is square, can just swap values over the diagonal (fast)
-    for(c=1;c<x;c++)
-      {
-      for(r=0;r<c;r++) 
-        {
-        a = &((*m)[r][c]); // (what a mess)
-        b = &((*m)[c][r]);
-        swap=*a; 
-        *a=*b; 
-        *b=swap; 
-        }
-      }
-    }
-  else
-    {
-    // matrix is not square, must reallocate memory first
-    double **result = NewMatrix(y,x);
-    for(r=0;r<y;r++)
-      {
-      for(c=0;c<x;c++)
-        {
-        result[r][c] = (*m)[c][r]; 
-        }
-      }
-    // plug in the replacement matrix
-    DeleteMatrix(*m,x,y);
-    *m=result;
     }
 }
 static inline void MatrixMultiply(double** a,double** b,double** c,

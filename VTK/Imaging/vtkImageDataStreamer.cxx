@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDataStreamer.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-01-27 20:59:56 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2000-01-29 13:53:09 $
+  Version:   $Revision: 1.12 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -74,7 +74,6 @@ protected:
 void vtkImageDataStreamerExtentStack::Push( int extent[6] )
 {
   int *newStack, newSize;
-  int i;
 
   if ( this->StackSize >= this->StackStorageSize )
     {
