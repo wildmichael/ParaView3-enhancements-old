@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadricClustering.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-05-07 18:06:40 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2001-05-07 18:22:37 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1039,15 +1039,25 @@ void vtkQuadricClustering::EndAppendUsingPoints(vtkPolyData *input)
   output->SetPolys(this->OutputTriangleArray);
   output->SetPoints(outputPoints);
   outputPoints->Delete();
-  delete [] this->QuadricArray;
-  this->QuadricArray = NULL;
-
   this->OutputTriangleArray->Delete();
   this->OutputTriangleArray = NULL;
+
+  if (this->OutputLines->GetNumberOfCells() > 0)
+    {
+    output->SetLines(this->OutputLines);
+    }
   this->OutputLines->Delete();
   this->OutputLines = NULL;
+
+  if (this->OutputVerts->GetNumberOfCells() > 0)
+    {
+    output->SetVerts(this->OutputVerts);
+    }
   this->OutputVerts->Delete();
   this->OutputVerts = NULL;
+
+  delete [] this->QuadricArray;
+  this->QuadricArray = NULL;
 
   delete minError;
 }
