@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRungeKutta45.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-14 22:32:14 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-02-15 12:57:24 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkRungeKutta45.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkRungeKutta45, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkRungeKutta45, "$Revision: 1.2 $");
 vtkStandardNewMacro(vtkRungeKutta45);
 
 // Cash-Karp parameters
@@ -116,13 +116,13 @@ int vtkRungeKutta45::ComputeNextStep(float* xprev, float* dxprev,
     }
 
   float errRatio, tmp, tmp2;
-  int retVal, sign, shouldBreak = 0;
+  int retVal, shouldBreak = 0;
 
   // Reduce the step size until estimated error <= maximum allowed error
   while ( estErr > maxError )
     {
-    if (retVal = 
-	this->ComputeAStep(xprev, dxprev, xnext, t, delT, estErr))
+    if ((retVal = 
+	 this->ComputeAStep(xprev, dxprev, xnext, t, delT, estErr)))
       {
       delTActual = delT;
       return retVal;
@@ -139,11 +139,11 @@ int vtkRungeKutta45::ComputeNextStep(float* xprev, float* dxprev,
     // Empirical formulae for calculating next step size
     if ( errRatio > 1 )
       {
-      tmp = delT*pow(errRatio, -0.25);
+      tmp = delT*pow(errRatio, static_cast<float>(-0.25));
       }
     else
       {
-      tmp = delT*pow(errRatio, -0.2);
+      tmp = delT*pow(errRatio, static_cast<float>(-0.2));
       }
     tmp2 = fabs(tmp);
     
