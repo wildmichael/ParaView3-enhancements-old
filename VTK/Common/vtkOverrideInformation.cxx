@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOverrideInformation.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-01 14:25:18 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-03-01 20:24:30 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -90,7 +90,8 @@ void vtkOverrideInformation::PrintSelf(ostream& os,
     }
   else
     {
-    os << indent.GetNextIndent() << "(NULL)\n";
+    vtkIndent n = indent.GetNextIndent();
+    os << n << "(NULL)\n";
     }
 }
 
