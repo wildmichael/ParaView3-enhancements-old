@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-02-25 21:47:12 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1999-02-25 21:54:46 $
+  Version:   $Revision: 1.18 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -87,7 +87,7 @@ int vtkActor2D::RenderOverlay(vtkViewport* viewport)
   if (!this->Mapper) 
     {
     vtkErrorMacro(<< "vtkActor2D::Render - No mapper set");
-    return;
+    return 0;
     }
 
   this->Mapper->RenderOverlay(viewport, this); 
@@ -112,7 +112,7 @@ int vtkActor2D::RenderOpaqueGeometry(vtkViewport* viewport)
   if (!this->Mapper) 
     {
     vtkErrorMacro(<< "vtkActor2D::Render - No mapper set");
-    return;
+    return 0;
     }
 
   this->Mapper->RenderOpaqueGeometry(viewport, this);
@@ -137,7 +137,7 @@ int vtkActor2D::RenderTranslucentGeometry(vtkViewport* viewport)
   if (!this->Mapper) 
     {
     vtkErrorMacro(<< "vtkActor2D::Render - No mapper set");
-    return;
+    return 0;
     }
 
   this->Mapper->RenderTranslucentGeometry(viewport, this);
