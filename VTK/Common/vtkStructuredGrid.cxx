@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-12 15:55:18 $
-  Version:   $Revision: 1.56 $
+  Date:      $Date: 1999-12-02 21:13:16 $
+  Version:   $Revision: 1.57 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -1063,6 +1063,29 @@ void vtkStructuredGrid::ClipWithUpdateExtent()
     newPts->Delete();
     this->PointData->Delete();
     this->PointData = newPd;
+    }
+}
+
+//----------------------------------------------------------------------------
+void vtkStructuredGrid::GetCellNeighbors(int cellId, vtkIdList *ptIds,
+                                         vtkIdList *cellIds)
+{
+  int numPtIds=ptIds->GetNumberOfIds();
+
+  // Use special methods for speed
+  switch (numPtIds)
+    {
+    case 0:
+      cellIds->Reset();
+      return;
+
+    case 1: case 2: case 4: //vertex, edge, face neighbors
+      vtkStructuredData::GetCellNeigbors(cellId, ptIds, 
+                                         cellIds, this->Dimensions);
+      break;
+      
+    default:
+      this->vtkDataSet::GetCellNeighbors(cellId, ptIds, cellIds);
     }
 }
 
