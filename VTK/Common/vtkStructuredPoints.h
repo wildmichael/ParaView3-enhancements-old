@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPoints.h,v $
   Language:  C++
-  Date:      $Date: 2000-08-07 22:31:30 $
-  Version:   $Revision: 1.71 $
+  Date:      $Date: 2000-10-10 17:36:43 $
+  Version:   $Revision: 1.72 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -69,10 +69,6 @@ public:
   // Description:
   // To simplify filter superclasses,
   int GetDataObjectType() {return VTK_STRUCTURED_POINTS;}
-
-  // Description:
-  // Internal method in a class we hope to remove
-  virtual void PropagateUpdateExtent();
 
 protected:
   vtkStructuredPoints();

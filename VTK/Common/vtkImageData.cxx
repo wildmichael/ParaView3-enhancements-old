@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-09-26 12:03:11 $
-  Version:   $Revision: 1.97 $
+  Date:      $Date: 2000-10-10 17:36:43 $
+  Version:   $Revision: 1.98 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -91,7 +91,9 @@ vtkImageData::vtkImageData()
 
   this->NumberOfScalarComponents = 1;
 
+  // Making the default float for structured points.
   this->ScalarType = VTK_VOID;
+  this->SetScalarType(VTK_FLOAT);
 
   // for automatic conversion
   this->ImageToStructuredPoints = NULL;
@@ -1095,7 +1097,9 @@ void vtkImageData::SetUpdateExtent(int piece, int numPieces, int ghostLevel)
 void vtkImageData::UpdateData()
 {
   this->vtkDataObject::UpdateData();
-  
+
+  // This stuff should really be vtkImageToStructuredPoints.
+
   if (this->UpdateNumberOfPieces == 1)
     {
     // Either the piece has not been used to set the update extent,
@@ -1295,7 +1299,7 @@ void vtkImageData::UpdateData()
     levels->Delete();
     levels = NULL;
     }
-  
+
 }
 
 //----------------------------------------------------------------------------
