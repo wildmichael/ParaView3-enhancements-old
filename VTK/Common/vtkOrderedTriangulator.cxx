@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOrderedTriangulator.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-16 15:01:45 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 2002-10-02 12:51:25 $
+  Version:   $Revision: 1.44 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 #include "vtkEdgeTable.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkOrderedTriangulator, "$Revision: 1.43 $");
+vtkCxxRevisionMacro(vtkOrderedTriangulator, "$Revision: 1.44 $");
 vtkStandardNewMacro(vtkOrderedTriangulator);
 
 #ifdef _WIN32_WCE
@@ -1011,10 +1011,13 @@ int vtkOTMesh::CreateInsertionCavity(vtkOTPoint* p, vtkOTTetra *initialTet,
     {
     if ( (*t)->Type == vtkOTTetra::InCavity )
       {
-      if ( (*t)->CurrentPointId != p->InternalId )
-        {
-        int bad=1;
-        }
+// -------------------------------------------------
+// Will should implement this in future.
+//      if ( (*t)->CurrentPointId != p->InternalId )
+//        {
+//        int bad=1;
+//        }
+// -------------------------------------------------
       t = this->Tetras.Delete(t);
       }
     else
@@ -1149,7 +1152,6 @@ vtkOTMesh::WalkToTetra(vtkOTTetra* tetra, double x[3], int depth, double bc[4])
 // degenerate resolution process to generate a unique Delaunay triangulation.
 void vtkOrderedTriangulator::Triangulate()
 {
-  vtkOTLinkedList<vtkOTTetra*>::Iterator tptr;
   vtkOTPoint *p;
   int i;
   vtkIdType ptId;
