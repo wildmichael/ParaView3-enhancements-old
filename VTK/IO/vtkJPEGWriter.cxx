@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkJPEGWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-11-07 15:10:25 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2003-11-07 16:17:50 $
+  Version:   $Revision: 1.18 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,7 @@ extern "C" {
 #include <setjmp.h>
 }
 
-vtkCxxRevisionMacro(vtkJPEGWriter, "$Revision: 1.17 $");
+vtkCxxRevisionMacro(vtkJPEGWriter, "$Revision: 1.18 $");
 vtkStandardNewMacro(vtkJPEGWriter);
 
 vtkCxxSetObjectMacro(vtkJPEGWriter,Result,vtkUnsignedCharArray);
@@ -203,7 +203,9 @@ METHODDEF(void)
 // we disable this warning because even though this is a C++ file, between
 // the setjmp and resulting longjmp there should not be any C++ constructors
 // or destructors.
+#if defined(_MSC_VER) && !defined(VTK_DISPLAY_WIN32_WARNINGS)
 #pragma warning ( disable : 4611 )
+#endif
 void vtkJPEGWriter::WriteSlice(vtkImageData *data)
 {
   // Call the correct templated function for the output
