@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagePlaneWidget.h,v $
   Language:  C++
-  Date:      $Date: 2003-10-31 16:38:15 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2003-11-04 20:13:43 $
+  Version:   $Revision: 1.38 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -380,6 +380,28 @@ public:
   vtkSetClampMacro(RightButtonAction,int, CURSOR_ACTION, WINDOW_LEVEL_ACTION);
   vtkGetMacro(RightButtonAction, int);
 
+  // Description:
+  // Set the auto-modifiers associated to buttons.
+  // This allows users to bind some buttons to actions that are usually
+  // triggered by a key modifier. For example, if you do not need cursoring,
+  // you can bind the left button action to SLICE_MOTION_ACTION (see above) 
+  // and the left button auto modifier to CONTROL_MODIFIER: you end up with
+  // the left button controling panning without pressing a key.
+  //BTX
+  enum
+  {
+    NO_MODIFIER         = 0,
+    SHIFT_MODIFIER      = 1,
+    CONTROL_MODIFIER    = 2
+  };
+  //ETX
+  vtkSetClampMacro(LeftButtonAutoModifier,int, SHIFT_MODIFIER, CONTROL_MODIFIER);
+  vtkGetMacro(LeftButtonAutoModifier, int);
+  vtkSetClampMacro(MiddleButtonAutoModifier,int, SHIFT_MODIFIER, CONTROL_MODIFIER);
+  vtkGetMacro(MiddleButtonAutoModifier, int);
+  vtkSetClampMacro(RightButtonAutoModifier,int, SHIFT_MODIFIER, CONTROL_MODIFIER);
+  vtkGetMacro(RightButtonAutoModifier, int);
+
 protected:
   vtkImagePlaneWidget();
   ~vtkImagePlaneWidget();
@@ -389,6 +411,10 @@ protected:
   int LeftButtonAction;
   int MiddleButtonAction;
   int RightButtonAction;
+
+  int LeftButtonAutoModifier;
+  int MiddleButtonAutoModifier;
+  int RightButtonAutoModifier;
 
 //BTX - manage the state of the widget
   int State;
