@@ -3,11 +3,11 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLLight.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-27 15:33:19 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1997-07-09 20:45:48 $
+  Version:   $Revision: 1.3 $
 
 
-Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
+Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
 This software is copyrighted by Ken Martin, Will Schroeder and Bill Lorensen.
 The following terms apply to all files associated with the software unless

@@ -3,11 +3,11 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProbeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-11-18 20:55:46 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 1997-07-09 20:46:35 $
+  Version:   $Revision: 1.34 $
 
 
-Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
+Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
 This software is copyrighted by Ken Martin, Will Schroeder and Bill Lorensen.
 The following terms apply to all files associated with the software unless
