@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangle.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-13 16:46:28 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 1997-04-13 16:46:50 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -96,8 +96,8 @@ public:
                          float v1[2], float v2[2], float v3[2]);
   static void ComputeNormal(vtkPoints *p, int numPts, int *pts, float n[3]);
   static void ComputeNormal(float v1[3], float v2[3], float v3[3], float n[3]);
-  int PointInTriangle(float x[3], float x1[3], float x2[3], float x3[3], 
-                      float tol2);
+  static int PointInTriangle(float x[3], float x1[3], float x2[3], float x3[3], 
+                             float tol2);
 
 };
 
