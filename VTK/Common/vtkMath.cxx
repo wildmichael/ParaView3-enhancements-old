@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMath.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-09-18 18:05:50 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1998-01-29 14:09:45 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -215,7 +215,7 @@ int vtkMath::InvertMatrix(double **A, double **AI, int size)
 int vtkMath::LUFactorLinearSystem(double **A, int *index, int size)
 {
   static double *scale = NULL;
-  static maxSize=0;
+  static int maxSize=0;
   int i, j, k;
   int maxI = 0;
   double largest, temp1, temp2, sum;
