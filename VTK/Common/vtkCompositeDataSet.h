@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCompositeDataSet.h,v $
   Language:  C++
-  Date:      $Date: 2003-12-11 15:47:36 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-12-12 02:35:44 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -65,6 +65,10 @@ public:
   void SetUpdateExtent(int piece, int numPieces)
     {this->SetUpdateExtent(piece, numPieces, 0);}
   void GetUpdateExtent(int &piece, int &numPieces, int &ghostLevel);
+
+  // Description:
+  // We need this here to keep from hiding superclass method
+  vtkGetVector6Macro( UpdateExtent, int );
 
   // Description:
   // Call superclass method to avoid hiding

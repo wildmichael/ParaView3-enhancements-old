@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCompositeDataSet.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-12-11 15:47:36 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-12-12 02:35:44 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 #include "vtkCompositeDataVisitor.h"
 #include "vtkDataSet.h"
 
-vtkCxxRevisionMacro(vtkCompositeDataSet, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkCompositeDataSet, "$Revision: 1.2 $");
 
 //----------------------------------------------------------------------------
 vtkCompositeDataSet::vtkCompositeDataSet()
@@ -60,6 +60,7 @@ void vtkCompositeDataSet::GetUpdateExtent(int &piece, int &numPieces, int &ghost
 //----------------------------------------------------------------------------
 void vtkCompositeDataSet::PrintSelf(ostream& os, vtkIndent indent)
 {
+  // this->UpdateExtent
   this->Superclass::PrintSelf(os,indent);
 }
 

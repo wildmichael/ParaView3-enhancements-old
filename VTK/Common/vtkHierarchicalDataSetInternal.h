@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHierarchicalDataSetInternal.h,v $
   Language:  C++
-  Date:      $Date: 2003-12-11 15:47:37 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-12-12 02:35:44 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -43,9 +43,13 @@ struct vtkHDSNodeRef
 
   vtkstd_bool operator==(const vtkHDSNodeRef& rhs)
     {
-      return (this->Level == rhs.Level) && (this->Index && rhs.Index);
+      return (this->Level == rhs.Level) && (this->Index == rhs.Index);
     }
-
+  vtkstd_bool operator!=(const vtkHDSNodeRef& rhs)
+    {
+      return (this->Level != rhs.Level) || (this->Index != rhs.Index);
+    }
+  
   int Level;
   int Index;
 };
