@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageShrink3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-04-01 19:04:06 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1997-04-09 10:59:09 $
+  Version:   $Revision: 1.17 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -48,10 +48,12 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // Constructor: Sets default filter to be identity.
 vtkImageShrink3D::vtkImageShrink3D()
 {
-  this->SetAxes(VTK_IMAGE_X_AXIS, VTK_IMAGE_Y_AXIS, VTK_IMAGE_Z_AXIS);
-  this->SetShrinkFactors(1, 1, 1);
-  this->SetShift(0, 0, 0);
-  this->AveragingOn();
+  this->Axes[0] = VTK_IMAGE_X_AXIS;
+  this->Axes[1] = VTK_IMAGE_Y_AXIS;
+  this->Axes[2] = VTK_IMAGE_Z_AXIS;
+  this->ShrinkFactors[0] = this->ShrinkFactors[1] = this->ShrinkFactors[2] = 1;
+  this->Shift[0] = this->Shift[1] = this->Shift[2] = 1;
+  this->Averaging = 1;
 
   this->ExecuteDimensionality = 3;
   // Other dimesionalities can be simulated with specific shrink factors.
