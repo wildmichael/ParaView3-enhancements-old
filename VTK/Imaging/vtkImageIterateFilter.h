@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageIterateFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-01-07 09:11:24 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2000-01-13 16:37:38 $
+  Version:   $Revision: 1.17 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -68,9 +68,10 @@ public:
   vtkGetMacro(NumberOfIterations,int);  
 
   void ComputeInputUpdateExtents( vtkDataObject *output );
-  void ComputeInputUpdateExtent( int inExt[6], int outExt[6] )
-    { vtkErrorMacro( << "Should be implemented in subclass" );};
-
+  //BTX
+  void ComputeInputUpdateExtent( int [6], int [6] )
+    { vtkErrorMacro( << "ComputeInputUpdateExtent should be implemented in subclass" );};
+  //ETX
 
 protected:
   vtkImageIterateFilter();

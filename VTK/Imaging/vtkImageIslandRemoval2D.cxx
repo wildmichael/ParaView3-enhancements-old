@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageIslandRemoval2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-01-13 14:29:18 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2000-01-13 16:37:37 $
+  Version:   $Revision: 1.27 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -96,7 +96,7 @@ void vtkImageIslandRemoval2D::PrintSelf(ostream& os, vtkIndent indent)
 
 
 //----------------------------------------------------------------------------
-void vtkImageIslandRemoval2D::EnlargeOutputUpdateExtents( vtkDataObject *data )
+void vtkImageIslandRemoval2D::EnlargeOutputUpdateExtents( vtkDataObject *vtkNotUsed(data) )
 {
   int wholeExtent[6];
   int extent[6];

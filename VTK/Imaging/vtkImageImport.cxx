@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageImport.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-01-07 09:11:22 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2000-01-13 16:37:37 $
+  Version:   $Revision: 1.21 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -212,7 +212,7 @@ void vtkImageImport::SetImportVoidPointer(void *ptr, int save)
 
 
 //----------------------------------------------------------------------------
-void vtkImageImport::EnlargeOutputUpdateExtents( vtkDataObject *data )
+void vtkImageImport::EnlargeOutputUpdateExtents( vtkDataObject *vtkNotUsed(data) )
 {
   int *wholeExtent, updateExtent[6], idx;
   

@@ -3,11 +3,11 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageClip.h,v $
   Language:  C++
-  Date:      $Date: 2000-01-07 09:11:13 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2000-01-13 16:37:37 $
+  Version:   $Revision: 1.21 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
-Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
+Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen.
 
 This software is copyrighted by Ken Martin, Will Schroeder and Bill Lorensen.
 The following terms apply to all files associated with the software unless
@@ -102,6 +102,9 @@ protected:
   void CopyData(vtkImageData *inData, vtkImageData *outData, int *ext);
 
   void Execute(vtkImageData *inData, vtkImageData *outData);
+  void Execute() { this->vtkImageToImageFilter::Execute(); };
+  void Execute(vtkImageData *output)
+    { this->vtkImageToImageFilter::Execute(output); };
   int SplitExtentTmp(int piece, int numPieces, int *ext);
 };
 

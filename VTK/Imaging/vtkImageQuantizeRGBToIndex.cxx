@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageQuantizeRGBToIndex.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-01-07 09:11:29 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2000-01-13 16:37:38 $
+  Version:   $Revision: 1.14 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -684,7 +684,7 @@ void vtkImageQuantizeRGBToIndex::ComputeInputUpdateExtent(int inExt[6],
 }
 
 void vtkImageQuantizeRGBToIndex::EnlargeOutputUpdateExtents( vtkDataObject 
-							     *data )
+							     *vtkNotUsed(data) )
 {
   int wholeExtent[8];
   

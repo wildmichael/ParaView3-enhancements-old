@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAccumulate.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-01-07 09:11:10 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2000-01-13 16:37:36 $
+  Version:   $Revision: 1.19 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -318,7 +318,7 @@ void vtkImageAccumulate::ComputeInputUpdateExtent(int inExt[6],
 }
 
 //----------------------------------------------------------------------------
-void vtkImageAccumulate::EnlargeOutputUpdateExtents( vtkDataObject *data )
+void vtkImageAccumulate::EnlargeOutputUpdateExtents( vtkDataObject *vtkNotUsed(data) )
 {
   int wholeExtent[8];
   
