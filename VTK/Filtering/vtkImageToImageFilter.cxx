@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToImageFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-08 17:16:25 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1999-09-08 21:06:35 $
+  Version:   $Revision: 1.16 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -120,6 +120,10 @@ void vtkImageToImageFilter::ExecuteInformation()
       }
     
     this->ExecuteInformation(input, output);
+    }
+  else
+    {
+    output->CopyInformation( input );
     }
 }
 //----------------------------------------------------------------------------
