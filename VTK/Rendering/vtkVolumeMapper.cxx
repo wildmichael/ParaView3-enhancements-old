@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-05 20:16:09 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2002-03-21 20:26:26 $
+  Version:   $Revision: 1.39 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkVolumeMapper.h"
 #include "vtkImageClip.h"
 
-vtkCxxRevisionMacro(vtkVolumeMapper, "$Revision: 1.38 $");
+vtkCxxRevisionMacro(vtkVolumeMapper, "$Revision: 1.39 $");
 
 // Construct a vtkVolumeMapper with empty scalar input and clipping off.
 vtkVolumeMapper::vtkVolumeMapper()
@@ -40,6 +40,9 @@ vtkVolumeMapper::vtkVolumeMapper()
   
   this->ImageClipper = vtkImageClip::New();
   this->ImageClipper->ClipDataOn();
+  
+  this->IndependentComponents = 1;
+  this->ComponentBlendMode = vtkVolumeMapper::ComponentBlendAdd;
 }
 
 vtkVolumeMapper::~vtkVolumeMapper()
