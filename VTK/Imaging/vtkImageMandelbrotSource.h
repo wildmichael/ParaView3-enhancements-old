@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMandelbrotSource.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-03 14:10:26 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2000-10-13 18:23:39 $
+  Version:   $Revision: 1.17 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -68,8 +68,7 @@ public:
   void SetWholeExtent(int extent[6]);
   void SetWholeExtent(int minX, int maxX, int minY, int maxY, 
 			    int minZ, int maxZ);
-  void GetWholeExtent(int extent[6]);
-  int *GetWholeExtent() {return this->WholeExtent;}
+  vtkGetVector6Macro(WholeExtent,int);
   
   // Description:
   // Set the projection from  the 4D space (4 parameters / 2 imaginary numbers)

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMandelbrotSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-23 16:43:30 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2000-10-13 18:23:39 $
+  Version:   $Revision: 1.18 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -182,18 +182,6 @@ void vtkImageMandelbrotSource::SetWholeExtent(int minX, int maxX,
   extent[2] = minY;  extent[3] = maxY;
   extent[4] = minZ;  extent[5] = maxZ;
   this->SetWholeExtent(extent);
-}
-
-
-//----------------------------------------------------------------------------
-void vtkImageMandelbrotSource::GetWholeExtent(int extent[6])
-{
-  int idx;
-  
-  for (idx = 0; idx < 6; ++idx)
-    {
-    extent[idx] = this->WholeExtent[idx];
-    }
 }
 
 
