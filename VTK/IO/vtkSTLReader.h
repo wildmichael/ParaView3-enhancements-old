@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkSTLReader.h,v $
   Language:  C++
-  Date:      $Date: 1994-05-15 19:17:19 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1994-07-20 21:09:01 $
+  Version:   $Revision: 1.8 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -13,9 +13,13 @@ written consent of the authors.
 Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994 
 
 =========================================================================*/
-//
-// Read ASCII/Binary Stereo Lithography Files
-//
+// .NAME vlSTLReader - read ASCII or binary stereo lithography files
+// .SECTION Description
+// vlSTLReader is a source object that reads ASCII or binary stereo 
+// lithography files (.stl files). The filename must be specified to
+// vlSTLReader. The object automatically senses whether the file is
+// ASCII or binary.
+
 #ifndef __vlSTLReader_h
 #define __vlSTLReader_h
 
