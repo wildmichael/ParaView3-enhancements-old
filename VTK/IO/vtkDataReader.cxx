@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-05-31 18:10:50 $
-  Version:   $Revision: 1.107 $
+  Date:      $Date: 2001-06-29 18:46:46 $
+  Version:   $Revision: 1.108 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1151,7 +1151,7 @@ int vtkDataReader::ReadScalarData(vtkDataSetAttributes *a, int numPts)
   if (strcmp(this->LowerCase(key), "lookup_table"))
     {
     numComp = atoi(key);
-    if (numComp < 1 || numComp > 4 || !this->ReadString(key))
+    if (numComp < 1 || !this->ReadString(key))
       {
       vtkErrorMacro(<<"Cannot read scalar header!" << " for file: " 
       << this->FileName);
