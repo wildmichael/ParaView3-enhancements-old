@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkMatrix4x4.h,v $
   Language:  C++
-  Date:      $Date: 1994-05-08 08:55:43 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1994-07-09 06:43:17 $
+  Version:   $Revision: 1.7 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -39,7 +39,7 @@ class vlMatrix4x4 : public vlObject
   void Transpose (vlMatrix4x4 in,vlMatrix4x4 & out);
   void Transpose (void) { Transpose(*this,*this);};
 
-  void VectorMultiply(float in[4], float out[4]);
+  void PointMultiply(float in[4], float out[4]);
   void Adjoint (vlMatrix4x4 & in,vlMatrix4x4 & out);
   float Determinant (vlMatrix4x4 & in);
   char *GetClassName () {return "vlMatrix4x4";};

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkMatrix4x4.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-05-08 08:55:42 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1994-07-09 06:43:16 $
+  Version:   $Revision: 1.8 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -59,7 +59,7 @@ void vlMatrix4x4::operator= (float element)
   this->Modified ();
 }
 
-void vlMatrix4x4::VectorMultiply(float in[4],float result[4])
+void vlMatrix4x4::PointMultiply(float in[4],float result[4])
 {
   int i;
   float v1 = in[0];
@@ -103,7 +103,7 @@ void vlMatrix4x4::Invert (vlMatrix4x4 in,vlMatrix4x4 & out)
 
   det = in.Determinant(in);
   if ( fabs( det ) < SMALL_NUMBER) {
-    vlErrorMacro(<< "Singular matrix, no inverse! Determinant= " << det <<"\n");
+    vlErrorMacro(<< "Singular matrix, no inverse! Determinant= " << det );
     det = 0.0;
     return;
   }
