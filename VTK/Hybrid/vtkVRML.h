@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVRML.h,v $
   Language:  C++
-  Date:      $Date: 2001-05-02 12:31:24 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2001-05-03 13:58:34 $
+  Version:   $Revision: 1.7 $
   Thanks:    Tom Citriniti who implemented and contributed this class
 
 
@@ -61,14 +61,15 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define _VTKVRML_H_
 
 #define	DEFAULTINCREMENT	100
+#include <stdlib.h>
+
+#include "vtkConfigure.h"
 
 #ifdef VTK_USE_ANSI_STDLIB
 #include <new>
-#include <cstdlib>
 #include <iostream>
 #else
 #include <new.h>
-#include <stdlib.h>
 #include <iostream.h>
 #endif
 
