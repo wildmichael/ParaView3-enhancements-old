@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMultiThreader.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-17 17:55:51 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1999-11-18 16:10:05 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,7 +57,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #endif
 
 
-//------------------------------------------------------------------------------
+//----------------------------------------------------------------------------
 vtkMultiThreader* vtkMultiThreader::New()
 {
   // First try to create the object from the vtkObjectFactory
@@ -144,6 +144,12 @@ vtkMultiThreader::vtkMultiThreader()
 #endif  
 #endif  
 #endif
+  
+  // Lets limit the number of threads to 8
+  if (this->NumberOfThreads > 8)
+    {
+    this->NumberOfThreads = 8;
+    }
 }
 
 // Destructor. Nothing allocated so nothing needs to be done here.
