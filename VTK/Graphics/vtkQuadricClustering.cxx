@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadricClustering.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:41 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2002-02-26 22:13:07 $
+  Version:   $Revision: 1.40 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 #include "vtkFeatureEdges.h"
 #include "vtkTimerLog.h"
 
-vtkCxxRevisionMacro(vtkQuadricClustering, "$Revision: 1.39 $");
+vtkCxxRevisionMacro(vtkQuadricClustering, "$Revision: 1.40 $");
 vtkStandardNewMacro(vtkQuadricClustering);
 
 //----------------------------------------------------------------------------
@@ -79,6 +79,16 @@ vtkQuadricClustering::~vtkQuadricClustering()
     {
     delete [] this->QuadricArray;
     this->QuadricArray = NULL;
+    }
+  if (this->OutputTriangleArray)
+    {
+    this->OutputTriangleArray->Delete();
+    this->OutputTriangleArray = NULL;
+    }
+  if (this->OutputLines)
+    {
+    this->OutputLines->Delete();
+    this->OutputLines = NULL;
     }
 }
 
