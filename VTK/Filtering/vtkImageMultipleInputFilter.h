@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMultipleInputFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:36:34 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 2001-11-13 14:12:56 $
+  Version:   $Revision: 1.49 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -96,15 +96,15 @@ public:
   // Description:
   // Putting this here until I merge graphics and imaging streaming.
   virtual int SplitExtent(int splitExt[6], int startExt[6], 
-			  int num, int total);
+                          int num, int total);
 
   // Description:
   // The execute method created by the subclass.
   // This is kept public instead of protected since it is called
   // from a non-member thread function.
   virtual void ThreadedExecute(vtkImageData **inDatas, 
-			       vtkImageData *outData,
-			       int extent[6], int threadId);
+                               vtkImageData *outData,
+                               int extent[6], int threadId);
 
 
 
@@ -119,8 +119,8 @@ protected:
   void ComputeInputUpdateExtents( vtkDataObject *output );
   
   virtual void ComputeInputUpdateExtent( int inExt[6], 
-					 int outExt[6], 
-					 int whichInput );
+                                         int outExt[6], 
+                                         int whichInput );
 
 
   void ExecuteData(vtkDataObject *output);

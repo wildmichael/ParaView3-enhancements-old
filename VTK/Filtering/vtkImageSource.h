@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSource.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:36:34 $
-  Version:   $Revision: 1.52 $
+  Date:      $Date: 2001-11-13 14:12:56 $
+  Version:   $Revision: 1.53 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -80,7 +80,7 @@ protected:
   vtkImageData *AllocateOutputData(vtkDataObject *out);
 
   void ComputeRequiredInputUpdateExtent( int *vtkNotUsed(in), 
-					 int *vtkNotUsed(out) ) 
+                                         int *vtkNotUsed(out) ) 
     {VTK_LEGACY_METHOD(ComputeRequiredInputUpdateExtent,"3.2");}
   
 private:

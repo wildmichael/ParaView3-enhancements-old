@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMultipleInputOutputFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:36:34 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2001-11-13 14:12:56 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -74,8 +74,8 @@ public:
   // This is kept public instead of protected since it is called
   // from a non-member thread function.
   virtual void ThreadedExecute(vtkImageData **inDatas, 
-			       vtkImageData **outDatas,
-			       int extent[6], int threadId);
+                               vtkImageData **outDatas,
+                               int extent[6], int threadId);
 
 protected:
   vtkImageMultipleInputOutputFilter();
@@ -84,16 +84,16 @@ protected:
   void ComputeInputUpdateExtents( vtkDataObject *output );
   
   virtual void ComputeInputUpdateExtent( int inExt[6], 
-					 int outExt[6], 
-					 int whichInput );
+                                         int outExt[6], 
+                                         int whichInput );
 
 
   void ExecuteData(vtkDataObject *out);
 
   // this should never be called
   virtual void ThreadedExecute(vtkImageData **inDatas, 
-			       vtkImageData *outData,
-			       int extent[6], int threadId);
+                               vtkImageData *outData,
+                               int extent[6], int threadId);
   virtual void ExecuteInformation(vtkImageData **, vtkImageData *) {};
 
   // This one gets called by the superclass.

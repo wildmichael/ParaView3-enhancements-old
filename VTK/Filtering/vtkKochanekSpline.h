@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKochanekSpline.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:36:36 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2001-11-13 14:12:57 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -114,7 +114,7 @@ protected:
   void Fit1D (int n, float *x, float *y,
               float tension, float bias, float continuity,
               float coefficients[][4],
-	      int leftConstraint, float leftValue, int rightConstraint, float rightValue);
+              int leftConstraint, float leftValue, int rightConstraint, float rightValue);
   float DefaultBias;
   float DefaultTension;
   float DefaultContinuity;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSimpleImageToImageFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-12 12:37:00 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2001-11-13 14:13:04 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -90,7 +90,7 @@ void vtkSimpleImageToImageFilter::ExecuteInformation()
 
 
 void vtkSimpleImageToImageFilter::ComputeInputUpdateExtent( int inExt[6], 
-							    int vtkNotUsed(outExt)[6] )
+                                                            int vtkNotUsed(outExt)[6] )
 {
   vtkImageData *input = this->GetInput();
   // Make sure the Input has been set.

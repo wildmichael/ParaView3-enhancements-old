@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSetToPointSetFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-19 19:58:03 $
-  Version:   $Revision: 1.54 $
+  Date:      $Date: 2001-11-13 14:13:03 $
+  Version:   $Revision: 1.55 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -65,7 +65,7 @@ void vtkPointSetToPointSetFilter::SetInput(vtkPointSet *input)
   if (oldInput != NULL)
     {
     if (input == NULL || 
-	oldInput->GetDataObjectType() != input->GetDataObjectType())
+        oldInput->GetDataObjectType() != input->GetDataObjectType())
       {
       vtkWarningMacro("Changing input type.  Deleting output");
       this->SetOutput(NULL);

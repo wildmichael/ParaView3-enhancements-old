@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageTwoInputFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:11 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2001-11-13 14:13:01 $
+  Version:   $Revision: 1.19 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -76,7 +76,7 @@ vtkImageTwoInputFilter::vtkImageTwoInputFilter()
 void vtkImageTwoInputFilter::SetInput1(vtkImageData *input)
 {
   vtkDebugMacro(<< "SetInput1: input = " << input->GetClassName()
-		<< " (" << input << ")");
+                << " (" << input << ")");
 
   // does this change anything?
   if (input == this->Inputs[0])
@@ -107,7 +107,7 @@ void vtkImageTwoInputFilter::SetInput1(vtkImageData *input)
 void vtkImageTwoInputFilter::SetInput2(vtkImageData *input)
 {
   vtkDebugMacro(<< "SetInput2: input = " << input->GetClassName()
-		<< " (" << input << ")");
+                << " (" << input << ")");
 
   // does this change anything?
   if (input == this->Inputs[1])

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToImageFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:36:34 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2001-11-13 14:12:57 $
+  Version:   $Revision: 1.33 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -81,8 +81,8 @@ public:
   // will call this method. It is public so that the thread functions
   // can call this method.
   virtual void ThreadedExecute(vtkImageData *inData, 
-			       vtkImageData *outData,
-			       int extent[6], int threadId);
+                               vtkImageData *outData,
+                               int extent[6], int threadId);
   
   // Description:
   // Get/Set the number of threads to create when rendering
@@ -97,7 +97,7 @@ public:
   // Description:
   // Putting this here until I merge graphics and imaging streaming.
   virtual int SplitExtent(int splitExt[6], int startExt[6], 
-			  int num, int total);
+                          int num, int total);
   
 protected:
   vtkImageToImageFilter();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCardinalSpline.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:36:32 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2001-11-13 14:12:54 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -76,9 +76,9 @@ protected:
   ~vtkCardinalSpline() {};
 
   void Fit1D (int n, float *x, float *y, float *w, float coefficients[][4],
-	      int leftConstraint, float leftValue, int rightConstraint, float rightValue);
+              int leftConstraint, float leftValue, int rightConstraint, float rightValue);
   void FitClosed1D (int n, float *x, float *y, float *w, 
-		    float coefficients[][4]);
+                    float coefficients[][4]);
 private:
   vtkCardinalSpline(const vtkCardinalSpline&);  // Not implemented.
   void operator=(const vtkCardinalSpline&);  // Not implemented.

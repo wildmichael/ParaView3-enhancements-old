@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitSelectionLoop.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:39 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2001-11-13 14:13:01 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -99,7 +99,7 @@ void vtkImplicitSelectionLoop::Initialize()
     // Make sure points define a loop with a normal
     vtkPolygon::ComputeNormal(this->Loop, this->Normal);
     if ( this->Normal[0] == 0.0 && this->Normal[1] == 0.0 && 
-	 this->Normal[2] == 0.0 )
+         this->Normal[2] == 0.0 )
       {
       vtkErrorMacro(<<"Cannot determine inside/outside of loop");
       }
@@ -164,7 +164,7 @@ float vtkImplicitSelectionLoop::EvaluateFunction(float x[3])
   for (minDist2=VTK_LARGE_FLOAT,i=0; i<numPts; i++)
     {
     dist2 = vtkLine::DistanceToLine(xProj,this->Polygon->Points->GetPoint(i),
-			this->Polygon->Points->GetPoint((i+1)%numPts),t,closest);
+                        this->Polygon->Points->GetPoint((i+1)%numPts),t,closest);
     if ( dist2 < minDist2 )
       {
       minDist2 = dist2;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageInPlaceFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-13 12:36:51 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2001-11-13 14:12:59 $
+  Version:   $Revision: 1.32 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -93,7 +93,7 @@ void vtkImageInPlaceFilter::ExecuteData(vtkDataObject *vtkNotUsed(out))
   
 
 void vtkImageInPlaceFilter::CopyData(vtkImageData *inData,
-				     vtkImageData *outData)
+                                     vtkImageData *outData)
 {
   int *outExt = this->GetOutput()->GetUpdateExtent();
   char *inPtr = (char *) inData->GetScalarPointerForExtent(outExt);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetToDataSetFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-19 19:58:03 $
-  Version:   $Revision: 1.58 $
+  Date:      $Date: 2001-11-13 14:12:58 $
+  Version:   $Revision: 1.59 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -65,7 +65,7 @@ void vtkDataSetToDataSetFilter::SetInput(vtkDataSet *input)
   if (oldInput != NULL)
     {
     if (input == NULL || 
-	oldInput->GetDataObjectType() != input->GetDataObjectType())
+        oldInput->GetDataObjectType() != input->GetDataObjectType())
       {
       vtkWarningMacro("Changing input type.  Deleting output");
       this->SetOutput(NULL);

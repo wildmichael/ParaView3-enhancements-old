@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitBoolean.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:39 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2001-11-13 14:13:01 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -124,9 +124,9 @@ float vtkImplicitBoolean::EvaluateFunction(float x[3])
     (f=this->FunctionList->GetNextItem()); )
       {
       if ( (v=f->FunctionValue(x)) < value )
-	{
-	value = v;
-	}
+        {
+        value = v;
+        }
       }
     }
 
@@ -136,9 +136,9 @@ float vtkImplicitBoolean::EvaluateFunction(float x[3])
     (f=this->FunctionList->GetNextItem()); )
       {
       if ( (v=f->FunctionValue(x)) > value )
-	{
-	value = v;
-	}
+        {
+        value = v;
+        }
       }
     }
 
@@ -148,9 +148,9 @@ float vtkImplicitBoolean::EvaluateFunction(float x[3])
     (f=this->FunctionList->GetNextItem()); )
       {
       if ( (v=fabs(f->FunctionValue(x))) < value )
-	{
-	value = v;
-	}
+        {
+        value = v;
+        }
       }
     }
 
@@ -169,9 +169,9 @@ float vtkImplicitBoolean::EvaluateFunction(float x[3])
       if ( f != firstF )
         {
         if ( (v=(-1.0)*f->FunctionValue(x)) > value )
-	  {
-	  value = v;
-	  }
+          {
+          value = v;
+          }
         }
       }
     }//else

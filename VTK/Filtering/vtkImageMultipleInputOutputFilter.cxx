@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMultipleInputOutputFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-13 18:43:33 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-11-13 14:12:59 $
+  Version:   $Revision: 1.5 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -185,7 +185,7 @@ VTK_THREAD_RETURN_TYPE vtkImageMultiInOutThreadedExecute( void *arg )
   str = (vtkImageMultiThreadStruct *)(((ThreadInfoStruct *)(arg))->UserData);
   
   memcpy(ext,str->Filter->GetOutput()->GetUpdateExtent(),
-	 sizeof(int)*6);
+         sizeof(int)*6);
 
   // execute the actual method with appropriate extent
   // first find out how many pieces extent can be split into.

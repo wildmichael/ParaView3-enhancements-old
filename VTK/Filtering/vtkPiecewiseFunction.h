@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPiecewiseFunction.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:36:36 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2001-11-13 14:12:57 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -114,7 +114,7 @@ public:
   // is step through the input table.  It is used by vtkColorTransferFunction
   // to construct 3 piecewise functions from an rgb table.
   void BuildFunctionFromTable( float x1, float x2, int size,
-			       float *table, int stride=1 );
+                               float *table, int stride=1 );
   
   // Description:
   // When zero range clamping is Off, GetValue() returns 0.0 when a
@@ -151,16 +151,16 @@ protected:
   ~vtkPiecewiseFunction();
 
   // Size of the array used to store function points
-  int	ArraySize;
+  int   ArraySize;
 
   // Determines the function value outside of defined points
   // Zero = always return 0.0 outside of defined points
   // One  = clamp to the lowest value below defined points and
   //        highest value above defined points
-  int	Clamping;
+  int   Clamping;
 
   // Array of points ((X,Y) pairs)
-  float	*Function;
+  float *Function;
 
   // Number of points used to specify function
   int   FunctionSize;

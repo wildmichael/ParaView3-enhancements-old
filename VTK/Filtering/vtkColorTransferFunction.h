@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkColorTransferFunction.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:36:33 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2001-11-13 14:12:55 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -176,9 +176,9 @@ protected:
 
   // Transfer functions for each color component
   // Remove after corresponding depricated methods are removed
-  vtkPiecewiseFunction	*Red;
-  vtkPiecewiseFunction	*Green;
-  vtkPiecewiseFunction	*Blue;
+  vtkPiecewiseFunction  *Red;
+  vtkPiecewiseFunction  *Green;
+  vtkPiecewiseFunction  *Blue;
   vtkTimeStamp BuildTime;
   unsigned char *Table;
   int TableSize;
