@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLODActor.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-15 13:45:25 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 1998-10-30 12:19:42 $
+  Version:   $Revision: 1.31 $
   
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -345,5 +345,14 @@ void vtkLODActor::DeleteOwnLODs()
   this->LowMapper = NULL;
   this->MediumMapper->Delete();
   this->MediumMapper = NULL;
+}
+
+
+
+//----------------------------------------------------------------------------
+void vtkLODActor::Modified()
+{
+  this->Device->Modified();
+  this->vtkActor::Modified();
 }
 

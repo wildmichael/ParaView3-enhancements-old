@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLODActor.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-15 13:45:25 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1998-10-30 12:19:43 $
+  Version:   $Revision: 1.22 $
   
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -102,6 +102,11 @@ class VTK_EXPORT vtkLODActor : public vtkActor
   // All the mappers for differnt LODs are stored here.
   // The order is not important.
   vtkGetObjectMacro(LODMappers, vtkMapperCollection);
+
+  // Description:
+  // When this objects gets modified, this method also modifies the object.
+  void Modified();
+  
   
 protected:
   vtkActor            *Device;
