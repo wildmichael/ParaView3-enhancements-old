@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32Header.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-04 03:47:37 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2001-11-26 17:05:32 $
+  Version:   $Revision: 1.16 $
   Thanks:    to Horst Schreiber for developing this MFC code
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -60,6 +60,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <windows.h>
 
 // Handle compiler warning messages, etc.
+#pragma warning ( disable : 4251 )
+#pragma warning ( disable : 4786 )
 #pragma warning ( disable : 4244 )
 #pragma warning ( disable : 4305 )
 #pragma warning ( disable : 4309 )
