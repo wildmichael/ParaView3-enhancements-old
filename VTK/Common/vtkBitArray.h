@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkBitArray.h,v $
   Language:  C++
-  Date:      $Date: 1994-09-26 14:16:55 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1994-09-28 11:25:01 $
+  Version:   $Revision: 1.7 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -100,7 +100,7 @@ inline int vlBitArray::InsertNextValue(const int i)
 {
   this->InsertValue (++this->MaxId,i); return this->MaxId;
 }
-void vlBitArray::operator+=(const char i) 
+inline void vlBitArray::operator+=(const char i) 
 {
   this->InsertNextValue(i);
 }
