@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOrderedTriangulator.h,v $
   Language:  C++
-  Date:      $Date: 2001-06-22 19:12:48 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2001-07-05 19:02:51 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -95,6 +95,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 class vtkUnstructuredGrid;
 class vtkOTMesh;
 class vtkCellArray;
+class vtkMemoryPool;
 
 class VTK_EXPORT vtkOrderedTriangulator : public vtkObject
 {
@@ -188,6 +189,7 @@ private:
   int NumberOfPoints; //number of points inserted
   int MaximumNumberOfPoints; //maximum possible number of points to be inserted
   int PreSorted;
+  vtkMemoryPool* Pool;
   
 };
 
