@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadricClustering.h,v $
   Language:  C++
-  Date:      $Date: 2000-10-25 12:57:58 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2000-10-27 13:49:47 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -168,7 +168,7 @@ protected:
   // Description:
   // This method will rep[lace the quadric  generated points with the
   // input points with the lowest error.
-  void EndAppendUsingPoints(vtkPoints *points);
+  void EndAppendUsingPoints(vtkPolyData *input);
   int UseInputPoints;
 
   int NumberOfXDivisions;
