@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCompositeManager.h,v $
   Language:  C++
-  Date:      $Date: 2002-07-02 20:14:33 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2002-07-26 13:49:23 $
+  Version:   $Revision: 1.14 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -180,6 +180,13 @@ public:
   static void ResizeUnsignedCharArray(vtkUnsignedCharArray* uca, 
                                       int numComp, vtkIdType size);
 
+  // Description:
+  // This is here as a temporary hack until 
+  // I can get sub-worlds (communicators) working.
+  // It restricts compositing to occur on the first N processes.
+  void SetNumberOfProcesses(int numProcs);
+  vtkGetMacro(NumberOfProcesses, int);
+
 protected:
   vtkCompositeManager();
   ~vtkCompositeManager();
@@ -213,6 +220,7 @@ protected:
 
   // This object does the parallel communication for compositing.
   vtkCompositer *Compositer;
+  int NumberOfProcesses;
 
   // Arrays for compositing.
   vtkDataArray *PData;

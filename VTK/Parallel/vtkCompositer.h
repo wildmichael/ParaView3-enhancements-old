@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCompositer.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-17 01:50:34 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-07-26 13:49:23 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -51,6 +51,11 @@ public:
   virtual void SetController(vtkMultiProcessController*);
   vtkGetObjectMacro(Controller,vtkMultiProcessController);
 
+  // Description:
+  // A hack to get a sub world until I can get communicators working.
+  vtkSetMacro(NumberOfProcesses, int);
+  vtkGetMacro(NumberOfProcesses, int);
+
 protected:
   vtkCompositer();
   ~vtkCompositer();
@@ -58,6 +63,7 @@ protected:
   void operator=(const vtkCompositer&);
   
   vtkMultiProcessController *Controller;
+  int NumberOfProcesses;
 
 };
 

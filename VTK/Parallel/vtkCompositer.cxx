@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCompositer.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-17 01:50:34 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-07-26 13:49:23 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,10 +22,8 @@
 #include "vtkDataArray.h"
 #include "vtkMultiProcessController.h"
 
-vtkCxxRevisionMacro(vtkCompositer, "$Revision: 1.4 $");
+vtkCxxRevisionMacro(vtkCompositer, "$Revision: 1.5 $");
 vtkStandardNewMacro(vtkCompositer);
-
-vtkCxxSetObjectMacro(vtkCompositer,Controller,vtkMultiProcessController);
 
 //-------------------------------------------------------------------------
 vtkCompositer::vtkCompositer()
@@ -34,6 +32,7 @@ vtkCompositer::vtkCompositer()
   if (this->Controller)
     {
     this->Controller->Register(this);
+    this->NumberOfProcesses = this->Controller->GetNumberOfProcesses();
     }
 }
   
@@ -41,6 +40,26 @@ vtkCompositer::vtkCompositer()
 vtkCompositer::~vtkCompositer()
 {
   this->SetController(NULL);
+}
+
+
+//-------------------------------------------------------------------------
+void vtkCompositer::SetController(vtkMultiProcessController *mpc)
+{
+  if (this->Controller == mpc)
+    {
+    return;
+    }
+  if (mpc)
+    {
+    mpc->Register(this);
+    this->NumberOfProcesses = mpc->GetNumberOfProcesses();
+    }
+  if (this->Controller)
+    {
+    this->Controller->UnRegister(this);
+    }
+  this->Controller = mpc;
 }
 
 //-------------------------------------------------------------------------
@@ -58,6 +77,7 @@ void vtkCompositer::PrintSelf(ostream& os, vtkIndent indent)
 {
   this->vtkObject::PrintSelf(os, indent);
   os << indent << "Controller: (" << this->Controller << ")\n";
+  os << indent << "NumberOfProcesses: " << this->NumberOfProcesses << endl;
 }
 
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCompressCompositer.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-07-03 13:58:04 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-07-26 13:49:23 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -56,7 +56,7 @@
 
 #include "vtkTimerLog.h"
 
-vtkCxxRevisionMacro(vtkCompressCompositer, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkCompressCompositer, "$Revision: 1.7 $");
 vtkStandardNewMacro(vtkCompressCompositer);
 
 
@@ -526,7 +526,7 @@ void vtkCompressCompositer::CompositeBuffer(vtkDataArray *pBuf,
                                             vtkFloatArray *zTmp)
 {
   int myId = this->Controller->GetLocalProcessId();
-  int numProcs = this->Controller->GetNumberOfProcesses();
+  int numProcs = this->NumberOfProcesses;
   int i, id;
   int exactLog;
   int logProcs = vtkTCLog2(numProcs,exactLog);
