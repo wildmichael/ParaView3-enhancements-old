@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkWidgetsInit.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-30 20:04:28 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-10-18 15:18:51 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,6 +21,20 @@
 #include "vtkTkImageViewerWidget.h"
 #include "vtkTkRenderWidget.h"
 #include "vtkImageData.h"
+
+
+//-----  This hack needed to compile using gcc3 on OSX until new stdc++.dylib
+#ifdef __APPLE_CC__
+extern "C"
+{
+  void oft_initRen()
+  {
+    extern void _ZNSt8ios_base4InitC4Ev();
+    _ZNSt8ios_base4InitC4Ev();
+  }
+}
+#endif
+
 
 //----------------------------------------------------------------------------
 // Vtkrenderingpythontkwidgets_Init
