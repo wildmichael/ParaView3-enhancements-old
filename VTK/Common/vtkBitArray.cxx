@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkBitArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-09 19:47:34 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1995-01-23 21:13:43 $
+  Version:   $Revision: 1.7 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -129,8 +129,8 @@ void vlBitArray::PrintSelf(ostream& os, vlIndent indent)
 }
 
 //
-// Private function does "reallocate"
-//
+// Private function does "reallocate". Sz is the number of "bits", and we
+// can allocate only 8-bit bytes.
 unsigned char *vlBitArray::Resize(const int sz)
 {
   unsigned char *newArray;

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkVoidArray.h,v $
   Language:  C++
-  Date:      $Date: 1994-11-15 16:58:17 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1995-01-23 21:13:50 $
+  Version:   $Revision: 1.3 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -38,9 +38,10 @@ public:
 
   // access/insertion methods
   void* GetValue(const int id);
-  void** GetPtr(const int id);
   vlVoidArray &InsertValue(const int id, void* p);
   int InsertNextValue(void* v);
+  void** GetPtr(const int id);
+  void** WritePtr(const int id, const int number);
 
   // special operators
   vlVoidArray &operator=(const vlVoidArray& fa);
@@ -52,7 +53,6 @@ public:
   void Squeeze();
   int GetSize();
   int GetMaxId();
-  void** GetArray();
   void Reset();
 
 private:
@@ -70,6 +70,17 @@ inline void* vlVoidArray::GetValue(const int id) {return this->Array[id];};
 // Description:
 // Get the address of a particular data index.
 inline void** vlVoidArray::GetPtr(const int id) {return this->Array + id;};
+
+// Description:
+// Get the address of a particular data index. Make sure data is allocated
+// for the number of items requested. Set MaxId according to the number of
+// data values requested.
+inline void** vlVoidArray::WritePtr(const int id, const int number) 
+{
+  if ( (id + number) > this->Size ) this->Resize(id+number);
+  this->MaxId = id + number - 1;
+  return this->Array + id;
+}
 
 // Description:
 // Insert data at a specified position in the array.
@@ -113,11 +124,6 @@ inline int vlVoidArray::GetSize() {return this->Size;};
 // Description:
 // Returning the maximum index of data inserted so far.
 inline int vlVoidArray::GetMaxId() {return this->MaxId;};
-
-// Description:
-// Get the pointer to the array. Useful for interfacing to C or 
-// FORTRAN routines.
-inline void** vlVoidArray::GetArray() {return this->Array;};
 
 // Description:
 // Reuse the memory allocated by this object. Objects appears like
