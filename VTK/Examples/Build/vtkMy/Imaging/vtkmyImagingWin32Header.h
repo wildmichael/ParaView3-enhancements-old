@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkmyImagingWin32Header.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:27:30 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-03-13 23:54:45 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,7 +25,7 @@
 
 #include <vtkmyConfigure.h>
 
-#if defined(WIN32) && !defined(VTK_MY_STATIC)
+#if defined(WIN32) && !defined(VTKMY_STATIC)
 #if defined(vtkmyImaging_EXPORTS)
 #define VTK_MY_IMAGING_EXPORT __declspec( dllexport ) 
 #else
