@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObject.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-02-28 17:18:31 $
-  Version:   $Revision: 1.89 $
+  Date:      $Date: 2003-03-10 17:44:32 $
+  Version:   $Revision: 1.90 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkSource.h"
 
-vtkCxxRevisionMacro(vtkDataObject, "$Revision: 1.89 $");
+vtkCxxRevisionMacro(vtkDataObject, "$Revision: 1.90 $");
 vtkStandardNewMacro(vtkDataObject);
 
 vtkCxxSetObjectMacro(vtkDataObject,FieldData,vtkFieldData);
@@ -506,10 +506,7 @@ int vtkDataObject::VerifyUpdateExtent()
     case VTK_PIECES_EXTENT:
       if ( 0 && this->UpdatePiece >= this->UpdateNumberOfPieces ||
         this->UpdatePiece < 0 )
-        { // This does nothing for the moment. I want to request nothing.
-        vtkErrorMacro( << "Invalid update piece " << this->UpdatePiece
-        << ". Must be between 0 and " 
-        << this->UpdateNumberOfPieces - 1);
+        {
         retval = 0;
         }
       break;
