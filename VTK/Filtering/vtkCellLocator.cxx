@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellLocator.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-18 19:34:27 $
-  Version:   $Revision: 1.54 $
+  Date:      $Date: 1999-11-26 13:37:53 $
+  Version:   $Revision: 1.55 $
   
     
   Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -1279,7 +1279,7 @@ void vtkCellLocator::BuildLocator()
   this->NumberOfOctants = numOctants;
   
   this->Tree = new vtkIdListPtr[numOctants];
-  memset (this->Tree, (int)NULL, numOctants*sizeof(vtkIdListPtr));
+  memset (this->Tree, 0, numOctants*sizeof(vtkIdListPtr));
   
   this->CellHasBeenVisited = new unsigned char [ numCells ];
   this->ClearCellHasBeenVisited();
