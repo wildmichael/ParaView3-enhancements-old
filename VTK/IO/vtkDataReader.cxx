@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-01-19 16:42:30 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 1998-03-10 11:57:52 $
+  Version:   $Revision: 1.51 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,6 +64,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // Construct object.
 vtkDataReader::vtkDataReader()
 {
+  this->FileType = VTK_ASCII;
   this->FileName = NULL;
   this->ScalarsName = NULL;
   this->VectorsName = NULL;
@@ -76,6 +77,7 @@ vtkDataReader::vtkDataReader()
   this->InputStringPos = 0;
   this->ReadFromInputString = 0;
   this->IS = NULL;
+  this->Source = NULL;
 }  
 
 vtkDataReader::~vtkDataReader()
