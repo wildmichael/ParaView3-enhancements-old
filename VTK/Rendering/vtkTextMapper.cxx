@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-07-23 19:24:35 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 2002-08-01 18:56:38 $
+  Version:   $Revision: 1.47 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,8 +19,9 @@
 
 #include "vtkImagingFactory.h"
 #include "vtkTextProperty.h"
+#include "vtkToolkits.h"
 
-vtkCxxRevisionMacro(vtkTextMapper, "$Revision: 1.46 $");
+vtkCxxRevisionMacro(vtkTextMapper, "$Revision: 1.47 $");
 
 vtkCxxSetObjectMacro(vtkTextMapper,TextProperty,vtkTextProperty);
 
