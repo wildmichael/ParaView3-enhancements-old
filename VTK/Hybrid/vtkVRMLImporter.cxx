@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVRMLImporter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-11-10 12:07:04 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2000-12-06 14:49:21 $
+  Version:   $Revision: 1.16 $
   Thanks:    Tom Citriniti who implemented and contributed this class
 
 
@@ -6021,7 +6021,7 @@ void
 vtkVRMLImporter::useNode(const char *name) {
 
   vtkObject *useO;
-  if (useO = this->GetVRMLDEFObject(name)) 
+  if ((useO = this->GetVRMLDEFObject(name))) 
     {
     if (strstr(useO->GetClassName(), "Actor")) 
       {

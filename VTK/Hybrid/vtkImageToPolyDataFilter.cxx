@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToPolyDataFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-11-18 21:05:02 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2000-12-06 14:49:21 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1162,7 +1162,6 @@ void vtkImageToPolyDataFilter::BuildPolygons(vtkUnsignedCharArray *vtkNotUsed(po
                                              vtkPolyData *edges, int numPolys,
                                              vtkUnsignedCharArray *polyColors)
 {
-  vtkCellArray *edgeConn = edges->GetLines();
   vtkPoints *points = edges->GetPoints();
   int numPts = points->GetNumberOfPoints();
   int i, j, k, ptId, cellId, *cells, *cells2, *polyId, *polyId2, edgeId;

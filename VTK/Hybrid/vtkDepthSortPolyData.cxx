@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDepthSortPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-13 07:01:01 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2000-12-06 14:49:21 $
+  Version:   $Revision: 1.6 $
   Thanks:    Scott Hill for implementing this class
 
 
@@ -142,7 +142,6 @@ void vtkDepthSortPolyData::Execute()
   vtkPolyData *output=this->GetOutput();
   vtkGenericCell *cell=vtkGenericCell::New();
   int numCells=input->GetNumberOfCells();
-  int numPts=input->GetNumberOfPoints();
   vtkCellData *inCD=input->GetCellData();
   vtkCellData *outCD=output->GetCellData();
   vtkScalars *sortScalars;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOutlineCornerFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-05 19:05:43 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2000-12-06 14:49:21 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to Sebastien Barre who developed this class.
 
 
@@ -98,8 +98,6 @@ void vtkOutlineCornerFilter::Execute()
 
 void vtkOutlineCornerFilter::ExecuteInformation()
 {
-  vtkPolyData *output = this->GetOutput();
-  
   vtkDebugMacro(<< "Creating dataset outline");
 
   //

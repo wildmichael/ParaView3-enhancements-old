@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkArcPlotter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-05-28 11:24:07 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2000-12-06 14:49:21 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -83,7 +83,6 @@ void vtkArcPlotter::Execute()
   vtkPolyData *input=this->GetInput();
   vtkPolyData *output=this->GetOutput();
   vtkPointData *inPD=input->GetPointData();
-  vtkPointData *outPD=output->GetPointData();
   vtkPoints *inPts;
   vtkCellArray *inLines;
   int numPts, i, j;
