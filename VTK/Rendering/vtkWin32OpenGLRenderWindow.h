@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 1997-10-09 20:22:51 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1998-05-20 21:09:17 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -125,7 +125,8 @@ public:
   // Description:
   // Set/Get the pixel data of an image, transmitted as RGBARGBA... 
   virtual float *GetRGBAPixelData(int x,int y,int x2,int y2,int front);
-  virtual void SetRGBAPixelData(int x,int y,int x2,int y2,float *,int front);
+  virtual void SetRGBAPixelData(int x,int y,int x2,int y2,float *,int front,
+                                int blend=0);
   virtual void ReleaseRGBAPixelData(float *data);
 
   // Description:
