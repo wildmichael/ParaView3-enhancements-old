@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageWrapPad.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-25 23:31:10 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2002-11-13 14:09:59 $
+  Version:   $Revision: 1.26 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 #include "vtkImageData.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkImageWrapPad, "$Revision: 1.25 $");
+vtkCxxRevisionMacro(vtkImageWrapPad, "$Revision: 1.26 $");
 vtkStandardNewMacro(vtkImageWrapPad);
 
 //----------------------------------------------------------------------------
@@ -45,7 +45,11 @@ void vtkImageWrapPad::ComputeInputUpdateExtent(int inExt[6],
     imageWidth = imageMax - imageMin + 1;
     
     // convert min max to image extent range.
-    min = ((min - imageMin) % imageWidth);
+    min = 0;
+    if (imageWidth > 0)
+      {
+      min = ((min - imageMin) % imageWidth);
+      }
     if (min < 0)
       { // Mod does not handle negative numbers as I think it should.
       min += imageWidth;
