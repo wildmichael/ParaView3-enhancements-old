@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLFreeTypeTextMapper.h,v $
   Language:  C++
-  Date:      $Date: 2002-07-24 02:43:24 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-08-05 20:18:32 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -15,11 +15,11 @@
      PURPOSE.  See the above copyright notice for more information.
 
 =========================================================================*/
-// .NAME vtkOpenGLFreeTypeTextMapper - 2D Text annotation support for windows
+// .NAME vtkOpenGLFreeTypeTextMapper - 2D Text annotation support
 // .SECTION Description
-// vtkOpenGLFreeTypeTextMapper provides 2D text annotation support for vtk under
-// Xwindows.  Normally the user should use vtktextMapper which in turn will
-// use this class.
+// vtkOpenGLFreeTypeTextMapper provides 2D text annotation support for VTK
+// using the FreeType and FTGL libraries. Normally the user should use 
+// vtktextMapper which in turn will use this class.
 
 // .SECTION See Also
 // vtkTextMapper
