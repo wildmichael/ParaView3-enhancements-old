@@ -1,10 +1,10 @@
 /*=========================================================================
 
   Program:   Visualization Toolkit
-  Module:    $RCSfile: vtkImageMapToRGBA.h,v $
+  Module:    $RCSfile: vtkImageMapToColors.h,v $
   Language:  C++
   Date:      $Date: 1999-11-19 20:10:40 $
-  Version:   $Revision: 1.10 $
+  Version:   $Revision: 1.1 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,32 +38,60 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-// .NAME vtkImageMapToRGBA - map the input image through a lookup table
+// .NAME vtkImageMapToColors - map the input image through a lookup table
 // .SECTION Description
-// The vtkImageMapToRGBA filter will take an input image of any valid
+// The vtkImageMapToColors filter will take an input image of any valid
 // scalar type, and map the first component of the image through a
-// lookup table.  The result is an RGBA image of type VTK_UNSIGNED_CHAR.
+// lookup table.  The result is an Colors image of type VTK_UNSIGNED_CHAR.
 
 // .SECTION See Also
 // vtkLookupTable
 
-#ifndef __vtkImageMapToRGBA_h
-#define __vtkImageMapToRGBA_h
+#ifndef __vtkImageMapToColors_h
+#define __vtkImageMapToColors_h
 
 
-#include "vtkImageMapToColors.h"
+#include "vtkImageToImageFilter.h"
+#include "vtkScalarsToColors.h"
 
-class VTK_EXPORT vtkImageMapToRGBA : public vtkImageMapToColors
+class VTK_EXPORT vtkImageMapToColors : public vtkImageToImageFilter
 {
 public:
-  static vtkImageMapToRGBA *New();
-  const char *GetClassName() {return "vtkImageMapToRGBA";};
+  static vtkImageMapToColors *New();
+  const char *GetClassName() {return "vtkImageMapToColors";};
+  void PrintSelf(ostream& os, vtkIndent indent);
+
+  // Description:
+  // Set the lookup table.
+  vtkSetObjectMacro(LookupTable,vtkScalarsToColors);
+  vtkGetObjectMacro(LookupTable,vtkScalarsToColors);
+
+  // Description:
+  // Set the output format, the default is RGBA.  
+  vtkSetMacro(OutputFormat,int);
+  vtkGetMacro(OutputFormat,int);
+  void SetOutputFormatToRGBA() { this->OutputFormat = 4; };
+  void SetOutputFormatToRGB() { this->OutputFormat = 3; };
+  void SetOutputFormatToLA() { this->OutputFormat = 2; };
+  void SetOutputFormatToL() { this->OutputFormat = 1; };
+
+  // Description:
+  // We need to check the modified time of the lookup table too.
+  unsigned long GetMTime();
 
 protected:
-  vtkImageMapToRGBA();
-  ~vtkImageMapToRGBA() {};
-  vtkImageMapToRGBA(const vtkImageMapToRGBA&) {};
-  void operator=(const vtkImageMapToRGBA&) {};
+  vtkImageMapToColors();
+  ~vtkImageMapToColors();
+  vtkImageMapToColors(const vtkImageMapToColors&) {};
+  void operator=(const vtkImageMapToColors&) {};
+
+  vtkScalarsToColors *LookupTable;
+  int OutputFormat;
+  
+  void ExecuteInformation(vtkImageData *inData, vtkImageData *outData);
+  void ExecuteInformation(){this->vtkImageToImageFilter::ExecuteInformation();};
+  void ThreadedExecute(vtkImageData *inData, vtkImageData *outData,
+		       int extent[6], int id);
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLogLookupTable.h,v $
   Language:  C++
-  Date:      $Date: 1999-11-17 17:55:44 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1999-11-19 20:10:39 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -84,7 +84,7 @@ public:
   // map a set of scalars through the lookup table
   void MapScalarsThroughTable2(void *input, unsigned char *output,
 			      int inputDataType, int numberOfValues,
-			      int inputIncrement);
+			      int inputIncrement, int outputIncrement);
 protected:
   vtkLogLookupTable(int sze=256, int ext=256);
   ~vtkLogLookupTable() {};

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalarsToColors.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-24 00:54:54 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1999-11-19 20:10:38 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -43,14 +43,14 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkScalars.h"
 
 
-
 // Map a set of scalar values through the table
 void vtkScalarsToColors::MapScalarsThroughTable(vtkScalars *scalars, 
                                                 unsigned char *output)
 {
   this->MapScalarsThroughTable2(scalars->GetVoidPointer(0),
-			       output,
-			       scalars->GetDataType(),
-			       scalars->GetNumberOfScalars(),
-			       scalars->GetNumberOfComponents());
+				output,
+				scalars->GetDataType(),
+				scalars->GetNumberOfScalars(),
+				scalars->GetNumberOfComponents(),
+				4);
 }

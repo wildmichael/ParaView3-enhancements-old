@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkColorTransferFunction.h,v $
   Language:  C++
-  Date:      $Date: 1999-11-17 17:56:05 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1999-11-19 20:10:42 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -142,8 +142,8 @@ public:
   // Description:
   // map a set of scalars through the lookup table
   virtual void MapScalarsThroughTable2(void *input, unsigned char *output,
-                                       int inputDataType, int numberOfValues,
-                                       int inputIncrement);
+                                     int inputDataType, int numberOfValues,
+                                     int inputIncrement, int outputIncrement);
   
 protected:
   vtkColorTransferFunction();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLookupTable.h,v $
   Language:  C++
-  Date:      $Date: 1999-11-17 17:55:44 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 1999-11-19 20:10:38 $
+  Version:   $Revision: 1.47 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -133,7 +133,7 @@ public:
   // map a set of scalars through the lookup table
   virtual void MapScalarsThroughTable2(void *input, unsigned char *output,
 				      int inputDataType, int numberOfValues,
-				      int inputIncrement);
+				      int inputIncrement, int outputIncrement);
     
   // Description:
   // Specify the number of values (i.e., colors) in the lookup
