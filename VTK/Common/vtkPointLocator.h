@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointLocator.h,v $
   Language:  C++
-  Date:      $Date: 1998-12-02 22:38:17 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1998-12-23 19:55:34 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -92,8 +92,10 @@ public:
   vtkGetMacro(NumberOfPointsPerBucket,int);
 
   // Description:
-  // Given a position x, return the id of the point closest to it.
+  // Given a position x, return the id of the point closest to it. Alternative
+  // method requires separate x-y-z values.
   virtual int FindClosestPoint(float x[3]);
+  int FindClosestPoint(float x, float y, float z);
 
   // Description:
   // Initialize the point insertion process. The newPts is an object
