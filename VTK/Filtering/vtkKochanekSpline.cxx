@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKochanekSpline.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-14 18:53:07 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2002-08-15 15:05:25 $
+  Version:   $Revision: 1.20 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkKochanekSpline.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkKochanekSpline, "$Revision: 1.19 $");
+vtkCxxRevisionMacro(vtkKochanekSpline, "$Revision: 1.20 $");
 vtkStandardNewMacro(vtkKochanekSpline);
 
 // Construct a KochanekSpline wth the following defaults:
@@ -276,6 +276,11 @@ void vtkKochanekSpline::Fit1D (int size, float *x, float *y,
     {
     switch (leftConstraint) 
       {
+      case 0:
+        // desired slope at leftmost point is leftValue
+        coefficients[0][1] = this->ComputeLeftDerivative();
+        break;
+
       case 1:
         // desired slope at leftmost point is leftValue
         coefficients[0][1] = leftValue;
@@ -306,6 +311,11 @@ void vtkKochanekSpline::Fit1D (int size, float *x, float *y,
 
     switch (rightConstraint)
       {
+      case 0:
+        // desired slope at rightmost point is rightValue
+        coefficients[N][2] = this->ComputeRightDerivative();
+        break;
+
       case 1:
         // desired slope at rightmost point is rightValue
         coefficients[N][2] = rightValue;
