@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWorldPointPicker.h,v $
   Language:  C++
-  Date:      $Date: 1998-05-06 19:10:19 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-09-25 14:01:32 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,13 +40,16 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 // .NAME vtkWorldPointPicker - find world x,y,z corresponding to display x,y,z
 // .SECTION Description
-// vtkWorldPointPicker is used to find the x,y,z world coordinate of a screen
-// x,y,z. This picker cannot pick actors and/or mappers, it simply computes an x-y-z
-// coordinate in world space (so the actor and mapper are set to NULL).
-// .SECTION See Also
-// vtkPicker vtkCellPicker vtkPointPicker
-// .SECTION Caveats
+// vtkWorldPointPicker is used to find the x,y,z world coordinate of a
+// screen x,y,z. This picker cannot pick actors and/or mappers, it
+// simply computes an x-y-z coordinate in world space (so the actor
+// and mapper are set to NULL).  
+
+// .SECTION Caveats 
 // The PickMethod is not invoked, but StartPickMethod and EndPickMethod are.
+
+// .SECTION See Also 
+// vtkPicker vtkCellPicker vtkPointPicker 
 
 #ifndef __vtkWorldPointPicker_h
 #define __vtkWorldPointPicker_h
@@ -65,10 +68,11 @@ public:
   // Get the id of the picked point. If PointId = -1, nothing was picked.
   vtkGetMacro(PointId,int);
 
-protected:
-  int PointId; //picked point
   int Pick(float selectionX, float selectionY, float selectionZ, 
            vtkRenderer *renderer);  
+
+protected:
+  int PointId; //picked point
   void Initialize();
 };
 
