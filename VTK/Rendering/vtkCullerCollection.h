@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCullerCollection.h,v $
   Language:  C++
-  Date:      $Date: 1998-07-02 16:13:10 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-09-03 17:55:25 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -99,8 +99,14 @@ inline vtkCuller *vtkCullerCollection::GetNextItem()
 // Get the last Culler in the list.
 inline vtkCuller *vtkCullerCollection::GetLastItem() 
 { 
-  if ( this->Bottom == NULL ) return NULL;
-  else return (vtkCuller *)(this->Bottom->Item);
+  if ( this->Bottom == NULL )
+    {
+    return NULL;
+    }
+  else
+    {
+    return (vtkCuller *)(this->Bottom->Item);
+    }
 }
 
 #endif

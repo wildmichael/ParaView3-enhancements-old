@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCutter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-23 19:12:56 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 1998-09-03 17:55:27 $
+  Version:   $Revision: 1.46 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -130,12 +130,15 @@ void vtkCutter::Execute()
     vtkErrorMacro(<<"No data to cut");
     return;
     }
-//
-// Create objects to hold output of contour operation
-//
+  //
+  // Create objects to hold output of contour operation
+  //
   estimatedSize = (int) pow ((double) numCells, .75) * numContours;
   estimatedSize = estimatedSize / 1024 * 1024; //multiple of 1024
-  if (estimatedSize < 1024) estimatedSize = 1024;
+  if (estimatedSize < 1024)
+    {
+    estimatedSize = 1024;
+    }
 
   newPoints = vtkPoints::New();
   newPoints->Allocate(estimatedSize,estimatedSize/2);
@@ -148,7 +151,7 @@ void vtkCutter::Execute()
   cutScalars = vtkScalars::New();
   cutScalars->SetNumberOfScalars(numPts);
 
-  // Interpolate data along edge. If generating cut scalars, do the necessary setup.
+  // Interpolate data along edge. If generating cut scalars, do necessary setup
   if ( this->GenerateCutScalars )
     {
     inPD = vtkPointData::New();
@@ -164,7 +167,10 @@ void vtkCutter::Execute()
   outCD->CopyAllocate(inCD,estimatedSize,estimatedSize/2);
     
   // locator used to merge potentially duplicate points
-  if ( this->Locator == NULL ) this->CreateDefaultLocator();
+  if ( this->Locator == NULL )
+    {
+    this->CreateDefaultLocator();
+    }
   this->Locator->InitPointInsertion (newPoints, input->GetBounds());
 
   //
@@ -256,18 +262,30 @@ void vtkCutter::Execute()
   cellScalars->Delete();
   cutScalars->Delete();
 
-  if ( this->GenerateCutScalars ) inPD->Delete();
+  if ( this->GenerateCutScalars )
+    {
+    inPD->Delete();
+    }
 
   output->SetPoints(newPoints);
   newPoints->Delete();
 
-  if (newVerts->GetNumberOfCells()) output->SetVerts(newVerts);
+  if (newVerts->GetNumberOfCells())
+    {
+    output->SetVerts(newVerts);
+    }
   newVerts->Delete();
 
-  if (newLines->GetNumberOfCells()) output->SetLines(newLines);
+  if (newLines->GetNumberOfCells())
+    {
+    output->SetLines(newLines);
+    }
   newLines->Delete();
 
-  if (newPolys->GetNumberOfCells()) output->SetPolys(newPolys);
+  if (newPolys->GetNumberOfCells())
+    {
+    output->SetPolys(newPolys);
+    }
   newPolys->Delete();
 
   this->Locator->Initialize();//release any extra memory

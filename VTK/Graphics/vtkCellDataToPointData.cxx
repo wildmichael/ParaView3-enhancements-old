@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellDataToPointData.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-08 17:15:55 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-09-03 17:55:17 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -80,7 +80,10 @@ void vtkCellDataToPointData::Execute()
     if ( numCells > 0 )
       {
       weight = 1.0 / numCells;
-      for (cellId=0; cellId < numCells; cellId++) weights[cellId] = weight;
+      for (cellId=0; cellId < numCells; cellId++)
+	{
+	weights[cellId] = weight;
+	}
       outPD->InterpolatePoint(inPD, ptId, &cellIds, weights);
       }
     else

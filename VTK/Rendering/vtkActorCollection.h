@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActorCollection.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:42:58 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1998-09-03 17:54:49 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -99,8 +99,14 @@ inline vtkActor *vtkActorCollection::GetNextItem()
 // Get the last actor in the list.
 inline vtkActor *vtkActorCollection::GetLastItem() 
 { 
-  if ( this->Bottom == NULL ) return NULL;
-  else return (vtkActor *)(this->Bottom->Item);
+  if ( this->Bottom == NULL )
+    {
+    return NULL;
+    }
+  else
+    {
+    return (vtkActor *)(this->Bottom->Item);
+    }
 }
 
 #endif
