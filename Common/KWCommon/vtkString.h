@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkString.h,v $
   Language:  C++
-  Date:      $Date: 2003-03-04 19:06:17 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2003-03-20 20:50:04 $
+  Version:   $Revision: 1.13 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -100,11 +100,11 @@ public:
   // Replace a character or some characters in the string (inplace).
   // Return a pointer to the string (i.e. 'str').
   static char* ReplaceChar(char* str, char toreplace, char replacement);
-  static char* ReplaceChars(char* str, char *toreplace, char replacement);
+  static char* ReplaceChars(char* str, const char *toreplace, char replacement);
 
   // Description:
   // Return the number of occurence of a char.
-  static unsigned int CountChar(char* str, char c);
+  static unsigned int CountChar(const char* str, char c);
 
 protected:
   vtkString() {};

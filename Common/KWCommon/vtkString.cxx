@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkString.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-03-04 19:06:17 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2003-03-20 20:50:04 $
+  Version:   $Revision: 1.13 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -29,7 +29,7 @@
 #  define STRCASECMP strcasecmp
 #endif
 
-vtkCxxRevisionMacro(vtkString, "$Revision: 1.12 $");
+vtkCxxRevisionMacro(vtkString, "$Revision: 1.13 $");
 vtkStandardNewMacro(vtkString);
  
 //----------------------------------------------------------------------------
@@ -238,14 +238,14 @@ char* vtkString::ReplaceChar(char* str, char toreplace, char replacement)
 }
 
 //----------------------------------------------------------------------------
-char* vtkString::ReplaceChars(char* str, char *toreplace, char replacement)
+char* vtkString::ReplaceChars(char* str, const char *toreplace, char replacement)
 {
   if (str)
     {
     char *ptr = str;
     while (*ptr)
       {
-      char *ptr2 = toreplace;
+      const char *ptr2 = toreplace;
       while (*ptr2)
         {
         if (*ptr == *ptr2)
@@ -261,13 +261,13 @@ char* vtkString::ReplaceChars(char* str, char *toreplace, char replacement)
 }
 
 //----------------------------------------------------------------------------
-unsigned int vtkString::CountChar(char* str, char c)
+unsigned int vtkString::CountChar(const char* str, const char c)
 {
   int count = 0;
 
   if (str)
     {
-    char *ptr = str;
+    const char *ptr = str;
     while (*ptr)
       {
       if (*ptr == c)
