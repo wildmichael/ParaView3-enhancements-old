@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkRenderWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-17 18:18:41 $
-  Version:   $Revision: 1.80 $
+  Date:      $Date: 2002-09-18 13:27:35 $
+  Version:   $Revision: 1.81 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -131,8 +131,8 @@ extern "C" {
   int vtkImageDataToTkPhoto_Cmd (ClientData vtkNotUsed(clientData), 
                                  Tcl_Interp *interp, 
                                  int argc, 
-#if (TCL_MAJOR_VERSION == 8) && (TCL_MINOR_VERSION >= 4)
-                                 const
+#if (TCL_MAJOR_VERSION == 8) && (TCL_MINOR_VERSION >= 4 && TCL_RELEASE_LEVEL >= TCL_FINAL_RELEASE)
+                                 CONST84
 #endif
                                  char **argv)
   {
@@ -362,7 +362,7 @@ int vtkTkRenderWidget_Configure(Tcl_Interp *interp,
                          self->TkWin, 
                          vtkTkRenderWidgetConfigSpecs,
                          argc, 
-#if (TCL_MAJOR_VERSION == 8) && (TCL_MINOR_VERSION >= 4)
+#if (TCL_MAJOR_VERSION == 8) && (TCL_MINOR_VERSION >= 4 && TCL_RELEASE_LEVEL >= TCL_FINAL_RELEASE)
                          const_cast<const char **>(argv), 
 #else
                          argv, 
@@ -394,8 +394,8 @@ extern "C"
   int vtkTkRenderWidget_Widget(ClientData clientData, 
                                Tcl_Interp *interp,
                                int argc, 
-#if (TCL_MAJOR_VERSION == 8) && (TCL_MINOR_VERSION >= 4)
-                               const
+#if (TCL_MAJOR_VERSION == 8) && (TCL_MINOR_VERSION >= 4 && TCL_RELEASE_LEVEL >= TCL_FINAL_RELEASE)
+                               CONST84
 #endif
                                char *argv[]) 
   {
@@ -445,7 +445,7 @@ extern "C"
         {
         /* Execute a configuration change */
         result = vtkTkRenderWidget_Configure(interp, self, argc-2, 
-#if (TCL_MAJOR_VERSION == 8) && (TCL_MINOR_VERSION >= 4)
+#if (TCL_MAJOR_VERSION == 8) && (TCL_MINOR_VERSION >= 4 && TCL_RELEASE_LEVEL >= TCL_FINAL_RELEASE)
                                              const_cast<char **>(argv+2), 
 #else
                                              argv+2, 
@@ -491,13 +491,13 @@ extern "C"
   int vtkTkRenderWidget_Cmd(ClientData clientData, 
                             Tcl_Interp *interp, 
                             int argc, 
-#if (TCL_MAJOR_VERSION == 8) && (TCL_MINOR_VERSION >= 4)
-                            const
+#if (TCL_MAJOR_VERSION == 8) && (TCL_MINOR_VERSION >= 4 && TCL_RELEASE_LEVEL >= TCL_FINAL_RELEASE)
+                            CONST84
 #endif
                             char **argv)
   {
-#if (TCL_MAJOR_VERSION == 8) && (TCL_MINOR_VERSION >= 4)
-    const
+#if (TCL_MAJOR_VERSION == 8) && (TCL_MINOR_VERSION >= 4 && TCL_RELEASE_LEVEL >= TCL_FINAL_RELEASE)
+    CONST84
 #endif
     char *name;
     Tk_Window main = (Tk_Window)clientData;
@@ -546,7 +546,7 @@ extern "C"
     if (vtkTkRenderWidget_Configure(interp, 
                                     self, 
                                     argc-2, 
-#if (TCL_MAJOR_VERSION == 8) && (TCL_MINOR_VERSION >= 4)
+#if (TCL_MAJOR_VERSION == 8) && (TCL_MINOR_VERSION >= 4 && TCL_RELEASE_LEVEL >= TCL_FINAL_RELEASE)
                                     const_cast<char **>(argv+2), 
 #else
                                     argv+2, 

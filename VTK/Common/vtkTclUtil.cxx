@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTclUtil.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-17 18:18:29 $
-  Version:   $Revision: 1.77 $
+  Date:      $Date: 2002-09-18 13:27:35 $
+  Version:   $Revision: 1.78 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,8 +23,8 @@
 
 extern "C"
 {
-#if (TCL_MAJOR_VERSION == 8) && (TCL_MINOR_VERSION >= 4)
-  typedef int (*vtkTclCommandType)(ClientData, Tcl_Interp *,int, CONST char *[]);
+#if (TCL_MAJOR_VERSION == 8) && (TCL_MINOR_VERSION >= 4 && TCL_RELEASE_LEVEL >= TCL_FINAL_RELEASE)
+  typedef int (*vtkTclCommandType)(ClientData, Tcl_Interp *,int, CONST84 char *[]);
 #else
   typedef int (*vtkTclCommandType)(ClientData, Tcl_Interp *,int, char *[]);
 #endif
