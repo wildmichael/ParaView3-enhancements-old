@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLight.h,v $
   Language:  C++
-  Date:      $Date: 2000-08-25 13:43:13 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 2000-09-05 10:44:19 $
+  Version:   $Revision: 1.44 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -181,6 +181,7 @@ public:
   // Angles are given in degrees.  If the light is a
   // positional light, it is made directional instead.
   void SetDirectionAngle(float elevation, float azimuth);
+  void SetDirectionAngle(float ang[2]) { SetDirectionAngle(ang[0], ang[1]); };
 
   // Description:
   // Perform deep copy of this light.
