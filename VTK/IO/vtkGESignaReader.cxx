@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGESignaReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-07 16:28:47 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2001-12-28 20:57:15 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -125,7 +125,7 @@ void vtkGESignaReader::ExecuteInformation()
   spacingZ = spacingZ + tmpZ;
   
   float origX, origY, origZ;
-  fseek(fp, imgHdrOffset + 160, SEEK_SET);
+  fseek(fp, imgHdrOffset + 154, SEEK_SET);
   // read TLHC
   fread(&origX, 4, 1, fp);
   vtkByteSwap::Swap4BE(&origX);
