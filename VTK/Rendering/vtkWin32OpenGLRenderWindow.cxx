@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-09 16:54:11 $
-  Version:   $Revision: 1.87 $
+  Date:      $Date: 2002-07-02 00:19:25 $
+  Version:   $Revision: 1.88 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -15,13 +15,6 @@
      PURPOSE.  See the above copyright notice for more information.
 
 =========================================================================*/
-
-#include "vtkWin32Header.h"
-#if defined(_MSC_VER) || defined (__BORLANDC__)
-#include <GL/glaux.h>
-#else
-#include <GL/gl.h>
-#endif
 #include "vtkWin32OpenGLRenderWindow.h"
 
 #include "vtkObjectFactory.h"
@@ -38,7 +31,13 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkWin32OpenGLRenderWindow, "$Revision: 1.87 $");
+#if defined(_MSC_VER) || defined (__BORLANDC__)
+#include <GL/glaux.h>
+#else
+#include <GL/gl.h>
+#endif
+
+vtkCxxRevisionMacro(vtkWin32OpenGLRenderWindow, "$Revision: 1.88 $");
 vtkStandardNewMacro(vtkWin32OpenGLRenderWindow);
 
 #define VTK_MAX_LIGHTS 8
