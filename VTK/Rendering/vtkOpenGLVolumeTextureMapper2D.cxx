@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLVolumeTextureMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-06-15 16:10:08 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2000-07-19 14:05:49 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -219,6 +219,6 @@ void vtkOpenGLVolumeTextureMapper2D::RenderQuads( int numQuads,
 // Print the vtkOpenGLVolumeTextureMapper2D
 void vtkOpenGLVolumeTextureMapper2D::PrintSelf(ostream& os, vtkIndent indent)
 {
-  this->vtkVolumeTextureMapper::PrintSelf(os,indent);
+  this->vtkVolumeTextureMapper2D::PrintSelf(os,indent);
 }
 
