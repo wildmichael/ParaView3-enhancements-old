@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkColorTransferFunction.h,v $
   Language:  C++
-  Date:      $Date: 2003-05-02 18:15:42 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2003-05-20 19:38:00 $
+  Version:   $Revision: 1.40 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -144,10 +144,6 @@ protected:
   int         FunctionSize;
   int         NumberOfPoints;
 
-  // conversion methods
-  void RGBToHSV( float r, float g, float b, float &h, float &s, float &v );
-  void HSVToRGB( float h, float s, float v, float &r, float &g, float &b );
-  
   // An evaluated color (0 to 255 RGBA A=255)
   unsigned char UnsignedCharRGBAValue[4];
 
