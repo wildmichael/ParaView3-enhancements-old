@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagePlaneWidget.h,v $
   Language:  C++
-  Date:      $Date: 2002-07-29 20:07:01 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2002-07-30 12:30:20 $
+  Version:   $Revision: 1.14 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -93,6 +93,7 @@ class vtkPolyData;
 class vtkPolyDataMapper;
 class vtkProperty;
 class vtkTextActor;
+class vtkTextProperty;
 class vtkTexture;
 class vtkTextureMapToPlane;
 class vtkTransform;
@@ -257,6 +258,11 @@ public:
   // Set the properties of the cross-hair cursor.
   virtual void SetCursorProperty(vtkProperty*);
   vtkGetObjectMacro(CursorProperty,vtkProperty);
+
+  // Description:
+  // Set/Get the text property for the image data and window-level annotation.
+  void SetTextProperty(vtkTextProperty* tprop);
+  vtkTextProperty* GetTextProperty();
 
   // Description:
   // Get the current window and level values.
