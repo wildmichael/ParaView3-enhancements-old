@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPVUpdateSuppressor.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-04-18 13:04:00 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2003-06-05 18:15:29 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 #include "vtkPolyData.h"
 #include "vtkCollection.h"
 
-vtkCxxRevisionMacro(vtkPVUpdateSuppressor, "$Revision: 1.8 $");
+vtkCxxRevisionMacro(vtkPVUpdateSuppressor, "$Revision: 1.9 $");
 vtkStandardNewMacro(vtkPVUpdateSuppressor);
 
 //----------------------------------------------------------------------------
@@ -83,7 +83,7 @@ void vtkPVUpdateSuppressor::ForceUpdate()
   // Assume the input is the collection filter.
   // Client needs to modify the collection filter because it is not
   // connected to a pipeline.
-  if (input && input->GetSource())
+  if (input && input->GetSource() && input->GetSource()->IsA("vtkCollectPolyData"))
     {
     input->GetSource()->Modified();
     }
