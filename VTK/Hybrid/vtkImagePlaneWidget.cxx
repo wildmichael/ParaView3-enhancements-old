@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagePlaneWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-01-20 16:23:09 $
-  Version:   $Revision: 1.58 $
+  Date:      $Date: 2003-01-20 18:44:13 $
+  Version:   $Revision: 1.59 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -44,7 +44,7 @@
 #include "vtkTextureMapToPlane.h"
 #include "vtkTransform.h"
 
-vtkCxxRevisionMacro(vtkImagePlaneWidget, "$Revision: 1.58 $");
+vtkCxxRevisionMacro(vtkImagePlaneWidget, "$Revision: 1.59 $");
 vtkStandardNewMacro(vtkImagePlaneWidget);
 
 vtkCxxSetObjectMacro(vtkImagePlaneWidget, PlaneProperty, vtkProperty);
@@ -2309,8 +2309,8 @@ void vtkImagePlaneWidget::GenerateText()
   textprop->SetVerticalJustificationToBottom();
 
   vtkCoordinate* coord = this->TextActor->GetPositionCoordinate();
-  coord->SetCoordinateSystemToNormalizedDisplay();
-  coord->SetValue(0.01, 0.01);
+  coord->SetCoordinateSystemToNormalizedViewport();
+  coord->SetValue(.01, .01);
 
   this->TextActor->VisibilityOff();
 }
