@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTclUtil.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-14 23:54:09 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1997-06-09 18:36:42 $
+  Version:   $Revision: 1.19 $
 
 This file is part of the Visualization Toolkit. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -16,9 +16,9 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 
 #include <iostream.h>
 #include <stdlib.h>
+#include "vtkObject.h"
 #include "vtkTclUtil.h"
 #include "vtkSetGet.h"
-#include "vtkObject.h"
 
 int vtkTclEval(char *str)
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32Header.h,v $
   Language:  C++
-  Date:      $Date: 1997-03-04 17:55:34 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1997-06-09 18:36:42 $
+  Version:   $Revision: 1.3 $
   Thanks:    to Horst Schreiber for developing this MFC code
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -52,14 +52,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // now add in the UNIX / Windows varients
 #ifdef _WIN32
 #include <strstrea.h>
-#include <afxwin.h>  // MFC core and standard components
-#include <afxext.h>  // MFC extensions
-#ifdef stdio
-#undef stdout
-#undef stderr
-#define stdout afxDump
-#define stderr afxDump
-#endif
+#include <windows.h>
 
 #pragma warning ( disable : 4244 )
 #pragma warning ( disable : 4305 )
