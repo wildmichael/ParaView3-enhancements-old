@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGridBunykRayCastFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-11-25 06:51:39 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2003-11-26 13:56:19 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -34,7 +34,7 @@
 #include "vtkColorTransferFunction.h"
 #include "vtkVolumeProperty.h"
 
-vtkCxxRevisionMacro(vtkUnstructuredGridBunykRayCastFunction, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkUnstructuredGridBunykRayCastFunction, "$Revision: 1.7 $");
 vtkStandardNewMacro(vtkUnstructuredGridBunykRayCastFunction);
 
 #define VTK_BUNYKRCF_NUMLISTS 100000
@@ -884,7 +884,7 @@ void vtkUnstructuredGridBunykRayCastFunction::UpdateColorTable()
   float tmpArray[3*65536];
   
   // Find the scalar range
-  float *scalarRange = new float [2*components];
+  double *scalarRange = new double [2*components];
   for ( c = 0; c < components; c++ )
     {
     input->GetPointData()->GetScalars()->GetRange((scalarRange+2*c), c);
