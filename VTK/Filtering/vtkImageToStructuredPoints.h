@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToStructuredPoints.h,v $
   Language:  C++
-  Date:      $Date: 1997-12-17 01:24:04 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1998-01-21 20:09:54 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -72,7 +72,12 @@ public:
   vtkSetObjectMacro(Input,vtkImageCache);
   vtkGetObjectMacro(Input,vtkImageCache);
 
-  // Set/Get the extent to translate explicitely.
+  // Description:
+  // Set/Get the input object from the image pipeline.
+  vtkSetObjectMacro(VectorInput,vtkImageCache);
+  vtkGetObjectMacro(VectorInput,vtkImageCache);
+
+    // Set/Get the extent to translate explicitely.
   void SetExtent(int dim, int *extent);
   void GetExtent(int dim, int *extent);
 
@@ -80,6 +85,7 @@ public:
   
 protected:
   vtkImageCache *Input;
+  vtkImageCache *VectorInput;
   int Extent[6];
 
   void Execute();
