@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-14 21:24:42 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1998-12-02 21:11:32 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -91,5 +91,21 @@ int vtkCellArray::GetMaxCellSize()
 int vtkCellArray::InsertNextCell(vtkIdList &pts)
 {
   return this->InsertNextCell(&pts);
+}
+
+// Specify a group of cells.
+void vtkCellArray::SetCells(int ncells, vtkIntArray *cells)
+{
+  if ( cells != this->Ia )
+    {
+    this->Modified();
+    this->Ia->Delete();
+    this->Ia = cells;
+    this->Ia->Register(this);
+
+    this->NumberOfCells = ncells;
+    this->InsertLocation = cells->GetMaxId() + 1;
+    this->TraversalLocation = 0;
+    }
 }
 
