@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHashMap.txx,v $
   Language:  C++
-  Date:      $Date: 2002-07-09 19:26:23 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-07-09 21:07:41 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -83,7 +83,7 @@ template<class KeyType, class DataType>
 int vtkHashMap<KeyType,DataType>::RemoveItem(const KeyType& key)
 {
   vtkIdType bucket = this->HashKey(key);
-  ItemType item = { k2ey, DataType() };
+  ItemType item = { key, DataType() };
   vtkIdType index=0;
   
   if(this->Buckets[bucket]->FindItem(item, index) == VTK_OK)
