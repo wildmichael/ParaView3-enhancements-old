@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-07 22:31:30 $
-  Version:   $Revision: 1.68 $
+  Date:      $Date: 2000-08-21 19:58:43 $
+  Version:   $Revision: 1.69 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -735,13 +735,17 @@ void vtkStructuredGrid::GetCellPoints(int cellId, vtkIdList *ptIds)
 //----------------------------------------------------------------------------
 // Should we split up cells, or just points.  It does not matter for now.
 // Extent of structured data assumes points.
-void vtkStructuredGrid::SetUpdateExtent(int piece, int numPieces)
+void vtkStructuredGrid::SetUpdateExtent(int piece, int numPieces,
+					int ghostLevel)
 {
-  int ext[6], zdim, min, max;
+  int ext[6], zdim, min, max, oldZMin, oldZMax;
   
   // Lets just divide up the z axis.
   this->GetWholeExtent(ext);
   zdim = ext[5] - ext[4] + 1;
+  
+  oldZMin = ext[4];
+  oldZMax = ext[5];
   
   if (piece >= zdim)
     {
@@ -761,6 +765,24 @@ void vtkStructuredGrid::SetUpdateExtent(int piece, int numPieces)
   ext[4] = min;
   ext[5] = max;
 
+  if (ext[4] - ghostLevel >= oldZMin)
+    {
+    ext[4] = ext[4] - ghostLevel;
+    }
+  else
+    {
+    ext[4] = oldZMin;
+    }
+  
+  if (ext[5] + ghostLevel <= oldZMax)
+    {
+    ext[5] = ext[5] + ghostLevel;
+    }
+  else
+    {
+    ext[5] = oldZMax;
+    }
+  
   this->SetUpdateExtent(ext);
 }
 

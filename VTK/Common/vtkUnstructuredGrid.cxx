@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-02 13:46:12 $
-  Version:   $Revision: 1.76 $
+  Date:      $Date: 2000-08-21 19:58:43 $
+  Version:   $Revision: 1.77 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -575,18 +575,22 @@ int vtkUnstructuredGrid::InsertNextLinkedCell(int type, int npts, int *pts)
 }
 
 //----------------------------------------------------------------------------
-void vtkUnstructuredGrid::SetUpdateExtent(int piece, int numPieces)
+void vtkUnstructuredGrid::SetUpdateExtent(int piece, int numPieces,
+					  int ghostLevel)
 {
   this->UpdatePiece = piece;
   this->UpdateNumberOfPieces = numPieces;
+  this->UpdateGhostLevel = ghostLevel;
   this->UpdateExtentInitialized = 1;
 }
 
 //----------------------------------------------------------------------------
-void vtkUnstructuredGrid::GetUpdateExtent(int &piece, int &numPieces)
+void vtkUnstructuredGrid::GetUpdateExtent(int &piece, int &numPieces,
+					  int &ghostLevel)
 {
   piece = this->UpdatePiece;
   numPieces = this->UpdateNumberOfPieces;
+  ghostLevel = this->UpdateGhostLevel;
 }
 
 //----------------------------------------------------------------------------
@@ -714,6 +718,8 @@ void vtkUnstructuredGrid::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "Piece: " << this->Piece << endl;
   os << indent << "Maximum Number Of Pieces: " << this->MaximumNumberOfPieces << endl;
 
+  os << indent << "Ghost Level: " << this->GhostLevel << endl;
+  
   os << indent << "UpdateExtent: " << this->UpdateExtent[0] << ", "
      << this->UpdateExtent[1] << ", " << this->UpdateExtent[2] << ", "
      << this->UpdateExtent[3] << ", " << this->UpdateExtent[4] << ", "

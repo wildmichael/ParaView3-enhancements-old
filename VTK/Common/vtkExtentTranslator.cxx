@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtentTranslator.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-09 11:02:28 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2000-08-21 19:58:43 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -68,6 +68,8 @@ vtkExtentTranslator::vtkExtentTranslator()
   
   this->Piece = 0;
   this->NumberOfPieces = 0;
+  
+  this->GhostLevel = 0;
   
   this->Extent[0] = this->Extent[2] = this->Extent[4] = 0; 
   this->Extent[1] = this->Extent[3] = this->Extent[5] = -1; 
@@ -180,6 +182,8 @@ void vtkExtentTranslator::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "Piece: " << this->Piece << endl;
   os << indent << "NumberOfPieces: " << this->NumberOfPieces << endl;
 
+  os << indent << "GhostLevel: " << this->GhostLevel << endl;
+  
   os << indent << "Extent: " << this->Extent[0] << ", " 
      << this->Extent[1] << ", " << this->Extent[2] << ", " 
      << this->Extent[3] << ", " << this->Extent[4] << ", " 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetToStructuredPointsFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:05:02 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2000-08-21 19:58:43 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -81,7 +81,7 @@ void vtkDataSetToStructuredPointsFilter::ComputeInputUpdateExtents(
     return;
     }
   
-  input->SetUpdateExtent(0, 1);
+  input->SetUpdateExtent(0, 1, 0);
 }
 
     

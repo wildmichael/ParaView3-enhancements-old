@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGridSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:07:25 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2000-08-21 19:58:43 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -91,11 +91,11 @@ void vtkUnstructuredGridSource::SetOutput(vtkUnstructuredGrid *output)
 //----------------------------------------------------------------------------
 void vtkUnstructuredGridSource::ComputeInputUpdateExtents(vtkDataObject *data)
 {
-  int piece, numPieces;
+  int piece, numPieces, ghostLevel;
   vtkUnstructuredGrid *output = (vtkUnstructuredGrid *)data;
   int idx;
 
-  output->GetUpdateExtent(piece, numPieces);
+  output->GetUpdateExtent(piece, numPieces, ghostLevel);
     
   // make sure piece is valid
   if (piece < 0 || piece >= numPieces)
@@ -108,7 +108,7 @@ void vtkUnstructuredGridSource::ComputeInputUpdateExtents(vtkDataObject *data)
     {
     if (this->Inputs[idx])
       {
-      this->Inputs[idx]->SetUpdateExtent(piece, numPieces);
+      this->Inputs[idx]->SetUpdateExtent(piece, numPieces, ghostLevel);
       }
     }
 }

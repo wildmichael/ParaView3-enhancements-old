@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObject.h,v $
   Language:  C++
-  Date:      $Date: 2000-08-16 10:59:47 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 2000-08-21 19:58:43 $
+  Version:   $Revision: 1.44 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -212,9 +212,10 @@ public:
   // A generic way of specifying an update extent.  Subclasses
   // must decide what a piece is.  When the NumberOfPieces is zero, then
   // no data is requested, and the source will not execute.
-  virtual void SetUpdateExtent(int vtkNotUsed(piece),int vtkNotUsed(numPieces))
+  virtual void SetUpdateExtent(int vtkNotUsed(piece),int vtkNotUsed(numPieces),
+			       int vtkNotUsed(ghostLevel))
     { vtkErrorMacro("Subclass did not implement 'SetUpdateExtent'");}
-  
+
   // Description:
   // Set the update extent for data objects that use 3D extents. Using this
   // method on data objects that set extents as pieces (such as vtkPolyData or

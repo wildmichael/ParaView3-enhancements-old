@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGrid.h,v $
   Language:  C++
-  Date:      $Date: 2000-07-31 12:06:59 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2000-08-21 19:58:43 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -175,7 +175,7 @@ public:
   // Required for the lowest common denominator for setting the UpdateExtent
   // (i.e. vtkDataSetToStructuredPointsFilter).  This assumes that WholeExtent
   // is valid (UpdateInformation has been called).
-  void SetUpdateExtent(int piece, int numPieces);
+  void SetUpdateExtent(int piece, int numPieces, int ghostLevel);
 
   // Description:
   // Call superclasses method to avoid hiding

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSynchronizedTemplates3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-15 10:44:07 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2000-08-21 19:58:43 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -826,7 +826,7 @@ void vtkSynchronizedTemplates3D::ComputeInputUpdateExtents(vtkDataObject *out)
 {
   vtkImageData *input = this->GetInput();
   vtkPolyData *output = (vtkPolyData *)out;
-  int piece, numPieces;
+  int piece, numPieces, ghostLevel;
   int *wholeExt;
   int ext[6];
   vtkExtentTranslator *translator = input->GetExtentTranslator();
@@ -840,7 +840,7 @@ void vtkSynchronizedTemplates3D::ComputeInputUpdateExtents(vtkDataObject *out)
   wholeExt = input->GetWholeExtent();
 
   // Get request from output
-  output->GetUpdateExtent(piece, numPieces);
+  output->GetUpdateExtent(piece, numPieces, ghostLevel);
 
   // Start with the whole grid.
   input->GetWholeExtent(ext);  

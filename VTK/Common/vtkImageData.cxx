@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-15 09:50:10 $
-  Version:   $Revision: 1.93 $
+  Date:      $Date: 2000-08-21 19:58:43 $
+  Version:   $Revision: 1.94 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -1089,7 +1089,7 @@ vtkExtentTranslator *vtkImageData::GetExtentTranslator()
 //----------------------------------------------------------------------------
 // Should we split up cells, or just points.  It does not matter for now.
 // Extent of structured data assumes points.
-void vtkImageData::SetUpdateExtent(int piece, int numPieces)
+void vtkImageData::SetUpdateExtent(int piece, int numPieces, int ghostLevel)
 {
   int ext[6];
   
@@ -1098,6 +1098,7 @@ void vtkImageData::SetUpdateExtent(int piece, int numPieces)
   this->ExtentTranslator->SetWholeExtent(ext);
   this->ExtentTranslator->SetPiece(piece);
   this->ExtentTranslator->SetNumberOfPieces(numPieces);
+  this->ExtentTranslator->SetGhostLevel(ghostLevel);
   this->ExtentTranslator->PieceToExtent();
   this->SetUpdateExtent(this->ExtentTranslator->GetExtent());
 }

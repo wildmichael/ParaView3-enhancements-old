@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObject.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-17 18:21:36 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 2000-08-21 19:58:43 $
+  Version:   $Revision: 1.51 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -144,6 +144,7 @@ void vtkDataObject::Initialize()
   this->Extent[1] = this->Extent[3] = this->Extent[5] = -1;
   this->Piece = -1;
   this->NumberOfPieces = 0;
+  this->GhostLevel = 0;
 }
 
 //----------------------------------------------------------------------------
@@ -310,6 +311,7 @@ void vtkDataObject::UpdateData()
       // The alternative is to have it in every execute method.
       this->Piece = this->UpdatePiece;
       this->NumberOfPieces = this->UpdateNumberOfPieces;
+      this->GhostLevel = this->UpdateGhostLevel;
       } 
     } 
 }

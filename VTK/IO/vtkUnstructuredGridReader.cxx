@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGridReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-05-26 08:41:09 $
-  Version:   $Revision: 1.53 $
+  Date:      $Date: 2000-08-21 19:58:43 $
+  Version:   $Revision: 1.54 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -177,7 +177,7 @@ void vtkUnstructuredGridReader::Execute()
   int i, numPts=0, numCells=0;
   char line[256];
   int npts, size, ncells;
-  int piece, numPieces, skip1, read2, skip3, tmp;
+  int piece, numPieces, ghostLevel, skip1, read2, skip3, tmp;
   vtkCellArray *cells=NULL;
   int *types=NULL;
   int done=0;
@@ -255,7 +255,7 @@ void vtkUnstructuredGridReader::Execute()
 
       else if ( !strncmp(line,"cells",5))
         {
-        output->GetUpdateExtent(piece, numPieces);
+        output->GetUpdateExtent(piece, numPieces, ghostLevel);
         if (!(this->Reader->Read(&ncells) && this->Reader->Read(&size)))
           {
           vtkErrorMacro(<<"Cannot read cells!");
@@ -285,7 +285,7 @@ void vtkUnstructuredGridReader::Execute()
 
       else if (!strncmp(line,"cell_types",10))
         {
-        output->GetUpdateExtent(piece, numPieces);
+        output->GetUpdateExtent(piece, numPieces, ghostLevel);
         if (!this->Reader->Read(&ncells))
           {
           vtkErrorMacro(<<"Cannot read cell types!");

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-09 10:15:43 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2000-08-21 19:58:43 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -58,6 +58,7 @@ vtkPolyDataMapper::vtkPolyDataMapper()
 {
   this->Piece = 0;
   this->NumberOfPieces = 1;
+  this->GhostLevel = 0;
 }
 
 
@@ -85,7 +86,8 @@ void vtkPolyDataMapper::Update()
 {
   if (this->GetInput() ) 
     {
-    this->GetInput()->SetUpdateExtent(this->Piece, this->NumberOfPieces);
+    this->GetInput()->SetUpdateExtent(this->Piece, this->NumberOfPieces,
+				      this->GhostLevel);
     }
   this->vtkMapper::Update();
 }
@@ -97,4 +99,5 @@ void vtkPolyDataMapper::PrintSelf(ostream& os, vtkIndent indent)
 
   os << indent << "Piece : " << this->Piece << endl;
   os << indent << "NumberOfPieces : " << this->NumberOfPieces << endl;
+  os << indent << "GhostLevel: " << this->GhostLevel << endl;
 }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtentTranslator.h,v $
   Language:  C++
-  Date:      $Date: 2000-08-13 22:08:38 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2000-08-21 19:58:43 $
+  Version:   $Revision: 1.5 $
 
 
 
@@ -87,6 +87,8 @@ public:
   vtkGetMacro(Piece,int);
   vtkSetMacro(NumberOfPieces,int);
   vtkGetMacro(NumberOfPieces,int);
+  vtkSetMacro(GhostLevel, int);
+  vtkGetMacro(GhostLevel, int);
 
 protected:
   vtkExtentTranslator();
@@ -103,6 +105,7 @@ protected:
 
   int Piece;
   int NumberOfPieces;
+  int GhostLevel;
   int Extent[6];
   int WholeExtent[6];
 
