@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCommand.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-23 17:28:45 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2002-06-21 15:47:42 $
+  Version:   $Revision: 1.23 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,9 +16,8 @@
 
 =========================================================================*/
 
-#include <string.h>
-#include <ctype.h>
 #include "vtkCommand.h"
+#include "vtkDebugLeaks.h"
 
 // this list should only contain the initial, contiguous
 // set of events and should not include UserEvent
@@ -73,15 +72,24 @@ static const char *vtkCommandEventStrings[] = {
 };
 
 //----------------------------------------------------------------
-void vtkCommand::Register()
+vtkCommand::vtkCommand():AbortFlag(0)
 {
-  this->ReferenceCount++;
+#ifdef VTK_DEBUG_LEAKS
+  vtkDebugLeaks::ConstructClass("vtkCommand or subclass");
+#endif
 }
 
+
+//----------------------------------------------------------------
 void vtkCommand::UnRegister()
 {
-  if (--this->ReferenceCount <= 0)
+  int refcount = this->GetReferenceCount()-1;
+  this->SetReferenceCount(refcount);
+  if (refcount <= 0)
     {
+#ifdef VTK_DEBUG_LEAKS
+    vtkDebugLeaks::DestructClass("vtkCommand or subclass");
+#endif
     delete this;
     }
 }

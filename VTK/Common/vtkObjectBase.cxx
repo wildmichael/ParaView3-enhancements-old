@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObjectBase.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-18 19:03:26 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-06-21 15:47:42 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -108,20 +108,9 @@ void vtkObjectBase::SetReferenceCount(int ref)
 
 // Description:
 // Increase the reference count (mark as used by another object).
-void vtkObjectBase::Register(vtkObjectBase* o)
+void vtkObjectBase::Register(vtkObjectBase*)
 {
   this->ReferenceCount++;
-  if ( o )
-    {
-    vtkBaseDebugMacro(<< "Registered by " << this->GetClassName() 
-                      << " " << o->GetClassName() << " (" << o 
-                      << "), ReferenceCount = " << this->ReferenceCount);
-    }
-  else
-    {
-    vtkBaseDebugMacro(<< "Registered by NULL, ReferenceCount = " 
-                      << this->ReferenceCount);
-    }               
   if (this->ReferenceCount <= 0)
     {
     delete this;
@@ -160,5 +149,5 @@ void vtkObjectBase::UnRegister(vtkObjectBase* o)
 
 void vtkObjectBase::CollectRevisions(ostream& os)
 {
-  os << "vtkObjectBase $Revision: 1.2 $\n";
+  os << "vtkObjectBase $Revision: 1.3 $\n";
 }
