@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor2DCollection.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-16 15:58:14 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-02-24 17:28:04 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -84,7 +84,7 @@ class VTK_EXPORT vtkActor2DCollection : public vtkCollection
 
   // Description:
   // Sort and then render the collection of 2D actors.  
-  void Render(vtkViewport* viewport);
+  void RenderOverlay(vtkViewport* viewport);
 
 
 protected:
