@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkString.h,v $
   Language:  C++
-  Date:      $Date: 2003-01-06 17:57:54 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2003-01-30 20:14:16 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -92,6 +92,15 @@ public:
   // Description:
   // Transform the string to uppercase (inplace).
   static char* ToUpper(char* str);
+
+  // Description:
+  // Replace a character or some characters in the string (inplace).
+  static char* ReplaceChar(char* str, char toreplace, char replacement);
+  static char* ReplaceChars(char* str, char *toreplace, char replacement);
+
+  // Description:
+  // Return the number of occurence of a char.
+  static int CountChar(char* str, char c);
 
 protected:
   vtkString() {};
