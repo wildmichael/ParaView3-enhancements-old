@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLineWidget.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-04 18:52:44 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-04-08 13:36:56 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -81,7 +81,7 @@ class vtkPolyData;
 class vtkSphereSource;
 class vtkCellPicker;
 
-class VTK_EXPORT vtkLineWidget : public vtk3DWidget
+class VTK_HYBRID_EXPORT vtkLineWidget : public vtk3DWidget
 {
 public:
   // Description:

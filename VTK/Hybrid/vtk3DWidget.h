@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtk3DWidget.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-04 18:52:44 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-04-08 13:36:56 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -53,7 +53,7 @@
 
 #include "vtkInteractorObserver.h"
 
-class VTK_EXPORT vtk3DWidget : public vtkInteractorObserver
+class VTK_HYBRID_EXPORT vtk3DWidget : public vtkInteractorObserver
 {
 public:
   vtkTypeRevisionMacro(vtk3DWidget,vtkInteractorObserver);

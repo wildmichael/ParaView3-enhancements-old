@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorObserver.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-06 11:02:55 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-04-08 13:36:56 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -49,7 +49,7 @@
 
 class vtkCallbackCommand;
 
-class VTK_EXPORT vtkInteractorObserver : public vtkObject
+class VTK_HYBRID_EXPORT vtkInteractorObserver : public vtkObject
 {
 public:
   vtkTypeRevisionMacro(vtkInteractorObserver,vtkObject);

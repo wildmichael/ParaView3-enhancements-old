@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPlaneWidget.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-04 18:52:44 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-04-08 13:36:56 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -91,7 +91,7 @@ class vtkCellPicker;
 #define VTK_PLANE_WIREFRAME 2
 #define VTK_PLANE_SURFACE 3
 
-class VTK_EXPORT vtkPlaneWidget : public vtk3DWidget
+class VTK_HYBRID_EXPORT vtkPlaneWidget : public vtk3DWidget
 {
 public:
   // Description:
