@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: otherRectilinearGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-26 18:24:22 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2003-04-18 19:08:25 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -602,6 +602,6 @@ int otherRectilinearGrid(int,char *[])
 {
   vtkDebugLeaks::PromptUserOff();
 
-  ostrstream vtkmsg; 
-  return TestORG(vtkmsg);
+  ostrstream vtkmsg_with_warning_C4701; 
+  return TestORG(vtkmsg_with_warning_C4701);
 } 

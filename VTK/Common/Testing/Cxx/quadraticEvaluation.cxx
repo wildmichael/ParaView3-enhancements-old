@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: quadraticEvaluation.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-02-12 17:00:40 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2003-04-18 19:08:25 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -297,6 +297,6 @@ int quadraticEvaluation(int,char *[])
 {
   vtkDebugLeaks::PromptUserOff();
 
-  ostrstream vtkmsg; 
-  return TestQE(vtkmsg);
+  ostrstream vtkmsg_with_warning_C4701; 
+  return TestQE(vtkmsg_with_warning_C4701);
 } 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: otherCellArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-05 17:47:09 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2003-04-18 19:08:25 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -86,6 +86,6 @@ int otherCellArray(int,char *[])
 {
   vtkDebugLeaks::PromptUserOff();
 
-  ostrstream vtkmsg; 
-  return TestCellArray(vtkmsg);
+  ostrstream vtkmsg_with_warning_C4701; 
+  return TestCellArray(vtkmsg_with_warning_C4701);
 } 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: otherEmptyCell.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-12 18:55:41 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2003-04-18 19:08:25 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -98,8 +98,8 @@ int otherEmptyCell(int , char *[])
 {
   vtkDebugLeaks::PromptUserOff();
 
-  ostrstream vtkmsg; 
-  TestOEC(vtkmsg);
+  ostrstream vtkmsg_with_warning_C4701; 
+  TestOEC(vtkmsg_with_warning_C4701);
 
   return 0;
 } 

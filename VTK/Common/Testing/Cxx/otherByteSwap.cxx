@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: otherByteSwap.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-05 17:47:09 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2003-04-18 19:08:25 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -159,6 +159,6 @@ int otherByteSwap(int,char *[])
 {
   vtkDebugLeaks::PromptUserOff();
 
-  ostrstream vtkmsg; 
-  return TestByteSwap(vtkmsg);
+  ostrstream vtkmsg_with_warning_C4701; 
+  return TestByteSwap(vtkmsg_with_warning_C4701);
 } 

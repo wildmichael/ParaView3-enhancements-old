@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: otherArrays.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-17 22:11:13 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2003-04-18 19:08:25 $
+  Version:   $Revision: 1.18 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -752,7 +752,7 @@ int otherArrays(int, char *[])
 {
   vtkDebugLeaks::PromptUserOff();
 
-  ostrstream vtkmsg; 
-  return otherArraysTest(vtkmsg);
+  ostrstream vtkmsg_with_warning_C4701; 
+  return otherArraysTest(vtkmsg_with_warning_C4701);
 
 } 

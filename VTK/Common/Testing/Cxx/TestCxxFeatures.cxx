@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: TestCxxFeatures.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-04-04 18:19:01 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2003-04-18 19:08:25 $
+  Version:   $Revision: 1.25 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -335,11 +335,11 @@ int TestBinaryWriting()
   // kulu.crd IRIX64-6.5-CC-o32 
   // a62.iue.tuwien.ac.at OSF1-V5.1-cxx 
 #if defined(VTK_CXX_SGI) || defined( __DECCXX_VER)
-  ofstream fout("TestCxxFeatures_TestBinaryWriting", ios::out );
+  ofstream fout_with_warning_C4701("TestCxxFeatures_TestBinaryWriting", ios::out );
 #else  
-  ofstream fout("TestCxxFeatures_TestBinaryWriting", ios::out | ios::binary);
+  ofstream fout_with_warning_C4701("TestCxxFeatures_TestBinaryWriting", ios::out | ios::binary);
 #endif
-  if(!fout)
+  if(!fout_with_warning_C4701)
     {
     cerr << "Error opening TestCxxFeatures_TestBinaryWriting for binary writing.\n";
     result = 0;

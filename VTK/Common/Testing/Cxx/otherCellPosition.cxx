@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: otherCellPosition.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-26 18:24:22 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2003-04-18 19:08:25 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -433,6 +433,6 @@ int otherCellPosition(int, char *[])
 {
   vtkDebugLeaks::PromptUserOff();
 
-  ostrstream vtkmsg; 
-  return TestOCP(vtkmsg);
+  ostrstream vtkmsg_with_warning_C4701; 
+  return TestOCP(vtkmsg_with_warning_C4701);
 } 
