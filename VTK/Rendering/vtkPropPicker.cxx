@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPropPicker.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-06-14 18:31:11 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2000-10-30 15:47:21 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -121,6 +121,7 @@ int vtkPropPicker::PickProp(float selectionX, float selectionY,
   if ( this->Path )
     {
     this->WorldPointPicker->Pick(selectionX, selectionY, 0, renderer);
+    this->WorldPointPicker->GetPickPosition(this->PickPosition);
     this->Path->GetLastNode()->GetProp()->Pick();
     if ( this->PickMethod )
       {
