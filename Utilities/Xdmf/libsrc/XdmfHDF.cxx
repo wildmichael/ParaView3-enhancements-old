@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfHDF.cxx,v 1.11 2003-11-26 19:31:17 clarke Exp $  */
-/*  Date : $Date: 2003-11-26 19:31:17 $ */
-/*  Version : $Revision: 1.11 $ */
+/*  Id : $Id: XdmfHDF.cxx,v 1.12 2004-01-05 02:29:36 andy Exp $  */
+/*  Date : $Date: 2004-01-05 02:29:36 $ */
+/*  Version : $Revision: 1.12 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -265,7 +265,7 @@ return( XDMF_SUCCESS );
 }
 
 XdmfInt32
-XdmfHDF::CreateDataset( XdmfString Path ) {
+XdmfHDF::CreateDataset( XdmfConstString Path ) {
 
 XdmfString  Pathname, Slash;
 hid_t    Directory;

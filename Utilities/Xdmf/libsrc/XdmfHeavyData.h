@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfHeavyData.h,v 1.7 2003-11-06 21:57:03 clarke Exp $  */
-/*  Date : $Date: 2003-11-06 21:57:03 $ */
-/*  Version : $Revision: 1.7 $ */
+/*  Id : $Id: XdmfHeavyData.h,v 1.8 2004-01-05 02:29:59 andy Exp $  */
+/*  Date : $Date: 2004-01-05 02:29:59 $ */
+/*  Version : $Revision: 1.8 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -76,7 +76,7 @@ public:
 //! Get the current HeavyData Dataset path
   XdmfGetValueMacro(Path, XdmfString);
 //! Set the current HeavyData Dataset path
-  void SetPath( XdmfString Path ) {
+  void SetPath( XdmfConstString Path ) {
     strcpy( this->Path, Path );
     } ;
 

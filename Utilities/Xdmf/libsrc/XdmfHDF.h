@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfHDF.h,v 1.8 2003-11-26 19:31:17 clarke Exp $  */
-/*  Date : $Date: 2003-11-26 19:31:17 $ */
-/*  Version : $Revision: 1.8 $ */
+/*  Id : $Id: XdmfHDF.h,v 1.9 2004-01-05 02:29:47 andy Exp $  */
+/*  Date : $Date: 2004-01-05 02:29:47 $ */
+/*  Version : $Revision: 1.9 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -157,7 +157,7 @@ public:
   return("XDMF_H5_OTHER");
   };
 //! Create a new dataset in the current Group
-  XdmfInt32 CreateDataset( XdmfString Path = NULL );
+  XdmfInt32 CreateDataset( XdmfConstString Path = NULL );
 
 //! Open an existing Dataset in a currently open HDF5 file
   XdmfInt32 OpenDataset();
