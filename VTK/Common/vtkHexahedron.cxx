@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHexahedron.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-10 21:10:25 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 1997-10-29 16:33:59 $
+  Version:   $Revision: 1.46 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -392,7 +392,13 @@ void vtkHexahedron::Contour(float value, vtkFloatScalars *cellScalars,
           }
         }
       }
-    polys->InsertNextCell(3,pts);
+    // check for degenerate triangle
+    if ( pts[0] != pts[1] &&
+	 pts[0] != pts[2] &&
+	 pts[1] != pts[2] )
+      {
+      polys->InsertNextCell(3,pts);
+      }
     }
 }
 
