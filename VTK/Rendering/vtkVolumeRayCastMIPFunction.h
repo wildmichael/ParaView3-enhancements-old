@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastMIPFunction.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-22 18:39:32 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2002-10-28 21:33:02 $
+  Version:   $Revision: 1.28 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -64,8 +64,8 @@ public:
   const char *GetMaximizeMethodAsString(void);
 
 //BTX
-  void CastRay( VTKVRCDynamicInfo *dynamicInfo,
-                VTKVRCStaticInfo *staticInfo );
+  void CastRay( vtkVolumeRayCastDynamicInfo *dynamicInfo,
+                vtkVolumeRayCastStaticInfo *staticInfo );
 //ETX
 
 
@@ -78,7 +78,7 @@ protected:
 //BTX
   void SpecificFunctionInitialize( vtkRenderer *ren,
                                    vtkVolume   *vol,
-                                   VTKVRCStaticInfo *staticInfo,
+                                   vtkVolumeRayCastStaticInfo *staticInfo,
                                    vtkVolumeRayCastMapper *mapper );
 
 //ETX

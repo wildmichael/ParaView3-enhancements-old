@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastFunction.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-22 18:39:32 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2002-10-28 21:33:01 $
+  Version:   $Revision: 1.29 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -60,7 +60,7 @@ typedef struct
   // a ray caster that takes steps
   int                          NumberOfStepsTaken;
 
-} VTKVRCDynamicInfo;
+} vtkVolumeRayCastDynamicInfo;
 
 // This second structure hold the static information - things that don't
 // change over the whole image
@@ -128,7 +128,7 @@ typedef struct
   // value is used
   int                          MIPFunction;
   int                          MaximizeOpacity;
-} VTKVRCStaticInfo;
+} vtkVolumeRayCastStaticInfo;
 
 class VTK_RENDERING_EXPORT vtkVolumeRayCastFunction : public vtkObject
 {
@@ -145,10 +145,10 @@ public:
 //BTX
   void FunctionInitialize( vtkRenderer *ren,
                            vtkVolume   *vol,
-                           VTKVRCStaticInfo *staticInfo );
+                           vtkVolumeRayCastStaticInfo *staticInfo );
 
-  virtual void CastRay( VTKVRCDynamicInfo *dynamicInfo,
-                        VTKVRCStaticInfo *staticInfo )=0;
+  virtual void CastRay( vtkVolumeRayCastDynamicInfo *dynamicInfo,
+                        vtkVolumeRayCastStaticInfo *staticInfo )=0;
 //ETX
 
   // Description:
@@ -166,7 +166,7 @@ protected:
 //BTX
   virtual void SpecificFunctionInitialize( vtkRenderer *ren,
                                            vtkVolume   *vol,
-                                           VTKVRCStaticInfo *staticInfo,
+                                           vtkVolumeRayCastStaticInfo *staticInfo,
                                            vtkVolumeRayCastMapper *mapper )=0;
 //ETX
 private:

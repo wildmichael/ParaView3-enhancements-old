@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastIsosurfaceFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-30 21:05:00 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2002-10-28 21:33:01 $
+  Version:   $Revision: 1.25 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -29,7 +29,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkVolumeRayCastIsosurfaceFunction, "$Revision: 1.24 $");
+vtkCxxRevisionMacro(vtkVolumeRayCastIsosurfaceFunction, "$Revision: 1.25 $");
 vtkStandardNewMacro(vtkVolumeRayCastIsosurfaceFunction);
 
 /*    Is x between y and z?                                     */
@@ -267,8 +267,8 @@ void trilin_line_intersection( float start[3], float vec[3],
 // unsigned char, unsigned short, short, int and float data.
 template <class T>
 void vtkCastRay_NN ( vtkVolumeRayCastIsosurfaceFunction *cast_function, 
-                     T *data_ptr, VTKVRCDynamicInfo *dynamicInfo,
-                     VTKVRCStaticInfo *staticInfo )
+                     T *data_ptr, vtkVolumeRayCastDynamicInfo *dynamicInfo,
+                     vtkVolumeRayCastStaticInfo *staticInfo )
 {
 
   unsigned short  *encoded_normals;
@@ -535,8 +535,8 @@ void vtkCastRay_NN ( vtkVolumeRayCastIsosurfaceFunction *cast_function,
 // unsigned char, unsigned short, short, int and float data.
 template <class T>
 void vtkCastRay_Trilin ( vtkVolumeRayCastIsosurfaceFunction *cast_function, 
-                         T *data_ptr, VTKVRCDynamicInfo *dynamicInfo,
-                         VTKVRCStaticInfo *staticInfo )
+                         T *data_ptr, vtkVolumeRayCastDynamicInfo *dynamicInfo,
+                         vtkVolumeRayCastStaticInfo *staticInfo )
 {
   LineIntersectInfo  line_info;
   unsigned short  *encoded_normals, *nptr;
@@ -1055,8 +1055,8 @@ vtkVolumeRayCastIsosurfaceFunction::~vtkVolumeRayCastIsosurfaceFunction()
 // determine what type of ray needs to be cast (which is handled
 // by a templated function. 
 void vtkVolumeRayCastIsosurfaceFunction::CastRay( 
-                                   VTKVRCDynamicInfo *dynamicInfo,
-                                   VTKVRCStaticInfo *staticInfo )
+                                   vtkVolumeRayCastDynamicInfo *dynamicInfo,
+                                   vtkVolumeRayCastStaticInfo *staticInfo )
 {
   void *data_ptr;
 
@@ -1109,7 +1109,7 @@ float vtkVolumeRayCastIsosurfaceFunction::GetZeroOpacityThreshold(vtkVolume *)
 void vtkVolumeRayCastIsosurfaceFunction::SpecificFunctionInitialize( 
                                   vtkRenderer *vtkNotUsed(ren), 
                                   vtkVolume *vol,
-                                  VTKVRCStaticInfo *staticInfo,
+                                  vtkVolumeRayCastStaticInfo *staticInfo,
                                   vtkVolumeRayCastMapper *vtkNotUsed(mapper) )
 {
   vtkVolumeProperty  *volume_property;
