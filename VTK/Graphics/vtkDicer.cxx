@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDicer.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-04-16 21:08:17 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1998-04-24 20:04:56 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -221,7 +221,6 @@ void vtkDicer::DeleteTree(vtkOBBNode *OBBptr)
     this->DeleteTree(OBBptr->Kids[1]);
     delete OBBptr->Kids[0];
     delete OBBptr->Kids[1];
-    delete [] OBBptr->Kids;
     }
 }
 
