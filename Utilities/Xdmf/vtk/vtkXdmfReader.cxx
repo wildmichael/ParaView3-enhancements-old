@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXdmfReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2004-02-13 20:19:29 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 2004-02-18 15:20:54 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen  
@@ -74,7 +74,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <vector>
 
 vtkStandardNewMacro(vtkXdmfReader);
-vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.40 $");
+vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.41 $");
 
 #if defined(_WIN32) && (defined(_MSC_VER) || defined(__BORLANDC__))
 #  include <direct.h>
@@ -185,6 +185,7 @@ vtkXdmfReader::~vtkXdmfReader()
     }
 
   delete this->Internals;
+  H5garbage_collect();
 }
 
 //----------------------------------------------------------------------------
