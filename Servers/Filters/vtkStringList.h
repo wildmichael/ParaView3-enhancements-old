@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkStringList.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-07 21:16:28 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2003-01-17 14:59:47 $
+  Version:   $Revision: 1.8 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -39,10 +39,10 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-// .NAME vtkKWAssignment - An object for assigning data to processors.
+// .NAME vtkKWAssignment - Manages allocation and freeing for a string list.
 // .SECTION Description
-// A vtkStringList holds a data piece/extent specification for a process.
-// It is really just a parallel object wrapper for vtkPVExtentTranslator.
+// A vtkStringList holds a list of strings.  
+// We might be able to replace it in the future.
 
 #ifndef __vtkStringList_h
 #define __vtkStringList_h

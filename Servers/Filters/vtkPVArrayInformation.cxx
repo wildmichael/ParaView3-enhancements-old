@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkPVArrayInformation.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-04 19:05:23 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-01-17 14:59:46 $
+  Version:   $Revision: 1.2 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -46,7 +46,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro(vtkPVArrayInformation);
-vtkCxxRevisionMacro(vtkPVArrayInformation, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkPVArrayInformation, "$Revision: 1.2 $");
 
 //----------------------------------------------------------------------------
 vtkPVArrayInformation::vtkPVArrayInformation()
@@ -265,6 +265,10 @@ void vtkPVArrayInformation::CopyFromArray(vtkDataArray *array)
 //----------------------------------------------------------------------------
 int vtkPVArrayInformation::Compare(vtkPVArrayInformation *info)
 {
+  if (info == NULL)
+    {
+    return 0;
+    }
   if (strcmp(info->GetName(), this->Name) == 0 && 
       info->GetNumberOfComponents() == this->NumberOfComponents)
     {

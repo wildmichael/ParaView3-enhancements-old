@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkPVDataSetAttributesInformation.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-04 19:05:23 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-01-17 14:59:46 $
+  Version:   $Revision: 1.2 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -48,7 +48,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro(vtkPVDataSetAttributesInformation);
-vtkCxxRevisionMacro(vtkPVDataSetAttributesInformation, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkPVDataSetAttributesInformation, "$Revision: 1.2 $");
 
 
 //----------------------------------------------------------------------------
@@ -170,7 +170,7 @@ void vtkPVDataSetAttributesInformation::AddInformation(vtkPVDataSetAttributesInf
     // First find a match for array1 in info.
     idx2 = idx1;
     ai2 = info->GetArrayInformation(idx1);
-    if ( ai2 && ai1->Compare(ai2) == 0 )
+    if ( ai1->Compare(ai2) == 0 )
       { // Arrays are not in the same order.  Try to find a match.
       for (idx2 = 0; idx2 < num2; ++idx2)
         {
