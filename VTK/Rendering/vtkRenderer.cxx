@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-08-29 12:29:16 $
-  Version:   $Revision: 1.193 $
+  Date:      $Date: 2003-08-30 10:35:06 $
+  Version:   $Revision: 1.194 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -36,7 +36,7 @@
 #include "vtkTimerLog.h"
 #include "vtkVolume.h"
 
-vtkCxxRevisionMacro(vtkRenderer, "$Revision: 1.193 $");
+vtkCxxRevisionMacro(vtkRenderer, "$Revision: 1.194 $");
 
 //----------------------------------------------------------------------------
 // Needed when we don't use the vtkStandardNewMacro.
@@ -1082,6 +1082,9 @@ void vtkRenderer::WorldToView(float &x, float &y, float &z)
 void vtkRenderer::PrintSelf(ostream& os, vtkIndent indent)
 {
   this->Superclass::PrintSelf(os,indent);
+
+  os << indent << "Near Clipping Plane Tolerance: " 
+     << this->NearClippingPlaneTolerance << "\n";
 
   os << indent << "Ambient: (" << this->Ambient[0] << ", " 
      << this->Ambient[1] << ", " << this->Ambient[2] << ")\n";
