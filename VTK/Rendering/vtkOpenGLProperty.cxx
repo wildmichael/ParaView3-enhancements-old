@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLProperty.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-06-30 05:26:23 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2003-07-31 15:12:13 $
+  Version:   $Revision: 1.26 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -38,7 +38,7 @@
 
 
 #ifndef VTK_IMPLEMENT_MESA_CXX
-vtkCxxRevisionMacro(vtkOpenGLProperty, "$Revision: 1.25 $");
+vtkCxxRevisionMacro(vtkOpenGLProperty, "$Revision: 1.26 $");
 vtkStandardNewMacro(vtkOpenGLProperty);
 #endif
 
@@ -124,7 +124,7 @@ void vtkOpenGLProperty::Render(vtkActor *vtkNotUsed(anActor),
   // vtkOpenGLPolyDataMapper::Draw() method if points or lines
   // are encountered without normals. 
   this->GetColor( color );
-  color[3] = 1.0;
+  color[3] = this->Opacity;
   glColor4fv( color );
 
   // Set the PointSize
