@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectorNorm.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:41:34 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1998-12-28 12:54:08 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -91,7 +91,10 @@ void vtkVectorNorm::Execute()
       {
       v = ptVectors->GetVector(i);
       s = sqrt((double)v[0]*v[0] + v[1]*v[1] + v[2]*v[2]);
-      if ( s > maxScalar ) maxScalar = s;
+      if ( s > maxScalar )
+	{
+	maxScalar = s;
+	}
       newScalars->SetScalar(i,s);
 
       if ( ! (i % 20000) ) 
@@ -127,7 +130,10 @@ void vtkVectorNorm::Execute()
       {
       v = cellVectors->GetVector(i);
       s = sqrt((double)v[0]*v[0] + v[1]*v[1] + v[2]*v[2]);
-      if ( s > maxScalar ) maxScalar = s;
+      if ( s > maxScalar )
+	{
+	maxScalar = s;
+	}
       newScalars->SetScalar(i,s);
       if ( ! (i % 20000) ) 
         {

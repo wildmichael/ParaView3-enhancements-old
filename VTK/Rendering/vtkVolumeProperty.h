@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProperty.h,v $
   Language:  C++
-  Date:      $Date: 1998-12-15 15:47:03 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1998-12-28 12:54:09 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -239,7 +239,9 @@ inline char *vtkVolumeProperty::GetInterpolationTypeAsString(void)
     return "Linear";
     }
   else
+    {
     return "Unknown";
+    }
 }
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoxelModeller.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-27 21:02:51 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1998-12-28 12:54:12 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -110,7 +110,10 @@ void vtkVoxelModeller::Execute()
   numPts = this->SampleDimensions[0] * this->SampleDimensions[1] * this->SampleDimensions[2];
   newScalars = vtkScalars::New(VTK_BIT);
   newScalars->SetNumberOfScalars(numPts);
-  for (i=0; i<numPts; i++) newScalars->SetScalar(i,0);
+  for (i=0; i<numPts; i++)
+    {
+    newScalars->SetScalar(i,0);
+    }
 
   output->SetDimensions(this->GetSampleDimensions());
   maxDistance = this->ComputeModelBounds(origin,spacing);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastMIPFunction.h,v $
   Language:  C++
-  Date:      $Date: 1998-12-03 16:28:37 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1998-12-28 12:54:11 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -121,7 +121,9 @@ inline char *vtkVolumeRayCastMIPFunction::GetMaximizeMethodAsString(void)
     return "Maximize Opacity";
     }
   else
+    {
     return "Unknown";
+    }
 }
 
 #endif

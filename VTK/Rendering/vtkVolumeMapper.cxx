@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-11-09 15:16:47 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1998-12-28 12:54:09 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -69,7 +69,9 @@ float *vtkVolumeMapper::GetBounds()
   static float bounds[] = {-1.0,1.0, -1.0,1.0, -1.0,1.0};
 
   if ( ! this->ScalarInput ) 
+    {
     return bounds;
+    }
   else
     {
     this->ScalarInput->Update();
@@ -82,7 +84,10 @@ float *vtkVolumeMapper::GetBounds()
 void vtkVolumeMapper::GetBounds(float bounds[6])
 {
   this->GetBounds();
-  for (int i=0; i<6; i++) bounds[i] = this->Bounds[i];
+  for (int i=0; i<6; i++)
+    {
+    bounds[i] = this->Bounds[i];
+    }
 }
 
 float *vtkVolumeMapper::GetCenter()

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVRMLExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-11 13:21:51 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1998-12-28 12:54:07 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -51,7 +51,10 @@ vtkVRMLExporter::vtkVRMLExporter()
 
 vtkVRMLExporter::~vtkVRMLExporter()
 {
-  if ( this->FileName ) delete [] this->FileName;
+  if ( this->FileName )
+    {
+    delete [] this->FileName;
+    }
 }
 
 void vtkVRMLExporter::SetFilePointer(FILE *fp)
@@ -165,7 +168,10 @@ void vtkVRMLExporter::WriteData()
       }
     }
 
-  if (!this->FilePointer) fclose(fp);
+  if (!this->FilePointer)
+    {
+    fclose(fp);
+    }
 }
 
 void vtkVRMLExporter::WriteALight(vtkLight *aLight, FILE *fp)
@@ -405,8 +411,14 @@ void vtkVRMLExporter::WriteAnActor(vtkActor *anActor, FILE *fp)
 	fprintf(fp,"%.2x",*txtrData);
 	txtrData++;
 	}
-      if (i%8 == 0) fprintf(fp,"\n");
-      else fprintf(fp," ");
+      if (i%8 == 0)
+	{
+	fprintf(fp,"\n");
+	}
+      else
+	{
+	fprintf(fp," ");
+	}
       }
     if (!(aTexture->GetRepeat()))
       {
@@ -587,7 +599,10 @@ void vtkVRMLExporter::WriteAnActor(vtkActor *anActor, FILE *fp)
   fprintf(fp,"      ]\n"); // close the original transforms children
   fprintf(fp,"    }\n"); // close the original transform
   
-  if (gf) gf->Delete();
+  if (gf)
+    {
+    gf->Delete();
+    }
   pm->Delete();
 }
 
