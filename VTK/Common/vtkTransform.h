@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkTransform.h,v $
   Language:  C++
-  Date:      $Date: 1994-03-03 18:34:08 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1994-03-08 12:23:41 $
+  Version:   $Revision: 1.3 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -47,6 +47,7 @@ class vlTransform : public vlObject
   //  The bottom of the stack.
   float Vector[4];
   // a temp vector used in operations
+  float Orientation[3];
  public:
   vlTransform ();
   //  Constructs a transform. Sets the following defaults:
@@ -100,7 +101,7 @@ class vlTransform : public vlObject
   void GetInverse ( vlMatrix4x4& inverse);
   //  Returns the inverse of the current transformation
   //  matrix.
-  void GetOrientation ( float & x, float & y, float & z);
+  float *GetOrientation();
   //  Returns the equivalent x, y, z rotations that
   //  will reproduce the orientaion of the current
   //  tranformation matrix if it was created with:
