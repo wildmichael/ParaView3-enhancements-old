@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMathematics.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-16 21:09:13 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1998-10-05 21:22:02 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,7 +64,10 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #define VTK_SQRT         11
 #define VTK_MIN          12
 #define VTK_MAX          13
-
+#define VTK_ATAN         14
+#define VTK_ATAN2        15
+#define VTK_MULTIPLYBYK  16
+#define VTK_ADDC         17
 
 #include "vtkImageTwoInputFilter.h"
 
@@ -95,8 +98,19 @@ public:
   void SetOperationToMin() {this->SetOperation(VTK_MIN);};
   void SetOperationToMax() {this->SetOperation(VTK_MAX);};
 
+  void SetOperationToATAN() {this->SetOperation(VTK_ATAN);};
+  void SetOperationToATAN2() {this->SetOperation(VTK_ATAN2);};
+  void SetOperationToMultiplyByK() {this->SetOperation(VTK_MULTIPLYBYK);};
+  void SetOperationToAddConstant() {this->SetOperation(VTK_ADDC);};
+  vtkSetMacro(ConstantK,double);
+  vtkGetMacro(ConstantK,double);
+  vtkSetMacro(ConstantC,double);
+  vtkGetMacro(ConstantC,double);
+
 protected:
   int Operation;
+  double ConstantK;
+  double ConstantC;
   
   void ExecuteImageInformation();
   void ThreadedExecute(vtkImageData **inDatas, vtkImageData *outData,
