@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXOpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-07-10 18:20:40 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2002-07-17 14:16:19 $
+  Version:   $Revision: 1.23 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -65,8 +65,13 @@ private:
 #endif  
 };
 
+#ifdef VTK_OPENGL_HAS_OSMESA
 vtkXOpenGLRenderWindowInternal::vtkXOpenGLRenderWindowInternal(
   vtkRenderWindow *rw)
+#else
+vtkXOpenGLRenderWindowInternal::vtkXOpenGLRenderWindowInternal(
+  vtkRenderWindow * vtkNotUsed(rw))
+#endif
 {
   this->ContextId = NULL;
   
@@ -76,14 +81,12 @@ vtkXOpenGLRenderWindowInternal::vtkXOpenGLRenderWindowInternal(
   this->OffScreenWindow = NULL;
   this->ScreenMapped = rw->GetMapped();
   this->ScreenDoubleBuffer = rw->GetDoubleBuffer();
-#else
-  rw = 0;
 #endif
 }
 
 
 #ifndef VTK_IMPLEMENT_MESA_CXX
-vtkCxxRevisionMacro(vtkXOpenGLRenderWindow, "$Revision: 1.22 $");
+vtkCxxRevisionMacro(vtkXOpenGLRenderWindow, "$Revision: 1.23 $");
 vtkStandardNewMacro(vtkXOpenGLRenderWindow);
 #endif
 
