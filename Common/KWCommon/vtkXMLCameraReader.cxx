@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLCameraReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-03-24 14:38:46 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2003-03-24 20:46:50 $
+  Version:   $Revision: 1.3 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -45,7 +45,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkCamera.h"
 
 vtkStandardNewMacro(vtkXMLCameraReader);
-vtkCxxRevisionMacro(vtkXMLCameraReader, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkXMLCameraReader, "$Revision: 1.3 $");
 
 vtkCxxSetObjectMacro(vtkXMLCameraReader, Camera, vtkCamera);
 
@@ -64,7 +64,13 @@ vtkXMLCameraReader::~vtkXMLCameraReader()
 //----------------------------------------------------------------------------
 void vtkXMLCameraReader::StartElement(const char *name, const char **args)
 {
-  if (!this->Camera || strcmp(name, "Camera"))
+  if (!this->Camera)
+    {
+    vtkWarningMacro(<< "The Camera is not set!");
+    return;
+    }
+
+  if (strcmp(name, "Camera"))
     {
     return;
     }

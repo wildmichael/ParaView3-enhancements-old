@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLTextPropertyWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-03-21 22:37:30 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-03-24 20:46:50 $
+  Version:   $Revision: 1.2 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -45,7 +45,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkTextProperty.h"
 
 vtkStandardNewMacro(vtkXMLTextPropertyWriter);
-vtkCxxRevisionMacro(vtkXMLTextPropertyWriter, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkXMLTextPropertyWriter, "$Revision: 1.2 $");
 
 vtkCxxSetObjectMacro(vtkXMLTextPropertyWriter, TextProperty, vtkTextProperty);
 
@@ -66,12 +66,13 @@ int vtkXMLTextPropertyWriter::Write(ostream &os, vtkIndent vtkNotUsed(indent))
 {
   if (!this->TextProperty)
     {
+    vtkWarningMacro(<< "The TextProperty is not set!");
     return 0;
     }
 
   float *fptr;
 
-  os << "<TextProperty Version=\"$Revision: 1.1 $\"";
+  os << "<TextProperty Version=\"$Revision: 1.2 $\"";
 
   fptr = this->TextProperty->GetColor();
   if (fptr)
