@@ -1,5 +1,5 @@
 /* -*- c -*- *****************************************************************
-** $Id: DisplayNoDraw.c,v 1.5 2004-05-25 20:44:47 berk Exp $
+** $Id: DisplayNoDraw.c,v 1.6 2005-01-06 16:50:12 kmorel Exp $
 **
 ** Copyright (C) 2003 Sandia Corporation
 ** Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -47,7 +47,7 @@ int DisplayNoDraw(int argc, char *argv[])
 {
     int result = TEST_PASSED;
     int i;
-    int rank, num_proc;
+    GLint rank, num_proc;
 
     /* To remove warning */
     (void)argc;

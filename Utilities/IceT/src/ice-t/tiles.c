@@ -8,7 +8,7 @@
  * of authorship are reproduced on all copies.
  */
 
-/* $Id: tiles.c,v 1.2 2003-07-14 19:58:55 kmorel Exp $ */
+/* $Id: tiles.c,v 1.3 2005-01-06 16:50:12 kmorel Exp $ */
 
 #include <GL/ice-t.h>
 
@@ -67,7 +67,8 @@ int  icetAddTile(GLint x, GLint y, GLsizei width, GLsizei height,
 
   /* Check and update display ranks. */
     if (display_rank >= num_processors) {
-	sprintf(msg, "icetDisplayNodes: Invalid rank for tile %d.", num_tiles);
+	sprintf(msg, "icetDisplayNodes: Invalid rank for tile %d.",
+		(int)num_tiles);
 	icetRaiseError(msg, ICET_INVALID_VALUE);
 	free(viewports);
 	free(display_nodes);
@@ -76,7 +77,7 @@ int  icetAddTile(GLint x, GLint y, GLsizei width, GLsizei height,
     for (i = 0; i < num_tiles; i++) {
 	if (display_nodes[i] == display_rank) {
 	    sprintf(msg, "icetDisplayNodes: Rank %d used for tiles %d and %d.",
-		    display_rank, i, num_tiles);
+		    display_rank, i, (int)num_tiles);
 	    icetRaiseError(msg, ICET_INVALID_VALUE);
 	    free(viewports);
 	    free(display_nodes);

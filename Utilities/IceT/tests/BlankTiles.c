@@ -1,5 +1,5 @@
 /* -*- c -*- *****************************************************************
-** $Id: BlankTiles.c,v 1.4 2004-05-25 20:44:47 berk Exp $
+** $Id: BlankTiles.c,v 1.5 2005-01-06 16:50:12 kmorel Exp $
 **
 ** Copyright (C) 2003 Sandia Corporation
 ** Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -38,7 +38,7 @@ int BlankTiles(int argc, char *argv[])
     int i, j, x, y;
     GLubyte *cb;
     int result = TEST_PASSED;
-    int rank, num_proc;
+    GLint rank, num_proc;
 
     /* To remove warning */
     (void)argc;

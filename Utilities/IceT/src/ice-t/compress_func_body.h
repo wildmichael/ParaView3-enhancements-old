@@ -8,7 +8,7 @@
  * of authorship are reproduced on all copies.
  */
 
-/* $Id: compress_func_body.h,v 1.3 2004-09-09 22:56:02 kmorel Exp $ */
+/* $Id: compress_func_body.h,v 1.4 2005-01-06 16:50:12 kmorel Exp $ */
 
 /* This is not a traditional header file, but rather a "macro" file that
  * defines the body of a compression function.  In general, there are many
@@ -195,7 +195,7 @@
     if (_totalcount != (GLuint)PIXEL_COUNT) {
 	char msg[256];
 	sprintf(msg, "Total run lengths don't equal pixel count: %d != %d",
-		_totalcount, PIXEL_COUNT);
+		(int)_totalcount, (int)(PIXEL_COUNT));
 	icetRaiseError(msg, ICET_SANITY_CHECK_FAIL);
     }
 #endif
@@ -205,7 +205,7 @@
     COMPRESSED_SIZE = (GLuint)(  (IceTPointerArithmetic)_dest
 			       - (IceTPointerArithmetic)COMPRESSED_BUFFER);
     icetRaiseDebug1("Compression: %d%%",
-		    100 - (100*COMPRESSED_SIZE)/((_pixels+1)*8));
+		    (int)(100 - (100*COMPRESSED_SIZE)/((_pixels+1)*8)));
 }
 
 #ifdef _MSC_VER

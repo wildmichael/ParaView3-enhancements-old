@@ -1,5 +1,5 @@
 /* -*- c -*- *****************************************************************
-** $Id: SimpleExample.c,v 1.4 2004-05-25 20:44:47 berk Exp $
+** $Id: SimpleExample.c,v 1.5 2005-01-06 16:50:12 kmorel Exp $
 **
 ** Copyright (C) 2003 Sandia Corporation
 ** Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -23,8 +23,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-int rank;
-int num_proc;
+GLint rank;
+GLint num_proc;
 
 static void draw(void)
 {

@@ -8,7 +8,7 @@
  * of authorship are reproduced on all copies.
  */
 
-/* $Id: draw.c,v 1.15 2004-09-09 22:56:03 kmorel Exp $ */
+/* $Id: draw.c,v 1.16 2005-01-06 16:50:12 kmorel Exp $ */
 
 #include <GL/ice-t.h>
 #include <state.h>
@@ -468,8 +468,8 @@ void icetDrawFrame(void)
     }
 
     icetRaiseDebug4("contained_viewport = %d %d %d %d",
-                    contained_viewport[0], contained_viewport[1],
-                    contained_viewport[2], contained_viewport[3]);
+                    (int)contained_viewport[0], (int)contained_viewport[1],
+                    (int)contained_viewport[2], (int)contained_viewport[3]);
 
   /* If we are doing data replication, reduced the amount of screen space
      we are responsible for. */
@@ -598,8 +598,8 @@ void icetDrawFrame(void)
     }
 
     icetRaiseDebug4("new contained_viewport = %d %d %d %d",
-                    contained_viewport[0], contained_viewport[1],
-                    contained_viewport[2], contained_viewport[3]);
+                    (int)contained_viewport[0], (int)contained_viewport[1],
+                    (int)contained_viewport[2], (int)contained_viewport[3]);
     icetStateSetIntegerv(ICET_CONTAINED_VIEWPORT, 4, contained_viewport);
     icetStateSetDoublev(ICET_NEAR_DEPTH, 1, &znear);
     icetStateSetDoublev(ICET_FAR_DEPTH, 1, &zfar);
