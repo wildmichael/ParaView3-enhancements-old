@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyle.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-24 21:18:54 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 2001-03-25 14:17:13 $
+  Version:   $Revision: 1.42 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -386,6 +386,9 @@ void vtkInteractorStyle::HighlightProp3D(vtkProp3D *prop3D)
     }
   else 
     {
+    this->PickedRenderer = this->CurrentRenderer;
+    this->Outline->SetBounds(prop3D->GetBounds());
+    this->OutlineActor->VisibilityOn();
     }
 }
 
