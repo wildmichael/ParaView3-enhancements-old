@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeCollection.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:07:01 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2001-08-20 21:14:14 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -69,7 +69,7 @@ class VTK_EXPORT vtkVolumeCollection : public vtkPropCollection
   // Get the next Volume in the list. Return NULL when at the end of the 
   // list.
   vtkVolume *GetNextVolume() {
-      return vtkVolume::SafeDownCast(this->GetNextItemAsObject());};
+      return static_cast<vtkVolume *>(this->GetNextItemAsObject());};
 
 
   // Description:

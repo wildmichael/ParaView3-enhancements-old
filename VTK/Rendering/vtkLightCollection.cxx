@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLightCollection.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:42 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2001-08-20 21:14:14 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -73,7 +73,7 @@ void vtkLightCollection::AddItem(vtkLight *a)
 // exhausted.
 vtkLight *vtkLightCollection::GetNextItem() 
 { 
-  return vtkLight::SafeDownCast(this->GetNextItemAsObject());
+  return static_cast<vtkLight *>(this->GetNextItemAsObject());
 }
 
 
