@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetAttributes.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-05-14 20:06:10 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2001-05-31 13:20:28 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1361,7 +1361,7 @@ vtkDataArray* vtkDataSetAttributes::GetActiveAttribute(int attributeType)
 // which is an enum defined vtkDataSetAttributes)
 int vtkDataSetAttributes::SetAttribute(vtkDataArray* da, int attributeType)
 {
-  if (!this->CheckNumberOfComponents(da, attributeType))
+  if (da && !this->CheckNumberOfComponents(da, attributeType))
     {
     vtkWarningMacro("Can not set attribute " 
 		    << vtkDataSetAttributes::AttributeNames[attributeType]
