@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataReader.h,v $
   Language:  C++
-  Date:      $Date: 2001-01-26 20:46:43 $
-  Version:   $Revision: 1.60 $
+  Date:      $Date: 2001-04-11 19:20:03 $
+  Version:   $Revision: 1.61 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -258,7 +258,7 @@ public:
 
   // Description:
   // Helper method for reading in data.
-  char *LowerCase(char *);
+  char *LowerCase(char *str, const size_t len=256);
   
   // Description:
   // Return the istream being used to read in the data.
