@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkImageViewerWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-10-08 14:12:56 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 2001-10-08 14:33:35 $
+  Version:   $Revision: 1.42 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -299,7 +299,7 @@ static void vtkTkImageViewerWidget_Destroy(char *memPtr)
     self->ImageViewer->SetWindowId ( (void*)NULL );
     self->ImageViewer->UnRegister(NULL);
     self->ImageViewer = NULL;
-    ckfree (self->IV);
+    free (self->IV);
   }
   ckfree((char *) memPtr);
 }
