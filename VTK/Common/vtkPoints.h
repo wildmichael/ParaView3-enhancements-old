@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPoints.h,v $
   Language:  C++
-  Date:      $Date: 1995-03-05 21:28:44 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1995-06-06 07:26:45 $
+  Version:   $Revision: 1.15 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -81,6 +81,7 @@ public:
 
   virtual void ComputeBounds();
   float *GetBounds();
+  void GetBounds(float bounds[6]);
 
 protected:
   float Bounds[6];
