@@ -1,11 +1,11 @@
 /*=========================================================================
 
   Program:   Visualization Toolkit
-  Module:    $RCSfile: vtkImageCast.h,v $
+  Module:    $RCSfile: vtkImageDilateErode3D.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 21:15:40 $
-  Version:   $Revision: 1.7 $
-  Thanks:    Thanks to Abdalmajeid M. Alyassin who developed this class.
+  Date:      $Date: 1997-07-09 21:16:03 $
+  Version:   $Revision: 1.11 $
+  Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -38,30 +38,53 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-// .NAME vtkImageCast -  Image Data type Casting Filter
+// .NAME vtkImageDilateErode3D - Dilates one value and erodes another.
 // .SECTION Description
-// vtkImageCast filter casts the input type to match the output type in
-// the image processing pipeline.  The filter does nothing if the input
-// already has the correct type.  To specify the "CastTo" type,
-// use "SetOutputScalarType" method.
+// vtkImageDilateErode3D will dilate one value and erode another.
+// It uses an eliptical foot print, and only erodes/dilates on the
+// boundary of the two values.  The filter is restricted to the 
+// X, Y, and Z axes for now.  It can degenerate to a 2 or 1 dimensional
+// filter by setting the kernal size to 1 for a specific axis.
 
 
-#ifndef __vtkImageCast_h
-#define __vtkImageCast_h
+#ifndef __vtkImageDilateErode3D_h
+#define __vtkImageDilateErode3D_h
 
 
-#include "vtkImageFilter.h"
+#include "vtkImageSpatialFilter.h"
 
-class VTK_EXPORT vtkImageCast : public vtkImageFilter
+class VTK_EXPORT vtkImageDilateErode3D : public vtkImageSpatialFilter
 {
 public:
-  vtkImageCast();
-  static vtkImageCast *New() {return new vtkImageCast;};
-  const char *GetClassName() {return "vtkImageCast";};
+  vtkImageDilateErode3D();
+  static vtkImageDilateErode3D *New() {return new vtkImageDilateErode3D;};
+  const char *GetClassName() {return "vtkImageDilateErode3D";};
+  void PrintSelf(ostream& os, vtkIndent indent);
+  
+  void SetFilteredAxes(int axis0, int axis1, int axis2);
 
+  // Set/Get the size of the neighood.
+  void SetKernelSize(int size0, int size1, int size2);
+  
+  // Description:
+  // Set/Get the value to dilate/erode
+  vtkSetMacro(DilateValue, float);
+  vtkGetMacro(DilateValue, float);
+  vtkSetMacro(ErodeValue, float);
+  vtkGetMacro(ErodeValue, float);
+
+  // Description:
+  // Get the Mask used as a footprint.
+  vtkGetObjectMacro(Mask, vtkImageRegion);
+  
 protected:
-  void Update();
+  float DilateValue;
+  float ErodeValue;
+  vtkImageRegion *Mask;
+    
+  void ExecuteCenter(vtkImageRegion *inRegion, vtkImageRegion *outRegion);
   void Execute(vtkImageRegion *inRegion, vtkImageRegion *outRegion);
+  void ComputeMask();
 };
 
 #endif

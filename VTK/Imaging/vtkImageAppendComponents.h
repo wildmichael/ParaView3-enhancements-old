@@ -1,10 +1,10 @@
 /*=========================================================================
 
   Program:   Visualization Toolkit
-  Module:    $RCSfile: vtkImageDivergence.h,v $
+  Module:    $RCSfile: vtkImageAppendComponents.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-27 15:35:38 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1997-07-09 21:15:37 $
+  Version:   $Revision: 1.1 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -32,42 +32,40 @@ EVEN IF THE AUTHORS HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 THE AUTHORS AND DISTRIBUTORS SPECIFICALLY DISCLAIM ANY WARRANTIES, INCLUDING,
 BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
-PARTICULAR PURPOSE, AND -INFRINGEMENT.  THIS SOFTWARE IS PROVIDED ON AN
+PARTICULAR PURPOSE, AND NON-INFRINGEMENT.  THIS SOFTWARE IS PROVIDED ON AN
 "AS IS" BASIS, AND THE AUTHORS AND DISTRIBUTORS HAVE NO OBLIGATION TO PROVIDE
 MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-// .NAME vtkImageDivergence - Scalar field from vector field.
+// .NAME vtkImageAppendComponents - Collects components from two inputs into
+// one output.
 // .SECTION Description
-// vtkImageDivergence takes a vector field from a surface detection
-// filter (i.e. Gradient) and creates a scalar field which 
-// which represents the rate of change of the vector field.
+// vtkImageAppendComponents takes the components from two inputs and merges
+// them into one output. If Input1 has M compoennts, and Input2 has N 
+// components, the output will have M+N compoennts with input1
+// components comming first.
 
 
+#ifndef __vtkImageAppendComponents_h
+#define __vtkImageAppendComponents_h
 
 
-#ifndef __vtkImageDivergence_h
-#define __vtkImageDivergence_h
+#include "vtkImageTwoInputFilter.h"
 
-#include "vtkImageFilter.h"
-
-class VTK_EXPORT vtkImageDivergence : public vtkImageFilter
+class VTK_EXPORT vtkImageAppendComponents : public vtkImageTwoInputFilter
 {
 public:
-  vtkImageDivergence();
-  static vtkImageDivergence *New() {return new vtkImageDivergence;};
-  const char *GetClassName() {return "vtkImageDivergence";};
-  
+  vtkImageAppendComponents();
+  static vtkImageAppendComponents *New(){return new vtkImageAppendComponents;};
+  const char *GetClassName() {return "vtkImageAppendComponents";};
+
 protected:
-  void ComputeOutputImageInformation(vtkImageRegion *inRegion,
-				     vtkImageRegion *outRegion);
-  void ComputeRequiredInputRegionExtent(vtkImageRegion *outRegion,
-					vtkImageRegion *inRegion);
-  void Execute(vtkImageRegion *inRegion, vtkImageRegion *outRegion);
-  void ComputeMagnitudes(vtkImageRegion *vector, vtkImageRegion *magnitude);
-  void ComputeDerivatives(vtkImageRegion *vector, vtkImageRegion *magnitude,
-			  vtkImageRegion *derivative);
+  
+  void ExecuteImageInformation(vtkImageCache *in1, vtkImageCache *in2,
+			       vtkImageCache *out);
+  void Execute(vtkImageRegion *inRegion1, vtkImageRegion *inRegion2, 
+	       vtkImageRegion *outRegion);
 };
 
 #endif

@@ -1,10 +1,10 @@
 /*=========================================================================
 
   Program:   Visualization Toolkit
-  Module:    $RCSfile: vtkImageDotProduct.cxx,v $
+  Module:    $RCSfile: vtkImageAppendComponents.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 21:16:08 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1997-07-09 21:15:36 $
+  Version:   $Revision: 1.1 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,104 +39,100 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkImageRegion.h"
-#include "vtkImageDotProduct.h"
+#include "vtkImageCache.h"
+#include "vtkImageAppendComponents.h"
 
 
 
 //----------------------------------------------------------------------------
-vtkImageDotProduct::vtkImageDotProduct()
+vtkImageAppendComponents::vtkImageAppendComponents()
 {
-  this->SetAxes(VTK_IMAGE_COMPONENT_AXIS);
-
-  this->NumberOfExecutionAxes = 2;
+  this->SetExecutionAxes(VTK_IMAGE_COMPONENT_AXIS,
+			 VTK_IMAGE_X_AXIS, VTK_IMAGE_Y_AXIS);
 }
-
-
-
 
 //----------------------------------------------------------------------------
 // Description:
-// Colapse the first axis
-void 
-vtkImageDotProduct::ComputeOutputImageInformation(vtkImageRegion *inRegion1,
-						  vtkImageRegion *inRegion2,
-						  vtkImageRegion *outRegion)
-
+// This method tells the ouput it will have more components
+void vtkImageAppendComponents::ExecuteImageInformation(vtkImageCache *in1,
+						       vtkImageCache *in2,
+						       vtkImageCache *out)
 {
-  inRegion1 = inRegion2;
-  outRegion->SetImageExtent(0, 0);
+  out->SetNumberOfScalarComponents(in1->GetNumberOfScalarComponents() +
+				   in2->GetNumberOfScalarComponents());
 }
-
-
-
-//----------------------------------------------------------------------------
-// Description:
-// This method computes the extent of the input region necessary to generate
-// an output region.  
-void vtkImageDotProduct::ComputeRequiredInputRegionExtent(
-					       vtkImageRegion *outRegion,
-					       vtkImageRegion *inRegion1,
-					       vtkImageRegion *inRegion2)
-{
-  outRegion = outRegion;
-  // They should both be the same.
-  inRegion1->SetExtent(1, inRegion1->GetImageExtent());
-  inRegion2->SetExtent(1, inRegion1->GetImageExtent());
-}
-
-
-
 
 
 //----------------------------------------------------------------------------
 // Description:
 // This templated function executes the filter for any type of data.
 template <class T>
-static void vtkImageDotProductExecute(vtkImageDotProduct *self,
-			       vtkImageRegion *in1Region, T *in1Ptr,
-			       vtkImageRegion *in2Region, T *in2Ptr,
-			       vtkImageRegion *outRegion, T *outPtr)
+static void vtkImageAppendComponentsExecute(vtkImageAppendComponents *self,
+				    vtkImageRegion *in1Region, T *in1Ptr,
+				    vtkImageRegion *in2Region, T *in2Ptr,
+				    vtkImageRegion *outRegion, T *outPtr)
 {
-  float dot;
+  int minC1, maxC1, minC2, maxC2;
   int min0, max0, min1, max1;
-  int idx0, idx1;
-  int in1Inc0, in1Inc1;
-  int in2Inc0, in2Inc1;
-  int outInc0, outInc1;
+  int idxC, idx0, idx1;
+  int in1IncC, in1Inc0, in1Inc1;
+  int in2IncC, in2Inc0, in2Inc1;
+  int outIncC, outInc0, outInc1;
   T *in1Ptr0, *in1Ptr1;
   T *in2Ptr0, *in2Ptr1;
-  T *outPtr1;
-
-  self = self;
-  // Get information to march through data 
-  in1Region->GetIncrements(in1Inc0, in1Inc1);
-  in2Region->GetIncrements(in2Inc0, in2Inc1);
-  outRegion->GetIncrements(outInc0, outInc1);
-  in1Region->GetExtent(min0, max0, min1, max1);
+  T *outPtr0, *outPtr1;
+  T *outPtrC;
+  T *inPtrC;
   
-  // Loop through ouput pixels
+  self = self;
+  
+  // Get information to march through data 
+  in1Region->GetIncrements(in1IncC, in1Inc0, in1Inc1);
+  in2Region->GetIncrements(in2IncC, in2Inc0, in2Inc1);
+  in1Region->GetExtent(minC1, maxC1, min0, max0, min1, max1);
+  in2Region->GetExtent(minC2, maxC2);
+  outRegion->GetIncrements(outIncC, outInc0, outInc1);
+
+  // We should have error checking here.
+  
+  // Loop through pixels
   in1Ptr1 = in1Ptr;
   in2Ptr1 = in2Ptr;
   outPtr1 = outPtr;
   for (idx1 = min1; idx1 <= max1; ++idx1)
     {
-    dot = 0.0;
+    outPtr0 = outPtr1;
     in1Ptr0 = in1Ptr1;
     in2Ptr0 = in2Ptr1;
     for (idx0 = min0; idx0 <= max0; ++idx0)
       {
-      dot += (float)(*in1Ptr0 * *in2Ptr0);
+      outPtrC = outPtr0;
+      // copy input1 components
+      inPtrC = in1Ptr0;
+      for (idxC = minC1; idxC <= maxC1; ++idxC)
+	{
+	*outPtrC = *inPtrC;
+	inPtrC += in1IncC;
+	outPtrC += outIncC;
+	}
+      // copy input2 components
+      inPtrC = in2Ptr0;
+      for (idxC = minC2; idxC <= maxC2; ++idxC)
+	{
+	*outPtrC = *inPtrC;
+	inPtrC += in2IncC;
+	outPtrC += outIncC;
+	}
+      
+      outPtr0 += outInc0;
       in1Ptr0 += in1Inc0;
       in2Ptr0 += in2Inc0;
       }
-    *outPtr1 = (T)(dot);
     outPtr1 += outInc1;
     in1Ptr1 += in1Inc1;
     in2Ptr1 += in2Inc1;
     }
 }
-
-
 
 //----------------------------------------------------------------------------
 // Description:
@@ -144,7 +140,7 @@ static void vtkImageDotProductExecute(vtkImageDotProduct *self,
 // algorithm to fill the output from the inputs.
 // It just executes a switch statement to call the correct function for
 // the regions data types.
-void vtkImageDotProduct::Execute(vtkImageRegion *inRegion1, 
+void vtkImageAppendComponents::Execute(vtkImageRegion *inRegion1, 
 				 vtkImageRegion *inRegion2, 
 				 vtkImageRegion *outRegion)
 {
@@ -157,39 +153,39 @@ void vtkImageDotProduct::Execute(vtkImageRegion *inRegion1,
       inRegion2->GetScalarType() != outRegion->GetScalarType())
     {
     vtkErrorMacro(<< "Execute: input ScalarTypes, " 
-        << inRegion1->GetScalarType() << " and " << inRegion2->GetScalarType()
-        << ", must match out ScalarType " << outRegion->GetScalarType());
+         << inRegion1->GetScalarType() << " and " << inRegion2->GetScalarType()
+         << ", must match out ScalarType " << outRegion->GetScalarType());
     return;
     }
   
   switch (inRegion1->GetScalarType())
     {
     case VTK_FLOAT:
-      vtkImageDotProductExecute(this, 
+      vtkImageAppendComponentsExecute(this, 
 			  inRegion1, (float *)(inPtr1), 
 			  inRegion2, (float *)(inPtr2), 
 			  outRegion, (float *)(outPtr));
       break;
     case VTK_INT:
-      vtkImageDotProductExecute(this, 
+      vtkImageAppendComponentsExecute(this, 
 			  inRegion1, (int *)(inPtr1), 
 			  inRegion2, (int *)(inPtr2), 
 			  outRegion, (int *)(outPtr));
       break;
     case VTK_SHORT:
-      vtkImageDotProductExecute(this, 
+      vtkImageAppendComponentsExecute(this, 
 			  inRegion1, (short *)(inPtr1), 
 			  inRegion2, (short *)(inPtr2), 
 			  outRegion, (short *)(outPtr));
       break;
     case VTK_UNSIGNED_SHORT:
-      vtkImageDotProductExecute(this, 
+      vtkImageAppendComponentsExecute(this, 
 			  inRegion1, (unsigned short *)(inPtr1), 
 			  inRegion2, (unsigned short *)(inPtr2), 
 			  outRegion, (unsigned short *)(outPtr));
       break;
     case VTK_UNSIGNED_CHAR:
-      vtkImageDotProductExecute(this, 
+      vtkImageAppendComponentsExecute(this, 
 			  inRegion1, (unsigned char *)(inPtr1), 
 			  inRegion2, (unsigned char *)(inPtr2), 
 			  outRegion, (unsigned char *)(outPtr));
