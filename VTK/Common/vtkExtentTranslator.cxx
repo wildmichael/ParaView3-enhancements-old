@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtentTranslator.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-09-25 12:10:28 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2000-09-26 12:03:11 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -62,9 +62,9 @@ vtkExtentTranslator* vtkExtentTranslator::New()
 //----------------------------------------------------------------------------
 vtkExtentTranslator::vtkExtentTranslator()
 {
-  this->MinimumPieceSize[0] = 2;
-  this->MinimumPieceSize[1] = 2;
-  this->MinimumPieceSize[2] = 2; 
+  this->MinimumPieceSize[0] = 1;
+  this->MinimumPieceSize[1] = 1;
+  this->MinimumPieceSize[2] = 1; 
   
   this->Piece = 0;
   this->NumberOfPieces = 0;

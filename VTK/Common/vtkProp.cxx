@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProp.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-07-05 11:59:19 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2000-09-26 12:03:11 $
+  Version:   $Revision: 1.15 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -149,6 +149,10 @@ void vtkProp::InitPathTraversal()
 
 vtkAssemblyPath *vtkProp::GetNextPath()
 {
+  if ( ! this->Paths)
+    {
+    return NULL;
+    }
   return this->Paths->GetNextItem();
 }
 

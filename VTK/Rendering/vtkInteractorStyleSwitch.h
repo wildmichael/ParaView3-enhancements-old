@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleSwitch.h,v $
   Language:  C++
-  Date:      $Date: 2000-08-01 14:37:44 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2000-09-26 12:03:11 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -73,6 +73,16 @@ public:
   void SetInteractor(vtkRenderWindowInteractor *iren);
   
   void OnTimer();
+
+  // Description:
+  // For legacy compatability
+  void SetTrackballModeToTrackball()
+    { this->JoystickOrTrackball = VTKIS_TRACKBALL; };
+  void SetTrackballModeToJoystick()
+    { this->JoystickOrTrackball = VTKIS_JOYSTICK; };
+  void SetActorModeToCamera() { this->CameraOrActor = VTKIS_CAMERA; };
+  void SetActorModeToActor() { this->CameraOrActor = VTKIS_ACTOR; };
+  
   
 protected:
   vtkInteractorStyleSwitch();

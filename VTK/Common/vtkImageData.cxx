@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-09-24 08:58:41 $
-  Version:   $Revision: 1.96 $
+  Date:      $Date: 2000-09-26 12:03:11 $
+  Version:   $Revision: 1.97 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -1102,7 +1102,22 @@ void vtkImageData::UpdateData()
     // or the whole image was requested.
     return;
     }
-  
+
+  //if (this->Extent[0] < this->UpdateExtent[0] ||
+  //  this->Extent[1] > this->UpdateExtent[1] ||
+  //  this->Extent[2] < this->UpdateExtent[2] ||
+  //  this->Extent[3] > this->UpdateExtent[3] ||
+  //  this->Extent[4] < this->UpdateExtent[4] ||
+  //  this->Extent[5] > this->UpdateExtent[5])
+  //  {
+  //  vtkImageData *image = vtkImageData::New();
+  //  image->DeepCopy(this);
+  //  this->SetExtent(this->UpdateExtent);
+  //  this->AllocateScalars();
+  //  this->CopyAndCastFrom(image, this->UpdateExtent);
+  //  image->Delete();
+  //  }
+
   // Try to avoid generating these if the input has generated them,
   // or the image data is already up to date.
   // I guess we relly need an MTime check.
