@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitPlaneWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-02 16:11:22 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-08-03 10:00:05 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -37,7 +37,7 @@
 #include "vtkFeatureEdges.h"
 #include "vtkTransform.h"
 
-vtkCxxRevisionMacro(vtkImplicitPlaneWidget, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkImplicitPlaneWidget, "$Revision: 1.3 $");
 vtkStandardNewMacro(vtkImplicitPlaneWidget);
 
 vtkImplicitPlaneWidget::vtkImplicitPlaneWidget() : vtkPolyDataSourceWidget()
@@ -413,6 +413,24 @@ void vtkImplicitPlaneWidget::PrintSelf(ostream& os, vtkIndent indent)
     os << indent << "Selected Plane Property: (none)\n";
     }
 
+  if ( this->OutlineProperty )
+    {
+    os << indent << "Outline Property: " << this->OutlineProperty << "\n";
+    }
+  else
+    {
+    os << indent << "Outline Property: (none)\n";
+    }
+  if ( this->SelectedOutlineProperty )
+    {
+    os << indent << "Selected Outline Property: " 
+       << this->SelectedOutlineProperty << "\n";
+    }
+  else
+    {
+    os << indent << "Selected Outline Property: (none)\n";
+    }
+
   if ( this->EdgesProperty )
     {
     os << indent << "Edges Property: " << this->EdgesProperty << "\n";
@@ -422,21 +440,14 @@ void vtkImplicitPlaneWidget::PrintSelf(ostream& os, vtkIndent indent)
     os << indent << "Edges Property: (none)\n";
     }
 
-  if ( this->OutlineProperty )
-    {
-    os << indent << "Outline Property: " << this->OutlineProperty << "\n";
-    }
-  else
-    {
-    os << indent << "Outline Property: (none)\n";
-    }
-
   os << indent << "Normal To X Axis: " 
      << (this->NormalToXAxis ? "On" : "Off") << "\n";
   os << indent << "Normal To Y Axis: " 
      << (this->NormalToYAxis ? "On" : "Off") << "\n";
   os << indent << "Normal To Z Axis: " 
      << (this->NormalToZAxis ? "On" : "Off") << "\n";
+
+  os << indent << "Tubing: " << (this->Tubing ? "On" : "Off") << "\n";
 }
 
 
