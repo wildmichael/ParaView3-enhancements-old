@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkJavaAwt.h,v $
   Language:  C++
-  Date:      $Date: 2002-10-25 18:19:50 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2002-11-05 19:59:15 $
+  Version:   $Revision: 1.14 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -71,6 +71,11 @@ extern "C" JNIEXPORT void  JNICALL
   dsi_win = (JAWT_Win32DrawingSurfaceInfo*)dsi->platformInfo;
   temp0->SetWindowId((void *)dsi_win->hwnd);
   temp0->SetDisplayId((void *)dsi_win->hdc);
+// use mac code
+#elif defined(VTK_USE_CARBON)
+  JAWT_MacDrawingSurfaceInfo* dsi_mac;
+  dsi_mac = (JAWT_MacDrawingSurfaceInfo*)dsi->platformInfo;
+  temp0->SetWindowId((void *)dsi_mac->fQDWindow);
 // otherwise use X11 code
 #else
   JAWT_X11DrawingSurfaceInfo* dsi_x11;
@@ -79,7 +84,7 @@ extern "C" JNIEXPORT void  JNICALL
   temp0->SetWindowId((void *)dsi_x11->drawable);
 #endif
 
-  temp0->Render();
+  //temp0->Render();
   
   /* Free the drawing surface info */
   ds->FreeDrawingSurfaceInfo(dsi);
