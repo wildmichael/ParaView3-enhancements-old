@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkElevationFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-03-27 16:13:45 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1994-06-02 19:23:32 $
+  Version:   $Revision: 1.11 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -48,7 +48,9 @@ void vlElevationFilter::Execute()
 //
 // Initialize
 //
+  vlDebugMacro(<<"Generating elevation scalars!");
   this->Initialize();
+
   if ( ((numPts=this->Input->GetNumberOfPoints()) < 1) )
     {
     vlErrorMacro(<< "No input!\n");
