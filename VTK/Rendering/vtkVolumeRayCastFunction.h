@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastFunction.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-15 02:52:16 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1997-07-15 14:26:44 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -79,7 +79,7 @@ public:
 		 float ray_position[3], float ray_increment[3],
 		 int num_steps, float pixel_value[6] )=0;
 
-  float GetZeroOpacityThreshold( vtkVolume *vol );
+  virtual float GetZeroOpacityThreshold( vtkVolume *vol )=0;
 
   // Description:
   // These are some variables set during FunctionInitialize. They
