@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMedian3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-01-09 19:21:05 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2003-03-07 14:36:40 $
+  Version:   $Revision: 1.38 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkPointData.h"
 
-vtkCxxRevisionMacro(vtkImageMedian3D, "$Revision: 1.37 $");
+vtkCxxRevisionMacro(vtkImageMedian3D, "$Revision: 1.38 $");
 vtkStandardNewMacro(vtkImageMedian3D);
 
 //-----------------------------------------------------------------------------
@@ -395,6 +395,11 @@ void vtkImageMedian3D::ExecuteData(vtkDataObject *out)
   vtkDataArray *inArray;
   vtkDataArray *outArray;
 
+  // Avoid a floating point exception.
+  if (this->UpdateExtentIsEmpty(output))
+    {
+    return;
+    }
 
   input->GetExtent(inExt);
   output->SetExtent(output->GetUpdateExtent());

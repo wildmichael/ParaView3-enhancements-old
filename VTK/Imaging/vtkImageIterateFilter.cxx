@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageIterateFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-25 23:31:10 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2003-03-07 14:36:40 $
+  Version:   $Revision: 1.34 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,7 +19,7 @@
 
 #include "vtkImageData.h"
 
-vtkCxxRevisionMacro(vtkImageIterateFilter, "$Revision: 1.33 $");
+vtkCxxRevisionMacro(vtkImageIterateFilter, "$Revision: 1.34 $");
 
 //----------------------------------------------------------------------------
 vtkImageIterateFilter::vtkImageIterateFilter()
@@ -114,10 +114,17 @@ void vtkImageIterateFilter::AllocateOutputScalars(vtkImageData *outData)
 //----------------------------------------------------------------------------
 // Some filters (decomposes, anisotropic difusion ...) have execute 
 // called multiple times per update.
-void vtkImageIterateFilter::ExecuteData(vtkDataObject *vtkNotUsed(out))
+void vtkImageIterateFilter::ExecuteData(vtkDataObject *out)
 {
   int idx;
   vtkImageData *inData, *outData;
+
+  // Too many filters have floating point exceptions to execute
+  // with empty input/ no request.
+  if (this->UpdateExtentIsEmpty(out))
+    {
+    return;
+    }
 
   // IterationData are all set up 
   // see: SetNumberOfIterations() and UpdateInformation()
