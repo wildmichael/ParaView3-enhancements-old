@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObjectFactory.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-29 20:49:43 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2002-12-07 22:03:54 $
+  Version:   $Revision: 1.38 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,7 @@
 
 #include <ctype.h>
 
-vtkCxxRevisionMacro(vtkObjectFactory, "$Revision: 1.37 $");
+vtkCxxRevisionMacro(vtkObjectFactory, "$Revision: 1.38 $");
 
 vtkObjectFactoryCollection* vtkObjectFactory::RegisteredFactories = 0;
 
@@ -56,7 +56,7 @@ vtkObject* vtkObjectFactory::CreateInstance(const char* vtkclassname)
     vtkObjectFactory::Init();
     }
   
-  vtkObjectFactory* factory = 0;
+  vtkObjectFactory* factory;
   
   for(vtkObjectFactory::RegisteredFactories->InitTraversal();
       (factory = vtkObjectFactory::RegisteredFactories->GetNextItem());)
@@ -375,7 +375,7 @@ void vtkObjectFactory::UnRegisterAllFactories()
   // collect up all the library handles so they can be closed
   // AFTER the factory has been deleted.
   void** libs = new void*[num+1];
-  vtkObjectFactory* factory = 0;
+  vtkObjectFactory* factory;
   vtkObjectFactory::RegisteredFactories->InitTraversal();
   int index = 0;
   while((factory =
@@ -578,7 +578,7 @@ vtkObjectFactoryCollection* vtkObjectFactory::GetRegisteredFactories()
 // 1,0 is the className overriden by any registered factories
 int vtkObjectFactory::HasOverrideAny(const char* className)
 {
-  vtkObjectFactory* factory = 0;
+  vtkObjectFactory* factory;
   for(vtkObjectFactory::RegisteredFactories->InitTraversal();
       (factory = vtkObjectFactory::RegisteredFactories->GetNextItem());)
     {
@@ -627,8 +627,8 @@ vtkObjectFactory::GetOverrideInformation(const char* name,
                                          ret)
 {
   // create the collection to return
-  vtkOverrideInformation* overInfo = 0; // info object pointer
-  vtkObjectFactory* factory = 0; // factory pointer for traversal
+  vtkOverrideInformation* overInfo; // info object pointer
+  vtkObjectFactory* factory; // factory pointer for traversal
   vtkObjectFactoryCollectionIterator* it = 
     new vtkObjectFactoryCollectionIterator(vtkObjectFactory::RegisteredFactories);
   for(it->InitTraversal();
@@ -662,7 +662,7 @@ vtkObjectFactory::GetOverrideInformation(const char* name,
 void vtkObjectFactory::SetAllEnableFlags(int flag, 
                                          const char* className)
 {
-  vtkObjectFactory* factory = 0;
+  vtkObjectFactory* factory;
   for(vtkObjectFactory::RegisteredFactories->InitTraversal();
       (factory = vtkObjectFactory::RegisteredFactories->GetNextItem());)
     {
@@ -677,7 +677,7 @@ void vtkObjectFactory::SetAllEnableFlags(int flag,
                                          const char* className,
                                          const char* subclassName)
 {
-  vtkObjectFactory* factory = 0;
+  vtkObjectFactory* factory;
   for(vtkObjectFactory::RegisteredFactories->InitTraversal();
       (factory = vtkObjectFactory::RegisteredFactories->GetNextItem());)
     {
