@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFieldDataToAttributeDataFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-01-02 13:58:14 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-01-05 13:10:45 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -330,7 +330,10 @@ void vtkFieldDataToAttributeDataFilter::ConstructScalars(int num, vtkFieldData *
     }
   for (i=0; i<numComp; i++)
     {
-    if ( arrays[i] == NULL ) return;
+    if ( arrays[i] == NULL )
+      {
+      return;
+      }
     }
   
   for ( i=0; i < numComp; i++ )

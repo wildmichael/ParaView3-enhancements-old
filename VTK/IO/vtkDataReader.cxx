@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-01-04 14:35:24 $
-  Version:   $Revision: 1.70 $
+  Date:      $Date: 1999-01-05 13:10:44 $
+  Version:   $Revision: 1.71 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -454,7 +454,9 @@ int vtkDataReader::IsFileValid(const char *dstype)
     }
   
   if (!this->OpenVTKFile() || !this->ReadHeader())
-      return 0;
+    {
+    return 0;
+    }
 
   if (!this->ReadString(line))
     {
