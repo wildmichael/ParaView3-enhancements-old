@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObjectFactory.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-01 22:43:33 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2001-01-25 20:53:16 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -449,7 +449,7 @@ int vtkObjectFactory::GetEnableFlag(int index)
   return this->OverrideArray[index].EnabledFlag;
 }
 
-const char* vtkObjectFactory::GetDescription(int index)
+const char* vtkObjectFactory::GetOverrideDescription(int index)
 {
   return this->OverrideArray[index].Description;
 }

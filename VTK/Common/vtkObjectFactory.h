@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObjectFactory.h,v $
   Language:  C++
-  Date:      $Date: 2001-01-01 22:43:33 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2001-01-25 20:53:16 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to William A. Hoffman who developed this class
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -160,7 +160,7 @@ public:
   // Description:
   // Return the description for a the class override at the given 
   // index.
-  virtual const char* GetDescription(int index);
+  virtual const char* GetOverrideDescription(int index);
 
   // Description:
   // Set and Get the Enable flag for the specific override of className.
