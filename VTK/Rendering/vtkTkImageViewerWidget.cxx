@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkImageViewerWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:39:27 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 2002-02-13 13:05:32 $
+  Version:   $Revision: 1.48 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -76,7 +76,7 @@ int vtkTkImageViewerWidget_Configure(Tcl_Interp *interp,
     {
     return(TCL_ERROR);
     }
-  
+
   // Get the new  width and height of the widget
   Tk_GeometryRequest(self->TkWin, self->Width, self->Height);
   
@@ -213,6 +213,7 @@ int vtkTkImageViewerWidget_Cmd(ClientData clientData,
   // Create vtkTkImageViewerWidget data structure 
   self = (struct vtkTkImageViewerWidget *)
     ckalloc(sizeof(struct vtkTkImageViewerWidget));
+
   self->TkWin = tkwin;
   self->Interp = interp;
   self->Width = 0;
@@ -489,11 +490,22 @@ static int vtkTkImageViewerWidget_MakeImageViewer(struct vtkTkImageViewerWidget 
     }
   else
     {
+    // is IV an address ? big ole python hack here
+    if (self->IV[0] == 'A' && self->IV[1] == 'd' && 
+        self->IV[2] == 'd' && self->IV[3] == 'r')
+      {
+      void *tmp;
+      sscanf(self->IV+5,"%p",&tmp);
+      ImageViewer = (vtkImageViewer *)tmp;
+      }
+    else
+      {
 #ifndef VTK_PYTHON_BUILD
-    ImageViewer = (vtkImageViewer *)
-      vtkTclGetPointerFromObject(self->IV, "vtkImageViewer", self->Interp,
-                                 new_flag);
+      ImageViewer = (vtkImageViewer *)
+        vtkTclGetPointerFromObject(self->IV, "vtkImageViewer", self->Interp,
+                                   new_flag);
 #endif
+      }
     if (ImageViewer != self->ImageViewer)
       {
       if (self->ImageViewer != NULL)
