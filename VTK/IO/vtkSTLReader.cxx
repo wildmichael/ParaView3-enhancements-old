@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSTLReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-09-09 19:26:58 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1997-04-26 15:19:00 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -293,4 +293,14 @@ void vtkSTLReader::PrintSelf(ostream& os, vtkIndent indent)
 
   os << indent << "Filename: " 
      << (this->Filename ? this->Filename : "(none)") << "\n";
+
+  os << indent << "Merging: " << (this->Merging ? "On\n" : "Off\n");
+  if ( this->Locator )
+    {
+    os << indent << "Locator: " << this->Locator << "\n";
+    }
+  else
+    {
+    os << indent << "Locator: (none)\n";
+    }
 }
