@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPVContourFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-07-11 19:57:30 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2000-07-13 18:27:50 $
+  Version:   $Revision: 1.2 $
 
 Copyright (c) 1998-1999 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -53,8 +53,7 @@ protected:
   ~vtkPVContourFilter();
   vtkPVContourFilter(const vtkPVContourFilter&) {};
   void operator=(const vtkPVContourFilter&) {};
-    
-  vtkKWLabel *Label;
+  
   vtkKWWidget *Accept;
   vtkKWEntry *ContourValueEntry;
   vtkKWLabel *ContourValueLabel;
