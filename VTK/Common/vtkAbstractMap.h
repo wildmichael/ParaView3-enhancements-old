@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractMap.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-20 21:12:26 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2002-06-21 18:41:14 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -123,8 +123,8 @@ vtkContainerCreateMethod(const vtkAbstractMapItem<KeyType, DataType>& item)
   // Copy both components from the input.
   vtkAbstractMapItem<KeyType, DataType> result =
     {
-      vtkContainerCreateMethod(item.Key),
-      vtkContainerCreateMethod(item.Data)
+      static_cast<KeyType>(vtkContainerCreateMethod(item.Key)),
+      static_cast<DataType>(vtkContainerCreateMethod(item.Data))
     };
   return result;
 }
