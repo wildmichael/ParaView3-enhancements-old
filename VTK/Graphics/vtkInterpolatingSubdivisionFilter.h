@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInterpolatingSubdivisionFilter.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:25 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2002-03-28 21:35:50 $
+  Version:   $Revision: 1.15 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,6 +19,13 @@
 // .SECTION Description
 // vtkInterpolatingSubdivisionFilter is an abstract class that defines
 // the protocol for interpolating subdivision surface filters.
+
+// .SECTION Thanks
+// This work was supported by PHS Research Grant No. 1 P41 RR13218-01
+// from the National Center for Research Resources.
+
+// .SECTION See Also
+// vtkLinearSubdivisionFilter vtkButterflySubdivisionFilter
 
 #ifndef __vtkInterpolatingSubdivisionFilter_h
 #define __vtkInterpolatingSubdivisionFilter_h
@@ -52,6 +59,7 @@ protected:
   vtkIdType InterpolatePosition (vtkPoints *inputPts, vtkPoints *outputPts,
                                  vtkIdList *stencil, float *weights);
   int NumberOfSubdivisions;
+
 private:
   vtkInterpolatingSubdivisionFilter(const vtkInterpolatingSubdivisionFilter&);  // Not implemented.
   void operator=(const vtkInterpolatingSubdivisionFilter&);  // Not implemented.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinearSubdivisionFilter.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:26 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2002-03-28 21:35:51 $
+  Version:   $Revision: 1.13 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,6 +20,10 @@
 // vtkLinearSubdivisionFilter is a filter that generates output by
 // subdividing its input polydata. Each subdivision iteration create 4
 // new triangles for each triangle in the polydata.
+
+// .SECTION Thanks
+// This work was supported by PHS Research Grant No. 1 P41 RR13218-01
+// from the National Center for Research Resources.
 
 // .SECTION See Also
 // vtkInterpolatingSubdivisionFilter vtkButterflySubdivisionFilter

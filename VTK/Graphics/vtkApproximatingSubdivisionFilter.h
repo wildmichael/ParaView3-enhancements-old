@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkApproximatingSubdivisionFilter.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:01 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2002-03-28 21:35:50 $
+  Version:   $Revision: 1.14 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,6 +19,10 @@
 // .SECTION Description
 // vtkApproximatingSubdivisionFilter is an abstract class that defines
 // the protocol for Approximating subdivision surface filters.
+
+// .SECTION Thanks
+// This work was supported by PHS Research Grant No. 1 P41 RR13218-01
+// from the National Center for Research Resources.
 
 #ifndef __vtkApproximatingSubdivisionFilter_h
 #define __vtkApproximatingSubdivisionFilter_h

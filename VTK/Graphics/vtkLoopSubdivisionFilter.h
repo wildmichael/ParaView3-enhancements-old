@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLoopSubdivisionFilter.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:27 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2002-03-28 21:35:52 $
+  Version:   $Revision: 1.14 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -35,6 +35,10 @@
 // The filter approximates point data using the same scheme. New
 // triangles create at a subdivision step will have the cell data of
 // their parent cell.
+
+// .SECTION Thanks
+// This work was supported by PHS Research Grant No. 1 P41 RR13218-01
+// from the National Center for Research Resources.
 
 // .SECTION See Also
 // vtkApproximatingSubdivisionFilter

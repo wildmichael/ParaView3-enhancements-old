@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkButterflySubdivisionFilter.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:09 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2002-03-28 21:35:50 $
+  Version:   $Revision: 1.14 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,14 +26,18 @@
 // 1996, ACM SIGGRAPH, pp.189-192. This scheme improves previous
 // butterfly subdivisions with special treatment of vertices with valence
 // other than 6.
-// <P>
+// 
 // Currently, the filter only operates on triangles. Users should use the
 // vtkTriangleFilter to triangulate meshes that contain polygons or
 // triangle strips.
-// <P>
+// 
 // The filter interpolates point data using the same scheme. New
 // triangles created at a subdivision step will have the cell data of
 // their parent cell.
+
+// .SECTION Thanks
+// This work was supported by PHS Research Grant No. 1 P41 RR13218-01
+// from the National Center for Research Resources.
 
 // .SECTION See Also
 // vtkInterpolatingSubdivisionFilter vtkLinearSubdivisionFilter
@@ -54,11 +58,11 @@ public:
   static vtkButterflySubdivisionFilter *New();
   vtkTypeRevisionMacro(vtkButterflySubdivisionFilter,vtkInterpolatingSubdivisionFilter);
 
- protected:
+protected:
   vtkButterflySubdivisionFilter () {};
   ~vtkButterflySubdivisionFilter () {};
 
- private:
+private:
   void GenerateSubdivisionPoints(vtkPolyData *inputDS, vtkIntArray *edgeData,
                                  vtkPoints *outputPts, vtkPointData *outputPD);
   void GenerateButterflyStencil(vtkIdType p1, vtkIdType p2, vtkPolyData *polys,
@@ -67,6 +71,7 @@ public:
                            vtkIdList *stencilIds, float *weights);
   void GenerateBoundaryStencil(vtkIdType p1, vtkIdType p2, vtkPolyData *polys,
                                vtkIdList *stencilIds, float *weights);
+
 private:
   vtkButterflySubdivisionFilter(const vtkButterflySubdivisionFilter&);  // Not implemented.
   void operator=(const vtkButterflySubdivisionFilter&);  // Not implemented.
