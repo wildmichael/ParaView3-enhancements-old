@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCast.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-05 19:52:50 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1997-05-14 22:12:51 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to Abdalmajeid M. Alyassin who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -128,7 +128,7 @@ static void vtkImageCastExecute(vtkImageCast *self,
 			  outRegion, (unsigned char *)(outPtr)); 
       break;
     default:
-      cerr << "Execute: Unknown output ScalarType";
+      vtkGenericWarningMacro("Execute: Unknown output ScalarType");
       return;
     }
 }
