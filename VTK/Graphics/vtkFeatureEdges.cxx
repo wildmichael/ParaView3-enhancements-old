@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFeatureEdges.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-11-04 17:43:48 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 1998-12-10 18:48:30 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -259,8 +259,11 @@ void vtkFeatureEdges::Execute()
   output->SetLines(newLines);
   newLines->Delete();
 
-  if ( this->Coloring ) outCD->SetScalars(newScalars);
-  newScalars->Delete();
+  if ( this->Coloring )
+    {
+    outCD->SetScalars(newScalars);
+    newScalars->Delete();
+    }
 }
 
 void vtkFeatureEdges::CreateDefaultLocator()
