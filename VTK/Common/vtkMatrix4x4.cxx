@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMatrix4x4.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-12-27 10:53:17 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1996-05-27 20:23:08 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -264,7 +264,7 @@ void vtkMatrix4x4::Adjoint (vtkMatrix4x4 & in,vtkMatrix4x4 & out)
   out.Element[3][3]  =   m.Determinant3x3( a1, a2, a3, b1, b2, b3, c1, c2, c3);
 }
 
-void vtkMatrix4x4::operator= (vtkMatrix4x4& source)
+vtkMatrix4x4& vtkMatrix4x4::operator= (const vtkMatrix4x4& source)
 {
   int i, j;
 
@@ -275,6 +275,7 @@ void vtkMatrix4x4::operator= (vtkMatrix4x4& source)
       this->Element[i][j] = source.Element[i][j];
       }
     }
+  return *this;
 }
 
 // Description:
@@ -285,12 +286,14 @@ void vtkMatrix4x4::Transpose (vtkMatrix4x4 in,vtkMatrix4x4 & out)
   float temp;
 
   for (i=0; i<4; i++)
+    {
     for(j=i; j<4; j++)
       {
       temp = in.Element[i][j];
       out.Element[i][j] = in.Element[j][i];
       out.Element[j][i] = temp;
       }
+    }
 }
 
 void vtkMatrix4x4::PrintSelf (ostream& os, vtkIndent indent)
