@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridReader.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-08 18:42:22 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1998-11-03 20:22:39 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -68,6 +68,10 @@ public:
   // Set / get file name of vtk polygonal data file to read.
   void SetFileName(char *name);
   char *GetFileName();
+
+  // Description:
+  // Get the header from the vtk data file.
+  char *GetHeader() {return this->Reader->GetHeader();};
 
   // Description:
   // Set / get the InputString for use when reading from a character array.

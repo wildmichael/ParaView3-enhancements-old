@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataReader.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-08 18:42:09 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1998-11-03 20:22:38 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -69,6 +69,10 @@ public:
   // Set / get the file name of vtk polygonal data file to read.
   void SetFileName(char *name);
   char *GetFileName();
+
+  // Description:
+  // Get the header from the vtk data file.
+  char *GetHeader() {return this->Reader->GetHeader();};
 
   // Description:
   // Specify the InputString for use when reading from a character array.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataReader.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-26 14:21:47 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 1998-11-03 20:22:37 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -82,6 +82,10 @@ public:
   vtkGetStringMacro(InputString);
   void SetInputString(char *in, int len);
   
+  // Description:
+  // Get the header from the vtk data file.
+  vtkGetStringMacro(Header);
+
   // Description:
   // Enable reading from an InputString instead of the default, a file.
   vtkSetMacro(ReadFromInputString,int);
@@ -251,6 +255,8 @@ protected:
   int ReadCoScalarData(vtkDataSetAttributes *a, int num);
   int ReadLutData(vtkDataSetAttributes *a);
   int ReadTCoordsData(vtkDataSetAttributes *a, int num);
+
+  char *Header;
 
 };
 
