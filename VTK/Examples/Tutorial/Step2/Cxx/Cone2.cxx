@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: Cone2.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-14 16:12:41 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-11-14 21:00:04 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -42,8 +42,6 @@ class vtkMyCallback : public vtkCommand
 public:
   static vtkMyCallback *New() 
     { return new vtkMyCallback; }
-  void Delete()
-    { delete this; }
   virtual void Execute(vtkObject *caller, unsigned long, void*)
     {
       vtkRenderer *renderer = reinterpret_cast<vtkRenderer*>(caller);
@@ -78,7 +76,7 @@ int main( int argc, char *argv[] )
 
   // Here is where we setup the observer, we do a new and ren1 will
   // eventually free the observer
-  myCallback *mo1 = myCallback::New();
+  vtkMyCallback *mo1 = vtkMyCallback::New();
   ren1->AddObserver(vtkCommand::StartEvent,mo1);
   mo1->Delete();
   
