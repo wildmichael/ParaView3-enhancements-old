@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDecimatePro.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-02 18:24:39 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1998-10-06 20:34:52 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -233,7 +233,7 @@ public:
   // process. This may limit the maximum reduction that may be achieved. The
   // maximum error is specified as a fraction of the maximum length of
   // the input data bounding box.
-  vtkSetClampMacro(MaximumError,float,0.0,10.0);
+  vtkSetClampMacro(MaximumError,float,0.0,VTK_LARGE_FLOAT);
   vtkGetMacro(MaximumError,float);
 
   // Description:
