@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-29 17:57:59 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1995-06-30 09:24:13 $
+  Version:   $Revision: 1.9 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -13,11 +13,11 @@ without the express written consent of the authors.
 Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994 
 
 =========================================================================*/
-#include "vtkDSRead.hh"
+#include "vtkDSRdr.hh"
 #include "vtkPolyR.hh"
 #include "vtkSPtsR.hh"
-#include "vtkSGridR.hh"
-#include "vtkUGridR.hh"
+#include "vtkSGrdR.hh"
+#include "vtkUGrdR.hh"
 
 
 vtkDataSetReader::vtkDataSetReader()

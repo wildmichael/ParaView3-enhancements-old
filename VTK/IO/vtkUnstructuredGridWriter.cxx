@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGridWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-29 17:58:06 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1995-06-30 09:24:12 $
+  Version:   $Revision: 1.7 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -13,7 +13,7 @@ without the express written consent of the authors.
 Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994 
 
 =========================================================================*/
-#include "vtkUGridW.hh"
+#include "vtkUGrdW.hh"
 
 // Description:
 // Specify the input data or filter.
