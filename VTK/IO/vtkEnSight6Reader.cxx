@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSight6Reader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-02-22 15:59:04 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2001-02-28 14:07:39 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -127,12 +127,15 @@ int vtkEnSight6Reader::ReadGeometryFile()
   // because the description line could be blank.
   //this->ReadNextDataLine(line);
   this->ReadLine(line);
-  sscanf(line, " %*s %s", subLine);
-  if (strcmp(subLine, "Binary") == 0)
+
+  if (sscanf(line, " %*s %s", subLine) == 1)
     {
-    vtkErrorMacro("This is a binary data set. Try "
-                  << "vtkEnSight6BinaryReader.");
-    return 0;
+    if (strcmp(subLine, "Binary") == 0)
+      {
+      vtkErrorMacro("This is a binary data set. Try "
+		    << "vtkEnSight6BinaryReader.");
+      return 0;
+      }
     }
   this->ReadLine(line);
   
