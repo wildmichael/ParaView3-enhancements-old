@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-16 16:38:55 $
-  Version:   $Revision: 1.135 $
+  Date:      $Date: 2000-02-16 21:33:24 $
+  Version:   $Revision: 1.136 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -737,7 +737,7 @@ void vtkRenderer::ResetCameraClippingRange( float bounds[6] )
   d = -(a*position[0] + b*position[1] + c*position[2]);
 
   // Set the max near clipping plane and the min far clipping plane
-  range[0] = 1e18;
+  range[0] = a*bounds[0] + b*bounds[2] + c*bounds[4] + d;
   range[1] = 1e-18;
 
   // Find the closest / farthest bounding box vertex
