@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGridReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-14 20:37:43 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 1998-08-26 15:28:48 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -362,8 +362,16 @@ void vtkUnstructuredGridReader::Execute()
   return;
 }
 
+static int recursing = 0;
 void vtkUnstructuredGridReader::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkUnstructuredGridSource::PrintSelf(os,indent);
-  this->Reader.PrintSelf(os,indent.GetNextIndent());
+  // the reader ivar's source will be this reader. we must do this to prevent infinite printing
+  if (!recursing)
+    { 
+    vtkUnstructuredGridSource::PrintSelf(os,indent);
+    recursing = 1;
+    os << indent << "Reader:\n";
+    this->Reader.PrintSelf(os,indent.GetNextIndent());
+    }
+  recursing = 0;
 }

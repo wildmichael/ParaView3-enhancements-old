@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-14 20:37:39 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-08-26 15:28:43 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -364,8 +364,16 @@ void vtkPolyDataReader::Execute()
   this->Reader.CloseVTKFile ();
 }
 
+static int recursing = 0;
 void vtkPolyDataReader::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkPolyDataSource::PrintSelf(os,indent);
-  this->Reader.PrintSelf(os,indent);
+  // the reader ivar's source will be this reader. we must do this to prevent infinite printing
+  if (!recursing)
+    { 
+    vtkPolyDataSource::PrintSelf(os,indent);
+    recursing = 1;
+    os << indent << "Reader:\n";
+    this->Reader.PrintSelf(os,indent.GetNextIndent());
+    }
+  recursing = 0;
 }
