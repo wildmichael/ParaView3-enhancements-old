@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetAttributes.h,v $
   Language:  C++
-  Date:      $Date: 2002-07-02 20:52:04 $
-  Version:   $Revision: 1.52 $
+  Date:      $Date: 2002-10-09 17:03:53 $
+  Version:   $Revision: 1.53 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -90,6 +90,14 @@ public:
   void InterpolateAllocate(vtkDataSetAttributes* pd, vtkIdType sze=0,
                            vtkIdType ext=1000);
   
+  // Description:
+  // This method is used to copy data arrays in images.
+  // You should not call "CopyAllocate" before calling this method.
+  // This method is called once to copy all of the data.
+  // If the two extents are the same, this method calls "PassData".
+  void CopyStructuredData(vtkDataSetAttributes *inDsa,
+                          const int *inExt, const int *outExt);
+
   // Description:
   // Interpolate data set attributes from other data set attributes
   // given cell or point ids and associated interpolation weights.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-13 15:23:27 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 2002-10-09 17:03:53 $
+  Version:   $Revision: 1.52 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -33,7 +33,7 @@
 #include "vtkIdList.h"
 #include "vtkMath.h"
 
-vtkCxxRevisionMacro(vtkDataArray, "$Revision: 1.51 $");
+vtkCxxRevisionMacro(vtkDataArray, "$Revision: 1.52 $");
 
 // Construct object with default tuple dimension (number of components) of 1.
 vtkDataArray::vtkDataArray(vtkIdType numComp)
@@ -872,8 +872,13 @@ float vtkDataArray::GetMaxNorm()
 
 void vtkDataArray::ComputeRange(int comp)
 {
-  float s;
+  float s,t;
   vtkIdType numTuples;
+
+  if (comp < 0 && this->NumberOfComponents == 1)
+    {
+    comp = 0;
+    }
 
   if ( (this->GetMTime() > this->ComputeTimeForLastRange) ||
        (comp != this->ComponentForLastRange))
@@ -884,7 +889,20 @@ void vtkDataArray::ComputeRange(int comp)
 
     for (vtkIdType i=0; i<numTuples; i++)
       {
-      s = this->GetComponent(i,comp);
+      if (comp >= 0)
+        {
+        s = this->GetComponent(i,comp);
+        }
+      else
+        { // Compute range of vector magnitude.
+        s = 0.0;
+        for (int j=0; j < this->NumberOfComponents; ++j)
+          {
+          t = this->GetComponent(i,j);
+          s += t*t;
+          }
+        s = sqrt(s);
+        }
       if ( s < this->Range[0] )
         {
         this->Range[0] = s;
