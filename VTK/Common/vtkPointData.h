@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointData.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 21:03:01 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 1996-09-26 20:51:34 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -78,7 +78,10 @@ public:
 
   // use to interpolate data
   void InterpolateAllocate(vtkPointData* pd, int sze=0, int ext=1000);
-  void InterpolatePoint(vtkPointData *fromPd, int toId, vtkIdList *ptIds, float *weights);
+  void InterpolatePoint(vtkPointData *fromPd, int toId, vtkIdList *ptIds, 
+                        float *weights);
+  void InterpolateEdge(vtkPointData *fromPd, int toId, int p1, int p2,
+                        float t);
 
   // Set point data to null values
   void NullPoint(int ptId);
