@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkReflectionFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-26 15:12:05 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-03-28 19:56:56 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkReflectionFilter.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkReflectionFilter, "$Revision: 1.4 $");
+vtkCxxRevisionMacro(vtkReflectionFilter, "$Revision: 1.5 $");
 vtkStandardNewMacro(vtkReflectionFilter);
 
 //---------------------------------------------------------------------------
@@ -46,17 +46,27 @@ void vtkReflectionFilter::Execute()
   vtkCellData *outCD = output->GetCellData();
   outCD->CopyAllocate(inCD);
   
-  output->DeepCopy(input);
-  
   vtkIdType numPts = input->GetNumberOfPoints();
   vtkIdType numCells = input->GetNumberOfCells();
   vtkPoints *points = input->GetPoints();
-  vtkPoints *outPoints = output->GetPoints();
 
   float bounds[6];
   input->GetBounds(bounds);
   
   vtkIdType i;
+
+  vtkIdList *tmpIds = vtkIdList::New();
+  for (i = 0; i < numPts; i++)
+    {
+    tmpIds->InsertNextId(i);
+    }
+
+  output->Allocate(input);
+  output->CopyCells(input, tmpIds);
+  tmpIds->Delete();
+
+  vtkPoints *outPoints = output->GetPoints();
+
   float point[3];
   vtkGenericCell *cell = vtkGenericCell::New();
 
