@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPicker.h,v $
   Language:  C++
-  Date:      $Date: 1994-11-01 23:16:35 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1994-11-07 10:05:26 $
+  Version:   $Revision: 1.2 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -48,6 +48,7 @@ public:
   vlPicker();
   ~vlPicker() {};
   char *GetClassName() {return "vlPicker";};
+  void PrintSelf(ostream& os, vlIndent indent);
 
   // Description:
   // Specify the rendering window to pick from.

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPicker.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-01 23:16:34 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1994-11-07 10:05:27 $
+  Version:   $Revision: 1.2 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -299,3 +299,21 @@ void vlPicker::Initialize()
   this->GlobalTMin = LARGE_FLOAT;
 }
 
+void vlPicker::PrintSelf(ostream& os, vlIndent indent)
+{
+  this->vlObject::PrintSelf(os,indent);
+
+  os << "Rendering Window: " << this->RenderWindow << "\n";
+  os << "Selection Point: (" <<  this->SelectionPoint[0] << ","
+     << this->SelectionPoint[1] << ","
+     << this->SelectionPoint[2] << ")\n";
+  os << "Tolerance: " << this->Tolerance << "\n";
+  os << "Pick Position: (" <<  this->PickPosition[0] << ","
+     << this->PickPosition[1] << ","
+     << this->PickPosition[2] << ")\n";
+  os << "Mapper Position: (" <<  this->MapperPosition[0] << ","
+     << this->MapperPosition[1] << ","
+     << this->MapperPosition[2] << ")\n";
+  os << "Actor: " << this->Actor << "\n";
+  os << "Mapper: " << this->Mapper << "\n";
+}
