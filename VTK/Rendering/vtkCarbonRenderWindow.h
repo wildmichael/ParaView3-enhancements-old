@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCarbonRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-17 21:48:26 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-05-18 19:39:15 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -225,6 +225,8 @@ protected:
 
   int CursorHidden;
 
+  void CreateAWindow(int x, int y, int width, int height);
+  void InitializeApplication();
 private:
   vtkCarbonRenderWindow(const vtkCarbonRenderWindow&);  // Not implemented.
   void operator=(const vtkCarbonRenderWindow&);  // Not implemented.
