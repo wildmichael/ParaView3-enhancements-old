@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOutputWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-09-14 16:56:36 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2000-09-19 13:23:13 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -44,6 +44,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkWin32OutputWindow.h"
 #endif
 #include "vtkObjectFactory.h"
+#include "vtkDebugLeaks.h"
 
 vtkOutputWindow* vtkOutputWindow::Instance = 0;
 vtkOutputWindowSmartPointer vtkOutputWindow::SmartPointer(NULL);
@@ -124,6 +125,12 @@ vtkOutputWindow* vtkOutputWindow::GetInstance()
     // if the factory did not provide one, then create it here
     if(!vtkOutputWindow::Instance)
       {
+      // if the factory failed to create the object,
+      // then destroy it now, as vtkDebugLeaks::ConstructClass was called
+      // with vtkclassname, and not the real name of the class
+#ifdef VTK_DEBUG_LEAKS
+      vtkDebugLeaks::DestructClass("vtkOutputWindow");
+#endif
 #ifdef _WIN32    
       vtkOutputWindow::Instance = vtkWin32OutputWindow::New();
 #else
