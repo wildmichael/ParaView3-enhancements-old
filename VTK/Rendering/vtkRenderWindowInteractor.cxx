@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:54:59 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1997-04-23 18:58:29 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,7 +38,11 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "vtkRenderWindowInteractor.h"
+#ifdef _WIN32
+#include "vtkWin32RenderWindowInteractor.h"
+#else
+#include "vtkXRenderWindowInteractor.h"
+#endif
 #include "vtkActor.h"
 #include "vtkCellPicker.h"
 
@@ -60,7 +64,8 @@ vtkRenderWindowInteractor::vtkRenderWindowInteractor()
   this->SelfCreatedPicker = 0;
   this->Picker = this->CreateDefaultPicker();
   this->OutlineActor = NULL;
-  this->OutlineMapper.SetInput(this->Outline.GetOutput());
+  this->OutlineMapper = vtkPolyMapper::New();  
+  this->OutlineMapper->SetInput(this->Outline.GetOutput());
   this->PickedRenderer = NULL;
   this->CurrentActor = NULL;
 
@@ -79,6 +84,16 @@ vtkRenderWindowInteractor::~vtkRenderWindowInteractor()
 {
   if ( this->OutlineActor ) this->OutlineActor->Delete();
   if ( this->SelfCreatedPicker && this->Picker) this->Picker->Delete();
+}
+
+vtkRenderWindowInteractor *vtkRenderWindowInteractor::New()
+{
+#ifdef _WIN32
+  return vtkWin32RenderWIndowInteractor::New();
+#else
+  return vtkXRenderWindowInteractor::New();
+#endif  
+  return new vtkRenderWindowInteractor;
 }
 
 void vtkRenderWindowInteractor::FindPokedRenderer(int x,int y)
@@ -137,7 +152,7 @@ void vtkRenderWindowInteractor::HighlightActor(vtkActor *actor)
   if ( ! this->OutlineActor )
     {
     // have to defer creation to get right type
-    this->OutlineActor = new vtkActor;
+    this->OutlineActor = vtkActor::New();
     this->OutlineActor->PickableOff();
     this->OutlineActor->DragableOff();
     this->OutlineActor->SetMapper(this->OutlineMapper);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 1997-03-14 15:06:59 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1997-04-23 18:58:51 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -66,9 +66,6 @@ public:
   char *GetClassName() {return "vtkXRenderWindow";};
   void PrintSelf(ostream& os, vtkIndent indent);
   
-  // supply base class virtual function
-  vtkRenderWindowInteractor *MakeRenderWindowInteractor();
-
   // Xwindow get set functions
   int     *GetSize();
   int     *GetScreenSize();

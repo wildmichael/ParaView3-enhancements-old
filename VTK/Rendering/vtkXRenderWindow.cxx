@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-03-14 15:06:57 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1997-04-23 18:58:50 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -244,19 +244,6 @@ void vtkXRenderWindow::SetDisplayId(Display  *arg)
 void vtkXRenderWindow::SetDisplayId(void *arg)
 {
   this->SetDisplayId((Display *)arg);
-}
-
-// Description:
-// Create an interactor that will work with this renderer.
-// Since all subclasses of this class will be running on
-// machines that are running X Windows. The correct vtkRenderWindowInteractor
-// is the vtkXRenderWindowInteractor. So this object creates one, then type 
-// casts it and returns a pointer to it.
-vtkRenderWindowInteractor *vtkXRenderWindow::MakeRenderWindowInteractor()
-{
-  this->Interactor = (vtkRenderWindowInteractor *)new vtkXRenderWindowInteractor;
-  this->Interactor->SetRenderWindow((vtkRenderWindow *)this);
-  return this->Interactor;
 }
 
 void vtkXRenderWindow::PrintSelf(ostream& os, vtkIndent indent)

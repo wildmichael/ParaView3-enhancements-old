@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMath.h,v $
   Language:  C++
-  Date:      $Date: 1997-03-04 17:54:53 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 1997-04-23 18:57:28 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,7 +56,9 @@ class VTK_EXPORT vtkMath
 {
 public:
   vtkMath() {};
-
+  static vtkMath *New() {return new vtkMath;};
+  virtual char *GetClassName() {return "vtkMath";};
+  
   // constants
   static float Pi() {return 3.14159265358979;};
   static float DegreesToRadians() {return 0.017453292;};

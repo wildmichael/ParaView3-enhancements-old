@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkByteSwap.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-11 21:43:48 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1997-04-23 18:57:25 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,6 +55,7 @@ class VTK_EXPORT vtkByteSwap
 {
 public:
   void Delete() {delete this;};
+  static vtkByteSwap *New() {return new vtkByteSwap;};
 
   static void Swap2LE(short *s);
   static void Swap4LE(char *c);

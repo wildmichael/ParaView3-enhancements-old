@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLODActor.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 20:51:58 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1997-04-23 18:58:07 $
+  Version:   $Revision: 1.11 $
   
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -70,6 +70,7 @@ class VTK_EXPORT vtkLODActor : public vtkActor
 {
  public:
   vtkLODActor();
+  ~vtkLODActor();
   static vtkLODActor *New() {return new vtkLODActor;};
   char *GetClassName() {return "vtkLODActor";};
   void PrintSelf(ostream& os, vtkIndent indent);
@@ -84,14 +85,15 @@ class VTK_EXPORT vtkLODActor : public vtkActor
 protected:
   vtkPointSource      PointSource;
   vtkGlyph3D          Glyph3D;
-  vtkPolyMapper       MediumMapper;
-  vtkPolyMapper       LowMapper;
+  vtkPolyMapper       *MediumMapper;
+  vtkPolyMapper       *LowMapper;
   vtkMaskPoints       MaskPoints;
   vtkOutlineFilter    OutlineFilter;
   vtkTimeStamp        BuildTime;
   float               Size;
   int                 NumberOfCloudPoints;
   float               Timings[3];
+  vtkActor           *Device;
 };
 
 #endif
