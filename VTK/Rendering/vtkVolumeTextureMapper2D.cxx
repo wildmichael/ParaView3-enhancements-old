@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeTextureMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-03 06:33:12 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1999-09-03 15:21:01 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -1027,6 +1027,8 @@ void vtkVolumeTextureMapper2D::InitializeRender( vtkRenderer *ren,
 
   ren->GetActiveCamera()->GetViewPlaneNormal( vpn );
 
+  // Fudge this for now - fix later to determine what major direction is
+  // in the case of volume movement in perspective.
   if ( fabs(vpn[0]) >= fabs(vpn[1]) && fabs(vpn[0]) >= fabs(vpn[2]) )
     {
     this->MajorDirection = 
@@ -1043,6 +1045,23 @@ void vtkVolumeTextureMapper2D::InitializeRender( vtkRenderer *ren,
       (vpn[2]<0.0)?(VTK_MINUS_Z_MAJOR_DIRECTION):(VTK_PLUS_Z_MAJOR_DIRECTION);
     }
 
+  // Fudge this calculation for now - fix later to be accurate
+  this->GetInput()->GetSpacing( this->DataSpacing );
+  switch ( this->MajorDirection )
+    {
+    VTK_PLUS_X_DIRECTION:
+    VTK_MINUS_X_DIRECTION:
+      this->SampleDistance = this->DataSpacing[0];
+      break;
+    VTK_PLUS_Y_DIRECTION:
+    VTK_MINUS_Y_DIRECTION:
+      this->SampleDistance = this->DataSpacing[1];
+      break;
+    VTK_PLUS_Z_DIRECTION:
+    VTK_MINUS_Z_DIRECTION:
+      this->SampleDistance = this->DataSpacing[2];
+      break;
+    }
 
   this->vtkVolumeTextureMapper::InitializeRender( ren, vol );
 }
