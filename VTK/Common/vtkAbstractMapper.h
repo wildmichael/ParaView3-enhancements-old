@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractMapper.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:08 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2002-02-21 18:51:48 $
+  Version:   $Revision: 1.27 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -97,6 +97,17 @@ public:
   static vtkDataArray *GetScalars(vtkDataSet *input, int scalarMode,
                                   int arrayAccessMode, int arrayId, 
                                   const char *arrayName, int& component);
+  // Description:
+  // Get the number of consumers
+  vtkGetMacro(NumberOfConsumers,int);
+  
+  // Description:
+  // Add or remove or get or check a consumer, 
+  void AddConsumer(vtkObject *c);
+  void RemoveConsumer(vtkObject *c);
+  vtkObject *GetConsumer(int i);
+  int IsConsumer(vtkObject *c);
+
 protected:
   vtkAbstractMapper();
   ~vtkAbstractMapper();
@@ -105,6 +116,10 @@ protected:
   float TimeToDraw;
   vtkWindow *LastWindow;   // Window used for the previous render
   vtkPlaneCollection *ClippingPlanes;
+
+  // how many consumers does this object have
+  int NumberOfConsumers;
+  vtkObject **Consumers;
 
 private:
   vtkAbstractMapper(const vtkAbstractMapper&);  // Not implemented.
