@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLandmarkTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-03-07 17:01:49 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2000-03-10 12:27:49 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to Tim Hutton and David G. Gobbi who developed this class.
 
 Redistribution and use in source and binary forms, with or without
@@ -59,6 +59,7 @@ vtkLandmarkTransform* vtkLandmarkTransform::New()
 vtkLandmarkTransform::vtkLandmarkTransform()
 {
   this->Mode = VTK_LANDMARK_SIMILARITY;
+  this->Matrix=NULL;
   this->SourceLandmarks=NULL;
   this->TargetLandmarks=NULL;
 
