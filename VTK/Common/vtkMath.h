@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMath.h,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:30:08 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1995-07-21 14:56:52 $
+  Version:   $Revision: 1.20 $
 
 This file is part of the Visualization Toolkit. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -58,6 +58,10 @@ public:
                                   double *w, double **v);
   void SingularValueBackSubstitution(double **u, double *w, double **v,
                                      int m, int n, double *b, double *x);
+
+  // Eigenvalue/vector extraction
+  int Jacobi(float **a, int n, float *d, float **v, int *nrot);
+  void Eigsrt(float *d, float **v, int n);
 
 protected:
   static long Seed;
