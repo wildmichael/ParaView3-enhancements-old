@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOutputWindow.h,v $
   Language:  C++
-  Date:      $Date: 1999-11-11 00:39:51 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1999-12-15 20:14:39 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -71,6 +71,18 @@ public:
   // Return the singleton instance with no reference counting.
   static vtkOutputWindow* GetInstance();
   virtual void DisplayText(const char*);
+  // Description:
+  // If PromptUser is set to true then each time a line of text
+  // is displayed, the user is asked if they want to keep getting
+  // messages.
+  vtkBooleanMacro(PromptUser,int);
+  vtkSetMacro(PromptUser, int);
+protected:
+  vtkOutputWindow(); 
+  virtual ~vtkOutputWindow(); 
+  vtkOutputWindow(const vtkOutputWindow&) {};
+  void operator=(const vtkOutputWindow&) {};
+  int PromptUser;
 private:
   static vtkOutputWindow* Instance;
 };

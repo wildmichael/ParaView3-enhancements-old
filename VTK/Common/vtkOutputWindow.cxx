@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOutputWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-12-09 16:14:34 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-12-15 20:14:39 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -51,6 +51,15 @@ void vtkOutputWindowDisplayText(const char* message)
   vtkOutputWindow::GetInstance()->DisplayText(message);
 }
 
+vtkOutputWindow::vtkOutputWindow()
+{
+  this->PromptUser = 0;
+}
+
+vtkOutputWindow::~vtkOutputWindow()
+{
+}
+
 void vtkOutputWindow::PrintSelf(ostream& os, vtkIndent indent)
 {
   os << indent << "vtkOutputWindow Single instance = "
@@ -62,6 +71,16 @@ void vtkOutputWindow::PrintSelf(ostream& os, vtkIndent indent)
 void vtkOutputWindow::DisplayText(const char* text)
 {
   cerr << text;
+  if(this->PromptUser)
+    {
+    char c = 'n';
+    cerr << "\nDo you want to suppress any further messages (y,n)?." << endl;
+    cin >> c;
+    if(c == 'y')
+      {
+      vtkObject::GlobalWarningDisplayOff(); 
+      }
+    }
 }
 
 
