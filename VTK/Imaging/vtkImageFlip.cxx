@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageFlip.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-04-01 19:00:07 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1997-05-14 22:14:26 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -159,7 +159,7 @@ static void vtkImageFlipExecute(vtkImageFlip *self,
 			  outRegion, (unsigned char *)(outPtr)); 
       break;
     default:
-      cerr << "Execute: Unknown output ScalarType";
+      vtkGenericWarningMacro("Execute: Unknown output ScalarType");
       return;
     }
 }

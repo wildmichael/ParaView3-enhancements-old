@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMagnitude.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-04-01 19:02:09 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1997-05-14 22:14:29 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -178,7 +178,7 @@ static void vtkImageMagnitudeExecute(vtkImageMagnitude *self,
 			       outRegion, outPtr);
       break;
     default:
-      cerr << "Execute: Unknown ScalarType\n";
+      vtkGenericWarningMacro("Execute: Unknown ScalarType");
       return;
     }
 }
