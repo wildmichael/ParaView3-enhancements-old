@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMCubesReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:35:40 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1995-08-30 12:33:20 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -78,12 +78,13 @@ void vtkMCubesReader::Execute()
   pointType point;
   int nodes[3];
   float direction, n[3], dummy[2];
-
+  vtkPolyData *output = this->GetOutput();
+  
   vtkDebugMacro(<<"Reading marching cubes file");
-//
-// Initialize
-//
-  this->Initialize();
+  //
+  // Initialize
+  //
+  output->Initialize();
 
   if ( this->Filename == NULL )
     {
@@ -175,18 +176,18 @@ void vtkMCubesReader::Execute()
 //
 // Update ourselves
 //
-  this->SetPoints(newPts);
+  output->SetPoints(newPts);
   newPts->Delete();
 
-  this->SetPolys(newPolys);
+  output->SetPolys(newPolys);
   newPolys->Delete();
 
   if (this->Normals) 
     {
-    this->GetPointData()->SetNormals(newNormals);
+    output->GetPointData()->SetNormals(newNormals);
     newNormals->Delete();
     }
-  this->Squeeze(); // might have merged stuff
+  output->Squeeze(); // might have merged stuff
 
   if (this->Locator) this->Locator->Initialize(); //free storage
 }

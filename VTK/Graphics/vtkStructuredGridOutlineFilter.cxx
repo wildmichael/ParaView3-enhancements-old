@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridOutlineFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:37:16 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1995-08-30 12:34:21 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -50,9 +50,10 @@ void vtkStructuredGridOutlineFilter::Execute()
   int *dim, pts[2];
   vtkFloatPoints *newPts;
   vtkCellArray *newLines;
+  vtkPolyData *output=(vtkPolyData *)this->Output;
 
-  vtkDebugMacro(<< "Creating structured outline");
-  this->Initialize();
+  vtkDebugMacro(<< "Creating structured grid outline");
+  output->Initialize();
 
   if ( (inPts=input->GetPoints()) == NULL )
     {
@@ -144,9 +145,9 @@ void vtkStructuredGridOutlineFilter::Execute()
 //
 // Update selves and release memory
 //
-  this->SetPoints(newPts);
+  output->SetPoints(newPts);
   newPts->Delete();
 
-  this->SetLines(newLines);
+  output->SetLines(newLines);
   newLines->Delete();
 }

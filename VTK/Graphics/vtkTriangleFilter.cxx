@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangleFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:37:48 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1995-08-30 12:33:47 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,9 +55,10 @@ void vtkTriangleFilter::Execute()
   vtkIdList outVerts(3*MAX_CELL_SIZE);
   vtkPoints *inPoints=input->GetPoints();
   vtkPointData *pd;
+  vtkPolyData *output=(vtkPolyData *)this->Output;
 
   vtkDebugMacro(<<"Executing triangle filter");
-  this->Initialize();
+  output->Initialize();
 
   newPolys = new vtkCellArray();
   // approximation
@@ -113,17 +114,17 @@ void vtkTriangleFilter::Execute()
 // Update ourselves
 //
   newPolys->Squeeze();
-  this->SetPolys(newPolys);
+  output->SetPolys(newPolys);
   newPolys->Delete();
 
   // pass through points and point data
-  this->SetPoints(input->GetPoints());
+  output->SetPoints(input->GetPoints());
   pd = input->GetPointData();
-  this->PointData = *pd;
+  output->GetPointData()->PassData(input->GetPointData());
 
   // pass through other stuff if requested
-  if ( this->PassVerts ) this->SetVerts(input->GetVerts());
-  if ( this->PassLines ) this->SetLines(input->GetLines());
+  if ( this->PassVerts ) output->SetVerts(input->GetVerts());
+  if ( this->PassLines ) output->SetLines(input->GetLines());
 
   vtkDebugMacro(<<"Converted " << inPolys->GetNumberOfCells() <<
                " polygons and " << inStrips->GetNumberOfCells() <<

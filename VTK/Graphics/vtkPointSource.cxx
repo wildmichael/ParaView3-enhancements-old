@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:36:16 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1995-08-30 12:33:24 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,9 +59,10 @@ void vtkPointSource::Execute()
   vtkFloatPoints *newPoints;
   vtkCellArray *newVerts;
   vtkMath math;
-
-  vtkDebugMacro(<< "Executing Brownian filter");
-  this->Initialize();
+  vtkPolyData *output = (vtkPolyData *)this->Output;
+  
+  vtkDebugMacro(<< "Generating random cloud of points...");
+  output->Initialize();
 
   newPoints = new vtkFloatPoints(this->NumberOfPoints);
   newVerts = new vtkCellArray;
@@ -82,10 +83,10 @@ void vtkPointSource::Execute()
 //
 // Update ourselves and release memory
 //
-  this->SetPoints(newPoints);
+  output->SetPoints(newPoints);
   newPoints->Delete();
 
-  this->SetVerts(newVerts);
+  output->SetVerts(newVerts);
   newVerts->Delete();
 }
 

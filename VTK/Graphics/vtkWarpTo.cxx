@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpTo.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:38:13 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1995-08-30 12:33:48 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -48,9 +48,10 @@ void vtkWarpTo::Execute()
   int i, ptId;
   float *x, newX[3];
   vtkPointSet *input=(vtkPointSet *)this->Input;
-
+  vtkPointSet *output=(vtkPointSet *)this->Output;
+  
   vtkDebugMacro(<<"Warping data to a point");
-  this->Initialize();
+  output->Initialize();
 
   inPts = input->GetPoints();
   pd = input->GetPointData();
@@ -78,17 +79,17 @@ void vtkWarpTo::Execute()
   //
   // Update ourselves and release memory
   //
-  this->PointData.CopyNormalsOff(); // distorted geometry - normals are bad
-  this->PointData.PassData(input->GetPointData());
+  output->GetPointData()->CopyNormalsOff(); // distorted geometry
+  output->GetPointData()->PassData(input->GetPointData());
 
-  this->SetPoints(newPts);
+  output->SetPoints(newPts);
   newPts->Delete();
 }
 
 void vtkWarpTo::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkPointSetToPointSetFilter::PrintSelf(os,indent);
-
+  
   os << indent << "Position: (" << this->Position[0] << ", " 
     << this->Position[1] << ", " << this->Position[2] << ")\n";
   os << indent << "Scale Factor: " << this->ScaleFactor << "\n";

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-24 15:26:18 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1995-08-30 12:33:35 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -180,9 +180,10 @@ void vtkTextSource::Execute()
   int drawingBlack = 0;
   static unsigned char white[4] = {255, 255, 255, 255};
   static unsigned char black[4] = {0, 0, 0, 255};
+  vtkPolyData *output=(vtkPolyData *)this->Output;
 
   // Set things up; allocate memory
-  this->Initialize();
+  output->Initialize();
   x[2] = 0;
 
   newPoints = new vtkFloatPoints();
@@ -355,13 +356,13 @@ void vtkTextSource::Execute()
 //
 // Update ourselves and release memory
 //
-  this->SetPoints(newPoints);
+  output->SetPoints(newPoints);
   newPoints->Delete();
 
-  this->PointData.SetScalars(newScalars);
+  output->GetPointData()->SetScalars(newScalars);
   newScalars->Delete();
 
-  this->SetPolys(newPolys);
+  output->SetPolys(newPolys);
   newPolys->Delete();
 }
 

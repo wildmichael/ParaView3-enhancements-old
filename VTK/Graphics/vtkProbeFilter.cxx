@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProbeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:36:30 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1995-08-30 12:33:18 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -50,20 +50,23 @@ void vtkProbeFilter::Execute()
   int cellId, ptId;
   float *x, tol2;
   vtkCell *cell;
-  vtkPointData *pd;
+  vtkPointData *pd, *outPD;
+  
   int numPts, subId;
   float pcoords[3], weights[MAX_CELL_SIZE];
   vtkDataSet *input=this->Input, *source=this->Source;
+  vtkDataSet *output=this->Output;
 
   vtkDebugMacro(<<"Probing data");
-  this->Initialize();
+  output->Initialize();
 
   pd = input->GetPointData();
   numPts = source->GetNumberOfPoints();
 //
 // Allocate storage for output PointData
 //
-  this->PointData.InterpolateAllocate(pd);
+  outPD = output->GetPointData();
+  outPD->InterpolateAllocate(pd);
 //
 // Use tolerance as a function of size of input data
 //
@@ -79,25 +82,15 @@ void vtkProbeFilter::Execute()
     if ( cellId >= 0 )
       {
       cell = input->GetCell(cellId);
-      this->PointData.InterpolatePoint(pd,ptId,&(cell->PointIds),weights);
+      outPD->InterpolatePoint(pd,ptId,&(cell->PointIds),weights);
       }
     else
       {
-      this->PointData.NullPoint(ptId);
+      outPD->NullPoint(ptId);
       }
     }
 
   this->Modified(); //make sure something's changed
-}
-
-void vtkProbeFilter::Initialize()
-{
-  if ( this->Source )
-    {
-    // copies SOURCE geometry to internal data set
-    if (this->DataSet) this->DataSet->Delete();
-    this->DataSet = this->Source->MakeObject(); 
-    }
 }
 
 // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOutlineFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:36:02 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1995-08-30 12:33:23 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -47,12 +47,13 @@ void vtkOutlineFilter::Execute()
   int pts[2];
   vtkFloatPoints *newPts;
   vtkCellArray *newLines;
-
+  vtkPolyData *output = this->GetOutput();
+  
   vtkDebugMacro(<< "Creating dataset outline");
-//
-// Initialize
-//
-  this->Initialize();
+  //
+  // Initialize
+  //
+  output->Initialize();
   bounds = this->Input->GetBounds();
 //
 // Allocate storage and create outline
@@ -102,12 +103,12 @@ void vtkOutlineFilter::Execute()
   newLines->InsertNextCell(2,pts);
   pts[0] = 3; pts[1] = 7;
   newLines->InsertNextCell(2,pts);
-//
-// Update selves and release memory
-//
-  this->SetPoints(newPts);
+  //
+  // Update selves and release memory
+  //
+  output->SetPoints(newPts);
   newPts->Delete();
 
-  this->SetLines(newLines);
+  output->SetLines(newLines);
   newLines->Delete();
 }

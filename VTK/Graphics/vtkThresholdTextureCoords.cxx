@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThresholdTextureCoords.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:37:41 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1995-08-30 12:34:14 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -90,15 +90,16 @@ void vtkThresholdTextureCoords::ThresholdBetween(float lower, float upper)
   
 void vtkThresholdTextureCoords::Execute()
 {
-  vtkDataSet *input=this->Input;
   int numPts;
   vtkFloatTCoords *newTCoords;
   int ptId;
   float inTC[3], outTC[3];
   vtkScalars *inScalars;
+  vtkDataSet *input=this->Input;
+  vtkDataSet *output=this->Output;
 
   vtkDebugMacro(<< "Executing texture threshold filter");
-  this->Initialize();
+  output->Initialize();
 
   if ( ! (inScalars = input->GetPointData()->GetScalars()) )
     {
@@ -125,7 +126,7 @@ void vtkThresholdTextureCoords::Execute()
 
     } //for all points
 
-  this->GetPointData()->SetTCoords(newTCoords);
+  output->GetPointData()->SetTCoords(newTCoords);
   newTCoords->Delete();
 }
 

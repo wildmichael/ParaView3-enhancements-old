@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetToUnstructuredGridFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:34:41 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1995-08-30 12:33:59 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,48 +40,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include "vtkDataSetToUnstructuredGridFilter.hh"
 
-void vtkDataSetToUnstructuredGridFilter::Modified()
+vtkDataSetToUnstructuredGridFilter::vtkDataSetToUnstructuredGridFilter()
 {
-  this->vtkUnstructuredGrid::Modified();
-  this->vtkDataSetFilter::_Modified();
-}
-
-unsigned long int vtkDataSetToUnstructuredGridFilter::GetMTime()
-{
-  unsigned long dtime = this->vtkUnstructuredGrid::GetMTime();
-  unsigned long ftime = this->vtkDataSetFilter::_GetMTime();
-  return (dtime > ftime ? dtime : ftime);
-}
-
-int vtkDataSetToUnstructuredGridFilter::GetDataReleased()
-{
-  return this->DataReleased;
-}
-
-void vtkDataSetToUnstructuredGridFilter::SetDataReleased(int flag)
-{
-  this->DataReleased = flag;
-}
-
-void vtkDataSetToUnstructuredGridFilter::Update()
-{
-  this->UpdateFilter();
-}
-
-void vtkDataSetToUnstructuredGridFilter::DebugOn()
-{
-  vtkUnstructuredGrid::DebugOn();
-  vtkDataSetFilter::_DebugOn();
-}
-
-void vtkDataSetToUnstructuredGridFilter::DebugOff()
-{
-  vtkUnstructuredGrid::DebugOff();
-  vtkDataSetFilter::_DebugOff();
-}
-
-void vtkDataSetToUnstructuredGridFilter::PrintSelf(ostream& os, vtkIndent indent)
-{
-  vtkUnstructuredGrid::PrintSelf(os,indent);
-  vtkDataSetFilter::_PrintSelf(os,indent);
+  this->Output = new vtkUnstructuredGrid;
+  this->Output->SetSource(this);
 }

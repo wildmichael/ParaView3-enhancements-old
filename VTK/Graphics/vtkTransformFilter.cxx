@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransformFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:37:44 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1995-08-30 12:33:45 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -46,16 +46,17 @@ void vtkTransformFilter::Execute()
 {
   vtkPoints *inPts;
   vtkFloatPoints *newPts;
-  vtkPointData *pd;
+  vtkPointData *pd, *outPD;
   vtkVectors *inVectors;
   vtkFloatVectors *newVectors=NULL;
   vtkNormals *inNormals;
   vtkFloatNormals *newNormals=NULL;
   int numPts;
   vtkPointSet *input=(vtkPointSet *)this->Input;
+  vtkPointSet *output=(vtkPointSet *)this->Output;
 
   vtkDebugMacro(<<"Executing transformation");
-  this->Initialize();
+  output->Initialize();
 //
 // Check input
 //
@@ -99,22 +100,22 @@ void vtkTransformFilter::Execute()
 //
 // Update ourselves
 //
-  this->PointData.CopyVectorsOff();
-  this->PointData.CopyNormalsOff();
-  this->PointData.PassData(input->GetPointData());
+  outPD->CopyVectorsOff();
+  outPD->CopyNormalsOff();
+  outPD->PassData(input->GetPointData());
 
-  this->SetPoints(newPts);
+  output->SetPoints(newPts);
   newPts->Delete();
 
   if (newNormals)
     {
-    this->PointData.SetNormals(newNormals);
+    outPD->SetNormals(newNormals);
     newNormals->Delete();
     }
 
   if (newVectors)
     {
-    this->PointData.SetVectors(newVectors);
+    outPD->SetVectors(newVectors);
     newVectors->Delete();
     }
 }

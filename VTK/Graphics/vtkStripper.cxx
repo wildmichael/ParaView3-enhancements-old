@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStripper.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:37:11 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1995-08-30 12:33:42 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -63,10 +63,11 @@ void vtkStripper::Execute()
   int pts[MAX_CELL_SIZE];
   int numStripPts, *stripPts;
   vtkPolyData *input=(vtkPolyData *)this->Input;
+  vtkPolyData *output=(vtkPolyData *)this->Output;
 
   vtkDebugMacro(<<"Executing triangle strip filter");
 
-  this->Initialize();
+  output->Initialize();
 
   // build cell structure.  Only operate with polygons and triangle strips.
   Mesh.SetPoints(input->GetPoints());
@@ -178,16 +179,16 @@ void vtkStripper::Execute()
 //
   delete [] visited;
 
-  this->SetPoints(input->GetPoints());
-  this->PointData = *pd; // pass data through as is
+  output->SetPoints(input->GetPoints());
+  *(output->GetPointData()) = *pd; // pass data through as is
 
   newStrips->Squeeze();
-  this->SetStrips(newStrips);
+  output->SetStrips(newStrips);
   newStrips->Delete();
 
   // pass through verts and lines
-  this->SetVerts(input->GetVerts());
-  this->SetLines(input->GetLines());
+  output->SetVerts(input->GetVerts());
+  output->SetLines(input->GetLines());
 
   vtkDebugMacro (<<"Reduced " << numCells << " cells to " << numStrips << " triangle strips \n\t(Average " << (float)numCells/numStrips << " triangles per strip, longest strip = "<<  ((longest-2)>0?(longest-2):0) << " triangles)");
 

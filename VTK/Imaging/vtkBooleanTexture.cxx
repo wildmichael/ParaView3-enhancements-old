@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBooleanTexture.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-21 22:08:34 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1995-08-30 12:32:59 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -63,8 +63,9 @@ void vtkBooleanTexture::Execute()
   int numPts, i, j;
   vtkAGraymap *newScalars;
   int midILower, midJLower, midIUpper, midJUpper;
-
-  this->Initialize();
+  vtkStructuredPoints *output = this->GetOutput();
+  
+  output->Initialize();
 
   if ( (numPts = this->XSize * this->YSize) < 1 )
     {
@@ -72,7 +73,7 @@ void vtkBooleanTexture::Execute()
     return;
     }
 
-  this->SetDimensions(this->XSize,this->YSize,1);
+  output->SetDimensions(this->XSize,this->YSize,1);
   newScalars = new vtkAGraymap(numPts);
 //
 // Compute size of various regions
@@ -112,13 +113,13 @@ void vtkBooleanTexture::Execute()
 //
 // Update ourselves
 //
-  this->PointData.SetScalars(newScalars);
+  output->GetPointData()->SetScalars(newScalars);
   newScalars->Delete();
 }
 
 void vtkBooleanTexture::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkObject::PrintSelf(os,indent);
+  vtkStructuredPointsSource::PrintSelf(os,indent);
 
   os << indent << "Thickness: " << this->Thickness << "\n";
   os << indent << "In/In: (" << this->InIn[0] << "," << this->InIn[1] << ")\n";

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSTLReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:36:44 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1995-08-30 12:33:28 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -67,10 +67,12 @@ void vtkSTLReader::Execute()
   FILE *fp;
   vtkFloatPoints *newPts, *mergedPts;
   vtkCellArray *newPolys, *mergedPolys;
+  vtkPolyData *output=(vtkPolyData *)this->Output;
+  
 //
 // Initialize
 //
-  this->Initialize();
+  output->Initialize();
 
   if ((fp = fopen(this->Filename, "r")) == NULL)
     {
@@ -135,15 +137,15 @@ void vtkSTLReader::Execute()
 //
 // Update ourselves
 //
-  this->SetPoints(mergedPts);
+  output->SetPoints(mergedPts);
   mergedPts->Delete();
 
-  this->SetPolys(mergedPolys);
+  output->SetPolys(mergedPolys);
   mergedPolys->Delete();
 
   if (this->Locator) this->Locator->Initialize(); //free storage
 
-  this->Squeeze();
+  output->Squeeze();
 }
 
 int vtkSTLReader::ReadBinarySTL(FILE *fp, vtkFloatPoints *newPts, vtkCellArray *newPolys)

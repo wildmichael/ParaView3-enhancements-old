@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:34:38 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1995-08-30 12:33:07 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -103,7 +103,7 @@ void vtkDataSetMapper::Render(vtkRenderer *ren)
     {
     vtkGeometryFilter *gf = new vtkGeometryFilter();
     vtkPolyMapper *pm = new vtkPolyMapper;
-    pm->SetInput(gf);
+    pm->SetInput(gf->GetOutput());
 
     this->GeometryExtractor = gf;
     this->PolyMapper = pm;

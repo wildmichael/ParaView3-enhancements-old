@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamer.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-03 10:47:46 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1995-08-30 12:33:37 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -88,6 +88,7 @@ vtkStreamer::vtkStreamer()
   this->Vorticity = 0;
   this->TerminalSpeed = 0.0;
   this->SpeedScalars = 0;
+  this->Output = new vtkPolyData;
 }
 
 // Description:
@@ -230,7 +231,7 @@ void vtkStreamer::Integrate()
   cellScalars.ReferenceCountingOff();
   
   vtkDebugMacro(<<"Generating streamers");
-  this->Initialize();
+  this->Output->Initialize();
   this->NumberOfStreamers = 0;
 
   if ( ! (inVectors=pd->GetVectors()) )

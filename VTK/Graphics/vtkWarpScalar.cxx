@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpScalar.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:38:12 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1995-08-30 12:33:49 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -76,9 +76,10 @@ void vtkWarpScalar::Execute()
   int i, ptId;
   float *x, *n, s, newX[3];
   vtkPointSet *input=(vtkPointSet *)this->Input;
+  vtkPointSet *output=(vtkPointSet *)this->Output;
   
   vtkDebugMacro(<<"Warping data with scalars");
-  this->Initialize();
+  output->Initialize();
 
   inPts = input->GetPoints();
   pd = input->GetPointData();
@@ -126,10 +127,10 @@ void vtkWarpScalar::Execute()
 //
 // Update ourselves and release memory
 //
-  this->PointData.CopyNormalsOff(); // distorted geometry - normals are bad
-  this->PointData.PassData(input->GetPointData());
+  output->GetPointData()->CopyNormalsOff(); // distorted geometry 
+  output->GetPointData()->PassData(input->GetPointData());
 
-  this->SetPoints(newPts);
+  output->SetPoints(newPts);
   newPts->Delete();
 }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsToStructuredPointsFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:37:29 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1995-08-30 12:34:13 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,48 +40,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include "vtkStructuredPointsToStructuredPointsFilter.hh"
 
-void vtkStructuredPointsToStructuredPointsFilter::Modified()
+vtkStructuredPointsToStructuredPointsFilter::vtkStructuredPointsToStructuredPointsFilter()
 {
-  this->vtkStructuredPoints::Modified();
-  this->vtkStructuredPointsFilter::_Modified();
+  this->Output = new vtkStructuredPoints;
+  this->Output->SetSource(this);
 }
 
-unsigned long int vtkStructuredPointsToStructuredPointsFilter::GetMTime()
-{
-  unsigned long dtime = this->vtkStructuredPoints::GetMTime();
-  unsigned long ftime = this->vtkStructuredPointsFilter::_GetMTime();
-  return (dtime > ftime ? dtime : ftime);
-}
-
-void vtkStructuredPointsToStructuredPointsFilter::DebugOn()
-{
-  vtkStructuredPoints::DebugOn();
-  vtkStructuredPointsFilter::_DebugOn();
-}
-
-void vtkStructuredPointsToStructuredPointsFilter::DebugOff()
-{
-  vtkStructuredPoints::DebugOff();
-  vtkStructuredPointsFilter::_DebugOff();
-}
-
-int vtkStructuredPointsToStructuredPointsFilter::GetDataReleased()
-{
-  return this->DataReleased;
-}
-
-void vtkStructuredPointsToStructuredPointsFilter::SetDataReleased(int flag)
-{
-  this->DataReleased = flag;
-}
-
-void vtkStructuredPointsToStructuredPointsFilter::Update()
-{
-  this->UpdateFilter();
-}
-
-void vtkStructuredPointsToStructuredPointsFilter::PrintSelf(ostream& os, vtkIndent indent)
-{
-  vtkStructuredPoints::PrintSelf(os,indent);
-  vtkStructuredPointsFilter::_PrintSelf(os,indent);
-}

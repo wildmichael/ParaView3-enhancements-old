@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:37:09 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1995-08-30 12:33:42 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -53,6 +53,7 @@ void vtkStreamPoints::Execute()
   vtkFloatScalars *newScalars=NULL;
   int i, ptId, j, id;
   float tOffset, x[3], v[3], s, r;
+  vtkPolyData *output=(vtkPolyData *)this->Output;
 
   this->vtkStreamer::Integrate();
   if ( this->NumberOfStreamers <= 0 ) return;
@@ -112,19 +113,19 @@ void vtkStreamPoints::Execute()
 //
   vtkDebugMacro(<<"Created " << newPts->GetNumberOfPoints() << " points");
 
-  this->SetPoints(newPts);
+  output->SetPoints(newPts);
   newPts->Delete();
 
-  this->PointData.SetVectors(newVectors);
+  output->GetPointData()->SetVectors(newVectors);
   newVectors->Delete();
 
   if ( newScalars ) 
     {
-    this->PointData.SetScalars(newScalars);
+    output->GetPointData()->SetScalars(newScalars);
     newScalars->Delete();
     }
 
-  this->Squeeze();
+  output->Squeeze();
 }
 
 void vtkStreamPoints::PrintSelf(ostream& os, vtkIndent indent)

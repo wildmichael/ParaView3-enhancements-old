@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectorDot.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:38:00 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1995-08-30 12:33:48 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,15 +58,16 @@ void vtkVectorDot::Execute()
   vtkFloatScalars *newScalars;
   vtkMath math;
   vtkDataSet *input=this->Input;
-  vtkPointData *pd=input->GetPointData();
   vtkNormals *inNormals;
   vtkVectors *inVectors;
   float s, *n, *v, min, max, dR, dS;
+  vtkDataSet *output=this->Output;
+  vtkPointData *pd=input->GetPointData(), *outPD=output->GetPointData();
 //
 // Initialize
 //
   vtkDebugMacro(<<"Generating vector/normal dot product!");
-  this->Initialize();
+  output->Initialize();
 
   if ( (numPts=input->GetNumberOfPoints()) < 1 )
     {
@@ -114,10 +115,10 @@ void vtkVectorDot::Execute()
 //
 // Update self and relase memory
 //
-  this->PointData.CopyScalarsOff();
-  this->PointData.PassData(this->Input->GetPointData());
+  outPD->CopyScalarsOff();
+  outPD->PassData(this->Input->GetPointData());
 
-  this->PointData.SetScalars(newScalars);
+  outPD->SetScalars(newScalars);
   newScalars->Delete();
 }
 
@@ -126,5 +127,5 @@ void vtkVectorDot::PrintSelf(ostream& os, vtkIndent indent)
   vtkDataSetToDataSetFilter::PrintSelf(os,indent);
 
   os << indent << "Scalar Range: (" << this->ScalarRange[0] << ", "
-                                << this->ScalarRange[1] << ")\n";
+                                    << this->ScalarRange[1] << ")\n";
 }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpVector.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:38:14 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1995-08-30 12:33:49 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -49,9 +49,10 @@ void vtkWarpVector::Execute()
   int i, ptId;
   float *x, *v, newX[3];
   vtkPointSet *input=(vtkPointSet *)this->Input;
+  vtkPointSet *output=(vtkPointSet *)this->Output;
 
   vtkDebugMacro(<<"Warping data with vectors");
-  this->Initialize();
+  output->Initialize();
 
   inPts = input->GetPoints();
   pd = input->GetPointData();
@@ -80,10 +81,10 @@ void vtkWarpVector::Execute()
 //
 // Update ourselves and release memory
 //
-  this->PointData.CopyNormalsOff(); // distorted geometry - normals are bad
-  this->PointData.PassData(input->GetPointData());
+  output->GetPointData()->CopyNormalsOff(); // distorted geometry
+  output->GetPointData()->PassData(input->GetPointData());
 
-  this->SetPoints(newPts);
+  output->SetPoints(newPts);
   newPts->Delete();
 }
 
