@@ -3,8 +3,9 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSource.h,v $
   Language:  C++
-  Date:      $Date: 1996-09-11 14:39:07 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1996-09-13 14:13:56 $
+  Version:   $Revision: 1.8 $
+  Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -71,7 +72,7 @@ public:
   virtual void UpdateRegion(vtkImageRegion *region) = 0; 
   virtual vtkImageSource *GetOutput();
   // Description:
-  // This method fills the regions bounds with the largest region that can
+  // This method fills the regions extent with the largest region that can
   // be generated from the source.  The regions data is ignored.
   virtual void UpdateImageInformation(vtkImageRegion *region) = 0;
   virtual unsigned long GetPipelineMTime();
