@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:18:04 $
-  Version:   $Revision: 1.118 $
+  Date:      $Date: 2001-12-10 19:35:05 $
+  Version:   $Revision: 1.119 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1021,8 +1021,12 @@ void vtkRenderWindow::UnRegister(vtkObject *o)
     {
     if (this->GetReferenceCount() + this->Interactor->GetReferenceCount() == 3)
       {
+      this->vtkObject::UnRegister(o);
+      vtkRenderWindowInteractor *tmp = this->Interactor;
+      tmp->Register(0);
       this->Interactor->SetRenderWindow(NULL);
-      this->SetInteractor(NULL);
+      tmp->UnRegister(0);
+      return;
       }
     }
   
