@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBMPReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-31 12:16:21 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1999-03-22 22:35:53 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,7 +55,7 @@ vtkBMPReader::~vtkBMPReader()
   // free any old memory
   if (this->Colors) 
     {
-    delete this->Colors;
+    delete [] this->Colors;
     this->Colors = NULL;
     }
 }
@@ -71,7 +71,7 @@ void vtkBMPReader::UpdateImageInformation()
   // free any old memory
   if (this->Colors) 
     {
-    delete this->Colors;
+    delete [] this->Colors;
     this->Colors = NULL;
     }
       

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMarchingCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-02-16 14:03:55 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1999-03-22 22:36:23 $
+  Version:   $Revision: 1.24 $
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -776,7 +776,7 @@ void vtkImageMarchingCubes::InitializeLocator(int min0, int max0,
   // Free old memory
   if (this->LocatorPointIds)
     {
-    delete this->LocatorPointIds;
+    delete [] this->LocatorPointIds;
     }
   // Extra row and column
   this->LocatorDimX = (max0 - min0 + 2);
@@ -800,7 +800,7 @@ void vtkImageMarchingCubes::DeleteLocator()
   // Free old memory
   if (this->LocatorPointIds)
     {
-    delete this->LocatorPointIds;
+    delete [] this->LocatorPointIds;
     this->LocatorPointIds = NULL;
     }
 }

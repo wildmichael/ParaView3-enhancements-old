@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMask.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:48:09 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1999-03-22 22:35:55 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -181,7 +181,7 @@ static void vtkImageMaskExecute(vtkImageMask *self, int ext[6],
     outPtr += outInc2;
     }
   
-  delete maskedValue;
+  delete [] maskedValue;
 }
 
 

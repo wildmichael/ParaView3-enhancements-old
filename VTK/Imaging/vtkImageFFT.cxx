@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageFFT.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:47:42 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-03-22 22:35:53 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -170,8 +170,8 @@ static void vtkImageFFTExecute(vtkImageFFT *self,
     outPtr2 += outInc2;
     }
     
-  delete inComplex;
-  delete outComplex;
+  delete [] inComplex;
+  delete [] outComplex;
 }
 
 

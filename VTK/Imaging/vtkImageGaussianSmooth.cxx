@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageGaussianSmooth.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:47:43 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1999-03-22 22:35:54 $
+  Version:   $Revision: 1.17 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -385,7 +385,7 @@ void vtkImageGaussianSmooth::ExecuteAxis(int axis,
     }
   
   // get rid of temporary kernel
-  delete kernel;
+  delete [] kernel;
 }
   
 //----------------------------------------------------------------------------
