@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellLocator.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-05-09 20:07:03 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1996-05-17 21:11:39 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -285,6 +285,7 @@ void vtkCellLocator::InitializeIntersection(vtkCellLocator& locator)
 int vtkCellLocator::GetNextIntersection(int& bucket1, int& bucket2)
 {
   // not yet implemented
+  return 0;
 }
 
 
@@ -593,3 +594,10 @@ void vtkCellLocator::GenerateFace(int face, int numDivs, int i, int j, int k,
   polys->InsertNextCell(4,ids);
 }
 
+void vtkCellLocator::PrintSelf(ostream& os, vtkIndent indent)
+{
+  vtkLocator::PrintSelf(os,indent);
+
+  os << indent << "Number of Cells Per Bucket: " << this->NumberOfCellsPerBucket << "\n";
+
+}

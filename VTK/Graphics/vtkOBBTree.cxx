@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOBBTree.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-05-09 20:07:11 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1996-05-17 21:11:45 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -74,9 +74,6 @@ vtkOBBTree::vtkOBBTree()
 
 void vtkOBBTree::FreeSearchStructure()
 {
-  vtkIdList *cellIds;
-  int i;
-
   if ( this->Tree )
     {
     this->DeleteTree(this->Tree);

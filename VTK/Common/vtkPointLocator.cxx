@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointLocator.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-05-09 20:13:03 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1996-05-17 21:11:46 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -73,7 +73,7 @@ inline int vtkNeighborPoints::InsertNextPoint(int *x)
 // 25 points per bucket.
 vtkPointLocator::vtkPointLocator()
 {
-  static vtkNeighborPoints BucketStorage(26,50);;
+  static vtkNeighborPoints BucketStorage(26,50);
   Buckets = &BucketStorage;
 
   this->Points = NULL;
@@ -90,7 +90,6 @@ void vtkPointLocator::Initialize()
 {
   if ( this->Points ) this->Points->UnRegister(this);
 
-  // free up hash table
   this->FreeSearchStructure();
 }
 
@@ -736,3 +735,15 @@ void vtkPointLocator::GenerateFace(int face, int i, int j, int k,
 
   polys->InsertNextCell(4,ids);
 }
+
+
+void vtkPointLocator::PrintSelf(ostream& os, vtkIndent indent)
+{
+  vtkLocator::PrintSelf(os,indent);
+
+  os << indent << "Number of Points Per Bucket: " << this->NumberOfPointsPerBucket << "\n";
+  os << indent << "Divisions: (" << this->Divisions[0] << ", " 
+     << this->Divisions[1] << ", " << this->Divisions[2] << ")\n";
+
+}
+

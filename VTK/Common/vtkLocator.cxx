@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLocator.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-05-10 15:57:22 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1996-05-17 21:11:42 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,7 +55,8 @@ vtkLocator::vtkLocator()
 
 vtkLocator::~vtkLocator()
 {
-  this->Initialize();
+// commented out because of compiler problems in g++
+//  this->FreeSearchStructure(); 
 }
 
 void vtkLocator::Initialize()
@@ -73,4 +74,24 @@ void vtkLocator::Update()
     }
 }
 
+void vtkLocator::PrintSelf(ostream& os, vtkIndent indent)
+{
+  vtkObject::PrintSelf(os,indent);
+
+  if ( this->DataSet )
+    {
+    os << indent << "DataSet: " << this->DataSet << "\n";
+    }
+  else
+    {
+    os << indent << "DataSet: (none)\n";
+    }
+
+  os << indent << "Automatic: " << (this->Automatic ? "On\n" : "Off\n");
+  os << indent << "Tolerance: " << this->Tolerance << "\n" ;
+  os << indent << "Level: " << this->Level << "\n" ;
+  os << indent << "MaxLevel: " << this->MaxLevel << "\n" ;
+  os << indent << "Retain Cell Lists: " << (this->RetainCellLists ? "On\n" : "Off\n");
+  os << indent << "Build Time: " << this->BuildTime.GetMTime() << "\n";
+}
 
