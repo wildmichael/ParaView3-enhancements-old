@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-01-06 12:32:00 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 1999-01-09 13:45:36 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -152,7 +152,10 @@ void vtkMergeFilter::Update()
     }
 
   // prevent chasing our tail
-  if (this->Updating) return;
+  if (this->Updating)
+    {
+    return;
+    }
 
   this->Updating = 1;
   this->Geometry->Update();

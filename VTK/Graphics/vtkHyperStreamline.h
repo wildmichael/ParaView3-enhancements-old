@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHyperStreamline.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-08 18:41:58 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1999-01-09 13:45:35 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -103,12 +103,21 @@ public:
 class vtkHyperArray { //;prevent man page generation
 public:
   vtkHyperArray();
-  ~vtkHyperArray() {if (this->Array) delete [] this->Array;};
+  ~vtkHyperArray()
+    {
+      if (this->Array)
+	{
+	delete [] this->Array;
+	}
+    };
   int GetNumberOfPoints() {return this->MaxId + 1;};
   vtkHyperPoint *GetHyperPoint(int i) {return this->Array + i;};
   vtkHyperPoint *InsertNextHyperPoint() 
     {
-    if ( ++this->MaxId >= this->Size ) this->Resize(this->MaxId);
+    if ( ++this->MaxId >= this->Size )
+      {
+      this->Resize(this->MaxId);
+      }
     return this->Array + this->MaxId;
     }
   vtkHyperPoint *Resize(int sz); //reallocates data
