@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractEdges.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-13 14:25:51 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1998-03-13 14:57:05 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -145,6 +145,20 @@ void vtkExtractEdges::Execute()
   newLines->Delete();
 
   output->Squeeze();
+}
+
+// Description:
+// Specify a spatial locator for merging points. By
+// default an instance of vtkMergePoints is used.
+void vtkExtractEdges::SetLocator(vtkPointLocator *locator)
+{
+  if ( this->Locator != locator ) 
+    {
+    if ( this->SelfCreatedLocator ) this->Locator->Delete();
+    this->SelfCreatedLocator = 0;
+    this->Locator = locator;
+    this->Modified();
+    }
 }
 
 void vtkExtractEdges::CreateDefaultLocator()
