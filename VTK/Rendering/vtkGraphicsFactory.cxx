@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGraphicsFactory.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-07-25 16:59:31 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2000-09-19 11:57:40 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -44,6 +44,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkGraphicsFactory.h"
 #include "vtkToolkits.h"
 #include "stdlib.h"
+#include "vtkDebugLeaks.h"
 
 #ifdef VTK_USE_OGLR
 #include "vtkOpenGLActor.h"
@@ -155,7 +156,12 @@ vtkObject* vtkGraphicsFactory::CreateInstance(const char* vtkclassname )
     {
     return ret;
     }
-
+  // if the factory failed to create the object,
+  // then destroy it now, as vtkDebugLeaks::ConstructClass was called
+  // with vtkclassname, and not the real name of the class
+#ifdef VTK_DEBUG_LEAKS
+  vtkDebugLeaks::DestructClass(vtkclassname);
+#endif
   const char *rl = vtkGraphicsFactory::GetRenderLibrary();
   
 #ifdef VTK_USE_OGLR
