@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWindow.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:36:30 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2001-12-19 15:52:14 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -147,6 +147,17 @@ public:
   // for example a glXMakeCurrent or a wglMakeCurrent.
   virtual void MakeCurrent() {};
 
+  // Description:
+  // These methods are used by vtkWindowToImageFilter to tell a VTK window
+  // to simulate a larger window by tiling. For 3D geometry these methods
+  // have no impact. It is just in handling annotation that this information
+  // must be available to the mappers and the coordinate calculations.
+  vtkSetMacro(TileScale,int);
+  vtkGetMacro(TileScale,int);
+  vtkSetVector4Macro(TileViewport,float);
+  vtkGetVector4Macro(TileViewport,float);
+  
+
 protected:
   int OffScreenRendering;
   vtkWindow();
@@ -159,6 +170,11 @@ protected:
   int Erase;
   int DoubleBuffer;
   int DPI;
+
+  float TileViewport[4];
+  int   TileSize[2];
+  int   TileScale;
+  
 private:
   vtkWindow(const vtkWindow&);  // Not implemented.
   void operator=(const vtkWindow&);  // Not implemented.
