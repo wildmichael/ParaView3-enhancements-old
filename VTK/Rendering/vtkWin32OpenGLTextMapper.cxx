@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:18:16 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2001-12-07 16:01:05 $
+  Version:   $Revision: 1.32 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -313,19 +313,17 @@ vtkDebugMacro (<< "RenderOpaqueGeometry");
   rect.right = rect.left + size[0];
   rect.top = rect.bottom + size[1];
   
-  int winJust;
   switch (this->Justification)
     {
     int tmp;
-    case VTK_TEXT_LEFT: winJust = DT_LEFT; break;
+    case VTK_TEXT_LEFT: 
+      break;
     case VTK_TEXT_CENTERED:
-      winJust = DT_CENTER;
       tmp = rect.right - rect.left + 1;
       rect.left = rect.left - tmp/2;
       rect.right = rect.left + tmp;
       break;
     case VTK_TEXT_RIGHT: 
-      winJust = DT_RIGHT;
       tmp = rect.right - rect.left + 1;
       rect.right = rect.left;
       rect.left = rect.left - tmp;
