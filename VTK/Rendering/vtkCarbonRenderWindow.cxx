@@ -3,8 +3,8 @@
 Program:   Visualization Toolkit
 Module:    $RCSfile: vtkCarbonRenderWindow.cxx,v $
 Language:  C++
-Date:      $Date: 2002-05-30 17:11:20 $
-Version:   $Revision: 1.7 $
+Date:      $Date: 2002-06-03 23:35:45 $
+Version:   $Revision: 1.8 $
 Thanks:    to Yves Starreveld for developing this class
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
@@ -30,9 +30,9 @@ Thanks:    to Yves Starreveld for developing this class
 #include "vtkOpenGLLight.h"
 #include "vtkOpenGLPolyDataMapper.h"
 #include "vtkObjectFactory.h"
+#include "vtkRendererCollection.h"
 
-
-vtkCxxRevisionMacro(vtkCarbonRenderWindow, "$Revision: 1.7 $");
+vtkCxxRevisionMacro(vtkCarbonRenderWindow, "$Revision: 1.8 $");
 vtkStandardNewMacro(vtkCarbonRenderWindow);
 
 
