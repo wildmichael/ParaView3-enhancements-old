@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetAttributes.h,v $
   Language:  C++
-  Date:      $Date: 1998-05-08 17:14:08 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-05-19 21:36:56 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -173,9 +173,10 @@ public:
   void CopyAllOn();
   void CopyAllOff();
 
+  void CopyTuple(vtkDataArray *fromData, vtkDataArray *toData, int fromId, int toId);
+
 protected:
   // special methods to support managing data
-  void CopyTuple(vtkDataArray *fromData, vtkDataArray *toData, int fromId, int toId);
   void InterpolateTuple(vtkDataArray *fromData, vtkDataArray *toData, int toId,
 			vtkIdList *ptIds, float *weights);
   void InterpolateTuple(vtkDataArray *fromData, vtkDataArray *toData, int toId, 
