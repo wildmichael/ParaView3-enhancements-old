@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfTree.c,v 1.1 2002-12-02 17:11:03 clarke Exp $  */
-/*  Date : $Date: 2002-12-02 17:11:03 $ */
-/*  Version : $Revision: 1.1 $ */
+/*  Id : $Id: XdmfTree.c,v 1.2 2003-11-05 22:01:01 clarke Exp $  */
+/*  Date : $Date: 2003-11-05 22:01:01 $ */
+/*  Version : $Revision: 1.2 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -99,7 +99,7 @@ while(this_node->nchild > 0){
 if(this_node->parent != NULL){
   for(i = 0 ; i < this_node->parent->nchild ; i++){
     if(this_node->parent->children[i] == this_node){
-      memcpy(&this_node->parent->children[i],
+      memmove(&this_node->parent->children[i],
         &this_node->parent->children[i + 1],
     (this_node->parent->nchild - i) * sizeof(XDMF_TREE_NODE));
       break;
