@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkMergeFilter.h,v $
   Language:  C++
-  Date:      $Date: 1995-04-27 10:09:49 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1995-05-02 13:31:52 $
+  Version:   $Revision: 1.11 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -30,10 +30,10 @@ public:
   vlMergeFilter();
   ~vlMergeFilter();
   char *GetClassName() {return "vlMergeFilter";};
-  char *GetDataType() {return this->Geometry->GetDataType();};
   void PrintSelf(ostream& os, vlIndent indent);
 
   // dataset interface
+  char *GetDataType() {return this->Geometry->GetDataType();};
   vlDataSet *MakeObject() {return this->Geometry->MakeObject();};
   int GetNumberOfCells() {return this->Geometry->GetNumberOfCells();};
   int GetNumberOfPoints() {return this->Geometry->GetNumberOfPoints();};
