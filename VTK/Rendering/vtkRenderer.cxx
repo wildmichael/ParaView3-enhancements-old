@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-12-04 21:56:18 $
-  Version:   $Revision: 1.74 $
+  Date:      $Date: 1997-12-05 18:42:20 $
+  Version:   $Revision: 1.75 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -423,6 +423,7 @@ void vtkRenderer::ResetCamera(float bounds[6])
 // shouldn't ever need to call this method.
 void vtkRenderer::SetRenderWindow(vtkRenderWindow *renwin)
 {
+  this->VTKWindow = renwin;
   this->RenderWindow = renwin;
 }
 
