@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMultiProcessController.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-28 19:01:51 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2002-11-08 18:14:37 $
+  Version:   $Revision: 1.15 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -53,10 +53,10 @@ protected:
   void operator=(const vtkMultiProcessControllerRMI&);
 };
 
-vtkCxxRevisionMacro(vtkMultiProcessControllerRMI, "$Revision: 1.14 $");
+vtkCxxRevisionMacro(vtkMultiProcessControllerRMI, "$Revision: 1.15 $");
 vtkStandardNewMacro(vtkMultiProcessControllerRMI);
 
-vtkCxxRevisionMacro(vtkMultiProcessController, "$Revision: 1.14 $");
+vtkCxxRevisionMacro(vtkMultiProcessController, "$Revision: 1.15 $");
 
 //----------------------------------------------------------------------------
 // An RMI function that will break the "ProcessRMIs" loop.
@@ -337,6 +337,7 @@ void vtkMultiProcessController::ProcessRMIs()
     if (!this->RMICommunicator->Receive(triggerMessage, 3, ANY_SOURCE, 
                                         RMI_TAG))
       {
+      vtkErrorMacro("Could not receive RMI trigger message.");
       break;
       }
     if (triggerMessage[1] > 0)
@@ -345,6 +346,7 @@ void vtkMultiProcessController::ProcessRMIs()
       if (!this->RMICommunicator->Receive((char*)(arg), triggerMessage[1], 
                                           triggerMessage[2], RMI_ARG_TAG))
         {
+        vtkErrorMacro("Could not receive RMI argument.");
         break;
         }
       }
