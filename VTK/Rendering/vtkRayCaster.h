@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRayCaster.h,v $
   Language:  C++
-  Date:      $Date: 1999-02-03 06:09:45 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1999-02-03 18:11:10 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -171,6 +171,11 @@ public:
   vtkSetMacro( NumberOfThreads, int );
   vtkGetMacro( NumberOfThreads, int );
 
+  // Description:
+  // Get the number of samples taken during the last image rendered.
+  // This is the number of samples for ray casted images only - any
+  // samples taken from other types of mapper will be reported in that
+  // mapper directly
   int GetNumberOfSamplesTaken();
 
   float *GetCurrentZBuffer()

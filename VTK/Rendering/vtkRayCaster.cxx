@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRayCaster.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-02-03 06:09:43 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1999-02-03 18:11:11 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -607,6 +607,9 @@ float vtkRayCaster::GetViewportStepSize()
     }
 }
 
+// We have to keep a NumberOfSamplesTaken per thread id so that
+// we don't try to increment the same location across different
+// threads.
 int vtkRayCaster::GetNumberOfSamplesTaken()
 {
   int sum, i;
@@ -1558,6 +1561,9 @@ void vtkRayCaster::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "Bilinear Image Zoom: " << this->BilinearImageZoom << "\n";
 
   os << indent << "Total Render Time: " << this->TotalRenderTime << "\n";
+
+  os << indent << "Number Of Samples Taken: " << 
+     this->GetNumberOfSamplesTaken() << "\n";
 
   os << indent << "Number Of Threads: " << this->NumberOfThreads << "\n";
 }
