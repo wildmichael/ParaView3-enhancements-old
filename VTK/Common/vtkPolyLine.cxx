@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyLine.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:36:20 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1995-08-21 20:34:53 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -380,7 +380,8 @@ int vtkPolyLine::EvaluatePosition(float x[3], float closestPoint[3],
     {
     line.Points.SetPoint(0,this->Points.GetPoint(i));
     line.Points.SetPoint(1,this->Points.GetPoint(i+1));
-    status = line.EvaluatePosition(x,closest,ignoreId,pc,dist2,lineWeights);
+    status = line.EvaluatePosition(x,closest,ignoreId,pc,dist2,
+				   (float *)lineWeights);
     if ( status != -1 && dist2 < minDist2 )
       {
       return_status = status;
