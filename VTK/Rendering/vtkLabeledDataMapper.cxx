@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLabeledDataMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-02-24 17:44:56 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-02-26 12:33:21 $
+  Version:   $Revision: 1.7 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -81,7 +81,7 @@ vtkLabeledDataMapper::~vtkLabeledDataMapper()
   this->SetInput(NULL);
 }
 
-void vtkLabeledDataMapper::RenderPostSwap(vtkViewport *viewport, 
+void vtkLabeledDataMapper::RenderOverlay(vtkViewport *viewport, 
 					  vtkActor2D *actor)
 {
   int i, j, numComp, pointIdLabels, activeComp;
