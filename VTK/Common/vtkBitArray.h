@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkBitArray.h,v $
   Language:  C++
-  Date:      $Date: 1994-06-03 14:17:12 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1994-06-10 08:40:17 $
+  Version:   $Revision: 1.4 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -30,14 +30,17 @@ public:
   vlBitArray(const int sz, const int ext);
   vlBitArray(const vlBitArray& ia);
   ~vlBitArray();
-  int GetValue(const int id) {return (this->Array[id/8]&(0x80 >> (id%8)));};
+  int GetValue(const int id) 
+    {if (this->Array[id/8]&(0x80 >> (id%8))) return 1; return 0;};
   char *GetPtr(const int id) {return this->Array + id/8;};
+
   vlBitArray &SetValue(const int id, const int i)
   {
   if (i) this->Array[id/8] |= (0x80 >> id%8);
   else this->Array[id/8] &= (~(0x80 >> id%8));
   if ( id > this->MaxId ) this->MaxId = id;
   }
+
   vlBitArray &InsertValue(const int id, const int i)
   {
   if ( id >= this->Size ) this->Resize(id);
@@ -46,6 +49,7 @@ public:
   if ( id > this->MaxId ) this->MaxId = id;
   return *this;
   }
+
   int InsertNextValue(const int i)
   {this->InsertValue (++this->MaxId,i); return this->MaxId;};
   vlBitArray &operator=(const vlBitArray& ia);
