@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageViewer.h,v $
   Language:  C++
-  Date:      $Date: 1997-12-17 01:27:35 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1998-02-19 18:52:40 $
+  Version:   $Revision: 1.24 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -92,8 +92,9 @@ public:
   // Description:
   // Methods used to specify the region to be displayed.
   // The actual extent displayed is clipped by the "WholeExtent".
-  vtkSetVectorMacro(DisplayExtent, int, 6);
-  vtkGetVectorMacro(DisplayExtent, int, 6);  
+  // The ZSlice is stored in values 5 and 6 of the display extent.
+  vtkSetVectorMacro(DisplayExtent, int, 4);
+  vtkGetVectorMacro(DisplayExtent, int, 4);  
 
   // Description:
   // This is for a tcl interface
