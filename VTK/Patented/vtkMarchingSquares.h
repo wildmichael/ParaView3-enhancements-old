@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingSquares.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-25 12:42:31 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1997-06-27 15:36:31 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -71,7 +71,7 @@ public:
   vtkMarchingSquares();
   static vtkMarchingSquares *New() {return new vtkMarchingSquares;};
   ~vtkMarchingSquares();
-  char *GetClassName() {return "vtkMarchingSquares";};
+  const char *GetClassName() {return "vtkMarchingSquares";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

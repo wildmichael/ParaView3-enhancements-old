@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDecimate.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-06 12:49:17 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 1997-06-27 15:36:27 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -162,7 +162,7 @@ class VTK_EXPORT vtkDecimate : public vtkPolyDataToPolyDataFilter
 public:
   vtkDecimate();
   static vtkDecimate *New() {return new vtkDecimate;};
-  char *GetClassName() {return "vtkDecimate";};
+  const char *GetClassName() {return "vtkDecimate";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

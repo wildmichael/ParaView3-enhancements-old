@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMarchingCubes.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-25 12:40:58 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1997-06-27 15:36:29 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -71,7 +71,7 @@ public:
   vtkImageMarchingCubes();
   static vtkImageMarchingCubes *New() {return new vtkImageMarchingCubes;};
   ~vtkImageMarchingCubes();
-  char *GetClassName() {return "vtkImageMarchingCubes";};
+  const char *GetClassName() {return "vtkImageMarchingCubes";};
   void PrintSelf(ostream& os, vtkIndent indent);
   
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageResample.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-09 13:12:36 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1997-06-27 15:36:09 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,7 +57,7 @@ class VTK_EXPORT vtkImageResample : public vtkImageDecomposedFilter
 public:
   vtkImageResample();
   static vtkImageResample *New() {return new vtkImageResample;};
-  char *GetClassName() {return "vtkImageResample";};
+  const char *GetClassName() {return "vtkImageResample";};
 
   // Description:
   // Set/Get Magnification factors.

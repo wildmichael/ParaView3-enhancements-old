@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingCubes.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-25 12:42:30 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1997-06-27 15:36:30 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -65,7 +65,7 @@ public:
   vtkMarchingCubes();
   static vtkMarchingCubes *New() {return new vtkMarchingCubes;};
   ~vtkMarchingCubes();
-  char *GetClassName() {return "vtkMarchingCubes";};
+  const char *GetClassName() {return "vtkMarchingCubes";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Methods to set contour values

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageThreshold.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 20:57:59 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1997-06-27 15:36:16 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,7 +57,7 @@ class VTK_EXPORT vtkImageThreshold : public vtkImageFilter
 public:
   vtkImageThreshold();
   static vtkImageThreshold *New() {return new vtkImageThreshold;};
-  char *GetClassName() {return "vtkImageThreshold";};
+  const char *GetClassName() {return "vtkImageThreshold";};
 
   void ThresholdByUpper(float thresh);
   void ThresholdByLower(float thresh);
