@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLPolyDataMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-08 00:40:52 $
-  Version:   $Revision: 1.52 $
+  Date:      $Date: 2001-03-24 21:18:55 $
+  Version:   $Revision: 1.53 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -2364,7 +2364,7 @@ void vtkOpenGLPolyDataMapper::Draw(vtkRenderer *aren, vtkActor *act)
   int cellNum = 0;
   int cellNormals = 0;
   int resolve=0, zResolve=0;
-  double zRes;
+  double zRes = 0.0;
   
   // get the property 
   prop = act->GetProperty();

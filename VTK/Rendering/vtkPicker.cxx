@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPicker.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-02-13 05:16:54 $
-  Version:   $Revision: 1.65 $
+  Date:      $Date: 2001-03-24 21:18:55 $
+  Version:   $Revision: 1.66 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -139,7 +139,7 @@ int vtkPicker::Pick(float selectionX, float selectionY, float selectionZ,
   int i;
   vtkProp *prop;
   vtkCamera *camera;
-  vtkAbstractMapper3D *mapper;
+  vtkAbstractMapper3D *mapper = NULL;
   float p1World[4], p2World[4], p1Mapper[4], p2Mapper[4];
   int picked=0;
   int *winSize;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinkEdgels.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-22 12:48:07 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2001-03-24 21:18:54 $
+  Version:   $Revision: 1.26 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -159,7 +159,7 @@ void vtkLinkEdgels::LinkEdgels(int xdim, int ydim, float *image,
   static int xoffset[8] = {1,1,0,-1,-1,-1,0,1};
   static int yoffset[8] = {0,1,1,1,0,-1,-1,-1};
   int length, start;
-  int bestDirection;
+  int bestDirection = 0;
   float error, bestError;
 
   forward  = new int *[ydim];

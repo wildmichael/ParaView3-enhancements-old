@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-16 16:47:34 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2001-03-24 21:18:55 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -744,7 +744,7 @@ int vtkMesaRenderWindow::GetDesiredDepth()
 Visual *vtkMesaRenderWindow::GetDesiredVisual ()
 {
   XVisualInfo *v;
-  Visual *vis;
+  Visual *vis = NULL;
   
   // get the default visual to use 
   v = this->GetDesiredVisualInfo();

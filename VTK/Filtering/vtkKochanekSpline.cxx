@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKochanekSpline.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:41 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2001-03-24 21:18:54 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -75,7 +75,7 @@ vtkKochanekSpline::vtkKochanekSpline ()
 // Evaluate a 1D Spline
 float vtkKochanekSpline::Evaluate (float t)
 {
-  int i, index;
+  int i, index = 0;
   int size = this->PiecewiseFunction->GetSize ();
   float *intervals;
   float *coefficients;

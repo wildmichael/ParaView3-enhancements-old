@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkApproximatingSubdivisionFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-02-27 12:47:14 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2001-03-24 21:18:54 $
+  Version:   $Revision: 1.14 $
   Thanks:    This work was supported bt PHS Research Grant No. 1 P41 RR13218-01
              from the National Center for Research Resources
 
@@ -57,7 +57,7 @@ void vtkApproximatingSubdivisionFilter::Execute()
   int level;
   vtkPoints *outputPts;
 
-  vtkCellArray *outputPolys;
+  vtkCellArray *outputPolys = NULL;
   vtkPolyData *input = this->GetInput();
   vtkPolyData *output = this->GetOutput();
   vtkPointData *outputPD;
@@ -187,8 +187,8 @@ void vtkApproximatingSubdivisionFilter::Execute()
 int vtkApproximatingSubdivisionFilter::FindEdge (vtkPolyData *mesh, int cellId, int p1, int p2, vtkIntArray *edgeData, vtkIdList *cellIds)
 {
  
-  int edgeId;
-  int currentCellId;
+  int edgeId = 0;
+  int currentCellId = 0;
   int i;
   int numEdges;
   int tp1, tp2;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPiecewiseFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:46 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2001-03-24 21:18:55 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -177,7 +177,7 @@ const char *vtkPiecewiseFunction::GetType()
 {
   int   i;
   float value;
-  float prev_value;
+  float prev_value = 0.0;
   int   function_type;
 
   this->Update();
@@ -722,7 +722,7 @@ void vtkPiecewiseFunction::BuildFunctionFromTable( float x1, float x2,
 						   float* table, int stride )
 {
   int i;
-  float inc;
+  float inc = 0.0;
   float *tptr = table;
 
   if (size > this->ArraySize)

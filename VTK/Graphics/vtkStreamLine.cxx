@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamLine.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-21 20:39:41 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 2001-03-24 21:18:55 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -79,8 +79,8 @@ void vtkStreamLine::Execute()
   vtkIdList *pts;
   float tOffset, x[3], v[3], s, r;
   float theta;
-  vtkPolyLine* lineNormalGenerator;
-  vtkNormals* normals;
+  vtkPolyLine* lineNormalGenerator = NULL;
+  vtkNormals* normals = NULL;
   vtkFloatArray* rotation = 0;
   vtkPolyData *output=this->GetOutput();
 

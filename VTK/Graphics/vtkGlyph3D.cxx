@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGlyph3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-26 20:46:43 $
-  Version:   $Revision: 1.85 $
+  Date:      $Date: 2001-03-24 21:18:54 $
+  Version:   $Revision: 1.86 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -90,16 +90,16 @@ void vtkGlyph3D::Execute()
   vtkVectors *inVectors;
   int requestedGhostLevel;
   unsigned char* inGhostLevels=0;
-  vtkNormals *inNormals, *sourceNormals;
-  vtkDataArray *newScalarsData, *inScalarsData;
+  vtkNormals *inNormals, *sourceNormals = NULL;
+  vtkDataArray *newScalarsData = NULL, *inScalarsData = NULL;
   int numPts, numSourcePts, numSourceCells;
   int inPtId, i, index;
-  vtkPoints *sourcePts;
+  vtkPoints *sourcePts = NULL;
   vtkPoints *newPts;
   vtkScalars *newScalars=NULL;
   vtkVectors *newVectors=NULL;
   vtkNormals *newNormals=NULL;
-  float *x, *v, vNew[3], s, vMag, value;
+  float *x, *v = NULL, vNew[3], s = 0.0, vMag = 0.0, value;
   vtkTransform *trans = vtkTransform::New();
   vtkCell *cell;
   vtkIdList *cellPts;

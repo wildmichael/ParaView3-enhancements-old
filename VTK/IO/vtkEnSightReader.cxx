@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSightReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-16 13:28:38 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2001-03-24 21:18:54 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1005,7 +1005,7 @@ void vtkEnSightReader::AddVariableType()
 {
   int size;
   int i;
-  int *types;
+  int *types = NULL;
   
   // Figure out what the size of the variable type array is.
   if (this->VariableMode < 8)

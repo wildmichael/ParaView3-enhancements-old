@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastMIPFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:59 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2001-03-24 21:18:55 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -85,7 +85,7 @@ static void CastMaxScalarValueRay( T *data_ptr,
 				   VTKRayCastVolumeInfo *volumeInfo )
 {
   float     triMax, triValue;
-  int       max;
+  int       max = 0;;
   float     max_opacity;
   int       loop;
   int       xinc, yinc, zinc;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitModeller.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:39 $
-  Version:   $Revision: 1.69 $
+  Date:      $Date: 2001-03-24 21:18:54 $
+  Version:   $Revision: 1.70 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -489,8 +489,8 @@ void vtkImplicitModeller::Append(vtkDataSet *input)
     vtkImplicitModellerAppendInfo info;
     float minZ, maxZ;
     int slabMin, slabMax, slabSize, i;
-    vtkClipPolyData **minClipper, **maxClipper; 
-    vtkPlane ** minPlane, **maxPlane;
+    vtkClipPolyData **minClipper = NULL, **maxClipper = NULL; 
+    vtkPlane ** minPlane = NULL, **maxPlane = NULL;
     
     // Use a MultiThreader here, splitting the volume into slabs to be processed
     // by the separate threads
