@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransform.h,v $
   Language:  C++
-  Date:      $Date: 1995-08-22 16:05:39 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1995-10-10 23:54:14 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -102,6 +102,7 @@ class vtkTransform : public vtkObject
   void Concatenate (vtkMatrix4x4 & matrix);
   void Multiply4x4 ( vtkMatrix4x4 & a, vtkMatrix4x4 & b, vtkMatrix4x4 & c);
   void PointMultiply (float in[4],float out[4]);
+  void MultiplyPoint (float in[4],float out[4]);
   void MultiplyPoints(vtkPoints *inPts, vtkPoints *outPts);
   void MultiplyVectors(vtkVectors *inVectors, vtkVectors *outVectors);
   void MultiplyNormals(vtkNormals *inNormals, vtkNormals *outNormals);
@@ -122,6 +123,11 @@ class vtkTransform : public vtkObject
 inline void vtkTransform::PointMultiply (float in[4],float out[4]) 
 {
   this->Stack[0]->PointMultiply(in,out);
+}
+
+inline void vtkTransform::MultiplyPoint (float in[4],float out[4]) 
+{
+  this->Stack[0]->MultiplyPoint(in,out);
 }
 
 #endif
