@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDEMReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-22 21:36:20 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-12-23 12:23:05 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -457,7 +457,7 @@ void vtkDEMReader::PrintSelf(ostream& os, vtkIndent indent)
       os << " (unknown)\n";
       }
     os << indent << "GroundZone: " << this->GroundZone << "\n";
-    os << indent << "ProjectionParameters: all zero" << "\n";
+    os << indent << "ProjectionParameters: all zero" << "\n"; // this->ProjectionParameters
     os << indent << "PlaneUnitOfMeasure: " << this->PlaneUnitOfMeasure;
     if (this->PlaneUnitOfMeasure == 0)
       {
