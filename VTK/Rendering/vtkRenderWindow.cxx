@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-21 14:07:56 $
-  Version:   $Revision: 1.87 $
+  Date:      $Date: 1999-08-26 15:37:40 $
+  Version:   $Revision: 1.88 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -723,6 +723,13 @@ void vtkRenderWindow::AddRenderer(vtkRenderer *ren)
   this->MakeCurrent();
   ren->SetRenderWindow(this);
   this->Renderers->AddItem(ren);
+  vtkRenderer *aren;
+  for (this->Renderers->InitTraversal(); 
+       (aren = this->Renderers->GetNextItem()); )
+    {
+    aren->SetAllocatedRenderTime
+      (1.0/(this->DesiredUpdateRate*this->Renderers->GetNumberOfItems()));
+    }
 }
 
 // Remove a renderer from the list of renderers.
