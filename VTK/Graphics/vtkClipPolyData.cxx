@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-10-01 12:16:08 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1996-10-02 18:49:06 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -129,7 +129,7 @@ void vtkClipPolyData::Execute()
   estimatedSize = estimatedSize / 1024 * 1024; //multiple of 1024
   if (estimatedSize < 1024) estimatedSize = 1024;
 
-  newPoints = new vtkFloatPoints(estimatedSize,estimatedSize/2);
+  newPoints = new vtkFloatPoints(numPts,numPts/2);
   newVerts = new vtkCellArray(estimatedSize,estimatedSize/2);
   newLines = new vtkCellArray(estimatedSize,estimatedSize/2);
   newPolys = new vtkCellArray(estimatedSize,estimatedSize/2);
