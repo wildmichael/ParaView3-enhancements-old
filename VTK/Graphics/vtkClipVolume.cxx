@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipVolume.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-06 19:14:26 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1998-05-11 14:14:58 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -503,12 +503,12 @@ void vtkClipVolume::ClipVoxel(float value, vtkScalars& cellScalars,
 
         if ( j >= 4 ) 
 	  {
-	  output->InsertNextCell(VTK_TETRA, 4, tPts);
+	  newCellId = output->InsertNextCell(VTK_TETRA, 4, tPts);
 	  outCD->CopyData(inCD, cellId, newCellId);
 	  }
         else 
 	  {
-	  clippedOutput->InsertNextCell(VTK_TETRA, 4, tPts);
+	  newCellId = clippedOutput->InsertNextCell(VTK_TETRA, 4, tPts);
 	  clippedCD->CopyData(inCD, cellId, newCellId);
 	  }
         }
