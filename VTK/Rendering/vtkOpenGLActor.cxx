@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLActor.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:45:44 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-06-19 17:10:36 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,6 +56,7 @@ void vtkOpenGLActor::Render(vtkRenderer *ren, vtkMapper *mapper)
   matrix.Transpose();
 
   // insert model transformation 
+  glMatrixMode( GL_MODELVIEW );
   glPushMatrix();
   glMultMatrixf(matrix[0]);
 
@@ -63,6 +64,7 @@ void vtkOpenGLActor::Render(vtkRenderer *ren, vtkMapper *mapper)
   mapper->Render(ren,this);
 
   // pop transformation matrix
+  glMatrixMode( GL_MODELVIEW );
   glPopMatrix();
 }
 

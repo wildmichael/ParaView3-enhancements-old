@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-27 18:51:51 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1998-06-19 17:10:39 $
+  Version:   $Revision: 1.21 $
   Thanks:    to Horst Schreiber for developing this MFC code
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -781,9 +781,9 @@ void vtkWin32OpenGLRenderWindow::SetPixelData(int x1, int y1, int x2, int y2,
   glRasterPos3f( (2.0 * (GLfloat)(x_low) / this->Size[0] - 1), 
                  (2.0 * (GLfloat)(y_low) / this->Size[1] - 1),
                  -1.0 );
-  glMatrixMode( GL_MODELVIEW );
-  glPopMatrix();
   glMatrixMode( GL_PROJECTION );
+  glPopMatrix();
+  glMatrixMode( GL_MODELVIEW );
   glPopMatrix();
 
 
@@ -972,9 +972,9 @@ void vtkWin32OpenGLRenderWindow::SetRGBAPixelData(int x1, int y1,
   glRasterPos3f( (2.0 * (GLfloat)(x_low) / this->Size[0] - 1), 
                  (2.0 * (GLfloat)(y_low) / this->Size[1] - 1), 
 		 -1.0 );
-  glMatrixMode( GL_MODELVIEW );
-  glPopMatrix();
   glMatrixMode( GL_PROJECTION );
+  glPopMatrix();
+  glMatrixMode( GL_MODELVIEW );
   glPopMatrix();
 
   if (!blend)
@@ -1079,9 +1079,9 @@ void vtkWin32OpenGLRenderWindow::SetZbufferData( int x1, int y1, int x2, int y2,
   glLoadIdentity();
   glRasterPos2f( 2.0 * (GLfloat)(x_low) / this->Size[0] - 1, 
                  2.0 * (GLfloat)(y_low) / this->Size[1] - 1);
-  glMatrixMode( GL_MODELVIEW );
-  glPopMatrix();
   glMatrixMode( GL_PROJECTION );
+  glPopMatrix();
+  glMatrixMode( GL_MODELVIEW );
   glPopMatrix();
 
   glDrawPixels( width, height, GL_DEPTH_COMPONENT, GL_FLOAT, buffer);
