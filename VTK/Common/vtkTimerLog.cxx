@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTimerLog.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-07 20:48:04 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1998-12-26 14:34:08 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -346,12 +346,12 @@ double vtkTimerLog::GetElapsedTime()
   return (this->EndTime - this->StartTime);
 }
 
-void vtkTimerLog::DumpEntry(ostream& os, int index, float time, 
+void vtkTimerLog::DumpEntry(ostream& os, int index, float ttime, 
 			    float deltatime,
 			    int tick, int deltatick, char *event)
 {
   os << index << "   "
-     << time << "  "
+     << ttime << "  "
      << deltatime << "   "
      << (float)tick/vtkTimerLog::TicksPerSecond << "  "
      << (float)deltatick/vtkTimerLog::TicksPerSecond << "  ";
