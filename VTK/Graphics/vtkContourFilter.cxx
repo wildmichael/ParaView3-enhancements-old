@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkContourFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:32 $
-  Version:   $Revision: 1.80 $
+  Date:      $Date: 2001-01-31 19:13:58 $
+  Version:   $Revision: 1.81 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -152,6 +152,9 @@ void vtkContourFilter::Execute()
       {
       cgrid->SetValue(i, values[i]);
       }
+    cgrid->GetOutput()->SetUpdateExtent(output->GetUpdatePiece(),
+					output->GetUpdateNumberOfPieces(),
+					output->GetUpdateGhostLevel());
     cgrid->Update();
     output->ShallowCopy(cgrid->GetOutput());
     cgrid->Delete();
