@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinearTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-03-02 03:37:40 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2000-03-02 23:15:50 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -172,7 +172,6 @@ void vtkLinearTransform::TransformNormals(vtkNormals *inNms,
   int n = inNms->GetNumberOfNormals();
   float in[3],out[3];
   double matrix[4][4];
-  int index[3];
   
   this->Update();
 

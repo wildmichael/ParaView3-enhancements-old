@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPerspectiveTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-03-02 03:37:43 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2000-03-02 23:15:50 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -183,7 +183,6 @@ void vtkPerspectiveTransform::TransformPointsNormalsVectors(vtkPoints *inPts,
   float inPnt[3],outPnt[3],inNrm[3],inVec[3],out[3];
   float w;
   double f;
-  int index[3];
   
   this->Update();
 

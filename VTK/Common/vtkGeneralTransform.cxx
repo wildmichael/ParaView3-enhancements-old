@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGeneralTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-03-02 03:37:37 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2000-03-02 23:15:50 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -141,7 +141,6 @@ void vtkGeneralTransform::TransformPointsNormalsVectors(vtkPoints *inPts,
 
   float matrix[3][3];
   float coord[3];
-  float vec1[3],vec2[3];
 
   int i;
   int n = inPts->GetNumberOfPoints();
