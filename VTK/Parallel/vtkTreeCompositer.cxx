@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTreeCompositer.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-07-26 13:49:23 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-08-21 12:48:44 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -49,7 +49,7 @@
 #include "vtkUnsignedCharArray.h"
 #include "vtkMultiProcessController.h"
 
-vtkCxxRevisionMacro(vtkTreeCompositer, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkTreeCompositer, "$Revision: 1.4 $");
 vtkStandardNewMacro(vtkTreeCompositer);
 
 #ifdef VTK_USE_MPI
@@ -174,9 +174,9 @@ static inline int vtkTCLog2(int j, int& exact)
 }
 
 void vtkTreeCompositer::CompositeBuffer(vtkDataArray *pBuf, 
-                                                               vtkFloatArray *zBuf,
-                                                               vtkDataArray *pTmp, 
-                                                               vtkFloatArray *zTmp)
+                                        vtkFloatArray *zBuf,
+                                        vtkDataArray *pTmp, 
+                                        vtkFloatArray *zTmp)
 {
   int myId = this->Controller->GetLocalProcessId();
   int numProcs = this->NumberOfProcesses;
