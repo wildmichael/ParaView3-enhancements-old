@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGESignaReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-26 18:18:50 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2003-01-30 15:18:13 $
+  Version:   $Revision: 1.17 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkPointData.h"
 
-vtkCxxRevisionMacro(vtkGESignaReader, "$Revision: 1.16 $");
+vtkCxxRevisionMacro(vtkGESignaReader, "$Revision: 1.17 $");
 vtkStandardNewMacro(vtkGESignaReader);
 
 
@@ -43,7 +43,7 @@ int vtkGESignaReader::CanReadFile(const char* fname)
     fclose(fp);
     return 0;
     }
-  return 1;
+  return 3;
 }
 
 
