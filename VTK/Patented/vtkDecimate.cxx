@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkDecimate.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-01 23:15:52 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1994-11-03 09:50:51 $
+  Version:   $Revision: 1.3 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -378,7 +378,7 @@ void vlDecimate::Execute()
       }
     }
 
-  delete map;
+  delete [] map;
   delete Mesh; //side effect: releases memory consumned by data structures
   this->SetPoints(newPts);
   this->SetPolys(newPolys);
