@@ -21,7 +21,7 @@
 #include <vtkstd/vector>
 
 vtkStandardNewMacro(vtkSMDoubleRangeDomain);
-vtkCxxRevisionMacro(vtkSMDoubleRangeDomain, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkSMDoubleRangeDomain, "$Revision: 1.6 $");
 
 struct vtkSMDoubleRangeDomainInternals
 {
@@ -52,6 +52,11 @@ vtkSMDoubleRangeDomain::~vtkSMDoubleRangeDomain()
 //---------------------------------------------------------------------------
 int vtkSMDoubleRangeDomain::IsInDomain(vtkSMProperty* property)
 {
+  if (this->IsOptional)
+    {
+    return 1;
+    }
+
   if (!property)
     {
     return 0;
