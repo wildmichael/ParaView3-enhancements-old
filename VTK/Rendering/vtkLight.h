@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkLight.h,v $
   Language:  C++
-  Date:      $Date: 1994-09-14 08:09:59 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1995-04-20 10:29:39 $
+  Version:   $Revision: 1.8 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -65,13 +65,37 @@ public:
   vlGetMacro(Switch,int);
   vlBooleanMacro(Switch,int);
 
+  // Description:
+  // Turn positional lighting on/off.
+  vlSetMacro(Positional,int);
+  vlGetMacro(Positional,int);
+  vlBooleanMacro(Positional,int);
+
+  // Description:
+  // Set the exponent of the cosine used in positional lighting.
+  vlSetMacro(Exponent,float);
+  vlGetMacro(Exponent,float);
+
+  // Description:
+  // Set the lighting cone angle in degrees of a positional light.
+  vlSetMacro(ConeAngle,float);
+  vlGetMacro(ConeAngle,float);
+
+  // Description:
+  // Set the quadratic attenuation constants, const linear quad in order.
+  vlSetVector3Macro(AttenuationValues,float);
+  vlGetVectorMacro(AttenuationValues,float,3);
+
 protected:
   float FocalPoint[3];
   float Position[3];
   float Intensity;
   float Color[3];
   int   Switch;
-
+  int   Positional;
+  float Exponent;
+  float ConeAngle;
+  float AttenuationValues[3];
 };
 
 #endif
