@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagePlaneWidget.h,v $
   Language:  C++
-  Date:      $Date: 2002-09-25 18:40:39 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2002-10-29 20:54:47 $
+  Version:   $Revision: 1.22 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -465,9 +465,6 @@ protected:
   void GenerateMargins();
   void ActivateMargins(int);
   int MarginSelectMode;
-
-  // Keep track of last pick position
-  float LastPickPosition[3];
 
 private:
   vtkImagePlaneWidget(const vtkImagePlaneWidget&);  //Not implemented

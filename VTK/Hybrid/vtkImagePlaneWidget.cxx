@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagePlaneWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-17 14:16:27 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 2002-10-29 20:54:54 $
+  Version:   $Revision: 1.47 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -42,7 +42,7 @@
 #include "vtkTextureMapToPlane.h"
 #include "vtkTransform.h"
 
-vtkCxxRevisionMacro(vtkImagePlaneWidget, "$Revision: 1.46 $");
+vtkCxxRevisionMacro(vtkImagePlaneWidget, "$Revision: 1.47 $");
 vtkStandardNewMacro(vtkImagePlaneWidget);
 
 vtkCxxSetObjectMacro(vtkImagePlaneWidget, PlaneProperty, vtkProperty);
@@ -772,10 +772,8 @@ void vtkImagePlaneWidget::OnMouseMove()
 
   // Compute the two points defining the motion vector
   //
-  camera->GetFocalPoint(focalPoint);
-
-  this->ComputeWorldToDisplay(focalPoint[0], focalPoint[1],
-                              focalPoint[2], focalPoint);
+  this->ComputeWorldToDisplay(this->LastPickPosition[0], this->LastPickPosition[1],
+                              this->LastPickPosition[2], focalPoint);
   z = focalPoint[2];
 
   this->ComputeDisplayToWorld(double(this->Interactor->GetLastEventPosition()[0]),
