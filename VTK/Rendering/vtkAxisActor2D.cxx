@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAxisActor2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-18 13:13:04 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2001-08-27 15:16:30 $
+  Version:   $Revision: 1.19 $
   Thanks:    Thanks to Kitware & RPI/SCOREC who supported the development
              of this class.
 
@@ -496,7 +496,7 @@ void vtkAxisActor2D::ComputeRange(float inRange[2], float outRange[2],
   static float divs[VTK_NUM_DIVS] = {10.0, 8.0, 5.0, 4.0, 2.0, 1.0,
 				     0.5, 0.25, 0.20, 0.125, 0.10};
   float range = fabs(inRange[1]-inRange[0]), sRange[2];
-  float logFactor = (float)pow(10.0, floor(log10(range)));
+  float logFactor = (float)pow((double)(10.0), (double)(floor(log10(range))));
   float lastInterval;
   int j;
 
@@ -527,7 +527,7 @@ void vtkAxisActor2D::ComputeRange(float inRange[2], float outRange[2],
       //recompute range
       range = fabs(sRange[1]-sRange[0]);
       //recompute logfactor
-      logFactor = (float)pow(10.0, floor(log10(range)));
+      logFactor = (float)pow((double)(10.0), (double)(floor(log10(range))));
       //recompute inRange so things get flipped correctly at the end
       inRange[0] = sRange[0];
       inRange[1] = sRange[1];
