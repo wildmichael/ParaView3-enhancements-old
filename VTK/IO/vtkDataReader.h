@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataReader.h,v $
   Language:  C++
-  Date:      $Date: 1996-02-01 14:25:13 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1996-03-01 22:13:34 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -69,9 +69,11 @@ public:
 
   // Description:
   // Specify the InputString for use when reading from a character array.
+  // Optionally include the length for binary strings.
   vtkSetStringMacro(InputString);
   vtkGetStringMacro(InputString);
-
+  void SetInputString(char *in, int len);
+  
   // Description:
   // Set/Get reading from an InputString instead of the default, a file.
   vtkSetMacro(ReadFromInputString,int);
