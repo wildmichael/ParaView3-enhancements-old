@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSource.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-04 14:22:34 $
-  Version:   $Revision: 1.65 $
+  Date:      $Date: 2002-01-21 16:13:44 $
+  Version:   $Revision: 1.66 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -77,8 +77,6 @@ class vtkErrorCode;
 class VTK_COMMON_EXPORT vtkSource : public vtkProcessObject
 {
 public:
-  static vtkSource *New();
-
   vtkTypeRevisionMacro(vtkSource,vtkProcessObject);
   void PrintSelf(ostream& os, vtkIndent indent);
 

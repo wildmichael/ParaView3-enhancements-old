@@ -3,8 +3,8 @@
  Program:   Visualization Toolkit
  Module:    $RCSfile: vtkSource.cxx,v $
  Language:  C++
- Date:      $Date: 2002-01-08 14:38:18 $
- Version:   $Revision: 1.91 $
+ Date:      $Date: 2002-01-21 16:13:44 $
+ Version:   $Revision: 1.92 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -45,8 +45,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkCommand.h"
 #include "vtkErrorCode.h"
 
-vtkCxxRevisionMacro(vtkSource, "$Revision: 1.91 $");
-vtkStandardNewMacro(vtkSource);
+vtkCxxRevisionMacro(vtkSource, "$Revision: 1.92 $");
 
 #ifndef NULL
 #define NULL 0
