@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLODProp3D.h,v $
   Language:  C++
-  Date:      $Date: 2002-09-03 05:46:50 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2002-09-15 22:54:23 $
+  Version:   $Revision: 1.30 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -187,6 +187,11 @@ public:
   // are used in that process.
   virtual void GetActors(vtkPropCollection *);
 
+  // Description:
+  // Get the LODProp3D's mtime plus consider its 
+  // usermatrix if set.
+  unsigned long int GetMTime();
+  
   // Description:
   // This method is invoked when an instance of vtkProp (or subclass, 
   // e.g., vtkActor) is picked by vtkPicker.

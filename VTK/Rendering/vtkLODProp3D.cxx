@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLODProp3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-09 12:17:32 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2002-09-15 22:54:23 $
+  Version:   $Revision: 1.36 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,10 +24,11 @@
 #include "vtkPropCollection.h"
 #include "vtkVolume.h"
 #include "vtkVolumeMapper.h"
+#include "vtkLinearTransform.h"
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkLODProp3D, "$Revision: 1.35 $");
+vtkCxxRevisionMacro(vtkLODProp3D, "$Revision: 1.36 $");
 vtkStandardNewMacro(vtkLODProp3D);
 
 #define VTK_INDEX_NOT_IN_USE    -1
@@ -958,6 +959,28 @@ void vtkLODProp3D::SetAllocatedRenderTime( float t, vtkViewport *vp )
     }
 
 }
+
+
+unsigned long int vtkLODProp3D::GetMTime()
+{
+  unsigned long mTime=this->vtkObject::GetMTime();
+  unsigned long time;
+
+  if ( this->UserMatrix != NULL )
+    {
+    time = this->UserMatrix->GetMTime();
+    mTime = ( time > mTime ? time : mTime );
+    }
+
+  if ( this->UserTransform != NULL )
+    {
+    time = this->UserTransform->GetMTime();
+    mTime = ( time > mTime ? time : mTime );
+    }
+
+  return mTime;
+  }
+
 
 void vtkLODProp3D::PrintSelf(ostream& os, vtkIndent indent)
 {
