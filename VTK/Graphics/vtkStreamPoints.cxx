@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-01-26 17:40:55 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2000-02-01 20:08:12 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -84,6 +84,7 @@ void vtkStreamPoints::Execute()
     {
     return;
     }
+  
 
   newPts  = vtkPoints::New();
   newPts ->Allocate(1000);
@@ -97,23 +98,24 @@ void vtkStreamPoints::Execute()
   newVerts = vtkCellArray::New();
   newVerts->Allocate(newVerts->EstimateSize(2*this->NumberOfStreamers,VTK_CELL_SIZE));
   
-//
-// Loop over all streamers generating points
-//
+  //
+  // Loop over all streamers generating points
+  //
   for (ptId=0; ptId < this->NumberOfStreamers; ptId++)
     {
+    // tOffset is the time that the next point will have.
     tOffset = 0.0;
 
     for ( sPrev=sPtr=this->Streamers[ptId].GetStreamPoint(0), i=0; 
     i < this->Streamers[ptId].GetNumberOfPoints() && sPtr->cellId >= 0;
     i++, sPrev=sPtr, sPtr=this->Streamers[ptId].GetStreamPoint(i) )
       {
-//
-// For each streamer, create points "time increment" apart
-//
+      //
+      // For each streamer, create points "time increment" apart
+      //
       npts = 0;
       newVerts->InsertNextCell(npts); //temporary count
-      if ( (sPtr->t - tOffset) > this->TimeIncrement )
+      if ( tOffset < sPtr->t )
         {
         while ( tOffset < sPtr->t )
           {
@@ -146,9 +148,9 @@ void vtkStreamPoints::Execute()
     newVerts->UpdateCellCount(npts);
 
     } //for all streamers
-//
-// Update ourselves
-//
+  //
+  // Update ourselves
+  //
   vtkDebugMacro(<<"Created " << newPts->GetNumberOfPoints() << " points");
 
   output->SetPoints(newPts);
