@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageViewer.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-23 17:29:34 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2002-04-23 19:45:33 $
+  Version:   $Revision: 1.40 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,7 +19,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkInteractorStyleImage.h"
 
-vtkCxxRevisionMacro(vtkImageViewer, "$Revision: 1.39 $");
+vtkCxxRevisionMacro(vtkImageViewer, "$Revision: 1.40 $");
 vtkStandardNewMacro(vtkImageViewer);
 
 //----------------------------------------------------------------------------
@@ -68,6 +68,7 @@ void vtkImageViewer::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << *this->ImageMapper << endl;
   os << indent << *this->RenderWindow << endl;
   os << indent << *this->Renderer << endl;
+  os << indent << *this->Actor2D << endl;
 }
 
 
