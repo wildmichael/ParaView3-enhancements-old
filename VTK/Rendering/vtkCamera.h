@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCamera.h,v $
   Language:  C++
-  Date:      $Date: 2001-04-27 18:39:53 $
-  Version:   $Revision: 1.74 $
+  Date:      $Date: 2001-05-10 11:31:29 $
+  Version:   $Revision: 1.75 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -359,7 +359,7 @@ class VTK_EXPORT vtkCamera : public vtkObject
   
   // Description:
   // Update the viewport
-  virtual void UpdateViewport(vtkRenderer *ren) {}
+  virtual void UpdateViewport(vtkRenderer *vtkNotUsed(ren)) {}
   
 #ifndef VTK_REMOVE_LEGACY_CODE
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetToDataObjectFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-18 11:11:48 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2001-05-10 11:31:29 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -268,7 +268,7 @@ void vtkDataSetToDataObjectFilter::Execute()
     {
     fieldData = input->GetFieldData();
     
-    for (int i=0; i<fieldData->GetNumberOfArrays(); i++)
+    for (i=0; i<fieldData->GetNumberOfArrays(); i++)
       {
       fd->AddArray(fieldData->GetArray(i));
       }
@@ -278,7 +278,7 @@ void vtkDataSetToDataObjectFilter::Execute()
     {
     fieldData = input->GetPointData();
     
-    for (int i=0; i<fieldData->GetNumberOfArrays(); i++)
+    for (i=0; i<fieldData->GetNumberOfArrays(); i++)
       {
       fd->AddArray(fieldData->GetArray(i));
       }
@@ -288,7 +288,7 @@ void vtkDataSetToDataObjectFilter::Execute()
     {
     fieldData = input->GetCellData();
     
-    for (int i=0; i<fieldData->GetNumberOfArrays(); i++)
+    for (i=0; i<fieldData->GetNumberOfArrays(); i++)
       {
       fd->AddArray(fieldData->GetArray(i));
       }
