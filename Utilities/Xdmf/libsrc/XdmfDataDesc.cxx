@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDataDesc.cxx,v 1.17 2004-01-21 21:23:33 andy Exp $  */
-/*  Date : $Date: 2004-01-21 21:23:33 $ */
-/*  Version : $Revision: 1.17 $ */
+/*  Id : $Id: XdmfDataDesc.cxx,v 1.18 2004-01-22 15:10:16 andy Exp $  */
+/*  Date : $Date: 2004-01-22 15:10:16 $ */
+/*  Version : $Revision: 1.18 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -642,11 +642,11 @@ XdmfDataDesc::AddCompoundMemberFromString( XdmfConstString Name,
 
 XdmfInt32  i, rank = 0, numberType;
 XdmfInt64  Dim, Dimensions[XDMF_MAX_DIMENSION];
-istrstream  ShapeString( const_cast<char*>(Shape), strlen(Shape) );
+istrstream  istr( const_cast<char*>(Shape), strlen(Shape) );
 
 numberType = StringToXdmfType( NumberTypeString );
 i = 0;
-while( ICE_READ_STREAM64(ShapeString, Dim) ){
+while( ICE_READ_STREAM64(istr, Dim) ){
   rank++;
   Dimensions[i++] = Dim;
   }
