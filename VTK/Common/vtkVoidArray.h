@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoidArray.h,v $
   Language:  C++
-  Date:      $Date: 2003-07-02 17:19:30 $
-  Version:   $Revision: 1.53 $
+  Date:      $Date: 2003-07-02 18:43:01 $
+  Version:   $Revision: 1.54 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -82,6 +82,12 @@ public:
   // Insert (memory allocation performed) the void* pointer at the 
   // end of the array.
   vtkIdType InsertNextVoidPointer(void* tuple);
+
+  // Description:
+  // Reuse already allocated data; make the container look like it is
+  // empty.
+  void Reset()
+    {this->NumberOfPointers = 0;}
 
   // Description:
   // Resize the array to just fit the inserted memory. Reclaims extra memory.
