@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPDataSetReader.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-15 14:20:22 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-11-16 19:21:02 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -105,6 +105,7 @@ protected:
 //BTX
   ifstream *vtkPDataSetReader::OpenFile();
 //ETX
+  int ReadXML(ifstream *file, char **param, char **value);
 
   int VTKFileFlag;
   int StructuredFlag;
