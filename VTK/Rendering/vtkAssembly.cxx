@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAssembly.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-07-18 10:10:49 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 2000-09-13 17:45:25 $
+  Version:   $Revision: 1.44 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -141,7 +141,7 @@ int vtkAssembly::RenderTranslucentGeometry(vtkViewport *ren)
     prop3D = (vtkProp3D *)path->GetLastNode()->GetProp();
     if ( prop3D->GetVisibility() )
       {
-      prop3D->SetAllocatedRenderTime(fraction);
+      prop3D->SetAllocatedRenderTime(fraction, ren);
       prop3D->PokeMatrix(path->GetLastNode()->GetMatrix());
       renderedSomething += prop3D->RenderTranslucentGeometry(ren);
       prop3D->PokeMatrix(NULL);
@@ -180,7 +180,7 @@ int vtkAssembly::RenderOpaqueGeometry(vtkViewport *ren)
     if ( prop3D->GetVisibility() )
       {
       prop3D->PokeMatrix(path->GetLastNode()->GetMatrix());
-      prop3D->SetAllocatedRenderTime(fraction);
+      prop3D->SetAllocatedRenderTime(fraction, ren);
       renderedSomething += prop3D->RenderOpaqueGeometry(ren);
       prop3D->PokeMatrix(NULL);
       }
