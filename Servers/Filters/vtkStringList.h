@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkStringList.h,v $
   Language:  C++
-  Date:      $Date: 2003-04-16 12:57:21 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2003-07-14 13:46:30 $
+  Version:   $Revision: 1.11 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -78,6 +78,10 @@ public:
   // Description:
   // Get the length of the list.
   int GetLength() { return this->NumberOfStrings;}
+
+  // Description:
+  // Get the index of a string.
+  int GetIndex(const char* str);
   
   // Description:
   // Get a command from its index.
