@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProVG500Mapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 17:37:10 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-10-22 20:57:31 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -44,6 +44,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkOpenGLVolumeProVG500Mapper.h"
 #include "vtkRenderWindow.h"
 #include "vtkObjectFactory.h"
+#include "vtkGraphicsFactory.h"
 
 vtkVolumeProVG500Mapper *vtkVolumeProVG500Mapper::New()
 {
@@ -54,7 +55,7 @@ vtkVolumeProVG500Mapper *vtkVolumeProVG500Mapper::New()
     return (vtkVolumeProVG500Mapper*)ret;
     }
   // If the factory was unable to create the object, then create it here.
-  char *temp = vtkRenderWindow::GetRenderLibrary();
+  const char *temp = vtkGraphicsFactory::GetRenderLibrary();
   
 #ifdef VTK_USE_OGLR
   if (!strcmp("OpenGL",temp))
