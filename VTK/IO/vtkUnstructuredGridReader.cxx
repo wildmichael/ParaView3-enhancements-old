@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGridReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:18 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 1999-07-22 13:03:10 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -279,7 +279,7 @@ void vtkUnstructuredGridReader::Execute()
 	// the number of ints after the piece
 	skip3 = ncells - skip1 - read2;
 
-	cerr << skip1 << " --- " << read2 << " --- " << skip3 << endl;
+	//cerr << skip1 << " --- " << read2 << " --- " << skip3 << endl;
 	// allocate array for piece cell types
         types = new int[read2];
         if (this->Reader->GetFileType() == VTK_BINARY)
