@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:38:05 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1995-08-16 21:46:12 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -44,7 +44,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkVolume.hh"
 
 // Description:
-// Creates an Volume with the following defaults: origin(0,0,0) 
+// Creates a Volume with the following defaults: origin(0,0,0) 
 // position=(0,0,0) scale=(1,1,1) visibility=1 pickable=1 dragable=1
 // orientation=(0,0,0).
 vtkVolume::vtkVolume()
@@ -128,8 +128,6 @@ void vtkVolume::Render()
   this->LookupTable->Build();
 }
 
-// Description:
-// Change position by increments specified.
 void vtkVolume::AddPosition (float deltaX,float deltaY,float deltaZ)
 {
   float position[3];
@@ -353,7 +351,7 @@ float *vtkVolume::GetBounds()
 }
 
 // Description:
-// Get the Volumes x range in world coordinates.
+// Get the Volume's x range in world coordinates.
 float *vtkVolume::GetXRange()
 {
   this->GetBounds();
@@ -361,7 +359,7 @@ float *vtkVolume::GetXRange()
 }
 
 // Description:
-// Get the Volumes y range in world coordinates.
+// Get the Volume's y range in world coordinates.
 float *vtkVolume::GetYRange()
 {
   this->GetBounds();
@@ -369,7 +367,7 @@ float *vtkVolume::GetYRange()
 }
 
 // Description:
-// Get the Volumes z range in world coordinates.
+// Get the Volume's z range in world coordinates.
 float *vtkVolume::GetZRange()
 {
   this->GetBounds();
