@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32RenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-09-06 18:21:50 $
-  Version:   $Revision: 1.63 $
+  Date:      $Date: 2000-09-13 13:36:09 $
+  Version:   $Revision: 1.64 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -77,7 +77,7 @@ void (*vtkWin32RenderWindowInteractor::ClassExitMethodArgDelete)(void *) = (void
 // Construct object so that light follows camera motion.
 vtkWin32RenderWindowInteractor::vtkWin32RenderWindowInteractor() 
 {
-  static timerId           = 1;
+  static int timerId           = 1;
   this->WindowId           = 0;
   this->TimerId            = timerId++;
   this->InstallMessageProc = 1;

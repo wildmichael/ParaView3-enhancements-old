@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-07-06 09:44:20 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2000-09-13 13:35:52 $
+  Version:   $Revision: 1.25 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -77,7 +77,7 @@ static vtkFontStruct *cache[30] = {
   NULL,NULL,NULL,NULL,NULL,
   NULL,NULL,NULL,NULL,NULL,
   NULL,NULL,NULL,NULL,NULL};
-static numCached = 0;
+static int numCached = 0;
 
 int vtkWin32OpenGLTextMapper::GetListBaseForFont(vtkTextMapper *tm, 
                                                  vtkViewport *vp)
