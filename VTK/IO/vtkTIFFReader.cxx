@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTIFFReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-01 21:13:58 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2002-03-03 01:27:09 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -126,8 +126,8 @@ int TIFFInternal::Initialize()
 {
   if ( this->Image )
     {
-    if ( !TIFFGetField(this->Image, TIFFTAG_IMAGEWIDTH, &this->Width) &&
-         TIFFGetField(this->Image, TIFFTAG_IMAGELENGTH, &this->Height) )
+    if ( !TIFFGetField(this->Image, TIFFTAG_IMAGEWIDTH, &this->Width) ||
+         !TIFFGetField(this->Image, TIFFTAG_IMAGELENGTH, &this->Height) )
       {
       return 0;
       }
