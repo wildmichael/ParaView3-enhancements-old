@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAppendFilter.h,v $
   Language:  C++
-  Date:      $Date: 1995-10-25 23:49:55 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1996-01-11 10:02:36 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -66,7 +66,7 @@ public:
   void AddInput(vtkDataSet& in) {this->AddInput(&in);};
   void RemoveInput(vtkDataSet *in);
   void RemoveInput(vtkDataSet& in) {this->RemoveInput(&in);};
-  vtkDataSetCollection *GetInput() {return &(this->InputList);};
+  vtkDataSetCollection *GetInputList() {return &(this->InputList);};
 
   // filter interface
   void Update();
