@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectors.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 21:03:59 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1997-05-23 20:29:28 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -119,7 +119,7 @@ float vtkVectors::GetMaxNorm()
 
 void vtkVectors::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkRefCount::PrintSelf(os,indent);
+  vtkReferenceCount::PrintSelf(os,indent);
 
   os << indent << "Number Of Vectors: " << this->GetNumberOfVectors() << "\n";
   os << indent << "Maximum Euclidean Norm: " << this->GetMaxNorm() << "\n";

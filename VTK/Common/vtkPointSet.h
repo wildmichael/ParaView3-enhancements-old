@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSet.h,v $
   Language:  C++
-  Date:      $Date: 1997-03-04 17:55:01 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1997-05-23 20:28:52 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -84,7 +84,7 @@ public:
 
   // Description:
   // Specify point array to define point coordinates.
-  vtkSetRefCountedObjectMacro(Points,vtkPoints);
+  vtkSetReferenceCountedObjectMacro(Points,vtkPoints);
   vtkGetObjectMacro(Points,vtkPoints);
 
 protected:

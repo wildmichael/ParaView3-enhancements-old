@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPriorityQueue.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-15 23:22:34 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1997-05-23 20:28:58 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,7 +58,8 @@ vtkPriorityQueue::vtkPriorityQueue()
 // queue (if reallocation required).
 vtkPriorityQueue::vtkPriorityQueue(const int sz, const int ext)
 {
-  this->ItemLocation = new vtkIntArray(sz,ext);
+  this->ItemLocation = vtkIntArray::New();
+  this->ItemLocation->Allocate(sz,ext);
   for (int i=0; i < sz; i++) this->ItemLocation->SetValue(i,-1);
 
   this->Size = ( sz > 0 ? sz : 1);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkNormals.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 21:02:50 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1997-05-23 20:28:45 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -84,7 +84,7 @@ void vtkNormals::GetNormals(vtkIdList& ptId, vtkFloatNormals& fp)
 
 void vtkNormals::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkRefCount::PrintSelf(os,indent);
+  vtkReferenceCount::PrintSelf(os,indent);
 
   os << indent << "Number Of Normals: " << this->GetNumberOfNormals() << "\n";
 }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 21:03:06 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1997-05-23 20:28:54 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -131,7 +131,7 @@ void vtkPoints::PrintSelf(ostream& os, vtkIndent indent)
 {
   float *bounds;
 
-  vtkRefCount::PrintSelf(os,indent);
+  vtkReferenceCount::PrintSelf(os,indent);
 
   os << indent << "Number Of Points: " << this->GetNumberOfPoints() << "\n";
   bounds = this->GetBounds();

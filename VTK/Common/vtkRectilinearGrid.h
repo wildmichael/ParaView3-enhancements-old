@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGrid.h,v $
   Language:  C++
-  Date:      $Date: 1997-05-13 01:26:29 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1997-05-23 20:29:00 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -111,17 +111,17 @@ public:
 
   // Description:
   // Specify the grid coordinates in the x-direction.
-  vtkSetRefCountedObjectMacro(XCoordinates,vtkScalars);
+  vtkSetReferenceCountedObjectMacro(XCoordinates,vtkScalars);
   vtkGetObjectMacro(XCoordinates,vtkScalars);
 
   // Description:
   // Specify the grid coordinates in the y-direction.
-  vtkSetRefCountedObjectMacro(YCoordinates,vtkScalars);
+  vtkSetReferenceCountedObjectMacro(YCoordinates,vtkScalars);
   vtkGetObjectMacro(YCoordinates,vtkScalars);
 
   // Description:
   // Specify the grid coordinates in the z-direction.
-  vtkSetRefCountedObjectMacro(ZCoordinates,vtkScalars);
+  vtkSetReferenceCountedObjectMacro(ZCoordinates,vtkScalars);
   vtkGetObjectMacro(ZCoordinates,vtkScalars);
 
 protected:

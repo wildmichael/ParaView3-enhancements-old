@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalars.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-15 23:22:35 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1997-05-23 20:29:03 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -147,7 +147,7 @@ void vtkScalars::PrintSelf(ostream& os, vtkIndent indent)
 {
   float *range;
 
-  vtkRefCount::PrintSelf(os,indent);
+  vtkReferenceCount::PrintSelf(os,indent);
 
   os << indent << "Number Of Scalars: " << this->GetNumberOfScalars() << "\n";
   range = this->GetRange();

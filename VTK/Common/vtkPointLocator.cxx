@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointLocator.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-04-16 14:28:45 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1997-05-23 20:28:51 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -51,7 +51,7 @@ public:
   int GetNumberOfNeighbors() {return (this->P->GetMaxId()+1)/3;};
   void Reset() {this->P->Reset();};
 
-  int *GetPoint(int i) {return this->P->GetPtr(3*i);};
+  int *GetPoint(int i) {return this->P->GetPointer(3*i);};
   int InsertNextPoint(int *x);
 
 protected:
@@ -379,7 +379,8 @@ void vtkPointLocator::BuildLocator()
     bucket = this->HashTable[idx];
     if ( ! bucket )
       {
-      bucket = new vtkIdList(numPtsPerBucket/2,numPtsPerBucket/3);
+      bucket = vtkIdList::New();
+      bucket->Allocate(numPtsPerBucket/2,numPtsPerBucket/3);
       this->HashTable[idx] = bucket;
       }
     bucket->InsertNextId(i);
@@ -562,8 +563,9 @@ int vtkPointLocator::InsertNextPoint(float x[3])
 
   if ( ! (bucket = this->HashTable[idx]) )
     {
-    bucket = new vtkIdList(this->NumberOfPointsPerBucket/2,
-			   this->NumberOfPointsPerBucket/3);
+    bucket = vtkIdList::New();
+    bucket->Allocate(this->NumberOfPointsPerBucket/2,
+	             this->NumberOfPointsPerBucket/3);
     this->HashTable[idx] = bucket;
     }
 
@@ -598,8 +600,9 @@ void vtkPointLocator::InsertPoint(int ptId, float x[3])
 
   if ( ! (bucket = this->HashTable[idx]) )
     {
-    bucket = new vtkIdList(this->NumberOfPointsPerBucket/2,
-			   this->NumberOfPointsPerBucket/3);
+    bucket = vtkIdList::New();
+    bucket->Allocate(this->NumberOfPointsPerBucket/2,
+                     this->NumberOfPointsPerBucket/3);
     this->HashTable[idx] = bucket;
     }
 
@@ -796,8 +799,10 @@ void vtkPointLocator::GenerateRepresentation(int vtkNotUsed(level), vtkPolyData 
     return;
     }
 
-  pts = new vtkFloatPoints(5000);
-  polys = new vtkCellArray(10000);
+  pts = vtkFloatPoints::New();
+  pts->Allocate(5000);
+  polys = vtkCellArray::New();
+  polys->Allocate(10000);
 
   // loop over all buckets, creating appropriate faces 
   sliceSize = this->Divisions[0] * this->Divisions[1];

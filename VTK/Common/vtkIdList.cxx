@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIdList.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-04-16 11:45:12 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1997-05-23 20:28:27 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -44,7 +44,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 vtkIdList::vtkIdList(const int sz, const int ext)
 {
-  this->Ia = new vtkIntArray(sz,ext);
+  this->Ia = vtkIntArray::New();
+  this->Ia->Allocate(sz,ext);
 }
 
 vtkIdList::~vtkIdList()
@@ -92,4 +93,11 @@ void vtkIdList::IntersectWith(vtkIdList& otherIds)
       if ( ! otherIds.IsId(id) ) this->DeleteId(id);
       }
     }
+}
+
+void vtkIdList::PrintSelf(ostream& os, vtkIndent indent)
+{
+  vtkObject::PrintSelf(os,indent);
+
+  os << indent << "Number of Ids: " << this->Ia->GetMaxId+1 << "\n";
 }

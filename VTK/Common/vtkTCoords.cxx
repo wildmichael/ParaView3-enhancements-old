@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTCoords.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 21:03:36 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1997-05-23 20:29:15 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -96,7 +96,7 @@ void vtkTCoords::GetTCoords(vtkIdList& ptId, vtkFloatTCoords& ftc)
 
 void vtkTCoords::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkRefCount::PrintSelf(os,indent);
+  vtkReferenceCount::PrintSelf(os,indent);
 
   os << indent << "Number Of Texture Coordinates: " << this->GetNumberOfTCoords() << "\n";
   os << indent << "Texture Dimension: " << this->Dimension << "\n";

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTCoords.h,v $
   Language:  C++
-  Date:      $Date: 1997-03-12 21:09:34 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1997-05-23 20:29:16 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -50,12 +50,12 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkTCoords_h
 #define __vtkTCoords_h
 
-#include "vtkRefCount.h"
+#include "vtkReferenceCount.h"
 
 class vtkIdList;
 class vtkFloatTCoords;
 
-class VTK_EXPORT vtkTCoords : public vtkRefCount
+class VTK_EXPORT vtkTCoords : public vtkReferenceCount
 {
 public:
   vtkTCoords(int dim=2);

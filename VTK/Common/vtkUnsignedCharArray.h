@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnsignedCharArray.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-27 11:28:10 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1997-05-23 20:29:19 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -47,9 +47,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkUnsignedCharArray_h
 #define __vtkUnsignedCharArray_h
 
-#include "vtkRefCount.h"
+#include "vtkReferenceCount.h"
 
-class VTK_EXPORT vtkUnsignedCharArray : public vtkRefCount
+class VTK_EXPORT vtkUnsignedCharArray : public vtkReferenceCount
 {
 public:
   vtkUnsignedCharArray():Array(NULL),Size(0),MaxId(-1),Extend(1000) {};
@@ -68,8 +68,8 @@ public:
   void SetValue(const int id, const unsigned char value);
   vtkUnsignedCharArray &InsertValue(const int id, const unsigned char c);
   int InsertNextValue(const unsigned char c);
-  unsigned char *GetPtr(const int id);
-  unsigned char *WritePtr(const int id, const int number);
+  unsigned char *GetPointer(const int id);
+  unsigned char *WritePointer(const int id, const int number);
 
   // special operators
   vtkUnsignedCharArray &operator=(const vtkUnsignedCharArray& ia);
@@ -114,13 +114,13 @@ inline void vtkUnsignedCharArray::SetValue(const int id, const unsigned char val
 
 // Description:
 // Get the address of a particular data index.
-inline unsigned char *vtkUnsignedCharArray::GetPtr(const int id) {return this->Array + id;};
+inline unsigned char *vtkUnsignedCharArray::GetPointer(const int id) {return this->Array + id;};
 
 // Description:
 // Get the address of a particular data index. Make sure data is allocated
 // for the number of items requested. Set MaxId according to the number of
 // data values requested.
-inline unsigned char *vtkUnsignedCharArray::WritePtr(const int id, const int number) 
+inline unsigned char *vtkUnsignedCharArray::WritePointer(const int id, const int number) 
 {
   int newSize=id+number;
   if ( newSize > this->Size ) this->Resize(newSize);

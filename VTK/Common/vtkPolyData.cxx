@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-03-12 21:09:23 $
-  Version:   $Revision: 1.77 $
+  Date:      $Date: 1997-05-23 20:28:56 $
+  Version:   $Revision: 1.78 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -546,19 +546,23 @@ void vtkPolyData::Allocate(int numCells, int extSize)
 {
   vtkCellArray *cells;
 
-  cells = new vtkCellArray(numCells,extSize);
+  cells = vtkCellArray::New();
+  cells->Allocate(numCells,extSize);
   this->SetVerts(cells);
   cells->Delete();
 
-  cells = new vtkCellArray(numCells,extSize);
+  cells = vtkCellArray::New();
+  cells->Allocate(numCells,extSize);
   this->SetLines(cells);
   cells->Delete();
 
-  cells = new vtkCellArray(numCells,extSize);
+  cells = vtkCellArray::New();
+  cells->Allocate(numCells,extSize);
   this->SetPolys(cells);
   cells->Delete();
 
-  cells = new vtkCellArray(numCells,extSize);
+  cells = vtkCellArray::New();
+  cells->Allocate(numCells,extSize);
   this->SetStrips(cells);
   cells->Delete();
 }

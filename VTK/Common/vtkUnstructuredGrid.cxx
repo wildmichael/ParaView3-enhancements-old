@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-03-12 21:09:47 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 1997-05-23 20:29:25 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -67,7 +67,8 @@ void vtkUnstructuredGrid::Allocate (int numCells, int extSize)
   if ( numCells < 1 ) numCells = 1000;
   if ( extSize < 1 ) extSize = 1000;
 
-  this->Connectivity = new vtkCellArray(numCells,4*extSize);
+  this->Connectivity = vtkCellArray::New();
+  this->Connectivity->Allocate(numCells,4*extSize);
   this->Connectivity->Register(this);
   this->Connectivity->Delete();
 

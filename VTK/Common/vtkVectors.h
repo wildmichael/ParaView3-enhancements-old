@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectors.h,v $
   Language:  C++
-  Date:      $Date: 1997-03-12 21:09:49 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1997-05-23 20:29:29 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -48,12 +48,12 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkVectors_h
 #define __vtkVectors_h
 
-#include "vtkRefCount.h"
+#include "vtkReferenceCount.h"
 
 class vtkIdList;
 class vtkFloatVectors;
 
-class VTK_EXPORT vtkVectors : public vtkRefCount 
+class VTK_EXPORT vtkVectors : public vtkReferenceCount 
 {
 public:
   vtkVectors();

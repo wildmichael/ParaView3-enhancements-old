@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTensors.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 21:03:38 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1997-05-23 20:29:17 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -99,7 +99,7 @@ void vtkTensors::GetTensors(vtkIdList& ptId, vtkFloatTensors& ft)
 
 void vtkTensors::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkRefCount::PrintSelf(os,indent);
+  vtkReferenceCount::PrintSelf(os,indent);
 
   os << indent << "Number Of Tensors: " << this->GetNumberOfTensors() << "\n";
 }
