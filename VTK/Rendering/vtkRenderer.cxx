@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-28 03:33:51 $
-  Version:   $Revision: 1.182 $
+  Date:      $Date: 2002-06-27 20:37:38 $
+  Version:   $Revision: 1.183 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -31,7 +31,7 @@
 #include "vtkTimerLog.h"
 #include "vtkVolume.h"
 
-vtkCxxRevisionMacro(vtkRenderer, "$Revision: 1.182 $");
+vtkCxxRevisionMacro(vtkRenderer, "$Revision: 1.183 $");
 
 // Create a vtkRenderer with a black background, a white ambient light, 
 // two-sided lighting turned on, a viewport of (0,0,1,1), and backface culling
@@ -786,6 +786,12 @@ void vtkRenderer::ResetCameraClippingRange( float bounds[6] )
   double  range[2], dist;
   int     i, j, k;
 
+  // Don't reset the clipping range when we don't have any 3D visible props
+  if ( bounds[0] == VTK_LARGE_FLOAT )
+    {
+    return;
+    }
+  
   this->GetActiveCamera();
   if ( this->ActiveCamera == NULL )
     {
