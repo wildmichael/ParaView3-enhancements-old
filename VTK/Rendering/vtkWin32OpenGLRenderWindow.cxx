@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-05-11 20:54:24 $
-  Version:   $Revision: 1.68 $
+  Date:      $Date: 2001-05-12 02:24:11 $
+  Version:   $Revision: 1.69 $
   Thanks:    to Horst Schreiber for developing this MFC code
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -82,7 +82,7 @@ vtkWin32OpenGLRenderWindow* vtkWin32OpenGLRenderWindow::New()
 
 vtkWin32OpenGLRenderWindow::vtkWin32OpenGLRenderWindow()
 {
-  this->ApplicationInstance = NULL;
+  this->ApplicationInstance =  NULL;
   this->Palette = NULL;
   this->ContextId = 0;
   this->MultiSamples = 8;

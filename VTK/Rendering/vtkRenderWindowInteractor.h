@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 2001-05-11 20:54:24 $
-  Version:   $Revision: 1.77 $
+  Date:      $Date: 2001-05-12 02:24:11 $
+  Version:   $Revision: 1.78 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -81,7 +81,7 @@ public:
   // interactor will work.
   virtual void Initialize() {this->Initialized=1; this->Enable();
                              this->RenderWindow->Render();}
-  void ReInitialize() { this->Initialized = 0; this->Enabled = 0;
+  void ReInitialize() {  this->Initialized = 0; this->Enabled = 0;
                         this->Initialize(); } 
 
   // Description:
