@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyData.h,v $
   Language:  C++
-  Date:      $Date: 2003-04-01 19:12:16 $
-  Version:   $Revision: 1.124 $
+  Date:      $Date: 2003-04-02 08:59:22 $
+  Version:   $Revision: 1.125 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -239,6 +239,9 @@ public:
 
   // Description:
   // Determine whether two points form an edge. If they do, return non-zero.
+  // By definition PolyVertex and PolyLine have no edges since 1-dimensional 
+  // edges are only found on cells 2D and higher. 
+  // Edges are defined as 1-D boundary entities to cells.
   // Make sure BuildLinks() has been called first.
   int IsEdge(vtkIdType p1, vtkIdType p2);
 
