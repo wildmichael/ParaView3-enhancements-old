@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLTexture.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:45:57 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1997-07-17 21:18:56 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -91,8 +91,9 @@ void vtkOpenGLTexture::Load(vtkRenderer *vtkNotUsed(ren))
     bytesPerPixel = scalars->GetNumberOfValuesPerScalar();
 
     // make sure using unsigned char data of color scalars type
-    if (strcmp(scalars->GetDataType(),"unsigned char") ||
-        strcmp(scalars->GetScalarType(),"ColorScalar") )
+    if (this->MapColorScalarsThroughLookupTable ||
+        (strcmp(scalars->GetDataType(),"unsigned char") ||
+        strcmp(scalars->GetScalarType(),"ColorScalar")) )
       {
       dataPtr = this->MapScalarsToColors (scalars);
       bytesPerPixel = 4;

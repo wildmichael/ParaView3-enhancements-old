@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIVExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-11 15:17:13 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1997-07-17 21:18:55 $
+  Version:   $Revision: 1.3 $
   Thanks:    to Jon A. Webb of Visual Interface Inc.
 
 
@@ -358,8 +358,9 @@ void vtkIVExporter::WriteAnActor(vtkActor *anActor, FILE *fp)
       }
 
     // make sure using unsigned char data of color scalars type
-    if (strcmp(scalars->GetDataType(),"unsigned char") ||
-        strcmp(scalars->GetScalarType(),"ColorScalar") )
+    if (aTexture->GetMapColorScalarsThroughLookupTable () ||
+        (strcmp(scalars->GetDataType(),"unsigned char") ||
+        strcmp(scalars->GetScalarType(),"ColorScalar")) )
       {
       mappedScalars = aTexture->GetMappedScalars ();
       }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVRMLExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:49:04 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1997-07-17 21:19:02 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -312,8 +312,9 @@ void vtkVRMLExporter::WriteAnActor(vtkActor *anActor, FILE *fp)
       }
 
     // make sure using unsigned char data of color scalars type
-    if (strcmp(scalars->GetDataType(),"unsigned char") ||
-        strcmp(scalars->GetScalarType(),"ColorScalar") )
+    if (aTexture->GetMapColorScalarsThroughLookupTable () ||
+        (strcmp(scalars->GetDataType(),"unsigned char") ||
+        strcmp(scalars->GetScalarType(),"ColorScalar")) )
       {
       mappedScalars = aTexture->GetMappedScalars ();
       }

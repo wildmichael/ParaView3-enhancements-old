@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTexture.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:48:27 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1997-07-17 21:18:59 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -53,6 +53,7 @@ vtkTexture::vtkTexture()
   this->Input = NULL;
   this->LookupTable = NULL;
   this->MappedScalars = NULL;
+  this->MapColorScalarsThroughLookupTable = 0;
   this->SelfCreatedLookupTable = 0;
 }
 
