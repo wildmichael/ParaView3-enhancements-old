@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGridBunykRayCastFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-11-27 12:56:46 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2003-12-01 18:41:17 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -34,7 +34,7 @@
 #include "vtkColorTransferFunction.h"
 #include "vtkVolumeProperty.h"
 
-vtkCxxRevisionMacro(vtkUnstructuredGridBunykRayCastFunction, "$Revision: 1.8 $");
+vtkCxxRevisionMacro(vtkUnstructuredGridBunykRayCastFunction, "$Revision: 1.9 $");
 vtkStandardNewMacro(vtkUnstructuredGridBunykRayCastFunction);
 
 #define VTK_BUNYKRCF_NUMLISTS 100000
@@ -50,6 +50,9 @@ vtkUnstructuredGridBunykRayCastFunction::vtkUnstructuredGridBunykRayCastFunction
   this->Image             = NULL;
   this->TriangleList      = NULL;
   this->TetraTriangles    = NULL;
+  this->NumberOfPoints    = 0;
+  this->ImageSize[0]      = 0;
+  this->ImageSize[1]      = 0;
   this->ViewToWorldMatrix = vtkMatrix4x4::New();
   
   for (int i = 0; i < VTK_BUNYKRCF_MAX_ARRAYS; i++ )
