@@ -3,11 +3,9 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkTriangleFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-05-23 22:25:30 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1994-08-11 08:56:10 $
+  Version:   $Revision: 1.2 $
 
-Description:
----------------------------------------------------------------------------
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
 without the express written consent of the authors.
@@ -33,7 +31,6 @@ void vlTriangleFilter::Execute()
   vlPointData *pd;
 
   vlDebugMacro(<<"Executing triangle filter");
-
   this->Initialize();
 
   newPolys = new vlCellArray();

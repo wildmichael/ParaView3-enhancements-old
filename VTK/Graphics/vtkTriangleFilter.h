@@ -3,11 +3,9 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkTriangleFilter.h,v $
   Language:  C++
-  Date:      $Date: 1994-07-21 17:00:14 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1994-08-11 08:56:11 $
+  Version:   $Revision: 1.3 $
 
-Description:
----------------------------------------------------------------------------
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
 without the express written consent of the authors.
@@ -34,10 +32,14 @@ public:
   char *GetClassName() {return "vlTriangleFilter";};
   void PrintSelf(ostream& os, vlIndent indent);
 
+  // Description:
+  // Turn on/off passing vertices through filter.
   vlBooleanMacro(PassVerts,int);
   vlSetMacro(PassVerts,int);
   vlGetMacro(PassVerts,int);
 
+  // Description:
+  // Turn on/off passing lines through filter.
   vlBooleanMacro(PassLines,int);
   vlSetMacro(PassLines,int);
   vlGetMacro(PassLines,int);

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkCleanPolyData.h,v $
   Language:  C++
-  Date:      $Date: 1994-08-05 09:07:51 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1994-08-11 08:56:02 $
+  Version:   $Revision: 1.3 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -15,8 +15,8 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 =========================================================================*/
 // .NAME vlCleanPolyData - merge duplicate points and remove degenerate primitives
 // .SECTION Description
-// vlCleanPolyData is a filter that takes as input vlPolyData and 
-// generates vlPolyData as output. vlCleanPolyData merges duplicate 
+// vlCleanPolyData is a filter that takes as input polygonal data and 
+// generates polygonal as output. vlCleanPolyData merges duplicate 
 // points (within specified tolerance) and transforms degenerate 
 // topology into appropriate form (for example, triangle is converted
 // into line if two points of triangle are merged).
@@ -39,7 +39,7 @@ public:
 
   // Description:
   // Specify tolerance in terms of percentage of bounding box.
-  vlSetClampMacro(Tolerance,float,0.0,1.0); //% of bounding box
+  vlSetClampMacro(Tolerance,float,0.0,1.0);
   vlGetMacro(Tolerance,float);
 
   // Description:
