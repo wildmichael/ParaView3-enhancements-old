@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageEuclideanDistance.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-24 19:30:05 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-08-13 17:51:45 $
+  Version:   $Revision: 1.3 $
   Thanks:    Olivier Cuisenaire who developed this class
              URL: http://ltswww.epfl.ch/~cuisenai
 	     Email: Olivier.Cuisenaire@epfl.ch
@@ -65,7 +65,7 @@ vtkImageEuclideanDistance::vtkImageEuclideanDistance()
   this->MaximumDistance = VTK_INT_MAX;
   this->Initialize = 1;
   this->ConsiderAnisotropy = 1;
-  this->SetAlgorithmToSaito();
+  this->Algorithm = VTK_EDT_SAITO;
 }
 
 //----------------------------------------------------------------------------
