@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToImageFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-08 21:06:35 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1999-09-09 20:01:58 $
+  Version:   $Revision: 1.17 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -236,19 +236,19 @@ void vtkImageToImageFilter::StreamExecuteStart()
       // We were bypassing this filter (causing pointers to be copied from
       // input to output), now we are not bypassing the filter.  Need to reset
       // the output so we do not use the "copied" references.
-      output->GetPointData()->Initialize();
+      output->ReleaseData();
       this->BypassWasOn = 0;
       }
+    //
+    // Call vtkImageSource's StreamExecuteStart
+    //
+    this->vtkImageSource::StreamExecuteStart();
     }
   else
     {
     this->BypassWasOn = 1;
     }
 
-  //
-  // Call vtkImageSource's StreamExecuteStart
-  //
-  this->vtkImageSource::StreamExecuteStart();
 }
 
 //----------------------------------------------------------------------------
