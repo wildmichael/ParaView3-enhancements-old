@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStructuredPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-03-12 18:58:54 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1994-03-25 10:16:48 $
+  Version:   $Revision: 1.3 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -167,7 +167,7 @@ vlCell *vlStructuredPoints::GetCell(int cellId)
         x[0] = this->Origin[0] + loc[0] * this->AspectRatio[0]; 
         idx = loc[0] + loc[1]*this->Dimension[0] + loc[2]*d01;
         cell->PointIds.InsertId(npts,idx);
-        cell->Points.SetPoint(npts++,x);
+        cell->Points.InsertPoint(npts++,x);
         }
       }
     }

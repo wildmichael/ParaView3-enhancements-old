@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkContourFilter.h,v $
   Language:  C++
-  Date:      $Date: 1994-03-23 14:05:27 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1994-03-25 10:16:21 $
+  Version:   $Revision: 1.5 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -29,6 +29,7 @@ public:
   vlContourFilter();
   ~vlContourFilter() {};
   char *GetClassName() {return "vlContourFilter";};
+  void PrintSelf(ostream& os, vlIndent indent);
 
   void SetValue(int i, float value);
   vlGetVectorMacro(Values,float);

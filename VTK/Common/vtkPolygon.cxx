@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPolygon.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-03-23 14:07:19 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1994-03-25 10:16:44 $
+  Version:   $Revision: 1.6 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -202,7 +202,7 @@ int vlPolygon::ParameterizePolygon(float *p0, float *p10, float& l10,
 {
   int i, j;
   float s, t, p[3], p1[3], p2[3], sbounds[2], tbounds[2];
-  int numPts;
+  int numPts=this->Points.NumberOfPoints();
   float *x1, *x2;
   vlMath math;
 //
