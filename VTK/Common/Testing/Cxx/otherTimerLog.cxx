@@ -3,8 +3,8 @@
   Program: 
   Module:    $RCSfile: otherTimerLog.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 17:21:29 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-10-12 13:50:15 $
+  Version:   $Revision: 1.5 $
 
   ==========================================================================*/
 
@@ -12,9 +12,13 @@
 // .SECTION Description
 // this program tests the TimerLog
 
-#include <stdio.h>
 #include "vtkTimerLog.h"
 #include "vtkDebugLeaks.h"
+
+// this is needed for the unlink call
+#if defined(__CYGWIN__)
+#include <sys/unistd.h>
+#endif
 
 void Test(ostream& strm)
 {
