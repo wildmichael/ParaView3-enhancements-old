@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: SGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:27:31 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-06-25 14:03:33 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,16 +23,18 @@
 // can be added to the dataset.
 //
 // 
+#include "vtkActor.h"
+#include "vtkCamera.h"
+#include "vtkFloatArray.h"
+#include "vtkHedgeHog.h"
 #include "vtkMath.h"
-#include "vtkRenderer.h"
+#include "vtkPoints.h"
+#include "vtkPolyDataMapper.h"
+#include "vtkProperty.h"
 #include "vtkRenderWindow.h"
 #include "vtkRenderWindowInteractor.h"
+#include "vtkRenderer.h"
 #include "vtkStructuredGrid.h"
-#include "vtkFloatArray.h"
-#include "vtkPoints.h"
-#include "vtkHedgeHog.h"
-#include "vtkPolyDataMapper.h"
-#include "vtkActor.h"
 
 int main( int argc, char *argv[] )
 {

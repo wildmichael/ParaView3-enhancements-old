@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: RGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:27:31 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-06-25 14:03:33 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,6 +26,8 @@
 #include "vtkRectilinearGridGeometryFilter.h"
 #include "vtkPolyDataMapper.h"
 #include "vtkActor.h"
+#include "vtkProperty.h"
+#include "vtkCamera.h"
 
 int main( int argc, char *argv[] )
 {
