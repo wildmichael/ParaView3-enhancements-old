@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtk3DWidget.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-08 13:36:56 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-05-16 02:06:24 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -76,14 +76,14 @@ public:
   // Specify a vtkProp3D around which to place the widget. This 
   // is not required, but if supplied, it is used to initially 
   // position the widget.
-  vtkSetObjectMacro(Prop3D,vtkProp3D);
+  virtual void SetProp3D(vtkProp3D*);
   vtkGetObjectMacro(Prop3D,vtkProp3D);
   
   // Description:
   // Specify the input dataset. This is not required, but if supplied,
   // and no vtkProp3D is specified, it is used to initially position 
   // the widget.
-  vtkSetObjectMacro(Input,vtkDataSet);
+  virtual void SetInput(vtkDataSet*);
   vtkGetObjectMacro(Input,vtkDataSet);
   
   // Description:
