@@ -1,3 +1,20 @@
+/*=========================================================================
+
+  Program:   Visualization Toolkit
+  Module:    $RCSfile: vtkWin32ImageMapper.cxx,v $
+  Language:  C++
+  Date:      $Date: 2002-01-22 15:39:44 $
+  Version:   $Revision: 1.32 $
+
+  Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
+  All rights reserved.
+  See Copyright.txt or http://www.kitware.com/Copyright.htm for details.
+
+     This software is distributed WITHOUT ANY WARRANTY; without even 
+     the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR 
+     PURPOSE.  See the above copyright notice for more information.
+
+=========================================================================*/
 #include "vtkWin32ImageMapper.h"
 #include "vtkWin32ImageWindow.h"
 #include "vtkProperty2D.h"
@@ -5,7 +22,7 @@
 
 #ifndef VTK_REMOVE_LEGACY_CODE
 
-vtkCxxRevisionMacro(vtkWin32ImageMapper, "$Revision: 1.31 $");
+vtkCxxRevisionMacro(vtkWin32ImageMapper, "$Revision: 1.32 $");
 vtkStandardNewMacro(vtkWin32ImageMapper);
 
 vtkWin32ImageMapper::vtkWin32ImageMapper()
