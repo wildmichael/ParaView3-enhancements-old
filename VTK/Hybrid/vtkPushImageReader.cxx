@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPushImageReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-06 19:08:29 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-08-07 13:00:20 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -53,7 +53,7 @@ public:
     }
 };
 
-vtkCxxRevisionMacro(vtkPushImageReader, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkPushImageReader, "$Revision: 1.6 $");
 vtkStandardNewMacro(vtkPushImageReader);
 
 vtkPushImageReader::vtkPushImageReader()
@@ -92,9 +92,9 @@ void vtkPushImageReader::ExecuteInformation()
 // This function reads in one data of data.
 // templated to handle different data types.
 template <class OT>
-static void vtkPushImageReaderUpdate(vtkPushImageReader *self, 
-                                     vtkImageData *data,
-                                     OT *outPtr)
+void vtkPushImageReaderUpdate(vtkPushImageReader *self, 
+                              vtkImageData *data,
+                              OT *outPtr)
 {
   int outIncr[3];
   OT *outPtr1, *outPtr2;
