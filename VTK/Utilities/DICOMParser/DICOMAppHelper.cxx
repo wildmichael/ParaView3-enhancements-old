@@ -3,8 +3,8 @@
   Program:   DICOMParser
   Module:    $RCSfile: DICOMAppHelper.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-11-15 20:34:20 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2003-11-18 16:10:53 $
+  Version:   $Revision: 1.17 $
 
   Copyright (c) 2003 Matt Turek
   All rights reserved.
@@ -75,7 +75,7 @@ DICOMAppHelper::DICOMAppHelper()
 {
   this->BitsAllocated = 8;
   this->ByteSwapData = false;
-  this->PixelSpacing[0] = this->PixelSpacing[1] = 1.0;
+  this->PixelSpacing[0] = this->PixelSpacing[1] = this->PixelSpacing[2] = 1.0;
   this->Dimensions[0] = this->Dimensions[1] = 0;
   this->PhotometricInterpretation = new dicom_stl::string();
   this->TransferSyntaxUID = new dicom_stl::string();
