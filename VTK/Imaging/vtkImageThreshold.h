@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageThreshold.h,v $
   Language:  C++
-  Date:      $Date: 1997-12-23 19:32:50 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1998-05-12 14:41:25 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -89,6 +89,16 @@ public:
   vtkGetMacro(UpperThreshold, float);
   vtkGetMacro(LowerThreshold, float);
   
+  vtkSetMacro(OutputScalarType, int);
+  vtkGetMacro(OutputScalarType, int);
+  void SetOutputScalarTypeToFloat() {this->SetOutputScalarType(VTK_FLOAT);}
+  void SetOutputScalarTypeToInt() {this->SetOutputScalarType(VTK_INT);}
+  void SetOutputScalarTypeToShort() {this->SetOutputScalarType(VTK_SHORT);}
+  void SetOutputScalarTypeToUnsignedShort() 
+    {this->SetOutputScalarType(VTK_UNSIGNED_SHORT);}
+  void SetOutputScalarTypeToUnsignedChar() 
+    {this->SetOutputScalarType(VTK_UNSIGNED_CHAR);}
+
 protected:
   float UpperThreshold;
   float LowerThreshold;
@@ -97,6 +107,9 @@ protected:
   int ReplaceOut;
   float OutValue;
 
+  int OutputScalarType;
+
+  void ExecuteImageInformation();
   void ThreadedExecute(vtkImageData *inData, vtkImageData *outData, 
 		       int extent[6], int id);
 };

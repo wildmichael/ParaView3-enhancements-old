@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageOpenClose3D.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-10 11:14:04 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-05-12 14:41:20 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -77,7 +77,6 @@ public:
   vtkImageCache *GetOutput();
   unsigned long GetPipelineMTime();
   // Foward filter messages
-  void SetFilteredAxes(int axis0, int axis1, int axis2);
   void SetInput(vtkImageCache *Input);
   void SetInput(vtkStructuredPoints *spts)
     {this->SetInput(spts->GetStructuredPointsToImage()->GetOutput());}

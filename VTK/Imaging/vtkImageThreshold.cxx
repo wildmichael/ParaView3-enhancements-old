@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageThreshold.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-12-23 19:32:50 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1998-05-12 14:41:24 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -53,6 +53,8 @@ vtkImageThreshold::vtkImageThreshold()
   this->InValue = 0.0;
   this->ReplaceOut = 0;
   this->OutValue = 0.0;
+
+  this->OutputScalarType = -1; // invalid; output same as input
 }
 
 
@@ -118,6 +120,16 @@ void vtkImageThreshold::ThresholdBetween(float lower, float upper)
     this->LowerThreshold = lower;
     this->UpperThreshold = upper;
     this->Modified();
+    }
+}
+
+//----------------------------------------------------------------------------
+// Output is always float
+void vtkImageThreshold::ExecuteImageInformation()
+{
+  if (this->OutputScalarType != -1)
+    {
+    this->Output->SetScalarType(this->OutputScalarType);
     }
 }
 
@@ -209,6 +221,45 @@ static void vtkImageThresholdExecute(vtkImageThreshold *self,
 
 
 //----------------------------------------------------------------------------
+template <class T>
+static void vtkImageThresholdExecute1(vtkImageThreshold *self,
+				      vtkImageData *inData, T *inPtr,
+				      vtkImageData *outData,
+				      int outExt[6], int id)
+{
+  void *outPtr = outData->GetScalarPointerForExtent(outExt);
+  
+  switch (outData->GetScalarType())
+    {
+    case VTK_FLOAT:
+      vtkImageThresholdExecute(self, inData, inPtr,
+			       outData, (float *)(outPtr),outExt, id);
+      break;
+    case VTK_INT:
+      vtkImageThresholdExecute(self, inData, inPtr, 
+			       outData, (int *)(outPtr),outExt, id);
+      break;
+    case VTK_SHORT:
+      vtkImageThresholdExecute(self, inData, inPtr, 
+			       outData, (short *)(outPtr),outExt, id);
+      break;
+    case VTK_UNSIGNED_SHORT:
+      vtkImageThresholdExecute(self, inData, inPtr, 
+			       outData, (unsigned short *)(outPtr),outExt, id);
+      break;
+    case VTK_UNSIGNED_CHAR:
+      vtkImageThresholdExecute(self, inData, inPtr, 
+			       outData, (unsigned char *)(outPtr),outExt, id);
+      break;
+    default:
+      vtkGenericWarningMacro("Execute: Unknown input ScalarType");
+      return;
+    }
+}
+
+
+
+//----------------------------------------------------------------------------
 // Description:
 // This method is passed a input and output data, and executes the filter
 // algorithm to fill the output from the input.
@@ -219,40 +270,28 @@ void vtkImageThreshold::ThreadedExecute(vtkImageData *inData,
 					int outExt[6], int id)
 {
   void *inPtr = inData->GetScalarPointerForExtent(outExt);
-  void *outPtr = outData->GetScalarPointerForExtent(outExt);
-  
-  vtkDebugMacro(<< "Execute: inData = " << inData 
-  << ", outData = " << outData);
-  
-  // this filter expects that input is the same type as output.
-  if (inData->GetScalarType() != outData->GetScalarType())
-    {
-    vtkErrorMacro(<< "Execute: input ScalarType, " << inData->GetScalarType()
-                  << ", must match out ScalarType " << outData->GetScalarType());
-    return;
-    }
   
   switch (inData->GetScalarType())
     {
     case VTK_FLOAT:
-      vtkImageThresholdExecute(this, inData, (float *)(inPtr), 
-			       outData, (float *)(outPtr),outExt, id);
+      vtkImageThresholdExecute1(this, inData, (float *)(inPtr), 
+			       outData, outExt, id);
       break;
     case VTK_INT:
-      vtkImageThresholdExecute(this, inData, (int *)(inPtr), 
-			       outData, (int *)(outPtr),outExt, id);
+      vtkImageThresholdExecute1(this, inData, (int *)(inPtr), 
+			       outData, outExt, id);
       break;
     case VTK_SHORT:
-      vtkImageThresholdExecute(this, inData, (short *)(inPtr), 
-			       outData, (short *)(outPtr),outExt, id);
+      vtkImageThresholdExecute1(this, inData, (short *)(inPtr), 
+			       outData, outExt, id);
       break;
     case VTK_UNSIGNED_SHORT:
-      vtkImageThresholdExecute(this, inData, (unsigned short *)(inPtr), 
-			       outData, (unsigned short *)(outPtr),outExt, id);
+      vtkImageThresholdExecute1(this, inData, (unsigned short *)(inPtr), 
+			       outData, outExt, id);
       break;
     case VTK_UNSIGNED_CHAR:
-      vtkImageThresholdExecute(this, inData, (unsigned char *)(inPtr), 
-			       outData, (unsigned char *)(outPtr),outExt, id);
+      vtkImageThresholdExecute1(this, inData, (unsigned char *)(inPtr), 
+			       outData, outExt, id);
       break;
     default:
       vtkErrorMacro(<< "Execute: Unknown input ScalarType");

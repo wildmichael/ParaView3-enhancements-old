@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageLogarithmicScale.h,v $
   Language:  C++
-  Date:      $Date: 1997-08-27 20:34:10 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-05-12 14:41:18 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -65,7 +65,8 @@ public:
 protected:
   float Constant;
   
-  void Execute(vtkImageRegion *inRegion, vtkImageRegion *outRegion);
+  void ThreadedExecute(vtkImageData *inData, vtkImageData *outData,
+		       int outExt[6], int id);
 };
 
 #endif
