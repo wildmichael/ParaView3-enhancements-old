@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTclUtil.h,v $
   Language:  C++
-  Date:      $Date: 1998-03-10 19:07:58 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1998-03-20 20:51:49 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -60,7 +60,7 @@ extern VTKTCL_EXPORT void vtkTclGenericDeleteObject(ClientData cd);
 extern VTKTCL_EXPORT void vtkTclGetObjectFromPointer(Tcl_Interp *interp,void *temp,
 			  int command(ClientData, Tcl_Interp *,int, char *[]));
 extern VTKTCL_EXPORT void *vtkTclGetPointerFromObject(char *name,char *result_type,
-					Tcl_Interp *interp);
+					Tcl_Interp *interp, int &error);
 extern VTKTCL_EXPORT void vtkTclVoidFunc(void *);
 extern VTKTCL_EXPORT void vtkTclVoidFuncArgDelete(void *);
 extern VTKTCL_EXPORT void vtkTclListInstances(Tcl_Interp *interp, ClientData arg);
