@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLRenderer.h,v $
   Language:  C++
-  Date:      $Date: 1998-11-17 22:54:59 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1999-01-07 22:43:19 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -74,22 +74,6 @@ public:
   // Description:
   // Ask lights to load themselves into graphics pipeline.
   int UpdateLights(void);
-
-  // Description:
-  // Return the center of the renderer. Supports stereo modes as well.
-  virtual float *GetCenter();
-
-  // Description:
-  // Convert display coordinates to view coordinates.
-  virtual void DisplayToView(); 
-
-  // Description:
-  // Convert view coordinates to display coordinates.
-  virtual void ViewToDisplay(); 
-
-  // Description:
-  // Is a given display point in this renderer's viewport.
-  virtual int  IsInViewport(int x,int y); 
 
 };
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 1998-11-05 14:16:30 $
-  Version:   $Revision: 1.75 $
+  Date:      $Date: 1999-01-07 22:43:19 $
+  Version:   $Revision: 1.76 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -180,12 +180,6 @@ public:
   // Handles work required once both views have been rendered when using
   // stereo rendering.
   virtual void StereoRenderComplete();
-
-  // Description:
-  // This method indicates if a StereoOn/Off will require the window to 
-  // be remapped. Some types of stereo rendering require a new window
-  // to be created.
-  virtual int  GetRemapWindow();
 
   // Description:
   // Remap the rendering window. This probably only works on UNIX right now.

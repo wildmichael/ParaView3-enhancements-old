@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-31 14:10:30 $
-  Version:   $Revision: 1.57 $
+  Date:      $Date: 1999-01-07 22:43:21 $
+  Version:   $Revision: 1.58 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -790,27 +790,15 @@ void vtkXRenderWindowInteractorCallback(Widget vtkNotUsed(w),
 	  // prepare the new window
 	  if (me->RenderWindow->GetStereoRender())
 	    {
-	    if (me->RenderWindow->GetRemapWindow())
-	      {
-	      me->SetupNewWindow(1);
-	      }
 	    me->RenderWindow->StereoRenderOff();
 	    }
 	  else
 	    {
 	    memcpy(me->PositionBeforeStereo,me->RenderWindow->GetPosition(),
 		   sizeof(int)*2);
-	    if (me->RenderWindow->GetRemapWindow())
-	      {
-	      me->SetupNewWindow(1);
-	      }
 	    me->RenderWindow->StereoRenderOn();
 	    }
 	  me->RenderWindow->Render();
-	  if (me->RenderWindow->GetRemapWindow())
-	    {
-	    me->FinishSettingUpNewWindow();
-	    }
           break;
 
 	case XK_p:
@@ -1079,80 +1067,3 @@ void vtkXRenderWindowInteractorTimer(XtPointer client_data,
 }  
 
 
-
-// Setup a new window before a WindowRemap
-void vtkXRenderWindowInteractor::SetupNewWindow(int Stereo)
-{
-  vtkXRenderWindow *ren;
-  int depth;
-  Colormap cmap;
-  Visual  *vis;
-  int *size;
-  int *position;
-  int zero_pos[2];
-
-  // get the info we need from the RenderingWindow
-  ren = (vtkXRenderWindow *)(this->RenderWindow);
-  this->DisplayId = ren->GetDisplayId();
-  depth   = ren->GetDesiredDepth();
-  cmap    = ren->GetDesiredColormap();
-  vis     = ren->GetDesiredVisual();
-  size    = ren->GetSize();
-  position= ren->GetPosition();
-
-  if (Stereo)
-    {
-    if (this->RenderWindow->GetStereoRender())
-      {
-      position = this->PositionBeforeStereo;
-      }
-    else
-      {
-      zero_pos[0] = 0;
-      zero_pos[1] = 0;
-      position = zero_pos;
-      }
-    }
-
-  this->oldTop = this->top;
-  
-  this->top = XtVaAppCreateShell(this->RenderWindow->GetWindowName(),"vtk",
-				 applicationShellWidgetClass,
-				 this->DisplayId,
-				 XtNdepth, depth,
-				 XtNcolormap, cmap,
-				 XtNvisual, vis,
-				 XtNx, position[0],
-				 XtNy, position[1],
-				 XtNwidth, size[0],
-				 XtNheight, size[1],
-				 XtNmappedWhenManaged, 0,
-				 NULL);
-
-  XtRealizeWidget(this->top);
-  
-  /* add callback */
-  XSync(this->DisplayId,False);
-  ren->SetNextWindowId(XtWindow(this->top));
-  this->WindowId = XtWindow(this->top);
-}
-
-// Finish setting up a new window after the WindowRemap.
-void vtkXRenderWindowInteractor::FinishSettingUpNewWindow()
-{
-  int *size;
-
-  // free the previous widget
-  XtDestroyWidget(this->oldTop);
-  XSync(this->DisplayId,False);
-
-  this->Enable();
-  //XtAddEventHandler(this->top,
-  //		    KeyPressMask | ButtonPressMask | ExposureMask |
-  //		    StructureNotifyMask | ButtonReleaseMask,
-  //		    False,vtkXRenderWindowInteractorCallback,(XtPointer)this);
-
-  size = this->RenderWindow->GetSize();
-  this->Size[0] = size[0];
-  this->Size[1] = size[1];
-}

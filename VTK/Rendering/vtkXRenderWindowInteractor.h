@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 1998-11-20 19:25:49 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 1999-01-07 22:43:21 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -136,15 +136,10 @@ public:
   Widget GetWidget() {return this->top;};
   
   // Description:
-  // Finish setting up a new window after the WindowRemap.
-  virtual void FinishSettingUpNewWindow();
-
-  // Description:
   // Functions that are used internally.
   friend void vtkXRenderWindowInteractorCallback(Widget,XtPointer,
                                                  XEvent *,Boolean *);
   friend void vtkXRenderWindowInteractorTimer(XtPointer,XtIntervalId *);
-  virtual void SetupNewWindow(int Stereo = 0);
 
 protected:
   Display *DisplayId;

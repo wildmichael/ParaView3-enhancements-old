@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-31 14:10:23 $
-  Version:   $Revision: 1.75 $
+  Date:      $Date: 1999-01-07 22:43:19 $
+  Version:   $Revision: 1.76 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -1003,20 +1003,6 @@ void vtkRenderWindow::CopyResultFrame(void)
     }
 
   this->Frame();
-}
-
-// This method indicates if a StereoOn/Off will require the window to 
-// be remapped. Some types of stereo rendering require a new window
-// to be created.
-int vtkRenderWindow::GetRemapWindow(void)
-{
-  switch (this->StereoType) 
-    {
-    case VTK_STEREO_RED_BLUE: return 0;
-    case VTK_STEREO_INTERLACED: return 0;
-    case VTK_STEREO_CRYSTAL_EYES: return 1;
-    }
-  return 0;
 }
 
 
