@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-04-21 19:01:15 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1998-05-29 17:41:17 $
+  Version:   $Revision: 1.26 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -69,7 +69,7 @@ vtkImageSource::~vtkImageSource()
 {
   if (this->Output)
     {
-    this->Output->Delete();
+    this->Output->UnRegister(this);
     this->Output = NULL;
     }
 }
@@ -199,11 +199,12 @@ void vtkImageSource::SetCache(vtkImageCache *cache)
     {
     // cache->ReleaseData();
     cache->SetSource(this);
+    cache->Register(this);
     }
   
   if (this->Output)
     {
-    this->Output->Delete();
+    this->Output->UnRegister(this);
     this->Output = NULL;
     }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageExport.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-27 15:35:40 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-05-29 17:42:30 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -65,7 +65,7 @@ public:
   
   // Description:
   // Set/Get the scalar input object from the image pipeline.
-  vtkSetObjectMacro(Input,vtkImageCache);
+  vtkSetReferenceCountedObjectMacro(Input,vtkImageCache);
   vtkGetObjectMacro(Input,vtkImageCache);
 
   // Description:

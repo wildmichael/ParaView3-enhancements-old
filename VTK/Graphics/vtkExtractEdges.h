@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractEdges.h,v $
   Language:  C++
-  Date:      $Date: 1998-04-21 19:01:55 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1998-05-29 17:41:59 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -75,7 +75,6 @@ protected:
   void Execute();
 
   vtkPointLocator *Locator;
-  int SelfCreatedLocator;
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipVolume.h,v $
   Language:  C++
-  Date:      $Date: 1998-05-06 19:14:27 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-05-29 17:41:49 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -161,7 +161,6 @@ protected:
 		 vtkCellData *clippedCD);
   vtkImplicitFunction *ClipFunction;
   vtkPointLocator *Locator;
-  int SelfCreatedLocator;
   int InsideOut;
   float Value;
   int GenerateClipScalars;

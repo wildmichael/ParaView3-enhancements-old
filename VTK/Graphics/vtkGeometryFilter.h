@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGeometryFilter.h,v $
   Language:  C++
-  Date:      $Date: 1998-04-21 19:01:58 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1998-05-29 17:42:02 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -156,7 +156,6 @@ protected:
 
   int Merging;
   vtkPointLocator *Locator;
-  int SelfCreatedLocator;
 };
 
 #endif

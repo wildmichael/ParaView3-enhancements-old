@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCleanPolyData.h,v $
   Language:  C++
-  Date:      $Date: 1998-04-21 19:01:39 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1998-05-29 17:41:44 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -88,7 +88,6 @@ protected:
 
   float Tolerance;
   vtkPointLocator *Locator;
-  int SelfCreatedLocator;
 };
 
 #endif

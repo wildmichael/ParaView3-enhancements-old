@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDelaunay3D.h,v $
   Language:  C++
-  Date:      $Date: 1998-04-21 19:01:50 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1998-05-29 17:41:57 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -188,7 +188,6 @@ protected:
   float Offset;
 
   vtkPointLocator *Locator;  //help locate points faster
-  int SelfCreatedLocator;
   
   vtkSphereArray *Spheres;   //used to keep track of circumspheres
   int InSphere(float x[3], int tetraId);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSpatialRepresentationFilter.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:47:32 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-05-29 17:42:10 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -96,7 +96,7 @@ public:
 
   // Description:
   // Set/Get the locator that will be used to generate the representation.
-  vtkSetObjectMacro(SpatialRepresentation,vtkLocator);
+  vtkSetReferenceCountedObjectMacro(SpatialRepresentation,vtkLocator);
   vtkGetObjectMacro(SpatialRepresentation,vtkLocator);
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSpatialRepresentationFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:04:54 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1998-05-29 17:42:08 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,6 +64,11 @@ vtkSpatialRepresentationFilter::~vtkSpatialRepresentationFilter()
   for (int i=0; i <= Level; i++) //superclass deletes OutputList[0]
     {
     if ( this->OutputList[i] != NULL ) delete this->OutputList[i];
+    }
+  if ( this->SpatialRepresentation )
+    {
+    this->SpatialRepresentation->UnRegister(this);
+    this->SpatialRepresentation = NULL;
     }
 }
 

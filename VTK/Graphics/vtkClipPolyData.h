@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipPolyData.h,v $
   Language:  C++
-  Date:      $Date: 1997-12-01 18:28:35 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1998-05-29 17:41:46 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -148,7 +148,6 @@ protected:
   vtkImplicitFunction *ClipFunction;
   
   vtkPointLocator *Locator;
-  int SelfCreatedLocator;
   int InsideOut;
   float Value;
   int GenerateClipScalars;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUGFacetReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-27 20:23:42 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1998-05-29 17:42:11 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -53,14 +53,17 @@ vtkUGFacetReader::vtkUGFacetReader()
 
   this->Merging = 1;
   this->Locator = NULL;
-  this->SelfCreatedLocator = 0;
 }
 
 vtkUGFacetReader::~vtkUGFacetReader()
 {
   if ( this->FileName ) delete [] this->FileName;
   if ( this->PartColors ) this->PartColors->Delete();
-  if ( this->SelfCreatedLocator ) this->Locator->Delete();
+  if (this->Locator != NULL)
+    {
+    this->Locator->UnRegister(this);
+    this->Locator = NULL;
+    }
 }
 
 // Description:
@@ -317,20 +320,27 @@ short vtkUGFacetReader::GetPartColorIndex(int partId)
 // default an instance of vtkMergePoints is used.
 void vtkUGFacetReader::SetLocator(vtkPointLocator *locator)
 {
-  if ( this->Locator != locator ) 
+  if ( this->Locator == locator ) 
     {
-    if ( this->SelfCreatedLocator ) this->Locator->Delete();
-    this->SelfCreatedLocator = 0;
-    this->Locator = locator;
-    this->Modified();
+    return;
     }
+  if (this->Locator != NULL)
+    {
+    this->Locator->UnRegister(this);
+    this->Locator = NULL;
+    }
+  if (locator != NULL)
+    {
+    locator->Register(this);
+    }
+  this->Locator = locator;
+  this->Modified();
 }
 
 void vtkUGFacetReader::CreateDefaultLocator()
 {
-  if ( this->SelfCreatedLocator ) this->Locator->Delete();
-  this->Locator = vtkMergePoints::New();
-  this->SelfCreatedLocator = 1;
+  if ( this->Locator == NULL )
+    this->Locator = vtkMergePoints::New();
 }
 
 void vtkUGFacetReader::PrintSelf(ostream& os, vtkIndent indent)

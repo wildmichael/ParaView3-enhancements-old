@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCutter.h,v $
   Language:  C++
-  Date:      $Date: 1998-03-10 16:07:18 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1998-05-29 17:41:54 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -122,7 +122,6 @@ protected:
   vtkImplicitFunction *CutFunction;
   
   vtkPointLocator *Locator;
-  int SelfCreatedLocator;
   int SortBy;
   vtkContourValues *ContourValues;
   int GenerateCutScalars;

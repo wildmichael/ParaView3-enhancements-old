@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-22 19:41:53 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1998-05-29 17:42:34 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -69,6 +69,15 @@ vtkImageMapper::vtkImageMapper()
   this->ColorLevel = 1000;
 
   this->ZSlice = 0;
+}
+
+vtkImageMapper::~vtkImageMapper()
+{
+  if (this->Input)
+    {
+    this->Input->UnRegister(this);
+    this->Input == NULL;
+    }
 }
 
 void vtkImageMapper::PrintSelf(ostream& os, vtkIndent indent)

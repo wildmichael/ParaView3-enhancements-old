@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGeometryFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-06 19:14:32 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 1998-05-29 17:42:01 $
+  Version:   $Revision: 1.42 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,12 +64,15 @@ vtkGeometryFilter::vtkGeometryFilter()
 
   this->Merging = 1;
   this->Locator = NULL;
-  this->SelfCreatedLocator = 0;
 }
 
 vtkGeometryFilter::~vtkGeometryFilter()
 {
-  if (this->SelfCreatedLocator) this->Locator->Delete();
+  if ( this->Locator )
+    {
+    this->Locator->UnRegister(this);
+    this->Locator = NULL;
+    }
 }
 
 // Description:
@@ -290,20 +293,29 @@ void vtkGeometryFilter::Execute()
 // default an instance of vtkMergePoints is used.
 void vtkGeometryFilter::SetLocator(vtkPointLocator *locator)
 {
-  if ( this->Locator != locator ) 
+  if ( this->Locator == locator ) 
     {
-    if ( this->SelfCreatedLocator ) this->Locator->Delete();
-    this->SelfCreatedLocator = 0;
-    this->Locator = locator;
-    this->Modified();
+    return;
     }
+  if ( this->Locator )
+    {
+    this->Locator->UnRegister(this);
+    this->Locator = NULL;
+    }    
+  if ( locator )
+    {
+    locator->Register(this);
+    }
+  this->Locator = locator;
+  this->Modified();
 }
 
 void vtkGeometryFilter::CreateDefaultLocator()
 {
-  if ( this->SelfCreatedLocator ) this->Locator->Delete();
-  this->Locator = vtkMergePoints::New();
-  this->SelfCreatedLocator = 1;
+  if ( this->Locator == NULL )
+    {
+    this->Locator = vtkMergePoints::New();
+    }
 }
 
 void vtkGeometryFilter::PrintSelf(ostream& os, vtkIndent indent)

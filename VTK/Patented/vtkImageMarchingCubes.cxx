@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMarchingCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:07:12 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1998-05-29 17:42:51 $
+  Version:   $Revision: 1.14 $
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -119,6 +119,8 @@ void vtkImageMarchingCubes::Execute()
   int minSlicesPerChunk, chunkOverlap;
   int numContours=this->ContourValues->GetNumberOfContours();
   float *values=this->ContourValues->GetValues();
+  
+  fprintf(stderr, "Image Marching Cubes\n");
   
   vtkDebugMacro("Starting Execute Method");
   if ( ! this->Input)

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageExport.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:27:59 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-05-29 17:42:28 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -62,6 +62,11 @@ vtkImageExport::vtkImageExport()
 //----------------------------------------------------------------------------
 vtkImageExport::~vtkImageExport()
 {
+  if (this->Input)
+    {
+    this->Input->UnRegister(this);
+    this->Input = NULL;
+    }
 }
 
 

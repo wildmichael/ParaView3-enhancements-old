@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCutter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-06 19:14:29 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 1998-05-29 17:41:53 $
+  Version:   $Revision: 1.44 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -54,13 +54,16 @@ vtkCutter::vtkCutter(vtkImplicitFunction *cf)
   this->CutFunction = cf;
   this->GenerateCutScalars = 0;
   this->Locator = NULL;
-  this->SelfCreatedLocator = 0;
 }
 
 vtkCutter::~vtkCutter()
 {
   this->ContourValues->Delete();
-  if ( this->SelfCreatedLocator && this->Locator ) this->Locator->Delete();
+  if ( this->Locator )
+    {
+    this->Locator->UnRegister(this);
+    this->Locator = NULL;
+    }
 }
 
 // Description:
@@ -276,21 +279,31 @@ void vtkCutter::Execute()
 // an instance of vtkMergePoints is used.
 void vtkCutter::SetLocator(vtkPointLocator *locator)
 {
-  if ( this->Locator != locator ) 
+  if ( this->Locator == locator ) 
     {
-    if ( this->SelfCreatedLocator ) this->Locator->Delete();
-    this->SelfCreatedLocator = 0;
-    this->Locator = locator;
-    this->Modified();
+    return;
     }
+  if ( this->Locator )
+    {
+    this->Locator->UnRegister(this);
+    this->Locator = NULL;
+    }
+  if ( locator )
+    {
+    locator->Register(this);
+    }
+  this->Locator = locator;
+  this->Modified();
 }
 
 void vtkCutter::CreateDefaultLocator()
 {
-  if ( this->SelfCreatedLocator ) this->Locator->Delete();
-  this->Locator = vtkMergePoints::New();
-  this->SelfCreatedLocator = 1;
+  if ( this->Locator == NULL )
+    {
+    this->Locator = vtkMergePoints::New();
+    }
 }
+
 
 void vtkCutter::PrintSelf(ostream& os, vtkIndent indent)
 {

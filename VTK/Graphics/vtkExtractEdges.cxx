@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractEdges.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-04-21 19:01:54 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1998-05-29 17:41:58 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -47,12 +47,15 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 vtkExtractEdges::vtkExtractEdges()
 {
   this->Locator = NULL;
-  this->SelfCreatedLocator = 0;
 }
 
 vtkExtractEdges::~vtkExtractEdges()
 {
-  if (this->SelfCreatedLocator) this->Locator->Delete();
+  if ( this->Locator )
+    {
+    this->Locator->UnRegister(this);
+    this->Locator = NULL;
+    }
 }
 
 // Generate feature edges for mesh
@@ -152,20 +155,29 @@ void vtkExtractEdges::Execute()
 // default an instance of vtkMergePoints is used.
 void vtkExtractEdges::SetLocator(vtkPointLocator *locator)
 {
-  if ( this->Locator != locator ) 
+  if ( this->Locator == locator ) 
     {
-    if ( this->SelfCreatedLocator ) this->Locator->Delete();
-    this->SelfCreatedLocator = 0;
-    this->Locator = locator;
-    this->Modified();
+    return;
     }
+  if ( this->Locator )
+    {
+    this->Locator->UnRegister(this);
+    this->Locator = NULL;
+    }
+  if ( locator )
+    {
+    locator->Register(this);
+    }
+  this->Locator = locator;
+  this->Modified();
 }
 
 void vtkExtractEdges::CreateDefaultLocator()
 {
-  if ( this->SelfCreatedLocator ) this->Locator->Delete();
-  this->Locator = vtkMergePoints::New();
-  this->SelfCreatedLocator = 1;
+  if ( this->Locator == NULL )
+    {
+    this->Locator = vtkMergePoints::New();
+    }
 }
 
 void vtkExtractEdges::PrintSelf(ostream& os, vtkIndent indent)

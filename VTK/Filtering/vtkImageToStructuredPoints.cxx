@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToStructuredPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 22:49:53 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1998-05-29 17:41:19 $
+  Version:   $Revision: 1.22 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -68,6 +68,17 @@ vtkImageToStructuredPoints::vtkImageToStructuredPoints()
 //----------------------------------------------------------------------------
 vtkImageToStructuredPoints::~vtkImageToStructuredPoints()
 {
+  if (this->Input) 
+    {
+    this->Input->UnRegister(this);
+    this->Input = NULL;
+    }
+  
+  if (this->VectorInput) 
+    {
+    this->VectorInput->UnRegister(this);
+    this->VectorInput = NULL;
+    }
 }
 
 

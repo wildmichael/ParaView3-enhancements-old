@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSTLReader.h,v $
   Language:  C++
-  Date:      $Date: 1998-05-27 16:58:45 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1998-05-29 17:42:07 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -96,7 +96,6 @@ protected:
   char *FileName;
   int Merging;
   vtkPointLocator *Locator;
-  int SelfCreatedLocator;
 
   void Execute();
   int ReadBinarySTL(FILE *fp, vtkPoints*, vtkCellArray*);

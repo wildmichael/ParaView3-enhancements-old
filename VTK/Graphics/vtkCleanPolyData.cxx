@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCleanPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-04-21 19:01:37 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 1998-05-29 17:41:42 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -47,13 +47,15 @@ vtkCleanPolyData::vtkCleanPolyData()
 {
   this->Tolerance = 0.0;
   this->Locator = NULL;
-  this->SelfCreatedLocator = 0;
 }
 
 vtkCleanPolyData::~vtkCleanPolyData()
 {
-  if ( this->SelfCreatedLocator && this->Locator != NULL) 
-    this->Locator->Delete();
+  if ( this->Locator )
+    {
+    this->Locator->UnRegister(this);
+    this->Locator = NULL;
+    }
 }
 
 void vtkCleanPolyData::Execute()
@@ -253,35 +255,45 @@ void vtkCleanPolyData::Execute()
 // default an instance of vtkLocator is used.
 void vtkCleanPolyData::SetLocator(vtkPointLocator *locator)
 {
-  if ( this->Locator != locator ) 
+  if ( this->Locator == locator)
     {
-    if ( this->SelfCreatedLocator ) this->Locator->Delete();
-    this->SelfCreatedLocator = 0;
-    this->Locator = locator;
-    this->Modified();
+    return;
     }
+  
+  if ( this->Locator )
+    {
+    this->Locator->UnRegister(this);
+    this->Locator = NULL;
+    }
+  
+  if ( locator )
+    {
+    locator->Register(this);
+    }
+  
+  this->Locator = locator;
+  this->Modified();
 }
 
 // Method manages creation of locators. It takes into account the potential
 // change of tolerance (zero to non-zero).
 void vtkCleanPolyData::CreateDefaultLocator()
 {
-  if ( this->SelfCreatedLocator || !this->Locator ) 
+  if ( this->Locator == NULL)
     {
-    if ( this->Locator ) this->Locator->Delete();
-
     if ( this->Tolerance <= 0.0 )
+      {
       this->Locator = vtkMergePoints::New();
+      }
     else
+      {
       this->Locator = vtkPointLocator::New();
-
-    this->SelfCreatedLocator = 1;
+      }
     }
-
   else
     {
     if ( !strcmp(this->Locator->GetClassName(),"vtkMergePoints") &&
-    this->Tolerance > 0.0 )
+	 this->Tolerance > 0.0 )
       {
       vtkWarningMacro(<<"Trying to merge points with non-zero tolerance using vtkMergePoints");
       }

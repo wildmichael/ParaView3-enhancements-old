@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSet.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-04-27 17:02:26 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 1998-05-29 17:41:23 $
+  Version:   $Revision: 1.42 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -53,12 +53,20 @@ vtkDataSet(ps)
   if (this->Points) this->Points->Register(this);
 
   this->Locator = ps.Locator;
+  if (this->Locator)
+    {
+    this->Locator->Register(this);
+    }
 }
 
 vtkPointSet::~vtkPointSet ()
 {
   this->Initialize();
-  if ( this->Locator ) this->Locator->Delete();
+  if ( this->Locator ) 
+    {
+    this->Locator->UnRegister(this);
+    this->Locator = NULL;
+    }
 }
 
 // Description:

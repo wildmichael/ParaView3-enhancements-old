@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSkeleton2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-13 20:18:41 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1998-05-29 17:42:38 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -178,7 +178,7 @@ static void vtkImageSkeleton2DExecute(vtkImageSkeleton2D *self,
 		  ((n[1]==0 || n[2]==0 || n[3]==0) && 
 		   (n[3]==0 || n[4]==0 || n[5]==0) && 
 		   (n[5]==0 || n[6]==0 || n[7]==0) && 
-		   (n[7]==0 || n[8]==0 || n[0]==0)))
+		   (n[7]==0 || n[0]==0 || n[1]==0)))
 		{
 		// special condition (making another prune level)
 		// pruning 135 degree corners

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUGFacetReader.h,v $
   Language:  C++
-  Date:      $Date: 1998-05-27 16:58:48 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1998-05-29 17:42:12 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -101,7 +101,6 @@ protected:
   int PartNumber;
   int Merging;
   vtkPointLocator *Locator;
-  int SelfCreatedLocator;
 };
 
 #endif
