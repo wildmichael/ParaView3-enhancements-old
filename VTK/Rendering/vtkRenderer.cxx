@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-10-30 11:33:10 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 1995-12-11 10:02:46 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -373,7 +373,7 @@ void vtkRenderer::DisplayToView()
 // Convert view coordinates to display coordinates.
 void vtkRenderer::ViewToDisplay()
 {
-  int dx,dy;
+  float dx,dy;
   int sizex,sizey;
   int *size;
   
@@ -382,12 +382,12 @@ void vtkRenderer::ViewToDisplay()
   sizex = size[0];
   sizey = size[1];
 
-  dx = (int)((this->ViewPoint[0]/this->Aspect[0] + 1.0) * 
+  dx = (this->ViewPoint[0]/this->Aspect[0] + 1.0) * 
     (sizex*(this->Viewport[2]-this->Viewport[0])) / 2.0 +
-      sizex*this->Viewport[0]);
-  dy = (int)((this->ViewPoint[1]/this->Aspect[1] + 1.0) * 
+      sizex*this->Viewport[0];
+  dy = (this->ViewPoint[1]/this->Aspect[1] + 1.0) * 
     (sizey*(this->Viewport[3]-this->Viewport[1])) / 2.0 +
-      sizey*this->Viewport[1]);
+      sizey*this->Viewport[1];
 
   this->SetDisplayPoint(dx,dy,this->ViewPoint[2]);
 }
