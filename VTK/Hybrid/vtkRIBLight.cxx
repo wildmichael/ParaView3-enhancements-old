@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRIBLight.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-07-08 11:52:27 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-07-09 11:00:20 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -44,7 +44,7 @@ vtkRIBLight::vtkRIBLight ()
 {
   this->Shadows = 0;
   // create a vtkLight that can be rendered
-  this->Light = vtkLight::New ();;
+  this->Light = vtkLight::New ();
 }
 
 vtkRIBLight::~vtkRIBLight()
