@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadraticTetra.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-31 19:02:49 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-06-03 11:54:11 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,7 +25,7 @@
 #include "vtkFloatArray.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkQuadraticTetra, "$Revision: 1.7 $");
+vtkCxxRevisionMacro(vtkQuadraticTetra, "$Revision: 1.8 $");
 vtkStandardNewMacro(vtkQuadraticTetra);
 
 // Construct the line with two points.
@@ -278,13 +278,13 @@ void vtkQuadraticTetra::Contour(float value, vtkDataArray* cellScalars,
     {
     for ( int j=0; j<4; j++) //for each of the four vertices of the tetra
       {
-      this->Face->Points->SetPoint(j,this->Points->GetPoint(Tetras[i][j]));
-      this->Face->PointIds->SetId(j,this->PointIds->GetId(Tetras[i][j]));
+      this->Tetra->Points->SetPoint(j,this->Points->GetPoint(Tetras[i][j]));
+      this->Tetra->PointIds->SetId(j,this->PointIds->GetId(Tetras[i][j]));
       this->Scalars->SetTuple(j,cellScalars->GetTuple(Tetras[i][j]));
       }
 
-    this->Face->Contour(value, this->Scalars, locator, verts,
-                        lines, polys, inPd, outPd, inCd, cellId, outCd);
+    this->Tetra->Contour(value, this->Scalars, locator, verts,
+                         lines, polys, inPd, outPd, inCd, cellId, outCd);
     }
 }
 
