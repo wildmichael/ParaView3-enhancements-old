@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSampleFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:12:35 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 2000-05-07 13:01:02 $
+  Version:   $Revision: 1.50 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -261,7 +261,7 @@ void vtkSampleFunction::Cap(vtkScalars *s)
     {
     for (i=0; i<this->SampleDimensions[0]; i++)
       {
-      s->SetScalar(i+j*this->SampleDimensions[1], this->CapValue);
+      s->SetScalar(i+j*this->SampleDimensions[0], this->CapValue);
       }
     }
 
@@ -271,7 +271,7 @@ void vtkSampleFunction::Cap(vtkScalars *s)
     {
     for (i=0; i<this->SampleDimensions[0]; i++)
       {
-      s->SetScalar(idx+i+j*this->SampleDimensions[1], this->CapValue);
+      s->SetScalar(idx+i+j*this->SampleDimensions[0], this->CapValue);
       }
     }
 
