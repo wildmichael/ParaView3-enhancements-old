@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-17 14:20:47 $
-  Version:   $Revision: 1.77 $
+  Date:      $Date: 2001-04-19 18:13:15 $
+  Version:   $Revision: 1.78 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -646,7 +646,7 @@ void vtkStructuredGrid::SetPointVisibility(vtkUnsignedCharArray *ptVis)
 // Return non-zero if the specified cell is visible (i.e., not blanked)
 unsigned char vtkStructuredGrid::IsCellVisible(int cellId)
 {
-  int ptIds[8], numIds;
+  int ptIds[8], numIds=0;
   int iMin, iMax, jMin, jMax, kMin, kMax;
   int d01 = this->Dimensions[0]*this->Dimensions[1];
   iMin = iMax = jMin = jMax = kMin = kMax = 0;

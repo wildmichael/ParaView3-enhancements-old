@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetAttributes.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-18 11:11:48 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2001-04-19 18:13:14 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1478,7 +1478,7 @@ int vtkDataSetAttributes::IsArrayAnAttribute(int idx)
 void vtkDataSetAttributes::CopyAllocate(vtkDataSetAttributes::FieldList& list, 
                                         int sze, int ext)
 {
-  vtkDataArray* newDA;
+  vtkDataArray* newDA=0;
   int i;
 
   // Get rid of any old stuff
