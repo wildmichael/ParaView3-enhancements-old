@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSobel3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-01-03 14:59:00 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1997-04-01 19:05:13 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -162,7 +162,7 @@ void vtkImageSobel3D::ComputeRequiredInputRegionExtent(
 // it handles boundaries. Pixels are just replicated to get values 
 // out of extent.
 template <class T>
-void vtkImageSobel3DExecute(vtkImageSobel3D *self,
+static void vtkImageSobel3DExecute(vtkImageSobel3D *self,
 			    vtkImageRegion *inRegion, T *inPtr, 
 			    vtkImageRegion *outRegion, float *outPtr)
 {

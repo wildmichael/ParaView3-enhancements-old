@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageWrapPad.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-01-08 15:21:56 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1997-04-01 19:05:16 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -109,7 +109,7 @@ vtkImageWrapPad::ComputeRequiredInputRegionExtent(vtkImageRegion *outRegion,
 // Description:
 // This templated function executes the filter for any type of data.
 template <class T>
-void vtkImageWrapPadExecute(vtkImageWrapPad *self,
+static void vtkImageWrapPadExecute(vtkImageWrapPad *self,
 			    vtkImageRegion *inRegion, T *inPtr,
 			    vtkImageRegion *outRegion, T *outPtr)
 {
