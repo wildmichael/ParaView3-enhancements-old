@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMultipleInputFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-06 14:44:32 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1998-11-05 14:46:36 $
+  Version:   $Revision: 1.28 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -188,7 +188,7 @@ void vtkImageMultipleInputFilter::AddInput(vtkImageCache *input)
     {
     if (this->Inputs[idx] == NULL)
       {
-      this->Inputs[idx] == input;
+      this->Inputs[idx] = input;
       return;
       }
     }
