@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMapper.h,v $
   Language:  C++
-  Date:      $Date: 1998-03-10 14:51:23 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-03-17 13:33:34 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -89,9 +89,17 @@ public:
     {this->SetInput(spts->GetStructuredPointsToImage()->GetOutput());}
 
   // Description:
-  // Set/Get the current slice number.
-  void SetImageExtent2(int extent);
-  int GetImageExtent2();
+  // Set/Get the current slice number. The axis Z in ZSlice does not
+  // neccessarily have any relation to the z axis of the data on disk.
+  // It is simply the axis orthogonal to the x,y, display plane.
+  // GetWholeZMax and Min are convinience methods for obtaining
+  // the number of slices that can be displayed. Again the number
+  // of slices is in reference to the display z axis, which is not
+  // neccessarily the z axis on disk. (ue to reformating etc)
+  vtkSetMacro(ZSlice,int);
+  vtkGetMacro(ZSlice,int);
+  int GetWholeZMin();
+  int GetWholeZMax();
 
   // Description:
   // Draw the image to the screen.
@@ -105,16 +113,13 @@ public:
   float GetColorShift();
   float GetColorScale();
 
-  vtkGetVectorMacro(DisplayExtent, int, 6);
-  vtkSetVectorMacro(DisplayExtent, int, 6);
-  
 protected:
   vtkImageCache* Input;
   float ColorWindow;
   float ColorLevel;
  
   int DisplayExtent[6];
-
+  int ZSlice;
 };
 
 
