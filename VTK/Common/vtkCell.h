@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCell.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:20:39 $
-  Version:   $Revision: 1.55 $
+  Date:      $Date: 2000-01-05 14:45:19 $
+  Version:   $Revision: 1.56 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -274,12 +274,12 @@ public:
 
 
   // Description:
-  // Bounding box intersection modified from Graphics Gems Vol I.  Note: the
-  // intersection ray is assumed normalized, such that valid intersections
-  // can only occur between [0,1]. Method returns non-zero value if bounding
-  // box is hit. Origin[3] starts the ray, dir[3] is the components of the
-  // ray in the x-y-z directions, coord[3] is the location of hit, and t is
-  // the parametric coordinate along line.
+  // Bounding box intersection modified from Graphics Gems Vol I. The method
+  // returns a non-zero value if the bounding box is hit. Origin[3] starts
+  // the ray, dir[3] is the vector components of the ray in the x-y-z
+  // directions, coord[3] is the location of hit, and t is the parametric
+  // coordinate along line. (Notes: the intersection ray dir[3] is NOT
+  // normalized.  Valid intersections will only occur between 0<=t<=1.)
   static char HitBBox(float bounds[6], float origin[3], float dir[3], 
                       float coord[3], float& t);
 
