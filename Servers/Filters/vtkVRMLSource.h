@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVRMLSource.h,v $
   Language:  C++
-  Date:      $Date: 2003-04-30 16:01:00 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2003-05-05 16:45:38 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -49,6 +49,13 @@ public:
   vtkGetMacro(Color,int);
   vtkBooleanMacro(Color,int);
 
+  // Description:
+  // This method allows all parts to be put into a single output.
+  // By default this flag is on.
+  vtkSetMacro(Append,int);
+  vtkGetMacro(Append,int);
+  vtkBooleanMacro(Append,int);
+
 protected:
   vtkVRMLSource();
   ~vtkVRMLSource();
@@ -60,6 +67,7 @@ protected:
   char* FileName;
   vtkVRMLImporter *Importer;
   int Color;
+  int Append;
 
 private:
   vtkVRMLSource(const vtkVRMLSource&);  // Not implemented.
