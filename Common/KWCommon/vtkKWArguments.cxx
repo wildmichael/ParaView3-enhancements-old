@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKWArguments.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-04-03 14:07:09 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2003-04-03 17:39:09 $
+  Version:   $Revision: 1.3 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -76,7 +76,7 @@ public:
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro( vtkKWArguments );
-vtkCxxRevisionMacro(vtkKWArguments, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkKWArguments, "$Revision: 1.3 $");
 
 //----------------------------------------------------------------------------
 vtkKWArguments::vtkKWArguments()
@@ -194,7 +194,7 @@ int vtkKWArguments::Parse()
         }
       else
         {
-        cerr << "Got unknown argument: \"" << arg << "\"" << endl;
+        cerr << "Got unknown argument: \"" << arg.c_str() << "\"" << endl;
         return 0;
         }
       }
