@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleUnicam.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-30 12:41:44 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2000-12-30 12:50:12 $
+  Version:   $Revision: 1.5 $
   Thanks:    contributed by A. Forsberg, Brown University, December 2000
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -313,7 +313,7 @@ void vtkInteractorStyleUnicam::Choose( int X, int Y )
     {
     int tmp = xa;
     xa = ya;
-    ya = xa;
+    ya = tmp;
     }
      
   float len = sqrt(sdelt[0] * sdelt[0] + sdelt[1] * sdelt[1]);
