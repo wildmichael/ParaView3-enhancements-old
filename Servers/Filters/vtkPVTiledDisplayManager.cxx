@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPVTiledDisplayManager.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-03-24 19:20:54 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2003-03-25 17:13:49 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -43,7 +43,7 @@
  #include <mpi.h>
 #endif
 
-vtkCxxRevisionMacro(vtkPVTiledDisplayManager, "$Revision: 1.8 $");
+vtkCxxRevisionMacro(vtkPVTiledDisplayManager, "$Revision: 1.9 $");
 vtkStandardNewMacro(vtkPVTiledDisplayManager);
 
 vtkCxxSetObjectMacro(vtkPVTiledDisplayManager, RenderView, vtkObject);
@@ -1261,6 +1261,7 @@ void vtkPVTiledDisplayManager::PrintSelf(ostream& os, vtkIndent indent)
     {
     os << indent << "RenderWindow: (none)\n";
     }
+  os << indent << "UseCompositing: " << this->UseCompositing << "\n";
   os << indent << "LODReductionFactor: " << this->LODReductionFactor << "\n";
   
   os << indent << "Tile Dimensions: " << this->TileDimensions[0] << ", "

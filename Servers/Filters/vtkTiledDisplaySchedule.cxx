@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTiledDisplaySchedule.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-03-21 20:03:36 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2003-03-25 17:13:49 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 #include "vtkObjectFactory.h"
 
 
-vtkCxxRevisionMacro(vtkTiledDisplaySchedule, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkTiledDisplaySchedule, "$Revision: 1.4 $");
 vtkStandardNewMacro(vtkTiledDisplaySchedule);
 
 
@@ -391,9 +391,7 @@ void vtkTiledDisplaySchedule::PrintSelf(ostream& os, vtkIndent indent)
   vtkIndent i2 = indent.GetNextIndent();
 
   this->Superclass::PrintSelf(os, indent);
-
-  os << indent << "Schedule: (" << this << ")\n";
-
+  os << indent << "NumberOfTiles: " << this->NumberOfTiles << "\n";
   for (pIdx = 0; pIdx < this->NumberOfProcesses; ++pIdx)
     {
     p = this->Processes[pIdx];
