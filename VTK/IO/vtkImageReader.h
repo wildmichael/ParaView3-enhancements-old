@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:09:13 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 1999-10-21 19:08:54 $
+  Version:   $Revision: 1.40 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -133,11 +133,6 @@ public:
   vtkGetVector3Macro(DataOrigin,float);
 
   // Description:
-  // This method returns the largest data that can be generated.
-  void UpdateInformation();
-
-  
-  // Description:
   // Get the size of the header computed by this object.
   int GetHeaderSize();
   int GetHeaderSize(int slice);
@@ -251,6 +246,7 @@ protected:
   float DataOrigin[3];
   int DataVOI[6];
   
+  void ExecuteInformation();
   void Execute(vtkImageData *data);
   virtual void ComputeDataIncrements();
 };

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSinusoidSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:09:15 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1999-10-21 19:09:17 $
+  Version:   $Revision: 1.18 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder,ill Lorensen.
@@ -157,7 +157,7 @@ void vtkImageSinusoidSource::SetWholeExtent(int xMin, int xMax,
 }
 
 //----------------------------------------------------------------------------
-void vtkImageSinusoidSource::UpdateInformation()
+void vtkImageSinusoidSource::ExecuteInformation()
 {
   vtkImageData *output = this->GetOutput();
   unsigned long mem;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:09:12 $
-  Version:   $Revision: 1.58 $
+  Date:      $Date: 1999-10-21 19:08:53 $
+  Version:   $Revision: 1.59 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder,ill Lorensen.
@@ -424,7 +424,7 @@ void vtkImageReader::PrintSelf(ostream& os, vtkIndent indent)
 
 //----------------------------------------------------------------------------
 // This method returns the largest data that can be generated.
-void vtkImageReader::UpdateInformation()
+void vtkImageReader::ExecuteInformation()
 {
   vtkImageData *output = this->GetOutput();
   unsigned long mem;
