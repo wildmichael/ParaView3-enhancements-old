@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTreeComposite.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-31 13:23:23 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2001-09-12 15:04:34 $
+  Version:   $Revision: 1.19 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -519,6 +519,7 @@ void vtkTreeComposite::StartInteractor()
 
   this->InitializeRMIs();
   this->Controller->ProcessRMIs();
+  this->RenderWindowInteractor->TerminateApp();
 }
 
 //-------------------------------------------------------------------------
@@ -538,6 +539,7 @@ void vtkTreeComposite::ExitInteractor()
     {
     this->Controller->TriggerRMI(id, vtkMultiProcessController::BREAK_RMI_TAG);
     }
+  this->RenderWindowInteractor->TerminateApp();
 }
 
 
