@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkParse.y,v $
   Language:  C++
-  Date:      $Date: 1999-09-02 12:49:24 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1999-10-08 16:46:00 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -923,7 +923,8 @@ extern void vtkParseOutput(FILE *,FileInfo *);
 int main(int argc,char *argv[])
 {
   FILE *fin;
-
+  int ret;
+  
   if (argc != 4)
     {
     fprintf(stderr,"Usage: %s input_file hint_file is_concrete\n",argv[0]);
@@ -955,7 +956,11 @@ int main(int argc,char *argv[])
   
   yyin = fin;
   yyout = stdout;
-  yyparse();
+  ret = yyparse();
+  if (ret)
+    {
+    return ret;
+    }
   vtkParseOutput(stdout,&data);
   return 0;
 }
