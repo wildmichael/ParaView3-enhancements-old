@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOutlineCornerFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-03 16:34:21 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2000-08-05 19:05:43 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to Sebastien Barre who developed this class.
 
 
@@ -109,4 +109,11 @@ void vtkOutlineCornerFilter::ExecuteInformation()
   this->vtkSource::ExecuteInformation();
 
   this->OutlineCornerSource->UpdateInformation();
+}
+
+
+void vtkOutlineCornerFilter::PrintSelf(ostream& os, vtkIndent indent)
+{
+  vtkDataSetToPolyDataFilter::PrintSelf(os,indent);
+  os << indent << "CornerFactor: " << this->CornerFactor << "\n";
 }

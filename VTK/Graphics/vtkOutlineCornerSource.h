@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOutlineCornerSource.h,v $
   Language:  C++
-  Date:      $Date: 2000-08-03 16:34:21 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2000-08-05 19:05:43 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to Sebastien Barre who developed this class.
 
 
@@ -53,9 +53,12 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 class VTK_EXPORT vtkOutlineCornerSource : public vtkOutlineSource
 {
 public:
-  static vtkOutlineCornerSource *New();
   vtkTypeMacro(vtkOutlineCornerSource,vtkOutlineSource);
   void PrintSelf(ostream& os, vtkIndent indent);
+
+  // Description:
+  // Construct outline corner source with defaut corner factor = 0.2
+  static vtkOutlineCornerSource *New();
 
   // Description:
   // Set/Get the factor that controls the relative size of the corners

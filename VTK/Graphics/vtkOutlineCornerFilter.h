@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOutlineCornerFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-08-03 16:34:21 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2000-08-05 19:05:43 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to Sebastien Barre who developed this class.
 
 
@@ -55,8 +55,12 @@ class vtkOutlineCornerSource;
 class VTK_EXPORT vtkOutlineCornerFilter : public vtkDataSetToPolyDataFilter
 {
 public:
-  static vtkOutlineCornerFilter *New();
   vtkTypeMacro(vtkOutlineCornerFilter,vtkDataSetToPolyDataFilter);
+  void PrintSelf(ostream& os, vtkIndent indent);
+
+  // Description:
+  // Construct outline corner filter with defaut corner factor = 0.2
+  static vtkOutlineCornerFilter *New();
 
   // Description:
   // Set/Get the factor that controls the relative size of the corners
