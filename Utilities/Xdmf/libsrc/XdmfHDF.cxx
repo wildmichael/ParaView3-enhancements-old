@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfHDF.cxx,v 1.16 2004-04-14 20:23:19 berk Exp $  */
-/*  Date : $Date: 2004-04-14 20:23:19 $ */
-/*  Version : $Revision: 1.16 $ */
+/*  Id : $Id: XdmfHDF.cxx,v 1.17 2004-04-16 13:16:39 andy Exp $  */
+/*  Date : $Date: 2004-04-16 13:16:39 $ */
+/*  Version : $Revision: 1.17 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -152,7 +152,7 @@ return( H5G_UNKNOWN );
 #ifdef __cplusplus
 extern "C" {
 #endif
-static herr_t
+herr_t
 XdmfHDFList( hid_t group, XdmfConstString name, void *me )
 {
 XdmfHDF *ThisClassPtr = ( XdmfHDF *)me;
