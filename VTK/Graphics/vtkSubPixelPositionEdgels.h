@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSubPixelPositionEdgels.h,v $
   Language:  C++
-  Date:      $Date: 1996-11-15 16:23:23 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1996-12-12 17:14:22 $
+  Version:   $Revision: 1.3 $
 
 Copyright (c) 1993-1997 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -78,9 +78,9 @@ public:
 protected:
   // Usual data generation method
   void Execute();
-  void Move(int xdim, int ydim, int x, int y,
+  void Move(int xdim, int ydim, int zdim, int x, int y,
 	    float *img, vtkVectors *inVecs, 
-	    float *result, int z);
+	    float *result, int z, float *aspect);
   vtkStructuredPoints *GradMaps;  
 };
 
