@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangleStrip.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:37:49 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1995-08-21 20:36:20 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -70,7 +70,8 @@ int vtkTriangleStrip::EvaluatePosition(float x[3], float closestPoint[3],
     tri.Points.SetPoint(0,this->Points.GetPoint(i));
     tri.Points.SetPoint(1,this->Points.GetPoint(i+1));
     tri.Points.SetPoint(2,this->Points.GetPoint(i+2));
-    status = tri.EvaluatePosition(x,closest,ignoreId,pc,dist2,tempWeights);
+    status = tri.EvaluatePosition(x,closest,ignoreId,pc,dist2,
+				  (float *)tempWeights);
     if ( status != -1 && dist2 < minDist2 )
       {
       return_status = status;
