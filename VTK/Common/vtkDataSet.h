@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkDataSet.h,v $
   Language:  C++
-  Date:      $Date: 1994-06-11 08:07:22 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1994-07-09 06:40:17 $
+  Version:   $Revision: 1.25 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -77,6 +77,9 @@ public:
 
   // return pointer to this dataset's point data
   vlPointData *GetPointData() {return &this->PointData;};
+
+  // reclaim memory
+  virtual void Squeeze();
 
 protected:
   vlPointData PointData;   // Scalars, vectors, etc. associated w/ each point

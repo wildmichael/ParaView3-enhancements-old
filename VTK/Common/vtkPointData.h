@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPointData.h,v $
   Language:  C++
-  Date:      $Date: 1994-05-29 22:04:03 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1994-07-09 06:40:25 $
+  Version:   $Revision: 1.17 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -28,7 +28,7 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 class vlPointData : public vlObject 
 {
 public:
-  vlPointData() : Scalars(NULL), Vectors(NULL), Normals(NULL), TCoords(NULL) {};
+  vlPointData();
   void Initialize();
   ~vlPointData();
   char *GetClassName() {return "vlPointData";};

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStructuredData.h,v $
   Language:  C++
-  Date:      $Date: 1994-06-11 08:07:29 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1994-07-09 06:40:27 $
+  Version:   $Revision: 1.8 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -48,9 +48,12 @@ public:
   void GetCellPoints(int cellId, vlIdList& ptIds);
   void GetPointCells(int ptId, vlIdList& cellIds);
 
+  // specific object methods
   void SetDimensions(int i, int j, int k);
   void SetDimensions(int dim[3]);
   vlGetVectorMacro(Dimensions,int);
+
+  int GetDataDimension();
 
   void BlankingOn();
   void BlankingOff();

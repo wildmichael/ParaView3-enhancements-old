@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkUnstructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-06-11 08:07:29 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1994-07-09 06:40:31 $
+  Version:   $Revision: 1.10 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -258,5 +258,6 @@ void vlUnstructuredGrid::Squeeze()
   if ( this->Connectivity ) this->Connectivity->Squeeze();
   if ( this->Cells ) this->Cells->Squeeze();
   if ( this->Links ) this->Links->Squeeze();
-}
 
+  vlPointSet::Squeeze();
+}

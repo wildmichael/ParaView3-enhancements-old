@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPointData.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-05-29 22:04:02 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1994-07-09 06:40:23 $
+  Version:   $Revision: 1.20 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -22,6 +22,19 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 #include "FVectors.hh"
 #include "FNormals.hh"
 #include "FTCoords.hh"
+
+vlPointData::vlPointData()
+{
+  this->Scalars = NULL;
+  this->Vectors = NULL;
+  this->Normals = NULL;
+  this->TCoords = NULL;
+
+  this->CopyScalars = 1;
+  this->CopyVectors = 1;
+  this->CopyNormals = 1;
+  this->CopyTCoords = 1;
+}
 
 vlPointData::vlPointData (const vlPointData& pd)
 {

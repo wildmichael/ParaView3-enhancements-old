@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkCell.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-03-27 16:13:50 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1994-07-09 06:40:15 $
+  Version:   $Revision: 1.5 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -133,4 +133,21 @@ float *vlCell::GetBounds ()
       }
     }
   return bounds;
+}
+
+float vlCell::GetLength2 ()
+{
+  float diff, l=0.0;
+  float *bounds;
+  int i;
+
+  bounds = this->GetBounds();
+
+  for (i=0; i<3; i++)
+    {
+    diff = bounds[2*i+1] - bounds[2*i];
+    l += diff * diff;
+    }
+ 
+  return l;
 }

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPointSet.h,v $
   Language:  C++
-  Date:      $Date: 1994-06-07 10:59:13 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1994-07-09 06:40:19 $
+  Version:   $Revision: 1.5 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -52,6 +52,9 @@ public:
   // compute bounds of data
   void ComputeBounds();
   
+  // reclaim memory
+  void Squeeze();
+
   vlSetObjectMacro(Points,vlPoints);
   vlGetObjectMacro(Points,vlPoints);
 
