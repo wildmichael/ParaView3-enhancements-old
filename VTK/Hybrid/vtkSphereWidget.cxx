@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSphereWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-03 12:33:45 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-04-03 14:53:47 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,7 +26,7 @@
 #include "vtkCallbackCommand.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkSphereWidget, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkSphereWidget, "$Revision: 1.2 $");
 vtkStandardNewMacro(vtkSphereWidget);
 
 vtkSphereWidget::vtkSphereWidget()
@@ -483,14 +483,11 @@ void vtkSphereWidget::CreateDefaultProperties()
     }
 }
 
-void vtkSphereWidget::PlaceWidget(float bounds[6])
+void vtkSphereWidget::PlaceWidget(float bds[6])
 {
-  // Position the sphere source to lie in the bounding box aligned
-  // with the x-axis.
-  float center[3], radius;
-  center[0] = (bounds[0]+bounds[1]) / 2.0;
-  center[1] = (bounds[2]+bounds[3]) / 2.0;
-  center[2] = (bounds[4]+bounds[5]) / 2.0;
+  float bounds[6], center[3], radius;
+
+  this->AdjustBounds(bds, bounds, center);
   
   radius = (bounds[1]-bounds[0]) / 2.0;
   if ( radius > ((bounds[3]-bounds[2])/2.0) )
