@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMarchingCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-01-23 19:08:10 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1998-03-26 23:07:12 $
+  Version:   $Revision: 1.13 $
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -193,23 +193,23 @@ void vtkImageMarchingCubes::Execute()
     estimatedSize = 1024;
     }
   vtkDebugMacro(<< "Estimated number of points/triangles: " << estimatedSize);
-  this->Points = vtkFloatPoints::New();
+  this->Points = vtkPoints::New();
   this->Points->Allocate(estimatedSize,estimatedSize/2);
   this->Triangles = vtkCellArray::New();
   this->Triangles->Allocate(estimatedSize,estimatedSize/2);
   if (this->ComputeScalars)
     {
-    this->Scalars = vtkFloatScalars::New();
+    this->Scalars = vtkScalars::New();
     this->Scalars->Allocate(estimatedSize,estimatedSize/2);
     }
   if (this->ComputeNormals)
     {
-    this->Normals = vtkFloatNormals::New();
+    this->Normals = vtkNormals::New();
     this->Normals->Allocate(estimatedSize,estimatedSize/2);
     }
   if (this->ComputeGradients)
     {
-    this->Gradients = vtkFloatVectors::New();
+    this->Gradients = vtkVectors::New();
     this->Gradients->Allocate(estimatedSize,estimatedSize/2);
     }
 

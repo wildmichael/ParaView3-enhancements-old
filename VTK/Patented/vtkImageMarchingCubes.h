@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMarchingCubes.h,v $
   Language:  C++
-  Date:      $Date: 1998-03-10 16:20:02 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1998-03-26 23:07:13 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -139,10 +139,10 @@ public:
   int NeedGradients;
 
   vtkCellArray *Triangles;
-  vtkFloatScalars *Scalars;
-  vtkFloatPoints *Points;
-  vtkFloatNormals *Normals;
-  vtkFloatVectors *Gradients;
+  vtkScalars *Scalars;
+  vtkPoints *Points;
+  vtkNormals *Normals;
+  vtkVectors *Gradients;
   
   int GetLocatorPoint(int cellX, int cellY, int edge);
   void AddLocatorPoint(int cellX, int cellY, int edge, int ptId);
