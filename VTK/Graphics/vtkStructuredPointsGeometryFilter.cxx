@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsGeometryFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:05:04 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1998-07-29 17:57:19 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,7 +41,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkStructuredPointsGeometryFilter.h"
 
 // Description:
-// Construct with initial extent (0,100, 0,100, 0,0) (i.e., a plane).
+// Construct with initial extent of all the data
 vtkStructuredPointsGeometryFilter::vtkStructuredPointsGeometryFilter()
 {
   this->Extent[0] = 0;
