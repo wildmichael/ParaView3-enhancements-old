@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScaledTextActor.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-02 20:04:22 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-08-04 20:55:18 $
+  Version:   $Revision: 1.4 $
 
 Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -134,7 +134,8 @@ int vtkScaledTextActor::RenderOpaqueGeometry(vtkViewport *viewport)
     }
   
   // Check to see whether we have to rebuild everything
-  if ( this->GetMTime() > this->BuildTime)
+  if ( this->GetMTime() > this->BuildTime ||
+       this->TextActor->GetMapper()->GetMTime() > this->BuildTime)
     {
     vtkDebugMacro(<<"Rebuilding text");
     
