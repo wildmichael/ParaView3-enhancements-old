@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinkedList.txx,v $
   Language:  C++
-  Date:      $Date: 2002-11-06 20:10:23 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-11-21 20:23:06 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -227,7 +227,7 @@ int vtkLinkedList<DType>::FindItem(DType a, vtkIdType &res)
 {
   vtkIdType cc = 0;
   vtkLinkedListNode<DType> *curr;
-  for ( curr = this->Head; curr; curr = curr->Next )
+  for ( curr = this->Head; curr; curr = curr->Next, cc++ )
     {
     if ( vtkContainerCompareMethod(curr->Data, a) == 0 )
       {
@@ -250,7 +250,7 @@ int vtkLinkedList<DType>::FindItem(
 {
   vtkIdType cc = 0;
   vtkLinkedListNode<DType> *curr;
-  for ( curr = this->Head; curr; curr = curr->Next )
+  for ( curr = this->Head; curr; curr = curr->Next, cc++  )
     {
     if ( compare(curr->Data, a) == 0 )
       {
