@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSet.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-14 21:24:44 $
-  Version:   $Revision: 1.74 $
+  Date:      $Date: 1998-12-02 19:45:13 $
+  Version:   $Revision: 1.75 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -144,6 +144,12 @@ public:
   // Locate the closest point to the global coordinate x. Return the
   // point id. If point id < 0; then no point found. (This may arise
   // when point is outside of dataset.)
+  int FindPoint(float x, float y, float z)
+    {
+    float xyz[3];
+    xyz[0] = x; xyz[1] = y; xyz[2] = z;
+    return this->FindPoint (xyz);
+    }
   virtual int FindPoint(float x[3]) = 0;
 
   // Description:
