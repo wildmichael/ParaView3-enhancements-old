@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 1999-01-07 22:43:21 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 1999-04-26 13:06:34 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -148,6 +148,12 @@ protected:
   Widget oldTop;
   XtAppContext App;
   int PositionBeforeStereo[2];
+
+  XtIntervalId AddTimeOut(XtAppContext app_context, unsigned long interval,
+			  XtTimerCallbackProc proc, XtPointer client_data) ;
+  void GetMousePosition(int *x, int *y); 
+  void Timer(XtPointer client_data, XtIntervalId *id); 
+  void Callback(Widget w, XtPointer client_data, XEvent *event, Boolean *ctd); 
 };
 
 #endif
