@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSweptSurface.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-13 14:54:02 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 1999-12-19 21:47:57 $
+  Version:   $Revision: 1.52 $
 
 
 Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -147,6 +147,11 @@ void vtkSweptSurface::Execute()
   vtkDebugMacro(<<"Creating swept surface");
 
   // make sure there is input
+  if (input == NULL)
+    {
+    vtkErrorMacro(<<"Input is NULL");
+    return;
+    }
   pd = input->GetPointData();
   outPD = output->GetPointData();
   
