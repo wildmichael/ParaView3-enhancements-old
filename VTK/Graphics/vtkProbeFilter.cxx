@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProbeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:12:18 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 2000-05-19 15:53:19 $
+  Version:   $Revision: 1.51 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -109,8 +109,6 @@ void vtkProbeFilter::Execute()
     vtkErrorMacro (<< "Source is NULL.");
     return;
     }
-  
-  weights=new float[source->GetMaxCellSize()];
 
   pd = source->GetPointData();
   if (pd == NULL)
@@ -118,6 +116,8 @@ void vtkProbeFilter::Execute()
     vtkErrorMacro(<< "PointData is NULL.");
     return;
     }
+
+  weights=new float[source->GetMaxCellSize()];
 
   // First, copy the input to the output as a starting point
   output->CopyStructure( input );
