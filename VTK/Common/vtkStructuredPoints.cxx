@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-09-18 10:57:21 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 1996-10-05 17:14:43 $
+  Version:   $Revision: 1.42 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -326,7 +326,7 @@ vtkCell *vtkStructuredPoints::FindAndGetCell(float x[3], vtkCell *vtkNotUsed(cel
   for (i=0; i<3; i++) 
     {
     d = x[i] - this->Origin[i];
-    if ( d < 0.0 || d > ((this->Dimensions[i]-1)*this->AspectRatio[i]) ) 
+    if ( d < 0.0 || d >= ((this->Dimensions[i]-1)*this->AspectRatio[i]) ) 
       {
       return NULL;
       } 
