@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkIdList.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-05-23 22:28:14 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1994-06-11 08:07:23 $
+  Version:   $Revision: 1.3 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -37,7 +37,7 @@ void vlIdList::DeleteId(int cellId)
 }
 
 
-void vlIdList::IntersectWith(vlIdList *otherIds)
+void vlIdList::IntersectWith(vlIdList& otherIds)
 {
   int id, i, j;
   int numOriginalIds=this->GetNumberOfIds();
@@ -47,7 +47,7 @@ void vlIdList::IntersectWith(vlIdList *otherIds)
     for ( j=0; j < this->GetNumberOfIds(); j++)
       {
       id =  this->GetId(j);
-      if ( ! otherIds->IsId(id) ) this->DeleteId(id);
+      if ( ! otherIds.IsId(id) ) this->DeleteId(id);
       }
     }
 }

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkUnstructuredGrid.h,v $
   Language:  C++
-  Date:      $Date: 1994-06-10 08:35:42 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1994-06-11 08:07:31 $
+  Version:   $Revision: 1.7 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -49,8 +49,8 @@ public:
   void Initialize();
   int GetNumberOfCells();
   vlCell *GetCell(int cellId);
-  void GetCellPoints(int cellId, vlIdList *ptIds);
-  void GetPointCells(int ptId, vlIdList *cellIds);
+  void GetCellPoints(int cellId, vlIdList& ptIds);
+  void GetPointCells(int ptId, vlIdList& cellIds);
   int GetCellType(int cellId);
 
 protected:

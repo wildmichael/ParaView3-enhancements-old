@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPolyData.h,v $
   Language:  C++
-  Date:      $Date: 1994-06-10 08:35:51 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1994-06-11 08:07:27 $
+  Version:   $Revision: 1.29 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -42,8 +42,8 @@ public:
   vlCell *GetCell(int cellId);
   int GetCellType(int cellId);
   void Initialize();
-  void GetCellPoints(int cellId, vlIdList *ptIds);
-  void GetPointCells(int ptId, vlIdList *cellIds);
+  void GetCellPoints(int cellId, vlIdList& ptIds);
+  void GetPointCells(int ptId, vlIdList& cellIds);
 
   // Can't use macros to set/get following cell arrays.  This is due to tricks
   // required to support traversal methods.

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPointSet.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-06-07 10:59:12 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1994-06-11 08:07:24 $
+  Version:   $Revision: 1.10 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -118,7 +118,7 @@ int vlPointSet::FindCell(float x[3], vlCell *cell, float tol2, int& subId,
 
   if ( (ptId = this->Locator->FindClosestPoint(x)) >= 0 )
     {
-    this->GetPointCells(ptId, &cellIds);
+    this->GetPointCells(ptId, cellIds);
     for (i=0; i<cellIds.GetNumberOfIds(); i++)
       {
       cellId = cellIds.GetId(i);
