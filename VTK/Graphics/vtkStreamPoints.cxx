@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:07:49 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1999-12-28 19:00:57 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -63,6 +63,7 @@ vtkStreamPoints* vtkStreamPoints::New()
 vtkStreamPoints::vtkStreamPoints()
 {
   this->TimeIncrement = 1.0;
+  this->NumberOfStreamers = 0;
 }
 
 void vtkStreamPoints::Execute()

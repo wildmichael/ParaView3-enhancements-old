@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-12-21 17:37:57 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1999-12-28 19:00:56 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -88,6 +88,8 @@ vtkOpenGLRenderer::vtkOpenGLRenderer()
   this->PickInfo = new vtkGLPickInfo;
   this->NumberOfLightsBound = 0;
   this->PickInfo->PickBuffer = 0;
+  this->PickInfo->PickedID = 0;
+  this->PickedZ = 0;
 }
 
 // Internal method temporarily removes lights before reloading them

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-22 19:11:42 $
-  Version:   $Revision: 1.64 $
+  Date:      $Date: 1999-12-28 19:00:56 $
+  Version:   $Revision: 1.65 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -80,6 +80,9 @@ vtkRenderWindowInteractor::vtkRenderWindowInteractor()
 
   this->EventPosition[0] = 0;
   this->EventPosition[1] = 0;
+
+  this->Size[0] = 0;
+  this->Size[1] = 0;
 }
 
 vtkRenderWindowInteractor::~vtkRenderWindowInteractor()

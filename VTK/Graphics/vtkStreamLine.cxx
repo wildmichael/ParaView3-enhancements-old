@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamLine.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:07:48 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1999-12-28 19:00:57 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -63,6 +63,7 @@ vtkStreamLine* vtkStreamLine::New()
 vtkStreamLine::vtkStreamLine()
 {
   this->StepLength = 1.0;
+  this->NumberOfStreamers = 0;
 }
 
 void vtkStreamLine::Execute()

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObjectToDataSetFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-17 17:56:23 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1999-12-28 19:00:54 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -126,6 +126,9 @@ vtkDataObjectToDataSetFilter::vtkDataObjectToDataSetFilter()
   this->OriginArrayComponent = -1;
   this->OriginComponentRange[0] = this->OriginComponentRange[1] = -1;
   
+  this->Dimensions[0] = this->Dimensions[1] = this->Dimensions[2] = 0;
+  this->Spacing[0] = this->Spacing[1] = this->Spacing[2] = 0.0;
+  this->Origin[0] = this->Origin[1] = this->Origin[2] = 0.0;
 }
 
 //----------------------------------------------------------------------------

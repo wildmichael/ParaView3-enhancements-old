@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyle.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-17 17:56:30 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1999-12-28 19:00:55 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -65,6 +65,8 @@ vtkInteractorStyle::vtkInteractorStyle()
   this->OutlineMapper->SetInput(this->Outline->GetOutput());
   this->PickedRenderer   = NULL;
   this->CurrentActor     = NULL;
+  this->ActorPicked      = 0;
+  this->Center[0] = this->Center[1] = this->Center[2] = 0.0;
 
   this->State    = VTKIS_START;
   this->AnimState = VTKIS_ANIM_OFF; 

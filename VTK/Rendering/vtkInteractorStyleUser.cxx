@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleUser.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:06:43 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1999-12-28 19:00:55 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -68,6 +68,8 @@ vtkInteractorStyleUser::vtkInteractorStyleUser()
   this->UserInteractionMethod = NULL;
   this->UserInteractionMethodArgDelete = NULL;
   this->UserInteractionMethodArg = NULL;
+  this->LastPos[0] = this->LastPos[1] = 0;
+  this->OldPos[0] = this->OldPos[1] = 0;
 }
 
 vtkInteractorStyleUser::~vtkInteractorStyleUser() 
