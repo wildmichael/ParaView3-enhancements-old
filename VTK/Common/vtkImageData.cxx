@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-07 22:31:30 $
-  Version:   $Revision: 1.90 $
+  Date:      $Date: 2000-08-10 07:54:44 $
+  Version:   $Revision: 1.91 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -123,6 +123,8 @@ vtkImageData::~vtkImageData()
   this->Line->Delete();
   this->Pixel->Delete();
   this->Voxel->Delete();
+  
+  this->SetExtentTranslator(NULL);
 }
 
 //----------------------------------------------------------------------------
