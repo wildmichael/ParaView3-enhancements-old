@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIVExporter.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-11 19:02:51 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-03-26 23:04:07 $
+  Version:   $Revision: 1.3 $
   Thanks:    to Jon A. Webb of Visual Interface Inc.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -72,7 +72,7 @@ protected:
   void WriteALight(vtkLight *aLight, FILE *fp);
   void WriteAnActor(vtkActor *anActor, FILE *fp);
   void WritePointData(vtkPoints *points, vtkNormals *normals, 
-		      vtkTCoords *tcoords, vtkColorScalars *colors, FILE *fp);
+		      vtkTCoords *tcoords, vtkScalars *colors, FILE *fp);
   char *FileName;
 };
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDicer.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:44:14 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1998-03-26 23:03:42 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -93,9 +93,9 @@ protected:
 
   //implementation ivars and methods
   void BuildTree(vtkIdList *ptIds, vtkOBBNode *OBBptr);
-  void MarkPoints(vtkOBBNode *OBBptr, vtkShortScalars *groupIds);
+  void MarkPoints(vtkOBBNode *OBBptr, vtkScalars *groupIds);
   void DeleteTree(vtkOBBNode *OBBptr);
-  vtkFloatPoints *PointsList;
+  vtkPoints *PointsList;
   
 };
 

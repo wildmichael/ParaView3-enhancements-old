@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpScalar.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-11-06 14:12:58 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1998-03-26 23:05:34 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -73,7 +73,7 @@ void vtkWarpScalar::Execute()
   vtkPoints *inPts;
   vtkNormals *inNormals;
   vtkScalars *inScalars;
-  vtkFloatPoints *newPts;
+  vtkPoints *newPts;
   vtkPointData *pd;
   int i, ptId, numPts;
   float *x, *n, s, newX[3];
@@ -111,7 +111,7 @@ void vtkWarpScalar::Execute()
     vtkDebugMacro(<<"Using Normal instance variable");
     }
 
-  newPts = vtkFloatPoints::New();
+  newPts = vtkPoints::New();
   newPts->SetNumberOfPoints(numPts);
 //
 // Loop over all points, adjusting locations

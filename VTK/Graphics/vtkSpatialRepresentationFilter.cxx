@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSpatialRepresentationFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-01-16 21:22:36 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1998-03-26 23:04:54 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -154,7 +154,7 @@ void vtkSpatialRepresentationFilter::Execute()
 {
   vtkDebugMacro(<<"Building OBB representation");
 
-  this->SpatialRepresentation->SetDataSet(this->Input);
+  this->SpatialRepresentation->SetDataSet((vtkDataSet *)this->Input);
   this->SpatialRepresentation->Update();
   this->Level = this->SpatialRepresentation->GetLevel();
 

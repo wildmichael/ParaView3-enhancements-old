@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSLCReader.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:47:17 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1998-03-26 23:04:47 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -50,7 +50,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 #include <stdio.h>
 #include "vtkStructuredPointsSource.h"
-#include "vtkBitScalars.h"
 
 class VTK_EXPORT vtkSLCReader : public vtkStructuredPointsSource 
 {

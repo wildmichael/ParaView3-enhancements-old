@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectorText.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:49:10 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1998-03-26 23:05:28 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,7 +39,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkVectorText.h"
-#include "vtkFloatPoints.h"
+#include "vtkPoints.h"
 #include "vtkTransformPolyDataFilter.h"
 #include "vtkPolyDataReader.h"
 
@@ -1665,7 +1665,7 @@ vtkVectorText::vtkVectorText()
 void vtkVectorText::Execute()
 {
   vtkPolyData *output=(vtkPolyData *)this->Output;
-  vtkFloatPoints *newPoints;
+  vtkPoints *newPoints;
   vtkCellArray *newPolys;
   int ptOffset = 0;
   int aPoint, i;
@@ -1679,7 +1679,7 @@ void vtkVectorText::Execute()
   float ftmp[3];
   
   // Set things up; allocate memory
-  newPoints = vtkFloatPoints::New();
+  newPoints = vtkPoints::New();
   newPolys = vtkCellArray::New();
   ftmp[2] = 0.0;
   

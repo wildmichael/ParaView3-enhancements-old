@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:48:20 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1998-03-26 23:05:06 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -77,6 +77,7 @@ void vtkStructuredPointsWriter::WriteData()
   input->GetOrigin(origin);
   fprintf(fp,"ORIGIN %g %g %g\n", origin[0], origin[1], origin[2]);
 
+  this->WriteCellData(fp, input);
   this->WritePointData(fp, input);
 
   this->CloseVTKFile(fp);

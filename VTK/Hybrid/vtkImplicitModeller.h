@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitModeller.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-22 12:40:53 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1998-03-26 23:04:09 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -142,7 +142,7 @@ public:
 
 protected:
   void Execute();
-  void Cap(vtkFloatScalars *s);
+  void Cap(vtkScalars *s);
 
   int SampleDimensions[3];
   float MaximumDistance;

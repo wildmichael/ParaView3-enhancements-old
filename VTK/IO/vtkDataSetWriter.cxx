@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-01-16 21:21:12 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1998-03-26 23:03:35 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -69,7 +69,7 @@ void vtkDataSetWriter::WriteData()
 
   vtkDebugMacro(<<"Writing vtk dataset...");
 
-  type = this->Input->GetDataSetType();
+  type = ((vtkDataSet *)this->Input)->GetDataSetType();
   if ( type == VTK_POLY_DATA )
     {
     pwriter.SetInput((vtkPolyData *)this->Input);
@@ -113,6 +113,7 @@ void vtkDataSetWriter::WriteData()
   writer->SetTensorsName(this->TensorsName);
   writer->SetTCoordsName(this->TCoordsName);
   writer->SetLookupTableName(this->LookupTableName);
+  writer->SetFieldDataName(this->FieldDataName);
   writer->SetFileType(this->FileType);
   writer->SetDebug(this->Debug);
   writer->Write();

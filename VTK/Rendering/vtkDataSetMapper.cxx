@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-01-16 21:21:05 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 1998-03-26 23:03:32 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -128,6 +128,7 @@ void vtkDataSetMapper::Render(vtkRenderer *ren, vtkActor *act)
   this->PolyDataMapper->SetScalarRange(this->GetScalarRange());
   this->PolyDataMapper->SetImmediateModeRendering
     (this->GetImmediateModeRendering());
+  this->PolyDataMapper->SetColorMode(this->GetColorMode());
 
   this->PolyDataMapper->Render(ren,act);
 }

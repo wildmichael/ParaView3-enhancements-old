@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGaussianSplatter.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:44:54 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1998-03-26 23:04:02 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -124,7 +124,7 @@ public:
 
 protected:
   void Execute();
-  void Cap(vtkFloatScalars *s);
+  void Cap(vtkScalars *s);
 
   int SampleDimensions[3]; // dimensions of volume to splat into
   float Radius; // maximum distance splat propagates (as fraction 0->1)

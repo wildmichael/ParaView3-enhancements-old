@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamer.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-01-16 21:22:40 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 1998-03-26 23:04:59 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -231,7 +231,7 @@ void vtkStreamer::Update()
 
 void vtkStreamer::Integrate()
 {
-  vtkDataSet *input=this->Input;
+  vtkDataSet *input=(vtkDataSet *)this->Input;
   vtkDataSet *source=this->Source;
   vtkPointData *pd=input->GetPointData();
   vtkScalars *inScalars;
@@ -244,10 +244,10 @@ void vtkStreamer::Integrate()
   float d, step, dir, vNext[3], tol2, p[3];
   float *w=new float[input->GetMaxCellSize()], dist2;
   float closestPoint[3];
-  vtkFloatVectors cellVectors(VTK_CELL_SIZE);
-  vtkFloatScalars cellScalars(VTK_CELL_SIZE);
-  cellVectors.ReferenceCountingOff();
-  cellScalars.ReferenceCountingOff();
+  vtkVectors cellVectors;
+  vtkScalars cellScalars;
+  cellVectors.ReferenceCountingOff(); cellVectors.Allocate(VTK_CELL_SIZE);
+  cellScalars.ReferenceCountingOff(); cellVectors.Allocate(VTK_CELL_SIZE);
   
   vtkDebugMacro(<<"Generating streamers");
   this->NumberOfStreamers = 0;

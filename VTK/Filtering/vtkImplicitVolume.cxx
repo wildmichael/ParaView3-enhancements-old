@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitVolume.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:45:11 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-03-26 23:04:10 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -116,7 +116,7 @@ void vtkImplicitVolume::EvaluateGradient(float x[3], float n[3])
   vtkScalars *scalars;
   int i, ijk[3];
   float pcoords[3], weights[8], *v;
-  static vtkFloatVectors gradient(8);
+  vtkVectors gradient; gradient.SetNumberOfVectors(8);
 
   // See if a volume is defined
   if ( !this->Volume ||

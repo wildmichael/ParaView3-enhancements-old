@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGridWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:46:58 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-03-26 23:04:42 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -74,6 +74,7 @@ void vtkRectilinearGridWriter::WriteData()
   this->WriteCoordinates(fp, input->GetYCoordinates(), 1);
   this->WriteCoordinates(fp, input->GetZCoordinates(), 2);
 
+  this->WriteCellData(fp, input);
   this->WritePointData(fp, input);
 
   this->CloseVTKFile(fp);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:46:34 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-03-26 23:04:36 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -72,6 +72,7 @@ void vtkPolyDataWriter::WriteData()
   if (input->GetPolys()) this->WriteCells(fp, input->GetPolys(),"POLYGONS");
   if (input->GetStrips()) this->WriteCells(fp, input->GetStrips(),"TRIANGLE_STRIPS");
 
+  this->WriteCellData(fp, input);
   this->WritePointData(fp, input);
 
   this->CloseVTKFile(fp);

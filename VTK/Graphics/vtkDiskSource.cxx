@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDiskSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:44:15 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1998-03-26 23:03:43 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,7 +57,7 @@ void vtkDiskSource::Execute()
   int pts[4];
   float theta, deltaRadius;
   float cosTheta, sinTheta;
-  vtkFloatPoints *newPoints; 
+  vtkPoints *newPoints; 
   vtkCellArray *newPolys;
   vtkPolyData *output = this->GetOutput();
   
@@ -68,7 +68,7 @@ void vtkDiskSource::Execute()
   numPts = (this->RadialResolution + 1) * 
            (this->CircumferentialResolution + 1);
   numPolys = this->RadialResolution * this->CircumferentialResolution;
-  newPoints = vtkFloatPoints::New();
+  newPoints = vtkPoints::New();
   newPoints->Allocate(numPts);
   newPolys = vtkCellArray::New();
   newPolys->Allocate(newPolys->EstimateSize(numPolys,4));

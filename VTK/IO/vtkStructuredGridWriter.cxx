@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:48:09 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1998-03-26 23:05:03 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -72,6 +72,7 @@ void vtkStructuredGridWriter::WriteData()
 
   this->WritePoints(fp, input->GetPoints());
 
+  this->WriteCellData(fp, input);
   this->WritePointData(fp, input);
 
   this->CloseVTKFile(fp);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMCubesReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:45:25 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 1998-03-26 23:04:16 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -69,9 +69,9 @@ void vtkMCubesReader::Execute()
 {
   FILE *fp;
   FILE *limitp = NULL;
-  vtkFloatPoints *newPts;
+  vtkPoints *newPts;
   vtkCellArray *newPolys;
-  vtkFloatNormals *newNormals = NULL;
+  vtkNormals *newNormals = NULL;
   float bounds[6];
   int i, j, k, numPts, numTris;
   typedef struct {float x[3], n[3];} pointType;
@@ -148,14 +148,14 @@ void vtkMCubesReader::Execute()
 // Now re-read and merge
 //
   rewind (fp);
-  newPts = vtkFloatPoints::New();
+  newPts = vtkPoints::New();
   newPts->Allocate(numPts/3,numPts/3);
   newPolys = vtkCellArray::New();
   newPolys->Allocate(newPolys->EstimateSize(numTris,3));
 
   if ( this->Normals ) 
     {
-    newNormals = vtkFloatNormals::New();
+    newNormals = vtkNormals::New();
     newNormals->Allocate(numPts/3,numPts/3);
     }
   

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalarTree.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:47:24 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-03-26 23:04:51 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -106,7 +106,7 @@ public:
   // Methods provided for traversing cells based on scalar value
   void InitTraversal(float scalarValue);
   vtkCell *GetNextCell(int& cellId, vtkIdList* &ptIds,
-                       vtkFloatScalars& cellScalars);
+                       vtkScalars& cellScalars);
 
 protected:
   vtkDataSet *DataSet;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoxelModeller.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:49:29 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1998-03-26 23:05:32 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -46,7 +46,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // records occupancy. As such, it stores its results in the more compact
 // form of 0/1 bits.
 // .SECTION see also
-// vtkBitScalars vtkImplicitModeller
+// vtkImplicitModeller
 
 #ifndef __vtkVoxelModeller_h
 #define __vtkVoxelModeller_h

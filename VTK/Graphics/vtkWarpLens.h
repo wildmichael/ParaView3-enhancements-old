@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpLens.h,v $
   Language:  C++
-  Date:      $Date: 1997-08-22 13:26:41 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-03-26 23:05:34 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,10 +38,10 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-// .NAME vtkWarpLens - deform geometry by applying Lens distortion
+// .NAME vtkWarpLens - deform geometry by applying lens distortion
 // .SECTION Description
 // vtkWarpLens is a filter that modifies point coordinates by moving
-// in accord with a second order Lens distortion model
+// in accord with a second order lens distortion model
 
 #ifndef __vtkWarpLens_h
 #define __vtkWarpLens_h

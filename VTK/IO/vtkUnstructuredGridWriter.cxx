@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGridWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:49:02 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1998-03-26 23:05:23 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -93,8 +93,9 @@ void vtkUnstructuredGridWriter::WriteData()
     vtkByteSwap::SwapWrite4BERange(types,ncells,fp);
     }
   fprintf (fp,"\n");
-    
   delete [] types;
+
+  this->WriteCellData(fp, input);
   this->WritePointData(fp, input);
 
   this->CloseVTKFile(fp);  

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSmoothPolyDataFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-01-19 15:29:22 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-03-26 23:04:53 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -93,7 +93,7 @@ void vtkSmoothPolyDataFilter::Execute()
   vtkPoints *inPts;
   vtkTriangleFilter *toTris=NULL;
   vtkCellArray *inVerts, *inLines, *inPolys, *inStrips;
-  vtkFloatPoints *newPts;
+  vtkPoints *newPts;
   vtkMeshVertexPtr Verts;
   vtkPolyData *input=(vtkPolyData *)this->Input;
   vtkPolyData *output=(vtkPolyData *)this->Output;
@@ -125,8 +125,8 @@ void vtkSmoothPolyDataFilter::Execute()
 
   if ( this->NumberOfIterations <= 0 || this->RelaxationFactor == 0.0) //don't do anything!
     {
-    this->Output->CopyStructure(this->Input);
-    this->Output->GetPointData()->PassData(this->Input->GetPointData());
+    output->CopyStructure(input);
+    output->GetPointData()->PassData(input->GetPointData());
     vtkWarningMacro(<<"Number of iterations == 0: passing data through unchanged");
     return;
     }
@@ -388,7 +388,7 @@ void vtkSmoothPolyDataFilter::Execute()
 //
   vtkDebugMacro(<<"Beginning smoothing iterations...");
 
-  newPts = vtkFloatPoints::New();
+  newPts = vtkPoints::New();
   newPts->SetNumberOfPoints(numPts);
   for (i=0; i<numPts; i++) //initialize to old coordinates
     {
@@ -446,7 +446,7 @@ void vtkSmoothPolyDataFilter::Execute()
 
   if ( this->GenerateErrorScalars )
     {
-    vtkFloatScalars *newScalars = vtkFloatScalars::New();
+    vtkScalars *newScalars = vtkScalars::New();
     newScalars->SetNumberOfScalars(numPts);
     for (i=0; i<numPts; i++)
       {
@@ -460,7 +460,7 @@ void vtkSmoothPolyDataFilter::Execute()
 
   if ( this->GenerateErrorVectors )
     {
-    vtkFloatVectors *newVectors = vtkFloatVectors::New();
+    vtkVectors *newVectors = vtkVectors::New();
     newVectors->SetNumberOfVectors(numPts);
     for (i=0; i<numPts; i++)
       {

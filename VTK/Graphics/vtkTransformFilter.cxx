@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransformFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:48:44 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1998-03-26 23:05:16 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,18 +39,18 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkTransformFilter.h"
-#include "vtkFloatNormals.h"
-#include "vtkFloatVectors.h"
+#include "vtkNormals.h"
+#include "vtkVectors.h"
 
 void vtkTransformFilter::Execute()
 {
   vtkPoints *inPts;
-  vtkFloatPoints *newPts;
+  vtkPoints *newPts;
   vtkPointData *pd, *outPD;
   vtkVectors *inVectors;
-  vtkFloatVectors *newVectors=NULL;
+  vtkVectors *newVectors=NULL;
   vtkNormals *inNormals;
-  vtkFloatNormals *newNormals=NULL;
+  vtkNormals *newNormals=NULL;
   int numPts;
   vtkPointSet *input=(vtkPointSet *)this->Input;
   vtkPointSet *output= this->GetOutput();
@@ -78,16 +78,16 @@ void vtkTransformFilter::Execute()
     }
 
   numPts = inPts->GetNumberOfPoints();
-  newPts = vtkFloatPoints::New();
+  newPts = vtkPoints::New();
   newPts->Allocate(numPts);
   if ( inVectors ) 
     {
-    newVectors = vtkFloatVectors::New();
+    newVectors = vtkVectors::New();
     newVectors->Allocate(numPts);
     }
   if ( inNormals ) 
     {
-    newNormals = vtkFloatNormals::New();
+    newNormals = vtkNormals::New();
     newNormals->Allocate(numPts);
     }
   //

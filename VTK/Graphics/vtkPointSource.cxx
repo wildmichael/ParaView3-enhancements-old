@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:46:20 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1998-03-26 23:04:32 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,13 +56,13 @@ void vtkPointSource::Execute()
 {
   int i;
   float radius, theta, phi, x[3], rho;
-  vtkFloatPoints *newPoints;
+  vtkPoints *newPoints;
   vtkCellArray *newVerts;
   vtkPolyData *output = (vtkPolyData *)this->Output;
   
   vtkDebugMacro(<< "Generating random cloud of points...");
 
-  newPoints = vtkFloatPoints::New();
+  newPoints = vtkPoints::New();
   newPoints->Allocate(this->NumberOfPoints);
   newVerts = vtkCellArray::New();
   newVerts->Allocate(newVerts->EstimateSize(1,this->NumberOfPoints));

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSetToPointSetFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-01-16 21:22:18 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1998-03-26 23:04:31 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -79,17 +79,17 @@ void vtkPointSetToPointSetFilter::SetInput(vtkPointSet *input)
 
     if ( this->Input == NULL ) return;
 
-    if ( this->Input->GetDataSetType() == VTK_POLY_DATA )
+    if ( input->GetDataSetType() == VTK_POLY_DATA )
       {
       this->Output = this->PolyData;
       }
 
-    else if ( this->Input->GetDataSetType() == VTK_STRUCTURED_GRID )
+    else if ( input->GetDataSetType() == VTK_STRUCTURED_GRID )
       {
       this->Output = this->StructuredGrid;
       }
 
-    else if ( this->Input->GetDataSetType() == VTK_UNSTRUCTURED_GRID )
+    else if ( input->GetDataSetType() == VTK_UNSTRUCTURED_GRID )
       {
       this->Output = this->UnstructuredGrid;
       }
@@ -139,7 +139,7 @@ void vtkPointSetToPointSetFilter::Update()
 
     if ( this->StartMethod ) (*this->StartMethod)(this->StartMethodArg);
     // clear points and point data output 
-    this->Output->CopyStructure(this->Input);
+    ((vtkDataSet *)this->Output)->CopyStructure((vtkDataSet *)this->Input);
     // reset AbortExecute flag and Progress
     this->AbortExecute = 0;
     this->Progress = 0.0;

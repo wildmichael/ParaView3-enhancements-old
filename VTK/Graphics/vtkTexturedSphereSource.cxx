@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTexturedSphereSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:48:36 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1998-03-26 23:05:14 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,8 +39,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkTexturedSphereSource.h"
-#include "vtkFloatPoints.h"
-#include "vtkFloatNormals.h"
+#include "vtkPoints.h"
+#include "vtkNormals.h"
 #include "vtkMath.h"
 
 // Description:
@@ -59,9 +59,9 @@ void vtkTexturedSphereSource::Execute()
   int i, j;
   int numPts;
   int numPolys;
-  vtkFloatPoints *newPoints; 
-  vtkFloatNormals *newNormals;
-  vtkFloatTCoords *newTCoords;
+  vtkPoints *newPoints; 
+  vtkNormals *newNormals;
+  vtkTCoords *newTCoords;
   vtkCellArray *newPolys;
   float x[3], deltaPhi, deltaTheta, phi, theta, radius, norm;
   int pts[3];
@@ -76,11 +76,11 @@ void vtkTexturedSphereSource::Execute()
   // creating triangles
   numPolys = this->PhiResolution * 2 * this->ThetaResolution;
 
-  newPoints = vtkFloatPoints::New();
+  newPoints = vtkPoints::New();
   newPoints->Allocate(numPts);
-  newNormals = vtkFloatNormals::New();
+  newNormals = vtkNormals::New();
   newNormals->Allocate(numPts);
-  newTCoords = vtkFloatTCoords::New();
+  newTCoords = vtkTCoords::New();
   newTCoords->Allocate(numPts,2);
   newPolys = vtkCellArray::New();
   newPolys->Allocate(newPolys->EstimateSize(numPolys,3));

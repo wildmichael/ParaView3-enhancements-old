@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextureMapToSphere.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:48:34 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1998-03-26 23:05:13 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -54,8 +54,9 @@ vtkTextureMapToSphere::vtkTextureMapToSphere()
 
 void vtkTextureMapToSphere::Execute()
 {
-  vtkFloatTCoords *newTCoords;
-  vtkDataSet *input=this->Input;
+  vtkTCoords *newTCoords;
+  vtkDataSet *input=(vtkDataSet *)this->Input;
+  vtkDataSet *output=(vtkDataSet *)this->Output;
   int numPts=input->GetNumberOfPoints();
   int ptId;
   float *x, rho, r, tc[2], phi=0.0, thetaX, thetaY;
@@ -89,7 +90,7 @@ void vtkTextureMapToSphere::Execute()
 
   //loop over all points computing spherical coordinates. Only tricky part
   //is keeping track of singularities/numerical problems.
-  newTCoords = vtkFloatTCoords::New();
+  newTCoords = vtkTCoords::New();
   newTCoords->SetNumberOfTCoords(numPts);
   for ( ptId=0; ptId < numPts; ptId++ )
     {
@@ -160,10 +161,10 @@ void vtkTextureMapToSphere::Execute()
     newTCoords->SetTCoord(ptId,tc);
     }
 
-  this->Output->GetPointData()->CopyTCoordsOff();
-  this->Output->GetPointData()->PassData(this->Input->GetPointData());
+  output->GetPointData()->CopyTCoordsOff();
+  output->GetPointData()->PassData(input->GetPointData());
 
-  this->Output->GetPointData()->SetTCoords(newTCoords);
+  output->GetPointData()->SetTCoords(newTCoords);
   newTCoords->Delete();
 }
 

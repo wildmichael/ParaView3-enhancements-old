@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkShrinkFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:47:26 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1998-03-26 23:04:52 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -47,18 +47,19 @@ vtkShrinkFilter::vtkShrinkFilter(float sf)
 
 void vtkShrinkFilter::Execute()
 {
-  vtkFloatPoints *newPts;
+  vtkPoints *newPts;
   int i, j, cellId, numCells, numPts;
   int oldId, newId, numIds;
   float center[3], *p, pt[3];
   vtkPointData *pd, *outPD;;
   vtkIdList ptIds(VTK_CELL_SIZE), newPtIds(VTK_CELL_SIZE);
+  vtkDataSet *input=(vtkDataSet *)this->Input;
   vtkUnstructuredGrid *output=(vtkUnstructuredGrid *)this->Output;
 
   vtkDebugMacro(<<"Shrinking cells");
 
-  numCells=this->Input->GetNumberOfCells();
-  numPts = this->Input->GetNumberOfPoints();
+  numCells=input->GetNumberOfCells();
+  numPts = input->GetNumberOfPoints();
   if (numCells < 1 || numPts < 1)
     {
     vtkErrorMacro(<<"No data to shrink!");
@@ -66,9 +67,9 @@ void vtkShrinkFilter::Execute()
     }
 
   output->Allocate(numCells);
-  newPts = vtkFloatPoints::New();
+  newPts = vtkPoints::New();
   newPts->Allocate(numPts*8,numPts);
-  pd = this->Input->GetPointData();
+  pd = input->GetPointData();
   outPD = output->GetPointData();
   outPD->CopyAllocate(pd,numPts*8,numPts);
 //
@@ -77,14 +78,14 @@ void vtkShrinkFilter::Execute()
 //
   for (cellId=0; cellId < numCells; cellId++)
     {
-    this->Input->GetCellPoints(cellId,ptIds);
+    input->GetCellPoints(cellId,ptIds);
     numIds = ptIds.GetNumberOfIds();
 
     // get the center of the cell
     center[0] = center[1] = center[2] = 0.0;
     for (i=0; i < numIds; i++)
       {
-      p = this->Input->GetPoint(ptIds.GetId(i));
+      p = input->GetPoint(ptIds.GetId(i));
       for (j=0; j < 3; j++) center[j] += p[j];
       }
     for (j=0; j<3; j++) center[j] /= numIds;
@@ -93,7 +94,7 @@ void vtkShrinkFilter::Execute()
     newPtIds.Reset();
     for (i=0; i < numIds; i++)
       {
-      p = this->Input->GetPoint(ptIds.GetId(i));
+      p = input->GetPoint(ptIds.GetId(i));
       for (j=0; j < 3; j++)
         pt[j] = center[j] + this->ShrinkFactor*(p[j] - center[j]);
 
@@ -103,7 +104,7 @@ void vtkShrinkFilter::Execute()
 
       outPD->CopyData(pd, oldId, newId);
       }
-    output->InsertNextCell(this->Input->GetCellType(cellId), newPtIds);
+    output->InsertNextCell(input->GetCellType(cellId), newPtIds);
     }
 //
 // Update ourselves and release memory

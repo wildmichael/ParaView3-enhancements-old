@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridReader.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:48:04 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1998-03-26 23:05:02 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -96,6 +96,9 @@ public:
 
   void SetLookupTableName(char *name);
   char *GetLookupTableName();
+
+  void SetFieldDataName(char *name);
+  char *GetFieldDataName();
 
 protected:
   void Execute();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMCubesReader.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:45:26 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1998-03-26 23:04:17 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -73,7 +73,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 #include <stdio.h>
 #include "vtkPolyDataSource.h"
-#include "vtkFloatPoints.h"
+#include "vtkPoints.h"
 #include "vtkCellArray.h"
 
 class VTK_EXPORT vtkMCubesReader : public vtkPolyDataSource 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitTextureCoords.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-01-16 21:21:54 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1998-03-26 23:04:10 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,12 +55,13 @@ vtkImplicitTextureCoords::vtkImplicitTextureCoords()
 void vtkImplicitTextureCoords::Execute()
 {
   int ptId, numPts, tcoordDim;
-  vtkFloatTCoords *newTCoords;
+  vtkTCoords *newTCoords;
   float min[3], max[3], scale[3];
   float tCoord[3], *tc, *x;
   int i;
-  vtkDataSet *input=this->Input;
-  //
+  vtkDataSet *input=(vtkDataSet *)this->Input;
+  vtkDataSet *output=(vtkDataSet *)this->Output;
+
   // Initialize
   //
   vtkDebugMacro(<<"Generating texture coordinates from implicit functions...");
@@ -93,12 +94,12 @@ void vtkImplicitTextureCoords::Execute()
 
   if ( tcoordDim == 1 ) //force 2D map to be created
     {
-    newTCoords = vtkFloatTCoords::New();
+    newTCoords = vtkTCoords::New();
     newTCoords->Allocate(numPts,2);
     }
   else
     {
-    newTCoords = vtkFloatTCoords::New();
+    newTCoords = vtkTCoords::New();
     newTCoords->Allocate(numPts,tcoordDim);
     }
 //
@@ -156,10 +157,10 @@ void vtkImplicitTextureCoords::Execute()
 //
 // Update self
 //
-  this->Output->GetPointData()->CopyTCoordsOff();
-  this->Output->GetPointData()->PassData(input->GetPointData());
+  output->GetPointData()->CopyTCoordsOff();
+  output->GetPointData()->PassData(input->GetPointData());
 
-  this->Output->GetPointData()->SetTCoords(newTCoords);
+  output->GetPointData()->SetTCoords(newTCoords);
   newTCoords->Delete();
 }
 
@@ -245,7 +246,7 @@ void vtkImplicitTextureCoords::Update()
     // copy topological/geometric structure from input
     this->AbortExecute = 0;
     this->Progress = 0.0;
-    this->Output->CopyStructure(this->Input);
+    ((vtkDataSet *)this->Output)->CopyStructure((vtkDataSet *)this->Input);
     this->Execute();
     this->ExecuteTime.Modified();
     if ( !this->AbortExecute ) this->UpdateProgress(1.0);

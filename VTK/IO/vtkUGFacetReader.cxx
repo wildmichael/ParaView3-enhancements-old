@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUGFacetReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:48:55 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1998-03-26 23:05:20 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -71,8 +71,8 @@ void vtkUGFacetReader::Execute()
   int ptId[3];
   short ugiiColor, direction;
   int numberTris, numFacetSets, setNumber, facetNumber;
-  vtkFloatPoints *newPts, *mergedPts;
-  vtkFloatNormals *newNormals, *mergedNormals;
+  vtkPoints *newPts, *mergedPts;
+  vtkNormals *newNormals, *mergedNormals;
   vtkCellArray *newPolys, *mergedPolys;
   vtkPolyData *output=(vtkPolyData *)this->Output;
 
@@ -113,9 +113,9 @@ void vtkUGFacetReader::Execute()
     this->PartColors->Reset();
     }
 
-  newPts = vtkFloatPoints::New();
+  newPts = vtkPoints::New();
   newPts->Allocate(25000,25000);
-  newNormals = vtkFloatNormals::New();
+  newNormals = vtkNormals::New();
   newNormals->Allocate(25000,25000);
   newPolys = vtkCellArray::New();
   newPolys->Allocate(newPolys->EstimateSize(25000,3),25000);
@@ -180,9 +180,9 @@ void vtkUGFacetReader::Execute()
     int npts, *pts, i, nodes[3];
     float *x;
 
-    mergedPts = vtkFloatPoints::New();
+    mergedPts = vtkPoints::New();
     mergedPts->Allocate(newPts->GetNumberOfPoints()/3);
-    mergedNormals = vtkFloatNormals::New();
+    mergedNormals = vtkNormals::New();
     mergedNormals->Allocate(newNormals->GetNumberOfNormals()/3);
     mergedPolys = vtkCellArray::New();
     mergedPolys->Allocate(newPolys->GetSize());

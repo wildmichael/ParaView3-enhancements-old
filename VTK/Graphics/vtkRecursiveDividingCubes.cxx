@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRecursiveDividingCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:46:59 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1998-03-26 23:04:43 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -53,8 +53,8 @@ vtkRecursiveDividingCubes::vtkRecursiveDividingCubes()
 static float X[3]; //origin of current voxel
 static float Spacing[3]; //spacing of current voxel
 static float Normals[8][3]; //voxel normals
-static vtkFloatPoints *NewPts; //points being generated
-static vtkFloatNormals *NewNormals; //points being generated
+static vtkPoints *NewPts; //points being generated
+static vtkNormals *NewNormals; //points being generated
 static vtkCellArray *NewVerts; //verts being generated
 
 void vtkRecursiveDividingCubes::Execute()
@@ -67,8 +67,8 @@ void vtkRecursiveDividingCubes::Execute()
   int above, below, vertNum;
   vtkStructuredPoints *input=(vtkStructuredPoints *)this->Input;
   vtkPolyData *output=(vtkPolyData *)this->Output;
-  vtkFloatScalars voxelScalars(8);
-  voxelScalars.ReferenceCountingOff();
+  vtkScalars voxelScalars(VTK_FLOAT);
+  voxelScalars.Allocate(8); voxelScalars.ReferenceCountingOff();
 
   vtkDebugMacro(<< "Executing recursive dividing cubes...");
 //
@@ -94,9 +94,9 @@ void vtkRecursiveDividingCubes::Execute()
   input->GetOrigin(origin);
 
   // creating points
-  NewPts = vtkFloatPoints::New();
+  NewPts = vtkPoints::New();
   NewPts->Allocate(500000,1000000);
-  NewNormals = vtkFloatNormals::New();
+  NewNormals = vtkNormals::New();
   NewNormals->Allocate(500000,1000000);
   NewVerts = vtkCellArray::New();
   NewVerts->Allocate(500000,1000000);
@@ -153,7 +153,8 @@ void vtkRecursiveDividingCubes::Execute()
             input->GetPointGradient(i,j+1,k+1, inScalars, Normals[6]);
             input->GetPointGradient(i+1,j+1,k+1, inScalars, Normals[7]);
 
-            this->SubDivide(X, Spacing, voxelScalars.GetPointer(0));
+            this->SubDivide(X, Spacing, 
+			    ((vtkFloatArray *)voxelScalars.GetData())->GetPointer(0));
             }
           }
         }

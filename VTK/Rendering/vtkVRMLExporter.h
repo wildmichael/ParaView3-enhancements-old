@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVRMLExporter.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-21 12:30:57 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1998-03-26 23:05:24 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -79,7 +79,7 @@ protected:
   void WriteALight(vtkLight *aLight, FILE *fp);
   void WriteAnActor(vtkActor *anActor, FILE *fp);
   void WritePointData(vtkPoints *points, vtkNormals *normals, 
-		      vtkTCoords *tcoords, vtkColorScalars *colors, FILE *fp);
+		      vtkTCoords *tcoords, vtkScalars *colors, FILE *fp);
   char *FileName;
   FILE *FilePointer;
 };

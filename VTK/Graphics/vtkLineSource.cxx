@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLineSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:45:20 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1998-03-26 23:04:11 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,8 +40,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include <math.h>
 #include "vtkLineSource.h"
-#include "vtkFloatPoints.h"
-#include "vtkFloatTCoords.h"
+#include "vtkPoints.h"
+#include "vtkTCoords.h"
 
 vtkLineSource::vtkLineSource(int res)
 {
@@ -63,16 +63,16 @@ void vtkLineSource::Execute()
   float x[3], tc[2], v[3];
   int i, j;
   int pts[2];
-  vtkFloatPoints *newPoints; 
-  vtkFloatTCoords *newTCoords; 
+  vtkPoints *newPoints; 
+  vtkTCoords *newTCoords; 
   vtkCellArray *newLines;
   vtkPolyData *output = this->GetOutput();
   
   vtkDebugMacro(<<"Creating line");
 
-  newPoints = vtkFloatPoints::New();
+  newPoints = vtkPoints::New();
   newPoints->Allocate(numPts);
-  newTCoords = vtkFloatTCoords::New();
+  newTCoords = vtkTCoords::New();
   newTCoords->Allocate(numPts,2);
 
   newLines = vtkCellArray::New();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkReverseSense.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:47:11 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-03-26 23:04:44 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -87,7 +87,7 @@ void vtkReverseSense::Execute()
   if ( this->ReverseNormals && normals )
     {
     int numPoints=input->GetNumberOfPoints();
-    vtkNormals *outNormals=normals->MakeObject(numPoints);
+    vtkNormals *outNormals=(vtkNormals *)normals->MakeObject();
     outNormals->SetNumberOfNormals(numPoints);
     float n[3];
 

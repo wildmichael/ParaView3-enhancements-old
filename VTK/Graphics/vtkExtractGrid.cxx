@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:44:25 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1998-03-26 23:03:46 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -117,7 +117,7 @@ void vtkExtractGrid::Execute()
 //
 // Allocate necessary objects
 //
-  newPts = (vtkPoints *) inPts->MakeObject(outSize); newPts->SetNumberOfPoints(outSize);
+  newPts = (vtkPoints *) inPts->MakeObject(); newPts->SetNumberOfPoints(outSize);
   outPD->CopyAllocate(pd,outSize,outSize);
 //
 // Traverse input data and copy point attributes to output

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpLens.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-08-22 13:26:40 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-03-26 23:05:33 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -51,7 +51,7 @@ vtkWarpLens::vtkWarpLens()
 void vtkWarpLens::Execute()
 {
   vtkPoints *inPts;
-  vtkFloatPoints *newPts;
+  vtkPoints *newPts;
   vtkPointData *pd;
   int i, ptId, numPts;
   float *x, newX[3];
@@ -75,7 +75,8 @@ void vtkWarpLens::Execute()
     return;
     }
 
-  newPts = new vtkFloatPoints(numPts); newPts->SetNumberOfPoints(numPts);
+  newPts = new vtkPoints; 
+  newPts->SetNumberOfPoints(numPts);
 
   //
   // Loop over all points, adjusting locations
