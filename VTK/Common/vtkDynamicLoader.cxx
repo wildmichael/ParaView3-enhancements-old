@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDynamicLoader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-01-20 19:17:03 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2003-02-10 19:09:32 $
+  Version:   $Revision: 1.13 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,7 @@
 // Each part of the ifdef contains a complete implementation for
 // the static methods of vtkDynamicLoader.  
 
-vtkCxxRevisionMacro(vtkDynamicLoader, "$Revision: 1.12 $");
+vtkCxxRevisionMacro(vtkDynamicLoader, "$Revision: 1.13 $");
 
 //----------------------------------------------------------------------------
 // Needed when we don't use the vtkStandardNewMacro.
@@ -209,8 +209,11 @@ const char* vtkDynamicLoader::LastError()
   // Free the buffer.
   static char* str = 0;
   delete [] str;
-  str = strcpy(new char[strlen((char*)lpMsgBuf)+1], (char*)lpMsgBuf);
-  LocalFree( lpMsgBuf );
+  if (lpMsgBuf)
+    {
+    str = strcpy(new char[strlen((char*)lpMsgBuf)+1], (char*)lpMsgBuf);
+    LocalFree( lpMsgBuf );
+    }
   return str;
 }
 
