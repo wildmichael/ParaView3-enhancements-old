@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkCamera.h,v $
   Language:  C++
-  Date:      $Date: 1994-09-14 08:09:58 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1995-01-05 13:41:31 $
+  Version:   $Revision: 1.10 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -76,6 +76,13 @@ class vlCamera : public vlObject
   // images.
   vlGetMacro(EyeAngle,float);
 
+  // Description:
+  // Set the size of the cameras lense in world coordinates.
+  vlSetMacro(FocalDisk,float);
+  // Description:
+  // Get the size of the cameras lense in world coordinates.
+  vlGetMacro(FocalDisk,float);
+
   void SetThickness(float);
   vlGetMacro(Thickness,float);
 
@@ -130,7 +137,8 @@ class vlCamera : public vlObject
   vlTransform Transform;
   vlTransform PerspectiveTransform;
   float Orientation[3];
-
+  float FocalDisk;
 };
 
 #endif
+
