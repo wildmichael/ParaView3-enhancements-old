@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXImageWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:09:33 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1999-10-22 15:17:11 $
+  Version:   $Revision: 1.25 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -596,12 +596,6 @@ int *vtkXImageWindow::GetPosition(void)
 // Move the window to a new position on the display.
 void vtkXImageWindow::SetPosition(int x, int y)
 {
-  // what should I do if a window has not been created (lawcc dfss)
-  if (this->WindowId == (Window)(NULL))
-    {
-    this->MakeDefaultWindow();
-    }
-  
   // if we aren't mapped then just set the ivars
   if (!this->Mapped)
     {
