@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDecimatePro.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:30 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1999-09-23 12:52:14 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -361,6 +361,7 @@ private:
   vtkProVertexArray *V;
   vtkProTriArray *T;
 
+  vtkPointData *TempPD; // temp holder of point data for splitting
   // Use to be static variables used by object
   vtkPolyData *Mesh; //operate on this data structure
   float Pt[3];      //least squares plane point
