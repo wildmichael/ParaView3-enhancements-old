@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkByteSwap.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-18 16:46:52 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2000-01-12 19:55:32 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -239,10 +239,10 @@ void vtkByteSwap::Swap2BE(short *) {}
 #else
 void vtkByteSwap::Swap2BE(short *mem_ptr)
 {
-  unsigned h1,h2;
+  unsigned short h1,h2;
 
-  h1 = *mem_ptr << 8;
-  h2 = *mem_ptr >> 8;
+  h1 = (unsigned short)*mem_ptr << 8;
+  h2 = (unsigned short)*mem_ptr >> 8;
   *mem_ptr = (short) h1 | h2;
 
 }
