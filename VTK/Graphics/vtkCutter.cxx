@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCutter.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-09-14 19:43:23 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1996-09-20 11:20:06 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -129,7 +129,7 @@ void vtkCutter::Execute()
     for (i=0; i<cellPts->GetNumberOfPoints(); i++)
       {
       x = cellPts->GetPoint(i);
-      s = this->CutFunction->EvaluateFunction(x);
+      s = this->CutFunction->FunctionValue(x);
       cellScalars.SetScalar(i,s);
       }
 
