@@ -3,8 +3,8 @@
  Program:   Visualization Toolkit
  Module:    $RCSfile: vtkSource.cxx,v $
  Language:  C++
- Date:      $Date: 1997-12-11 11:54:56 $
- Version:   $Revision: 1.28 $
+ Date:      $Date: 1998-01-14 20:58:00 $
+ Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -217,13 +217,27 @@ void vtkSource::SetEndMethodArgDelete(void (*f)(void *))
 
 void vtkSource::Execute()
 {
-  vtkErrorMacro(<< "Execution of source should be in derived class");
+  vtkErrorMacro(<< "Definition of Execute() method should be in subclass");
 }
 
 
 void vtkSource::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkObject::PrintSelf(os,indent);
+
+  os << indent << "Execute Time: " << this->ExecuteTime.GetMTime() << "\n";
+
+  if ( this->StartMethod ) os << indent << "Start Method defined\n";
+  else os << indent <<"No Start Method\n";
+
+  if ( this->ProgressMethod ) os << indent << "Progress Method defined\n";
+  else os << indent << "No Progress Method\n";
+
+  if ( this->EndMethod ) os << indent << "End Method defined\n";
+  else os << indent << "No End Method\n";
+
+  os << indent << "AbortExecute: " << (this->AbortExecute ? "On\n" : "Off\n");
+  os << indent << "Progress: " << this->Progress << "\n";
 
   if ( this->Output )
     {
@@ -234,7 +248,7 @@ void vtkSource::PrintSelf(ostream& os, vtkIndent indent)
     {
     os << indent << "No output generated for this filter\n";
     }
-  os << indent << "AbortExecute: " << (this->AbortExecute ? "On\n" : "Off\n");
-  os << indent << "Progress: " << this->Progress << "\n";
 }
+
+
 
