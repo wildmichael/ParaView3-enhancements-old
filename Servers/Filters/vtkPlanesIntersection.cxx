@@ -5,8 +5,8 @@
   Program:   Visualization Toolkit
   Module:  $RCSfile: vtkPlanesIntersection.cxx,v $
   Language:  C++
-  Date:    $Date: 2003-10-01 00:25:21 $
-  Version:   $Revision: 1.4 $
+  Date:    $Date: 2003-11-05 23:44:54 $
+  Version:   $Revision: 1.5 $
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
   See Copyright.txt or http://www.kitware.com/Copyright.htm for details.
@@ -35,7 +35,7 @@
 #include "vtkRenderWindow.h"
 #include "vtkCell.h"
 
-vtkCxxRevisionMacro(vtkPlanesIntersection, "$Revision: 1.4 $");
+vtkCxxRevisionMacro(vtkPlanesIntersection, "$Revision: 1.5 $");
 vtkStandardNewMacro(vtkPlanesIntersection);
 
 // Experiment shows that we get plane equation values on the
@@ -938,7 +938,7 @@ void vtkPlanesIntersection::ComputeRegionVertices()
       }
     }
 }
-const int vtkPlanesIntersection::duplicate(double testv[3])
+int vtkPlanesIntersection::duplicate(double testv[3]) const
 {
   int i;
   double pt[3];
@@ -955,7 +955,7 @@ const int vtkPlanesIntersection::duplicate(double testv[3])
     }
   return 0;
 }
-const void vtkPlanesIntersection::planesMatrix(int p1, int p2, int p3, double M[3][3])
+void vtkPlanesIntersection::planesMatrix(int p1, int p2, int p3, double M[3][3]) const
 {
   int i;
   for (i=0; i<3; i++)
@@ -965,13 +965,13 @@ const void vtkPlanesIntersection::planesMatrix(int p1, int p2, int p3, double M[
      M[2][i] = this->Plane[p3*4 + i];
     }
 }
-const void vtkPlanesIntersection::planesRHS(int p1, int p2, int p3, double r[3])
+void vtkPlanesIntersection::planesRHS(int p1, int p2, int p3, double r[3]) const
 {
   r[0] = -(this->Plane[p1*4 + 3]);
   r[1] = -(this->Plane[p2*4 + 3]);
   r[2] = -(this->Plane[p3*4 + 3]);
 }
-const int vtkPlanesIntersection::outsideRegion(double testv[3])
+int vtkPlanesIntersection::outsideRegion(double testv[3])
 {
   int i;
   int outside = 0;

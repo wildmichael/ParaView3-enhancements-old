@@ -5,8 +5,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPlanesIntersection.h,v $
   Language:  C++
-  Date:      $Date: 2003-10-01 00:25:21 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2003-11-05 23:44:54 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -129,10 +129,10 @@ private:
   void SetPlaneEquations();
   void ComputeRegionVertices();
 
-  const void planesMatrix(int p1, int p2, int p3, double M[3][3]);
-  const int duplicate(double testv[3]);
-  const void planesRHS(int p1, int p2, int p3, double r[3]);
-  const int outsideRegion(double v[3]);
+  void planesMatrix(int p1, int p2, int p3, double M[3][3]) const;
+  int duplicate(double testv[3]) const;
+  void planesRHS(int p1, int p2, int p3, double r[3]) const;
+  int outsideRegion(double v[3]);
 
   static double EvaluatePlaneEquation(double *x, double *p);
   static void PlaneEquation(double *n, double *x, double *p);
