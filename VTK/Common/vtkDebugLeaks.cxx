@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDebugLeaks.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-25 20:03:19 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2001-07-26 19:43:18 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -46,6 +46,15 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkCriticalSection.h"
 
 int vtkDebugLeaks::PromptUser = 1;
+
+void vtkDebugLeaks::PromptUserOn()
+{
+  PromptUser = 1;
+}
+void vtkDebugLeaks::PromptUserOff()
+{
+  PromptUser = 0;
+}
 
 // A singleton that prints out the table, and deletes the table.
 class vtkPrintLeaksAtExit

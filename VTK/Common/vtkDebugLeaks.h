@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDebugLeaks.h,v $
   Language:  C++
-  Date:      $Date: 2001-07-25 20:03:19 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2001-07-26 19:43:18 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -82,8 +82,8 @@ public:
 
   // Description:
   // Turn prompt at exit on/off.
-  static void PromptUserOn()  { PromptUser = 1; }
-  static void PromptUserOff() { PromptUser = 0; }
+  static void PromptUserOn();
+  static void PromptUserOff();
 
 protected:
   vtkDebugLeaks(){}; 
