@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 15:40:44 $
-  Version:   $Revision: 1.73 $
+  Date:      $Date: 2001-10-05 19:47:52 $
+  Version:   $Revision: 1.74 $
   Thanks:    to Horst Schreiber for developing this MFC code
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -958,8 +958,8 @@ void vtkWin32OpenGLRenderWindow::CreateOffScreenDC(int xsize, int ysize,
 
 void vtkWin32OpenGLRenderWindow::CreateOffScreenDC(HBITMAP hbmp, HDC aHdc)
 {
-  SIZE sz;
-  GetBitmapDimensionEx(hbmp,&sz);
+  BITMAP bm;
+  GetObject(hbmp, sizeof(BITMAP), &bm);
 
   this->MemoryBuffer = hbmp;
   
@@ -980,8 +980,8 @@ void vtkWin32OpenGLRenderWindow::CreateOffScreenDC(HBITMAP hbmp, HDC aHdc)
 
   // adjust settings for renderwindow
   this->Mapped =0;
-  this->Size[0] = sz.cx;
-  this->Size[1] = sz.cy;
+  this->Size[0] = bm.bmWidth;
+  this->Size[1] = bm.bmHeight;
   
   this->DeviceContext = this->MemoryHdc;
   this->DoubleBuffer = 0;
