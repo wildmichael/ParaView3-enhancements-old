@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpTo.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-31 21:23:14 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1996-02-01 14:24:16 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,6 +39,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkWarpTo.hh"
+#include "vtkMath.hh"
 
 void vtkWarpTo::Execute()
 {
@@ -49,6 +50,8 @@ void vtkWarpTo::Execute()
   float *x, newX[3];
   vtkPointSet *input=(vtkPointSet *)this->Input;
   vtkPointSet *output=(vtkPointSet *)this->Output;
+  static vtkMath math;
+  float mag;
   
   vtkDebugMacro(<<"Warping data to a point");
 
@@ -68,10 +71,23 @@ void vtkWarpTo::Execute()
   for (ptId=0; ptId < inPts->GetNumberOfPoints(); ptId++)
     {
     x = inPts->GetPoint(ptId);
-    for (i=0; i<3; i++)
+    if (this->Absolute)
       {
-      newX[i] = (1.0 - this->ScaleFactor)*x[i] + 
-	this->ScaleFactor*this->Position[i];
+      mag = sqrt(math.Distance2BetweenPoints(this->Position,x));
+      for (i=0; i<3; i++)
+	{
+	newX[i] = this->ScaleFactor*
+	  (this->Position[i] + (x[i] - this->Position[i])/mag) + 
+	  (1.0 - this->ScaleFactor)*x[i];
+	}
+      }
+    else
+      {
+      for (i=0; i<3; i++)
+	{
+	newX[i] = (1.0 - this->ScaleFactor)*x[i] + 
+	  this->ScaleFactor*this->Position[i];
+	}
       }
     newPts->SetPoint(ptId, newX);
     }
