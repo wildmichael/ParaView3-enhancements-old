@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXdmfReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-05-06 13:53:08 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2003-05-23 14:16:16 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen  
@@ -69,7 +69,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <vector>
 
 vtkStandardNewMacro(vtkXdmfReader);
-vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.8 $");
+vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.9 $");
 
 #if defined(_WIN32) && (defined(_MSC_VER) || defined(__BORLANDC__))
 #  include <direct.h>
@@ -608,6 +608,7 @@ void vtkXdmfReader::Execute()
     if( XDMF_WORD_CMP(NodeType, "DataStructure") &&
 	( this->Grid->GetTopologyType() == XDMF_3DRECTMESH )){
 	// Only works for the CTH-like special case
+        vtkDebugMacro( << "Preparing to Read :" << this->DOM->Get(dataNode, "CData"));
         values = this->FormatMulti->ElementToArray(dataNode, this->DataDescription);
     } else {
 	Trans.SetDOM(this->DOM);
@@ -700,6 +701,7 @@ void vtkXdmfReader::Execute()
 void vtkXdmfReader::ExecuteInformation()
 {
   vtkIdType cc;
+  char         *CurrentFileName;
   XdmfInt32    Rank;
   XdmfInt64    Dimensions[ XDMF_MAX_DIMENSION ];
   XdmfInt64    EndExtent[ XDMF_MAX_DIMENSION ];
@@ -731,8 +733,13 @@ void vtkXdmfReader::ExecuteInformation()
     this->FormatMulti = new XdmfFormatMulti();
     this->FormatMulti->SetDOM(this->DOM);
     }
-  this->DOM->SetInputFileName(this->FileName);
-  this->DOM->Parse();
+  CurrentFileName = this->DOM->GetInputFileName();
+  // Don't Re-Parse : Could Reset Parameters
+  if((CurrentFileName == NULL) || (STRCASECMP(CurrentFileName, this->FileName) != 0 )){
+  	this->DOM->SetInputFileName(this->FileName);
+  	vtkDebugMacro( << "...............Preparing to Parse " << this->FileName);
+  	this->DOM->Parse();
+	}
 
   XdmfXNode *domain = 0;
   int done = 0;
