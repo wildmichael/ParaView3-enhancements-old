@@ -3,8 +3,8 @@
   Program:   OSCAR 
   Module:    $RCSfile: vtkRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 1994-01-18 12:12:29 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1994-01-18 13:28:44 $
+  Version:   $Revision: 1.2 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -27,7 +27,7 @@ public:
 
 public:
   vlRenderWindow();
-  virtual char *GetClassName() {return "vlRenderWindow";};
+  char *GetClassName() {return "vlRenderWindow";};
   void AddRenderers(vlRenderer *);
   virtual void Render();
   virtual void Frame() = 0;
