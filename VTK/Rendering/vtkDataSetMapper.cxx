@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-07-14 14:15:18 $
-  Version:   $Revision: 1.54 $
+  Date:      $Date: 2000-08-25 18:52:46 $
+  Version:   $Revision: 1.55 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -207,7 +207,3 @@ unsigned long vtkDataSetMapper::GetMTime()
 
   return mTime;
 }
-
-
-
-

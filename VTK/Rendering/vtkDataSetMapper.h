@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetMapper.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:11:25 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 2000-08-25 18:52:46 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -87,7 +87,7 @@ public:
     this->SetInput(((vtkDataSet *)tmp->GetOutput())); tmp->Delete();}  
 
   vtkDataSet *GetInput();
-
+  
 protected:
   vtkDataSetMapper();
   ~vtkDataSetMapper();
