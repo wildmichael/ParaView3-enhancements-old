@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-03 14:05:56 $
-  Version:   $Revision: 1.85 $
+  Date:      $Date: 2001-07-26 19:28:04 $
+  Version:   $Revision: 1.86 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -281,6 +281,10 @@ vtkScalars *vtkMapper::GetColors()
           }
         }
       }
+    else
+      {
+      vtkWarningMacro(<<"Data array (used for coloring) not found");
+      }
     }
   else if ( this->ScalarMode == VTK_SCALAR_MODE_USE_CELL_FIELD_DATA )
     {
@@ -317,6 +321,10 @@ vtkScalars *vtkMapper::GetColors()
             InsertScalar(i, dataArray->GetComponent(i, this->ArrayComponent));
           }
         }
+      }
+    else
+      {
+      vtkWarningMacro(<<"Data array (used for coloring) not found");
       }
     }
   
