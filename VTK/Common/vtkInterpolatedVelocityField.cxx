@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInterpolatedVelocityField.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-10-26 19:39:25 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2000-10-27 19:45:24 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -122,7 +122,7 @@ int vtkInterpolatedVelocityField::FunctionValues(float* x, float* f)
 {
   int i, j, subId , numPts, id;
   vtkVectors* vectors;
-  float vec[3], closestpoint[3];
+  float vec[3];
   float dist2;
   int ret;
 
@@ -143,7 +143,7 @@ int vtkInterpolatedVelocityField::FunctionValues(float* x, float* f)
     {
     // See if the point is in the cached cell
     if (this->LastCellId == -1 || 
-	!(ret=this->GenCell->EvaluatePosition(x, closestpoint, subId,
+	!(ret=this->GenCell->EvaluatePosition(x, 0, subId,
 					      this->LastPCoords, dist2, 
 					      this->Weights))
 	|| ret == -1)
