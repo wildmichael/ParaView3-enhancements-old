@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLight.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:39 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 2002-05-27 15:12:41 $
+  Version:   $Revision: 1.47 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -15,11 +15,16 @@
      PURPOSE.  See the above copyright notice for more information.
 
 =========================================================================*/
-#include "vtkMath.h"
 #include "vtkLight.h"
+
+#include "vtkMath.h"
+#include "vtkMatrix4x4.h"
 #include "vtkGraphicsFactory.h"
 
-vtkCxxRevisionMacro(vtkLight, "$Revision: 1.46 $");
+vtkCxxRevisionMacro(vtkLight, "$Revision: 1.47 $");
+
+vtkCxxSetObjectMacro(vtkLight,TransformMatrix,vtkMatrix4x4);
+
 
 // Create a light with the focal point at the origin and its position
 // set to (0,0,1). The lights color is white, intensity=1, and the light 

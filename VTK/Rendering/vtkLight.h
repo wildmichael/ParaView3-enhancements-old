@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLight.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:39 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 2002-05-27 15:12:41 $
+  Version:   $Revision: 1.52 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -42,10 +42,10 @@
 #define __vtkLight_h
 
 #include "vtkObject.h"
-#include "vtkMatrix4x4.h"
 
 /* need for virtual function */
 class vtkRenderer;
+class vtkMatrix4x4;
 
 #define VTK_LIGHT_TYPE_HEADLIGHT    1
 #define VTK_LIGHT_TYPE_CAMERA_LIGHT 2
@@ -134,7 +134,7 @@ public:
   // Set/Get the light's transformation matrix.  If a matrix is set for
   // a light, the light's parameters (position and focal point) are 
   // transformed by the matrix before being rendered.
-  vtkSetObjectMacro(TransformMatrix,vtkMatrix4x4);
+  virtual void SetTransformMatrix(vtkMatrix4x4*);
   vtkGetObjectMacro(TransformMatrix,vtkMatrix4x4);
 
   // Description:
