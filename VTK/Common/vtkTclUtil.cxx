@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTclUtil.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-04-16 18:48:11 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1997-04-18 20:39:13 $
+  Version:   $Revision: 1.15 $
 
 This file is part of the Visualization Toolkit. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -17,6 +17,19 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 #include <iostream.h>
 #include <stdlib.h>
 #include "vtkTclUtil.h"
+
+extern Tcl_Interp *vtkGlobalTclInterp;
+int vtkTclEval(char *str)
+{
+  return Tcl_GlobalEval(vtkGlobalTclInterp, str);
+}
+
+// The string result returned is volatile so you should copy it.
+char *vtkTclGetResult()
+{
+  return vtkGlobalTclInterp->result;
+}
+
 
 int vtkRendererCommand(ClientData cd, Tcl_Interp *interp,
 		       int argc, char *argv[]);
