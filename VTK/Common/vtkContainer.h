@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkContainer.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-02 17:29:56 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2002-05-03 13:15:13 $
+  Version:   $Revision: 1.16 $
 
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -38,47 +38,12 @@
 #ifndef __vtkContainer_h
 #define __vtkContainer_h
 
-// Macro used to determine whether a class is the same class or
-// a subclass of the named class.
-//
-#define vtkContainerTypeMacro(thisClass,superclass) \
-  typedef superclass Superclass; \
-  virtual const char *GetClassName() const {return #thisClass;} \
-  static int IsTypeOf(const char *type) \
-  { \
-    if ( !strcmp(#thisClass,type) ) \
-      { \
-      return 1; \
-      } \
-    return superclass::IsTypeOf(type); \
-  } \
-  virtual int IsA(const char *type) \
-  { \
-    return this->thisClass::IsTypeOf(type); \
-  } \
-  static thisClass* SafeDownCast(vtkObject *o) \
-  { \
-    if ( o && o->IsA(#thisClass) ) \
-      { \
-      return (thisClass *)o; \
-      } \
-    return NULL;\
-  }
-
 class VTK_COMMON_EXPORT vtkContainer
 {
 public:
   // Description:
   // Return the class name as a string.
-  virtual const char* GetClassName() { return "vtkContainer"; }
-  static int IsTypeOf(const char *type)
-    {
-    return !strcmp(type, "vtkContainer");
-    }
-  virtual int IsA(const char *type)
-    {
-    return this->vtkContainer::IsTypeOf(type);
-    }  
+  virtual const char* GetClassName() const { return "vtkContainer"; }
 
   // Description:
   // Return the number of items currently held in this container. This

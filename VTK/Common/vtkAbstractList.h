@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractList.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-29 13:18:04 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2002-05-03 13:15:13 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -67,7 +67,8 @@ template<class DType>
 class vtkAbstractList : public vtkContainer
 {
 public:
-  vtkContainerTypeMacro(vtkAbstractList<DType>, vtkContainer);
+  typedef vtkContainer Superclass;
+  const char* GetClassName() const { return "vtkAbstractList"; }
 
   // Just to avoid typing over and over, let us define some typedefs.
   // They will not work in subclasses, but this header file will 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractMap.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-29 13:18:04 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2002-05-03 13:15:13 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -73,30 +73,8 @@ template<class KeyType, class DataType>
 class vtkAbstractMap : public vtkContainer
 {
 public:
-  // Cannot use this macro because of the comma in the type name.
-  // The CPP splits that in two and we ae in trouble.
-  //vtkContainerTypeMacro((vtkAbstractMap<KeyType,DataType>), vtkContainer);
-
-  // Description:
-  // Return an iterator to the list. This iterator is allocated using
-  // New, so the developer is responsible for deleating it.
-  //virtual vtkAbstractIterator<KeyType,DataType> *NewIterator() = 0;
-
   typedef vtkContainer Superclass; 
-  virtual const char *GetClassName() const
-    {return "vtkAbstractMap";} 
-  static int IsTypeOf(const char *type) 
-  { 
-    if ( !strcmp("vtkAbstractMap",type) )
-      { 
-      return 1;
-      }
-    return Superclass::IsTypeOf(type);
-  }
-  virtual int IsA(const char *type)
-  {
-    return this->vtkAbstractMap<KeyType,DataType>::IsTypeOf(type);
-  }
+  virtual const char *GetClassName() const {return "vtkAbstractMap";} 
 
   // Description:
   // Sets the item at with specific key to data.
