@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindowTclInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-07-10 18:34:32 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 2002-07-16 17:56:32 $
+  Version:   $Revision: 1.41 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -31,7 +31,7 @@
 #include "vtkOldStyleCallbackCommand.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkXRenderWindowTclInteractor, "$Revision: 1.40 $");
+vtkCxxRevisionMacro(vtkXRenderWindowTclInteractor, "$Revision: 1.41 $");
 vtkStandardNewMacro(vtkXRenderWindowTclInteractor);
 
 // steal the first three elements of the TkMainInfo stuct
@@ -73,7 +73,7 @@ static int vtkTclEventProc(XtPointer clientData,XEvent *event)
 
 extern "C"
 {
-  static void vtkXTclTimerProc(ClientData clientData)
+  void vtkXTclTimerProc(ClientData clientData)
   {
     XtIntervalId id;
     

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkRenderWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-07-10 18:30:59 $
-  Version:   $Revision: 1.68 $
+  Date:      $Date: 2002-07-16 17:56:32 $
+  Version:   $Revision: 1.69 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -71,8 +71,8 @@ static Tk_ConfigSpec vtkTkRenderWidgetConfigSpecs[] = {
 // Foward prototypes
 extern "C"
 {
-  static void vtkTkRenderWidget_EventProc(ClientData clientData, 
-                                          XEvent *eventPtr);
+  void vtkTkRenderWidget_EventProc(ClientData clientData, 
+                                   XEvent *eventPtr);
 }
 
 static int vtkTkRenderWidget_MakeRenderWindow(struct vtkTkRenderWidget *self);
@@ -302,7 +302,7 @@ int vtkTkRenderWidget_Height( const struct vtkTkRenderWidget *self)
  */
 extern "C"
 {
-  static void vtkTkRenderWidget_Destroy(char *memPtr)
+  void vtkTkRenderWidget_Destroy(char *memPtr)
   {
     struct vtkTkRenderWidget *self = (struct vtkTkRenderWidget *)memPtr;
     
@@ -333,8 +333,8 @@ extern "C"
 // Possibly X dependent
 extern "C"
 {
-  static void vtkTkRenderWidget_EventProc(ClientData clientData, 
-                                          XEvent *eventPtr) 
+  void vtkTkRenderWidget_EventProc(ClientData clientData, 
+                                   XEvent *eventPtr) 
   {
     struct vtkTkRenderWidget *self = (struct vtkTkRenderWidget *)clientData;
     
