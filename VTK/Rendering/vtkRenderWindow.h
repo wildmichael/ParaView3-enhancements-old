@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 1994-08-21 10:12:30 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1994-09-27 10:42:57 $
+  Version:   $Revision: 1.7 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -76,6 +76,10 @@ public:
   // Description:
   // Create a device specific camera.
   virtual vlCamera    *MakeCamera() = 0;
+
+  // Description:
+  // Create a device specific property.
+  virtual vlProperty    *MakeProperty() = 0;
 
   // Description:
   // Get the position in screen coordinates of the rendering window.
