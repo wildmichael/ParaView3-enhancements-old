@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-27 18:45:10 $
-  Version:   $Revision: 1.101 $
+  Date:      $Date: 2000-11-02 18:33:22 $
+  Version:   $Revision: 1.102 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -72,6 +72,7 @@ class vtkRenderWindowInteractor;
 #define VTK_STEREO_INTERLACED   3
 #define VTK_STEREO_LEFT         4
 #define VTK_STEREO_RIGHT        5
+#define VTK_STEREO_DRESDEN      6
 
 class VTK_EXPORT vtkRenderWindow : public vtkWindow
 {
@@ -189,6 +190,8 @@ public:
     {this->SetStereoType(VTK_STEREO_LEFT);};
   void SetStereoTypeToRight() 
     {this->SetStereoType(VTK_STEREO_RIGHT);};
+  void SetStereoTypeToDresden() 
+    {this->SetStereoType(VTK_STEREO_DRESDEN);};  
   char *GetStereoTypeAsString();
 
   // Description:
@@ -418,6 +421,8 @@ inline char *vtkRenderWindow::GetStereoTypeAsString(void)
       return (char *)"Left";
     case VTK_STEREO_RIGHT:
       return (char *)"Right";
+    case VTK_STEREO_DRESDEN:
+      return (char *)"DresdenDisplay";
     default:
       return (char *)"";
     }
