@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkExtractGeometry.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-05-04 15:57:01 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1995-05-21 14:44:52 $
+  Version:   $Revision: 1.8 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -74,7 +74,7 @@ void vlExtractGeometry::Execute()
   pointMap = new int[numPts]; // maps old point ids into new
   for (i=0; i < numPts; i++) pointMap[i] = -1;
 
-  this->Allocate(numCells/4);
+  this->Allocate(numCells/4); //allocate storage for geometry/topology
   newPts = new vlFloatPoints(numPts/4,numPts);
   pd = this->Input->GetPointData();
   this->PointData.CopyAllocate(pd);
