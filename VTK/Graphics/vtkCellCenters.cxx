@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellCenters.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:31 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2001-02-27 01:16:53 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -102,8 +102,17 @@ void vtkCellCenters::Execute()
   newPts = vtkPoints::New();
   newPts->SetNumberOfPoints(numCells);
 
-  for (cellId=0; cellId < numCells; cellId++)
+  int abort=0;
+  int progressInterval = numCells/10 + 1;
+  for (cellId=0; cellId < numCells && !abort; cellId++)
     {
+    if ( ! (cellId % progressInterval) ) 
+      {
+      vtkDebugMacro(<<"Processing #" << cellId);
+      this->UpdateProgress (0.5*cellId/numCells);
+      abort = this->GetAbortExecute();
+      }
+
     cell = input->GetCell(cellId);
     subId = cell->GetParametricCenter(pcoords);
     cell->EvaluateLocation(subId, pcoords, x, weights);
@@ -117,8 +126,15 @@ void vtkCellCenters::Execute()
     vtkCellArray *verts = vtkCellArray::New();
     verts->Allocate(verts->EstimateSize(1,numCells),1);
 
-    for (cellId=0; cellId < numCells; cellId++)
+    for (cellId=0; cellId < numCells && !abort; cellId++)
       {
+      if ( ! (cellId % progressInterval) ) 
+        {
+        vtkDebugMacro(<<"Processing #" << cellId);
+        this->UpdateProgress (0.5+0.5*cellId/numCells);
+        abort = this->GetAbortExecute();
+        }
+
       pts[0] = cellId;
       verts->InsertNextCell(1,pts);
       }
