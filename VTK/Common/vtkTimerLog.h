@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTimerLog.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:19 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2000-12-20 20:59:21 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -55,7 +55,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkSystemIncludes.h"
 
 #ifdef _WIN32
-#include <winsock.h>  // for Sleep?
 #include <sys/types.h>
 #include <sys/timeb.h>
 #else
@@ -162,11 +161,6 @@ public:
   // Returns the difference between StartTime and EndTime as 
   // a floating point value indicating the elapsed time in seconds.
   double GetElapsedTime();
-
-  // Description:
-  // Will be a platform independent sleep.
-  // Only works on unix for now.
-  static void Sleep(int ms);
 
 protected:
   vtkTimerLog() {}; //insure constructor/destructor protected

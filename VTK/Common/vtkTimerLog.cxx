@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTimerLog.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:19 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2000-12-20 20:59:21 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -54,8 +54,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <limits.h>     // for CLK_TCK
 #include <sys/time.h>
 #include <unistd.h>
-#else
-#include <winsock.h>    // for Sleep?
 #endif
 
 #include <sys/types.h>
@@ -401,12 +399,3 @@ int vtkTimerLog::GetMaxEntries()
   return vtkTimerLog::MaxEntries;
 }
 
-/* Number of milliseconds to sleep. */
-void vtkTimerLog::Sleep(int ms)
-{
-#ifdef _WIN32
-  Sleep(ms);
-#else
-  ms = ms;
-#endif    
-}
