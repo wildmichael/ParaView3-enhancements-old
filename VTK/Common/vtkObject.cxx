@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObject.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-11-09 19:04:08 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 1998-11-10 00:46:45 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,11 +56,6 @@ void* vtkObject::operator new(size_t nSize)
 {
   void* p=malloc(nSize);
   return p;
-}
-
-void vtkObject::operator delete( void *p, const char *, int)
-{
-  free(p);
 }
 
 void vtkObject::operator delete( void *p )

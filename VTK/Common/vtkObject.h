@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObject.h,v $
   Language:  C++
-  Date:      $Date: 1998-11-09 19:04:08 $
-  Version:   $Revision: 1.55 $
+  Date:      $Date: 1998-11-10 00:46:45 $
+  Version:   $Revision: 1.56 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -96,7 +96,6 @@ public:
   // avoid dll boundary problems
   void* operator new( size_t tSize, const char *, int);
   void* operator new( size_t tSize );
-  void operator delete( void* p, const char *, int); // make VC++ 6 happy
   void operator delete( void* p );
 #endif 
   
