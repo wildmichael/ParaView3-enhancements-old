@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLVolumeProVP1000Mapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-19 21:02:52 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2001-12-10 20:50:18 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -47,7 +47,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <GL/gl.h>
 #include "vtkObjectFactory.h"
 #include "vtkRenderWindow.h"
-#include "vtkWin32OpenGLRenderWindow.h"
+#include "vtkOpenGLRenderWindow.h"
 
 vtkOpenGLVolumeProVP1000Mapper* vtkOpenGLVolumeProVP1000Mapper::New()
 {
