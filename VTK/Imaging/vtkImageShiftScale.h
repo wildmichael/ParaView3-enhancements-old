@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageShiftScale.h,v $
   Language:  C++
-  Date:      $Date: 1996-09-18 14:05:48 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1996-11-21 21:05:15 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,9 +40,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 // .NAME vtkImageShiftScale - Upper threshold on pixel values
 // .SECTION Description
-// vtkImageShiftScale is a pixel filter class that implements a 
-// nonlinear upper threshold.  If a pixel is above Threshold, it is replaced
-// with Replace.
+// vtkImageShiftScale Pixels are shifted and then scaled.
+
 
 
 #ifndef __vtkImageShiftScale_h
