@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProMapper.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:10:57 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2000-07-28 15:06:12 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -233,7 +233,7 @@ protected:
   // The Volume, and the Input that was used to build the volume
   // and the time at which it was last built.
   VLIVolume            *Volume;
-  vtkStructuredPoints  *VolumeInput;
+  vtkImageData         *VolumeInput;
   vtkTimeStamp         *VolumeBuildTime;
 
   // The type of data in the volume - 8bit, 12bit upper, or 12bit lower

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProVG500Mapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-07-13 16:27:03 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2000-07-28 15:06:12 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -597,7 +597,7 @@ void vtkVolumeProVG500Mapper::UpdateVolume( vtkRenderer * vtkNotUsed(ren), vtkVo
   unsigned char		    *uc_data_ptr;
   unsigned short	    *us_data_ptr;
   void                      *data_ptr;
-  vtkStructuredPoints       *input = this->GetInput();
+  vtkImageData              *input = this->GetInput();
   vtkTransform              *volumeTransform;
   vtkTransform              *scalarTransform;
   int                       i, j;
@@ -912,7 +912,9 @@ void vtkVolumeProVG500Mapper::Render( vtkRenderer *ren, vtkVolume *vol )
     return;
     }
   else
-    {
+    {    
+    this->GetInput()->UpdateInformation();
+    this->GetInput()->SetUpdateExtentToWholeExtent();
     this->GetInput()->Update();
     } 
 
