@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThresholdPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:48:51 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1995-07-29 11:54:30 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -89,12 +89,11 @@ void vtkThresholdPoints::ThresholdBetween(float lower, float upper)
   
 void vtkThresholdPoints::Execute()
 {
-  int cellId;
   vtkScalars *inScalars;
   vtkFloatPoints *newPoints;
   vtkPointData *pd;
   vtkCellArray *verts;
-  int i, ptId, pts[1], numPts;
+  int ptId, pts[1], numPts;
   float *x;
 
   vtkDebugMacro(<< "Executing threshold points filter");
