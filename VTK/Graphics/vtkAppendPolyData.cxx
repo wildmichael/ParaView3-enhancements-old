@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAppendPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-21 19:00:28 $
-  Version:   $Revision: 1.61 $
+  Date:      $Date: 2000-04-21 22:21:31 $
+  Version:   $Revision: 1.62 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -737,6 +737,9 @@ void vtkAppendPolyData::PrintSelf(ostream& os, vtkIndent indent)
     {
     os << indent << "ParallelStreamingOff\n";
     }
+  //
+  os << indent << "UserManagedInputs: "
+     << this->UserManagedInputs << endl;
 }
 
 void vtkAppendPolyData::AppendData(vtkDataArray *dest, vtkDataArray *src,
@@ -818,7 +821,7 @@ int *vtkAppendPolyData::AppendCells(int *pDest, vtkCellArray *src, int offset)
     {
     return pDest;
     }
-  
+
   pSrc = (int*)(src->GetPointer());
   end = pSrc + src->GetNumberOfConnectivityEntries();
   pNum = pSrc;
