@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-10-11 16:26:25 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 1996-10-11 18:46:25 $
+  Version:   $Revision: 1.44 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -507,15 +507,15 @@ void vtkStructuredPoints::SetDimensions(int dim[3])
 {
   int returnStatus=vtkStructuredData::SetDimensions(dim,this->Dimensions);
 
-  if ( returnStatus > -1 ) 
+  if ( returnStatus > 0 ) 
     {
     this->DataDescription = returnStatus;
     this->Modified();
     }
-  else
-   {
-   vtkErrorMacro (<< "Bad Dimensions, retaining previous values");
-   }
+   else if ( returnStatus < 0 ) //improperly specified
+    {
+    vtkErrorMacro (<< "Bad Dimensions, retaining previous values");
+    }
 }
 
 // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-10-11 16:26:22 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1996-10-11 18:46:24 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -341,15 +341,16 @@ void vtkStructuredGrid::SetDimensions(int dim[3])
 {
   int returnStatus=vtkStructuredData::SetDimensions(dim,this->Dimensions);
 
-  if ( returnStatus > -1 ) 
+  if ( returnStatus > 0 ) 
     {
     this->DataDescription = returnStatus;
     this->Modified();
     }
-  else
-   {
-   vtkErrorMacro (<< "Bad Dimensions, retaining previous values");
-   }
+
+   else if ( returnStatus < 0 ) //improperly specified
+    {
+    vtkErrorMacro (<< "Bad Dimensions, retaining previous values");
+    }
 }
 
 void vtkStructuredGrid::PrintSelf(ostream& os, vtkIndent indent)
