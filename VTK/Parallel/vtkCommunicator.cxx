@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCommunicator.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-16 22:00:08 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2003-04-22 13:37:32 $
+  Version:   $Revision: 1.18 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -31,7 +31,7 @@
 #include "vtkUnsignedCharArray.h"
 #include "vtkUnsignedLongArray.h"
 
-vtkCxxRevisionMacro(vtkCommunicator, "$Revision: 1.17 $");
+vtkCxxRevisionMacro(vtkCommunicator, "$Revision: 1.18 $");
 
 template <class T>
 int SendDataArray(T* data, int length, int handle, int tag, vtkCommunicator *self)
@@ -427,6 +427,7 @@ int vtkCommunicator::WriteImageData(vtkImageData *data)
   // keep Update from propagating
   vtkImageData *tmp = vtkImageData::New();
   tmp->ShallowCopy(data);
+  tmp->SetUpdateExtent(data->GetUpdateExtent());
   
   clip = vtkImageClip::New();
   clip->SetInput(tmp);
@@ -468,6 +469,7 @@ int vtkCommunicator::ReadImageData(vtkImageData *object)
   reader->GetOutput()->Update();
 
   object->ShallowCopy(reader->GetOutput());
+  object->SetUpdateExtent(reader->GetOutput()->GetUpdateExtent());
   
   reader->Delete();
 
