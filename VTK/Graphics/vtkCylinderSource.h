@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkCylinderSource.h,v $
   Language:  C++
-  Date:      $Date: 1994-08-10 08:05:57 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1994-09-09 10:46:36 $
+  Version:   $Revision: 1.11 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -16,6 +16,7 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 // .NAME vlCylinderSource - generate a cylinder centered at origin
 // .SECTION Description
 // vlCylinderSource creates a polygonal cylinder centered at the origin.
+// The axis of the cylinder is aligned along the global y-axis.
 // The height and radius of the cylinder can be specified, as well as the
 // number of sides. It is also possible to control whether the cylinder is
 // open-ended or capped.
