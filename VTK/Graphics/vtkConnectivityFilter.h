@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkConnectivityFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-06-27 13:24:31 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 2001-07-18 17:16:40 $
+  Version:   $Revision: 1.47 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -82,6 +82,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define VTK_EXTRACT_LARGEST_REGION 4
 #define VTK_EXTRACT_ALL_REGIONS 5
 #define VTK_EXTRACT_CLOSEST_POINT_REGION 6
+
+class vtkFloatArray;
 
 class VTK_EXPORT vtkConnectivityFilter : public vtkDataSetToUnstructuredGridFilter
 {
@@ -189,15 +191,15 @@ protected:
 
 private:
   // used to support algorithm execution
-  vtkScalars *CellScalars;
+  vtkFloatArray *CellScalars;
   vtkIdList *NeighborCellPointIds;
   vtkIdType *Visited;
   vtkIdType *PointMap;
-  vtkScalars *NewScalars;
+  vtkFloatArray *NewScalars;
   int RegionNumber;
   vtkIdType PointNumber;    
   int NumCellsInRegion;
-  vtkScalars *InScalars;
+  vtkDataArray *InScalars;
   vtkIdList *Wave;
   vtkIdList *Wave2;
   vtkIdList *PointIds;

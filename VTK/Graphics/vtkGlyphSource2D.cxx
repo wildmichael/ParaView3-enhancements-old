@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGlyphSource2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-18 13:13:04 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2001-07-18 17:16:40 $
+  Version:   $Revision: 1.7 $
   Thanks:    Tim Smith who sponsored and encouraged the development
              of this class.
 
@@ -93,11 +93,9 @@ void vtkGlyphSource2D::Execute()
   lines->Allocate(lines->EstimateSize(4,2),2);
   vtkCellArray *polys = vtkCellArray::New();
   polys->Allocate(polys->EstimateSize(1,4),4);
-  vtkScalars *scalars = vtkScalars::New();
   vtkUnsignedCharArray *colors = vtkUnsignedCharArray::New();
   colors->SetNumberOfComponents(3);
   colors->Allocate(2,2);
-  scalars->SetData(colors);
   
   this->ConvertColor();
 
@@ -172,9 +170,8 @@ void vtkGlyphSource2D::Execute()
   output->SetPolys(polys);
   polys->Delete();
 
-  output->GetCellData()->SetScalars(scalars);
+  output->GetCellData()->SetScalars(colors);
   colors->Delete();
-  scalars->Delete();
 }
 
 void vtkGlyphSource2D::ConvertColor()

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataStreamer.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-31 13:56:39 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2001-07-18 17:16:40 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,7 +42,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkPolyDataStreamer.h"
 #include "vtkAppendPolyData.h"
 #include "vtkObjectFactory.h"
-
+#include "vtkFloatArray.h"
 
 
 //------------------------------------------------------------------------------
@@ -113,11 +113,12 @@ void vtkPolyDataStreamer::Execute()
   vtkAppendPolyData *append = vtkAppendPolyData::New();
   int outPiece, outNumPieces, outGhost;
   int i, j, inPiece;
-  vtkScalars *pieceColors = NULL;
+  vtkFloatArray *pieceColors = NULL;
+  float tmp;
 
   if (this->ColorByPiece)
     {
-    pieceColors = vtkScalars::New();
+    pieceColors = vtkFloatArray::New();
     }
 
   outGhost = output->GetUpdateGhostLevel();
@@ -137,7 +138,8 @@ void vtkPolyDataStreamer::Execute()
       {
       for (j = 0; j < input->GetNumberOfCells(); ++j)
         {
-        pieceColors->InsertNextScalar((float)inPiece);
+	tmp = static_cast<float>(inPiece);
+        pieceColors->InsertNextTuple(&tmp);
         }
       }
     }
