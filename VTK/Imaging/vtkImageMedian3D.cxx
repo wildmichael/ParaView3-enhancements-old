@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMedian3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-04 14:28:58 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2002-01-09 21:20:53 $
+  Version:   $Revision: 1.26 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,13 +42,14 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkImageMedian3D.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkImageMedian3D, "$Revision: 1.25 $");
+vtkCxxRevisionMacro(vtkImageMedian3D, "$Revision: 1.26 $");
 vtkStandardNewMacro(vtkImageMedian3D);
 
 //----------------------------------------------------------------------------
 // Construct an instance of vtkImageMedian3D fitler.
 vtkImageMedian3D::vtkImageMedian3D()
 {
+  this->NumberOfElements = 0;
   this->SetKernelSize(1,1,1);
   this->HandleBoundaries = 1;
 }

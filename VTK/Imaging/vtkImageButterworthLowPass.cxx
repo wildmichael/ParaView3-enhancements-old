@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageButterworthLowPass.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-04 14:28:17 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2002-01-09 21:20:52 $
+  Version:   $Revision: 1.18 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -44,18 +44,13 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkImageButterworthLowPass, "$Revision: 1.17 $");
+vtkCxxRevisionMacro(vtkImageButterworthLowPass, "$Revision: 1.18 $");
 vtkStandardNewMacro(vtkImageButterworthLowPass);
 
 //----------------------------------------------------------------------------
 vtkImageButterworthLowPass::vtkImageButterworthLowPass()
 {
-  int idx;
-  
-  for (idx = 0; idx < 3; ++idx)
-    {
-    this->CutOff[idx] = VTK_LARGE_FLOAT;
-    }
+  this->SetCutOff(VTK_LARGE_FLOAT, VTK_LARGE_FLOAT, VTK_LARGE_FLOAT);
   this->Order = 1;
 }
 

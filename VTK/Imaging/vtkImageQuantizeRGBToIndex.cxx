@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageQuantizeRGBToIndex.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-04 14:29:05 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2002-01-09 21:20:53 $
+  Version:   $Revision: 1.29 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -45,7 +45,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <math.h>
 #include <stdlib.h>
 
-vtkCxxRevisionMacro(vtkImageQuantizeRGBToIndex, "$Revision: 1.28 $");
+vtkCxxRevisionMacro(vtkImageQuantizeRGBToIndex, "$Revision: 1.29 $");
 vtkStandardNewMacro(vtkImageQuantizeRGBToIndex);
 
 class vtkColorQuantizeNode
@@ -569,6 +569,7 @@ vtkImageQuantizeRGBToIndex::vtkImageQuantizeRGBToIndex()
 {
   this->LookupTable = vtkLookupTable::New();
   this->NumberOfColors = 256;
+  this->InputType = VTK_UNSIGNED_SHORT;
   
   this->InitializeExecuteTime = 0.0;
   this->BuildTreeExecuteTime = 0.0;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageIdealHighPass.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-04 14:28:44 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2002-01-09 21:20:53 $
+  Version:   $Revision: 1.15 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -45,18 +45,13 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkImageIdealHighPass, "$Revision: 1.14 $");
+vtkCxxRevisionMacro(vtkImageIdealHighPass, "$Revision: 1.15 $");
 vtkStandardNewMacro(vtkImageIdealHighPass);
 
 //----------------------------------------------------------------------------
 vtkImageIdealHighPass::vtkImageIdealHighPass()
 {
-  int idx;
-  
-  for (idx = 0; idx < 3; ++idx)
-    {
-    this->CutOff[idx] = VTK_LARGE_FLOAT;
-    }
+  this->SetCutOff(VTK_LARGE_FLOAT, VTK_LARGE_FLOAT, VTK_LARGE_FLOAT);
 }
 
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-04 14:27:39 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 2002-01-09 21:20:28 $
+  Version:   $Revision: 1.41 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -47,7 +47,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <ctype.h>
 #include <string.h>
 
-vtkCxxRevisionMacro(vtkImageWriter, "$Revision: 1.40 $");
+vtkCxxRevisionMacro(vtkImageWriter, "$Revision: 1.41 $");
 vtkStandardNewMacro(vtkImageWriter);
 
 #ifdef write
@@ -65,6 +65,8 @@ vtkImageWriter::vtkImageWriter()
   this->FilePrefix = NULL;
   this->FilePattern = NULL;
   this->FileName = NULL;
+  this->InternalFileName = NULL;
+  this->FileNumber = 0;
   this->FileDimensionality = 2;
 
   this->SetFilePattern("%s.%d");

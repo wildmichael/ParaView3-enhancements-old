@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageClip.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-04 14:28:22 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 2002-01-09 21:20:53 $
+  Version:   $Revision: 1.43 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -43,21 +43,17 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkExtentTranslator.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkImageClip, "$Revision: 1.42 $");
+vtkCxxRevisionMacro(vtkImageClip, "$Revision: 1.43 $");
 vtkStandardNewMacro(vtkImageClip);
 
 //----------------------------------------------------------------------------
 vtkImageClip::vtkImageClip()
 {
-  int idx;
-
   this->ClipData = 0;
   this->Initialized = 0;
-  for (idx = 0; idx < 3; ++idx)
-    {
-    this->OutputWholeExtent[idx*2]  = -VTK_LARGE_INTEGER;
-    this->OutputWholeExtent[idx*2+1] = VTK_LARGE_INTEGER;
-    }
+  this->SetOutputWholeExtent(-VTK_LARGE_INTEGER, VTK_LARGE_INTEGER,
+                             -VTK_LARGE_INTEGER, VTK_LARGE_INTEGER,
+                             -VTK_LARGE_INTEGER, VTK_LARGE_INTEGER);
 }
 
 
