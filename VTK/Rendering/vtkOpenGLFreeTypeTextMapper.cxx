@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLFreeTypeTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-01-19 22:40:00 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2003-03-16 17:56:52 $
+  Version:   $Revision: 1.29 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -40,7 +40,7 @@
 
 //----------------------------------------------------------------------------
 #ifndef VTK_IMPLEMENT_MESA_CXX
-vtkCxxRevisionMacro(vtkOpenGLFreeTypeTextMapper, "$Revision: 1.28 $");
+vtkCxxRevisionMacro(vtkOpenGLFreeTypeTextMapper, "$Revision: 1.29 $");
 vtkStandardNewMacro(vtkOpenGLFreeTypeTextMapper);
 #endif
 
@@ -260,6 +260,7 @@ void vtkOpenGLFreeTypeTextMapper::RenderOverlay(vtkViewport* viewport,
   glPushMatrix();
   glLoadIdentity();
   glDisable(GL_LIGHTING);
+  glDepthFunc(GL_ALWAYS);
 
   if (actor->GetProperty()->GetDisplayLocation() == VTK_FOREGROUND_LOCATION)
     {
@@ -379,7 +380,6 @@ void vtkOpenGLFreeTypeTextMapper::RenderOverlay(vtkViewport* viewport,
       }
 #endif
     
-    glDepthFunc(GL_ALWAYS);
     // Set the color here since load/render glyphs is done
     // on demand and this color has to be consistent for a given font entry.
     
