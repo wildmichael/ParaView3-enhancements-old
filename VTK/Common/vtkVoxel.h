@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoxel.h,v $
   Language:  C++
-  Date:      $Date: 1995-09-08 12:50:49 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1995-09-12 13:48:34 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,7 +59,7 @@ public:
 
   // cell methods
   vtkCell *MakeObject() {return new vtkVoxel(*this);};
-  int GetCellType() {return vtkVOXEL;};
+  int GetCellType() {return VTK_VOXEL;};
   int GetCellDimension() {return 3;};
   int GetNumberOfEdges() {return 12;};
   int GetNumberOfFaces() {return 6;};

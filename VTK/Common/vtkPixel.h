@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPixel.h,v $
   Language:  C++
-  Date:      $Date: 1995-09-08 12:49:29 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1995-09-12 13:48:25 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,7 +58,7 @@ public:
 
   // cell methods
   vtkCell *MakeObject() {return new vtkPixel(*this);};
-  int GetCellType() {return vtkPIXEL;};
+  int GetCellType() {return VTK_PIXEL;};
   int GetCellDimension() {return 2;};
   int GetNumberOfEdges() {return 4;};
   int GetNumberOfFaces() {return 0;};

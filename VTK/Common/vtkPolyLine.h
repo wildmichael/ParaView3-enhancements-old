@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyLine.h,v $
   Language:  C++
-  Date:      $Date: 1995-09-08 12:50:53 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1995-09-12 13:48:36 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -63,7 +63,7 @@ public:
 
   // cell methods
   vtkCell *MakeObject() {return new vtkPolyLine(*this);};
-  int GetCellType() {return vtkPOLY_LINE;};
+  int GetCellType() {return VTK_POLY_LINE;};
   int GetCellDimension() {return 1;};
   int GetNumberOfEdges() {return 0;};
   int GetNumberOfFaces() {return 0;};

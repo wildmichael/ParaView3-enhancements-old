@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitModeller.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-09-08 12:49:06 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1995-09-12 13:48:04 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -245,6 +245,8 @@ void vtkImplicitModeller::SetSampleDimensions(int i, int j, int k)
 
 void vtkImplicitModeller::SetSampleDimensions(int dim[3])
 {
+  int dataDim, i;
+
   vtkDebugMacro(<< " setting SampleDimensions to (" << dim[0] << "," << dim[1] << "," << dim[2] << ")");
 
   if ( dim[0] != this->SampleDimensions[0] || dim[1] != SampleDimensions[1] ||
@@ -256,7 +258,7 @@ void vtkImplicitModeller::SetSampleDimensions(int dim[3])
       return;
       }
 
-    for (int dataDim=0, i=0; i<3 ; i++) if (dim[i] > 1) dataDim++;
+    for (dataDim=0, i=0; i<3 ; i++) if (dim[i] > 1) dataDim++;
 
     if ( dataDim  < 3 )
       {

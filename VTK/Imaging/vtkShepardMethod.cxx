@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkShepardMethod.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-09-08 12:48:03 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1995-09-12 13:47:55 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -249,6 +249,8 @@ void vtkShepardMethod::SetSampleDimensions(int i, int j, int k)
 
 void vtkShepardMethod::SetSampleDimensions(int dim[3])
 {
+  int dataDim, i;
+
   vtkDebugMacro(<< " setting SampleDimensions to (" << dim[0] << "," << dim[1] << "," << dim[2] << ")");
 
   if ( dim[0] != this->SampleDimensions[0] || dim[1] != SampleDimensions[1] ||
@@ -260,7 +262,7 @@ void vtkShepardMethod::SetSampleDimensions(int dim[3])
       return;
       }
 
-    for (int dataDim=0, i=0; i<3 ; i++) if (dim[i] > 1) dataDim++;
+    for (dataDim=0, i=0; i<3 ; i++) if (dim[i] > 1) dataDim++;
 
     if ( dataDim  < 3 )
       {

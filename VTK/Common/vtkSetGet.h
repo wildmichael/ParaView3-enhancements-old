@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSetGet.h,v $
   Language:  C++
-  Date:      $Date: 1995-09-08 12:49:25 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1995-09-12 13:48:24 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -249,7 +249,8 @@ void Set##name (type _arg[4]) \
 #define vtkSetVectorMacro(name,type,count) \
 void Set##name(type data[]) \
 { \
-  for (int i=0; i<count; i++) if ( data[i] != name[i] ) break; \
+  int i; \
+  for (i=0; i<count; i++) if ( data[i] != name[i] ) break; \
   if ( i < count ) \
     { \
     this->Modified(); \

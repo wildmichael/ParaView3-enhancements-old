@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangle.h,v $
   Language:  C++
-  Date:      $Date: 1995-09-08 12:50:32 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1995-09-12 13:48:33 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,7 +58,7 @@ public:
 
   // cell methods
   vtkCell *MakeObject() {return new vtkTriangle(*this);};
-  int GetCellType() {return vtkTRIANGLE;};
+  int GetCellType() {return VTK_TRIANGLE;};
   int GetCellDimension() {return 2;};
   int GetNumberOfEdges() {return 3;};
   int GetNumberOfFaces() {return 0;};

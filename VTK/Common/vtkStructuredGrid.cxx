@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-09-08 12:48:46 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1995-09-12 13:48:03 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -89,20 +89,20 @@ int vtkStructuredGrid::GetCellType(int cellId)
   switch (this->DataDescription)
     {
     case VTK_SINGLE_POINT: 
-      return vtkVERTEX;
+      return VTK_VERTEX;
 
     case VTK_X_LINE: case VTK_Y_LINE: case VTK_Z_LINE:
-      return vtkLINE;
+      return VTK_LINE;
 
     case VTK_XY_PLANE: case VTK_YZ_PLANE: case VTK_XZ_PLANE:
-      return vtkQUAD;
+      return VTK_QUAD;
 
     case VTK_XYZ_GRID:
-      return vtkHEXAHEDRON;
+      return VTK_HEXAHEDRON;
 
     default:
       vtkErrorMacro(<<"Bad data description!");
-      return vtkNULL_ELEMENT;
+      return VTK_NULL_ELEMENT;
     }
 }
 

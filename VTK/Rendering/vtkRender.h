@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRender.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:34:57 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1995-09-12 13:48:18 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -50,9 +50,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #define VTK_POINTS    0
 #define VTK_WIREFRAME 1
 #define VTK_SURFACE   2
-
-// some general macros
-#define RANGE_CLIP(a,x,b) ((x)<(a)?(a):((x)>(b)?(b):(x)))
 
 #endif
 

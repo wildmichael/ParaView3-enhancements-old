@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolygon.h,v $
   Language:  C++
-  Date:      $Date: 1995-09-08 12:49:46 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1995-09-12 13:48:27 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -63,7 +63,7 @@ public:
 
   // Cell interface
   vtkCell *MakeObject() {return new vtkPolygon(*this);};
-  int GetCellType() {return vtkPOLYGON;};
+  int GetCellType() {return VTK_POLYGON;};
   int GetCellDimension() {return 2;};
   int GetNumberOfEdges() {return this->GetNumberOfPoints();};
   int GetNumberOfFaces() {return 0;};
