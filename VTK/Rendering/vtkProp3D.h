@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProp3D.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-07 14:35:29 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2000-12-08 14:39:17 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -120,7 +120,6 @@ public:
   // Return a reference to the Prop3D's 4x4 composite matrix.
   // Get the matrix from the position, origin, scale and orientation This
   // matrix is cached, so multiple GetMatrix() calls will be efficient.
-  virtual vtkMatrix4x4 *GetMatrixPointer();
   virtual void GetMatrix(vtkMatrix4x4 *m);
   virtual void GetMatrix(double m[16]);
 
@@ -239,13 +238,18 @@ public:
 
   // Description:
   // Get a pointer to an internal vtkMatrix4x4. that represents
-  vtkMatrix4x4 *GetMatrix() { return this->Matrix; };
+  vtkMatrix4x4 *GetMatrix() 
+    { 
+      this->GetMatrix(this->Matrix);
+      return this->Matrix; 
+    }
 
 #ifndef VTK_REMOVE_LEGACY_CODE
   // Description:
   // For legacy compatibility. Do not use.
   virtual void GetMatrix(vtkMatrix4x4 &m) 
     {VTK_LEGACY_METHOD(GetMatrix,"3.2"); this->GetMatrix(&m);}
+  virtual vtkMatrix4x4 *GetMatrixPointer();
 #endif
   
 protected:

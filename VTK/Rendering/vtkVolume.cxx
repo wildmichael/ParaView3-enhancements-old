@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-06 14:57:47 $
-  Version:   $Revision: 1.57 $
+  Date:      $Date: 2000-12-08 14:39:17 $
+  Version:   $Revision: 1.58 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -301,7 +301,7 @@ float *vtkVolume::GetBounds()
   
   // save the old transform
   this->Transform->Push();
-  this->Transform->SetMatrix(this->GetMatrixPointer());
+  this->Transform->SetMatrix(this->GetMatrix());
 
   // and transform into actors coordinates
   fptr = bbox;

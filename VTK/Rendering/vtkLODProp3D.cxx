@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLODProp3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-09-22 10:40:57 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2000-12-08 14:39:17 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -202,7 +202,7 @@ float *vtkLODProp3D::GetBounds()
       vtkProp3D *p = this->LODs[i].Prop3D;
       if ( p->GetMTime() < this->GetMTime() )
 	{
-	p->SetUserMatrix( this->GetMatrixPointer() );
+	p->SetUserMatrix( this->GetMatrix() );
 	}
 
       // Get the bounds of this entry
@@ -981,7 +981,7 @@ void vtkLODProp3D::SetAllocatedRenderTime( float t, vtkViewport *vp )
   vtkProp3D *p = this->LODs[this->SelectedLODIndex].Prop3D;
   if ( p->GetMTime() < this->GetMTime() )
     {
-    p->SetUserMatrix( this->GetMatrixPointer()) ;
+    p->SetUserMatrix( this->GetMatrix()) ;
     }
 
 }

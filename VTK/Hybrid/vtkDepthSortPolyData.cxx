@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDepthSortPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-06 14:49:21 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2000-12-08 14:39:17 $
+  Version:   $Revision: 1.7 $
   Thanks:    Scott Hill for implementing this class
 
 
@@ -265,7 +265,7 @@ void vtkDepthSortPolyData::ComputeProjectionVector(double vector[3],
     float focalPt[4], pos[4];
     int i;
 
-    this->Transform->SetMatrix(*(this->Prop3D->GetMatrixPointer()));
+    this->Transform->SetMatrix(*(this->Prop3D->GetMatrix()));
     this->Transform->Push();
     this->Transform->Inverse();
 

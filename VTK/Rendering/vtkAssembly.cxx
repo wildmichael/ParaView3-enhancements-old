@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAssembly.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-05 17:06:33 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 2000-12-08 14:39:17 $
+  Version:   $Revision: 1.46 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -274,14 +274,14 @@ void vtkAssembly::UpdatePaths()
     vtkAssemblyPath *path = vtkAssemblyPath::New();
 
     //add ourselves to the path to start things off
-    path->AddNode(this,this->GetMatrixPointer());
+    path->AddNode(this,this->GetMatrix());
     
     // Add nodes as we proceed down the hierarchy
     vtkProp3D *prop3D;
     for ( this->Parts->InitTraversal(); 
           (prop3D = this->Parts->GetNextProp3D()); )
       {
-      path->AddNode(prop3D,prop3D->GetMatrixPointer());
+      path->AddNode(prop3D,prop3D->GetMatrix());
 
       // dive into the hierarchy
       prop3D->BuildPaths(this->Paths,path);
@@ -305,7 +305,7 @@ void vtkAssembly::BuildPaths(vtkAssemblyPaths *paths, vtkAssemblyPath *path)
   for ( this->Parts->InitTraversal(); 
         (prop3D = this->Parts->GetNextProp3D()); )
     {
-    path->AddNode(prop3D,prop3D->GetMatrixPointer());
+    path->AddNode(prop3D,prop3D->GetMatrix());
 
     // dive into the hierarchy
     prop3D->BuildPaths(paths,path);

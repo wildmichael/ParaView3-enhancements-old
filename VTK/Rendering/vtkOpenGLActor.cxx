@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-09-19 17:48:20 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2000-12-08 14:39:17 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -81,7 +81,7 @@ void vtkOpenGLActor::Render(vtkRenderer *ren, vtkMapper *mapper)
     }
 
   // build transformation 
-  double *mat = this->GetMatrixPointer()->Element[0];
+  double *mat = this->GetMatrix()->Element[0];
   double mat2[16];
   mat2[0] = mat[0];
   mat2[1] = mat[4];
