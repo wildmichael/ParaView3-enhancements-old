@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkLocator.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-02-26 10:18:12 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1995-04-30 16:30:39 $
+  Version:   $Revision: 1.11 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -86,6 +86,7 @@ void vlLocator::FreeSearchStructure()
       {
       if ( (ptIds = this->HashTable[i]) ) delete ptIds;
       }
+    delete [] this->HashTable;
     this->HashTable = NULL;
     }
 }
