@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor.h,v $
   Language:  C++
-  Date:      $Date: 1995-09-11 08:10:21 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1995-09-12 07:04:16 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,7 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-// .NAME vtkActor - represents an object (geomtry & properties) in a scene 
+// .NAME vtkActor - represents an object (geometry & properties) in a scene 
 // .SECTION Description
 // vtkActor is used to represent an entity in a rendering scene.  It
 // handles functions related to the actors position, orientation and
