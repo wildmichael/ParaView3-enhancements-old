@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLPolyDataMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-07 03:17:06 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2000-05-24 16:58:41 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -183,13 +183,13 @@ void vtkOpenGLPolyDataMapper2D::RenderOpaqueGeometry(vtkViewport* viewport,
   if ( actor->GetProperty()->GetDisplayLocation() == 
        VTK_FOREGROUND_LOCATION )
     {
-    glOrtho(-actorPos[0],-actorPos[0] + size[0] - 1,
-            -actorPos[1], -actorPos[1] +size[1] -1, 0, 1);
+    glOrtho(-actorPos[0],-actorPos[0] + size[0],
+            -actorPos[1], -actorPos[1] +size[1], 0, 1);
     }  
   else
     {
-    glOrtho(-actorPos[0],-actorPos[0] + size[0] - 1,
-            -actorPos[1], -actorPos[1] +size[1] -1, -1, 0);
+    glOrtho(-actorPos[0],-actorPos[0] + size[0],
+            -actorPos[1], -actorPos[1] +size[1], -1, 0);
     }
     
   aPrim = input->GetPolys();

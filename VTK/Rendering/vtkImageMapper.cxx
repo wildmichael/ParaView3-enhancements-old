@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:13:48 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2000-05-24 16:58:32 $
+  Version:   $Revision: 1.33 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -155,20 +155,7 @@ void vtkImageMapper::RenderStart(vtkViewport* viewport, vtkActor2D* actor)
   vCoords[3] = 1.0;
   viewport->NormalizedViewportToViewport(vCoords[0],vCoords[1]);
   viewport->NormalizedViewportToViewport(vCoords[2],vCoords[3]);
-  int vSize[2];
-  // size excludes last pixel except for last pixelof window
-  // this is to prevent overlapping viewports
-  vSize[0] = VTK_RINT(vCoords[2]) - VTK_RINT(vCoords[0]);
-  vSize[1] = VTK_RINT(vCoords[3]) - VTK_RINT(vCoords[1]);
-  viewport->ViewportToNormalizedDisplay(vCoords[2],vCoords[3]);
-  if (vCoords[2] == 1.0) 
-    {
-    vSize[0]++;
-    }
-  if (vCoords[3] == 1.0)
-    {
-    vSize[1]++;
-    }
+  int *vSize = viewport->GetSize();
   
   // the basic formula is that the draw pos equals
   // the pos + extentPos + clippedAmount
