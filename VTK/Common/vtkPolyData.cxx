@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-02-04 12:47:26 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1994-02-04 16:26:44 $
+  Version:   $Revision: 1.13 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -235,11 +235,14 @@ void vlPolyData::ComputeBounds()
 }
 void vlPolyData::PrintSelf(ostream& os, vlIndent indent)
 {
-  vlDataSet::PrintSelf(os,indent);
-
-  os << indent << "Number Points: " << this->NumPoints() << "\n";
-  os << indent << "Number Verts: " << this->NumVerts() << "\n";
-  os << indent << "Number Lines: " << this->NumLines() << "\n";
-  os << indent << "Number Polygons: " << this->NumPolys() << "\n";
-  os << indent << "Number Triangle Strips: " << this->NumStrips() << "\n";
+  if (this->ShouldIPrint(vlPolyData::GetClassName()))
+    {
+    vlDataSet::PrintSelf(os,indent);
+    
+    os << indent << "Number Points: " << this->NumPoints() << "\n";
+    os << indent << "Number Verts: " << this->NumVerts() << "\n";
+    os << indent << "Number Lines: " << this->NumLines() << "\n";
+    os << indent << "Number Polygons: " << this->NumPolys() << "\n";
+    os << indent << "Number Triangle Strips: " << this->NumStrips() << "\n";
+    }
 }
