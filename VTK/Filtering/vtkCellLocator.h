@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellLocator.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:07:18 $
-  Version:   $Revision: 1.53 $
+  Date:      $Date: 2001-10-11 13:36:32 $
+  Version:   $Revision: 1.54 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -202,8 +202,6 @@ public:
 protected:
   vtkCellLocator();
   ~vtkCellLocator();
-  vtkCellLocator(const vtkCellLocator&);
-  void operator=(const vtkCellLocator&);
 
   void GetBucketNeighbors(int ijk[3], int ndivs, int level);
   void GetOverlappingBuckets(float x[3], int ijk[3], float dist, 
@@ -237,6 +235,9 @@ protected:
 //BTX - begin tcl exclude
   float (*CellBounds)[6];
 //ETX - end tcl exclude
+private:
+  vtkCellLocator(const vtkCellLocator&);  // Not implemented.
+  void operator=(const vtkCellLocator&);  // Not implemented.
 };
 
 #endif

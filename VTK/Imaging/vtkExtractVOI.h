@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractVOI.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:09:38 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2001-10-11 13:37:36 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -93,14 +93,15 @@ public:
 protected:
   vtkExtractVOI();
   ~vtkExtractVOI() {};
-  vtkExtractVOI(const vtkExtractVOI&);
-  void operator=(const vtkExtractVOI&);
 
   void Execute();
   void ExecuteInformation();
 
   int VOI[6];
   int SampleRate[3];
+private:
+  vtkExtractVOI(const vtkExtractVOI&);  // Not implemented.
+  void operator=(const vtkExtractVOI&);  // Not implemented.
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyLine.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:06:38 $
-  Version:   $Revision: 1.59 $
+  Date:      $Date: 2001-10-11 13:36:20 $
+  Version:   $Revision: 1.60 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -128,11 +128,12 @@ public:
 protected:
   vtkPolyLine();
   ~vtkPolyLine();
-  vtkPolyLine(const vtkPolyLine&);
-  void operator=(const vtkPolyLine&);
 
   vtkLine *Line;
 
+private:
+  vtkPolyLine(const vtkPolyLine&);  // Not implemented.
+  void operator=(const vtkPolyLine&);  // Not implemented.
 };
 
 #endif

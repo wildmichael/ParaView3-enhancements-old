@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGrid.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:06:46 $
-  Version:   $Revision: 1.77 $
+  Date:      $Date: 2001-10-11 13:36:28 $
+  Version:   $Revision: 1.78 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -71,6 +71,9 @@ class vtkWedge;
 class vtkPyramid;
 
 class VTK_COMMON_EXPORT vtkUnstructuredGrid : public vtkPointSet {
+private:
+  vtkUnstructuredGrid(const vtkUnstructuredGrid&);  // Not implemented.
+  void operator=(const vtkUnstructuredGrid&);  // Not implemented.
 public:
   static vtkUnstructuredGrid *New();
 
@@ -184,8 +187,6 @@ public:
 protected:
   vtkUnstructuredGrid();
   ~vtkUnstructuredGrid();
-  vtkUnstructuredGrid(const vtkUnstructuredGrid&);
-  void operator=(const vtkUnstructuredGrid&);
 
   // used by GetCell method
   vtkVertex *Vertex;

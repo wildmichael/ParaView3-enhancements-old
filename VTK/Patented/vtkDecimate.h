@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDecimate.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 15:30:22 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 2001-10-11 13:38:02 $
+  Version:   $Revision: 1.52 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -275,8 +275,6 @@ public:
 protected:
   vtkDecimate();
   ~vtkDecimate();
-  vtkDecimate(const vtkDecimate&);
-  void operator=(const vtkDecimate&);
 
   void Execute();
 
@@ -316,6 +314,9 @@ protected:
                  vtkLocalVertexPtr *l1, vtkIdType& n2, vtkLocalVertexPtr *l2);
   void Triangulate(vtkIdType numVerts, vtkLocalVertexPtr verts[]);
   int CheckError();
+private:
+  vtkDecimate(const vtkDecimate&);  // Not implemented.
+  void operator=(const vtkDecimate&);  // Not implemented.
 };
 
 #endif

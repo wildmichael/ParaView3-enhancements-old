@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoidArray.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:06:46 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 2001-10-11 13:36:29 $
+  Version:   $Revision: 1.48 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -155,14 +155,15 @@ public:
 protected:
   vtkVoidArray();
   ~vtkVoidArray();
-  vtkVoidArray(const vtkVoidArray&);
-  void operator=(const vtkVoidArray&);
 
   void** Array;  // pointer to data
   void** ResizeAndExtend(const vtkIdType sz);  // function to resize data
 
   int TupleSize; //used for data conversion
   float *Tuple;
+private:
+  vtkVoidArray(const vtkVoidArray&);  // Not implemented.
+  void operator=(const vtkVoidArray&);  // Not implemented.
 };
 
 

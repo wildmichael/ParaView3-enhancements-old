@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:20:27 $
-  Version:   $Revision: 1.81 $
+  Date:      $Date: 2001-10-11 13:38:24 $
+  Version:   $Revision: 1.82 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -266,8 +266,6 @@ public:
 protected:
   vtkRenderWindowInteractor();
   ~vtkRenderWindowInteractor();
-  vtkRenderWindowInteractor(const vtkRenderWindowInteractor&);
-  void operator=(const vtkRenderWindowInteractor&);
 
   vtkRenderWindow    *RenderWindow;
   vtkInteractorStyle *InteractorStyle;
@@ -296,6 +294,9 @@ protected:
   int NumberOfFlyFrames;
   float Dolly;
   
+private:
+  vtkRenderWindowInteractor(const vtkRenderWindowInteractor&);  // Not implemented.
+  void operator=(const vtkRenderWindowInteractor&);  // Not implemented.
 };
 
 #endif

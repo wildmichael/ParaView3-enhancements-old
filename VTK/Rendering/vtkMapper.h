@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:20:10 $
-  Version:   $Revision: 1.74 $
+  Date:      $Date: 2001-10-11 13:38:14 $
+  Version:   $Revision: 1.75 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -325,8 +325,6 @@ public:
 protected:
   vtkMapper();
   ~vtkMapper();
-  vtkMapper(const vtkMapper&);
-  void operator=(const vtkMapper&);
 
   vtkScalars *Scalars;
   vtkUnsignedCharArray *Colors;
@@ -347,6 +345,9 @@ protected:
   char ArrayName[256];
   int ArrayComponent;
   int ArrayAccessMode;
+private:
+  vtkMapper(const vtkMapper&);  // Not implemented.
+  void operator=(const vtkMapper&);  // Not implemented.
 };
 
 #endif

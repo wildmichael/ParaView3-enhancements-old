@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXOpenGLRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:20:33 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2001-10-11 13:38:36 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -213,8 +213,6 @@ public:
 protected:
   vtkXOpenGLRenderWindow();
   ~vtkXOpenGLRenderWindow();
-  vtkXOpenGLRenderWindow(const vtkXOpenGLRenderWindow&);
-  void operator=(const vtkXOpenGLRenderWindow&);
 
   Window   ParentId;
   Window   WindowId;
@@ -234,6 +232,9 @@ protected:
   // Looks like this just stores DoubleBuffer.
   int ScreenDoubleBuffer;
 #endif
+private:
+  vtkXOpenGLRenderWindow(const vtkXOpenGLRenderWindow&);  // Not implemented.
+  void operator=(const vtkXOpenGLRenderWindow&);  // Not implemented.
 };
 
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTubeFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:12:07 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 2001-10-11 13:37:21 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -150,8 +150,6 @@ public:
 protected:
   vtkTubeFilter();
   ~vtkTubeFilter() {};
-  vtkTubeFilter(const vtkTubeFilter&);
-  void operator=(const vtkTubeFilter&);
 
   // Usual data generation method
   void Execute();
@@ -166,6 +164,9 @@ protected:
   int OnRatio; //control the generation of the sides of the tube
   int Offset;  //control the generation of the sides
   
+private:
+  vtkTubeFilter(const vtkTubeFilter&);  // Not implemented.
+  void operator=(const vtkTubeFilter&);  // Not implemented.
 };
 
 // Description:

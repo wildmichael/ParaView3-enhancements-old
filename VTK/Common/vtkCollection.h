@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCollection.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:06:11 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 2001-10-11 13:36:05 $
+  Version:   $Revision: 1.42 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -130,8 +130,6 @@ public:
 protected:
   vtkCollection();
   ~vtkCollection();
-  vtkCollection(const vtkCollection&);
-  void operator=(const vtkCollection&);
 
   virtual void DeleteElement(vtkCollectionElement *); 
   int NumberOfItems;
@@ -139,6 +137,9 @@ protected:
   vtkCollectionElement *Bottom;
   vtkCollectionElement *Current;
 
+private:
+  vtkCollection(const vtkCollection&);
+  void operator=(const vtkCollection&);
 };
 
 

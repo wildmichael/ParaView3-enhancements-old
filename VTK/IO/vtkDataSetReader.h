@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetReader.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-10 14:21:03 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 2001-10-11 13:37:29 $
+  Version:   $Revision: 1.49 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -101,12 +101,13 @@ public:
 protected:
   vtkDataSetReader();
   ~vtkDataSetReader();
-  vtkDataSetReader(const vtkDataSetReader&);
-  void operator=(const vtkDataSetReader&);
 
   void Execute();
   vtkDataReader *Reader;
 
+private:
+  vtkDataSetReader(const vtkDataSetReader&);  // Not implemented.
+  void operator=(const vtkDataSetReader&);  // Not implemented.
 };
 
 #endif

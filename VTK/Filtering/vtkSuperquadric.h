@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSuperquadric.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:07:38 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2001-10-11 13:36:40 $
+  Version:   $Revision: 1.18 $
   Thanks:    Mike Halle, Brigham and Women's Hospital
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -129,8 +129,6 @@ public:
 protected:
   vtkSuperquadric();
   ~vtkSuperquadric() {};
-  vtkSuperquadric(const vtkSuperquadric&);
-  void operator=(const vtkSuperquadric&);
 
   int Toroidal;
   float Thickness;
@@ -139,6 +137,9 @@ protected:
   float ThetaRoundness;
   float Center[3];
   float Scale[3];
+private:
+  vtkSuperquadric(const vtkSuperquadric&);  // Not implemented.
+  void operator=(const vtkSuperquadric&);  // Not implemented.
 };
 
 #endif

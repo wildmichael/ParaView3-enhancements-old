@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataReader.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:08:58 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2001-10-11 13:37:32 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -75,8 +75,6 @@ public:
 protected:
   vtkPolyDataReader();
   ~vtkPolyDataReader();
-  vtkPolyDataReader(const vtkPolyDataReader&);
-  void operator=(const vtkPolyDataReader&);
 
   void Execute();
 
@@ -90,6 +88,9 @@ protected:
   int ExecutePiece;
   int ExecuteNumberOfPieces;
   int ExecuteGhostLevel;
+private:
+  vtkPolyDataReader(const vtkPolyDataReader&);  // Not implemented.
+  void operator=(const vtkPolyDataReader&);  // Not implemented.
 };
 
 #endif

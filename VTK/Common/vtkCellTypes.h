@@ -2,8 +2,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellTypes.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:06:10 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2001-10-11 13:36:04 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -136,14 +136,15 @@ public:
 protected:
   vtkCellTypes();
   ~vtkCellTypes();
-  vtkCellTypes(const vtkCellTypes&);
-  void operator=(const vtkCellTypes&);  
 
   vtkUnsignedCharArray *TypeArray; // pointer to types array
   vtkIntArray *LocationArray;   // pointer to array of offsets
   int Size;            // allocated size of data
   int MaxId;           // maximum index inserted thus far
   int Extend;          // grow array by this point
+private:
+  vtkCellTypes(const vtkCellTypes&);  // Not implemented.
+  void operator=(const vtkCellTypes&);    // Not implemented.
 };
 
 

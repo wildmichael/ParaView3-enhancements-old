@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderLargeImage.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:21:25 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2001-10-11 13:37:26 $
+  Version:   $Revision: 1.20 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -72,13 +72,14 @@ public:
 protected:
   vtkRenderLargeImage();
   ~vtkRenderLargeImage();
-  vtkRenderLargeImage(const vtkRenderLargeImage&);
-  void operator=(const vtkRenderLargeImage&);
 
   int Magnification;
   vtkRenderer *Input;
   void ExecuteData(vtkDataObject *data);
   void ExecuteInformation();  
+private:
+  vtkRenderLargeImage(const vtkRenderLargeImage&);  // Not implemented.
+  void operator=(const vtkRenderLargeImage&);  // Not implemented.
 };
 
 #endif

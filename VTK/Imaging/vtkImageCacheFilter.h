@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCacheFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:09:42 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2001-10-11 13:37:38 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -66,14 +66,15 @@ public:
 protected:
   vtkImageCacheFilter();
   ~vtkImageCacheFilter();
-  vtkImageCacheFilter(const vtkImageCacheFilter&);
-  void operator=(const vtkImageCacheFilter&);
 
   int CacheSize;
   
   vtkImageData **Data;
   // I do not have write access to UpdateTime.
   unsigned long *Times;
+private:
+  vtkImageCacheFilter(const vtkImageCacheFilter&);  // Not implemented.
+  void operator=(const vtkImageCacheFilter&);  // Not implemented.
 };
 
 

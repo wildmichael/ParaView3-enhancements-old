@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMesaRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:20:33 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-10-11 13:38:36 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -213,8 +213,6 @@ public:
 protected:
   vtkXMesaRenderWindow();
   ~vtkXMesaRenderWindow();
-  vtkXMesaRenderWindow(const vtkXMesaRenderWindow&);
-  void operator=(const vtkXMesaRenderWindow&);
 
   Window   ParentId;
   Window   WindowId;
@@ -232,6 +230,9 @@ protected:
   int ScreenMapped;
   // Looks like this just stores DoubleBuffer.
   int ScreenDoubleBuffer;
+private:
+  vtkXMesaRenderWindow(const vtkXMesaRenderWindow&);  // Not implemented.
+  void operator=(const vtkXMesaRenderWindow&);  // Not implemented.
 };
 
 

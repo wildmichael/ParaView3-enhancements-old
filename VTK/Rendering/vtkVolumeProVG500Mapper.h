@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProVG500Mapper.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:20:29 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2001-10-11 13:38:29 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -124,8 +124,6 @@ public:
 protected:
   vtkVolumeProVG500Mapper();
   ~vtkVolumeProVG500Mapper();
-  vtkVolumeProVG500Mapper(const vtkVolumeProVG500Mapper&);
-  void operator=(const vtkVolumeProVG500Mapper&);
   
   // Update the camera - set the camera matrix
   void UpdateCamera( vtkRenderer *, vtkVolume * );
@@ -170,6 +168,9 @@ protected:
   // create again
   int LoadedDataSize[3];
   
+private:
+  vtkVolumeProVG500Mapper(const vtkVolumeProVG500Mapper&);  // Not implemented.
+  void operator=(const vtkVolumeProVG500Mapper&);  // Not implemented.
 };
 
 

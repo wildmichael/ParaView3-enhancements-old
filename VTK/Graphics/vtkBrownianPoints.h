@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBrownianPoints.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:11:39 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2001-10-11 13:36:45 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -73,12 +73,13 @@ public:
 protected:
   vtkBrownianPoints();
   ~vtkBrownianPoints() {};
-  vtkBrownianPoints(const vtkBrownianPoints&);
-  void operator=(const vtkBrownianPoints&);
 
   void Execute();
   float MinimumSpeed;
   float MaximumSpeed;
+private:
+  vtkBrownianPoints(const vtkBrownianPoints&);  // Not implemented.
+  void operator=(const vtkBrownianPoints&);  // Not implemented.
 };
 
 #endif

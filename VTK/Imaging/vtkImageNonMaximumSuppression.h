@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageNonMaximumSuppression.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:10:03 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2001-10-11 13:37:50 $
+  Version:   $Revision: 1.32 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -84,8 +84,6 @@ public:
 protected:
   vtkImageNonMaximumSuppression();
   ~vtkImageNonMaximumSuppression() {};
-  vtkImageNonMaximumSuppression(const vtkImageNonMaximumSuppression&);
-  void operator=(const vtkImageNonMaximumSuppression&);
 
   int HandleBoundaries;
   int Dimensionality;
@@ -97,6 +95,9 @@ protected:
   void ThreadedExecute(vtkImageData **inDatas, vtkImageData *outData,
 		       int extent[6], int id);
   
+private:
+  vtkImageNonMaximumSuppression(const vtkImageNonMaximumSuppression&);  // Not implemented.
+  void operator=(const vtkImageNonMaximumSuppression&);  // Not implemented.
 };
 
 #endif

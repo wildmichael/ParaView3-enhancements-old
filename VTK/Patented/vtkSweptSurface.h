@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSweptSurface.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 15:30:26 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 2001-10-11 13:38:04 $
+  Version:   $Revision: 1.44 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -169,8 +169,6 @@ public:
 protected:
   vtkSweptSurface();
   ~vtkSweptSurface();
-  vtkSweptSurface(const vtkSweptSurface&);
-  void operator=(const vtkSweptSurface&);
 
   void Execute();
   void ExecuteInformation();
@@ -204,6 +202,9 @@ protected:
 private:
   //used to perform computations
   vtkTransform *T;
+private:
+  vtkSweptSurface(const vtkSweptSurface&);  // Not implemented.
+  void operator=(const vtkSweptSurface&);  // Not implemented.
 };
 
 #endif

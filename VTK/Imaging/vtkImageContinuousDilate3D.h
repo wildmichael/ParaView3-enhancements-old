@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageContinuousDilate3D.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:09:46 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2001-10-11 13:37:40 $
+  Version:   $Revision: 1.17 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -74,13 +74,14 @@ public:
 protected:
   vtkImageContinuousDilate3D();
   ~vtkImageContinuousDilate3D();
-  vtkImageContinuousDilate3D(const vtkImageContinuousDilate3D&);
-  void operator=(const vtkImageContinuousDilate3D&);
 
   vtkImageEllipsoidSource *Ellipse;
     
   void ThreadedExecute(vtkImageData *inData, vtkImageData *outData, 
 		       int extent[6], int id);
+private:
+  vtkImageContinuousDilate3D(const vtkImageContinuousDilate3D&);  // Not implemented.
+  void operator=(const vtkImageContinuousDilate3D&);  // Not implemented.
 };
 
 #endif

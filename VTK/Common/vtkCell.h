@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCell.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:06:08 $
-  Version:   $Revision: 1.70 $
+  Date:      $Date: 2001-10-11 13:36:01 $
+  Version:   $Revision: 1.71 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -316,10 +316,11 @@ public:
 protected:
   vtkCell();
   ~vtkCell();
-  vtkCell(const vtkCell&);
-  void operator=(const vtkCell&);
 
   float Bounds[6];
+private:
+  vtkCell(const vtkCell&);  // Not implemented.
+  void operator=(const vtkCell&);  // Not implemented.
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume16Reader.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:09:04 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2001-10-11 13:37:35 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -147,8 +147,6 @@ public:
 protected:
   vtkVolume16Reader();
   ~vtkVolume16Reader();
-  vtkVolume16Reader(const vtkVolume16Reader&);
-  void operator=(const vtkVolume16Reader&);
 
   void Execute();
   void ExecuteInformation();
@@ -169,6 +167,9 @@ protected:
   int Read16BitImage(FILE *fp, unsigned short *pixels, int xsize, int ysize, 
 		     int skip, int swapBytes);
 
+private:
+  vtkVolume16Reader(const vtkVolume16Reader&);  // Not implemented.
+  void operator=(const vtkVolume16Reader&);  // Not implemented.
 };
 
 #endif

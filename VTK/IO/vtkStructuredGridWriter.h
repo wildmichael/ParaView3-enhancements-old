@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridWriter.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:09:01 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2001-10-11 13:37:34 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -68,12 +68,13 @@ public:
 protected:
   vtkStructuredGridWriter() {};
   ~vtkStructuredGridWriter() {};
-  vtkStructuredGridWriter(const vtkStructuredGridWriter&);
-  void operator=(const vtkStructuredGridWriter&);
 
   void WriteData();
   void WriteBlanking(ostream *fp, vtkStructuredGrid *ds);
 
+private:
+  vtkStructuredGridWriter(const vtkStructuredGridWriter&);  // Not implemented.
+  void operator=(const vtkStructuredGridWriter&);  // Not implemented.
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBMPReader.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:08:42 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2001-10-11 13:37:27 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -87,8 +87,6 @@ public:
 protected:
   vtkBMPReader();
   ~vtkBMPReader();
-  vtkBMPReader(const vtkBMPReader&);
-  void operator=(const vtkBMPReader&);
 
   unsigned char *Colors;
   short Depth;
@@ -96,6 +94,9 @@ protected:
   virtual void ComputeDataIncrements();
   virtual void ExecuteInformation();
   virtual void ExecuteData(vtkDataObject *out);
+private:
+  vtkBMPReader(const vtkBMPReader&);  // Not implemented.
+  void operator=(const vtkBMPReader&);  // Not implemented.
 };
 #endif
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThinPlateSplineTransform.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:21:25 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2001-10-11 13:37:26 $
+  Version:   $Revision: 1.20 $
   Thanks:    Thanks to David G. Gobbi who developed this class 
              based on code from vtkThinPlateSplineMeshWarp.cxx
 	     written by Tim Hutton.
@@ -128,8 +128,6 @@ public:
 protected:
   vtkThinPlateSplineTransform();
   ~vtkThinPlateSplineTransform();
-  vtkThinPlateSplineTransform(const vtkThinPlateSplineTransform&);
-  void operator=(const vtkThinPlateSplineTransform&);
 
   // Description:
   // Prepare the transformation for application.
@@ -160,6 +158,9 @@ protected:
 
   int NumberOfPoints;
   double **MatrixW;
+private:
+  vtkThinPlateSplineTransform(const vtkThinPlateSplineTransform&);  // Not implemented.
+  void operator=(const vtkThinPlateSplineTransform&);  // Not implemented.
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTetra.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:06:44 $
-  Version:   $Revision: 1.64 $
+  Date:      $Date: 2001-10-11 13:36:26 $
+  Version:   $Revision: 1.65 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -171,12 +171,13 @@ public:
 protected:
   vtkTetra();
   ~vtkTetra();
-  vtkTetra(const vtkTetra&);
-  void operator=(const vtkTetra&);
 
   vtkLine *Line;
   vtkTriangle *Triangle;
 
+private:
+  vtkTetra(const vtkTetra&);  // Not implemented.
+  void operator=(const vtkTetra&);  // Not implemented.
 };
 
 inline int vtkTetra::GetParametricCenter(float pcoords[3])

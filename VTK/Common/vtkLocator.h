@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLocator.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:06:30 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 2001-10-11 13:36:16 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -157,8 +157,6 @@ public:
 protected:
   vtkLocator();
   ~vtkLocator();
-  vtkLocator(const vtkLocator&);
-  void operator=(const vtkLocator&);
 
   vtkDataSet *DataSet;
   int Automatic; // boolean controls automatic subdivision (or uses user spec.)
@@ -169,6 +167,9 @@ protected:
 
   vtkTimeStamp BuildTime;  // time at which locator was built
 
+private:
+  vtkLocator(const vtkLocator&);  // Not implemented.
+  void operator=(const vtkLocator&);  // Not implemented.
 };
 
 #endif

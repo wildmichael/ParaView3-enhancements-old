@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOverrideInformationCollection.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:06:36 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2001-10-11 13:36:19 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -69,14 +69,15 @@ public:
 protected:
   vtkOverrideInformationCollection() {};
   ~vtkOverrideInformationCollection() {};
-  vtkOverrideInformationCollection(const vtkOverrideInformationCollection&);
-  void operator=(const vtkOverrideInformationCollection&);
   
 
 private:
   // hide the standard AddItem from the user and the compiler.
   void AddItem(vtkObject *o) { this->vtkCollection::AddItem(o); };
 
+private:
+  vtkOverrideInformationCollection(const vtkOverrideInformationCollection&);  // Not implemented.
+  void operator=(const vtkOverrideInformationCollection&);  // Not implemented.
 };
 
 inline void vtkOverrideInformationCollection::AddItem(vtkOverrideInformation *f) 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectors.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:06:46 $
-  Version:   $Revision: 1.55 $
+  Date:      $Date: 2001-10-11 13:36:29 $
+  Version:   $Revision: 1.56 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -127,12 +127,13 @@ public:
 protected:
   vtkVectors();
   ~vtkVectors() {};
-  vtkVectors(const vtkVectors&);
-  void operator=(const vtkVectors&);
 
   double MaxNorm;
   vtkTimeStamp ComputeTime; // Time at which MaxNorm computed
 
+private:
+  vtkVectors(const vtkVectors&);  // Not implemented.
+  void operator=(const vtkVectors&);  // Not implemented.
 };
 
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoxel.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:06:47 $
-  Version:   $Revision: 1.60 $
+  Date:      $Date: 2001-10-11 13:36:29 $
+  Version:   $Revision: 1.61 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -111,12 +111,13 @@ public:
 protected:
   vtkVoxel();
   ~vtkVoxel();
-  vtkVoxel(const vtkVoxel&);
-  void operator=(const vtkVoxel&);
 
   vtkLine *Line;
   vtkPixel *Pixel;
   
+private:
+  vtkVoxel(const vtkVoxel&);  // Not implemented.
+  void operator=(const vtkVoxel&);  // Not implemented.
 };
 
 #endif

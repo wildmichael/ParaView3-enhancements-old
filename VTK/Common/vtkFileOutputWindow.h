@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFileOutputWindow.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:06:20 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2001-10-11 13:36:12 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -85,13 +85,14 @@ public:
  protected:
   vtkFileOutputWindow(); 
   virtual ~vtkFileOutputWindow(); 
-  vtkFileOutputWindow(const vtkFileOutputWindow&);
-  void operator=(const vtkFileOutputWindow&);
   void Initialize();
   char* FileName;
   ofstream* OStream;
   int Flush;
   int Append;
+private:
+  vtkFileOutputWindow(const vtkFileOutputWindow&);  // Not implemented.
+  void operator=(const vtkFileOutputWindow&);  // Not implemented.
 };
 
 

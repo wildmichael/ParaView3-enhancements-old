@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRendererSource.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:20:27 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2001-10-11 13:38:25 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -104,8 +104,6 @@ public:
 protected:
   vtkRendererSource();
   ~vtkRendererSource();
-  vtkRendererSource(const vtkRendererSource&);
-  void operator=(const vtkRendererSource&);
 
   void Execute();
   
@@ -116,6 +114,9 @@ protected:
   int RenderFlag;
   int DepthValues;
 
+private:
+  vtkRendererSource(const vtkRendererSource&);  // Not implemented.
+  void operator=(const vtkRendererSource&);  // Not implemented.
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProgrammableFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:11:59 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2001-10-11 13:37:12 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -107,8 +107,6 @@ public:
 protected:
   vtkProgrammableFilter();
   ~vtkProgrammableFilter();
-  vtkProgrammableFilter(const vtkProgrammableFilter&);
-  void operator=(const vtkProgrammableFilter&);
 
   void Execute();
 
@@ -116,6 +114,9 @@ protected:
   void (*ExecuteMethodArgDelete)(void *);
   void *ExecuteMethodArg;
   
+private:
+  vtkProgrammableFilter(const vtkProgrammableFilter&);  // Not implemented.
+  void operator=(const vtkProgrammableFilter&);  // Not implemented.
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataNormals.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:11:58 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2001-10-11 13:37:11 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -140,8 +140,6 @@ public:
 protected:
   vtkPolyDataNormals();
   ~vtkPolyDataNormals() {};
-  vtkPolyDataNormals(const vtkPolyDataNormals&);
-  void operator=(const vtkPolyDataNormals&);
 
   // Usual data generation method
   void Execute();
@@ -175,6 +173,9 @@ private:
   // separate the mesh.
   void MarkAndSplit(vtkIdType ptId);
 
+private:
+  vtkPolyDataNormals(const vtkPolyDataNormals&);  // Not implemented.
+  void operator=(const vtkPolyDataNormals&);  // Not implemented.
 };
 
 #endif

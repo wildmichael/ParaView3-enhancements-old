@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleUnicam.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:20:06 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2001-10-11 13:38:13 $
+  Version:   $Revision: 1.11 $
 
 =========================================================================*/
 
@@ -145,8 +145,6 @@ public:
 protected:
   vtkInteractorStyleUnicam();
   virtual ~vtkInteractorStyleUnicam();
-  vtkInteractorStyleUnicam(const vtkInteractorStyleUnicam&);
-  void operator=(const vtkInteractorStyleUnicam&);
 
   vtkWorldPointPicker *InteractionPicker;
   
@@ -191,6 +189,9 @@ protected:
 
   // return the aspect ratio of the current window
   float WindowAspect();
+private:
+  vtkInteractorStyleUnicam(const vtkInteractorStyleUnicam&);  // Not implemented.
+  void operator=(const vtkInteractorStyleUnicam&);  // Not implemented.
 };
 
 #endif  // __vtkInteractorStyleUnicam_h

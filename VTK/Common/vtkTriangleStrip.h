@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangleStrip.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:06:45 $
-  Version:   $Revision: 1.57 $
+  Date:      $Date: 2001-10-11 13:36:27 $
+  Version:   $Revision: 1.58 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -127,12 +127,13 @@ public:
 protected:
   vtkTriangleStrip();
   ~vtkTriangleStrip();
-  vtkTriangleStrip(const vtkTriangleStrip&);
-  void operator=(const vtkTriangleStrip&);
 
   vtkLine *Line;
   vtkTriangle *Triangle;
   
+private:
+  vtkTriangleStrip(const vtkTriangleStrip&);  // Not implemented.
+  void operator=(const vtkTriangleStrip&);  // Not implemented.
 };
 
 #endif

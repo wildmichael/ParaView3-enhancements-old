@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransform.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:06:44 $
-  Version:   $Revision: 1.79 $
+  Date:      $Date: 2001-10-11 13:36:26 $
+  Version:   $Revision: 1.80 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -318,8 +318,6 @@ class VTK_COMMON_EXPORT vtkTransform : public vtkLinearTransform
 protected:
   vtkTransform ();
   ~vtkTransform ();
-  vtkTransform (const vtkTransform& t);
-  void operator=(const vtkTransform&);
 
   void InternalDeepCopy(vtkAbstractTransform *t);
 
@@ -336,6 +334,9 @@ protected:
   float Point[4];
   double DoublePoint[4];
   float ReturnValue[4];
+private:
+  vtkTransform (const vtkTransform& t);  // Not implemented.
+  void operator=(const vtkTransform&);  // Not implemented.
 };
 
 #endif

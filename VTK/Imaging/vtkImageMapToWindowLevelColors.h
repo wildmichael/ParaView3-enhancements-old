@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMapToWindowLevelColors.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:10:01 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2001-10-11 13:37:48 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -82,8 +82,6 @@ public:
 protected:
   vtkImageMapToWindowLevelColors();
   ~vtkImageMapToWindowLevelColors();
-  vtkImageMapToWindowLevelColors(const vtkImageMapToWindowLevelColors&);
-  void operator=(const vtkImageMapToWindowLevelColors&);
 
   void ExecuteInformation(vtkImageData *inData, vtkImageData *outData);
   void ExecuteInformation(){this->vtkImageMapToColors::ExecuteInformation();};
@@ -94,6 +92,9 @@ protected:
   float Window;
   float Level;
   
+private:
+  vtkImageMapToWindowLevelColors(const vtkImageMapToWindowLevelColors&);  // Not implemented.
+  void operator=(const vtkImageMapToWindowLevelColors&);  // Not implemented.
 };
 
 #endif

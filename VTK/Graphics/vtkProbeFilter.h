@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProbeFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:11:58 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 2001-10-11 13:37:11 $
+  Version:   $Revision: 1.42 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -85,8 +85,6 @@ public:
 protected:
   vtkProbeFilter();
   ~vtkProbeFilter();
-  vtkProbeFilter(const vtkProbeFilter&);
-  void operator=(const vtkProbeFilter&);
 
   int SpatialMatch;
 
@@ -95,6 +93,9 @@ protected:
   void ComputeInputUpdateExtents(vtkDataObject *output);
 
   vtkIdTypeArray *ValidPoints;
+private:
+  vtkProbeFilter(const vtkProbeFilter&);  // Not implemented.
+  void operator=(const vtkProbeFilter&);  // Not implemented.
 };
 
 #endif

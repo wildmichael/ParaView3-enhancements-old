@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkShepardMethod.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:10:25 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2001-10-11 13:37:56 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -115,8 +115,6 @@ public:
 protected:
   vtkShepardMethod();
   ~vtkShepardMethod() {};
-  vtkShepardMethod(const vtkShepardMethod&);
-  void operator=(const vtkShepardMethod&);
 
   void Execute();
 
@@ -124,6 +122,9 @@ protected:
   float MaximumDistance;
   float ModelBounds[6];
   float NullValue;
+private:
+  vtkShepardMethod(const vtkShepardMethod&);  // Not implemented.
+  void operator=(const vtkShepardMethod&);  // Not implemented.
 };
 
 #endif

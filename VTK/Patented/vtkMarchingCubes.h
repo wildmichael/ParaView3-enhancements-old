@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingCubes.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 15:30:25 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 2001-10-11 13:38:04 $
+  Version:   $Revision: 1.47 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -131,8 +131,6 @@ public:
 protected:
   vtkMarchingCubes();
   ~vtkMarchingCubes();
-  vtkMarchingCubes(const vtkMarchingCubes&);
-  void operator=(const vtkMarchingCubes&);
 
   void Execute();
 
@@ -141,6 +139,9 @@ protected:
   int ComputeGradients;
   int ComputeScalars;
   vtkPointLocator *Locator;
+private:
+  vtkMarchingCubes(const vtkMarchingCubes&);  // Not implemented.
+  void operator=(const vtkMarchingCubes&);  // Not implemented.
 };
 
 // Description:

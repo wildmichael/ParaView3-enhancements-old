@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLightKit.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:20:09 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2001-10-11 13:38:14 $
+  Version:   $Revision: 1.8 $
   Thanks:    Michael Halle, Brigham and Women's Hospital
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -254,8 +254,6 @@ protected:
   void InitializeWarmthFunctions();
   float WarmthToIntensity(float w);
 
-  vtkLightKit(const vtkLightKit&);
-  void operator=(const vtkLightKit&);
 
   float KeyLightIntensity;
   float KeyToFillRatio;
@@ -278,6 +276,9 @@ protected:
   int MaintainLuminance;
 
   vtkPiecewiseFunction *WarmthFunction[4]; // r, g, b, perceptual length
+private:
+  vtkLightKit(const vtkLightKit&);  // Not implemented.
+  void operator=(const vtkLightKit&);  // Not implemented.
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAppendComponents.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:09:40 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2001-10-11 13:37:37 $
+  Version:   $Revision: 1.24 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -73,13 +73,14 @@ public:
 protected:
   vtkImageAppendComponents() {};
   ~vtkImageAppendComponents() {};
-  vtkImageAppendComponents(const vtkImageAppendComponents&);
-  void operator=(const vtkImageAppendComponents&);
   
   void ExecuteInformation(vtkImageData **inputs, vtkImageData *output);
   void ExecuteInformation(){this->vtkImageMultipleInputFilter::ExecuteInformation();};
   void ThreadedExecute(vtkImageData **inDatas, vtkImageData *outData,
 		       int extent[6], int id);
+private:
+  vtkImageAppendComponents(const vtkImageAppendComponents&);  // Not implemented.
+  void operator=(const vtkImageAppendComponents&);  // Not implemented.
 };
 
 #endif

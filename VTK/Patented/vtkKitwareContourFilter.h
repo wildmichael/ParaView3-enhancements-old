@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKitwareContourFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 15:30:24 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2001-10-11 13:38:03 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -95,8 +95,6 @@ public:
 protected:
   vtkKitwareContourFilter();
   ~vtkKitwareContourFilter();
-  vtkKitwareContourFilter(const vtkKitwareContourFilter&);
-  void operator=(const vtkKitwareContourFilter&);
 
   void ComputeInputUpdateExtents(vtkDataObject *data);
   void Execute();
@@ -108,6 +106,9 @@ protected:
   void StructuredGridContour(int dim);
   //default if not structured data
   void DataSetContour();
+private:
+  vtkKitwareContourFilter(const vtkKitwareContourFilter&);  // Not implemented.
+  void operator=(const vtkKitwareContourFilter&);  // Not implemented.
 };
 
 #endif

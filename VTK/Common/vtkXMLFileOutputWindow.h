@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLFileOutputWindow.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:06:48 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-10-11 13:36:31 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -90,11 +90,12 @@ public:
  protected:
   vtkXMLFileOutputWindow() {}; 
   virtual ~vtkXMLFileOutputWindow() {}; 
-  vtkXMLFileOutputWindow(const vtkXMLFileOutputWindow&);
-  void operator=(const vtkXMLFileOutputWindow&);
 
   void Initialize();
   virtual void DisplayXML(const char*, const char*);
+private:
+  vtkXMLFileOutputWindow(const vtkXMLFileOutputWindow&);  // Not implemented.
+  void operator=(const vtkXMLFileOutputWindow&);  // Not implemented.
 };
 
 

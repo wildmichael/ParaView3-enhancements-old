@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergeFields.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-04 09:27:40 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-10-11 13:37:09 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -146,8 +146,6 @@ protected:
 
   vtkMergeFields();
   virtual ~vtkMergeFields();
-  vtkMergeFields(const vtkMergeFields&);
-  void operator=(const vtkMergeFields&);
 
   void Execute();
 
@@ -195,6 +193,9 @@ protected:
 	} 
       while (cur);
     }
+private:
+  vtkMergeFields(const vtkMergeFields&);  // Not implemented.
+  void operator=(const vtkMergeFields&);  // Not implemented.
 };
 
 #endif

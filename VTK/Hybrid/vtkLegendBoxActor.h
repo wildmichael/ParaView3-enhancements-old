@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLegendBoxActor.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:21:24 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2001-10-11 13:37:25 $
+  Version:   $Revision: 1.9 $
   Thanks:    Tim Smith who sponsored and encouraged the development
              of this class.
 
@@ -194,8 +194,6 @@ public:
 protected:
   vtkLegendBoxActor();
   ~vtkLegendBoxActor();
-  vtkLegendBoxActor(const vtkLegendBoxActor&);
-  void operator=(const vtkLegendBoxActor&);
 
   void InitializeEntries();
 
@@ -228,6 +226,9 @@ protected:
   int           CachedSize[2];
   vtkTimeStamp  BuildTime;
 
+private:
+  vtkLegendBoxActor(const vtkLegendBoxActor&);  // Not implemented.
+  void operator=(const vtkLegendBoxActor&);  // Not implemented.
 };
 
 

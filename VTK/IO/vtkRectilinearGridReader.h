@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGridReader.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:08:59 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2001-10-11 13:37:33 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -75,12 +75,13 @@ public:
 protected:
   vtkRectilinearGridReader();
   ~vtkRectilinearGridReader();
-  vtkRectilinearGridReader(const vtkRectilinearGridReader&);
-  void operator=(const vtkRectilinearGridReader&);
 
   void Execute();
   void ExecuteInformation();
 
+private:
+  vtkRectilinearGridReader(const vtkRectilinearGridReader&);  // Not implemented.
+  void operator=(const vtkRectilinearGridReader&);  // Not implemented.
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOutlineCornerSource.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:11:57 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2001-10-11 13:37:10 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to Sebastien Barre who developed this class.
 
 
@@ -69,12 +69,13 @@ public:
 protected:
   vtkOutlineCornerSource();
   ~vtkOutlineCornerSource() {};
-  vtkOutlineCornerSource(const vtkOutlineCornerSource&);
-  void operator=(const vtkOutlineCornerSource&);
 
   void Execute();
 
   float CornerFactor;
+private:
+  vtkOutlineCornerSource(const vtkOutlineCornerSource&);  // Not implemented.
+  void operator=(const vtkOutlineCornerSource&);  // Not implemented.
 };
 
 #endif

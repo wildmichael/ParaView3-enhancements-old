@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSightReader.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:08:50 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2001-10-11 13:37:30 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -156,8 +156,6 @@ public:
 protected:
   vtkEnSightReader();
   ~vtkEnSightReader();
-  vtkEnSightReader(const vtkEnSightReader&);
-  void operator=(const vtkEnSightReader&);
   
   void Execute();
 
@@ -371,6 +369,9 @@ protected:
   // global list of points for measured geometry
   int NumberOfMeasuredPoints;
   vtkIdList *MeasuredNodeIds;
+private:
+  vtkEnSightReader(const vtkEnSightReader&);  // Not implemented.
+  void operator=(const vtkEnSightReader&);  // Not implemented.
 };
 
 #endif

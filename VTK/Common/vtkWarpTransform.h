@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpTransform.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:06:47 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2001-10-11 13:36:29 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -133,8 +133,6 @@ public:
 protected:
   vtkWarpTransform();
   ~vtkWarpTransform();
-  vtkWarpTransform(const vtkWarpTransform&);
-  void operator=(const vtkWarpTransform&);
 
   // Description:
   // If the InverseFlag is set to 0, then a call to InternalTransformPoint
@@ -168,6 +166,9 @@ protected:
   int InverseFlag;
   int InverseIterations;
   double InverseTolerance;
+private:
+  vtkWarpTransform(const vtkWarpTransform&);  // Not implemented.
+  void operator=(const vtkWarpTransform&);  // Not implemented.
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoxelModeller.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:10:28 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2001-10-11 13:37:57 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -100,13 +100,14 @@ public:
 protected:
   vtkVoxelModeller();
   ~vtkVoxelModeller() {};
-  vtkVoxelModeller(const vtkVoxelModeller&);
-  void operator=(const vtkVoxelModeller&);
 
   void Execute();
   int SampleDimensions[3];
   float MaximumDistance;
   float ModelBounds[6];
+private:
+  vtkVoxelModeller(const vtkVoxelModeller&);  // Not implemented.
+  void operator=(const vtkVoxelModeller&);  // Not implemented.
 };
 
 #endif

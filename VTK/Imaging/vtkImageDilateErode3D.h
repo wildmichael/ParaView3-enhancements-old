@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDilateErode3D.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:09:50 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2001-10-11 13:37:41 $
+  Version:   $Revision: 1.28 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -82,8 +82,6 @@ public:
 protected:
   vtkImageDilateErode3D();
   ~vtkImageDilateErode3D();
-  vtkImageDilateErode3D(const vtkImageDilateErode3D&);
-  void operator=(const vtkImageDilateErode3D&);
 
   vtkImageEllipsoidSource *Ellipse;
   float DilateValue;
@@ -91,6 +89,9 @@ protected:
     
   void ThreadedExecute(vtkImageData *inData, vtkImageData *outData, 
 		       int extent[6], int id);
+private:
+  vtkImageDilateErode3D(const vtkImageDilateErode3D&);  // Not implemented.
+  void operator=(const vtkImageDilateErode3D&);  // Not implemented.
 };
 
 #endif

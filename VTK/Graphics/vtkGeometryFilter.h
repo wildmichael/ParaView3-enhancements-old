@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGeometryFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:11:53 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 2001-10-11 13:37:04 $
+  Version:   $Revision: 1.51 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -153,8 +153,6 @@ public:
 protected:
   vtkGeometryFilter();
   ~vtkGeometryFilter();
-  vtkGeometryFilter(const vtkGeometryFilter&);
-  void operator=(const vtkGeometryFilter&);
 
   void Execute();
   void PolyDataExecute(); //special cases for performance
@@ -174,6 +172,9 @@ protected:
 
   int Merging;
   vtkPointLocator *Locator;
+private:
+  vtkGeometryFilter(const vtkGeometryFilter&);  // Not implemented.
+  void operator=(const vtkGeometryFilter&);  // Not implemented.
 };
 
 #endif

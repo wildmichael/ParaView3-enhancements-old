@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLImageActor.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:20:19 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2001-10-11 13:38:17 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -73,8 +73,6 @@ public:
 protected:
   vtkOpenGLImageActor();
   ~vtkOpenGLImageActor();
-  vtkOpenGLImageActor(const vtkOpenGLImageActor&);
-  void operator=(const vtkOpenGLImageActor&);
 
   unsigned char *MakeDataSuitable(int &xsize, int &ysize, int &release);
 
@@ -83,6 +81,9 @@ protected:
   vtkRenderWindow *RenderWindow;   // RenderWindow used for previous render
   float Coords[12];
   float TCoords[8];
+private:
+  vtkOpenGLImageActor(const vtkOpenGLImageActor&);  // Not implemented.
+  void operator=(const vtkOpenGLImageActor&);  // Not implemented.
 };
 
 #endif

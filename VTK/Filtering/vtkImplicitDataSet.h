@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitDataSet.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:07:28 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2001-10-11 13:36:35 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -111,8 +111,6 @@ public:
 protected:
   vtkImplicitDataSet();
   ~vtkImplicitDataSet();
-  vtkImplicitDataSet(const vtkImplicitDataSet&);
-  void operator=(const vtkImplicitDataSet&);
 
   vtkDataSet *DataSet;
   float OutValue;
@@ -121,6 +119,9 @@ protected:
   float *Weights; //used to compute interpolation weights
   int Size; //keeps track of length of weights array
 
+private:
+  vtkImplicitDataSet(const vtkImplicitDataSet&);  // Not implemented.
+  void operator=(const vtkImplicitDataSet&);  // Not implemented.
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSightGoldReader.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:08:50 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2001-10-11 13:37:30 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -73,8 +73,6 @@ public:
 protected:
   vtkEnSightGoldReader() {};
   ~vtkEnSightGoldReader() {};
-  vtkEnSightGoldReader(const vtkEnSightGoldReader&);
-  void operator=(const vtkEnSightGoldReader&);
   
   // Description:
   // Read the geometry file.  If an error occurred, 0 is returned; otherwise 1.
@@ -161,6 +159,9 @@ protected:
   // Set/Get the Match file name.
   vtkSetStringMacro(MatchFileName);
   vtkGetStringMacro(MatchFileName);
+private:
+  vtkEnSightGoldReader(const vtkEnSightGoldReader&);  // Not implemented.
+  void operator=(const vtkEnSightGoldReader&);  // Not implemented.
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPropAssembly.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:06:39 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2001-10-11 13:36:22 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -144,8 +144,6 @@ public:
 protected:
   vtkPropAssembly();
   ~vtkPropAssembly();
-  vtkPropAssembly(const vtkPropAssembly&);
-  void operator=(const vtkPropAssembly&);
 
   vtkPropCollection *Parts;
   float Bounds[6];
@@ -153,6 +151,9 @@ protected:
   // Support the BuildPaths() method,
   vtkTimeStamp PathTime;
   void UpdatePaths(); //apply transformations and properties recursively
+private:
+  vtkPropAssembly(const vtkPropAssembly&);  // Not implemented.
+  void operator=(const vtkPropAssembly&);  // Not implemented.
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMultiProcessLog.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 15:30:45 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-10-11 13:37:59 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -75,9 +75,10 @@ protected:
 
   vtkMultiProcessLog() {}; //insure constructur/destructor protected
   ~vtkMultiProcessLog() {};
-  vtkMultiProcessLog(const vtkMultiProcessLog&);
-  void operator=(const vtkMultiProcessLog&);
 
+private:
+  vtkMultiProcessLog(const vtkMultiProcessLog&);  // Not implemented.
+  void operator=(const vtkMultiProcessLog&);  // Not implemented.
 };
 
 

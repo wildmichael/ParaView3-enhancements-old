@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyData.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:06:38 $
-  Version:   $Revision: 1.116 $
+  Date:      $Date: 2001-10-11 13:36:20 $
+  Version:   $Revision: 1.117 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -409,8 +409,6 @@ public:
 protected:
   vtkPolyData();
   ~vtkPolyData();
-  vtkPolyData(const vtkPolyData&);
-  void operator=(const vtkPolyData&);
 
   // constant cell objects returned by GetCell called.
   vtkVertex *Vertex;
@@ -453,6 +451,9 @@ private:
   void GetCellNeighbors(vtkIdType cellId, vtkIdList& ptIds, vtkIdList& cellIds)
     {this->GetCellNeighbors(cellId, &ptIds, &cellIds);}
 
+private:
+  vtkPolyData(const vtkPolyData&);  // Not implemented.
+  void operator=(const vtkPolyData&);  // Not implemented.
 };
 
 inline void vtkPolyData::GetPointCells(vtkIdType ptId, unsigned short& ncells, 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractEdges.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:11:51 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2001-10-11 13:36:59 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -76,13 +76,14 @@ public:
 protected:
   vtkExtractEdges();
   ~vtkExtractEdges();
-  vtkExtractEdges(const vtkExtractEdges&);
-  void operator=(const vtkExtractEdges&);
 
   // Usual data generation method
   void Execute();
 
   vtkPointLocator *Locator;
+private:
+  vtkExtractEdges(const vtkExtractEdges&);  // Not implemented.
+  void operator=(const vtkExtractEdges&);  // Not implemented.
 };
 
 #endif

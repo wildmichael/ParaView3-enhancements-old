@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRayBounder.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:20:25 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2001-10-11 13:38:23 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -83,8 +83,9 @@ public:
 protected:
   vtkRayBounder() {};
   ~vtkRayBounder() {};
-  vtkRayBounder(const vtkRayBounder &);
-  void operator=(const vtkRayBounder &);
+private:
+  vtkRayBounder(const vtkRayBounder&);  // Not implemented.
+  void operator=(const vtkRayBounder&);  // Not implemented.
 };
 
 #endif

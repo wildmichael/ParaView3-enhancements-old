@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAssemblyPaths.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:06:06 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2001-10-11 13:36:00 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -87,8 +87,6 @@ public:
 protected:
   vtkAssemblyPaths() {};
   ~vtkAssemblyPaths() {};
-  vtkAssemblyPaths(const vtkAssemblyPaths&);
-  void operator=(const vtkAssemblyPaths&);
   
 private:
   // hide the standard AddItem from the user and the compiler.
@@ -97,6 +95,9 @@ private:
   void RemoveItem(int i) { this->vtkCollection::RemoveItem(i); };
   int  IsItemPresent(vtkObject *o) 
     { return this->vtkCollection::IsItemPresent(o);};
+private:
+  vtkAssemblyPaths(const vtkAssemblyPaths&);  // Not implemented.
+  void operator=(const vtkAssemblyPaths&);  // Not implemented.
 };
 
 inline void vtkAssemblyPaths::AddItem(vtkAssemblyPath *p) 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OutputWindow.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:06:47 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2001-10-11 13:36:30 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -73,13 +73,14 @@ public:
 protected: 
   vtkWin32OutputWindow() {}; 
   virtual ~vtkWin32OutputWindow() {}; 
-  vtkWin32OutputWindow(const vtkWin32OutputWindow&);
-  void operator=(const vtkWin32OutputWindow&);
   
   void PromptText(const char* text);
   static void AddText(const char*);
   static int Initialize();
   static HWND OutputWindow;
+private:
+  vtkWin32OutputWindow(const vtkWin32OutputWindow&);  // Not implemented.
+  void operator=(const vtkWin32OutputWindow&);  // Not implemented.
 };
 
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThreadSafeLog.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 15:30:50 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-10-11 13:38:01 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -79,8 +79,6 @@ protected:
 
   vtkThreadSafeLog(); //insure constructur/destructor protected
   ~vtkThreadSafeLog();
-  vtkThreadSafeLog(const vtkThreadSafeLog&);
-  void operator=(const vtkThreadSafeLog&);
 
 
   char *Tags[VTK_THREAD_SAFE_LOG_MAX];
@@ -88,6 +86,9 @@ protected:
   int NumberOfEntries;
 
   vtkTimerLog *Timer;
+private:
+  vtkThreadSafeLog(const vtkThreadSafeLog&);  // Not implemented.
+  void operator=(const vtkThreadSafeLog&);  // Not implemented.
 };
 
 

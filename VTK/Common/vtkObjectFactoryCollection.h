@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObjectFactoryCollection.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:06:35 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2001-10-11 13:36:18 $
+  Version:   $Revision: 1.16 $
   Thanks:    Thanks to William A. Hoffman who developed this class
 
 
@@ -78,14 +78,15 @@ return new vtkObjectFactoryCollection;};
 protected:
   vtkObjectFactoryCollection() {};
   ~vtkObjectFactoryCollection() {};
-  vtkObjectFactoryCollection(const vtkObjectFactoryCollection&);
-  void operator=(const vtkObjectFactoryCollection&);
 
 
 private:
   // hide the standard AddItem from the user and the compiler.
   void AddItem(vtkObject *o) { this->vtkCollection::AddItem(o); };
 
+private:
+  vtkObjectFactoryCollection(const vtkObjectFactoryCollection&);  // Not implemented.
+  void operator=(const vtkObjectFactoryCollection&);  // Not implemented.
 };
 
 

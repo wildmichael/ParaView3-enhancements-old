@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkViewport.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:06:46 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2001-10-11 13:36:29 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -265,8 +265,6 @@ protected:
   // culling turned off.
   vtkViewport();
   ~vtkViewport();
-  vtkViewport(const vtkViewport&);
-  void operator=(const vtkViewport&);
 
   //BTX
   // Picking functions to be implemented by sub-classes
@@ -311,6 +309,9 @@ protected:
   float ViewPoint[3];
   float WorldPoint[4];
 
+private:
+  vtkViewport(const vtkViewport&);  // Not implemented.
+  void operator=(const vtkViewport&);  // Not implemented.
 };
 
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataStreamer.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:11:58 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2001-10-11 13:37:11 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -83,8 +83,6 @@ public:
 protected:
   vtkPolyDataStreamer();
   ~vtkPolyDataStreamer();
-  vtkPolyDataStreamer(const vtkPolyDataStreamer&);
-  void operator=(const vtkPolyDataStreamer&);
   
   // Append the pieces.
   void Execute();
@@ -92,6 +90,9 @@ protected:
   
   int NumberOfStreamDivisions;
   int ColorByPiece;
+private:
+  vtkPolyDataStreamer(const vtkPolyDataStreamer&);  // Not implemented.
+  void operator=(const vtkPolyDataStreamer&);  // Not implemented.
 };
 
 #endif

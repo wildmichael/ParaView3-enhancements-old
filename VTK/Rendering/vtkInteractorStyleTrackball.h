@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleTrackball.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:20:04 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2001-10-11 13:38:12 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -104,8 +104,6 @@ public:
 protected:
   vtkInteractorStyleTrackball();
   ~vtkInteractorStyleTrackball();
-  vtkInteractorStyleTrackball(const vtkInteractorStyleTrackball&);
-  void operator=(const vtkInteractorStyleTrackball&);
 
   // used to track picked objects in actor mode
   // reason for existence: user may use any kind of picker.  Interactor
@@ -168,6 +166,9 @@ protected:
                       int NumRotation,double **rotate,
                       double *scale);
   void FindPickedActor(int X, int Y);
+private:
+  vtkInteractorStyleTrackball(const vtkInteractorStyleTrackball&);  // Not implemented.
+  void operator=(const vtkInteractorStyleTrackball&);  // Not implemented.
 };
 
 #endif

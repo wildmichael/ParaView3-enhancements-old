@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaActor.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:20:11 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2001-10-11 13:38:14 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -70,9 +70,10 @@ public:
 protected:
   vtkMesaActor() {};
   ~vtkMesaActor() {};
-  vtkMesaActor(const vtkMesaActor&);
-  void operator=(const vtkMesaActor&);
 
+private:
+  vtkMesaActor(const vtkMesaActor&);  // Not implemented.
+  void operator=(const vtkMesaActor&);  // Not implemented.
 };
 
 #endif

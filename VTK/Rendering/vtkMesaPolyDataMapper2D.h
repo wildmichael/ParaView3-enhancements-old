@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaPolyDataMapper2D.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:20:15 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2001-10-11 13:38:15 $
+  Version:   $Revision: 1.8 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -65,9 +65,10 @@ public:
 protected:
   vtkMesaPolyDataMapper2D() {};
   ~vtkMesaPolyDataMapper2D() {};
-  vtkMesaPolyDataMapper2D(const vtkMesaPolyDataMapper2D&);
-  void operator=(const vtkMesaPolyDataMapper2D&);
   
+private:
+  vtkMesaPolyDataMapper2D(const vtkMesaPolyDataMapper2D&);  // Not implemented.
+  void operator=(const vtkMesaPolyDataMapper2D&);  // Not implemented.
 };
 
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToImageStencil.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:10:20 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-10-11 13:37:55 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -88,8 +88,6 @@ public:
 protected:
   vtkImageToImageStencil();
   ~vtkImageToImageStencil();
-  vtkImageToImageStencil(const vtkImageToImageStencil&);
-  void operator=(const vtkImageToImageStencil&);
 
   void ThreadedExecute(vtkImageStencilData *output,
 		       int extent[6], int threadId);
@@ -97,6 +95,9 @@ protected:
   float UpperThreshold;
   float LowerThreshold;
   float Threshold;
+private:
+  vtkImageToImageStencil(const vtkImageToImageStencil&);  // Not implemented.
+  void operator=(const vtkImageToImageStencil&);  // Not implemented.
 };
 
 #endif

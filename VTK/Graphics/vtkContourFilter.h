@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkContourFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:11:44 $
-  Version:   $Revision: 1.59 $
+  Date:      $Date: 2001-10-11 13:36:51 $
+  Version:   $Revision: 1.60 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -153,8 +153,6 @@ public:
 protected:
   vtkContourFilter();
   ~vtkContourFilter();
-  vtkContourFilter(const vtkContourFilter&);
-  void operator=(const vtkContourFilter&);
 
   void Execute();
 
@@ -166,6 +164,9 @@ protected:
   int UseScalarTree;
   vtkScalarTree *ScalarTree;
   
+private:
+  vtkContourFilter(const vtkContourFilter&);  // Not implemented.
+  void operator=(const vtkContourFilter&);  // Not implemented.
 };
 
 // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:20:32 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 2001-10-11 13:38:33 $
+  Version:   $Revision: 1.47 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -203,8 +203,6 @@ public:
 protected:
   vtkWin32OpenGLRenderWindow();
   ~vtkWin32OpenGLRenderWindow();
-  vtkWin32OpenGLRenderWindow(const vtkWin32OpenGLRenderWindow&);
-  void operator=(const vtkWin32OpenGLRenderWindow&);
 
   HINSTANCE ApplicationInstance;
   HPALETTE  Palette;
@@ -246,6 +244,9 @@ protected:
   void CleanUpOffScreenRendering(void);
   void CreateOffScreenDC(int xsize, int ysize, HDC aHdc);
   void CreateOffScreenDC(HBITMAP hbmp, HDC aHdc);
+private:
+  vtkWin32OpenGLRenderWindow(const vtkWin32OpenGLRenderWindow&);  // Not implemented.
+  void operator=(const vtkWin32OpenGLRenderWindow&);  // Not implemented.
 };
 
 

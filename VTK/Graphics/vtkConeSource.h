@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkConeSource.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:11:43 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 2001-10-11 13:36:50 $
+  Version:   $Revision: 1.49 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -95,8 +95,6 @@ public:
 protected:
   vtkConeSource(int res=6);
   ~vtkConeSource() {};
-  vtkConeSource(const vtkConeSource&);
-  void operator=(const vtkConeSource&);
 
   void Execute();
   void ExecuteInformation();
@@ -104,6 +102,9 @@ protected:
   float Radius;
   int Resolution;
   int Capping;
+private:
+  vtkConeSource(const vtkConeSource&);  // Not implemented.
+  void operator=(const vtkConeSource&);  // Not implemented.
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalarsToColors.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:06:42 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2001-10-11 13:36:24 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -165,13 +165,14 @@ public:
 protected:
   vtkScalarsToColors():Alpha(1.0) {}
   ~vtkScalarsToColors() {}
-  vtkScalarsToColors(const vtkScalarsToColors &);
-  void operator=(const vtkScalarsToColors &);
 
   float Alpha;
 
 private:
   float RGB[3];
+private:
+  vtkScalarsToColors(const vtkScalarsToColors&);  // Not implemented.
+  void operator=(const vtkScalarsToColors&);  // Not implemented.
 };
 
 #endif

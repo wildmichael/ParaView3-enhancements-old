@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMPIEventLog.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 15:30:44 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2001-10-11 13:37:59 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -102,13 +102,14 @@ protected:
 
   vtkMPIEventLog();
   ~vtkMPIEventLog();
-  vtkMPIEventLog(const vtkMPIEventLog&);
-  void operator=(const vtkMPIEventLog&);
 
   static int LastEventId;
   int Active;
   int BeginId;
   int EndId;
+private:
+  vtkMPIEventLog(const vtkMPIEventLog&);  // Not implemented.
+  void operator=(const vtkMPIEventLog&);  // Not implemented.
 };
 
 #endif

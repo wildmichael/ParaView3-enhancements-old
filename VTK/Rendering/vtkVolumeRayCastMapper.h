@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastMapper.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:20:30 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2001-10-11 13:38:31 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -208,8 +208,6 @@ public:
 protected:
   vtkVolumeRayCastMapper();
   ~vtkVolumeRayCastMapper();
-  vtkVolumeRayCastMapper(const vtkVolumeRayCastMapper&);
-  void operator=(const vtkVolumeRayCastMapper&);
 
   vtkVolumeRayCastFunction     *VolumeRayCastFunction;
   vtkEncodedGradientEstimator  *GradientEstimator;
@@ -303,6 +301,9 @@ protected:
   // the zbuffer image coordinates. Nearest neighbor value is returned.
   float         GetZBufferValue( int x, int y );
 
+private:
+  vtkVolumeRayCastMapper(const vtkVolumeRayCastMapper&);  // Not implemented.
+  void operator=(const vtkVolumeRayCastMapper&);  // Not implemented.
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaTexture.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:20:16 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2001-10-11 13:38:16 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -73,8 +73,6 @@ public:
 protected:
   vtkMesaTexture();
   ~vtkMesaTexture();
-  vtkMesaTexture(const vtkMesaTexture&);
-  void operator=(const vtkMesaTexture&);
 
   unsigned char *ResampleToPowerOfTwo(int &xsize, int &ysize, 
                                       unsigned char *dptr, int bpp);
@@ -83,6 +81,9 @@ protected:
   long          Index;
   static   long GlobalIndex;
   vtkRenderWindow *RenderWindow;   // RenderWindow used for previous render
+private:
+  vtkMesaTexture(const vtkMesaTexture&);  // Not implemented.
+  void operator=(const vtkMesaTexture&);  // Not implemented.
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMatrixToLinearTransform.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:06:34 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2001-10-11 13:36:17 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -91,14 +91,15 @@ class VTK_COMMON_EXPORT vtkMatrixToLinearTransform : public vtkLinearTransform
 protected:
   vtkMatrixToLinearTransform();
   ~vtkMatrixToLinearTransform();
-  vtkMatrixToLinearTransform(const vtkMatrixToLinearTransform&);
-  void operator=(const vtkMatrixToLinearTransform&);
 
   void InternalUpdate();
   void InternalDeepCopy(vtkAbstractTransform *transform);
 
   int InverseFlag;
   vtkMatrix4x4 *Input;
+private:
+  vtkMatrixToLinearTransform(const vtkMatrixToLinearTransform&);  // Not implemented.
+  void operator=(const vtkMatrixToLinearTransform&);  // Not implemented.
 };
 
 #endif

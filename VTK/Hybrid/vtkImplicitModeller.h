@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitModeller.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:21:23 $
-  Version:   $Revision: 1.52 $
+  Date:      $Date: 2001-10-11 13:37:24 $
+  Version:   $Revision: 1.53 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -216,8 +216,6 @@ public:
 protected:
   vtkImplicitModeller();
   ~vtkImplicitModeller();
-  vtkImplicitModeller(const vtkImplicitModeller&);
-  void operator=(const vtkImplicitModeller&);
 
   void Execute();
   void ExecuteInformation();
@@ -240,6 +238,9 @@ protected:
 
   int BoundsComputed; // flag to limit to one ComputeModelBounds per StartAppend
   float InternalMaxDistance; // the max distance computed during that one call
+private:
+  vtkImplicitModeller(const vtkImplicitModeller&);  // Not implemented.
+  void operator=(const vtkImplicitModeller&);  // Not implemented.
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransformTextureCoords.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:12:06 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2001-10-11 13:37:20 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -122,8 +122,6 @@ public:
 protected:
   vtkTransformTextureCoords();
   ~vtkTransformTextureCoords() {};
-  vtkTransformTextureCoords(const vtkTransformTextureCoords&);
-  void operator=(const vtkTransformTextureCoords&);
 
   void Execute();
 
@@ -133,6 +131,9 @@ protected:
   int FlipR; //boolean indicates whether to flip texture around r-axis
   int FlipS; //boolean indicates whether to flip texture around s-axis
   int FlipT; //boolean indicates whether to flip texture around t-axis
+private:
+  vtkTransformTextureCoords(const vtkTransformTextureCoords&);  // Not implemented.
+  void operator=(const vtkTransformTextureCoords&);  // Not implemented.
 };
 
 #endif

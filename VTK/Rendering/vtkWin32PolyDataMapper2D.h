@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32PolyDataMapper2D.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:20:32 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2001-10-11 13:38:34 $
+  Version:   $Revision: 1.17 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -66,9 +66,10 @@ public:
 protected:
   vtkWin32PolyDataMapper2D() {};
   ~vtkWin32PolyDataMapper2D() {};
-  vtkWin32PolyDataMapper2D(const vtkWin32PolyDataMapper2D&);
-  void operator=(const vtkWin32PolyDataMapper2D&);
   
+private:
+  vtkWin32PolyDataMapper2D(const vtkWin32PolyDataMapper2D&);  // Not implemented.
+  void operator=(const vtkWin32PolyDataMapper2D&);  // Not implemented.
 };
 #endif
 

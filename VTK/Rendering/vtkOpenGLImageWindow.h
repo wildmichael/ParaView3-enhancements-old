@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLImageWindow.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:20:19 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2001-10-11 13:38:18 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -119,8 +119,9 @@ public:
 protected:
   vtkOpenGLImageWindow();
   ~vtkOpenGLImageWindow();
-  vtkOpenGLImageWindow(const vtkOpenGLImageWindow&);
-  void operator=(const vtkOpenGLImageWindow&);
+private:
+  vtkOpenGLImageWindow(const vtkOpenGLImageWindow&);  // Not implemented.
+  void operator=(const vtkOpenGLImageWindow&);  // Not implemented.
 };
 
 

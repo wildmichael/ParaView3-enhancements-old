@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSight6BinaryReader.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:08:47 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2001-10-11 13:37:29 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -73,8 +73,6 @@ public:
 protected:
   vtkEnSight6BinaryReader();
   ~vtkEnSight6BinaryReader();
-  vtkEnSight6BinaryReader(const vtkEnSight6BinaryReader&);
-  void operator=(const vtkEnSight6BinaryReader&);
   
   // Description:
   // Read the geometry file.  If an error occurred, 0 is returned; otherwise 1.
@@ -170,6 +168,9 @@ protected:
   int ElementIdsListed;
   
   FILE *IFile;
+private:
+  vtkEnSight6BinaryReader(const vtkEnSight6BinaryReader&);  // Not implemented.
+  void operator=(const vtkEnSight6BinaryReader&);  // Not implemented.
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPlaneCollection.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:06:37 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2001-10-11 13:36:19 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -69,14 +69,15 @@ public:
 protected:
   vtkPlaneCollection() {};
   ~vtkPlaneCollection() {};
-  vtkPlaneCollection(const vtkPlaneCollection&);
-  void operator=(const vtkPlaneCollection&);
   
 
 private:
   // hide the standard AddItem from the user and the compiler.
   void AddItem(vtkObject *o) { this->vtkCollection::AddItem(o); };
 
+private:
+  vtkPlaneCollection(const vtkPlaneCollection&);  // Not implemented.
+  void operator=(const vtkPlaneCollection&);  // Not implemented.
 };
 
 inline void vtkPlaneCollection::AddItem(vtkPlane *f) 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIdFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:11:54 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2001-10-11 13:37:06 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -96,8 +96,6 @@ public:
 protected:
   vtkIdFilter();
   ~vtkIdFilter();
-  vtkIdFilter(const vtkIdFilter&);
-  void operator=(const vtkIdFilter&);
 
   void Execute();
 
@@ -106,6 +104,9 @@ protected:
   int FieldData;
   char *IdsArrayName;
 
+private:
+  vtkIdFilter(const vtkIdFilter&);  // Not implemented.
+  void operator=(const vtkIdFilter&);  // Not implemented.
 };
 
 #endif

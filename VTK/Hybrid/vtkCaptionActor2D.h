@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCaptionActor2D.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-08 12:05:28 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-10-11 13:37:23 $
+  Version:   $Revision: 1.5 $
   Thanks:    Tim Smith who sponsored and encouraged the development
              of this class.
 
@@ -237,8 +237,6 @@ public:
 protected:
   vtkCaptionActor2D();
   ~vtkCaptionActor2D();
-  vtkCaptionActor2D(const vtkCaptionActor2D&);
-  void operator=(const vtkCaptionActor2D&);
 
   vtkCoordinate *AttachmentPointCoordinate;
 
@@ -280,6 +278,9 @@ private:
   vtkPolyDataMapper *LeaderMapper3D;
   vtkActor          *LeaderActor3D;
 
+private:
+  vtkCaptionActor2D(const vtkCaptionActor2D&);  // Not implemented.
+  void operator=(const vtkCaptionActor2D&);  // Not implemented.
 };
 
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInitialValueProblemSolver.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:06:28 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2001-10-11 13:36:15 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -90,8 +90,6 @@ public:
 protected:
   vtkInitialValueProblemSolver();
   ~vtkInitialValueProblemSolver();
-  vtkInitialValueProblemSolver(const vtkInitialValueProblemSolver&);
-  void operator=(const vtkInitialValueProblemSolver&);
 
   virtual void Initialize();
 
@@ -100,6 +98,9 @@ protected:
   float* Vals;
   float* Derivs;
   int Initialized;
+private:
+  vtkInitialValueProblemSolver(const vtkInitialValueProblemSolver&);  // Not implemented.
+  void operator=(const vtkInitialValueProblemSolver&);  // Not implemented.
 };
 
 #endif

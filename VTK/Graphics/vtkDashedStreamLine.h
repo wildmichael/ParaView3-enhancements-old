@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDashedStreamLine.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:11:46 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2001-10-11 13:36:54 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -78,8 +78,6 @@ public:
 protected:
   vtkDashedStreamLine();
   ~vtkDashedStreamLine() {};
-  vtkDashedStreamLine(const vtkDashedStreamLine&);
-  void operator=(const vtkDashedStreamLine&);
 
   // Convert streamer array into vtkPolyData
   void Execute();
@@ -87,6 +85,9 @@ protected:
   // the fraction of on versus off in dash
   float DashFactor;
   
+private:
+  vtkDashedStreamLine(const vtkDashedStreamLine&);  // Not implemented.
+  void operator=(const vtkDashedStreamLine&);  // Not implemented.
 };
 
 #endif

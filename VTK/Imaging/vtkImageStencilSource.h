@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageStencilSource.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:10:19 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-10-11 13:37:54 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -76,8 +76,6 @@ public:
 protected:
   vtkImageStencilSource();
   ~vtkImageStencilSource();
-  vtkImageStencilSource(const vtkImageStencilSource&);
-  void operator=(const vtkImageStencilSource&);
 
   void ExecuteData(vtkDataObject *out);
   vtkImageStencilData *AllocateOutputData(vtkDataObject *out);
@@ -89,6 +87,9 @@ protected:
   // that all code inside this method is thread-safe.
   virtual void ThreadedExecute(vtkImageStencilData *output,
 			       int extent[6], int threadId);
+private:
+  vtkImageStencilSource(const vtkImageStencilSource&);  // Not implemented.
+  void operator=(const vtkImageStencilSource&);  // Not implemented.
 };
 
 #endif

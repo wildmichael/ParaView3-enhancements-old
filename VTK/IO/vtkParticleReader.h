@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkParticleReader.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:08:58 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-10-11 13:37:32 $
+  Version:   $Revision: 1.3 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -96,8 +96,6 @@ public:
 protected:
   vtkParticleReader();
   ~vtkParticleReader();
-  vtkParticleReader(const vtkParticleReader&);
-  void operator=(const vtkParticleReader&);
 
   void OpenFile();
 
@@ -109,6 +107,9 @@ protected:
   
   void ExecuteInformation();
   void Execute();
+private:
+  vtkParticleReader(const vtkParticleReader&);  // Not implemented.
+  void operator=(const vtkParticleReader&);  // Not implemented.
 };
 
 #endif

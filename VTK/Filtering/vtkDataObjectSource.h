@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObjectSource.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:07:20 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2001-10-11 13:36:33 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -99,9 +99,10 @@ public:
 protected:
   vtkDataObjectSource();
   ~vtkDataObjectSource() {};
-  vtkDataObjectSource(const vtkDataObjectSource&);
-  void operator=(const vtkDataObjectSource&);
 
+private:
+  vtkDataObjectSource(const vtkDataObjectSource&);  // Not implemented.
+  void operator=(const vtkDataObjectSource&);  // Not implemented.
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetCollection.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:06:16 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2001-10-11 13:36:09 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -74,14 +74,15 @@ public:
 protected:
   vtkDataSetCollection() {};
   ~vtkDataSetCollection() {};
-  vtkDataSetCollection(const vtkDataSetCollection&);
-  void operator=(const vtkDataSetCollection&);
 
 
 private:
   // hide the standard AddItem from the user and the compiler.
   void AddItem(vtkObject *o) { this->vtkCollection::AddItem(o); };
 
+private:
+  vtkDataSetCollection(const vtkDataSetCollection&);  // Not implemented.
+  void operator=(const vtkDataSetCollection&);  // Not implemented.
 };
 
 

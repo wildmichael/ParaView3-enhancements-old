@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkShortArray.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:06:42 $
-  Version:   $Revision: 1.60 $
+  Date:      $Date: 2001-10-11 13:36:24 $
+  Version:   $Revision: 1.61 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -186,8 +186,6 @@ public:
 protected:
   vtkShortArray(vtkIdType numComp=1);
   ~vtkShortArray();
-  vtkShortArray(const vtkShortArray&);
-  void operator=(const vtkShortArray&);
 
   short *Array;   // pointer to data
   short *ResizeAndExtend(const vtkIdType sz);  // function to resize data
@@ -196,6 +194,9 @@ protected:
   float *Tuple;
 
   int SaveUserArray;
+private:
+  vtkShortArray(const vtkShortArray&);  // Not implemented.
+  void operator=(const vtkShortArray&);  // Not implemented.
 };
 
 inline void vtkShortArray::SetNumberOfValues(const vtkIdType number) 

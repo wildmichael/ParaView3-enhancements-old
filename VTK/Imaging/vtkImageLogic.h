@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageLogic.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:09:59 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2001-10-11 13:37:47 $
+  Version:   $Revision: 1.18 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -89,14 +89,15 @@ public:
 protected:
   vtkImageLogic();
   ~vtkImageLogic() {};
-  vtkImageLogic(const vtkImageLogic&);
-  void operator=(const vtkImageLogic&);
 
   int Operation;
   float OutputTrueValue;
   
   void ThreadedExecute(vtkImageData **inDatas, vtkImageData *outData,
 		       int extent[6], int id);
+private:
+  vtkImageLogic(const vtkImageLogic&);  // Not implemented.
+  void operator=(const vtkImageLogic&);  // Not implemented.
 };
 
 #endif

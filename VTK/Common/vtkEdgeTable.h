@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEdgeTable.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:06:18 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2001-10-11 13:36:10 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -142,8 +142,6 @@ public:
 protected:
   vtkEdgeTable();
   ~vtkEdgeTable();
-  vtkEdgeTable(const vtkEdgeTable&);
-  void operator=(const vtkEdgeTable&);
 
   vtkIdList **Table;
   vtkIdList **Attributes;
@@ -156,6 +154,9 @@ protected:
   vtkPoints *Points; //support point insertion
 
   vtkIdList **Resize(vtkIdType size);
+private:
+  vtkEdgeTable(const vtkEdgeTable&);  // Not implemented.
+  void operator=(const vtkEdgeTable&);  // Not implemented.
 };
 
 #endif

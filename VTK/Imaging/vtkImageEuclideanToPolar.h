@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageEuclideanToPolar.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:09:51 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2001-10-11 13:37:43 $
+  Version:   $Revision: 1.18 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -67,13 +67,14 @@ public:
 protected:
   vtkImageEuclideanToPolar();
   ~vtkImageEuclideanToPolar() {};
-  vtkImageEuclideanToPolar(const vtkImageEuclideanToPolar&);
-  void operator=(const vtkImageEuclideanToPolar&);
 
   float ThetaMaximum;
   
   void ThreadedExecute(vtkImageData *inData, vtkImageData *outData,
 		       int ext[6], int id);
+private:
+  vtkImageEuclideanToPolar(const vtkImageEuclideanToPolar&);  // Not implemented.
+  void operator=(const vtkImageEuclideanToPolar&);  // Not implemented.
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRungeKutta2.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:06:40 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2001-10-11 13:36:23 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -88,8 +88,9 @@ public:
 protected:
   vtkRungeKutta2();
   ~vtkRungeKutta2();
-  vtkRungeKutta2(const vtkRungeKutta2&);
-  void operator=(const vtkRungeKutta2&);
+private:
+  vtkRungeKutta2(const vtkRungeKutta2&);  // Not implemented.
+  void operator=(const vtkRungeKutta2&);  // Not implemented.
 };
 
 #endif

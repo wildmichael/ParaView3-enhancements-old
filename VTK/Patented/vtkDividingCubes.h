@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDividingCubes.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 15:30:23 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 2001-10-11 13:38:02 $
+  Version:   $Revision: 1.42 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -98,8 +98,6 @@ public:
 protected:
   vtkDividingCubes();
   ~vtkDividingCubes();
-  vtkDividingCubes(const vtkDividingCubes&);
-  void operator=(const vtkDividingCubes&);
 
   void Execute();
   void SubDivide(float origin[3], int dim[3], float h[3], float values[8]);
@@ -115,6 +113,9 @@ protected:
   vtkVoxel *SubVoxel;
   vtkFloatArray *SubVoxelScalars;
   vtkFloatArray *SubVoxelNormals;
+private:
+  vtkDividingCubes(const vtkDividingCubes&);  // Not implemented.
+  void operator=(const vtkDividingCubes&);  // Not implemented.
 };
 
 #endif

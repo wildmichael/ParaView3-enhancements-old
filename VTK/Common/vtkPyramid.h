@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPyramid.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:06:40 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2001-10-11 13:36:23 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -122,13 +122,14 @@ public:
 protected:
   vtkPyramid();
   ~vtkPyramid();
-  vtkPyramid(const vtkPyramid&);
-  void operator=(const vtkPyramid&);
 
   vtkLine *Line;
   vtkTriangle *Triangle;
   vtkQuad *Quad;
 
+private:
+  vtkPyramid(const vtkPyramid&);  // Not implemented.
+  void operator=(const vtkPyramid&);  // Not implemented.
 };
 
 inline int vtkPyramid::GetParametricCenter(float pcoords[3])

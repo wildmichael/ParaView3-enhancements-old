@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDecimatePro.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:11:49 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 2001-10-11 13:36:56 $
+  Version:   $Revision: 1.48 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -319,8 +319,6 @@ public:
 protected:
   vtkDecimatePro();
   ~vtkDecimatePro();
-  vtkDecimatePro(const vtkDecimatePro&);
-  void operator=(const vtkDecimatePro&);
 
   void Execute();
 
@@ -394,6 +392,9 @@ private:
   int SplitState;   //State of the splitting process
   float Error;      //Maximum allowable surface error
 
+private:
+  vtkDecimatePro(const vtkDecimatePro&);  // Not implemented.
+  void operator=(const vtkDecimatePro&);  // Not implemented.
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadricDecimation.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:11:59 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2001-10-11 13:37:13 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -89,8 +89,6 @@ public:
 protected:
   vtkQuadricDecimation();
   ~vtkQuadricDecimation();
-  vtkQuadricDecimation(const vtkQuadricDecimation&);
-  void operator=(const vtkQuadricDecimation&);
 
   void Execute();
 
@@ -134,6 +132,9 @@ protected:
   int AttributeComponents[6];
   int NumberOfComponents;
   vtkPolyData *Mesh;
+private:
+  vtkQuadricDecimation(const vtkQuadricDecimation&);  // Not implemented.
+  void operator=(const vtkQuadricDecimation&);  // Not implemented.
 };
 
 #endif

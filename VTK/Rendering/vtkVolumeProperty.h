@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProperty.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:20:29 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2001-10-11 13:38:29 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -211,8 +211,6 @@ public:
 protected:
   vtkVolumeProperty();
   ~vtkVolumeProperty();
-  vtkVolumeProperty(const vtkVolumeProperty&);
-  void operator=(const vtkVolumeProperty&);
 
   int				InterpolationType;
 
@@ -236,6 +234,9 @@ protected:
   float				Specular;
   float				SpecularPower;
   float                         RGBTextureCoefficient;
+private:
+  vtkVolumeProperty(const vtkVolumeProperty&);  // Not implemented.
+  void operator=(const vtkVolumeProperty&);  // Not implemented.
 };
 
 // Description:

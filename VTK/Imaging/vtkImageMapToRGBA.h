@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMapToRGBA.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:10:01 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2001-10-11 13:37:48 $
+  Version:   $Revision: 1.18 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -62,8 +62,9 @@ public:
 protected:
   vtkImageMapToRGBA() {};
   ~vtkImageMapToRGBA() {};
-  vtkImageMapToRGBA(const vtkImageMapToRGBA&);
-  void operator=(const vtkImageMapToRGBA&);
+private:
+  vtkImageMapToRGBA(const vtkImageMapToRGBA&);  // Not implemented.
+  void operator=(const vtkImageMapToRGBA&);  // Not implemented.
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSkeleton2D.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:10:14 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2001-10-11 13:37:53 $
+  Version:   $Revision: 1.24 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -81,14 +81,15 @@ public:
 protected:
   vtkImageSkeleton2D();
   ~vtkImageSkeleton2D() {};
-  vtkImageSkeleton2D(const vtkImageSkeleton2D&);
-  void operator=(const vtkImageSkeleton2D&);
 
   int Prune;
 
   void ComputeInputUpdateExtent(int inExt[6], int outExt[6] );
   void ThreadedExecute(vtkImageData *inData, vtkImageData *outData,
 		       int outExt[6], int id);
+private:
+  vtkImageSkeleton2D(const vtkImageSkeleton2D&);  // Not implemented.
+  void operator=(const vtkImageSkeleton2D&);  // Not implemented.
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPropPicker.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:20:24 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2001-10-11 13:38:22 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -91,8 +91,6 @@ public:
 protected:
   vtkPropPicker();
   ~vtkPropPicker();
-  vtkPropPicker(const vtkPropPicker&);
-  void operator=(const vtkPropPicker&);
 
   void Initialize();
   
@@ -100,6 +98,9 @@ protected:
   
   // Used to get x-y-z pick position
   vtkWorldPointPicker *WorldPointPicker;
+private:
+  vtkPropPicker(const vtkPropPicker&);  // Not implemented.
+  void operator=(const vtkPropPicker&);  // Not implemented.
 };
 
 #endif

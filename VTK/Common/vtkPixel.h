@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPixel.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:06:36 $
-  Version:   $Revision: 1.56 $
+  Date:      $Date: 2001-10-11 13:36:19 $
+  Version:   $Revision: 1.57 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -119,11 +119,12 @@ public:
 protected:
   vtkPixel();
   ~vtkPixel();
-  vtkPixel(const vtkPixel&);
-  void operator=(const vtkPixel&);
 
   vtkLine *Line;
 
+private:
+  vtkPixel(const vtkPixel&);  // Not implemented.
+  void operator=(const vtkPixel&);  // Not implemented.
 };
 
 #endif

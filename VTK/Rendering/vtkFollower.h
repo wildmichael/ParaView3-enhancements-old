@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFollower.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:19:55 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 2001-10-11 13:38:08 $
+  Version:   $Revision: 1.46 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -98,14 +98,15 @@ class VTK_RENDERING_EXPORT vtkFollower : public vtkActor
 protected:
   vtkFollower();
   ~vtkFollower();
-  vtkFollower(const vtkFollower&);
-  void operator=(const vtkFollower&);
 
   vtkCamera *Camera; 
   vtkActor  *Device;
 private:
   // hide the two parameter Render() method from the user and the compiler.
   virtual void Render(vtkRenderer *, vtkMapper *) {};
+private:
+  vtkFollower(const vtkFollower&);  // Not implemented.
+  void operator=(const vtkFollower&);  // Not implemented.
 };
 
 #endif

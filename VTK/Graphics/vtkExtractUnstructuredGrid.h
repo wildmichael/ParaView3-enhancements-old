@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractUnstructuredGrid.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:11:52 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2001-10-11 13:37:02 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -148,8 +148,6 @@ public:
 protected:
   vtkExtractUnstructuredGrid();
   ~vtkExtractUnstructuredGrid() {};
-  vtkExtractUnstructuredGrid(const vtkExtractUnstructuredGrid&);
-  void operator=(const vtkExtractUnstructuredGrid&);
 
   void Execute();
 
@@ -164,6 +162,9 @@ protected:
 
   int Merging;
   vtkPointLocator *Locator;
+private:
+  vtkExtractUnstructuredGrid(const vtkExtractUnstructuredGrid&);  // Not implemented.
+  void operator=(const vtkExtractUnstructuredGrid&);  // Not implemented.
 };
 
 #endif

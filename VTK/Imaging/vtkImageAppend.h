@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAppend.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:09:40 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2001-10-11 13:37:37 $
+  Version:   $Revision: 1.22 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -83,8 +83,6 @@ public:
 protected:
   vtkImageAppend();
   ~vtkImageAppend();
-  vtkImageAppend(const vtkImageAppend&);
-  void operator=(const vtkImageAppend&);
 
   int PreserveExtents;
   int AppendAxis;
@@ -99,6 +97,9 @@ protected:
 		       int extent[6], int id);
 
   void InitOutput(int outExt[6], vtkImageData *outData);
+private:
+  vtkImageAppend(const vtkImageAppend&);  // Not implemented.
+  void operator=(const vtkImageAppend&);  // Not implemented.
 };
 
 #endif

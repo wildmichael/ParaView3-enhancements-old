@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuartzTextMapper.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:20:25 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-10-11 13:38:23 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -71,12 +71,13 @@ public:
 protected:
   vtkQuartzTextMapper();
   ~vtkQuartzTextMapper();
-  vtkQuartzTextMapper(const vtkQuartzTextMapper&) {};
-  void operator=(const vtkQuartzTextMapper&) {};
 
   vtkTimeStamp  BuildTime;
   int LastSize[2];
   void *Font;
+private:
+  vtkQuartzTextMapper(const vtkQuartzTextMapper&) {};  // Not implemented.
+  void operator=(const vtkQuartzTextMapper&) {};  // Not implemented.
 };
 
 

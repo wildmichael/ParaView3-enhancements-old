@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataWriter.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:08:47 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 2001-10-11 13:37:29 $
+  Version:   $Revision: 1.49 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -199,8 +199,6 @@ public:
 protected:
   vtkDataWriter();
   ~vtkDataWriter();
-  vtkDataWriter(const vtkDataWriter&);
-  void operator=(const vtkDataWriter&);
 
   int WriteToOutputString;
   char *OutputString;
@@ -229,6 +227,9 @@ protected:
   int WriteTCoordData(ostream *fp, vtkDataArray *tc, int num);
   int WriteTensorData(ostream *fp, vtkDataArray *t, int num);
 
+private:
+  vtkDataWriter(const vtkDataWriter&);  // Not implemented.
+  void operator=(const vtkDataWriter&);  // Not implemented.
 };
 
 #endif

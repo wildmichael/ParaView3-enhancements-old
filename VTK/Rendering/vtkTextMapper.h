@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextMapper.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-08 12:09:38 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2001-10-11 13:38:25 $
+  Version:   $Revision: 1.37 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -183,8 +183,6 @@ public:
 protected:
   vtkTextMapper();
   ~vtkTextMapper();
-  vtkTextMapper(const vtkTextMapper&);
-  void operator=(const vtkTextMapper&);
 
   int   Italic;
   int   Bold;
@@ -207,6 +205,9 @@ protected:
   void RenderOverlayMultipleLines(vtkViewport *viewport, vtkActor2D *actor);
   void RenderOpaqueGeometryMultipleLines(vtkViewport *viewport, vtkActor2D *actor);
   
+private:
+  vtkTextMapper(const vtkTextMapper&);  // Not implemented.
+  void operator=(const vtkTextMapper&);  // Not implemented.
 };
 
 #endif

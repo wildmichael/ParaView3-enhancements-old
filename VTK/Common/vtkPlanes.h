@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPlanes.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:06:37 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2001-10-11 13:36:19 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -123,8 +123,6 @@ public:
 protected:
   vtkPlanes();
   ~vtkPlanes();
-  vtkPlanes(const vtkPlanes&);
-  void operator=(const vtkPlanes&);
 
   vtkPoints *Points;
   vtkDataArray *Normals;
@@ -134,6 +132,9 @@ private:
   float Planes[24];
   float Bounds[6];
 
+private:
+  vtkPlanes(const vtkPlanes&);  // Not implemented.
+  void operator=(const vtkPlanes&);  // Not implemented.
 };
 
 #endif

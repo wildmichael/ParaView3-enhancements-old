@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMapToColors.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:10:00 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2001-10-11 13:37:48 $
+  Version:   $Revision: 1.15 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -97,8 +97,6 @@ public:
 protected:
   vtkImageMapToColors();
   ~vtkImageMapToColors();
-  vtkImageMapToColors(const vtkImageMapToColors&);
-  void operator=(const vtkImageMapToColors&);
 
   void ExecuteInformation(vtkImageData *inData, vtkImageData *outData);
   void ExecuteInformation() {
@@ -115,6 +113,9 @@ protected:
   int PassAlphaToOutput;
 
   int DataWasPassed;
+private:
+  vtkImageMapToColors(const vtkImageMapToColors&);  // Not implemented.
+  void operator=(const vtkImageMapToColors&);  // Not implemented.
 };
 
 #endif

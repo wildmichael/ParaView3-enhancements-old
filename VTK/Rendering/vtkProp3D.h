@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProp3D.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:20:24 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2001-10-11 13:38:21 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -313,8 +313,6 @@ public:
 protected:
   vtkProp3D();
   ~vtkProp3D();
-  vtkProp3D(const vtkProp3D&);
-  void operator=(const vtkProp3D&);
 
   vtkLinearTransform *UserTransform;
   vtkMatrix4x4  *UserMatrix;
@@ -329,6 +327,9 @@ protected:
   float         Bounds[6];
   vtkProp3D     *CachedProp3D; //support the PokeMatrix() method
   int           IsIdentity;
+private:
+  vtkProp3D(const vtkProp3D&);  // Not implemented.
+  void operator=(const vtkProp3D&);  // Not implemented.
 };
 
 #endif

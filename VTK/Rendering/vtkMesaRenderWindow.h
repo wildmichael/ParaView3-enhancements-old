@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:20:16 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2001-10-11 13:38:16 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -124,10 +124,11 @@ public:
 protected:
   vtkMesaRenderWindow();
   ~vtkMesaRenderWindow();
-  vtkMesaRenderWindow(const vtkMesaRenderWindow&);
-  void operator=(const vtkMesaRenderWindow&);
 
   vtkIdList *TextureResourceIds;
+private:
+  vtkMesaRenderWindow(const vtkMesaRenderWindow&);  // Not implemented.
+  void operator=(const vtkMesaRenderWindow&);  // Not implemented.
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHeap.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:06:23 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-10-11 13:36:14 $
+  Version:   $Revision: 1.5 $
   Thanks:    Tom Citriniti who implemented and contributed this class
 
 
@@ -95,8 +95,6 @@ public:
 protected:  
   vtkHeap();
   ~vtkHeap();
-  vtkHeap(const vtkHeap&) {}
-  void operator=(const vtkHeap&) {}
 
   void Add(vtkHeapNode* node);
   void CleanAll();
@@ -107,6 +105,9 @@ protected:
   vtkHeapNode* Current;
 
   int NumberOfAllocations;
+private:
+  vtkHeap(const vtkHeap&); // Not implemented.
+  void operator=(const vtkHeap&);  // Not implemented.
 };
 
 #endif

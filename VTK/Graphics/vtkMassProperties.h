@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMassProperties.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:11:56 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2001-10-11 13:37:08 $
+  Version:   $Revision: 1.19 $
   Thanks:    Thanks to Abdalmajeid M. Alyassin who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -109,8 +109,6 @@ public:
 protected:
   vtkMassProperties();
   ~vtkMassProperties();
-  vtkMassProperties(const vtkMassProperties&);
-  void operator=(const vtkMassProperties&);
 
   void Execute();
 
@@ -125,6 +123,9 @@ protected:
   double  NormalizedShapeIndex;
   vtkTimeStamp ExecuteTime;
 
+private:
+  vtkMassProperties(const vtkMassProperties&);  // Not implemented.
+  void operator=(const vtkMassProperties&);  // Not implemented.
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalarBarActor.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:20:27 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2001-10-11 13:38:25 $
+  Version:   $Revision: 1.34 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -181,8 +181,6 @@ public:
 protected:
   vtkScalarBarActor();
   ~vtkScalarBarActor();
-  vtkScalarBarActor(const vtkScalarBarActor&);
-  void operator=(const vtkScalarBarActor&);
 
   vtkScalarsToColors *LookupTable;
   int   MaximumNumberOfColors;
@@ -215,6 +213,9 @@ private:
   void SizeTitle(int *titleSize, int *size, vtkViewport *viewport);
   void AllocateAndSizeLabels(int *labelSize, int *size,
                              vtkViewport *viewport, float *range);
+private:
+  vtkScalarBarActor(const vtkScalarBarActor&);  // Not implemented.
+  void operator=(const vtkScalarBarActor&);  // Not implemented.
 };
 
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRuledSurfaceFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:12:01 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2001-10-11 13:37:14 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -156,8 +156,6 @@ public:
 protected:
   vtkRuledSurfaceFilter();
   ~vtkRuledSurfaceFilter();
-  vtkRuledSurfaceFilter(const vtkRuledSurfaceFilter&);
-  void operator=(const vtkRuledSurfaceFilter&);
 
   // Usual data generation method
   void Execute();
@@ -179,6 +177,9 @@ private:
   void  PointWalk(vtkPolyData *output, vtkPoints *inPts, 
                   int npts, vtkIdType *pts, int npts2, vtkIdType *pts2);
   
+private:
+  vtkRuledSurfaceFilter(const vtkRuledSurfaceFilter&);  // Not implemented.
+  void operator=(const vtkRuledSurfaceFilter&);  // Not implemented.
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProgrammableGlyphFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:11:59 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2001-10-11 13:37:12 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -144,8 +144,6 @@ public:
 protected:
   vtkProgrammableGlyphFilter();
   ~vtkProgrammableGlyphFilter();
-  vtkProgrammableGlyphFilter(const vtkProgrammableGlyphFilter&);
-  void operator=(const vtkProgrammableGlyphFilter&);
 
   void Execute();
 
@@ -158,6 +156,9 @@ protected:
   void (*GlyphMethodArgDelete)(void *);
   void *GlyphMethodArg;
   
+private:
+  vtkProgrammableGlyphFilter(const vtkProgrammableGlyphFilter&);  // Not implemented.
+  void operator=(const vtkProgrammableGlyphFilter&);  // Not implemented.
 };
 
 #endif

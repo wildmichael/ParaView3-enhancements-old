@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalars.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:06:41 $
-  Version:   $Revision: 1.76 $
+  Date:      $Date: 2001-10-11 13:36:24 $
+  Version:   $Revision: 1.77 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -199,8 +199,6 @@ public:
 protected:
   vtkScalars();
   ~vtkScalars();
-  vtkScalars(const vtkScalars&);
-  void operator=(const vtkScalars&);
 
   float Range[8];
   vtkTimeStamp ComputeTime;
@@ -223,6 +221,9 @@ protected:
   unsigned char RGBA[4];
   int ActiveComponent;
   //ETX
+private:
+  vtkScalars(const vtkScalars&);  // Not implemented.
+  void operator=(const vtkScalars&);  // Not implemented.
 };
 
 inline vtkAttributeData *vtkScalars::MakeObject()

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObject.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:06:14 $
-  Version:   $Revision: 1.60 $
+  Date:      $Date: 2001-10-11 13:36:07 $
+  Version:   $Revision: 1.61 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -338,8 +338,6 @@ protected:
 
   vtkDataObject();
   ~vtkDataObject();
-  vtkDataObject(const vtkDataObject&);
-  void operator=(const vtkDataObject&);
 
   // General field data associated with data object      
   vtkFieldData  *FieldData;  
@@ -438,6 +436,9 @@ protected:
 private:
   // Helper method for the ShallowCopy and DeepCopy methods.
   void InternalDataObjectCopy(vtkDataObject *src);
+private:
+  vtkDataObject(const vtkDataObject&);  // Not implemented.
+  void operator=(const vtkDataObject&);  // Not implemented.
 };
 
 #endif

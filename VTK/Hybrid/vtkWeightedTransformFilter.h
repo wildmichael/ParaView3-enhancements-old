@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWeightedTransformFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:21:26 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-10-11 13:37:27 $
+  Version:   $Revision: 1.5 $
   Thanks:    Michael Halle, Brigham and Women's Hospital
 
 
@@ -162,10 +162,11 @@ protected:
 
   vtkWeightedTransformFilter();
   ~vtkWeightedTransformFilter();
-  vtkWeightedTransformFilter(const vtkWeightedTransformFilter&);
-  void operator=(const vtkWeightedTransformFilter&);
 
   void Execute();
+private:
+  vtkWeightedTransformFilter(const vtkWeightedTransformFilter&);  // Not implemented.
+  void operator=(const vtkWeightedTransformFilter&);  // Not implemented.
 };
 
 #endif

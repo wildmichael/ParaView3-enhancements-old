@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGraphicsFactory.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:19:56 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2001-10-11 13:38:09 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -65,8 +65,9 @@ public:
   
 protected:
   vtkGraphicsFactory() {};
-  vtkGraphicsFactory(const vtkGraphicsFactory&);
-  void operator=(const vtkGraphicsFactory&);
+private:
+  vtkGraphicsFactory(const vtkGraphicsFactory&);  // Not implemented.
+  void operator=(const vtkGraphicsFactory&);  // Not implemented.
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleJoystickActor.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:20:03 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2001-10-11 13:38:12 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -92,8 +92,6 @@ public:
 protected:
   vtkInteractorStyleJoystickActor();
   ~vtkInteractorStyleJoystickActor();
-  vtkInteractorStyleJoystickActor(const vtkInteractorStyleJoystickActor&);
-  void operator=(const vtkInteractorStyleJoystickActor&);
 
   void RotateXY(int x, int y);
   void PanXY(int x, int y);
@@ -125,6 +123,9 @@ protected:
   double ViewFocus[3];
 //  vtkAbstractPropPicker *InteractionPicker;
   vtkCellPicker *InteractionPicker;
+private:
+  vtkInteractorStyleJoystickActor(const vtkInteractorStyleJoystickActor&);  // Not implemented.
+  void operator=(const vtkInteractorStyleJoystickActor&);  // Not implemented.
 };
 
 #endif

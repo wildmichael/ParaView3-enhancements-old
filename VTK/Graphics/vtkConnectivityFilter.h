@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkConnectivityFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:11:43 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 2001-10-11 13:36:51 $
+  Version:   $Revision: 1.50 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -170,8 +170,6 @@ public:
 protected:
   vtkConnectivityFilter();
   ~vtkConnectivityFilter();
-  vtkConnectivityFilter(const vtkConnectivityFilter&);
-  void operator=(const vtkConnectivityFilter&);
 
   // Usual data generation method
   void Execute();
@@ -204,6 +202,9 @@ private:
   vtkIdList *Wave2;
   vtkIdList *PointIds;
   vtkIdList *CellIds;
+private:
+  vtkConnectivityFilter(const vtkConnectivityFilter&);  // Not implemented.
+  void operator=(const vtkConnectivityFilter&);  // Not implemented.
 };
 
 // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpScalar.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:12:07 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2001-10-11 13:37:21 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -101,8 +101,6 @@ public:
 protected:
   vtkWarpScalar();
   ~vtkWarpScalar() {};
-  vtkWarpScalar(const vtkWarpScalar&);
-  void operator=(const vtkWarpScalar&);
 
   void Execute();
 
@@ -117,6 +115,9 @@ protected:
   float *InstanceNormal(vtkIdType id, vtkDataArray *normals=NULL);
   float *ZNormal(vtkIdType id, vtkDataArray *normals=NULL);
   //ETX
+private:
+  vtkWarpScalar(const vtkWarpScalar&);  // Not implemented.
+  void operator=(const vtkWarpScalar&);  // Not implemented.
 };
 
 #endif

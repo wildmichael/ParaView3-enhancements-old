@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:20:34 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 2001-10-11 13:38:37 $
+  Version:   $Revision: 1.49 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -154,8 +154,6 @@ public:
 protected:
   vtkXRenderWindow();
   ~vtkXRenderWindow();
-  vtkXRenderWindow(const vtkXRenderWindow&);
-  void operator=(const vtkXRenderWindow&);
 
   Window   ParentId;
   Window   WindowId;
@@ -166,6 +164,9 @@ protected:
   int      OwnDisplay;
   int      ScreenSize[2];
   int      CursorHidden;
+private:
+  vtkXRenderWindow(const vtkXRenderWindow&);  // Not implemented.
+  void operator=(const vtkXRenderWindow&);  // Not implemented.
 };
 
 #endif

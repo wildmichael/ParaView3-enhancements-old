@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPieceScalars.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 15:30:48 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2001-10-11 13:38:00 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -76,8 +76,6 @@ public:
 protected:
   vtkPieceScalars();
   ~vtkPieceScalars();
-  vtkPieceScalars(const vtkPieceScalars&);
-  void operator=(const vtkPieceScalars&);
   
   // Append the pieces.
   void Execute();
@@ -88,6 +86,9 @@ protected:
   vtkSetMacro(CellScalarsFlag,int);
   int CellScalarsFlag;
   int RandomMode;
+private:
+  vtkPieceScalars(const vtkPieceScalars&);  // Not implemented.
+  void operator=(const vtkPieceScalars&);  // Not implemented.
 };
 
 #endif

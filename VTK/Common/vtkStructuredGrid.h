@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGrid.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:06:43 $
-  Version:   $Revision: 1.85 $
+  Date:      $Date: 2001-10-11 13:36:25 $
+  Version:   $Revision: 1.86 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -192,8 +192,6 @@ public:
 protected:
   vtkStructuredGrid();
   ~vtkStructuredGrid();
-  vtkStructuredGrid(const vtkStructuredGrid&);
-  void operator=(const vtkStructuredGrid&);
 
   // for the GetCell method
   vtkVertex *Vertex;
@@ -226,6 +224,9 @@ private:
   // Internal method used by DeepCopy and ShallowCopy.
   void InternalStructuredGridCopy(vtkStructuredGrid *src);
 
+private:
+  vtkStructuredGrid(const vtkStructuredGrid&);  // Not implemented.
+  void operator=(const vtkStructuredGrid&);  // Not implemented.
 };
 
 

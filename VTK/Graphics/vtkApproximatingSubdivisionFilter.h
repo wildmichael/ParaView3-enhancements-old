@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkApproximatingSubdivisionFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:11:36 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2001-10-11 13:36:41 $
+  Version:   $Revision: 1.11 $
   Thanks:    This work was supported bt PHS Research Grant No. 1 P41 RR13218-01
              from the National Center for Research Resources
 
@@ -68,8 +68,6 @@ public:
 protected:
   vtkApproximatingSubdivisionFilter();
   ~vtkApproximatingSubdivisionFilter() {};
-  vtkApproximatingSubdivisionFilter(const vtkApproximatingSubdivisionFilter&);
-  void operator=(const vtkApproximatingSubdivisionFilter&);
 
   void Execute();
   virtual void GenerateSubdivisionPoints (vtkPolyData *inputDS,
@@ -84,6 +82,9 @@ protected:
   vtkIdType InterpolatePosition (vtkPoints *inputPts, vtkPoints *outputPts,
                                  vtkIdList *stencil, float *weights);
   int NumberOfSubdivisions;
+private:
+  vtkApproximatingSubdivisionFilter(const vtkApproximatingSubdivisionFilter&);  // Not implemented.
+  void operator=(const vtkApproximatingSubdivisionFilter&);  // Not implemented.
 };
 
 #endif

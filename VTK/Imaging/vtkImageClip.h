@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageClip.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:09:44 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2001-10-11 13:37:39 $
+  Version:   $Revision: 1.32 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -88,8 +88,6 @@ public:
 protected:
   vtkImageClip();
   ~vtkImageClip() {};
-  vtkImageClip(const vtkImageClip&);
-  void operator=(const vtkImageClip&);
 
   // Time when OutputImageExtent was computed.
   vtkTimeStamp CTime;
@@ -105,6 +103,9 @@ protected:
   int SplitExtentTmp(int piece, int numPieces, int *ext);
 
   virtual void ExecuteData(vtkDataObject *out);
+private:
+  vtkImageClip(const vtkImageClip&);  // Not implemented.
+  void operator=(const vtkImageClip&);  // Not implemented.
 };
 
 

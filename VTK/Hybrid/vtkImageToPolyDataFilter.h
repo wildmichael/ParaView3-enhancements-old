@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToPolyDataFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:21:23 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2001-10-11 13:37:24 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -186,8 +186,6 @@ public:
 protected:
   vtkImageToPolyDataFilter();
   ~vtkImageToPolyDataFilter();
-  vtkImageToPolyDataFilter(const vtkImageToPolyDataFilter&);
-  void operator=(const vtkImageToPolyDataFilter&);
 
   void Execute();
 
@@ -245,6 +243,9 @@ private:
   unsigned char *GetColor(unsigned char *rgb);
   int IsSameColor(unsigned char *p1, unsigned char *p2);
   
+private:
+  vtkImageToPolyDataFilter(const vtkImageToPolyDataFilter&);  // Not implemented.
+  void operator=(const vtkImageToPolyDataFilter&);  // Not implemented.
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCutter.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:11:45 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 2001-10-11 13:36:53 $
+  Version:   $Revision: 1.52 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -180,8 +180,6 @@ public:
 protected:
   vtkCutter(vtkImplicitFunction *cf=NULL);
   ~vtkCutter();
-  vtkCutter(const vtkCutter&);
-  void operator=(const vtkCutter&);
 
   void Execute();
   vtkImplicitFunction *CutFunction;
@@ -190,6 +188,9 @@ protected:
   int SortBy;
   vtkContourValues *ContourValues;
   int GenerateCutScalars;
+private:
+  vtkCutter(const vtkCutter&);  // Not implemented.
+  void operator=(const vtkCutter&);  // Not implemented.
 };
 
 // Description:

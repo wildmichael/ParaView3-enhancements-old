@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXImageWindow.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:20:33 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2001-10-11 13:38:35 $
+  Version:   $Revision: 1.26 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -172,8 +172,6 @@ public:
 protected:
   vtkXImageWindow();
   ~vtkXImageWindow();
-  vtkXImageWindow(const vtkXImageWindow&);
-  void operator=(const vtkXImageWindow&);
 
   // X stuff
   Window               ParentId;
@@ -201,6 +199,9 @@ protected:
 			       int &rscale, int &gscale, int &bscale,
 			       unsigned long &rmask, unsigned long &gmask,
 			       unsigned long &bmask);
+private:
+  vtkXImageWindow(const vtkXImageWindow&);  // Not implemented.
+  void operator=(const vtkXImageWindow&);  // Not implemented.
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataMapper.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:20:23 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2001-10-11 13:38:21 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -105,13 +105,14 @@ public:
 protected:  
   vtkPolyDataMapper();
   ~vtkPolyDataMapper() {};
-  vtkPolyDataMapper(const vtkPolyDataMapper&);
-  void operator=(const vtkPolyDataMapper&);
 
   int Piece;
   int NumberOfPieces;
   int NumberOfSubPieces;
   int GhostLevel;
+private:
+  vtkPolyDataMapper(const vtkPolyDataMapper&);  // Not implemented.
+  void operator=(const vtkPolyDataMapper&);  // Not implemented.
 };
 
 #endif

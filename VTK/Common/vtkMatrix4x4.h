@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMatrix4x4.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:06:33 $
-  Version:   $Revision: 1.58 $
+  Date:      $Date: 2001-10-11 13:36:17 $
+  Version:   $Revision: 1.59 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -211,11 +211,12 @@ public:
 protected:
   vtkMatrix4x4() { vtkMatrix4x4::Identity(*this->Element); };
   ~vtkMatrix4x4() {};
-  vtkMatrix4x4(const vtkMatrix4x4&);
-  void operator= (const vtkMatrix4x4& source);
   
   float FloatPoint[4];
   double DoublePoint[4];
+private:
+  vtkMatrix4x4(const vtkMatrix4x4&);  // Not implemented.
+  void operator= (const vtkMatrix4x4& source);  // Not implemented.
 };
 
 inline void vtkMatrix4x4::SetElement(int i, int j, double value)

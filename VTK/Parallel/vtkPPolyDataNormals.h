@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPPolyDataNormals.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 15:30:46 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-10-11 13:38:00 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -66,14 +66,15 @@ public:
 protected:
   vtkPPolyDataNormals();
   ~vtkPPolyDataNormals() {};
-  vtkPPolyDataNormals(const vtkPPolyDataNormals&);
-  void operator=(const vtkPPolyDataNormals&);
 
   // Usual data generation method
   virtual void Execute();
   void ComputeInputUpdateExtents(vtkDataObject *output);
 
   int PieceInvariant;
+private:
+  vtkPPolyDataNormals(const vtkPPolyDataNormals&);  // Not implemented.
+  void operator=(const vtkPPolyDataNormals&);  // Not implemented.
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastCompositeFunction.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:20:30 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2001-10-11 13:38:29 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -86,8 +86,6 @@ public:
 protected:
   vtkVolumeRayCastCompositeFunction();
   ~vtkVolumeRayCastCompositeFunction();
-  vtkVolumeRayCastCompositeFunction(const vtkVolumeRayCastCompositeFunction&);
-  void operator=(const vtkVolumeRayCastCompositeFunction&);
 
 //BTX
   void SpecificFunctionInitialize( vtkRenderer *ren,
@@ -97,6 +95,9 @@ protected:
 //ETX
   
   int           CompositeMethod;
+private:
+  vtkVolumeRayCastCompositeFunction(const vtkVolumeRayCastCompositeFunction&);  // Not implemented.
+  void operator=(const vtkVolumeRayCastCompositeFunction&);  // Not implemented.
 };
 
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMaskPolyData.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:11:56 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2001-10-11 13:37:08 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -69,12 +69,13 @@ public:
 protected:
   vtkMaskPolyData();
   ~vtkMaskPolyData() {};
-  vtkMaskPolyData(const vtkMaskPolyData&);
-  void operator=(const vtkMaskPolyData&);
 
   void Execute();
   int OnRatio; // every OnRatio entity is on; all others are off.
   vtkIdType Offset;  // offset (or starting point id)
+private:
+  vtkMaskPolyData(const vtkMaskPolyData&);  // Not implemented.
+  void operator=(const vtkMaskPolyData&);  // Not implemented.
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkJPEGReader.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:08:53 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-10-11 13:37:31 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -62,11 +62,12 @@ public:
 protected:
   vtkJPEGReader() {};
   ~vtkJPEGReader() {};
-  vtkJPEGReader(const vtkJPEGReader&);
-  void operator=(const vtkJPEGReader&);
 
   virtual void ExecuteInformation();
   virtual void ExecuteData(vtkDataObject *out);
+private:
+  vtkJPEGReader(const vtkJPEGReader&);  // Not implemented.
+  void operator=(const vtkJPEGReader&);  // Not implemented.
 };
 #endif
 

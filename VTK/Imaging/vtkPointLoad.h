@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointLoad.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:10:24 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2001-10-11 13:37:56 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -103,8 +103,6 @@ public:
 protected:
   vtkPointLoad();
   ~vtkPointLoad() {};
-  vtkPointLoad(const vtkPointLoad&);
-  void operator=(const vtkPointLoad&);
 
   void Execute();
 
@@ -114,6 +112,9 @@ protected:
   float ModelBounds[6];
   int ComputeEffectiveStress;
 
+private:
+  vtkPointLoad(const vtkPointLoad&);  // Not implemented.
+  void operator=(const vtkPointLoad&);  // Not implemented.
 };
 
 #endif

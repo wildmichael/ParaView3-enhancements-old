@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSpline.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:07:35 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2001-10-11 13:36:37 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -134,8 +134,6 @@ public:
 protected:
   vtkSpline();
   ~vtkSpline ();
-  vtkSpline(const vtkSpline&);
-  void operator=(const vtkSpline&);
 
   unsigned long ComputeTime;
   int ClampValue;
@@ -147,6 +145,9 @@ protected:
   float RightValue;
   vtkPiecewiseFunction *PiecewiseFunction;
   int Closed;
+private:
+  vtkSpline(const vtkSpline&);  // Not implemented.
+  void operator=(const vtkSpline&);  // Not implemented.
 };
 
 #endif

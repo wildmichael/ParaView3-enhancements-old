@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkReferenceCount.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:06:40 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2001-10-11 13:36:23 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -61,9 +61,10 @@ public:
 protected:  
   vtkReferenceCount();
   ~vtkReferenceCount();
-  vtkReferenceCount(const vtkReferenceCount&);
-  void operator=(const vtkReferenceCount&);
 
+private:
+  vtkReferenceCount(const vtkReferenceCount&);  // Not implemented.
+  void operator=(const vtkReferenceCount&);  // Not implemented.
 };
 
 

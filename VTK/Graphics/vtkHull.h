@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHull.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:11:54 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2001-10-11 13:37:06 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -165,8 +165,6 @@ public:
 protected:
   vtkHull();
   ~vtkHull();
-  vtkHull(const vtkHull&);
-  void operator=(const vtkHull&);
 
   // The planes - 4 doubles per plane for A, B, C, D
   double     *Planes;
@@ -194,6 +192,9 @@ protected:
 
   // The method that does it all...
   void      Execute();
+private:
+  vtkHull(const vtkHull&);  // Not implemented.
+  void operator=(const vtkHull&);  // Not implemented.
 };
 
 #endif

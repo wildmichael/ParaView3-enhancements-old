@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFloatArray.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:06:20 $
-  Version:   $Revision: 1.65 $
+  Date:      $Date: 2001-10-11 13:36:13 $
+  Version:   $Revision: 1.66 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -188,13 +188,14 @@ public:
 protected:
   vtkFloatArray(vtkIdType numComp=1);
   ~vtkFloatArray();
-  vtkFloatArray(const vtkFloatArray&);
-  void operator=(const vtkFloatArray&);
 
   float *Array;  // pointer to data
   float *ResizeAndExtend(const vtkIdType sz);  // function to reallocate data
 
   int SaveUserArray;
+private:
+  vtkFloatArray(const vtkFloatArray&);  // Not implemented.
+  void operator=(const vtkFloatArray&);  // Not implemented.
 };
 
 inline void vtkFloatArray::SetNumberOfValues(const vtkIdType number) 

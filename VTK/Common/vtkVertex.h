@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVertex.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:06:46 $
-  Version:   $Revision: 1.55 $
+  Date:      $Date: 2001-10-11 13:36:29 $
+  Version:   $Revision: 1.56 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -142,9 +142,10 @@ public:
 protected:
   vtkVertex();
   ~vtkVertex() {};
-  vtkVertex(const vtkVertex&);
-  void operator=(const vtkVertex&);
   
+private:
+  vtkVertex(const vtkVertex&);  // Not implemented.
+  void operator=(const vtkVertex&);  // Not implemented.
 };
 
 #endif

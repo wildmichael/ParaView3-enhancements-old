@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSinusoidSource.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:10:13 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2001-10-11 13:37:53 $
+  Version:   $Revision: 1.25 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -87,8 +87,6 @@ public:
 protected:
   vtkImageSinusoidSource();
   ~vtkImageSinusoidSource() {};
-  vtkImageSinusoidSource(const vtkImageSinusoidSource&);
-  void operator=(const vtkImageSinusoidSource&);
 
   int WholeExtent[6];
   float Direction[3];
@@ -98,6 +96,9 @@ protected:
 
   virtual void ExecuteInformation();
   virtual void ExecuteData(vtkDataObject *data);
+private:
+  vtkImageSinusoidSource(const vtkImageSinusoidSource&);  // Not implemented.
+  void operator=(const vtkImageSinusoidSource&);  // Not implemented.
 };
 
 

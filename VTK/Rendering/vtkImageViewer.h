@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageViewer.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:19:58 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 2001-10-11 13:38:09 $
+  Version:   $Revision: 1.43 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -135,13 +135,14 @@ public:
 protected:
   vtkImageViewer();
   ~vtkImageViewer();
-  vtkImageViewer(const vtkImageViewer&);
-  void operator=(const vtkImageViewer&);
 
   vtkImageMapper *ImageMapper;
   vtkImageWindow *ImageWindow;
   vtkImager      *Imager;
   vtkActor2D     *Actor2D;
+private:
+  vtkImageViewer(const vtkImageViewer&);  // Not implemented.
+  void operator=(const vtkImageViewer&);  // Not implemented.
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAccumulate.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:09:39 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2001-10-11 13:37:36 $
+  Version:   $Revision: 1.27 $
   Thanks:    Thanks to C. Charles Law who developed this class
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -106,8 +106,6 @@ public:
 protected:
   vtkImageAccumulate();
   ~vtkImageAccumulate();
-  vtkImageAccumulate(const vtkImageAccumulate&);
-  void operator=(const vtkImageAccumulate&);
 
   float ComponentSpacing[3];
   float ComponentOrigin[3];
@@ -125,6 +123,9 @@ protected:
 
   int ReverseStencil;
 
+private:
+  vtkImageAccumulate(const vtkImageAccumulate&);  // Not implemented.
+  void operator=(const vtkImageAccumulate&);  // Not implemented.
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageExport.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:09:52 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2001-10-11 13:37:43 $
+  Version:   $Revision: 1.25 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 
@@ -150,12 +150,13 @@ public:
 protected:
   vtkImageExport();
   ~vtkImageExport();
-  vtkImageExport(const vtkImageExport&);
-  void operator=(const vtkImageExport&);
 
   int ImageLowerLeft;
   int DataDimensions[3];
   void *ExportVoidPointer;
+private:
+  vtkImageExport(const vtkImageExport&);  // Not implemented.
+  void operator=(const vtkImageExport&);  // Not implemented.
 };
 
 #endif

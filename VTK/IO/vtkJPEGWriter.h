@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkJPEGWriter.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:08:54 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-10-11 13:37:31 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -78,8 +78,6 @@ public:
 protected:
   vtkJPEGWriter();
   ~vtkJPEGWriter() {};
-  vtkJPEGWriter(const vtkJPEGWriter&);
-  void operator=(const vtkJPEGWriter&);
   
   void WriteSlice(vtkImageData *data);
 
@@ -87,6 +85,9 @@ private:
   unsigned int Quality;
   unsigned int Progressive;
 
+private:
+  vtkJPEGWriter(const vtkJPEGWriter&);  // Not implemented.
+  void operator=(const vtkJPEGWriter&);  // Not implemented.
 };
 
 #endif

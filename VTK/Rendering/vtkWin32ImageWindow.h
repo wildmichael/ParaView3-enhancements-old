@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32ImageWindow.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:20:31 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2001-10-11 13:38:33 $
+  Version:   $Revision: 1.25 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -146,8 +146,6 @@ public:
 protected:
   vtkWin32ImageWindow();
   ~vtkWin32ImageWindow();
-  vtkWin32ImageWindow(const vtkWin32ImageWindow&);
-  void operator=(const vtkWin32ImageWindow&);
 
   // the following is used to support rendering into memory
   BITMAPINFO MemoryDataHeader;
@@ -166,6 +164,9 @@ protected:
   HDC OldHdc;
   HBITMAP BackBuffer;
   BITMAPINFO DataHeader;
+private:
+  vtkWin32ImageWindow(const vtkWin32ImageWindow&);  // Not implemented.
+  void operator=(const vtkWin32ImageWindow&);  // Not implemented.
 };
 
 #endif

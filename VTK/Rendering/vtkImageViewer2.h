@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageViewer2.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:19:58 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-10-11 13:38:10 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -134,8 +134,6 @@ public:
 protected:
   vtkImageViewer2();
   ~vtkImageViewer2();
-  vtkImageViewer2(const vtkImageViewer2&);
-  void operator=(const vtkImageViewer2&);
 
   vtkImageMapToWindowLevelColors  *WindowLevel;
   vtkRenderWindow *RenderWindow;
@@ -144,6 +142,9 @@ protected:
   int FirstRender;
   vtkRenderWindowInteractor *Interactor;
   vtkInteractorStyleImage *InteractorStyle;
+private:
+  vtkImageViewer2(const vtkImageViewer2&);  // Not implemented.
+  void operator=(const vtkImageViewer2&);  // Not implemented.
 };
 
 #endif

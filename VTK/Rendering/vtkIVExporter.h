@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIVExporter.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:19:57 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2001-10-11 13:38:09 $
+  Version:   $Revision: 1.19 $
   Thanks:    to Jon A. Webb of Visual Interface Inc.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -69,8 +69,6 @@ public:
 protected:
   vtkIVExporter();
   ~vtkIVExporter();
-  vtkIVExporter(const vtkIVExporter&);
-  void operator=(const vtkIVExporter&);
 
   void WriteData();
   void WriteALight(vtkLight *aLight, FILE *fp);
@@ -79,6 +77,9 @@ protected:
 		      vtkTCoords *tcoords, vtkUnsignedCharArray *colors, 
                       FILE *fp);
   char *FileName;
+private:
+  vtkIVExporter(const vtkIVExporter&);  // Not implemented.
+  void operator=(const vtkIVExporter&);  // Not implemented.
 };
 
 #endif

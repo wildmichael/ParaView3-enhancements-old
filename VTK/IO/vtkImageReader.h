@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-04 09:29:42 $
-  Version:   $Revision: 1.58 $
+  Date:      $Date: 2001-10-11 13:37:30 $
+  Version:   $Revision: 1.59 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -223,8 +223,6 @@ public:
 protected:
   vtkImageReader();
   ~vtkImageReader();
-  vtkImageReader(const vtkImageReader&);
-  void operator=(const vtkImageReader&);
 
   char *InternalFileName;
   char *FileName;
@@ -263,6 +261,9 @@ protected:
   void ExecuteInformation();
   void ExecuteData(vtkDataObject *data);
   virtual void ComputeDataIncrements();
+private:
+  vtkImageReader(const vtkImageReader&);  // Not implemented.
+  void operator=(const vtkImageReader&);  // Not implemented.
 };
 
 #endif

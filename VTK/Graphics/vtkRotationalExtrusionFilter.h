@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRotationalExtrusionFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:12:00 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2001-10-11 13:37:14 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -125,8 +125,6 @@ public:
 protected:
   vtkRotationalExtrusionFilter();
   ~vtkRotationalExtrusionFilter() {};
-  vtkRotationalExtrusionFilter(const vtkRotationalExtrusionFilter&);
-  void operator=(const vtkRotationalExtrusionFilter&);
 
   void Execute();
   int Resolution;
@@ -134,6 +132,9 @@ protected:
   float Angle;
   float Translation;
   float DeltaRadius;
+private:
+  vtkRotationalExtrusionFilter(const vtkRotationalExtrusionFilter&);  // Not implemented.
+  void operator=(const vtkRotationalExtrusionFilter&);  // Not implemented.
 };
 
 #endif

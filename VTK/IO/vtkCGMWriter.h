@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCGMWriter.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:08:44 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2001-10-11 13:37:28 $
+  Version:   $Revision: 1.7 $
   Credit:    The origin of much of this code was from the cd package
              written by G. Edward Johnson at the National Institute 
              of Standards and Technology (US).
@@ -136,8 +136,6 @@ public:
 protected:
   vtkCGMWriter();
   ~vtkCGMWriter();
-  vtkCGMWriter(const vtkCGMWriter&);
-  void operator=(const vtkCGMWriter&);
   void WriteData();
 
   vtkViewport *Viewport;
@@ -146,6 +144,9 @@ protected:
   int         Resolution;
   int         Sort;
   
+private:
+  vtkCGMWriter(const vtkCGMWriter&);  // Not implemented.
+  void operator=(const vtkCGMWriter&);  // Not implemented.
 };
 
 #endif

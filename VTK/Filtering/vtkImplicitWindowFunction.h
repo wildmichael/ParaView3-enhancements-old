@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitWindowFunction.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:07:30 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2001-10-11 13:36:35 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -105,13 +105,14 @@ public:
 protected:
   vtkImplicitWindowFunction();
   ~vtkImplicitWindowFunction();
-  vtkImplicitWindowFunction(const vtkImplicitWindowFunction&);
-  void operator=(const vtkImplicitWindowFunction&);
 
   vtkImplicitFunction *ImplicitFunction;
   float WindowRange[2];
   float WindowValues[2];
 
+private:
+  vtkImplicitWindowFunction(const vtkImplicitWindowFunction&);  // Not implemented.
+  void operator=(const vtkImplicitWindowFunction&);  // Not implemented.
 };
 
 #endif

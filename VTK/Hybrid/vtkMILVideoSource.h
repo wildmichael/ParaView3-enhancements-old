@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMILVideoSource.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:21:24 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2001-10-11 13:37:25 $
+  Version:   $Revision: 1.13 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -214,8 +214,6 @@ public:
 protected:
   vtkMILVideoSource();
   ~vtkMILVideoSource();
-  vtkMILVideoSource(const vtkMILVideoSource&);
-  void operator=(const vtkMILVideoSource&);
 
   virtual void AllocateMILDigitizer();
   virtual void AllocateMILBuffer();
@@ -254,6 +252,9 @@ protected:
   int MILSysInternallyAllocated;
 
   int FatalMILError;
+private:
+  vtkMILVideoSource(const vtkMILVideoSource&);  // Not implemented.
+  void operator=(const vtkMILVideoSource&);  // Not implemented.
 };
 
 #endif

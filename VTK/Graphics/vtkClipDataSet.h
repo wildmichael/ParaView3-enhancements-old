@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipDataSet.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:11:41 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-10-11 13:36:49 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -161,8 +161,6 @@ public:
 protected:
   vtkClipDataSet(vtkImplicitFunction *cf=NULL);
   ~vtkClipDataSet();
-  vtkClipDataSet(const vtkClipDataSet&);
-  void operator=(const vtkClipDataSet&);
 
   void Execute();
   vtkImplicitFunction *ClipFunction;
@@ -173,6 +171,9 @@ protected:
   int GenerateClipScalars;
 
   int GenerateClippedOutput;
+private:
+  vtkClipDataSet(const vtkClipDataSet&);  // Not implemented.
+  void operator=(const vtkClipDataSet&);  // Not implemented.
 };
 
 #endif

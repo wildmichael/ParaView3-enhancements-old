@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageIterateFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:09:57 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2001-10-11 13:37:46 $
+  Version:   $Revision: 1.30 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -75,8 +75,6 @@ public:
 protected:
   vtkImageIterateFilter();
   ~vtkImageIterateFilter();
-  vtkImageIterateFilter(const vtkImageIterateFilter&);
-  void operator=(const vtkImageIterateFilter&);
 
   // Superclass API. Sets defaults, then calls 
   // ExecuteInformation(vtkImageData *inData, vtkImageData *outData)
@@ -107,6 +105,9 @@ protected:
   // returns correct vtkImageDatas based on current iteration.
   vtkImageData *GetIterationInput();
   vtkImageData *GetIterationOutput();
+private:
+  vtkImageIterateFilter(const vtkImageIterateFilter&);  // Not implemented.
+  void operator=(const vtkImageIterateFilter&);  // Not implemented.
 };
 
 #endif

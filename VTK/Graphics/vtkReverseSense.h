@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkReverseSense.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:12:00 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2001-10-11 13:37:13 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -84,14 +84,15 @@ public:
 protected:
   vtkReverseSense();
   ~vtkReverseSense() {};
-  vtkReverseSense(const vtkReverseSense&);
-  void operator=(const vtkReverseSense&);
 
   // Usual data generation method
   void Execute();
 
   int ReverseCells;
   int ReverseNormals;
+private:
+  vtkReverseSense(const vtkReverseSense&);  // Not implemented.
+  void operator=(const vtkReverseSense&);  // Not implemented.
 };
 
 #endif

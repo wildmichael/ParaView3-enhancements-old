@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolygon.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:06:38 $
-  Version:   $Revision: 1.66 $
+  Date:      $Date: 2001-10-11 13:36:21 $
+  Version:   $Revision: 1.67 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -167,8 +167,6 @@ public:
 protected:
   vtkPolygon();
   ~vtkPolygon();
-  vtkPolygon(const vtkPolygon&);
-  void operator=(const vtkPolygon&);
 
   // variables used by instances of this class
   float   Tolerance; // Intersection tolerance
@@ -188,6 +186,9 @@ protected:
   // Points and PointIds).
   int EarCutTriangulation();
 
+private:
+  vtkPolygon(const vtkPolygon&);  // Not implemented.
+  void operator=(const vtkPolygon&);  // Not implemented.
 };
 
 #endif

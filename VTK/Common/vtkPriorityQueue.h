@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPriorityQueue.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:06:38 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2001-10-11 13:36:21 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -136,8 +136,6 @@ public:
 protected:
   vtkPriorityQueue();
   ~vtkPriorityQueue();
-  vtkPriorityQueue(const vtkPriorityQueue&);
-  void operator=(const vtkPriorityQueue&);
   
   vtkPriorityItem *Resize(const vtkIdType sz);
 
@@ -146,6 +144,9 @@ protected:
   vtkIdType Size;
   vtkIdType MaxId;
   vtkIdType Extend;
+private:
+  vtkPriorityQueue(const vtkPriorityQueue&);  // Not implemented.
+  void operator=(const vtkPriorityQueue&);  // Not implemented.
 };
 
 inline float vtkPriorityQueue::DeleteId(vtkIdType id)

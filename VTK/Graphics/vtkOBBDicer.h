@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOBBDicer.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:11:56 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2001-10-11 13:37:09 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -72,8 +72,6 @@ public:
 protected:
   vtkOBBDicer() {};
   ~vtkOBBDicer() {};
-  vtkOBBDicer(const vtkOBBDicer&);
-  void operator=(const vtkOBBDicer&);
 
   // Usual data generation method
   void Execute();
@@ -84,6 +82,9 @@ protected:
   void DeleteTree(vtkOBBNode *OBBptr);
   vtkPoints *PointsList;
   
+private:
+  vtkOBBDicer(const vtkOBBDicer&);  // Not implemented.
+  void operator=(const vtkOBBDicer&);  // Not implemented.
 };
 
 #endif

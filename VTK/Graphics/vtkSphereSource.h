@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSphereSource.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:12:02 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 2001-10-11 13:37:16 $
+  Version:   $Revision: 1.48 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -128,8 +128,6 @@ public:
 protected:
   vtkSphereSource(int res=8);
   ~vtkSphereSource() {}
-  vtkSphereSource(const vtkSphereSource&);
-  void operator=(const vtkSphereSource&);
 
   void Execute();
   void ExecuteInformation();
@@ -144,6 +142,9 @@ protected:
   float EndPhi;
   int LatLongTessellation;
   
+private:
+  vtkSphereSource(const vtkSphereSource&);  // Not implemented.
+  void operator=(const vtkSphereSource&);  // Not implemented.
 };
 
 #endif

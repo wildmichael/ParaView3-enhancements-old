@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:19:50 $
-  Version:   $Revision: 1.92 $
+  Date:      $Date: 2001-10-11 13:38:05 $
+  Version:   $Revision: 1.93 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -185,8 +185,6 @@ public:
 protected:
   vtkActor();
   ~vtkActor();
-  vtkActor(const vtkActor&);
-  void operator=(const vtkActor&);
 
   vtkProperty *Property; 
   vtkProperty *BackfaceProperty; 
@@ -201,6 +199,9 @@ protected:
   float        MapperBounds[6];
   vtkTimeStamp BoundsMTime;
 
+private:
+  vtkActor(const vtkActor&);  // Not implemented.
+  void operator=(const vtkActor&);  // Not implemented.
 };
 
 #endif

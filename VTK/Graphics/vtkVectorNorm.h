@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectorNorm.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:12:07 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2001-10-11 13:37:21 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -97,13 +97,14 @@ public:
 protected:
   vtkVectorNorm();
   ~vtkVectorNorm() {};
-  vtkVectorNorm(const vtkVectorNorm&);
-  void operator=(const vtkVectorNorm&);
 
   void Execute();
 
   int Normalize;  // normalize 0<=n<=1 if true.
   int AttributeMode; //control whether to use point or cell data, or both
+private:
+  vtkVectorNorm(const vtkVectorNorm&);  // Not implemented.
+  void operator=(const vtkVectorNorm&);  // Not implemented.
 };
 
 #endif

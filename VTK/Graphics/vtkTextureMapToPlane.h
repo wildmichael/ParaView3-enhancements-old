@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextureMapToPlane.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:12:05 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2001-10-11 13:37:19 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -118,8 +118,6 @@ public:
 protected:
   vtkTextureMapToPlane();
   ~vtkTextureMapToPlane() {};
-  vtkTextureMapToPlane(const vtkTextureMapToPlane&);
-  void operator=(const vtkTextureMapToPlane&);
 
   void Execute();
   void ComputeNormal();
@@ -132,6 +130,9 @@ protected:
   float TRange[2];
   int AutomaticPlaneGeneration;
 
+private:
+  vtkTextureMapToPlane(const vtkTextureMapToPlane&);  // Not implemented.
+  void operator=(const vtkTextureMapToPlane&);  // Not implemented.
 };
 
 #endif

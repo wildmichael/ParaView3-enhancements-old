@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32VideoSource.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:21:26 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2001-10-11 13:37:27 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -121,8 +121,6 @@ public:
 protected:
   vtkWin32VideoSource();
   ~vtkWin32VideoSource();
-  vtkWin32VideoSource(const vtkWin32VideoSource&);
-  void operator=(const vtkWin32VideoSource&);
 
   char WndClassName[16];
   HWND CapWnd;
@@ -143,6 +141,9 @@ protected:
 
   void DoVFWFormatSetup();
   void DoVFWFormatCheck();
+private:
+  vtkWin32VideoSource(const vtkWin32VideoSource&);  // Not implemented.
+  void operator=(const vtkWin32VideoSource&);  // Not implemented.
 };
 
 #endif

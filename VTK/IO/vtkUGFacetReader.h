@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUGFacetReader.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:09:03 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2001-10-11 13:37:35 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -108,8 +108,6 @@ public:
 protected:
   vtkUGFacetReader();
   ~vtkUGFacetReader();
-  vtkUGFacetReader(const vtkUGFacetReader&);
-  void operator=(const vtkUGFacetReader&);
 
   void Execute();
 
@@ -118,6 +116,9 @@ protected:
   int PartNumber;
   int Merging;
   vtkPointLocator *Locator;
+private:
+  vtkUGFacetReader(const vtkUGFacetReader&);  // Not implemented.
+  void operator=(const vtkUGFacetReader&);  // Not implemented.
 };
 
 #endif

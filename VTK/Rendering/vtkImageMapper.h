@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMapper.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:19:57 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2001-10-11 13:38:09 $
+  Version:   $Revision: 1.28 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -141,8 +141,6 @@ public:
 protected:
   vtkImageMapper();
   ~vtkImageMapper();
-  vtkImageMapper(const vtkImageMapper&);
-  void operator=(const vtkImageMapper&);
 
   float ColorWindow;
   float ColorLevel;
@@ -152,6 +150,9 @@ protected:
   int UseCustomExtents;
   int CustomDisplayExtents[4];
   int RenderToRectangle;
+private:
+  vtkImageMapper(const vtkImageMapper&);  // Not implemented.
+  void operator=(const vtkImageMapper&);  // Not implemented.
 };
 
 

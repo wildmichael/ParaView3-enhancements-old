@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReslice.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:10:10 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-10-11 13:37:52 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -305,8 +305,6 @@ public:
 protected:
   vtkImageReslice();
   ~vtkImageReslice();
-  vtkImageReslice(const vtkImageReslice&);
-  void operator=(const vtkImageReslice&);
 
   vtkMatrix4x4 *ResliceAxes;
   double ResliceAxesDirectionCosines[9];
@@ -343,6 +341,9 @@ protected:
   void OptimizedComputeInputUpdateExtent(int inExt[6], int outExt[6]);
   void OptimizedThreadedExecute(vtkImageData *inData, vtkImageData *outData, 
                                 int ext[6], int id);
+private:
+  vtkImageReslice(const vtkImageReslice&);  // Not implemented.
+  void operator=(const vtkImageReslice&);  // Not implemented.
 };
 
 //----------------------------------------------------------------------------

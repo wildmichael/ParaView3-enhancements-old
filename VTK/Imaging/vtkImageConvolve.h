@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageConvolve.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:09:47 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2001-10-11 13:37:40 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to Z. F. Knops who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -96,8 +96,6 @@ public:
 protected:
   vtkImageConvolve();
   ~vtkImageConvolve();
-  vtkImageConvolve(const vtkImageConvolve&);
-  void operator=(const vtkImageConvolve&);
 
   void ThreadedExecute(vtkImageData *inData, vtkImageData *outData, 
                        int outExt[6], int id);
@@ -110,6 +108,9 @@ protected:
 
   int KernelSize[3];
   float Kernel[343];
+private:
+  vtkImageConvolve(const vtkImageConvolve&);  // Not implemented.
+  void operator=(const vtkImageConvolve&);  // Not implemented.
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleSwitch.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:20:04 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2001-10-11 13:38:12 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -94,8 +94,6 @@ public:
 protected:
   vtkInteractorStyleSwitch();
   ~vtkInteractorStyleSwitch();
-  vtkInteractorStyleSwitch(const vtkInteractorStyleSwitch&);
-  void operator=(const vtkInteractorStyleSwitch&);
   
   vtkInteractorStyleJoystickActor *JoystickActor;
   vtkInteractorStyleJoystickCamera *JoystickCamera;
@@ -104,6 +102,9 @@ protected:
   
   int JoystickOrTrackball;
   int CameraOrActor;
+private:
+  vtkInteractorStyleSwitch(const vtkInteractorStyleSwitch&);  // Not implemented.
+  void operator=(const vtkInteractorStyleSwitch&);  // Not implemented.
 };
 
 #endif

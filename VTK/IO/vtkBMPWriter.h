@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBMPWriter.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:08:43 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2001-10-11 13:37:28 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -61,11 +61,12 @@ public:
 protected:
   vtkBMPWriter();
   ~vtkBMPWriter() {};
-  vtkBMPWriter(const vtkBMPWriter&);
-  void operator=(const vtkBMPWriter&);
 
   virtual void WriteFile(ofstream *file, vtkImageData *data, int ext[6]);
   virtual void WriteFileHeader(ofstream *, vtkImageData *);
+private:
+  vtkBMPWriter(const vtkBMPWriter&);  // Not implemented.
+  void operator=(const vtkBMPWriter&);  // Not implemented.
 };
 
 #endif

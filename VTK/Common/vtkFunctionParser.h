@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFunctionParser.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:06:21 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2001-10-11 13:36:13 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -181,8 +181,6 @@ public:
 protected:
   vtkFunctionParser();
   ~vtkFunctionParser();
-  vtkFunctionParser(const vtkFunctionParser&);
-  void operator=(const vtkFunctionParser&);
   
   int Parse();
   void Evaluate();
@@ -228,6 +226,9 @@ protected:
   vtkTimeStamp ParseMTime;
   vtkTimeStamp VariableMTime;
   vtkTimeStamp EvaluateMTime;
+private:
+  vtkFunctionParser(const vtkFunctionParser&);  // Not implemented.
+  void operator=(const vtkFunctionParser&);  // Not implemented.
 };
 
 #endif

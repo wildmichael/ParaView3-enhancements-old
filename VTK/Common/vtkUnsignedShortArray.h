@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnsignedShortArray.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:06:45 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 2001-10-11 13:36:28 $
+  Version:   $Revision: 1.47 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -193,8 +193,6 @@ public:
 protected:
   vtkUnsignedShortArray(vtkIdType numComp=1);
   ~vtkUnsignedShortArray();
-  vtkUnsignedShortArray(const vtkUnsignedShortArray&);
-  void operator=(const vtkUnsignedShortArray&);
 
   unsigned short *Array;   // pointer to data
   unsigned short *ResizeAndExtend(const vtkIdType sz);
@@ -204,6 +202,9 @@ protected:
   float *Tuple;
 
   int SaveUserArray;
+private:
+  vtkUnsignedShortArray(const vtkUnsignedShortArray&);  // Not implemented.
+  void operator=(const vtkUnsignedShortArray&);  // Not implemented.
 };
 
 inline void vtkUnsignedShortArray::SetNumberOfValues(const vtkIdType number) 

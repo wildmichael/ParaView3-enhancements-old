@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaProjectedPolyDataRayBounder.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:20:15 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2001-10-11 13:38:15 $
+  Version:   $Revision: 1.13 $
   Thanks:    Thanks to Lisa Sobierajski Avila who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -85,8 +85,6 @@ public:
 protected:
   vtkMesaProjectedPolyDataRayBounder();
   ~vtkMesaProjectedPolyDataRayBounder();
-  void operator=(const vtkMesaProjectedPolyDataRayBounder&);
-
   GLuint    DisplayList;
   float     *DepthRangeBuffer;
 
@@ -98,6 +96,9 @@ protected:
   // Render the display list and create the near and far buffers
   float *Draw( vtkRenderer *ren, vtkMatrix4x4 *matrix );
 
+private:
+  void operator=(const vtkMesaProjectedPolyDataRayBounder&);  // Not implemented.
+  // Not implemented.
 };
 
 #endif

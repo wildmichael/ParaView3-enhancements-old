@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAnisotropicDiffusion3D.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:09:39 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2001-10-11 13:37:37 $
+  Version:   $Revision: 1.26 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -116,8 +116,6 @@ public:
 protected:
   vtkImageAnisotropicDiffusion3D();
   ~vtkImageAnisotropicDiffusion3D() {};
-  vtkImageAnisotropicDiffusion3D(const vtkImageAnisotropicDiffusion3D&);
-  void operator=(const vtkImageAnisotropicDiffusion3D&);
 
   int NumberOfIterations;
   float DiffusionThreshold;
@@ -133,6 +131,9 @@ protected:
 		       int extent[6], int id);
   void Iterate(vtkImageData *in, vtkImageData *out, 
 	       float ar0, float ar1, float ar3, int *coreExtent, int count);
+private:
+  vtkImageAnisotropicDiffusion3D(const vtkImageAnisotropicDiffusion3D&);  // Not implemented.
+  void operator=(const vtkImageAnisotropicDiffusion3D&);  // Not implemented.
 };
 
 #endif

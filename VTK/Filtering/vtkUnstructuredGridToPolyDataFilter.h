@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGridToPolyDataFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:07:39 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-10-11 13:36:40 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -71,10 +71,11 @@ public:
 protected:
   vtkUnstructuredGridToPolyDataFilter() {this->NumberOfRequiredInputs = 1;}
   ~vtkUnstructuredGridToPolyDataFilter() {}
-  vtkUnstructuredGridToPolyDataFilter(const vtkUnstructuredGridToPolyDataFilter&) {}
-  void operator=(const vtkUnstructuredGridToPolyDataFilter&);
   
   
+private:
+  vtkUnstructuredGridToPolyDataFilter(const vtkUnstructuredGridToPolyDataFilter&) {}  // Not implemented.
+  void operator=(const vtkUnstructuredGridToPolyDataFilter&);  // Not implemented.
 };
 
 #endif

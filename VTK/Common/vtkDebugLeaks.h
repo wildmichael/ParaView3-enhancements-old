@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDebugLeaks.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:06:17 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2001-10-11 13:36:09 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -88,13 +88,14 @@ public:
 protected:
   vtkDebugLeaks(){}; 
   virtual ~vtkDebugLeaks(){}; 
-  vtkDebugLeaks(const vtkDebugLeaks&);
-  void operator=(const vtkDebugLeaks&);
 
   static int PromptUser;
 
 private:
   static vtkDebugLeaksHashTable* MemoryTable;
+private:
+  vtkDebugLeaks(const vtkDebugLeaks&);  // Not implemented.
+  void operator=(const vtkDebugLeaks&);  // Not implemented.
 };
 
 #endif // __vtkDebugLeaks_h

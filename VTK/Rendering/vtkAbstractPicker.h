@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractPicker.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:19:50 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2001-10-11 13:38:05 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -169,8 +169,6 @@ public:
 protected:
   vtkAbstractPicker();
   ~vtkAbstractPicker();
-  vtkAbstractPicker(const vtkAbstractPicker&);
-  void operator=(const vtkAbstractPicker&);
 
   virtual void Initialize();
 
@@ -192,6 +190,9 @@ protected:
   // use the following to control picking from a list
   int PickFromList;
   vtkPropCollection *PickList;
+private:
+  vtkAbstractPicker(const vtkAbstractPicker&);  // Not implemented.
+  void operator=(const vtkAbstractPicker&);  // Not implemented.
 };
 
 #endif

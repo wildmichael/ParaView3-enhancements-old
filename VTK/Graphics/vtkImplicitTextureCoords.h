@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitTextureCoords.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:11:54 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2001-10-11 13:37:07 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -112,8 +112,6 @@ public:
 protected:
   vtkImplicitTextureCoords();
   ~vtkImplicitTextureCoords();
-  vtkImplicitTextureCoords(const vtkImplicitTextureCoords&);
-  void operator=(const vtkImplicitTextureCoords&);
 
   void Execute();
 
@@ -121,6 +119,9 @@ protected:
   vtkImplicitFunction *SFunction;
   vtkImplicitFunction *TFunction;
   int FlipTexture;
+private:
+  vtkImplicitTextureCoords(const vtkImplicitTextureCoords&);  // Not implemented.
+  void operator=(const vtkImplicitTextureCoords&);  // Not implemented.
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoxelContoursToSurfaceFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:12:07 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2001-10-11 13:37:21 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -90,8 +90,6 @@ public:
 protected:
   vtkVoxelContoursToSurfaceFilter();
   ~vtkVoxelContoursToSurfaceFilter();
-  vtkVoxelContoursToSurfaceFilter(const vtkVoxelContoursToSurfaceFilter&);
-  void operator=(const vtkVoxelContoursToSurfaceFilter&);
 
   void    Execute();
 
@@ -120,6 +118,9 @@ protected:
 		     int gridSize[3], int type );
 
   void    PushDistances( float *ptr, int gridSize[3], int chunkSize );
+private:
+  vtkVoxelContoursToSurfaceFilter(const vtkVoxelContoursToSurfaceFilter&);  // Not implemented.
+  void operator=(const vtkVoxelContoursToSurfaceFilter&);  // Not implemented.
 };
 
 #endif

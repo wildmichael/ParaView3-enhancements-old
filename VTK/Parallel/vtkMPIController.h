@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMPIController.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 15:30:43 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2001-10-11 13:37:59 $
+  Version:   $Revision: 1.6 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -193,8 +193,6 @@ protected:
 
   vtkMPIController();
   ~vtkMPIController();
-  vtkMPIController(const vtkMPIController&);
-  void operator=(const vtkMPIController&);
 
   // Given a communicator, obtain size and rank
   // setting NumberOfProcesses and LocalProcessId
@@ -219,6 +217,9 @@ protected:
   static int Initialized;
 
 
+private:
+  vtkMPIController(const vtkMPIController&);  // Not implemented.
+  void operator=(const vtkMPIController&);  // Not implemented.
 };
 
 

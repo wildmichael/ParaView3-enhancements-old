@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractVectorComponents.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:11:52 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2001-10-11 13:37:02 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -115,11 +115,12 @@ public:
 protected:
   vtkExtractVectorComponents();
   ~vtkExtractVectorComponents();
-  vtkExtractVectorComponents(const vtkExtractVectorComponents&);
-  void operator=(const vtkExtractVectorComponents&);
 
   void Execute();
   int ExtractToFieldData;
+private:
+  vtkExtractVectorComponents(const vtkExtractVectorComponents&);  // Not implemented.
+  void operator=(const vtkExtractVectorComponents&);  // Not implemented.
 };
 
 #endif

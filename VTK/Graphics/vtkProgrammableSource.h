@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProgrammableSource.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:11:59 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2001-10-11 13:37:12 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -114,8 +114,6 @@ public:
 protected:
   vtkProgrammableSource();
   ~vtkProgrammableSource();
-  vtkProgrammableSource(const vtkProgrammableSource&);
-  void operator=(const vtkProgrammableSource&);
 
   void Execute();
 
@@ -124,6 +122,9 @@ protected:
   void *ExecuteMethodArg;  
 
   vtkTimeStamp ExecuteTime;
+private:
+  vtkProgrammableSource(const vtkProgrammableSource&);  // Not implemented.
+  void operator=(const vtkProgrammableSource&);  // Not implemented.
 };
 
 #endif

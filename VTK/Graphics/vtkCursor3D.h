@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCursor3D.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:11:45 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2001-10-11 13:36:53 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -129,8 +129,6 @@ public:
 protected:
   vtkCursor3D();
   ~vtkCursor3D();
-  vtkCursor3D(const vtkCursor3D&);
-  void operator=(const vtkCursor3D&);
 
   void Execute();
 
@@ -143,6 +141,9 @@ protected:
   int YShadows;
   int ZShadows;
   int Wrap;
+private:
+  vtkCursor3D(const vtkCursor3D&);  // Not implemented.
+  void operator=(const vtkCursor3D&);  // Not implemented.
 };
 
 #endif

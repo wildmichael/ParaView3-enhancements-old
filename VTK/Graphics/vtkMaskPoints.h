@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMaskPoints.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:11:55 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 2001-10-11 13:37:08 $
+  Version:   $Revision: 1.42 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -94,8 +94,6 @@ public:
 protected:
   vtkMaskPoints();
   ~vtkMaskPoints() {};
-  vtkMaskPoints(const vtkMaskPoints&);
-  void operator=(const vtkMaskPoints&);
 
   void Execute();
 
@@ -104,6 +102,9 @@ protected:
   int RandomMode;  // turn on/off randomization
   vtkIdType MaximumNumberOfPoints;
   int GenerateVertices; //generate polydata verts
+private:
+  vtkMaskPoints(const vtkMaskPoints&);  // Not implemented.
+  void operator=(const vtkMaskPoints&);  // Not implemented.
 };
 
 #endif

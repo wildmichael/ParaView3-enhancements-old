@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGLUTesselatorTriangleFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:21:23 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-10-11 13:37:24 $
+  Version:   $Revision: 1.4 $
   Thanks:    Tom Citriniti who implemented this class
 
 
@@ -81,8 +81,6 @@ public:
 protected:
   vtkGLUTesselatorTriangleFilter();
   ~vtkGLUTesselatorTriangleFilter();
-  vtkGLUTesselatorTriangleFilter(const vtkGLUTesselatorTriangleFilter&);
-  void operator=(const vtkGLUTesselatorTriangleFilter&);
 
   // Usual data generation method
   void Execute();
@@ -92,6 +90,9 @@ protected:
   int PassLines;
   GLUtesselator *GLUTesselator;
 
+private:
+  vtkGLUTesselatorTriangleFilter(const vtkGLUTesselatorTriangleFilter&);  // Not implemented.
+  void operator=(const vtkGLUTesselatorTriangleFilter&);  // Not implemented.
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAppendFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:11:35 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 2001-10-11 13:36:41 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -87,8 +87,6 @@ public:
 protected:
   vtkAppendFilter();
   ~vtkAppendFilter();
-  vtkAppendFilter(const vtkAppendFilter&);
-  void operator=(const vtkAppendFilter&);
 
   // Usual data generation method
   void Execute();
@@ -103,6 +101,9 @@ private:
     { vtkErrorMacro( << "AddInput() must be called with a vtkDataSet not a vtkDataObject."); };
   void RemoveInput(vtkDataObject *input)
     { this->vtkProcessObject::RemoveInput(input); };
+private:
+  vtkAppendFilter(const vtkAppendFilter&);  // Not implemented.
+  void operator=(const vtkAppendFilter&);  // Not implemented.
 };
 
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsSource.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:07:37 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2001-10-11 13:36:39 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -69,13 +69,14 @@ public:
 protected:
   vtkStructuredPointsSource();
   ~vtkStructuredPointsSource() {};
-  vtkStructuredPointsSource(const vtkStructuredPointsSource&);
-  void operator=(const vtkStructuredPointsSource&);
 
   // Default method performs Update to get information.  Not all the old
   // structured points sources compute information
   void ExecuteInformation();
 
+private:
+  vtkStructuredPointsSource(const vtkStructuredPointsSource&);  // Not implemented.
+  void operator=(const vtkStructuredPointsSource&);  // Not implemented.
 };
 
 #endif

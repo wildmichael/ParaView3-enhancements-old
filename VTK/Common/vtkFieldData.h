@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFieldData.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:06:20 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2001-10-11 13:36:12 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -366,8 +366,6 @@ protected:
 
   vtkFieldData();
   ~vtkFieldData();
-  vtkFieldData(const vtkFieldData&);
-  void operator=(const vtkFieldData&);
 
   int NumberOfArrays;
   int NumberOfActiveArrays;
@@ -475,6 +473,9 @@ public:
 
 //ETX
 
+private:
+  vtkFieldData(const vtkFieldData&);  // Not implemented.
+  void operator=(const vtkFieldData&);  // Not implemented.
 };
 
 

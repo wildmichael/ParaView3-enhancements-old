@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObject.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:06:35 $
-  Version:   $Revision: 1.77 $
+  Date:      $Date: 2001-10-11 13:36:18 $
+  Version:   $Revision: 1.78 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -213,8 +213,6 @@ public:
 protected:
   vtkObject(); 
   virtual ~vtkObject(); 
-  vtkObject(const vtkObject&);
-  void operator=(const vtkObject&);
 
   unsigned char Debug;     // Enable debug messages
   vtkTimeStamp MTime;      // Keep track of modification time
@@ -225,6 +223,9 @@ private:
   //BTX
   friend VTK_COMMON_EXPORT ostream& operator<<(ostream& os, vtkObject& o);
   //ETX
+private:
+  vtkObject(const vtkObject&);  // Not implemented.
+  void operator=(const vtkObject&);  // Not implemented.
 };
 
 inline void vtkObject::Modified()

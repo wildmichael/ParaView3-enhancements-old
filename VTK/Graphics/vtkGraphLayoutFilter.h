@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGraphLayoutFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-08 12:07:43 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-10-11 13:37:06 $
+  Version:   $Revision: 1.5 $
   Thanks:    Scott Hill of RPI for developing this class
              Mark Lacy for Procter & Gamble for support
 
@@ -108,8 +108,6 @@ public:
 protected:
   vtkGraphLayoutFilter();
   ~vtkGraphLayoutFilter() {}
-  vtkGraphLayoutFilter(const vtkGraphLayoutFilter&);
-  void operator=(const vtkGraphLayoutFilter&);
 
   void Execute();
 
@@ -118,6 +116,9 @@ protected:
   int   MaxNumberOfIterations;  //Maximum number of iterations.
   float CoolDownRate;  //Cool-down rate.  Note:  Higher # = Slower rate.
   int   ThreeDimensionalLayout;  //Boolean for a third dimension.
+private:
+  vtkGraphLayoutFilter(const vtkGraphLayoutFilter&);  // Not implemented.
+  void operator=(const vtkGraphLayoutFilter&);  // Not implemented.
 };
 
 #endif

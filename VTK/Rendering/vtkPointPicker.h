@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointPicker.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:20:23 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2001-10-11 13:38:20 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -68,8 +68,6 @@ public:
 protected:
   vtkPointPicker();
   ~vtkPointPicker() {};
-  vtkPointPicker(const vtkPointPicker&);
-  void operator=(const vtkPointPicker&);
 
   vtkIdType PointId; //picked point
 
@@ -78,6 +76,9 @@ protected:
                           vtkAbstractMapper3D *m);
   void Initialize();
 
+private:
+  vtkPointPicker(const vtkPointPicker&);  // Not implemented.
+  void operator=(const vtkPointPicker&);  // Not implemented.
 };
 
 #endif

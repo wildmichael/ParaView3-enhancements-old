@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPipelineSize.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 15:30:48 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-10-11 13:38:00 $
+  Version:   $Revision: 1.5 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -71,8 +71,6 @@ public:
   
 protected:
   vtkPipelineSize() {};
-  vtkPipelineSize(const vtkPipelineSize&);
-  void operator=(const vtkPipelineSize&);
   void GenericComputeSourcePipelineSize(vtkSource *src, 
                                         vtkDataObject *output,
                                         unsigned long size[3]);
@@ -91,6 +89,9 @@ protected:
                                unsigned long sizes[3]);
 
     
+private:
+  vtkPipelineSize(const vtkPipelineSize&);  // Not implemented.
+  void operator=(const vtkPipelineSize&);  // Not implemented.
 };
 
 #endif

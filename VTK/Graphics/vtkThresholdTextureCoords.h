@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThresholdTextureCoords.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:12:06 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2001-10-11 13:37:20 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -107,8 +107,6 @@ public:
 protected:
   vtkThresholdTextureCoords();
   ~vtkThresholdTextureCoords() {};
-  vtkThresholdTextureCoords(const vtkThresholdTextureCoords&);
-  void operator=(const vtkThresholdTextureCoords&);
 
   // Usual data generation method
   void Execute();
@@ -129,6 +127,9 @@ protected:
   int Upper(float s) {return ( s >= this->UpperThreshold ? 1 : 0 );};
   int Between(float s) {return ( s >= this->LowerThreshold ? 
                                ( s <= this->UpperThreshold ? 1 : 0 ) : 0 );};
+private:
+  vtkThresholdTextureCoords(const vtkThresholdTextureCoords&);  // Not implemented.
+  void operator=(const vtkThresholdTextureCoords&);  // Not implemented.
 };
 
 #endif

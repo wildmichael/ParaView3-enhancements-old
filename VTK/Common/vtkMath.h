@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMath.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:06:33 $
-  Version:   $Revision: 1.72 $
+  Date:      $Date: 2001-10-11 13:36:17 $
+  Version:   $Revision: 1.73 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -445,10 +445,11 @@ public:
 protected:
   vtkMath() {};
   ~vtkMath() {};
-  vtkMath(const vtkMath&);
-  void operator=(const vtkMath&);
   
   static long Seed;
+private:
+  vtkMath(const vtkMath&);  // Not implemented.
+  void operator=(const vtkMath&);  // Not implemented.
 };
 
 inline float vtkMath::Normalize(float x[3])

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaVolumeRayCastMapper.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:20:17 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-10-11 13:38:16 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -69,11 +69,12 @@ public:
 protected:
   vtkMesaVolumeRayCastMapper();
   ~vtkMesaVolumeRayCastMapper();
-  vtkMesaVolumeRayCastMapper(const vtkMesaVolumeRayCastMapper&);
-  void operator=(const vtkMesaVolumeRayCastMapper&);
 
   void RenderTexture( vtkVolume *vol, vtkRenderer *ren);
 
+private:
+  vtkMesaVolumeRayCastMapper(const vtkMesaVolumeRayCastMapper&);  // Not implemented.
+  void operator=(const vtkMesaVolumeRayCastMapper&);  // Not implemented.
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTIFFReader.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:09:03 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2001-10-11 13:37:34 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -88,8 +88,6 @@ public:
 protected:
   vtkTIFFReader() {};
   ~vtkTIFFReader() {};
-  vtkTIFFReader(const vtkTIFFReader&);
-  void operator=(const vtkTIFFReader&);
 
   virtual void ExecuteInformation();
 
@@ -102,6 +100,9 @@ protected:
   void ReadTag(_vtkTifTag *tag, FILE *fp);
   vtkTiffLong ReadTagLong(_vtkTifTag *tag, FILE *fp);
   //ETX
+private:
+  vtkTIFFReader(const vtkTIFFReader&);  // Not implemented.
+  void operator=(const vtkTIFFReader&);  // Not implemented.
 };
 
 #endif

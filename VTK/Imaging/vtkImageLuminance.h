@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageLuminance.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:09:59 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2001-10-11 13:37:47 $
+  Version:   $Revision: 1.17 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -57,13 +57,14 @@ public:
 protected:
   vtkImageLuminance() {};
   ~vtkImageLuminance() {};
-  vtkImageLuminance(const vtkImageLuminance&);
-  void operator=(const vtkImageLuminance&);
   
   void ExecuteInformation(vtkImageData *inData, vtkImageData *outData);
   void ExecuteInformation(){this->vtkImageToImageFilter::ExecuteInformation();};
   void ThreadedExecute(vtkImageData *inData, vtkImageData *outData, 
 		       int ext[6], int id);
+private:
+  vtkImageLuminance(const vtkImageLuminance&);  // Not implemented.
+  void operator=(const vtkImageLuminance&);  // Not implemented.
 };
 
 #endif

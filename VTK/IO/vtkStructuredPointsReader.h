@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsReader.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:09:02 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 2001-10-11 13:37:34 $
+  Version:   $Revision: 1.44 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -75,8 +75,6 @@ public:
 protected:
   vtkStructuredPointsReader();
   ~vtkStructuredPointsReader();
-  vtkStructuredPointsReader(const vtkStructuredPointsReader&);
-  void operator=(const vtkStructuredPointsReader&);
 
   void Execute();
 
@@ -84,6 +82,9 @@ protected:
   // structured points sources compute information
   void ExecuteInformation();
 
+private:
+  vtkStructuredPointsReader(const vtkStructuredPointsReader&);  // Not implemented.
+  void operator=(const vtkStructuredPointsReader&);  // Not implemented.
 };
 
 #endif

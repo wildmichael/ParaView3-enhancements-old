@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVRMLExporter.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:20:28 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2001-10-11 13:38:26 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -80,8 +80,6 @@ public:
 protected:
   vtkVRMLExporter();
   ~vtkVRMLExporter();
-  vtkVRMLExporter(const vtkVRMLExporter&);
-  void operator=(const vtkVRMLExporter&);
 
   void WriteData();
   void WriteALight(vtkLight *aLight, FILE *fp);
@@ -92,6 +90,9 @@ protected:
   char *FileName;
   FILE *FilePointer;
   float Speed;
+private:
+  vtkVRMLExporter(const vtkVRMLExporter&);  // Not implemented.
+  void operator=(const vtkVRMLExporter&);  // Not implemented.
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageFourierFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:09:53 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2001-10-11 13:37:44 $
+  Version:   $Revision: 1.29 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -137,8 +137,6 @@ public:
 protected:
   vtkImageFourierFilter() {};
   ~vtkImageFourierFilter() {};
-  vtkImageFourierFilter(const vtkImageFourierFilter&);
-  void operator=(const vtkImageFourierFilter&);
 
   //BTX
   void ExecuteFftStep2(vtkImageComplex *p_in, vtkImageComplex *p_out, 
@@ -148,6 +146,9 @@ protected:
   void ExecuteFftForwardBackward(vtkImageComplex *in, vtkImageComplex *out, 
 				 int N, int fb);
   //ETX
+private:
+  vtkImageFourierFilter(const vtkImageFourierFilter&);  // Not implemented.
+  void operator=(const vtkImageFourierFilter&);  // Not implemented.
 };
 
 

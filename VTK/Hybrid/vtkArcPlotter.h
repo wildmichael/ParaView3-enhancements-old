@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkArcPlotter.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:21:21 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2001-10-11 13:37:23 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -157,8 +157,6 @@ public:
 protected:
   vtkArcPlotter();
   ~vtkArcPlotter();
-  vtkArcPlotter(const vtkArcPlotter&);
-  void operator=(const vtkArcPlotter&);
 
   void Execute();
   int  OffsetPoint(vtkIdType ptId, vtkPoints *inPts, float n[3],
@@ -184,6 +182,9 @@ private:
   int       StartComp;
   int       EndComp;
   
+private:
+  vtkArcPlotter(const vtkArcPlotter&);  // Not implemented.
+  void operator=(const vtkArcPlotter&);  // Not implemented.
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSharedMemoryCommunicator.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 15:30:49 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2001-10-11 13:38:01 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -146,8 +146,6 @@ protected:
 
   vtkSharedMemoryCommunicator();
   ~vtkSharedMemoryCommunicator();
-  vtkSharedMemoryCommunicator(const vtkSharedMemoryCommunicator&);
-  void operator=(const vtkSharedMemoryCommunicator&);
 
   // The generic send and receive methods.
   int Send(vtkDataObject* object, void *data, int dataLength, 
@@ -198,6 +196,9 @@ protected:
 #endif
     }
 
+private:
+  vtkSharedMemoryCommunicator(const vtkSharedMemoryCommunicator&);  // Not implemented.
+  void operator=(const vtkSharedMemoryCommunicator&);  // Not implemented.
 };
 
 #endif //  __vtkSharedMemoryCommunicator_h

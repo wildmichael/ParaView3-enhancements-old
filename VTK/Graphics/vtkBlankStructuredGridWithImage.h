@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBlankStructuredGridWithImage.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:11:39 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-10-11 13:36:44 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -75,10 +75,11 @@ public:
 protected:
   vtkBlankStructuredGridWithImage() {this->NumberOfRequiredInputs = 2;}
   ~vtkBlankStructuredGridWithImage() {}
-  vtkBlankStructuredGridWithImage(const vtkBlankStructuredGridWithImage&);
-  void operator=(const vtkBlankStructuredGridWithImage&);
 
   void Execute();
+private:
+  vtkBlankStructuredGridWithImage(const vtkBlankStructuredGridWithImage&);  // Not implemented.
+  void operator=(const vtkBlankStructuredGridWithImage&);  // Not implemented.
 };
 
 #endif

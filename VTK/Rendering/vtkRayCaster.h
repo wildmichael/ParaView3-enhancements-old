@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRayCaster.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:20:26 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2001-10-11 13:38:23 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -149,9 +149,10 @@ public:
 protected:
   vtkRayCaster() {};
   ~vtkRayCaster() {};
-  vtkRayCaster(const vtkRayCaster&);
-  void operator=(const vtkRayCaster&);
 
+private:
+  vtkRayCaster(const vtkRayCaster&);  // Not implemented.
+  void operator=(const vtkRayCaster&);  // Not implemented.
 };
 #endif
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRearrangeFields.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:12:00 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-10-11 13:37:13 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -183,8 +183,6 @@ protected:
 
   vtkRearrangeFields();
   virtual ~vtkRearrangeFields();
-  vtkRearrangeFields(const vtkRearrangeFields&);
-  void operator=(const vtkRearrangeFields&);
 
   void Execute();
 
@@ -261,6 +259,9 @@ protected:
       os << indent << "Next operation: " << op->Next << endl;
       os << endl;
     }
+private:
+  vtkRearrangeFields(const vtkRearrangeFields&);  // Not implemented.
+  void operator=(const vtkRearrangeFields&);  // Not implemented.
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTexturedSphereSource.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:12:05 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2001-10-11 13:37:19 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -93,8 +93,6 @@ public:
 protected:
   vtkTexturedSphereSource(int res=8);
   ~vtkTexturedSphereSource() {};
-  vtkTexturedSphereSource(const vtkTexturedSphereSource&);
-  void operator=(const vtkTexturedSphereSource&);
 
   void Execute();
   float Radius;
@@ -103,6 +101,9 @@ protected:
   int ThetaResolution;
   int PhiResolution;
 
+private:
+  vtkTexturedSphereSource(const vtkTexturedSphereSource&);  // Not implemented.
+  void operator=(const vtkTexturedSphereSource&);  // Not implemented.
 };
 
 #endif

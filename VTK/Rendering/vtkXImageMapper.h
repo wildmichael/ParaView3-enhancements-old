@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXImageMapper.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:20:33 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2001-10-11 13:38:35 $
+  Version:   $Revision: 1.21 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -109,13 +109,14 @@ public:
 protected:
   vtkXImageMapper();
   ~vtkXImageMapper();
-  vtkXImageMapper(const vtkXImageMapper&);
-  void operator=(const vtkXImageMapper&);
 
   XImage          *Image;
   unsigned char   *DataOut;
   int             DataOutSize;
   int             NumberOfColors;
+private:
+  vtkXImageMapper(const vtkXImageMapper&);  // Not implemented.
+  void operator=(const vtkXImageMapper&);  // Not implemented.
 };
 #endif
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProcessStatistics.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:06:39 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2001-10-11 13:36:22 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -64,10 +64,11 @@ public:
 protected:
   vtkProcessStatistics();
   ~vtkProcessStatistics() {};
-  vtkProcessStatistics(const vtkProcessStatistics&);
-  void operator=(const vtkProcessStatistics&);
 
   
+private:
+  vtkProcessStatistics(const vtkProcessStatistics&);  // Not implemented.
+  void operator=(const vtkProcessStatistics&);  // Not implemented.
 };
 
 #endif

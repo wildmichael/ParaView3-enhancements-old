@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOBJExporter.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:20:18 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2001-10-11 13:38:17 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -72,12 +72,13 @@ public:
 protected:
   vtkOBJExporter();
   ~vtkOBJExporter();
-  vtkOBJExporter(const vtkOBJExporter&);
-  void operator=(const vtkOBJExporter&);
 
   void WriteData();
   void WriteAnActor(vtkActor *anActor, FILE *fpObj, FILE *fpMat, int &id);
   char *FilePrefix;
+private:
+  vtkOBJExporter(const vtkOBJExporter&);  // Not implemented.
+  void operator=(const vtkOBJExporter&);  // Not implemented.
 };
 
 #endif

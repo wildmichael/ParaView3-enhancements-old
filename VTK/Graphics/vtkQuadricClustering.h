@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadricClustering.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:11:59 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2001-10-11 13:37:12 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -205,8 +205,6 @@ public:
 protected:
   vtkQuadricClustering();
   ~vtkQuadricClustering();
-  vtkQuadricClustering(const vtkQuadricClustering&);
-  void operator=(const vtkQuadricClustering&);
 
   void Execute();
     
@@ -305,6 +303,9 @@ protected:
   int CopyCellData;
   int InCellCount;
   int OutCellCount;
+private:
+  vtkQuadricClustering(const vtkQuadricClustering&);  // Not implemented.
+  void operator=(const vtkQuadricClustering&);  // Not implemented.
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGridSynchronizedTemplates3D.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 15:30:23 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2001-10-11 13:38:03 $
+  Version:   $Revision: 1.23 $
 
 
 
@@ -171,8 +171,6 @@ public:
 protected:
   vtkGridSynchronizedTemplates3D();
   ~vtkGridSynchronizedTemplates3D();
-  vtkGridSynchronizedTemplates3D(const vtkGridSynchronizedTemplates3D&);
-  void operator=(const vtkGridSynchronizedTemplates3D&);
 
   int ComputeNormals;
   int ComputeGradients;
@@ -196,6 +194,9 @@ private:
   //BTX
   friend class VTK_PATENTED_EXPORT vtkKitwareContourFilter;
   //ETX
+private:
+  vtkGridSynchronizedTemplates3D(const vtkGridSynchronizedTemplates3D&);  // Not implemented.
+  void operator=(const vtkGridSynchronizedTemplates3D&);  // Not implemented.
 };
 
 

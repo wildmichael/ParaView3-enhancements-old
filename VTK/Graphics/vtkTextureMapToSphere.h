@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextureMapToSphere.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:12:05 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2001-10-11 13:37:19 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -105,8 +105,6 @@ public:
 protected:
   vtkTextureMapToSphere();
   ~vtkTextureMapToSphere() {};
-  vtkTextureMapToSphere(const vtkTextureMapToSphere&);
-  void operator=(const vtkTextureMapToSphere&);
 
   void Execute();
 
@@ -114,6 +112,9 @@ protected:
   int AutomaticSphereGeneration;
   int PreventSeam;
 
+private:
+  vtkTextureMapToSphere(const vtkTextureMapToSphere&);  // Not implemented.
+  void operator=(const vtkTextureMapToSphere&);  // Not implemented.
 };
 
 #endif

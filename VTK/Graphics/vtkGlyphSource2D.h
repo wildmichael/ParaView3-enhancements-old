@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGlyphSource2D.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:11:53 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2001-10-11 13:37:05 $
+  Version:   $Revision: 1.9 $
   Thanks:    Tim Smith who sponsored and encouraged the development
              of this class.
 
@@ -155,8 +155,6 @@ public:
 protected:
   vtkGlyphSource2D();
   ~vtkGlyphSource2D() {};
-  vtkGlyphSource2D(const vtkGlyphSource2D&);
-  void operator=(const vtkGlyphSource2D&);
 
   void Execute();
 
@@ -197,6 +195,9 @@ protected:
   void CreateHookedArrow(vtkPoints *pts, vtkCellArray *lines,
                          vtkCellArray *polys, vtkUnsignedCharArray *colors);
 
+private:
+  vtkGlyphSource2D(const vtkGlyphSource2D&);  // Not implemented.
+  void operator=(const vtkGlyphSource2D&);  // Not implemented.
 };
 
 #endif

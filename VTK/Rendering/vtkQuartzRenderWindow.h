@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuartzRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:20:25 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-10-11 13:38:22 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -243,8 +243,6 @@ public:
 protected:
   vtkQuartzRenderWindow();
   ~vtkQuartzRenderWindow();
-  vtkQuartzRenderWindow(const vtkQuartzRenderWindow&);
-  void operator=(const vtkQuartzRenderWindow&);
 
   int       ApplicationInitialized; //NSApplication called?
   void     *ContextId;
@@ -270,5 +268,8 @@ protected:
 
   int CursorHidden;
 
+private:
+  vtkQuartzRenderWindow(const vtkQuartzRenderWindow&);  // Not implemented.
+  void operator=(const vtkQuartzRenderWindow&);  // Not implemented.
 };
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHomogeneousTransform.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:06:24 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2001-10-11 13:36:14 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -125,12 +125,13 @@ public:
 protected:
   vtkHomogeneousTransform();
   ~vtkHomogeneousTransform();
-  vtkHomogeneousTransform(const vtkHomogeneousTransform&);
-  void operator=(const vtkHomogeneousTransform&);
 
   void InternalDeepCopy(vtkAbstractTransform *transform);
 
   vtkMatrix4x4 *Matrix;
+private:
+  vtkHomogeneousTransform(const vtkHomogeneousTransform&);  // Not implemented.
+  void operator=(const vtkHomogeneousTransform&);  // Not implemented.
 };
 
 #endif

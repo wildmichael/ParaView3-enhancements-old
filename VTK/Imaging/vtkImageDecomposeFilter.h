@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDecomposeFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:09:49 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2001-10-11 13:37:41 $
+  Version:   $Revision: 1.20 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -85,12 +85,13 @@ public:
 protected:
   vtkImageDecomposeFilter();
   ~vtkImageDecomposeFilter() {};
-  vtkImageDecomposeFilter(const vtkImageDecomposeFilter&);
-  void operator=(const vtkImageDecomposeFilter&);
 
   int Dimensionality;
 
 
+private:
+  vtkImageDecomposeFilter(const vtkImageDecomposeFilter&);  // Not implemented.
+  void operator=(const vtkImageDecomposeFilter&);  // Not implemented.
 };
 
 #endif

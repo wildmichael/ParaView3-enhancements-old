@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCamera.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:19:51 $
-  Version:   $Revision: 1.77 $
+  Date:      $Date: 2001-10-11 13:38:06 $
+  Version:   $Revision: 1.78 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -375,8 +375,6 @@ class VTK_RENDERING_EXPORT vtkCamera : public vtkObject
 protected:
   vtkCamera();
   ~vtkCamera();
-  vtkCamera(const vtkCamera&);
-  void operator=(const vtkCamera&);
 
   // Description:
   // These methods should only be used within vtkCamera.cxx.
@@ -416,6 +414,9 @@ protected:
   // change the calculation of viewing rays for the camera before it is 
   // transformed to the camera's location and orientation. 
   vtkTimeStamp ViewingRaysMTime;
+private:
+  vtkCamera(const vtkCamera&);  // Not implemented.
+  void operator=(const vtkCamera&);  // Not implemented.
 };
 
 #endif

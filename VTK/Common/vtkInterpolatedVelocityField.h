@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInterpolatedVelocityField.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:06:29 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2001-10-11 13:36:16 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -121,8 +121,6 @@ public:
 protected:
   vtkInterpolatedVelocityField();
   ~vtkInterpolatedVelocityField();
-  vtkInterpolatedVelocityField(const vtkInterpolatedVelocityField&);
-  void operator=(const vtkInterpolatedVelocityField&);
 
   vtkDataSet* DataSet;
   vtkGenericCell* GenCell; // last cell
@@ -133,6 +131,9 @@ protected:
   int CacheHit;
   int CacheMiss;
   int Caching;
+private:
+  vtkInterpolatedVelocityField(const vtkInterpolatedVelocityField&);  // Not implemented.
+  void operator=(const vtkInterpolatedVelocityField&);  // Not implemented.
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThresholdPoints.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:12:06 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2001-10-11 13:37:19 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -80,8 +80,6 @@ public:
 protected:
   vtkThresholdPoints();
   ~vtkThresholdPoints() {};
-  vtkThresholdPoints(const vtkThresholdPoints&);
-  void operator=(const vtkThresholdPoints&);
 
   // Usual data generation method
   void Execute();
@@ -97,6 +95,9 @@ protected:
   int Upper(float s) {return ( s >= this->UpperThreshold ? 1 : 0 );};
   int Between(float s) {return ( s >= this->LowerThreshold ? 
                                ( s <= this->UpperThreshold ? 1 : 0 ) : 0 );};
+private:
+  vtkThresholdPoints(const vtkThresholdPoints&);  // Not implemented.
+  void operator=(const vtkThresholdPoints&);  // Not implemented.
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProperty.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:20:24 $
-  Version:   $Revision: 1.55 $
+  Date:      $Date: 2001-10-11 13:38:22 $
+  Version:   $Revision: 1.56 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -224,8 +224,6 @@ public:
 protected:
   vtkProperty();
   ~vtkProperty() {};
-  vtkProperty(const vtkProperty&);
-  void operator=(const vtkProperty&);
 
   float Color[3];
   float AmbientColor[3];
@@ -246,6 +244,9 @@ protected:
   int   EdgeVisibility;
   int   BackfaceCulling;
   int   FrontfaceCulling;
+private:
+  vtkProperty(const vtkProperty&);  // Not implemented.
+  void operator=(const vtkProperty&);  // Not implemented.
 };
 
 // Description:

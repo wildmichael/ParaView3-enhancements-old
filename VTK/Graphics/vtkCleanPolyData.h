@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCleanPolyData.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-08 18:39:41 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 2001-10-11 13:36:48 $
+  Version:   $Revision: 1.49 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen
@@ -176,8 +176,6 @@ public:
 protected:
   vtkCleanPolyData();
  ~vtkCleanPolyData();
-  vtkCleanPolyData(const vtkCleanPolyData&);
-  void operator=(const vtkCleanPolyData&);
 
   // Usual data generation method
   void Execute();
@@ -194,6 +192,9 @@ protected:
   vtkPointLocator *Locator;
 
   int PieceInvariant;
+private:
+  vtkCleanPolyData(const vtkCleanPolyData&);  // Not implemented.
+  void operator=(const vtkCleanPolyData&);  // Not implemented.
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAssignAttribute.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:11:37 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-10-11 13:36:43 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -130,8 +130,6 @@ protected:
 
   vtkAssignAttribute();
   virtual ~vtkAssignAttribute();
-  vtkAssignAttribute(const vtkAssignAttribute&);
-  void operator=(const vtkAssignAttribute&);
 
   void Execute();
 
@@ -143,6 +141,9 @@ protected:
 
   static char AttributeLocationNames[2][12];
   static char AttributeNames[vtkDataSetAttributes::NUM_ATTRIBUTES][10];
+private:
+  vtkAssignAttribute(const vtkAssignAttribute&);  // Not implemented.
+  void operator=(const vtkAssignAttribute&);  // Not implemented.
 };
 
 #endif

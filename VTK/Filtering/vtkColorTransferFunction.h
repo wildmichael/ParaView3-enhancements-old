@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkColorTransferFunction.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:07:19 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2001-10-11 13:36:33 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -149,8 +149,6 @@ public:
 protected:
   vtkColorTransferFunction();
   ~vtkColorTransferFunction();
-  vtkColorTransferFunction(const vtkColorTransferFunction&);
-  void operator=(const vtkColorTransferFunction&);
 
   // Determines the function value outside of defined points
   // Zero = always return 0.0 outside of defined points
@@ -192,6 +190,9 @@ protected:
   void SetRange(float rng[2]) {this->SetRange(rng[0],rng[1]);};
 
 
+private:
+  vtkColorTransferFunction(const vtkColorTransferFunction&);  // Not implemented.
+  void operator=(const vtkColorTransferFunction&);  // Not implemented.
 };
 
 #endif

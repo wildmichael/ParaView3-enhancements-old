@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPLYReader.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:08:56 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-10-11 13:37:32 $
+  Version:   $Revision: 1.4 $
   Thanks:    Mike Dresser MD/PhD
              Director of Core Facility for Imaging
              Program in Molecular and Cell Biology
@@ -81,12 +81,13 @@ public:
 protected:
   vtkPLYReader();
   ~vtkPLYReader();
-  vtkPLYReader(const vtkPLYReader&);
-  void operator=(const vtkPLYReader&);
 
   char *FileName;
 
   void Execute();
+private:
+  vtkPLYReader(const vtkPLYReader&);  // Not implemented.
+  void operator=(const vtkPLYReader&);  // Not implemented.
 };
 
 #endif

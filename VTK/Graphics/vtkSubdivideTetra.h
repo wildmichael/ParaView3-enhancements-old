@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSubdivideTetra.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:12:04 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2001-10-11 13:37:18 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -60,11 +60,12 @@ public:
 protected:
   vtkSubdivideTetra();
   ~vtkSubdivideTetra() {};
-  vtkSubdivideTetra(const vtkSubdivideTetra&);
-  void operator=(const vtkSubdivideTetra&);
 
   void Execute();
 
+private:
+  vtkSubdivideTetra(const vtkSubdivideTetra&);  // Not implemented.
+  void operator=(const vtkSubdivideTetra&);  // Not implemented.
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractUnstructuredGridPiece.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 15:30:42 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-10-11 13:37:58 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -63,8 +63,6 @@ public:
 protected:
   vtkExtractUnstructuredGridPiece();
   ~vtkExtractUnstructuredGridPiece() {};
-  vtkExtractUnstructuredGridPiece(const vtkExtractUnstructuredGridPiece&);
-  void operator=(const vtkExtractUnstructuredGridPiece&);
 
   // Usual data generation method
   void Execute();
@@ -78,6 +76,9 @@ protected:
   void AddGhostLevel(vtkUnstructuredGrid *input, vtkIntArray *cellTags, int ghostLevel);
   
   int CreateGhostCells;
+private:
+  vtkExtractUnstructuredGridPiece(const vtkExtractUnstructuredGridPiece&);  // Not implemented.
+  void operator=(const vtkExtractUnstructuredGridPiece&);  // Not implemented.
 };
 
 #endif

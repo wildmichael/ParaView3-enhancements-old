@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSight6Reader.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:08:49 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2001-10-11 13:37:29 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -73,8 +73,6 @@ public:
 protected:
   vtkEnSight6Reader();
   ~vtkEnSight6Reader();
-  vtkEnSight6Reader(const vtkEnSight6Reader&);
-  void operator=(const vtkEnSight6Reader&);
   
   // Description:
   // Read the geometry file.  If an error occurred, 0 is returned; otherwise 1.
@@ -140,6 +138,9 @@ protected:
   int NumberOfUnstructuredPoints;
   vtkPoints* UnstructuredPoints;
   vtkIdList* UnstructuredNodeIds; // matching of node ids to point ids
+private:
+  vtkEnSight6Reader(const vtkEnSight6Reader&);  // Not implemented.
+  void operator=(const vtkEnSight6Reader&);  // Not implemented.
 };
 
 #endif

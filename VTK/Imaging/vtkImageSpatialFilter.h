@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSpatialFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:10:16 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 2001-10-11 13:37:54 $
+  Version:   $Revision: 1.44 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -73,8 +73,6 @@ public:
 protected:
   vtkImageSpatialFilter();
   ~vtkImageSpatialFilter() {};
-  vtkImageSpatialFilter(const vtkImageSpatialFilter&);
-  void operator=(const vtkImageSpatialFilter&);
 
   int   KernelSize[3];
   int   KernelMiddle[3];      // Index of kernel origin
@@ -89,6 +87,9 @@ protected:
   void ComputeOutputWholeExtent(int extent[6], int handleBoundaries);
   void ComputeInputUpdateExtent(int extent[6], int wholeExtent[6]);
 
+private:
+  vtkImageSpatialFilter(const vtkImageSpatialFilter&);  // Not implemented.
+  void operator=(const vtkImageSpatialFilter&);  // Not implemented.
 };
 
 #endif

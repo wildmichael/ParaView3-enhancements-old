@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextureMapToCylinder.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:12:05 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2001-10-11 13:37:19 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -113,8 +113,6 @@ public:
 protected:
   vtkTextureMapToCylinder();
   ~vtkTextureMapToCylinder() {};
-  vtkTextureMapToCylinder(const vtkTextureMapToCylinder&);
-  void operator=(const vtkTextureMapToCylinder&);
 
   void Execute();
 
@@ -123,6 +121,9 @@ protected:
   int AutomaticCylinderGeneration;
   int PreventSeam;
 
+private:
+  vtkTextureMapToCylinder(const vtkTextureMapToCylinder&);  // Not implemented.
+  void operator=(const vtkTextureMapToCylinder&);  // Not implemented.
 };
 
 #endif

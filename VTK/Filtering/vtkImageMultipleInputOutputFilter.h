@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMultipleInputOutputFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:07:25 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2001-10-11 13:36:34 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -80,8 +80,6 @@ public:
 protected:
   vtkImageMultipleInputOutputFilter();
   ~vtkImageMultipleInputOutputFilter();
-  vtkImageMultipleInputOutputFilter(const vtkImageMultipleInputOutputFilter&);
-  void operator=(const vtkImageMultipleInputOutputFilter&);
 
   void ComputeInputUpdateExtents( vtkDataObject *output );
   
@@ -102,6 +100,9 @@ protected:
   void ExecuteInformation();
   // This is the one you should override.
   virtual void ExecuteInformation(vtkImageData **, vtkImageData **) {};
+private:
+  vtkImageMultipleInputOutputFilter(const vtkImageMultipleInputOutputFilter&);  // Not implemented.
+  void operator=(const vtkImageMultipleInputOutputFilter&);  // Not implemented.
 };
 
 #endif

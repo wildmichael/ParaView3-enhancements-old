@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectorText.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-08 12:06:07 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2001-10-11 13:37:27 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -75,12 +75,13 @@ public:
 protected:
   vtkVectorText();
   ~vtkVectorText();
-  vtkVectorText(const vtkVectorText&);
-  void operator=(const vtkVectorText&);
 
   void Execute();
   char *Text;
   char *Letters[127];
+private:
+  vtkVectorText(const vtkVectorText&);  // Not implemented.
+  void operator=(const vtkVectorText&);  // Not implemented.
 };
 
 #endif

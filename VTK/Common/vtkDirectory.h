@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDirectory.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:06:17 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2001-10-11 13:36:10 $
+  Version:   $Revision: 1.13 $
   Thanks:    Thanks to William A. Hoffman who developed this class
   
 
@@ -89,13 +89,14 @@ public:
 protected:
   vtkDirectory();
   ~vtkDirectory() ;
-  vtkDirectory(const vtkDirectory&);
-  void operator=(const vtkDirectory&);
 private:
   char* Path;		// Path to Open'ed directory
   char** Files;			// Array of Files
   int NumberOfFiles;		// Number if files in open directory
   
+private:
+  vtkDirectory(const vtkDirectory&);  // Not implemented.
+  void operator=(const vtkDirectory&);  // Not implemented.
 };
 
 #endif

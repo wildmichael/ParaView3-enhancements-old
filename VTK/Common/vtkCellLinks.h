@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellLinks.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:06:09 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2001-10-11 13:36:03 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -149,8 +149,6 @@ public:
 protected:
   vtkCellLinks():Array(NULL),Size(0),MaxId(-1),Extend(1000) {};
   ~vtkCellLinks();
-  vtkCellLinks(const vtkCellLinks&);
-  void operator=(const vtkCellLinks&);
 
   // Description:
   // Increment the count of the number of cells using the point.
@@ -168,6 +166,9 @@ protected:
   vtkIdType MaxId;     // maximum index inserted thus far
   vtkIdType Extend;     // grow array by this point
   _vtkLink_s *Resize(vtkIdType sz);  // function to resize data
+private:
+  vtkCellLinks(const vtkCellLinks&);  // Not implemented.
+  void operator=(const vtkCellLinks&);  // Not implemented.
 };
 
 

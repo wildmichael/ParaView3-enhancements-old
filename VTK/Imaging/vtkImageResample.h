@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageResample.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:10:09 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2001-10-11 13:37:51 $
+  Version:   $Revision: 1.29 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -88,8 +88,6 @@ public:
 protected:
   vtkImageResample();
   ~vtkImageResample() {};
-  vtkImageResample(const vtkImageResample&);
-  void operator=(const vtkImageResample&);
 
   float MagnificationFactors[3];
   float OutputSpacing[3];
@@ -101,6 +99,9 @@ protected:
   void ExecuteInformation(){this->vtkImageToImageFilter::ExecuteInformation();};
   void ThreadedExecute(vtkImageData *inData, vtkImageData *outData,
 		       int extent[6], int id);
+private:
+  vtkImageResample(const vtkImageResample&);  // Not implemented.
+  void operator=(const vtkImageResample&);  // Not implemented.
 };
 
 #endif

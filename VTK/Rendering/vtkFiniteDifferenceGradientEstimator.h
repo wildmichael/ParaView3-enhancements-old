@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFiniteDifferenceGradientEstimator.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:19:55 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2001-10-11 13:38:08 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -88,13 +88,14 @@ public:
 protected:
   vtkFiniteDifferenceGradientEstimator();
   ~vtkFiniteDifferenceGradientEstimator();
-  vtkFiniteDifferenceGradientEstimator(const vtkFiniteDifferenceGradientEstimator&);
-  void operator=(const vtkFiniteDifferenceGradientEstimator&);
 
 
   // Description:
   // Recompute the encoded normals and gradient magnitudes.
   void UpdateNormals( void );
+private:
+  vtkFiniteDifferenceGradientEstimator(const vtkFiniteDifferenceGradientEstimator&);  // Not implemented.
+  void operator=(const vtkFiniteDifferenceGradientEstimator&);  // Not implemented.
 }; 
 
 

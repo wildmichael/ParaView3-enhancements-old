@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSLCReader.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:09:00 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2001-10-11 13:37:33 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -71,8 +71,6 @@ public:
 protected:
   vtkSLCReader();
   ~vtkSLCReader();
-  vtkSLCReader(const vtkSLCReader&);
-  void operator=(const vtkSLCReader&);
 
   // Stores the FileName of the SLC file to read.
   char *FileName;
@@ -89,6 +87,9 @@ protected:
   // Decodes an array of eight bit run-length encoded data.
   unsigned char *Decode8BitData( unsigned char *in_ptr, int size );
   int Error;
+private:
+  vtkSLCReader(const vtkSLCReader&);  // Not implemented.
+  void operator=(const vtkSLCReader&);  // Not implemented.
 };
 
 #endif

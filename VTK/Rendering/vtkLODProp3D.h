@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLODProp3D.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:20:07 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2001-10-11 13:38:13 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -262,8 +262,6 @@ public:
 protected:
   vtkLODProp3D();
   ~vtkLODProp3D();
-  vtkLODProp3D(const vtkLODProp3D&);
-  void operator=(const vtkLODProp3D&);
 
   int GetAutomaticPickPropIndex(void);
 
@@ -283,6 +281,9 @@ protected:
   vtkProp*          PreviousPickProp;
   void (*PreviousPickMethod)(void *);
   void *            PreviousPickMethodArg;
+private:
+  vtkLODProp3D(const vtkLODProp3D&);  // Not implemented.
+  void operator=(const vtkLODProp3D&);  // Not implemented.
 };
 
 #endif

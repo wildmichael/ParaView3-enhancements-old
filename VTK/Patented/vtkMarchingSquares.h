@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingSquares.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 15:30:25 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2001-10-11 13:38:04 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -127,14 +127,15 @@ public:
 protected:
   vtkMarchingSquares();
   ~vtkMarchingSquares();
-  vtkMarchingSquares(const vtkMarchingSquares&);
-  void operator=(const vtkMarchingSquares&);
 
   void Execute();
 
   vtkContourValues *ContourValues;
   int ImageRange[6];
   vtkPointLocator *Locator;
+private:
+  vtkMarchingSquares(const vtkMarchingSquares&);  // Not implemented.
+  void operator=(const vtkMarchingSquares&);  // Not implemented.
 };
 
 // Description:

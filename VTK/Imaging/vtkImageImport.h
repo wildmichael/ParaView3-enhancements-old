@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageImport.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:09:57 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2001-10-11 13:37:46 $
+  Version:   $Revision: 1.31 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -129,8 +129,6 @@ public:
 protected:
   vtkImageImport();
   ~vtkImageImport();
-  vtkImageImport(const vtkImageImport&);
-  void operator=(const vtkImageImport&);
 
   virtual void ExecuteInformation();
   
@@ -145,6 +143,9 @@ protected:
   float DataOrigin[3];
   
   virtual void ExecuteData(vtkDataObject *d);
+private:
+  vtkImageImport(const vtkImageImport&);  // Not implemented.
+  void operator=(const vtkImageImport&);  // Not implemented.
 };
 
 

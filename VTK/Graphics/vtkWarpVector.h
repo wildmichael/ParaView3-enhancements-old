@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpVector.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:12:08 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2001-10-11 13:37:22 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -67,11 +67,12 @@ public:
 protected:
   vtkWarpVector();
   ~vtkWarpVector();
-  vtkWarpVector(const vtkWarpVector&);
-  void operator=(const vtkWarpVector&);
 
   void Execute();
   float ScaleFactor;
+private:
+  vtkWarpVector(const vtkWarpVector&);  // Not implemented.
+  void operator=(const vtkWarpVector&);  // Not implemented.
 };
 
 #endif

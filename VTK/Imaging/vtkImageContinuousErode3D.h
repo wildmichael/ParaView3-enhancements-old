@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageContinuousErode3D.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:09:47 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2001-10-11 13:37:40 $
+  Version:   $Revision: 1.17 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -73,13 +73,14 @@ public:
 protected:
   vtkImageContinuousErode3D();
   ~vtkImageContinuousErode3D();
-  vtkImageContinuousErode3D(const vtkImageContinuousErode3D&);
-  void operator=(const vtkImageContinuousErode3D&);
 
   vtkImageEllipsoidSource *Ellipse;
     
   void ThreadedExecute(vtkImageData *inData, vtkImageData *outData, 
 		       int extent[6], int id);
+private:
+  vtkImageContinuousErode3D(const vtkImageContinuousErode3D&);  // Not implemented.
+  void operator=(const vtkImageContinuousErode3D&);  // Not implemented.
 };
 
 #endif

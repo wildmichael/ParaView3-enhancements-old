@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLTexture.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:20:22 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2001-10-11 13:38:19 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -73,8 +73,6 @@ public:
 protected:
   vtkOpenGLTexture();
   ~vtkOpenGLTexture();
-  vtkOpenGLTexture(const vtkOpenGLTexture&);
-  void operator=(const vtkOpenGLTexture&);
 
   unsigned char *ResampleToPowerOfTwo(int &xsize, int &ysize, 
                                       unsigned char *dptr, int bpp);
@@ -82,6 +80,9 @@ protected:
   vtkTimeStamp   LoadTime;
   long          Index;
   vtkRenderWindow *RenderWindow;   // RenderWindow used for previous render
+private:
+  vtkOpenGLTexture(const vtkOpenGLTexture&);  // Not implemented.
+  void operator=(const vtkOpenGLTexture&);  // Not implemented.
 };
 
 #endif

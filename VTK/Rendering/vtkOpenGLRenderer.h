@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLRenderer.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:20:21 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2001-10-11 13:38:19 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -78,8 +78,6 @@ public:
 protected:
   vtkOpenGLRenderer();
   ~vtkOpenGLRenderer();
-  vtkOpenGLRenderer(const vtkOpenGLRenderer&);
-  void operator=(const vtkOpenGLRenderer&);
 
   //BTX
   // Picking functions to be implemented by sub-classes
@@ -93,6 +91,9 @@ protected:
   class vtkGLPickInfo* PickInfo;
   //ETX
   float PickedZ;
+private:
+  vtkOpenGLRenderer(const vtkOpenGLRenderer&);  // Not implemented.
+  void operator=(const vtkOpenGLRenderer&);  // Not implemented.
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageGaussianSmooth.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:09:54 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2001-10-11 13:37:44 $
+  Version:   $Revision: 1.34 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -98,8 +98,6 @@ public:
 protected:
   vtkImageGaussianSmooth();
   ~vtkImageGaussianSmooth();
-  vtkImageGaussianSmooth(const vtkImageGaussianSmooth&);
-  void operator=(const vtkImageGaussianSmooth&);
 
   int Dimensionality;
   float StandardDeviations[3];
@@ -113,6 +111,9 @@ protected:
   void ThreadedExecute(vtkImageData *inData, 
 		       vtkImageData *outData, int outExt[6], int id);
   
+private:
+  vtkImageGaussianSmooth(const vtkImageGaussianSmooth&);  // Not implemented.
+  void operator=(const vtkImageGaussianSmooth&);  // Not implemented.
 };
 
 #endif

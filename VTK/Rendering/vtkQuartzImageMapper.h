@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuartzImageMapper.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:20:25 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-10-11 13:38:22 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -78,9 +78,10 @@ public:
 protected:
   vtkQuartzImageMapper();
   ~vtkQuartzImageMapper();
-  vtkQuartzImageMapper(const vtkQuartzImageMapper&) {};
-  void operator=(const vtkQuartzImageMapper&) {};
 
+private:
+  vtkQuartzImageMapper(const vtkQuartzImageMapper&) {};  // Not implemented.
+  void operator=(const vtkQuartzImageMapper&) {};  // Not implemented.
 };
 
 

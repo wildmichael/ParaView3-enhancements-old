@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOrderedTriangulator.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:06:35 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2001-10-11 13:36:18 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -181,8 +181,6 @@ public:
 protected:
   vtkOrderedTriangulator();
   ~vtkOrderedTriangulator();
-  vtkOrderedTriangulator(const vtkOrderedTriangulator&);
-  void operator=(const vtkOrderedTriangulator&);
 
 private:
   vtkOTMesh  *Mesh;
@@ -191,6 +189,9 @@ private:
   int PreSorted;
   vtkMemoryPool* Pool;
   
+private:
+  vtkOrderedTriangulator(const vtkOrderedTriangulator&);  // Not implemented.
+  void operator=(const vtkOrderedTriangulator&);  // Not implemented.
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractMapper.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:06:03 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2001-10-11 13:35:58 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -120,13 +120,14 @@ public:
 protected:
   vtkAbstractMapper();
   ~vtkAbstractMapper();
-  vtkAbstractMapper(const vtkAbstractMapper&);
-  void operator=(const vtkAbstractMapper&);
 
   vtkTimerLog *Timer;
   float TimeToDraw;
   vtkWindow *LastWindow;   // Window used for the previous render
   vtkPlaneCollection *ClippingPlanes;
+private:
+  vtkAbstractMapper(const vtkAbstractMapper&);  // Not implemented.
+  void operator=(const vtkAbstractMapper&);  // Not implemented.
 };
 
 #endif

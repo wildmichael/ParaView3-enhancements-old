@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPoints.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:06:43 $
-  Version:   $Revision: 1.75 $
+  Date:      $Date: 2001-10-11 13:36:25 $
+  Version:   $Revision: 1.76 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -73,8 +73,9 @@ public:
 protected:
   vtkStructuredPoints();
   ~vtkStructuredPoints() {};
-  vtkStructuredPoints(const vtkStructuredPoints&);
-  void operator=(const vtkStructuredPoints&);
+private:
+  vtkStructuredPoints(const vtkStructuredPoints&);  // Not implemented.
+  void operator=(const vtkStructuredPoints&);  // Not implemented.
 };
 
 #endif

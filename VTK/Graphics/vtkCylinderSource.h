@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCylinderSource.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:11:46 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 2001-10-11 13:36:54 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -88,8 +88,6 @@ public:
 protected:
   vtkCylinderSource(int res=6);
   ~vtkCylinderSource() {};
-  vtkCylinderSource(const vtkCylinderSource&);
-  void operator=(const vtkCylinderSource&);
 
   void Execute();
   float Height;
@@ -98,6 +96,9 @@ protected:
   int Resolution;
   int Capping;
 
+private:
+  vtkCylinderSource(const vtkCylinderSource&);  // Not implemented.
+  void operator=(const vtkCylinderSource&);  // Not implemented.
 };
 
 #endif

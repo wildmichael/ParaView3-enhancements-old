@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDataStreamer.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:09:49 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2001-10-11 13:37:41 $
+  Version:   $Revision: 1.21 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -76,11 +76,12 @@ public:
 protected:
   vtkImageDataStreamer();
   ~vtkImageDataStreamer();
-  vtkImageDataStreamer(const vtkImageDataStreamer&);
-  void operator=(const vtkImageDataStreamer&);
   
   vtkExtentTranslator *ExtentTranslator;
   int            NumberOfStreamDivisions;
+private:
+  vtkImageDataStreamer(const vtkImageDataStreamer&);  // Not implemented.
+  void operator=(const vtkImageDataStreamer&);  // Not implemented.
 };
 
 

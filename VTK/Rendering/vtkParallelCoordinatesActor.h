@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkParallelCoordinatesActor.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:20:23 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2001-10-11 13:38:20 $
+  Version:   $Revision: 1.13 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -169,8 +169,6 @@ public:
 protected:
   vtkParallelCoordinatesActor();
   ~vtkParallelCoordinatesActor();
-  vtkParallelCoordinatesActor(const vtkParallelCoordinatesActor&);
-  void operator=(const vtkParallelCoordinatesActor&);
 
 private:
   vtkDataObject *Input; //list of data sets to plot
@@ -204,6 +202,9 @@ private:
 
   void Initialize();
   int PlaceAxes(vtkViewport *viewport, int *size);
+private:
+  vtkParallelCoordinatesActor(const vtkParallelCoordinatesActor&);  // Not implemented.
+  void operator=(const vtkParallelCoordinatesActor&);  // Not implemented.
 };
 
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProp.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:06:39 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2001-10-11 13:36:22 $
+  Version:   $Revision: 1.34 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -266,8 +266,6 @@ public:
 protected:
   vtkProp();
   ~vtkProp();
-  vtkProp(const vtkProp&);
-  void operator=(const vtkProp&);
 
   int Visibility;
   int Pickable;
@@ -283,6 +281,9 @@ protected:
   // stuff that follows is used to build the assembly hierarchy
   vtkAssemblyPaths *Paths;
   
+private:
+  vtkProp(const vtkProp&);  // Not implemented.
+  void operator=(const vtkProp&);  // Not implemented.
 };
 
 #endif

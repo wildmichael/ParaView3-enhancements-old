@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExporter.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:19:55 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2001-10-11 13:38:08 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -117,8 +117,6 @@ public:
 protected:
   vtkExporter();
   ~vtkExporter();
-  vtkExporter(const vtkExporter&);
-  void operator=(const vtkExporter&);
 
   vtkRenderWindow *RenderWindow;
   virtual void WriteData() = 0;
@@ -129,6 +127,9 @@ protected:
   void (*EndWrite)(void *);
   void (*EndWriteArgDelete)(void *);
   void *EndWriteArg;
+private:
+  vtkExporter(const vtkExporter&);  // Not implemented.
+  void operator=(const vtkExporter&);  // Not implemented.
 };
 
 #endif

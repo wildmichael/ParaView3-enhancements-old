@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCubeSource.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:11:45 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2001-10-11 13:36:52 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -88,14 +88,15 @@ public:
 protected:
   vtkCubeSource(float xL=1.0, float yL=1.0, float zL=1.0);
   ~vtkCubeSource() {};
-  vtkCubeSource(const vtkCubeSource&);
-  void operator=(const vtkCubeSource&);
 
   void Execute();
   float XLength;
   float YLength;
   float ZLength;
   float Center[3];
+private:
+  vtkCubeSource(const vtkCubeSource&);  // Not implemented.
+  void operator=(const vtkCubeSource&);  // Not implemented.
 };
 
 #endif

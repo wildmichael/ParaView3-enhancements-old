@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyVertex.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:06:38 $
-  Version:   $Revision: 1.54 $
+  Date:      $Date: 2001-10-11 13:36:20 $
+  Version:   $Revision: 1.55 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -116,11 +116,12 @@ public:
 protected:
   vtkPolyVertex();
   ~vtkPolyVertex();
-  vtkPolyVertex(const vtkPolyVertex&);
-  void operator=(const vtkPolyVertex&);
 
   vtkVertex *Vertex;
 
+private:
+  vtkPolyVertex(const vtkPolyVertex&);  // Not implemented.
+  void operator=(const vtkPolyVertex&);  // Not implemented.
 };
 
 #endif

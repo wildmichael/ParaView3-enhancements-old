@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkNormals.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:06:35 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 2001-10-11 13:36:18 $
+  Version:   $Revision: 1.51 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -125,9 +125,10 @@ public:
 protected:
   vtkNormals();
   ~vtkNormals() {};
-  vtkNormals(const vtkNormals&);
-  void operator=(const vtkNormals&);
   
+private:
+  vtkNormals(const vtkNormals&);  // Not implemented.
+  void operator=(const vtkNormals&);  // Not implemented.
 };
 
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSobel3D.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:10:15 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2001-10-11 13:37:53 $
+  Version:   $Revision: 1.25 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -65,13 +65,14 @@ public:
 protected:
   vtkImageSobel3D();
   ~vtkImageSobel3D() {};
-  vtkImageSobel3D(const vtkImageSobel3D&);
-  void operator=(const vtkImageSobel3D&);
 
   void ThreadedExecute(vtkImageData *inData, vtkImageData *outData,
 		       int outExt[6], int id);
   void ExecuteInformation(vtkImageData *inData, vtkImageData *outData);
   void ExecuteInformation(){this->vtkImageToImageFilter::ExecuteInformation();};
+private:
+  vtkImageSobel3D(const vtkImageSobel3D&);  // Not implemented.
+  void operator=(const vtkImageSobel3D&);  // Not implemented.
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBYUReader.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:08:43 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2001-10-11 13:37:28 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -107,8 +107,6 @@ public:
 protected:
   vtkBYUReader();
   ~vtkBYUReader();
-  vtkBYUReader(const vtkBYUReader&);
-  void operator=(const vtkBYUReader&);
 
   void Execute();
   // This source does not know how to generate pieces yet.
@@ -128,6 +126,9 @@ protected:
   void ReadDisplacementFile(int numPts);
   void ReadScalarFile(int numPts);
   void ReadTextureFile(int numPts);
+private:
+  vtkBYUReader(const vtkBYUReader&);  // Not implemented.
+  void operator=(const vtkBYUReader&);  // Not implemented.
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinearExtrusionFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:11:55 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2001-10-11 13:37:07 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -129,8 +129,6 @@ public:
 protected:
   vtkLinearExtrusionFilter();
   ~vtkLinearExtrusionFilter() {};
-  vtkLinearExtrusionFilter(const vtkLinearExtrusionFilter&);
-  void operator=(const vtkLinearExtrusionFilter&);
 
   void Execute();
   int ExtrusionType;
@@ -147,6 +145,9 @@ protected:
   float *ViaPoint(float x[3], vtkIdType id, vtkDataArray *normals=0);
   //ETX
  
+private:
+  vtkLinearExtrusionFilter(const vtkLinearExtrusionFilter&);  // Not implemented.
+  void operator=(const vtkLinearExtrusionFilter&);  // Not implemented.
 };
 
 #endif

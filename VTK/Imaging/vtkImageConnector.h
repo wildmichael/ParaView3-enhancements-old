@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageConnector.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:09:45 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2001-10-11 13:37:39 $
+  Version:   $Revision: 1.19 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -107,8 +107,6 @@ public:
 protected:
   vtkImageConnector();
   ~vtkImageConnector();
-  vtkImageConnector(const vtkImageConnector&);
-  void operator=(const vtkImageConnector&);
 
   unsigned char ConnectedValue;
   unsigned char UnconnectedValue;
@@ -117,6 +115,9 @@ protected:
 
   vtkImageConnectorSeed *Seeds;
   vtkImageConnectorSeed *LastSeed;
+private:
+  vtkImageConnector(const vtkImageConnector&);  // Not implemented.
+  void operator=(const vtkImageConnector&);  // Not implemented.
 };
 
 

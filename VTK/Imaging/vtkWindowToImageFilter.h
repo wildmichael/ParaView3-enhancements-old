@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWindowToImageFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:10:28 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2001-10-11 13:37:57 $
+  Version:   $Revision: 1.20 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -71,13 +71,14 @@ public:
 protected:
   vtkWindowToImageFilter();
   ~vtkWindowToImageFilter();
-  vtkWindowToImageFilter(const vtkWindowToImageFilter&);
-  void operator=(const vtkWindowToImageFilter&);
 
   // vtkWindow is not a vtkDataObject, so we need our own ivar.
   vtkWindow *Input;
   void ExecuteInformation();
   void ExecuteData(vtkDataObject *data);
+private:
+  vtkWindowToImageFilter(const vtkWindowToImageFilter&);  // Not implemented.
+  void operator=(const vtkWindowToImageFilter&);  // Not implemented.
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:20:29 $
-  Version:   $Revision: 1.58 $
+  Date:      $Date: 2001-10-11 13:38:27 $
+  Version:   $Revision: 1.59 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -191,8 +191,6 @@ public:
 protected:
   vtkVolume();
   ~vtkVolume();
-  vtkVolume(const vtkVolume&);
-  void operator=(const vtkVolume&);
 
   vtkVolumeMapper              *Mapper;
   vtkVolumeProperty            *Property;
@@ -243,6 +241,9 @@ protected:
 
   // Function to compute screen coverage of this volume
   float ComputeScreenCoverage( vtkViewport *vp );
+private:
+  vtkVolume(const vtkVolume&);  // Not implemented.
+  void operator=(const vtkVolume&);  // Not implemented.
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageStencilData.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:10:18 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-10-11 13:37:54 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -164,8 +164,6 @@ public:
 protected:
   vtkImageStencilData();
   ~vtkImageStencilData();
-  vtkImageStencilData(const vtkImageStencilData&);
-  void operator=(const vtkImageStencilData&);
 
   // Description:
   // Check to see of the Spacing and Origin are different
@@ -188,6 +186,9 @@ protected:
   int NumberOfExtentEntries;
   int *ExtentListLengths;
   int **ExtentLists;
+private:
+  vtkImageStencilData(const vtkImageStencilData&);  // Not implemented.
+  void operator=(const vtkImageStencilData&);  // Not implemented.
 };
 
 #endif

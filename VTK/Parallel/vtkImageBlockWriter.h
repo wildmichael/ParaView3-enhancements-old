@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageBlockWriter.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 15:30:43 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2001-10-11 13:37:58 $
+  Version:   $Revision: 1.13 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -87,13 +87,14 @@ public:
 protected:
   vtkImageBlockWriter();
   ~vtkImageBlockWriter();
-  vtkImageBlockWriter(const vtkImageBlockWriter&);
-  void operator=(const vtkImageBlockWriter&);
   
   char *FilePattern;
 
   int Divisions[3];
   int Overlap;
+private:
+  vtkImageBlockWriter(const vtkImageBlockWriter&);  // Not implemented.
+  void operator=(const vtkImageBlockWriter&);  // Not implemented.
 };
 
 

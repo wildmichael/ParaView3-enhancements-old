@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTensorGlyph.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:12:05 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2001-10-11 13:37:18 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -137,8 +137,6 @@ public:
 protected:
   vtkTensorGlyph();
   ~vtkTensorGlyph();
-  vtkTensorGlyph(const vtkTensorGlyph&);
-  void operator=(const vtkTensorGlyph&);
 
   void Execute();
 
@@ -148,6 +146,9 @@ protected:
   int ColorGlyphs; // Boolean controls coloring with input scalar data
   int ClampScaling; // Boolean controls whether scaling is clamped.
   float MaxScaleFactor; // Maximum scale factor (ScaleFactor*eigenvalue)
+private:
+  vtkTensorGlyph(const vtkTensorGlyph&);  // Not implemented.
+  void operator=(const vtkTensorGlyph&);  // Not implemented.
 };
 
 #endif

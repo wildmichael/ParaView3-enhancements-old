@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThreadedController.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 15:30:50 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2001-10-11 13:38:01 $
+  Version:   $Revision: 1.6 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -106,8 +106,6 @@ protected:
 
   vtkThreadedController();
   ~vtkThreadedController();
-  vtkThreadedController(const vtkThreadedController&);
-  void operator=(const vtkThreadedController&);
   
   void CreateProcessControllers();
   
@@ -167,6 +165,9 @@ protected:
   // to controller for local thread.
   vtkMultiProcessController *GetLocalController();
 
+private:
+  vtkThreadedController(const vtkThreadedController&);  // Not implemented.
+  void operator=(const vtkThreadedController&);  // Not implemented.
 };
 
 #endif

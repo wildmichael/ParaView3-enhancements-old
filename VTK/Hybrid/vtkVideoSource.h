@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVideoSource.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:21:26 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2001-10-11 13:37:27 $
+  Version:   $Revision: 1.19 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -237,8 +237,6 @@ public:
 protected:
   vtkVideoSource();
   ~vtkVideoSource();
-  vtkVideoSource(const vtkVideoSource&);
-  void operator=(const vtkVideoSource&);
   void ExecuteInformation();
 
   int Initialized;
@@ -307,6 +305,9 @@ protected:
   // if some component conversion is required, it is done here:
   virtual void UnpackRasterLine(char *outPtr, char *rowPtr, 
 				int start, int count);
+private:
+  vtkVideoSource(const vtkVideoSource&);  // Not implemented.
+  void operator=(const vtkVideoSource&);  // Not implemented.
 };
 
 #endif

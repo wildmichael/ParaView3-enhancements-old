@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:20:26 $
-  Version:   $Revision: 1.110 $
+  Date:      $Date: 2001-10-11 13:38:24 $
+  Version:   $Revision: 1.111 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -360,8 +360,6 @@ public:
 protected:
   vtkRenderWindow();
   ~vtkRenderWindow();
-  vtkRenderWindow(const vtkRenderWindow&);
-  void operator=(const vtkRenderWindow&);
 
   virtual void DoStereoRender();
   virtual void DoFDRender();
@@ -397,6 +395,9 @@ protected:
   void (*AbortCheckMethod)(void *);
   void (*AbortCheckMethodArgDelete)(void *);
   void *AbortCheckMethodArg;
+private:
+  vtkRenderWindow(const vtkRenderWindow&);  // Not implemented.
+  void operator=(const vtkRenderWindow&);  // Not implemented.
 };
 
 // Description:

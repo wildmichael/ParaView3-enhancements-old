@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaLight.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:20:14 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2001-10-11 13:38:15 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -64,8 +64,9 @@ public:
 protected:  
   vtkMesaLight() {};
   ~vtkMesaLight() {};
-  vtkMesaLight(const vtkMesaLight&);
-  void operator=(const vtkMesaLight&);
+private:
+  vtkMesaLight(const vtkMesaLight&);  // Not implemented.
+  void operator=(const vtkMesaLight&);  // Not implemented.
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMultiProcessController.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 15:30:45 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2001-10-11 13:37:59 $
+  Version:   $Revision: 1.9 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -271,8 +271,6 @@ public:
 protected:
   vtkMultiProcessController();
   ~vtkMultiProcessController();
-  vtkMultiProcessController(const vtkMultiProcessController&);
-  void operator=(const vtkMultiProcessController&);
   
   int MaximumNumberOfProcesses;
   int NumberOfProcesses;
@@ -317,6 +315,9 @@ protected:
   // responsible of deleting them.
   vtkCommunicator* RMICommunicator;
 
+private:
+  vtkMultiProcessController(const vtkMultiProcessController&);  // Not implemented.
+  void operator=(const vtkMultiProcessController&);  // Not implemented.
 };
 
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRIBProperty.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:21:25 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2001-10-11 13:37:26 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -95,8 +95,6 @@ public:
 protected:
   vtkRIBProperty();
   ~vtkRIBProperty();
-  vtkRIBProperty(const vtkRIBProperty&);
-  void operator=(const vtkRIBProperty&);
 
   void Render(vtkActor *a, vtkRenderer *ren);
   vtkProperty *Property;
@@ -104,6 +102,9 @@ protected:
   char *DisplacementShader;
   char *Declarations;
   char *Parameters;
+private:
+  vtkRIBProperty(const vtkRIBProperty&);  // Not implemented.
+  void operator=(const vtkRIBProperty&);  // Not implemented.
 };
 
 #endif

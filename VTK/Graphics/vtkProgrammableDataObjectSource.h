@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProgrammableDataObjectSource.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:11:58 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2001-10-11 13:37:12 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -87,14 +87,15 @@ public:
 protected:
   vtkProgrammableDataObjectSource();
   ~vtkProgrammableDataObjectSource();
-  vtkProgrammableDataObjectSource(const vtkProgrammableDataObjectSource&);
-  void operator=(const vtkProgrammableDataObjectSource&);
 
   void Execute();
 
   void (*ExecuteMethod)(void *); //function to invoke
   void (*ExecuteMethodArgDelete)(void *);
   void *ExecuteMethodArg;
+private:
+  vtkProgrammableDataObjectSource(const vtkProgrammableDataObjectSource&);  // Not implemented.
+  void operator=(const vtkProgrammableDataObjectSource&);  // Not implemented.
 };
 
 #endif

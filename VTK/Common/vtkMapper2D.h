@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper2D.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:06:32 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2001-10-11 13:36:17 $
+  Version:   $Revision: 1.24 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -71,9 +71,10 @@ public:
 protected:
   vtkMapper2D() {};
   ~vtkMapper2D() {};
-  vtkMapper2D(const vtkMapper2D&);
-  void operator=(const vtkMapper2D&);
 
+private:
+  vtkMapper2D(const vtkMapper2D&);  // Not implemented.
+  void operator=(const vtkMapper2D&);  // Not implemented.
 };
 
 #endif

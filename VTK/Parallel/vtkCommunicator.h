@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCommunicator.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 15:30:40 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2001-10-11 13:37:58 $
+  Version:   $Revision: 1.10 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -146,14 +146,15 @@ protected:
 
   vtkCommunicator();
   ~vtkCommunicator();
-  vtkCommunicator(const vtkCommunicator&);
-  void operator=(const vtkCommunicator&);
 
   char *MarshalString;
   int MarshalStringLength;
   // The data may not take up all of the string.
   int MarshalDataLength;
 
+private:
+  vtkCommunicator(const vtkCommunicator&);  // Not implemented.
+  void operator=(const vtkCommunicator&);  // Not implemented.
 };
 
 #endif // __vtkCommunicator_h

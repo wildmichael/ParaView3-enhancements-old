@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpLens.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:12:07 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2001-10-11 13:37:21 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -105,8 +105,6 @@ public:
 protected:
   vtkWarpLens();
   ~vtkWarpLens() {};
-  vtkWarpLens(const vtkWarpLens&);
-  void operator=(const vtkWarpLens&);
 
   void Execute();
 
@@ -119,6 +117,9 @@ protected:
   float FormatHeight;		// imager format height in mm
   int ImageWidth;		// image width in pixels
   int ImageHeight;		// image height in pixels
+private:
+  vtkWarpLens(const vtkWarpLens&);  // Not implemented.
+  void operator=(const vtkWarpLens&);  // Not implemented.
 };
 
 #endif

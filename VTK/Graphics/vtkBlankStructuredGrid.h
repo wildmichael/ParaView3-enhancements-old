@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBlankStructuredGrid.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:11:38 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-10-11 13:36:44 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -99,8 +99,6 @@ public:
 protected:
   vtkBlankStructuredGrid();
   ~vtkBlankStructuredGrid();
-  vtkBlankStructuredGrid(const vtkBlankStructuredGrid&);
-  void operator=(const vtkBlankStructuredGrid&);
 
   void Execute();
   
@@ -110,6 +108,9 @@ protected:
   int   ArrayId;
   int   Component;
   
+private:
+  vtkBlankStructuredGrid(const vtkBlankStructuredGrid&);  // Not implemented.
+  void operator=(const vtkBlankStructuredGrid&);  // Not implemented.
 };
 
 #endif

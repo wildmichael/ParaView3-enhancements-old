@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPNGReader.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:08:57 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-10-11 13:37:32 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -62,11 +62,12 @@ public:
 protected:
   vtkPNGReader() {};
   ~vtkPNGReader() {};
-  vtkPNGReader(const vtkPNGReader&);
-  void operator=(const vtkPNGReader&);
 
   virtual void ExecuteInformation();
   virtual void ExecuteData(vtkDataObject *out);
+private:
+  vtkPNGReader(const vtkPNGReader&);  // Not implemented.
+  void operator=(const vtkPNGReader&);  // Not implemented.
 };
 #endif
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGenericEnSightReader.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:08:51 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2001-10-11 13:37:30 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -126,8 +126,6 @@ public:
 protected:
   vtkGenericEnSightReader();
   ~vtkGenericEnSightReader();
-  vtkGenericEnSightReader(const vtkGenericEnSightReader&);
-  void operator=(const vtkGenericEnSightReader&);
 
   void Execute();
   
@@ -207,6 +205,9 @@ protected:
   float TimeValue;
   float MinimumTimeValue;
   float MaximumTimeValue;
+private:
+  vtkGenericEnSightReader(const vtkGenericEnSightReader&);  // Not implemented.
+  void operator=(const vtkGenericEnSightReader&);  // Not implemented.
 };
 
 #endif

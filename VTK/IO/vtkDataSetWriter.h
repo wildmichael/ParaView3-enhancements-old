@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetWriter.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:08:46 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 2001-10-11 13:37:29 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -65,11 +65,12 @@ public:
 protected:
   vtkDataSetWriter() {};
   ~vtkDataSetWriter() {};
-  vtkDataSetWriter(const vtkDataSetWriter&);
-  void operator=(const vtkDataSetWriter&);
 
   void WriteData();
 
+private:
+  vtkDataSetWriter(const vtkDataSetWriter&);  // Not implemented.
+  void operator=(const vtkDataSetWriter&);  // Not implemented.
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageChangeInformation.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:09:43 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-10-11 13:37:39 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -119,8 +119,6 @@ public:
 protected:
   vtkImageChangeInformation();
   ~vtkImageChangeInformation();
-  vtkImageChangeInformation(const vtkImageChangeInformation&) {};
-  void operator=(const vtkImageChangeInformation&) {};
 
   vtkImageData *InformationInput;
   int CenterImage;
@@ -141,6 +139,9 @@ protected:
   void ExecuteInformation() {
     this->vtkImageToImageFilter::ExecuteInformation(); };
   void ExecuteData(vtkDataObject *data);
+private:
+  vtkImageChangeInformation(const vtkImageChangeInformation&) {};  // Not implemented.
+  void operator=(const vtkImageChangeInformation&) {};  // Not implemented.
 };
 
 

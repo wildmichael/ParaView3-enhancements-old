@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIdentityTransform.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:06:25 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2001-10-11 13:36:15 $
+  Version:   $Revision: 1.19 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -140,11 +140,12 @@ public:
 protected:
   vtkIdentityTransform();
   ~vtkIdentityTransform();
-  vtkIdentityTransform(const vtkIdentityTransform&);
-  void operator=(const vtkIdentityTransform&);
 
   void InternalDeepCopy(vtkAbstractTransform *t);
 
+private:
+  vtkIdentityTransform(const vtkIdentityTransform&);  // Not implemented.
+  void operator=(const vtkIdentityTransform&);  // Not implemented.
 };
 
 #endif

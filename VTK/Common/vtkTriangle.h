@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangle.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:06:45 $
-  Version:   $Revision: 1.69 $
+  Date:      $Date: 2001-10-11 13:36:27 $
+  Version:   $Revision: 1.70 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -218,11 +218,12 @@ public:
 protected:
   vtkTriangle();
   ~vtkTriangle();
-  vtkTriangle(const vtkTriangle&);
-  void operator=(const vtkTriangle&);
 
   vtkLine *Line;
 
+private:
+  vtkTriangle(const vtkTriangle&);  // Not implemented.
+  void operator=(const vtkTriangle&);  // Not implemented.
 };
 
 inline int vtkTriangle::GetParametricCenter(float pcoords[3])

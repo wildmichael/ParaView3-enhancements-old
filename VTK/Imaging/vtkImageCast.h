@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCast.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:09:42 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2001-10-11 13:37:38 $
+  Version:   $Revision: 1.33 $
   Thanks:    Thanks to Abdalmajeid M. Alyassin who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -94,8 +94,6 @@ public:
 protected:
   vtkImageCast();
   ~vtkImageCast() {};
-  vtkImageCast(const vtkImageCast&);
-  void operator=(const vtkImageCast&);
 
   int ClampOverflow;
   int OutputScalarType;
@@ -105,6 +103,9 @@ protected:
   void ThreadedExecute(vtkImageData *inData, vtkImageData *outData, 
 		       int ext[6], int id);
 
+private:
+  vtkImageCast(const vtkImageCast&);  // Not implemented.
+  void operator=(const vtkImageCast&);  // Not implemented.
 };
 
 #endif

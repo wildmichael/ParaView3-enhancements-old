@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRungeKutta4.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:06:41 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2001-10-11 13:36:24 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -90,12 +90,13 @@ public:
 protected:
   vtkRungeKutta4();
   ~vtkRungeKutta4();
-  vtkRungeKutta4(const vtkRungeKutta4&);
-  void operator=(const vtkRungeKutta4&);
 
   virtual void Initialize();
 
   float* NextDerivs[3];
+private:
+  vtkRungeKutta4(const vtkRungeKutta4&);  // Not implemented.
+  void operator=(const vtkRungeKutta4&);  // Not implemented.
 };
 
 #endif

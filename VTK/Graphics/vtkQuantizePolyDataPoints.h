@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuantizePolyDataPoints.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-08 18:40:12 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2001-10-11 13:37:13 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to John Biddiscombe of the Rutherford Appleton Laboratory
              who developed and contributed this class.
 
@@ -88,10 +88,11 @@ public:
 protected:
   vtkQuantizePolyDataPoints();
   ~vtkQuantizePolyDataPoints() {};
-  vtkQuantizePolyDataPoints(const vtkQuantizePolyDataPoints&);
-  void operator=(const vtkQuantizePolyDataPoints&);
 
   float QFactor;
+private:
+  vtkQuantizePolyDataPoints(const vtkQuantizePolyDataPoints&);  // Not implemented.
+  void operator=(const vtkQuantizePolyDataPoints&);  // Not implemented.
 };
 
 #endif

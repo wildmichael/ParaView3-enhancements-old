@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScaledTextActor.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:20:27 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2001-10-11 13:38:25 $
+  Version:   $Revision: 1.20 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -107,8 +107,6 @@ public:
 protected:
   vtkScaledTextActor();
   ~vtkScaledTextActor();
-  vtkScaledTextActor(const vtkScaledTextActor&);
-  void operator=(const vtkScaledTextActor&);
 
   int MinimumSize[2];
   float MaximumLineHeight;
@@ -121,6 +119,9 @@ protected:
 private:
   // hide the superclass' SetMapper method from the user and the compiler
   void SetMapper(vtkMapper2D *mapper) {this->vtkActor2D::SetMapper( mapper );};
+private:
+  vtkScaledTextActor(const vtkScaledTextActor&);  // Not implemented.
+  void operator=(const vtkScaledTextActor&);  // Not implemented.
 };
 
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleImage.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:20:03 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-10-11 13:38:11 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -90,8 +90,6 @@ public:
 protected:
   vtkInteractorStyleImage();
   ~vtkInteractorStyleImage();
-  vtkInteractorStyleImage(const vtkInteractorStyleImage&);
-  void operator=(const vtkInteractorStyleImage&);
 
   void WindowLevelXY(int dx, int dy);
   void PanXY(int x, int y, int oldX, int oldY);
@@ -103,6 +101,9 @@ protected:
   int State;
   float MotionFactor;
   float RadianToDegree; // constant: for conv from deg to rad
+private:
+  vtkInteractorStyleImage(const vtkInteractorStyleImage&);  // Not implemented.
+  void operator=(const vtkInteractorStyleImage&);  // Not implemented.
 };
 
 #endif

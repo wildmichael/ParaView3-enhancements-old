@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSeedConnectivity.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:10:11 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2001-10-11 13:37:52 $
+  Version:   $Revision: 1.27 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -100,8 +100,6 @@ public:
 protected:
   vtkImageSeedConnectivity();
   ~vtkImageSeedConnectivity();
-  vtkImageSeedConnectivity(const vtkImageSeedConnectivity&);
-  void operator=(const vtkImageSeedConnectivity&);
 
   unsigned char InputConnectValue;
   unsigned char OutputConnectedValue;
@@ -113,6 +111,9 @@ protected:
   void ComputeInputUpdateExtents(vtkDataObject *out);
 
   void ExecuteData(vtkDataObject *out); 
+private:
+  vtkImageSeedConnectivity(const vtkImageSeedConnectivity&);  // Not implemented.
+  void operator=(const vtkImageSeedConnectivity&);  // Not implemented.
 };
 
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingContourFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 15:30:24 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2001-10-11 13:38:03 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -169,8 +169,6 @@ public:
 protected:
   vtkMarchingContourFilter();
   ~vtkMarchingContourFilter();
-  vtkMarchingContourFilter(const vtkMarchingContourFilter&);
-  void operator=(const vtkMarchingContourFilter&);
 
   void Execute();
 
@@ -188,6 +186,9 @@ protected:
   void ImageContour(int dim);
   //default if not structured data
   void DataSetContour();
+private:
+  vtkMarchingContourFilter(const vtkMarchingContourFilter&);  // Not implemented.
+  void operator=(const vtkMarchingContourFilter&);  // Not implemented.
 };
 
 // Description:

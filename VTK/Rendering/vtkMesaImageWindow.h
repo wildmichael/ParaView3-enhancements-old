@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaImageWindow.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:20:13 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2001-10-11 13:38:15 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -127,14 +127,15 @@ public:
 protected:
   vtkMesaImageWindow();
   ~vtkMesaImageWindow();
-  vtkMesaImageWindow(const vtkMesaImageWindow&);
-  void operator=(const vtkMesaImageWindow&);
 
   GLXContext ContextId;
   OSMesaContext OffScreenContextId;
   void *OffScreenWindow;
   int ScreenDoubleBuffer;
   int ScreenMapped;
+private:
+  vtkMesaImageWindow(const vtkMesaImageWindow&);  // Not implemented.
+  void operator=(const vtkMesaImageWindow&);  // Not implemented.
 };
 
 

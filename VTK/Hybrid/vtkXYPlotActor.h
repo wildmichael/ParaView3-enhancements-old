@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXYPlotActor.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:21:26 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2001-10-11 13:37:27 $
+  Version:   $Revision: 1.15 $
   Thanks:    Thanks to Kitware & RPI/SCOREC who supported the development
              of this class.
 
@@ -464,8 +464,6 @@ public:
 protected:
   vtkXYPlotActor();
   ~vtkXYPlotActor();
-  vtkXYPlotActor(const vtkXYPlotActor&);
-  void operator=(const vtkXYPlotActor&);
 
   vtkDataSetCollection *InputList; //list of data sets to plot
   vtkDataObjectCollection *DataObjectInputList; //list of data objects to plot
@@ -548,6 +546,9 @@ protected:
   void ClipPlotData(int *pos, int *pos2, vtkPolyData *pd);
   float *TransformPoint(int pos[2], int pos2[2], float x[3], float xNew[3]);
   
+private:
+  vtkXYPlotActor(const vtkXYPlotActor&);  // Not implemented.
+  void operator=(const vtkXYPlotActor&);  // Not implemented.
 };
 
 

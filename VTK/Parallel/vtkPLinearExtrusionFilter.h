@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPLinearExtrusionFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 15:30:46 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-10-11 13:38:00 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -74,13 +74,14 @@ public:
 protected:
   vtkPLinearExtrusionFilter();
   ~vtkPLinearExtrusionFilter() {};
-  vtkPLinearExtrusionFilter(const vtkPLinearExtrusionFilter&);
-  void operator=(const vtkPLinearExtrusionFilter&);
 
   void Execute();
   void ComputeInputUpdateExtents(vtkDataObject *output);
 
   int PieceInvariant;
+private:
+  vtkPLinearExtrusionFilter(const vtkPLinearExtrusionFilter&);  // Not implemented.
+  void operator=(const vtkPLinearExtrusionFilter&);  // Not implemented.
 };
 
 #endif

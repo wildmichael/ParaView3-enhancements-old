@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageLaplacian.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:09:58 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2001-10-11 13:37:47 $
+  Version:   $Revision: 1.27 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -71,14 +71,15 @@ public:
 protected:
   vtkImageLaplacian();
   ~vtkImageLaplacian() {};
-  vtkImageLaplacian(const vtkImageLaplacian&);
-  void operator=(const vtkImageLaplacian&);
 
   int Dimensionality;
 
   void ComputeInputUpdateExtent(int inExt[6], int outExt[6]);
   void ThreadedExecute(vtkImageData *inData, vtkImageData *outData,
 		       int ext[6], int id);
+private:
+  vtkImageLaplacian(const vtkImageLaplacian&);  // Not implemented.
+  void operator=(const vtkImageLaplacian&);  // Not implemented.
 };
 
 #endif

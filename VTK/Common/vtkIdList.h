@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIdList.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:06:24 $
-  Version:   $Revision: 1.66 $
+  Date:      $Date: 2001-10-11 13:36:15 $
+  Version:   $Revision: 1.67 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -132,14 +132,15 @@ public:
 protected:
   vtkIdList();
   ~vtkIdList();
-  vtkIdList(const vtkIdList&);
-  void operator=(const vtkIdList&);
 
   vtkIdType NumberOfIds;
   vtkIdType Size; 
   vtkIdType *Ids;
 
   vtkIdType *Resize(const vtkIdType sz);
+private:
+  vtkIdList(const vtkIdList&);  // Not implemented.
+  void operator=(const vtkIdList&);  // Not implemented.
 };
 
 // In-lined for performance

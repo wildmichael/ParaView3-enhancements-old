@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindowTclInteractor.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:20:35 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2001-10-11 13:38:37 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -178,8 +178,6 @@ public:
 protected:
   vtkXRenderWindowTclInteractor();
   ~vtkXRenderWindowTclInteractor();
-  vtkXRenderWindowTclInteractor(const vtkXRenderWindowTclInteractor&);
-  void operator=(const vtkXRenderWindowTclInteractor&);
 
   Widget TopLevelShell;
 
@@ -191,6 +189,9 @@ protected:
   int PositionBeforeStereo[2];
 
   int BreakLoopFlag;
+private:
+  vtkXRenderWindowTclInteractor(const vtkXRenderWindowTclInteractor&);  // Not implemented.
+  void operator=(const vtkXRenderWindowTclInteractor&);  // Not implemented.
 };
 
 #endif

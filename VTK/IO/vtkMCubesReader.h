@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMCubesReader.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:08:54 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 2001-10-11 13:37:31 $
+  Version:   $Revision: 1.49 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -163,8 +163,6 @@ public:
 protected:
   vtkMCubesReader();
   ~vtkMCubesReader();
-  vtkMCubesReader(const vtkMCubesReader&);
-  void operator=(const vtkMCubesReader&);
 
   void Execute();
 
@@ -176,6 +174,9 @@ protected:
   int FlipNormals;
   int Normals;
 
+private:
+  vtkMCubesReader(const vtkMCubesReader&);  // Not implemented.
+  void operator=(const vtkMCubesReader&);  // Not implemented.
 };
 
 #endif

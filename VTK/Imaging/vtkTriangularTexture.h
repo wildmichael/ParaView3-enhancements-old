@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangularTexture.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:10:27 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2001-10-11 13:37:57 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -94,8 +94,6 @@ public:
 protected:
   vtkTriangularTexture();
   ~vtkTriangularTexture() {};
-  vtkTriangularTexture(const vtkTriangularTexture&);
-  void operator=(const vtkTriangularTexture&);
 
   void Execute();
 
@@ -104,6 +102,9 @@ protected:
   float ScaleFactor;
 
   int TexturePattern;
+private:
+  vtkTriangularTexture(const vtkTriangularTexture&);  // Not implemented.
+  void operator=(const vtkTriangularTexture&);  // Not implemented.
 };
 
 #endif

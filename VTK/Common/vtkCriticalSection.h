@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCriticalSection.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:06:13 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2001-10-11 13:36:06 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -152,8 +152,9 @@ public:
 protected:
   vtkSimpleCriticalSection   SimpleCriticalSection;
   vtkCriticalSection() {};
-  vtkCriticalSection(const vtkCriticalSection&);
-  void operator=(const vtkCriticalSection&);
+private:
+  vtkCriticalSection(const vtkCriticalSection&);  // Not implemented.
+  void operator=(const vtkCriticalSection&);  // Not implemented.
 };
 
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLVolumeTextureMapper2D.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:20:22 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2001-10-11 13:38:20 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -77,9 +77,10 @@ public:
 protected:
   vtkOpenGLVolumeTextureMapper2D();
   ~vtkOpenGLVolumeTextureMapper2D();
-  vtkOpenGLVolumeTextureMapper2D(const vtkOpenGLVolumeTextureMapper2D&);
-  void operator=(const vtkOpenGLVolumeTextureMapper2D&);
 
+private:
+  vtkOpenGLVolumeTextureMapper2D(const vtkOpenGLVolumeTextureMapper2D&);  // Not implemented.
+  void operator=(const vtkOpenGLVolumeTextureMapper2D&);  // Not implemented.
 };
 
 

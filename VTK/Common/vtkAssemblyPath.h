@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAssemblyPath.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:06:05 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2001-10-11 13:36:00 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -116,8 +116,6 @@ public:
 protected:
   vtkAssemblyPath();
   ~vtkAssemblyPath();
-  vtkAssemblyPath(const vtkAssemblyPath &);
-  void operator=(const vtkAssemblyPath &);
   
   void AddNode(vtkAssemblyNode *n); //Internal method adds assembly node
   vtkTransform *Transform; //Used to perform matrix concatentation
@@ -127,6 +125,9 @@ private:
   // hide the standard AddItem from the user and the compiler.
   void AddItem(vtkObject *o) { this->vtkCollection::AddItem(o); };
 
+private:
+  vtkAssemblyPath(const vtkAssemblyPath&);  // Not implemented.
+  void operator=(const vtkAssemblyPath&);  // Not implemented.
 };
 
 #endif

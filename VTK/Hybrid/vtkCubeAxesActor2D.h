@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCubeAxesActor2D.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:21:22 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2001-10-11 13:37:23 $
+  Version:   $Revision: 1.25 $
   Thanks:    Thorsten Dowe who modified and improved this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -237,8 +237,6 @@ public:
 protected:
   vtkCubeAxesActor2D();
   ~vtkCubeAxesActor2D();
-  vtkCubeAxesActor2D(const vtkCubeAxesActor2D&);
-  void operator=(const vtkCubeAxesActor2D&);
 
   vtkDataSet *Input;    //Define bounds from input data, or
   vtkProp    *Prop;     //Define bounds from actor/assembly, or
@@ -290,6 +288,9 @@ protected:
 private:
   // hide the superclass' ShallowCopy() from the user and the compiler.
   void ShallowCopy(vtkProp *prop) { this->vtkProp::ShallowCopy( prop ); };
+private:
+  vtkCubeAxesActor2D(const vtkCubeAxesActor2D&);  // Not implemented.
+  void operator=(const vtkCubeAxesActor2D&);  // Not implemented.
 };
 
 

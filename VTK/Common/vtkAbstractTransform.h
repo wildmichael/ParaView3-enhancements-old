@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractTransform.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:06:03 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2001-10-11 13:35:58 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -292,8 +292,6 @@ public:
 protected:
   vtkAbstractTransform();
   ~vtkAbstractTransform();
-  vtkAbstractTransform(const vtkAbstractTransform&);
-  void operator=(const vtkAbstractTransform&);
 
   // Description:
   // Perform any subclass-specific Update.
@@ -327,6 +325,10 @@ private:
   vtkAbstractTransform *MyInverse;
 
   int InUnRegister;
+  
+private:
+  vtkAbstractTransform(const vtkAbstractTransform&);  // Not implemented.
+  void operator=(const vtkAbstractTransform&);  // Not implemented.
 };
 
 //BTX

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCutMaterial.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 15:30:41 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-10-11 13:37:58 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -92,8 +92,6 @@ public:
 protected:
   vtkCutMaterial();
   ~vtkCutMaterial();
-  vtkCutMaterial(const vtkCutMaterial&);
-  void operator=(const vtkCutMaterial&);
 
   void Execute(); //generate output data
   void ComputeMaximumPoint(vtkDataSet *input);
@@ -109,6 +107,9 @@ protected:
   
   vtkPlane *PlaneFunction;
   
+private:
+  vtkCutMaterial(const vtkCutMaterial&);  // Not implemented.
+  void operator=(const vtkCutMaterial&);  // Not implemented.
 };
 
 #endif

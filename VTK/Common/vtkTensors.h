@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTensors.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:06:44 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 2001-10-11 13:36:26 $
+  Version:   $Revision: 1.42 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -113,11 +113,12 @@ public:
 protected:
   vtkTensors();
   ~vtkTensors();
-  vtkTensors(const vtkTensors&);
-  void operator=(const vtkTensors&);
 
   vtkTensor *T;
 
+private:
+  vtkTensors(const vtkTensors&);  // Not implemented.
+  void operator=(const vtkTensors&);  // Not implemented.
 };
 
 

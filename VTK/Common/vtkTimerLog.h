@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTimerLog.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:06:44 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2001-10-11 13:36:26 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -165,8 +165,6 @@ public:
 protected:
   vtkTimerLog() {this->StartTime=0; this->EndTime = 0;}; //insure constructor/destructor protected
   ~vtkTimerLog() {};
-  vtkTimerLog(const vtkTimerLog&);
-  void operator=(const vtkTimerLog&);
 
   static int               MaxEntries;
   static int               NextEntry;
@@ -194,6 +192,9 @@ protected:
                         int tick, int deltatick, char *event);
   //ETX
 
+private:
+  vtkTimerLog(const vtkTimerLog&);  // Not implemented.
+  void operator=(const vtkTimerLog&);  // Not implemented.
 };
 
 

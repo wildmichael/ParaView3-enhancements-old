@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuartzImageWindow.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:20:25 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-10-11 13:38:22 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -166,8 +166,6 @@ public:
 protected:
   vtkQuartzImageWindow();
   ~vtkQuartzImageWindow();
-  vtkQuartzImageWindow(const vtkQuartzImageWindow&) {};
-  void operator=(const vtkQuartzImageWindow&) {};
 
   void      *ApplicationInstance;
   void      *Palette;
@@ -192,6 +190,9 @@ protected:
   int ScreenDoubleBuffer;
   void *ScreenContextId;
 
+private:
+  vtkQuartzImageWindow(const vtkQuartzImageWindow&) {};  // Not implemented.
+  void operator=(const vtkQuartzImageWindow&) {};  // Not implemented.
 };
 
 

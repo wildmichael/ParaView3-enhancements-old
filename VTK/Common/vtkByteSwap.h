@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkByteSwap.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:06:07 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 2001-10-11 13:36:01 $
+  Version:   $Revision: 1.46 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -211,8 +211,6 @@ public:
 protected:
   vtkByteSwap() {};
   ~vtkByteSwap() {};
-  vtkByteSwap(const vtkByteSwap&);
-  void operator=(const vtkByteSwap&);
 
 private:
   // Description:
@@ -223,6 +221,9 @@ private:
  
   static void Swap8Bytes(char* &data);
 
+private:
+  vtkByteSwap(const vtkByteSwap&);  // Not implemented.
+  void operator=(const vtkByteSwap&);  // Not implemented.
 };
 
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridToStructuredGridFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:07:36 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2001-10-11 13:36:38 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -66,8 +66,9 @@ public:
 protected:
   vtkStructuredGridToStructuredGridFilter() {this->NumberOfRequiredInputs = 1;};
   ~vtkStructuredGridToStructuredGridFilter() {};
-  vtkStructuredGridToStructuredGridFilter(const vtkStructuredGridToStructuredGridFilter&);
-  void operator=(const vtkStructuredGridToStructuredGridFilter&);
+private:
+  vtkStructuredGridToStructuredGridFilter(const vtkStructuredGridToStructuredGridFilter&);  // Not implemented.
+  void operator=(const vtkStructuredGridToStructuredGridFilter&);  // Not implemented.
 };
 
 #endif

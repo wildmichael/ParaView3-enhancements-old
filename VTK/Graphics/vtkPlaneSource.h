@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPlaneSource.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:11:57 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 2001-10-11 13:37:10 $
+  Version:   $Revision: 1.48 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -141,8 +141,6 @@ public:
 protected:
   vtkPlaneSource();
   ~vtkPlaneSource() {};
-  vtkPlaneSource(const vtkPlaneSource&);
-  void operator=(const vtkPlaneSource&);
 
   void Execute();
 
@@ -155,6 +153,9 @@ protected:
   float Center[3];
 
   int UpdatePlane(float v1[3], float v2[3]);
+private:
+  vtkPlaneSource(const vtkPlaneSource&);  // Not implemented.
+  void operator=(const vtkPlaneSource&);  // Not implemented.
 };
 
 #endif

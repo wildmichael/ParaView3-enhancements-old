@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInterpolateDataSetAttributes.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:11:54 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2001-10-11 13:37:07 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -83,8 +83,6 @@ public:
 protected:
   vtkInterpolateDataSetAttributes();
   ~vtkInterpolateDataSetAttributes();
-  vtkInterpolateDataSetAttributes(const vtkInterpolateDataSetAttributes&);
-  void operator=(const vtkInterpolateDataSetAttributes&);
 
   void Execute();
   
@@ -97,6 +95,9 @@ private:
     { vtkErrorMacro( << "AddInput() must be called with a vtkDataSet not a vtkDataObject."); };
   void RemoveInput(vtkDataObject *input)
     { this->vtkProcessObject::RemoveInput(input); };
+private:
+  vtkInterpolateDataSetAttributes(const vtkInterpolateDataSetAttributes&);  // Not implemented.
+  void operator=(const vtkInterpolateDataSetAttributes&);  // Not implemented.
 };
 
 #endif

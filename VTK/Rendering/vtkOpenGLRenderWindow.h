@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:20:21 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2001-10-11 13:38:19 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -124,10 +124,11 @@ public:
 protected:
   vtkOpenGLRenderWindow();
   ~vtkOpenGLRenderWindow();
-  vtkOpenGLRenderWindow(const vtkOpenGLRenderWindow&);
-  void operator=(const vtkOpenGLRenderWindow&);
 
   vtkIdList *TextureResourceIds;
+private:
+  vtkOpenGLRenderWindow(const vtkOpenGLRenderWindow&);  // Not implemented.
+  void operator=(const vtkOpenGLRenderWindow&);  // Not implemented.
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaRenderer.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:20:16 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2001-10-11 13:38:16 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -89,8 +89,6 @@ public:
 protected:
   vtkMesaRenderer();
   ~vtkMesaRenderer();
-  vtkMesaRenderer(const vtkMesaRenderer&);
-  void operator=(const vtkMesaRenderer&);
 
   //BTX
   // Picking functions to be implemented by sub-classes
@@ -104,6 +102,9 @@ protected:
   class vtkGLPickInfo* PickInfo;
   //ETX
   float PickedZ;
+private:
+  vtkMesaRenderer(const vtkMesaRenderer&);  // Not implemented.
+  void operator=(const vtkMesaRenderer&);  // Not implemented.
 };
 
 #endif

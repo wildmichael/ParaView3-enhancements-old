@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransformToGrid.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:21:25 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2001-10-11 13:37:26 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen
@@ -107,8 +107,6 @@ public:
 protected:
   vtkTransformToGrid();
   ~vtkTransformToGrid();
-  vtkTransformToGrid(const vtkTransformToGrid&);
-  void operator=(const vtkTransformToGrid&);
 
   void ExecuteInformation();
 
@@ -131,6 +129,9 @@ protected:
   float DisplacementScale;
   float DisplacementShift;
   vtkTimeStamp ShiftScaleTime;
+private:
+  vtkTransformToGrid(const vtkTransformToGrid&);  // Not implemented.
+  void operator=(const vtkTransformToGrid&);  // Not implemented.
 };
 
 #endif

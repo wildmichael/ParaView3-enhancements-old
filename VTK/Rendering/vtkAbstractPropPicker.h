@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractPropPicker.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:19:50 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2001-10-11 13:38:05 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -155,12 +155,13 @@ public:
 protected:
   vtkAbstractPropPicker();
   ~vtkAbstractPropPicker();
-  vtkAbstractPropPicker(const vtkAbstractPropPicker&);
-  void operator=(const vtkAbstractPropPicker&);
 
   void Initialize();
   
   vtkAssemblyPath *Path; //this is what is picked, and includes the prop
+private:
+  vtkAbstractPropPicker(const vtkAbstractPropPicker&);  // Not implemented.
+  void operator=(const vtkAbstractPropPicker&);  // Not implemented.
 };
 
 #endif

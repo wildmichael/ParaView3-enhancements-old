@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMagnitude.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:10:00 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2001-10-11 13:37:47 $
+  Version:   $Revision: 1.21 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -59,13 +59,14 @@ public:
 protected:
   vtkImageMagnitude() {};
   ~vtkImageMagnitude() {};
-  vtkImageMagnitude(const vtkImageMagnitude&);
-  void operator=(const vtkImageMagnitude&);
 
   void ExecuteInformation(vtkImageData *inData, vtkImageData *outData);
   void ExecuteInformation(){this->vtkImageToImageFilter::ExecuteInformation();};
   void ThreadedExecute(vtkImageData *inData, vtkImageData *outData,
 		       int extent[6], int id);
+private:
+  vtkImageMagnitude(const vtkImageMagnitude&);  // Not implemented.
+  void operator=(const vtkImageMagnitude&);  // Not implemented.
 };
 
 #endif

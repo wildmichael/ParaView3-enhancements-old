@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergeFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:11:56 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 2001-10-11 13:37:09 $
+  Version:   $Revision: 1.52 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -99,14 +99,15 @@ public:
 protected:
   vtkMergeFilter();
   ~vtkMergeFilter();
-  vtkMergeFilter(const vtkMergeFilter&);
-  void operator=(const vtkMergeFilter&);
 
   // Usual data generation method
   void Execute();
   void ComputeInputUpdateExtents(vtkDataObject *data);
 
   vtkFieldList* FieldList;
+private:
+  vtkMergeFilter(const vtkMergeFilter&);  // Not implemented.
+  void operator=(const vtkMergeFilter&);  // Not implemented.
   };
 
 #endif

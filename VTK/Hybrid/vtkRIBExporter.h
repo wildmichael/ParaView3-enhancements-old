@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRIBExporter.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:21:24 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2001-10-11 13:37:26 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -132,8 +132,6 @@ public:
 protected:
   vtkRIBExporter();
   ~vtkRIBExporter();
-  vtkRIBExporter(const vtkRIBExporter&);
-  void operator=(const vtkRIBExporter&);
 
   int Background;
   int Size[2];
@@ -160,6 +158,9 @@ protected:
   char *FilePrefix;
   FILE *FilePtr;
   char *TexturePrefix;
+private:
+  vtkRIBExporter(const vtkRIBExporter&);  // Not implemented.
+  void operator=(const vtkRIBExporter&);  // Not implemented.
 };
 
 #endif

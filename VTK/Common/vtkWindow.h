@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWindow.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:06:47 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2001-10-11 13:36:30 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -151,8 +151,6 @@ protected:
   int OffScreenRendering;
   vtkWindow();
   ~vtkWindow();
-  vtkWindow(const vtkWindow&);
-  void operator=(const vtkWindow&);
 
   char *WindowName;
   int Size[2];
@@ -161,6 +159,9 @@ protected:
   int Erase;
   int DoubleBuffer;
   int DPI;
+private:
+  vtkWindow(const vtkWindow&);  // Not implemented.
+  void operator=(const vtkWindow&);  // Not implemented.
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDicer.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:11:50 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2001-10-11 13:36:57 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -136,8 +136,6 @@ public:
 protected:
   vtkDicer();
   ~vtkDicer() {};
-  vtkDicer(const vtkDicer&);
-  void operator=(const vtkDicer&);
 
   virtual void UpdatePieceMeasures();
 
@@ -148,6 +146,9 @@ protected:
   int           FieldData;
   int           DiceMode;
 
+private:
+  vtkDicer(const vtkDicer&);  // Not implemented.
+  void operator=(const vtkDicer&);  // Not implemented.
 };
 
 #endif

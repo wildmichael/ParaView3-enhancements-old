@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleTrackballActor.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:20:05 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2001-10-11 13:38:12 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -89,8 +89,6 @@ public:
 protected:
   vtkInteractorStyleTrackballActor();
   ~vtkInteractorStyleTrackballActor();
-  vtkInteractorStyleTrackballActor(const vtkInteractorStyleTrackballActor&);
-  void operator=(const vtkInteractorStyleTrackballActor&);
 
   void RotateXY(int x, int y, int oldX, int oldY);
   void PanXY(int x, int y, int oldX, int oldY);
@@ -122,6 +120,9 @@ protected:
   double ViewFocus[3];
 //  vtkAbstractPropPicker *InteractionPicker;
   vtkCellPicker *InteractionPicker;
+private:
+  vtkInteractorStyleTrackballActor(const vtkInteractorStyleTrackballActor&);  // Not implemented.
+  void operator=(const vtkInteractorStyleTrackballActor&);  // Not implemented.
 };
 
 #endif

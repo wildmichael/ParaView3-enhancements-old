@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSource.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:11:57 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2001-10-11 13:37:11 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -91,8 +91,6 @@ public:
 protected:
   vtkPointSource(vtkIdType numPts=10);
   ~vtkPointSource() {};
-  vtkPointSource(const vtkPointSource&);
-  void operator=(const vtkPointSource&);
 
   void Execute();
   void ExecuteInformation();
@@ -101,6 +99,9 @@ protected:
   float Center[3];
   float Radius;
   int Distribution;
+private:
+  vtkPointSource(const vtkPointSource&);  // Not implemented.
+  void operator=(const vtkPointSource&);  // Not implemented.
 };
 
 #endif

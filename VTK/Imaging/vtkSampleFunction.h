@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSampleFunction.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:10:24 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2001-10-11 13:37:56 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -123,8 +123,6 @@ public:
 protected:
   vtkSampleFunction();
   ~vtkSampleFunction();
-  vtkSampleFunction(const vtkSampleFunction&);
-  void operator=(const vtkSampleFunction&);
 
   void Execute();
   void ExecuteInformation();
@@ -137,6 +135,9 @@ protected:
   float CapValue;
   vtkImplicitFunction *ImplicitFunction;
   int ComputeNormals;
+private:
+  vtkSampleFunction(const vtkSampleFunction&);  // Not implemented.
+  void operator=(const vtkSampleFunction&);  // Not implemented.
 };
 
 #endif

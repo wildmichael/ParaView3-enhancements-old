@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSource.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:07:26 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 2001-10-11 13:36:34 $
+  Version:   $Revision: 1.52 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -71,8 +71,6 @@ public:
 protected:
   vtkImageSource();
   ~vtkImageSource() {};
-  vtkImageSource(const vtkImageSource&);
-  void operator=(const vtkImageSource&);
 
   void Execute();
   virtual void Execute(vtkImageData *data);
@@ -85,6 +83,9 @@ protected:
 					 int *vtkNotUsed(out) ) 
     {VTK_LEGACY_METHOD(ComputeRequiredInputUpdateExtent,"3.2");}
   
+private:
+  vtkImageSource(const vtkImageSource&);  // Not implemented.
+  void operator=(const vtkImageSource&);  // Not implemented.
 };
 
 

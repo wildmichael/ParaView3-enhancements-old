@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGlyph3D.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:11:53 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 2001-10-11 13:37:04 $
+  Version:   $Revision: 1.52 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -237,8 +237,6 @@ public:
 protected:
   vtkGlyph3D();
   ~vtkGlyph3D();
-  vtkGlyph3D(const vtkGlyph3D&);
-  void operator=(const vtkGlyph3D&);
 
   void Execute();
   void ExecuteInformation();
@@ -258,6 +256,9 @@ protected:
   int GeneratePointIds; // produce input points ids for each output point
   char *PointIdsName;
 
+private:
+  vtkGlyph3D(const vtkGlyph3D&);  // Not implemented.
+  void operator=(const vtkGlyph3D&);  // Not implemented.
 };
 
 // Description:

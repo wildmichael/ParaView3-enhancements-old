@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPiecewiseFunction.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:07:31 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2001-10-11 13:36:36 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -149,8 +149,6 @@ public:
 protected:
   vtkPiecewiseFunction();
   ~vtkPiecewiseFunction();
-  vtkPiecewiseFunction(const vtkPiecewiseFunction&);
-  void operator=(const vtkPiecewiseFunction&);
 
   // Size of the array used to store function points
   int	ArraySize;
@@ -181,6 +179,9 @@ protected:
   // Move points one index down or up in the array. This is useful for 
   // inserting and deleting points into the array.
   void MovePoints( int index, int down );
+private:
+  vtkPiecewiseFunction(const vtkPiecewiseFunction&);  // Not implemented.
+  void operator=(const vtkPiecewiseFunction&);  // Not implemented.
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMPICommunicator.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 15:30:43 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2001-10-11 13:37:59 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -227,12 +227,13 @@ protected:
 
   vtkMPICommunicator();
   ~vtkMPICommunicator();
-  vtkMPICommunicator(const vtkMPICommunicator&);
-  void operator=(const vtkMPICommunicator&);
 
  private:
   static int CheckForMPIError(int err);
 
+private:
+  vtkMPICommunicator(const vtkMPICommunicator&);  // Not implemented.
+  void operator=(const vtkMPICommunicator&);  // Not implemented.
 };
 
 

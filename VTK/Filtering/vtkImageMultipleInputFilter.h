@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMultipleInputFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:07:25 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 2001-10-11 13:36:34 $
+  Version:   $Revision: 1.48 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -111,8 +111,6 @@ public:
 protected:
   vtkImageMultipleInputFilter();
   ~vtkImageMultipleInputFilter();
-  vtkImageMultipleInputFilter(const vtkImageMultipleInputFilter&);
-  void operator=(const vtkImageMultipleInputFilter&);
 
   vtkMultiThreader *Threader;
   int Bypass;
@@ -138,6 +136,9 @@ private:
     { vtkErrorMacro( << "AddInput() must be called with a vtkImageData not a vtkDataObject."); };
   void RemoveInput(vtkDataObject *)
     { vtkErrorMacro( << "RemoveInput() must be called with a vtkImageData not a vtkDataObject."); };
+private:
+  vtkImageMultipleInputFilter(const vtkImageMultipleInputFilter&);  // Not implemented.
+  void operator=(const vtkImageMultipleInputFilter&);  // Not implemented.
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetTriangleFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:11:48 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2001-10-11 13:36:55 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -68,8 +68,6 @@ public:
 protected:
   vtkDataSetTriangleFilter():Triangulator(NULL) {}
   ~vtkDataSetTriangleFilter();
-  vtkDataSetTriangleFilter(const vtkDataSetTriangleFilter&);
-  void operator=(const vtkDataSetTriangleFilter&);
 
   // Usual data generation method
   void Execute();
@@ -79,6 +77,9 @@ protected:
   void UnstructuredExecute();
   
   vtkOrderedTriangulator *Triangulator;
+private:
+  vtkDataSetTriangleFilter(const vtkDataSetTriangleFilter&);  // Not implemented.
+  void operator=(const vtkDataSetTriangleFilter&);  // Not implemented.
 };
 
 #endif

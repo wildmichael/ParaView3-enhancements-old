@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleTrackballCamera.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:20:05 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2001-10-11 13:38:12 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -88,8 +88,6 @@ public:
 protected:
   vtkInteractorStyleTrackballCamera();
   ~vtkInteractorStyleTrackballCamera();
-  vtkInteractorStyleTrackballCamera(const vtkInteractorStyleTrackballCamera&);
-  void operator=(const vtkInteractorStyleTrackballCamera&);
 
   void RotateXY(int dx, int dy);
   void PanXY(int x, int y, int oldX, int oldY);
@@ -99,6 +97,9 @@ protected:
   int State;
   float MotionFactor;
   float RadianToDegree;                 // constant: for conv from deg to rad
+private:
+  vtkInteractorStyleTrackballCamera(const vtkInteractorStyleTrackballCamera&);  // Not implemented.
+  void operator=(const vtkInteractorStyleTrackballCamera&);  // Not implemented.
 };
 
 #endif

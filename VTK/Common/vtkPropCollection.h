@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPropCollection.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:06:39 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2001-10-11 13:36:22 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -82,14 +82,15 @@ class VTK_COMMON_EXPORT vtkPropCollection : public vtkCollection
 protected:
   vtkPropCollection() {};
   ~vtkPropCollection() {};
-  vtkPropCollection(const vtkPropCollection&);
-  void operator=(const vtkPropCollection&);
   
 
 private:
   // hide the standard AddItem from the user and the compiler.
   void AddItem(vtkObject *o) { this->vtkCollection::AddItem(o); };
 
+private:
+  vtkPropCollection(const vtkPropCollection&);  // Not implemented.
+  void operator=(const vtkPropCollection&);  // Not implemented.
 };
 
 inline void vtkPropCollection::AddItem(vtkProp *a) 

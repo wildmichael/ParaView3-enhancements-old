@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointDataToCellData.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:11:57 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2001-10-11 13:37:11 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -80,12 +80,13 @@ public:
 protected:
   vtkPointDataToCellData();
   ~vtkPointDataToCellData() {};
-  vtkPointDataToCellData(const vtkPointDataToCellData&);
-  void operator=(const vtkPointDataToCellData&);
 
   void Execute();
 
   int PassPointData;
+private:
+  vtkPointDataToCellData(const vtkPointDataToCellData&);  // Not implemented.
+  void operator=(const vtkPointDataToCellData&);  // Not implemented.
 };
 
 #endif

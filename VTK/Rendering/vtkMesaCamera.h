@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaCamera.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:20:12 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2001-10-11 13:38:14 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -66,8 +66,9 @@ public:
 protected:  
   vtkMesaCamera() {};
   ~vtkMesaCamera() {};
-  vtkMesaCamera(const vtkMesaCamera&);
-  void operator=(const vtkMesaCamera&);
+private:
+  vtkMesaCamera(const vtkMesaCamera&);  // Not implemented.
+  void operator=(const vtkMesaCamera&);  // Not implemented.
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDiskSource.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:11:50 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2001-10-11 13:36:58 $
+  Version:   $Revision: 1.33 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -83,8 +83,6 @@ public:
 protected:
   vtkDiskSource();
   ~vtkDiskSource() {};
-  vtkDiskSource(const vtkDiskSource&);
-  void operator=(const vtkDiskSource&);
 
   void Execute();
   float InnerRadius;
@@ -92,6 +90,9 @@ protected:
   int RadialResolution;
   int CircumferentialResolution;
 
+private:
+  vtkDiskSource(const vtkDiskSource&);  // Not implemented.
+  void operator=(const vtkDiskSource&);  // Not implemented.
 };
 
 #endif

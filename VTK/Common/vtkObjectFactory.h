@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObjectFactory.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:06:35 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2001-10-11 13:36:18 $
+  Version:   $Revision: 1.18 $
   Thanks:    Thanks to William A. Hoffman who developed this class
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -213,8 +213,6 @@ protected:
   
   vtkObjectFactory();
   ~vtkObjectFactory();
-  vtkObjectFactory(const vtkObjectFactory&);
-  void operator=(const vtkObjectFactory&);
   //BTX
   struct OverrideInformation
   {
@@ -254,6 +252,9 @@ private:
   void* LibraryHandle;
   unsigned long LibraryDate;
   char* LibraryPath;
+private:
+  vtkObjectFactory(const vtkObjectFactory&);  // Not implemented.
+  void operator=(const vtkObjectFactory&);  // Not implemented.
 };
 
 // Macro to create an object creation function.

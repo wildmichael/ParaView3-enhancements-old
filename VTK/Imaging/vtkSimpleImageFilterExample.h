@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSimpleImageFilterExample.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:10:26 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2001-10-11 13:37:56 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -63,10 +63,11 @@ protected:
 
   vtkSimpleImageFilterExample() {};
   ~vtkSimpleImageFilterExample() {};
-  vtkSimpleImageFilterExample(const vtkSimpleImageFilterExample&);
-  void operator=(const vtkSimpleImageFilterExample&);
 
   virtual void SimpleExecute(vtkImageData* input, vtkImageData* output);
+private:
+  vtkSimpleImageFilterExample(const vtkSimpleImageFilterExample&);  // Not implemented.
+  void operator=(const vtkSimpleImageFilterExample&);  // Not implemented.
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTreeComposite.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-10 20:04:30 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2001-10-11 13:38:02 $
+  Version:   $Revision: 1.15 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -193,8 +193,6 @@ public:
 protected:
   vtkTreeComposite();
   ~vtkTreeComposite();
-  vtkTreeComposite(const vtkTreeComposite&);
-  void operator=(const vtkTreeComposite&);
   
   vtkRenderWindow* RenderWindow;
   vtkRenderWindowInteractor* RenderWindowInteractor;
@@ -242,6 +240,9 @@ protected:
 
   // Needed to compute the MaxRenderTime.
   vtkTimerLog *Timer;
+private:
+  vtkTreeComposite(const vtkTreeComposite&);  // Not implemented.
+  void operator=(const vtkTreeComposite&);  // Not implemented.
 };
 
 #endif

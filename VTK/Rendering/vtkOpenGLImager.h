@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLImager.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:20:20 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2001-10-11 13:38:18 $
+  Version:   $Revision: 1.12 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -70,8 +70,9 @@ public:
 protected:
   vtkOpenGLImager() {};
   ~vtkOpenGLImager() {};
-  vtkOpenGLImager(const vtkOpenGLImager&);
-  void operator=(const vtkOpenGLImager&);
+private:
+  vtkOpenGLImager(const vtkOpenGLImager&);  // Not implemented.
+  void operator=(const vtkOpenGLImager&);  // Not implemented.
 };
 
 

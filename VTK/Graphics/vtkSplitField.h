@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSplitField.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-04 09:27:40 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-10-11 13:37:16 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -153,8 +153,6 @@ protected:
 
   vtkSplitField();
   virtual ~vtkSplitField();
-  vtkSplitField(const vtkSplitField&);
-  void operator=(const vtkSplitField&);
 
   void Execute();
 
@@ -202,6 +200,9 @@ protected:
 	} 
       while (cur);
     }
+private:
+  vtkSplitField(const vtkSplitField&);  // Not implemented.
+  void operator=(const vtkSplitField&);  // Not implemented.
 };
 
 #endif

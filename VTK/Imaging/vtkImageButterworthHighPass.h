@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageButterworthHighPass.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:09:41 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2001-10-11 13:37:37 $
+  Version:   $Revision: 1.17 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -84,14 +84,15 @@ public:
 protected:
   vtkImageButterworthHighPass();
   ~vtkImageButterworthHighPass() {};
-  vtkImageButterworthHighPass(const vtkImageButterworthHighPass&);
-  void operator=(const vtkImageButterworthHighPass&);
 
   int Order;
   float CutOff[3];
   
   void ThreadedExecute(vtkImageData *inData, vtkImageData *outData,
 		       int outExt[6], int id);
+private:
+  vtkImageButterworthHighPass(const vtkImageButterworthHighPass&);  // Not implemented.
+  void operator=(const vtkImageButterworthHighPass&);  // Not implemented.
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOBBTree.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:11:56 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2001-10-11 13:37:10 $
+  Version:   $Revision: 1.37 $
   Thanks:    Thanks to Peter C. Everett <pce@world.std.com> for
              improvements and enhancements to vtkOBBTree class.
 
@@ -209,8 +209,6 @@ public:
 protected:
   vtkOBBTree();
   ~vtkOBBTree();
-  vtkOBBTree(const vtkOBBTree&);
-  void operator=(const vtkOBBTree&);
 
   // Compute an OBB from the list of cells given.  This used to be
   // public but should not have been.  A public call has been added
@@ -230,6 +228,9 @@ protected:
                         vtkPoints* pts, vtkCellArray *polys);
 
   //ETX
+private:
+  vtkOBBTree(const vtkOBBTree&);  // Not implemented.
+  void operator=(const vtkOBBTree&);  // Not implemented.
 };
 
 #endif

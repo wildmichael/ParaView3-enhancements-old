@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMemoryLimitImageDataStreamer.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 15:30:44 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-10-11 13:37:59 $
+  Version:   $Revision: 1.4 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -69,10 +69,11 @@ public:
 protected:
   vtkMemoryLimitImageDataStreamer();
   ~vtkMemoryLimitImageDataStreamer() {};
-  vtkMemoryLimitImageDataStreamer(const vtkMemoryLimitImageDataStreamer&);
-  void operator=(const vtkMemoryLimitImageDataStreamer&);
 
   unsigned long  MemoryLimit;
+private:
+  vtkMemoryLimitImageDataStreamer(const vtkMemoryLimitImageDataStreamer&);  // Not implemented.
+  void operator=(const vtkMemoryLimitImageDataStreamer&);  // Not implemented.
 };
 
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageRange3D.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:10:09 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2001-10-11 13:37:51 $
+  Version:   $Revision: 1.21 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -69,8 +69,6 @@ public:
 protected:
   vtkImageRange3D();
   ~vtkImageRange3D();
-  vtkImageRange3D(const vtkImageRange3D&);
-  void operator=(const vtkImageRange3D&);
 
   vtkImageEllipsoidSource *Ellipse;
     
@@ -78,6 +76,9 @@ protected:
   void ExecuteInformation(){this->vtkImageToImageFilter::ExecuteInformation();};
   void ThreadedExecute(vtkImageData *inData, vtkImageData *outData, 
 		       int extent[6], int id);
+private:
+  vtkImageRange3D(const vtkImageRange3D&);  // Not implemented.
+  void operator=(const vtkImageRange3D&);  // Not implemented.
 };
 
 #endif

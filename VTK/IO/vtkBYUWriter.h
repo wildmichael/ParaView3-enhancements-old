@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBYUWriter.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:08:44 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2001-10-11 13:37:28 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -106,8 +106,6 @@ public:
 protected:
   vtkBYUWriter();
   ~vtkBYUWriter();
-  vtkBYUWriter(const vtkBYUWriter&);
-  void operator=(const vtkBYUWriter&);
 
   void WriteData();
 
@@ -123,6 +121,9 @@ protected:
   void WriteDisplacementFile(int numPts);
   void WriteScalarFile(int numPts);
   void WriteTextureFile(int numPts);
+private:
+  vtkBYUWriter(const vtkBYUWriter&);  // Not implemented.
+  void operator=(const vtkBYUWriter&);  // Not implemented.
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamer.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:12:03 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 2001-10-11 13:37:17 $
+  Version:   $Revision: 1.51 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -260,8 +260,6 @@ protected:
 
   vtkStreamer();
   ~vtkStreamer();
-  vtkStreamer(const vtkStreamer&);
-  void operator=(const vtkStreamer&);
 
   // Integrate data
   void Integrate();
@@ -325,6 +323,9 @@ protected:
   vtkMultiThreader           *Threader;
   int                        NumberOfThreads;
 
+private:
+  vtkStreamer(const vtkStreamer&);  // Not implemented.
+  void operator=(const vtkStreamer&);  // Not implemented.
 };
 
 // Description:

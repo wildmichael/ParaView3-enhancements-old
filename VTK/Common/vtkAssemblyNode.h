@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAssemblyNode.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:06:04 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2001-10-11 13:35:59 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -105,13 +105,14 @@ public:
 protected:
   vtkAssemblyNode();
   ~vtkAssemblyNode();
-  vtkAssemblyNode(const vtkAssemblyNode &);
-  void operator=(const vtkAssemblyNode &);
-
+  vtkAssemblyNode(const vtkAssemblyNode&);
 private:
   vtkProp *Prop; //reference to vtkProp
   vtkMatrix4x4 *Matrix; //associated matrix
   
+private:
+  void operator=(const vtkAssemblyNode&);  // Not implemented.
+  // Not implemented.
 };
 
 #endif

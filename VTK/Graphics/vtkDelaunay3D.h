@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDelaunay3D.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:11:49 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 2001-10-11 13:36:57 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -211,8 +211,6 @@ public:
 protected:
   vtkDelaunay3D();
   ~vtkDelaunay3D();
-  vtkDelaunay3D(const vtkDelaunay3D&);
-  void operator=(const vtkDelaunay3D&);
 
   void Execute();
 
@@ -247,6 +245,9 @@ private: //members added for performance
   vtkIdList *CheckedTetras; //used by InsertPoint
   vtkIdList *NeiTetras; //used by InsertPoint
 
+private:
+  vtkDelaunay3D(const vtkDelaunay3D&);  // Not implemented.
+  void operator=(const vtkDelaunay3D&);  // Not implemented.
 };
 
 #endif

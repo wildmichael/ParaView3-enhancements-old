@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPicker.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 13:20:23 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 2001-10-11 13:38:20 $
+  Version:   $Revision: 1.44 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -138,8 +138,6 @@ public:
 protected:
   vtkPicker();
   ~vtkPicker();
-  vtkPicker(const vtkPicker&);
-  void operator=(const vtkPicker&);
 
   void MarkPicked(vtkAssemblyPath *path, vtkProp3D *p, vtkAbstractMapper3D *m, 
                   float tMin, float mapperPos[3]);
@@ -160,6 +158,9 @@ protected:
   vtkProp3DCollection *Prop3Ds; //candidate actors (based on bounding box)
   vtkPoints *PickedPositions; // candidate positions
   
+private:
+  vtkPicker(const vtkPicker&);  // Not implemented.
+  void operator=(const vtkPicker&);  // Not implemented.
 };
 
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamLine.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:12:03 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2001-10-11 13:37:16 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -93,8 +93,6 @@ public:
 protected:
   vtkStreamLine();
   ~vtkStreamLine() {};
-  vtkStreamLine(const vtkStreamLine&);
-  void operator=(const vtkStreamLine&);
 
   // Convert streamer array into vtkPolyData
   void Execute();
@@ -102,6 +100,9 @@ protected:
   // the length of line primitives
   float StepLength;
 
+private:
+  vtkStreamLine(const vtkStreamLine&);  // Not implemented.
+  void operator=(const vtkStreamLine&);  // Not implemented.
 };
 
 #endif

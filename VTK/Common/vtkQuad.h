@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuad.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:06:40 $
-  Version:   $Revision: 1.56 $
+  Date:      $Date: 2001-10-11 13:36:23 $
+  Version:   $Revision: 1.57 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -121,11 +121,12 @@ public:
 protected:
   vtkQuad();
   ~vtkQuad();
-  vtkQuad(const vtkQuad&);
-  void operator=(const vtkQuad&);
 
   vtkLine *Line;
 
+private:
+  vtkQuad(const vtkQuad&);  // Not implemented.
+  void operator=(const vtkQuad&);  // Not implemented.
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinearTransform.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:06:30 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2001-10-11 13:36:16 $
+  Version:   $Revision: 1.27 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -227,8 +227,9 @@ public:
 protected:
   vtkLinearTransform() {};
   ~vtkLinearTransform() {};
-  vtkLinearTransform(const vtkLinearTransform&);
-  void operator=(const vtkLinearTransform&);
+private:
+  vtkLinearTransform(const vtkLinearTransform&);  // Not implemented.
+  void operator=(const vtkLinearTransform&);  // Not implemented.
 };
 
 #endif

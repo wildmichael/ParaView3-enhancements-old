@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSource.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:06:43 $
-  Version:   $Revision: 1.62 $
+  Date:      $Date: 2001-10-11 13:36:25 $
+  Version:   $Revision: 1.63 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -155,8 +155,6 @@ public:
 protected:
   vtkSource();
   ~vtkSource();
-  vtkSource(const vtkSource&);
-  void operator=(const vtkSource&);
 
   // Description:
   // This method is the one that should be used by subclasses, right now the 
@@ -188,6 +186,9 @@ protected:
   int Updating;
   // Time when ExecuteInformation was last called.
   vtkTimeStamp InformationTime;
+private:
+  vtkSource(const vtkSource&);  // Not implemented.
+  void operator=(const vtkSource&);  // Not implemented.
 };
 
 #endif

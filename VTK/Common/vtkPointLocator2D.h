@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointLocator2D.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:06:37 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2001-10-11 13:36:20 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -142,8 +142,6 @@ public:
 protected:
   vtkPointLocator2D();
   ~vtkPointLocator2D();
-  vtkPointLocator2D(const vtkPointLocator2D&);
-  void operator=(const vtkPointLocator2D&);
 
   // place points in appropriate buckets
   void GetBucketNeighbors(int ijk[2], int ndivs[2], int level);
@@ -160,6 +158,9 @@ protected:
   float H[2]; // width of each bucket in x-y-z directions
   vtkNeighborPoints2D *Buckets;
   float InsertionTol2;
+private:
+  vtkPointLocator2D(const vtkPointLocator2D&);  // Not implemented.
+  void operator=(const vtkPointLocator2D&);  // Not implemented.
 };
 
 #endif
