@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCubeAxesActor2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-07 13:54:43 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2002-02-07 19:38:53 $
+  Version:   $Revision: 1.31 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkCubeAxesActor2D, "$Revision: 1.30 $");
+vtkCxxRevisionMacro(vtkCubeAxesActor2D, "$Revision: 1.31 $");
 vtkStandardNewMacro(vtkCubeAxesActor2D);
 
 // Instantiate this object.
@@ -723,7 +723,7 @@ int vtkCubeAxesActor2D::ClipBounds(vtkViewport *viewport, float pts[8][3],
 {
   int i, j, k, numIters;
   float planes[24], x[3];
-  float val, maxVal, anchor[3], scale;
+  float val, maxVal=0, anchor[3], scale;
   float delX, delY, delZ, bounds2[6], scale2, newScale, origin[3];
   float aspect[2];
 

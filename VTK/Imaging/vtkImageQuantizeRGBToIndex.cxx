@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageQuantizeRGBToIndex.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:33:14 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2002-02-07 19:38:54 $
+  Version:   $Revision: 1.31 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 #include <math.h>
 #include <stdlib.h>
 
-vtkCxxRevisionMacro(vtkImageQuantizeRGBToIndex, "$Revision: 1.30 $");
+vtkCxxRevisionMacro(vtkImageQuantizeRGBToIndex, "$Revision: 1.31 $");
 vtkStandardNewMacro(vtkImageQuantizeRGBToIndex);
 
 class vtkColorQuantizeNode
@@ -399,7 +399,8 @@ void vtkColorQuantizeNode::ComputeStdDev()
 {
   int   i, j;
   float mean;
-  int   count, medianCount;
+  int   count=0;
+  int   medianCount;
 
   // Create space for histogram
   this->Histogram[0] = new int[this->Bounds[1] - this->Bounds[0] + 1];

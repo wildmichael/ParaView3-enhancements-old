@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGridReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:24 $
-  Version:   $Revision: 1.63 $
+  Date:      $Date: 2002-02-07 19:38:54 $
+  Version:   $Revision: 1.64 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,7 +19,7 @@
 #include "vtkByteSwap.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkUnstructuredGridReader, "$Revision: 1.63 $");
+vtkCxxRevisionMacro(vtkUnstructuredGridReader, "$Revision: 1.64 $");
 vtkStandardNewMacro(vtkUnstructuredGridReader);
 
 #ifdef read
@@ -87,7 +87,7 @@ void vtkUnstructuredGridReader::Execute()
 {
   int i, numPts=0, numCells=0;
   char line[256];
-  int npts, size, ncells;
+  int npts, size, ncells=0;
   int piece, numPieces, ghostLevel, skip1, read2, skip3, tmp;
   vtkCellArray *cells=NULL;
   int *types=NULL;

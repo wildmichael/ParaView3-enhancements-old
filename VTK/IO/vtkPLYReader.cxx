@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPLYReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:18 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2002-02-07 19:38:54 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 #include <ctype.h>
 #include <string.h>
 
-vtkCxxRevisionMacro(vtkPLYReader, "$Revision: 1.9 $");
+vtkCxxRevisionMacro(vtkPLYReader, "$Revision: 1.10 $");
 vtkStandardNewMacro(vtkPLYReader);
 
 #ifndef true
@@ -78,7 +78,7 @@ void vtkPLYReader::Execute()
   };
 
   int i, j, k;
-  int numPts, numPolys;
+  int numPts=0, numPolys=0;
   vtkPolyData *output = (vtkPolyData *)this->GetOutput();
 
   if (!this->FileName)
