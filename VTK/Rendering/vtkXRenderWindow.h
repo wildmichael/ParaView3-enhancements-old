@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-24 09:36:49 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1995-07-25 15:42:23 $
+  Version:   $Revision: 1.7 $
 
 This file is part of the Visualization Toolkit. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -31,6 +31,7 @@ class vtkXRenderWindow : public vtkRenderWindow
 {
 public:
   vtkXRenderWindow();
+  ~vtkXRenderWindow();
   char *GetClassName() {return "vtkXRenderWindow";};
   void PrintSelf(ostream& os, vtkIndent indent);
   

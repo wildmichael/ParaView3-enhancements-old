@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCell.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-14 16:49:36 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1995-07-25 15:42:19 $
+  Version:   $Revision: 1.19 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -46,7 +46,7 @@ class vtkCellArray;
 class vtkCell : public vtkObject
 {
 public:
-  vtkCell(): Points(MAX_CELL_SIZE), PointIds(MAX_CELL_SIZE) {};
+  vtkCell();
   void Initialize(int npts, int *pts, vtkPoints *p);
   char *GetClassName() {return "vtkCell";};
   void PrintSelf(ostream& os, vtkIndent indent);
