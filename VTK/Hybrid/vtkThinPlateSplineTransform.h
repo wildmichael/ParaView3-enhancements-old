@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThinPlateSplineTransform.h,v $
   Language:  C++
-  Date:      $Date: 2003-10-07 10:25:59 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2003-10-07 13:24:15 $
+  Version:   $Revision: 1.24 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -60,7 +60,10 @@ public:
 
   // Description:
   // Specify the radial basis function to use.  The default is
-  // R2LogR which is what most people use as the thin plate spline.
+  // R2LogR which is appropriate for 2D. Use |R| (SetBasisToR) 
+  // if your data is 3D. Alternatively specify your own basis function, 
+  // however this will mean that the transform will no longer be a true 
+  // thin-plate spline.
   void SetBasis(int basis);
   vtkGetMacro(Basis,int);
   void SetBasisToR() { this->SetBasis(VTK_RBF_R); };
