@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHexahedron.h,v $
   Language:  C++
-  Date:      $Date: 2002-12-26 18:24:21 $
-  Version:   $Revision: 1.65 $
+  Date:      $Date: 2003-07-23 17:24:02 $
+  Version:   $Revision: 1.66 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -43,7 +43,6 @@ public:
   // See vtkCell3D API for description of these methods.
   virtual void GetEdgePoints(int edgeId, int* &pts);
   virtual void GetFacePoints(int faceId, int* &pts);
-  virtual float *GetParametricCoords();
 
   // Description:
   // See the vtkCell API for descriptions of these methods.
@@ -69,9 +68,10 @@ public:
   int Triangulate(int index, vtkIdList *ptIds, vtkPoints *pts);
   void Derivatives(int subId, float pcoords[3], float *values, 
                    int dim, float *derivs);
+  virtual float *GetParametricCoords();
 
   // Description:
-  // Hexahedron specific
+  // Hexahedron specific.
   static void InterpolationFunctions(float pcoords[3], float weights[8]);
   static void InterpolationDerivs(float pcoords[3], float derivs[24]);
   static int *GetEdgeArray(int edgeId);

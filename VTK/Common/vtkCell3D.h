@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCell3D.h,v $
   Language:  C++
-  Date:      $Date: 2003-07-22 17:03:49 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2003-07-23 17:24:02 $
+  Version:   $Revision: 1.21 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -76,13 +76,6 @@ public:
   // Description:
   // The topological dimension of the cell. (Satisfies vtkCell API.)
   virtual int GetCellDimension() {return 3;}
-
-  // Description:
-  // Return a contiguous array of parametric coordinates of the points
-  // defining this cell. In other words, (px,py,pz, px,py,pz, etc..)
-  // The coordinates are ordered consistent with the definition of the
-  // point ordering for the cell.
-  virtual float *GetParametricCoords();
 
   // Description:
   // Set the tolerance for merging clip intersection points that are near

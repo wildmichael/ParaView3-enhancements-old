@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVertex.h,v $
   Language:  C++
-  Date:      $Date: 2002-11-12 18:55:41 $
-  Version:   $Revision: 1.60 $
+  Date:      $Date: 2003-07-23 17:24:02 $
+  Version:   $Revision: 1.61 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -51,6 +51,7 @@ public:
                        float& dist2, float *weights);
   void EvaluateLocation(int& subId, float pcoords[3], float x[3],
                         float *weights);
+  virtual float *GetParametricCoords();
 
   // Description:
   // Given parametric coordinates of a point, return the closest cell

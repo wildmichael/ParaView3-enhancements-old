@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGenericCell.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-07-22 17:03:49 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2003-07-23 17:24:02 $
+  Version:   $Revision: 1.19 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -39,7 +39,7 @@
 #include "vtkConvexPointSet.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkGenericCell, "$Revision: 1.18 $");
+vtkCxxRevisionMacro(vtkGenericCell, "$Revision: 1.19 $");
 vtkStandardNewMacro(vtkGenericCell);
 
 // Construct cell.
@@ -169,6 +169,11 @@ void vtkGenericCell::Derivatives(int subId, float pcoords[3], float *values,
 int vtkGenericCell::GetParametricCenter(float pcoords[3])
 {
   return this->Cell->GetParametricCenter(pcoords);
+}
+
+float *vtkGenericCell::GetParametricCoords()
+{
+  return this->Cell->GetParametricCoords();
 }
 
 int vtkGenericCell::IsPrimaryCell()

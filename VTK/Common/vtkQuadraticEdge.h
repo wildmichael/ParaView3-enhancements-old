@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadraticEdge.h,v $
   Language:  C++
-  Date:      $Date: 2002-11-12 18:55:41 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2003-07-23 17:24:02 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -66,6 +66,7 @@ public:
   int Triangulate(int index, vtkIdList *ptIds, vtkPoints *pts);
   void Derivatives(int subId, float pcoords[3], float *values, 
                    int dim, float *derivs);
+  virtual float *GetParametricCoords();
 
   // Description:
   // Clip this edge using scalar value provided. Like contouring, except

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVertex.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-26 18:24:22 $
-  Version:   $Revision: 1.58 $
+  Date:      $Date: 2003-07-23 17:24:02 $
+  Version:   $Revision: 1.59 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,7 +25,7 @@
 #include "vtkPointLocator.h"
 #include "vtkPoints.h"
 
-vtkCxxRevisionMacro(vtkVertex, "$Revision: 1.58 $");
+vtkCxxRevisionMacro(vtkVertex, "$Revision: 1.59 $");
 vtkStandardNewMacro(vtkVertex);
 
 // Construct the vertex with a single point.
@@ -242,10 +242,16 @@ void vtkVertex::Clip(float value, vtkDataArray *cellScalars,
     }
 
 }
-//
+
 // Compute interpolation functions
 //
 void vtkVertex::InterpolationFunctions(float vtkNotUsed(pcoords)[3], float weights[1])
 {
   weights[0] = 1.0;
+}
+
+static float vtkVertexCellPCoords[3] = {0.0,0.0,0.0};
+float *vtkVertex::GetParametricCoords()
+{
+  return vtkVertexCellPCoords;
 }

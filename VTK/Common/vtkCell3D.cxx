@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCell3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-07-22 17:03:49 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2003-07-23 17:24:02 $
+  Version:   $Revision: 1.38 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,7 +26,7 @@
 #include "vtkCellArray.h"
 #include "vtkFloatArray.h"
 
-vtkCxxRevisionMacro(vtkCell3D, "$Revision: 1.37 $");
+vtkCxxRevisionMacro(vtkCell3D, "$Revision: 1.38 $");
 
 vtkCell3D::vtkCell3D()
 {
@@ -50,12 +50,6 @@ vtkCell3D::~vtkCell3D()
     this->ClipScalars->Delete();
     this->ClipScalars = NULL;
     }
-}
-
-// usually overridden
-float *vtkCell3D::GetParametricCoords()
-{
-  return (float *)this->Points->GetVoidPointer(0);
 }
 
 void vtkCell3D::Clip(float value, vtkDataArray *cellScalars, 

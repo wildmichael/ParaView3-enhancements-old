@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadraticEdge.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-12 18:55:41 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2003-07-23 17:24:02 $
+  Version:   $Revision: 1.18 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 #include "vtkFloatArray.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkQuadraticEdge, "$Revision: 1.17 $");
+vtkCxxRevisionMacro(vtkQuadraticEdge, "$Revision: 1.18 $");
 vtkStandardNewMacro(vtkQuadraticEdge);
 
 // Construct the line with two points.
@@ -350,3 +350,8 @@ void vtkQuadraticEdge::InterpolationDerivs(float pcoords[3], float derivs[3])
   derivs[2] = 4.0 - r * 8.0;
 }
 
+static float vtkQEdgeCellPCoords[9] = {0.0,0.0,0.0, 1.0,0.0,0.0, 0.5,0.0,0.0};
+float *vtkQuadraticEdge::GetParametricCoords()
+{
+  return vtkQEdgeCellPCoords;
+}

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadraticQuad.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-05-07 12:25:35 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2003-07-23 17:24:02 $
+  Version:   $Revision: 1.17 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,7 @@
 #include "vtkQuad.h"
 #include "vtkQuadraticEdge.h"
 
-vtkCxxRevisionMacro(vtkQuadraticQuad, "$Revision: 1.16 $");
+vtkCxxRevisionMacro(vtkQuadraticQuad, "$Revision: 1.17 $");
 vtkStandardNewMacro(vtkQuadraticQuad);
 
 // Construct the line with two points.
@@ -498,3 +498,11 @@ void vtkQuadraticQuad::InterpolationDerivs(float pcoords[3], float derivs[16])
   derivs[11] =  0.25 * (1.0 - r) - 0.5 * (derivs[14] + derivs[15]);
 }
 
+static float vtkQQuadCellPCoords[24] = {0.0,0.0,0.0, 1.0,0.0,0.0,
+                                        1.0,1.0,0.0, 0.0,1.0,0.0,
+                                        0.5,0.0,0.0, 1.0,0.5,0.0,
+                                        0.5,1.0,0.0, 0.0,0.5,0.0};
+float *vtkQuadraticQuad::GetParametricCoords()
+{
+  return vtkQQuadCellPCoords;
+}

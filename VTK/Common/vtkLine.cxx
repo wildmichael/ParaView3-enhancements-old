@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLine.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-07-21 20:44:19 $
-  Version:   $Revision: 1.79 $
+  Date:      $Date: 2003-07-23 17:24:02 $
+  Version:   $Revision: 1.80 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,7 +25,7 @@
 #include "vtkPointLocator.h"
 #include "vtkPoints.h"
 
-vtkCxxRevisionMacro(vtkLine, "$Revision: 1.79 $");
+vtkCxxRevisionMacro(vtkLine, "$Revision: 1.80 $");
 vtkStandardNewMacro(vtkLine);
 
 // Construct the line with two points.
@@ -579,4 +579,10 @@ void vtkLine::InterpolationFunctions(float pcoords[3], float weights[2])
 {
   weights[0] = 1.0 - pcoords[0];
   weights[1] = pcoords[0];
+}
+
+static float vtkLineCellPCoords[6] = {0.0,0.0,0.0, 1.0,0.0,0.0};
+float *vtkLine::GetParametricCoords()
+{
+  return vtkLineCellPCoords;
 }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadraticHexahedron.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-02-13 12:20:00 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2003-07-23 17:24:02 $
+  Version:   $Revision: 1.16 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -28,7 +28,7 @@
 #include "vtkQuadraticEdge.h"
 #include "vtkQuadraticQuad.h"
 
-vtkCxxRevisionMacro(vtkQuadraticHexahedron, "$Revision: 1.15 $");
+vtkCxxRevisionMacro(vtkQuadraticHexahedron, "$Revision: 1.16 $");
 vtkStandardNewMacro(vtkQuadraticHexahedron);
 
 // Construct the hex with 20 points + 7 extra points for internal
@@ -654,3 +654,14 @@ void vtkQuadraticHexahedron::InterpolationDerivs(float pcoords[3],
   derivs[59] = -0.5*t*rm*sp;
 }
 
+static float vtkQHexCellPCoords[60] = {0.0,0.0,0.0, 1.0,0.0,0.0, 1.0,1.0,0.0, 
+                                       0.0,1.0,0.0, 0.0,0.0,1.0, 1.0,0.0,1.0,
+                                       1.0,1.0,1.0, 0.0,1.0,1.0, 0.5,0.0,0.0,
+                                       1.0,0.5,1.0, 0.5,1.0,0.0, 0.0,0.5,0.0,
+                                       0.5,0.0,1.0, 1.0,0.5,1.0, 0.5,1.0,1.0,
+                                       0.0,0.5,1.0, 0.0,0.0,0.5, 1.0,0.0,0.5,
+                                       1.0,1.0,0.5, 0.0,1.0,0.5};
+float *vtkQuadraticHexahedron::GetParametricCoords()
+{
+  return vtkQHexCellPCoords;
+}

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadraticHexahedron.h,v $
   Language:  C++
-  Date:      $Date: 2002-11-12 18:55:41 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2003-07-23 17:24:02 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -28,7 +28,7 @@
 // (7,4), (0,4), (1,5), (2,6), (3,7).
 
 // .SECTION See Also
-// vtkQuadraticEdge vtkQUadraticTriangle vtkQuadraticTetra
+// vtkQuadraticEdge vtkQuadraticTriangle vtkQuadraticTetra
 // vtQuadraticQuad
 
 #ifndef __vtkQuadraticHexahedron_h
@@ -71,6 +71,7 @@ public:
   int Triangulate(int index, vtkIdList *ptIds, vtkPoints *pts);
   void Derivatives(int subId, float pcoords[3], float *values, 
                    int dim, float *derivs);
+  virtual float *GetParametricCoords();
 
   // Description:
   // Clip this quadratic hexahedron using scalar value provided. Like 

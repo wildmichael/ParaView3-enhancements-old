@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadraticQuad.h,v $
   Language:  C++
-  Date:      $Date: 2002-11-12 18:55:41 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2003-07-23 17:24:02 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -72,6 +72,7 @@ public:
   int Triangulate(int index, vtkIdList *ptIds, vtkPoints *pts);
   void Derivatives(int subId, float pcoords[3], float *values, 
                    int dim, float *derivs);
+  virtual float *GetParametricCoords();
 
   // Description:
   // Clip this quadratic quad using scalar value provided. Like contouring, 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangle.h,v $
   Language:  C++
-  Date:      $Date: 2003-05-06 14:33:45 $
-  Version:   $Revision: 1.81 $
+  Date:      $Date: 2003-07-23 17:24:02 $
+  Version:   $Revision: 1.82 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -66,6 +66,7 @@ public:
   int Triangulate(int index, vtkIdList *ptIds, vtkPoints *pts);
   void Derivatives(int subId, float pcoords[3], float *values, 
                    int dim, float *derivs);
+  virtual float *GetParametricCoords();
 
   // Description:
   // Clip this triangle using scalar value provided. Like contouring, except

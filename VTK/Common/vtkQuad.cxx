@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuad.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-07-21 20:44:19 $
-  Version:   $Revision: 1.87 $
+  Date:      $Date: 2003-07-23 17:24:02 $
+  Version:   $Revision: 1.88 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -29,7 +29,7 @@
 #include "vtkPoints.h"
 #include "vtkTriangle.h"
 
-vtkCxxRevisionMacro(vtkQuad, "$Revision: 1.87 $");
+vtkCxxRevisionMacro(vtkQuad, "$Revision: 1.88 $");
 vtkStandardNewMacro(vtkQuad);
 
 static const float VTK_DIVERGED = 1.e6;
@@ -916,4 +916,11 @@ void vtkQuad::Clip(float value, vtkDataArray *cellScalars,
     newCellId = polys->InsertNextCell(edge[0],pts);
     outCd->CopyData(inCd,cellId,newCellId);
     }
+}
+
+static float vtkQuadCellPCoords[12] = {0.0,0.0,0.0, 1.0,0.0,0.0,
+                                       1.0,1.0,0.0, 0.0,1.0,0.0};
+float *vtkQuad::GetParametricCoords()
+{
+  return vtkQuadCellPCoords;
 }

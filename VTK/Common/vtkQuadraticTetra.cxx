@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadraticTetra.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-05-08 18:49:10 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2003-07-23 17:24:02 $
+  Version:   $Revision: 1.15 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,7 +25,7 @@
 #include "vtkFloatArray.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkQuadraticTetra, "$Revision: 1.14 $");
+vtkCxxRevisionMacro(vtkQuadraticTetra, "$Revision: 1.15 $");
 vtkStandardNewMacro(vtkQuadraticTetra);
 
 // Construct the line with two points.
@@ -549,3 +549,13 @@ float vtkQuadraticTetra::GetParametricDistance(float pcoords[3])
   
   return pDistMax;
 }
+
+static float vtkQTetraCellPCoords[30] = {0.0,0.0,0.0, 1.0,0.0,0.0, 0.0,1.0,0.0, 
+                                         0.0,0.0,1.0, 0.5,0.0,0.0, 0.5,0.5,0.0,
+                                         0.0,0.5,0.0, 0.0,0.0,0.5, 0.5,0.0,0.5,
+                                         0.0,0.5,0.5};
+float *vtkQuadraticTetra::GetParametricCoords()
+{
+  return vtkQTetraCellPCoords;
+}
+
