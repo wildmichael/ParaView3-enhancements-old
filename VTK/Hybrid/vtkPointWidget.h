@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointWidget.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-28 17:15:51 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-07-01 15:28:31 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -103,7 +103,7 @@ public:
   float* GetPosition() 
     {return this->Cursor3D->GetFocalPoint();}
   void GetPosition(float xyz[3]) 
-    {this->Cursor3D->SetFocalPoint(xyz);}
+    {this->Cursor3D->GetFocalPoint(xyz);}
 
   // Description:
   // Turn on/off the wireframe bounding box.
