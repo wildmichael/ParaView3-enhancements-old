@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32RenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-07-17 19:12:42 $
-  Version:   $Revision: 1.61 $
+  Date:      $Date: 2000-07-17 19:22:30 $
+  Version:   $Revision: 1.62 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -405,8 +405,7 @@ LRESULT CALLBACK vtkHandleMessage(HWND hWnd,UINT uMsg, WPARAM wParam,
     { 
     return 0; 
     }
-  vtkHandleMessage2(hWnd,uMsg,wParam, lParam, me);
-  return 0;
+  return vtkHandleMessage2(hWnd,uMsg,wParam, lParam, me);
 }
 
 LRESULT CALLBACK vtkHandleMessage2(HWND hWnd,UINT uMsg, WPARAM wParam, 
