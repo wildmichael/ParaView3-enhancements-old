@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-22 19:56:16 $
-  Version:   $Revision: 1.107 $
+  Date:      $Date: 2001-01-23 19:00:16 $
+  Version:   $Revision: 1.108 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -1704,7 +1704,7 @@ void vtkImageData::Crop()
   // If the extents are the same just return.
   if (this->Extent[0] == nExt[0] && this->Extent[1] == nExt[1]
       && this->Extent[2] == nExt[2] && this->Extent[3] == nExt[3]
-      && this->Extent[4] == nExt[4] && this->Extent[5] == nExt[6])
+      && this->Extent[4] == nExt[4] && this->Extent[5] == nExt[5])
     {
     vtkDebugMacro("Extents already match.");
     return;
