@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:50 $
-  Version:   $Revision: 1.76 $
+  Date:      $Date: 2001-05-11 20:54:24 $
+  Version:   $Revision: 1.77 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -81,6 +81,8 @@ public:
   // interactor will work.
   virtual void Initialize() {this->Initialized=1; this->Enable();
                              this->RenderWindow->Render();}
+  void ReInitialize() { this->Initialized = 0; this->Enabled = 0;
+                        this->Initialize(); } 
 
   // Description:
   // This Method detects loops of RenderWindow-Interactor,

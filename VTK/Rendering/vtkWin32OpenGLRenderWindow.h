@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2001-03-10 13:50:11 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 2001-05-11 20:54:24 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -212,7 +212,7 @@ public:
   void ResumeScreenRendering();
   HDC GetMemoryDC();
   unsigned char *GetMemoryData(){return this->MemoryData;};  
-  
+
   // Description:
   // Initialize OpenGL for this window.
   virtual void OpenGLInit();
@@ -237,6 +237,11 @@ public:
   // default cursor if you want VTK to display a 3D cursor instead.
   void HideCursor();
   void ShowCursor();
+
+  // Description:
+  // Override the default implementation so that we can actively switch between
+  // on and off screen rendering.
+  virtual void SetOffScreenRendering(int offscreen);
 
 protected:
   vtkWin32OpenGLRenderWindow();
@@ -280,6 +285,12 @@ protected:
   //ETX
 
   int CursorHidden;
+
+  void ResizeWhileOffscreen(int xsize, int ysize);
+  void CreateAWindow(int x, int y, int width, int height);
+  void InitializeApplication();
+  void CleanUpOffScreenRendering();
+  void CreateOffScreenDC(int xsize, int ysize, HDC aHdc);
 };
 
 
