@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:49:21 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1995-07-29 11:59:32 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,7 +58,6 @@ void vtkDataSetWriter::SetInput(vtkDataSet *input)
 
 void vtkDataSetWriter::WriteData()
 {
-  FILE *fp;
   char *type;
   vtkPolyWriter pwriter;
   vtkStructuredPointsWriter spwriter;
