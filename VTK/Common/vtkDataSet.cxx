@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSet.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-17 13:47:22 $
-  Version:   $Revision: 1.86 $
+  Date:      $Date: 2001-12-20 13:55:20 $
+  Version:   $Revision: 1.87 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -390,7 +390,7 @@ int vtkDataSet::CheckAttributes()
       {
       vtkErrorMacro("Point array " << name << " with " 
                     << array->GetNumberOfComponents()
-                    << " components, only has " << numTuples << " but there are " 
+                    << " components, only has " << numTuples << " tuples but there are " 
                     << numPts << " points");
       return 1;
       }
@@ -398,7 +398,7 @@ int vtkDataSet::CheckAttributes()
       {
       vtkWarningMacro("Point array " << name << " with " 
                     << array->GetNumberOfComponents()
-                    << " components, has " << numTuples << " but there are only " 
+                    << " components, has " << numTuples << " tuples but there are only " 
                     << numPts << " points");
       }
     }
@@ -417,7 +417,7 @@ int vtkDataSet::CheckAttributes()
       {
       vtkErrorMacro("Cell array " << name << " with " 
                     << array->GetNumberOfComponents()
-                    << " components, has only " << numTuples << " but there are "
+                    << " components, has only " << numTuples << " tuples but there are "
                     << numCells << " cells");
       return 1;
       }
@@ -425,7 +425,7 @@ int vtkDataSet::CheckAttributes()
       {
       vtkWarningMacro("Cell array " << name << " with " 
                     << array->GetNumberOfComponents() 
-                    << " components, has " << numTuples << " but there are only " 
+                    << " components, has " << numTuples << " tuples but there are only " 
                     << numCells << " cells");
       }
     }
