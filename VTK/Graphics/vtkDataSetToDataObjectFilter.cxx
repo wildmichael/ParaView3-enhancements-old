@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetToDataObjectFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-01-07 09:13:33 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2000-01-16 21:49:30 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -69,6 +69,7 @@ vtkDataSetToDataObjectFilter* vtkDataSetToDataObjectFilter::New()
 // Instantiate object.
 vtkDataSetToDataObjectFilter::vtkDataSetToDataObjectFilter()
 {
+  this->NumberOfRequiredInputs = 1;
   this->Geometry = 1;
   this->Topology = 1;
   this->PointData = 1;
@@ -397,8 +398,11 @@ vtkDataSet *vtkDataSetToDataObjectFilter::GetInput()
 void vtkDataSetToDataObjectFilter::ComputeInputUpdateExtents(
 					    vtkDataObject *vtkNotUsed(output))
 {
-  // what should we do here?
-  this->GetInput()->SetUpdateExtent(0, 1);
+  if (this->GetInput())
+    {
+    // what should we do here?
+    this->GetInput()->SetUpdateExtent(0, 1);
+    }
 }
 
 

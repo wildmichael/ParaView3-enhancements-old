@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObjectToDataSetFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-01-07 09:13:31 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2000-01-16 21:49:25 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -73,6 +73,7 @@ vtkDataObjectToDataSetFilter::vtkDataObjectToDataSetFilter()
   int i;
   this->Updating = 0;
 
+  this->NumberOfRequiredInputs = 1;
   this->DataSetType = VTK_POLY_DATA;
   this->vtkSource::SetNthOutput(0,vtkPolyData::New());
   // Releasing data for pipeline parallism.
@@ -408,10 +409,13 @@ vtkRectilinearGrid *vtkDataObjectToDataSetFilter::GetRectilinearGridOutput()
 void vtkDataObjectToDataSetFilter::ComputeInputUpdateExtents( 
 				       vtkDataObject *vtkNotUsed(output))
 {
-  // what should we do here?
-  if (this->GetInput()->GetDataObjectType() != VTK_DATA_OBJECT)
+  if (this->GetInput())
     {
-    this->GetInput()->SetUpdateExtent(0, 1);
+    // what should we do here?
+    if (this->GetInput()->GetDataObjectType() != VTK_DATA_OBJECT)
+      {
+      this->GetInput()->SetUpdateExtent(0, 1);
+      }
     }
 }
 

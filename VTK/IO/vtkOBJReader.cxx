@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOBJReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:05:36 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2000-01-16 21:49:20 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -96,6 +96,12 @@ void vtkOBJReader::Execute()
   char *slash, *blank, *next, *ptr;
 
   vtkDebugMacro(<<"Reading file");
+
+  if (!this->FileName)
+    {
+    vtkErrorMacro(<< "A FileName must be specified.");
+    return;
+    }
 
   // Initialize
   if ((fptr = fopen(this->FileName, "r")) == NULL)

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProcessObject.h,v $
   Language:  C++
-  Date:      $Date: 1999-11-17 17:55:46 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2000-01-16 21:49:05 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -153,6 +153,7 @@ protected:
   void *EndMethodArg;
   float Progress;
   int NumberOfInputs;
+  int NumberOfRequiredInputs;
   vtkDataObject **Inputs;     // An Array of the inputs to the filter
 
   // Called to allocate the input array.  Copies old inputs.

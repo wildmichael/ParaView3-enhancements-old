@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLocator.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-16 15:58:18 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2000-01-16 21:48:55 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -67,6 +67,11 @@ void vtkLocator::Initialize()
 
 void vtkLocator::Update()
 {
+  if (!this->DataSet)
+    {
+    vtkErrorMacro(<< "Input not set!");
+    return;
+    }
   if ((this->MTime > this->BuildTime) ||
       (this->DataSet->GetMTime() > this->BuildTime))
     {

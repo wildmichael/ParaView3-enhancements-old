@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDelaunay2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-12-13 16:57:29 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2000-01-16 21:49:55 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -68,6 +68,7 @@ vtkDelaunay2D* vtkDelaunay2D::New()
 // BoundingTriangulation turned off.
 vtkDelaunay2D::vtkDelaunay2D()
 {
+  this->NumberOfRequiredInputs = 1;
   this->Alpha = 0.0;
   this->Tolerance = 0.00001;
   this->BoundingTriangulation = 0;

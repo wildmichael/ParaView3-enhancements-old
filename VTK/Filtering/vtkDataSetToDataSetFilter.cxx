@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetToDataSetFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-01-07 09:13:34 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 2000-01-16 21:49:33 $
+  Version:   $Revision: 1.52 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -67,6 +67,7 @@ vtkDataSetToDataSetFilter* vtkDataSetToDataSetFilter::New()
 // Construct object.
 vtkDataSetToDataSetFilter::vtkDataSetToDataSetFilter()
 {
+  this->NumberOfRequiredInputs = 1;
 }
 
 vtkDataSetToDataSetFilter::~vtkDataSetToDataSetFilter()

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDEMReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-01-10 19:48:32 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2000-01-16 21:49:15 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -146,6 +146,12 @@ int vtkDEMReader::ReadTypeARecord ()
   if (this->GetMTime () < this->ReadHeaderTime)
     {
     return 0;
+    }
+
+  if (!this->FileName)
+    {
+    vtkErrorMacro(<< "A FileName must be specified.");
+    return -1;
     }
 
   if ((fp = fopen(this->FileName, "r")) == NULL)
@@ -337,6 +343,12 @@ int vtkDEMReader::ReadProfiles (vtkImageData *data)
   int updateInterval;
   int status = 0;
   FILE *fp;
+
+  if (!this->FileName)
+    {
+    vtkErrorMacro(<< "A FileName must be specified.");
+    return -1;
+    }
 
   this->UpdateInformation ();
 

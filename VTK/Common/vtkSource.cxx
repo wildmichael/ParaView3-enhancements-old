@@ -3,8 +3,8 @@
  Program:   Visualization Toolkit
  Module:    $RCSfile: vtkSource.cxx,v $
  Language:  C++
- Date:      $Date: 2000-01-14 12:27:37 $
- Version:   $Revision: 1.58 $
+ Date:      $Date: 2000-01-16 21:49:09 $
+ Version:   $Revision: 1.59 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -360,7 +360,14 @@ void vtkSource::UpdateData(vtkDataObject *vtkNotUsed(output))
   // before we start to execute is 0.0.
   this->AbortExecute = 0;
   this->Progress = 0.0;
-  this->Execute();
+  if (this->NumberOfInputs < this->NumberOfRequiredInputs)
+    {
+    vtkErrorMacro(<< "At least " << this->NumberOfRequiredInputs << " inputs are required but only " << this->NumberOfInputs << " are specified");
+    }
+  else
+    {
+    this->Execute();
+    }
 
   // If we ended due to aborting, push the progress up to 1.0 (since
   // it probably didn't end there)

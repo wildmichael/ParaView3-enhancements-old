@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGridToPolyDataFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:07:31 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2000-01-16 21:50:15 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,7 +64,7 @@ public:
   vtkRectilinearGrid *GetInput();
 
 protected:
-  vtkRectilinearGridToPolyDataFilter() {};
+  vtkRectilinearGridToPolyDataFilter() {this->NumberOfRequiredInputs = 1;};
   ~vtkRectilinearGridToPolyDataFilter() {};
   vtkRectilinearGridToPolyDataFilter(const vtkRectilinearGridToPolyDataFilter&) {};
   void operator=(const vtkRectilinearGridToPolyDataFilter&) {};

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBMPReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-01-10 19:49:58 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2000-01-16 21:50:58 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -489,7 +489,6 @@ static void vtkBMPReaderUpdate2(vtkBMPReader *self, vtkImageData *data,
 // are assumed to be the same as the file extent/order.
 void vtkBMPReader::Execute(vtkImageData *data)
 {
-  vtkErrorMacro( << "executing" );
   this->ComputeDataIncrements();
   
   // Call the correct templated function for the output

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:08:04 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2000-01-16 21:50:43 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -217,6 +217,12 @@ void vtkTextSource::Execute()
   vtkPolyData *output = this->GetOutput();
   vtkUnsignedCharArray *data;
   
+  if (this->Text == NULL)
+    {
+    vtkErrorMacro (<< "Text is not set!");
+    return;
+    }
+
   // convert colors to unsigned char
   for (int i = 0; i < 4; i++)
     {

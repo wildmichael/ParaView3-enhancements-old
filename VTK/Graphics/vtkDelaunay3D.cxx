@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDelaunay3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-12-01 21:16:21 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 2000-01-16 21:50:01 $
+  Version:   $Revision: 1.42 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -184,6 +184,7 @@ vtkDelaunaySphere *vtkSphereArray::Resize(int sz)
 // BoundingTriangulation turned off.
 vtkDelaunay3D::vtkDelaunay3D()
 {
+  this->NumberOfRequiredInputs = 1;
   this->Alpha = 0.0;
   this->Tolerance = 0.001;
   this->BoundingTriangulation = 0;
