@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPriorityQueue.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-05 12:16:16 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2001-12-18 19:00:02 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -99,6 +99,7 @@ public:
   // is not the same as deleting an id; id is mapped to location.)
 //BTX
   vtkIdType Pop(float &priority, vtkIdType location=0);
+//ETX    
 
   // Description:
   // Same as above but simplified for easier wrapping into interpreted
@@ -108,13 +109,15 @@ public:
   // Description:
   // Peek into the queue without actually removing anything. Returns the
   // id and the priority.
+//BTX
   vtkIdType Peek(float &priority, vtkIdType location=0);
+//ETX    
   
   // Description:
   // Peek into the queue without actually removing anything. Returns the
   // id.
   vtkIdType Peek(vtkIdType location=0);
-//ETX    
+
   // Description:
   // Delete entry in queue with specified id. Returns priority value
   // associated with that id; or VTK_LARGE_FLOAT if not in queue.
