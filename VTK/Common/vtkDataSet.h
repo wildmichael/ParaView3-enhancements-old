@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSet.h,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 22:49:30 $
-  Version:   $Revision: 1.67 $
+  Date:      $Date: 1998-06-02 19:34:41 $
+  Version:   $Revision: 1.68 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -190,6 +190,7 @@ public:
   // Convenience method to get the range of the scalar data (if there is any 
   // scalar data). Returns the (min/max) range of combined point and cell data.
   // If there are no point or cell scalars the method will return (0,1).
+  // Note: Update needs to be called to create the scalars.
   void GetScalarRange(float range[2]);
   float *GetScalarRange();
   
