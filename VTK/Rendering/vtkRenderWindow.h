@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:07:01 $
-  Version:   $Revision: 1.108 $
+  Date:      $Date: 2001-08-16 12:43:57 $
+  Version:   $Revision: 1.109 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -228,20 +228,6 @@ public:
   vtkBooleanMacro(SwapBuffers,int);
   
   // Description:
-  // Set/Get the FileName used for saving images. See the SaveImageAsPPM 
-  // method.
-  vtkSetStringMacro(FileName);
-  vtkGetStringMacro(FileName);
-
-  // Description:
-  // Save the current image as a PPM file.
-  virtual void SaveImageAsPPM();
-  virtual  int OpenPPMImageFile();
-  virtual void WritePPMImageFile();
-  virtual void ClosePPMImageFile();
-
-
-  // Description:
   // Set/Get the pixel data of an image, transmitted as RGBRGBRGB. The
   // front argument indicates if the front buffer should be used or the back 
   // buffer. It is the caller's responsibility to delete the resulting 
@@ -393,7 +379,6 @@ protected:
   int StereoStatus; // used for keeping track of what's going on
   int StereoCapableWindow;
   vtkRenderWindowInteractor *Interactor;
-  char *FileName;
   unsigned char* StereoBuffer; // used for red blue stereo
   float *AccumulationBuffer;   // used for many techniques
   unsigned int AccumulationBufferSize;
@@ -404,7 +389,6 @@ protected:
   unsigned char *ResultFrame;  // used for any non immediate rendering
   int   SwapBuffers;
   float DesiredUpdateRate;
-  FILE* PPMImageFilePtr;
   int   AbortRender;
   int   InAbortCheck;
   int   InRender;
