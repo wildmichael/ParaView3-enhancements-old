@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStructuredGridGeometryFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-08-11 07:41:29 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1994-08-25 21:46:15 $
+  Version:   $Revision: 1.6 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -46,6 +46,7 @@ void vlStructuredGeometryFilter::Execute()
   this->Initialize();
 
   pd = this->Input->GetPointData();
+  this->PointData.CopyNormalsOff();
   dims = this->Input->GetDimensions();
 //
 // Based on the dimensions of the structured data, and the extent of the geometry,
