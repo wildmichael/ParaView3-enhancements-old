@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellLocator.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-17 02:07:36 $
-  Version:   $Revision: 1.76 $
+  Date:      $Date: 2003-01-31 15:05:11 $
+  Version:   $Revision: 1.77 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,7 +25,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkCellLocator, "$Revision: 1.76 $");
+vtkCxxRevisionMacro(vtkCellLocator, "$Revision: 1.77 $");
 vtkStandardNewMacro(vtkCellLocator);
 
 #define VTK_CELL_OUTSIDE 0
@@ -306,7 +306,7 @@ int vtkCellLocator::IntersectWithLine(float a0[3], float a1[3], float tol,
         }
       
       // move to the next octant
-      tMax = 1000;
+      tMax = VTK_LARGE_FLOAT;
       bestDir = 0;
       for (loop = 0; loop < 3; loop++)
         {
@@ -1217,7 +1217,7 @@ void vtkCellLocator::BuildLocator()
     {
     this->Bounds[2*i] = bounds[2*i];
     this->Bounds[2*i+1] = bounds[2*i+1];
-    if (this->Bounds[2*i] == this->Bounds[2*i+1])
+    if ( (this->Bounds[2*i+1] - this->Bounds[2*i]) <= (length/1000.0) )
       {
       // bump out the bounds a little of if min==max
       this->Bounds[2*i] -= length/100.0;
