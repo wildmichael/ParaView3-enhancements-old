@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTetra.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:37:34 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1995-08-21 20:33:43 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -110,7 +110,7 @@ int vtkTetra::EvaluatePosition(float x[3], float closestPoint[3],
     for (minDist2=LARGE_FLOAT,i=0; i<4; i++)
       {
       triangle = (vtkTriangle *) this->GetFace (i);
-      triangle->EvaluatePosition(x,closest,sub,pc,dist2,w);
+      triangle->EvaluatePosition(x,closest,sub,pc,dist2,(float *)w);
 
       if ( dist2 < minDist2 )
         {
