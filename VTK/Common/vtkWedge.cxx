@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWedge.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:21 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2001-04-27 15:38:51 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -463,6 +463,10 @@ void vtkWedge::Contour(float value, vtkScalars *cellScalars,
     }
 }
 
+int *vtkWedge::GetEdgeArray(int edgeId)
+{
+  return edges[edgeId];
+}
 vtkCell *vtkWedge::GetEdge(int edgeId)
 {
   int *verts;
@@ -740,16 +744,12 @@ int vtkWedge::JacobianInverse(float pcoords[3], double **inverse, float derivs[1
   return 1;
 }
 
-// Clip this wedge using scalar value provided. Like contouring, except
-// that it cuts the wedge to produce other wedges or tetrahedra.
-void vtkWedge::Clip(float vtkNotUsed(value), 
-		    vtkScalars *vtkNotUsed(cellScalars), 
-		    vtkPointLocator *vtkNotUsed(locator), 
-		    vtkCellArray *vtkNotUsed(tetras),
-		    vtkPointData *vtkNotUsed(inPd), 
-		    vtkPointData *vtkNotUsed(outPd),
-		    vtkCellData *vtkNotUsed(inCd), int vtkNotUsed(cellId), 
-		    vtkCellData *vtkNotUsed(outCd), int vtkNotUsed(insideOut))
+void vtkWedge::GetEdge(int edgeId, int* &pts)
 {
+  pts = this->GetEdgeArray(edgeId);
+}
 
+void vtkWedge::GetFace(int faceId, int* &pts)
+{
+  pts = this->GetFaceArray(faceId);
 }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHexahedron.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:10 $
-  Version:   $Revision: 1.65 $
+  Date:      $Date: 2001-04-27 15:38:51 $
+  Version:   $Revision: 1.66 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -79,7 +79,6 @@ vtkCell *vtkHexahedron::MakeObject()
   return cell;
 }
 
-//
 //  Method to calculate parametric coordinates in an eight noded
 //  linear hexahedron element from global coordinates.
 //
@@ -484,6 +483,10 @@ void vtkHexahedron::Contour(float value, vtkScalars *cellScalars,
     }
 }
 
+int *vtkHexahedron::GetEdgeArray(int edgeId)
+{
+  return edges[edgeId];
+}
 vtkCell *vtkHexahedron::GetEdge(int edgeId)
 {
   int *verts;
@@ -744,16 +747,12 @@ void vtkHexahedron::JacobianInverse(float pcoords[3], double **inverse,
     }
 }
 
-void vtkHexahedron::Clip(float vtkNotUsed(value), 
-			 vtkScalars *vtkNotUsed(cellScalars), 
-                         vtkPointLocator *vtkNotUsed(locator), 
-			 vtkCellArray *vtkNotUsed(tetras),
-                         vtkPointData *vtkNotUsed(inPd),
-			 vtkPointData *vtkNotUsed(outPd),
-                         vtkCellData *vtkNotUsed(inCd),
-			 int vtkNotUsed(cellId), 
-			 vtkCellData *vtkNotUsed(outCd),
-			 int vtkNotUsed(insideOut))
+void vtkHexahedron::GetEdge(int edgeId, int* &pts)
 {
+  pts = this->GetEdgeArray(edgeId);
+}
 
+void vtkHexahedron::GetFace(int faceId, int* &pts)
+{
+  pts = this->GetFaceArray(faceId);
 }

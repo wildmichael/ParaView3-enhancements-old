@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoxel.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:21 $
-  Version:   $Revision: 1.62 $
+  Date:      $Date: 2001-04-27 15:38:51 $
+  Version:   $Revision: 1.63 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -391,6 +391,10 @@ void vtkVoxel::Contour(float value, vtkScalars *cellScalars,
 }
 
 
+int *vtkVoxel::GetEdgeArray(int edgeId)
+{
+  return edges[edgeId];
+}
 vtkCell *vtkVoxel::GetEdge(int edgeId)
 {
   int *verts;
@@ -587,14 +591,12 @@ void vtkVoxel::Derivatives(int vtkNotUsed(subId), float pcoords[3],
     }
 }
 
-void vtkVoxel::Clip(float vtkNotUsed(value), 
-		    vtkScalars *vtkNotUsed(cellScalars), 
-		    vtkPointLocator *vtkNotUsed(locator), 
-		    vtkCellArray *vtkNotUsed(tetras),
-		    vtkPointData *vtkNotUsed(inPd), vtkPointData *vtkNotUsed(outPd),
-		    vtkCellData *vtkNotUsed(inCd), int vtkNotUsed(cellId), 
-		    vtkCellData *vtkNotUsed(outCd), int vtkNotUsed(insideOut))
+void vtkVoxel::GetEdge(int edgeId, int* &pts)
 {
-
+  pts = this->GetEdgeArray(edgeId);
 }
 
+void vtkVoxel::GetFace(int faceId, int* &pts)
+{
+  pts = this->GetFaceArray(faceId);
+}
