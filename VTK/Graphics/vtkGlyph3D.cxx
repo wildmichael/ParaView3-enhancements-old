@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGlyph3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-05-07 14:50:40 $
-  Version:   $Revision: 1.88 $
+  Date:      $Date: 2001-05-07 18:21:39 $
+  Version:   $Revision: 1.89 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -255,28 +255,33 @@ void vtkGlyph3D::Execute()
     {
     newScalars = (vtkScalars *) inScalars->MakeObject ();
     newScalars->Allocate(numPts*numSourcePts);
-    newScalarsData = newScalars->GetData ();
-    inScalarsData = inScalars->GetData ();
+    newScalarsData = newScalars->GetData();
+    inScalarsData = inScalars->GetData();
+    newScalarsData->SetName(inScalarsData->GetName());
     }
   else if ( (this->ColorMode == VTK_COLOR_BY_SCALE) && inScalars)
     {
     newScalars = vtkScalars::New();
     newScalars->Allocate(numPts*numSourcePts);
+    newScalars->GetData()->SetName("GlyphScale");
     }
   else if ( (this->ColorMode == VTK_COLOR_BY_VECTOR) && haveVectors)
     {
     newScalars = vtkScalars::New();
     newScalars->Allocate(numPts*numSourcePts);
+    newScalars->GetData()->SetName("VectorMagnitude");
     }
   if ( haveVectors )
     {
     newVectors = vtkVectors::New();
     newVectors->Allocate(numPts*numSourcePts);
+    newVectors->GetData()->SetName("GlyphVector");
     }
   if ( haveNormals )
     {
     newNormals = vtkNormals::New();
     newNormals->Allocate(numPts*numSourcePts);
+    newNormals->GetData()->SetName("Normals");
     }
 
   // Setting up for calls to PolyData::InsertNextCell()
