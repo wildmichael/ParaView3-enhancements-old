@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPVCompositeBuffer.h,v $
   Language:  C++
-  Date:      $Date: 2003-03-18 16:52:45 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-05-20 20:07:31 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -46,6 +46,8 @@ protected:
 //BTX
   friend class vtkPVCompositeUtilities;
 //ETX
+
+  int UncompressedLength;
 
   vtkFloatArray* ZData;
   vtkUnsignedCharArray* PData;

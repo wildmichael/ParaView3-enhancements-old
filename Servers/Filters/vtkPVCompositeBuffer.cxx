@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPVCompositeBuffer.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-03-18 16:52:45 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-05-20 20:07:28 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 #include "vtkUnsignedCharArray.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkPVCompositeBuffer, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkPVCompositeBuffer, "$Revision: 1.2 $");
 vtkStandardNewMacro(vtkPVCompositeBuffer);
 
 //-------------------------------------------------------------------------
@@ -29,6 +29,7 @@ vtkPVCompositeBuffer::vtkPVCompositeBuffer()
 {
   this->PData = NULL;
   this->ZData = NULL;
+  this->UncompressedLength = -1;
 }
 
   
@@ -52,8 +53,9 @@ void vtkPVCompositeBuffer::PrintSelf(ostream& os, vtkIndent indent)
 {
   this->vtkObject::PrintSelf(os, indent);
   
-  os << indent << indent << "PData: " << this->PData << endl;
-  os << indent << indent << "ZData: " << this->ZData << endl;
+  os << indent << "PData: " << this->PData << endl;
+  os << indent << "ZData: " << this->ZData << endl;
+  os << indent << "UncompressedLength: " << this->UncompressedLength << endl;
 }
 
 

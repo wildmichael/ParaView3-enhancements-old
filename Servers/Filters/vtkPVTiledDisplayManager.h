@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPVTiledDisplayManager.h,v $
   Language:  C++
-  Date:      $Date: 2003-03-21 20:03:35 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2003-05-20 20:07:08 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -112,6 +112,10 @@ public:
   // is rendered (subsampled) and composited.
   vtkSetMacro(LODReductionFactor, int);
   vtkGetMacro(LODReductionFactor, int);
+
+  // Description:
+  // Just used for debugging.
+  vtkGetObjectMacro(CompositeUtilities,vtkPVCompositeUtilities);
 
 protected:
   vtkPVTiledDisplayManager();
