@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPStreamTracer.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-07-22 19:26:23 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2003-09-11 14:59:01 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -28,7 +28,7 @@
 #include "vtkPoints.h"
 #include "vtkPolyData.h"
 
-vtkCxxRevisionMacro(vtkPStreamTracer, "$Revision: 1.9 $");
+vtkCxxRevisionMacro(vtkPStreamTracer, "$Revision: 1.10 $");
 
 vtkCxxSetObjectMacro(vtkPStreamTracer, Controller, vtkMultiProcessController);
 vtkCxxSetObjectMacro(vtkPStreamTracer, 
@@ -285,6 +285,8 @@ void vtkPStreamTracer::ComputeInputUpdateExtents( vtkDataObject *output )
 
 void vtkPStreamTracer::ExecuteInformation()
 {
+  this->Superclass::ExecuteInformation();
+
   vtkDataSet *output = this->GetOutput();
   output->SetMaximumNumberOfPieces(-1);
 }
