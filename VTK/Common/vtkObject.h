@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkObject.h,v $
   Language:  C++
-  Date:      $Date: 1994-02-04 16:26:08 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1994-02-07 17:30:36 $
+  Version:   $Revision: 1.10 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -46,9 +46,9 @@ public:
   int  GetRefCount() {return this->RefCount;};
   void DebugOn();
   void DebugOff();
-  virtual unsigned long int GetMtime() {return this->Mtime.GetMtime();};
+  virtual unsigned long int GetMTime() {return this->MTime.GetMTime();};
   int GetDebug();
-  void Modified() {Mtime.Modified();};
+  void Modified() {MTime.Modified();};
   virtual char *GetClassName() {return "vlObject";};
 
   void Print(ostream& os);
@@ -61,7 +61,7 @@ public:
 
 protected:
   int Debug;       // Enable debug messages
-  vlTimeStamp Mtime; // Keep track of modification time
+  vlTimeStamp MTime; // Keep track of modification time
 
 private:
   int RefCount;    // Number of uses of this object by other objects

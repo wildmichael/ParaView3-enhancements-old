@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkTimeStamp.h,v $
   Language:  C++
-  Date:      $Date: 1994-02-04 12:42:31 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1994-02-07 17:30:37 $
+  Version:   $Revision: 1.8 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -25,7 +25,7 @@ class vlTimeStamp
 public:
   vlTimeStamp() {this->ModifiedTime = 0;};
   void Modified() {this->ModifiedTime = ++vlTime;};
-  unsigned long int GetMtime() {return ModifiedTime;};
+  unsigned long int GetMTime() {return ModifiedTime;};
   // Using >= and <= in the operators below handles special cases when
   // modified times are equal. Only occurs for recently instantiated objects.
   int operator>(vlTimeStamp& ts) 
