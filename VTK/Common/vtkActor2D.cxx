@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-06-08 09:11:03 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2000-09-25 13:45:47 $
+  Version:   $Revision: 1.27 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -45,9 +45,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkPropCollection.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
+//-------------------------------------------------------------------------
 vtkActor2D* vtkActor2D::New()
 {
   // First try to create the object from the vtkObjectFactory
@@ -59,8 +57,6 @@ vtkActor2D* vtkActor2D::New()
   // If the factory was unable to create the object, then create it here.
   return new vtkActor2D;
 }
-
-
 
 
 // Creates an actor2D with the following defaults: 
