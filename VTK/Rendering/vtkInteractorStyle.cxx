@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyle.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-21 21:27:33 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 2002-03-22 13:34:32 $
+  Version:   $Revision: 1.52 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 #include "vtkOldStyleCallbackCommand.h"
 #include "vtkCallbackCommand.h"
 
-vtkCxxRevisionMacro(vtkInteractorStyle, "$Revision: 1.51 $");
+vtkCxxRevisionMacro(vtkInteractorStyle, "$Revision: 1.52 $");
 
 //----------------------------------------------------------------------------
 vtkInteractorStyle *vtkInteractorStyle::New() 
@@ -1135,6 +1135,7 @@ void vtkInteractorStyle::SetInteractor(vtkRenderWindowInteractor *i)
     i->AddObserver(vtkCommand::KeyPressEvent, this->EventCallbackCommand);
     i->AddObserver(vtkCommand::KeyReleaseEvent, this->EventCallbackCommand);
     i->AddObserver(vtkCommand::CharEvent, this->EventCallbackCommand);
+    i->AddObserver(vtkCommand::DeleteEvent, this->EventCallbackCommand);
     }
 }
 
@@ -1464,6 +1465,9 @@ void vtkInteractorStyle::ProcessEvents(vtkObject* object, unsigned long event,
     case vtkCommand::CharEvent:
       self->OnChar(rwi->GetControlKey(), rwi->GetShiftKey(),
                    rwi->GetKeyCode(), rwi->GetRepeatCount());
+      break;
+    case vtkCommand::DeleteEvent:
+      self->Interactor = 0;
       break;
     }
 }
