@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkParse.y,v $
   Language:  C++
-  Date:      $Date: 2000-03-13 20:37:19 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2000-07-04 14:12:17 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -79,7 +79,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
     {
     if (!currentFunction->Signature)
       {
-      currentFunction->Signature = malloc(2048);
+      currentFunction->Signature = (char*)malloc(2048);
       sigAllocatedLength = 2048; 
       sprintf(currentFunction->Signature,"%s",arg);
       }    
@@ -96,7 +96,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
     {
     if (!currentFunction->Signature)
       {
-      currentFunction->Signature = malloc(2048);
+      currentFunction->Signature = (char*)malloc(2048);
       sigAllocatedLength = 2048; 
       sprintf(currentFunction->Signature,"%s",arg);
       }    
