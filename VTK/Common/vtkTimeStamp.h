@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTimeStamp.h,v $
   Language:  C++
-  Date:      $Date: 1995-08-16 20:53:39 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1995-09-13 07:21:17 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -60,7 +60,7 @@ public:
   // possible for this number to wrap around back to zero.
   // This should only happen for processes that have been running
   // for a very long time while constantly changing objects
-  // within the program. When this does occure, the typical consequence
+  // within the program. When this does occur, the typical consequence
   // should be that some filters will update themselves when really
   // they don't need to.
   void Modified() {this->ModifiedTime = ++vtkTime;};
