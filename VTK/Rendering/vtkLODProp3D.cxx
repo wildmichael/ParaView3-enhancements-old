@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLODProp3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:11:57 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2000-05-26 13:20:02 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -899,7 +899,10 @@ void vtkLODProp3D::GetActors(vtkPropCollection *ac)
       {
       index = this->SelectedLODIndex;
       }
-    ac->AddItem(this->LODs[index].Prop3D);
+    if (! this->LODs[index].Prop3D->IsA("vtkVolume"))
+      {
+      ac->AddItem(this->LODs[index].Prop3D);
+      }
     }
   else
     {
@@ -912,7 +915,10 @@ void vtkLODProp3D::GetActors(vtkPropCollection *ac)
       {
       return;
       }
-    ac->AddItem(this->LODs[index].Prop3D);
+    if (! this->LODs[index].Prop3D->IsA("vtkVolume"))
+      {
+      ac->AddItem(this->LODs[index].Prop3D);
+      }
     }
 }
 
