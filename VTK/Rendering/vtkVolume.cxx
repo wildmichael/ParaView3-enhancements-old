@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-04-23 20:53:04 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 1999-04-26 18:38:06 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -722,10 +722,8 @@ void vtkVolume::UpdateScalarOpacityforSampleSize( vtkRenderer *ren, float sample
   int needsRecomputing;
   float originalAlpha,correctedAlpha;
   float ray_scale;
-  float volumeScale;
 
-  volumeScale = this->Scale[0];
-  ray_scale = sample_distance * volumeScale;
+  ray_scale = sample_distance;
 
 
   // step size changed
