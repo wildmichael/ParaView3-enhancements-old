@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInputPort.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:34:33 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2002-05-07 19:30:04 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkCommand.h"
 
-vtkCxxRevisionMacro(vtkInputPort, "$Revision: 1.9 $");
+vtkCxxRevisionMacro(vtkInputPort, "$Revision: 1.10 $");
 vtkStandardNewMacro(vtkInputPort);
 
 //----------------------------------------------------------------------------
@@ -263,7 +263,7 @@ vtkImageData *vtkInputPort::GetImageDataOutput()
 void vtkInputPort::UpdateInformation()
 {
   vtkDataObject *output;
-  unsigned long pmt;
+  unsigned long pmt = 0;
   
   if (!this->DoUpdateInformation)
     {
@@ -291,7 +291,7 @@ void vtkInputPort::UpdateInformation()
   this->Controller->Receive( &pmt, 1, 
                              this->RemoteProcessId,
                              vtkInputPort::INFORMATION_TRANSFER_TAG);
-  int maxNumPieces;
+  int maxNumPieces = 0;
   this->Controller->Receive( &maxNumPieces, 1, 
                              this->RemoteProcessId,
                              vtkInputPort::INFORMATION_TRANSFER_TAG);
