@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamer.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-12 16:09:07 $
-  Version:   $Revision: 1.68 $
+  Date:      $Date: 2001-11-02 16:42:10 $
+  Version:   $Revision: 1.69 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -264,8 +264,8 @@ VTK_THREAD_RETURN_TYPE vtkStreamer::ThreadedIntegrate( void *arg )
 
   input     = self->GetInput();
   pd        = input->GetPointData();
-  inScalars = pd->GetActiveScalars();
-  inVectors = pd->GetActiveVectors();
+  inScalars = pd->GetScalars();
+  inVectors = pd->GetVectors();
 
   cell = vtkGenericCell::New();
   cellVectors = vtkFloatArray::New();
@@ -499,7 +499,7 @@ void vtkStreamer::Integrate()
   delete [] this->Streamers;
   this->Streamers = NULL;
 
-  if ( ! (inVectors=pd->GetActiveVectors()) )
+  if ( ! (inVectors=pd->GetVectors()) )
     {
     vtkErrorMacro(<<"No vector data defined!");
     return;
@@ -509,7 +509,7 @@ void vtkStreamer::Integrate()
   cellVectors->SetNumberOfComponents(3);
   cellVectors->Allocate(3*VTK_CELL_SIZE);
 
-  inScalars = pd->GetActiveScalars();
+  inScalars = pd->GetScalars();
 
   if (inScalars)
     {

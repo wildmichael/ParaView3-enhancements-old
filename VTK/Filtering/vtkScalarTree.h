@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalarTree.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:36:37 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2001-11-02 16:41:34 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -125,8 +125,6 @@ public:
   // you'll get erratic behavior.
   vtkCell *GetNextCell(vtkIdType &cellId, vtkIdList* &ptIds,
                        vtkDataArray *cellScalars);
-  vtkCell *GetNextCell(vtkIdType &cellId, vtkIdList* &ptIds,
-                       vtkScalars *cellScalars);
 
 protected:
   vtkScalarTree();

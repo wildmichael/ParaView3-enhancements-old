@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRecursiveDividingCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-13 14:35:11 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2001-11-02 16:42:03 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -104,7 +104,7 @@ void vtkRecursiveDividingCubes::Execute()
   this->Count = 0;
 
   // make sure we have scalar data
-  if ( ! (inScalars = input->GetPointData()->GetActiveScalars()) )
+  if ( ! (inScalars = input->GetPointData()->GetScalars()) )
     {
     vtkErrorMacro(<<"No scalar data to contour");
     return;

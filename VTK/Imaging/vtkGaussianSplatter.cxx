@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGaussianSplatter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-28 13:33:50 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 2001-11-02 16:42:48 $
+  Version:   $Revision: 1.47 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -95,7 +95,7 @@ void vtkGaussianSplatter::Execute()
   int j, k;
   int min[3], max[3];
   vtkPointData *pd;
-  vtkNormals *inNormals=NULL;
+  vtkDataArray *inNormals=NULL;
   vtkDataArray *inScalars=NULL;
   float loc[3], dist2, cx[3];
   vtkStructuredPoints *output = this->GetOutput();
@@ -147,7 +147,7 @@ void vtkGaussianSplatter::Execute()
     this->Sample = &vtkGaussianSplatter::Gaussian;
     }
 
-  if ( this->ScalarWarping && (inScalars=pd->GetActiveScalars()) != NULL )
+  if ( this->ScalarWarping && (inScalars=pd->GetScalars()) != NULL )
     {
     this->SampleFactor = &vtkGaussianSplatter::ScalarSampling;
     }
@@ -176,7 +176,7 @@ void vtkGaussianSplatter::Execute()
     this->P = input->GetPoint(ptId);
     if ( inNormals != NULL )
       {
-      this->N = inNormals->GetNormal(ptId);
+      this->N = inNormals->GetTuple(ptId);
       }
     if ( inScalars != NULL )
       {

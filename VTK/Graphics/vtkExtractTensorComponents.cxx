@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractTensorComponents.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-28 13:33:49 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2001-11-02 16:41:47 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -113,7 +113,7 @@ void vtkExtractTensorComponents::Execute()
   // First, copy the input to the output as a starting point
   this->GetOutput()->CopyStructure( input );
 
-  inTensors = pd->GetActiveTensors();
+  inTensors = pd->GetTensors();
   numPts = input->GetNumberOfPoints();
 
   if ( !inTensors || numPts < 1 )

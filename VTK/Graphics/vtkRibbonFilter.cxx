@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRibbonFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 18:11:26 $
-  Version:   $Revision: 1.53 $
+  Date:      $Date: 2001-11-02 16:42:06 $
+  Version:   $Revision: 1.54 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -131,7 +131,7 @@ void vtkRibbonFilter::Execute()
   outCD->CopyAllocate(cd, inLines->GetNumberOfCells());
   int inCellId, outCellId;
 
-  if ( !(inNormals=pd->GetActiveNormals()) || this->UseDefaultNormal )
+  if ( !(inNormals=pd->GetNormals()) || this->UseDefaultNormal )
     {
     vtkPolyLine *lineNormalGenerator = vtkPolyLine::New();
     deleteNormals = 1;
@@ -161,7 +161,7 @@ void vtkRibbonFilter::Execute()
 
   // If varying width, get appropriate info.
   //
-  if ( this->VaryWidth && (inScalars=pd->GetActiveScalars()) )
+  if ( this->VaryWidth && (inScalars=pd->GetScalars()) )
     {
     inScalars->GetRange(range,0);
     }

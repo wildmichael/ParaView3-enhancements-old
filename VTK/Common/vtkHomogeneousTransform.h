@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHomogeneousTransform.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:36:14 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2001-11-02 16:41:07 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -69,18 +69,6 @@ public:
   // Description:
   // Apply the transformation to a combination of points, normals
   // and vectors.  
-  virtual void TransformPointsNormalsVectors(vtkPoints *inPts, 
-					     vtkPoints *outPts, 
-					     vtkNormals *inNms, 
-					     vtkNormals *outNms,
-					     vtkVectors *inVrs, 
-					     vtkVectors *outVrs)
-    {
-      this->TransformPointsNormalsVectors(inPts, outPts,
-					  inNms->GetData(), outNms->GetData(),
-					  inVrs->GetData(), outVrs->GetData());
-    }
-
   virtual void TransformPointsNormalsVectors(vtkPoints *inPts, 
 					     vtkPoints *outPts, 
 					     vtkDataArray *inNms, 

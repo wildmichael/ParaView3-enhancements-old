@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkContourGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-12 20:33:39 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2001-11-02 16:41:45 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -316,7 +316,7 @@ void vtkContourGrid::Execute()
     }
 
   numCells = input->GetNumberOfCells();
-  inScalars = input->GetPointData()->GetActiveScalars();
+  inScalars = input->GetPointData()->GetScalars();
   if ( ! inScalars || numCells < 1 )
     {
     vtkErrorMacro(<<"No data to contour");

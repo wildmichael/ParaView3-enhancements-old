@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataConnectivityFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-12 20:33:39 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2001-11-02 16:41:57 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -128,7 +128,7 @@ void vtkPolyDataConnectivityFilter::Execute()
 
   // See whether to consider scalar connectivity
   //
-  this->InScalars = input->GetPointData()->GetActiveScalars();
+  this->InScalars = input->GetPointData()->GetScalars();
   if ( !this->ScalarConnectivity ) 
     {
     this->InScalars = NULL;

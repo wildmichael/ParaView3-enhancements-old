@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThresholdPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 18:11:26 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2001-11-02 16:42:16 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -112,7 +112,7 @@ void vtkThresholdPoints::Execute()
 
   vtkDebugMacro(<< "Executing threshold points filter");
 
-  if ( ! (inScalars = input->GetPointData()->GetActiveScalars()) )
+  if ( ! (inScalars = input->GetPointData()->GetScalars()) )
     {
     vtkErrorMacro(<<"No scalar data to threshold");
     return;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThreshold.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-29 17:10:11 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 2001-11-02 16:42:14 $
+  Version:   $Revision: 1.52 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -140,8 +140,8 @@ void vtkThreshold::Execute()
     }
   else
     {
-    pointScalars=pd->GetActiveScalars();
-    cellScalars=cd->GetActiveScalars();
+    pointScalars=pd->GetScalars();
+    cellScalars=cd->GetScalars();
     }
 
   outPD->CopyAllocate(pd);

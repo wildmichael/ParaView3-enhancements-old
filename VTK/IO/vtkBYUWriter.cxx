@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBYUWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-19 18:16:46 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2001-11-02 16:42:44 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -197,7 +197,7 @@ void vtkBYUWriter::WriteDisplacementFile(int numPts)
   vtkPolyData *input= this->GetInput();
 
   if ( this->WriteDisplacement && this->DisplacementFileName &&
-  (inVectors = input->GetPointData()->GetActiveVectors()) != NULL )
+  (inVectors = input->GetPointData()->GetVectors()) != NULL )
     {
     if ( !(dispFp = fopen(this->DisplacementFileName, "w")) )
       {
@@ -235,7 +235,7 @@ void vtkBYUWriter::WriteScalarFile(int numPts)
   vtkPolyData *input= this->GetInput();
 
   if ( this->WriteScalar && this->ScalarFileName &&
-  (inScalars = input->GetPointData()->GetActiveScalars()) != NULL )
+  (inScalars = input->GetPointData()->GetScalars()) != NULL )
     {
     if ( !(scalarFp = fopen(this->ScalarFileName, "w")) )
       {
@@ -273,7 +273,7 @@ void vtkBYUWriter::WriteTextureFile(int numPts)
   vtkPolyData *input= this->GetInput();
 
   if ( this->WriteTexture && this->TextureFileName &&
-  (inTCoords = input->GetPointData()->GetActiveTCoords()) != NULL )
+  (inTCoords = input->GetPointData()->GetTCoords()) != NULL )
     {
     if ( !(textureFp = fopen(this->TextureFileName, "w")) )
       {

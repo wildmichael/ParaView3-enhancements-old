@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkShepardMethod.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:01:25 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2001-11-02 16:42:55 $
+  Version:   $Revision: 1.36 $
   Thanks:    Paul A, Hsieh for bug fixes
 
 
@@ -156,7 +156,7 @@ void vtkShepardMethod::Execute()
     return;
     }
 
-  if ( (inScalars = input->GetPointData()->GetActiveScalars()) == NULL )
+  if ( (inScalars = input->GetPointData()->GetScalars()) == NULL )
     {
     vtkErrorMacro(<<"Scalars must be defined!");
     return;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageNonMaximumSuppression.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-26 18:48:11 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 2001-11-02 16:42:53 $
+  Version:   $Revision: 1.41 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -321,9 +321,9 @@ void vtkImageNonMaximumSuppression::ThreadedExecute(vtkImageData **inData,
 
   if (id == 0)
     {
-    if (outData && outData->GetPointData()->GetActiveScalars())
+    if (outData && outData->GetPointData()->GetScalars())
       {
-      outData->GetPointData()->GetActiveScalars()->SetName("SuppressedMaximum");
+      outData->GetPointData()->GetScalars()->SetName("SuppressedMaximum");
       }
     }
 

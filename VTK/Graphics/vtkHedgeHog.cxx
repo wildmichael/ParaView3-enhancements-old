@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHedgeHog.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-29 13:36:10 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2001-11-02 16:41:52 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -82,7 +82,7 @@ void vtkHedgeHog::Execute()
   //
   numPts = input->GetNumberOfPoints();
   pd = input->GetPointData();
-  inVectors = pd->GetActiveVectors();
+  inVectors = pd->GetVectors();
   if ( numPts < 1 )
     {
     vtkErrorMacro(<<"No input data");
@@ -94,7 +94,7 @@ void vtkHedgeHog::Execute()
     return;
     }
 
-  inNormals = pd->GetActiveNormals();
+  inNormals = pd->GetNormals();
   if ( !inNormals && this->VectorMode == VTK_USE_NORMAL)
     {
     vtkErrorMacro(<<"No normals in input data");

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkArrayCalculator.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-27 13:24:31 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2001-11-02 16:41:38 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -174,47 +174,18 @@ void vtkArrayCalculator::Execute()
   
   if (this->AttributeMode == VTK_ATTRIBUTE_MODE_DEFAULT)
     {
-    if (inPD->GetFieldData())
-      {
-      inFD = inPD->GetFieldData();
-      attributeDataType = 0;
-      }
-    else if (inCD->GetFieldData())
-      {
-      inFD = inCD->GetFieldData();
-      attributeDataType = 1;
-      }
-    else
-      {
-      vtkErrorMacro("No field data to operate on.");
-      return;
-      }
+    inFD = inPD;
+    attributeDataType = 0;
     }
   else if (this->AttributeMode == VTK_ATTRIBUTE_MODE_USE_POINT_DATA)
     {
-    if (inPD->GetFieldData())
-      {
-      inFD = inPD->GetFieldData();
-      attributeDataType = 0;
-      }
-    else
-      {
-      vtkErrorMacro("No point field data to operate on.");
-      return;
-      }
+    inFD = inPD;
+    attributeDataType = 0;
     }
   else
     {
-    if (inCD->GetFieldData())
-      {
-      inFD = inCD->GetFieldData();
-      attributeDataType = 1;
-      }
-    else
-      {
-      vtkErrorMacro("No cell field data to operate on.");
-      return;
-      }
+    inFD = inCD;
+    attributeDataType = 1;
     }
   
   for (i = 0; i < this->NumberOfScalarArrays; i++)
@@ -339,7 +310,7 @@ void vtkArrayCalculator::Execute()
   resultArray->SetName(this->ResultArrayName);
   if (attributeDataType == 0)
     {
-    output->GetPointData()->GetFieldData()->AddArray(resultArray);
+    output->GetPointData()->AddArray(resultArray);
     if (resultType == 0)
       {
       output->GetPointData()->SetActiveScalars(this->ResultArrayName);
@@ -351,7 +322,7 @@ void vtkArrayCalculator::Execute()
     }
   else
     {
-    output->GetCellData()->GetFieldData()->AddArray(resultArray);
+    output->GetCellData()->AddArray(resultArray);
     if (resultType == 0)
       {
       output->GetCellData()->SetActiveScalars(this->ResultArrayName);

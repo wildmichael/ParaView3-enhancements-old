@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-21 14:06:46 $
-  Version:   $Revision: 1.76 $
+  Date:      $Date: 2001-11-02 16:43:15 $
+  Version:   $Revision: 1.77 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -315,18 +315,10 @@ public:
   // Update the input to the Mapper.
   virtual void Update();
 
-  // Description:
-  // Calculate and return the colors for the input. After invoking this
-  // method, use GetColor() on the scalar to get the scalar values. This
-  // method may return NULL if no color information is available. (This
-  // method is obsolete, use MapScalars() instead.)
-  vtkScalars *GetColors();
-  
 protected:
   vtkMapper();
   ~vtkMapper();
 
-  vtkScalars *Scalars;
   vtkUnsignedCharArray *Colors;
 
   vtkScalarsToColors *LookupTable;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDividingCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-12 16:09:53 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 2001-11-02 16:43:04 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -136,7 +136,7 @@ void vtkDividingCubes::Execute()
   this->Count = 0;
 
   // make sure we have scalar data
-  if ( ! (inScalars = input->GetPointData()->GetActiveScalars()) )
+  if ( ! (inScalars = input->GetPointData()->GetScalars()) )
     {
     vtkErrorMacro(<<"No scalar data to contour");
     return;

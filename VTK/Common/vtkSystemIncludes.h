@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSystemIncludes.h,v $
   Language:  C++
-  Date:      $Date: 2001-07-09 21:41:00 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2001-11-02 16:41:21 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -111,7 +111,7 @@ inline ostream& __cdecl operator<<(ostream& _O, __int64 i64Val)
 typedef long long vtkIdType;
 #endif
 #else
-typedef long vtkIdType;
+typedef int vtkIdType;
 #endif
 
 #endif

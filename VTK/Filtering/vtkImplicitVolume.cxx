@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitVolume.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-12 16:08:58 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2001-11-02 16:41:33 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -97,7 +97,7 @@ float vtkImplicitVolume::EvaluateFunction(float x[3])
 
   // See if a volume is defined
   if ( !this->Volume ||
-  !(scalars = this->Volume->GetPointData()->GetActiveScalars()) )
+  !(scalars = this->Volume->GetPointData()->GetScalars()) )
     {
     vtkErrorMacro(<<"Can't evaluate volume!");
     return this->OutValue;
@@ -156,7 +156,7 @@ void vtkImplicitVolume::EvaluateGradient(float x[3], float n[3])
 
   // See if a volume is defined
   if ( !this->Volume ||
-  !(scalars = this->Volume->GetPointData()->GetActiveScalars()) )
+  !(scalars = this->Volume->GetPointData()->GetScalars()) )
     {
     vtkErrorMacro(<<"Can't evaluate volume!");
     return;

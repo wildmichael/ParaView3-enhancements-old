@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitModeller.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-26 15:21:25 $
-  Version:   $Revision: 1.72 $
+  Date:      $Date: 2001-11-02 16:42:39 $
+  Version:   $Revision: 1.73 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -212,7 +212,7 @@ static VTK_THREAD_RETURN_TYPE vtkImplicitModeller_ThreadedAppend( void *arg )
   origin = output->GetOrigin();
 
   int *sampleDimensions = userData->Modeller->GetSampleDimensions();
-  if (!(newScalars = output->GetPointData()->GetActiveScalars()))
+  if (!(newScalars = output->GetPointData()->GetScalars()))
     {
     vtkGenericWarningMacro("Sanity check failed.");
     return VTK_THREAD_RETURN_VALUE;
@@ -418,7 +418,7 @@ void vtkImplicitModeller::Append(vtkDataSet *input)
     float *weights=new float[input->GetMaxCellSize()];
     float maxDistance2;
     // Get the output scalars
-    if (!(newScalars = output->GetPointData()->GetActiveScalars()))
+    if (!(newScalars = output->GetPointData()->GetScalars()))
       {
       vtkErrorMacro("Sanity check failed.");
       return;
@@ -690,7 +690,7 @@ void vtkImplicitModeller::EndAppend()
 
   vtkDebugMacro(<< "End append");
   
-  if (!(newScalars =this->GetOutput()->GetPointData()->GetActiveScalars()))
+  if (!(newScalars =this->GetOutput()->GetPointData()->GetScalars()))
     {
     vtkErrorMacro("Sanity check failed.");
     return;

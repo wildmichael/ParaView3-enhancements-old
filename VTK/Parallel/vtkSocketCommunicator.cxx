@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSocketCommunicator.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-10-31 18:51:56 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2001-11-02 16:43:01 $
+  Version:   $Revision: 1.26 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -218,6 +218,7 @@ int vtkSocketCommunicator::Send(double *data, int length,
 		     tag, this->Socket);
 }
 
+#ifdef VTK_USE_64BIT_IDS
 //----------------------------------------------------------------------------
 int vtkSocketCommunicator::Send(vtkIdType *data, int length, 
 				int remoteProcessId, int tag)
@@ -227,6 +228,7 @@ int vtkSocketCommunicator::Send(vtkIdType *data, int length,
   return SendMessage(reinterpret_cast<char*>(data), length*sizeof(vtkIdType), 
 		     tag, this->Socket);
 }
+#endif
 
 //----------------------------------------------------------------------------
 int vtkSocketCommunicator::ReceiveMessage( char *data, int size, int length,
@@ -359,6 +361,7 @@ int vtkSocketCommunicator::Receive(double *data, int length,
   return ReceiveMessage( (char *)data, sizeof(double), length, tag);
 }
 
+#ifdef VTK_USE_64BIT_IDS
 int vtkSocketCommunicator::Receive(vtkIdType *data, int length, 
 				   int remoteProcessId, int tag)
 {
@@ -366,6 +369,7 @@ int vtkSocketCommunicator::Receive(vtkIdType *data, int length,
 
   return ReceiveMessage( (char *)data, sizeof(vtkIdType), length, tag);
 }
+#endif
 
 int vtkSocketCommunicator::WaitForConnection(int port)
 {

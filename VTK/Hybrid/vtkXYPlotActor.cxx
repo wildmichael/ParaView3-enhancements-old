@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXYPlotActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-12 16:09:32 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2001-11-02 16:42:41 $
+  Version:   $Revision: 1.28 $
   Thanks:    Thanks to Kitware & RPI/SCOREC who supported the development
              of this class.
 
@@ -845,7 +845,7 @@ void vtkXYPlotActor::ComputeYRange(float range[2])
   for ( this->InputList->InitTraversal(); 
         (ds = this->InputList->GetNextItem()); )
     {
-    scalars = ds->GetPointData()->GetActiveScalars();
+    scalars = ds->GetPointData()->GetScalars();
     if ( !scalars)
       {
       vtkErrorMacro(<<"No scalar data to plot!");
@@ -1094,7 +1094,7 @@ void vtkXYPlotActor::CreatePlotData(int *pos, int *pos2, float xRange[2],
       {
       clippingRequired = 0;
       numPts = ds->GetNumberOfPoints();
-      scalars = ds->GetPointData()->GetActiveScalars();
+      scalars = ds->GetPointData()->GetScalars();
       if ( !scalars)
         {
         continue;

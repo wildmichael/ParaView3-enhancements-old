@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataArray.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:36:06 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2001-11-02 16:41:02 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -335,6 +335,7 @@ public:
       this->ComputeRange(comp);
       return this->Range;
     }
+
   virtual void ComputeRange(int comp);
   // Description:
   // Return the range of the array values for the 0th component. 
@@ -343,6 +344,10 @@ public:
     {
       this->ComputeRange(0);
       return this->Range;
+    }
+  void GetRange(float range[2])
+    {
+      this->GetRange(range,0);
     }
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageBlend.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-07 10:53:41 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2001-11-02 16:42:49 $
+  Version:   $Revision: 1.21 $
   Thanks:    Thanks to David G. Gobbi and Sebastien Barre who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -201,7 +201,7 @@ void vtkImageBlend::ExecuteData(vtkDataObject *output)
     {
     if (this->DataWasPassed)
       {
-      ((vtkImageData *)output)->GetPointData()->SetScalars((vtkScalars*)NULL);
+      ((vtkImageData *)output)->GetPointData()->SetScalars(NULL);
       this->DataWasPassed = 0;
       }
     

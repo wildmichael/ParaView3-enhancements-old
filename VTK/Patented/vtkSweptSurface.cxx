@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSweptSurface.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-12 20:19:41 $
-  Version:   $Revision: 1.65 $
+  Date:      $Date: 2001-11-02 16:43:09 $
+  Version:   $Revision: 1.66 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -191,7 +191,7 @@ void vtkSweptSurface::Execute()
   pd = input->GetPointData();
   outPD = output->GetPointData();
   
-  inScalars = pd->GetActiveScalars();
+  inScalars = pd->GetScalars();
   if ( input->GetNumberOfPoints() < 1 ||
   inScalars == NULL )
     {

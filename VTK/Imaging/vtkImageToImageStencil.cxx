@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToImageStencil.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:01:24 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-11-02 16:42:54 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to David G Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -146,7 +146,7 @@ void vtkImageToImageStencil::ThreadedExecute(vtkImageStencilData *data,
 
   int *inExt = inData->GetExtent();
   int *inWholeExt = inData->GetWholeExtent();
-  vtkDataArray *inScalars = inData->GetPointData()->GetActiveScalars();
+  vtkDataArray *inScalars = inData->GetPointData()->GetScalars();
   float upperThreshold = this->UpperThreshold;
   float lowerThreshold = this->LowerThreshold;
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectorDot.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-13 14:36:03 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2001-11-02 16:42:23 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -90,12 +90,12 @@ void vtkVectorDot::Execute()
     vtkErrorMacro(<< "No points!");
     return;
     }
-  if ( (inVectors=pd->GetActiveVectors()) == NULL )
+  if ( (inVectors=pd->GetVectors()) == NULL )
     {
     vtkErrorMacro(<< "No vectors defined!");
     return;
     }
-  if ( (inNormals=pd->GetActiveNormals()) == NULL )
+  if ( (inNormals=pd->GetNormals()) == NULL )
     {
     vtkErrorMacro(<< "No normals defined!");
     return;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLabeledDataMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-18 11:11:49 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2001-11-02 16:43:14 $
+  Version:   $Revision: 1.25 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -179,31 +179,31 @@ void vtkLabeledDataMapper::RenderOpaqueGeometry(vtkViewport *viewport,
       case VTK_LABEL_SCALARS:
 	if ( pd->GetScalars() )
 	  {
-	  data = pd->GetScalars()->GetData();
+	  data = pd->GetScalars();
 	  }
 	break;
       case VTK_LABEL_VECTORS:   
 	if ( pd->GetVectors() )
 	  {
-	  data = pd->GetVectors()->GetData();
+	  data = pd->GetVectors();
 	  }
 	break;
       case VTK_LABEL_NORMALS:    
 	if ( pd->GetNormals() )
 	  {
-	  data = pd->GetNormals()->GetData();
+	  data = pd->GetNormals();
 	  }
 	break;
       case VTK_LABEL_TCOORDS:    
 	if ( pd->GetTCoords() )
 	  {
-	  data = pd->GetTCoords()->GetData();
+	  data = pd->GetTCoords();
 	  }
 	break;
       case VTK_LABEL_TENSORS:    
 	if ( pd->GetTensors() )
 	  {
-	  data = pd->GetTensors()->GetData();
+	  data = pd->GetTensors();
 	  }
 	break;
       case VTK_LABEL_FIELD_DATA:

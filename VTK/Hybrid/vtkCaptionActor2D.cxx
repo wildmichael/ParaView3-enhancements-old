@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCaptionActor2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-01 13:11:15 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2001-11-02 16:42:39 $
+  Version:   $Revision: 1.12 $
   Thanks:    Tim Smith who sponsored and encouraged the development
              of this class.
 
@@ -377,7 +377,7 @@ int vtkCaptionActor2D::RenderOpaqueGeometry(vtkViewport *viewport)
     pts->SetPoint(1, w2);
     this->HeadPolyData->GetPoints()->SetPoint(0,w1);
     this->HeadPolyData->GetPointData()->
-      GetVectors()->SetVector(0,w1[0]-w2[0],w1[1]-w2[1],w1[2]-w2[2]);
+      GetVectors()->SetTuple3(0,w1[0]-w2[0],w1[1]-w2[1],w1[2]-w2[2]);
 
     pts->Modified();
     this->HeadPolyData->Modified();

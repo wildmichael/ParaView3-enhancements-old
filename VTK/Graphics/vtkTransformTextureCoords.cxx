@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransformTextureCoords.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-13 14:36:03 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2001-11-02 16:42:21 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -92,7 +92,7 @@ void vtkTransformTextureCoords::Execute()
 {
   vtkDataSet *input = this->GetInput();
   vtkDataSet *output = this->GetOutput();
-  vtkDataArray *inTCoords=input->GetPointData()->GetActiveTCoords();
+  vtkDataArray *inTCoords=input->GetPointData()->GetTCoords();
   vtkDataArray *newTCoords;
   vtkIdType numPts=input->GetNumberOfPoints(), ptId;
   int i, j, texDim;

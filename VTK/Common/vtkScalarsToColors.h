@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalarsToColors.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:36:24 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2001-11-02 16:41:19 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -66,7 +66,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define VTK_COLOR_MODE_DEFAULT 0
 #define VTK_COLOR_MODE_MAP_SCALARS 1
 
-class vtkScalars;
+class vtkDataArray;
 
 class VTK_COMMON_EXPORT vtkScalarsToColors : public vtkObject
 {
@@ -140,10 +140,10 @@ public:
   // VTK_RGB (3 components), VTK_LUMINANCE (1 component, greyscale),
   // or VTK_LUMINANCE_ALPHA (2 components)
   // If not supplied, the output format defaults to RGBA.
-  void MapScalarsThroughTable(vtkScalars *scalars, 
+  void MapScalarsThroughTable(vtkDataArray *scalars, 
                               unsigned char *output,
                               int outputFormat);
-  void MapScalarsThroughTable(vtkScalars *scalars, 
+  void MapScalarsThroughTable(vtkDataArray *scalars, 
                               unsigned char *output) 
     {this->MapScalarsThroughTable(scalars,output,VTK_RGBA);}
 

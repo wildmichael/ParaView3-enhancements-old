@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIdentityTransform.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:36:15 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2001-11-02 16:41:08 $
+  Version:   $Revision: 1.20 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -69,16 +69,12 @@ public:
   // Description:
   // Apply the transformation to a series of normals, and append the
   // results to outNms.  
-  void TransformNormals(vtkNormals *inNms, vtkNormals *outNms)
-    { this->TransformNormals(inNms->GetData(), outNms->GetData()); }
   void TransformNormals(vtkDataArray *inNms, vtkDataArray *outNms);
 
   // Description:
   // Apply the transformation to a series of vectors, and append the
   // results to outVrs.  
   void TransformVectors(vtkDataArray *inVrs, vtkDataArray *outVrs);
-  void TransformVectors(vtkVectors *inVrs, vtkVectors *outVrs)
-    { this->TransformVectors(inVrs->GetData(), outVrs->GetData()); }
 
   // Description:
   // Apply the transformation to a combination of points, normals
@@ -89,17 +85,6 @@ public:
 				     vtkDataArray *outNms,
 				     vtkDataArray *inVrs, 
 				     vtkDataArray *outVrs);
-  void TransformPointsNormalsVectors(vtkPoints *inPts, 
-				     vtkPoints *outPts, 
-				     vtkNormals *inNms, 
-				     vtkNormals *outNms,
-				     vtkVectors *inVrs, 
-				     vtkVectors *outVrs)
-    { 
-      this->TransformPointsNormalsVectors(inPts, outPts,
-					  inNms->GetData(), outNms->GetData(),
-					  inVrs->GetData(), outVrs->GetData());
-    }
 
   // Invert the transformation.  This doesn't do anything to the 
   // identity transformation.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTubeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-13 14:36:03 $
-  Version:   $Revision: 1.53 $
+  Date:      $Date: 2001-11-02 16:42:22 $
+  Version:   $Revision: 1.54 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -135,7 +135,7 @@ void vtkTubeFilter::Execute()
   int generate_normals = 0;
   vtkPolyLine *lineNormalGenerator;
   
-  if ( !(inNormals=pd->GetActiveNormals()) || this->UseDefaultNormal )
+  if ( !(inNormals=pd->GetNormals()) || this->UseDefaultNormal )
     {
     deleteNormals = 1;
     inNormals = vtkFloatArray::New();
@@ -160,12 +160,12 @@ void vtkTubeFilter::Execute()
   // If varying width, get appropriate info.
   //
   if ( this->VaryRadius == VTK_VARY_RADIUS_BY_SCALAR && 
-  (inScalars=pd->GetActiveScalars()) )
+  (inScalars=pd->GetScalars()) )
     {
     inScalars->GetRange(range,0);
     }
   else if ( this->VaryRadius == VTK_VARY_RADIUS_BY_VECTOR && 
-  (inVectors=pd->GetActiveVectors()) )
+  (inVectors=pd->GetVectors()) )
     {
     maxSpeed = inVectors->GetMaxNorm();
     }

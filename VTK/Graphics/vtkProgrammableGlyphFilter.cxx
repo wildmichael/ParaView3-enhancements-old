@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProgrammableGlyphFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 18:11:26 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2001-11-02 16:41:59 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -154,12 +154,12 @@ void vtkProgrammableGlyphFilter::Execute()
   // figure out how to color the data and setup
   if ( this->ColorMode == VTK_COLOR_BY_INPUT )
     {
-    if ( (inPtScalars = inputPD->GetActiveScalars()) )
+    if ( (inPtScalars = inputPD->GetScalars()) )
       {
       ptScalars = vtkFloatArray::New();
       ptScalars->Allocate(numSourcePts*numPts);
       }
-    if ( (inCellScalars = inputCD->GetActiveScalars()) )
+    if ( (inCellScalars = inputCD->GetScalars()) )
       {
       cellScalars = vtkFloatArray::New();
       cellScalars->Allocate(numSourcePts*numPts);
@@ -168,12 +168,12 @@ void vtkProgrammableGlyphFilter::Execute()
 
   else
     {
-    if ( sourcePD->GetActiveScalars() )
+    if ( sourcePD->GetScalars() )
       {
       ptScalars = vtkFloatArray::New();
       ptScalars->Allocate(numSourcePts*numPts);
       }
-    if ( sourceCD->GetActiveScalars() )
+    if ( sourceCD->GetScalars() )
       {
       cellScalars = vtkFloatArray::New();
       cellScalars->Allocate(numSourcePts*numPts);
@@ -215,8 +215,8 @@ void vtkProgrammableGlyphFilter::Execute()
 
       if ( this->ColorMode == VTK_COLOR_BY_SOURCE )
         {
-        inPtScalars = sourcePD->GetActiveScalars();
-        inCellScalars = sourceCD->GetActiveScalars();
+        inPtScalars = sourcePD->GetScalars();
+        inCellScalars = sourceCD->GetScalars();
         }
 
       // Copy all data from source to output.

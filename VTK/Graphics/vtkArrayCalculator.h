@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkArrayCalculator.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:36:42 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2001-11-02 16:41:39 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -104,8 +104,7 @@ public:
   // Description:
   // Control whether the filter operates on point data or cell data.
   // By default (AttributeModeToDefault), the filter uses point
-  // data, and if no point data is available, then cell data is
-  // used. Alternatively you can explicitly set the filter to use point data
+  // data. Alternatively you can explicitly set the filter to use point data
   // (AttributeModeToUsePointData) or cell data (AttributeModeToUseCellData).
   vtkSetMacro(AttributeMode,int);
   vtkGetMacro(AttributeMode,int);

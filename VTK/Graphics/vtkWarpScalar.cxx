@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpScalar.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-13 14:36:03 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2001-11-02 16:42:25 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -103,8 +103,8 @@ void vtkWarpScalar::Execute()
 
   inPts = input->GetPoints();
   pd = input->GetPointData();
-  inNormals = pd->GetActiveNormals();
-  inScalars = pd->GetActiveScalars();
+  inNormals = pd->GetNormals();
+  inScalars = pd->GetScalars();
 
   if ( !inPts || !inScalars )
     {

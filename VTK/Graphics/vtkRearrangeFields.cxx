@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRearrangeFields.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-26 22:12:36 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-11-02 16:42:01 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -191,7 +191,7 @@ void vtkRearrangeFields::ApplyOperation(Operation* op, vtkDataSet* input,
       vtkWarningMacro("Can not apply operation " << op->Id
 		      << ": Input has to be vtkDataSetAttributes.");
       }
-    outputFD->AddArray(dsa->GetActiveAttribute(op->AttributeType));
+    outputFD->AddArray(dsa->GetAttribute(op->AttributeType));
     // If moving the array, make sure that it is not copied
     // with PassData()
     if ( op->OperationType == vtkRearrangeFields::MOVE )

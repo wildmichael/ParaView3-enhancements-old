@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-28 13:31:14 $
-  Version:   $Revision: 1.82 $
+  Date:      $Date: 2001-11-02 16:42:46 $
+  Version:   $Revision: 1.83 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -269,12 +269,12 @@ int vtkDataWriter::WriteCellData(ostream *fp, vtkDataSet *ds)
   vtkDebugMacro(<<"Writing cell data...");
 
   numCells = ds->GetNumberOfCells();
-  scalars = cd->GetActiveScalars();
-  vectors = cd->GetActiveVectors();
-  normals = cd->GetActiveNormals();
-  tcoords = cd->GetActiveTCoords();
-  tensors = cd->GetActiveTensors();
-  field = cd->GetFieldData();
+  scalars = cd->GetScalars();
+  vectors = cd->GetVectors();
+  normals = cd->GetNormals();
+  tcoords = cd->GetTCoords();
+  tensors = cd->GetTensors();
+  field = cd;
 
   if ( numCells <= 0 || !(scalars || vectors || normals || tcoords || 
 			  tensors || field))
@@ -364,12 +364,12 @@ int vtkDataWriter::WritePointData(ostream *fp, vtkDataSet *ds)
   vtkDebugMacro(<<"Writing point data...");
 
   numPts = ds->GetNumberOfPoints();
-  scalars = pd->GetActiveScalars();
-  vectors = pd->GetActiveVectors();
-  normals = pd->GetActiveNormals();
-  tcoords = pd->GetActiveTCoords();
-  tensors = pd->GetActiveTensors();
-  field = pd->GetFieldData();
+  scalars = pd->GetScalars();
+  vectors = pd->GetVectors();
+  normals = pd->GetNormals();
+  tcoords = pd->GetTCoords();
+  tensors = pd->GetTensors();
+  field = pd;
 
   if ( numPts <= 0 || !(scalars || vectors || normals || tcoords || 
 			tensors || field))

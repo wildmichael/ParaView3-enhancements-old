@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMCubesWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-19 18:16:47 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2001-11-02 16:42:46 $
+  Version:   $Revision: 1.24 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -88,7 +88,7 @@ void vtkMCubesWriter::WriteData()
     return;
     }
 
-  normals = input->GetPointData()->GetActiveNormals();
+  normals = input->GetPointData()->GetNormals();
   if (normals == NULL )
     {
     vtkErrorMacro(<<"No normals to write!: use vtkPolyDataNormals to generate them");

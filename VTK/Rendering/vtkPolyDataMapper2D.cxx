@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-10-21 14:06:47 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2001-11-02 16:43:20 $
+  Version:   $Revision: 1.31 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -48,7 +48,6 @@ vtkPolyDataMapper2D::vtkPolyDataMapper2D()
 {
   this->Input = NULL;
   this->Colors = NULL;
-  this->Scalars = NULL;
 
   this->LookupTable = NULL;
 
@@ -173,31 +172,6 @@ vtkUnsignedCharArray *vtkPolyDataMapper2D::MapScalars(float alpha)
     }
 
   return this->Colors;
-}
-
-// a side effect of this is that this->Colors is also set
-// to the return value
-vtkScalars *vtkPolyDataMapper2D::GetColors()
-{
-  VTK_LEGACY_METHOD("GetColors", "4.0");
-  vtkUnsignedCharArray *scalars = this->MapScalars(1.0);
-
-  if ( scalars == NULL )
-    {
-    return NULL;
-    }
-
-  if ( this->Scalars == NULL )
-    {
-    this->Scalars = vtkScalars::New();
-    }
-  int numScalars = scalars->GetNumberOfTuples();
-  this->Scalars->SetNumberOfScalars(numScalars);
-  this->Scalars->SetNumberOfComponents(4);
-  this->Scalars->SetData(scalars);
-  this->Scalars->InitColorTraversal(1.0,this->LookupTable,this->ColorMode);
-  
-  return this->Scalars;
 }
 
 void vtkPolyDataMapper2D::ColorByArrayComponent(int arrayNum, int component)

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-24 14:21:26 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 2001-11-02 16:41:41 $
+  Version:   $Revision: 1.46 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -213,7 +213,7 @@ void vtkClipPolyData::Execute()
     }
   else //using input scalars
     {
-    clipScalars = inPD->GetActiveScalars();
+    clipScalars = inPD->GetScalars();
     if ( !clipScalars )
       {
       vtkErrorMacro(<<"Cannot clip without clip function or input scalars");

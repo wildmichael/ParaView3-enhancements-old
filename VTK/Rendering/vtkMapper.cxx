@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-10-31 16:36:16 $
-  Version:   $Revision: 1.91 $
+  Date:      $Date: 2001-11-02 16:43:15 $
+  Version:   $Revision: 1.92 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -55,7 +55,6 @@ static float vtkMapperGlobalResolveCoincidentTopologyPolygonOffsetUnits = 1.0;
 vtkMapper::vtkMapper()
 {
   this->Colors = NULL;
-  this->Scalars = NULL;
 
   this->LookupTable = NULL;
 
@@ -227,32 +226,6 @@ void vtkMapper::ShallowCopy(vtkAbstractMapper *mapper)
   // Now do superclass
   this->vtkAbstractMapper3D::ShallowCopy(mapper);
 
-}
-
-vtkScalars *vtkMapper::GetColors()
-{
-  VTK_LEGACY_METHOD("GetColors", "4.0");
-  vtkUnsignedCharArray *scalars = this->MapScalars(1.0);
-
-  if ( scalars == NULL )
-    {
-    return NULL;
-    }
-
-  if ( this->Scalars == NULL )
-    {
-    this->Scalars = vtkScalars::New();
-    // Consistent Register and UnRegisters.
-    this->Scalars->Register(this);
-    this->Delete();
-    }
-  int numScalars = scalars->GetNumberOfTuples();
-  this->Scalars->SetNumberOfScalars(numScalars);
-  this->Scalars->SetNumberOfComponents(4);
-  this->Scalars->SetData(scalars);
-  this->Scalars->InitColorTraversal(1.0,this->LookupTable,this->ColorMode);
-  
-  return this->Scalars;
 }
 
 // a side effect of this is that this->Colors is also set

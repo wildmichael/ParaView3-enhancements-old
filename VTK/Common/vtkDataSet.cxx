@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSet.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-14 17:27:59 $
-  Version:   $Revision: 1.82 $
+  Date:      $Date: 2001-11-02 16:41:03 $
+  Version:   $Revision: 1.83 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -116,25 +116,25 @@ void vtkDataSet::ComputeBounds()
 //----------------------------------------------------------------------------
 void vtkDataSet::GetScalarRange(float range[2])
 {
-  vtkScalars *ptScalars, *cellScalars;
+  vtkDataArray *ptScalars, *cellScalars;
   ptScalars = this->PointData->GetScalars();
   cellScalars = this->CellData->GetScalars();
   
   if ( ptScalars && cellScalars)
     {
     float r1[2], r2[2];
-    ptScalars->GetRange(r1);
-    cellScalars->GetRange(r2);
+    ptScalars->GetRange(r1,0);
+    cellScalars->GetRange(r2,0);
     range[0] = (r1[0] < r2[0] ? r1[0] : r2[0]);
     range[1] = (r1[1] > r2[1] ? r1[1] : r2[1]);
     }
   else if ( ptScalars )
     {
-    ptScalars->GetRange(range);
+    ptScalars->GetRange(range,0);
     }
   else if ( cellScalars )
     {
-    cellScalars->GetRange(range);
+    cellScalars->GetRange(range,0);
     }
   else
     {

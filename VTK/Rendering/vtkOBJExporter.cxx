@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOBJExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-28 18:49:49 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2001-11-02 16:43:16 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -43,6 +43,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkGeometryFilter.h"
 #include "vtkAssemblyNode.h"
 #include "vtkObjectFactory.h"
+#include "vtkFloatArray.h"
 
 //-------------------------------------------------------------------------
 vtkOBJExporter* vtkOBJExporter::New()
@@ -149,8 +150,8 @@ void vtkOBJExporter::WriteAnActor(vtkActor *anActor, FILE *fpObj, FILE *fpMtl,
   vtkGeometryFilter *gf = NULL;
   vtkPointData *pntData;
   vtkPoints *points = NULL;
-  vtkNormals *normals = NULL;
-  vtkTCoords *tcoords = NULL;
+  vtkDataArray *normals = NULL;
+  vtkDataArray *tcoords = NULL;
   int i, i1, i2, idNext;
   vtkProperty *prop;
   float *tempf, *p;
@@ -212,11 +213,12 @@ void vtkOBJExporter::WriteAnActor(vtkActor *anActor, FILE *fpObj, FILE *fpMtl,
   pntData = pd->GetPointData();
   if (pntData->GetNormals())
     {
-    normals = vtkNormals::New();
+    normals = vtkFloatArray::New();
+    normals->SetNumberOfComponents(3);
     trans->TransformNormals(pntData->GetNormals(),normals);
-    for (i = 0; i < normals->GetNumberOfNormals(); i++)
+    for (i = 0; i < normals->GetNumberOfTuples(); i++)
       {
-      p = normals->GetNormal(i);
+      p = normals->GetTuple(i);
       fprintf (fpObj, "vn %g %g %g\n", p[0], p[1], p[2]);
       }
     }
@@ -224,9 +226,9 @@ void vtkOBJExporter::WriteAnActor(vtkActor *anActor, FILE *fpObj, FILE *fpMtl,
   tcoords = pntData->GetTCoords();
   if (tcoords)
     {
-    for (i = 0; i < tcoords->GetNumberOfTCoords(); i++)
+    for (i = 0; i < tcoords->GetNumberOfTuples(); i++)
       {
-      p = tcoords->GetTCoord(i);
+      p = tcoords->GetTuple(i);
       fprintf (fpObj, "vt %g %g\n", p[0], p[1]);
       }
     }

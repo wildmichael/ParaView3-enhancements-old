@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitDataSet.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-12 16:08:58 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2001-11-02 16:41:32 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -107,7 +107,7 @@ float vtkImplicitDataSet::EvaluateFunction(float x[3])
 
   // See if a dataset has been specified
   if ( !this->DataSet || 
-       !(scalars = this->DataSet->GetPointData()->GetActiveScalars()) )
+       !(scalars = this->DataSet->GetPointData()->GetScalars()) )
     {
     vtkErrorMacro(<<"Can't evaluate dataset!");
     return this->OutValue;
@@ -169,7 +169,7 @@ void vtkImplicitDataSet::EvaluateGradient(float x[3], float n[3])
 
   // See if a dataset has been specified
   if ( !this->DataSet || 
-       !(scalars = this->DataSet->GetPointData()->GetActiveScalars()) )
+       !(scalars = this->DataSet->GetPointData()->GetScalars()) )
     {
     vtkErrorMacro(<<"Can't evaluate gradient!");
     for ( i=0; i < 3; i++ )

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageGradient.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-10-10 18:36:26 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2001-11-02 16:42:50 $
+  Version:   $Revision: 1.34 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -257,7 +257,7 @@ void vtkImageGradient::ThreadedExecute(vtkImageData *inData,
 
   if (!id)
     {
-    outData->GetPointData()->GetActiveScalars()->SetName("Gradient");
+    outData->GetPointData()->GetScalars()->SetName("Gradient");
     }
 
   // this filter expects that input is the same type as output.

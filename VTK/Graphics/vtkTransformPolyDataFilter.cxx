@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransformPolyDataFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-13 14:35:11 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2001-11-02 16:42:20 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -91,10 +91,10 @@ void vtkTransformPolyDataFilter::Execute()
     }
 
   inPts = input->GetPoints();
-  inVectors = pd->GetActiveVectors();
-  inNormals = pd->GetActiveNormals();
-  inCellVectors = cd->GetActiveVectors();
-  inCellNormals = cd->GetActiveNormals();
+  inVectors = pd->GetVectors();
+  inNormals = pd->GetNormals();
+  inCellVectors = cd->GetVectors();
+  inCellNormals = cd->GetNormals();
 
   if ( !inPts )
     {

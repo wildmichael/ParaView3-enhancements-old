@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInterpolateDataSetAttributes.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-28 13:33:50 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2001-11-02 16:41:53 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -192,10 +192,10 @@ void vtkInterpolateDataSetAttributes::Execute()
     outputPD->CopyTensorsOn();
     }
   // *TODO* Fix
-  if ( inputPD->GetFieldData() && input2PD->GetFieldData() )
-    {
-    // outputPD->CopyFieldDataOn();
-    }
+  // if ( inputPD->GetFieldData() && input2PD->GetFieldData() )
+  //{
+  // outputPD->CopyFieldDataOn();
+  //}
   outputPD->InterpolateAllocate(inputPD);
 
   outputCD->CopyAllOff();
@@ -220,10 +220,10 @@ void vtkInterpolateDataSetAttributes::Execute()
     outputCD->CopyTensorsOn();
     }
   // *TODO* Fix
-  if ( inputCD->GetFieldData() && input2CD->GetFieldData() )
-    {
-    // outputCD->CopyFieldDataOn();
-    }
+  //if ( inputCD->GetFieldData() && input2CD->GetFieldData() )
+  //{
+  // outputCD->CopyFieldDataOn();
+  //  }
   outputCD->InterpolateAllocate(inputCD);
 
  

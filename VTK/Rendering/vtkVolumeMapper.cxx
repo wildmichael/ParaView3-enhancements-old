@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-24 17:02:36 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2001-11-02 16:43:25 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -119,7 +119,7 @@ vtkImageData *vtkVolumeMapper::GetInput()
 void vtkVolumeMapper::SetRGBTextureInput( vtkImageData *rgbTexture )
 {
   vtkPointData    *pd;
-  vtkScalars      *scalars;
+  vtkDataArray    *scalars;
 
   if ( rgbTexture )
     {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGrid.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:36:23 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 2001-11-02 16:41:17 $
+  Version:   $Revision: 1.52 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -49,7 +49,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // To define a vtkRectilinearGrid, you must specify the dimensions of the
 // data and provide three arrays of values specifying the coordinates 
 // along the x-y-z axes. The coordinate arrays are specified using three 
-// vtkScalars objects (one for x, one for y, one for z).
+// vtkDataArray objects (one for x, one for y, one for z).
 
 // .SECTION Caveats
 // Make sure that the dimensions of the grid match the number of coordinates

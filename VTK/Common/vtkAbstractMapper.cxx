@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-10-30 21:48:45 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2001-11-02 16:40:59 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -140,19 +140,19 @@ vtkDataArray *vtkAbstractMapper::GetScalars(vtkDataSet *input,
   // get and scalar data according to scalar mode
   if ( scalarMode == VTK_SCALAR_MODE_DEFAULT )
     {
-    scalars = input->GetPointData()->GetActiveScalars();
+    scalars = input->GetPointData()->GetScalars();
     if (!scalars)
       {
-      scalars = input->GetCellData()->GetActiveScalars();
+      scalars = input->GetCellData()->GetScalars();
       }
     }
   else if ( scalarMode == VTK_SCALAR_MODE_USE_POINT_DATA )
     {
-    scalars = input->GetPointData()->GetActiveScalars();
+    scalars = input->GetPointData()->GetScalars();
     }
   else if ( scalarMode == VTK_SCALAR_MODE_USE_CELL_DATA )
     {
-    scalars = input->GetCellData()->GetActiveScalars();
+    scalars = input->GetCellData()->GetScalars();
     }
   else if ( scalarMode == VTK_SCALAR_MODE_USE_POINT_FIELD_DATA )
     {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHyperStreamline.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-18 17:16:40 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 2001-11-02 16:41:53 $
+  Version:   $Revision: 1.47 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -417,14 +417,14 @@ void vtkHyperStreamline::Execute()
   vtkDebugMacro(<<"Generating hyperstreamline(s)");
   this->NumberOfStreamers = 0;
 
-  if ( ! (inTensors=pd->GetActiveTensors()) )
+  if ( ! (inTensors=pd->GetTensors()) )
     {
     vtkErrorMacro(<<"No tensor data defined!");
     return;
     }
 
 
-  inScalars = pd->GetActiveScalars();
+  inScalars = pd->GetScalars();
 
   cellTensors = vtkDataArray::CreateDataArray(inTensors->GetDataType());
   cellScalars = vtkDataArray::CreateDataArray(inScalars->GetDataType());

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSubPixelPositionEdgels.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-27 18:35:38 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2001-11-02 16:42:11 $
+  Version:   $Revision: 1.36 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -97,9 +97,9 @@ void vtkSubPixelPositionEdgels::Execute()
   dimensions = this->GetGradMaps()->GetDimensions();
   spacing = this->GetGradMaps()->GetSpacing();
   origin = this->GetGradMaps()->GetOrigin();
-  MapData = ((vtkFloatArray *)(this->GetGradMaps()->GetPointData())
-	     ->GetScalars()->GetData())->GetPointer(0);
-  inVectors = this->GetGradMaps()->GetPointData()->GetActiveVectors();
+  MapData = static_cast<vtkFloatArray *>(this->GetGradMaps()->GetPointData()
+	     ->GetScalars())->GetPointer(0);
+  inVectors = this->GetGradMaps()->GetPointData()->GetVectors();
 
   //
   // Loop over all points, adjusting locations

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTensorGlyph.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-02 16:19:42 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 2001-11-02 16:42:13 $
+  Version:   $Revision: 1.44 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -114,8 +114,8 @@ void vtkTensorGlyph::Execute()
 
   pd = input->GetPointData();
   outPD = output->GetPointData();
-  inTensors = pd->GetActiveTensors();
-  inScalars = pd->GetActiveScalars();
+  inTensors = pd->GetTensors();
+  inScalars = pd->GetScalars();
   numPts = input->GetNumberOfPoints();
 
   if ( !inTensors || numPts < 1 )
@@ -176,7 +176,7 @@ void vtkTensorGlyph::Execute()
     outPD->CopyScalarsOn();
     outPD->CopyAllocate(pd,numPts*numSourcePts);
     }
-  if ( (sourceNormals = pd->GetActiveNormals()) )
+  if ( (sourceNormals = pd->GetNormals()) )
     {
     newNormals = vtkFloatArray::New();
     newNormals->SetNumberOfComponents(3);

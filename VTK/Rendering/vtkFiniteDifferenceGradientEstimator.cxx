@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFiniteDifferenceGradientEstimator.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-29 15:04:57 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2001-11-02 16:43:12 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -361,7 +361,7 @@ static VTK_THREAD_RETURN_TYPE vtkSwitchOnDataType( void *arg )
   thread_count = ((ThreadInfoStruct *)(arg))->NumberOfThreads;
   estimator = (vtkFiniteDifferenceGradientEstimator *)
     (((ThreadInfoStruct *)(arg))->UserData);
-  scalars = estimator->Input->GetPointData()->GetActiveScalars();
+  scalars = estimator->Input->GetPointData()->GetScalars();
 
   if (scalars == NULL)
     {

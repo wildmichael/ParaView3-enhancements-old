@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingSquares.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-12 20:19:41 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 2001-11-02 16:43:07 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -328,7 +328,7 @@ void vtkMarchingSquares::Execute()
     vtkErrorMacro(<<"PointData is NULL");
     return;
     }
-  inScalars=pd->GetActiveScalars();
+  inScalars=pd->GetScalars();
   if ( inScalars == NULL )
     {
     vtkErrorMacro(<<"Scalars must be defined for contouring");

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPOPReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-10-31 16:36:13 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-11-02 16:42:59 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -311,7 +311,7 @@ void vtkPOPReader::Execute()
       image = wrap->GetOutput();
       image->SetUpdateExtent(ext);
       image->Update();
-      array = image->GetPointData()->GetScalars()->GetData();
+      array = image->GetPointData()->GetScalars();
       array->SetName(this->ArrayNames[i]);
       
       output->GetPointData()->AddArray(array);
@@ -923,7 +923,7 @@ void vtkPOPReader::ReadFlow()
   uImage->Delete();
   vImage->Delete();
 
-  array = fImage->GetPointData()->GetScalars()->GetData();
+  array = fImage->GetPointData()->GetScalars();
   array->SetName("Flow");
       
   output->GetPointData()->AddArray(array);

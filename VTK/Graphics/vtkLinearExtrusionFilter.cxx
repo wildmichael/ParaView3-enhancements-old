@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinearExtrusionFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 14:11:19 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 2001-11-02 16:41:54 $
+  Version:   $Revision: 1.50 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -155,10 +155,10 @@ void vtkLinearExtrusionFilter::Execute()
     this->ExtrudePoint = &vtkLinearExtrusionFilter::ViaPoint;
     }
   else if ( this->ExtrusionType == VTK_NORMAL_EXTRUSION  &&
-	    (inNormals = pd->GetActiveNormals()) != NULL )
+	    (inNormals = pd->GetNormals()) != NULL )
     {
     this->ExtrudePoint = &vtkLinearExtrusionFilter::ViaNormal;
-    inNormals = pd->GetActiveNormals();
+    inNormals = pd->GetNormals();
     }
   else // VTK_VECTOR_EXTRUSION
     {

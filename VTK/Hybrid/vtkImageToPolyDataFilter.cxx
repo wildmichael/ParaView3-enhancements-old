@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToPolyDataFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-12 16:09:31 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2001-11-02 16:42:39 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -81,7 +81,7 @@ void vtkImageToPolyDataFilter::Execute()
   vtkPolyData *tmpInput=vtkPolyData::New();
   vtkAppendPolyData *append = vtkAppendPolyData::New();
   vtkPolyData *appendOutput;
-  vtkDataArray *inScalars = input->GetPointData()->GetActiveScalars();
+  vtkDataArray *inScalars = input->GetPointData()->GetScalars();
   vtkIdType numPixels=input->GetNumberOfPoints();
   int dims[3], numComp=inScalars->GetNumberOfComponents();
   float origin[3], spacing[3];

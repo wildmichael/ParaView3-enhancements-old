@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-12 16:09:54 $
-  Version:   $Revision: 1.73 $
+  Date:      $Date: 2001-11-02 16:43:07 $
+  Version:   $Revision: 1.74 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -440,7 +440,7 @@ void vtkMarchingCubes::Execute()
     vtkErrorMacro(<<"PointData is NULL");
     return;
     }
-  inScalars=pd->GetActiveScalars();
+  inScalars=pd->GetScalars();
   if ( inScalars == NULL )
     {
     vtkErrorMacro(<<"Scalars must be defined for contouring");

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRIBExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-28 20:31:33 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2001-11-02 16:42:40 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -707,7 +707,7 @@ void vtkRIBExporter::WritePolygons (vtkPolyData *polyData,
   p = polyData->GetPoints();
   polys = polyData->GetPolys();
 
-  t = polyData->GetPointData()->GetActiveTCoords();
+  t = polyData->GetPointData()->GetTCoords();
   if ( t ) 
     {
     tDim = t->GetNumberOfComponents();
@@ -719,7 +719,7 @@ void vtkRIBExporter::WritePolygons (vtkPolyData *polyData,
     }
 
   if ( interpolation == VTK_FLAT || !(polyData->GetPointData()) || 
-       !(n=polyData->GetPointData()->GetActiveNormals()) )
+       !(n=polyData->GetPointData()->GetNormals()) )
     {
     n = 0;
     }
@@ -855,7 +855,7 @@ void vtkRIBExporter::WriteStrips (vtkPolyData *polyData,
   strips = polyData->GetStrips();
   polygon = vtkPolygon::New();
   
-  t = polyData->GetPointData()->GetActiveTCoords();
+  t = polyData->GetPointData()->GetTCoords();
   if ( t ) 
     {
     tDim = t->GetNumberOfComponents();
@@ -867,7 +867,7 @@ void vtkRIBExporter::WriteStrips (vtkPolyData *polyData,
     }
 
   if ( interpolation == VTK_FLAT || !(polyData->GetPointData()) || 
-       !(n=polyData->GetPointData()->GetActiveNormals()) )
+       !(n=polyData->GetPointData()->GetNormals()) )
     {
     n = 0;
     }
@@ -1013,8 +1013,8 @@ void vtkRIBExporter::PrintSelf(ostream& os, vtkIndent indent)
 
 void vtkRIBExporter::WriteTexture (vtkTexture *aTexture)
 {
-  vtkScalars *scalars;
-  vtkScalars *mappedScalars;
+  vtkDataArray *scalars;
+  vtkDataArray *mappedScalars;
   int *size;
   int xsize, ysize;
   unsigned short xs,ys;
@@ -1040,7 +1040,7 @@ void vtkRIBExporter::WriteTexture (vtkTexture *aTexture)
     }
   aTexture->GetInput()->Update();
   size = aTexture->GetInput()->GetDimensions();
-  scalars = (aTexture->GetInput()->GetPointData())->GetScalars();
+  scalars = aTexture->GetInput()->GetPointData()->GetScalars();
 
   // make sure scalars are non null
   if (!scalars) 

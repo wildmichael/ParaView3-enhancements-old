@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractVectorComponents.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-17 19:35:16 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2001-11-02 16:41:48 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -219,8 +219,8 @@ void vtkExtractVectorComponents::Execute()
     outVzc = this->GetVzComponent()->GetCellData();  
     }
 
-  vectors = pd->GetActiveVectors();
-  vectorsc = cd->GetActiveVectors();
+  vectors = pd->GetVectors();
+  vectorsc = cd->GetVectors();
   if ( (vectors == NULL ||
 	((numVectors = vectors->GetNumberOfTuples()) < 1) ) && 
        (vectorsc == NULL ||

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInterpolatedVelocityField.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:11 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2001-11-02 16:41:09 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -121,7 +121,7 @@ void vtkInterpolatedVelocityField::PrintSelf(ostream& os, vtkIndent indent)
 int vtkInterpolatedVelocityField::FunctionValues(float* x, float* f)
 {
   int i, j, subId , numPts, id;
-  vtkVectors* vectors;
+  vtkDataArray* vectors;
   float vec[3];
   float dist2;
   int ret;
@@ -193,7 +193,7 @@ int vtkInterpolatedVelocityField::FunctionValues(float* x, float* f)
     for (j=0; j < numPts; j++)
       {
       id = this->GenCell->PointIds->GetId(j);
-      vectors->GetVector(id, vec);
+      vectors->GetTuple(id, vec);
       for (i=0; i < 3; i++)
 	{
 	f[i] +=  vec[i] * this->Weights[j];

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataMapper2D.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-21 14:06:47 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2001-11-02 16:43:20 $
+  Version:   $Revision: 1.31 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -190,20 +190,12 @@ public:
   // Make a shallow copy of this mapper.
   void ShallowCopy(vtkAbstractMapper *m);
 
-  // Description:
-  // Calculate and return the colors for the input. After invoking this
-  // method, use GetColor() on the scalar to get the scalar values. This
-  // method may return NULL if no color information is available. (This
-  // method is obsolete; use MapScalars() instead.)
-  vtkScalars *GetColors();
-
 protected:
   vtkPolyDataMapper2D();
   ~vtkPolyDataMapper2D();
 
   vtkPolyData* Input;
 
-  vtkScalars *Scalars;
   vtkUnsignedCharArray *Colors;
 
   vtkScalarsToColors *LookupTable;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalarsToColors.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-10-05 17:55:27 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2001-11-02 16:41:18 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -41,7 +41,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 =========================================================================*/
 #include <math.h>
 #include "vtkScalarsToColors.h"
-#include "vtkScalars.h"
 
 
 // do not use SetMacro() because we do not the table to rebuild.
@@ -82,7 +81,7 @@ vtkUnsignedCharArray *vtkScalarsToColors::MapScalars(vtkDataArray *scalars,
 }
 
 // Map a set of scalar values through the table
-void vtkScalarsToColors::MapScalarsThroughTable(vtkScalars *scalars, 
+void vtkScalarsToColors::MapScalarsThroughTable(vtkDataArray *scalars, 
                                                 unsigned char *output,
                                                 int outputFormat)
 {
@@ -99,11 +98,11 @@ void vtkScalarsToColors::MapScalarsThroughTable(vtkScalars *scalars,
     }
 
   this->MapScalarsThroughTable2(scalars->GetVoidPointer(0),
-                                output,
-                                scalars->GetDataType(),
-                                scalars->GetNumberOfScalars(),
-                                scalars->GetNumberOfComponents(),
-                                outputFormat);
+				output,
+				scalars->GetDataType(),
+				scalars->GetNumberOfTuples(),
+				scalars->GetNumberOfComponents(),
+				outputFormat);
 }
 
 vtkUnsignedCharArray *vtkScalarsToColors::ConvertUnsignedCharToRGBA(

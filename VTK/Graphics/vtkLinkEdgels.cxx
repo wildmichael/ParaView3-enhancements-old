@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinkEdgels.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-26 15:02:52 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2001-11-02 16:41:55 $
+  Version:   $Revision: 1.28 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -90,8 +90,8 @@ void vtkLinkEdgels::Execute()
 
   pd = input->GetPointData();
   dimensions = input->GetDimensions();
-  inScalars = vtkFloatArray::SafeDownCast(pd->GetActiveScalars());
-  inVectors = pd->GetActiveVectors();
+  inScalars = vtkFloatArray::SafeDownCast(pd->GetScalars());
+  inVectors = pd->GetVectors();
   if ((input->GetNumberOfPoints()) < 2 || inScalars == NULL)
     {
     vtkErrorMacro(<<"No data to transform (or wrong data type)!");

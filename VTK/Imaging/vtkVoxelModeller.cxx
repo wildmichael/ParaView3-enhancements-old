@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoxelModeller.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:01:27 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 2001-11-02 16:42:56 $
+  Version:   $Revision: 1.46 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -326,7 +326,7 @@ void vtkVoxelModeller::Write(char *fname)
   // update the data
   this->Update();
   
-  newScalars = output->GetPointData()->GetActiveScalars();
+  newScalars = output->GetPointData()->GetScalars();
 
   output->SetDimensions(this->GetSampleDimensions());
   this->ComputeModelBounds(origin,spacing);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTetra.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:36:26 $
-  Version:   $Revision: 1.65 $
+  Date:      $Date: 2001-11-02 16:41:22 $
+  Version:   $Revision: 1.66 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -77,32 +77,11 @@ public:
                vtkCellArray *lines, vtkCellArray *polys,
                vtkPointData *inPd, vtkPointData *outPd,
                vtkCellData *inCd, vtkIdType cellId, vtkCellData *outCd);
-  virtual void Contour(float value, vtkScalars *cellScalars, 
-                       vtkPointLocator *locator, vtkCellArray *verts, 
-                       vtkCellArray *lines, vtkCellArray *polys, 
-                       vtkPointData *inPd, vtkPointData *outPd,
-                       vtkCellData *inCd, vtkIdType cellId,
-                       vtkCellData *outCd)
-    {
-      VTK_LEGACY_METHOD("Contour", "4.0");
-      this->Contour(value, cellScalars->GetData(), locator, verts, 
-		    lines, polys, inPd, outPd, inCd, cellId, outCd);
-    }
   void Clip(float value, vtkDataArray *cellScalars, 
             vtkPointLocator *locator, vtkCellArray *connectivity,
             vtkPointData *inPd, vtkPointData *outPd,
             vtkCellData *inCd, vtkIdType cellId, vtkCellData *outCd, 
             int insideOut);
-  virtual void Clip(float value, vtkScalars *cellScalars, 
-                    vtkPointLocator *locator, vtkCellArray *connectivity,
-                    vtkPointData *inPd, vtkPointData *outPd,
-                    vtkCellData *inCd, vtkIdType cellId, vtkCellData *outCd, 
-                    int insideOut)
-    {
-      VTK_LEGACY_METHOD("Clip", "4.0");
-      this->Clip(value, cellScalars->GetData(), locator, connectivity, 
-		 inPd, outPd, inCd, cellId, outCd, insideOut);
-    }
   int EvaluatePosition(float x[3], float* closestPoint,
                        int& subId, float pcoords[3],
                        float& dist2, float *weights);

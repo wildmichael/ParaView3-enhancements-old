@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMPICommunicator.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:59 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2001-11-02 16:42:58 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -104,8 +104,10 @@ public:
 		   int tag);
   virtual int Send(double* data, int length, int remoteProcessId, 
 		   int tag);
+#ifdef VTK_USE_64BIT_IDS
   virtual int Send(vtkIdType* data, int length, int remoteProcessId, 
 		   int tag);
+#endif
   virtual int Send(vtkDataObject* data, int remoteProcessId, int tag)
     { return this->vtkCommunicator::Send(data, remoteProcessId, tag); }
   virtual int Send(vtkDataArray* data, int remoteProcessId, int tag)
@@ -154,8 +156,10 @@ public:
 		      int tag);
   virtual int Receive(double* data, int length, int remoteProcessId, 
 		      int tag);
+#ifdef VTK_USE_64BIT_IDS
   virtual int Receive(vtkIdType* data, int length, int remoteProcessId, 
 		      int tag);
+#endif
   virtual int Receive(vtkDataObject* data, int remoteProcessId, int tag)
     { return this->vtkCommunicator::Receive(data, remoteProcessId, tag); }
   virtual int Receive(vtkDataArray* data, int remoteProcessId, int tag)

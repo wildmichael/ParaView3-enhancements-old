@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingContourFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-12 16:09:54 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2001-11-02 16:43:06 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -149,7 +149,7 @@ void vtkMarchingContourFilter::Execute()
     }
 
   numCells = input->GetNumberOfCells();
-  inScalars = input->GetPointData()->GetActiveScalars();
+  inScalars = input->GetPointData()->GetScalars();
   if ( ! inScalars || numCells < 1 )
     {
     vtkErrorMacro(<<"No data to contour");

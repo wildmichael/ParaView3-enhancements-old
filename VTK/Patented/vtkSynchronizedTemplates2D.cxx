@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSynchronizedTemplates2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-10-31 16:36:16 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2001-11-02 16:43:10 $
+  Version:   $Revision: 1.16 $
 
 
 
@@ -416,7 +416,7 @@ void vtkSynchronizedTemplates2D::Execute()
   vtkPointData  *pd = input->GetPointData();
   vtkPoints     *newPts;
   vtkCellArray  *newLines;
-  vtkDataArray  *inScalars = pd->GetActiveScalars();
+  vtkDataArray  *inScalars = pd->GetScalars();
   vtkDataArray  *newScalars = NULL;
   vtkPolyData   *output = this->GetOutput();
   int           *ext = input->GetUpdateExtent();

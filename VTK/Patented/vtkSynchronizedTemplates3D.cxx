@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSynchronizedTemplates3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-12 20:19:42 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 2001-11-02 16:43:10 $
+  Version:   $Revision: 1.48 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -286,9 +286,9 @@ static void ContourImage(vtkSynchronizedTemplates3D *self, int *exExt,
 
   newPts = output->GetPoints();
   newPolys = output->GetPolys();
-  newScalars = output->GetPointData()->GetActiveScalars();
-  newNormals = output->GetPointData()->GetActiveNormals();
-  newGradients = output->GetPointData()->GetActiveVectors();  
+  newScalars = output->GetPointData()->GetScalars();
+  newNormals = output->GetPointData()->GetNormals();
+  newGradients = output->GetPointData()->GetVectors();  
   
   // this is an exploded execute extent.
   xMin = exExt[0];

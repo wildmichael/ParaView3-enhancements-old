@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkArcPlotter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-13 14:36:21 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2001-11-02 16:42:38 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -266,45 +266,44 @@ int vtkArcPlotter::ProcessComponents(vtkIdType numPts, vtkPointData *pd)
   vtkIdType i;
   int j;
   float *range;
-  vtkFieldData *fd = pd->GetFieldData();
   
   this->Data = NULL;
   switch (this->PlotMode)
     {
     case VTK_PLOT_SCALARS:
-      if ( pd->GetActiveScalars() )
+      if ( pd->GetScalars() )
         {
-        this->Data = pd->GetActiveScalars();
+        this->Data = pd->GetScalars();
         }
       break;
     case VTK_PLOT_VECTORS:   
-      if ( pd->GetActiveVectors() )
+      if ( pd->GetVectors() )
         {
-        this->Data = pd->GetActiveVectors();
+        this->Data = pd->GetVectors();
         }
       break;
     case VTK_PLOT_NORMALS:    
-      if ( pd->GetActiveNormals() )
+      if ( pd->GetNormals() )
         {
-        this->Data = pd->GetActiveNormals();
+        this->Data = pd->GetNormals();
         }
       break;
     case VTK_PLOT_TCOORDS:    
-      if ( pd->GetActiveTCoords() )
+      if ( pd->GetTCoords() )
         {
-        this->Data = pd->GetActiveTCoords();
+        this->Data = pd->GetTCoords();
         }
       break;
     case VTK_PLOT_TENSORS:    
-      if ( pd->GetActiveTensors() )
+      if ( pd->GetTensors() )
         {
-        this->Data = pd->GetActiveTensors();
+        this->Data = pd->GetTensors();
         }
       break;
     case VTK_PLOT_FIELD_DATA:
-      int arrayNum = (this->FieldDataArray < fd->GetNumberOfArrays() ?
-		      this->FieldDataArray : fd->GetNumberOfArrays() - 1);
-      this->Data = pd->GetFieldData()->GetArray(arrayNum);
+      int arrayNum = (this->FieldDataArray < pd->GetNumberOfArrays() ?
+		      this->FieldDataArray : pd->GetNumberOfArrays() - 1);
+      this->Data = pd->GetArray(arrayNum);
       break;
     }
 

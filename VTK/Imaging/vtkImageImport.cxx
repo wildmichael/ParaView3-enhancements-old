@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageImport.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-10-18 12:44:49 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2001-11-02 16:42:50 $
+  Version:   $Revision: 1.35 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -247,7 +247,7 @@ void vtkImageImport::ExecuteData(vtkDataObject *output)
     this->NumberOfScalarComponents;    
 
   data->SetExtent(this->DataExtent);
-  data->GetPointData()->GetScalars()->GetData()->SetVoidArray(ptr,size,1);
+  data->GetPointData()->GetScalars()->SetVoidArray(ptr,size,1);
 }
 
 //----------------------------------------------------------------------------

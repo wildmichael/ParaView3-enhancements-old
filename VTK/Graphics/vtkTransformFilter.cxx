@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransformFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-13 14:35:11 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2001-11-02 16:42:19 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -95,10 +95,10 @@ void vtkTransformFilter::Execute()
     }
 
   inPts = input->GetPoints();
-  inVectors = pd->GetActiveVectors();
-  inNormals = pd->GetActiveNormals();
-  inCellVectors = cd->GetActiveVectors();
-  inCellNormals = cd->GetActiveNormals();
+  inVectors = pd->GetVectors();
+  inNormals = pd->GetNormals();
+  inCellVectors = cd->GetVectors();
+  inCellNormals = cd->GetNormals();
 
   if ( !inPts )
     {

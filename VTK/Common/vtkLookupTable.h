@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLookupTable.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:36:16 $
-  Version:   $Revision: 1.59 $
+  Date:      $Date: 2001-11-02 16:41:11 $
+  Version:   $Revision: 1.60 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -54,8 +54,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define __vtkLookupTable_h
 
 #include "vtkScalarsToColors.h"
-
-class vtkScalars;
 
 #define VTK_RAMP_LINEAR 0
 #define VTK_RAMP_SCURVE 1

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPLOT3DReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-10-31 16:36:10 $
-  Version:   $Revision: 1.60 $
+  Date:      $Date: 2001-11-02 16:42:47 $
+  Version:   $Revision: 1.61 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1073,17 +1073,17 @@ void vtkPLOT3DReader::ComputeSwirl(vtkPointData *outputPD)
   swirl = vtkFloatArray::New();
   swirl->SetNumberOfTuples(this->NumberOfPoints);
 
-  currentVector = outputPD->GetActiveVectors();
+  currentVector = outputPD->GetVectors();
   if (currentVector)
     {
     currentVector->Register(this);
     }
 
   this->ComputeVorticity(outputPD);
-  vorticity = outputPD->GetActiveVectors();
-
-  //  Compute the swirl
-  //
+  vorticity = outputPD->GetVectors();
+//
+//  Compute the swirl
+//
   for (i=0; i < this->NumberOfPoints; i++) 
     {
     d = this->Density->GetComponent(i,0);
@@ -1188,7 +1188,7 @@ void vtkPLOT3DReader::ComputeVorticity(vtkPointData *outputPD)
   vorticity->SetNumberOfTuples(this->NumberOfPoints);
 
   this->ComputeVelocity(outputPD);
-  velocity = outputPD->GetActiveVectors();
+  velocity = outputPD->GetVectors();
 
   this->GetOutput()->GetDimensions(dims);
   ijsize = dims[0]*dims[1];
@@ -1423,13 +1423,13 @@ void vtkPLOT3DReader::ComputePressureGradient(vtkPointData *outputPD)
   gradient->SetNumberOfComponents(3);
   gradient->SetNumberOfTuples(this->NumberOfPoints);
 
-  currentScalar = outputPD->GetActiveScalars();
+  currentScalar = outputPD->GetScalars();
   if (currentScalar)
     {
     currentScalar->Register(this);
     }
   this->ComputePressure(outputPD);
-  pressure = outputPD->GetActiveScalars();
+  pressure = outputPD->GetScalars();
 
   this->GetOutput()->GetDimensions(dims);
   ijsize = dims[0]*dims[1];

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCommunicator.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:58 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2001-11-02 16:42:57 $
+  Version:   $Revision: 1.11 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -95,8 +95,10 @@ public:
 		   int tag) = 0;
   virtual int Send(double* data, int length, int remoteHandle, 
 		   int tag) = 0;
+#ifdef VTK_USE_64BIT_IDS
   virtual int Send(vtkIdType* data, int length, int remoteHandle, 
 		   int tag) = 0;
+#endif
 
 
   // Description:
@@ -123,8 +125,10 @@ public:
 		      int tag) = 0;
   virtual int Receive(double* data, int length, int remoteHandle, 
 		      int tag) = 0;
+#ifdef VTK_USE_64BIT_IDS
   virtual int Receive(vtkIdType* data, int length, int remoteHandle, 
 		      int tag) = 0;
+#endif
 
 protected:
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkReverseSense.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-13 14:35:11 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2001-11-02 16:42:04 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -67,8 +67,8 @@ void vtkReverseSense::Execute()
 {
   vtkPolyData *input= this->GetInput();
   vtkPolyData *output= this->GetOutput();
-  vtkDataArray *normals=input->GetPointData()->GetActiveNormals();
-  vtkDataArray *cellNormals=input->GetCellData()->GetActiveNormals();
+  vtkDataArray *normals=input->GetPointData()->GetNormals();
+  vtkDataArray *cellNormals=input->GetCellData()->GetNormals();
 
   vtkDebugMacro(<<"Reversing sense of poly data");
 

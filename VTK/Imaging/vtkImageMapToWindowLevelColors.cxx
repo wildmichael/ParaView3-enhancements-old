@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMapToWindowLevelColors.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-08 20:33:41 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2001-11-02 16:42:53 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -99,7 +99,7 @@ void vtkImageMapToWindowLevelColors::ExecuteData(vtkDataObject *output)
     {
     if (this->DataWasPassed)
       {
-      outData->GetPointData()->SetScalars((vtkScalars*)NULL);
+      outData->GetPointData()->SetScalars(NULL);
       this->DataWasPassed = 0;
       }
     

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSplitField.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-26 22:12:35 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-11-02 16:42:07 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -259,7 +259,7 @@ void vtkSplitField::Execute()
       vtkErrorMacro("Sanity check failed, returning.");
       return;
       }
-    inputArray = dsa->GetActiveAttribute(this->AttributeType);
+    inputArray = dsa->GetAttribute(this->AttributeType);
     }
 
   if (!inputArray)

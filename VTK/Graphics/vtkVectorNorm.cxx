@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectorNorm.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-13 14:36:03 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2001-11-02 16:42:24 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -82,8 +82,8 @@ void vtkVectorNorm::Execute()
   // First, copy the input to the output as a starting point
   output->CopyStructure( input );
 
-  ptVectors = pd->GetActiveVectors();
-  cellVectors = cd->GetActiveVectors();
+  ptVectors = pd->GetVectors();
+  cellVectors = cd->GetVectors();
   if (!ptVectors || this->AttributeMode == VTK_ATTRIBUTE_MODE_USE_CELL_DATA)
     {
     computePtScalars = 0;

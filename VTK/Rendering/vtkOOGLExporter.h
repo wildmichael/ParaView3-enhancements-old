@@ -3,8 +3,8 @@
    Program:   Visualization Toolkit
    Module:    $RCSfile: vtkOOGLExporter.h,v $
    Language:  C++
-   Date:      $Date: 2001-10-31 16:36:16 $
-   Version:   $Revision: 1.2 $
+   Date:      $Date: 2001-11-02 16:43:17 $
+   Version:   $Revision: 1.3 $
    Thanks:    to Jeremy D. Gill of The J. P. Robarts Research Institute
  
  Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -74,8 +74,6 @@ protected:
   void WriteData();
   void WriteALight(vtkLight *aLight, FILE *fp);
   void WriteAnActor(vtkActor *anActor, FILE *fp, int count);
-  void WritePointData(vtkPoints *points, vtkNormals *normals, 
-                      vtkTCoords *tcoords, vtkScalars *colors, FILE *fp);
   char *FileName;
 
 private:

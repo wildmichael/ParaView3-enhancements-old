@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProbeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-21 15:49:53 $
-  Version:   $Revision: 1.65 $
+  Date:      $Date: 2001-11-02 16:41:58 $
+  Version:   $Revision: 1.66 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -179,7 +179,7 @@ void vtkProbeFilter::Execute()
   if (output->IsA("vtkImageData"))
     {
     vtkImageData *out = (vtkImageData*)output;
-    vtkDataArray *s = outPD->GetActiveScalars();
+    vtkDataArray *s = outPD->GetScalars();
     out->SetScalarType(s->GetDataType());
     out->SetNumberOfScalarComponents(s->GetNumberOfComponents());
     }

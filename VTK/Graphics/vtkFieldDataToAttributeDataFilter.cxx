@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFieldDataToAttributeDataFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-10-31 16:36:09 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2001-11-02 16:41:49 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1096,23 +1096,23 @@ vtkDataArray *vtkFieldDataToAttributeDataFilter::GetFieldArray(vtkFieldData *fd,
       found=1;
       if(!strcmp("PointScalars", name) || !strcmp("CellScalars", name))
 	{
-	da = dsa->GetActiveScalars();
+	da = dsa->GetScalars();
 	}
       else if(!strcmp("PointVectors", name) || !strcmp("CellVectors", name))
 	{
-	da = dsa->GetActiveVectors();
+	da = dsa->GetVectors();
 	}
       else if(!strcmp("PointTensors", name) || !strcmp("CellTensors", name))
 	{
-	da = dsa->GetActiveTensors();
+	da = dsa->GetTensors();
 	}
       else if(!strcmp("PointNormals", name) || !strcmp("CellNormals", name))
 	{
-	da = dsa->GetActiveNormals();
+	da = dsa->GetNormals();
 	}
       else if(!strcmp("PointTCoords", name) || !strcmp("CellTCoords", name))
 	{
-	da = dsa->GetActiveTCoords();
+	da = dsa->GetTCoords();
 	}
       else
 	{

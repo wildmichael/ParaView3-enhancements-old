@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-19 18:16:48 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 2001-11-02 16:42:48 $
+  Version:   $Revision: 1.48 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -105,7 +105,7 @@ void vtkStructuredPointsReader::ExecuteInformation()
   output->vtkDataObject::UpdateData();
   output->SetRequestExactExtent(saveRequestFlag);
   
-  scalars = output->GetPointData()->GetActiveScalars();
+  scalars = output->GetPointData()->GetScalars();
   if (scalars)
     {
     output->SetScalarType(scalars->GetDataType());

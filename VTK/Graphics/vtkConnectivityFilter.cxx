@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkConnectivityFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-29 15:04:57 $
-  Version:   $Revision: 1.59 $
+  Date:      $Date: 2001-11-02 16:41:44 $
+  Version:   $Revision: 1.60 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -116,7 +116,7 @@ void vtkConnectivityFilter::Execute()
 
   // See whether to consider scalar connectivity
   //
-  this->InScalars = input->GetPointData()->GetActiveScalars();
+  this->InScalars = input->GetPointData()->GetScalars();
   if ( !this->ScalarConnectivity ) 
     {
     this->InScalars = NULL;

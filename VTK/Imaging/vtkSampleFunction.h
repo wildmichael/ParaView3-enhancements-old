@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSampleFunction.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:56 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 2001-11-02 16:42:55 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -78,10 +78,6 @@ public:
   // object.  vtkSampleFunction() will allocate space (as necessary)
   // in the scalar object.
   vtkSetObjectMacro(Scalars,vtkDataArray);
-  void SetScalars(vtkScalars* scalars)
-    {
-      this->SetScalars(scalars->GetData());
-    }
 
   // Description:
   // Specify the dimensions of the data on which to sample.

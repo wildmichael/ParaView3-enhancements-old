@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipVolume.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-29 15:04:57 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2001-11-02 16:41:43 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -234,7 +234,7 @@ void vtkClipVolume::Execute()
     }
   else //using input scalars
     {
-    clipScalars = inPD->GetActiveScalars();
+    clipScalars = inPD->GetScalars();
     if ( !clipScalars )
       {
       vtkErrorMacro(<<"Cannot clip without clip function or input scalars");
