@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOOGLExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-30 20:34:38 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2002-12-26 18:20:41 $
+  Version:   $Revision: 1.19 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,6 +18,7 @@
 #include "vtkOOGLExporter.h"
 
 #include "vtkAssemblyNode.h"
+#include "vtkAssemblyPath.h"
 #include "vtkCamera.h"
 #include "vtkCellArray.h"
 #include "vtkGeometryFilter.h"
@@ -26,6 +27,7 @@
 #include "vtkLightCollection.h"
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
+#include "vtkPointData.h"
 #include "vtkPolyData.h"
 #include "vtkPolyDataMapper.h"
 #include "vtkProperty.h"
@@ -37,7 +39,7 @@
 #include "vtkTriangleStrip.h"
 #include "vtkVersion.h"
 
-vtkCxxRevisionMacro(vtkOOGLExporter, "$Revision: 1.18 $");
+vtkCxxRevisionMacro(vtkOOGLExporter, "$Revision: 1.19 $");
 vtkStandardNewMacro(vtkOOGLExporter);
 
 vtkOOGLExporter::vtkOOGLExporter()

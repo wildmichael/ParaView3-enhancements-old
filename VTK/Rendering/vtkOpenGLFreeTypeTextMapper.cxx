@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLFreeTypeTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-22 18:39:30 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2002-12-26 18:20:41 $
+  Version:   $Revision: 1.27 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -15,19 +15,22 @@
      PURPOSE.  See the above copyright notice for more information.
 
 =========================================================================*/
-
 #include "vtkOpenGLFreeTypeTextMapper.h"
+
+#include "vtkActor2D.h"
 #include "vtkObjectFactory.h"
 #include "vtkProperty2D.h"
 #include "vtkTextProperty.h"
 #include "vtkViewport.h"
+#include "vtkWindow.h"
 
 #include "vtkFreeTypeFontCache.h"
 #include "vtkfreetypeConfig.h"
 #include "vtkftglConfig.h"
-#include "FTFont.h"
 
 #include "vtkgluPickMatrix.h"
+
+#include "FTFont.h"
 
 //----------------------------------------------------------------------------
 // Print debug info
@@ -37,7 +40,7 @@
 
 //----------------------------------------------------------------------------
 #ifndef VTK_IMPLEMENT_MESA_CXX
-vtkCxxRevisionMacro(vtkOpenGLFreeTypeTextMapper, "$Revision: 1.26 $");
+vtkCxxRevisionMacro(vtkOpenGLFreeTypeTextMapper, "$Revision: 1.27 $");
 vtkStandardNewMacro(vtkOpenGLFreeTypeTextMapper);
 #endif
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProp3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-28 16:27:36 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2002-12-26 18:20:41 $
+  Version:   $Revision: 1.29 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,6 +18,7 @@
 #include "vtkProp3D.h"
 
 #include "vtkActor.h"
+#include "vtkAssemblyPaths.h"
 #include "vtkMatrixToLinearTransform.h"
 #include "vtkTransform.h"
 
@@ -25,7 +26,7 @@
 
 typedef double (*SqMatPtr)[4];
 
-vtkCxxRevisionMacro(vtkProp3D, "$Revision: 1.28 $");
+vtkCxxRevisionMacro(vtkProp3D, "$Revision: 1.29 $");
 
 // Construct with the following defaults: origin(0,0,0) 
 // position=(0,0,0) and orientation=(0,0,0). No user defined 
