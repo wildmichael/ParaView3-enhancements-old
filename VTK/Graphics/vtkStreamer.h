@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStreamer.h,v $
   Language:  C++
-  Date:      $Date: 1995-02-26 10:26:55 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1995-06-02 10:49:48 $
+  Version:   $Revision: 1.2 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -100,9 +100,11 @@ public:
   void PrintSelf(ostream& os, vlIndent indent);
 
   void SetStartLocation(int cellId, int subId, float pcoords[3]);
+  void SetStartLocation(int cellId, int subId, float r, float s, float t);
   int GetStartLocation(int& subId, float pcoords[3]);
 
   void SetStartPosition(float x[3]);
+  void SetStartPosition(float x, float y, float z);
   float *GetStartPosition();
 
   void Update();
