@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLODProp3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:39 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2002-05-13 18:57:33 $
+  Version:   $Revision: 1.32 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 #include <stdlib.h>
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkLODProp3D, "$Revision: 1.31 $");
+vtkCxxRevisionMacro(vtkLODProp3D, "$Revision: 1.32 $");
 vtkStandardNewMacro(vtkLODProp3D);
 
 #define VTK_INDEX_NOT_IN_USE    -1
@@ -831,7 +831,8 @@ void vtkLODProp3D::SetAllocatedRenderTime( float t, vtkViewport *vp )
 
   // update the EstimatedTime of the last LOD to be rendered
   if ( this->SelectedLODIndex >= 0 &&
-       this->SelectedLODIndex < this->NumberOfEntries )
+       this->SelectedLODIndex < this->NumberOfEntries &&
+       this->LODs[this->SelectedLODIndex].ID != VTK_INDEX_NOT_IN_USE )
     {
     // For stability, blend in the new time - 25% old + 75% new
     newTime = 
