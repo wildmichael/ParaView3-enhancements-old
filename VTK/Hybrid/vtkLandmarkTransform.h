@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLandmarkTransform.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:30:33 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2002-08-07 23:12:10 $
+  Version:   $Revision: 1.18 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -33,7 +33,6 @@
 #define __vtkLandmarkTransform_h
 
 #include "vtkLinearTransform.h"
-#include "vtkMutexLock.h"
 
 #define VTK_LANDMARK_RIGIDBODY 6
 #define VTK_LANDMARK_SIMILARITY 7

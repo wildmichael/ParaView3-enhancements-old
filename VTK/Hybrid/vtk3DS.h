@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtk3DS.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-04 02:21:52 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2002-08-07 23:12:10 $
+  Version:   $Revision: 1.14 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -17,9 +17,10 @@
 =========================================================================*/
 
 #include <ctype.h>
-#include "vtkLight.h"
-#include "vtkCamera.h"
-#include "vtkProperty.h"
+
+class vtkLight;
+class vtkCamera;
+class vtkProperty;
 
 typedef float Vector[3];
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWeightedTransformFilter.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:30:45 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-08-07 23:12:10 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -71,7 +71,8 @@
 #define __vtkWeightedTransformFilter_h
 
 #include "vtkPointSetToPointSetFilter.h"
-#include "vtkAbstractTransform.h"
+
+class vtkAbstractTransform;
 
 class VTK_HYBRID_EXPORT vtkWeightedTransformFilter : public vtkPointSetToPointSetFilter
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataToImageStencil.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-07 21:15:48 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-08-07 23:12:10 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -28,8 +28,9 @@
 
 
 #include "vtkImageStencilSource.h"
-#include "vtkPolyData.h"
-#include "vtkOBBTree.h"
+
+class vtkPolyData;
+class vtkOBBTree;
 
 class VTK_HYBRID_EXPORT vtkPolyDataToImageStencil : public vtkImageStencilSource
 {

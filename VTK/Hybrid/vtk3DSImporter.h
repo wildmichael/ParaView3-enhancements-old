@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtk3DSImporter.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-04 02:21:52 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2002-08-07 23:12:10 $
+  Version:   $Revision: 1.21 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,7 @@
 #define __vtk3DSImporter_h
 
 #include "vtkImporter.h"
-#include "vtk3DS.h"
+#include "vtk3DS.h"  // Needed for all the 3DS structures
 
 class vtkPolyData;
 

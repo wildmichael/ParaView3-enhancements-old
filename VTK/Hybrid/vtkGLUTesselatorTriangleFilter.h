@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGLUTesselatorTriangleFilter.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:30:29 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-08-07 23:12:10 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -32,7 +32,7 @@
 #define __vtkGLUTesselatorTriangleFilter_h
 
 #include "vtkPolyDataToPolyDataFilter.h"
-#include <GL/GLU.h>
+#include <GL/GLU.h> // Needed for GLUtesselator
 
 class VTK_HYBRID_EXPORT vtkGLUTesselatorTriangleFilter : public vtkPolyDataToPolyDataFilter
 {

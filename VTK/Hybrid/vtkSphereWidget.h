@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSphereWidget.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-25 15:12:09 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-08-07 23:12:10 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -59,7 +59,7 @@
 #define __vtkSphereWidget_h
 
 #include "vtk3DWidget.h"
-#include "vtkSphereSource.h"
+#include "vtkSphereSource.h" // Needed for faster access to the sphere source
 
 class vtkActor;
 class vtkPolyDataMapper;

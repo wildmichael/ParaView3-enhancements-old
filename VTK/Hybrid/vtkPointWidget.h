@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointWidget.h,v $
   Language:  C++
-  Date:      $Date: 2002-07-01 15:28:31 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-08-07 23:12:10 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -58,7 +58,7 @@
 #define __vtkPointWidget_h
 
 #include "vtk3DWidget.h"
-#include "vtkCursor3D.h"
+#include "vtkCursor3D.h" // Needed for faster access to the Cursor3D
 
 class vtkActor;
 class vtkPolyDataMapper;
