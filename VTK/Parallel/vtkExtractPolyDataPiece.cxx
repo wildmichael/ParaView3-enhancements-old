@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractPolyDataPiece.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-30 21:05:53 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2002-12-26 18:17:42 $
+  Version:   $Revision: 1.13 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -17,12 +17,17 @@
 =========================================================================*/
 #include "vtkExtractPolyDataPiece.h"
 
+#include "vtkCell.h"
+#include "vtkCellData.h"
+#include "vtkGenericCell.h"
+#include "vtkIdList.h"
 #include "vtkOBBDicer.h"
 #include "vtkObjectFactory.h"
+#include "vtkPointData.h"
 #include "vtkPolyData.h"
 #include "vtkUnsignedCharArray.h"
 
-vtkCxxRevisionMacro(vtkExtractPolyDataPiece, "$Revision: 1.12 $");
+vtkCxxRevisionMacro(vtkExtractPolyDataPiece, "$Revision: 1.13 $");
 vtkStandardNewMacro(vtkExtractPolyDataPiece);
 
 vtkExtractPolyDataPiece::vtkExtractPolyDataPiece()

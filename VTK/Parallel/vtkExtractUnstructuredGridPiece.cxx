@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractUnstructuredGridPiece.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-30 21:05:53 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2002-12-26 18:17:42 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -17,11 +17,17 @@
 =========================================================================*/
 #include "vtkExtractUnstructuredGridPiece.h"
 
+#include "vtkCell.h"
+#include "vtkCellData.h"
+#include "vtkGenericCell.h"
+#include "vtkIdList.h"
+#include "vtkIntArray.h"
 #include "vtkObjectFactory.h"
+#include "vtkPointData.h"
 #include "vtkUnsignedCharArray.h"
 #include "vtkUnstructuredGrid.h"
 
-vtkCxxRevisionMacro(vtkExtractUnstructuredGridPiece, "$Revision: 1.10 $");
+vtkCxxRevisionMacro(vtkExtractUnstructuredGridPiece, "$Revision: 1.11 $");
 vtkStandardNewMacro(vtkExtractUnstructuredGridPiece);
 
 vtkExtractUnstructuredGridPiece::vtkExtractUnstructuredGridPiece()

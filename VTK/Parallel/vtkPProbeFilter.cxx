@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPProbeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-28 16:26:55 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-12-26 18:17:42 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -17,11 +17,13 @@
 =========================================================================*/
 #include "vtkPProbeFilter.h"
 
+#include "vtkIdTypeArray.h"
 #include "vtkMultiProcessController.h"
 #include "vtkObjectFactory.h"
+#include "vtkPointData.h"
 #include "vtkPolyData.h"
 
-vtkCxxRevisionMacro(vtkPProbeFilter, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkPProbeFilter, "$Revision: 1.4 $");
 vtkStandardNewMacro(vtkPProbeFilter);
 
 vtkCxxSetObjectMacro(vtkPProbeFilter, Controller, vtkMultiProcessController);

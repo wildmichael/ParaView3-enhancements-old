@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPStreamTracer.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-17 22:22:53 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-12-26 18:17:42 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,16 +18,18 @@
 #include "vtkPStreamTracer.h"
 
 #include "vtkAppendPolyData.h"
-#include "vtkInterpolatedVelocityField.h"
-#include "vtkMultiProcessController.h"
+#include "vtkCellData.h"
 #include "vtkFloatArray.h"
 #include "vtkIdList.h"
 #include "vtkIntArray.h"
+#include "vtkInterpolatedVelocityField.h"
+#include "vtkMultiProcessController.h"
 #include "vtkObjectFactory.h"
+#include "vtkPointData.h"
 #include "vtkPolyData.h"
 #include "vtkRungeKutta2.h"
 
-vtkCxxRevisionMacro(vtkPStreamTracer, "$Revision: 1.4 $");
+vtkCxxRevisionMacro(vtkPStreamTracer, "$Revision: 1.5 $");
 vtkStandardNewMacro(vtkPStreamTracer);
 
 vtkCxxSetObjectMacro(vtkPStreamTracer, Controller, vtkMultiProcessController);

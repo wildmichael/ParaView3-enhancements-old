@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPVGeometryFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-03 22:52:54 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2002-12-26 18:17:42 $
+  Version:   $Revision: 1.13 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -17,11 +17,13 @@
 =========================================================================*/
 #include "vtkPVGeometryFilter.h"
 
+#include "vtkCellData.h"
 #include "vtkCommand.h"
 #include "vtkGeometryFilter.h"
 #include "vtkImageData.h"
 #include "vtkObjectFactory.h"
 #include "vtkOutlineSource.h"
+#include "vtkPointData.h"
 #include "vtkPolyData.h"
 #include "vtkRectilinearGrid.h"
 #include "vtkRectilinearGridOutlineFilter.h"
@@ -29,7 +31,7 @@
 #include "vtkStructuredGrid.h"
 #include "vtkStructuredGridOutlineFilter.h"
 
-vtkCxxRevisionMacro(vtkPVGeometryFilter, "$Revision: 1.12 $");
+vtkCxxRevisionMacro(vtkPVGeometryFilter, "$Revision: 1.13 $");
 vtkStandardNewMacro(vtkPVGeometryFilter);
 
 //----------------------------------------------------------------------------
