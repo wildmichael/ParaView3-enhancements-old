@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKWRemoteExecute.h,v $
   Language:  C++
-  Date:      $Date: 2003-04-17 20:25:13 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2003-04-17 21:16:02 $
+  Version:   $Revision: 1.3 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -48,6 +48,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "vtkObject.h"
 
+class vtkMultiThreader;
+
 class vtkKWRemoteExecuteInternal;
 
 class VTK_EXPORT vtkKWRemoteExecute : public vtkObject
@@ -75,6 +77,10 @@ public:
     FAIL
   };
 //ETX
+  
+  // Description:
+  // Wait for remote command to finish.
+  int WaitToFinish();
 
   // Description:
   // Detach process from the current console. Useful for when invoking new
@@ -106,12 +112,15 @@ protected:
   ~vtkKWRemoteExecute();
 
   vtkKWRemoteExecuteInternal* Internals;
+  vtkMultiThreader* MultiThreader;
 
   char* SSHCommand;
   char* SSHArguments;
   char* RemoteHost;
   int ProcessRunning;
   int Result;
+
+  int ProcessThreadId;
 
 private:
   vtkKWRemoteExecute(const vtkKWRemoteExecute&); // Not implemented
