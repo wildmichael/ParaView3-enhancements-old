@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCell3D.h,v $
   Language:  C++
-  Date:      $Date: 2001-04-27 15:38:51 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-04-27 16:59:10 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -91,7 +91,7 @@ public:
                     vtkPointLocator *locator, vtkCellArray *connectivity,
                     vtkPointData *inPd, vtkPointData *outPd,
                     vtkCellData *inCd, int cellId, vtkCellData *outCd, 
-                    int insideOut) {/*to be implemented shortly*/};
+                    int insideOut) {/*to be implemented shortly*/}
 
   // Description:
   // The topological dimension of the cell. (Satisfies vtkCell API.)
@@ -101,7 +101,8 @@ protected:
   vtkCell3D() {}
   ~vtkCell3D() {}
   vtkCell3D(const vtkCell3D&) {}
-  void operator=(const vtkCell3D&) {}
+  void operator=(const vtkCell3D&) {};
+  
 
 };
 
