@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractVOI.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-22 12:48:07 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2001-11-10 03:41:49 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -135,6 +135,7 @@ void vtkExtractVOI::ExecuteInformation()
   wholeExtent[5] = outDims[2] - 1;
   
   output->SetWholeExtent( wholeExtent );
+  output->SetScalarType( input->GetScalarType() );
 }
 
 void vtkExtractVOI::Execute()
