@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLineSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-03 19:31:01 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 1999-01-05 13:12:49 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -79,13 +79,19 @@ void vtkLineSource::Execute()
 //
 // Generate points and texture coordinates
 //
-  for (i=0; i<3; i++) v[i] = this->Point2[i] - this->Point1[i];
+  for (i=0; i<3; i++)
+    {
+    v[i] = this->Point2[i] - this->Point1[i];
+    }
 
   tc[1] = 0.0;
   for (i=0; i<numPts; i++) 
     {
     tc[0] = ((float)i/this->Resolution);
-    for (j=0; j<3; j++) x[j] = this->Point1[j] + tc[0]*v[j];
+    for (j=0; j<3; j++)
+      {
+      x[j] = this->Point1[j] + tc[0]*v[j];
+      }
     newPoints->InsertPoint(i,x);
     newTCoords->InsertTCoord(i,tc);
     }

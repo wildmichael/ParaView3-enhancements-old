@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinearExtrusionFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-14 21:25:19 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1999-01-05 13:12:49 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,7 +58,9 @@ float *vtkLinearExtrusionFilter::ViaNormal(float x[3], int id, vtkNormals *n)
 
   normal = n->GetNormal(id);
   for (i=0; i<3; i++) 
+    {
     xNew[i] = x[i] + this->ScaleFactor*normal[i];
+    }
 
   return xNew;
 }
@@ -70,7 +72,9 @@ float *vtkLinearExtrusionFilter::ViaVector(float x[3], int vtkNotUsed(id),
   int i;
 
   for (i=0; i<3; i++) 
+    {
     xNew[i] = x[i] + this->ScaleFactor*this->Vector[i];
+    }
 
   return xNew;
 }
@@ -82,7 +86,9 @@ float *vtkLinearExtrusionFilter::ViaPoint(float x[3], int vtkNotUsed(id),
   int i;
 
   for (i=0; i<3; i++) 
+    {
     xNew[i] = x[i] + this->ScaleFactor*(x[i] - this->ExtrusionPoint[i]);
+    }
 
   return xNew;
 }
@@ -201,7 +207,9 @@ void vtkLinearExtrusionFilter::Execute()
         newPolys->InsertNextCell(npts,pts);
         newPolys->InsertNextCell(npts);
         for (i=0; i < npts; i++)
+	  {
           newPolys->InsertCellPoint(pts[i] + numPts);
+	  }
         }
       }
     
@@ -212,7 +220,9 @@ void vtkLinearExtrusionFilter::Execute()
         newStrips->InsertNextCell(npts,pts);
         newStrips->InsertNextCell(npts);
         for (i=0; i < npts; i++)
+	  {
           newStrips->InsertCellPoint(pts[i] + numPts);
+	  }
         }
       }
     }

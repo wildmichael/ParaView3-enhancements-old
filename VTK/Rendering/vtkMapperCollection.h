@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapperCollection.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-08 18:42:03 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1999-01-05 13:12:50 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -88,8 +88,14 @@ class VTK_EXPORT vtkMapperCollection : public vtkCollection
 
 inline vtkMapper *vtkMapperCollection::GetLastItem() 
 { 
-  if ( this->Bottom == NULL ) return NULL;
-  else return (vtkMapper *)(this->Bottom->Item);
+  if ( this->Bottom == NULL )
+    {
+    return NULL;
+    }
+  else
+    {
+    return (vtkMapper *)(this->Bottom->Item);
+    }
 }
 
 #endif

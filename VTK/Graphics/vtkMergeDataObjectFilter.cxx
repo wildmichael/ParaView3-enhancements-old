@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergeDataObjectFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-23 20:01:19 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1999-01-05 13:12:50 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -77,7 +77,10 @@ void vtkMergeDataObjectFilter::Update()
 
   this->Updating = 1;
   this->Input->Update();
-  if ( this->DataObject ) this->DataObject->Update();
+  if ( this->DataObject )
+    {
+    this->DataObject->Update();
+    }
   this->Updating = 0;
 
   if ( this->Input->GetMTime() > this->ExecuteTime ||
@@ -166,9 +169,13 @@ void vtkMergeDataObjectFilter::PrintSelf(ostream& os, vtkIndent indent)
   vtkDataSetToDataSetFilter::PrintSelf(os,indent);
 
   if ( this->DataObject )
+    {
     os << indent << "Data Object: (" << this->DataObject << ")\n";
+    }
   else
+    {
     os << indent << "Data Object: (none)\n";
+    }
 
   os << indent << "Output Field: ";
   if ( this->OutputField == VTK_DATA_OBJECT_FIELD )

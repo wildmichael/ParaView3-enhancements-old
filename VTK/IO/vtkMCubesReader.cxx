@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMCubesReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:41:09 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 1999-01-05 13:12:49 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,8 +58,14 @@ vtkMCubesReader::vtkMCubesReader()
 
 vtkMCubesReader::~vtkMCubesReader()
 {
-  if (this->FileName) delete [] this->FileName;
-  if (this->LimitsFileName) delete [] this->LimitsFileName;
+  if (this->FileName)
+    {
+    delete [] this->FileName;
+    }
+  if (this->LimitsFileName)
+    {
+    delete [] this->LimitsFileName;
+    }
   if ( this->Locator )
     {
     this->Locator->UnRegister(this);
@@ -161,7 +167,10 @@ void vtkMCubesReader::Execute()
     newNormals->Allocate(numPts/3,numPts/3);
     }
   
-  if ( this->Locator == NULL ) this->CreateDefaultLocator();
+  if ( this->Locator == NULL )
+    {
+    this->CreateDefaultLocator();
+    }
   this->Locator->InitPointInsertion (newPts, bounds);
 
   direction = this->FlipNormals ? -1.0 : 1.0;
@@ -184,16 +193,24 @@ void vtkMCubesReader::Execute()
         nodes[j] = this->Locator->InsertNextPoint(point.x);
         if ( this->Normals )
           {
-          for (k=0; k<3; k++) n[k] = point.n[k] * direction;
+          for (k=0; k<3; k++)
+	    {
+	    n[k] = point.n[k] * direction;
+	    }
           newNormals->InsertNormal(nodes[j],n);
           }
         }
       }
-    if ( nodes[0] != nodes[1] && nodes[0] != nodes[2] && 
-    nodes[1] != nodes[2] )
+    if ( nodes[0] != nodes[1] &&
+	 nodes[0] != nodes[2] && 
+	 nodes[1] != nodes[2] )
+      {
       newPolys->InsertNextCell(3,nodes);
+      }
     else
+      {
       numDegenerate++;
+      }
     }
   vtkDebugMacro(<< "Read: " 
                 << newPts->GetNumberOfPoints() << " points, " 
@@ -217,7 +234,10 @@ void vtkMCubesReader::Execute()
     }
   output->Squeeze(); // might have merged stuff
 
-  if (this->Locator) this->Locator->Initialize(); //free storage
+  if (this->Locator)
+    {
+    this->Locator->Initialize(); //free storage
+    }
 }
 
 // Specify a spatial locator for merging points. By default, 

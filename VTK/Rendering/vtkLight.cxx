@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLight.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:44:50 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1999-01-05 13:12:49 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -90,16 +90,28 @@ vtkLight *vtkLight::New()
   char *temp = vtkRenderWindow::GetRenderLibrary();
   
 #ifdef VTK_USE_SBR
-  if (!strcmp("Starbase",temp)) return vtkStarbaseLight::New();
+  if (!strcmp("Starbase",temp))
+    {
+    return vtkStarbaseLight::New();
+    }
 #endif
 #ifdef VTK_USE_OGLR
-  if (!strcmp("OpenGL",temp)) return vtkOpenGLLight::New();
+  if (!strcmp("OpenGL",temp))
+    {
+    return vtkOpenGLLight::New();
+    }
 #endif
 #ifdef _WIN32
-  if (!strcmp("Win32OpenGL",temp)) return vtkOpenGLLight::New();
+  if (!strcmp("Win32OpenGL",temp))
+    {
+    return vtkOpenGLLight::New();
+    }
 #endif
 #ifdef VTK_USE_XGLR
-  if (!strcmp("XGL",temp)) return vtkXGLLight::New();
+  if (!strcmp("XGL",temp))
+    {
+    return vtkXGLLight::New();
+    }
 #endif
   
   return new vtkLight;
