@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLProjectedPolyDataRayBounder.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:45 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2001-02-13 05:16:53 $
+  Version:   $Revision: 1.29 $
   Thanks:    Thanks to Lisa Sobierajski Avila who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -275,8 +275,8 @@ float *vtkOpenGLProjectedPolyDataRayBounder::Draw( vtkRenderer *ren,
     
     // Create the perspective matrix for the camera.  This will be used
     // to decode z values, so we will need to inverted
-    transform->SetMatrix(*ren->GetActiveCamera()->GetPerspectiveTransformMatrix(
-      aspect, -1, 1 ) );
+    transform->SetMatrix( ren->GetActiveCamera() \
+                          ->GetPerspectiveTransformMatrix( aspect, -1, 1 ) );
     transform->Inverse();
     
     // To speed things up, we pull the matrix out of the transform. 
@@ -330,8 +330,8 @@ float *vtkOpenGLProjectedPolyDataRayBounder::Draw( vtkRenderer *ren,
     
     // Create the perspective matrix for the camera.  This will be used
     // to decode z values, so we will need to invert it
-    transform->SetMatrix(
-      *ren->GetActiveCamera()->GetPerspectiveTransformMatrix( aspect, -1, 1 ) );
+    transform->SetMatrix( ren->GetActiveCamera()\
+                   ->GetPerspectiveTransformMatrix( aspect, -1, 1 ) );
     transform->Inverse();
     
     // To speed things up, we pull the matrix out of the transform. 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransform.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:19 $
-  Version:   $Revision: 1.73 $
+  Date:      $Date: 2001-02-13 05:16:53 $
+  Version:   $Revision: 1.74 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -289,7 +289,6 @@ class VTK_EXPORT vtkTransform : public vtkLinearTransform
     {VTK_LEGACY_METHOD(TransformVectors,"3.2"); this->TransformVectors(inVectors,outVectors);}
   void MultiplyNormals(vtkNormals *inNormals, vtkNormals *outNormals) 
     {VTK_LEGACY_METHOD(TransformNormals,"3.2"); this->TransformNormals(inNormals,outNormals);}
-#endif
   
   // Description:
   // This method is deprecated because 1) it can turn a linear transformation
@@ -356,6 +355,7 @@ class VTK_EXPORT vtkTransform : public vtkLinearTransform
   void GetScale(float& x, float& y, float& z)
     {VTK_LEGACY_METHOD(GetScale,"3.2"); this->GetScale(&x, &y, &z);}
 //ETX
+#endif
 
 protected:
   vtkTransform ();

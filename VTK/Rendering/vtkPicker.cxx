@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPicker.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:46 $
-  Version:   $Revision: 1.64 $
+  Date:      $Date: 2001-02-13 05:16:54 $
+  Version:   $Revision: 1.65 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -332,7 +332,7 @@ int vtkPicker::Pick(float selectionX, float selectionY, float selectionZ,
           vtkErrorMacro (<< "Pick: Null matrix.");
           return 0;
           }
-        this->Transform->SetMatrix(*LastMatrix);
+        this->Transform->SetMatrix(LastMatrix);
         this->Transform->Push();
         this->Transform->Inverse();
 

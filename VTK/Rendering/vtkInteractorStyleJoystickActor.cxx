@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleJoystickActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:40 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2001-02-13 05:16:53 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -271,7 +271,7 @@ void vtkInteractorStyleJoystickActor::PanXY(int x, int y)
     {
     vtkTransform *t = vtkTransform::New();
     t->PostMultiply();
-    t->SetMatrix(*(this->InteractionProp->GetUserMatrix()));
+    t->SetMatrix(this->InteractionProp->GetUserMatrix());
     t->Translate(this->MotionVector[0], this->MotionVector[1],
                  this->MotionVector[2]);
     this->InteractionProp->GetUserMatrix()->DeepCopy(t->GetMatrix());
@@ -330,7 +330,7 @@ void vtkInteractorStyleJoystickActor::DollyXY(int vtkNotUsed(x), int y)
     {
     vtkTransform *t = vtkTransform::New();
     t->PostMultiply();
-    t->SetMatrix(*(this->InteractionProp->GetUserMatrix()));
+    t->SetMatrix(this->InteractionProp->GetUserMatrix());
     t->Translate(this->MotionVector[0], this->MotionVector[1],
                  this->MotionVector[2]);
     this->InteractionProp->GetUserMatrix()->DeepCopy(t->GetMatrix());
@@ -616,11 +616,11 @@ void vtkInteractorStyleJoystickActor::Prop3DTransform(vtkProp3D *prop3D,
   newTransform->PostMultiply();
   if (prop3D->GetUserMatrix() != NULL) 
     {
-    newTransform->SetMatrix(*(prop3D->GetUserMatrix()));
+    newTransform->SetMatrix(prop3D->GetUserMatrix());
     }
   else 
     {
-    newTransform->SetMatrix(*oldMatrix);
+    newTransform->SetMatrix(oldMatrix);
     }
   
   newTransform->Translate(-(boxCenter[0]), -(boxCenter[1]), -(boxCenter[2]));

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVRMLExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:57 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 2001-02-13 05:16:54 $
+  Version:   $Revision: 1.50 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -283,7 +283,7 @@ void vtkVRMLExporter::WriteAnActor(vtkActor *anActor, FILE *fp)
 
   // first stuff out the transform
   trans = vtkTransform::New();
-  trans->SetMatrix(*(anActor->vtkProp3D::GetMatrix()));
+  trans->SetMatrix(anActor->vtkProp3D::GetMatrix());
   
   fprintf(fp,"    Transform {\n");
   tempf = trans->GetPosition();

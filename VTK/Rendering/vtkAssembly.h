@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAssembly.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:30 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 2001-02-13 05:16:53 $
+  Version:   $Revision: 1.42 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -160,6 +160,7 @@ public:
   // Shallow copy of an assembly. Overloads the virtual vtkProp method.
   void ShallowCopy(vtkProp *prop);
 
+#ifndef VTK_REMOVE_LEGACY_CODE
   // Description:
   // For legacy compatibility. Do not use. Mapper's should no longer be assigned
   // to a vtkAssembly. Create a vtkActor instead, assign the actor to it, and
@@ -173,6 +174,7 @@ public:
   // then add the actor as a part in the assembly.
   void SetProperty(vtkProperty *property);
   vtkProperty *GetProperty();
+#endif
 
 //BTX
   // Description:
@@ -198,8 +200,10 @@ protected:
   virtual void UpdatePaths(); //apply transformations and properties recursively
   
 private:
+#ifndef VTK_REMOVE_LEGACY_CODE
   vtkActor *CompatibilityActor;
   void CreateCompatibilityActor();
+#endif
   
 };
 

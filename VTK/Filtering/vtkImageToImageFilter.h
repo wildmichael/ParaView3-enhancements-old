@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToImageFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-01-29 19:18:29 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2001-02-13 05:16:54 $
+  Version:   $Revision: 1.23 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -114,7 +114,7 @@ public:
   // which should call vtkImageToImageFilter::ExecuteInformation to set up defaults,
   // and the change what needs to be changed.
   virtual void ExecuteImageInformation() 
-    {VTK_LEGACY_METHOD(LegacyHack,"3.2"); this->LegacyHack = 0;}
+    { this->LegacyHack = 0; }
   int LegacyHack;
 #endif
   

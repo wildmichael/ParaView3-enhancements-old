@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRayCaster.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:49 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 2001-02-13 05:16:54 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -871,7 +871,7 @@ void vtkRayCaster::InitializeRayCasting(vtkRenderer *ren)
   // to decode z values, so we will need to invert it
   transform       = vtkTransform::New();
   transform->SetMatrix(
-     *ren->GetActiveCamera()->GetPerspectiveTransformMatrix( aspect, -1, 1 ) );
+     ren->GetActiveCamera()->GetPerspectiveTransformMatrix( aspect, -1, 1 ) );
   transform->Inverse();
 
   // To speed things up, we pull the matrix out of the transform. 

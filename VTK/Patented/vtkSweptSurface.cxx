@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSweptSurface.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-23 14:10:46 $
-  Version:   $Revision: 1.62 $
+  Date:      $Date: 2001-02-13 05:16:54 $
+  Version:   $Revision: 1.63 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -352,8 +352,8 @@ void vtkSweptSurface::SampleInput(vtkMatrix4x4 *m, int inDim[3],
 
   this->ComputeFootprint (m, inDim, inOrigin, inSpacing, indicies);
 
-  m->Invert(*m,*m);
-  this->T->SetMatrix(*m);
+  m->Invert(m,m);
+  this->T->SetMatrix(m);
 
   // Now concatenate the shift and scale to convert from world to voxel coordinates
   this->T->PostMultiply();
@@ -471,7 +471,7 @@ void vtkSweptSurface::ComputeFootprint (vtkMatrix4x4 *m, int inDim[3],
   float x[4], xTrans[4];
   float *origin, *spacing;
 
-  this->T->SetMatrix(*m);
+  this->T->SetMatrix(m);
   for (ii = 0 ; ii < 3; ii++)
     {
     bounds[2 * ii]     = inOrigin[ii];
@@ -662,7 +662,7 @@ void vtkSweptSurface::ComputeBounds(float origin[3], float spacing[3], float bbo
         {
         this->InterpolateStates(position1, position2, orient1, orient2, k*h,
                                        position, orientation); 
-        t2->SetMatrix (*this->GetActorMatrixPointer(*actorTransform, actorOrigin,position,orientation));
+        t2->SetMatrix(this->GetActorMatrixPointer(*actorTransform, actorOrigin,position,orientation));
 
         for (i=0; i<8; i++) //loop over eight corners of bounding box
           {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMultipleInputFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:09 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 2001-02-13 05:16:54 $
+  Version:   $Revision: 1.41 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -137,7 +137,7 @@ protected:
 #ifndef VTK_REMOVE_LEGACY_CODE
   // legacy  !!!!! ------------------------
   virtual void ExecuteImageInformation() 
-    {VTK_LEGACY_METHOD(LegacyHack,"3.2"); this->LegacyHack = 0;}
+    { this->LegacyHack = 0;}
   int LegacyHack;
 #endif
   

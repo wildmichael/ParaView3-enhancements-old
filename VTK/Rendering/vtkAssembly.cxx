@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAssembly.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:30 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 2001-02-13 05:16:53 $
+  Version:   $Revision: 1.48 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -65,17 +65,21 @@ vtkAssembly* vtkAssembly::New()
 vtkAssembly::vtkAssembly()
 {
   this->Parts = vtkProp3DCollection::New();
+#ifndef VTK_REMOVE_LEGACY_CODE
   this->CompatibilityActor = NULL;
+#endif
 }
 
 vtkAssembly::~vtkAssembly()
 {
   this->Parts->Delete();
   this->Parts = NULL;
+#ifndef VTK_REMOVE_LEGACY_CODE
   if ( this->CompatibilityActor )
     {
     this->CompatibilityActor->Delete();
     }
+#endif
 }
 
 // Add a part to the list of Parts.
