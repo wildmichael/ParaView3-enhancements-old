@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIdentityTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-05-03 20:53:33 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2000-05-04 13:59:37 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -126,6 +126,7 @@ void vtkIdentityTransform::InternalTransformNormal(const float in[3],
 						   float out[3])
 {
   vtkIdentityTransformPoint(in,out);
+  vtkMath::Normalize(out);
 }
 
 //------------------------------------------------------------------------
@@ -133,6 +134,7 @@ void vtkIdentityTransform::InternalTransformNormal(const double in[3],
 						   double out[3])
 {
   vtkIdentityTransformPoint(in,out);
+  vtkMath::Normalize(out);
 }
 
 //------------------------------------------------------------------------
