@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: TestCxxFeatures.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-07-10 13:41:16 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-07-25 18:28:52 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,7 +25,7 @@
 
 //----------------------------------------------------------------------------
 
-/* Test full template specialization of functions. */
+/* Test full template specialization of functions.  */
 template <class T>
 int FullySpecializedFunction(T*)
 {
@@ -103,6 +103,42 @@ int TestBool()
 #endif
 //----------------------------------------------------------------------------
 
+/* Test full template specialization of classes.  */
+
+template <class T>
+struct FullySpecializedClass
+{
+  static int Method() { return 0; }
+};
+
+template <>
+struct FullySpecializedClass<int>
+{
+  static int Method() { return 1; }
+};
+
+int TestFullySpecializedClass()
+{
+  int result = 1;
+  int should_be_0 = FullySpecializedClass<float>::Method();
+  if(should_be_0 != 0)
+    {
+    cerr << "FullySpecializedClass<float>::Method() returned "
+         << should_be_0 << ", not 0.\n";
+    result = 0;
+    }
+  int should_be_1 = FullySpecializedClass<int>::Method();
+  if(should_be_1 != 1)
+    {    
+    cerr << "FullySpecializedClass<int>::Method() returned "
+         << should_be_1 << ", not 1.\n";
+    result = 0;
+    }
+  return result;
+}
+
+//----------------------------------------------------------------------------
+
 int main()
 {
   int result = 0;
@@ -117,5 +153,9 @@ int main()
     result = 1;
     }
 #endif
+  if(!TestFullySpecializedClass())
+    {
+    result = 1;
+    }
   return result;
 }
