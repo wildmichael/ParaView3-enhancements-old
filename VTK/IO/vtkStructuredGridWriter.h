@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridWriter.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-08 18:42:22 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1998-10-14 21:25:27 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -63,9 +63,12 @@ public:
   // Description:
   // Set / get the input data or filter.
   void SetInput(vtkStructuredGrid *input);
-  void SetInput(vtkStructuredGrid &input) {this->SetInput(&input);};
   vtkStructuredGrid *GetInput() {return (vtkStructuredGrid *)this->Input;};
                                
+  // Description:
+  // For legacy compatibiltiy. Do not use.
+  void SetInput(vtkStructuredGrid &input) {this->SetInput(&input);};
+
 protected:
   void WriteData();
 

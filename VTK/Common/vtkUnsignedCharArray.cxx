@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnsignedCharArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:38:47 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1998-10-14 21:25:01 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -123,29 +123,29 @@ void vtkUnsignedCharArray::Initialize()
 }
 
 // Deep copy of another unsigned char array.
-void vtkUnsignedCharArray::DeepCopy(vtkDataArray& ia)
+void vtkUnsignedCharArray::DeepCopy(vtkDataArray *ia)
 {
-  if ( ia.GetDataType() != VTK_UNSIGNED_CHAR )
+  if ( ia->GetDataType() != VTK_UNSIGNED_CHAR )
     {
       vtkDataArray::DeepCopy(ia);
       return;
     }
 
-  if ( this != &ia )
+  if ( this != ia )
     {
     if ((this->Array) && (!this->SaveUserArray))
       {
       delete [] this->Array;
       }
 
-    this->NumberOfComponents = ia.GetNumberOfComponents();
-    this->MaxId = ia.GetMaxId();
-    this->Size = ia.GetSize();
-    this->Extend = ia.GetExtend();
+    this->NumberOfComponents = ia->GetNumberOfComponents();
+    this->MaxId = ia->GetMaxId();
+    this->Size = ia->GetSize();
+    this->Extend = ia->GetExtend();
     this->SaveUserArray = 0;
 
     this->Array = new unsigned char[this->Size];
-    memcpy(this->Array, (unsigned char *)ia.GetVoidPointer(0),
+    memcpy(this->Array, (unsigned char *)ia->GetVoidPointer(0),
            this->Size*sizeof(unsigned char));
 
     }

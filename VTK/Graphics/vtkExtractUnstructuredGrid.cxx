@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractUnstructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:44:43 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1998-10-14 21:25:15 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -200,13 +200,14 @@ void vtkExtractUnstructuredGrid::Execute()
 	ptId = cell->PointIds->GetId(i);
 	if ( pointMap[ptId] < 0 )
 	  {
-	  pointMap[ptId] = newPtId = newPts->InsertNextPoint(inPts->GetPoint(ptId));
+	  pointMap[ptId] = newPtId 
+	    = newPts->InsertNextPoint(inPts->GetPoint(ptId));
 	  outputPD->CopyData(pd, ptId, newPtId);
 	  }
 	cellIds->InsertNextId(pointMap[ptId]);
 	}
 
-      newCellId = output->InsertNextCell(input->GetCellType(cellId), *cellIds);
+      newCellId = output->InsertNextCell(input->GetCellType(cellId), cellIds);
       outputCD->CopyData(cd, cellId, newCellId);
 	
       } //if visible

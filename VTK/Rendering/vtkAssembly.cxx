@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAssembly.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:44:32 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1998-10-14 21:25:07 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -79,7 +79,7 @@ vtkAssembly& vtkAssembly::operator=(const vtkAssembly& assembly)
 {
   *((vtkActor *)this) = assembly;
   this->DeletePaths();
-
+  
   return *this;
 }
 
@@ -168,7 +168,7 @@ void vtkAssembly::BuildPaths(vtkAssemblyPaths *paths, vtkActorCollection *path)
     if ( this->GetUserMatrix() )
       {
       matrix = vtkMatrix4x4::New();
-      *(matrix) = *(this->GetUserMatrix());
+      matrix->DeepCopy(this->GetUserMatrix());
       copy->SetUserMatrix(matrix);
       matrix->Delete();
       }
@@ -202,7 +202,7 @@ void vtkAssembly::BuildPaths(vtkAssemblyPaths *paths, vtkActorCollection *path)
         if ( actor->GetUserMatrix() )
           {
           matrix = vtkMatrix4x4::New();
-          *matrix = *(actor->GetUserMatrix());
+          matrix->DeepCopy(actor->GetUserMatrix());
           copy->SetUserMatrix(matrix);
 	  matrix->Delete();
           }

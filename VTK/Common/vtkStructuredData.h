@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredData.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-06 14:40:28 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 1998-10-14 21:24:56 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -102,7 +102,7 @@ public:
     return ijk[2]*(dim[0]-1)*(dim[1]-1) + ijk[1]*(dim[0]-1) + ijk[0];};
 
   // Description:
-  // For legacy compatability. Do not use.
+  // For legacy compatibility. Do not use.
   void GetCellPoints(int cellId, vtkIdList &ptIds, int dataDescription, int dim[3])
     {this->GetCellPoints(cellId, &ptIds, dataDescription, dim);}
   void GetPointCells(int ptId, vtkIdList &cellIds, int dim[3])

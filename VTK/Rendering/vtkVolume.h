@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-08 18:42:29 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1998-10-14 21:25:30 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -123,12 +123,11 @@ public:
   unsigned long GetMTime();
 
   // Description:
-  // For legacy compatability. Do not use.
+  // For legacy compatibility. Do not use.
   vtkVolume &operator=(const vtkVolume& volume);
   void GetMatrix(vtkMatrix4x4 &m) {this->GetMatrix(&m);}
   void SetVolumeProperty(vtkVolumeProperty& property) 
     {this->SetVolumeProperty(&property);}
-
 
 protected:
 

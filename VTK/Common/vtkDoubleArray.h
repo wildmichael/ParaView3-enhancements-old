@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDoubleArray.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 20:34:03 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1998-10-14 21:24:45 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -142,7 +142,7 @@ public:
 
   // Description:
   // Deep copy of another double array.
-  void DeepCopy(vtkDataArray& da);
+  void DeepCopy(vtkDataArray *da);
 
   // Description:
   // This method lets the user specify data to be held by the array.  The 
@@ -152,6 +152,10 @@ public:
   // The class uses the actual array provided; it does not copy the data 
   // from the suppled array.
   void SetArray(double* array, int size, int save);
+
+  // Description:
+  // For legacy compatibility. Do not use.
+  void DeepCopy(vtkDataArray &da) {this->DeepCopy(&da);}
 
 private:
   double *Array;   // pointer to data

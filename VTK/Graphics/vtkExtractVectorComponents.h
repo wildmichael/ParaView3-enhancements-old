@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractVectorComponents.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-08 18:41:55 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1998-10-14 21:25:15 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -79,7 +79,6 @@ public:
   // Description:
   // Specify the input data or filter.
   virtual void SetInput(vtkDataSet *input);
-  void SetInput(vtkDataSet &input) {this->SetInput(&input);};
 
   // Description:
   // Get the output dataset representing velocity x-component. If output is
@@ -108,6 +107,9 @@ public:
   // vector component. By default, the x component is extracted.
   vtkDataSet *GetOutput(int i=0); //default extracts vector component.
 
+  // Description:
+  // For legacy compatibility. Do not use.
+  void SetInput(vtkDataSet &input) {this->SetInput(&input);};
 
 protected:
   void Execute();

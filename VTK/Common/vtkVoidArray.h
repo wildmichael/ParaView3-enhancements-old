@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoidArray.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 20:34:20 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1998-10-14 21:25:04 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -140,7 +140,12 @@ public:
   
   // Description:
   // Deep copy of another void array.
-  void DeepCopy(vtkDataArray &da);
+  void DeepCopy(vtkDataArray *da);
+  
+  // Description:
+  // For legacy compatibility. Do not use.
+  void DeepCopy(vtkDataArray &da) {this->DeepCopy(&da);}
+  
 
 private:
   void** Array;  // pointer to data

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamLine.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:45:08 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1998-10-14 21:25:27 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -129,7 +129,7 @@ void vtkStreamLine::Execute()
 
     if ( pts->GetNumberOfIds() > 1 )
       {
-      newLines->InsertNextCell(*pts);
+      newLines->InsertNextCell(pts);
       pts->Reset();
       }
     } //for all streamers

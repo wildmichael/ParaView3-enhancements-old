@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnsignedCharArray.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 20:34:19 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 1998-10-14 21:25:01 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -160,7 +160,7 @@ public:
   
   // Description:
   // Deep copy of another unsigned char array.
-  void DeepCopy(vtkDataArray& da);
+  void DeepCopy(vtkDataArray *da);
 
   // Description:
   // This method lets the user specify data to be held by the array.  The 
@@ -171,6 +171,10 @@ public:
   // from the suppled array.
   void SetArray(unsigned char* array, int size, int save);
 
+  // Description:
+  // For legacy compatibility. Do not use.
+  void DeepCopy(vtkDataArray &da) {this->DeepCopy(&da);}
+  
 
 private:
   unsigned char *Array;   // pointer to data

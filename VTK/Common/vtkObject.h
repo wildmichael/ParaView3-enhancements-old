@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObject.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-06 14:40:24 $
-  Version:   $Revision: 1.52 $
+  Date:      $Date: 1998-10-14 21:24:51 $
+  Version:   $Revision: 1.53 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -172,7 +172,7 @@ public:
   void SetReferenceCount(int);
 
   // Description:
-  // For legacy compatability. Do not use. 
+  // For legacy compatibility. Do not use. 
   // Works now by making reference count negative.
   void ReferenceCountingOff();
 
@@ -193,7 +193,6 @@ inline void vtkObject::Modified()
 }
 
 
-// Description:
 // Turn off reference counting for this object. This allows you to create
 // automatic reference counted objects and avoid warning messages when scope
 // is existed. (Note: It is preferable to use the combination new/Delete() 

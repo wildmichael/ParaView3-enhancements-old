@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-08 18:42:02 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 1998-10-14 21:25:19 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -105,7 +105,6 @@ public:
   // Description:
   // Specify a lookup table for the mapper to use.
   void SetLookupTable(vtkLookupTable *lut);
-  void SetLookupTable(vtkLookupTable& lut) {this->SetLookupTable(&lut);};
   vtkLookupTable *GetLookupTable();
 
   // Description:
@@ -230,6 +229,10 @@ public:
   void SetRenderTime(float time) {this->RenderTime = time;}
   vtkGetMacro(RenderTime, float);
   
+  // Description:
+  // For legacy compatibility. Do not use.
+  void SetLookupTable(vtkLookupTable& lut) {this->SetLookupTable(&lut);}
+
 protected:
   vtkDataSet *Input;
   vtkScalars *Colors;

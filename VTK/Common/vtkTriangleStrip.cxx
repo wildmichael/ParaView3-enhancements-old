@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangleStrip.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-06 14:40:31 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 1998-10-14 21:25:00 $
+  Version:   $Revision: 1.48 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,7 +58,7 @@ vtkTriangleStrip::~vtkTriangleStrip()
 vtkCell *vtkTriangleStrip::MakeObject()
 {
   vtkCell *cell = vtkTriangleStrip::New();
-  cell->DeepCopy(*this);
+  cell->DeepCopy(this);
   return cell;
 }
 
@@ -253,19 +253,19 @@ int vtkTriangleStrip::IntersectWithLine(float p1[3], float p2[3], float tol,
   return 0;
 }
 
-int vtkTriangleStrip::Triangulate(int vtkNotUsed(index), vtkIdList &ptIds, 
-                                  vtkPoints &pts)
+int vtkTriangleStrip::Triangulate(int vtkNotUsed(index), vtkIdList *ptIds, 
+                                  vtkPoints *pts)
 {
-  int numTris=this->Points->GetNumberOfPoints()-2;
-  pts.Reset();
-  ptIds.Reset();
+  int numTris = this->Points->GetNumberOfPoints()-2;
+  pts->Reset();
+  ptIds->Reset();
 
   for (int subId=0; subId < numTris; subId++)
     {
     for ( int i=0; i < 3; i++ )
       {
-      ptIds.InsertNextId(this->PointIds->GetId(subId+i));
-      pts.InsertNextPoint(this->Points->GetPoint(subId+i));
+      ptIds->InsertNextId(this->PointIds->GetId(subId+i));
+      pts->InsertNextPoint(this->Points->GetPoint(subId+i));
       }
     }
 

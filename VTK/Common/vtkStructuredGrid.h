@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGrid.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-06 14:40:29 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 1998-10-14 21:24:57 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -120,7 +120,7 @@ public:
   int IsPointVisible(int ptId);
 
   // Description:
-  // For legacy compatability. Do not use.
+  // For legacy compatibility. Do not use.
   void GetCellPoints(int cellId, vtkIdList &ptIds)
     {this->GetCellPoints(cellId, &ptIds);}
   void GetPointCells(int ptId, vtkIdList &cellIds)

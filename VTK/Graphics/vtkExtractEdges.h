@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractEdges.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-08 18:41:54 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1998-10-14 21:25:14 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,7 +64,6 @@ public:
   // Set / get a spatial locator for merging points. By
   // default an instance of vtkMergePoints is used.
   void SetLocator(vtkPointLocator *locator);
-  void SetLocator(vtkPointLocator& locator) {this->SetLocator(&locator);};
   vtkGetObjectMacro(Locator,vtkPointLocator);
 
   // Description:
@@ -74,6 +73,10 @@ public:
   // Description:
   // Return MTime also considering the locator.
   unsigned long GetMTime();
+
+  // Description:
+  // For legacy compatibility. Do not use.
+  void SetLocator(vtkPointLocator& locator) {this->SetLocator(&locator);};
 
 protected:
   // Usual data generation method

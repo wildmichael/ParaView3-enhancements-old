@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergeFilter.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-08 18:42:03 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 1998-10-14 21:25:19 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -74,7 +74,6 @@ public:
   // Description:
   // Specify object from which to extract geometry information.
   void SetGeometry(vtkDataSet *input);
-  void SetGeometry(vtkDataSet &input) {this->SetGeometry(&input);};
   vtkDataSet *GetGeometry() {return (vtkDataSet *)this->Input;};
 
   // Description:
@@ -122,6 +121,10 @@ public:
   // Set / get the object from which to extract field data.
   vtkSetObjectMacro(FieldData,vtkDataSet);
   vtkGetObjectMacro(FieldData,vtkDataSet);
+  
+  // Description:
+  // For legacy compatibility. Do not use.
+  void SetGeometry(vtkDataSet &input) {this->SetGeometry(&input);}
 
 protected:
   // Usual data generation method

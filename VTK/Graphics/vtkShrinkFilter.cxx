@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkShrinkFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-06 14:43:24 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 1998-10-14 21:25:26 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -109,7 +109,7 @@ void vtkShrinkFilter::Execute()
 
       outPD->CopyData(pd, oldId, newId);
       }
-    output->InsertNextCell(input->GetCellType(cellId), *newPtIds);
+    output->InsertNextCell(input->GetCellType(cellId), newPtIds);
     }
   //
   // Update ourselves and release memory

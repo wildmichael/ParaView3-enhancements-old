@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitBoolean.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-08 18:41:59 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1998-10-14 21:25:18 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -93,12 +93,10 @@ public:
   // Description:
   // Add another implicit function to the list of functions.
   void AddFunction(vtkImplicitFunction *in);
-  void AddFunction(vtkImplicitFunction &in) {this->AddFunction(&in);};
 
   // Description:
   // Remove a function from the list of implicit functions to boolean.
   void RemoveFunction(vtkImplicitFunction *in);
-  void RemoveFunction(vtkImplicitFunction &in) {this->RemoveFunction(&in);};
 
   // Description:
   // Return the collection of implicit functions.
@@ -117,6 +115,11 @@ public:
   void SetOperationTypeToUnionOfMagnitudes() 
     {this->SetOperationType(VTK_UNION_OF_MAGNITUDES);};
   char *GetOperationTypeAsString();
+  
+  // Description:
+  // For legacy compatibility. Do not use.
+  void AddFunction(vtkImplicitFunction &in) {this->AddFunction(&in);}
+  void RemoveFunction(vtkImplicitFunction &in) {this->RemoveFunction(&in);}
 
 protected:
   vtkImplicitFunctionCollection *FunctionList;

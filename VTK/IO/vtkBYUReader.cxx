@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBYUReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:44:33 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1998-10-14 21:25:08 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -187,7 +187,7 @@ void vtkBYUReader::ReadGeometryFile(FILE *geomFile, int &numPts)
     // Insert polygon (if in selected part)
     if ( partStart <= polyId && polyId <= partEnd )
       {
-      newPolys->InsertNextCell(*pts);
+      newPolys->InsertNextCell(pts);
       }
     }
   this->UpdateProgress(0.6667);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:38:11 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1998-10-14 21:24:51 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -50,13 +50,13 @@ vtkPoints::vtkPoints(int dataType) : vtkAttributeData(dataType)
 }
 
 // Given a list of pt ids, return an array of points.
-void vtkPoints::GetPoints(vtkIdList& ptIds, vtkPoints& fp)
+void vtkPoints::GetPoints(vtkIdList *ptIds, vtkPoints *fp)
 {
-  int num=ptIds.GetNumberOfIds();
+  int num = ptIds->GetNumberOfIds();
 
-  for (int i=0; i<num; i++)
+  for (int i=0; i < num; i++)
     {
-    fp.InsertPoint(i,this->GetPoint(ptIds.GetId(i)));
+    fp->InsertPoint(i, this->GetPoint(ptIds->GetId(i)));
     }
 }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinearExtrusionFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:44:51 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1998-10-14 21:25:19 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -260,7 +260,7 @@ void vtkLinearExtrusionFilter::Execute()
           {
           p1 = edge->PointIds->GetId(j);
           p2 = edge->PointIds->GetId(j+1);
-          mesh->GetCellEdgeNeighbors(cellId, p1, p2, *cellIds);
+          mesh->GetCellEdgeNeighbors(cellId, p1, p2, cellIds);
 
           if ( cellIds->GetNumberOfIds() < 1 ) //generate strip
             {

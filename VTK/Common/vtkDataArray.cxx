@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:38:01 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-10-14 21:24:43 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -51,17 +51,17 @@ vtkDataArray::vtkDataArray(int numComp)
   this->NumberOfComponents = (numComp < 1 ? 1 : numComp);
 }
 
-void vtkDataArray::DeepCopy(vtkDataArray& da)
+void vtkDataArray::DeepCopy(vtkDataArray *da)
 {
-  if ( this != &da )
+  if ( this != da )
     {
-    int numTuples = da.GetNumberOfTuples();
-    this->NumberOfComponents = da.NumberOfComponents;
+    int numTuples = da->GetNumberOfTuples();
+    this->NumberOfComponents = da->NumberOfComponents;
     this->SetNumberOfTuples(numTuples);
 
     for (int i=0; i < numTuples; i++)
       {
-      this->SetTuple(i, da.GetTuple(i));
+      this->SetTuple(i, da->GetTuple(i));
       }
     }
 }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSweptSurface.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-06 14:44:59 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 1998-10-14 21:25:33 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -337,7 +337,7 @@ void vtkSweptSurface::SampleInput(vtkMatrix4x4 *m, int inDim[3],
           this->IdList->SetId(6,idx + inDim[0] + inSliceSize);
           this->IdList->SetId(7,idx+1 + inDim[0] + inSliceSize);
 
-          inScalars->GetScalars(*this->IdList,*this->VoxelScalars);
+          inScalars->GetScalars(this->IdList,this->VoxelScalars);
 
           for (ii=0; ii<3; ii++)
 	    {

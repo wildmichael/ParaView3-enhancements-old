@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSubdivideTetra.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-10 18:44:09 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-10-14 21:25:05 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -77,6 +77,7 @@ void vtkSubdivideTetra::Execute()
   (type=types->GetCellType(0)) != VTK_TETRA )
     {
     vtkErrorMacro(<<"Must be tetrahedra");
+    types->Delete();
     return;
     }
   connections = input->GetCells();
@@ -238,8 +239,8 @@ void vtkSubdivideTetra::Execute()
 
   vtkDebugMacro(<<"Subdivided " << numCells << " cells");
 
-  types->Delete();
   locator->Delete();
+  types->Delete();
   newPts->Delete();
   output->Squeeze();
 }

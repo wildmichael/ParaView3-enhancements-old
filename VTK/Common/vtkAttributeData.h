@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAttributeData.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:37:57 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-10-14 21:24:41 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -119,9 +119,14 @@ public:
   // Different ways to copy data. Shallow copy does reference count (i.e.,
   // assigns pointers and updates reference count); deep copy runs through
   // entire data array assigning values.
-  virtual void DeepCopy(vtkAttributeData& ad);
-  virtual void ShallowCopy(vtkAttributeData& ad);
+  virtual void DeepCopy(vtkAttributeData *ad);
+  virtual void ShallowCopy(vtkAttributeData *ad);
 
+  // Description:
+  // For legacy compatibility. Do not use.
+  void DeepCopy(vtkAttributeData &ad) {this->DeepCopy(&ad);}
+  void ShallowCopy(vtkAttributeData &ad) {this->ShallowCopy(&ad);}
+  
 protected:
   vtkDataArray *Data;  // Array which represents data
 

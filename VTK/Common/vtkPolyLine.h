@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyLine.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-06 14:40:26 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 1998-10-14 21:24:53 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -93,7 +93,7 @@ public:
                         float *weights);
   int IntersectWithLine(float p1[3], float p2[3], float tol, float& t,
                         float x[3], float pcoords[3], int& subId);
-  int Triangulate(int index, vtkIdList &ptIds, vtkPoints &pts);
+  int Triangulate(int index, vtkIdList *ptIds, vtkPoints *pts);
   void Derivatives(int subId, float pcoords[3], float *values, 
                    int dim, float *derivs);
 
@@ -102,10 +102,13 @@ public:
   int GetParametricCenter(float pcoords[3]);
 
   // Description:
-  // For legacy compatability. Do not use.
+  // For legacy compatibility. Do not use.
   int CellBoundary(int subId, float pcoords[3], vtkIdList &pts)
     {return this->CellBoundary(subId, pcoords, &pts);}
+  int Triangulate(int index, vtkIdList &ptIds, vtkPoints &pts)
+    {return this->Triangulate(index, &ptIds, &pts);}
 
+  
 protected:
   vtkLine *Line;
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEmptyCell.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-06 14:40:21 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1998-10-14 21:24:45 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -101,10 +101,10 @@ int vtkEmptyCell::IntersectWithLine(float vtkNotUsed(p1)[3],
 }
 
 int vtkEmptyCell::Triangulate(int vtkNotUsed(index),
-                             vtkIdList& ptIds, vtkPoints& pts)
+                             vtkIdList *ptIds, vtkPoints *pts)
 {
-  pts.Reset();
-  ptIds.Reset();
+  pts->Reset();
+  ptIds->Reset();
 
   return 1;
 }

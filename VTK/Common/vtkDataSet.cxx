@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSet.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-06 14:40:21 $
-  Version:   $Revision: 1.61 $
+  Date:      $Date: 1998-10-14 21:24:44 $
+  Version:   $Revision: 1.62 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,15 +57,10 @@ vtkDataSet::vtkDataSet ()
 
   this->PointData = vtkPointData::New();
   this->CellData = vtkCellData::New();
-  this->Cell = NULL;
 }
 
 vtkDataSet::~vtkDataSet ()
 {
-  if (this->Cell)
-    {
-    this->Cell->UnRegister(this);
-    }
   this->PointData->Delete();
   this->CellData->Delete();
 }

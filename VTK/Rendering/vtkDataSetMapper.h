@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetMapper.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-07 13:11:06 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 1998-10-14 21:25:12 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -71,7 +71,6 @@ public:
   // Description:
   // Specify the input data to map.
   void SetInput(vtkDataSet *in);
-  void SetInput(vtkDataSet& in) {this->SetInput(&in);};
   void SetInput(vtkImageCache *cache)
     {this->SetInput(cache->GetImageToStructuredPoints()->GetOutput());}
   
@@ -82,6 +81,10 @@ public:
   // Description:
   // Get the mtime also considering the lookup table.
   unsigned long GetMTime();
+
+  // Description:
+  // For legacy compatibility. Do not use.
+  void SetInput(vtkDataSet& in) {this->SetInput(&in);};
 
 protected:
   vtkGeometryFilter *GeometryExtractor;

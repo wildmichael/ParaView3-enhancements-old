@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-06 14:43:17 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1998-10-14 21:25:09 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -164,7 +164,7 @@ void vtkClipPolyData::Execute()
     vtkScalars *tmpScalars = vtkScalars::New();
     tmpScalars->SetNumberOfScalars(numPts);
     inPD = vtkPointData::New();
-    inPD->ShallowCopy(*(input->GetPointData()));//copies original
+    inPD->ShallowCopy(input->GetPointData());//copies original
     if ( this->GenerateClipScalars )
       {
       inPD->SetScalars(tmpScalars);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSelectPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-06 15:17:12 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-10-14 21:25:26 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -353,7 +353,7 @@ void vtkSelectPolyData::Execute()
 
         if ( ! (s1 == 0 && s2 == 0) )
           {
-          this->Mesh->GetCellEdgeNeighbors(id, pt1, pt2, *neighbors);
+          this->Mesh->GetCellEdgeNeighbors(id, pt1, pt2, neighbors);
           numNei = neighbors->GetNumberOfIds();
           for (k=0; k<numNei; k++)
             {

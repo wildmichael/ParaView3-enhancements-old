@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectors.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:38:23 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 1998-10-14 21:25:03 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -117,8 +117,12 @@ public:
   // Description:
   // Given a list of pt ids, return an array of vectors.
   void GetVectors(vtkIdList *ptId, vtkVectors *fv);
+
+  // Description:
+  // For legacy compatibility. Do not use.
   void GetVectors(vtkIdList& ptId, vtkVectors& fv)
     {this->GetVectors(&ptId, &fv);}
+
 
 protected:
   float MaxNorm;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPoints.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 20:34:12 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 1998-10-14 21:24:52 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -107,7 +107,7 @@ public:
 
   // Description:
   // Given a list of pt ids, return an array of points.
-  void GetPoints(vtkIdList& ptId, vtkPoints& fp);
+  void GetPoints(vtkIdList *ptId, vtkPoints *fp);
 
   // Description:
   // Determine (xmin,xmax, ymin,ymax, zmin,zmax) bounds of points.
@@ -120,6 +120,10 @@ public:
   // Description:
   // Return the bounds of the points.
   void GetBounds(float bounds[6]);
+
+  // Description:
+  // For legacy compatibility. Do not use.
+  void GetPoints(vtkIdList &ptId, vtkPoints &fp) {this->GetPoints(&ptId, &fp);}
 
 protected:
   float Bounds[6];

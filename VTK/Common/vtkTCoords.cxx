@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTCoords.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:38:45 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1998-10-14 21:24:57 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -67,14 +67,14 @@ void vtkTCoords::SetData(vtkDataArray *data)
 }
 
 // Given a list of pt ids, return an array of texture coordinates.
-void vtkTCoords::GetTCoords(vtkIdList& ptIds, vtkTCoords& tc)
+void vtkTCoords::GetTCoords(vtkIdList *ptIds, vtkTCoords *tc)
 {
-  int num=ptIds.GetNumberOfIds();
+  int num = ptIds->GetNumberOfIds();
 
-  tc.SetNumberOfTCoords(num);
+  tc->SetNumberOfTCoords(num);
   for (int i=0; i<num; i++)
     {
-    tc.SetTCoord(i,this->GetTCoord(ptIds.GetId(i)));
+    tc->SetTCoord(i,this->GetTCoord(ptIds->GetId(i)));
     }
 }
 

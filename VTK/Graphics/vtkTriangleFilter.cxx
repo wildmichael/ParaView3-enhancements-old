@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangleFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:45:13 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1998-10-14 21:25:28 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -80,7 +80,7 @@ void vtkTriangleFilter::Execute()
     else if ( npts > 3 ) // triangulate poly
       {
       poly->Initialize(npts,pts,inPoints);
-      poly->Triangulate(*outVerts);
+      poly->Triangulate(outVerts);
       for (i=0; i<outVerts->GetNumberOfIds()/3; i++)
         {
         newPolys->InsertNextCell(3);

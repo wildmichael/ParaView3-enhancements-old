@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAppendFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-06 14:43:15 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 1998-10-14 21:25:07 $
+  Version:   $Revision: 1.42 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -262,7 +262,7 @@ void vtkAppendFilter::Execute()
 	{
         newPtIds->InsertId(i,ptIds->GetId(i)+ptOffset);
 	}
-      output->InsertNextCell(ds->GetCellType(cellId),*newPtIds);
+      output->InsertNextCell(ds->GetCellType(cellId),newPtIds);
       }
     }
   //

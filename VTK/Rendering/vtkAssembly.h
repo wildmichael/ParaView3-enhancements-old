@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAssembly.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-07 13:10:59 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1998-10-14 21:25:08 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -147,9 +147,8 @@ public:
   unsigned long int GetMTime();
 
   // Description:
-  // For legacy compatability. Do not use.
+  // For legacy compatibility. Do not use.
   vtkAssembly &operator=(const vtkAssembly& assembly);
-
 
 protected:
   vtkActorCollection *Parts;

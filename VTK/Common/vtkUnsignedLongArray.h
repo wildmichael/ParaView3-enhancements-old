@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnsignedLongArray.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 20:34:19 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1998-10-14 21:25:02 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -139,7 +139,7 @@ public:
 
   // Description:
   // Deep copy of another unsigned long array.
-  void DeepCopy(vtkDataArray& da);
+  void DeepCopy(vtkDataArray *da);
 
   // Description:
   // This method lets the user specify data to be held by the array.  The 
@@ -153,6 +153,11 @@ public:
   // Description:
   // Resize object to just fit data requirement. Reclaims extra memory.
   void Squeeze() {this->Resize (this->MaxId+1);};
+
+  // Description:
+  // For legacy compatibility. Do not use.
+  void DeepCopy(vtkDataArray &da) {this->DeepCopy(&da);}
+
 
 private:
   unsigned long *Array;   // pointer to data

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIdList.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:38:35 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1998-10-14 21:24:47 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -52,22 +52,22 @@ vtkIdList::~vtkIdList()
 }
 
 // Copy an id list by reference counting internal array.
-void vtkIdList::ShallowCopy(vtkIdList& ids)
+void vtkIdList::ShallowCopy(vtkIdList *ids)
 {
-  if ( ids.Ia != NULL )
+  if ( ids->Ia != NULL )
     {
     this->Ia->Delete();
-    this->Ia = ids.Ia;
+    this->Ia = ids->Ia;
     this->Ia->Register(this);
     }
 }
 
 // Copy an id list by explicitly copying the internal array.
-void vtkIdList::DeepCopy(vtkIdList& ids)
+void vtkIdList::DeepCopy(vtkIdList *ids)
 {
-  if ( ids.Ia != NULL )
+  if ( ids->Ia != NULL )
     {
-    this->Ia->DeepCopy(*ids.Ia);
+    this->Ia->DeepCopy(ids->Ia);
     }
 }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractGeometry.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:44:43 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 1998-10-14 21:25:14 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -144,7 +144,7 @@ void vtkExtractGeometry::Execute()
 
     if ( i >= numCellPts )
       {
-      newCellId = output->InsertNextCell(cell->GetCellType(),*newCellPts);
+      newCellId = output->InsertNextCell(cell->GetCellType(),newCellPts);
       outputCD->CopyData(cd,cellId,newCellId);
       }
     }

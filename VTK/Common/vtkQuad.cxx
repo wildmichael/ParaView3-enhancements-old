@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuad.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-06 14:40:27 $
-  Version:   $Revision: 1.56 $
+  Date:      $Date: 1998-10-14 21:24:54 $
+  Version:   $Revision: 1.57 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -62,7 +62,7 @@ vtkQuad::~vtkQuad()
 vtkCell *vtkQuad::MakeObject()
 {
   vtkCell *cell = vtkQuad::New();
-  cell->DeepCopy(*this);
+  cell->DeepCopy(this);
   return cell;
 }
 
@@ -523,13 +523,13 @@ int vtkQuad::IntersectWithLine(float p1[3], float p2[3], float tol, float& t,
   return 0;
 }
 
-int vtkQuad::Triangulate(int vtkNotUsed(index), vtkIdList &ptIds,
-                         vtkPoints &pts)
+int vtkQuad::Triangulate(int vtkNotUsed(index), vtkIdList *ptIds,
+                         vtkPoints *pts)
 {
   float d1, d2;
 
-  pts.Reset();
-  ptIds.Reset();
+  pts->Reset();
+  ptIds->Reset();
 
   // use minimum diagonal (Delaunay triangles) - assumed convex
   d1 = vtkMath::Distance2BetweenPoints(this->Points->GetPoint(0), 
@@ -539,35 +539,35 @@ int vtkQuad::Triangulate(int vtkNotUsed(index), vtkIdList &ptIds,
 
   if ( d1 < d2 )
     {
-    ptIds.InsertId(0,this->PointIds->GetId(0));
-    pts.InsertPoint(0,this->Points->GetPoint(0));
-    ptIds.InsertId(1,this->PointIds->GetId(1));
-    pts.InsertPoint(1,this->Points->GetPoint(1));
-    ptIds.InsertId(2,this->PointIds->GetId(2));
-    pts.InsertPoint(2,this->Points->GetPoint(2));
+    ptIds->InsertId(0,this->PointIds->GetId(0));
+    pts->InsertPoint(0,this->Points->GetPoint(0));
+    ptIds->InsertId(1,this->PointIds->GetId(1));
+    pts->InsertPoint(1,this->Points->GetPoint(1));
+    ptIds->InsertId(2,this->PointIds->GetId(2));
+    pts->InsertPoint(2,this->Points->GetPoint(2));
 
-    ptIds.InsertId(3,this->PointIds->GetId(0));
-    pts.InsertPoint(3,this->Points->GetPoint(0));
-    ptIds.InsertId(4,this->PointIds->GetId(2));
-    pts.InsertPoint(4,this->Points->GetPoint(2));
-    ptIds.InsertId(5,this->PointIds->GetId(3));
-    pts.InsertPoint(5,this->Points->GetPoint(3));
+    ptIds->InsertId(3,this->PointIds->GetId(0));
+    pts->InsertPoint(3,this->Points->GetPoint(0));
+    ptIds->InsertId(4,this->PointIds->GetId(2));
+    pts->InsertPoint(4,this->Points->GetPoint(2));
+    ptIds->InsertId(5,this->PointIds->GetId(3));
+    pts->InsertPoint(5,this->Points->GetPoint(3));
     }
   else
     {
-    ptIds.InsertId(0,this->PointIds->GetId(0));
-    pts.InsertPoint(0,this->Points->GetPoint(0));
-    ptIds.InsertId(1,this->PointIds->GetId(1));
-    pts.InsertPoint(1,this->Points->GetPoint(1));
-    ptIds.InsertId(2,this->PointIds->GetId(3));
-    pts.InsertPoint(2,this->Points->GetPoint(3));
+    ptIds->InsertId(0,this->PointIds->GetId(0));
+    pts->InsertPoint(0,this->Points->GetPoint(0));
+    ptIds->InsertId(1,this->PointIds->GetId(1));
+    pts->InsertPoint(1,this->Points->GetPoint(1));
+    ptIds->InsertId(2,this->PointIds->GetId(3));
+    pts->InsertPoint(2,this->Points->GetPoint(3));
 
-    ptIds.InsertId(3,this->PointIds->GetId(1));
-    pts.InsertPoint(3,this->Points->GetPoint(1));
-    ptIds.InsertId(4,this->PointIds->GetId(2));
-    pts.InsertPoint(4,this->Points->GetPoint(2));
-    ptIds.InsertId(5,this->PointIds->GetId(3));
-    pts.InsertPoint(5,this->Points->GetPoint(3));
+    ptIds->InsertId(3,this->PointIds->GetId(1));
+    pts->InsertPoint(3,this->Points->GetPoint(1));
+    ptIds->InsertId(4,this->PointIds->GetId(2));
+    pts->InsertPoint(4,this->Points->GetPoint(2));
+    ptIds->InsertId(5,this->PointIds->GetId(3));
+    pts->InsertPoint(5,this->Points->GetPoint(3));
     }
 
   return 1;

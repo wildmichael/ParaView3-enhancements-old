@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkNormals.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 20:34:11 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 1998-10-14 21:24:50 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -108,8 +108,12 @@ public:
 
   // Description:
   // Given a list of pt ids, return an array of normals.
-  void GetNormals(vtkIdList& ptId, vtkNormals& fn);
+  void GetNormals(vtkIdList *ptId, vtkNormals *fn);
 
+  // Description:
+  // For legacy compatibility. 
+  void GetNormals(vtkIdList& ptId, vtkNormals& fn) {this->GetNormals(&ptId, &fn);}
+  
 };
 
 

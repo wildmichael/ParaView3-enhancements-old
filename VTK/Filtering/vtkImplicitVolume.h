@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitVolume.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-08 18:42:00 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1998-10-14 21:25:18 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -69,13 +69,14 @@ class VTK_EXPORT vtkImplicitVolume : public vtkImplicitFunction
 {
 public:
   vtkImplicitVolume();
-  const char *GetClassName() {return "vtkImplicitVolume";};
+  ~vtkImplicitVolume();
+  const char *GetClassName() {return "vtkImplicitVolume";}
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description
   // Construct an vtkImplicitVolume with no initial volume; the OutValue
   // set to a large negative number; and the OutGradient set to (0,0,1).
-  static vtkImplicitVolume *New() {return new vtkImplicitVolume;};
+  static vtkImplicitVolume *New() {return new vtkImplicitVolume;}
 
   // Description:
   // Returns the mtime also considering the volume.
@@ -109,7 +110,8 @@ protected:
   vtkStructuredPoints *Volume; // the structured points
   float OutValue;
   float OutGradient[3];
-
+  // to replace a static
+  vtkIdList *PointIds;
 };
 
 #endif

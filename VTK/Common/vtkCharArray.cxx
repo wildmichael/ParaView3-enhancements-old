@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCharArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:38:31 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1998-10-14 21:24:43 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -124,23 +124,22 @@ void vtkCharArray::Initialize()
 }
 
 // Deep copy of another char array.
-void vtkCharArray::DeepCopy(vtkDataArray& ia)
+void vtkCharArray::DeepCopy(vtkDataArray *ia)
 {
-  if ( this != &ia )
+  if ( this != ia )
     {
     if ((this->Array) && (!this->SaveUserArray))
       {
 	delete [] this->Array;
       }
 
-    this->NumberOfComponents = ia.GetNumberOfComponents();
-    this->MaxId = ia.GetMaxId();
-    this->Size = ia.GetSize();
-    this->Extend = ia.GetExtend();
+    this->NumberOfComponents = ia->GetNumberOfComponents();
+    this->MaxId = ia->GetMaxId();
+    this->Size = ia->GetSize();
+    this->Extend = ia->GetExtend();
     this->SaveUserArray = 0;
     this->Array = new char[this->Size];
-    memcpy(this->Array, (char*) ia.GetVoidPointer(0), this->Size*sizeof(char));
-
+    memcpy(this->Array, (char*) ia->GetVoidPointer(0), this->Size*sizeof(char));
     }
 }
 

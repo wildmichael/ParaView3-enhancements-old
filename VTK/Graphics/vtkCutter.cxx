@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCutter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:40:56 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 1998-10-14 21:25:11 $
+  Version:   $Revision: 1.48 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -153,7 +153,7 @@ void vtkCutter::Execute()
   if ( this->GenerateCutScalars )
     {
     inPD = vtkPointData::New();
-    inPD->ShallowCopy(*(input->GetPointData()));//copies original attributes
+    inPD->ShallowCopy(input->GetPointData());//copies original attributes
     inPD->SetScalars(cutScalars);
     }
   else 

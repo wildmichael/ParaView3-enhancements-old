@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSTLReader.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-08 18:42:16 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 1998-10-14 21:25:25 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -95,12 +95,15 @@ public:
   // Specify a spatial locator for merging points. By
   // default an instance of vtkMergePoints is used.
   void SetLocator(vtkPointLocator *locator);
-  void SetLocator(vtkPointLocator& locator) {this->SetLocator(&locator);};
   vtkGetObjectMacro(Locator,vtkPointLocator);
 
   // Description:
   // Create default locator. Used to create one when none is specified.
   void CreateDefaultLocator();
+
+  // Description:
+  // For legacy compatibiltiy. Do not use.
+  void SetLocator(vtkPointLocator& locator) {this->SetLocator(&locator);};
 
 protected:
   char *FileName;

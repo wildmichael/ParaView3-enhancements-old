@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkNormals.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:38:39 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1998-10-14 21:24:50 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -47,14 +47,14 @@ vtkNormals::vtkNormals(int dataType) : vtkAttributeData(dataType)
 }
 
 // Given a list of pt ids, return an array of normals.
-void vtkNormals::GetNormals(vtkIdList& ptIds, vtkNormals& n)
+void vtkNormals::GetNormals(vtkIdList *ptIds, vtkNormals *n)
 {
-  int num=ptIds.GetNumberOfIds();
+  int num = ptIds->GetNumberOfIds();
 
-  n.SetNumberOfNormals(num);
-  for (int i=0; i<num; i++)
+  n->SetNumberOfNormals(num);
+  for (int i=0; i < num; i++)
     {
-    n.SetNormal(i,this->GetNormal(ptIds.GetId(i)));
+    n->SetNormal(i,this->GetNormal(ptIds->GetId(i)));
     }
 }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataConnectivityFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:44:55 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1998-10-14 21:25:21 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -323,7 +323,7 @@ void vtkPolyDataConnectivityFilter::Execute()
           ptIds->InsertId(i,id);
           }
         newCellId = output->InsertNextCell(this->Mesh->GetCellType(cellId),
-					   *ptIds);
+					   ptIds);
 	outputCD->CopyData(cd,cellId,newCellId);
         }
       }
@@ -353,7 +353,7 @@ void vtkPolyDataConnectivityFilter::Execute()
             ptIds->InsertId(i,id);
             }
           newCellId = output->InsertNextCell(this->Mesh->GetCellType(cellId),
-					     *ptIds);
+					     ptIds);
 	  outputCD->CopyData(cd,cellId,newCellId);
           }
         }
@@ -373,7 +373,7 @@ void vtkPolyDataConnectivityFilter::Execute()
           ptIds->InsertId(i,id);
           }
         newCellId = output->InsertNextCell(this->Mesh->GetCellType(cellId),
-					   *ptIds);
+					   ptIds);
 	outputCD->CopyData(cd,cellId,newCellId);
         }
       }
@@ -441,8 +441,9 @@ void vtkPolyDataConnectivityFilter::TraverseAndMark (int cellId)
           int numScalars, ii;
           float s, range[2];
 
-          this->Mesh->GetCellPoints(cellId,*this->NeighborCellPointIds);
-          this->InScalars->GetScalars(*this->NeighborCellPointIds,*this->CellScalars);
+          this->Mesh->GetCellPoints(cellId, this->NeighborCellPointIds);
+          this->InScalars->GetScalars(this->NeighborCellPointIds,
+				      this->CellScalars);
           numScalars = this->CellScalars->GetNumberOfScalars();
           range[0] = VTK_LARGE_FLOAT; range[1] = -VTK_LARGE_FLOAT;
           for (ii=0; ii < numScalars;  ii++)

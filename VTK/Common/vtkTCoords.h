@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTCoords.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 20:34:17 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1998-10-14 21:24:58 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -117,8 +117,11 @@ public:
 
   // Description:
   // Get a list of texture coordinates
-  void GetTCoords(vtkIdList& ptId, vtkTCoords& fv);
+  void GetTCoords(vtkIdList *ptId, vtkTCoords *fv);
 
+  // Description:
+  // For legacy compatibility. Do not use.
+  void GetTCoords(vtkIdList& ptId, vtkTCoords& fv) {this->GetTCoords(&ptId, &fv);}
 };
 
 inline vtkAttributeData *vtkTCoords::MakeObject()

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-08-20 11:17:26 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 1998-10-14 21:25:32 $
+  Version:   $Revision: 1.47 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -566,7 +566,7 @@ void vtkMarchingCubes::Execute()
     {
     int dataSize = dims[0] * dims[1] * dims[2];
     vtkScalars *image=vtkScalars::New(VTK_FLOAT); image->Allocate(dataSize);
-    inScalars->GetScalars(0,dataSize,*image);
+    inScalars->GetScalars(0,dataSize,image);
 
     float *scalars = ((vtkFloatArray *)image->GetData())->GetPointer(0);
     ContourVolume(this,scalars,dims,origin,Spacing,this->Locator,
@@ -578,10 +578,10 @@ void vtkMarchingCubes::Execute()
   vtkDebugMacro(<<"Created: " 
                << newPts->GetNumberOfPoints() << " points, " 
                << newPolys->GetNumberOfCells() << " triangles");
-//
-// Update ourselves.  Because we don't know up front how many triangles
-// we've created, take care to reclaim memory. 
-//
+  //
+  // Update ourselves.  Because we don't know up front how many triangles
+  // we've created, take care to reclaim memory. 
+  //
   output->SetPoints(newPts);
   newPts->Delete();
 

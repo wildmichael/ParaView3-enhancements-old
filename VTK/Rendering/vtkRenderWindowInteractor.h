@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-08 18:42:14 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 1998-10-14 21:25:24 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -149,7 +149,6 @@ public:
   // Set the object used to perform pick operations. You can use this to 
   // control what type of data is picked.
   void SetPicker(vtkPicker *picker);
-  void SetPicker(vtkPicker& picker) {this->SetPicker(&picker);};
 
   // Description:
   // Get the object used to perform pick operations.
@@ -246,6 +245,10 @@ public:
   virtual void EndZoom() {};
   virtual void StartPan() {};
   virtual void EndPan() {};
+
+  // Description:
+  // For legacy compatibiltiy. Do not use.
+  void SetPicker(vtkPicker& picker) {this->SetPicker(&picker);};
 
 protected:
   vtkRenderWindow *RenderWindow;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCleanPolyData.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-07 13:11:02 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 1998-10-14 21:25:09 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -77,7 +77,6 @@ public:
   // Set/Get a spatial locator for speeding the search process. By
   // default an instance of vtkLocator is used.
   void SetLocator(vtkPointLocator *locator);
-  void SetLocator(vtkPointLocator& locator) {this->SetLocator(&locator);};
   vtkGetObjectMacro(Locator,vtkPointLocator);
 
   // Description:
@@ -87,6 +86,10 @@ public:
   // Description:
   // Get the MTime of this object also considering the locator.
   unsigned long int GetMTime();
+
+  // Description:
+  // For legacy compatibility. Do not use.
+  void SetLocator(vtkPointLocator& locator) {this->SetLocator(&locator);};  
 
 protected:
   // Usual data generation method

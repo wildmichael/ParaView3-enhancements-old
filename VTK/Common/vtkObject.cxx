@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObject.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-06 14:40:23 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 1998-10-14 21:24:50 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -241,4 +241,6 @@ void vtkObject::UnRegister(vtkObject* o)
     delete this;
     }
 }
+
+
 

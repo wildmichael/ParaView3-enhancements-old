@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-06 14:43:15 $
-  Version:   $Revision: 1.72 $
+  Date:      $Date: 1998-10-14 21:25:06 $
+  Version:   $Revision: 1.73 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -279,7 +279,7 @@ void vtkActor::GetMatrix(vtkMatrix4x4 *result)
     // apply user defined matrix last if there is one 
     if (this->UserMatrix)
       {
-      this->Transform->Concatenate(*this->UserMatrix);
+      this->Transform->Concatenate(this->UserMatrix);
       }
 
     this->Transform->PreMultiply();  
@@ -287,7 +287,7 @@ void vtkActor::GetMatrix(vtkMatrix4x4 *result)
     this->MatrixMTime.Modified();
     this->Transform->Pop();  
     }
-  *result = *(this->Matrix);
+  result->DeepCopy(this->Matrix);
 } 
 
 // Get the bounds for this Actor as (Xmin,Xmax,Ymin,Ymax,Zmin,Zmax).
@@ -336,7 +336,7 @@ float *vtkActor::GetBounds()
     this->Transform->Push(); 
     this->Transform->PostMultiply();
     this->Transform->Identity();
-    this->Transform->Concatenate(*matrix);
+    this->Transform->Concatenate(matrix);
 
     // and transform into actors coordinates
     fptr = bbox;
@@ -447,7 +447,7 @@ void vtkActor::BuildPaths(vtkAssemblyPaths *vtkNotUsed(paths),
   previous = path->GetLastItem();
 
   vtkMatrix4x4 *matrix = vtkMatrix4x4::New();
-  *matrix = *previous->vtkProp::GetMatrixPointer();
+  matrix->DeepCopy(previous->vtkProp::GetMatrixPointer());
   copy->SetUserMatrix(matrix);
   matrix->Delete();
 

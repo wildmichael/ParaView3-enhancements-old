@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSLCReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:41:21 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1998-10-14 21:25:25 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -182,6 +182,7 @@ void vtkSLCReader::Execute()
 	{
           vtkErrorMacro( << 
 	    "Unable to read slice " << z_counter << " from SLC File" );
+	  newScalars->Delete();
 	  return;
 	}
 
@@ -201,6 +202,7 @@ void vtkSLCReader::Execute()
 	{
           vtkErrorMacro( << "Unable to read compressed slice " << 
 	    z_counter << " from SLC File" );
+	  newScalars->Delete();
 	  return;
 	}
 

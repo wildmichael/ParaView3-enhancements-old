@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFollower.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-08 18:41:57 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1998-10-14 21:25:17 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -86,9 +86,9 @@ class VTK_EXPORT vtkFollower : public vtkActor
   vtkGetObjectMacro(Camera,vtkCamera);
 
   // Description:
-  // For legacy compatability. Do not use.
+  // For legacy compatibility. Do not use.
   void GetMatrix(vtkMatrix4x4 &m) {this->GetMatrix(&m);}
-
+  
 protected:
   vtkCamera *Camera; 
   vtkActor  *Device;

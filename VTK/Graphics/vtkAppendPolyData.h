@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAppendPolyData.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-07 13:10:59 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1998-10-14 21:25:07 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -69,12 +69,10 @@ public:
   // Description:
   // Add a dataset to the list of data to append.
   void AddInput(vtkPolyData *);
-  void AddInput(vtkPolyData& in) {this->AddInput(&in);};
 
   // Description:
   // Remove a dataset from the list of data to append.
   void RemoveInput(vtkPolyData *);
-  void RemoveInput(vtkPolyData& in) {this->RemoveInput(&in);};
 
   // Description
   // Return the list of inputs to this filter.
@@ -89,6 +87,11 @@ public:
   // Get the output of this filter.
   vtkPolyData *GetOutput() {return (vtkPolyData *)this->Output;};
 
+  // Description:
+  // For legacy compatibility. Do not use.
+  void AddInput(vtkPolyData& in) {this->AddInput(&in);};
+  void RemoveInput(vtkPolyData& in) {this->RemoveInput(&in);};
+  
 protected:
   // Usual data generation method
   void Execute();

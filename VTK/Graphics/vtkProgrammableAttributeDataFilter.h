@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProgrammableAttributeDataFilter.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-08 18:42:10 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-10-14 21:25:22 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -113,12 +113,10 @@ public:
   // Description:
   // Add a dataset to the list of data to process.
   void AddInput(vtkDataSet *in);
-  void AddInput(vtkDataSet& in) {this->AddInput(&in);};
 
   // Description:
   // Remove a dataset from the list of data to process.
   void RemoveInput(vtkDataSet *in);
-  void RemoveInput(vtkDataSet& in) {this->RemoveInput(&in);};
 
   // Description:
   // Return the list of inputs.
@@ -136,6 +134,11 @@ public:
   // Description:
   // vtkFilter interface - overridden because of multiple input.
   void Update();
+
+  // Description:
+  // For legacy compatibility. Do not use.
+  void AddInput(vtkDataSet& in) {this->AddInput(&in);};
+  void RemoveInput(vtkDataSet& in) {this->RemoveInput(&in);};
 
 protected:
   void Execute();

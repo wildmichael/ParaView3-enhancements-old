@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTetra.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-06 14:40:30 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 1998-10-14 21:24:59 $
+  Version:   $Revision: 1.48 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,7 +64,7 @@ vtkTetra::~vtkTetra()
 vtkCell *vtkTetra::MakeObject()
 {
   vtkCell *cell = vtkTetra::New();
-  cell->DeepCopy(*this);
+  cell->DeepCopy(this);
   return cell;
 }
 
@@ -409,15 +409,15 @@ int vtkTetra::IntersectWithLine(float p1[3], float p2[3], float tol, float& t,
   return intersection;
 }
 
-int vtkTetra::Triangulate(int vtkNotUsed(index), vtkIdList &ptIds, vtkPoints &pts)
+int vtkTetra::Triangulate(int vtkNotUsed(index), vtkIdList *ptIds, vtkPoints *pts)
 {
-  ptIds.Reset();
-  pts.Reset();
+  ptIds->Reset();
+  pts->Reset();
     
   for ( int i=0; i < 4; i++ )
     {
-    ptIds.InsertId(i,this->PointIds->GetId(i));
-    pts.InsertPoint(i,this->Points->GetPoint(i));
+    ptIds->InsertId(i,this->PointIds->GetId(i));
+    pts->InsertPoint(i,this->Points->GetPoint(i));
     }
 
   return 1;

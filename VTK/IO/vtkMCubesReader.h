@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMCubesReader.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-08 18:42:02 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 1998-10-14 21:25:19 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -119,7 +119,6 @@ public:
   // Set / get a spatial locator for merging points. By default, 
   // an instance of vtkMergePoints is used.
   void SetLocator(vtkPointLocator *locator);
-  void SetLocator(vtkPointLocator& locator) {this->SetLocator(&locator);};
   vtkGetObjectMacro(Locator,vtkPointLocator);
 
   // Description:
@@ -129,6 +128,10 @@ public:
   // Description:
   // Return the mtime also considering the locator.
   unsigned long GetMTime();
+
+  // Description:
+  // For legacy compatability. Do not use.
+  void SetLocator(vtkPointLocator& locator) {this->SetLocator(&locator);};
 
 protected:
   void Execute();

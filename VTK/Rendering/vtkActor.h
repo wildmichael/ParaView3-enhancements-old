@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-07 13:10:58 $
-  Version:   $Revision: 1.61 $
+  Date:      $Date: 1998-10-14 21:25:07 $
+  Version:   $Revision: 1.62 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -189,7 +189,7 @@ class VTK_EXPORT vtkActor : public vtkProp
   vtkGetMacro(AllocatedRenderTime, float);
   
   // Description:
-  // For legacy compatability. Do not use.
+  // For legacy compatibility. Do not use.
   void SetProperty(vtkProperty& lut) {this->SetProperty(&lut);};
   void SetBackfaceProperty(vtkProperty& lut) 
     {this->SetBackfaceProperty(&lut);};

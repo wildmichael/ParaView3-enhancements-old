@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIntArray.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 20:34:08 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 1998-10-14 21:24:48 $
+  Version:   $Revision: 1.44 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -141,7 +141,7 @@ public:
 
   // Description:
   // Deep copy of another integer array.
-  void DeepCopy(vtkDataArray& ia);
+  void DeepCopy(vtkDataArray *ia);
 
   // Description:
   // This method lets the user specify data to be held by the array.  The 
@@ -152,6 +152,10 @@ public:
   // from the suppled array.
   void SetArray(int* array, int size, int save);
 
+  // Description:
+  // For legacy compatibility. Do not use.
+  void DeepCopy(vtkDataArray &ia) {this->DeepCopy(&ia);}
+  
 
 private:
   int *Array;   // pointer to data

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataArray.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:38:01 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1998-10-14 21:24:43 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -164,7 +164,7 @@ public:
   // Description:
   // Deep copy of data. Copies data from different data arrays even if they are 
   // different types (using floating-point exchange).
-  virtual void DeepCopy(vtkDataArray& da);
+  virtual void DeepCopy(vtkDataArray *da);
 
   // Description:
   // Return a void pointer. For image pipeline interface and other 
@@ -191,6 +191,10 @@ public:
   // By how many elements should the array increase when more memory is 
   // required.
   int GetExtend() {return this->Extend;}
+
+  // Description:
+  // For legacy compatibility. Do not use.
+  void DeepCopy(vtkDataArray &da) {this->DeepCopy(&da);}
 
 protected:
   int Size;      // allocated size of data

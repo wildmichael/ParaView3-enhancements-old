@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCutter.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-07 13:11:05 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 1998-10-14 21:25:11 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -138,7 +138,6 @@ public:
   // Specify a spatial locator for merging points. By default, 
   // an instance of vtkMergePoints is used.
   void SetLocator(vtkPointLocator *locator);
-  void SetLocator(vtkPointLocator& locator) {this->SetLocator(&locator);};
   vtkGetObjectMacro(Locator,vtkPointLocator);
 
   // Description:
@@ -161,6 +160,10 @@ public:
   // Create default locator. Used to create one when none is specified. The 
   // locator is used to merge coincident points.
   void CreateDefaultLocator();
+
+  // Description:
+  // For legacy compatibility. Do not use.
+  void SetLocator(vtkPointLocator& locator) {this->SetLocator(&locator);};
 
 protected:
   void Execute();

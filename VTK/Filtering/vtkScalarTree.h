@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalarTree.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-08 18:42:17 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1998-10-14 21:25:26 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -123,8 +123,17 @@ public:
   // initialize traversal. The value NULL is returned if the list is
   // exhausted. Make sure that InitTraversal() has been invoked first or
   // you'll get erratic behavior.
+  vtkCell *GetNextCell(int &cellId, vtkIdList* &ptIds,
+                       vtkScalars *cellScalars);
+
+  // Description:
+  // For legacy compatibiltiy. Do not use.
   vtkCell *GetNextCell(int& cellId, vtkIdList* &ptIds,
-                       vtkScalars& cellScalars);
+                       vtkScalars& cellScalars) 
+    {return this->GetNextCell(cellId, ptIds, &cellScalars);}
+  
+  
+    
 
 protected:
   vtkDataSet *DataSet;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoidArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:38:49 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1998-10-14 21:25:04 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -92,24 +92,24 @@ void vtkVoidArray::Initialize()
 }
 
 // Deep copy of another void array.
-void vtkVoidArray::DeepCopy(vtkDataArray& da)
+void vtkVoidArray::DeepCopy(vtkDataArray *da)
 {
-  if ( da.GetDataType() != VTK_VOID )
+  if ( da->GetDataType() != VTK_VOID )
     {
     vtkDataArray::DeepCopy(da);
     return;
     }
 
-  if ( this != &da )
+  if ( this != da )
     {
     delete [] this->Array;
 
-    this->MaxId = da.GetMaxId();
-    this->Size = da.GetSize();
-    this->Extend = da.GetExtend();
+    this->MaxId = da->GetMaxId();
+    this->Size = da->GetSize();
+    this->Extend = da->GetExtend();
 
     this->Array = new voidPtr[this->Size];
-    memcpy(this->Array, da.GetVoidPointer(0), this->Size*sizeof(void *));
+    memcpy(this->Array, da->GetVoidPointer(0), this->Size*sizeof(void *));
     }
 }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingSquares.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-02 14:47:29 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1998-10-14 21:25:33 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -492,7 +492,7 @@ void vtkMarchingSquares::Execute()
     {
     vtkScalars *image = vtkScalars::New();
     image->Allocate(dataSize);
-    inScalars->GetScalars(0,dataSize,*image);
+    inScalars->GetScalars(0,dataSize,image);
     newScalars = vtkScalars::New(VTK_FLOAT);
     newScalars->Allocate(5000,25000);
     float *scalars = ((vtkFloatArray *)image->GetData())->GetPointer(0);
@@ -504,10 +504,10 @@ void vtkMarchingSquares::Execute()
   vtkDebugMacro(<<"Created: " 
                << newPts->GetNumberOfPoints() << " points, " 
                << newLines->GetNumberOfCells() << " lines");
-//
-// Update ourselves.  Because we don't know up front how many lines
-// we've created, take care to reclaim memory. 
-//
+  //
+  // Update ourselves.  Because we don't know up front how many lines
+  // we've created, take care to reclaim memory. 
+  //
   output->SetPoints(newPts);
   newPts->Delete();
 

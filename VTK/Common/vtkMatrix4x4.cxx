@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMatrix4x4.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:38:08 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1998-10-14 21:24:50 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -80,6 +80,19 @@ vtkMatrix4x4::vtkMatrix4x4(const vtkMatrix4x4& m)
     }
 }
 
+void vtkMatrix4x4::Zero()
+{
+  int i,j;
+  for (i = 0; i < 4; i++)
+    {
+    for (j = 0; j < 4; j++)
+      {
+      this->Element[i][j] = 0.0;
+      }
+    }
+  this->Modified ();
+}
+
 // Set all the elements of the matrix to the given value.
 void vtkMatrix4x4::operator= (float element)
 {
@@ -94,6 +107,7 @@ void vtkMatrix4x4::operator= (float element)
     }
   this->Modified ();
 }
+
 
 // Multiply this matrix by a point (in homogeneous coordinates). 
 // and return the result in result. The in[4] and result[4] 
@@ -285,18 +299,31 @@ void vtkMatrix4x4::Adjoint (vtkMatrix4x4 *in,vtkMatrix4x4 *out)
 
 // Set the elements of the matrix to the same values as the elements
 // of the source Matrix.
+void vtkMatrix4x4::DeepCopy(vtkMatrix4x4 *source)
+{
+  int i, j;
+  
+  for (i = 0; i < 4; ++i)
+    {
+    for (j = 0; j < 4; ++j)
+      {
+      this->Element[i][j] = source->Element[i][j];
+      }
+    }
+}
+
 vtkMatrix4x4& vtkMatrix4x4::operator= (const vtkMatrix4x4& source)
 {
   int i, j;
 
-  for (i = 0; i < 4; i++) 
+  for (i = 0; i < 4; ++i)
     {
-    for (j = 0; j < 4; j++) 
+    for (j = 0; j < 4; ++j)
       {
       this->Element[i][j] = source.Element[i][j];
       }
     }
-  this->Modified ();
+
   return *this;
 }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFloatArray.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 20:34:04 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 1998-10-14 21:24:47 $
+  Version:   $Revision: 1.42 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -157,7 +157,7 @@ public:
 
   // Description:
   // Deep copy of another float array.
-  void DeepCopy(vtkDataArray& fa);
+  void DeepCopy(vtkDataArray *fa);
 
   // Description:
   // This method lets the user specify data to be held by the array.  The 
@@ -168,6 +168,11 @@ public:
   // from the suppled array.
   void SetArray(float* array, int size, int save);
 
+  // Description:
+  // For legacy compatibility. Do not use.
+  void DeepCopy(vtkDataArray &fa) {this->DeepCopy(&fa);}
+  
+  
 private:
   float *Array;  // pointer to data
   float *Resize(const int sz);  // function to reallocate data

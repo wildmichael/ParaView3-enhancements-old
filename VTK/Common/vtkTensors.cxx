@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTensors.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:38:19 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1998-10-14 21:24:58 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,7 +56,7 @@ vtkTensors::~vtkTensors()
 void vtkTensors::GetTensor(int id, vtkTensor *ft)
 {
   vtkTensor *t = this->GetTensor(id);
-  ft->DeepCopy(*t);
+  ft->DeepCopy(t);
 }
 
 void vtkTensors::SetTensor(int id, vtkTensor *t)

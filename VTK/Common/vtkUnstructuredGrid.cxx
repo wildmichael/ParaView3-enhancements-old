@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-06 14:40:32 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 1998-10-14 21:25:03 $
+  Version:   $Revision: 1.49 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -281,9 +281,9 @@ void vtkUnstructuredGrid::PrintSelf(ostream& os, vtkIndent indent)
 
 // Insert/create cell in object by type and list of point ids defining
 // cell topology.
-int vtkUnstructuredGrid::InsertNextCell(int type, vtkIdList& ptIds)
+int vtkUnstructuredGrid::InsertNextCell(int type, vtkIdList *ptIds)
 {
-  int npts=ptIds.GetNumberOfIds();
+  int npts=ptIds->GetNumberOfIds();
 
   // insert connectivity
   this->Connectivity->InsertNextCell(ptIds);

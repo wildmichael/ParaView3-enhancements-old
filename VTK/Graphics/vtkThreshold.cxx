@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThreshold.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:41:31 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 1998-10-14 21:25:28 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -200,7 +200,7 @@ void vtkThreshold::Execute()
           }
         newCellPts->InsertId(i,newId);
         }
-      newCellId = output->InsertNextCell(cell->GetCellType(),*newCellPts);
+      newCellId = output->InsertNextCell(cell->GetCellType(),newCellPts);
       outCD->CopyData(cd,cellId,newCellId);
       newCellPts->Reset();
       } // satisfied thresholding

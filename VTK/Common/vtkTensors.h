@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTensors.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:38:19 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1998-10-14 21:24:58 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -83,7 +83,6 @@ public:
   // Description:
   // Return the Tensor requested in the tensor passed.
   void GetTensor(int id, vtkTensor *t);
-  void GetTensor(int id, vtkTensor& t) {this->GetTensor(id, &t);}
 
   // Description:
   // Insert a Tensor into an object. No range checking performed (fast!).
@@ -109,8 +108,12 @@ public:
   // Description:
   // Given a list of pt ids, return an array of tensors.
   void GetTensors(vtkIdList *ptId, vtkTensors *fv);
+
+  // Description:
+  // For legacy compatibility. Do not use.
   void GetTensors(vtkIdList& ptId, vtkTensors& fv)
     {this->GetTensors(&ptId, &fv);}
+  void GetTensor(int id, vtkTensor& t) {this->GetTensor(id, &t);}
 
 protected:
   vtkTensor *T;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLCamera.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:44:52 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1998-10-14 21:25:20 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -161,7 +161,8 @@ void vtkOpenGLCamera::Render(vtkRenderer *ren)
   ren->SetAspect(aspect);
 
   glMatrixMode( GL_PROJECTION);
-  *matrix = this->GetPerspectiveTransform(aspect[0]/aspect[1],-1,1);
+  matrix->DeepCopy(this->GetPerspectiveTransformMatrix(aspect[0]/aspect[1],
+						       -1,1));
   matrix->Transpose();
   // insert camera view transformation 
   glLoadMatrixf(matrix->Element[0]);
@@ -172,7 +173,7 @@ void vtkOpenGLCamera::Render(vtkRenderer *ren)
   glMatrixMode(GL_MODELVIEW);
   glPushMatrix();
 
-  *matrix = this->GetViewTransform();
+  matrix->DeepCopy(this->GetViewTransformMatrix());
   matrix->Transpose();
   
   // insert camera view transformation 
