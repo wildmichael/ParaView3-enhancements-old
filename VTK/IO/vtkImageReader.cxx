@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-26 18:18:50 $
-  Version:   $Revision: 1.109 $
+  Date:      $Date: 2003-10-19 14:38:03 $
+  Version:   $Revision: 1.110 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 #include "vtkPointData.h"
 #include "vtkTransform.h"
 
-vtkCxxRevisionMacro(vtkImageReader, "$Revision: 1.109 $");
+vtkCxxRevisionMacro(vtkImageReader, "$Revision: 1.110 $");
 vtkStandardNewMacro(vtkImageReader);
 
 vtkCxxSetObjectMacro(vtkImageReader,Transform,vtkTransform);
@@ -166,7 +166,7 @@ int vtkImageReader::OpenAndSeekFile(int dataExtent[6], int idx)
   streamStart += this->GetHeaderSize(idx);
   
   // error checking
-  this->File->seekg((long)streamStart, ios::beg);
+  this->File->seekg(static_cast<long>(streamStart), ios::beg);
   if (this->File->fail())
     {
     vtkErrorMacro(<< "File operation failed: " << streamStart << ", ext: "
@@ -366,7 +366,7 @@ void vtkImageReaderUpdate2(vtkImageReader *self, vtkImageData *data,
       // if that happens, store the value in correction and apply later
       if (filePos + streamSkip0 >= 0)
         {
-        self->GetFile()->seekg(self->GetFile()->tellg() + streamSkip0, ios::beg);
+        self->GetFile()->seekg(static_cast<long>(self->GetFile()->tellg()) + streamSkip0, ios::beg);
         correction = 0;
         }
       else
@@ -376,7 +376,7 @@ void vtkImageReaderUpdate2(vtkImageReader *self, vtkImageData *data,
       outPtr1 += outIncr[1];
       }
     // move to the next image in the file and data
-    self->GetFile()->seekg(self->GetFile()->tellg() + streamSkip1 + correction, 
+    self->GetFile()->seekg(static_cast<long>(self->GetFile()->tellg()) + streamSkip1 + correction, 
                       ios::beg);
     outPtr2 += outIncr[2];
     }
