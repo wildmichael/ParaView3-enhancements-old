@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLImageActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-23 14:04:07 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2002-02-04 20:42:26 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -39,7 +39,7 @@
 
 
 #ifndef VTK_IMPLEMENT_MESA_CXX
-vtkCxxRevisionMacro(vtkOpenGLImageActor, "$Revision: 1.11 $");
+vtkCxxRevisionMacro(vtkOpenGLImageActor, "$Revision: 1.12 $");
 vtkStandardNewMacro(vtkOpenGLImageActor);
 #endif
 
@@ -172,14 +172,14 @@ unsigned char *vtkOpenGLImageActor::MakeDataSuitable(int &xsize, int &ysize,
     if (ys == 1)
       {
       release = 0;
-      this->TCoords[0] = (this->DisplayExtent[xdim*2] - ext[xdim*2])/(xsize - 1.0);
-      this->TCoords[1] = 0.0;  
-      this->TCoords[2] = (this->DisplayExtent[xdim*2+1] - ext[xdim*2] + 1.0)/xsize;
-      this->TCoords[3] = 0.0;  
+      this->TCoords[0] = (this->DisplayExtent[xdim*2] - ext[xdim*2] + 0.5)/xsize;
+      this->TCoords[1] = 0.5/ysize;  
+      this->TCoords[2] = (this->DisplayExtent[xdim*2+1] - ext[xdim*2] + 0.5)/xsize;
+      this->TCoords[3] = this->TCoords[1];  
       this->TCoords[4] = this->TCoords[2];
-      this->TCoords[5] = 1.0;  
+      this->TCoords[5] = 1.0 - 0.5/ysize;  
       this->TCoords[6] = this->TCoords[0];
-      this->TCoords[7] = 1.0;  
+      this->TCoords[7] = this->TCoords[5];  
       return (unsigned char *)
         this->Input->GetScalarPointerForExtent(this->DisplayExtent);
       }
@@ -203,13 +203,13 @@ unsigned char *vtkOpenGLImageActor::MakeDataSuitable(int &xsize, int &ysize,
     }
   
   // compute the tcoords
-  this->TCoords[0] = 0.0;
-  this->TCoords[1] = 0.0;  
+  this->TCoords[0] = 0.5/xsize;
+  this->TCoords[1] = 0.5/ysize;  
   this->TCoords[2] = (this->DisplayExtent[xdim*2+1] - this->DisplayExtent[xdim*2] + 0.5)/xsize;
-  this->TCoords[3] = 0.0;  
+  this->TCoords[3] = this->TCoords[1];  
   this->TCoords[4] = this->TCoords[2];
   this->TCoords[5] = (this->DisplayExtent[ydim*2+1] - this->DisplayExtent[ydim*2] + 0.5)/ysize;  
-  this->TCoords[6] = 0.0;
+  this->TCoords[6] = this->TCoords[0];
   this->TCoords[7] = this->TCoords[5];  
 
   // allocate the memory
