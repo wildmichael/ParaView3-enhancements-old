@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMask.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-08-19 11:28:53 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1998-09-06 20:09:51 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -50,6 +50,11 @@ vtkImageMask::vtkImageMask()
   this->MaskedOutputValueLength = 3;
   this->MaskedOutputValue[0] = this->MaskedOutputValue[1] 
     = this->MaskedOutputValue[2] = 0.0;
+}
+
+vtkImageMask::~vtkImageMask()
+{
+  delete [] this->MaskedOutputValue;
 }
 
 
