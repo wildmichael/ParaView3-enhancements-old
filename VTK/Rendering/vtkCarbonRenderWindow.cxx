@@ -3,8 +3,8 @@
 Program:   Visualization Toolkit
 Module:    $RCSfile: vtkCarbonRenderWindow.cxx,v $
 Language:  C++
-Date:      $Date: 2002-10-24 15:56:45 $
-Version:   $Revision: 1.14 $
+Date:      $Date: 2003-01-13 22:15:45 $
+Version:   $Revision: 1.15 $
 Thanks:    to Yves Starreveld for developing this class
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
@@ -32,7 +32,7 @@ Thanks:    to Yves Starreveld for developing this class
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkCarbonRenderWindow, "$Revision: 1.14 $");
+vtkCxxRevisionMacro(vtkCarbonRenderWindow, "$Revision: 1.15 $");
 vtkStandardNewMacro(vtkCarbonRenderWindow);
 
 
@@ -362,11 +362,13 @@ vtkCarbonRenderWindow::~vtkCarbonRenderWindow()
     {
     this->ShowCursor();
     }
-  if (this->WindowId && this->OwnWindow)
+  if (this->WindowId)
     {
     this->Clean();
+    }
+  if (this->WindowId && this->OwnWindow)
+    {
     // can't set WindowId=NULL, needed for DestroyWindow
-
     DisposeWindow(this->WindowId);
     }
 }
