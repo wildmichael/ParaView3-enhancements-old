@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPushImageReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-30 20:36:23 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-12-10 20:16:09 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -55,7 +55,7 @@ public:
     }
 };
 
-vtkCxxRevisionMacro(vtkPushImageReader, "$Revision: 1.8 $");
+vtkCxxRevisionMacro(vtkPushImageReader, "$Revision: 1.9 $");
 vtkStandardNewMacro(vtkPushImageReader);
 
 vtkPushImageReader::vtkPushImageReader()
@@ -157,7 +157,7 @@ void vtkPushImageReaderUpdate(vtkPushImageReader *self,
         {
         vtkGenericWarningMacro("File operation failed. row = " << idx1
                                << ", Read = " << streamRead
-                               << ", FilePos = " << self->GetFile()->tellg());
+                               << ", FilePos = " << static_cast<vtkIdType>(self->GetFile()->tellg()));
         return;
         }
       // handle swapping
