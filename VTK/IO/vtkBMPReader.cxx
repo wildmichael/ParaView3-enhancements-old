@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBMPReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-27 13:56:14 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2002-12-10 20:02:55 $
+  Version:   $Revision: 1.40 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkLookupTable.h"
 
-vtkCxxRevisionMacro(vtkBMPReader, "$Revision: 1.39 $");
+vtkCxxRevisionMacro(vtkBMPReader, "$Revision: 1.40 $");
 vtkStandardNewMacro(vtkBMPReader);
 
 #ifdef read
@@ -470,7 +470,7 @@ void vtkBMPReaderUpdate2(vtkBMPReader *self, vtkImageData *data, OT *outPtr)
                                << ", Read = " << streamRead
                                << ", Skip0 = " << streamSkip0
                                << ", Skip1 = " << streamSkip1
-                               << ", FilePos = " << self->GetFile()->tellg()
+                               << ", FilePos = " << static_cast<vtkIdType>(self->GetFile()->tellg())
                                << ", FileName = " << self->GetInternalFileName()
                                );
         return;

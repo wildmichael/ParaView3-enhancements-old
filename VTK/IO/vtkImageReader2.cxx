@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader2.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-25 11:17:08 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2002-12-10 20:02:55 $
+  Version:   $Revision: 1.23 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -23,7 +23,7 @@
 
 #include <sys/stat.h>
 
-vtkCxxRevisionMacro(vtkImageReader2, "$Revision: 1.22 $");
+vtkCxxRevisionMacro(vtkImageReader2, "$Revision: 1.23 $");
 vtkStandardNewMacro(vtkImageReader2);
 
 #ifdef read
@@ -664,7 +664,7 @@ void vtkImageReader2Update(vtkImageReader2 *self, vtkImageData *data, OT *outPtr
         {
         vtkGenericWarningMacro("File operation failed. row = " << idx1
                                << ", Read = " << streamRead
-                               << ", FilePos = " << self->GetFile()->tellg());
+                               << ", FilePos = " << static_cast<vtkIdType>(self->GetFile()->tellg()));
         return;
         }
       // handle swapping
