@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEdgePoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-06 19:14:30 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1998-05-31 13:01:14 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -45,6 +45,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 vtkEdgePoints::vtkEdgePoints()
 {
   this->Value = 0.0;
+  this->Locator.ReferenceCountingOff ();
 }
 
 //
