@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfParameter.h,v 1.1 2002-12-02 17:11:03 clarke Exp $  */
-/*  Date : $Date: 2002-12-02 17:11:03 $ */
-/*  Version : $Revision: 1.1 $ */
+/*  Id : $Id: XdmfParameter.h,v 1.2 2003-04-09 19:57:26 andy Exp $  */
+/*  Date : $Date: 2003-04-09 19:57:26 $ */
+/*  Version : $Revision: 1.2 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -37,7 +37,7 @@ It is used to enclose a group of elements, particularly
 for timesteps, so that data names with patterns can be easily
 defined.
 */
-class XdmfParameter : public XdmfObject {
+class XDMF_EXPORT XdmfParameter : public XdmfObject {
 
 public:
   XdmfParameter();

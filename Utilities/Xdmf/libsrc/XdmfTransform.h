@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfTransform.h,v 1.1 2002-12-02 17:11:03 clarke Exp $  */
-/*  Date : $Date: 2002-12-02 17:11:03 $ */
-/*  Version : $Revision: 1.1 $ */
+/*  Id : $Id: XdmfTransform.h,v 1.2 2003-04-09 19:57:26 andy Exp $  */
+/*  Date : $Date: 2003-04-09 19:57:26 $ */
+/*  Version : $Revision: 1.2 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -48,7 +48,8 @@ An XML Transform Node Looks like :
   </DataStructure>
 </DataTransform>
 */
-class XdmfTransform : public XdmfLightData {
+
+class XDMF_EXPORT XdmfTransform : public XdmfLightData {
 
 public :
 
