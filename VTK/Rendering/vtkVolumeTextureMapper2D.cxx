@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeTextureMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-06-18 14:09:43 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2000-07-07 01:06:35 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1102,8 +1102,8 @@ VolumeTextureMapper2D_ZMajorDirection( T *data_ptr,
 
 vtkVolumeTextureMapper2D::vtkVolumeTextureMapper2D()
 {
-  this->TargetTextureSize[0] = 512;
-  this->TargetTextureSize[1] = 512;
+  this->TargetTextureSize[0] = 128;
+  this->TargetTextureSize[1] = 128;
 }
 
 vtkVolumeTextureMapper2D::~vtkVolumeTextureMapper2D()
