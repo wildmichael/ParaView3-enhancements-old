@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkActor.h,v $
   Language:  C++
-  Date:      $Date: 1994-09-09 10:47:16 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1994-09-14 08:09:57 $
+  Version:   $Revision: 1.11 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -61,7 +61,7 @@ class vlActor : public vlObject
 
   // Description:
   // Get the position of the actor.
-  vlGetVectorMacro(Position,float);
+  vlGetVectorMacro(Position,float,3);
   // Description:
   // Sets the posiiton of the actor.
   vlSetVector3Macro(Position,float);
@@ -71,7 +71,7 @@ class vlActor : public vlObject
   // Description:
   // Get the origin of the actor. This is the point about which all 
   // rotations take place.
-  vlGetVectorMacro(Origin,float);
+  vlGetVectorMacro(Origin,float,3);
   // Description:
   // Set the origin of the actor. This is the point about which all 
   // rotations take place.
@@ -80,7 +80,7 @@ class vlActor : public vlObject
   // Description:
   // Get the scale of the actor. Scaling in performed independently on the
   // X,Y and Z axis.
-  vlGetVectorMacro(Scale,float);
+  vlGetVectorMacro(Scale,float,3);
   // Description:
   // Set the scale of the actor. Scaling in performed independently on the
   // X,Y and Z axis.

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkCamera.h,v $
   Language:  C++
-  Date:      $Date: 1994-08-23 10:21:10 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1994-09-14 08:09:58 $
+  Version:   $Revision: 1.9 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -39,19 +39,19 @@ class vlCamera : public vlObject
 
   void SetPosition(float x, float y, float z);
   void SetPosition(float a[3]);
-  vlGetVectorMacro(Position,float);
+  vlGetVectorMacro(Position,float,3);
 
   void SetFocalPoint(float x, float y, float z);
   void SetFocalPoint(float a[3]);
-  vlGetVectorMacro(FocalPoint,float);
+  vlGetVectorMacro(FocalPoint,float,3);
 
   void SetViewUp(float vx, float vy, float vz);
   void SetViewUp(float a[3]);
-  vlGetVectorMacro(ViewUp,float);
+  vlGetVectorMacro(ViewUp,float,3);
 
   void SetClippingRange(float front, float back);
   void SetClippingRange(float a[2]);
-  vlGetVectorMacro(ClippingRange,float);
+  vlGetVectorMacro(ClippingRange,float,2);
 
   // Description:
   // Abstract interface to renderer. Each concrete subclass of vlCamera
@@ -100,7 +100,7 @@ class vlCamera : public vlObject
   void CalcDistance();
   void CalcPerspectiveTransform();
   vlMatrix4x4 &GetPerspectiveTransform();
-  vlGetVectorMacro(ViewPlaneNormal,float);
+  vlGetVectorMacro(ViewPlaneNormal,float,3);
 
   void SetRoll(float);
   void Roll(float);

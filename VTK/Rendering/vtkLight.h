@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkLight.h,v $
   Language:  C++
-  Date:      $Date: 1994-08-21 10:11:27 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1994-09-14 08:09:59 $
+  Version:   $Revision: 1.7 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -42,17 +42,17 @@ public:
   // Description:
   // Set the color of the light.
   vlSetVector3Macro(Color,float);
-  vlGetVectorMacro(Color,float);
+  vlGetVectorMacro(Color,float,3);
 
   // Description:
   // Set the position of the light.
   vlSetVector3Macro(Position,float);
-  vlGetVectorMacro(Position,float);
+  vlGetVectorMacro(Position,float,3);
 
   // Description:
   // Set the point at which the light is shining.
   vlSetVector3Macro(FocalPoint,float);
-  vlGetVectorMacro(FocalPoint,float);
+  vlGetVectorMacro(FocalPoint,float,3);
 
   // Description:
   // Set the brightness of the light.

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkMapper.h,v $
   Language:  C++
-  Date:      $Date: 1994-09-12 21:16:07 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1994-09-14 08:10:01 $
+  Version:   $Revision: 1.11 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -68,8 +68,8 @@ public:
   // Description:
   // Specify range in terms of (smin,smax) through which to map scalars
   // into lookup table.
-  vlSetVector2Macro(ScalarRange,float)
-  vlGetVectorMacro(ScalarRange,float)
+  vlSetVector2Macro(ScalarRange,float);
+  vlGetVectorMacro(ScalarRange,float,2);
 
   // Description:
   // Return bounding box of data in terms of (xmin,xmax, ymin,ymax, zmin,zmax).

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkLookupTable.h,v $
   Language:  C++
-  Date:      $Date: 1994-08-15 07:45:31 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1994-09-14 08:10:00 $
+  Version:   $Revision: 1.11 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -42,22 +42,22 @@ public:
 
   void SetTableRange(float r[2]); // can't use macro 'cause don't want modified
   void SetTableRange(float min, float max);
-  vlGetVectorMacro(TableRange,float);
+  vlGetVectorMacro(TableRange,float,2);
 
   // Description:
   // Set the range in hue (using automatic generation).
   vlSetVector2Macro(HueRange,float);
-  vlGetVectorMacro(HueRange,float);
+  vlGetVectorMacro(HueRange,float,2);
 
   // Description:
   // Set the range in saturation (using automatic generation).
   vlSetVector2Macro(SaturationRange,float);
-  vlGetVectorMacro(SaturationRange,float);
+  vlGetVectorMacro(SaturationRange,float,2);
 
   // Description:
   // Set the range in value (using automatic generation).
   vlSetVector2Macro(ValueRange,float);
-  vlGetVectorMacro(ValueRange,float);
+  vlGetVectorMacro(ValueRange,float,2);
 
   float *MapValue(float v);
   void SetTableValue (int indx, float rgb[3]);
