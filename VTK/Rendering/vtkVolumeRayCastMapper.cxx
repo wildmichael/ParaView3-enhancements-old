@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-29 14:51:35 $
-  Version:   $Revision: 1.91 $
+  Date:      $Date: 2002-10-17 13:10:32 $
+  Version:   $Revision: 1.92 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -35,7 +35,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkVolumeRayCastMapper, "$Revision: 1.91 $");
+vtkCxxRevisionMacro(vtkVolumeRayCastMapper, "$Revision: 1.92 $");
 
 //----------------------------------------------------------------------------
 // Needed when we don't use the vtkStandardNewMacro.
@@ -114,6 +114,10 @@ vtkVolumeRayCastMapper::vtkVolumeRayCastMapper()
   this->RenderTableEntries     = 0;
 
   this->ZBuffer                = NULL;
+  this->ZBufferSize[0]         = 0;
+  this->ZBufferSize[1]         = 0;
+  this->ZBufferOrigin[0]       = 0;
+  this->ZBufferOrigin[1]       = 0;
   
   this->IntermixIntersectingGeometry = 1;
   
