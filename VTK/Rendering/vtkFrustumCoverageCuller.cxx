@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFrustumCoverageCuller.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:38 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2001-03-18 15:47:32 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -82,7 +82,8 @@ float vtkFrustumCoverageCuller::Cull( vtkRenderer *ren,
 {
   vtkProp            *prop;
   float               total_time;
-  float               *bounds, center[3], radius;
+  float               *bounds, center[3];
+  float               radius = 0.0;
   float               planes[24], d;
   float               coverage, screen_bounds[4];
   float               previous_time;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFeatureEdges.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-02-28 12:49:54 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 2001-03-18 15:47:32 $
+  Version:   $Revision: 1.49 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -91,7 +91,7 @@ void vtkFeatureEdges::Execute()
   vtkPolyData *input= this->GetInput();
   vtkPoints *inPts;
   vtkPoints *newPts;
-  vtkScalars *newScalars;
+  vtkScalars *newScalars = NULL;
   vtkCellArray *newLines;
   vtkPolyData *Mesh;
   int i, j, numNei, cellId;

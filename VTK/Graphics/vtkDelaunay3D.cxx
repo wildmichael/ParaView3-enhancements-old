@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDelaunay3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:35 $
-  Version:   $Revision: 1.53 $
+  Date:      $Date: 2001-03-18 15:47:32 $
+  Version:   $Revision: 1.54 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -349,7 +349,8 @@ int vtkDelaunay3D::FindTetra(vtkUnstructuredGrid *Mesh, double x[3],
   double p[4][3];
   double b[4];
   vtkTetra *tetra;
-  int neg, j, numNeg;
+  int neg = 0;
+  int j, numNeg;
   double negValue;
   
   // prevent aimless wandering and death by recursion
@@ -387,7 +388,7 @@ int vtkDelaunay3D::FindTetra(vtkUnstructuredGrid *Mesh, double x[3],
     }
   
   // okay, march towards the most negative direction
-  int p1, p2, p3;
+  int p1 = 0, p2 = 0, p3 = 0;
   switch (neg) 
     {
     case 0:
