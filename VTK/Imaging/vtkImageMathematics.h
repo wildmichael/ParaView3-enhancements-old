@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMathematics.h,v $
   Language:  C++
-  Date:      $Date: 1998-01-07 21:38:17 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-02-24 16:55:21 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -95,10 +95,10 @@ public:
   void SetOperationToMin() {this->SetOperation(VTK_MIN);};
   void SetOperationToMax() {this->SetOperation(VTK_MAX);};
 
-  
 protected:
   int Operation;
   
+  void ExecuteImageInformation();
   void ThreadedExecute(vtkImageData **inDatas, vtkImageData *outData,
 		       int extent[6], int id);
 };
