@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-04-12 12:35:01 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1998-04-20 17:16:42 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -170,6 +170,14 @@ vtkTextSource::vtkTextSource()
   this->BackgroundColor[1] = 0.0;
   this->BackgroundColor[2] = 0.0;
   this->BackgroundColor[3] = 1.0;
+}
+
+vtkTextSource::~vtkTextSource()
+{
+  if (this->Text)
+    {
+    delete [] this->Text;
+    }
 }
 
 void vtkTextSource::Execute()

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-04-16 21:11:09 $
-  Version:   $Revision: 1.65 $
+  Date:      $Date: 1998-04-20 17:16:41 $
+  Version:   $Revision: 1.66 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -80,6 +80,10 @@ vtkRenderWindow::vtkRenderWindow()
 
 vtkRenderWindow::~vtkRenderWindow()
 {
+  if (this->FileName)
+    {
+    delete [] this->FileName;
+    } 
   if (this->AccumulationBuffer) 
     {
     delete [] this->AccumulationBuffer;
