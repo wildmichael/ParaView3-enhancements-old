@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWrapPython.c,v $
   Language:  C++
-  Date:      $Date: 2000-12-08 05:58:15 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2000-12-08 06:13:46 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -508,10 +508,10 @@ static const char *quote_string(const char *comment, int maxlen)
       sprintf(&result[j],"\\%3.3o",comment[i]);
       j += 4;
       }
-    if (j >= maxlen - 5)
+    if (j >= maxlen - 21)
       {      
-      sprintf(&result[j-strlen(" ...\\n [Truncated]\\n")],
-	      " ...\\n [Truncated]\\n");
+      sprintf(&result[j]," ...\\n [Truncated]\\n");
+      j += strlen(" ...\\n [Truncated]\\n");
       break;
       }
     }
