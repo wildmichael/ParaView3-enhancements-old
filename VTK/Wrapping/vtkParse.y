@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkParse.y,v $
   Language:  C++
-  Date:      $Date: 1998-09-11 15:53:28 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1998-09-14 19:14:57 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -53,6 +53,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
   FILE *fhint;
   char temps[2048];
   int  in_public;
+  int  HaveComment;
+  char CommentText[10000];
+  int CommentState;
   
 #define YYMAXDEPTH 1000
 %}
@@ -616,6 +619,7 @@ void InitFunction(FunctionInfo *func)
   func->HintSize = 0;
   func->ReturnType = 2;
   func->ReturnClass = NULL;
+  func->Comment = NULL;
 }
 
 /* when the cpp file doesn't have enough info use the hint file */
@@ -688,6 +692,11 @@ void output_function()
       }
     }
 
+  if (HaveComment)
+    {
+    currentFunction->Comment = strdup(CommentText);
+    }
+  
   data.NumberOfFunctions++;
   currentFunction = data.Functions + data.NumberOfFunctions;
   InitFunction(currentFunction);
@@ -718,7 +727,11 @@ int main(int argc,char *argv[])
     }
 
   data.FileName = argv[1];
-
+  data.NameComment = NULL;
+  data.Description = NULL;
+  data.Caveats = NULL;
+  data.SeeAlso = NULL;
+  CommentState = 0;
   data.IsConcrete = atoi(argv[3]);
 
   currentFunction = data.Functions;

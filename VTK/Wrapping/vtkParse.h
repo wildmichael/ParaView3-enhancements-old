@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkParse.h,v $
   Language:  C++
-  Date:      $Date: 1998-04-29 19:49:38 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-09-14 19:14:57 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,6 +56,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
     char *ArgClasses[MAX_ARGS];
     int   ReturnType;
     char *ReturnClass;
+    char *Comment;
   } FunctionInfo;
   
   typedef struct _FileInfo
@@ -70,4 +71,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
     int   NumberOfSuperClasses;
     int   NumberOfFunctions;
     FunctionInfo Functions[1000];
+    char *NameComment;
+    char *Description;
+    char *Caveats;
+    char *SeeAlso;
   } FileInfo;
