@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXOpenGLTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-04-02 13:19:25 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-08-02 20:23:06 $
+  Version:   $Revision: 1.4 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -174,7 +174,7 @@ void vtkXOpenGLTextMapper::RenderOpaqueGeometry(vtkViewport* viewport,
   // Check for input
   if ( this->NumberOfLines > 1 )
     {
-    this->RenderMultipleLines(viewport, actor);
+    this->RenderOpaqueGeometryMultipleLines(viewport, actor);
     return;
     }
 
