@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtk3DSImporter.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-07 23:12:10 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2002-08-13 12:29:50 $
+  Version:   $Revision: 1.22 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -55,12 +55,12 @@ public:
   // Return the file pointer to the open file.
   FILE *GetFileFD() {return this->FileFD;};
 
-  OmniLight *OmniList;
-  SpotLight *SpotLightList;
-  Camera    *CameraList;
-  Mesh      *MeshList;
-  Material  *MaterialList;
-  MatProp   *MatPropList;
+  vtk3DSOmniLight *OmniList;
+  vtk3DSSpotLight *SpotLightList;
+  vtk3DSCamera    *CameraList;
+  vtk3DSMesh      *MeshList;
+  vtk3DSMaterial  *MaterialList;
+  vtk3DSMatProp   *MatPropList;
 
 protected:
   vtk3DSImporter();
@@ -72,7 +72,7 @@ protected:
   virtual void ImportCameras (vtkRenderer *renderer);
   virtual void ImportLights (vtkRenderer *renderer);
   virtual void ImportProperties (vtkRenderer *renderer);
-  vtkPolyData *GeneratePolyData (Mesh *meshPtr);
+  vtkPolyData *GeneratePolyData (vtk3DSMesh *meshPtr);
   int Read3DS ();
 
   char *FileName;
