@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitPlaneWidget.h,v $
   Language:  C++
-  Date:      $Date: 2002-09-05 15:56:51 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-12-02 19:31:39 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -119,16 +119,17 @@ public:
   
   // Description:
   // Force the plane widget to be aligned with one of the x-y-z axes.
+  // If one axis is set on, the other two will be set off.
   // Remember that when the state changes, a ModifiedEvent is invoked.
   // This can be used to snap the plane to the axes if it is orginally
   // not aligned.
-  vtkSetMacro(NormalToXAxis,int);
+  void SetNormalToXAxis(int);
   vtkGetMacro(NormalToXAxis,int);
   vtkBooleanMacro(NormalToXAxis,int);
-  vtkSetMacro(NormalToYAxis,int);
+  void SetNormalToYAxis(int);
   vtkGetMacro(NormalToYAxis,int);
   vtkBooleanMacro(NormalToYAxis,int);
-  vtkSetMacro(NormalToZAxis,int);
+  void SetNormalToZAxis(int);
   vtkGetMacro(NormalToZAxis,int);
   vtkBooleanMacro(NormalToZAxis,int);
 
