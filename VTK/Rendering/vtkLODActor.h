@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLODActor.h,v $
   Language:  C++
-  Date:      $Date: 1998-06-24 11:32:09 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1998-07-02 18:17:03 $
+  Version:   $Revision: 1.17 $
   
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -89,7 +89,7 @@ class VTK_EXPORT vtkLODActor : public vtkActor
   // Description:
   // Add another level of detail.  They do not have to be in any order
   // of complexity.
-  void AddMapper(vtkMapper *mapper);
+  void AddLODMapper(vtkMapper *mapper);
 
   
   // Description:
@@ -100,7 +100,7 @@ class VTK_EXPORT vtkLODActor : public vtkActor
   // Description:
   // All the mappers for differnt LODs are stored here.
   // The order is not important.
-  vtkGetObjectMacro(Mappers, vtkMapperCollection);
+  vtkGetObjectMacro(LODMappers, vtkMapperCollection);
   
   // Description:
   // If this flag is on, this object will create and manage the LOD
@@ -118,11 +118,11 @@ protected:
   int                 NumberOfCloudPoints;
   vtkActor            *Device;
   
-  vtkMapperCollection *Mappers;
+  vtkMapperCollection *LODMappers;
   int                 BuildLODs;
 
   void GenerateLODs();
-  void DeleteMappers();
+  void DeleteLODMappers();
 };
 
 #endif
