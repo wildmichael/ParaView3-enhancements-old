@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRIBProperty.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-10-01 14:56:41 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-07-08 11:52:28 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -48,7 +48,7 @@ vtkRIBProperty::vtkRIBProperty ()
   strcpy (this->SurfaceShader, "plastic");
   this->DisplacementShader = NULL;
   // create a vtkProperty that can be rendered
-  this->Property = vtkProperty::New ();;
+  this->Property = vtkProperty::New ();
 }
 
 vtkRIBProperty::~vtkRIBProperty()
@@ -56,7 +56,7 @@ vtkRIBProperty::~vtkRIBProperty()
   if (this->SurfaceShader) delete [] this->SurfaceShader;
   if (this->DisplacementShader) delete [] this->DisplacementShader;
   if (this->Declarations) delete [] this->Declarations;
-  if (this->Property) delete [] this->Property;
+  if (this->Property) this->Property->Delete ();
 }
 
 void vtkRIBProperty::Render(vtkActor *anActor, vtkRenderer *ren)

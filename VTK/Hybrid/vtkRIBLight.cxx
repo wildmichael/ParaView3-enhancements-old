@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRIBLight.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-10-01 14:56:39 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-07-08 11:52:27 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -49,7 +49,7 @@ vtkRIBLight::vtkRIBLight ()
 
 vtkRIBLight::~vtkRIBLight()
 {
-  if (this->Light) delete [] this->Light;
+  if (this->Light) this->Light->Delete();
 }
 
 void vtkRIBLight::Render(vtkRenderer *ren, int index)
