@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCheckerboard.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-05-09 00:13:47 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-05-09 11:34:44 $
+  Version:   $Revision: 1.2 $
   Thanks:    This work was supported by PHS Research Grant No. 1 P41 RR13218-01
              from the National Center for Research Resources
 
@@ -41,10 +41,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
 #include "vtkImageCheckerboard.h"
-#include <math.h>
 #include "vtkObjectFactory.h"
-
-
 
 //------------------------------------------------------------------------------
 vtkImageCheckerboard* vtkImageCheckerboard::New()
@@ -66,7 +63,6 @@ vtkImageCheckerboard::vtkImageCheckerboard()
   this->NumberOfDivisions[1] = 2;
   this->NumberOfDivisions[2] = 2;
 }
-
 
 //----------------------------------------------------------------------------
 // This templated function executes the filter for any type of data.
@@ -201,8 +197,6 @@ static void vtkImageCheckerboardExecute2(vtkImageCheckerboard *self,
 //----------------------------------------------------------------------------
 // This method is passed a input and output regions, and executes the filter
 // algorithm to fill the output from the inputs.
-// It just executes a switch statement to call the correct function for
-// the regions data types.
 void vtkImageCheckerboard::ThreadedExecute(vtkImageData **inData, 
 				    vtkImageData *outData,
 				    int outExt[6], int id)
