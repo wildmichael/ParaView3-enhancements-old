@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLPUnstructuredDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-05-05 15:29:15 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2003-05-08 14:04:05 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 #include "vtkPointSet.h"
 #include "vtkCellArray.h"
 
-vtkCxxRevisionMacro(vtkXMLPUnstructuredDataReader, "$Revision: 1.7 $");
+vtkCxxRevisionMacro(vtkXMLPUnstructuredDataReader, "$Revision: 1.8 $");
 
 //----------------------------------------------------------------------------
 vtkXMLPUnstructuredDataReader::vtkXMLPUnstructuredDataReader()
@@ -329,6 +329,10 @@ void vtkXMLPUnstructuredDataReader::CopyArrayForPoints(vtkDataArray* inArray,
                                                        vtkDataArray* outArray)
 {
   if(!this->PieceReaders[this->Piece])
+    {
+    return;
+    }
+  if (inArray == NULL || outArray == NULL)
     {
     return;
     }
