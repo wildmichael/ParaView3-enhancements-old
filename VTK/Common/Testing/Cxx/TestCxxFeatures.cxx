@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: TestCxxFeatures.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-07-25 18:28:52 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-07-26 12:58:48 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -105,6 +105,8 @@ int TestBool()
 
 /* Test full template specialization of classes.  */
 
+#if 0
+// Fails on kulu.crd IRIX64-6.5-CC-o3 (old SGI compiler).
 template <class T>
 struct FullySpecializedClass
 {
@@ -136,6 +138,46 @@ int TestFullySpecializedClass()
     }
   return result;
 }
+#endif
+//----------------------------------------------------------------------------
+
+/* Test if(int x = f()) style scoping.  */
+
+int TestIfScopeHelper(int i)
+{
+  int result = 1;
+  if(int x = i)
+    {
+    if(x != i)
+      {
+      cerr << "TestIfScope: x != " << i << "\n";
+      result = 0;
+      }
+    }
+  else
+    {
+    if(x != i)
+      {
+      cerr << "TestIfScope: x != " << i << "\n";
+      result = 0;
+      }
+    }
+  return result;
+}
+
+int TestIfScope()
+{
+  int result = 1;
+  if(!TestIfScopeHelper(1))
+    {
+    result = 0;
+    }
+  if(!TestIfScopeHelper(0))
+    {
+    result = 0;
+    }
+  return result;
+}
 
 //----------------------------------------------------------------------------
 
@@ -153,7 +195,14 @@ int main()
     result = 1;
     }
 #endif
+#if 0
+  // Fails on kulu.crd IRIX64-6.5-CC-o3 (old SGI compiler).
   if(!TestFullySpecializedClass())
+    {
+    result = 1;
+    }
+#endif
+  if(!TestIfScope())
     {
     result = 1;
     }
