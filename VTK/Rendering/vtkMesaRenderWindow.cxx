@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-08 10:56:41 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2000-08-08 11:36:33 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -442,6 +442,8 @@ void vtkMesaRenderWindow::WindowInitialize (void)
       XFree(v);
       }
     this->Mapped = 1;
+    this->Size[0] = width;
+    this->Size[1] = height;      
     }
   else
     {

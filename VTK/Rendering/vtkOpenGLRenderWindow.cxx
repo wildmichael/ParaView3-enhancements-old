@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-03 09:51:59 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 2000-08-08 11:36:50 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -512,6 +512,11 @@ void vtkOpenGLRenderWindow::WindowInitialize (void)
   glAlphaFunc(GL_GREATER,0);
   
   this->Mapped = 1;
+  
+  // I do not know why the default size is not just set to 300 in the constructor.
+  // But it needs to be set for the first render.
+  this->Size[0] = width;
+  this->Size[1] = height;
 
   // free the visual info
   if (v)
