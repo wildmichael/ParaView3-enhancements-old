@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThreadSafeLog.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-07-22 19:26:23 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2003-11-13 16:55:20 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkTimerLog.h"
 
-vtkCxxRevisionMacro(vtkThreadSafeLog, "$Revision: 1.4 $");
+vtkCxxRevisionMacro(vtkThreadSafeLog, "$Revision: 1.5 $");
 vtkStandardNewMacro(vtkThreadSafeLog);
 
 //----------------------------------------------------------------------------
@@ -104,19 +104,19 @@ void vtkThreadSafeLog::DumpLog(char *filename, int nMode)
 }
 
 //----------------------------------------------------------------------------
-void StartTimer()
+void vtkThreadSafeLog::StartTimer()
 {
   this->Timer->StartTimer();
 }
 
 //----------------------------------------------------------------------------
-void StopTimer()
+void vtkThreadSafeLog::StopTimer()
 {
   this->Timer->StopTimer();
 }
 
 //----------------------------------------------------------------------------
-double GetElapsedTime()
+double vtkThreadSafeLog::GetElapsedTime()
 {
   return this->Timer->GetElapsedTime();
 }
