@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkPVArrayInformation.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-06-04 17:08:20 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2003-11-28 20:02:48 $
+  Version:   $Revision: 1.7 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -47,7 +47,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro(vtkPVArrayInformation);
-vtkCxxRevisionMacro(vtkPVArrayInformation, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkPVArrayInformation, "$Revision: 1.7 $");
 
 //----------------------------------------------------------------------------
 vtkPVArrayInformation::vtkPVArrayInformation()
@@ -97,8 +97,8 @@ void vtkPVArrayInformation::SetNumberOfComponents(int numComps)
   this->Ranges = new double[numComps*2];
   for (idx = 0; idx < numComps; ++idx)
     {
-    this->Ranges[2*idx] = VTK_LARGE_FLOAT;
-    this->Ranges[2*idx+1] = -VTK_LARGE_FLOAT;
+    this->Ranges[2*idx] = VTK_DOUBLE_MAX;
+    this->Ranges[2*idx+1] = -VTK_DOUBLE_MAX;
     }
 }
 
@@ -150,31 +150,13 @@ void vtkPVArrayInformation::GetComponentRange(int comp, double *range)
 
   if (ptr == NULL)
     {
-    range[0] = VTK_LARGE_FLOAT;
-    range[1] = -VTK_LARGE_FLOAT;
+    range[0] = VTK_DOUBLE_MAX;
+    range[1] = -VTK_DOUBLE_MAX;
     return;
     }
 
   range[0] = ptr[0];
   range[1] = ptr[1];
-}
-
-//----------------------------------------------------------------------------
-void vtkPVArrayInformation::GetComponentRange(int comp, float *range)
-{
-  double *ptr;
-  
-  ptr = this->GetComponentRange(comp);
-
-  if (ptr == NULL)
-    {
-    range[0] = VTK_LARGE_FLOAT;
-    range[1] = -VTK_LARGE_FLOAT;
-    return;
-    }
-
-  range[0] = (float)(ptr[0]);
-  range[1] = (float)(ptr[1]);
 }
 
 //----------------------------------------------------------------------------
@@ -241,7 +223,7 @@ void vtkPVArrayInformation::DeepCopy(vtkPVArrayInformation *info)
 //----------------------------------------------------------------------------
 void vtkPVArrayInformation::CopyFromArray(vtkDataArray *array)
 {
-  float range[2];
+  double range[2];
   double *ptr;
   int idx;
 

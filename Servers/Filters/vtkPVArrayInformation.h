@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkPVArrayInformation.h,v $
   Language:  C++
-  Date:      $Date: 2003-06-04 17:08:20 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2003-11-28 20:02:48 $
+  Version:   $Revision: 1.3 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -85,7 +85,6 @@ public:
     { this->SetComponentRange(comp, range[0], range[1]);}
   double *GetComponentRange(int component);
   void GetComponentRange(int comp, double *range);
-  void GetComponentRange(int comp, float *range);
 
   // Description:
   // Returns 1 if the array can be combined.
