@@ -3,8 +3,8 @@
 Program:   Visualization Toolkit
 Module:    $RCSfile: vtkCarbonRenderWindow.cxx,v $
 Language:  C++
-Date:      $Date: 2003-01-16 16:22:28 $
-Version:   $Revision: 1.16 $
+Date:      $Date: 2003-01-20 15:16:19 $
+Version:   $Revision: 1.17 $
 Thanks:    to Yves Starreveld for developing this class
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
@@ -32,7 +32,7 @@ Thanks:    to Yves Starreveld for developing this class
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkCarbonRenderWindow, "$Revision: 1.16 $");
+vtkCxxRevisionMacro(vtkCarbonRenderWindow, "$Revision: 1.17 $");
 vtkStandardNewMacro(vtkCarbonRenderWindow);
 
 
@@ -420,7 +420,7 @@ void vtkCarbonRenderWindow::Clean()
 }
 
 //--------------------------------------------------------------------------
-void vtkCarbonRenderWindow::SetWindowName( char * _arg )
+void vtkCarbonRenderWindow::SetWindowName( const char * _arg )
 {
   vtkWindow::SetWindowName(_arg);
   Str255 newTitle = "\p"; // SetWTitle takes a pascal string

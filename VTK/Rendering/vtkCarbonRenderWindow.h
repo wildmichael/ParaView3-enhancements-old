@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCarbonRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2002-10-24 15:27:55 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2003-01-20 15:16:19 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -95,7 +95,7 @@ public:
   // Description:
   // Set the name of the window. This appears at the top of the window
   // normally.
-  virtual void SetWindowName(char *);
+  virtual void SetWindowName(const char *);
   
   // Description:
   // Set this RenderWindow's window id to a pre-existing window.
