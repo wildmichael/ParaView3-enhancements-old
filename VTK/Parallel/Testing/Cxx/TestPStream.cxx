@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: TestPStream.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-09-08 15:22:34 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2003-11-12 15:00:44 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -60,7 +60,7 @@ void MyMain( vtkMultiProcessController *controller, void *arg )
   vtkRenderWindow* renWin = vtkRenderWindow::New();
   renWin->AddRenderer(ren);
   renWin->SetSize(400, 300);
-  renWin->SetPosition(410*myId, 0);
+  renWin->SetPosition(0, 350 * myId);
 
   //camera parameters
   vtkCamera* camera = ren->GetActiveCamera();
