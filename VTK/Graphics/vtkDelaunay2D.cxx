@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDelaunay2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-10-15 12:49:59 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1996-10-17 12:54:22 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -317,7 +317,9 @@ void vtkDelaunay2D::Execute()
 //
   for (ptId=0; ptId < numPoints; ptId++)
     {
-    points->GetPoint(ptId,x);
+    points->GetPoint(ptId,x); 
+    nei[0] = (-1); //where we are coming from...nowhere initially
+
     if ( (tri[0] = FindTriangle(x,pts,tri[0],Mesh,points,tol,nei)) >= 0 )
       {
       if ( nei[0] < 0 ) //in triangle
