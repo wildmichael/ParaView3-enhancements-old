@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-08-26 18:33:25 $
-  Version:   $Revision: 1.61 $
+  Date:      $Date: 1997-12-08 14:30:29 $
+  Version:   $Revision: 1.62 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -345,6 +345,9 @@ void vtkRenderWindow::Render()
       this->CurrentSubFrame = 0;
       this->CopyResultFrame();
 
+      //###
+      this->Renderers.Render2D();
+
       // free any memory
       delete [] this->AccumulationBuffer;
       this->AccumulationBuffer = NULL;
@@ -389,8 +392,10 @@ void vtkRenderWindow::Render()
       }
     
     this->CopyResultFrame();
-    }
-  
+    //###
+    this->Renderers.Render2D();
+    }  
+
   if (this->ResultFrame) 
     {
     delete [] this->ResultFrame;
