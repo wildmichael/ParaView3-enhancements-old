@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObject.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-07 22:26:31 $
-  Version:   $Revision: 1.65 $
+  Date:      $Date: 2001-11-14 20:59:11 $
+  Version:   $Revision: 1.66 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -307,7 +307,7 @@ vtkObject *vtkObject::SafeDownCast(vtkObject *o)
 
 vtkObserver::~vtkObserver()
 {
-  delete this->Command;
+  this->Command->UnRegister();
 }
 
 vtkSubjectHelper::~vtkSubjectHelper()
@@ -344,6 +344,7 @@ AddObserver(unsigned long event, vtkCommand *cmd)
 
   elem->Event = event;
   elem->Command = cmd;
+  cmd->Register();
   elem->Next = NULL;
   elem->Tag = this->Count;
   this->Count++;
