@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuad.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:37:55 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1995-08-22 16:23:15 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -81,7 +81,7 @@ public:
 
   // quad specific
   void InterpolationFunctions(float pcoords[3], float sf[4]);
-  void InterpolationDerivs(float pcoords[3], float derivs[12]);
+  void InterpolationDerivs(float pcoords[3], float derivs[8]);
 
 };
 
