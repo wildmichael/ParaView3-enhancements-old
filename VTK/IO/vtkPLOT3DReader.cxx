@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPLOT3DReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-04-30 16:33:43 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1995-06-13 14:46:48 $
+  Version:   $Revision: 1.8 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -393,6 +393,7 @@ int vlPLOT3DReader::ReadBinarySolution(FILE *fp)
 
 int vlPLOT3DReader::ReadBinaryFunctionFile(FILE *fp)
 {
+  return 1;
 }
 
 //
