@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyle.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-27 12:53:44 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-08-27 13:28:10 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -190,7 +190,8 @@ protected:
   float Center[2];
   float DeltaAzimuth;
   float DeltaElevation;
-  int  CtrlKey, ShiftKey;
+  int   CtrlKey;
+  int   ShiftKey;
   int   LastPos[2];
   int   State;
   float FocalDepth;  
