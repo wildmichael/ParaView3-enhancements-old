@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamLine.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-24 21:18:55 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 2001-07-01 16:28:06 $
+  Version:   $Revision: 1.42 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -108,7 +108,8 @@ void vtkStreamLine::Execute()
     rotation->Allocate(1000);
     }
 
-  if ( this->GetInput()->GetPointData()->GetScalars() || this->SpeedScalars )
+  if ( this->GetInput()->GetPointData()->GetScalars() || this->SpeedScalars
+    || this->OrientationScalars)
     {
     newScalars = vtkScalars::New();
     newScalars->Allocate(1000);
