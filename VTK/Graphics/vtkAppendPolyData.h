@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAppendPolyData.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:04:35 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2000-03-06 21:10:59 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -114,7 +114,8 @@ protected:
   void AddInput(vtkDataObject *)
     { vtkErrorMacro( << "AddInput() must be called with a vtkPolyData not a vtkDataObject."); };
   void RemoveInput(vtkDataObject *input)
-    { this->vtkProcessObject::RemoveInput(input); };
+    { this->vtkProcessObject::RemoveInput(input); 
+    this->vtkProcessObject::SqueezeInputArray();};
   
   
 };

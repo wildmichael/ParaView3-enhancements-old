@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAppendPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:04:35 $
-  Version:   $Revision: 1.56 $
+  Date:      $Date: 2000-03-06 21:10:59 $
+  Version:   $Revision: 1.57 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -83,6 +83,7 @@ void vtkAppendPolyData::AddInput(vtkPolyData *ds)
 void vtkAppendPolyData::RemoveInput(vtkPolyData *ds)
 {
   this->vtkProcessObject::RemoveInput(ds);
+  this->vtkProcessObject::SqueezeInputArray();  
 }
 
 //----------------------------------------------------------------------------
