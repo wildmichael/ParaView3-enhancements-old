@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPropAssembly.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-27 15:18:37 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2001-08-28 16:16:37 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -61,6 +61,8 @@ vtkPropAssembly* vtkPropAssembly::New()
 vtkPropAssembly::vtkPropAssembly()
 {
   this->Parts = vtkPropCollection::New();
+  this->Bounds[0] = this->Bounds[2] = this->Bounds[4] = VTK_LARGE_FLOAT;
+  this->Bounds[1] = this->Bounds[3] = this->Bounds[5] = -VTK_LARGE_FLOAT;
 }
 
 vtkPropAssembly::~vtkPropAssembly()
@@ -296,7 +298,11 @@ void vtkPropAssembly::InitPathTraversal()
 
 vtkAssemblyPath *vtkPropAssembly::GetNextPath()
 {
-  return this->Paths->GetNextItem();
+  if ( this->Paths )
+    {
+    return this->Paths->GetNextItem();
+    }
+  return NULL;
 }
 
 int vtkPropAssembly::GetNumberOfPaths()
