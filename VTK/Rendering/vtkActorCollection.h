@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActorCollection.h,v $
   Language:  C++
-  Date:      $Date: 1996-01-20 12:28:28 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1996-02-27 17:55:25 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -90,7 +90,7 @@ inline int vtkActorCollection::IsItemPresent(vtkActor *a)
 // Get the next actor in the list.
 inline vtkActor *vtkActorCollection::GetNextItem() 
 { 
-  return (vtkActor *)(this->vtkCollection::GetNextItem());
+  return (vtkActor *)(this->GetNextItemAsObject());
 }
 
 #endif

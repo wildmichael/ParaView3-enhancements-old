@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsCollection.h,v $
   Language:  C++
-  Date:      $Date: 1995-11-06 20:27:30 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1996-02-27 17:55:34 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -89,7 +89,7 @@ inline int vtkStructuredPointsCollection::IsItemPresent(vtkStructuredPoints *ds)
 // is exhausted.
 inline vtkStructuredPoints *vtkStructuredPointsCollection::GetNextItem()
 {
- return (vtkStructuredPoints *)(this->vtkCollection::GetNextItem());
+ return (vtkStructuredPoints *)(this->GetNextItemAsObject());
 }
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeCollection.h,v $
   Language:  C++
-  Date:      $Date: 1995-12-27 10:57:50 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1996-02-27 17:55:36 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -91,7 +91,7 @@ inline int vtkVolumeCollection::IsItemPresent(vtkVolume *a)
 // is reached.
 inline vtkVolume *vtkVolumeCollection::GetNextItem() 
 { 
-  return (vtkVolume *)(this->vtkCollection::GetNextItem());
+  return (vtkVolume *)(this->GetNextItemAsObject());
 }
 
 #endif

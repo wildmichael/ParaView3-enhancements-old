@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitFunctionCollection.h,v $
   Language:  C++
-  Date:      $Date: 1995-12-27 10:56:11 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1996-02-27 17:55:29 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -88,7 +88,7 @@ inline int vtkImplicitFunctionCollection::IsItemPresent(vtkImplicitFunction *f)
 // Get the next implicit function in the list.
 inline vtkImplicitFunction *vtkImplicitFunctionCollection::GetNextItem() 
 { 
-  return (vtkImplicitFunction *)(this->vtkCollection::GetNextItem());
+  return (vtkImplicitFunction *)(this->GetNextItemAsObject());
 }
 
 #endif

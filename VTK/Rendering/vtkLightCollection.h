@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLightCollection.h,v $
   Language:  C++
-  Date:      $Date: 1995-12-27 10:56:19 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1996-02-27 17:55:30 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -91,7 +91,7 @@ inline int vtkLightCollection::IsItemPresent(vtkLight *a)
 // exhausted.
 inline vtkLight *vtkLightCollection::GetNextItem() 
 { 
-  return (vtkLight *)(this->vtkCollection::GetNextItem());
+  return (vtkLight *)(this->GetNextItemAsObject());
 }
 
 #endif

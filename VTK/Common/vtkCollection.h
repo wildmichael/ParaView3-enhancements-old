@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCollection.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:35:23 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1996-02-27 17:55:26 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -74,7 +74,7 @@ public:
   int  IsItemPresent(vtkObject *);
   int  GetNumberOfItems();
   void InitTraversal();
-  vtkObject *GetNextItem();  
+  vtkObject *GetNextItemAsObject();  
 
 protected:
   int NumberOfItems;
@@ -95,7 +95,7 @@ inline void vtkCollection::InitTraversal()
 // Description:
 // Get the next item in the collection. NULL is returned if the collection
 // is exhausted.
-inline vtkObject *vtkCollection::GetNextItem()
+inline vtkObject *vtkCollection::GetNextItemAsObject()
 {
   vtkCollectionElement *elem=this->Current;
 

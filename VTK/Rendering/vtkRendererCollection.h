@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRendererCollection.h,v $
   Language:  C++
-  Date:      $Date: 1995-08-15 19:17:40 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1996-02-27 17:55:33 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -91,7 +91,7 @@ inline int vtkRendererCollection::IsItemPresent(vtkRenderer *a)
 // Get the next renderer in the list. Return NULL when at the end of the list.
 inline vtkRenderer *vtkRendererCollection::GetNextItem() 
 {
-  return (vtkRenderer *)(this->vtkCollection::GetNextItem());
+  return (vtkRenderer *)(this->GetNextItemAsObject());
 }
 
 #endif

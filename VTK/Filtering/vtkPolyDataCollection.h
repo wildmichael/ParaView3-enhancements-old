@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataCollection.h,v $
   Language:  C++
-  Date:      $Date: 1995-12-27 10:58:26 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1996-02-27 17:55:31 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -88,7 +88,7 @@ inline int vtkPolyDataCollection::IsItemPresent(vtkPolyData *pd)
 // Get the next poly data in the list.
 inline vtkPolyData *vtkPolyDataCollection::GetNextItem() 
 { 
-  return (vtkPolyData *)(this->vtkCollection::GetNextItem());
+  return (vtkPolyData *)(this->GetNextItemAsObject());
 }
 
 #endif

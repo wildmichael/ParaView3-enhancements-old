@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransformCollection.h,v $
   Language:  C++
-  Date:      $Date: 1995-08-16 21:35:37 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1996-02-27 17:55:35 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -89,7 +89,7 @@ inline int vtkTransformCollection::IsItemPresent(vtkTransform *t)
 // list is reached.
 inline vtkTransform *vtkTransformCollection::GetNextItem() 
 { 
-  return (vtkTransform *)(this->vtkCollection::GetNextItem());
+  return (vtkTransform *)(this->GetNextItemAsObject());
 }
 
 #endif
