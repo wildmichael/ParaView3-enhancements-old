@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointWidget.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-20 12:40:04 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-08-20 18:31:07 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -178,6 +178,8 @@ protected:
   ~vtkPointWidget();
 
 //BTX - manage the state of the widget
+  friend class vtkLineWidget;
+  
   int State;
   enum WidgetState
   {
