@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-08-22 18:18:50 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2003-09-18 15:39:39 $
+  Version:   $Revision: 1.28 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,6 +20,7 @@
 #include "vtkBase64OutputStream.h"
 #include "vtkByteSwap.h"
 #include "vtkCellData.h"
+#include "vtkCommand.h"
 #include "vtkDataArray.h"
 #include "vtkDataSet.h"
 #include "vtkErrorCode.h"
@@ -35,7 +36,7 @@
 # include <io.h> /* unlink */
 #endif
 
-vtkCxxRevisionMacro(vtkXMLWriter, "$Revision: 1.27 $");
+vtkCxxRevisionMacro(vtkXMLWriter, "$Revision: 1.28 $");
 vtkCxxSetObjectMacro(vtkXMLWriter, Compressor, vtkDataCompressor);
 
 //----------------------------------------------------------------------------
@@ -250,6 +251,8 @@ int vtkXMLWriter::Write()
     return 0;
     }
   
+  this->InvokeEvent(vtkCommand::StartEvent);
+
   // We are just starting to write.  Do not call
   // UpdateProgressDiscrete because we want a 0 progress callback the
   // first time.
@@ -272,6 +275,8 @@ int vtkXMLWriter::Write()
   
   // We have finished writing.
   this->UpdateProgressDiscrete(1);
+
+  this->InvokeEvent(vtkCommand::EndEvent);
   
   return result;
 }

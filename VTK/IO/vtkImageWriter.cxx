@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-08-22 18:18:50 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 2003-09-18 15:39:39 $
+  Version:   $Revision: 1.52 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -17,6 +17,7 @@
 =========================================================================*/
 #include "vtkImageWriter.h"
 
+#include "vtkCommand.h"
 #include "vtkErrorCode.h"
 #include "vtkImageData.h"
 #include "vtkObjectFactory.h"
@@ -28,7 +29,7 @@
 # include <io.h> /* unlink */
 #endif
 
-vtkCxxRevisionMacro(vtkImageWriter, "$Revision: 1.51 $");
+vtkCxxRevisionMacro(vtkImageWriter, "$Revision: 1.52 $");
 vtkStandardNewMacro(vtkImageWriter);
 
 #ifdef write
@@ -231,12 +232,21 @@ void vtkImageWriter::Write()
   this->FileNumber = this->GetInput()->GetWholeExtent()[4];
   this->MinimumFileNumber = this->MaximumFileNumber = this->FileNumber;
   this->FilesDeleted = 0;
+
+  // Write
+
+  this->InvokeEvent(vtkCommand::StartEvent);
   this->UpdateProgress(0.0);
   this->RecursiveWrite(2, this->GetInput(), NULL);
+
   if (this->ErrorCode == vtkErrorCode::OutOfDiskSpaceError)
     {
     this->DeleteFiles();
     }
+
+  this->UpdateProgress(1.0);
+  this->InvokeEvent(vtkCommand::EndEvent);
+
   delete [] this->InternalFileName;
   this->InternalFileName = NULL;
 }
