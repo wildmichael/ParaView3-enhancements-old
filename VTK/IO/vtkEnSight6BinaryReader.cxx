@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSight6BinaryReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-11-07 14:18:38 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2003-11-11 21:28:44 $
+  Version:   $Revision: 1.35 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -35,7 +35,7 @@
 #include <ctype.h>
 #include <vtkstd/string>
 
-vtkCxxRevisionMacro(vtkEnSight6BinaryReader, "$Revision: 1.34 $");
+vtkCxxRevisionMacro(vtkEnSight6BinaryReader, "$Revision: 1.35 $");
 vtkStandardNewMacro(vtkEnSight6BinaryReader);
 
 //----------------------------------------------------------------------------
@@ -951,6 +951,13 @@ int vtkEnSight6BinaryReader::ReadScalarsPerNode(char* fileName,
     sscanf(line, " part %d", &partId);
     partId--;
     output = this->GetOutput(partId);
+    if (output == NULL)
+      {
+      vtkErrorMacro("Could not get output for part " << partId);
+      vtkErrorMacro("Got part from line: " << line);
+      return 0;
+      }
+    
     this->ReadLine(line); // block
     numPts = output->GetNumberOfPoints();
     scalarsRead = new float[numPts];
