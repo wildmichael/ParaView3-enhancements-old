@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDepthSortPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-18 13:13:01 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2001-06-25 13:43:23 $
+  Version:   $Revision: 1.17 $
   Thanks:    Scott Hill for implementing this class
 
 
@@ -100,7 +100,7 @@ vtkProp3D *vtkDepthSortPolyData::GetProp3D()
 
 typedef struct _vtkSortValues {
   float z;
-  int   cellId;
+  vtkIdType cellId;
 } vtkSortValues;
 
 static int CompareBackToFront(const void *val1, const void *val2)
@@ -138,11 +138,11 @@ static int CompareFrontToBack(const void *val1, const void *val2)
 void vtkDepthSortPolyData::Execute()
 {
   vtkSortValues *depth;
-  int cellId, id;
+  vtkIdType cellId, id;
   vtkPolyData *input=this->GetInput();
   vtkPolyData *output=this->GetOutput();
   vtkGenericCell *cell=vtkGenericCell::New();
-  int numCells=input->GetNumberOfCells();
+  vtkIdType numCells=input->GetNumberOfCells();
   vtkCellData *inCD=input->GetCellData();
   vtkCellData *outCD=output->GetCellData();
   vtkScalars *sortScalars = NULL;
@@ -151,7 +151,8 @@ void vtkDepthSortPolyData::Execute()
   float p[3], *bounds, *w = NULL, xf[3];
   double vector[3];
   double origin[3];
-  int type, npts, newId, subId;
+  int type, npts, subId;
+  vtkIdType newId;
   vtkIdType *pts;
   
   // Initialize

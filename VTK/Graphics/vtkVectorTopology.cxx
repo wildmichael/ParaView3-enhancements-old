@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectorTopology.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:27 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2001-06-25 13:43:24 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -69,7 +69,8 @@ vtkVectorTopology::vtkVectorTopology()
 
 void vtkVectorTopology::Execute()
 {
-  int cellId, i, j, ptId, npts;
+  vtkIdType cellId, ptId;
+  int i, j, npts;
   int negative[3], positive[3], subId=0;
   float x[3], pcoords[3], *v;
   vtkCell *cell;

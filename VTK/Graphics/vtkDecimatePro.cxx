@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDecimatePro.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-21 15:21:52 $
-  Version:   $Revision: 1.62 $
+  Date:      $Date: 2001-06-25 13:43:24 $
+  Version:   $Revision: 1.63 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1485,7 +1485,7 @@ void vtkDecimatePro::InitializeQueue(int numPts)
 
 int vtkDecimatePro::Pop(float &error)
 {
-  int ptId;
+  vtkIdType ptId;
 
   // Try returning what's in queue
   if ( (ptId = this->Queue->Pop(error)) >= 0 )

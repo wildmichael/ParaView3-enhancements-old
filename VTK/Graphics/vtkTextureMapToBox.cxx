@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextureMapToBox.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:26 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2001-06-25 13:43:24 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -83,9 +83,9 @@ vtkTextureMapToBox::vtkTextureMapToBox()
 void vtkTextureMapToBox::Execute()
 {
   float tc[3];
-  int numPts;
+  vtkIdType numPts, i;
   vtkTCoords *newTCoords;
-  int i, j;
+  int j;
   float *box, *p;
   float min[3], max[3];
   vtkDataSet *input = this->GetInput();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSuperquadricSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-18 13:13:02 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2001-06-25 13:43:24 $
+  Version:   $Revision: 1.14 $
   Thanks:    Mike Halle, Brigham and Women's Hospital
 
 
@@ -171,7 +171,7 @@ static const float SQ_SMALL_OFFSET = 0.01;
 void vtkSuperquadricSource::Execute()
 {
   int i, j;
-  int numPts;
+  vtkIdType numPts;
   vtkPoints *newPoints; 
   vtkNormals *newNormals;
   vtkTCoords *newTCoords;
@@ -184,7 +184,8 @@ void vtkSuperquadricSource::Execute()
   float phiLim[2], thetaLim[2];
   float deltaPhiTex, deltaThetaTex;
   int base, pbase;
-  int numStrips, ptsPerStrip;
+  vtkIdType numStrips;
+  int ptsPerStrip;
   int phiSubsegs, thetaSubsegs, phiSegs, thetaSegs;
   int iq, jq, rowOffset;
   float thetaOffset, phiOffset;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMassProperties.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-02 20:29:23 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2001-06-25 13:43:24 $
+  Version:   $Revision: 1.19 $
   Thanks:    Thanks to Abdalmajeid M. Alyassin who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -146,7 +146,7 @@ void vtkMassProperties::Execute()
 {
   vtkIdList *ptIds;
   vtkPolyData *input = this->GetInput();
-  int cellId, numCells, numPts, numIds;
+  vtkIdType cellId, numCells, numPts, numIds;
   float *p;
   
   numCells=input->GetNumberOfCells();
@@ -170,7 +170,7 @@ void vtkMassProperties::Execute()
   float    i[3],j[3],k[3],u[3],absu[3],length;
   float    ii[3],jj[3],kk[3];
   float    xavg,yavg,zavg;
-  int      idx;
+  vtkIdType      idx;
 
   // Initialize variables ...
   //

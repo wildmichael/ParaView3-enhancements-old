@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellDerivatives.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-05-11 17:41:06 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2001-06-25 13:43:23 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -78,7 +78,7 @@ void vtkCellDerivatives::Execute()
   vtkVectors *inVectors=pd->GetVectors();
   vtkVectors *outVectors=NULL;
   vtkTensors *outTensors=NULL;
-  int numCells=input->GetNumberOfCells();
+  vtkIdType numCells=input->GetNumberOfCells();
   int computeScalarDerivs=1, computeVectorDerivs=1, subId;
 
   // Initialize
@@ -133,7 +133,7 @@ void vtkCellDerivatives::Execute()
     {
     float pcoords[3], derivs[9], w[3], *scalars, *vectors;
     vtkGenericCell *cell = vtkGenericCell::New();
-    int cellId;
+    vtkIdType cellId;
     vtkScalars *cellScalars=vtkScalars::New(); 
     cellScalars->Allocate(VTK_CELL_SIZE);
     cellScalars->GetData()->SetName("Scalars");
@@ -143,7 +143,7 @@ void vtkCellDerivatives::Execute()
     vtkTensor *tens = vtkTensor::New();
 
     // Loop over all cells computing derivatives
-    int progressInterval = numCells/20 + 1;
+    vtkIdType progressInterval = numCells/20 + 1;
     for (cellId=0; cellId < numCells; cellId++)
       {
       if ( ! (cellId % progressInterval) ) 

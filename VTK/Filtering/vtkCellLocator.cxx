@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellLocator.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-18 20:27:31 $
-  Version:   $Revision: 1.67 $
+  Date:      $Date: 2001-06-25 13:43:24 $
+  Version:   $Revision: 1.68 $
   
     
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -419,7 +419,7 @@ int vtkCellLocator::IntersectWithLine(float a0[3], float a1[3], float tol,
 
 // Return closest point (if any) AND the cell on which this closest point lies
 void vtkCellLocator::FindClosestPoint(float x[3], float closestPoint[3], 
-                                      vtkGenericCell *cell, int &cellId,
+                                      vtkGenericCell *cell, vtkIdType &cellId,
                                       int &subId, float& dist2)
 {
   int i, j;
@@ -675,7 +675,8 @@ void vtkCellLocator::FindClosestPoint(float x[3], float closestPoint[3],
 
 // Return closest point (if any) AND the cell on which this closest point lies
 void vtkCellLocator::FindClosestPoint(float x[3], float closestPoint[3],
-                                      int &cellId, int &subId, float& dist2)
+                                      vtkIdType &cellId, int &subId,
+                                      float& dist2)
 {
   vtkGenericCell *cell = vtkGenericCell::New();
   

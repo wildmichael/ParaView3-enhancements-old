@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProjectedTexture.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:25 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2001-06-25 13:43:24 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -117,9 +117,10 @@ void vtkProjectedTexture::SetFocalPoint(float x, float y, float z)
 void vtkProjectedTexture::Execute()
 {
   float tcoords[2];
-  int numPts;
+  vtkIdType numPts;
   vtkTCoords *newTCoords;
-  int i, j;
+  vtkIdType i;
+  int j;
   float proj;
   float rightv[3], upv[3], diff[3];
   float sScale, tScale, sOffset, tOffset, sSize, tSize, s, t;

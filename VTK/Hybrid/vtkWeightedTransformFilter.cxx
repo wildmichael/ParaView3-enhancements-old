@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWeightedTransformFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-18 11:11:48 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-06-25 13:43:24 $
+  Version:   $Revision: 1.5 $
   Thanks:    Michael Halle, Brigham and Women's Hospital
 
 
@@ -243,9 +243,9 @@ void vtkWeightedTransformFilter::Execute()
   vtkNormals *inNormals, *inCellNormals;
   vtkVectors *newVectors=NULL, *newCellVectors=NULL;
   vtkNormals *newNormals=NULL, *newCellNormals=NULL;
-  int numPts, numCells;
+  vtkIdType numPts, numCells, p;
   int activeTransforms, allLinear;
-  int i, p, c;
+  int i, c;
   int pdComponents, cdComponents;
   double **linearPtMtx;
   double **linearNormMtx;
