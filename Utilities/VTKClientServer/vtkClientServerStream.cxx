@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClientServerStream.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-12-02 18:28:08 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2003-12-04 18:42:49 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -67,6 +67,10 @@ inline ostream& operator << (ostream& os, vtkClientServerStreamInt64 id)
   char buf[33];
   // Convert to string representation in base 10.
   return os << _i64toa(id.Value, buf, 10);
+#elif defined(__HP_aCC)
+  char buf[33];
+  sprintf(buf, "%lld", id.Value);
+  return os << buf;
 #else
   return os << id.Value;
 #endif
@@ -78,6 +82,10 @@ inline ostream& operator << (ostream& os, vtkClientServerStreamUInt64 id)
   char buf[33];
   // Convert to string representation in base 10.
   return os << _ui64toa(id.Value, buf, 10);
+#elif defined(__HP_aCC)
+  char buf[33];
+  sprintf(buf, "%llu", id.Value);
+  return os << buf;
 #else
   return os << id.Value;
 #endif
