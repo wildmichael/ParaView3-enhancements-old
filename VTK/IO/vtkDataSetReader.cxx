@@ -29,7 +29,7 @@
 #include "vtkUnstructuredGrid.h"
 #include "vtkUnstructuredGridReader.h"
 
-vtkCxxRevisionMacro(vtkDataSetReader, "$Revision: 1.66 $");
+vtkCxxRevisionMacro(vtkDataSetReader, "$Revision: 1.67 $");
 vtkStandardNewMacro(vtkDataSetReader);
 
 vtkDataSetReader::vtkDataSetReader()
@@ -230,6 +230,9 @@ int vtkDataSetReader::RequestData(
         this->MTime = ts;
         }
       output->ShallowCopy(preader->GetOutput());
+      output->GetPipelineInformation()->CopyEntry(
+        preader->GetOutput()->GetPipelineInformation(),
+        vtkStreamingDemandDrivenPipeline::UPDATE_EXTENT());
       preader->Delete();
       return 1;
       }
