@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDebugLeaks.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-10-04 16:37:39 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2000-11-02 18:41:59 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -43,6 +43,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkOutputWindow.h"
 #include "vtkObjectFactory.h"
 #include "vtkOutputWindow.h"
+#include "vtkCriticalSection.h"
 
 // A singleton that prints out the table, and deletes the table.
 class vtkPrintLeaksAtExit
@@ -125,6 +126,8 @@ vtkDebugLeaksHashTable::vtkDebugLeaksHashTable()
     }
 }
 
+
+
 vtkDebugLeaks* vtkDebugLeaks::New()
 {
   // First try to create the object from the vtkObjectFactory
@@ -137,12 +140,12 @@ vtkDebugLeaks* vtkDebugLeaks::New()
   return new vtkDebugLeaks;
 }
 
+
 void vtkDebugLeaksHashTable::IncrementCount(const char * name)
 {
   vtkDebugLeaksHashNode *pos;
   vtkDebugLeaksHashNode *newpos;
   int loc;
-  
   pos = this->GetNode(name);
   if(pos)
     {
@@ -260,6 +263,7 @@ void vtkDebugLeaksHashTable::PrintTable()
 }
 
 vtkDebugLeaksHashTable* vtkDebugLeaks::MemoryTable = 0;
+static vtkSimpleCriticalSection DebugLeaksCritSec;
 
 void vtkDebugLeaks::ConstructClass(const char* name)
 {
@@ -268,14 +272,18 @@ void vtkDebugLeaks::ConstructClass(const char* name)
   // but only do this if VTK_DEBUG_LEAKS is on
   vtkPrintLeaksAtExitGlobal.Use();
 #endif  
+  DebugLeaksCritSec.Lock();
+
   if(!vtkDebugLeaks::MemoryTable)
     vtkDebugLeaks::MemoryTable = new vtkDebugLeaksHashTable;
   
   vtkDebugLeaks::MemoryTable->IncrementCount(name);
+  DebugLeaksCritSec.Unlock();
 }
 
 void vtkDebugLeaks::DestructClass(const char* p)
 {
+  DebugLeaksCritSec.Lock();
   // Due to globals being deleted, this table may already have
   // been deleted.
   if(vtkDebugLeaks::MemoryTable)
@@ -285,6 +293,7 @@ void vtkDebugLeaks::DestructClass(const char* p)
       vtkGenericWarningMacro("Deleting unknown object: " << p);
       }
     }
+  DebugLeaksCritSec.Unlock();
 }
 
 void vtkDebugLeaks::PrintCurrentLeaks()
