@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSphereWidget.h,v $
   Language:  C++
-  Date:      $Date: 2002-09-05 11:53:07 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2002-09-07 11:18:36 $
+  Version:   $Revision: 1.14 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -245,7 +245,7 @@ protected:
   int Representation;
 
   // Do the picking
-  vtkCellPicker *SpherePicker;
+  vtkCellPicker *Picker;
   
   // Methods to manipulate the sphere widget
   int Translation;
@@ -271,6 +271,7 @@ protected:
   int HandleVisibility;
   float HandleDirection[3];
   float HandlePosition[3];
+  virtual void SizeHandles();
 
 private:
   vtkSphereWidget(const vtkSphereWidget&);  //Not implemented
