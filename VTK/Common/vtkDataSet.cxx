@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSet.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-14 21:24:44 $
-  Version:   $Revision: 1.62 $
+  Date:      $Date: 1998-12-23 20:19:24 $
+  Version:   $Revision: 1.63 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -207,26 +207,20 @@ float vtkDataSet::GetLength()
 
 unsigned long int vtkDataSet::GetMTime()
 {
-  unsigned long result, pointDataMTime, cellDataMTime;
+  unsigned long mtime, result;
   
+  result = vtkDataObject::GetMTime();
   if (this->Source)
     {
-    result = this->Source->GetMTime();
-    if (result <  this->MTime)
-      {
-      result = this->MTime;
-      }
-    }
-  else
-    {
-    result = this->MTime;
+    mtime = this->Source->GetMTime();
+    result = ( mtime > result ? mtime : result );
     }
   
-  pointDataMTime = this->PointData->GetMTime();
-  result = ( pointDataMTime > result ? pointDataMTime : result );
+  mtime = this->PointData->GetMTime();
+  result = ( mtime > result ? mtime : result );
 
-  cellDataMTime = this->CellData->GetMTime();
-  return ( cellDataMTime > result ? cellDataMTime : result );
+  mtime = this->CellData->GetMTime();
+  return ( mtime > result ? mtime : result );
 }
 
 vtkCell *vtkDataSet::FindAndGetCell (float x[3], vtkCell *cell, int cellId, 
