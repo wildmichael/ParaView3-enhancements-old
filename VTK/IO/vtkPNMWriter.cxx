@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPNMWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-09-24 21:50:29 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1997-09-30 14:44:13 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -127,8 +127,6 @@ void vtkPNMWriter::WriteFile(ofstream *file, vtkImageRegion *region)
 	}
       }
     }
-  file->close();
-  delete file;
 }
 
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-09-24 21:50:31 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1997-09-30 14:44:12 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -294,6 +294,7 @@ void vtkImageWriter::RecursiveWrite(int dim, vtkImageCache *cache,
     {
     file->close();
     delete file;
+    file = NULL;
     }
 }
 
@@ -304,6 +305,13 @@ void vtkImageWriter::RecursiveWrite(int dim, vtkImageCache *cache,
 				    vtkImageRegion *region, ofstream *file)
 {
   int idx, min, max;
+  
+  // if the file is already open then just write to it
+  if (file)
+    {
+    this->WriteFile(file,region);
+    return;
+    }
   
   // if we need to open another slice, do it
   if (!file && (dim +1) == this->FileDimensionality)
@@ -336,14 +344,9 @@ void vtkImageWriter::RecursiveWrite(int dim, vtkImageCache *cache,
     return;
     }
   
-  // if the current request did not fit into memory
+  // if the current region is too high a dimension forthe file
   // the we will split the current axis
   region->GetAxisExtent(dim, min, max);
-  if (min == max)
-    {
-    this->RecursiveWrite(dim - 1, cache, region, file);
-    return;
-    }
   
   // if it is the y axis then flip by default
   if (dim == 1)
