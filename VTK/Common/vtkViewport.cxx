@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkViewport.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-02-26 15:14:11 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 2001-02-26 15:16:48 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -363,6 +363,10 @@ void vtkViewport::PrintSelf(ostream& os, vtkIndent indent)
 
   os << indent << "Aspect: (" << this->Aspect[0] << ", " 
     << this->Aspect[1] << ")\n";
+
+  os << indent << "PixelAspect: (" << this->PixelAspect[0] << ", " 
+    << this->PixelAspect[1] << ")\n";
+
   os << indent << "Background: (" << this->Background[0] << ", " 
     << this->Background[1] << ", "  << this->Background[2] << ")\n";
 
