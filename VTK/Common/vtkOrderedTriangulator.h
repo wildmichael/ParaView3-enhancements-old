@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOrderedTriangulator.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:45 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2001-08-10 22:21:33 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -181,7 +181,7 @@ public:
 protected:
   vtkOrderedTriangulator();
   ~vtkOrderedTriangulator();
-  vtkOrderedTriangulator(const vtkOrderedTriangulator&) {}
+  vtkOrderedTriangulator(const vtkOrderedTriangulator&);
   void operator=(const vtkOrderedTriangulator&);
 
 private:
