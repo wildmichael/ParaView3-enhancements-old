@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-05-21 18:04:58 $
-  Version:   $Revision: 1.72 $
+  Date:      $Date: 2000-07-31 00:01:53 $
+  Version:   $Revision: 1.73 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -205,9 +205,17 @@ void vtkImageReader::SetFileName(const char *name)
     {
     delete [] this->FilePrefix;
     this->FilePrefix = NULL;
-    }  
-  this->FileName = new char[strlen(name) + 1];
-  strcpy(this->FileName, name);
+    }
+  if (name)
+    {
+    this->FileName = new char[strlen(name) + 1];
+    strcpy(this->FileName, name);
+    }
+  else
+    {
+    this->FileName = NULL;
+    }
+
   this->Modified();
 }
 
