@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMath.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-04 19:05:45 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 1999-08-05 19:14:53 $
+  Version:   $Revision: 1.49 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -188,8 +188,7 @@ int vtkMath::SolveLinearSystem(double **A, double *x, int size)
 // if inverse not computed.
 int vtkMath::InvertMatrix(double **A, double **AI, int size)
 {
-  static int *index = NULL;
-  static int maxSize=0;
+  static int *index = NULL, maxSize=0;
   static double *column = NULL;
   int i, j;
   //
@@ -231,9 +230,6 @@ int vtkMath::InvertMatrix(double **A, double **AI, int size)
       AI[i][j] = column[j];
       }
     }
-
-  delete [] index;
-  delete [] column;
 
   return 1;
 }
