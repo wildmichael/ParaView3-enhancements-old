@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPythonAppInit.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-11 19:01:42 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-12-13 14:56:06 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -61,16 +61,18 @@ public:
     {
       this->Controller = 0;
     }
-  void Initialize(int argc, char **argv)
+  void Initialize(int* argc, char ***argv)
     {
+      MPI_Init(argc, argv);
       this->Controller = vtkMPIController::New();
-      this->Controller->Initialize(&argc, &argv, 1);
+      this->Controller->Initialize(argc, argv, 1);
       vtkMultiProcessController::SetGlobalController(this->Controller);      
     }
   ~vtkMPICleanup()
     {
       if ( this->Controller )
         {
+        this->Controller->Finalize();
         this->Controller->Delete();
         }
     }
@@ -94,8 +96,7 @@ int main(int argc, char **argv)
   void vtkPythonAppInitEnableMSVCDebugHook();
   
 #ifdef VTK_COMPILED_USING_MPI
-  MPI_Init(&argc, &argv);
-  VTKMPICleanup.Initialize(argc, argv);
+  VTKMPICleanup.Initialize(&argc, &argv);
 #endif // VTK_COMPILED_USING_MPI
 
   int displayVersion = 0;
