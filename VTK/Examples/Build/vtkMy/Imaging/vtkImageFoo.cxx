@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageFoo.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-09 20:49:50 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2003-08-20 14:35:25 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 
 //----------------------------------------------------------------------------
 
-vtkCxxRevisionMacro(vtkImageFoo, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkImageFoo, "$Revision: 1.6 $");
 vtkStandardNewMacro(vtkImageFoo);
 
 //----------------------------------------------------------------------------
@@ -100,6 +100,14 @@ static void vtkImageFooExecute(vtkImageFoo *self,
     {
     for (idxY = 0; !self->AbortExecute && idxY <= maxY; idxY++)
       {
+      if (!id)
+        {
+        if (!(count%target))
+          {
+          self->UpdateProgress(count/(50.0*target));
+          }
+        count++;
+        }
       for (idxR = 0; idxR < rowLength; idxR++)
         {
         // Pixel operation. Add foo. Dumber would be impossible.
