@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMatrix4x4.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:35:45 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1995-08-01 21:01:53 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -258,7 +258,7 @@ void vtkMatrix4x4::operator= (vtkMatrix4x4& source)
 }
 
 // Description:
-// 
+// Transpose the matrix. 
 void vtkMatrix4x4::Transpose (vtkMatrix4x4 in,vtkMatrix4x4 & out)
 {
   int i, j;
