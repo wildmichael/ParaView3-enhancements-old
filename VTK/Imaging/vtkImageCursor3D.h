@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCursor3D.h,v $
   Language:  C++
-  Date:      $Date: 1997-09-22 17:49:00 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-01-13 21:58:49 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -53,6 +53,7 @@ public:
   vtkImageCursor3D();
   static vtkImageCursor3D *New() {return new vtkImageCursor3D;};
   const char *GetClassName() {return "vtkImageCursor3D";};
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   vtkSetVector3Macro(CursorPosition, float);
   vtkGetVector3Macro(CursorPosition, float);
@@ -69,7 +70,8 @@ protected:
   float CursorValue;
   int CursorRadius;
   
-  void Execute(vtkImageRegion *inRegion, vtkImageRegion *outRegion);
+  // not threaded because it's too simple a filter
+  void Execute(vtkImageData *inData, vtkImageData *outData);
 };
 
 
