@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-08-25 14:31:35 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 1997-08-25 14:33:42 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -77,7 +77,6 @@ void vtkMapper::SetGlobalImmediateModeRendering(int val)
 {
   if (val == vtkMapperGlobalImmediateModeRendering) return;
   vtkMapperGlobalImmediateModeRendering = val;
-  vtkDebugMacro( << "setting GlobalImmediateModeRendering to " << val );
   this->Modified(); 
 }
 

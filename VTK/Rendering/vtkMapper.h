@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper.h,v $
   Language:  C++
-  Date:      $Date: 1997-08-25 14:31:36 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 1997-08-25 14:33:43 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -114,12 +114,12 @@ public:
   // The default value is immediate mode off. If you are 
   // having problems rendering a large dataset you might
   // want to consider using imediate more rendering.
-  void SetGlobalImmediateModeRendering(int val);
-  void GlobalImmediateModeRenderingOn() 
-  {this->SetGlobalImmediateModeRendering(1);};
-  void GlobalImmediateModeRenderingOff() 
-  {this->SetGlobalImmediateModeRendering(0);};
-  int  GetGlobalImmediateModeRendering();
+  static void SetGlobalImmediateModeRendering(int val);
+  static void GlobalImmediateModeRenderingOn() 
+  {vtkMapper::SetGlobalImmediateModeRendering(1);};
+  static void GlobalImmediateModeRenderingOff() 
+  {vtkMapper::SetGlobalImmediateModeRendering(0);};
+  static int  GetGlobalImmediateModeRendering();
 
   // Description:
   // Specify range in terms of scalar minimum and maximum (smin,smax). These
