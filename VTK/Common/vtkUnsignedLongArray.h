@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnsignedLongArray.h,v $
   Language:  C++
-  Date:      $Date: 2002-11-12 18:32:04 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2002-11-21 16:11:51 $
+  Version:   $Revision: 1.35 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -158,14 +158,6 @@ public:
   // Description:
   // Resize the array while conserving the data.
   virtual void Resize(vtkIdType numTuples);
-
-#ifndef VTK_REMOVE_LEGACY_CODE
-  // Description:
-  // For legacy compatibility. Do not use.
-  void DeepCopy(vtkDataArray &da) 
-    {VTK_LEGACY_METHOD(DeepCopy,"3.2"); this->DeepCopy(&da);}
-#endif
-  
 
 protected:
   vtkUnsignedLongArray(vtkIdType numComp=1);
