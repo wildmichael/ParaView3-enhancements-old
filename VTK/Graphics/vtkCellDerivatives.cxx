@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellDerivatives.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-18 11:11:48 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2001-05-11 17:41:06 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -107,6 +107,7 @@ void vtkCellDerivatives::Execute()
       }
     outVectors = vtkVectors::New();
     outVectors->SetNumberOfVectors(numCells);
+    outVectors->GetData()->SetName("Vorticity");
     outCD->SetVectors(outVectors);
     outVectors->Delete(); //okay reference counted
     outCD->CopyVectorsOff();
@@ -121,6 +122,7 @@ void vtkCellDerivatives::Execute()
     {
     outTensors = vtkTensors::New();
     outTensors->SetNumberOfTensors(numCells);
+    outTensors->GetData()->SetName("Tensors");
     outCD->SetTensors(outTensors);
     outTensors->Delete(); //okay reference counted
     outCD->CopyTensorsOff();
@@ -134,8 +136,10 @@ void vtkCellDerivatives::Execute()
     int cellId;
     vtkScalars *cellScalars=vtkScalars::New(); 
     cellScalars->Allocate(VTK_CELL_SIZE);
+    cellScalars->GetData()->SetName("Scalars");
     vtkVectors *cellVectors=vtkVectors::New(); 
     cellVectors->Allocate(VTK_CELL_SIZE);
+    cellVectors->GetData()->SetName("Vectors");
     vtkTensor *tens = vtkTensor::New();
 
     // Loop over all cells computing derivatives

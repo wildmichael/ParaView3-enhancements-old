@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSuperquadricSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:26 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2001-05-11 17:41:06 $
+  Version:   $Revision: 1.12 $
   Thanks:    Mike Halle, Brigham and Women's Hospital
 
 
@@ -244,8 +244,10 @@ void vtkSuperquadricSource::Execute()
   newPoints->Allocate(numPts);
   newNormals = vtkNormals::New();
   newNormals->Allocate(numPts);
+  newNormals->GetData()->SetName("Normals");
   newTCoords = vtkTCoords::New();
   newTCoords->Allocate(numPts);
+  newTCoords->GetData()->SetName("TextureCoords");
 
   newPolys = vtkCellArray::New();
   newPolys->Allocate(newPolys->EstimateSize(numStrips,ptsPerStrip));
