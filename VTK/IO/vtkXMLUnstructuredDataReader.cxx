@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLUnstructuredDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-05-21 17:42:33 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2003-06-26 17:36:51 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 #include "vtkCellArray.h"
 #include "vtkPointSet.h"
 
-vtkCxxRevisionMacro(vtkXMLUnstructuredDataReader, "$Revision: 1.10 $");
+vtkCxxRevisionMacro(vtkXMLUnstructuredDataReader, "$Revision: 1.11 $");
 
 //----------------------------------------------------------------------------
 vtkXMLUnstructuredDataReader::vtkXMLUnstructuredDataReader()
@@ -460,6 +460,9 @@ int vtkXMLUnstructuredDataReader::ReadPieceData()
     if(!this->ReadArrayForPoints(ePoints->GetNestedElement(0),
                                  output->GetPoints()->GetData()))
       {
+      vtkErrorMacro("Cannot read points array from " << ePoints->GetName()
+                    << " in piece " << this->Piece
+                    << ".  The data array in the element may be too short.");
       return 0;
       }
     }

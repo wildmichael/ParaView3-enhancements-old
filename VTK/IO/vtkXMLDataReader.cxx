@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-05-21 17:42:33 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2003-06-26 17:36:51 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,7 +25,7 @@
 #include "vtkXMLDataElement.h"
 #include "vtkXMLDataParser.h"
 
-vtkCxxRevisionMacro(vtkXMLDataReader, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkXMLDataReader, "$Revision: 1.7 $");
 
 //----------------------------------------------------------------------------
 vtkXMLDataReader::vtkXMLDataReader()
@@ -317,6 +317,10 @@ int vtkXMLDataReader::ReadPieceData()
         // Read the array.
         if(!this->ReadArrayForPoints(eNested, pointData->GetArray(a++)))
           {
+          vtkErrorMacro("Cannot read point data array \""
+                        << pointData->GetArray(a-1)->GetName() << "\" from "
+                        << ePointData->GetName() << " in piece " << this->Piece
+                        << ".  The data array in the element may be too short.");
           return 0;
           }
         }
@@ -337,6 +341,10 @@ int vtkXMLDataReader::ReadPieceData()
         // Read the array.
         if(!this->ReadArrayForCells(eNested, cellData->GetArray(a++)))
           {
+          vtkErrorMacro("Cannot read cell data array \""
+                        << cellData->GetArray(a-1)->GetName() << "\" from "
+                        << ePointData->GetName() << " in piece " << this->Piece
+                        << ".  The data array in the element may be too short.");
           return 0;
           }
         }
