@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:12:08 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 2000-08-03 09:51:59 $
+  Version:   $Revision: 1.42 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1157,8 +1157,27 @@ void vtkOpenGLRenderWindow::SetZbufferData( int x1, int y1, int x2, int y2,
 
 }
 
+
+// the following can be useful for debugging XErrors
+// When uncommented (along with the lines in MakeCurrent) 
+// it will cause a segfault upon an XError instead of 
+// the normal XError handler
+//extern "C" {int vtkXError(Display *display, XErrorEvent *err)
+//{
+  // cause a segfault
+//  *(float *)(0x01) = 1.0;
+//  return 1;
+//}}
+
 void vtkOpenGLRenderWindow::MakeCurrent()
 {
+  // when debugging XErrors uncomment the following lines
+  //if (this->DisplayId)
+  //  {
+  //    XSynchronize(this->DisplayId,1);
+  //  }
+  //XSetErrorHandler(vtkXError);
+
   // set the current window 
   if (this->ContextId && (this->ContextId != glXGetCurrentContext()))
     {
