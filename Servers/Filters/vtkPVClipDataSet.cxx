@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPVClipDataSet.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-01-09 19:06:42 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-05-29 13:00:26 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,11 +19,11 @@
 
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkPVClipDataSet, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkPVClipDataSet, "$Revision: 1.2 $");
 vtkStandardNewMacro(vtkPVClipDataSet);
 
 //----------------------------------------------------------------------------
-vtkPVClipDataSet::vtkPVClipDataSet(vtkImplicitFunction *cf)
+vtkPVClipDataSet::vtkPVClipDataSet(vtkImplicitFunction *vtkNotUsed(cf))
 {
 }
 

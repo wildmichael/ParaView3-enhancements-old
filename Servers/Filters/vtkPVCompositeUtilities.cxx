@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPVCompositeUtilities.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-05-20 20:07:22 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2003-05-29 13:00:26 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -30,7 +30,7 @@
 #include "vtkUnsignedCharArray.h"
 #include "vtkTimerLog.h"
 
-vtkCxxRevisionMacro(vtkPVCompositeUtilities, "$Revision: 1.4 $");
+vtkCxxRevisionMacro(vtkPVCompositeUtilities, "$Revision: 1.5 $");
 vtkStandardNewMacro(vtkPVCompositeUtilities);
 
 
@@ -327,7 +327,8 @@ int vtkPVCompositeUtilities::GetCompressedLength(vtkFloatArray *zArray)
 
     if (zRun == zIn)
       { 
-      *zIn++;
+      //*zIn++;
+      zIn++;
       }
     }
   return length;

@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkPVEnSightMasterServerTranslator.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-05-15 19:19:20 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2003-05-29 13:00:26 $
+  Version:   $Revision: 1.3 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -45,7 +45,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro(vtkPVEnSightMasterServerTranslator);
-vtkCxxRevisionMacro(vtkPVEnSightMasterServerTranslator, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkPVEnSightMasterServerTranslator, "$Revision: 1.3 $");
 
 //----------------------------------------------------------------------------
 vtkPVEnSightMasterServerTranslator::vtkPVEnSightMasterServerTranslator()
@@ -68,9 +68,9 @@ void vtkPVEnSightMasterServerTranslator::PrintSelf(ostream& os, vtkIndent indent
 
 //----------------------------------------------------------------------------
 int
-vtkPVEnSightMasterServerTranslator::PieceToExtentThreadSafe(int piece,
-                                                            int numPieces, 
-                                                            int ghostLevel, 
+vtkPVEnSightMasterServerTranslator::PieceToExtentThreadSafe(int vtkNotUsed(piece),
+                                                            int vtkNotUsed(numPieces), 
+                                                            int vtkNotUsed(ghostLevel), 
                                                             int *wholeExtent, 
                                                             int *resultExtent, 
                                                             int splitMode, 
