@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitSum.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-05 20:34:00 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-08-30 15:27:28 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -15,11 +15,15 @@
      PURPOSE.  See the above copyright notice for more information.
 
 =========================================================================*/
-#include <math.h>
 #include "vtkImplicitSum.h"
+
+#include "vtkFloatArray.h"
+#include "vtkImplicitFunctionCollection.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkImplicitSum, "$Revision: 1.2 $");
+#include <math.h>
+
+vtkCxxRevisionMacro(vtkImplicitSum, "$Revision: 1.3 $");
 vtkStandardNewMacro(vtkImplicitSum);
 
 // Constructor.

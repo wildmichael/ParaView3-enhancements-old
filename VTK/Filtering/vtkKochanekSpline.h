@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKochanekSpline.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-14 18:53:07 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2002-08-30 15:27:28 $
+  Version:   $Revision: 1.24 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -46,7 +46,6 @@
 #ifndef __vtkKochanekSpline_h
 #define __vtkKochanekSpline_h
 
-#include <stdio.h>
 #include "vtkSpline.h"
 
 class VTK_FILTERING_EXPORT vtkKochanekSpline : public vtkSpline

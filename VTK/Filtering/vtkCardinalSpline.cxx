@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCardinalSpline.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-15 15:05:25 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2002-08-30 15:27:28 $
+  Version:   $Revision: 1.19 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,9 +16,11 @@
 
 =========================================================================*/
 #include "vtkCardinalSpline.h"
-#include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkCardinalSpline, "$Revision: 1.18 $");
+#include "vtkObjectFactory.h"
+#include "vtkPiecewiseFunction.h"
+
+vtkCxxRevisionMacro(vtkCardinalSpline, "$Revision: 1.19 $");
 vtkStandardNewMacro(vtkCardinalSpline);
 
 // Construct a Cardinal Spline.

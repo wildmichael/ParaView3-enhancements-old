@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPerlinNoise.h,v $
   Language:  C++
-  Date:      $Date: 2002-03-05 20:29:03 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-08-30 15:27:28 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -85,8 +85,8 @@ protected:
   float Amplitude;
 
 private:
-  vtkPerlinNoise(const vtkPerlinNoise&); //purposely not implemented
-  void operator=(const vtkPerlinNoise&); //purposely not implemented
+  vtkPerlinNoise(const vtkPerlinNoise&); // Not implemented
+  void operator=(const vtkPerlinNoise&); // Not implemented
 };
 
 #endif

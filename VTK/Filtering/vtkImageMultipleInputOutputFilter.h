@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMultipleInputOutputFilter.h,v $
   Language:  C++
-  Date:      $Date: 2002-07-04 22:02:24 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2002-08-30 15:27:28 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -36,7 +36,7 @@
 class VTK_FILTERING_EXPORT vtkImageMultipleInputOutputFilter : public vtkImageMultipleInputFilter
 {
 public:
-  vtkTypeRevisionMacro(vtkImageMultipleInputOutputFilter,vtkImageSource);
+  vtkTypeRevisionMacro(vtkImageMultipleInputOutputFilter,vtkImageMultipleInputFilter);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

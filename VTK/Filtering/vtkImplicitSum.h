@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitSum.h,v $
   Language:  C++
-  Date:      $Date: 2002-03-05 20:34:00 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-08-30 15:27:28 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -50,8 +50,10 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #ifndef __vtkImplicitSum_h
 #define __vtkImplicitSum_h
 
-#include "vtkImplicitFunctionCollection.h"
-#include "vtkFloatArray.h"
+#include "vtkImplicitFunction.h"
+
+class vtkFloatArray;
+class vtkImplicitFunctionCollection;
 
 class VTK_FILTERING_EXPORT vtkImplicitSum : public vtkImplicitFunction
 {
