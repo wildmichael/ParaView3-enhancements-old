@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 1997-05-15 23:23:41 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 1997-05-22 12:42:57 $
+  Version:   $Revision: 1.51 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -264,6 +264,8 @@ public:
   vtkSetMacro(AbortRender,int);
   vtkGetMacro(InAbortCheck,int);
   virtual int CheckAbortStatus();
+  virtual int GetEventPending() { return 0;};
+  
   
   void SetAbortCheckMethod(void (*f)(void *), void *arg);
   void SetAbortCheckMethodArgDelete(void (*f)(void *));

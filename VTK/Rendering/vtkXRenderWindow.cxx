@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-15 23:24:11 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1997-05-22 12:42:59 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,6 +59,31 @@ vtkXRenderWindow::~vtkXRenderWindow()
 {
   if (this->Interactor) this->Interactor->Delete();
 }
+
+int vtkXRenderWindowFoundMatch;
+
+Bool vtkXRenderWindowPredProc(Display *disp, XEvent *event, char *arg)
+{
+  Window win = (Window)arg;
+  
+  if ((((XAnyEvent *)event)->window == win) &&
+      ((event->type == ButtonPress)))
+    vtkXRenderWindowFoundMatch = 1;
+
+  return 0;
+  
+}
+
+int vtkXRenderWindow::GetEventPending()
+{
+  XEvent report;
+  
+  vtkXRenderWindowFoundMatch = 0;
+  XCheckIfEvent(this->DisplayId, &report, vtkXRenderWindowPredProc, 
+		(char *)this->WindowId);
+  return vtkXRenderWindowFoundMatch;
+}
+
 
 // Description:
 // Get the size of the screen in pixels
