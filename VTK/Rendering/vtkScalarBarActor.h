@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalarBarActor.h,v $
   Language:  C++
-  Date:      $Date: 1999-02-25 21:47:17 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1999-03-03 21:05:38 $
+  Version:   $Revision: 1.10 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -210,6 +210,8 @@ private:
   vtkActor2D          *ScalarBarActor;
 
   vtkTimeStamp  BuildTime;
+  int LastSize[2];
+  int LastOrigin[2];
 };
 
 

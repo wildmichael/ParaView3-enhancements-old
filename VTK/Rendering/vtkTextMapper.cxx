@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-02-12 13:37:10 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-03-03 21:05:38 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,6 +41,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkTextMapper.h"
 
 #ifdef _WIN32
+  #include "vtkWin32OpenGLTextMapper.h"
   #include "vtkWin32TextMapper.h"
 #else
   #include "vtkXTextMapper.h"
@@ -56,16 +57,16 @@ vtkTextMapper::vtkTextMapper()
   this->Italic = 0;
   this->Shadow = 0;
   this->FontFamily = VTK_ARIAL;
-  this->FontChanged = 0;
   this->Justification = 0;
 }
 
 vtkTextMapper *vtkTextMapper::New()
 {
 #ifdef _WIN32
-    return vtkWin32TextMapper::New();
+  return vtkWin32OpenGLTextMapper::New();
+  return vtkWin32TextMapper::New();
 #else
-    return vtkXTextMapper::New();
+  return vtkXTextMapper::New();
 #endif
 
 }
@@ -111,7 +112,6 @@ void vtkTextMapper::SetShadow(int val)
     }
   
   this->Shadow = val; 
-  this->FontChanged = 1; 
   this->Modified();
 }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32ImageMapper.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-16 21:09:20 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-03-03 21:05:39 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -61,6 +61,11 @@ public:
   ~vtkWin32ImageMapper();
   static vtkWin32ImageMapper *New() {return new vtkWin32ImageMapper;};
   
+  // Description:
+  // Handle the render method.
+  void RenderOverlay(vtkViewport* viewport, vtkActor2D* actor) {
+    this->RenderStart(viewport,actor);}
+
   // Description:
   // Called by the Render function in vtkImageMapper.  Actually draws
   // the image to the screen.

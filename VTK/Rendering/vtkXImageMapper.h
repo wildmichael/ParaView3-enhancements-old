@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXImageMapper.h,v $
   Language:  C++
-  Date:      $Date: 1999-01-15 20:57:53 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1999-03-03 21:05:39 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -68,6 +68,11 @@ public:
   ~vtkXImageMapper();
   static vtkXImageMapper *New() {return new vtkXImageMapper;};
   void PrintSelf(ostream& os, vtkIndent indent);
+
+  // Description:
+  // Handle the render method.
+  void RenderOverlay(vtkViewport* viewport, vtkActor2D* actor) {
+    this->RenderStart(viewport,actor);}
 
   // Description:
   // Called by the Render function in vtkImageMapper.  Actually draws
