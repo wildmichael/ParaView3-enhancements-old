@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVRMLExporter.h,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:05:24 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1999-05-14 11:58:20 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -69,6 +69,11 @@ public:
   vtkGetStringMacro(FileName);
 
   // Description:
+  // Specify the Speed of navigation. Default is 4.
+  vtkSetMacro(Speed,float);
+  vtkGetMacro(Speed,float);
+
+  // Description:
   // Set the file pointer to write to. This will override
   // a FileName if specified.
   void SetFilePointer(FILE *);
@@ -82,6 +87,7 @@ protected:
 		      vtkTCoords *tcoords, vtkScalars *colors, FILE *fp);
   char *FileName;
   FILE *FilePointer;
+  float Speed;
 };
 
 #endif
