@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPostScriptWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:14:08 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2000-09-26 11:59:55 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -91,13 +91,13 @@ void vtkPostScriptWriter::WriteFileHeader(ofstream *file,
     {
     if ( scols > pagewid * VTK_MARGIN )
       {
-      scale *= pagewid / scols * VTK_MARGIN;
+      scale = scale*(pagewid * VTK_MARGIN / scols);
       scols = (int)(scale * cols * pixfac);
       srows = (int)(scale * rows * pixfac);
       }
     if ( srows > pagehgt * VTK_MARGIN )
       {
-      scale *= pagehgt / srows * VTK_MARGIN;
+      scale = scale * (pagehgt * VTK_MARGIN / srows);
       scols = (int)(scale * cols * pixfac);
       srows = (int)(scale * rows * pixfac);
       }
