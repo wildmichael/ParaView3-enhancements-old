@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKitwareContourFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-19 19:58:04 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2001-03-24 21:56:51 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -284,7 +284,7 @@ void vtkKitwareContourFilter::StructuredPointsContour(int dim)
 //
 void vtkKitwareContourFilter::StructuredGridContour(int dim)
 {
-  vtkPolyData *output;
+  vtkPolyData *output = NULL;
   vtkPolyData *thisOutput = this->GetOutput();
   int numContours=this->ContourValues->GetNumberOfContours();
   float *values=this->ContourValues->GetValues();

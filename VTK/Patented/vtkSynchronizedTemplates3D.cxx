@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSynchronizedTemplates3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-23 20:52:47 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2001-03-24 21:56:51 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -734,11 +734,10 @@ void vtkSynchronizedTemplates3D::Execute()
   int idx, offset, num, ptIdx, newIdx, numCellPts, *cellPts, newCellPts[3];
   vtkPolyData *output = this->GetOutput();
   vtkPointData *outPD;
-  vtkPolyData *threadOut;
+  vtkPolyData *threadOut = 0;
   vtkPointData *threadPD;
   vtkCellArray *threadTris;
   vtkImageData *input = this->GetInput();
-  int *ext = input->GetWholeExtent();
 
   // Just in case some one changed the maximum number of threads.
   if (this->NumberOfThreads <= 1)

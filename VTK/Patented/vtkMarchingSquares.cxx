@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingSquares.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-24 13:45:22 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2001-03-24 21:56:51 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -301,7 +301,7 @@ void vtkMarchingSquares::Execute()
   vtkPointData *pd;
   vtkPoints *newPts;
   vtkCellArray *newLines;
-  vtkScalars *inScalars, *newScalars;
+  vtkScalars *inScalars, *newScalars = NULL;
   int i, dims[3], roi[6], dataSize, dim, plane=0;
   int *ext;
   float origin[3], ar[3];

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSynchronizedTemplates2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-29 12:05:44 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2001-03-24 21:56:51 $
+  Version:   $Revision: 1.12 $
 
 
 
@@ -151,7 +151,7 @@ static void ContourImage(vtkSynchronizedTemplates2D *self,
   int *isect1Ptr, *isect2Ptr;
   int ptIds[2];
   int *tablePtr;
-  int v0, v1, v2;
+  int v0, v1 = 0, v2;
   int idx, vidx;
   float s0, s1, s2, value;
   int i, j;
