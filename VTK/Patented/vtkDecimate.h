@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDecimate.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:03:29 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 1999-09-05 12:59:06 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -225,6 +225,12 @@ public:
   // Set the largest permissible feature angle.
   vtkSetClampMacro(MaximumFeatureAngle,float,0.0,180.0);
   vtkGetMacro(MaximumFeatureAngle,float);
+
+  // Description:
+  // Turn on/off the generation of error scalars.
+  vtkSetMacro(GenerateErrorScalars,int);
+  vtkGetMacro(GenerateErrorScalars,int);
+  vtkBooleanMacro(GenerateErrorScalars,int);
 
   // Description:
   // Turn on/off the preservation of feature edges.
