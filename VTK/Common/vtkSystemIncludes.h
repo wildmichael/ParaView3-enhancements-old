@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSystemIncludes.h,v $
   Language:  C++
-  Date:      $Date: 2002-12-04 20:25:52 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2002-12-07 22:04:24 $
+  Version:   $Revision: 1.25 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -45,6 +45,10 @@
 #include <iostream>
 #include <strstream>
 #include <fstream>
+#include <iomanip>
+using std::dec;
+using std::hex;
+using std::setw;
 using std::cerr;
 using std::cout;
 using std::cin;
