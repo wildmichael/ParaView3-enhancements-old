@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCell3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-02 14:27:29 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2001-06-06 20:31:34 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -93,7 +93,7 @@ void vtkCell3D::Clip(float value, vtkScalars *cellScalars,
       }
     else
       {
-      type = 1; //outside, but to be inserted anyway
+      type = 4; //no insert, but its type might change later
       }
 
     xPtr = this->Points->GetPoint(i);
