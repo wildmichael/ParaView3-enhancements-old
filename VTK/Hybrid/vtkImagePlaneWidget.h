@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagePlaneWidget.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-23 17:10:46 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-04-25 16:47:49 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -182,11 +182,15 @@ public:
   void SetSlicePosition(float position);
 
   // Description:
-  // Set the interpolation to use when texturing the plane.
+  // Set the interpolation to use when texturing the plane.  
+  void SetResliceInterpolate(int);
   vtkGetMacro(ResliceInterpolate,int);
-  void SetResliceInterpolateToNearestNeighbour();
-  void SetResliceInterpolateToLinear();
-  void SetResliceInterpolateToCubic();
+  void SetResliceInterpolateToNearestNeighbour()
+    { this->SetResliceInterpolate(0); }
+  void SetResliceInterpolateToLinear()
+    { this->SetResliceInterpolate(1); }
+  void SetResliceInterpolateToCubic()
+    { this->SetResliceInterpolate(2); }
 
   // Description:
   // Make sure that the plane remains within the volume.
