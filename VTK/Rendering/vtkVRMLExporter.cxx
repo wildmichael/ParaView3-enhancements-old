@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVRMLExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-01-03 18:41:50 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1997-01-06 14:53:56 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -289,6 +289,8 @@ void vtkVRMLExporter::WriteAnActor(vtkActor *anActor, FILE *fp)
   if (pd->GetNumberOfPolys() > 0)
     {
     fprintf(fp,"          geometry IndexedFaceSet {\n");
+    // two sided lighting ? for now assume it is on
+    fprintf(fp,"            solid FALSE\n");
     if (!pointDataWritten)
       {
       this->WritePointData(points, normals, tcoords, colors, fp);
