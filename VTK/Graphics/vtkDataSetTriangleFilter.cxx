@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetTriangleFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:15 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2002-06-14 11:43:52 $
+  Version:   $Revision: 1.13 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 #include "vtkOrderedTriangulator.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkDataSetTriangleFilter, "$Revision: 1.12 $");
+vtkCxxRevisionMacro(vtkDataSetTriangleFilter, "$Revision: 1.13 $");
 vtkStandardNewMacro(vtkDataSetTriangleFilter);
 
 vtkDataSetTriangleFilter::~vtkDataSetTriangleFilter()
@@ -37,6 +37,10 @@ vtkDataSetTriangleFilter::~vtkDataSetTriangleFilter()
 void vtkDataSetTriangleFilter::Execute()
 {
   vtkDataSet *input = this->GetInput();
+  if (!input)
+    {
+    return;
+    }
   if (input->IsA("vtkStructuredPoints") ||
       input->IsA("vtkStructuredGrid") || 
       input->IsA("vtkImageData"))
