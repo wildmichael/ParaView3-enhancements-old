@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageStencil.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:33:00 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-12-07 21:14:23 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to David G Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -112,7 +112,7 @@ vtkImageData *vtkImageStencil::GetBackgroundInput()
 
 //----------------------------------------------------------------------------
 void vtkImageStencil::ExecuteInformation(vtkImageData *input, 
-                                         vtkImageData *output)
+                                         vtkImageData *vtkNotUsed(output))
 {
   // need to set the spacing and origin of the stencil to match the output
   vtkImageStencilData *stencil = this->GetStencil();
