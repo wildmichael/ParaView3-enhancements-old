@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:07:04 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1999-10-21 04:18:01 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -178,6 +178,12 @@ void vtkOpenGLRenderer::DeviceRender(void)
   float  saved_viewport[4];
   float  new_viewport[4];
   int    saved_erase;
+
+  // Do not remove this MakeCurrent! Due to Start / End methods on
+  // some objects which get executed during a pipeline update, 
+  // other windows might get rendered since the last time
+  // a MakeCurrent was called.
+  this->RenderWindow->MakeCurrent();
 
   scaleFactor = 1.0;
 
