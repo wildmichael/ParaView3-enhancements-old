@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoidArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-18 12:03:45 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2001-04-18 12:21:08 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -147,7 +147,7 @@ void vtkVoidArray::PrintSelf(ostream& os, vtkIndent indent)
 
 // Protected function does "reallocate"
 //
-void** vtkVoidArray::ResizeAndExtend(int sz)
+void** vtkVoidArray::ResizeAndExtend(const int sz)
 {
   void** newArray;
   int newSize;
