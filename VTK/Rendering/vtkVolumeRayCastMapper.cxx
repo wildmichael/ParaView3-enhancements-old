@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-08-03 03:57:41 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1997-08-20 15:12:31 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -425,6 +425,12 @@ void vtkVolumeRayCastMapper::GeneralImageInitialization( vtkRenderer *ren,
                    data_type );
     }
 
+  if( (this->ScalarDataType != 0) && (this->ScalarDataType != 1) )
+    {
+    vtkErrorMacro( << "The scalar data type: " << data_type <<
+      " is not supported when volume rendering. Please convert the " <<
+      " data to unsigned char or unsigned short.\n" );
+    }
 }
 
 // Description:
