@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPVConnectivityFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-30 20:18:03 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-12-27 00:36:06 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,9 +42,10 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkPVConnectivityFilter.h"
 
 #include "vtkObjectFactory.h"
+#include "vtkPointData.h"
 #include "vtkUnstructuredGrid.h"
 
-vtkCxxRevisionMacro(vtkPVConnectivityFilter, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkPVConnectivityFilter, "$Revision: 1.3 $");
 vtkStandardNewMacro(vtkPVConnectivityFilter);
 
 vtkPVConnectivityFilter::vtkPVConnectivityFilter()

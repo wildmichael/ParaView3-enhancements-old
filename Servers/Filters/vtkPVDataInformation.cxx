@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkPVDataInformation.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-04 19:05:23 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-12-27 00:36:06 $
+  Version:   $Revision: 1.2 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -41,14 +41,16 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 =========================================================================*/
 #include "vtkPVDataInformation.h"
 
+#include "vtkCellData.h"
+#include "vtkCollection.h"
 #include "vtkDataSet.h"
 #include "vtkObjectFactory.h"
-#include "vtkCollection.h"
 #include "vtkPVDataSetAttributesInformation.h"
+#include "vtkPointData.h"
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro(vtkPVDataInformation);
-vtkCxxRevisionMacro(vtkPVDataInformation, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkPVDataInformation, "$Revision: 1.2 $");
 
 
 //----------------------------------------------------------------------------

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractCTHPart.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-14 20:08:38 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-12-27 00:36:06 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,20 +16,23 @@
 
 =========================================================================*/
 #include "vtkExtractCTHPart.h"
-#include "vtkObjectFactory.h"
-#include "vtkRectilinearGrid.h"
-#include "vtkPolyData.h"
-#include "vtkClipPolyData.h"
-#include "vtkCutter.h"
+
 #include "vtkAppendPolyData.h"
-#include "vtkDataSetSurfaceFilter.h"
-#include "vtkPlane.h"
-#include "vtkFloatArray.h"
+#include "vtkCellData.h"
+#include "vtkClipPolyData.h"
 #include "vtkContourFilter.h"
+#include "vtkCutter.h"
+#include "vtkDataSetSurfaceFilter.h"
+#include "vtkFloatArray.h"
+#include "vtkObjectFactory.h"
+#include "vtkPlane.h"
+#include "vtkPointData.h"
+#include "vtkPolyData.h"
+#include "vtkRectilinearGrid.h"
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkExtractCTHPart, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkExtractCTHPart, "$Revision: 1.2 $");
 vtkStandardNewMacro(vtkExtractCTHPart);
 vtkCxxSetObjectMacro(vtkExtractCTHPart,ClipPlane,vtkPlane);
 
