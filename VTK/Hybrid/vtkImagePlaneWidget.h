@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagePlaneWidget.h,v $
   Language:  C++
-  Date:      $Date: 2003-01-29 21:32:17 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2003-02-04 16:40:13 $
+  Version:   $Revision: 1.31 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -257,7 +257,7 @@ public:
   // to have the initial placement follow suit.  Or, make changes after the
   // widget has been initialised and call UpdatePlacement() to realise.
   vtkPolyDataSource* GetPolyDataSource();
-   
+
   // Description:
   // Satisfies superclass API.  This will change the state of the widget to
   // match changes that have been made to the underlying PolyDataSource
@@ -269,7 +269,13 @@ public:
   vtkTexture *GetTexture();
 
   // Description:
-  // Get the plane's outline properties. The properties of the plane's outline
+  // Convenience method to get the vtkImageMapToColors filter used by this
+  // widget.  The user can properly render other transparent actors in a
+  // scene by calling the filter's SetOuputFormatToRGB and PassAlphaToOutputOff.
+  vtkImageMapToColors* GetImageMapToColors();
+
+  // Description:
+  // Set/Get the plane's outline properties. The properties of the plane's outline
   // when selected and unselected can be manipulated.
   virtual void SetPlaneProperty(vtkProperty*);
   vtkGetObjectMacro(PlaneProperty,vtkProperty);
@@ -296,7 +302,7 @@ public:
   void SetPicker(vtkCellPicker*);
 
   // Description:
-  // Set the internal lookuptable (lut) to one defined by the user, or,
+  // Set/Get the internal lookuptable (lut) to one defined by the user, or,
   // alternatively, to the lut of another vtkImgePlaneWidget.  In this way,
   // a set of three orthogonal planes can share the same lut so that
   // window-levelling is performed uniformly among planes.  The default
