@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTclUtil.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-15 19:36:07 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 1999-10-13 18:42:00 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -451,6 +451,7 @@ VTKTCL_EXPORT void vtkTclListInstances(Tcl_Interp *interp, ClientData arg)
 int vtkTclNewInstanceCommand(ClientData cd, Tcl_Interp *interp,
 			     int argc, char *argv[])
 {
+  int (*command)(ClientData, Tcl_Interp *,int, char *[]);
   Tcl_HashEntry *entry;
   int is_new;
   char temps[80];
@@ -486,8 +487,32 @@ int vtkTclNewInstanceCommand(ClientData cd, Tcl_Interp *interp,
   Tcl_SetHashValue(entry,temp);
   sprintf(temps,"%p",(void *)temp);
   entry = Tcl_CreateHashEntry(&vtkPointerLookup,temps,&is_new);
-    Tcl_SetHashValue(entry,(ClientData)(strdup(argv[1])));
-  Tcl_CreateCommand(interp,argv[1],cs->CommandFunction,
+  Tcl_SetHashValue(entry,(ClientData)(strdup(argv[1])));
+  
+  // check to see if we can find the command function based on class name
+  Tcl_CmdInfo cinf;
+  char *tstr = strdup(((vtkObject *)temp)->GetClassName());
+  if (Tcl_GetCommandInfo(interp,tstr,&cinf))
+    {
+    if (cinf.clientData)
+      {
+      vtkTclCommandStruct *cs2 = (vtkTclCommandStruct *)cinf.clientData;
+      command = cs2->CommandFunction;
+      }
+    else
+      {
+      command = cs->CommandFunction;
+      }
+    }
+  else
+    {
+    command = cs->CommandFunction;
+    }
+  if (tstr)
+    {
+    free(tstr);
+    }
+  Tcl_CreateCommand(interp,argv[1],command,
                     temp,(Tcl_CmdDeleteProc *)vtkTclGenericDeleteObject);
   entry = Tcl_CreateHashEntry(&vtkCommandLookup,argv[1],&is_new);
     Tcl_SetHashValue(entry,(ClientData)(cs->CommandFunction));
