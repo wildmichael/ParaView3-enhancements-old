@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGenericEnSightReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-04-15 19:18:55 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2003-04-16 15:11:25 $
+  Version:   $Revision: 1.40 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -38,7 +38,7 @@
 #pragma warning(pop)
 #endif
 
-vtkCxxRevisionMacro(vtkGenericEnSightReader, "$Revision: 1.39 $");
+vtkCxxRevisionMacro(vtkGenericEnSightReader, "$Revision: 1.40 $");
 vtkStandardNewMacro(vtkGenericEnSightReader);
 
 vtkCxxSetObjectMacro(vtkGenericEnSightReader,TimeSets, 
@@ -211,7 +211,16 @@ void vtkGenericEnSightReader::Execute()
       }
     else
       {
+      // We don't know the number of outputs or whole extent of the
+      // internal reader's data until after it executes.  Therefore,
+      // the update extent of the reader is set to empty.  Since the
+      // reader ignores the update extent anyway, it reads correctly,
+      // but then this shallow copy destroys this reader's update
+      // extent.  Save it and restore.
+      int tempExtent[6];
+      this->GetOutput(i)->GetUpdateExtent(tempExtent);
       this->GetOutput(i)->ShallowCopy(this->Reader->GetOutput(i));
+      this->GetOutput(i)->SetUpdateExtent(tempExtent);
       }
     }
   for (i = 0; i < this->Reader->GetNumberOfVariables(); i++)
