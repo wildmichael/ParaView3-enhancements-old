@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkDataSet.h,v $
   Language:  C++
-  Date:      $Date: 1994-10-27 21:35:01 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 1994-11-06 19:30:19 $
+  Version:   $Revision: 1.30 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -29,7 +29,7 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 #include "PtData.hh"
 #include "Cell.hh"
 
-class vlDataSet : virtual public vlObject 
+class vlDataSet : public vlObject 
 {
 public:
   vlDataSet();
@@ -43,7 +43,7 @@ public:
   virtual void Initialize();
 
   // Description:
-  // Absorb update methods which propagate through network.
+  // Provides opportunity for data to clean itself up before execution.
   virtual void Update() {};
 
   // Description:

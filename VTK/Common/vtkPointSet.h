@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPointSet.h,v $
   Language:  C++
-  Date:      $Date: 1994-10-27 21:35:26 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1994-11-06 19:30:34 $
+  Version:   $Revision: 1.9 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -27,7 +27,7 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 #include "DataSet.hh"
 #include "Locator.hh"
 
-class vlPointSet : virtual public vlDataSet
+class vlPointSet : public vlDataSet
 {
 public:
   vlPointSet();
