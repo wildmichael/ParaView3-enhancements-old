@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLImageWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:09:24 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-12-06 21:59:13 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -164,11 +164,11 @@ vtkOpenGLImageWindow::~vtkOpenGLImageWindow()
 // Begin the Imaging process.
 void vtkOpenGLImageWindow::Render()
 {
-  if (this->WindowCreated)
+  if (this->WindowId)
     {
     this->MakeCurrent();
     }
-  if (this->DoubleBuffer)
+  if (this->WindowId && this->DoubleBuffer)
     {
     glDrawBuffer(GL_BACK);
     }
