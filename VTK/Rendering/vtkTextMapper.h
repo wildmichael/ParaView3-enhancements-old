@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextMapper.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:39:26 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2002-04-15 03:19:26 $
+  Version:   $Revision: 1.40 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -179,7 +179,6 @@ protected:
   char *NextLine(const char *input, int lineNum);
   void GetMultiLineSize(vtkViewport* viewport, int size[2]);
   void RenderOverlayMultipleLines(vtkViewport *viewport, vtkActor2D *actor);
-  void RenderOpaqueGeometryMultipleLines(vtkViewport *viewport, vtkActor2D *actor);
   
 private:
   vtkTextMapper(const vtkTextMapper&);  // Not implemented.

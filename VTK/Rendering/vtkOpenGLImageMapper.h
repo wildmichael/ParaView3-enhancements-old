@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLImageMapper.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:48 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2002-04-15 03:19:26 $
+  Version:   $Revision: 1.18 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -39,7 +39,7 @@ public:
   
   // Description:
   // Handle the render method.
-  void RenderOpaqueGeometry(vtkViewport* viewport, vtkActor2D* actor) {
+  void RenderOverlay(vtkViewport* viewport, vtkActor2D* actor) {
     this->RenderStart(viewport,actor);}
 
   // Description:
