@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVRMLImporter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-25 15:07:30 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 2001-09-25 15:11:06 $
+  Version:   $Revision: 1.41 $
   Thanks:    Tom Citriniti who implemented and contributed this class
 
 
@@ -78,6 +78,18 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkFloatArray.h"
 
 // Heap to manage memory leaks
+static vtkHeap *vrmlHeap=NULL;
+static void vrmlInitialize()
+{
+  if ( vrmlHeap == NULL )
+    {
+    vrmlHeap = vtkHeap::New();
+    }
+}
+static void *vrmlAllocateMemory(size_t n)
+{
+  return vrmlHeap->AllocateMemory(n);
+}
 static void vrmlCleanUp()
 {
   if ( vrmlHeap )

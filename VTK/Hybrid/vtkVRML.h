@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVRML.h,v $
   Language:  C++
-  Date:      $Date: 2001-09-25 15:07:30 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2001-09-25 15:11:06 $
+  Version:   $Revision: 1.14 $
   Thanks:    Tom Citriniti who implemented and contributed this class
 
 
@@ -81,18 +81,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // This code must come before "#include vtkVRML.h" because
 // it uses the functions below.
 #include "vtkHeap.h"
-static vtkHeap *vrmlHeap=NULL;
-static void vrmlInitialize()
-{
-  if ( vrmlHeap == NULL )
-    {
-    vrmlHeap = vtkHeap::New();
-    }
-}
-static void *vrmlAllocateMemory(size_t n)
-{
-  return vrmlHeap->AllocateMemory(n);
-}
+static void vrmlInitialize();
+static void *vrmlAllocateMemory(size_t n);
 
 template <class T> 
 class VTK_EXPORT VectorType
