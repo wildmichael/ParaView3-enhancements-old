@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-22 19:13:31 $
-  Version:   $Revision: 1.87 $
+  Date:      $Date: 1999-11-04 16:30:25 $
+  Version:   $Revision: 1.88 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,6 +59,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkWindow.h"
 #include "vtkRendererCollection.h"
 #include <stdio.h>
+#include "vtkGraphicsFactory.h"
 
 class vtkRenderWindowInteractor;
 
@@ -88,6 +89,11 @@ public:
   // Description:
   // Remove a renderer from the list of renderers.
   void RemoveRenderer(vtkRenderer *);
+
+  // Description:
+  // What rendering library has the user requested
+  static const char *GetRenderLibrary() {
+    return vtkGraphicsFactory::GetRenderLibrary();};
 
   // Description:
   // Return the colleciton of renderers inthe render window.
