@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-11-13 13:39:49 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 1996-11-14 21:50:21 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -118,23 +118,23 @@ void vtkUnstructuredGrid::Initialize()
   vtkPointSet::Initialize();
 
   if ( this->Connectivity )
-  {
+    {
     this->Connectivity->UnRegister(this);
     this->Connectivity = NULL;
-  }
+    }
 
   if ( this->Cells )
-  {
+    {
     this->Cells->UnRegister(this);
     this->Cells = NULL;
-  }
+    }
 
   if ( this->Links )
-  {
+    {
     this->Links->UnRegister(this);
     this->Links = NULL;
-  }
-};
+    }
+}
 
 int vtkUnstructuredGrid::GetCellType(int cellId)
 {
