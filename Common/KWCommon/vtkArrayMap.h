@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkArrayMap.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-17 21:31:31 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-04-18 19:59:10 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -72,7 +72,7 @@ public:
   //vtkContainerTypeMacro((vtkArrayMap<KeyType,DataType>), vtkContainer);
 
   typedef vtkAbstractMap<KeyType,DataType> Superclass; 
-  virtual const char *GetClassName() 
+  virtual const char *GetClassName() const
     {return "vtkArrayMap";} 
   static int IsTypeOf(const char *type) 
   { 
@@ -119,7 +119,7 @@ public:
   // Return the number of items currently held in this container. This
   // different from GetSize which is provided for some containers. GetSize
   // will return how many items the container can currently hold.
-  vtkIdType GetNumberOfItems();
+  vtkIdType GetNumberOfItems() const;
 
   void DebugList();
 

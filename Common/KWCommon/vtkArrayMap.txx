@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkArrayMap.txx,v $
   Language:  C++
-  Date:      $Date: 2002-04-18 14:14:44 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-04-18 19:59:10 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -144,7 +144,7 @@ vtkArrayMap<KeyType,DataType>::FindDataItem(KeyType key)
   // different from GetSize which is provided for some containers. GetSize
   // will return how many items the container can currently hold.
 template<class KeyType, class DataType>
-vtkIdType vtkArrayMap<KeyType,DataType>::GetNumberOfItems()
+vtkIdType vtkArrayMap<KeyType,DataType>::GetNumberOfItems() const
 {
   if ( !this->Array )
     {
