@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProbeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-15 14:20:19 $
-  Version:   $Revision: 1.68 $
+  Date:      $Date: 2001-12-06 14:20:23 $
+  Version:   $Revision: 1.69 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -284,4 +284,5 @@ void vtkProbeFilter::PrintSelf(ostream& os, vtkIndent indent)
     {
     os << indent << "SpatialMatchOff\n";
     }
+  os << indent << "ValidPoints: " << this->ValidPoints << "\n";
 }
