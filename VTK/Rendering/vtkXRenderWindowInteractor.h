@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 1998-11-12 21:22:02 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 1998-11-20 19:25:49 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -80,7 +80,8 @@ public:
   // Initializes the event handlers using an XtAppContext that you have
   // provided.  This assumes that you want to own the event loop.
   virtual void Initialize(XtAppContext app);
-
+  vtkGetMacro( App, XtAppContext );
+  
   // Description:
   // Enable/Disable interactions.  By default interactors are enabled when
   // initialized.  Initialize() must be called prior to enabling/disabling
