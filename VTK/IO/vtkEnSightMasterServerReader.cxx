@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSightMasterServerReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-03-19 19:48:52 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2003-03-20 13:41:36 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -29,7 +29,7 @@
 #pragma warning(pop)
 #endif
 
-vtkCxxRevisionMacro(vtkEnSightMasterServerReader, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkEnSightMasterServerReader, "$Revision: 1.7 $");
 vtkStandardNewMacro(vtkEnSightMasterServerReader);
 
 static int vtkEnSightMasterServerReaderStartsWith(const char* str1, const char* str2)
@@ -100,8 +100,6 @@ void vtkEnSightMasterServerReader::ExecuteInformation()
 //----------------------------------------------------------------------------
 int vtkEnSightMasterServerReader::DetermineFileName(int piece)
 {
-  char line[1024];
-
   if (!this->CaseFileName)
     {
     vtkErrorMacro("A case file name must be specified.");
