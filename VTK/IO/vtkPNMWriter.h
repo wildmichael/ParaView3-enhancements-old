@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPNMWriter.h,v $
   Language:  C++
-  Date:      $Date: 1997-12-17 01:27:41 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1999-02-24 17:39:56 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -39,7 +39,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-// .NAME vtkPNMWriter - Writes no PNM (portable any map)  files.
+// .NAME vtkPNMWriter - Writes PNM (portable any map)  files.
 // .SECTION Description
 // vtkPNMWriter writes PNM file. The data type
 // of the file is unsigned char regardless of the input type.
