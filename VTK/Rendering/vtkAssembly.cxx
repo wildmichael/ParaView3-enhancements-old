@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAssembly.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-01-10 08:55:30 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1996-01-15 09:24:55 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -72,31 +72,27 @@ void vtkAssembly::Render(vtkRenderer *ren)
 {
   vtkActor *part;
 
-  // render geometry and properties (if defined)
-  if ( this->Mapper )
+  vtkActor::Render(ren);
+
+  if ( this->Parts.GetNumberOfItems() <= 0 ) return;
+
+  // propogate properties and/or transformation
+  if ( this->ApplyTransform && this->RenderTime < this->GetMTime() )
     {
-    if ( !this->Property )
-      {
-      this->Property->Render(ren);
-      }
-
-    if ( this->Texture )
-      {
-      this->Texture->Render(ren);
-      }
-
-    this->Mapper->Render(ren);
+    this->ApplyTransformation();
     }
 
-  if ( this->Parts.GetNumberOfItems() > 0 ) return;
-
-  if (this->ApplyProperty) this->ApplyProperties();
-  if (this->ApplyTransform) this->ApplyTransformation();
+  if ( this->ApplyProperty && this->RenderTime < this->Property->GetMTime() )
+    {
+    this->ApplyProperties();
+    }
 
   for (this->Parts.InitTraversal(); part = this->Parts.GetNextItem(); )
     {
-    part->Render(ren);
+    if ( part->GetVisibility() ) part->Render(ren);
     }
+
+  this->RenderTime.Modified();
 }
 
 // Description:
@@ -104,8 +100,20 @@ void vtkAssembly::Render(vtkRenderer *ren)
 // assembly.
 void vtkAssembly::ApplyTransformation()
 {
+  vtkActor *part;
+  vtkMatrix4x4 *matrix;
 
+  // traverse list of parts, setting parent matrix
+  for (this->Parts.InitTraversal(); part = this->Parts.GetNextItem(); )
+    {
+    if ( (matrix=part->GetUserMatrix()) == NULL )
+      {
+      matrix = new vtkMatrix4x4;
+      part->SetUserMatrix(matrix);
+      }
 
+    *matrix = this->GetMatrix();
+    }
 }
 
 // Description:
@@ -113,16 +121,23 @@ void vtkAssembly::ApplyTransformation()
 // assembly.
 void vtkAssembly::ApplyProperties()
 {
+  vtkActor *part;
+  vtkProperty *property, *thisProperty=this->GetProperty();
 
+  // traverse list of parts, setting properties
+  for (this->Parts.InitTraversal(); part = this->Parts.GetNextItem(); )
+    {
+    property = part->GetProperty();
+    *property = *thisProperty;
+    }
 }
-
 
 void vtkAssembly::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkActor::PrintSelf(os,indent);
 
   os << indent << "There are: " << this->Parts.GetNumberOfItems()
-     << " parts in this assembly";
+     << " parts in this assembly\n";
   os << indent << "Apply Transform: " << (this->ApplyTransform ? "On\n" : "Off\n");
   os << indent << "Apply Property: " << (this->ApplyProperty ? "On\n" : "Off\n");
 }
