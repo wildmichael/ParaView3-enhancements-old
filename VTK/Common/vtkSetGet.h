@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkSetGet.h,v $
   Language:  C++
-  Date:      $Date: 1994-09-14 20:14:38 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1994-12-09 18:30:34 $
+  Version:   $Revision: 1.17 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -221,7 +221,7 @@ void Set##name (type _arg[4]) \
 // Examples: void SetColor(c,3)
 //
 #define vlSetVectorMacro(name,type,count) \
-void Set##name(type data[], int count) \
+void Set##name(type data[]) \
 { \
   for (int i=0; i<count; i++) if ( data[i] != name[i] ) break; \
   if ( i < count ) \
