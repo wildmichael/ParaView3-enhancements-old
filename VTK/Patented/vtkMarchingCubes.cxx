@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-11 15:09:38 $
-  Version:   $Revision: 1.71 $
+  Date:      $Date: 2001-07-11 15:52:56 $
+  Version:   $Revision: 1.72 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -211,7 +211,7 @@ static void vtkMarchingCubesComputeGradient(vtkMarchingCubes *self,T *scalars, i
   float s[8], value;
   int i, j, k, sliceSize;
   static int CASE_MASK[8] = {1,2,4,8,16,32,64,128};
-  VTK_TRIANGLE_CASES *triCase;
+  VTK_TRIANGLE_CASES *triCase, *triCases;
   EDGE_LIST  *edge;
   int contNum, jOffset, kOffset, idx, ii, index, *vert;
   vtkIdType ptIds[3];
@@ -224,6 +224,9 @@ static void vtkMarchingCubesComputeGradient(vtkMarchingCubes *self,T *scalars, i
   static int edges[12][2] = { {0,1}, {1,2}, {3,2}, {0,3},
                               {4,5}, {5,6}, {7,6}, {4,7},
                               {0,4}, {1,5}, {3,7}, {2,6}};
+
+  triCases =  VTK_TRIANGLE_CASES::GetCases();
+
 //
 // Get min/max contour values
 //
@@ -345,7 +348,7 @@ static void vtkMarchingCubesComputeGradient(vtkMarchingCubes *self,T *scalars, i
 	    continue;
 	    }
 
-	  triCase = VTK_TRIANGLE_CASES::GetCases() + index;
+	  triCase = triCases+ index;
           edge = triCase->edges;
 
           for ( ; edge[0] > -1; edge += 3 )

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMarchingCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-11 15:21:54 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 2001-07-11 15:52:56 $
+  Version:   $Revision: 1.41 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -569,8 +569,10 @@ static void vtkImageMarchingCubesHandleCube(vtkImageMarchingCubes *self,
   float value;
   int cubeIndex, ii;
   vtkIdType pointIds[3];
-  VTK_TRIANGLE_CASES *triCase;
+  VTK_TRIANGLE_CASES *triCase, *triCases;
   EDGE_LIST  *edge;
+
+  triCases =  VTK_TRIANGLE_CASES::GetCases();
 
   inData->GetIncrements(inc0, inc1, inc2);
   for (valueIdx = 0; valueIdx < numContours; ++valueIdx)
@@ -614,7 +616,7 @@ static void vtkImageMarchingCubesHandleCube(vtkImageMarchingCubes *self,
     if (cubeIndex != 0 && cubeIndex != 255)
       {
       // Get edges.
-      triCase = VTK_TRIANGLE_CASES::GetCases() + cubeIndex;
+      triCase = triCases + cubeIndex;
       edge = triCase->edges; 
       // loop over triangles  
       while(*edge > -1)
