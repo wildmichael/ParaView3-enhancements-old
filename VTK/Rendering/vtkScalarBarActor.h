@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalarBarActor.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-03 17:53:34 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-09-07 21:15:49 $
+  Version:   $Revision: 1.3 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -192,6 +192,7 @@ protected:
   float Height;
   int   MaximumNumberOfColors;
   int   NumberOfLabels;
+  int   NumberOfLabelsBuilt;
   int   Orientation;
   char  *Title;
 
