@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPlaneWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-04 03:29:03 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-04-05 20:29:22 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -30,7 +30,7 @@
 #include "vtkCallbackCommand.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkPlaneWidget, "$Revision: 1.4 $");
+vtkCxxRevisionMacro(vtkPlaneWidget, "$Revision: 1.5 $");
 vtkStandardNewMacro(vtkPlaneWidget);
 
 vtkPlaneWidget::vtkPlaneWidget()
@@ -493,8 +493,8 @@ void vtkPlaneWidget::HighlightPlane(int highlight)
     }
 }
 
-void vtkPlaneWidget::OnLeftButtonDown (int ctrl, int shift, 
-                                      int X, int Y)
+void vtkPlaneWidget::OnLeftButtonDown (int vtkNotUsed(ctrl), 
+                                       int vtkNotUsed(shift), int X, int Y)
 {
   // We're only here is we are enabled
   this->State = vtkPlaneWidget::Moving;
@@ -542,7 +542,8 @@ void vtkPlaneWidget::OnLeftButtonDown (int ctrl, int shift,
   this->OldY = Y;
 }
 
-void vtkPlaneWidget::OnLeftButtonUp (int ctrl, int shift, int X, int Y)
+void vtkPlaneWidget::OnLeftButtonUp (int vtkNotUsed(ctrl), int vtkNotUsed(shift), 
+                                     int vtkNotUsed(X), int vtkNotUsed(Y))
 {
   if ( this->State == vtkPlaneWidget::Outside )
     {
@@ -559,7 +560,8 @@ void vtkPlaneWidget::OnLeftButtonUp (int ctrl, int shift, int X, int Y)
   this->Interactor->Render();
 }
 
-void vtkPlaneWidget::OnMiddleButtonDown (int ctrl, int shift, int X, int Y)
+void vtkPlaneWidget::OnMiddleButtonDown (int vtkNotUsed(ctrl), 
+                                         int vtkNotUsed(shift), int X, int Y)
 {
   this->State = vtkPlaneWidget::Pushing;
 
@@ -593,7 +595,8 @@ void vtkPlaneWidget::OnMiddleButtonDown (int ctrl, int shift, int X, int Y)
   this->OldY = Y;
 }
 
-void vtkPlaneWidget::OnMiddleButtonUp (int ctrl, int shift, int X, int Y)
+void vtkPlaneWidget::OnMiddleButtonUp (int vtkNotUsed(ctrl), int vtkNotUsed(shift), 
+                                       int vtkNotUsed(X), int vtkNotUsed(Y))
 {
   if ( this->State == vtkPlaneWidget::Outside )
     {
@@ -609,7 +612,8 @@ void vtkPlaneWidget::OnMiddleButtonUp (int ctrl, int shift, int X, int Y)
   this->Interactor->Render();
 }
 
-void vtkPlaneWidget::OnRightButtonDown (int ctrl, int shift, int X, int Y)
+void vtkPlaneWidget::OnRightButtonDown (int vtkNotUsed(ctrl), 
+                                        int vtkNotUsed(shift), int X, int Y)
 {
   this->State = vtkPlaneWidget::Scaling;
 
@@ -643,7 +647,8 @@ void vtkPlaneWidget::OnRightButtonDown (int ctrl, int shift, int X, int Y)
   this->OldY = Y;
 }
 
-void vtkPlaneWidget::OnRightButtonUp (int ctrl, int shift, int X, int Y)
+void vtkPlaneWidget::OnRightButtonUp (int vtkNotUsed(ctrl), int vtkNotUsed(shift), 
+                                      int vtkNotUsed(X), int vtkNotUsed(Y))
 {
   if ( this->State == vtkPlaneWidget::Outside )
     {
@@ -658,7 +663,8 @@ void vtkPlaneWidget::OnRightButtonUp (int ctrl, int shift, int X, int Y)
   this->Interactor->Render();
 }
 
-void vtkPlaneWidget::OnMouseMove (int ctrl, int shift, int X, int Y)
+void vtkPlaneWidget::OnMouseMove (int vtkNotUsed(ctrl), 
+                                  int vtkNotUsed(shift), int X, int Y)
 {
   // See whether we're active
   if ( this->State == vtkPlaneWidget::Outside || 
@@ -1014,7 +1020,7 @@ void vtkPlaneWidget::Translate(double *p1, double *p2)
   this->PositionHandles();
 }
 
-void vtkPlaneWidget::Scale(double *p1, double *p2, int X, int Y)
+void vtkPlaneWidget::Scale(double *p1, double *p2, int vtkNotUsed(X), int Y)
 {
   //Get the motion vector
   double v[3];

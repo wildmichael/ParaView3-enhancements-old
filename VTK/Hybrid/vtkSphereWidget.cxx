@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSphereWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-05 11:48:28 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-04-05 20:29:22 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,7 +26,7 @@
 #include "vtkCallbackCommand.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkSphereWidget, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkSphereWidget, "$Revision: 1.6 $");
 vtkStandardNewMacro(vtkSphereWidget);
 
 vtkSphereWidget::vtkSphereWidget()
@@ -283,6 +283,11 @@ void vtkSphereWidget::PrintSelf(ostream& os, vtkIndent indent)
 
 void vtkSphereWidget::SelectRepresentation()
 {
+  if ( ! this->HandleVisibility )
+    {
+    this->CurrentRenderer->RemoveActor(this->HandleActor);
+    }
+
   if ( this->Representation == VTK_SPHERE_OFF )
     {
     this->CurrentRenderer->RemoveActor(this->SphereActor);
@@ -553,7 +558,8 @@ void vtkSphereWidget::ScaleSphere(double *p1, double *p2,
   this->SelectRepresentation();
 }
 
-void vtkSphereWidget::MoveHandle(double *p1, double *p2, int X, int Y)
+void vtkSphereWidget::MoveHandle(double *p1, double *p2, 
+                                 int vtkNotUsed(X), int vtkNotUsed(Y))
 {
   //Get the motion vector
   double v[3];
