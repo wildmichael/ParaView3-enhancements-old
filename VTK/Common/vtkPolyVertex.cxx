@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPolyVertex.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-01 23:12:40 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1995-02-26 10:17:56 $
+  Version:   $Revision: 1.14 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -77,6 +77,18 @@ void vlPolyVertex::EvaluateLocation(int& subId, float pcoords[3],
 
   for (i=0; i<this->GetNumberOfPoints(); i++) weights[i] = 0.0;
   weights[subId] = 1.0;
+}
+
+int vlPolyVertex::CellBoundary(int subId, float pcoords[3], vlIdList& pts)
+{
+  pts.Reset();
+  pts.SetId(subId,this->PointIds.GetId(subId));
+
+  if ( pcoords[0] != 0.0 )  
+    return 0;
+  else
+    return 1;
+
 }
 
 void vlPolyVertex::Contour(float value, vlFloatScalars *cellScalars, 

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkTriangle.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-01 23:12:56 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1995-02-26 10:18:02 $
+  Version:   $Revision: 1.16 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -141,6 +141,42 @@ void vlTriangle::EvaluateLocation(int& subId, float pcoords[3], float x[3],
   weights[0] = u3;
   weights[1] = pcoords[0];
   weights[2] = pcoords[1];
+}
+
+int vlTriangle::CellBoundary(int subId, float pcoords[3], vlIdList& pts)
+{
+  float t1=pcoords[0]-pcoords[1];
+  float t2=0.5*(1.0-pcoords[0])-pcoords[1];
+  float t3=2.0*pcoords[0]+pcoords[1]-1.0;
+
+  pts.Reset();
+
+  // compare against three lines in parametric space that divide element
+  // into three pieces
+  if ( t1 >= 0.0 && t2 >= 0.0 )
+    {
+    pts.SetId(0,this->PointIds.GetId(0));
+    pts.SetId(1,this->PointIds.GetId(1));
+    }
+
+  else if ( t2 < 0.0 && t3 >= 0.0 )
+    {
+    pts.SetId(0,this->PointIds.GetId(1));
+    pts.SetId(1,this->PointIds.GetId(2));
+    }
+
+  else //( t1 < 0.0 && t3 < 0.0 )
+    {
+    pts.SetId(0,this->PointIds.GetId(2));
+    pts.SetId(1,this->PointIds.GetId(0));
+    }
+
+  if ( pcoords[0] < 0.0 || pcoords[1] < 0.0 ||
+  pcoords[0] > 1.0 || pcoords[1] > 1.0 || (1.0 - pcoords[0] - pcoords[1]) < 0.0 )
+    return 0;
+  else
+    return 1;
+
 }
 
 //

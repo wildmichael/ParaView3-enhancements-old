@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkUnstructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-09 19:56:48 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1995-02-26 10:17:37 $
+  Version:   $Revision: 1.15 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -47,9 +47,6 @@ void vlUnstructuredGrid::Allocate (int numCells, int extSize)
 
   this->Cells = new vlCellList(numCells,extSize);
   this->Cells->Register(this);
-  
-  this->Links = new vlLinkList(numCells,extSize);
-  this->Links->Register(this);
 }
 
 // Description:

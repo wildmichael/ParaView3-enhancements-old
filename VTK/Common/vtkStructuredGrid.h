@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStructuredGrid.h,v $
   Language:  C++
-  Date:      $Date: 1994-11-15 11:07:08 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1995-02-26 10:17:39 $
+  Version:   $Revision: 1.13 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -46,7 +46,8 @@ public:
   int GetCellType(int cellId);
   float *GetPoint(int ptId);
   void GetPoint(int ptId, float p[3]);
-  int FindCell(float x[3], vlCell *cell, float tol2, int& subId, float pcoords[3]) { return this->vlPointSet::FindCell(x,cell,tol2,subId,pcoords);}
+  int FindCell(float x[3], vlCell *cell, float tol2, int& subId, 
+               float pcoords[3],float weights[MAX_CELL_SIZE]);
   int GetNumberOfCells();
   void GetCellPoints(int cellId, vlIdList& ptIds);
   void GetPointCells(int ptId, vlIdList& cellIds);
@@ -84,4 +85,15 @@ inline void vlStructuredGrid::GetPointCells(int ptId, vlIdList& cellIds)
   this->vlStructuredData::_GetPointCells(ptId,cellIds);
 }
 
+inline int vlStructuredGrid::FindCell(float x[3], vlCell *cell, float tol2, 
+                                      int& subId, float pcoords[3],
+                                      float weights[MAX_CELL_SIZE])
+{
+  return this->vlPointSet::FindCell(x,cell,tol2,subId,pcoords,weights);
+}
+
 #endif
+
+
+
+

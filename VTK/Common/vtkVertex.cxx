@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkVertex.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-01 23:12:59 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1995-02-26 10:18:07 $
+  Version:   $Revision: 1.14 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -63,6 +63,19 @@ void vlVertex::EvaluateLocation(int& subId, float pcoords[3], float x[3],
   x[2] = X[2];
 
   weights[0] = 1.0;
+}
+
+int vlVertex::CellBoundary(int subId, float pcoords[3], vlIdList& pts)
+{
+
+  pts.Reset();
+  pts.SetId(0,this->PointIds.GetId(0));
+
+  if ( pcoords[0] != 0.0 )  
+    return 0;
+  else
+    return 1;
+
 }
 
 void vlVertex::Contour(float value, vlFloatScalars *cellScalars, 

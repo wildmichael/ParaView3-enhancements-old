@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPlane.h,v $
   Language:  C++
-  Date:      $Date: 1994-11-01 23:12:35 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1995-02-26 10:18:04 $
+  Version:   $Revision: 1.10 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -31,6 +31,7 @@ class vlPlane : public vlImplicitFunction
 public:
   vlPlane();
   char *GetClassName() {return "vlPlane";};
+  void PrintSelf(ostream& os, vlIndent indent);
 
   // project point onto plane, returning coordinates
   void ProjectPoint(float x[3], float origin[3], float normal[3], float xproj[3]);

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkDataSet.h,v $
   Language:  C++
-  Date:      $Date: 1994-11-15 11:06:53 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1995-02-26 10:17:33 $
+  Version:   $Revision: 1.32 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -92,8 +92,10 @@ public:
   // Locate cell based on global coordinate x and tolerance squared. If
   // cell is non-NULL, then search starts from this cell and looks at 
   // immediate neighbors. Returns cellId >= 0 if inside, < 0 otherwise.
-  // The parametric coordinates are provided in pcoords[3].
-  virtual int FindCell(float x[3], vlCell *cell, float tol2, int& subId, float pcoords[3]) = 0;
+  // The parametric coordinates are provided in pcoords[3]. The interpolation
+  // weights are returned in weights[]. Tolerance is used to control how close
+  // the point is to be considered "in" the cell.
+  virtual int FindCell(float x[3], vlCell *cell, float tol2, int& subId, float pcoords[3], float weights[MAX_CELL_SIZE]) = 0;
 
   // Datasets are composite objects and need to check each part for MTime
   unsigned long int GetMTime();

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkTetra.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-01 23:12:50 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1995-02-26 10:17:59 $
+  Version:   $Revision: 1.12 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -121,6 +121,55 @@ void vlTetra::EvaluateLocation(int& subId, float pcoords[3], float x[3],
   weights[1] = pcoords[0];
   weights[2] = pcoords[1];
   weights[3] = pcoords[2];
+}
+
+int vlTetra::CellBoundary(int subId, float pcoords[3], vlIdList& pts)
+{
+  float t1 = pcoords[0] - pcoords[1];
+  float t2 = pcoords[1] - pcoords[2];
+  float t3 = pcoords[0] - pcoords[2];
+  float t4 = pcoords[0] + pcoords[1] + 2.0*pcoords[2] - 1.3333333;
+  float t5 = pcoords[0] + 2.0*pcoords[1] + pcoords[2] - 1.3333333;
+  float t6 = 2.0*pcoords[0] + pcoords[1] + pcoords[2] - 1.3333333;
+
+  pts.Reset();
+
+  // compare against three lines in parametric space that divide element
+  // into three pieces
+  if ( t3 >= 0.0 && t2 >= 0.0 && t4 < 0.0 )
+    {
+    pts.SetId(0,this->PointIds.GetId(0));
+    pts.SetId(1,this->PointIds.GetId(2));
+    pts.SetId(2,this->PointIds.GetId(1));
+    }
+
+  else if ( t1 >= 0.0 && t2 < 0.0 && t5 < 0.0 )
+    {
+    pts.SetId(0,this->PointIds.GetId(0));
+    pts.SetId(1,this->PointIds.GetId(1));
+    pts.SetId(2,this->PointIds.GetId(3));
+    }
+
+  else if ( t4 >= 0.0 && t5 >= 0.0 && t6 >= 0.0 )
+    {
+    pts.SetId(0,this->PointIds.GetId(1));
+    pts.SetId(1,this->PointIds.GetId(2));
+    pts.SetId(2,this->PointIds.GetId(3));
+    }
+
+  else //if ( t1 < 0.0 && t3 < 0.0 && t6 < 0.0 )
+    {
+    pts.SetId(0,this->PointIds.GetId(0));
+    pts.SetId(1,this->PointIds.GetId(2));
+    pts.SetId(2,this->PointIds.GetId(3));
+    }
+
+  if ( pcoords[0] < 0.0 || pcoords[1] < 0.0 || pcoords[2] < 0.0 ||
+  pcoords[0] > 1.0 || pcoords[1] > 1.0 || pcoords[2] > 1.0 ||
+  (1.0 - pcoords[0] - pcoords[1] - pcoords[2]) < 0.0 )
+    return 0;
+  else
+    return 1;
 }
 
 //

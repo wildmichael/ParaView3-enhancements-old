@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkTetra.h,v $
   Language:  C++
-  Date:      $Date: 1994-11-01 23:12:52 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1995-02-26 10:18:00 $
+  Version:   $Revision: 1.11 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -38,6 +38,7 @@ public:
   vlCell *GetEdge(int edgeId);
   vlCell *GetFace(int faceId);
 
+  int CellBoundary(int subId, float pcoords[3], vlIdList& pts);
   void Contour(float value, vlFloatScalars *cellScalars, 
                vlFloatPoints *points, vlCellArray *verts, 
                vlCellArray *lines, vlCellArray *polys, vlFloatScalars *s);

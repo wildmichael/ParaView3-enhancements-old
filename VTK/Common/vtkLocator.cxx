@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkLocator.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-10-27 21:35:13 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1995-02-26 10:18:12 $
+  Version:   $Revision: 1.10 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -52,7 +52,7 @@ vlLocator::vlLocator()
   this->Points = NULL;
   this->Divisions[0] = this->Divisions[1] = this->Divisions[2] = 50;
   this->Automatic = 1;
-  this->NumberOfPointsInBucket = 25;
+  this->NumberOfPointsInBucket = 10;
   this->Tolerance = 0.01;
   this->HashTable = NULL;
   this->NumberOfBuckets = 0;
@@ -139,7 +139,7 @@ int vlLocator::FindClosestPoint(float x[3])
 
       if ( (ptIds = this->HashTable[cno]) != NULL )
         {
-        for (j=0; j<=ptIds->GetNumberOfIds(); j++) 
+        for (j=0; j < ptIds->GetNumberOfIds(); j++) 
           {
           ptId = ptIds->GetId(j);
           pt = this->Points->GetPoint(ptId);
@@ -182,7 +182,7 @@ int vlLocator::FindClosestPoint(float x[3])
 
         if ( (ptIds = this->HashTable[cno]) )
           {
-          for (j=0; j<=ptIds->GetNumberOfIds(); j++) 
+          for (j=0; j < ptIds->GetNumberOfIds(); j++) 
             {
             ptId = ptIds->GetId(j);
             pt = this->Points->GetPoint(ptId);

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkHexahedron.h,v $
   Language:  C++
-  Date:      $Date: 1994-11-01 23:12:27 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1995-02-26 10:18:09 $
+  Version:   $Revision: 1.9 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -38,6 +38,7 @@ public:
   vlCell *GetEdge(int edgeId);
   vlCell *GetFace(int faceId);
 
+  int CellBoundary(int subId, float pcoords[3], vlIdList& pts);
   void Contour(float value, vlFloatScalars *cellScalars, 
                vlFloatPoints *points, vlCellArray *verts, 
                vlCellArray *lines, vlCellArray *polys, vlFloatScalars *s);
@@ -49,8 +50,8 @@ public:
   int IntersectWithLine(float p1[3], float p2[3], float tol, float& t,
                         float x[3], float pcoords[3], int& subId);
 
-  void ShapeFunctions(float pcoords[3], float sf[8]);
-  void ShapeDerivs(float pcoords[3], float derivs[24]);
+  void InterpolationFunctions(float pcoords[3], float weights[8]);
+  void InterpolationDerivs(float pcoords[3], float derivs[24]);
 
 };
 

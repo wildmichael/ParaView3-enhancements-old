@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkQuad.h,v $
   Language:  C++
-  Date:      $Date: 1994-11-01 23:12:49 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1995-02-26 10:17:58 $
+  Version:   $Revision: 1.11 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -38,6 +38,7 @@ public:
   vlCell *GetEdge(int edgeId);
   vlCell *GetFace(int faceId) {return 0;};
 
+  int CellBoundary(int subId, float pcoords[3], vlIdList& pts);
   void Contour(float value, vlFloatScalars *cellScalars, 
                vlFloatPoints *points, vlCellArray *verts, 
                vlCellArray *lines, vlCellArray *polys, vlFloatScalars *s);
@@ -48,8 +49,8 @@ public:
                         float weights[MAX_CELL_SIZE]);
   int IntersectWithLine(float p1[3], float p2[3], float tol, float& t,
                         float x[3], float pcoords[3], int& subId);
-  void ShapeFunctions(float pcoords[3], float sf[4]);
-  void ShapeDerivs(float pcoords[3], float derivs[12]);
+  void InterpolationFunctions(float pcoords[3], float sf[4]);
+  void InterpolationDerivs(float pcoords[3], float derivs[12]);
 
 };
 

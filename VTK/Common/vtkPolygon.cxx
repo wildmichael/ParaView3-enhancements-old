@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPolygon.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-01 23:12:43 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1995-02-26 10:17:47 $
+  Version:   $Revision: 1.18 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -657,6 +657,11 @@ void vlPolygon::SplitLoop (int fedges[2], int numVerts, int *verts,
     }
 
   return;
+}
+
+int vlPolygon::CellBoundary(int subId, float pcoords[3], vlIdList& pts)
+{
+  return 0;
 }
 
 void vlPolygon::Contour(float value, vlFloatScalars *cellScalars, 

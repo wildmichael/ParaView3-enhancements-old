@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPointSet.h,v $
   Language:  C++
-  Date:      $Date: 1994-11-06 19:30:34 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1995-02-26 10:17:46 $
+  Version:   $Revision: 1.10 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -40,7 +40,8 @@ public:
   int GetNumberOfPoints();
   float *GetPoint(int ptId) {return this->Points->GetPoint(ptId);};
   void GetPoint(int ptId, float x[3]) {this->Points->GetPoint(ptId,x);};
-  int FindCell(float x[3], vlCell *cell, float tol2, int& subId, float pcoords[3]);
+  int FindCell(float x[3], vlCell *cell, float tol2, int& subId, 
+               float pcoords[3], float weights[MAX_CELL_SIZE]);
 
   unsigned long int GetMTime();
 

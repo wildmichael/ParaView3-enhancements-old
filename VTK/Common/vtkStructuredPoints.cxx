@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStructuredPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-01-02 11:44:45 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1995-02-26 10:18:14 $
+  Version:   $Revision: 1.20 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -218,10 +218,12 @@ void vlStructuredPoints::Initialize()
 }
 
 int vlStructuredPoints::FindCell(float x[3], vlCell *cell, float tol2, 
-                                 int& subId, float pcoords[3])
+                                 int& subId, float pcoords[3],
+                                 float weights[MAX_CELL_SIZE])
 {
   int i, loc[3];
   float d, floatLoc[3];
+  static vlVoxel voxel;
 //
 //  Compute the ijk location
 //
@@ -239,6 +241,7 @@ int vlStructuredPoints::FindCell(float x[3], vlCell *cell, float tol2,
       pcoords[i] = floatLoc[i] - (float)loc[i];
       }
     }
+  voxel.InterpolationFunctions(pcoords,weights);
 //
 //  From this location get the cell number
 //

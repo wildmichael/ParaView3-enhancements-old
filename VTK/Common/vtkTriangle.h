@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkTriangle.h,v $
   Language:  C++
-  Date:      $Date: 1994-11-12 07:08:19 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1995-02-26 10:18:03 $
+  Version:   $Revision: 1.13 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -39,6 +39,7 @@ public:
   vlCell *GetEdge(int edgeId);
   vlCell *GetFace(int faceId) {return 0;};
 
+  int CellBoundary(int subId, float pcoords[3], vlIdList& pts);
   void Contour(float value, vlFloatScalars *cellScalars, 
                vlFloatPoints *points, vlCellArray *verts,
                vlCellArray *lines, vlCellArray *polys, 

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkVertex.h,v $
   Language:  C++
-  Date:      $Date: 1994-11-01 23:13:01 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1995-02-26 10:17:53 $
+  Version:   $Revision: 1.12 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -36,6 +36,7 @@ public:
   int GetNumberOfFaces() {return 0;};
   vlCell *GetEdge(int edgeId) {return 0;};
   vlCell *GetFace(int faceId) {return 0;};
+  int CellBoundary(int subId, float pcoords[3], vlIdList& pts);
 
   void Contour(float value, vlFloatScalars *cellScalars, 
                vlFloatPoints *points, vlCellArray *verts, 

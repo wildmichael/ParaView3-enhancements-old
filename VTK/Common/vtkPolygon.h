@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPolygon.h,v $
   Language:  C++
-  Date:      $Date: 1994-11-01 23:12:45 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1995-02-26 10:17:47 $
+  Version:   $Revision: 1.13 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -44,6 +44,7 @@ public:
   vlCell *GetEdge(int edgeId);
   vlCell *GetFace(int faceId) {return 0;};
 
+  int CellBoundary(int subId, float pcoords[3], vlIdList& pts);
   void Contour(float value, vlFloatScalars *cellScalars, 
                vlFloatPoints *points,vlCellArray *verts, 
                vlCellArray *lines, vlCellArray *polys, vlFloatScalars *s);

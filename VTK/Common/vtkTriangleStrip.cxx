@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkTriangleStrip.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-01 23:12:53 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1995-02-26 10:18:01 $
+  Version:   $Revision: 1.13 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -91,6 +91,11 @@ void vlTriangleStrip::EvaluateLocation(int& subId, float pcoords[3], float x[3],
   weights[0] = u3;
   weights[1] = pcoords[0];
   weights[2] = pcoords[1];
+}
+
+int vlTriangleStrip::CellBoundary(int subId, float pcoords[3], vlIdList& pts)
+{
+  return 0;
 }
 
 void vlTriangleStrip::Contour(float value, vlFloatScalars *cellScalars, 
