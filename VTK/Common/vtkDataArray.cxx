@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-12 18:32:04 $
-  Version:   $Revision: 1.53 $
+  Date:      $Date: 2003-05-20 20:06:09 $
+  Version:   $Revision: 1.54 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -33,7 +33,7 @@
 #include "vtkIdList.h"
 #include "vtkMath.h"
 
-vtkCxxRevisionMacro(vtkDataArray, "$Revision: 1.53 $");
+vtkCxxRevisionMacro(vtkDataArray, "$Revision: 1.54 $");
 
 // Construct object with default tuple dimension (number of components) of 1.
 vtkDataArray::vtkDataArray(vtkIdType numComp)
@@ -575,7 +575,9 @@ unsigned long vtkDataArray::GetActualMemorySize()
 {
   unsigned long numPrims;
   float size = 0.0;
-  numPrims = this->GetNumberOfTuples() * this->GetNumberOfComponents();
+  // The allocated array may be larger than the number of primatives used.
+  //numPrims = this->GetNumberOfTuples() * this->GetNumberOfComponents();
+  numPrims = this->GetSize();
 
   switch (this->GetDataType())
     {
