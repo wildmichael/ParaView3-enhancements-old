@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-12 13:13:09 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2003-01-16 20:15:04 $
+  Version:   $Revision: 1.15 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -31,7 +31,7 @@
 #include "vtkRenderWindow.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkPointWidget, "$Revision: 1.14 $");
+vtkCxxRevisionMacro(vtkPointWidget, "$Revision: 1.15 $");
 vtkStandardNewMacro(vtkPointWidget);
 
 vtkPointWidget::vtkPointWidget()
@@ -107,12 +107,15 @@ void vtkPointWidget::SetEnabled(int enabling)
       return;
       }
     
-    this->CurrentRenderer = this->Interactor->FindPokedRenderer(
-      this->Interactor->GetLastEventPosition()[0],
-      this->Interactor->GetLastEventPosition()[1]);
-    if (this->CurrentRenderer == NULL)
+    if ( ! this->CurrentRenderer )
       {
-      return;
+      this->CurrentRenderer = this->Interactor->FindPokedRenderer(
+        this->Interactor->GetLastEventPosition()[0],
+        this->Interactor->GetLastEventPosition()[1]);
+      if (this->CurrentRenderer == NULL)
+        {
+        return;
+        }
       }
 
     this->Enabled = 1;
@@ -160,6 +163,7 @@ void vtkPointWidget::SetEnabled(int enabling)
     this->CurrentRenderer->RemoveActor(this->Actor);
 
     this->InvokeEvent(vtkCommand::DisableEvent,NULL);
+    this->CurrentRenderer = NULL;
     }
 
   this->Interactor->Render();
