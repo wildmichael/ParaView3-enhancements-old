@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKWWin32RegisteryUtilities.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-07 12:36:42 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-10-15 15:45:09 $
+  Version:   $Revision: 1.3 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -39,6 +39,11 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
+// .NAME vtkKWRegisteryUtilities - A Win32 implementation of the registery
+// .SECTION Description
+// This class abstracts the storing of data that can be restored
+// when the program executes again. It is designed specifically for 
+// Win32 platform.
 
 #ifndef __vtkKWWin32RegisteryUtilities_h
 #define __vtkKWWin32RegisteryUtilities_h

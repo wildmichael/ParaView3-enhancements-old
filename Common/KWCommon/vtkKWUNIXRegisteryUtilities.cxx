@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKWUNIXRegisteryUtilities.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-07 12:36:42 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-10-15 15:45:09 $
+  Version:   $Revision: 1.6 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -52,13 +52,10 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define VTK_IOS_NOCREATE | ios::nocreate
 #endif
 
-#define MStrDup(x) \
-   x ? strcpy( new char[ strlen(x) + 1 ], x ) : 0
-
 #define BUFFER_SIZE 1024
 
 vtkStandardNewMacro( vtkKWUNIXRegisteryUtilities );
-vtkCxxRevisionMacro(vtkKWUNIXRegisteryUtilities, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkKWUNIXRegisteryUtilities, "$Revision: 1.6 $");
 
 //----------------------------------------------------------------------------
 vtkKWUNIXRegisteryUtilities::vtkKWUNIXRegisteryUtilities()
