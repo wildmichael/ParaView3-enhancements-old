@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPythonUtil.h,v $
   Language:  C++
-  Date:      $Date: 2000-11-18 20:50:21 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2000-11-22 17:54:58 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -117,44 +117,18 @@ extern void *vtkPythonUnmanglePointer(char *ptrText, int *len,
 extern void vtkPythonVoidFunc(void *);
 extern void vtkPythonVoidFuncArgDelete(void *);
 
+// To allow Python to use the vtkCommand features
 class vtkPythonCommand : public vtkCommand
 {
 public:
-  vtkPythonCommand() { this->obj = NULL;};
-  ~vtkPythonCommand() 
-    { 
-      if (this->obj)
-        {
-        Py_DECREF(this->obj);
-        }
-      this->obj = NULL;
-    };
-  void SetObject(PyObject *o) { this->obj = o; };
-  
-  void Execute(vtkObject *, unsigned long, void *)
-    {
-      PyObject *arglist, *result;
+  vtkPythonCommand();
+  ~vtkPythonCommand(); 
+  static vtkPythonCommand *New() { return new vtkPythonCommand; };
 
-      arglist = Py_BuildValue("()");
-
-      result = PyEval_CallObject(this->obj, arglist);
-      Py_DECREF(arglist);
-      
-      if (result)
-        {
-        Py_XDECREF(result);
-        }
-      else
-        {
-        if (PyErr_ExceptionMatches(PyExc_KeyboardInterrupt))
-          {
-          cerr << "Caught a Ctrl-C within python, exiting program.\n";
-          Py_Exit(1);
-          }
-        PyErr_Print();
-        }
-    };
-  
+  void SetObject(PyObject *o);
+  void Execute(vtkObject *ptr, unsigned long eventtype, void *);
+ 
   PyObject *obj;
 };
+
 
