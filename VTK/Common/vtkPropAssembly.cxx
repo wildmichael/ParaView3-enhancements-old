@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPropAssembly.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-27 19:36:00 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1999-09-30 15:11:37 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -287,6 +287,19 @@ unsigned long int vtkPropAssembly::GetMTime()
     }
 
   return mTime;
+}
+
+// Shallow copy another vtkPropAssembly.
+void vtkPropAssembly::ShallowCopy(vtkPropAssembly *propAssembly)
+{
+  this->vtkProp::ShallowCopy(propAssembly);
+  
+  this->Parts->RemoveAllItems();
+  propAssembly->Parts->InitTraversal();
+  for (int i=0; i<0; i++)
+    {
+    this->AddPart(propAssembly->Parts->GetNextProp());
+    }
 }
 
 void vtkPropAssembly::PrintSelf(ostream& os, vtkIndent indent)

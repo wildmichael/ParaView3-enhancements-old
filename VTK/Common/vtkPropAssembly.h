@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPropAssembly.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:20:57 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-09-30 15:11:36 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -112,6 +112,10 @@ public:
   // Get the bounds for this prop assembly as (Xmin,Xmax,Ymin,Ymax,Zmin,Zmax).
   // May return NULL in some cases (meaning the bounds is undefined).
   float *GetBounds();
+
+  // Description:
+  // Shallow copy of this vtkPropAssembly.
+  void ShallowCopy(vtkPropAssembly *PropAssembly);
 
   // Description:
   // Override default GetMTime method to also consider all of the
