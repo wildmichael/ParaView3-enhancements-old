@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWindowedSincPolyDataFilter.h,v $
   Language:  C++
-  Date:      $Date: 1997-12-05 14:27:58 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-06-11 14:47:30 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -156,7 +156,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 #include "vtkPolyDataToPolyDataFilter.h"
 
-class VTK_EXPORT vtkWindowedSincPolyDataFilter : public vtkPolyDataToPolyDataFilter {
+class VTK_EXPORT vtkWindowedSincPolyDataFilter : public vtkPolyDataToPolyDataFilter 
+{
  public:
   vtkWindowedSincPolyDataFilter();
   static vtkWindowedSincPolyDataFilter *New() {return new vtkWindowedSincPolyDataFilter;};
