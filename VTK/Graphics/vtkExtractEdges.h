@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractEdges.h,v $
   Language:  C++
-  Date:      $Date: 1997-03-04 17:56:52 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1997-04-18 19:28:41 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -54,6 +54,7 @@ class VTK_EXPORT vtkExtractEdges : public vtkDataSetToPolyFilter
 {
 public:
   vtkExtractEdges();
+  vtkExtractEdges *New() {return new vtkExtractEdges;};
   char *GetClassName() {return "vtkExtractEdges";};
   void PrintSelf(ostream& os, vtkIndent indent);
 

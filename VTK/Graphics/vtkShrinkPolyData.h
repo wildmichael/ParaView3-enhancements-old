@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkShrinkPolyData.h,v $
   Language:  C++
-  Date:      $Date: 1997-03-04 17:58:37 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1997-04-18 19:30:09 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -60,6 +60,7 @@ class VTK_EXPORT vtkShrinkPolyData : public vtkPolyToPolyFilter
 {
 public:
   vtkShrinkPolyData(float sf=0.5);
+  vtkShrinkPolyData *New() {return new vtkShrinkPolyData;};
   char *GetClassName() {return "vtkShrinkPolyData";};
   void PrintSelf(ostream& os, vtkIndent indent);
 

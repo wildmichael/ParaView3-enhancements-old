@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLODActor.h,v $
   Language:  C++
-  Date:      $Date: 1997-03-04 17:57:24 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1997-04-18 19:29:07 $
+  Version:   $Revision: 1.9 $
   
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -70,6 +70,7 @@ class VTK_EXPORT vtkLODActor : public vtkActor
 {
  public:
   vtkLODActor();
+  vtkLODActor *New() {return new vtkLODActor;};
   char *GetClassName() {return "vtkLODActor";};
   void PrintSelf(ostream& os, vtkIndent indent);
 

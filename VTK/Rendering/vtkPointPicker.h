@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointPicker.h,v $
   Language:  C++
-  Date:      $Date: 1997-03-04 17:57:58 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1997-04-18 19:29:35 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,6 +56,7 @@ class VTK_EXPORT vtkPointPicker : public vtkPicker
 {
 public:
   vtkPointPicker();
+  vtkPointPicker *New() {return new vtkPointPicker;};
   char *GetClassName() {return "vtkPointPicker";};
   void PrintSelf(ostream& os, vtkIndent indent);
 

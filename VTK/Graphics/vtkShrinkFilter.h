@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkShrinkFilter.h,v $
   Language:  C++
-  Date:      $Date: 1997-03-04 17:58:36 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1997-04-18 19:30:08 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -60,6 +60,7 @@ class VTK_EXPORT vtkShrinkFilter : public vtkDataSetToUnstructuredGridFilter
 {
 public:
   vtkShrinkFilter(float sf=0.5);
+  vtkShrinkFilter *New() {return new vtkShrinkFilter;};
   char *GetClassName() {return "vtkShrinkFilter";};
   void PrintSelf(ostream& os, vtkIndent indent);
 

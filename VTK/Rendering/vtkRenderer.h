@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.h,v $
   Language:  C++
-  Date:      $Date: 1997-03-04 17:58:21 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 1997-04-18 19:29:51 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -68,6 +68,7 @@ class VTK_EXPORT vtkRenderer : public vtkObject
 public:
   vtkRenderer();
   ~vtkRenderer();
+  vtkRenderer *New() {return new vtkRenderer;};
   char *GetClassName() {return "vtkRenderer";};
   void PrintSelf(ostream& os, vtkIndent indent);
 

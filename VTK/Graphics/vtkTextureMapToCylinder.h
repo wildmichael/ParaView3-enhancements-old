@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextureMapToCylinder.h,v $
   Language:  C++
-  Date:      $Date: 1997-03-04 17:59:07 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1997-04-18 19:30:33 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -75,6 +75,7 @@ class VTK_EXPORT vtkTextureMapToCylinder : public vtkDataSetToDataSetFilter
 {
 public:
   vtkTextureMapToCylinder();
+  vtkTextureMapToCylinder *New() {return new vtkTextureMapToCylinder;};
   char *GetClassName() {return "vtkTextureMapToCylinder";};
   void PrintSelf(ostream& os, vtkIndent indent);
 

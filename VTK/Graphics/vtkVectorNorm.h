@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectorNorm.h,v $
   Language:  C++
-  Date:      $Date: 1997-03-04 17:59:25 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1997-04-18 19:30:54 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -53,6 +53,7 @@ class VTK_EXPORT vtkVectorNorm : public vtkDataSetToDataSetFilter
 {
 public:
   vtkVectorNorm();
+  vtkVectorNorm *New() {return new vtkVectorNorm;};
   char *GetClassName() {return "vtkVectorNorm";};
   void PrintSelf(ostream& os, vtkIndent indent);
 

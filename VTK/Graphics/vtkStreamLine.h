@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamLine.h,v $
   Language:  C++
-  Date:      $Date: 1997-03-04 17:58:41 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1997-04-18 19:30:13 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -76,6 +76,7 @@ class VTK_EXPORT vtkStreamLine : public vtkStreamer
 {
 public:
   vtkStreamLine();
+  vtkStreamLine *New() {return new vtkStreamLine;};
   char *GetClassName() {return "vtkStreamLine";};
   void PrintSelf(ostream& os, vtkIndent indent);
 

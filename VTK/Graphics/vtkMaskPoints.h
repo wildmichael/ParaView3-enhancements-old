@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMaskPoints.h,v $
   Language:  C++
-  Date:      $Date: 1997-03-04 17:57:36 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1997-04-18 19:29:15 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,6 +55,7 @@ class VTK_EXPORT vtkMaskPoints : public vtkDataSetToPolyFilter
 {
 public:
   vtkMaskPoints();
+  vtkMaskPoints *New() {return new vtkMaskPoints;};
   char *GetClassName() {return "vtkMaskPoints";};
   void PrintSelf(ostream& os, vtkIndent indent);
 

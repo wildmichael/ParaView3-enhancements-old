@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDelaunay3D.h,v $
   Language:  C++
-  Date:      $Date: 1997-03-04 17:56:45 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1997-04-18 19:28:35 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -116,6 +116,7 @@ class VTK_EXPORT vtkDelaunay3D : public vtkPointSetFilter
 {
 public:
   vtkDelaunay3D();
+  vtkDelaunay3D *New() {return new vtkDelaunay3D;};
   char *GetClassName() {return "vtkDelaunay3D";};
   void PrintSelf(ostream& os, vtkIndent indent);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLight.h,v $
   Language:  C++
-  Date:      $Date: 1997-03-04 17:57:25 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1997-04-18 19:29:08 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,6 +64,7 @@ class VTK_EXPORT vtkLight : public vtkObject
 public:
   vtkLight();
   ~vtkLight();
+  vtkLight *New() {return new vtkLight;};
   char *GetClassName() {return "vtkLight";};
   void PrintSelf(ostream& os, vtkIndent indent);
 

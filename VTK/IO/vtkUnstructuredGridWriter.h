@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGridWriter.h,v $
   Language:  C++
-  Date:      $Date: 1997-03-04 17:59:23 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1997-04-18 19:30:52 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,6 +55,7 @@ class VTK_EXPORT vtkUnstructuredGridWriter : public vtkDataWriter
 {
 public:
   vtkUnstructuredGridWriter() {};
+  vtkUnstructuredGridWriter *New() {return new vtkUnstructuredGridWriter;};
   char *GetClassName() {return "vtkUnstructuredGridWriter";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
