@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBandedPolyDataContourFilter.h,v $
   Language:  C++
-  Date:      $Date: 2002-02-01 15:08:06 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2002-02-11 21:26:30 $
+  Version:   $Revision: 1.14 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,10 +27,8 @@
 // either use the method SetValue() to specify each contour value, or use
 // GenerateValues() to generate a series of evenly spaced contours.  Each
 // contour value divides (or clips) the data into two pieces, values below
-// the contour value, and values above it. The scalar values of the piece
-// that is below the contour value is set to the average value of the (i-1)
-// and ith contour value; the piece above the contour value i is set to the
-// average of the ith and (i+1) contour value. Note that if the first and
+// the contour value, and values above it. The scalar values of each
+// band correspond to the specified contour value.  Note that if the first and
 // last contour values are not the minimum/maximum contour range, then two
 // extra contour values are added corresponding to the minimum and maximum
 // range values. These extra contour bands can be prevented from being output
