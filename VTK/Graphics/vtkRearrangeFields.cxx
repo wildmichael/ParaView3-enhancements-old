@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRearrangeFields.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-25 21:02:45 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-09-26 15:39:54 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -156,7 +156,6 @@ void vtkRearrangeFields::ApplyOperation(Operation* op, vtkDataSet* input,
     return;
     }
   
-  vtkDataArray* da;
   // If the source is specified by name
   if ( op->FieldType == vtkRearrangeFields::NAME )
     {

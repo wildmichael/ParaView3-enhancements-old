@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSplitField.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-25 21:02:46 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-09-26 15:39:55 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -182,7 +182,6 @@ void vtkSplitField::Split(int component, const char* arrayName)
     return;
     }
 
-  Component* before;
   Component* comp = this->FindComponent(component);
   // If component is already there, just reset the information
   if ( comp )
