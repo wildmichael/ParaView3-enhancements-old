@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLine.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-15 22:01:24 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1996-08-21 21:02:38 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,10 +38,10 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "vtkLine.hh"
-#include "vtkMath.hh"
-#include "vtkCellArray.hh"
-#include "vtkPointLocator.hh"
+#include "vtkLine.h"
+#include "vtkMath.h"
+#include "vtkCellArray.h"
+#include "vtkPointLocator.h"
 
 // Description:
 // Deep copy of cell.

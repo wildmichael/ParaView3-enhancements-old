@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:56:59 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1996-08-21 21:02:28 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,7 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "vtkImplicitFunction.hh"
+#include "vtkImplicitFunction.h"
 
 vtkImplicitFunction::vtkImplicitFunction()
 {

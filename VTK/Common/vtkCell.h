@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCell.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:53:54 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1996-08-21 21:01:57 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -61,11 +61,11 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #define VTK_CELL_SIZE 512
 #define VTK_TOL 1.e-05 // Tolerance for geometric calculation
 
-#include "vtkObject.hh"
-#include "vtkFloatPoints.hh"
-#include "vtkFloatScalars.hh"
-#include "vtkIdList.hh"
-#include "vtkCellType.hh"
+#include "vtkObject.h"
+#include "vtkFloatPoints.h"
+#include "vtkFloatScalars.h"
+#include "vtkIdList.h"
+#include "vtkCellType.h"
 
 class vtkCellArray;
 class vtkPointLocator;

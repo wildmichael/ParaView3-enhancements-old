@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTCoords.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 20:00:50 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1996-08-21 21:03:36 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,9 +38,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "vtkTCoords.hh"
-#include "vtkIdList.hh"
-#include "vtkFloatTCoords.hh"
+#include "vtkTCoords.h"
+#include "vtkIdList.h"
+#include "vtkFloatTCoords.h"
 
 void vtkTCoords::GetTCoord(int id, float tc[3])
 {

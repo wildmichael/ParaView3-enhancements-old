@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDoubleArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:56:00 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1996-08-21 21:02:07 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,7 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "vtkDoubleArray.hh"
+#include "vtkDoubleArray.h"
 
 // Description:
 // Allocate memory for this array. Delete old storage if present.

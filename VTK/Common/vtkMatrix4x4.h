@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMatrix4x4.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:56:13 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1996-08-21 21:02:50 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -47,10 +47,10 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // .SECTION See Also
 // vtkTransform
 
-#ifndef __vtkMatrix4x4_hh
-#define __vtkMatrix4x4_hh
+#ifndef __vtkMatrix4x4_h
+#define __vtkMatrix4x4_h
 
-#include "vtkObject.hh"
+#include "vtkObject.h"
 
 class vtkMatrix4x4 : public vtkObject
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 20:01:07 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 1996-08-21 21:03:43 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,8 +39,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include <stdlib.h>
-#include "vtkTransform.hh"
-#include "vtkMath.hh"
+#include "vtkTransform.h"
+#include "vtkMath.h"
 
 // Description:
 // Constructs a transform and sets the following defaults

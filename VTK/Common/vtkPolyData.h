@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyData.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:56:54 $
-  Version:   $Revision: 1.54 $
+  Date:      $Date: 1996-08-21 21:03:10 $
+  Version:   $Revision: 1.55 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -45,7 +45,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // vertices, lines, polygons, and triangle strips. Point attribute values 
 // (e.g., scalars, vectors, etc.) also are represented.
 //
-// The actual cell types (CellType.hh) supported by vtkPolyData are: 
+// The actual cell types (CellType.h) supported by vtkPolyData are: 
 // vtkVertex, vtkPolyVertex, vtkLine, vtkPolyLine, vtkTriangle, 
 // vtkTriangleStrip, vtkPolygon, vtkPixel, and vtkQuad.
 //
@@ -60,11 +60,11 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkPolyData_h
 #define __vtkPolyData_h
 
-#include "vtkPointSet.hh"
-#include "vtkFloatPoints.hh"
-#include "vtkCellArray.hh"
-#include "vtkCellList.hh"
-#include "vtkLinkList.hh"
+#include "vtkPointSet.h"
+#include "vtkFloatPoints.h"
+#include "vtkCellArray.h"
+#include "vtkCellList.h"
+#include "vtkLinkList.h"
 
 class vtkPolyData : public vtkPointSet 
 {

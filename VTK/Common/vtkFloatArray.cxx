@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFloatArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:56:21 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1996-08-21 21:02:10 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,7 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "vtkFloatArray.hh"
+#include "vtkFloatArray.h"
 
 // Description:
 // Allocate memory for this array. Delete old storage if present.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHexahedron.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:56:52 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 1996-08-21 21:02:25 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,12 +38,12 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "vtkHexahedron.hh"
-#include "vtkMath.hh"
-#include "vtkLine.hh"
-#include "vtkQuad.hh"
-#include "vtkCellArray.hh"
-#include "vtkPointLocator.hh"
+#include "vtkHexahedron.h"
+#include "vtkMath.h"
+#include "vtkLine.h"
+#include "vtkQuad.h"
+#include "vtkCellArray.h"
+#include "vtkPointLocator.h"
 
 // Description:
 // Deep copy of cell.
@@ -322,7 +322,7 @@ static int faces[6][4] = { {0,4,7,3}, {1,2,6,5},
 //
 // Marching cubes case table
 //
-#include "vtkMarchingCubesCases.hh"
+#include "vtkMarchingCubesCases.h"
 
 void vtkHexahedron::Contour(float value, vtkFloatScalars *cellScalars, 
 			    vtkPointLocator *locator,

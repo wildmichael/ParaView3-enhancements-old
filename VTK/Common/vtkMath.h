@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMath.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:56:12 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1996-08-21 21:02:48 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -46,8 +46,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // norm; matrix determinant for 2x2 and 3x3 matrices; and random 
 // number generation.
 
-#ifndef __vtkMath_hh
-#define __vtkMath_hh
+#ifndef __vtkMath_h
+#define __vtkMath_h
 
 #include <math.h>
 

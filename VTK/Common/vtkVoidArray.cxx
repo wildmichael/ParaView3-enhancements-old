@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoidArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 20:01:41 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1996-08-21 21:04:02 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,7 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "vtkVoidArray.hh"
+#include "vtkVoidArray.h"
 
 typedef void *voidPtr;
 // Description:

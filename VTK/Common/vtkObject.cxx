@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObject.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:57:59 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 1996-08-21 21:02:52 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,7 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "vtkObject.hh"
+#include "vtkObject.h"
 
 // Description:
 // This operator allows all subclasses of vtkObject to be printed via <<.

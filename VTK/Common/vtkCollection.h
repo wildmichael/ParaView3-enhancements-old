@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCollection.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:54:05 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1996-08-21 21:02:03 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -50,10 +50,10 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // vtkLightCollection vtkPolyDataCollection vtkRenderWindowCollection vtkRendererCollection
 // vtkStructuredPointsCollection vtkTransformCollection vtkVolumeCollection
 
-#ifndef __vtkCollection_hh
-#define __vtkCollection_hh
+#ifndef __vtkCollection_h
+#define __vtkCollection_h
 
-#include "vtkObject.hh"
+#include "vtkObject.h"
 
 //BTX - begin tcl exclude
 class vtkCollectionElement //;prevents pick-up by man page generator

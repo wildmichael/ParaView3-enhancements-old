@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitFunction.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:55:41 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1996-08-21 21:02:29 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,8 +64,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkImplicitFunction_h
 #define __vtkImplicitFunction_h
 
-#include "vtkObject.hh"
-#include "vtkTransform.hh"
+#include "vtkObject.h"
+#include "vtkTransform.h"
 
 class vtkImplicitFunction : public vtkObject
 {

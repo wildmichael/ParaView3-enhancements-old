@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIndent.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:57:03 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1996-08-21 21:02:31 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,7 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "vtkIndent.hh"
+#include "vtkIndent.h"
 #define vtkStdIndent 2
 #define NumberOfBlanks 40
 

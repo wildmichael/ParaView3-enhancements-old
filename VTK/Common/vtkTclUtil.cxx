@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTclUtil.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-05-31 17:58:58 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1996-08-21 21:03:37 $
+  Version:   $Revision: 1.9 $
 
 This file is part of the Visualization Toolkit. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -16,7 +16,7 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 
 #include <iostream.h>
 #include <stdlib.h>
-#include "vtkTclUtil.hh"
+#include "vtkTclUtil.h"
 
 int vtkRendererCommand(ClientData cd, Tcl_Interp *interp,
 		       int argc, char *argv[]);

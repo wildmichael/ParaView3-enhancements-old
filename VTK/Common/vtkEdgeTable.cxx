@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEdgeTable.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:56:07 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1996-08-21 21:02:09 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,7 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "vtkEdgeTable.hh"
+#include "vtkEdgeTable.h"
 
 // Description:
 // Instantiate object based on maximum point id.

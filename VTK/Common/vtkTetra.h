@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTetra.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-15 22:03:56 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1996-08-21 21:03:41 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -46,7 +46,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkTetra_h
 #define __vtkTetra_h
 
-#include "vtkCell.hh"
+#include "vtkCell.h"
 
 class vtkTetra : public vtkCell
 {

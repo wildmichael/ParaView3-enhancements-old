@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkByteSwap.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:55:10 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1996-08-21 21:01:55 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,7 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "vtkByteSwap.hh"
+#include "vtkByteSwap.h"
 
 // Description:
 // Swap four byte word.

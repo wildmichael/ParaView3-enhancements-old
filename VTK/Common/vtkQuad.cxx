@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuad.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-15 22:01:32 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 1996-08-21 21:03:17 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,13 +38,13 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "vtkQuad.hh"
-#include "vtkTriangle.hh"
-#include "vtkPlane.hh"
-#include "vtkCellArray.hh"
-#include "vtkLine.hh"
-#include "vtkPointLocator.hh"
-#include "vtkMath.hh"
+#include "vtkQuad.h"
+#include "vtkTriangle.h"
+#include "vtkPlane.h"
+#include "vtkCellArray.h"
+#include "vtkLine.h"
+#include "vtkPointLocator.h"
+#include "vtkMath.h"
 
 // Description:
 // Deep copy of cell.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkNormals.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:56:16 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1996-08-21 21:02:52 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -49,7 +49,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkNormals_h
 #define __vtkNormals_h
 
-#include "vtkRefCount.hh"
+#include "vtkRefCount.h"
 
 class vtkIdList;
 class vtkFloatNormals;
@@ -106,9 +106,9 @@ public:
   void GetNormals(vtkIdList& ptId, vtkFloatNormals& fp);
 };
 
-// These include files are placed here so that if Normals.hh is included 
+// These include files are placed here so that if Normals.h is included 
 // all other classes necessary for compilation are also included. 
-#include "vtkIdList.hh"
-#include "vtkFloatNormals.hh"
+#include "vtkIdList.h"
+#include "vtkFloatNormals.h"
 
 #endif

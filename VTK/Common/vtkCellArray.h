@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellArray.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:53:57 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 1996-08-21 21:01:59 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,8 +57,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkCellArray_h
 #define __vtkCellArray_h
 
-#include "vtkIntArray.hh"
-#include "vtkCell.hh"
+#include "vtkIntArray.h"
+#include "vtkCell.h"
 
 class vtkCellArray : public vtkRefCount
 {

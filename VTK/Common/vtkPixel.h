@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPixel.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:56:39 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1996-08-21 21:02:55 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -48,7 +48,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkPixel_h
 #define __vtkPixel_h
 
-#include "vtkCell.hh"
+#include "vtkCell.h"
 
 class vtkPixel : public vtkCell
 {

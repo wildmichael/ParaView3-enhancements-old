@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMatrix4x4.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:57:51 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1996-08-21 21:02:49 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,8 +41,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include <stdlib.h>
 #include <math.h>
 
-#include "vtkMatrix4x4.hh"
-#include "vtkMath.hh"
+#include "vtkMatrix4x4.h"
+#include "vtkMath.h"
 
 // Description:
 // Construct a 4x4 identity matrix.

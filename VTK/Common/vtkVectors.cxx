@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectors.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 20:01:39 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1996-08-21 21:03:59 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,10 +38,10 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "vtkVectors.hh"
-#include "vtkFloatVectors.hh"
-#include "vtkIdList.hh"
-#include "vtkMath.hh"
+#include "vtkVectors.h"
+#include "vtkFloatVectors.h"
+#include "vtkIdList.h"
+#include "vtkMath.h"
 
 vtkVectors::vtkVectors()
 {

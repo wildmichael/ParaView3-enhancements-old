@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellType.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:54:02 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1996-08-21 21:02:02 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -46,8 +46,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // explicitly represented (as in vtkPolyData), or may be implicit to the
 // data type (vtkStructuredPoints).
 
-#ifndef __vtkCellTypes_h
-#define __vtkCellTypes_h
+#ifndef __vtkCellType_h
+#define __vtkCellType_h
 
 #define VTK_NULL_ELEMENT 0
 #define VTK_VERTEX 1

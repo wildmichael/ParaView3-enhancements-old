@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMath.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:57:49 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1996-08-21 21:02:47 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,8 +41,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include <math.h>
 #include <stdlib.h>
 #include <iostream.h>
-#include "vtkMath.hh"
-#include "vtkSetGet.hh"
+#include "vtkMath.h"
+#include "vtkSetGet.h"
 
 long vtkMath::Seed = 1177; // One authors home address
 

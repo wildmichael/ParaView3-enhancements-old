@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIdList.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:56:55 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1996-08-21 21:02:27 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,8 +38,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "vtkIdList.hh"
-#include "vtkCell.hh"
+#include "vtkIdList.h"
+#include "vtkCell.h"
 
 // Description:
 // Delete specified id from list.

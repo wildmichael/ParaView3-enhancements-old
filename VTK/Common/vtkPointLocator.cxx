@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointLocator.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:58:45 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1996-08-21 21:03:03 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,10 +38,10 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "vtkPointLocator.hh"
-#include "vtkMath.hh"
-#include "vtkIntArray.hh"
-#include "vtkPolyData.hh"
+#include "vtkPointLocator.h"
+#include "vtkMath.h"
+#include "vtkIntArray.h"
+#include "vtkPolyData.h"
 
 class vtkNeighborPoints
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLocator.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:57:36 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1996-08-21 21:02:42 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,7 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "vtkLocator.hh"
+#include "vtkLocator.h"
 
 // Description:
 // Construct with automatic computation of divisions, averaging

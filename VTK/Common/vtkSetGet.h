@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSetGet.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:58:15 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1996-08-21 21:03:23 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -48,8 +48,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // vector arrays of built-in types size 2,3,4; for setting objects; and
 // debug, warning, and error printout information.
 
-#ifndef __vtkSetGet_hh
-#define __vtkSetGet_hh
+#ifndef __vtkSetGet_h
+#define __vtkSetGet_h
 
 #include <string.h>
 

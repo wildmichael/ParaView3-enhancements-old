@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTCoords.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:59:23 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1996-08-21 21:03:36 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -50,7 +50,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkTCoords_h
 #define __vtkTCoords_h
 
-#include "vtkRefCount.hh"
+#include "vtkRefCount.h"
 
 class vtkIdList;
 class vtkFloatTCoords;
@@ -114,9 +114,9 @@ protected:
 
 };
 
-// These include files are placed here so that if TCoords.hh is included 
+// These include files are placed here so that if TCoords.h is included 
 // all other classes necessary for compilation are also included. 
-#include "vtkIdList.hh"
-#include "vtkFloatTCoords.hh"
+#include "vtkIdList.h"
+#include "vtkFloatTCoords.h"
 
 #endif

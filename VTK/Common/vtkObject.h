@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObject.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:56:20 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1996-08-21 21:02:53 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -48,13 +48,13 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // never get instantiated or situations where multiple inheritance
 // gets in the way. 
 
-#ifndef __vtkObject_hh
-#define __vtkObject_hh
+#ifndef __vtkObject_h
+#define __vtkObject_h
 
 #include <iostream.h>
-#include "vtkTimeStamp.hh"
-#include "vtkSetGet.hh"
-#include "vtkIndent.hh"
+#include "vtkTimeStamp.h"
+#include "vtkSetGet.h"
+#include "vtkIndent.h"
 
 class vtkObject 
 {

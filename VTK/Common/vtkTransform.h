@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransform.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:59:49 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1996-08-21 21:03:44 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,14 +58,14 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // vtkMatrix4x4 vtkTransformCollection vtkTransformFilter
 // vtkTransformPolyFilter
 
-#ifndef __vtkTransform_hh
-#define __vtkTransform_hh
+#ifndef __vtkTransform_h
+#define __vtkTransform_h
 
-#include "vtkObject.hh"
-#include "vtkMatrix4x4.hh"
-#include "vtkPoints.hh"
-#include "vtkNormals.hh"
-#include "vtkVectors.hh"
+#include "vtkObject.h"
+#include "vtkMatrix4x4.h"
+#include "vtkPoints.h"
+#include "vtkNormals.h"
+#include "vtkVectors.h"
 
 class vtkTransform : public vtkObject
 {

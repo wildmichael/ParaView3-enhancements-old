@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuad.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:57:41 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1996-08-21 21:03:18 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -46,7 +46,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkQuad_h
 #define __vtkQuad_h
 
-#include "vtkCell.hh"
+#include "vtkCell.h"
 
 class vtkQuad : public vtkCell
 {

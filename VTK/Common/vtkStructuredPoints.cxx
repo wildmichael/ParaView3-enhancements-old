@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 20:00:39 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 1996-08-21 21:03:34 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,11 +38,11 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "vtkStructuredPoints.hh"
-#include "vtkVertex.hh"
-#include "vtkLine.hh"
-#include "vtkPixel.hh"
-#include "vtkVoxel.hh"
+#include "vtkStructuredPoints.h"
+#include "vtkVertex.h"
+#include "vtkLine.h"
+#include "vtkPixel.h"
+#include "vtkVoxel.h"
 
 vtkStructuredPoints::vtkStructuredPoints()
 {

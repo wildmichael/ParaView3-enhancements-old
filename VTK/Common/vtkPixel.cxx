@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPixel.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-15 22:01:29 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1996-08-21 21:02:54 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,14 +38,14 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "vtkPixel.hh"
-#include "vtkQuad.hh"
-#include "vtkTriangle.hh"
-#include "vtkPlane.hh"
-#include "vtkMath.hh"
-#include "vtkCellArray.hh"
-#include "vtkLine.hh"
-#include "vtkPointLocator.hh"
+#include "vtkPixel.h"
+#include "vtkQuad.h"
+#include "vtkTriangle.h"
+#include "vtkPlane.h"
+#include "vtkMath.h"
+#include "vtkCellArray.h"
+#include "vtkLine.h"
+#include "vtkPointLocator.h"
 
 // Description:
 // Deep copy of cell.
@@ -181,7 +181,7 @@ int vtkPixel::CellBoundary(int subId, float pcoords[3], vtkIdList& pts)
 //
 // Marching squares
 //
-#include "vtkMarchingSquaresCases.hh"
+#include "vtkMarchingSquaresCases.h"
 
 static int edges[4][2] = { {0,1}, {1,3}, {3,2}, {2,0} };
 

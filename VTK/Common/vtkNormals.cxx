@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkNormals.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:57:56 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1996-08-21 21:02:50 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,9 +38,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "vtkNormals.hh"
-#include "vtkIdList.hh"
-#include "vtkFloatNormals.hh"
+#include "vtkNormals.h"
+#include "vtkIdList.h"
+#include "vtkFloatNormals.h"
 
 void vtkNormals::GetNormal(int id, float n[3])
 {

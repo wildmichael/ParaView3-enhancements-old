@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredData.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:58:52 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1996-08-21 21:03:31 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -48,9 +48,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkStructuredData_h
 #define __vtkStructuredData_h
 
-#include "vtkObject.hh"
-#include "vtkIdList.hh"
-#include "vtkDataSet.hh"
+#include "vtkObject.h"
+#include "vtkIdList.h"
+#include "vtkDataSet.h"
 
 #define VTK_SINGLE_POINT 0
 #define VTK_X_LINE 1

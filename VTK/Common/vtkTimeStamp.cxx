@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTimeStamp.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 20:01:06 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1996-08-21 21:03:42 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,6 +41,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 //
 // Initialize static member
 //
-#include "vtkTimeStamp.hh"
+#include "vtkTimeStamp.h"
 
 unsigned long vtkTimeStamp::vtkTime = 0;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEdgeTable.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:54:55 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1996-08-21 21:02:09 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -44,11 +44,11 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // edge is defined by the pair of point id's (p1,p2). Methods are available
 // to insert edges, check if edges exist, and traverse the list of edges.
 
-#ifndef __vtkEdgeTable_hh
-#define __vtkEdgeTable_hh
+#ifndef __vtkEdgeTable_h
+#define __vtkEdgeTable_h
 
-#include "vtkObject.hh"
-#include "vtkIdList.hh"
+#include "vtkObject.h"
+#include "vtkIdList.h"
 
 class vtkEdgeTable : public vtkObject
 {

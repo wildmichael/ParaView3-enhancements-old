@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHexahedron.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:55:34 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1996-08-21 21:02:26 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -46,7 +46,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkHexahedron_h
 #define __vtkHexahedron_h
 
-#include "vtkCell.hh"
+#include "vtkCell.h"
 
 class vtkHexahedron : public vtkCell
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkShortArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 20:00:01 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1996-08-21 21:03:23 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,7 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-#include "vtkShortArray.hh"
+#include "vtkShortArray.h"
 
 // Description:
 // Allocate memory for this array. Delete old storage if present.

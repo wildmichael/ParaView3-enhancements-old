@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSet.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:54:27 $
-  Version:   $Revision: 1.54 $
+  Date:      $Date: 1996-08-21 21:02:06 $
+  Version:   $Revision: 1.55 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -51,11 +51,11 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkDataSet_h
 #define __vtkDataSet_h
 
-#include "vtkObject.hh"
-#include "vtkIdList.hh"
-#include "vtkFloatPoints.hh"
-#include "vtkPointData.hh"
-#include "vtkCell.hh"
+#include "vtkObject.h"
+#include "vtkIdList.h"
+#include "vtkFloatPoints.h"
+#include "vtkPointData.h"
+#include "vtkCell.h"
 
 class vtkSource;
 
