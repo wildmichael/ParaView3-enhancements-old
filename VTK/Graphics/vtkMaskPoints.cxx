@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMaskPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-02-27 01:30:20 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2001-06-29 17:36:33 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -62,7 +62,7 @@ vtkMaskPoints::vtkMaskPoints()
   this->OnRatio = 2;
   this->Offset = 0;
   this->RandomMode = 0;
-  this->MaximumNumberOfPoints = VTK_LARGE_INTEGER;
+  this->MaximumNumberOfPoints = VTK_LARGE_ID;
   this->GenerateVertices = 0;
 }
 
@@ -71,13 +71,13 @@ void vtkMaskPoints::Execute()
 {
   vtkPoints *newPts;
   vtkPointData *pd;
-  int numNewPts;
+  vtkIdType numNewPts;
   float *x;
-  int ptId, id;
+  vtkIdType ptId, id;
   vtkPolyData *output = this->GetOutput();
   vtkPointData *outputPD = output->GetPointData();
   vtkDataSet *input= this->GetInput();
-  int numPts=input->GetNumberOfPoints();
+  vtkIdType numPts=input->GetNumberOfPoints();
   
   // Check input
   //
@@ -106,7 +106,7 @@ void vtkMaskPoints::Execute()
   // Traverse points and copy
   //
   int abort=0;
-  int progressInterval=numPts/20 +1;
+  vtkIdType progressInterval=numPts/20 +1;
   if ( this->RandomMode ) // retro mode
     {
     float cap;
