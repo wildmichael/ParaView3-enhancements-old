@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLPolyDataMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-11 19:26:55 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 2001-01-31 17:49:54 $
+  Version:   $Revision: 1.49 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -168,11 +168,7 @@ void vtkOpenGLPolyDataMapper::RenderPiece(vtkRenderer *ren, vtkActor *act)
     }
 
 // make sure our window is current
-#ifdef _WIN32
-  ((vtkWin32OpenGLRenderWindow *)(ren->GetRenderWindow()))->MakeCurrent();
-#else
-  ((vtkOpenGLRenderWindow *)(ren->GetRenderWindow()))->MakeCurrent();
-#endif
+  ren->GetRenderWindow()->MakeCurrent();
 
   clipPlanes = this->ClippingPlanes;
 
