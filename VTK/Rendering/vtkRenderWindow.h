@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-13 00:44:44 $
-  Version:   $Revision: 1.85 $
+  Date:      $Date: 1999-10-13 21:14:45 $
+  Version:   $Revision: 1.86 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -281,6 +281,10 @@ public:
   vtkSetMacro(SubFrames,int);
 
   // Description:
+  // This flag is set if the window hasn't rendered since it was created
+  vtkGetMacro(NeverRendered,int);
+
+  // Description:
   // This is a flag that can be set to interrupt a rendering that is in
   // progress.
   vtkGetMacro(AbortRender,int);
@@ -369,6 +373,7 @@ protected:
   int   AbortRender;
   int   InAbortCheck;
   int   InRender;
+  int   NeverRendered;
   void (*AbortCheckMethod)(void *);
   void (*AbortCheckMethodArgDelete)(void *);
   void *AbortCheckMethodArg;
