@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRayCaster.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-01-21 16:44:04 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1999-01-25 15:51:50 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -1311,6 +1311,14 @@ void vtkRayCaster::Render(vtkRenderer *ren, int raycastCount,
 
     // Delete the structures that we created during
     // ray casting.
+    for ( i = 0; i < this->RayCastVolumeCount; i++ )
+      {
+      if ( this->VolumeInfo[i].RowBounds )
+	{
+	delete this->VolumeInfo[i].RowBounds;
+	}
+      }
+
     delete this->RayCastVolumes;
     delete this->VolumeInfo;
     }
