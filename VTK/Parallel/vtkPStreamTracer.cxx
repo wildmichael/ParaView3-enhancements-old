@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPStreamTracer.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-05-30 15:13:41 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2003-06-12 14:42:29 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -28,7 +28,7 @@
 #include "vtkPoints.h"
 #include "vtkPolyData.h"
 
-vtkCxxRevisionMacro(vtkPStreamTracer, "$Revision: 1.7 $");
+vtkCxxRevisionMacro(vtkPStreamTracer, "$Revision: 1.8 $");
 
 vtkCxxSetObjectMacro(vtkPStreamTracer, Controller, vtkMultiProcessController);
 vtkCxxSetObjectMacro(vtkPStreamTracer, 
@@ -299,7 +299,9 @@ void vtkPStreamTracer::Execute()
 
   if (this->Controller->GetNumberOfProcesses() == 1)
     {
+    this->GenerateNormalsInIntegrate = 1;
     this->Superclass::Execute();
+    this->GenerateNormalsInIntegrate = 0;
     return;
     }
 
