@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTimeStamp.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:03:55 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2000-03-27 00:52:55 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -43,7 +43,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // Initialize static member
 //
 #include "vtkTimeStamp.h"
-#include "vtkMutexLock.h"
+#include "vtkCriticalSection.h"
 #include "vtkObjectFactory.h"
 
 //-------------------------------------------------------------------------
@@ -59,15 +59,15 @@ vtkTimeStamp* vtkTimeStamp::New()
   return new vtkTimeStamp;
 }
 
-static vtkSimpleMutexLock TimeStampMutex;
+static vtkSimpleCriticalSection TimeStampCritSec;
 
 void vtkTimeStamp::Modified()
 {
   static unsigned long vtkTimeStampTime = 0; 
 
-  TimeStampMutex.Lock();
+  TimeStampCritSec.Lock();
   this->ModifiedTime = ++vtkTimeStampTime;
-  TimeStampMutex.Unlock();
+  TimeStampCritSec.Unlock();
 }
 
 
