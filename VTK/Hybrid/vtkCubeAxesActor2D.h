@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCubeAxesActor2D.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-30 00:00:44 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2002-07-14 01:12:32 $
+  Version:   $Revision: 1.31 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -296,10 +296,6 @@ protected:
   int YAxisVisibility;
   int ZAxisVisibility;
 
-  int   Bold;
-  int   Italic;
-  int   Shadow;
-  int   FontFamily;
   char  *LabelFormat;
   float FontFactor;
   float CornerOffset;
