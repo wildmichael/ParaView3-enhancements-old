@@ -3,8 +3,8 @@
  Program:   Visualization Toolkit
  Module:    $RCSfile: vtkProcessObject.cxx,v $
  Language:  C++
- Date:      $Date: 2000-10-20 13:54:50 $
- Version:   $Revision: 1.18 $
+ Date:      $Date: 2000-10-23 22:59:01 $
+ Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -291,7 +291,7 @@ void vtkProcessObject::SetNthInput(int idx, vtkDataObject *input)
 void vtkProcessObject::UpdateProgress(float amount)
 {
   this->Progress = amount;
-  this->InvokeEvent(vtkCommand::StartEvent,(void *)&amount);
+  this->InvokeEvent(vtkCommand::ProgressEvent,(void *)&amount);
 }
 
 void vtkProcessObject::SetProgressText(char *text)
