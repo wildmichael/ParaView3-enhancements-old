@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkIntArray.h,v $
   Language:  C++
-  Date:      $Date: 1994-07-19 08:02:48 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1994-09-26 13:49:47 $
+  Version:   $Revision: 1.13 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -45,7 +45,7 @@ public:
   // special operators
   vlIntArray &operator=(const vlIntArray& ia);
   void operator+=(const vlIntArray& ia);
-  void operator+=(const int i) {this->InsertNextValue(i);};
+  void operator+=(const int i);
   int& operator[](const int i);
 
   // miscellaneous methods
@@ -87,6 +87,10 @@ inline int vlIntArray::InsertNextValue(const int i)
 {
   this->InsertValue (++this->MaxId,i); 
   return this->MaxId;
+}
+inline void vlIntArray::operator+=(const int i) 
+{
+  this->InsertNextValue(i);
 }
 
 // Description:
