@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDEMReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-01-16 21:49:15 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2000-01-18 14:26:18 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -92,6 +92,12 @@ void vtkDEMReader::ExecuteInformation()
   float spacing[3], origin[3];
   int extent[6];
 
+  if (!this->FileName)
+    {
+    vtkErrorMacro(<< "A FileName must be specified.");
+    return;
+    }
+
   // read the header of the file to determine dimensions, origin and spacing
   this->ReadTypeARecord ();
 
@@ -119,6 +125,12 @@ void vtkDEMReader::EnlargeOutputUpdateExtents(vtkDataObject *vtkNotUsed(data))
 
 void vtkDEMReader::Execute(vtkImageData *data)
 {
+  if (!this->FileName)
+    {
+    vtkErrorMacro(<< "A FileName must be specified.");
+    return;
+    }
+
   if (data->GetScalarType() != VTK_FLOAT)
     {
     vtkErrorMacro("Execute: This source only outputs ints");
