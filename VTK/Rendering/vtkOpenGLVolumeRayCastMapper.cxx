@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLVolumeRayCastMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-20 21:17:18 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-08-22 14:48:40 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -157,11 +157,6 @@ void vtkOpenGLVolumeRayCastMapper::RenderTexture( vtkVolume *vol,
   verts[11] = out[2] / out[3];
   
   viewToWorldMatrix->Delete();
-
-  // build transformation 
-  vtkMatrix4x4       *matrix = vtkMatrix4x4::New();
-  vol->GetMatrix(matrix);
-  matrix->Transpose();
 
   // Turn lighting off - the hexagon texture already has illumination in it
   glDisable( GL_LIGHTING );
