@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkMath.h,v $
   Language:  C++
-  Date:      $Date: 1994-02-04 12:42:33 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1994-02-06 08:06:22 $
+  Version:   $Revision: 1.7 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -34,7 +34,7 @@ public:
   void RandomSeed(long s);  
   float Random();  
 private:
-  long Seed;
+  static long Seed;
 };
 
 #endif
