@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleTerrain.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-02 13:49:27 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2002-05-03 19:30:49 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 #include "vtkPolyDataMapper.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkInteractorStyleTerrain, "$Revision: 1.10 $");
+vtkCxxRevisionMacro(vtkInteractorStyleTerrain, "$Revision: 1.11 $");
 vtkStandardNewMacro(vtkInteractorStyleTerrain);
 
 vtkInteractorStyleTerrain::vtkInteractorStyleTerrain()
@@ -112,21 +112,41 @@ void vtkInteractorStyleTerrain::SetInteractor(vtkRenderWindowInteractor *i)
   // add observers for each of the events handled in ProcessEvents
   if(i)
     {
-    i->AddObserver(vtkCommand::MouseMoveEvent, this->EventCallbackCommand);
+    i->AddObserver(vtkCommand::MouseMoveEvent, 
+                   this->EventCallbackCommand, 
+                   this->Priority);
+
     i->AddObserver(vtkCommand::LeftButtonPressEvent, 
-                   this->EventCallbackCommand);
+                   this->EventCallbackCommand, 
+                   this->Priority);
+
     i->AddObserver(vtkCommand::LeftButtonReleaseEvent, 
-                   this->EventCallbackCommand);
+                   this->EventCallbackCommand, 
+                   this->Priority);
+
     i->AddObserver(vtkCommand::MiddleButtonPressEvent, 
-                   this->EventCallbackCommand);
+                   this->EventCallbackCommand, 
+                   this->Priority);
+
     i->AddObserver(vtkCommand::MiddleButtonReleaseEvent, 
-                   this->EventCallbackCommand);
+                   this->EventCallbackCommand, 
+                   this->Priority);
+
     i->AddObserver(vtkCommand::RightButtonPressEvent, 
-                   this->EventCallbackCommand);
+                   this->EventCallbackCommand, 
+                   this->Priority);
+
     i->AddObserver(vtkCommand::RightButtonReleaseEvent, 
-                   this->EventCallbackCommand);
-    i->AddObserver(vtkCommand::CharEvent, this->EventCallbackCommand);
-    i->AddObserver(vtkCommand::DeleteEvent, this->EventCallbackCommand);
+                   this->EventCallbackCommand, 
+                   this->Priority);
+
+    i->AddObserver(vtkCommand::CharEvent, 
+                   this->EventCallbackCommand, 
+                   this->Priority);
+
+    i->AddObserver(vtkCommand::DeleteEvent, 
+                   this->EventCallbackCommand, 
+                   this->Priority);
     }
 }
 

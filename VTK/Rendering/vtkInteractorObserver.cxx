@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorObserver.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-03 13:23:57 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2002-05-03 19:30:38 $
+  Version:   $Revision: 1.15 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,7 +19,7 @@
 #include "vtkCallbackCommand.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkInteractorObserver, "$Revision: 1.14 $");
+vtkCxxRevisionMacro(vtkInteractorObserver, "$Revision: 1.15 $");
 
 vtkInteractorObserver::vtkInteractorObserver()
 {
@@ -70,9 +70,12 @@ void vtkInteractorObserver::SetInteractor(vtkRenderWindowInteractor* i)
   if (i)
     {
     i->AddObserver(vtkCommand::CharEvent, 
-                   this->KeyPressCallbackCommand, this->Priority);
+                   this->KeyPressCallbackCommand, 
+                   this->Priority);
+
     i->AddObserver(vtkCommand::DeleteEvent, 
-                   this->KeyPressCallbackCommand, this->Priority);
+                   this->KeyPressCallbackCommand, 
+                   this->Priority);
     }
   
   this->Modified();
