@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkParallelCoordinatesActor.h,v $
   Language:  C++
-  Date:      $Date: 2000-05-21 16:49:44 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2000-05-21 23:05:33 $
+  Version:   $Revision: 1.4 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -169,9 +169,12 @@ private:
 
   int IndependentVariables; //use column or row
   int N; //the number of independent variables
-  vtkAxisActor2D **Axes;
+  vtkAxisActor2D **Axes; //an array of axes
   float *Mins; //minimum data value along this row/column
   float *Maxs; //maximum data value along this row/column
+  int   *Xs; //axes x-values (in viewport coordinates)
+  int   YMin; //axes y-min-value (in viewport coordinates)
+  int   YMax; //axes y-max-value (in viewport coordinates)
 
   char *Title;
   vtkTextMapper *TitleMapper;
@@ -187,7 +190,8 @@ private:
 
   vtkTimeStamp  BuildTime;
 
-  void PlaceAxes(vtkViewport *viewport, int *size);
+  void Initialize();
+  int PlaceAxes(vtkViewport *viewport, int *size);
 };
 
 
