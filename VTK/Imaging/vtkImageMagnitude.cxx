@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMagnitude.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:08 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2001-09-26 18:48:11 $
+  Version:   $Revision: 1.27 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -145,6 +145,12 @@ void vtkImageMagnitude::ThreadedExecute(vtkImageData *inData,
   void *inPtr = inData->GetScalarPointerForExtent(outExt);
   void *outPtr = outData->GetScalarPointerForExtent(outExt);
   
+  // This is really meta data and should be set in ExecuteInformation,
+  // but there are some issues to solve first.
+  if (id == 0 && outData->GetPointData()->GetActiveScalars())
+    {
+    outData->GetPointData()->GetActiveScalars()->SetName("Magnitude");
+    }
   vtkDebugMacro(<< "Execute: inData = " << inData 
   << ", outData = " << outData);
   
