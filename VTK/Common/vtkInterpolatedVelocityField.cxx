@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInterpolatedVelocityField.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-06 20:11:34 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2002-11-14 16:49:06 $
+  Version:   $Revision: 1.19 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 #include "vtkVector.txx"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkInterpolatedVelocityField, "$Revision: 1.18 $");
+vtkCxxRevisionMacro(vtkInterpolatedVelocityField, "$Revision: 1.19 $");
 vtkStandardNewMacro(vtkInterpolatedVelocityField);
 
 vtkInterpolatedVelocityField::vtkInterpolatedVelocityField()
@@ -58,6 +58,7 @@ vtkInterpolatedVelocityField::~vtkInterpolatedVelocityField()
   this->DataSets->Delete();
 }
 
+static int tmp_count=0;
 // Evaluate u,v,w at x,y,z,t
 int vtkInterpolatedVelocityField::FunctionValues(float* x, float* f)
 {
@@ -76,6 +77,7 @@ int vtkInterpolatedVelocityField::FunctionValues(float* x, float* f)
     {
     vtkIdType numItems = this->DataSets->GetNumberOfItems();
     vtkIdType i;
+    tmp_count = 0;
     for (i=0; i<numItems; i++)
       {
       ds = 0;
@@ -94,6 +96,7 @@ int vtkInterpolatedVelocityField::FunctionValues(float* x, float* f)
     this->ClearLastCellId();
     return 0;
     }
+  tmp_count++;
   return retVal;
 }
 
@@ -176,7 +179,14 @@ int vtkInterpolatedVelocityField::FunctionValues(vtkDataSet* dataset,
     this->LastCellId = 
       dataset->FindCell(x, 0, this->GenCell, -1, 0, 
                               subId, this->LastPCoords, this->Weights);
-    dataset->GetCell(this->LastCellId, this->GenCell);
+    if (this->LastCellId != - 1)
+      {
+      dataset->GetCell(this->LastCellId, this->GenCell);
+      }
+    else
+      {
+      return 0;
+      }
     }
 
   // if the cell is valid
