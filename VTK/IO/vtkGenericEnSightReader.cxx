@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGenericEnSightReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-10-24 17:10:58 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 2003-10-27 18:13:58 $
+  Version:   $Revision: 1.50 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -30,7 +30,7 @@
 
 #include <vtkstd/string>
 
-vtkCxxRevisionMacro(vtkGenericEnSightReader, "$Revision: 1.49 $");
+vtkCxxRevisionMacro(vtkGenericEnSightReader, "$Revision: 1.50 $");
 vtkStandardNewMacro(vtkGenericEnSightReader);
 
 vtkCxxSetObjectMacro(vtkGenericEnSightReader,TimeSets, 
@@ -1228,7 +1228,7 @@ void vtkGenericEnSightReader::DestroyStringArray(int numStrings,
       delete [] strings[i];
       }
     }
-  delete strings;
+  delete[] strings;
 }
 
 //----------------------------------------------------------------------------
