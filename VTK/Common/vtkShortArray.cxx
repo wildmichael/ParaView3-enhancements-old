@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkShortArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-07 21:19:22 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1999-09-14 17:20:59 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -240,8 +240,26 @@ void vtkShortArray::GetTuple(const int i, float * tuple)
     }
 }
 
+void vtkShortArray::GetTuple(const int i, double * tuple) 
+{
+  short *t = this->Array + this->NumberOfComponents*i;
+  for (int j=0; j<this->NumberOfComponents; j++)
+    {
+    tuple[j] = (double)t[j];
+    }
+}
+
 // Set the tuple value at the ith location in the array.
 void vtkShortArray::SetTuple(const int i, const float * tuple)
+{
+  int loc = i * this->NumberOfComponents; 
+  for (int j=0; j<this->NumberOfComponents; j++) 
+    {
+    this->Array[loc+j] = (short)tuple[j];
+    }
+}
+
+void vtkShortArray::SetTuple(const int i, const double * tuple)
 {
   int loc = i * this->NumberOfComponents; 
   for (int j=0; j<this->NumberOfComponents; j++) 
@@ -263,8 +281,32 @@ void vtkShortArray::InsertTuple(const int i, const float * tuple)
     }
 }
 
+void vtkShortArray::InsertTuple(const int i, const double * tuple)
+{
+  short *t
+    = this->WritePointer(i*this->NumberOfComponents,this->NumberOfComponents);
+
+  for (int j=0; j<this->NumberOfComponents; j++)
+    {
+    *t++ = (short)*tuple++;
+    }
+}
+
 // Insert (memory allocation performed) the tuple onto the end of the array.
 int vtkShortArray::InsertNextTuple(const float * tuple)
+{
+  int i = this->MaxId + 1;
+  short *t = this->WritePointer(i,this->NumberOfComponents);
+
+  for (i=0; i<this->NumberOfComponents; i++)
+    {
+    *t++ = (short)*tuple++;
+    }
+
+  return this->MaxId / this->NumberOfComponents;
+}
+
+int vtkShortArray::InsertNextTuple(const double * tuple)
 {
   int i = this->MaxId + 1;
   short *t = this->WritePointer(i,this->NumberOfComponents);

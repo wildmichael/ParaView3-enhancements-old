@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEmptyCell.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:01:31 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1999-09-14 17:20:44 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -93,8 +93,9 @@ public:
   
 protected:
   vtkEmptyCell() {};
-  vtkEmptyCell(const vtkEmptyCell& p);
   ~vtkEmptyCell() {};
+  vtkEmptyCell(const vtkEmptyCell& p);
+  void operator=(const vtkEmptyCell&) {};
 
 
 };

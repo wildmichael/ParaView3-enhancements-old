@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitBoolean.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:02:23 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1999-09-14 17:21:38 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -122,6 +122,8 @@ public:
 protected:
   vtkImplicitBoolean();
   ~vtkImplicitBoolean();
+  vtkImplicitBoolean(const vtkImplicitBoolean&) {};
+  void operator=(const vtkImplicitBoolean&) {};
 
   vtkImplicitFunctionCollection *FunctionList;
 

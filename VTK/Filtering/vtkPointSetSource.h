@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSetSource.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:02:34 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1999-09-14 17:21:50 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -62,6 +62,8 @@ public:
 protected:
   vtkPointSetSource();
   ~vtkPointSetSource() {};
+  vtkPointSetSource(const vtkPointSetSource&) {};
+  void operator=(const vtkPointSetSource&) {};
 
 };
 

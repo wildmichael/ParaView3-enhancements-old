@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIndent.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 20:34:08 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1999-09-14 17:20:49 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -53,7 +53,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 class VTK_EXPORT vtkIndent
 {
- public:
+public:
   void Delete() {delete this;};
   vtkIndent(int ind=0) {this->Indent=ind;};
   static vtkIndent *New() {return new vtkIndent;};
@@ -69,7 +69,7 @@ class VTK_EXPORT vtkIndent
   friend VTK_EXPORT ostream& operator<<(ostream& os, vtkIndent& o); 
   //ETX
 
- protected:
+protected:
   int Indent;
   
 };

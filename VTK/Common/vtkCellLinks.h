@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellLinks.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:01:26 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1999-09-14 17:20:40 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -126,9 +126,11 @@ public:
   // Reset to a state of no entries without freeing the memory.
   void Reset();
 
-private:
+protected:
   vtkCellLinks():Array(NULL),Size(0),MaxId(-1),Extend(1000) {};
   ~vtkCellLinks();
+  vtkCellLinks(const vtkCellLinks&) {};
+  void operator=(const vtkCellLinks&) {};
 
   // Description:
   // Increment the count of the number of cells using the point.

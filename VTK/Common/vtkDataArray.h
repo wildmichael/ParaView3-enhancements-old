@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataArray.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:01:28 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1999-09-14 17:20:42 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -211,6 +211,8 @@ protected:
   // Construct object with default tuple dimension (number of components) of 1.
   vtkDataArray(int numComp=1);
   ~vtkDataArray() {};
+  vtkDataArray(const vtkDataArray&) {};
+  void operator=(const vtkDataArray&) {};
 
   int Size;      // allocated size of data
   int MaxId;     // maximum index inserted thus far

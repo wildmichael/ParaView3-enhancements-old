@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnsignedCharArray.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:01:50 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 1999-09-14 17:21:05 $
+  Version:   $Revision: 1.44 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -86,19 +86,23 @@ public:
   // Description:
   // Copy the tuple value into a user-provided array.
   void GetTuple(const int i, float * tuple);
+  void GetTuple(const int i, double * tuple);
 
   // Description:
   // Set the tuple value at the ith location in the array.
   void SetTuple(const int i, const float * tuple);
+  void SetTuple(const int i, const double * tuple);
 
   // Description:
   // Insert (memory allocation performed) the tuple into the ith location
   // in the array.
   void InsertTuple(const int i, const float * tuple);
+  void InsertTuple(const int i, const double * tuple);
 
   // Description:
   // Insert (memory allocation performed) the tuple onto the end of the array.
   int InsertNextTuple(const float * tuple);
+  int InsertNextTuple(const double * tuple);
 
   // Description:
   // Resize object to just fit data requirement. Reclaims extra memory.
@@ -178,9 +182,11 @@ public:
   void DeepCopy(vtkDataArray &da) {this->DeepCopy(&da);}
   
 
-private:
+protected:
   vtkUnsignedCharArray(int numComp=1);
   ~vtkUnsignedCharArray();
+  vtkUnsignedCharArray(const vtkUnsignedCharArray&) {};
+  void operator=(const vtkUnsignedCharArray&) {};
 
   unsigned char *Array;   // pointer to data
   unsigned char *Resize(const int sz);  // function to resize data

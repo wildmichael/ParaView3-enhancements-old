@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDelaunay2D.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:02:15 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1999-09-14 17:21:30 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -182,6 +182,8 @@ public:
 protected:
   vtkDelaunay2D();
   ~vtkDelaunay2D();
+  vtkDelaunay2D(const vtkDelaunay2D&) {};
+  void operator=(const vtkDelaunay2D&) {};
 
   void Execute();
 

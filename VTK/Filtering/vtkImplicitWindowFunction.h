@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitWindowFunction.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:02:24 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1999-09-14 17:21:39 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -103,6 +103,8 @@ public:
 protected:
   vtkImplicitWindowFunction();
   ~vtkImplicitWindowFunction();
+  vtkImplicitWindowFunction(const vtkImplicitWindowFunction&) {};
+  void operator=(const vtkImplicitWindowFunction&) {};
 
   vtkImplicitFunction *ImplicitFunction;
   float WindowRange[2];

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransform.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-30 12:47:52 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 1999-09-14 17:21:03 $
+  Version:   $Revision: 1.48 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -261,6 +261,10 @@ class VTK_EXPORT vtkTransform : public vtkObject
   vtkSetVector4Macro(DoublePoint,double);
 
   // Description:
+  // Make a copy of this transform.
+  void DeepCopy(vtkTransform *t);
+
+  // Description:
   // For legacy compatibility. Do not use.
   void Multiply4x4(vtkMatrix4x4 &a, vtkMatrix4x4 &b, vtkMatrix4x4 &c)
     {this->Multiply4x4(&a,&b,&c);}
@@ -269,13 +273,13 @@ class VTK_EXPORT vtkTransform : public vtkObject
   void GetTranspose (vtkMatrix4x4 &transpose){this->GetTranspose(&transpose);}
   void GetInverse(vtkMatrix4x4& inverse){this->GetInverse(&inverse);}
   vtkMatrix4x4& GetMatrix() {return *(this->GetMatrixPointer());}
-  vtkTransform &operator=(const vtkTransform &t);
   
   
 protected:
   vtkTransform ();
-  vtkTransform (const vtkTransform& t);
   ~vtkTransform ();
+  vtkTransform (const vtkTransform& t);
+  void operator=(const vtkTransform&) {};
 
   int PreMultiplyFlag;
   int StackSize;

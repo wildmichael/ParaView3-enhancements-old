@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEdgeTable.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:01:31 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1999-09-14 17:20:43 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -134,6 +134,8 @@ public:
 protected:
   vtkEdgeTable();
   ~vtkEdgeTable();
+  vtkEdgeTable(const vtkEdgeTable&) {};
+  void operator=(const vtkEdgeTable&) {};
 
   vtkIdList **Table;
   vtkIdList **Attributes;

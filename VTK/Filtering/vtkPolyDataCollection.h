@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataCollection.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:02:35 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1999-09-14 17:21:51 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -81,6 +81,8 @@ public:
 protected:  
   vtkPolyDataCollection() {};
   ~vtkPolyDataCollection() {};
+  vtkPolyDataCollection(const vtkPolyDataCollection&) {};
+  void operator=(const vtkPolyDataCollection&) {};
 };
 
 

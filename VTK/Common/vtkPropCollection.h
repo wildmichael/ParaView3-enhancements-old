@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPropCollection.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:01:44 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-09-14 17:20:57 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -83,6 +83,8 @@ class VTK_EXPORT vtkPropCollection : public vtkCollection
 protected:
   vtkPropCollection() {};
   ~vtkPropCollection() {};
+  vtkPropCollection(const vtkPropCollection&) {};
+  void operator=(const vtkPropCollection&) {};
   
 };
 

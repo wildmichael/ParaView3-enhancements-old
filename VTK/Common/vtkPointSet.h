@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSet.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:01:40 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 1999-09-14 17:20:54 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -111,8 +111,9 @@ public:
 
 protected:
   vtkPointSet();
-  vtkPointSet(const vtkPointSet& ps);
   ~vtkPointSet();
+  vtkPointSet(const vtkPointSet& ps);
+  void operator=(const vtkPointSet&) {};
 
   vtkPoints *Points;
   vtkPointLocator *Locator;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAttributeDataToFieldDataFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:02:02 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-09-14 17:21:20 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -87,6 +87,8 @@ public:
 protected:
   vtkAttributeDataToFieldDataFilter();
   ~vtkAttributeDataToFieldDataFilter() {};
+  vtkAttributeDataToFieldDataFilter(const vtkAttributeDataToFieldDataFilter&) {};
+  void operator=(const vtkAttributeDataToFieldDataFilter&) {};
 
   void Execute(); //generate output data
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransformCollection.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:01:49 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1999-09-14 17:21:04 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -80,6 +80,8 @@ public:
 protected:
   vtkTransformCollection() {};
   ~vtkTransformCollection() {};
+  vtkTransformCollection(const vtkTransformCollection&) {};
+  void operator=(const vtkTransformCollection&) {};
 
 };
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBitArray.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:01:24 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 1999-09-14 17:20:39 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -81,19 +81,23 @@ public:
   // Description:
   // Copy the tuple value into a user-provided array.
   void GetTuple(const int i, float * tuple);
+  void GetTuple(const int i, double * tuple);
   
   // Description:
   // Set the tuple value at the ith location in the array.
   void SetTuple(const int i, const float * tuple);
+  void SetTuple(const int i, const double * tuple);
   
   // Description:
   // Insert (memory allocation performed) the tuple into the ith location
   // in the array.
   void InsertTuple(const int i, const float * tuple);
+  void InsertTuple(const int i, const double * tuple);
 
   // Description:
   // Insert (memory allocation performed) the tuple onto the end of the array.
   int InsertNextTuple(const float * tuple);
+  int InsertNextTuple(const double * tuple);
 
   // Description:
   // Free any uunrequired memory.
@@ -151,9 +155,11 @@ public:
   // For legacy compatibility. Do not use.
   void DeepCopy(vtkBitArray &da) {this->DeepCopy(&da);}
 
-private:
+protected:
   vtkBitArray(int numComp=1);
   ~vtkBitArray();
+  vtkBitArray(const vtkBitArray&) {};
+  void operator=(const vtkBitArray&) {};
 
   unsigned char *Array;   // pointer to data
   unsigned char *Resize(const int sz);  // function to resize data

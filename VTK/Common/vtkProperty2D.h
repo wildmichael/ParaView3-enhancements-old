@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProperty2D.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:01:44 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1999-09-14 17:20:57 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -81,6 +81,8 @@ public:
 protected:
   vtkProperty2D();
   ~vtkProperty2D();
+  vtkProperty2D(const vtkProperty2D&) {};
+  void operator=(const vtkProperty2D&) {};
 
   float Color[3];
   float   Opacity;

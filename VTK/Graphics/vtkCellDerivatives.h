@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellDerivatives.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:01:55 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1999-09-14 17:21:10 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -119,6 +119,8 @@ public:
 protected:
   vtkCellDerivatives();
   ~vtkCellDerivatives() {};
+  vtkCellDerivatives(const vtkCellDerivatives&) {};
+  void operator=(const vtkCellDerivatives&) {};
   void Execute();
 
   int VectorMode;

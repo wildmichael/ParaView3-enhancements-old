@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGrid.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-10 12:24:33 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 1999-09-14 17:21:01 $
+  Version:   $Revision: 1.50 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -188,8 +188,9 @@ public:
   
 protected:
   vtkStructuredGrid();
-  vtkStructuredGrid(const vtkStructuredGrid& sg);
   ~vtkStructuredGrid();
+  vtkStructuredGrid(const vtkStructuredGrid& sg);
+  void operator=(const vtkStructuredGrid&) {};
 
   // for the GetCell method
   vtkVertex *Vertex;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellArray.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:01:26 $
-  Version:   $Revision: 1.65 $
+  Date:      $Date: 1999-09-14 17:20:40 $
+  Version:   $Revision: 1.66 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -218,6 +218,8 @@ protected:
   vtkCellArray();
   vtkCellArray (const int sz, const int ext=1000);
   ~vtkCellArray();
+  vtkCellArray(const vtkCellArray&) {};
+  void operator=(const vtkCellArray&) {};
 
   int NumberOfCells;
   int InsertLocation;     //keep track of current insertion point

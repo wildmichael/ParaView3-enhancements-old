@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEdgePoints.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:02:17 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1999-09-14 17:21:31 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -74,6 +74,8 @@ public:
 protected:
   vtkEdgePoints();
   ~vtkEdgePoints();
+  vtkEdgePoints(const vtkEdgePoints&) {};
+  void operator=(const vtkEdgePoints&) {};
 
   void Execute();
 

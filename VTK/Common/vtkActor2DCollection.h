@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor2DCollection.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:01:24 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1999-09-14 17:20:38 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -94,7 +94,11 @@ class VTK_EXPORT vtkActor2DCollection : public vtkPropCollection
 
 
 protected:
+  vtkActor2DCollection() {};
   ~vtkActor2DCollection();
+  vtkActor2DCollection(const vtkActor2DCollection&) {};
+  void operator=(const vtkActor2DCollection&) {};
+
   virtual void DeleteElement(vtkCollectionElement *); 
 };
 

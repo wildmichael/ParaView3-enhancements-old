@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObject.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-10 12:24:31 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1999-09-14 17:20:42 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -242,6 +242,8 @@ protected:
 
   vtkDataObject();
   ~vtkDataObject();
+  vtkDataObject(const vtkDataObject&) {};
+  void operator=(const vtkDataObject&) {};
 
   // Description:
   // Method implemented in the subclasses to make sure the update extent

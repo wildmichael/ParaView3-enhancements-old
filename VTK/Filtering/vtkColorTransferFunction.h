@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkColorTransferFunction.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:02:07 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1999-09-14 17:21:24 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -148,6 +148,8 @@ public:
 protected:
   vtkColorTransferFunction();
   ~vtkColorTransferFunction();
+  vtkColorTransferFunction(const vtkColorTransferFunction&) {};
+  void operator=(const vtkColorTransferFunction&) {};
 
   // Determines the function value outside of defined points
   // in each of the R,G,B transfer functions.

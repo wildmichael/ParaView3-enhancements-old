@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCone.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:02:07 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1999-09-14 17:21:24 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -82,6 +82,8 @@ public:
 protected:
   vtkCone();
   ~vtkCone() {};
+  vtkCone(const vtkCone&) {};
+  void operator=(const vtkCone&) {};
 
   float Angle;
 

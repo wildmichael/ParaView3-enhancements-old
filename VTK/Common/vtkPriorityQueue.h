@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPriorityQueue.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:01:43 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1999-09-14 17:20:56 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -121,6 +121,9 @@ public:
 protected:
   vtkPriorityQueue();
   ~vtkPriorityQueue();
+  vtkPriorityQueue(const vtkPriorityQueue&) {};
+  void operator=(const vtkPriorityQueue&) {};
+  
   vtkPriorityItem *Resize(const int sz);
 
   vtkIntArray *ItemLocation;

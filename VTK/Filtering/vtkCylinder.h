@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCylinder.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:02:09 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1999-09-14 17:21:26 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -86,6 +86,8 @@ public:
 protected:
   vtkCylinder();
   ~vtkCylinder() {};
+  vtkCylinder(const vtkCylinder&) {};
+  void operator=(const vtkCylinder&) {};
 
   float Radius;
   float Center[3];

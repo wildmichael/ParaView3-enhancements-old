@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWedge.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:01:53 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1999-09-14 17:21:09 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -104,6 +104,8 @@ public:
 protected:
   vtkWedge();
   ~vtkWedge();
+  vtkWedge(const vtkWedge&) {};
+  void operator=(const vtkWedge&) {};
 
   vtkLine *Line;
   vtkTriangle *Triangle;

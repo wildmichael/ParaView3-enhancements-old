@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPoints.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-02 12:54:09 $
-  Version:   $Revision: 1.61 $
+  Date:      $Date: 1999-09-14 17:21:01 $
+  Version:   $Revision: 1.62 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -70,6 +70,10 @@ public:
   int GetDataObjectType() {return VTK_STRUCTURED_POINTS;}
 
 protected:
+  vtkStructuredPoints();
+  ~vtkStructuredPoints() {};
+  vtkStructuredPoints(const vtkStructuredPoints&) {};
+  void operator=(const vtkStructuredPoints&) {};
 
   // Description:
   // This is an experiment.  When a structured points UpdateExtent
@@ -77,8 +81,6 @@ protected:
   // structured points source will always produce all of their output!.
   int ClipUpdateExtentWithWholeExtent();
   
-protected:
-  vtkStructuredPoints();
 
 };
 

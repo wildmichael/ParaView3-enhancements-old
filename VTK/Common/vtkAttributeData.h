@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAttributeData.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:01:24 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-09-14 17:20:38 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -132,6 +132,8 @@ protected:
   // dataType is VTK_FLOAT.
   vtkAttributeData(int dataType=VTK_FLOAT);
   ~vtkAttributeData();
+  vtkAttributeData(const vtkAttributeData&) {};
+  void operator=(const vtkAttributeData&) {};
 
   vtkDataArray *Data;  // Array which represents data
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWindow.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:01:54 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-09-14 17:21:09 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -135,6 +135,8 @@ public:
 protected:
   vtkWindow();
   ~vtkWindow();
+  vtkWindow(const vtkWindow&) {};
+  void operator=(const vtkWindow&) {};
 
   char *WindowName;
   int Size[2];

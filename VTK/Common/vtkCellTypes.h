@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellTypes.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:01:27 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1999-09-14 17:20:41 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -121,9 +121,11 @@ public:
   // Initialize object without releasing memory.
   void Reset();
 
-private:
+protected:
   vtkCellTypes() : Array(NULL),Size(0),MaxId(-1),Extend(1000) {};
   ~vtkCellTypes();
+  vtkCellTypes(const vtkCellTypes&) {};
+  void operator=(const vtkCellTypes&) {};
 
   _vtkCell_s *Array;   // pointer to data
   int Size;            // allocated size of data

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitDataSet.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:02:23 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1999-09-14 17:21:38 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -108,6 +108,8 @@ public:
 protected:
   vtkImplicitDataSet();
   ~vtkImplicitDataSet();
+  vtkImplicitDataSet(const vtkImplicitDataSet&) {};
+  void operator=(const vtkImplicitDataSet&) {};
 
   vtkDataSet *DataSet;
   float OutValue;

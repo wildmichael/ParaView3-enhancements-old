@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnsignedCharArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-07 21:19:22 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 1999-09-14 17:21:05 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -244,8 +244,26 @@ void vtkUnsignedCharArray::GetTuple(const int i, float * tuple)
     }
 }
 
+void vtkUnsignedCharArray::GetTuple(const int i, double * tuple) 
+{
+  unsigned char *t = this->Array + this->NumberOfComponents*i;
+  for (int j=0; j<this->NumberOfComponents; j++)
+    {
+    tuple[j] = (double)t[j];
+    }
+}
+
 // Set the tuple value at the ith location in the array.
 void vtkUnsignedCharArray::SetTuple(const int i, const float * tuple)
+{
+  int loc = i * this->NumberOfComponents; 
+  for (int j=0; j<this->NumberOfComponents; j++) 
+    {
+    this->Array[loc+j] = (unsigned char)tuple[j];
+    }
+}
+
+void vtkUnsignedCharArray::SetTuple(const int i, const double * tuple)
 {
   int loc = i * this->NumberOfComponents; 
   for (int j=0; j<this->NumberOfComponents; j++) 
@@ -266,8 +284,31 @@ void vtkUnsignedCharArray::InsertTuple(const int i, const float * tuple)
     }
 }
 
+void vtkUnsignedCharArray::InsertTuple(const int i, const double * tuple)
+{
+  unsigned char *t = this->WritePointer(i*this->NumberOfComponents,this->NumberOfComponents);
+
+  for (int j=0; j<this->NumberOfComponents; j++)
+    {
+    *t++ = (unsigned char)*tuple++;
+    }
+}
+
 // Insert (memory allocation performed) the tuple onto the end of the array.
 int vtkUnsignedCharArray::InsertNextTuple(const float * tuple)
+{
+  int i = this->MaxId + 1;
+  unsigned char *t = this->WritePointer(i,this->NumberOfComponents);
+
+  for (i=0; i<this->NumberOfComponents; i++)
+    {
+    *t++ = (unsigned char)*tuple++;
+    }
+
+  return this->MaxId / this->NumberOfComponents;
+}
+
+int vtkUnsignedCharArray::InsertNextTuple(const double * tuple)
 {
   int i = this->MaxId + 1;
   unsigned char *t = this->WritePointer(i,this->NumberOfComponents);

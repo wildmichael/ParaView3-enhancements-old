@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProp.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:01:44 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-09-14 17:20:57 $
+  Version:   $Revision: 1.11 $
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -212,6 +212,8 @@ public:
 protected:
   vtkProp();
   ~vtkProp() {};
+  vtkProp(const vtkProp&) {};
+  void operator=(const vtkProp&) {};
 
   int Visibility;
   float AllocatedRenderTime;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProcessObject.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:01:43 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-09-14 17:20:56 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -139,6 +139,8 @@ public:
 protected:
   vtkProcessObject();
   ~vtkProcessObject();
+  vtkProcessObject(const vtkProcessObject&) {};
+  void operator=(const vtkProcessObject&) {};
   
   void (*StartMethod)(void *);
   void (*StartMethodArgDelete)(void *);

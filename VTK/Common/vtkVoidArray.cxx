@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoidArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-07 21:19:23 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1999-09-14 17:21:08 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -180,8 +180,16 @@ void vtkVoidArray::GetTuple(const int vtkNotUsed(i), float * vtkNotUsed(tuple))
 {
 }
 
+void vtkVoidArray::GetTuple(const int vtkNotUsed(i), double * vtkNotUsed(tuple))
+{
+}
+
 // Set the tuple value at the ith location in the array.
 void vtkVoidArray::SetTuple(const int vtkNotUsed(i), const float * vtkNotUsed(tuple))
+{
+}
+
+void vtkVoidArray::SetTuple(const int vtkNotUsed(i), const double * vtkNotUsed(tuple))
 {
 }
 
@@ -191,8 +199,17 @@ void vtkVoidArray::InsertTuple(const int vtkNotUsed(i), const float * vtkNotUsed
 {
 }
 
+void vtkVoidArray::InsertTuple(const int vtkNotUsed(i), const double * vtkNotUsed(tuple))
+{
+}
+
 // Insert (memory allocation performed) the tuple onto the end of the array.
 int vtkVoidArray::InsertNextTuple(const float * vtkNotUsed(tuple))
+{
+  return -1;
+}
+
+int vtkVoidArray::InsertNextTuple(const double * vtkNotUsed(tuple))
 {
   return -1;
 }

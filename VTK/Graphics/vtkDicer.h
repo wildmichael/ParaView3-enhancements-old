@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDicer.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:02:16 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1999-09-14 17:21:31 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -89,6 +89,8 @@ public:
 protected:
   vtkDicer();
   ~vtkDicer() {};
+  vtkDicer(const vtkDicer&) {};
+  void operator=(const vtkDicer&) {};
 
   // Usual data generation method
   void Execute();

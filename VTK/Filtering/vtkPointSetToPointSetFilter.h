@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSetToPointSetFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:02:34 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 1999-09-14 17:21:50 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -111,6 +111,8 @@ public:
 protected:
   vtkPointSetToPointSetFilter();
   ~vtkPointSetToPointSetFilter();
+  vtkPointSetToPointSetFilter(const vtkPointSetToPointSetFilter&) {};
+  void operator=(const vtkPointSetToPointSetFilter&) {};
 
   // Since we know Inputs[0] is the same type as Outputs[0] we can
   // use CopyUpdateExtent of the data object to propaget extents.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMultiThreader.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:01:38 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1999-09-14 17:20:52 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -208,6 +208,8 @@ public:
 protected:
   vtkMultiThreader();
   ~vtkMultiThreader();
+  vtkMultiThreader(const vtkMultiThreader&) {};
+  void operator=(const vtkMultiThreader&) {};
 
   // The number of threads to use
   int                        NumberOfThreads;

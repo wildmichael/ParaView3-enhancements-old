@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetAttributes.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:01:29 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1999-09-14 17:20:43 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -242,6 +242,8 @@ public:
 protected:
   vtkDataSetAttributes();
   ~vtkDataSetAttributes();
+  vtkDataSetAttributes(const vtkDataSetAttributes&) {};
+  void operator=(const vtkDataSetAttributes&) {};
 
   // special methods to support managing data
   void InterpolateTuple(vtkDataArray *fromData, vtkDataArray *toData, int toId,

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPlane.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:01:39 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1999-09-14 17:20:53 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -119,6 +119,8 @@ public:
 protected:
   vtkPlane();
   ~vtkPlane() {};
+  vtkPlane(const vtkPlane&) {};
+  void operator=(const vtkPlane&) {};
 
   float Normal[3];
   float Origin[3];

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMatrix4x4.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 11:56:28 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 1999-09-14 17:20:52 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -422,22 +422,6 @@ void vtkMatrix4x4::DeepCopy(double Elements[16], vtkMatrix4x4 *source)
       elem[i][j] = source->Element[i][j];
       }
     }
-}
-
-vtkMatrix4x4& vtkMatrix4x4::operator= (const vtkMatrix4x4& source)
-{
-  int i, j;
-
-  this->Modified();
-  for (i = 0; i < 4; ++i)
-    {
-    for (j = 0; j < 4; ++j)
-      {
-      this->Element[i][j] = source.Element[i][j];
-      }
-    }
-
-  return *this;
 }
 
 // Transpose the matrix and put it into out. 

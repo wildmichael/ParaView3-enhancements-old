@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkViewport.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:01:53 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1999-09-14 17:21:08 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -224,6 +224,8 @@ protected:
   // culling turned off.
   vtkViewport();
   ~vtkViewport();
+  vtkViewport(const vtkViewport&) {};
+  void operator=(const vtkViewport&) {};
 
 
   vtkPropCollection *Props;

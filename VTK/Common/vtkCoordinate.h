@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCoordinate.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:01:28 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1999-09-14 17:20:42 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -146,6 +146,8 @@ public:
 protected:
   vtkCoordinate();
   ~vtkCoordinate();
+  vtkCoordinate(const vtkCoordinate&) {};
+  void operator=(const vtkCoordinate&) {};
 
   float Value[3];
   int   CoordinateSystem;

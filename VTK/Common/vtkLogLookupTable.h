@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLogLookupTable.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:01:36 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1999-09-14 17:20:50 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -87,6 +87,8 @@ public:
 protected:
   vtkLogLookupTable(int sze=256, int ext=256);
   ~vtkLogLookupTable() {};
+  vtkLogLookupTable(const vtkLogLookupTable&) {};
+  void operator=(const vtkLogLookupTable&) {};
 
   float LogMinRange;
   float LogMaxRange;

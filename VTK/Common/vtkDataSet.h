@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSet.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:01:28 $
-  Version:   $Revision: 1.82 $
+  Date:      $Date: 1999-09-14 17:20:42 $
+  Version:   $Revision: 1.83 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -314,6 +314,7 @@ protected:
   vtkDataSet();
   ~vtkDataSet();  
   vtkDataSet(const vtkDataSet& ds);
+  void operator=(const vtkDataSet&) {};  
 
   vtkCellData *CellData;   // Scalars, vectors, etc. associated w/ each cell
   vtkPointData *PointData;   // Scalars, vectors, etc. associated w/ each point

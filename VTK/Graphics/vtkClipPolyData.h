@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipPolyData.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:02:06 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1999-09-14 17:21:23 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -163,6 +163,8 @@ public:
 protected:
   vtkClipPolyData(vtkImplicitFunction *cf=NULL);
   ~vtkClipPolyData();
+  vtkClipPolyData(const vtkClipPolyData&) {};
+  void operator=(const vtkClipPolyData&) {};
 
   void Execute();
   vtkImplicitFunction *ClipFunction;

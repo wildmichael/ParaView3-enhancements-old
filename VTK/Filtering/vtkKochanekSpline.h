@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKochanekSpline.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:02:25 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-09-14 17:21:40 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -109,6 +109,8 @@ public:
 protected:
   vtkKochanekSpline();
   ~vtkKochanekSpline() {};
+  vtkKochanekSpline(const vtkKochanekSpline&) {};
+  void operator=(const vtkKochanekSpline&) {};
 
   void Fit1D (int n, float *x, float *y,
               float tension, float bias, float continuity,
