@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXOpenGLTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-11-02 21:04:51 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2000-11-02 21:09:27 $
+  Version:   $Revision: 1.23 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -359,7 +359,7 @@ void vtkXOpenGLTextMapper::RenderGeometry(vtkViewport* viewport,
     {
     pos[0]++; pos[1]--;
     // set the colors for the foreground
-    glColor3ub(shadowRed, shadowGreen, shadowBlue, alpha);
+    glColor4ub(shadowRed, shadowGreen, shadowBlue, alpha);
     glRasterPos3f((2.0 * (GLfloat)(pos[0]) / vsize[0] - 1), 
 		  (2.0 * (GLfloat)(pos[1]) / vsize[1] - 1), 
 		  (front)?(-1):(.99999));
@@ -370,7 +370,7 @@ void vtkXOpenGLTextMapper::RenderGeometry(vtkViewport* viewport,
     }
   
   // set the colors for the foreground
-  glColor3ub(red, green, blue, alpha);
+  glColor4ub(red, green, blue, alpha);
 
   glRasterPos3f((2.0 * (GLfloat)(pos[0]) / vsize[0] - 1), 
 		(2.0 * (GLfloat)(pos[1]) / vsize[1] - 1), 
