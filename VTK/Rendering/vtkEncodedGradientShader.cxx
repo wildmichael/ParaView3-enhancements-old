@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEncodedGradientShader.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-04-06 17:37:55 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-04-06 20:29:19 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -348,6 +348,17 @@ void vtkEncodedGradientShader::UpdateShadingTable( vtkRenderer *ren,
 			     material, gradest, update_flag );
       
     update_flag = 1;
+
+    if ( ren->GetTwoSidedLighting() )
+      {
+      light_direction[0] = -light_direction[0];
+      light_direction[1] = -light_direction[1];
+      light_direction[2] = -light_direction[2];
+
+      this->BuildShadingTable( index, light_direction, light_color, 
+			       light_intensity, view_direction,
+			       material, gradest, update_flag );
+      }
     }
 
   transform->Delete();
