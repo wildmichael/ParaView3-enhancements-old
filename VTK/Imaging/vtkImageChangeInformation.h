@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageChangeInformation.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:31:59 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-05-07 21:11:36 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -116,8 +116,8 @@ protected:
     this->vtkImageToImageFilter::ExecuteInformation(); };
   void ExecuteData(vtkDataObject *data);
 private:
-  vtkImageChangeInformation(const vtkImageChangeInformation&) {};  // Not implemented.
-  void operator=(const vtkImageChangeInformation&) {};  // Not implemented.
+  vtkImageChangeInformation(const vtkImageChangeInformation&);  // Not implemented.
+  void operator=(const vtkImageChangeInformation&);  // Not implemented.
 };
 
 

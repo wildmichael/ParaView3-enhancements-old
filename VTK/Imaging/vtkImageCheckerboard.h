@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCheckerboard.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:31:59 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-05-07 21:11:36 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -48,8 +48,8 @@ protected:
                        int extent[6], int id);
   int NumberOfDivisions[3];
 private:
-  vtkImageCheckerboard(const vtkImageCheckerboard&) {};  // Not implemented.
-  void operator=(const vtkImageCheckerboard&) {};  // Not implemented.
+  vtkImageCheckerboard(const vtkImageCheckerboard&);  // Not implemented.
+  void operator=(const vtkImageCheckerboard&);  // Not implemented.
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReslice.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-07 19:39:44 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2002-05-07 21:11:36 $
+  Version:   $Revision: 1.21 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 #include <float.h>
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkImageReslice, "$Revision: 1.20 $");
+vtkCxxRevisionMacro(vtkImageReslice, "$Revision: 1.21 $");
 vtkStandardNewMacro(vtkImageReslice);
 
 //----------------------------------------------------------------------------
@@ -1143,7 +1143,7 @@ template <class T>
 static
 void vtkTricubicInterpCoeffs(T F[4], int l, int h, T f)
 {
-  const static T half = T(0.5);
+  static const T half = T(0.5);
 
   int order = h - l;
 

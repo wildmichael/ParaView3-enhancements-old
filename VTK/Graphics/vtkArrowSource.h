@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkArrowSource.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:03 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-05-07 21:12:04 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -78,8 +78,8 @@ protected:
   float ShaftRadius;
 
 private:
-  vtkArrowSource(const vtkArrowSource&) {};  // Not implemented.
-  void operator=(const vtkArrowSource&) {};  // Not implemented.
+  vtkArrowSource(const vtkArrowSource&); // Not implemented.
+  void operator=(const vtkArrowSource&); // Not implemented.
 };
 
 #endif
