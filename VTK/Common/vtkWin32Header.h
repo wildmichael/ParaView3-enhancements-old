@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32Header.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:21 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2000-12-20 20:52:37 $
+  Version:   $Revision: 1.10 $
   Thanks:    to Horst Schreiber for developing this MFC code
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -57,10 +57,14 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #pragma warning ( disable : 4305 )
 #pragma warning ( disable : 4309 )
 
+#ifndef VTKSTATIC
 #ifdef VTKDLL
 #define VTK_EXPORT __declspec( dllexport ) 
 #else
 #define VTK_EXPORT __declspec( dllimport )
+#endif
+#else
+#define VTK_EXPORT
 #endif
 
 // If not Windows, then -------------------------------------------
