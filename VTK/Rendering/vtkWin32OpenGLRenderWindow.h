@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2003-01-23 19:42:28 $
-  Version:   $Revision: 1.63 $
+  Date:      $Date: 2003-03-26 14:04:59 $
+  Version:   $Revision: 1.64 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -99,6 +99,10 @@ public:
   void SetWindowInfo(char *);
 
   // Description:
+  // Sets the WindowInfo that will be used after a WindowRemap.
+  void SetNextWindowInfo(char *);
+
+  // Description:
   // Sets the HWND id of the window that WILL BE created.
   void SetParentInfo(char *);
 
@@ -130,6 +134,13 @@ public:
   // Description:
   // Set the window id of the new window once a WindowRemap is done.
   virtual void  SetNextWindowId(HWND);
+
+  // Description:
+  // Set the window id of the new window once a WindowRemap is done.
+  // This is the generic prototype as required by the vtkRenderWindow
+  // parent.
+  virtual void SetNextWindowId(void *arg);
+
   //ETX
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWinCEOpenGLRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2002-10-24 15:27:55 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2003-03-26 14:04:59 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -94,6 +94,8 @@ public:
   // Set this RenderWindow's window id to a pre-existing window.
   void SetWindowInfo(char *);
 
+  void SetNextWindowInfo(char *);
+
   // Description:
   // Sets the HWND id of the window that WILL BE created.
   void SetParentInfo(char *);
@@ -122,6 +124,8 @@ public:
   // Description:
   // Set the window id of the new window once a WindowRemap is done.
   virtual void  SetNextWindowId(HWND);
+
+  virtual void SetNextWindowId(void *);
   //ETX
 
   // Description:

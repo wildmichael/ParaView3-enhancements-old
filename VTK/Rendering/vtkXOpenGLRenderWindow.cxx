@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXOpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-01-27 21:19:37 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 2003-03-26 14:04:59 $
+  Version:   $Revision: 1.42 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -87,7 +87,7 @@ vtkXOpenGLRenderWindowInternal::vtkXOpenGLRenderWindowInternal(
 
 
 #ifndef VTK_IMPLEMENT_MESA_CXX
-vtkCxxRevisionMacro(vtkXOpenGLRenderWindow, "$Revision: 1.41 $");
+vtkCxxRevisionMacro(vtkXOpenGLRenderWindow, "$Revision: 1.42 $");
 vtkStandardNewMacro(vtkXOpenGLRenderWindow);
 #endif
 
@@ -1096,6 +1096,15 @@ void vtkXOpenGLRenderWindow::SetWindowInfo(char *info)
   this->SetWindowId(tmp);
 }
 
+// Set this RenderWindow's X window id to a pre-existing window.
+void vtkXOpenGLRenderWindow::SetNextWindowInfo(char *info)
+{
+   int tmp;
+   sscanf(info,"%i",&tmp);
+ 
+   this->SetNextWindowId((Window)tmp);
+}
+
 // Sets the X window id of the window that WILL BE created.
 void vtkXOpenGLRenderWindow::SetParentInfo(char *info)
 {
@@ -1247,6 +1256,12 @@ void vtkXOpenGLRenderWindow::SetNextWindowId(Window arg)
 
   this->NextWindowId = arg;
 }
+
+void vtkXOpenGLRenderWindow::SetNextWindowId(void *arg)
+{
+   this->SetNextWindowId((Window)arg);
+}
+
 
 // Set the X display id for this RenderWindow to use to a pre-existing 
 // X display id.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCarbonRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2003-01-20 15:16:19 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2003-03-26 14:04:59 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -101,6 +101,11 @@ public:
   // Set this RenderWindow's window id to a pre-existing window.
   void SetWindowInfo(void *);
 
+  void SetNextWindowInfo(char *)
+     {
+        vtkWarningMacro("SetNextWindowInfo not implemented (WindowRemap not implemented).");
+     }
+
   //BTX
   virtual void *GetGenericDisplayId() {return (void *)this->ContextId;};
   virtual void *GetGenericWindowId()  {return (void *)this->WindowId;};
@@ -127,6 +132,10 @@ public:
   // Get the window id.
   virtual WindowPtr GetWindowId();
   void  SetWindowId(void *foo) {this->SetWindowId((WindowPtr)foo);};
+  void SetNextWindowId(void *foo)
+    {
+       vtkWarningMacro("SetNextWindowId not implemented (WindowRemap not implemented).");
+    }
 
   // Description:
   // Get the window id.

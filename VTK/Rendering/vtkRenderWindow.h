@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2003-02-13 15:48:16 $
-  Version:   $Revision: 1.134 $
+  Date:      $Date: 2003-03-26 14:04:59 $
+  Version:   $Revision: 1.135 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -366,6 +366,7 @@ public:
   // Dummy stubs for vtkWindow API.
   virtual void SetDisplayId(void *) = 0;
   virtual void SetWindowId(void *)  = 0;
+  virtual void SetNextWindowId(void *) = 0;
   virtual void SetParentId(void *)  = 0;
   virtual void *GetGenericDisplayId() = 0;
   virtual void *GetGenericWindowId() = 0;
@@ -373,6 +374,7 @@ public:
   virtual void *GetGenericContext() = 0;
   virtual void *GetGenericDrawable() = 0;
   virtual void SetWindowInfo(char *) = 0;
+  virtual void SetNextWindowInfo(char *) = 0;
   virtual void SetParentInfo(char *) = 0;
 
   // Description:

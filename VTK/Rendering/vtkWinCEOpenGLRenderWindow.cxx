@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWinCEOpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-24 15:56:45 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2003-03-26 14:04:59 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -31,7 +31,7 @@
 #include "vtkOpenGLPolyDataMapper.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkWinCEOpenGLRenderWindow, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkWinCEOpenGLRenderWindow, "$Revision: 1.7 $");
 vtkStandardNewMacro(vtkWinCEOpenGLRenderWindow);
 
 #define VTK_MAX_LIGHTS 8
@@ -682,6 +682,15 @@ void vtkWinCEOpenGLRenderWindow::SetWindowInfo(char *info)
   vtkDebugMacro(<< "Setting WindowId to " << this->WindowId << "\n"); 
 }
 
+void vtkWinCEOpenGLRenderWindow::SetNextWindowInfo(char *info)
+{
+  int tmp;
+  
+  sscanf(info,"%i",&tmp);
+ 
+  this->SetNextWindowId((HWND)tmp);
+}
+
 // Sets the HWND id of the window that WILL BE created.
 void vtkWinCEOpenGLRenderWindow::SetParentInfo(char *info)
 {
@@ -708,6 +717,12 @@ void vtkWinCEOpenGLRenderWindow::SetNextWindowId(HWND arg)
 
   this->NextWindowId = arg;
 }
+
+void vtkWinCEOpenGLRenderWindow::SetNextWindowId(void *arg)
+{
+   this->SetNextWindowId((HWND)arg);
+}
+
 
 // Begin the rendering process.
 void vtkWinCEOpenGLRenderWindow::Start(void)
