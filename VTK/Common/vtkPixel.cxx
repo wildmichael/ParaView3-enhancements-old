@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPixel.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-10-26 13:32:05 $
-  Version:   $Revision: 1.59 $
+  Date:      $Date: 2000-10-27 19:37:41 $
+  Version:   $Revision: 1.60 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -128,6 +128,9 @@ int vtkPixel::EvaluatePosition(float x[3], float* closestPoint,
     {
     if (closestPoint)
       {
+      closestPoint[0] = cp[0];
+      closestPoint[1] = cp[1];
+      closestPoint[2] = cp[2];
       dist2 = 
 	vtkMath::Distance2BetweenPoints(closestPoint,x); //projection distance
       }
