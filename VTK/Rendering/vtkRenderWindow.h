@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2000-11-02 18:33:22 $
-  Version:   $Revision: 1.102 $
+  Date:      $Date: 2000-11-12 22:07:13 $
+  Version:   $Revision: 1.103 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -127,6 +127,12 @@ public:
   // to know what type of interactor to create, because we might be in
   // X Windows or MS Windows. 
   virtual vtkRenderWindowInteractor *MakeRenderWindowInteractor();
+
+  // Description:
+  // Hide or Show the mouse cursor, it is nice to be able to hide the
+  // default cursor if you want VTK to display a 3D cursor instead.
+  virtual void HideCursor() {};
+  virtual void ShowCursor() {};
 
   // Description:
   // Turn on/off rendering full screen window size.

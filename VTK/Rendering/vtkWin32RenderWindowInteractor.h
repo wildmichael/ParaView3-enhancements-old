@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32RenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 2000-10-05 06:44:34 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2000-11-12 22:07:14 $
+  Version:   $Revision: 1.35 $
   
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -84,12 +84,6 @@ public:
   // call this method it will loop processing events until the
   // application is exited.
   virtual void Start();
-
-  // Description:
-  // Hide or Show the mouse cursor, it is nice to be able to hide the
-  // default cursor if you want VTK to display a 3D cursor instead.
-  void HideCursor();
-  void ShowCursor();
 
   // Description:
   // By default the interactor installs a MessageProc callback which

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 2000-11-10 18:08:29 $
-  Version:   $Revision: 1.74 $
+  Date:      $Date: 2000-11-12 22:07:13 $
+  Version:   $Revision: 1.75 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -234,8 +234,8 @@ public:
   // Description:
   // Hide or show the mouse cursor, it is nice to be able to hide the
   // default cursor if you want VTK to display a 3D cursor instead.
-  virtual void HideCursor() {};
-  virtual void ShowCursor() {};
+  void HideCursor() { this->RenderWindow->HideCursor(); };
+  void ShowCursor() { this->RenderWindow->ShowCursor(); };
 
   // Description:
   // Render the scene. Just pass the render call on to the 
@@ -264,7 +264,6 @@ protected:
   float StillUpdateRate;
   int   EventPosition[2];
   int   Size[2];
-  int   CursorHidden;
   
   // user methods that can be used to override default behavior
   unsigned long StartPickTag;

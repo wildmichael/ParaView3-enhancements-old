@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-27 18:45:52 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2000-11-12 22:07:13 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -228,6 +228,12 @@ public:
   // Get the size of the depth buffer.
   int GetDepthBufferSize();
   
+  // Description:
+  // Hide or Show the mouse cursor, it is nice to be able to hide the
+  // default cursor if you want VTK to display a 3D cursor instead.
+  void HideCursor();
+  void ShowCursor();
+
 protected:
   vtkWin32OpenGLRenderWindow();
   ~vtkWin32OpenGLRenderWindow();
@@ -268,7 +274,8 @@ protected:
   static LRESULT APIENTRY WndProc(HWND hWnd, UINT message, 
 				  WPARAM wParam, LPARAM lParam);
   //ETX
-  
+
+  int CursorHidden;
 };
 
 

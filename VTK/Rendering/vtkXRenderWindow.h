@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2000-06-01 07:08:18 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 2000-11-12 22:07:14 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -124,6 +124,12 @@ public:
   void     SetPosition(int a[2]) {this->SetPosition(a[0], a[1]);};
   
   // Description:
+  // Hide or Show the mouse cursor, it is nice to be able to hide the
+  // default cursor if you want VTK to display a 3D cursor instead.
+  void HideCursor();
+  void ShowCursor();
+
+  // Description:
   // Get the properties available at runtime that would result in 
   // the best Xwindow for 3D rendering.
   virtual int      GetDesiredDepth()    = 0;
@@ -154,7 +160,7 @@ protected:
   int      OwnWindow;
   int      OwnDisplay;
   int      ScreenSize[2];
-
+  int      CursorHidden;
 };
 
 #endif
