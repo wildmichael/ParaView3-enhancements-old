@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataConnectivityFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-04-07 18:06:32 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1998-04-07 18:36:08 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -287,7 +287,8 @@ void vtkPolyDataConnectivityFilter::Execute()
   
 
   if ( this->ExtractionMode == VTK_EXTRACT_POINT_SEEDED_REGIONS ||
-  this->ExtractionMode == VTK_EXTRACT_CELL_SEEDED_REGIONS )
+  this->ExtractionMode == VTK_EXTRACT_CELL_SEEDED_REGIONS ||
+  this->ExtractionMode == VTK_EXTRACT_ALL_REGIONS)
     { // extract any cell that's been visited
     for (cellId=0; cellId < numCells; cellId++)
       {
