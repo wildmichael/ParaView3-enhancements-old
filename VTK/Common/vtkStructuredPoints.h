@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStructuredPoints.h,v $
   Language:  C++
-  Date:      $Date: 1995-02-26 10:17:44 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1995-04-30 16:27:57 $
+  Version:   $Revision: 1.20 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -51,6 +51,9 @@ public:
   void GetCellPoints(int cellId, vlIdList& ptIds);
   void GetPointCells(int ptId, vlIdList& cellIds);
   void ComputeBounds();
+
+  void GetVoxelGradient(int i, int j, int k, vlScalars *s, vlFloatVectors& g);
+  void GetPointGradient(int i, int j, int k, vlScalars *s, float g[3]);
 
   // Description:
   // Set the aspect ratio of the cubical cells that compose the structured

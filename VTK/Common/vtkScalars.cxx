@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkScalars.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-01-02 11:45:43 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1995-04-30 16:27:53 $
+  Version:   $Revision: 1.15 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -64,13 +64,16 @@ void vlScalars::ComputeRange()
 }
 
 // Description:
-// Return the range of scalar values.
+// Return the range of scalar values. Data returned as pointer to float array
+// of length 2.
 float *vlScalars::GetRange()
 {
   this->ComputeRange();
   return this->Range;
 }
 
+// Description:
+// Return the range of scalar values. Range copied into array provided.
 void vlScalars::GetRange(float range[2])
 {
   this->ComputeRange();
