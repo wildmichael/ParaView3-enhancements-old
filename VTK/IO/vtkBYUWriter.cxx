@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBYUWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-05-30 13:53:44 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1996-07-08 20:03:23 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -61,18 +61,6 @@ vtkBYUWriter::~vtkBYUWriter()
   if ( this->DisplacementFilename ) delete [] this->DisplacementFilename;
   if ( this->ScalarFilename ) delete [] this->ScalarFilename;
   if ( this->TextureFilename ) delete [] this->TextureFilename;
-}
-
-// Description:
-// Specify the input data or filter.
-void vtkBYUWriter::SetInput(vtkPolyData *input)
-{
-  if ( this->Input != input )
-    {
-    vtkDebugMacro(<<" setting Input to " << (void *)input);
-    this->Input = (vtkDataSet *) input;
-    this->Modified();
-    }
 }
 
 // Description:
