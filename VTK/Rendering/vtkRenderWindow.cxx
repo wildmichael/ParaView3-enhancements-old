@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:48:19 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1995-07-29 11:47:50 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -92,7 +92,6 @@ vtkRenderWindow::~vtkRenderWindow()
 // Ask each renderer to render an image. Synchronize this process.
 void vtkRenderWindow::Render()
 {
-  int i;
   int *size;
   int x,y;
   float *p1;
@@ -712,4 +711,5 @@ int vtkRenderWindow::GetRemapWindow(void)
     case VTK_STEREO_RED_BLUE: return 0;
     case VTK_STEREO_CRYSTAL_EYES: return 1;
     }
+  return 0;
 }
