@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPythonAppInit.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-01-22 20:03:59 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2003-09-16 15:03:17 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -17,6 +17,8 @@
 =========================================================================*/
 
 /* Minimal main program -- everything is loaded from the library */
+
+#include "Python.h"
 
 #ifdef VTK_COMPILED_USING_MPI
 # include <mpi.h>
@@ -32,7 +34,6 @@
 # define VTK_PYTHON_LIBRARY_DIR VTK_PYTHON_LIBRARY_DIR_BUILD
 #endif
 
-#include "Python.h"
 #include <sys/stat.h>
 
 /*
