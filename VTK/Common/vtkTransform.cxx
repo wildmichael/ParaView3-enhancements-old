@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-01-04 20:23:52 $
-  Version:   $Revision: 1.59 $
+  Date:      $Date: 1999-04-27 13:42:39 $
+  Version:   $Revision: 1.60 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -336,8 +336,43 @@ void vtkTransform::Scale ( float x, float y, float z)
   ctm->Delete();
 }
 
+// Scales the current transformation matrix in the x, y and z directions.
+// A scale factor of zero will automatically be replaced with one.
+void vtkTransform::Scale ( double x, double y, double z)
+{
+  vtkMatrix4x4 *ctm = vtkMatrix4x4::New(); //constructed as identity
+
+  if (x != 1.0 || y != 1.0 || z != 1.0) 
+    {
+    ctm->Element[0][0] = x;
+    ctm->Element[1][1] = y;
+    ctm->Element[2][2] = z;
+
+    // concatenate with current transformation matrix
+    this->Concatenate (ctm);
+    }
+  ctm->Delete();
+}
+
 // Translate the current transformation matrix by the vector {x, y, z}.
 void vtkTransform::Translate ( float x, float y, float z)
+{
+  vtkMatrix4x4 *ctm = vtkMatrix4x4::New(); //constructed as identity matrix
+
+  if (x != 0.0 || y != 0.0 || z != 0.0) 
+    {
+    ctm->Element[0][3] = x;
+    ctm->Element[1][3] = y;
+    ctm->Element[2][3] = z;
+
+    // concatenate with current transformation matrix
+    this->Concatenate (ctm);
+    }
+  ctm->Delete();
+}
+
+// Translate the current transformation matrix by the vector {x, y, z}.
+void vtkTransform::Translate ( double x, double y, double z)
 {
   vtkMatrix4x4 *ctm = vtkMatrix4x4::New(); //constructed as identity matrix
 
