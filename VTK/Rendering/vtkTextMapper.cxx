@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-15 03:19:26 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2002-06-20 18:01:09 $
+  Version:   $Revision: 1.38 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,36 @@
 #include "vtkTextMapper.h"
 #include "vtkImagingFactory.h"
 
-vtkCxxRevisionMacro(vtkTextMapper, "$Revision: 1.37 $");
+// Control wheter to globally force text antialiasing (ALL), 
+// disable antialiasing (NONE), allow antialising (SOME) depending on
+// the per-object AntiAliasing attribute.
+ 
+static int vtkTextMapperGlobalAntiAliasing = VTK_TEXT_GLOBAL_ANTIALIASING_SOME;
+
+void vtkTextMapper::SetGlobalAntiAliasing(int val)
+{
+  if (val == vtkTextMapperGlobalAntiAliasing)
+    {
+    return;
+    }
+  if (val < VTK_TEXT_GLOBAL_ANTIALIASING_SOME)
+    {
+    val = VTK_TEXT_GLOBAL_ANTIALIASING_SOME;
+    }
+  else if (val > VTK_TEXT_GLOBAL_ANTIALIASING_ALL)
+    {
+    val = VTK_TEXT_GLOBAL_ANTIALIASING_ALL;
+    }
+
+  vtkTextMapperGlobalAntiAliasing = val;
+}
+
+int vtkTextMapper::GetGlobalAntiAliasing()
+{
+  return vtkTextMapperGlobalAntiAliasing;
+}
+
+vtkCxxRevisionMacro(vtkTextMapper, "$Revision: 1.38 $");
 
 // Creates a new text mapper with Font size 12, bold off, italic off,
 // and Arial font
@@ -38,6 +67,8 @@ vtkTextMapper::vtkTextMapper()
   this->NumberOfLinesAllocated = 0;
   this->LineOffset = 0.0;
   this->LineSpacing = 1.0;
+
+  this->AntiAliasing = 1;
 }
 
 // Shallow copy of an actor.

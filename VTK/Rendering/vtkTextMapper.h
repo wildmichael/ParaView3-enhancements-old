@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextMapper.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-07 21:19:08 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 2002-06-20 18:01:09 $
+  Version:   $Revision: 1.44 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -42,6 +42,12 @@
 #include "vtkViewport.h"
 #include "vtkActor2D.h"
 #include "vtkProperty2D.h"
+
+// To be moved to SetGet.h at some point ?
+
+#define VTK_TEXT_GLOBAL_ANTIALIASING_SOME 0
+#define VTK_TEXT_GLOBAL_ANTIALIASING_NONE 1
+#define VTK_TEXT_GLOBAL_ANTIALIASING_ALL 2
 
 class VTK_RENDERING_EXPORT vtkTextMapper : public vtkMapper2D
 {
@@ -107,6 +113,22 @@ public:
   void SetFontFamilyToTimes() {this->SetFontFamily(VTK_TIMES);};
 
   // Description:
+  // Set/Get the global antialiasing hint. Control whether to *globally* force
+  // text antialiasing (ALL), disable antialiasing (NONE) or allow antialising
+  // depending on the per-object AntiAliasing attribute (SOME).
+  static int GetGlobalAntiAliasing();
+  static void SetGlobalAntiAliasing(int val);
+  static void SetGlobalAntiAliasingToSome() {vtkTextMapper::SetGlobalAntiAliasing(VTK_TEXT_GLOBAL_ANTIALIASING_SOME);};
+  static void SetGlobalAntiAliasingToNone() {vtkTextMapper::SetGlobalAntiAliasing(VTK_TEXT_GLOBAL_ANTIALIASING_NONE);};
+  static void SetGlobalAntiAliasingToAll() {vtkTextMapper::SetGlobalAntiAliasing(VTK_TEXT_GLOBAL_ANTIALIASING_ALL);};
+    
+  // Description:
+  // Enable/disable the local aliasing hint.
+  vtkSetMacro(AntiAliasing, int);
+  vtkGetMacro(AntiAliasing, int);
+  vtkBooleanMacro(AntiAliasing, int);
+
+  // Description:
   // Set/Get the horizontal justification to left (default), centered,
   // or right.
   vtkSetClampMacro(Justification,int,VTK_TEXT_LEFT,VTK_TEXT_RIGHT);
@@ -154,6 +176,7 @@ protected:
   int   Shadow;
   int   FontSize;
   int   FontFamily;
+  int   AntiAliasing;
   char* Input;
   int   Justification;
   int   VerticalJustification;
