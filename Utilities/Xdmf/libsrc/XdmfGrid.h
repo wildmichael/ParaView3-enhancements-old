@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfGrid.h,v 1.6 2003-11-06 21:57:03 clarke Exp $  */
-/*  Date : $Date: 2003-11-06 21:57:03 $ */
-/*  Version : $Revision: 1.6 $ */
+/*  Id : $Id: XdmfGrid.h,v 1.7 2003-11-10 19:16:37 clarke Exp $  */
+/*  Date : $Date: 2003-11-10 19:16:37 $ */
+/*  Version : $Revision: 1.7 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -126,7 +126,7 @@ public:
 */
   XdmfGetIndexValueMacro( Attribute, XdmfAttribute * );
 
-  XdmfGetValueMacro( BaseGrid, XdmfPointer);
+//   XdmfGetValueMacro( BaseGrid, XdmfPointer);
 
   // XdmfPointer GetBaseGridCopy( void );
 

@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfArray.cxx,v 1.12 2003-10-31 15:57:53 clarke Exp $  */
-/*  Date : $Date: 2003-10-31 15:57:53 $ */
-/*  Version : $Revision: 1.12 $ */
+/*  Id : $Id: XdmfArray.cxx,v 1.13 2003-11-10 19:16:37 clarke Exp $  */
+/*  Date : $Date: 2003-11-10 19:16:37 $ */
+/*  Version : $Revision: 1.13 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -741,7 +741,12 @@ Values = new XdmfFloat64[ NumberOfValues + 10 ];
 this->GetValues( Index, Values, NumberOfValues, ArrayStride, 1 );
 i = 0;
 while( NumberOfValues-- ) {
-  StringOutput << ICE_64BIT_CAST Values[i++] << " ";
+  // StringOutput << ICE_64BIT_CAST Values[i++] << " ";
+#ifdef ICE_HAVE_64BIT_STREAMS
+  StringOutput << (double)(Values[i++]) << " ";
+#else
+  StringOutput << Values[i++] << " ";
+#endif
   }
 StringOutput << ends;
 Ptr = StringOutput.str();
