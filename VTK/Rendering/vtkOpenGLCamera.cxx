@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLCamera.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-01 17:52:28 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2000-08-02 18:20:46 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -164,7 +164,7 @@ void vtkOpenGLCamera::Render(vtkRenderer *ren)
   // insert camera view transformation 
   glMultMatrixd(matrix->Element[0]);
 
-  if ((ren->GetRenderWindow())->GetErase() && !(ren->Transparent()))
+  if ((ren->GetRenderWindow())->GetErase())
     {
     ren->Clear();
     }
