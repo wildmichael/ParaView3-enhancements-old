@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-03-20 21:50:35 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1996-03-27 16:21:27 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -114,10 +114,14 @@ void vtkDataReader::SetInputString(char* _arg, int len)
 // an InputString.
 void vtkDataReader::EatWhiteSpace()
 {
-  while ((this->InputString[this->InputStringPos] < 33)&&
-         (this->InputString[this->InputStringPos] != '\0'))
+  char c;
+  while (this->IS->get(c)) 
     {
-    this->InputStringPos++;
+    if (c == '\n' || isspace(c)==0)
+      {
+      this->IS->putback(c);
+      break;
+      }
     }
 }
 
