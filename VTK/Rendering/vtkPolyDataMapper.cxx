@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-19 13:26:58 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2001-10-21 14:06:47 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -144,6 +144,21 @@ float *vtkPolyDataMapper::GetBounds()
       }
     return this->Bounds;
     }
+}
+
+void vtkPolyDataMapper::ShallowCopy(vtkAbstractMapper *mapper)
+{
+  vtkPolyDataMapper *m = vtkPolyDataMapper::SafeDownCast(mapper);
+  if ( m != NULL )
+    {
+    this->SetInput(m->GetInput());
+    this->SetGhostLevel(m->GetGhostLevel());
+    this->SetNumberOfPieces(m->GetNumberOfPieces());
+    this->SetNumberOfSubPieces(m->GetNumberOfSubPieces());
+    }
+
+  // Now do superclass
+  this->vtkMapper::ShallowCopy(mapper);
 }
 
 void vtkPolyDataMapper::PrintSelf(ostream& os, vtkIndent indent)

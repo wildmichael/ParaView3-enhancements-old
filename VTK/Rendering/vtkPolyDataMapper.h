@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataMapper.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:38:21 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2001-10-21 14:06:47 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -102,6 +102,10 @@ public:
   virtual void GetBounds(float bounds[6]) 
     {this->vtkMapper::GetBounds(bounds);};
   
+  // Description:
+  // Make a shallow copy of this mapper.
+  void ShallowCopy(vtkAbstractMapper *m);
+
 protected:  
   vtkPolyDataMapper();
   ~vtkPolyDataMapper() {};

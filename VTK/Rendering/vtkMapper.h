@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:38:14 $
-  Version:   $Revision: 1.75 $
+  Date:      $Date: 2001-10-21 14:06:46 $
+  Version:   $Revision: 1.76 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -102,7 +102,7 @@ public:
 
   // Description:
   // Make a shallow copy of this mapper.
-  void ShallowCopy(vtkMapper *m);
+  void ShallowCopy(vtkAbstractMapper *m);
 
   // Description:
   // Overload standard modified time function. If lookup table is modified,

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-28 20:32:06 $
-  Version:   $Revision: 1.88 $
+  Date:      $Date: 2001-10-21 14:06:46 $
+  Version:   $Revision: 1.89 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -202,15 +202,25 @@ unsigned long vtkMapper::GetMTime()
   return mTime;
 }
 
-void vtkMapper::ShallowCopy(vtkMapper *m)
+void vtkMapper::ShallowCopy(vtkAbstractMapper *mapper)
 {
-  this->SetLookupTable(m->GetLookupTable());
-  this->SetClippingPlanes(m->GetClippingPlanes());
-  this->SetScalarVisibility(m->GetScalarVisibility());
-  this->SetScalarRange(m->GetScalarRange());
-  this->SetColorMode(m->GetColorMode());
-  this->SetScalarMode(m->GetScalarMode());
-  this->SetImmediateModeRendering(m->GetImmediateModeRendering());
+  vtkMapper *m = vtkMapper::SafeDownCast(mapper);
+  if ( m != NULL )
+    {
+    this->SetLookupTable(m->GetLookupTable());
+    this->SetScalarVisibility(m->GetScalarVisibility());
+    this->SetScalarRange(m->GetScalarRange());
+    this->SetColorMode(m->GetColorMode());
+    this->SetScalarMode(m->GetScalarMode());
+    this->SetImmediateModeRendering(m->GetImmediateModeRendering());
+    this->SetUseLookupTableScalarRange(m->GetUseLookupTableScalarRange());
+    this->ColorByArrayComponent(m->GetArrayName(),m->GetArrayComponent());
+    this->ColorByArrayComponent(m->GetArrayId(),m->GetArrayComponent());
+    }
+
+  // Now do superclass
+  this->vtkAbstractMapper3D::ShallowCopy(mapper);
+
 }
 
 vtkScalars *vtkMapper::GetColors()
