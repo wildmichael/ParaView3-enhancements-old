@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkString.h,v $
   Language:  C++
-  Date:      $Date: 2003-01-31 16:46:54 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2003-02-27 18:48:40 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -84,6 +84,7 @@ public:
   // the resulting string. The method returns 0 if inputs are empty or
   // if there was an error.
   static char* Append(const char* str1, const char* str2);
+  static char* Append(const char* str1, const char* str2, const char* str3);
   
   // Description:
   // Transform the string to lowercase (inplace).
