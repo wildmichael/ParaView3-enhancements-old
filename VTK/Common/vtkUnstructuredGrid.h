@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGrid.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-19 17:16:39 $
-  Version:   $Revision: 1.85 $
+  Date:      $Date: 2002-06-25 20:16:08 $
+  Version:   $Revision: 1.86 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -84,6 +84,7 @@ public:
   void GetPointCells(vtkIdType ptId, vtkIdList *cellIds);
 
   int GetCellType(vtkIdType cellId);
+  vtkUnsignedCharArray* GetCellTypes() { return this->Types; }
   void Squeeze();
   void Initialize();
   int GetMaxCellSize();
