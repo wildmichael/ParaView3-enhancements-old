@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCityBlockDistance.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-29 12:58:05 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-02-03 12:57:29 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,20 +38,28 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-// .NAME vtkImageCityBlockDistance - 2d image distance map.
+// .NAME vtkImageCityBlockDistance1D - 1,2 or 3D distance map.
 // .SECTION Description
-// vtkImageCityBlockDistance creates a Manhatten distance map from
-// a mask.  It used two 1d distance filters along each axis.
-
+// vtkImageCityBlockDistance creates a distance map using the city block
+// (Manhatten) distance measure.  The input is a mask.  Zero values are
+// considered boundaries.  The output pixel is the minimum of the input pixel
+// and the distance to a boundary (or neighbor value + 1 unit).
+// distance values are calculated in pixels.
+// The filter works by taking 6 passes (for 3d distasnce map): 2 along each 
+// axis (forward and backward). Each pass keeps a running minimum distance.
+// For some reason, I preserve the sign if the distance.  If the input 
+// mask is initially negative, the output distances will be negative.
+// Distances maps can have inside (negative regions) 
+// and outsides (positive regions).
 
 #ifndef __vtkImageCityBlockDistance_h
 #define __vtkImageCityBlockDistance_h
 
 
-#include "vtkImageDecomposedFilter.h"
-#include "vtkImageCityBlockDistance1D.h"
+#include "vtkImageDecomposeFilter.h"
+#include "vtkImageCityBlockDistance.h"
 
-class VTK_EXPORT vtkImageCityBlockDistance : public vtkImageDecomposedFilter
+class VTK_EXPORT vtkImageCityBlockDistance : public vtkImageDecomposeFilter
 {
 public:
   vtkImageCityBlockDistance();
@@ -59,7 +67,13 @@ public:
     {return new vtkImageCityBlockDistance;};
   const char *GetClassName() {return "vtkImageCityBlockDistance";};
   
+  void InterceptCacheUpdate();
+  
 protected:
+
+  void ComputeRequiredInputUpdateExtent(int inExt[6], int outExt[6]);
+  void ThreadedExecute(vtkImageData *inData, vtkImageData *outData,
+		       int outExt[6], int threadId);
 };
 
 #endif
