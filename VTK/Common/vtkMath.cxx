@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkMath.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-02-04 12:42:32 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1994-02-06 08:07:31 $
+  Version:   $Revision: 1.4 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -14,11 +14,14 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 
 =========================================================================*/
 
+#include <math.h>
+#include <stdlib.h>
 #include "vlMath.hh"
+
+long vlMath::Seed = 1177; // One authors home address
 
 vlMath::vlMath()
 {
-  this->Seed = 1177; // One authors home address
 }
 
 //
