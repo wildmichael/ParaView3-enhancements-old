@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor.h,v $
   Language:  C++
-  Date:      $Date: 1998-06-01 21:01:02 $
-  Version:   $Revision: 1.53 $
+  Date:      $Date: 1998-06-10 16:12:49 $
+  Version:   $Revision: 1.54 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -161,6 +161,12 @@ class VTK_EXPORT vtkActor : public vtkProp
 
   unsigned long int GetMTime();//overload superclasses' implementation
 
+  // Description:
+  // The renderer may use the allocated rendering time to determine
+  // how to render this actor. (LOD Experiment)
+  vtkSetMacro(AllocatedRenderingTime, float);
+  vtkGetMacro(AllocatedRenderingTime, float);
+  
 protected:
   vtkProperty *Property; 
   vtkProperty *BackfaceProperty; 
@@ -170,7 +176,9 @@ protected:
 
   // this stuff supports multiple-part actors (e.g. assemblies)
   int TraversalLocation;
-
+  
+  // This is for LOD experiment
+  float AllocatedRenderingTime;
 };
 
 #endif
