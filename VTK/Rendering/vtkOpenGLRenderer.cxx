@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-16 19:12:32 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 2002-08-28 16:27:36 $
+  Version:   $Revision: 1.43 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -15,13 +15,15 @@
      PURPOSE.  See the above copyright notice for more information.
 
 =========================================================================*/
-#include <math.h>
 #include "vtkOpenGLRenderer.h"
-#include "vtkRenderWindow.h"
-#include "vtkOpenGLProperty.h"
+
+#include "vtkCuller.h"
+#include "vtkLightCollection.h"
+#include "vtkObjectFactory.h"
 #include "vtkOpenGLCamera.h"
 #include "vtkOpenGLLight.h"
-#include "vtkCuller.h"
+#include "vtkOpenGLProperty.h"
+#include "vtkRenderWindow.h"
 
 #ifndef VTK_IMPLEMENT_MESA_CXX
 #ifdef __APPLE__
@@ -30,7 +32,8 @@
 #include <GL/gl.h>
 #endif
 #endif
-#include "vtkObjectFactory.h"
+
+#include <math.h>
 
 class vtkGLPickInfo
 {
@@ -40,7 +43,7 @@ public:
 };
 
 #ifndef VTK_IMPLEMENT_MESA_CXX
-vtkCxxRevisionMacro(vtkOpenGLRenderer, "$Revision: 1.42 $");
+vtkCxxRevisionMacro(vtkOpenGLRenderer, "$Revision: 1.43 $");
 vtkStandardNewMacro(vtkOpenGLRenderer);
 #endif
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-26 02:31:33 $
-  Version:   $Revision: 1.185 $
+  Date:      $Date: 2002-08-28 16:27:36 $
+  Version:   $Revision: 1.186 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,9 +21,11 @@
 #include "vtkCamera.h"
 #include "vtkCommand.h"
 #include "vtkCuller.h"
+#include "vtkCullerCollection.h"
 #include "vtkFrustumCoverageCuller.h"
 #include "vtkGraphicsFactory.h"
 #include "vtkLight.h"
+#include "vtkLightCollection.h"
 #include "vtkMath.h"
 #include "vtkOutputWindow.h"
 #include "vtkPicker.h"
@@ -32,7 +34,7 @@
 #include "vtkTimerLog.h"
 #include "vtkVolume.h"
 
-vtkCxxRevisionMacro(vtkRenderer, "$Revision: 1.185 $");
+vtkCxxRevisionMacro(vtkRenderer, "$Revision: 1.186 $");
 
 //----------------------------------------------------------------------------
 // Needed when we don't use the vtkStandardNewMacro.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRIBExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-04 02:21:52 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 2002-08-28 16:27:36 $
+  Version:   $Revision: 1.49 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,6 +24,7 @@
 #include "vtkImageAppendComponents.h"
 #include "vtkImageConstantPad.h"
 #include "vtkImageExtractComponents.h"
+#include "vtkLightCollection.h"
 #include "vtkMapper.h"
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
@@ -35,7 +36,7 @@
 #include "vtkTIFFWriter.h"
 #include "vtkTexture.h"
 
-vtkCxxRevisionMacro(vtkRIBExporter, "$Revision: 1.48 $");
+vtkCxxRevisionMacro(vtkRIBExporter, "$Revision: 1.49 $");
 vtkStandardNewMacro(vtkRIBExporter);
 
 typedef float RtColor[3];

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCaptionActor2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-30 05:44:37 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2002-08-28 16:27:36 $
+  Version:   $Revision: 1.21 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -31,8 +31,9 @@
 #include "vtkProperty2D.h"
 #include "vtkTextActor.h"
 #include "vtkTextProperty.h"
+#include "vtkViewport.h"
 
-vtkCxxRevisionMacro(vtkCaptionActor2D, "$Revision: 1.20 $");
+vtkCxxRevisionMacro(vtkCaptionActor2D, "$Revision: 1.21 $");
 vtkStandardNewMacro(vtkCaptionActor2D);
 
 vtkCxxSetObjectMacro(vtkCaptionActor2D,LeaderGlyph,vtkPolyData);

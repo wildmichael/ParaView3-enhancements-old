@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: TimeRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-28 03:33:51 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-08-28 16:27:36 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,6 +20,7 @@
 #include "vtkCellArray.h"
 #include "vtkConeSource.h"
 #include "vtkCubeSource.h"
+#include "vtkCullerCollection.h"
 #include "vtkGlyph3D.h"
 #include "vtkPoints.h"
 #include "vtkPolyData.h"

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFollower.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-27 14:51:17 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 2002-08-28 16:27:36 $
+  Version:   $Revision: 1.51 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -63,8 +63,7 @@ class VTK_RENDERING_EXPORT vtkFollower : public vtkActor
   // Description:
   // Copy the follower's composite 4x4 matrix into the matrix provided.
   virtual void GetMatrix(vtkMatrix4x4 *m);
-  virtual void GetMatrix(double m[16])
-    {this->GetMatrix(this->Matrix); vtkMatrix4x4::DeepCopy(m,this->Matrix);};
+  virtual void GetMatrix(double m[16]);
   virtual vtkMatrix4x4* GetMatrix()
     {return this->vtkActor::GetMatrix();}
 

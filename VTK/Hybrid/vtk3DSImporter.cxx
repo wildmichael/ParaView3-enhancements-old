@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtk3DSImporter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-13 12:29:50 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2002-08-28 16:27:35 $
+  Version:   $Revision: 1.31 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -17,6 +17,7 @@
 =========================================================================*/
 #include "vtk3DSImporter.h"
 
+#include "vtkActor.h"
 #include "vtkByteSwap.h"
 #include "vtkCamera.h"
 #include "vtkLight.h"
@@ -24,9 +25,10 @@
 #include "vtkPolyDataMapper.h"
 #include "vtkPolyDataNormals.h"
 #include "vtkProperty.h"
+#include "vtkRenderer.h"
 #include "vtkStripper.h"
 
-vtkCxxRevisionMacro(vtk3DSImporter, "$Revision: 1.30 $");
+vtkCxxRevisionMacro(vtk3DSImporter, "$Revision: 1.31 $");
 vtkStandardNewMacro(vtk3DSImporter);
 
 static vtk3DSColour Black = {0.0, 0.0, 0.0};

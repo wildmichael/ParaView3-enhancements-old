@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFollower.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-27 14:51:17 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 2002-08-28 16:27:36 $
+  Version:   $Revision: 1.42 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkFollower, "$Revision: 1.41 $");
+vtkCxxRevisionMacro(vtkFollower, "$Revision: 1.42 $");
 vtkStandardNewMacro(vtkFollower);
 
 vtkCxxSetObjectMacro(vtkFollower,Camera,vtkCamera);
@@ -227,6 +227,12 @@ void vtkFollower::Render(vtkRenderer *ren)
   this->Device->Render(ren,this->Mapper);
 
   matrix->Delete();
+}
+
+void vtkFollower::GetMatrix(double m[16])
+{
+  this->GetMatrix(this->Matrix); 
+  vtkMatrix4x4::DeepCopy(m,this->Matrix);
 }
 
 void vtkFollower::ShallowCopy(vtkProp *prop)

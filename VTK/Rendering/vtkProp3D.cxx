@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProp3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:39:08 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2002-08-28 16:27:36 $
+  Version:   $Revision: 1.28 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,15 +16,16 @@
 
 =========================================================================*/
 #include "vtkProp3D.h"
+
 #include "vtkActor.h"
 #include "vtkMatrixToLinearTransform.h"
+#include "vtkTransform.h"
 
-#include <stdlib.h>
 #include <math.h>
 
 typedef double (*SqMatPtr)[4];
 
-vtkCxxRevisionMacro(vtkProp3D, "$Revision: 1.27 $");
+vtkCxxRevisionMacro(vtkProp3D, "$Revision: 1.28 $");
 
 // Construct with the following defaults: origin(0,0,0) 
 // position=(0,0,0) and orientation=(0,0,0). No user defined 
@@ -525,6 +526,15 @@ void vtkProp3D::InitPathTraversal()
   path->Delete();
 
   this->Paths->InitTraversal();
+}
+
+vtkMatrix4x4* vtkProp3D::GetUserMatrix() 
+{ 
+  if (this->UserTransform) 
+    { 
+    this->UserTransform->Update(); 
+    }
+  return this->UserMatrix; 
 }
 
 void vtkProp3D::PrintSelf(ostream& os, vtkIndent indent)

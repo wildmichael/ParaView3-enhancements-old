@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProp3D.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:39:09 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2002-08-28 16:27:36 $
+  Version:   $Revision: 1.35 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -34,9 +34,10 @@
 #define __vtkProp3D_h
 
 #include "vtkProp.h"
-#include "vtkTransform.h"
 
 class vtkRenderer;
+class vtkTransform;
+class vtkLinearTransform;
 
 class VTK_RENDERING_EXPORT vtkProp3D : public vtkProp
 {
@@ -145,9 +146,7 @@ public:
   // Description:
   // The UserMatrix can be used in place of UserTransform.
   void SetUserMatrix(vtkMatrix4x4 *matrix);
-  vtkMatrix4x4 *GetUserMatrix() { 
-    if (this->UserTransform) { this->UserTransform->Update(); };
-    return this->UserMatrix; };
+  vtkMatrix4x4 *GetUserMatrix();
 
   // Description:
   // Return a reference to the Prop3D's 4x4 composite matrix.

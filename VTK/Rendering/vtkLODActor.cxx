@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLODActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-22 18:39:30 $
-  Version:   $Revision: 1.62 $
+  Date:      $Date: 2002-08-28 16:27:36 $
+  Version:   $Revision: 1.63 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,6 +19,7 @@
 
 #include "vtkMapperCollection.h"
 #include "vtkMaskPoints.h"
+#include "vtkMatrix4x4.h"
 #include "vtkObjectFactory.h"
 #include "vtkOutlineFilter.h"
 #include "vtkPolyDataMapper.h"
@@ -29,7 +30,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkLODActor, "$Revision: 1.62 $");
+vtkCxxRevisionMacro(vtkLODActor, "$Revision: 1.63 $");
 vtkStandardNewMacro(vtkLODActor);
 
 //----------------------------------------------------------------------------
