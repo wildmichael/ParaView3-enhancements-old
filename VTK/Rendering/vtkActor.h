@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor.h,v $
   Language:  C++
-  Date:      $Date: 1998-06-24 11:18:34 $
-  Version:   $Revision: 1.55 $
+  Date:      $Date: 1998-07-02 16:10:03 $
+  Version:   $Revision: 1.56 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -164,7 +164,10 @@ class VTK_EXPORT vtkActor : public vtkProp
   // Description:
   // The renderer may use the allocated rendering time to determine
   // how to render this actor. (LOD Experiment)
-  vtkSetMacro(AllocatedRenderTime, float);
+  // The set method is not a macro in order to avoid resetting the mtime of
+  // the actor - otherwise the actor would have been modified during every 
+  // render.
+  void SetAllocatedRenderTime(float t) {this->AllocatedRenderTime = t;};
   vtkGetMacro(AllocatedRenderTime, float);
   
 protected:
@@ -179,6 +182,12 @@ protected:
   
   // This is for LOD experiment
   float AllocatedRenderTime;
+
+  // Bounds are cached in an actor - the MapperBounds are also cache to
+  // help know when the Bounds need to be recomputed.
+  float        MapperBounds[6];
+  vtkTimeStamp BoundsMTime;
+
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCamera.h,v $
   Language:  C++
-  Date:      $Date: 1998-06-01 21:01:03 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 1998-07-02 16:10:06 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -192,6 +192,11 @@ class VTK_EXPORT vtkCamera : public vtkReferenceCount
 
   unsigned long int GetViewingRaysMTime();
   void              ViewingRaysModified();
+
+  // Description:
+  // Get the plane equations that bound the view frustum.
+  // The plane normals point inward.
+  void GetFrustumPlanes( float planes[24] );
 
  protected:
   float WindowCenter[2];
