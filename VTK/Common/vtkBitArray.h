@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBitArray.h,v $
   Language:  C++
-  Date:      $Date: 2001-06-21 15:21:50 $
-  Version:   $Revision: 1.54 $
+  Date:      $Date: 2001-06-24 19:06:44 $
+  Version:   $Revision: 1.55 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -129,7 +129,7 @@ public:
   // Description:
   // Insets values and checks to make sure there is enough memory
   void InsertValue(const vtkIdType id, const int i);
-  int InsertNextValue(const int i);
+  vtkIdType InsertNextValue(const int i);
 
   // Description:
   // Direct manipulation of the underlying data.
@@ -233,7 +233,7 @@ inline void vtkBitArray::InsertValue(const vtkIdType id, const int i)
     }
 }
 
-inline int vtkBitArray::InsertNextValue(const int i)
+inline vtkIdType vtkBitArray::InsertNextValue(const int i)
 {
   this->InsertValue (++this->MaxId,i); return this->MaxId;
 }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLongArray.h,v $
   Language:  C++
-  Date:      $Date: 2001-06-21 15:21:51 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2001-06-24 19:06:44 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -135,7 +135,7 @@ public:
 
   // Description:
   // Insert data at the end of the array. Return its location in the array.
-  int InsertNextValue(const long);
+  vtkIdType InsertNextValue(const long);
 
   // Description:
   // Get the address of a particular data index. Performs no checks
@@ -214,7 +214,7 @@ inline void vtkLongArray::InsertValue(const vtkIdType id, const long i)
     }
 }
 
-inline int vtkLongArray::InsertNextValue(const long i)
+inline vtkIdType vtkLongArray::InsertNextValue(const long i)
 {
   this->InsertValue (++this->MaxId,i); 
   return this->MaxId;

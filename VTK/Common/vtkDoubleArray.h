@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDoubleArray.h,v $
   Language:  C++
-  Date:      $Date: 2001-06-21 15:21:50 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 2001-06-24 19:06:44 $
+  Version:   $Revision: 1.47 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -135,7 +135,7 @@ public:
 
   // Description:
   // Insert data at the end of the array. Return its location in the array.
-  int InsertNextValue(const double f);
+  vtkIdType InsertNextValue(const double f);
 
   // Description:
   // Get the address of a particular data index. Make sure data is allocated
@@ -214,7 +214,7 @@ inline void vtkDoubleArray::InsertValue(const vtkIdType id, const double f)
     }
 }
 
-inline int vtkDoubleArray::InsertNextValue(const double f)
+inline vtkIdType vtkDoubleArray::InsertNextValue(const double f)
 {
   this->InsertValue (++this->MaxId,f); 
   return this->MaxId;

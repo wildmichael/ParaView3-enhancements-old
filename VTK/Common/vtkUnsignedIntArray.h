@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnsignedIntArray.h,v $
   Language:  C++
-  Date:      $Date: 2001-06-21 15:21:51 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2001-06-24 19:06:44 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -127,7 +127,7 @@ public:
 
   // Description:
   // Insert data at the end of the array. Return its location in the array.
-  int InsertNextValue(const unsigned int);
+  vtkIdType InsertNextValue(const unsigned int);
 
   // Description:
   // Get the address of a particular data index. Performs no checks
@@ -224,7 +224,7 @@ inline void vtkUnsignedIntArray::InsertValue(const vtkIdType id,
     }
 }
 
-inline int vtkUnsignedIntArray::InsertNextValue(const unsigned int i)
+inline vtkIdType vtkUnsignedIntArray::InsertNextValue(const unsigned int i)
 {
   this->InsertValue (++this->MaxId,i); 
   return this->MaxId;

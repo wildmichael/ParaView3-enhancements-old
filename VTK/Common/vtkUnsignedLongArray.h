@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnsignedLongArray.h,v $
   Language:  C++
-  Date:      $Date: 2001-06-21 15:21:51 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2001-06-24 19:06:44 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -127,7 +127,7 @@ public:
 
   // Description:
   // Insert data at the end of the array. Return its location in the array.
-  int InsertNextValue(const unsigned long);
+  vtkIdType InsertNextValue(const unsigned long);
 
   // Description:
   // Get the address of a particular data index. Performs no checks
@@ -224,7 +224,7 @@ inline void vtkUnsignedLongArray::InsertValue(const vtkIdType id,
     }
 }
 
-inline int vtkUnsignedLongArray::InsertNextValue(const unsigned long i)
+inline vtkIdType vtkUnsignedLongArray::InsertNextValue(const unsigned long i)
 {
   this->InsertValue (++this->MaxId,i); 
   return this->MaxId;

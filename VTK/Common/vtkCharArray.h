@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCharArray.h,v $
   Language:  C++
-  Date:      $Date: 2001-06-21 15:21:50 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2001-06-24 19:06:44 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -160,7 +160,7 @@ public:
 
   // Description:
   // Insert data at the end of the array. Return its location in the array.
-  int InsertNextValue(const char c);
+  vtkIdType InsertNextValue(const char c);
 
   // Description:
   // Get the address of a particular data index. Performs no checks
@@ -241,7 +241,7 @@ inline void vtkCharArray::InsertValue(const vtkIdType id, const char c)
     }
 }
 
-inline int vtkCharArray::InsertNextValue(const char c)
+inline vtkIdType vtkCharArray::InsertNextValue(const char c)
 {
   this->InsertValue (++this->MaxId,c); 
   return this->MaxId;
