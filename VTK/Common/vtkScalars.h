@@ -3,11 +3,11 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalars.h,v $
   Language:  C++
-  Date:      $Date: 1996-07-17 10:55:45 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 1996-08-02 19:58:14 $
+  Version:   $Revision: 1.37 $
 
 
-Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
+Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
 
 This software is copyrighted by Ken Martin, Will Schroeder and Bill Lorensen.
 The following terms apply to all files associated with the software unless
@@ -80,7 +80,7 @@ public:
 
   // For ImageData
   virtual int Allocate(const int sz, const int ext=1000) = 0;
-  virtual void *GetVoidPtr(int id) {id = id; return NULL;};
+  virtual void *GetVoidPtr(const int id) {(void)(id); return NULL;};
   
   // Description:
   // Create a copy of this object.
