@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-06-11 13:52:18 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2003-09-02 18:46:17 $
+  Version:   $Revision: 1.17 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -32,7 +32,7 @@
 
 #include <sys/stat.h>
 
-vtkCxxRevisionMacro(vtkXMLReader, "$Revision: 1.16 $");
+vtkCxxRevisionMacro(vtkXMLReader, "$Revision: 1.17 $");
 
 //----------------------------------------------------------------------------
 vtkXMLReader::vtkXMLReader()
@@ -639,7 +639,7 @@ void vtkXMLReader::DestroyStringArray(int numStrings, char** strings)
       delete [] strings[i];
       }
     }
-  delete strings;
+  delete [] strings;
 }
 
 //----------------------------------------------------------------------------
