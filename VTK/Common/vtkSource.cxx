@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-07-29 19:27:43 $
-  Version:   $Revision: 1.104 $
+  Date:      $Date: 2003-10-17 17:52:13 $
+  Version:   $Revision: 1.105 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 #include "vtkFieldData.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkSource, "$Revision: 1.104 $");
+vtkCxxRevisionMacro(vtkSource, "$Revision: 1.105 $");
 
 #ifndef NULL
 #define NULL 0
@@ -368,11 +368,29 @@ void vtkSource::UpdateData(vtkDataObject *output)
   // before we start to execute is 0.0.
   this->AbortExecute = 0;
   this->Progress = 0.0;
+
+  int skipExecute = 0;
   if (this->NumberOfInputs < this->NumberOfRequiredInputs)
     {
-    vtkErrorMacro(<< "At least " << this->NumberOfRequiredInputs << " inputs are required but only " << this->NumberOfInputs << " are specified");
+    vtkErrorMacro(<< "At least " << this->NumberOfRequiredInputs 
+                  << " inputs are required but only " << this->NumberOfInputs 
+                  << " are specified. Skipping execution.");
+    skipExecute = 1;
     }
   else
+    {
+    for (idx = 0; idx < this->NumberOfRequiredInputs; ++idx)
+      {
+      if (!this->Inputs[idx])
+        {
+        vtkErrorMacro(<< "Required input " << idx 
+                      << " is not assigned. Skipping execution.");
+        skipExecute = 1;
+        }
+      }
+    }
+
+  if (!skipExecute)
     {
     // Pass the vtkDataObject's field data from the first input
     // to all outputs
