@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEncodedGradientShader.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-01-01 22:07:28 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-02-10 18:15:56 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -488,15 +488,16 @@ void vtkEncodedGradientShader::BuildShadingTable( int index,
 	  *(ssb_ptr) += specular_value * light_color[2];
 	  }      
 	}
-      // Increment all the pointers      
-      nptr += 3;
-      sdr_ptr++;
-      sdg_ptr++;
-      sdb_ptr++;
-      ssr_ptr++;
-      ssg_ptr++;
-      ssb_ptr++;
       }
+
+    // Increment all the pointers      
+    nptr += 3;
+    sdr_ptr++;
+    sdg_ptr++;
+    sdb_ptr++;
+    ssr_ptr++;
+    ssg_ptr++;
+    ssb_ptr++;
     }
 }
 
