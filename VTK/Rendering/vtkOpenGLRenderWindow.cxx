@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-21 19:00:45 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1998-03-24 16:37:20 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -148,6 +148,7 @@ vtkOpenGLRenderWindow::vtkOpenGLRenderWindow()
   this->WindowId = (Window)NULL;
   this->NextWindowId = (Window)NULL;
   this->ColorMap = (Colormap)0;
+  this->OwnWindow = 0;
 
   if ( this->WindowName ) 
     delete [] this->WindowName;
@@ -176,7 +177,10 @@ vtkOpenGLRenderWindow::~vtkOpenGLRenderWindow()
       {
       XDestroyWindow(this->DisplayId,this->WindowId);
       }
-    XSync(this->DisplayId,0);
+    if (this->DisplayId)
+      {
+      XSync(this->DisplayId,0);
+      }
     }
 }
 
