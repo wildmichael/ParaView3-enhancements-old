@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProp3D.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-05 17:06:34 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2000-12-06 04:20:59 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -236,6 +236,10 @@ public:
   // Overload vtkProp's method for setting up assembly paths. See
   // the documentation for vtkProp.
   void InitPathTraversal();
+
+  // Description:
+  // Get a pointer to an internal vtkMatrix4x4. that represents
+  vtkMatrix4x4 *GetMatrix() { return this->Matrix; };
 
 #ifndef VTK_REMOVE_LEGACY_CODE
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTensorGlyph.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-10-20 13:58:11 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2000-12-06 04:20:59 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -308,10 +308,10 @@ void vtkTensorGlyph::Execute()
     trans->Scale(w[0], w[1], w[2]);
 
     // multiply points (and normals if available) by resulting matrix
-    trans->MultiplyPoints(sourcePts,newPts);
+    trans->TransformPoints(sourcePts,newPts);
     if ( newNormals )
       {
-      trans->MultiplyNormals(sourceNormals,newNormals);
+      trans->TransformNormals(sourceNormals,newNormals);
       }
 
     // Copy point data from source

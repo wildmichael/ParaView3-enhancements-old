@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMultipleInputFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-10-11 12:31:49 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 2000-12-06 04:20:59 $
+  Version:   $Revision: 1.47 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -151,6 +151,7 @@ void vtkImageMultipleInputFilter::ExecuteInformation()
   // Set the defaults from input1
   output->CopyTypeSpecificInformation(input);
 
+#ifndef VTK_REMOVE_LEGACY_CODE
   this->LegacyHack = 1;
   this->ExecuteImageInformation();
   if (this->LegacyHack)
@@ -158,7 +159,7 @@ void vtkImageMultipleInputFilter::ExecuteInformation()
     vtkWarningMacro("ExecuteImageInformation should be changed to ExecuteInformation(vtkImageData*, vtkImageData*)");
     return;
     }
-    
+#endif    
   // Let the subclass modify the default.
   this->ExecuteInformation((vtkImageData**)(this->Inputs), output);
 }

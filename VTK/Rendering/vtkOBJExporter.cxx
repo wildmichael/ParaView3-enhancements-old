@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOBJExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-06-08 09:11:04 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2000-12-06 04:20:59 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -198,7 +198,7 @@ void vtkOBJExporter::WriteAnActor(vtkActor *anActor, FILE *fpObj, FILE *fpMtl,
 
   // write out the points
   points = vtkPoints::New();
-  trans->MultiplyPoints(pd->GetPoints(),points);
+  trans->TransformPoints(pd->GetPoints(),points);
   for (i = 0; i < points->GetNumberOfPoints(); i++)
     {
     p = points->GetPoint(i);
@@ -212,7 +212,7 @@ void vtkOBJExporter::WriteAnActor(vtkActor *anActor, FILE *fpObj, FILE *fpMtl,
   if (pntData->GetNormals())
     {
     normals = vtkNormals::New();
-    trans->MultiplyNormals(pntData->GetNormals(),normals);
+    trans->TransformNormals(pntData->GetNormals(),normals);
     for (i = 0; i < normals->GetNumberOfNormals(); i++)
       {
       p = normals->GetNormal(i);

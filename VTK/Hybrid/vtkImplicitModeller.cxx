@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitModeller.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-11-08 22:13:02 $
-  Version:   $Revision: 1.67 $
+  Date:      $Date: 2000-12-06 04:20:59 $
+  Version:   $Revision: 1.68 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -512,11 +512,11 @@ void vtkImplicitModeller::Append(vtkDataSet *input)
     else
       {
       // if not PolyData, then copy the input for each thread
-      if ( input->GetDataSetType() != VTK_POLY_DATA )
+      if ( input->GetDataObjectType() != VTK_POLY_DATA )
         {
         for (i = 0; i < this->NumberOfThreads; i++)
           {
-          switch( input->GetDataSetType() )
+          switch( input->GetDataObjectType() )
             {
             case VTK_STRUCTURED_GRID:
               info.Input[i] = vtkStructuredGrid::New();
@@ -642,7 +642,7 @@ void vtkImplicitModeller::Append(vtkDataSet *input)
         {
         info.ProgressMutex->Delete();
         }
-      if ( input->GetDataSetType() != VTK_POLY_DATA )
+      if ( input->GetDataObjectType() != VTK_POLY_DATA )
         {
         for (i = 0; i < this->NumberOfThreads; i++)
           {

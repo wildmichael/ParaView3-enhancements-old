@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleTrackballActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-10-17 14:38:49 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2000-12-06 04:20:59 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -264,7 +264,7 @@ void vtkInteractorStyleTrackballActor::PanXY(int x, int y, int oldX, int oldY)
     t->SetMatrix(*(this->InteractionProp->GetUserMatrix()));
     t->Translate(this->MotionVector[0], this->MotionVector[1], 
 		 this->MotionVector[2]);
-    this->InteractionProp->GetUserMatrix()->DeepCopy(t->GetMatrixPointer());
+    this->InteractionProp->GetUserMatrix()->DeepCopy(t->GetMatrix());
     t->Delete();
     }
   else
@@ -313,7 +313,7 @@ void vtkInteractorStyleTrackballActor::DollyXY(int vtkNotUsed(dx), int dy)
     t->SetMatrix(*(this->InteractionProp->GetUserMatrix()));
     t->Translate(this->MotionVector[0], this->MotionVector[1], 
 		 this->MotionVector[2]);
-    this->InteractionProp->GetUserMatrix()->DeepCopy(t->GetMatrixPointer());
+    this->InteractionProp->GetUserMatrix()->DeepCopy(t->GetMatrix());
     t->Delete();
     }
   else

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCamera.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-05 17:06:33 $
-  Version:   $Revision: 1.70 $
+  Date:      $Date: 2000-12-06 04:20:59 $
+  Version:   $Revision: 1.71 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -272,7 +272,7 @@ class VTK_EXPORT vtkCamera : public vtkObject
   // Description:
   // Return the matrix of the view transform.
   vtkMatrix4x4 *GetViewTransformMatrix() { 
-    return this->ViewTransform->GetMatrixPointer(); };
+    return this->ViewTransform->GetMatrix(); };
   
   // Description:
   // Return the perspective transform matrix, which converts from camera

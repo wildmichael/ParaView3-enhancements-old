@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToImageFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-09-27 11:09:10 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2000-12-06 04:20:59 $
+  Version:   $Revision: 1.32 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -132,6 +132,7 @@ void vtkImageToImageFilter::ExecuteInformation()
 
   // take this opportunity to modify the defaults
 
+#ifndef VTK_REMOVE_LEGACY_CODE
   // for legacy
   this->LegacyHack = 1;
   this->ExecuteImageInformation();
@@ -141,6 +142,7 @@ void vtkImageToImageFilter::ExecuteInformation()
 		    << "You should write an ExecuteInformation(vtkImageData*, vtkImageData*)");
     return;
     }    
+#endif
   this->ExecuteInformation(input, output);
 }
 

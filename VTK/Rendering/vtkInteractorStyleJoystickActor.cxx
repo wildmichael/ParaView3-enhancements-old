@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleJoystickActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-10-17 14:38:17 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2000-12-06 04:20:59 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -274,7 +274,7 @@ void vtkInteractorStyleJoystickActor::PanXY(int x, int y)
     t->SetMatrix(*(this->InteractionProp->GetUserMatrix()));
     t->Translate(this->MotionVector[0], this->MotionVector[1],
                  this->MotionVector[2]);
-    this->InteractionProp->GetUserMatrix()->DeepCopy(t->GetMatrixPointer());
+    this->InteractionProp->GetUserMatrix()->DeepCopy(t->GetMatrix());
     t->Delete();
     }
   else
@@ -333,7 +333,7 @@ void vtkInteractorStyleJoystickActor::DollyXY(int vtkNotUsed(x), int y)
     t->SetMatrix(*(this->InteractionProp->GetUserMatrix()));
     t->Translate(this->MotionVector[0], this->MotionVector[1],
                  this->MotionVector[2]);
-    this->InteractionProp->GetUserMatrix()->DeepCopy(t->GetMatrixPointer());
+    this->InteractionProp->GetUserMatrix()->DeepCopy(t->GetMatrix());
     t->Delete();
     }
   else

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGlyph2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-09-25 20:13:49 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2000-12-06 04:20:59 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -404,11 +404,11 @@ void vtkGlyph2D::Execute()
       }
     
     // multiply points and normals by resulting matrix
-    trans->MultiplyPoints(sourcePts,newPts);
+    trans->TransformPoints(sourcePts,newPts);
     
     if ( haveNormals )
       {
-      trans->MultiplyNormals(sourceNormals,newNormals);
+      trans->TransformNormals(sourceNormals,newNormals);
       }
     
     // Copy point data from source (if possible)
