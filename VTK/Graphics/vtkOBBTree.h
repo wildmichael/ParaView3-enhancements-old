@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOBBTree.h,v $
   Language:  C++
-  Date:      $Date: 1996-05-09 20:10:34 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1996-05-17 21:13:35 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -98,7 +98,6 @@ class vtkOBBTree : public vtkCellLocator
 public:
   vtkOBBTree();
   char *GetClassName() {return "vtkOBBTree";};
-  void FreeSearchStructure();
 
   void ComputeOBB(vtkFloatPoints *pts, float corner[3], float max[3], 
                   float mid[3], float min[3], float size[3]);
@@ -107,14 +106,12 @@ public:
                         float x[3], float pcoords[3],int &subId);
 
   // satisfy locator'a abstract interface
+  void FreeSearchStructure();
+  void BuildLocator();
   void GenerateRepresentation(int level, vtkPolyData *pd);
 
 protected:
-  void BuildLocator();
-
   vtkOBBNode *Tree;
-
-  // methods and variables for building OBB tree
   void BuildTree(vtkIdList *cells, vtkOBBNode *parent, int level);
   vtkFloatPoints *PointsList;
   int *InsertedPoints;
