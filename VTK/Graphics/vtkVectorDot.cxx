@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectorDot.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 18:11:26 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2001-08-13 14:36:03 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -72,8 +72,8 @@ void vtkVectorDot::Execute()
   vtkIdType ptId, numPts;
   vtkFloatArray *newScalars;
   vtkDataSet *input = this->GetInput();
-  vtkNormals *inNormals;
-  vtkVectors *inVectors;
+  vtkDataArray *inNormals;
+  vtkDataArray *inVectors;
   float s, *n, *v, min, max, dR, dS;
   vtkDataSet *output = this->GetOutput();
   vtkPointData *pd=input->GetPointData(), *outPD=output->GetPointData();
@@ -90,12 +90,12 @@ void vtkVectorDot::Execute()
     vtkErrorMacro(<< "No points!");
     return;
     }
-  if ( (inVectors=pd->GetVectors()) == NULL )
+  if ( (inVectors=pd->GetActiveVectors()) == NULL )
     {
     vtkErrorMacro(<< "No vectors defined!");
     return;
     }
-  if ( (inNormals=pd->GetNormals()) == NULL )
+  if ( (inNormals=pd->GetActiveNormals()) == NULL )
     {
     vtkErrorMacro(<< "No normals defined!");
     return;
@@ -118,8 +118,8 @@ void vtkVectorDot::Execute()
       this->UpdateProgress ((float)ptId/numPts);
       abort = this->GetAbortExecute();
       }
-    n = inNormals->GetNormal(ptId);
-    v = inVectors->GetVector(ptId);
+    n = inNormals->GetTuple(ptId);
+    v = inVectors->GetTuple(ptId);
     s = vtkMath::Dot(n,v);
     if ( s < min )
       {

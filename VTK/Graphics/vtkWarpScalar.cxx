@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpScalar.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 18:11:26 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2001-08-13 14:36:03 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -65,19 +65,19 @@ vtkWarpScalar::vtkWarpScalar()
   this->XYPlane = 0;
 }
 
-float *vtkWarpScalar::DataNormal(vtkIdType id, vtkNormals *normals)
+float *vtkWarpScalar::DataNormal(vtkIdType id, vtkDataArray *normals)
 {
-  return normals->GetNormal(id);
+  return normals->GetTuple(id);
 }
 
 float *vtkWarpScalar::InstanceNormal(vtkIdType vtkNotUsed(id), 
-				     vtkNormals *vtkNotUsed(normals))
+				     vtkDataArray *vtkNotUsed(normals))
 {
   return this->Normal;
 }
 
 float *vtkWarpScalar::ZNormal(vtkIdType vtkNotUsed(id), 
-			      vtkNormals *vtkNotUsed(normals))
+			      vtkDataArray *vtkNotUsed(normals))
 {
   static float zNormal[3]={0.0,0.0,1.0};
   return zNormal;
@@ -86,7 +86,7 @@ float *vtkWarpScalar::ZNormal(vtkIdType vtkNotUsed(id),
 void vtkWarpScalar::Execute()
 {
   vtkPoints *inPts;
-  vtkNormals *inNormals;
+  vtkDataArray *inNormals;
   vtkDataArray *inScalars;
   vtkPoints *newPts;
   vtkPointData *pd;
@@ -103,7 +103,7 @@ void vtkWarpScalar::Execute()
 
   inPts = input->GetPoints();
   pd = input->GetPointData();
-  inNormals = pd->GetNormals();
+  inNormals = pd->GetActiveNormals();
   inScalars = pd->GetActiveScalars();
 
   if ( !inPts || !inScalars )
