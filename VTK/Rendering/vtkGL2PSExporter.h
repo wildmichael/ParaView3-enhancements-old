@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGL2PSExporter.h,v $
   Language:  C++
-  Date:      $Date: 2003-10-11 10:51:11 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2003-10-21 06:59:51 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -73,8 +73,8 @@
 //
 // $ gcc -g -O2 -c gl2ps.c; ar crvu libgl2ps.a gl2ps.o; ranlib libgl2ps.a
 //
-// If you are generating a DLL for Windows add a -DGL2PSDLL option at
-// compile time.
+// If you are generating a DLL for Windows add a GL2PSDLL and a
+// GL2PSDLL_EXPORTS preprocessor define at compile time.
 
 // .SECTION Caveats
 // By default (with Write3DPropsAsRasterImage set to Off) exporting
