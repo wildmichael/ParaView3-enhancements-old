@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInterpolatedVelocityField.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-02-11 21:05:37 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2003-02-12 17:01:02 $
+  Version:   $Revision: 1.24 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,11 +22,10 @@
 #include "vtkGenericCell.h"
 #include "vtkObjectFactory.h"
 #include "vtkPointData.h"
-#include "vtkSmartPointer.h"
 
 #include <vector>
 
-vtkCxxRevisionMacro(vtkInterpolatedVelocityField, "$Revision: 1.23 $");
+vtkCxxRevisionMacro(vtkInterpolatedVelocityField, "$Revision: 1.24 $");
 vtkStandardNewMacro(vtkInterpolatedVelocityField);
 
 typedef vtkstd::vector< vtkDataSet* > DataSetsTypeBase;
