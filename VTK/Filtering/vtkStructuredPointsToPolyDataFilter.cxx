@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsToPolyDataFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-22 12:48:07 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2001-06-05 07:34:59 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -66,6 +66,10 @@ void vtkStructuredPointsToPolyDataFilter::ComputeInputUpdateExtents(
 {
   this->vtkPolyDataSource::ComputeInputUpdateExtents(output);
 
+  if (!this->GetInput())
+    {
+    return;
+    }
   // assume that we cannot handle more than the requested extent.
   this->GetInput()->RequestExactExtentOn();
 }
