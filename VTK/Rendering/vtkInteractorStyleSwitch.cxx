@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleSwitch.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-24 19:07:48 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2002-04-25 03:01:11 $
+  Version:   $Revision: 1.15 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 #include "vtkInteractorStyleTrackballActor.h"
 #include "vtkInteractorStyleTrackballCamera.h"
 
-vtkCxxRevisionMacro(vtkInteractorStyleSwitch, "$Revision: 1.14 $");
+vtkCxxRevisionMacro(vtkInteractorStyleSwitch, "$Revision: 1.15 $");
 vtkStandardNewMacro(vtkInteractorStyleSwitch);
 
 //----------------------------------------------------------------------------
@@ -228,5 +228,9 @@ void vtkInteractorStyleSwitch::PrintSelf(ostream& os, vtkIndent indent)
 {
   this->Superclass::PrintSelf(os,indent);
   os << indent << "CurrentStyle " << this->CurrentStyle << "\n";
+  if (this->CurrentStyle)
+    {
+    this->CurrentStyle->PrintSelf(os, indent.GetNextIndent());
+    }
 }
 
