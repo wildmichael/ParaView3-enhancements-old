@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: H5FDndgm.c,v 1.4 2003-10-31 15:57:53 clarke Exp $  */
-/*  Date : $Date: 2003-10-31 15:57:53 $ */
-/*  Version : $Revision: 1.4 $ */
+/*  Id : $Id: H5FDndgm.c,v 1.5 2003-10-31 16:05:40 clarke Exp $  */
+/*  Date : $Date: 2003-10-31 16:05:40 $ */
+/*  Version : $Revision: 1.5 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -35,9 +35,9 @@
 #include "stdlib.h"
 #include "Ndgm/ndgm.h"
 
-/**/
+/*
 #define HDF_IO_DEBUG    1
-/**/
+*/
 
 /*
 #ifdef XDMF_NOT_USED
