@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLImageWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-12-06 21:59:13 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1999-12-10 16:04:23 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -686,7 +686,10 @@ void vtkOpenGLImageWindow::SetRGBAPixelData(int x1, int y1, int x2, int y2,
 void vtkOpenGLImageWindow::MakeCurrent()
 {
   // set the current window 
-  if (this->ContextId && (this->ContextId != glXGetCurrentContext()))
+  if (this->DisplayId
+      && this->WindowId
+      && this->ContextId
+      && (this->ContextId != glXGetCurrentContext()))
     {
     glXMakeCurrent(this->DisplayId,this->WindowId,this->ContextId);
     }
