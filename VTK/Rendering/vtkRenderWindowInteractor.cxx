@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-19 16:38:30 $
-  Version:   $Revision: 1.89 $
+  Date:      $Date: 2002-04-26 21:51:19 $
+  Version:   $Revision: 1.90 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 #include "vtkMath.h"
 #include "vtkOldStyleCallbackCommand.h"
 
-vtkCxxRevisionMacro(vtkRenderWindowInteractor, "$Revision: 1.89 $");
+vtkCxxRevisionMacro(vtkRenderWindowInteractor, "$Revision: 1.90 $");
 
 // Construct object so that light follows camera motion.
 vtkRenderWindowInteractor::vtkRenderWindowInteractor()
@@ -441,9 +441,14 @@ vtkRenderer* vtkRenderWindowInteractor::FindPokedRenderer(int x,int y)
 }
 
 //----------------------------------------------------------------------------
-vtkCamera*  vtkRenderWindowInteractor::FindPokedCamera(int x,int y) 
+vtkCamera* vtkRenderWindowInteractor::FindPokedCamera(int x,int y) 
 {
-  return this->FindPokedRenderer(x,y)->GetActiveCamera();
+  vtkRenderer *aren = this->FindPokedRenderer(x,y);
+  if (aren != NULL) 
+    {
+    return aren->GetActiveCamera();
+    }
+  return NULL;
 }
 
 void vtkRenderWindowInteractor::PrintSelf(ostream& os, vtkIndent indent)
