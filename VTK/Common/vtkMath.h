@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMath.h,v $
   Language:  C++
-  Date:      $Date: 1999-04-14 14:51:22 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 1999-04-28 19:54:18 $
+  Version:   $Revision: 1.49 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -292,6 +292,19 @@ public:
   static int SolveLinear( double c0, double c1, double *r1, int *num_roots );
 
 
+  // Description:
+  // Solves for the least squares best fit matrix for the equation X'M' = Y'.
+  // Uses pseudoinverse to get the ordinary least squares. 
+  // The inputs and output are transposed matrices.
+  //    Dimensions: X' is numberOfSamples by xOrder,
+  //                Y' is numberOfSamples by yOrder,
+  //                M' dimension is xOrder by yOrder.
+  // M' should be pre-allocated. All matrices are row major. The resultant
+  // matrix M' should be pre-multiplied to X' to get Y', or transposed and
+  // then post multiplied to X to get Y
+  static int SolveLeastSquares(int numberOfSamples, double **xt, int xOrder,
+                               double **yt, int yOrder, double **mt);
+  
 protected:
   static long Seed;
 };
