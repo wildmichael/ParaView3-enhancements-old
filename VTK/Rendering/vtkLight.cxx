@@ -3,8 +3,8 @@
   Program:   OSCAR 
   Module:    $RCSfile: vtkLight.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-01-05 17:12:54 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1994-01-06 11:09:38 $
+  Version:   $Revision: 1.2 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -14,6 +14,7 @@ This file is part of the vis library
 
 =========================================================================*/
 #include <stdlib.h>
+#include <iostream.h>
 #include "Light.h"
 
 Light::Light()
@@ -115,7 +116,7 @@ Light *LightCollection::GetMember(int num)
 
   if (num > this->NumberOfItems)
     {
-    fprintf(stderr,"Light.cc Requesting illegal index\n");
+    cerr << "Light: Requesting illegal index\n";
     return this->Top->Light;
     }
 
