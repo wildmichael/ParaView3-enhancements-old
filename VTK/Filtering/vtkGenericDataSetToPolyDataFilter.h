@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGenericDataSetToPolyDataFilter.h,v $
   Language:  C++
-  Date:      $Date: 2004-08-20 13:39:36 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2004-08-21 14:22:38 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -33,8 +33,7 @@
 
 class vtkGenericDataSet;
 
-class VTK_FILTERING_EXPORT vtkGenericDataSetToPolyDataFilter
-  : public vtkPolyDataSource
+class VTK_FILTERING_EXPORT vtkGenericDataSetToPolyDataFilter : public vtkPolyDataSource
 {
 public:
   vtkTypeRevisionMacro(vtkGenericDataSetToPolyDataFilter,vtkPolyDataSource);
@@ -59,8 +58,8 @@ protected:
     }
   
 private:
-  vtkGenericDataSetToPolyDataFilter(const vtkGenericDataSetToPolyDataFilter&);  // Not implemented.
-  void operator=(const vtkGenericDataSetToPolyDataFilter&);  // Not implemented.
+  vtkGenericDataSetToPolyDataFilter(const vtkGenericDataSetToPolyDataFilter&); // Not implemented
+  void operator=(const vtkGenericDataSetToPolyDataFilter&); // Not implemented
 };
 
 #endif
