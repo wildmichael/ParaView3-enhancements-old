@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-11-18 20:57:52 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1997-03-14 15:06:57 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -48,6 +48,7 @@ vtkXRenderWindow::vtkXRenderWindow()
 {
   this->DisplayId = (Display *)NULL;
   this->WindowId = (Window)NULL;
+  this->ParentId = (Window)NULL;
   this->NextWindowId = (Window)NULL;
   this->ColorMap = (Colormap)NULL;
   this->ScreenSize[0] = 0;
@@ -139,11 +140,18 @@ Display *vtkXRenderWindow::GetDisplayId()
 }
 
 // Description:
+// Get this RenderWindow's parent X window id.
+Window vtkXRenderWindow::GetParentId()
+{
+  vtkDebugMacro(<< "Returning ParentId of " << (void *)this->ParentId << "\n");
+  return this->WindowId;
+}
+
+// Description:
 // Get this RenderWindow's X window id.
 Window vtkXRenderWindow::GetWindowId()
 {
-  vtkDebugMacro(<< "Returning WindowId of " << (void *)this->WindowId << "\n"); 
-
+  vtkDebugMacro(<< "Returning WindowId of " << (void *)this->WindowId << "\n");
   return this->WindowId;
 }
 
@@ -166,6 +174,21 @@ void vtkXRenderWindow::SetPosition(int x, int y)
   XMoveResizeWindow(this->DisplayId,this->WindowId,x,y,
                     this->Size[0], this->Size[1]);
   XSync(this->DisplayId,False);
+}
+
+// Description:
+// Sets the parent of the window that WILL BE created.
+void vtkXRenderWindow::SetParentId(Window arg)
+{
+  if (this->ParentId)
+    {
+    vtkErrorMacro("ParentId is already set.");
+    return;
+    }
+  
+  vtkDebugMacro(<< "Setting ParentId to " << (void *)arg << "\n"); 
+
+  this->ParentId = arg;
 }
 
 // Description:
