@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSource.h,v $
   Language:  C++
-  Date:      $Date: 1996-07-16 18:53:31 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1996-07-31 19:25:50 $
+  Version:   $Revision: 1.4 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -59,7 +59,9 @@ class vtkImageRegion;
 class vtkImageSource : public vtkObject 
 {
 public:
+  vtkImageSource();
   char *GetClassName() {return "vtkImageSource";};
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // This method should the allocate and generate the Region's data, or

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.h,v $
   Language:  C++
-  Date:      $Date: 1996-07-26 17:03:07 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1996-07-31 19:25:40 $
+  Version:   $Revision: 1.8 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -70,6 +70,16 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #define VTK_IMAGE_UNSIGNED_SHORT  4
 #define VTK_IMAGE_UNSIGNED_CHAR   5
 
+// A macro to get the name of a type
+#define vtkImageDataTypeNameMacro(type) \
+(((type) == VTK_IMAGE_VOID) ? "void" : \
+(((type) == VTK_IMAGE_FLOAT) ? "float" : \
+(((type) == VTK_IMAGE_INT) ? "int" : \
+(((type) == VTK_IMAGE_SHORT) ? "short" : \
+(((type) == VTK_IMAGE_UNSIGNED_SHORT) ? "unsigned short" : \
+(((type) == VTK_IMAGE_UNSIGNED_CHAR) ? "unsigned char" : \
+"Undefined"))))))
+
 
 
 class vtkImageData : public vtkRefCount
@@ -78,6 +88,7 @@ public:
   vtkImageData();
   ~vtkImageData();
   char *GetClassName() {return "vtkImageData";};
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   int GetReferenceCount();
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-07-16 18:53:30 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1996-07-31 19:25:48 $
+  Version:   $Revision: 1.4 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -40,6 +40,27 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkImageSource.hh"
 
 
+//----------------------------------------------------------------------------
+vtkImageSource::vtkImageSource()
+{
+  this->SplitFactor = 2;
+}
+
+
+
+
+
+//----------------------------------------------------------------------------
+// Description:
+// Destructor: Deleting a vtkImageRegion automatically deletes the associated
+// vtkImageData.  However, since the data is reference counted, it may not 
+// actually be deleted.
+void vtkImageSource::PrintSelf(ostream& os, vtkIndent indent)
+{
+  vtkObject::PrintSelf(os,indent);
+  os << indent << "SplitFactor: " << this->SplitFactor << "\n";
+}
+  
 
 //----------------------------------------------------------------------------
 // Description:

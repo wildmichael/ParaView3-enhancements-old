@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-07-26 17:03:06 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1996-07-31 19:25:36 $
+  Version:   $Revision: 1.7 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -68,6 +68,34 @@ vtkImageData::~vtkImageData()
     }
 }
 
+//----------------------------------------------------------------------------
+void vtkImageData::PrintSelf(ostream& os, vtkIndent indent)
+{
+  vtkRefCount::PrintSelf(os,indent);
+  os << indent << "Type: " << vtkImageDataTypeNameMacro(this->Type) << "\n";
+  
+  os << indent << "Bounds: (";
+  os << this->Bounds[0] << ", " << this->Bounds[1] << ", ";
+  os << this->Bounds[2] << ", " << this->Bounds[3] << ", ";
+  os << this->Bounds[4] << ", " << this->Bounds[5] << ", ";
+  os << this->Bounds[6] << ", " << this->Bounds[7] << ")\n";
+
+  os << indent << "Increments: (";
+  os << this->Increments[0] << ", ";
+  os << this->Increments[1] << ", ";
+  os << this->Increments[2] << ", ";
+  os << this->Increments[3] << ")\n";
+
+  if ( ! this->Scalars)
+    {
+    os << indent << "Scalars: NULL\n";
+    }
+  else
+    {
+    os << indent << "Scalars:\n";
+    this->Scalars->PrintSelf(os,indent.GetNextIndent());
+    }
+}
 
 
 
