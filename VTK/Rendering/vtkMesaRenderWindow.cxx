@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:05:52 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2000-02-10 20:12:16 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -157,6 +157,7 @@ XVisualInfo *vtkMesaRenderWindow::GetDesiredVisualInfo()
 vtkMesaRenderWindow::vtkMesaRenderWindow()
 {
   this->OffScreenContextId = NULL;
+  this->OffScreenWindow = NULL;
   this->ContextId = NULL;
   this->DisplayId = (Display *)NULL;
   this->WindowId = (Window)NULL;
