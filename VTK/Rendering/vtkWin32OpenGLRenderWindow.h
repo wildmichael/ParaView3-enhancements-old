@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:08:30 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1999-10-12 18:45:32 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -259,9 +259,6 @@ protected:
 				  WPARAM wParam, LPARAM lParam);
   //ETX
   
-  // these are used int he window creation code
-  static vtkWin32OpenGLRenderWindow *TempPointerToThis;
-  static vtkMutexLock *WindowMutex;
 };
 
 

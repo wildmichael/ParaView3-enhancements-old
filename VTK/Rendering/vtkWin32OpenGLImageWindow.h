@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLImageWindow.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:09:31 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-10-12 18:45:59 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -198,9 +198,6 @@ protected:
 				  WPARAM wParam, LPARAM lParam);
   //ETX
   
-  // these are used in the window creation code
-  static vtkWin32OpenGLImageWindow *TempPointerToThis;
-  static vtkMutexLock *WindowMutex;
 };
 
 
