@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleSwitch.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-03 19:30:38 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2002-05-27 19:34:32 $
+  Version:   $Revision: 1.21 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 #include "vtkInteractorStyleTrackballActor.h"
 #include "vtkInteractorStyleTrackballCamera.h"
 
-vtkCxxRevisionMacro(vtkInteractorStyleSwitch, "$Revision: 1.20 $");
+vtkCxxRevisionMacro(vtkInteractorStyleSwitch, "$Revision: 1.21 $");
 vtkStandardNewMacro(vtkInteractorStyleSwitch);
 
 //----------------------------------------------------------------------------
@@ -119,18 +119,22 @@ void vtkInteractorStyleSwitch::OnChar()
     case 'j':
     case 'J':
       this->JoystickOrTrackball = VTKIS_JOYSTICK;
+      this->EventCallbackCommand->SetAbortFlag(1);
       break;
     case 't':
     case 'T':
       this->JoystickOrTrackball = VTKIS_TRACKBALL;
+      this->EventCallbackCommand->SetAbortFlag(1);
       break;
     case 'c':
     case 'C':  
       this->CameraOrActor = VTKIS_CAMERA;
+      this->EventCallbackCommand->SetAbortFlag(1);
       break;
     case 'a':
     case 'A':
       this->CameraOrActor = VTKIS_ACTOR;
+      this->EventCallbackCommand->SetAbortFlag(1);
       break;
     }
   // Set the CurrentStyle pointer to the picked style
