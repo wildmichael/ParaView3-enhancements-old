@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCheckerboard.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:31:59 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-06-14 17:28:04 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkImageCheckerboard.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkImageCheckerboard, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkImageCheckerboard, "$Revision: 1.7 $");
 vtkStandardNewMacro(vtkImageCheckerboard);
 
 //----------------------------------------------------------------------------
@@ -33,7 +33,7 @@ vtkImageCheckerboard::vtkImageCheckerboard()
 // This templated function executes the filter for any type of data.
 // Handles the two input operations
 template <class T>
-static void vtkImageCheckerboardExecute2(vtkImageCheckerboard *self,
+void vtkImageCheckerboardExecute2(vtkImageCheckerboard *self,
                                   vtkImageData *in1Data, T *in1Ptr,
                                   vtkImageData *in2Data, T *in2Ptr,
                                   vtkImageData *outData, 
@@ -159,8 +159,8 @@ static void vtkImageCheckerboardExecute2(vtkImageCheckerboard *self,
 // This method is passed a input and output regions, and executes the filter
 // algorithm to fill the output from the inputs.
 void vtkImageCheckerboard::ThreadedExecute(vtkImageData **inData, 
-                                    vtkImageData *outData,
-                                    int outExt[6], int id)
+                                           vtkImageData *outData,
+                                           int outExt[6], int id)
 {
   void *in1Ptr, *in2Ptr;
   void *outPtr;

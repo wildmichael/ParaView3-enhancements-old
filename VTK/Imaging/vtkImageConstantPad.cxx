@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageConstantPad.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:32:05 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2002-06-14 17:28:04 $
+  Version:   $Revision: 1.32 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkImageConstantPad.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkImageConstantPad, "$Revision: 1.31 $");
+vtkCxxRevisionMacro(vtkImageConstantPad, "$Revision: 1.32 $");
 vtkStandardNewMacro(vtkImageConstantPad);
 
 //----------------------------------------------------------------------------
@@ -33,10 +33,10 @@ vtkImageConstantPad::vtkImageConstantPad()
 //----------------------------------------------------------------------------
 // This templated function executes the filter for any type of data.
 template <class T>
-static void vtkImageConstantPadExecute(vtkImageConstantPad *self,
-                                       vtkImageData *inData, T *inPtr,
-                                       vtkImageData *outData, T *outPtr,
-                                       int outExt[6], int inExt[6], int id)
+void vtkImageConstantPadExecute(vtkImageConstantPad *self,
+                                vtkImageData *inData, T *inPtr,
+                                vtkImageData *outData, T *outPtr,
+                                int outExt[6], int inExt[6], int id)
 {
   int idxC, idxX, idxY, idxZ;
   int maxC, maxX, maxY, maxZ;
