@@ -1,9 +1,10 @@
+#include "vtk_zlib_mangle.h"
 /* zconf.h -- configuration of the zlib compression library
  * Copyright (C) 1995-2002 Jean-loup Gailly.
  * For conditions of distribution and use, see copyright notice in zlib.h 
  */
 
-/* @(#) $Id: zconf.h,v 1.8 2002-05-16 15:50:59 andy Exp $ */
+/* @(#) $Id: zconf.h,v 1.9 2004-04-21 13:32:20 king Exp $ */
 
 #ifndef _ZCONF_H
 #define _ZCONF_H
