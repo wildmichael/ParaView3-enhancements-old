@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkWidgetsInit.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-18 15:18:51 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2002-12-18 15:58:29 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -44,12 +44,25 @@ extern "C" {VTK_TK_EXPORT int Vtkrenderingpythontkwidgets_Init(Tcl_Interp *inter
 extern "C" 
 {
   int vtkTkRenderWidget_Cmd(ClientData clientData, Tcl_Interp *interp, 
-                            int argc, char **argv);
+                            int argc, 
+#if (TCL_MAJOR_VERSION == 8) && (TCL_MINOR_VERSION >= 4 && TCL_RELEASE_LEVEL >= TCL_FINAL_RELEASE)
+                            CONST84
+#endif
+                            char **argv);
+
   int vtkTkImageViewerWidget_Cmd(ClientData clientData, Tcl_Interp *interp, 
-                                 int argc, char **argv);
+                                 int argc, 
+#if (TCL_MAJOR_VERSION == 8) && (TCL_MINOR_VERSION >= 4 && TCL_RELEASE_LEVEL >= TCL_FINAL_RELEASE)
+                                 CONST84
+#endif
+                                 char **argv);
   int vtkImageDataToTkPhoto_Cmd (ClientData clientData,
                                          Tcl_Interp *interp, 
-                                         int argc, char **argv);
+                                         int argc, 
+#if (TCL_MAJOR_VERSION == 8) && (TCL_MINOR_VERSION >= 4 && TCL_RELEASE_LEVEL >= TCL_FINAL_RELEASE)
+                                 CONST84
+#endif
+                                 char **argv);
 }
 
 int Vtkrenderingpythontkwidgets_Init(Tcl_Interp *interp)
