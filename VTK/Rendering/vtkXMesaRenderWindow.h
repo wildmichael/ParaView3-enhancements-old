@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMesaRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-09 14:17:48 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2002-08-22 22:00:34 $
+  Version:   $Revision: 1.13 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,8 +26,8 @@
 #define __vtkXMesaRenderWindow_h
 
 #include "vtkMesaRenderWindow.h"
-#include <X11/Xlib.h>
-#include <X11/Xutil.h>
+#include <X11/Xlib.h> // Needed for X types used in the public interface
+#include <X11/Xutil.h> // Needed for X types used in the public interface
 
 class vtkIdList;
 class vtkXMesaRenderWindowInternal;

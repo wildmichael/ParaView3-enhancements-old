@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProperty.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-26 21:18:00 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2002-08-22 22:00:34 $
+  Version:   $Revision: 1.32 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,9 +16,12 @@
 
 =========================================================================*/
 #include "vtkVolumeProperty.h"
-#include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkVolumeProperty, "$Revision: 1.31 $");
+#include "vtkObjectFactory.h"
+#include "vtkPiecewiseFunction.h"
+#include "vtkColorTransferFunction.h"
+
+vtkCxxRevisionMacro(vtkVolumeProperty, "$Revision: 1.32 $");
 vtkStandardNewMacro(vtkVolumeProperty);
 
 // Construct a new vtkVolumeProperty with default values

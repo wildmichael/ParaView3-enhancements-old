@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: volProt.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-08 13:50:50 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2002-08-22 22:00:34 $
+  Version:   $Revision: 1.14 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -30,6 +30,7 @@
 #include "vtkVolumeRayCastMIPFunction.h"
 #include "vtkVolumeRayCastMapper.h"
 #include "vtkVolumeTextureMapper2D.h"
+#include "vtkColorTransferFunction.h"
 
 #include "vtkRegressionTestImage.h"
 #include "vtkDebugLeaks.h"

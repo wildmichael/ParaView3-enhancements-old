@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:39:59 $
-  Version:   $Revision: 1.64 $
+  Date:      $Date: 2002-08-22 22:00:34 $
+  Version:   $Revision: 1.65 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -37,8 +37,8 @@
 // now we define the C++ class
 
 #include "vtkRenderWindowInteractor.h"
-#include <X11/StringDefs.h>
-#include <X11/Intrinsic.h>
+#include <X11/StringDefs.h> // Needed for X types in the public interface
+#include <X11/Intrinsic.h> // Needed for X types in the public interface
 
 class VTK_RENDERING_EXPORT vtkXRenderWindowInteractor : public vtkRenderWindowInteractor
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastCompositeFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-07-11 19:56:22 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2002-08-22 22:00:34 $
+  Version:   $Revision: 1.35 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,14 +16,16 @@
 
 =========================================================================*/
 #include "vtkVolumeRayCastCompositeFunction.h"
+
+#include "vtkObjectFactory.h"
+#include "vtkPiecewiseFunction.h"
+#include "vtkVolume.h"
 #include "vtkVolumeProperty.h"
 #include "vtkVolumeRayCastMapper.h"
-#include "vtkVolume.h"
-#include "vtkObjectFactory.h"
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkVolumeRayCastCompositeFunction, "$Revision: 1.34 $");
+vtkCxxRevisionMacro(vtkVolumeRayCastCompositeFunction, "$Revision: 1.35 $");
 vtkStandardNewMacro(vtkVolumeRayCastCompositeFunction);
 
 #define VTK_REMAINING_OPACITY           0.02
