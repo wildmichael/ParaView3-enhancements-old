@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCamera.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:24:59 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1995-07-10 17:56:07 $
+  Version:   $Revision: 1.23 $
 
 This file is part of the Visualization Toolkit. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -52,7 +52,7 @@ vtkCamera::vtkCamera()
 
   this->ViewPlaneNormal[0] = 0.0;
   this->ViewPlaneNormal[1] = 0.0;
-  this->ViewPlaneNormal[2] = 1.0;
+  this->ViewPlaneNormal[2] = -1.0;
 
   this->Orientation[0] = 0.0;
   this->Orientation[1] = 0.0;
