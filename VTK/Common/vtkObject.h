@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObject.h,v $
   Language:  C++
-  Date:      $Date: 2002-09-03 20:53:06 $
-  Version:   $Revision: 1.92 $
+  Date:      $Date: 2002-09-05 12:15:34 $
+  Version:   $Revision: 1.93 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -192,9 +192,9 @@ public:
   //BTX
   int InvokeEvent(unsigned long event, void *callData);
   int InvokeEvent(const char *event, void *callData);
+  //ETX
   int InvokeEvent(unsigned long event) { return this->InvokeEvent(event, NULL); };
   int InvokeEvent(const char *event) { return this->InvokeEvent(event, NULL); };
-  //ETX
   
 protected:
   vtkObject(); 
