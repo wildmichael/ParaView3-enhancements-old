@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXOpenGLTextMapper.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 15:57:22 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2000-11-02 21:04:51 $
+  Version:   $Revision: 1.11 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -61,6 +61,8 @@ public:
   // Description:
   // Actally draw the text.
   void RenderOpaqueGeometry(vtkViewport* viewport, vtkActor2D* actor);
+  void RenderTranslucentGeometry(vtkViewport* viewport, vtkActor2D* actor);
+  void RenderGeometry(vtkViewport* viewport, vtkActor2D* actor);
   void RenderOverlay(vtkViewport*, vtkActor2D*) {};
 
   // Description:
