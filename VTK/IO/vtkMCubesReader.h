@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMCubesReader.h,v $
   Language:  C++
-  Date:      $Date: 1996-05-09 20:10:29 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1996-07-03 20:45:59 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -48,11 +48,17 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // with a vtkLocator object. You can choose to supply the vtkLocator 
 // or use the default.
 // .SECTION Caveats
-// Binary files assumed written in sun/hp/sgi form.
+// Binary files assumed written in sun/hp/sgi (i.e., Big Endian) form.
 //
 // Because points are merged when read, degenerate triangles may be removed.
 // Thus the number of triangles read may be fewer than the number of triangles
 // actually created.
+//
+// Normals are generated from the gradient of the data scalar values. Hence the 
+// normals may on occasion point in a direction inconsistent with the ordering of 
+// the triangle vertices. If this happens, the resulting surface may be "black".
+// Reverse the sense of the FlipNormals boolean flag to correct this.
+
 // .SECTION See Also
 // vtkMarchingCubes vtkSliceCubes
 
