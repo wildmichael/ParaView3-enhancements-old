@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkColorTransferFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-07-17 15:32:53 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2000-07-17 16:31:06 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -846,6 +846,8 @@ void vtkColorTransferFunction::DeepCopy( vtkColorTransferFunction *f )
   this->ColorSpace     = f->ColorSpace;
   this->FunctionSize   = f->FunctionSize;
   this->NumberOfPoints = f->NumberOfPoints;
+  this->Range[0]       = f->Range[0];
+  this->Range[1]       = f->Range[1];
   
   if ( this->FunctionSize > 0 )
     {
