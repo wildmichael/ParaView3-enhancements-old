@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageVariance3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-29 17:07:03 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-06-18 17:18:26 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -323,12 +323,28 @@ void vtkImageVariance3D::ThreadedExecute(vtkImageData *inData,
 
   switch (inData->GetScalarType())
     {
+    case VTK_DOUBLE:
+      vtkImageVariance3DExecute(this, mask, inData, (double *)(inPtr), 
+				outData, outExt, (float *)(outPtr),id);
+      break;
     case VTK_FLOAT:
       vtkImageVariance3DExecute(this, mask, inData, (float *)(inPtr), 
 				outData, outExt, (float *)(outPtr),id);
       break;
+    case VTK_LONG:
+      vtkImageVariance3DExecute(this, mask, inData, (long *)(inPtr), 
+				outData, outExt, (float *)(outPtr),id);
+      break;
+    case VTK_UNSIGNED_LONG:
+      vtkImageVariance3DExecute(this, mask, inData, (unsigned long *)(inPtr), 
+				outData, outExt, (float *)(outPtr),id);
+      break;
     case VTK_INT:
       vtkImageVariance3DExecute(this, mask, inData, (int *)(inPtr), 
+				outData, outExt, (float *)(outPtr),id);
+      break;
+    case VTK_UNSIGNED_INT:
+      vtkImageVariance3DExecute(this, mask, inData, (unsigned int *)(inPtr), 
 				outData, outExt, (float *)(outPtr),id);
       break;
     case VTK_SHORT:
@@ -337,6 +353,10 @@ void vtkImageVariance3D::ThreadedExecute(vtkImageData *inData,
       break;
     case VTK_UNSIGNED_SHORT:
       vtkImageVariance3DExecute(this, mask, inData, (unsigned short *)(inPtr), 
+				outData, outExt, (float *)(outPtr),id);
+      break;
+    case VTK_CHAR:
+      vtkImageVariance3DExecute(this, mask, inData, (char *)(inPtr), 
 				outData, outExt, (float *)(outPtr),id);
       break;
     case VTK_UNSIGNED_CHAR:

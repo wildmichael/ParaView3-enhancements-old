@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageRGBToHSV.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:48:11 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-06-18 17:18:23 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -170,15 +170,37 @@ void vtkImageRGBToHSV::ThreadedExecute(vtkImageData *inData,
 
   switch (inData->GetScalarType())
     {
+    case VTK_DOUBLE:
+      vtkImageRGBToHSVExecute(this, 
+			      inData, (double *)(inPtr), 
+			      outData, (double *)(outPtr), outExt, id);
+      break;
     case VTK_FLOAT:
       vtkImageRGBToHSVExecute(this, 
 			      inData, (float *)(inPtr), 
 			      outData, (float *)(outPtr), outExt, id);
       break;
+    case VTK_LONG:
+      vtkImageRGBToHSVExecute(this, 
+			      inData, (long *)(inPtr), 
+			      outData, (long *)(outPtr), outExt, id);
+      break;
+    case VTK_UNSIGNED_LONG:
+      vtkImageRGBToHSVExecute(this, 
+			      inData, (unsigned long *)(inPtr), 
+			      outData, (unsigned long *)(outPtr), 
+			      outExt, id);
+      break;
     case VTK_INT:
       vtkImageRGBToHSVExecute(this, 
 			      inData, (int *)(inPtr), 
 			      outData, (int *)(outPtr), outExt, id);
+      break;
+    case VTK_UNSIGNED_INT:
+      vtkImageRGBToHSVExecute(this, 
+			      inData, (unsigned int *)(inPtr), 
+			      outData, (unsigned int *)(outPtr), 
+			      outExt, id);
       break;
     case VTK_SHORT:
       vtkImageRGBToHSVExecute(this, 
@@ -190,6 +212,11 @@ void vtkImageRGBToHSV::ThreadedExecute(vtkImageData *inData,
 			      inData, (unsigned short *)(inPtr), 
 			      outData, (unsigned short *)(outPtr), 
 			      outExt, id);
+      break;
+    case VTK_CHAR:
+      vtkImageRGBToHSVExecute(this, 
+			      inData, (char *)(inPtr), 
+			      outData, (char *)(outPtr), outExt, id);
       break;
     case VTK_UNSIGNED_CHAR:
       vtkImageRGBToHSVExecute(this, 

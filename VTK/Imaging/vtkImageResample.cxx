@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageResample.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:47:45 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1999-06-18 17:18:24 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -329,15 +329,35 @@ void vtkImageResample::ThreadedExecute(vtkImageData *inData,
   
   switch (inData->GetScalarType())
     {
+    case VTK_DOUBLE:
+      vtkImageResampleExecute(this, 
+			      inData, (double *)(inPtr), inExt,
+			      outData, (double *)(outPtr), outExt, id);
+      break;
     case VTK_FLOAT:
       vtkImageResampleExecute(this, 
 			      inData, (float *)(inPtr), inExt,
 			      outData, (float *)(outPtr), outExt, id);
       break;
+    case VTK_LONG:
+      vtkImageResampleExecute(this, 
+			  inData, (long *)(inPtr), inExt,
+			  outData, (long *)(outPtr), outExt, id);
+      break;
+    case VTK_UNSIGNED_LONG:
+      vtkImageResampleExecute(this, 
+			  inData, (unsigned long *)(inPtr), inExt, 
+			  outData, (unsigned long *)(outPtr), outExt, id);
+      break;
     case VTK_INT:
       vtkImageResampleExecute(this, 
 			  inData, (int *)(inPtr), inExt,
 			  outData, (int *)(outPtr), outExt, id);
+      break;
+    case VTK_UNSIGNED_INT:
+      vtkImageResampleExecute(this, 
+			  inData, (unsigned int *)(inPtr), inExt, 
+			  outData, (unsigned int *)(outPtr), outExt, id);
       break;
     case VTK_SHORT:
       vtkImageResampleExecute(this, 
@@ -348,6 +368,11 @@ void vtkImageResample::ThreadedExecute(vtkImageData *inData,
       vtkImageResampleExecute(this, 
 			  inData, (unsigned short *)(inPtr), inExt, 
 			  outData, (unsigned short *)(outPtr), outExt, id);
+      break;
+    case VTK_CHAR:
+      vtkImageResampleExecute(this, 
+			  inData, (char *)(inPtr),inExt,
+			  outData, (char *)(outPtr), outExt, id);
       break;
     case VTK_UNSIGNED_CHAR:
       vtkImageResampleExecute(this, 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageRFFT.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-03-22 22:35:55 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-06-18 17:18:23 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -209,12 +209,28 @@ void vtkImageRFFT::ThreadedExecute(vtkImageData *inData, vtkImageData *outData,
   // choose which templated function to call.
   switch (inData->GetScalarType())
     {
+    case VTK_DOUBLE:
+      vtkImageRFFTExecute(this, inData, inExt, (double *)(inPtr), 
+			 outData, outExt, (float *)(outPtr), threadId);
+      break;
     case VTK_FLOAT:
       vtkImageRFFTExecute(this, inData, inExt, (float *)(inPtr), 
 			 outData, outExt, (float *)(outPtr), threadId);
       break;
+    case VTK_LONG:
+      vtkImageRFFTExecute(this, inData, inExt, (long *)(inPtr),
+			 outData, outExt, (float *)(outPtr), threadId);
+      break;
+    case VTK_UNSIGNED_LONG:
+      vtkImageRFFTExecute(this, inData, inExt, (unsigned long *)(inPtr), 
+			 outData, outExt, (float *)(outPtr), threadId);
+      break;
     case VTK_INT:
       vtkImageRFFTExecute(this, inData, inExt, (int *)(inPtr),
+			 outData, outExt, (float *)(outPtr), threadId);
+      break;
+    case VTK_UNSIGNED_INT:
+      vtkImageRFFTExecute(this, inData, inExt, (unsigned int *)(inPtr), 
 			 outData, outExt, (float *)(outPtr), threadId);
       break;
     case VTK_SHORT:
@@ -223,6 +239,10 @@ void vtkImageRFFT::ThreadedExecute(vtkImageData *inData, vtkImageData *outData,
       break;
     case VTK_UNSIGNED_SHORT:
       vtkImageRFFTExecute(this, inData, inExt, (unsigned short *)(inPtr), 
+			 outData, outExt, (float *)(outPtr), threadId);
+      break;
+    case VTK_CHAR:
+      vtkImageRFFTExecute(this, inData, inExt, (char *)(inPtr),
 			 outData, outExt, (float *)(outPtr), threadId);
       break;
     case VTK_UNSIGNED_CHAR:

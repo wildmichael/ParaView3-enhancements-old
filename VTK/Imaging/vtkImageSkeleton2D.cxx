@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSkeleton2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:48:13 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1999-06-18 17:18:25 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -312,13 +312,31 @@ void vtkImageSkeleton2D::ThreadedExecute(vtkImageData *inData,
   inPtr = tempData->GetScalarPointerForExtent(outExt);
   switch (tempData->GetScalarType())
     {
+    case VTK_DOUBLE:
+      vtkImageSkeleton2DExecute(this, tempData, (double *)(inPtr), 
+				outData, outExt, (double *)(outPtr), id);
+      break;
     case VTK_FLOAT:
       vtkImageSkeleton2DExecute(this, tempData, (float *)(inPtr), 
 				outData, outExt, (float *)(outPtr), id);
       break;
+    case VTK_LONG:
+      vtkImageSkeleton2DExecute(this, tempData, (long *)(inPtr), 
+				outData, outExt, (long *)(outPtr), id);
+      break;
+    case VTK_UNSIGNED_LONG:
+      vtkImageSkeleton2DExecute(this, tempData, (unsigned long *)(inPtr), 
+				outData, outExt, (unsigned long *)(outPtr),
+				id);
+      break;
     case VTK_INT:
       vtkImageSkeleton2DExecute(this, tempData, (int *)(inPtr), 
 				outData, outExt, (int *)(outPtr), id);
+      break;
+    case VTK_UNSIGNED_INT:
+      vtkImageSkeleton2DExecute(this, tempData, (unsigned int *)(inPtr), 
+				outData, outExt, (unsigned int *)(outPtr),
+				id);
       break;
     case VTK_SHORT:
       vtkImageSkeleton2DExecute(this, tempData, (short *)(inPtr), 
@@ -328,6 +346,10 @@ void vtkImageSkeleton2D::ThreadedExecute(vtkImageData *inData,
       vtkImageSkeleton2DExecute(this, tempData, (unsigned short *)(inPtr), 
 				outData, outExt, (unsigned short *)(outPtr),
 				id);
+      break;
+    case VTK_CHAR:
+      vtkImageSkeleton2DExecute(this, tempData, (char *)(inPtr), 
+				outData, outExt, (char *)(outPtr), id);
       break;
     case VTK_UNSIGNED_CHAR:
       vtkImageSkeleton2DExecute(this, tempData, (unsigned char *)(inPtr), 

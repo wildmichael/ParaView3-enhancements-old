@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageShiftScale.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:48:13 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1999-06-18 17:18:25 $
+  Version:   $Revision: 1.25 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -166,13 +166,29 @@ static void vtkImageShiftScaleExecute1(vtkImageShiftScale *self,
   
   switch (outData->GetScalarType())
     {
+    case VTK_DOUBLE:
+      vtkImageShiftScaleExecute(self, inData, inPtr,
+			       outData, (double *)(outPtr),outExt, id);
+      break;
     case VTK_FLOAT:
       vtkImageShiftScaleExecute(self, inData, inPtr,
 			       outData, (float *)(outPtr),outExt, id);
       break;
+    case VTK_LONG:
+      vtkImageShiftScaleExecute(self, inData, inPtr, 
+			       outData, (long *)(outPtr),outExt, id);
+      break;
+    case VTK_UNSIGNED_LONG:
+      vtkImageShiftScaleExecute(self, inData, inPtr, 
+			       outData, (unsigned long *)(outPtr),outExt, id);
+      break;
     case VTK_INT:
       vtkImageShiftScaleExecute(self, inData, inPtr, 
 			       outData, (int *)(outPtr),outExt, id);
+      break;
+    case VTK_UNSIGNED_INT:
+      vtkImageShiftScaleExecute(self, inData, inPtr, 
+			       outData, (unsigned int *)(outPtr),outExt, id);
       break;
     case VTK_SHORT:
       vtkImageShiftScaleExecute(self, inData, inPtr, 
@@ -181,6 +197,10 @@ static void vtkImageShiftScaleExecute1(vtkImageShiftScale *self,
     case VTK_UNSIGNED_SHORT:
       vtkImageShiftScaleExecute(self, inData, inPtr, 
 			       outData, (unsigned short *)(outPtr),outExt, id);
+      break;
+    case VTK_CHAR:
+      vtkImageShiftScaleExecute(self, inData, inPtr, 
+			       outData, (char *)(outPtr),outExt, id);
       break;
     case VTK_UNSIGNED_CHAR:
       vtkImageShiftScaleExecute(self, inData, inPtr, 
@@ -208,14 +228,34 @@ void vtkImageShiftScale::ThreadedExecute(vtkImageData *inData,
   
   switch (inData->GetScalarType())
     {
+    case VTK_DOUBLE:
+      vtkImageShiftScaleExecute1(this, 
+			  inData, (double *)(inPtr), 
+			  outData, outExt, id);
+      break;
     case VTK_FLOAT:
       vtkImageShiftScaleExecute1(this, 
 			  inData, (float *)(inPtr), 
 			  outData, outExt, id);
       break;
+    case VTK_LONG:
+      vtkImageShiftScaleExecute1(this, 
+			  inData, (long *)(inPtr), 
+			  outData, outExt, id);
+      break;
+    case VTK_UNSIGNED_LONG:
+      vtkImageShiftScaleExecute1(this, 
+			  inData, (unsigned long *)(inPtr), 
+			  outData, outExt, id);
+      break;
     case VTK_INT:
       vtkImageShiftScaleExecute1(this, 
 			  inData, (int *)(inPtr), 
+			  outData, outExt, id);
+      break;
+    case VTK_UNSIGNED_INT:
+      vtkImageShiftScaleExecute1(this, 
+			  inData, (unsigned int *)(inPtr), 
 			  outData, outExt, id);
       break;
     case VTK_SHORT:
@@ -226,6 +266,11 @@ void vtkImageShiftScale::ThreadedExecute(vtkImageData *inData,
     case VTK_UNSIGNED_SHORT:
       vtkImageShiftScaleExecute1(this, 
 			  inData, (unsigned short *)(inPtr), 
+			  outData, outExt, id);
+      break;
+    case VTK_CHAR:
+      vtkImageShiftScaleExecute1(this, 
+			  inData, (char *)(inPtr), 
 			  outData, outExt, id);
       break;
     case VTK_UNSIGNED_CHAR:
