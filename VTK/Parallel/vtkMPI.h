@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMPI.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-26 17:22:29 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-09-09 19:55:40 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,8 +20,9 @@
 #define __vtkMPI_h
 
 #include "mpi.h"
+#include "vtkSystemIncludes.h"
 
-class vtkMPICommunicatorOpaqueComm
+class VTK_PARALLEL_EXPORT vtkMPICommunicatorOpaqueComm
 {
 public:
   vtkMPICommunicatorOpaqueComm();
