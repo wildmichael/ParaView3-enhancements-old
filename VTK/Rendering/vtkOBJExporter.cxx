@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOBJExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-11 13:21:51 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1999-01-06 12:32:00 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -48,7 +48,10 @@ vtkOBJExporter::vtkOBJExporter()
 
 vtkOBJExporter::~vtkOBJExporter()
 {
-  if ( this->FilePrefix ) delete [] this->FilePrefix;
+  if ( this->FilePrefix )
+    {
+    delete [] this->FilePrefix;
+    }
 }
 
 void vtkOBJExporter::WriteData()
@@ -348,8 +351,14 @@ void vtkOBJExporter::WriteAnActor(vtkActor *anActor, FILE *fpObj, FILE *fpMtl,
   
   idStart = idNext;
   trans->Delete();
-  if (normals) normals->Delete();
-  if (gf) gf->Delete();
+  if (normals)
+    {
+    normals->Delete();
+    }
+  if (gf)
+    {
+    gf->Delete();
+    }
 }
 
 

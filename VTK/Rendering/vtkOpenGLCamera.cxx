@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLCamera.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-11-17 22:54:58 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-01-06 12:32:01 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -190,8 +190,14 @@ void vtkOpenGLCamera::Render(vtkRenderer *ren)
   // if we have a stereo renderer, draw other eye next time 
   if (this->Stereo)
     {
-    if (this->LeftEye) this->LeftEye = 0;
-    else this->LeftEye = 1;
+    if (this->LeftEye)
+      {
+      this->LeftEye = 0;
+      }
+    else
+      {
+      this->LeftEye = 1;
+      }
     }
 
   matrix->Delete();
