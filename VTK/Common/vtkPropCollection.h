@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPropCollection.h,v $
   Language:  C++
-  Date:      $Date: 2000-06-08 09:11:03 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2000-12-06 07:42:27 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -52,7 +52,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define __vtkPropC_h
 
 #include "vtkCollection.h"
-class vtkProp;
+#include "vtkProp.h"
 
 class VTK_EXPORT vtkPropCollection : public vtkCollection
 {
@@ -99,7 +99,7 @@ inline void vtkPropCollection::AddItem(vtkProp *a)
 
 inline vtkProp *vtkPropCollection::GetNextProp() 
 { 
-  return (vtkProp *)(this->GetNextItemAsObject());
+  return vtkProp::SafeDownCast(this->GetNextItemAsObject());
 }
 
 inline vtkProp *vtkPropCollection::GetLastProp() 
@@ -110,7 +110,7 @@ inline vtkProp *vtkPropCollection::GetLastProp()
     }
   else
     {
-    return (vtkProp *)(this->Bottom->Item);
+    return vtkProp::SafeDownCast(this->Bottom->Item);
     }
 }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransformCollection.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:03:57 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2000-12-06 07:42:28 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -89,7 +89,7 @@ inline void vtkTransformCollection::AddItem(vtkTransform *t)
 
 inline vtkTransform *vtkTransformCollection::GetNextItem() 
 { 
-  return (vtkTransform *)(this->GetNextItemAsObject());
+  return vtkTransform::SafeDownCast(this->GetNextItemAsObject());
 }
 
 #endif

@@ -3,8 +3,8 @@
 Program:   Visualization Toolkit
 Module:    $RCSfile: vtkPropCollection.cxx,v $
 Language:  C++
-Date:      $Date: 2000-06-08 09:11:03 $
-Version:   $Revision: 1.4 $
+Date:      $Date: 2000-12-06 07:42:28 $
+Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -41,7 +41,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 =========================================================================*/
 #include "vtkPropCollection.h"
 #include "vtkObjectFactory.h"
-#include "vtkProp.h"
 
 
 //------------------------------------------------------------------------------

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapperCollection.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:05:44 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2000-12-06 07:42:28 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -52,7 +52,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define __vtkMapperC_h
 
 #include "vtkCollection.h"
-class vtkMapper;
+#include "vtkMapper.h"
 
 class VTK_EXPORT vtkMapperCollection : public vtkCollection
 {
@@ -68,7 +68,7 @@ class VTK_EXPORT vtkMapperCollection : public vtkCollection
   // Description:
   // Get the next mapper in the list.
   vtkMapper *GetNextItem() { 
-    return (vtkMapper *)(this->GetNextItemAsObject());};
+    return vtkMapper::SafeDownCast(this->GetNextItemAsObject());};
   
   // Description:
   // Get the last mapper in the list.
@@ -95,7 +95,7 @@ inline vtkMapper *vtkMapperCollection::GetLastItem()
     }
   else
     {
-    return (vtkMapper *)(this->Bottom->Item);
+    return vtkMapper::SafeDownCast(this->Bottom->Item);
     }
 }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindowCollection.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:06:35 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2000-12-06 07:42:28 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -69,7 +69,7 @@ class VTK_EXPORT vtkRenderWindowCollection : public vtkCollection
   // Get the next RenderWindow in the list. Return NULL when at the end of the 
   // list.
   vtkRenderWindow *GetNextItem() {
-    return (vtkRenderWindow *)(this->GetNextItemAsObject());};
+    return vtkRenderWindow::SafeDownCast(this->GetNextItemAsObject());};
   
 protected:
   vtkRenderWindowCollection() {};

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagerCollection.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:08:57 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2000-12-06 07:42:28 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -84,7 +84,7 @@ inline void vtkImagerCollection::AddItem(vtkImager *a)
 
 inline vtkImager *vtkImagerCollection::GetNextItem() 
 { 
-  return (vtkImager *)(this->GetNextItemAsObject());
+  return vtkImager::SafeDownCast(this->GetNextItemAsObject());
 }
 
 inline vtkImager *vtkImagerCollection::GetLastItem() 
@@ -95,7 +95,7 @@ inline vtkImager *vtkImagerCollection::GetLastItem()
     }
   else
     {
-    return (vtkImager *)(this->Bottom->Item);
+    return vtkImager::SafeDownCast(this->Bottom->Item);
     }
 }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProp3DCollection.h,v $
   Language:  C++
-  Date:      $Date: 2000-07-13 10:42:10 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2000-12-06 07:42:28 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -52,7 +52,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define __vtkProp3DCollection_h
 
 #include "vtkPropCollection.h"
-class vtkProp3D;
+#include "vtkProp3D.h"
 
 class VTK_EXPORT vtkProp3DCollection : public vtkPropCollection
 {
@@ -93,7 +93,7 @@ inline void vtkProp3DCollection::AddItem(vtkProp3D *a)
 
 inline vtkProp3D *vtkProp3DCollection::GetNextProp3D() 
 { 
-  return (vtkProp3D *)(this->GetNextItemAsObject());
+  return vtkProp3D::SafeDownCast(this->GetNextItemAsObject());
 }
 
 inline vtkProp3D *vtkProp3DCollection::GetLastProp3D() 
@@ -104,7 +104,7 @@ inline vtkProp3D *vtkProp3DCollection::GetLastProp3D()
     }
   else
     {
-    return (vtkProp3D *)(this->Bottom->Item);
+    return vtkProp3D::SafeDownCast(this->Bottom->Item);
     }
 }
 

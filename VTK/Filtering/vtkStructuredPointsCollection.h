@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsCollection.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:07:03 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2000-12-06 07:42:28 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -66,7 +66,7 @@ public:
   // Get the next item in the collection. NULL is returned if the collection
   // is exhausted.
   vtkStructuredPoints *GetNextItem() {
-    return (vtkStructuredPoints *)(this->GetNextItemAsObject());};
+    return vtkStructuredPoints::SafeDownCast(this->GetNextItemAsObject());};
   
 protected:
   vtkStructuredPointsCollection() {};

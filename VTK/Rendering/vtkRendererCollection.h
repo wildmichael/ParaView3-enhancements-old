@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRendererCollection.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:06:38 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2000-12-06 07:42:28 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -69,7 +69,7 @@ class VTK_EXPORT vtkRendererCollection : public vtkCollection
   // Get the next Renderer in the list. Return NULL when at the end of the 
   // list.
   vtkRenderer *GetNextItem() {
-    return (vtkRenderer *)(this->GetNextItemAsObject());};
+    return vtkRenderer::SafeDownCast(this->GetNextItemAsObject());};
 
   // Description:
   // Forward the Render() method to each renderer in the list.
