@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToStructuredPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-25 19:02:05 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1998-03-26 13:13:56 $
+  Version:   $Revision: 1.20 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -280,15 +280,15 @@ void vtkImageToStructuredPoints::Execute()
     }
   else
     {
-    void *inPtr = data->GetScalarPointerForExtent(uExtent);
+    unsigned char *inPtr = (unsigned char *) data->GetScalarPointerForExtent(uExtent);
     
-    void *outPtr = output->GetScalarPointer();
+    unsigned char *outPtr = (unsigned char *) output->GetScalarPointer();
     
     int idxX, idxY, idxZ;
     int maxX, maxY, maxZ;
     int inIncX, inIncY, inIncZ;
     int rowLength;
-    void *inPtr1;
+    unsigned char *inPtr1;
     
     // Get increments to march through data 
     data->GetIncrements(inIncX, inIncY, inIncZ);
