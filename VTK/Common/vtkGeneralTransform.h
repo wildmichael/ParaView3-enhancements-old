@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGeneralTransform.h,v $
   Language:  C++
-  Date:      $Date: 2000-06-03 15:51:54 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2000-06-04 12:09:11 $
+  Version:   $Revision: 1.27 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -208,7 +208,7 @@ protected:
 
   // Description:
   // Perform any subclass-specific DeepCopy. 
-  virtual void InternalDeepCopy(vtkGeneralTransform *transform) {};
+  virtual void InternalDeepCopy(vtkGeneralTransform *) {};
 
   float InternalFloatPoint[3];
   double InternalDoublePoint[3];
