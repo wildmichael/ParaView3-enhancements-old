@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleTrackballActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-28 19:01:17 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2003-05-07 17:17:49 $
+  Version:   $Revision: 1.29 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -28,7 +28,7 @@
 #include "vtkRenderer.h"
 #include "vtkTransform.h"
 
-vtkCxxRevisionMacro(vtkInteractorStyleTrackballActor, "$Revision: 1.28 $");
+vtkCxxRevisionMacro(vtkInteractorStyleTrackballActor, "$Revision: 1.29 $");
 vtkStandardNewMacro(vtkInteractorStyleTrackballActor);
 
 //----------------------------------------------------------------------------
@@ -37,6 +37,7 @@ vtkInteractorStyleTrackballActor::vtkInteractorStyleTrackballActor()
   this->MotionFactor    = 10.0;
   this->InteractionProp = NULL;
   this->InteractionPicker = vtkCellPicker::New();
+  this->InteractionPicker->SetTolerance(0.001);
 }
 
 //----------------------------------------------------------------------------

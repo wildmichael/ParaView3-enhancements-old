@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleJoystickActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-28 19:01:17 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2003-05-07 17:17:49 $
+  Version:   $Revision: 1.27 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -28,7 +28,7 @@
 #include "vtkTransform.h"
 #include "vtkMatrix4x4.h"
 
-vtkCxxRevisionMacro(vtkInteractorStyleJoystickActor, "$Revision: 1.26 $");
+vtkCxxRevisionMacro(vtkInteractorStyleJoystickActor, "$Revision: 1.27 $");
 vtkStandardNewMacro(vtkInteractorStyleJoystickActor);
 
 //----------------------------------------------------------------------------
@@ -37,9 +37,9 @@ vtkInteractorStyleJoystickActor::vtkInteractorStyleJoystickActor()
   this->MotionFactor    = 10.0;
   this->InteractionProp = NULL;
   this->InteractionPicker = vtkCellPicker::New();
+  this->InteractionPicker->SetTolerance(0.001);
 
   // Use timers to handle continous interaction
-
   this->UseTimers = 1;
 }
 
