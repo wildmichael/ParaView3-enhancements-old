@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAnisotropicDiffusion2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-01-03 14:53:19 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1997-01-03 22:08:53 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -205,6 +205,9 @@ void vtkImageAnisotropicDiffusion2D::Iterate(vtkImageRegion *inRegion,
   inRegion->GetIncrements(inInc0, inInc1);
   outRegion->GetIncrements(outInc0, outInc1);
 
+  // Avoid warnings.
+  th0 = th1 = th01 = df0 = df1 = df01 = 0.0;
+  
   // Compute direction specific diffusion thresholds and factors.
   sum = 0.0;
   if (this->Edges)

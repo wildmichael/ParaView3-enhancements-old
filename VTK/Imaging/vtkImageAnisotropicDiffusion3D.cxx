@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAnisotropicDiffusion3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-01-03 14:53:29 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1997-01-03 22:09:03 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -217,6 +217,10 @@ void vtkImageAnisotropicDiffusion3D::Iterate(vtkImageRegion *inRegion,
   inRegion->GetIncrements(inInc0, inInc1, inInc2);
   outRegion->GetIncrements(outInc0, outInc1, outInc2);
 
+  // Avoid the warnings.
+  th0 = th1 = th2 = th01 = th02 = th12 = th012 =
+    df0 = df1 = df2 = df01 = df02 = df12 = df012 = 0.0;
+  
   // Compute direction specific diffusion thresholds and factors.
   sum = 0.0;
   if (this->Faces)
@@ -251,7 +255,6 @@ void vtkImageAnisotropicDiffusion3D::Iterate(vtkImageRegion *inRegion,
     df012 = 1 / temp;
     // eight corners in a cube
     sum += 8 * df012;
-
     }
   if (sum > 0.0)
     {
