@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkDataSet.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-03-27 16:13:47 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1994-04-08 08:06:25 $
+  Version:   $Revision: 1.17 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -113,5 +113,23 @@ void vlDataSet::PrintSelf(ostream& os, vlIndent indent)
     os << indent << "  Ymin,Ymax: (" <<bounds[2] << ", " << bounds[3] << ")\n";
     os << indent << "  Zmin,Zmax: (" <<bounds[4] << ", " << bounds[5] << ")\n";
     os << indent << "Compute Time: " <<this->ComputeTime.GetMTime() << "\n";
+    }
+}
+
+void vlDataSet::GetCellNeighbors(int cellId, vlIdList *ptIds,
+                                 vlIdList *cellIds)
+{
+  int i;
+  static vlIdList otherCells(MAX_CELL_SIZE);
+
+  // load list with candidate cells, remove current cell
+  this->GetPointCells(ptIds->GetId(0),cellIds);
+  cellIds->DeleteId(cellId);
+
+  // now perform multiple intersections on list
+  for ( i=1; i < ptIds->GetNumberOfIds(); i++)
+    {
+    this->GetPointCells(ptIds->GetId(i), &otherCells);
+    cellIds->IntersectWith(&otherCells);
     }
 }

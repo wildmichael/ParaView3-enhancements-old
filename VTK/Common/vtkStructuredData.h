@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStructuredData.h,v $
   Language:  C++
-  Date:      $Date: 1994-04-05 07:42:01 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1994-04-08 08:06:38 $
+  Version:   $Revision: 1.3 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -45,6 +45,7 @@ public:
   int GetNumberOfCells();
   int GetNumberOfPoints(); 
   void Initialize();
+  void GetPointCells(int ptId, vlIdList *cellIds);
 
   void SetDimensions(int i, int j, int k);
   void SetDimensions(int dim[3]);
