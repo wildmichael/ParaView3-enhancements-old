@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSystemIncludes.h,v $
   Language:  C++
-  Date:      $Date: 2000-07-20 13:16:43 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2000-09-13 13:37:52 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -55,7 +55,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /* first include the local configuration for this machine */
 /* this only applies to UNIX systems */
-#ifndef _WIN32
+#ifndef _MSC_VER
 #include "vtkConfigure.h"
 #endif
 
@@ -85,7 +85,7 @@ using std::ifstream;
 // otherwise, non-ANSI -----------------------------------------------------
 #else
 #include <iostream.h>
-#if defined(_WIN32) || defined(WIN32)
+#if defined(_MSC_VER)
 #include <strstrea.h>
 #else
 #include <strstream.h>
