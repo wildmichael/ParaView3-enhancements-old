@@ -4,8 +4,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDICOMImageReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-05-29 21:12:34 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2003-06-02 22:45:13 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -26,7 +26,7 @@
 #include <vtkstd/vector>
 #include <vtkstd/string>
 
-vtkCxxRevisionMacro(vtkDICOMImageReader, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkDICOMImageReader, "$Revision: 1.3 $");
 vtkStandardNewMacro(vtkDICOMImageReader);
 
 class myvector : public vtkstd::vector<vtkstd::string>
@@ -315,3 +315,27 @@ void vtkDICOMImageReader::SetupOutputInformation(int num_slices)
 
     this->vtkImageReader2::ExecuteInformation();
 }
+
+void vtkDICOMImageReader::SetDirectoryName(const char* dn)
+{
+  if (dn == NULL)
+    {
+    return;
+    }
+  int len = strlen(dn);
+  if (this->DirectoryName != NULL)
+    {
+    delete [] this->DirectoryName;
+    }
+  this->DirectoryName = new char[len+1];
+  strcpy(this->DirectoryName, dn);
+  this->FileName = NULL;
+  this->Modified();
+}
+
+/*
+const char* vtkDICOMImageReader::GetDirectoryName()
+{
+  return this->DirectoryName;
+}
+*/
