@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAccumulate.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:31:47 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 2002-02-22 17:52:33 $
+  Version:   $Revision: 1.45 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 #include <math.h>
 #include <stdlib.h>
 
-vtkCxxRevisionMacro(vtkImageAccumulate, "$Revision: 1.44 $");
+vtkCxxRevisionMacro(vtkImageAccumulate, "$Revision: 1.45 $");
 vtkStandardNewMacro(vtkImageAccumulate);
 
 //----------------------------------------------------------------------------
@@ -247,11 +247,11 @@ static void vtkImageAccumulateExecute(vtkImageAccumulate *self,
     Mean[1] = sum[1] / (double)*VoxelCount;    
     Mean[2] = sum[2] / (double)*VoxelCount;    
 
-    variance = sumSqr[0] / (double)*VoxelCount - ((double) *VoxelCount * Mean[0] * Mean[0] / (double) (*VoxelCount - 1));
+    variance = sumSqr[0] / (double)(*VoxelCount-1) - ((double) *VoxelCount * Mean[0] * Mean[0] / (double) (*VoxelCount - 1));
     StandardDeviation[0] = sqrt(variance);
-    variance = sumSqr[1] / (double)*VoxelCount - ((double) *VoxelCount * Mean[1] * Mean[1] / (double) (*VoxelCount - 1));
+    variance = sumSqr[1] / (double)(*VoxelCount-1) - ((double) *VoxelCount * Mean[1] * Mean[1] / (double) (*VoxelCount - 1));
     StandardDeviation[1] = sqrt(variance);
-    variance = sumSqr[2] / (double)*VoxelCount - ((double) *VoxelCount * Mean[2] * Mean[2] / (double) (*VoxelCount - 1));
+    variance = sumSqr[2] / (double)(*VoxelCount-1) - ((double) *VoxelCount * Mean[2] * Mean[2] / (double) (*VoxelCount - 1));
     StandardDeviation[2] = sqrt(variance);
     }
   else
