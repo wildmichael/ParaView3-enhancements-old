@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPythonUtil.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-07-07 10:03:58 $
-  Version:   $Revision: 1.62 $
+  Date:      $Date: 2003-07-24 14:18:55 $
+  Version:   $Revision: 1.63 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -44,6 +44,9 @@
 #define VTK_PYTHON_UTIL_SUPRESS_UNINITIALIZED \
   0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 #elif (PY_MAJOR_VERSION == 2) && (PY_MINOR_VERSION == 1)
+#define VTK_PYTHON_UTIL_SUPRESS_UNINITIALIZED \
+  0,0,0,0,
+#elif (PY_MAJOR_VERSION == 1) && (PY_MINOR_VERSION == 5)
 #define VTK_PYTHON_UTIL_SUPRESS_UNINITIALIZED \
   0,0,0,0,
 #else
@@ -1765,7 +1768,9 @@ void vtkPythonCommand::Execute(vtkObject *ptr, unsigned long eventtype,
   // * At the moment, only string0 is supported as that is what ErrorEvent
   //   generates.
   //                                    
-  PyObject *CallDataTypeObj = PyObject_GetAttrString(this->obj, "CallDataType");
+  char CallDataTypeLiteral[] = "CallDataType"; // Need char*, not const char*.
+  PyObject *CallDataTypeObj = PyObject_GetAttrString(this->obj,
+                                                     CallDataTypeLiteral);
   char *CallDataTypeString = NULL;
   if (CallDataTypeObj)
     {
