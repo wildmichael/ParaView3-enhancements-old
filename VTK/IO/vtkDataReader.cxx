@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-15 21:29:18 $
-  Version:   $Revision: 1.113 $
+  Date:      $Date: 2001-12-27 21:12:00 $
+  Version:   $Revision: 1.114 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -58,6 +58,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkDoubleArray.h"
 #include "vtkFloatArray.h"
 #include "vtkObjectFactory.h"
+#include "vtkErrorCode.h"
 
 //----------------------------------------------------------------------------
 vtkDataReader* vtkDataReader::New()
@@ -382,6 +383,7 @@ int vtkDataReader::OpenVTKFile()
     if ( !this->FileName || (strlen(this->FileName) == 0))
       {
       vtkErrorMacro(<< "No file specified!");
+      this->SetErrorCode( vtkErrorCode::NoFileNameError );
       return 0;
       }
     this->IS = new ifstream(this->FileName, ios::in);
@@ -390,6 +392,7 @@ int vtkDataReader::OpenVTKFile()
       vtkErrorMacro(<< "Unable to open file: "<< this->FileName);
       delete this->IS;
       this->IS = NULL;
+      this->SetErrorCode( vtkErrorCode::CannotOpenFileError );
       return 0;
       }
     return 1;
@@ -411,12 +414,15 @@ int vtkDataReader::ReadHeader()
     {
     vtkErrorMacro(<<"Premature EOF reading first line! " << " for file: " 
                   << this->FileName);
+    this->SetErrorCode( vtkErrorCode::PrematureEndOfFileError );
     return 0;
     }
   if ( strncmp ("# vtk DataFile Version", line, 20) )
     {
     vtkErrorMacro(<< "Unrecognized file type: "<< line << " for file: " 
                   << this->FileName);
+    
+    this->SetErrorCode( vtkErrorCode::UnrecognizedFileTypeError );
     return 0;
     }
   //
@@ -426,6 +432,7 @@ int vtkDataReader::ReadHeader()
     {
     vtkErrorMacro(<<"Premature EOF reading title! " << " for file: " 
                   << this->FileName);
+    this->SetErrorCode( vtkErrorCode::PrematureEndOfFileError );
     return 0;
     }
   if (this->Header)
@@ -443,6 +450,7 @@ int vtkDataReader::ReadHeader()
     {
     vtkErrorMacro(<<"Premature EOF reading file type!" << " for file: " 
                   << this->FileName);
+    this->SetErrorCode( vtkErrorCode::PrematureEndOfFileError );
     return 0;
     }
 
@@ -459,6 +467,7 @@ int vtkDataReader::ReadHeader()
     vtkErrorMacro(<< "Unrecognized file type: "<< line << " for file: " 
                   << this->FileName);
     this->FileType = 0;
+    this->SetErrorCode( vtkErrorCode::UnrecognizedFileTypeError );
     return 0;
     }
 
@@ -478,6 +487,7 @@ int vtkDataReader::ReadHeader()
       vtkErrorMacro(<< "Unable to open file: "<< this->FileName);
       delete this->IS;
       this->IS = NULL;
+      this->SetErrorCode( vtkErrorCode::CannotOpenFileError );
       return 0;
       }
     // read up to the same point in the file
@@ -510,6 +520,7 @@ int vtkDataReader::IsFileValid(const char *dstype)
     {
     vtkErrorMacro(<<"Data file ends prematurely!");
     this->CloseVTKFile ();
+    this->SetErrorCode( vtkErrorCode::PrematureEndOfFileError );
     return 0;
     }
 
@@ -519,6 +530,7 @@ int vtkDataReader::IsFileValid(const char *dstype)
       {
       vtkErrorMacro(<<"Data file ends prematurely!");
       this->CloseVTKFile ();
+      this->SetErrorCode( vtkErrorCode::PrematureEndOfFileError );
       return 0;
       } 
     if (strncmp(this->LowerCase(line),dstype,strlen(dstype)))
