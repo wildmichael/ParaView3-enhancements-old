@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-20 19:34:38 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-06-20 20:41:19 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkTextActor.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkTextActor, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkTextActor, "$Revision: 1.7 $");
 vtkStandardNewMacro(vtkTextActor);
 // ----------------------------------------------------------------------------
 vtkTextActor::vtkTextActor()
@@ -214,42 +214,22 @@ int vtkTextActor::RenderOpaqueGeometry(vtkViewport *viewport)
         {
         size[1] = this->MinimumSize[1];
         }    
-      // Update all the composing objects
-      // find the best size for the font
-      int tempi[2];
-      // use the last size as a first guess
-      fontSize = mapper->GetFontSize();
+      int max_height = this->MaximumLineHeight * size[1];
+
       oldfontsize = fontSize;
-      mapper->GetSize(viewport,tempi);
-      int lineMax = (int)(size[1]*this->MaximumLineHeight
-                          * mapper->GetNumberOfLines());
-      
-      // while the size is too small increase it
-      while (tempi[1] < size[1] &&
-             tempi[0] < size[0] && 
-             tempi[1] < lineMax &&
-             fontSize < 100)
-        {
-        fontSize++;
-        mapper->SetFontSize(fontSize);
-        mapper->GetSize(viewport,tempi);
-        }
-      // while the size is too large decrease it
-      while ((tempi[1] > size[1] || tempi[0] > size[0] || tempi[1] > lineMax)
-             && fontSize > 0)
-        {
-        fontSize--;
-        mapper->SetFontSize(fontSize);
-        mapper->GetSize(viewport,tempi);
-        }
+      fontSize = mapper->GetConstrainedFontSize(
+        viewport, 
+        size[0], 
+        size[1] < max_height ? size[1] : max_height);
 
-      }
-
-      if (oldfontsize!=fontSize)
-        { // don't do this after this->BuildTime.Modified(); !!!!
+      if (oldfontsize != fontSize)
+        { 
+        // don't do this after this->BuildTime.Modified(); !!!!
+        mapper->SetFontSize(fontSize);
         this->Modified();
         }
-
+      }
+    
     // now set the position of the Text
     int fpos[2];
     switch (mapper->GetJustification())
