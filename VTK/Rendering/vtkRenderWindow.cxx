@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-15 18:36:04 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 1995-08-21 21:26:30 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -43,6 +43,10 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include <string.h>
 #include "vtkRenderWindow.hh"
 #include "vtkRenderWindowInteractor.hh"
+
+#ifdef _WIN32
+#define drand48() ((float)rand()/(float)RAND_MAX)
+#endif
 
 // Description:
 // Construct an instance of  vtkRenderWindow with its screen size 
