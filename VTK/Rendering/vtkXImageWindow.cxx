@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXImageWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-10 13:50:29 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 2001-08-27 13:54:18 $
+  Version:   $Revision: 1.41 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -615,12 +615,6 @@ int *vtkXImageWindow::GetPosition(void)
   XWindowAttributes attribs;
   int x,y;
   Window child;
- 
-  // what should I do if a window has not been created (lawcc dfss)
-  if (this->WindowId == (Window)(NULL))
-    {
-    this->MakeDefaultWindow();
-    }
  
   // if we aren't mapped then just return the ivar 
   if ( ! this->Mapped)
