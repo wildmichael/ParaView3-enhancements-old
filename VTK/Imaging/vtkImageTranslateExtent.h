@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageTranslateExtent.h,v $
   Language:  C++
-  Date:      $Date: 1999-11-17 17:57:05 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1999-11-24 12:36:41 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -73,6 +73,7 @@ protected:
 
   int Translation[3];
   
+  void ComputeRequiredInputUpdateExtent(int extent[6], int wholeExtent[6]);
   void ExecuteInformation(vtkImageData *inData, vtkImageData *outData);
   void ExecuteInformation(){this->vtkImageToImageFilter::ExecuteInformation();};
 };

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageTranslateExtent.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-10 14:19:19 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-11-24 12:36:41 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -44,7 +44,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 
-//------------------------------------------------------------------------------
+//----------------------------------------------------------------------------
 vtkImageTranslateExtent* vtkImageTranslateExtent::New()
 {
   // First try to create the object from the vtkObjectFactory
@@ -160,3 +160,14 @@ void vtkImageTranslateExtent::InternalUpdate(vtkDataObject *data)
 }
 
 
+//----------------------------------------------------------------------------
+void vtkImageTranslateExtent::ComputeRequiredInputUpdateExtent(int extent[6], 
+							       int inExtent[6])
+{
+  extent[0] = inExtent[0] - this->Translation[0];
+  extent[1] = inExtent[1] - this->Translation[0];
+  extent[2] = inExtent[2] - this->Translation[1];
+  extent[3] = inExtent[3] - this->Translation[1];
+  extent[4] = inExtent[4] - this->Translation[2];
+  extent[5] = inExtent[5] - this->Translation[2];
+}
