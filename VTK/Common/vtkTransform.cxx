@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-12-12 14:36:57 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 1996-12-19 11:53:33 $
+  Version:   $Revision: 1.42 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -683,6 +683,8 @@ void vtkTransform::Identity ()
     ctm.Element[i][i] = 1.0;
     }
   **this->Stack = ctm;
+
+  this->Modified();
 }
 
 // Description:
