@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinearTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-03-02 23:15:50 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2000-03-04 13:53:57 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -48,7 +48,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 void vtkLinearTransform::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkGeneralTransform::PrintSelf(os, indent);
-  os << "Matrix: " << this->Matrix << "\n";
+  os << indent << "Matrix: " << this->Matrix << "\n";
   this->Matrix->PrintSelf(os, indent.GetNextIndent());
 }
 
