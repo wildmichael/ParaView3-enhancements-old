@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProperty.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-02 20:43:57 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1998-12-15 15:47:03 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -84,6 +84,14 @@ vtkVolumeProperty::~vtkVolumeProperty()
     }
 }
 
+void vtkVolumeProperty::UpdateMTimes() 
+{
+  this->Modified();
+  this->GrayTransferFunctionMTime.Modified();
+  this->RGBTransferFunctionMTime.Modified();
+  this->ScalarOpacityMTime.Modified();
+  this->GradientOpacityMTime.Modified();
+}
 
 void vtkVolumeProperty::SetGradientOpacityScale( float v )
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-02 17:05:40 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1998-12-15 15:47:04 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -293,7 +293,11 @@ void vtkVolume::SetVolumeProperty(vtkVolumeProperty *property)
     {
     if (this->VolumeProperty != NULL) {this->VolumeProperty->UnRegister(this);}
     this->VolumeProperty = property;
-    if (this->VolumeProperty != NULL) {this->VolumeProperty->Register(this);}
+    if (this->VolumeProperty != NULL) 
+      {
+      this->VolumeProperty->Register(this);
+      this->VolumeProperty->UpdateMTimes();
+      }
     this->Modified();
     }
 }

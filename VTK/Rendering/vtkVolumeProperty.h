@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProperty.h,v $
   Language:  C++
-  Date:      $Date: 1998-12-02 17:05:41 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1998-12-15 15:47:03 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -192,6 +192,13 @@ public:
   float GetGradientOpacityScale( );
   void SetGradientOpacityBias( float v );
   float GetGradientOpacityBias( );
+
+  // Description:
+  // UpdateMTimes performed a Modified() on all TimeStamps.
+  // This is used by vtkVolume when the property is set, so
+  // that any other object that might have been caching
+  // information for the property will rebuild.
+  void UpdateMTimes(); 
 
 protected:
 
