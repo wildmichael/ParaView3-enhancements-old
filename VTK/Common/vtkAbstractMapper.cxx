@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-07 23:36:37 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2002-10-16 14:54:16 $
+  Version:   $Revision: 1.27 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,9 +23,20 @@
 #include "vtkPlaneCollection.h"
 #include "vtkTimerLog.h"
 
-vtkCxxRevisionMacro(vtkAbstractMapper, "$Revision: 1.26 $");
+vtkCxxRevisionMacro(vtkAbstractMapper, "$Revision: 1.27 $");
 
 vtkCxxSetObjectMacro(vtkAbstractMapper,ClippingPlanes,vtkPlaneCollection);
+
+//-----  This hack needed to compile using gcc3 on OSX until new stdc++.dylib
+#ifdef __APPLE_CC__
+extern "C"
+{void oft_initCom() 
+ {
+   extern void _ZNSt8ios_base4InitC4Ev();
+   _ZNSt8ios_base4InitC4Ev();
+ }
+}
+#endif
 
 // Construct object.
 vtkAbstractMapper::vtkAbstractMapper()

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBranchExtentTranslator.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-17 01:50:34 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2002-10-16 14:54:16 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,10 +21,23 @@
 #include "vtkSource.h"
 #include "vtkImageData.h"
 
-vtkCxxRevisionMacro(vtkBranchExtentTranslator, "$Revision: 1.10 $");
+vtkCxxRevisionMacro(vtkBranchExtentTranslator, "$Revision: 1.11 $");
 vtkStandardNewMacro(vtkBranchExtentTranslator);
 
 vtkCxxSetObjectMacro(vtkBranchExtentTranslator,OriginalSource,vtkImageData);
+
+//-----  This hack needed to compile using gcc3 on OSX until new stdc++.dylib
+#ifdef __APPLE_CC__
+extern "C"
+{
+  void oft_initPar() 
+  {
+  extern void _ZNSt8ios_base4InitC4Ev();
+  _ZNSt8ios_base4InitC4Ev();
+  }
+}
+#endif
+
 
 //----------------------------------------------------------------------------
 vtkBranchExtentTranslator::vtkBranchExtentTranslator()
