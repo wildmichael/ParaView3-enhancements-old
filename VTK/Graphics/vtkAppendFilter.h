@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkAppendFilter.h,v $
   Language:  C++
-  Date:      $Date: 1994-08-13 08:49:10 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1994-09-12 21:19:14 $
+  Version:   $Revision: 1.4 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -37,8 +37,10 @@ public:
   char *GetClassName() {return "vlAppendFilter";};
   void PrintSelf(ostream& os, vlIndent indent);
 
-  void AddInput(vlDataSet *);
-  void RemoveInput(vlDataSet *);
+  void AddInput(vlDataSet *in);
+  void AddInput(vlDataSet& in) {this->AddInput(&in);};
+  void RemoveInput(vlDataSet *in);
+  void RemoveInput(vlDataSet& in) {this->RemoveInput(&in);};
   vlDataSetCollection *GetInput() {return &(this->Input);};
 
   // filter interface

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkDataSetToDataSetFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-08-09 15:07:49 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1994-09-12 21:19:24 $
+  Version:   $Revision: 1.13 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -20,12 +20,11 @@ vlDataSetToDataSetFilter::vlDataSetToDataSetFilter()
 {
   // prevents dangling reference to DataSet
   this->DataSet = new vlPolyData;
-  this->DataSet->Register(this);
 }
 
 vlDataSetToDataSetFilter::~vlDataSetToDataSetFilter()
 {
-  this->DataSet->UnRegister(this);
+  delete this->DataSet;
 }
 
 void vlDataSetToDataSetFilter::Update()
@@ -41,10 +40,9 @@ void vlDataSetToDataSetFilter::Initialize()
 {
   if ( this->Input )
     {
-    this->DataSet->UnRegister(this);
+    delete this->DataSet;
     // copies input geometry to internal data set
     this->DataSet = this->Input->MakeObject(); 
-    this->DataSet->Register(this);
     }
   else
     {

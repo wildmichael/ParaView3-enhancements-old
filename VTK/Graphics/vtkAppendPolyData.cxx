@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkAppendPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-08-13 08:49:12 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1994-09-12 21:19:15 $
+  Version:   $Revision: 1.4 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -22,13 +22,6 @@ vlAppendPolyData::vlAppendPolyData()
 
 vlAppendPolyData::~vlAppendPolyData()
 {
-  vlDataSet *ds;
-
-  for ( int i=0; i < this->Input.GetNumberOfItems(); i++ )
-    {
-    ds = this->Input.GetItem(i+1);
-    ds->UnRegister(this);
-    }
 }
 
 // Description:
@@ -38,7 +31,6 @@ void vlAppendPolyData::AddInput(vlPolyData *ds)
   if ( ! this->Input.IsItemPresent(ds) )
     {
     this->Modified();
-    ds->Register(this);
     this->Input.AddItem(ds);
     }
 }
@@ -50,7 +42,6 @@ void vlAppendPolyData::RemoveInput(vlPolyData *ds)
   if ( this->Input.IsItemPresent(ds) )
     {
     this->Modified();
-    ds->UnRegister(this);
     this->Input.RemoveItem(ds);
     }
 }

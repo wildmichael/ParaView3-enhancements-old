@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkAppendPolyData.h,v $
   Language:  C++
-  Date:      $Date: 1994-08-13 08:49:11 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1994-09-12 21:19:16 $
+  Version:   $Revision: 1.3 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -38,7 +38,9 @@ public:
   void PrintSelf(ostream& os, vlIndent indent);
 
   void AddInput(vlPolyData *);
+  void AddInput(vlPolyData& in) {this->AddInput(&in);};
   void RemoveInput(vlPolyData *);
+  void RemoveInput(vlPolyData& in) {this->RemoveInput(&in);};
   vlPolyDataCollection *GetInput() {return &(this->Input);};
 
   // filter interface

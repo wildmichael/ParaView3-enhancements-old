@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkGlyph3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-08-09 15:07:51 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1994-09-12 21:19:25 $
+  Version:   $Revision: 1.11 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -37,10 +37,6 @@ vlGlyph3D::vlGlyph3D()
 
 vlGlyph3D::~vlGlyph3D()
 {
-  if (this->Source)
-    {
-    this->Source->UnRegister(this);
-    }
 }
 
 void vlGlyph3D::PrintSelf(ostream& os, vlIndent indent)

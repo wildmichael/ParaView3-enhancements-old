@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkAppendFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-08-13 08:49:09 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1994-09-12 21:19:13 $
+  Version:   $Revision: 1.6 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -22,13 +22,6 @@ vlAppendFilter::vlAppendFilter()
 
 vlAppendFilter::~vlAppendFilter()
 {
-  vlDataSet *ds;
-
-  for ( int i=0; i < this->Input.GetNumberOfItems(); i++ )
-    {
-    ds = this->Input.GetItem(i+1);
-    ds->UnRegister(this);
-    }
 }
 
 // Description:
@@ -38,7 +31,6 @@ void vlAppendFilter::AddInput(vlDataSet *ds)
   if ( ! this->Input.IsItemPresent(ds) )
     {
     this->Modified();
-    ds->Register(this);
     this->Input.AddItem(ds);
     }
 }
@@ -50,7 +42,6 @@ void vlAppendFilter::RemoveInput(vlDataSet *ds)
   if ( this->Input.IsItemPresent(ds) )
     {
     this->Modified();
-    ds->UnRegister(this);
     this->Input.RemoveItem(ds);
     }
 }
