@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataConnectivityFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-14 21:25:21 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1999-01-01 22:07:31 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -108,11 +108,15 @@ void vtkPolyDataConnectivityFilter::Execute()
   //
   this->InScalars = input->GetPointData()->GetScalars();
   if ( !this->ScalarConnectivity ) 
+    {
     this->InScalars = NULL;
+    }
   else
     {
     if ( this->ScalarRange[1] < this->ScalarRange[0] ) 
+      {
       this->ScalarRange[1] = this->ScalarRange[0];
+      }
     }
   //
   // Build cell structure
@@ -127,9 +131,15 @@ void vtkPolyDataConnectivityFilter::Execute()
   //
   this->RegionSizes->Reset();
   this->Visited = new int[numCells];
-  for ( i=0; i < numCells; i++ ) this->Visited[i] = -1;
+  for ( i=0; i < numCells; i++ )
+    {
+    this->Visited[i] = -1;
+    }
   this->PointMap = new int[numPts];  
-  for ( i=0; i < numPts; i++ ) this->PointMap[i] = -1;
+  for ( i=0; i < numPts; i++ )
+    {
+    this->PointMap[i] = -1;
+    }
 
   this->NewScalars = vtkScalars::New();
   this->NewScalars->SetNumberOfScalars(numPts);
@@ -196,7 +206,9 @@ void vtkPolyDataConnectivityFilter::Execute()
           {
           this->Mesh->GetPointCells(pt,ncells,cells);
           for (j=0; j < ncells; j++) 
+	    {
             this->RecursionSeeds->InsertNextId(cells[j]);
+	    }
           }
         }
       }
@@ -205,7 +217,10 @@ void vtkPolyDataConnectivityFilter::Execute()
       for (i=0; i < this->Seeds->GetNumberOfIds(); i++) 
         {
         cellId = this->Seeds->GetId(i);
-        if ( cellId >= 0 ) this->RecursionSeeds->InsertNextId(cellId);
+        if ( cellId >= 0 )
+	  {
+	  this->RecursionSeeds->InsertNextId(cellId);
+	  }
         }
       }
     else if ( this->ExtractionMode == VTK_EXTRACT_CLOSEST_POINT_REGION )
@@ -223,7 +238,9 @@ void vtkPolyDataConnectivityFilter::Execute()
 	  }
         this->Mesh->GetPointCells(minId,ncells,cells);
         for (j=0; j < ncells; j++) 
+	  {
           this->RecursionSeeds->InsertNextId(cells[j]);
+	  }
 	}
       }
     this->UpdateProgress (0.5);
@@ -250,7 +267,10 @@ void vtkPolyDataConnectivityFilter::Execute()
   //
   //Pass through point data that has been visited
   pd = input->GetPointData();
-  if ( this->ColorRegions ) outputPD->CopyScalarsOff();
+  if ( this->ColorRegions )
+    {
+    outputPD->CopyScalarsOff();
+    }
   outputPD->CopyAllocate(pd);
   outputCD->CopyAllocate(cd);
 
@@ -264,7 +284,10 @@ void vtkPolyDataConnectivityFilter::Execute()
     }
 
   // if coloring regions; send down new scalar data
-  if ( this->ColorRegions ) outputPD->SetScalars(this->NewScalars);
+  if ( this->ColorRegions )
+    {
+    outputPD->SetScalars(this->NewScalars);
+    }
   this->NewScalars->Delete();
 
   output->SetPoints(newPts);
@@ -449,18 +472,24 @@ void vtkPolyDataConnectivityFilter::TraverseAndMark (int cellId)
           for (ii=0; ii < numScalars;  ii++)
             {
             s = this->CellScalars->GetScalar(ii);
-            if ( s < range[0] ) range[0] = s;
-            if ( s > range[1] ) range[1] = s;
+            if ( s < range[0] )
+	      {
+	      range[0] = s;
+	      }
+            if ( s > range[1] )
+	      {
+	      range[1] = s;
+	      }
             }
           if ( range[1] >= this->ScalarRange[0] && 
           range[0] <= this->ScalarRange[1] )
             {
-            TraverseAndMark (cellId);
+            this->TraverseAndMark (cellId);
             }
           }
         else
           {
-          TraverseAndMark (cellId);
+          this->TraverseAndMark (cellId);
           }
         }
       }

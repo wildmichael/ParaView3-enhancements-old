@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataNormals.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-31 14:08:39 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1999-01-01 22:07:31 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -315,7 +315,10 @@ void vtkPolyDataNormals::Execute()
     for (i=0; i < npts; i++) 
       {
       vertNormal = newNormals->GetNormal(pts[i]);
-      for (j=0; j < 3; j++) n[j] = vertNormal[j] + polyNormal[j];
+      for (j=0; j < 3; j++)
+	{
+	n[j] = vertNormal[j] + polyNormal[j];
+	}
       newNormals->SetNormal(pts[i],n);
       }
     }

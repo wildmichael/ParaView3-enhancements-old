@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointLoad.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:44:54 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1999-01-01 22:07:30 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -82,11 +82,14 @@ void vtkPointLoad::SetSampleDimensions(int dim[3])
 {
   vtkDebugMacro(<< " setting SampleDimensions to (" << dim[0] << "," << dim[1] << "," << dim[2] << ")");
 
-  if ( dim[0] != this->SampleDimensions[0] || dim[1] != SampleDimensions[1] ||
-  dim[2] != SampleDimensions[2] )
+  if ( dim[0] != this->SampleDimensions[0] ||
+       dim[1] != this->SampleDimensions[1] ||
+       dim[2] != this->SampleDimensions[2] )
     {
     for ( int i=0; i<3; i++) 
+      {
       this->SampleDimensions[i] = (dim[i] > 0 ? dim[i] : 1);
+      }
     this->Modified();
     }
 }
@@ -168,7 +171,9 @@ void vtkPointLoad::Execute()
           tensor->SetComponent(2,1,0.0);
           newTensors->InsertNextTensor(tensor);
           if ( this->ComputeEffectiveStress )
+	    {
             newScalars->InsertNextScalar(VTK_LARGE_FLOAT);
+	    }
           continue;
           }
 
