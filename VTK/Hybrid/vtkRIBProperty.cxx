@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRIBProperty.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-08 14:53:55 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-09-09 11:18:15 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -69,6 +69,10 @@ vtkRIBProperty::~vtkRIBProperty()
     {
     this->Property->Delete ();
     }
+  if (this->Parameters)
+    {
+    delete [] this->Parameters;
+    }
 }
 
 void vtkRIBProperty::Render(vtkActor *anActor, vtkRenderer *ren)
@@ -121,6 +125,7 @@ void vtkRIBProperty::AddVariable (char *variable, char *value)
     strcpy (this->Declarations, oldDeclarations);
     strcat (this->Declarations, newVariable);
     delete [] oldDeclarations;
+    delete [] newVariable;
     this->Modified ();
     }
 }
@@ -160,6 +165,7 @@ void vtkRIBProperty::AddParameter (char *Parameter, char *value)
     strcpy (this->Parameters, oldParameters);
     strcat (this->Parameters, newParameter);
     delete [] oldParameters;
+    delete [] newParameter;
     this->Modified ();
     }
 }
