@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalarBarActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-05-21 14:56:48 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 2003-05-22 12:48:57 $
+  Version:   $Revision: 1.50 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -29,7 +29,7 @@
 #include "vtkWindow.h"
 #include "vtkLogLookupTable.h"
 
-vtkCxxRevisionMacro(vtkScalarBarActor, "$Revision: 1.49 $");
+vtkCxxRevisionMacro(vtkScalarBarActor, "$Revision: 1.50 $");
 vtkStandardNewMacro(vtkScalarBarActor);
 
 vtkCxxSetObjectMacro(vtkScalarBarActor,LookupTable,vtkScalarsToColors);
@@ -533,7 +533,7 @@ void vtkScalarBarActor::AllocateAndSizeLabels(int *labelSize,
       {
       float lval = log10(range[0]) + (float)i/(this->NumberOfLabels-1) *
         (log10(range[1])-log10(range[0]));
-      val = pow(10,lval);
+      val = pow(10.0f,lval);
       }
     else
       {
