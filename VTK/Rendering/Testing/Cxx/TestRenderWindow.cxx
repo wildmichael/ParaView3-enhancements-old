@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: TestRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-16 12:51:52 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-08-08 19:13:16 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,7 @@
 
 #include "vtkRegressionTestImage.h"
 
-int main( int argc, char *argv[] )
+int TestRenderWindow( int argc, char *argv[] )
 {
   // Create the renderers, render window, and interactor
   vtkRenderWindow *renWin = vtkRenderWindow::New();
