@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSetGet.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-09 22:26:11 $
-  Version:   $Revision: 1.101 $
+  Date:      $Date: 2002-05-05 15:29:28 $
+  Version:   $Revision: 1.102 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -607,7 +607,7 @@ virtual float *Get##name() \
 //
 #define vtkTypeMacro(thisClass,superclass) \
   typedef superclass Superclass; \
-  virtual const char *GetClassName() {return #thisClass;} \
+  virtual const char *GetClassName() const {return #thisClass;} \
   static int IsTypeOf(const char *type) \
   { \
     if ( !strcmp(#thisClass,type) ) \

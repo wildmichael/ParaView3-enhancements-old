@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractIterator.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-29 13:18:04 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-05-05 15:29:28 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -39,7 +39,7 @@ class VTK_COMMON_EXPORT vtkAbstractIterator
 public:
   // Description:
   // Return the class name as a string.
-  virtual const char* GetClassName() { return "vtkAbstractIterator"; }
+  virtual const char* GetClassName() const { return "vtkAbstractIterator"; }
 
   // Description:
   // The counterpart to New(), Delete simply calls UnRegister to lower the
