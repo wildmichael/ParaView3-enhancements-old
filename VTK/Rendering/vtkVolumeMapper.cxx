@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-28 22:53:13 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2001-12-06 22:45:52 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -212,8 +212,11 @@ void vtkVolumeMapper::PrintSelf(ostream& os, vtkIndent indent)
      << indent << "  In Z: " << this->CroppingRegionPlanes[4] 
      << " to " << this->CroppingRegionPlanes[5] << endl;
  
-  os << indent << "Cropping Region Flags: " << this->CroppingRegionFlags << endl;
+  os << indent << "Cropping Region Flags: " 
+     << this->CroppingRegionFlags << endl;
 
+  // Don't print this->VoxelCroppingRegionPlanes
+  
   os << indent << "Build Time: " <<this->BuildTime.GetMTime() << "\n";
 }
 

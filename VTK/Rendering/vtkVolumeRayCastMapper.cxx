@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-26 17:16:47 $
-  Version:   $Revision: 1.75 $
+  Date:      $Date: 2001-12-06 22:45:52 $
+  Version:   $Revision: 1.76 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1940,6 +1940,9 @@ void vtkVolumeRayCastMapper::PrintSelf(ostream& os, vtkIndent indent)
      << this->MaximumImageSampleDistance << "\n";
   os << indent << "Auto Adjust Sample Distances: " 
      << this->AutoAdjustSampleDistances << "\n";
+  os << indent << "Intermix Intersecting Geometry: "
+    << (this->IntermixIntersectingGeometry ? "On\n" : "Off\n");
+  
   os << indent << "Number Of Threads: " << this->NumberOfThreads << "\n";
 
   if ( this->VolumeRayCastFunction )
