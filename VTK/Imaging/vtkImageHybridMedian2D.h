@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageHybridMedian2D.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-15 13:01:36 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-05-07 19:21:51 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,27 +58,18 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 #include "vtkImageMedianFilter.h"
 
-class VTK_EXPORT vtkImageHybridMedian2D : public vtkImageMedianFilter
+class VTK_EXPORT vtkImageHybridMedian2D : public vtkImageSpatialFilter
 {
 public:
   vtkImageHybridMedian2D();
-  ~vtkImageHybridMedian2D();
   static vtkImageHybridMedian2D *New() {return new vtkImageHybridMedian2D;};
   const char *GetClassName() {return "vtkImageHybridMedian2D";};
 
-  void SetFilteredAxes(int axis0, int axis1);
-  
 protected:
-  // stuff for sorting the pixels
-  int NumNeighborhood;
-  double *Sort;
-  double *Median;
-  int UpMax;
-  int DownMax;
-  int UpNum;
-  int DownNum;
 
-  void Execute(vtkImageRegion *inRegion, vtkImageRegion *outRegion);
+  void ThreadedExecute(vtkImageData *inData, vtkImageData *outData,
+		       int outExt[6], int id);
+  float ComputeMedian(float *array, int size);
 };
 
 #endif
