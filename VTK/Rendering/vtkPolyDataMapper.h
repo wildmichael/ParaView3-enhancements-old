@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataMapper.h,v $
   Language:  C++
-  Date:      $Date: 2000-08-07 22:36:33 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2000-08-08 10:58:45 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -70,6 +70,7 @@ public:
   
   void Update();
   float *GetBounds();
+  void GetBounds(float bounds[6]);
 
   // Description:
   // If you want only a part of the data, specify by seting the piece.
