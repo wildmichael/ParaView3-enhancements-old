@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkViewport.h,v $
   Language:  C++
-  Date:      $Date: 1999-04-27 19:05:51 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1999-04-27 20:17:43 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -126,7 +126,7 @@ public:
       a[0] = this->DisplayPoint[0];
       a[1] = this->DisplayPoint[1];
       a[2] = this->DisplayPoint[2];
-      a[3] = this->DisplayPoint[3];
+      a[3] = 1.0;
     };
 
   // Description:
