@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-18 13:13:00 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2001-06-21 15:21:50 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -265,7 +265,7 @@ void vtkDataArray::InsertTuple(const vtkIdType i, const double * tuple)
   delete [] ftuple;
 }
 
-int vtkDataArray::InsertNextTuple(const double * tuple)
+vtkIdType vtkDataArray::InsertNextTuple(const double * tuple)
 {
   int c;
   int numComp=this->GetNumberOfComponents();

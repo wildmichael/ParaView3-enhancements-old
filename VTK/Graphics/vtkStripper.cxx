@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStripper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-18 13:13:03 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 2001-06-21 15:21:52 $
+  Version:   $Revision: 1.49 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -69,14 +69,14 @@ void vtkStripper::Execute()
   int longestStrip, longestLine, cellId, i, j, numCells, numPts;
   int numLines, numStrips, nei;
   vtkCellArray *newStrips=NULL, *inStrips, *newLines=NULL, *inLines, *inPolys;
-  int numTriPts, numLinePts;
+  vtkIdType numLinePts;
   vtkIdList *cellIds;
   int neighbor=0, foundOne;
   vtkIdType *pts;
   vtkPolyData *Mesh;
   char *visited;
-  int numStripPts;
-  vtkIdType *stripPts, *linePts, *triPts;
+  vtkIdType numStripPts;
+  vtkIdType *stripPts, *linePts, *triPts, numTriPts;
   vtkPolyData *input= this->GetInput();
   vtkPolyData *output= this->GetOutput();
   vtkPointData *pd=input->GetPointData();

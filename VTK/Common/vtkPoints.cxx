@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:15 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2001-06-21 15:21:51 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -90,7 +90,8 @@ void vtkPoints::GetPoints(vtkIdList *ptIds, vtkPoints *fp)
 // Determine (xmin,xmax, ymin,ymax, zmin,zmax) bounds of points.
 void vtkPoints::ComputeBounds()
 {
-  int i, j;
+  vtkIdType i;
+  int j;
   float *x;
 
   if ( this->GetMTime() > this->ComputeTime )

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIVExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-18 13:13:03 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2001-06-21 15:21:52 $
+  Version:   $Revision: 1.34 $
   Thanks:    to Jon A. Webb of Visual Interface Inc.
 
 
@@ -273,7 +273,7 @@ void vtkIVExporter::WriteAnActor(vtkActor *anActor, FILE *fp)
   vtkProperty *prop;
   float *tempf;
   vtkCellArray *cells;
-  int npts;
+  vtkIdType npts;
   vtkIdType *indx;
   float tempf2;
   vtkPolyDataMapper *pm;

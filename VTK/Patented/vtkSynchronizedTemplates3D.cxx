@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSynchronizedTemplates3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-18 13:13:04 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 2001-06-21 15:21:52 $
+  Version:   $Revision: 1.44 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -747,7 +747,7 @@ VTK_THREAD_RETURN_TYPE vtkSyncTempThreadedExecute( void *arg )
 void vtkSynchronizedTemplates3D::Execute()
 {
   int idx, inId, outId, offset, num, ptIdx, newIdx;
-  int numCellPts;
+  vtkIdType numCellPts;
   vtkIdType newCellPts[3], *cellPts;
   vtkPolyData *output = this->GetOutput();
   vtkPointData *outPD;

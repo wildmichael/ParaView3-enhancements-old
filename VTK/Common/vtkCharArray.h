@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCharArray.h,v $
   Language:  C++
-  Date:      $Date: 2001-06-18 13:13:00 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2001-06-21 15:21:50 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -61,7 +61,7 @@ public:
   // Description:
   // Allocate memory for this array. Delete old storage only if necessary.
   // Note that ext is no longer used.
-  int Allocate(const vtkIdType sz, const int ext=1000);
+  int Allocate(const vtkIdType sz, const vtkIdType ext=1000);
 
   // Description:
   // Release storage and reset array to initial state.
@@ -103,8 +103,8 @@ public:
 
   // Description:
   // Insert (memory allocation performed) the tuple onto the end of the array.
-  int InsertNextTuple(const float * tuple);
-  int InsertNextTuple(const double * tuple);
+  vtkIdType InsertNextTuple(const float * tuple);
+  vtkIdType InsertNextTuple(const double * tuple);
 
   // Description:
   // Resize object to just fit data requirement. Reclaims extra memory.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkArcPlotter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-18 13:13:01 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2001-06-21 15:21:51 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -87,8 +87,8 @@ void vtkArcPlotter::Execute()
   vtkCellArray *inLines;
   int numPts, i, j;
   float x[3], normal[3], point[3], aveNormal[3];
-  int npts, id;
-  vtkIdType *pts;
+  int id;
+  vtkIdType *pts, npts;
   float *x1, *x2, x21[3], n[3];
   vtkNormals *lineNormals;
   vtkPoints *newPts;

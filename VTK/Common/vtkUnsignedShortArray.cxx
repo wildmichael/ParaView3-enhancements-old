@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnsignedShortArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-18 13:13:01 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2001-06-21 15:21:51 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -110,7 +110,7 @@ void vtkUnsignedShortArray::SetArray(unsigned short* array, vtkIdType size,
 
 // Allocate memory for this array. Delete old storage only if necessary.
 int vtkUnsignedShortArray::Allocate(const vtkIdType sz,
-                                    const int vtkNotUsed(ext))
+                                    const vtkIdType vtkNotUsed(ext))
 {
   if ( sz > this->Size )
     {
@@ -372,7 +372,7 @@ void vtkUnsignedShortArray::InsertTuple(const vtkIdType i,
 }
 
 // Insert (memory allocation performed) the tuple onto the end of the array.
-int vtkUnsignedShortArray::InsertNextTuple(const float * tuple)
+vtkIdType vtkUnsignedShortArray::InsertNextTuple(const float * tuple)
 {
   vtkIdType i = this->MaxId + 1;
   unsigned short *t = this->WritePointer(i,this->NumberOfComponents);
@@ -385,7 +385,7 @@ int vtkUnsignedShortArray::InsertNextTuple(const float * tuple)
   return this->MaxId / this->NumberOfComponents;
 }
 
-int vtkUnsignedShortArray::InsertNextTuple(const double * tuple)
+vtkIdType vtkUnsignedShortArray::InsertNextTuple(const double * tuple)
 {
   vtkIdType i = this->MaxId + 1;
   unsigned short *t = this->WritePointer(i,this->NumberOfComponents);

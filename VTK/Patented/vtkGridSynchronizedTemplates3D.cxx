@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGridSynchronizedTemplates3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-18 13:13:04 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 2001-06-21 15:21:52 $
+  Version:   $Revision: 1.41 $
 
 
 
@@ -956,7 +956,7 @@ VTK_THREAD_RETURN_TYPE vtkGridSyncTempThreadedExecute( void *arg )
 void vtkGridSynchronizedTemplates3D::Execute()
 {
   int idx, inId, outId, offset, num, ptIdx, newIdx;
-  int numCellPts;
+  vtkIdType numCellPts;
   vtkIdType newCellPts[3], *cellPts;
   vtkPolyData *output = this->GetOutput();
   vtkPointData *outPD;

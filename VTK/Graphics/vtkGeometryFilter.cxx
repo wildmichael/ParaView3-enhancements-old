@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGeometryFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-18 13:13:03 $
-  Version:   $Revision: 1.81 $
+  Date:      $Date: 2001-06-21 15:21:52 $
+  Version:   $Revision: 1.82 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -461,7 +461,7 @@ void vtkGeometryFilter::PolyDataExecute()
   vtkPolyData *input= (vtkPolyData *)this->GetInput();
   int i, cellId;
   int allVisible;
-  int npts;
+  vtkIdType npts;
   vtkIdType *pts;
   vtkPoints *p = input->GetPoints();
   int numCells=input->GetNumberOfCells();
@@ -591,7 +591,7 @@ void vtkGeometryFilter::UnstructuredGridExecute()
   if (Connectivity == NULL) {return;}
   int i, cellId;
   int allVisible;
-  int npts;
+  vtkIdType npts;
   vtkIdType *pts;
   vtkPoints *p = input->GetPoints();
   int numCells=input->GetNumberOfCells();

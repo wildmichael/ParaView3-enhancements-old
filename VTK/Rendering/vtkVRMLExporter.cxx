@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVRMLExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-18 13:13:03 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 2001-06-21 15:21:52 $
+  Version:   $Revision: 1.52 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -265,7 +265,7 @@ void vtkVRMLExporter::WriteAnActor(vtkActor *anActor, FILE *fp)
   vtkProperty *prop;
   float *tempf;
   vtkCellArray *cells;
-  int npts;
+  vtkIdType npts;
   vtkIdType *indx;
   float tempf2;
   int pointDataWritten = 0;

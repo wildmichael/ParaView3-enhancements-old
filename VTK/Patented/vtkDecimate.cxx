@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDecimate.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-18 13:13:04 $
-  Version:   $Revision: 1.58 $
+  Date:      $Date: 2001-06-21 15:21:52 $
+  Version:   $Revision: 1.59 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -465,8 +465,8 @@ void vtkDecimate::CreateOutput(int numPts, int numTris, int numEliminated,
   vtkIdType newCellPts[VTK_CELL_SIZE];
   unsigned short int ncells;
   vtkIdType *cells;
-  int ptId, cellId, npts;
-  vtkIdType *pts;
+  int ptId, cellId;
+  vtkIdType *pts, npts;
   vtkPoints *newPts;
   vtkCellArray *newPolys;
   vtkScalars *newScalars = NULL;
@@ -564,7 +564,7 @@ void vtkDecimate::CreateOutput(int numPts, int numTris, int numEliminated,
 int vtkDecimate::BuildLoop (int ptId, unsigned short int numTris,
                             vtkIdType *tris)
 {
-  int numVerts;
+  vtkIdType numVerts;
   int numNei;
   vtkLocalTri t;
   vtkLocalVertex sn;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadricDecimation.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-18 13:13:03 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2001-06-21 15:21:52 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -98,8 +98,8 @@ void vtkQuadricDecimation::Execute()
   int numTris = triangles->GetNumberOfCells();
   int numPts = input->GetNumberOfPoints();
   int i, j, edgeId;
-  int numCellPts, newCellPts[3];
-  vtkIdType *cellPts;
+  int newCellPts[3];
+  vtkIdType *cellPts, numCellPts;
   float cost, x[3];
   vtkPoints *targetPoints = vtkPoints::New();
   vtkPointData *targetPointData = vtkPointData::New();

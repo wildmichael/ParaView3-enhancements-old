@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMaskPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-18 13:13:03 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2001-06-21 15:21:52 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -73,8 +73,8 @@ void vtkMaskPolyData::Execute()
   vtkCellArray *newPolys=NULL, *newStrips=NULL;
   int id, interval;
   vtkPointData *pd;
-  int npts, numCells;
-  vtkIdType *pts;
+  int numCells;
+  vtkIdType *pts, npts;
   vtkPolyData *input= this->GetInput();
   vtkPolyData *output = this->GetOutput();
   

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLoopSubdivisionFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-18 13:13:03 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2001-06-21 15:21:52 $
+  Version:   $Revision: 1.8 $
   Thanks:    This work was supported bt PHS Research Grant No. 1 P41 RR13218-01
              from the National Center for Research Resources
 
@@ -65,7 +65,7 @@ void vtkLoopSubdivisionFilter::GenerateSubdivisionPoints (vtkPolyData *inputDS, 
   vtkIdType *pts;
   int numPts;
   int cellId, edgeId, newId;
-  int npts;
+  vtkIdType npts;
   int p1, p2;
   vtkCellArray *inputPolys=inputDS->GetPolys();
   vtkEdgeTable *edgeTable;
@@ -90,7 +90,8 @@ void vtkLoopSubdivisionFilter::GenerateSubdivisionPoints (vtkPolyData *inputDS, 
     }
 
   // Generate odd points. These will be inserted into the new dataset
-  for (cellId=0, inputPolys->InitTraversal(); inputPolys->GetNextCell(npts, pts); cellId++)
+  for (cellId=0, inputPolys->InitTraversal();
+       inputPolys->GetNextCell(npts, pts); cellId++)
     {
     if ( inputDS->GetCellType(cellId) != VTK_TRIANGLE )
       {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCharArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-18 13:13:00 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2001-06-21 15:21:50 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -112,7 +112,7 @@ void vtkCharArray::SetArray(char* array, vtkIdType size, int save)
 
 
 // Allocate memory for this array. Delete old storage only if necessary.
-int vtkCharArray::Allocate(const vtkIdType sz, const int vtkNotUsed(ext))
+int vtkCharArray::Allocate(const vtkIdType sz, const vtkIdType vtkNotUsed(ext))
 {
   if ( sz > this->Size )
     {
@@ -365,7 +365,7 @@ void vtkCharArray::InsertTuple(const vtkIdType i, const double * tuple)
 }
 
 // Insert (memory allocation performed) the tuple onto the end of the array.
-int vtkCharArray::InsertNextTuple(const float * tuple)
+vtkIdType vtkCharArray::InsertNextTuple(const float * tuple)
 {
   vtkIdType i = this->MaxId + 1;
   char *t = this->WritePointer(i,this->NumberOfComponents);
@@ -378,7 +378,7 @@ int vtkCharArray::InsertNextTuple(const float * tuple)
   return this->MaxId / this->NumberOfComponents;
 }
 
-int vtkCharArray::InsertNextTuple(const double * tuple)
+vtkIdType vtkCharArray::InsertNextTuple(const double * tuple)
 {
   vtkIdType i = this->MaxId + 1;
   char *t = this->WritePointer(i,this->NumberOfComponents);

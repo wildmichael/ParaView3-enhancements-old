@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoxelContoursToSurfaceFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-18 13:13:03 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2001-06-21 15:21:52 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -523,7 +523,7 @@ void vtkVoxelContoursToSurfaceFilter::Execute()
   int                  i, j;
   int                  numberOfInputCells;
   int                  currentInputCellIndex;
-  int                  npts;
+  vtkIdType            npts;
   vtkIdType            *pts;
   float                point1[3], point2[3];
   float                currentZ;

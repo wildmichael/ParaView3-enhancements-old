@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRotationalExtrusionFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-18 13:13:03 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2001-06-21 15:21:52 $
+  Version:   $Revision: 1.40 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -76,8 +76,8 @@ void vtkRotationalExtrusionFilter::Execute()
   vtkPolyData *mesh;
   vtkPoints *inPts;
   vtkCellArray *inVerts, *inLines, *inPolys, *inStrips;
-  int npts, numEdges, cellId, dim;
-  vtkIdType *pts;
+  int numEdges, cellId, dim;
+  vtkIdType *pts, npts;
   int ptId, ncells;
   float *x, newX[3], radius, angleIncr, radIncr, transIncr;
   float psi, theta;

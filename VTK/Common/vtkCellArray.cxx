@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-18 13:13:00 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2001-06-21 15:21:50 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -62,7 +62,7 @@ vtkCellArray* vtkCellArray::New()
 
 vtkCellArray::vtkCellArray()
 {
-  this->Ia = vtkIntArray::New();
+  this->Ia = vtkIdTypeArray::New();
   this->NumberOfCells = 0;
   this->InsertLocation = 0;
   this->TraversalLocation = 0;
@@ -70,7 +70,7 @@ vtkCellArray::vtkCellArray()
 
 vtkCellArray::vtkCellArray(const vtkIdType sz, const int ext)
 {
-  this->Ia = vtkIntArray::New();
+  this->Ia = vtkIdTypeArray::New();
   this->Ia->Allocate(sz,ext);
   this->NumberOfCells = 0;
   this->InsertLocation = 0;
@@ -108,7 +108,7 @@ int vtkCellArray::GetMaxCellSize()
 }
 
 // Specify a group of cells.
-void vtkCellArray::SetCells(int ncells, vtkIntArray *cells)
+void vtkCellArray::SetCells(vtkIdType ncells, vtkIdTypeArray *cells)
 {
   if ( cells != this->Ia )
     {

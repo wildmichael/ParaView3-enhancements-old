@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFeatureEdges.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-18 13:13:02 $
-  Version:   $Revision: 1.55 $
+  Date:      $Date: 2001-06-21 15:21:52 $
+  Version:   $Revision: 1.56 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -97,7 +97,7 @@ void vtkFeatureEdges::Execute()
   float scalar, n[3], x1[3], x2[3];
   float cosAngle = 0;
   vtkIdType lineIds[2];
-  int npts;
+  vtkIdType npts;
   vtkIdType *pts;
   vtkCellArray *inPolys, *inStrips, *newPolys;
   vtkFloatArray *polyNormals = NULL;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkApproximatingSubdivisionFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-18 13:13:02 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2001-06-21 15:21:51 $
+  Version:   $Revision: 1.17 $
   Thanks:    This work was supported bt PHS Research Grant No. 1 P41 RR13218-01
              from the National Center for Research Resources
 
@@ -251,7 +251,7 @@ void vtkApproximatingSubdivisionFilter::GenerateSubdivisionCells (vtkPolyData *i
 {
   int numCells = inputDS->GetNumberOfCells();
   int cellId, newId, id;
-  int npts;
+  vtkIdType npts;
   vtkIdType *pts;
   float edgePts[3];
   vtkIdType newCellPts[3];

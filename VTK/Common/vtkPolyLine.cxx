@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyLine.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-18 13:13:00 $
-  Version:   $Revision: 1.60 $
+  Date:      $Date: 2001-06-21 15:21:51 $
+  Version:   $Revision: 1.61 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -85,7 +85,7 @@ vtkCell *vtkPolyLine::MakeObject()
 // in the same direction as much as possible (i.e., minimal rotation).
 int vtkPolyLine::GenerateSlidingNormals(vtkPoints *pts, vtkCellArray *lines, vtkNormals *normals)
 {
-  int npts;
+  vtkIdType npts;
   vtkIdType *linePts;
   float sPrev[3], sNext[3], q[3], w[3], normal[3], theta;
   float p[3], pNext[3];

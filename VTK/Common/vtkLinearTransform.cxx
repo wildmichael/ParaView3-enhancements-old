@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinearTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-12 13:18:59 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2001-06-21 15:21:51 $
+  Version:   $Revision: 1.26 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -216,7 +216,7 @@ void vtkLinearTransform::TransformPoints(vtkPoints *inPts,
 void vtkLinearTransform::TransformNormals(vtkNormals *inNms, 
 					  vtkNormals *outNms)
 {
-  int n = inNms->GetNumberOfNormals();
+  vtkIdType n = inNms->GetNumberOfNormals();
   double norm[3];
   double matrix[4][4];
   
@@ -227,7 +227,7 @@ void vtkLinearTransform::TransformNormals(vtkNormals *inNms,
   vtkMatrix4x4::Invert(*matrix,*matrix);
   vtkMatrix4x4::Transpose(*matrix,*matrix);
 
-  for (int i = 0; i < n; i++)
+  for (vtkIdType i = 0; i < n; i++)
     {
     inNms->GetNormal(i,norm);
 
@@ -270,14 +270,14 @@ void vtkLinearTransform::TransformNormals(vtkDataArray *inNms,
 void vtkLinearTransform::TransformVectors(vtkVectors *inNms, 
 					  vtkVectors *outNms)
 {
-  int n = inNms->GetNumberOfVectors();
+  vtkIdType n = inNms->GetNumberOfVectors();
   double vec[3];
   
   this->Update();
 
   double (*matrix)[4] = this->Matrix->Element;
 
-  for (int i = 0; i < n; i++)
+  for (vtkIdType i = 0; i < n; i++)
     {
     inNms->GetVector(i,vec);
 

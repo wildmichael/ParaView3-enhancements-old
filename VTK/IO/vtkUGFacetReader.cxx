@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUGFacetReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-18 13:13:03 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2001-06-21 15:21:52 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -231,8 +231,8 @@ void vtkUGFacetReader::Execute()
   //
   if ( this->Merging )
     {
-    int npts, i;
-    vtkIdType *pts, nodes[3];
+    int i;
+    vtkIdType *pts, nodes[3], npts;
     float *x;
 
     mergedPts = vtkPoints::New();

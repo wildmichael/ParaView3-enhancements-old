@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-18 13:13:01 $
-  Version:   $Revision: 1.94 $
+  Date:      $Date: 2001-06-21 15:21:51 $
+  Version:   $Revision: 1.95 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -226,10 +226,10 @@ int vtkUnstructuredGrid::GetCellType(vtkIdType cellId)
 
 vtkCell *vtkUnstructuredGrid::GetCell(vtkIdType cellId)
 {
-  int i, numPts;
+  int i;
   int loc;
   vtkCell *cell = NULL;
-  vtkIdType *pts;
+  vtkIdType *pts, numPts;
   
   switch ((int)this->Types->GetValue(cellId))
     {
@@ -313,10 +313,10 @@ vtkCell *vtkUnstructuredGrid::GetCell(vtkIdType cellId)
 
 void vtkUnstructuredGrid::GetCell(vtkIdType cellId, vtkGenericCell *cell)
 {
-  int i, numPts;
+  int i;
   int    loc;
   float  x[3];
-  vtkIdType *pts;
+  vtkIdType *pts, numPts;
   
   cell->SetCellType((int)Types->GetValue(cellId));
 
@@ -338,10 +338,10 @@ void vtkUnstructuredGrid::GetCell(vtkIdType cellId, vtkGenericCell *cell)
 // constructing a cell.
 void vtkUnstructuredGrid::GetCellBounds(vtkIdType cellId, float bounds[6])
 {
-  int i, numPts;
+  int i;
   int loc;
   float x[3];
-  vtkIdType *pts;
+  vtkIdType *pts, numPts;
   
   loc = this->Locations->GetValue(cellId);
   this->Connectivity->GetCell(loc,numPts,pts);
@@ -411,8 +411,8 @@ int vtkUnstructuredGrid::InsertNextCell(int type, int npts, vtkIdType *pts)
 
 void vtkUnstructuredGrid::SetCells(int *types, vtkCellArray *cells)
 {
-  int i, npts;
-  vtkIdType *pts;
+  int i;
+  vtkIdType *pts, npts;
   
   // set cell array
   if ( this->Connectivity )
@@ -504,9 +504,9 @@ void vtkUnstructuredGrid::BuildLinks()
 
 void vtkUnstructuredGrid::GetCellPoints(vtkIdType cellId, vtkIdList *ptIds)
 {
-  int i, numPts;
+  int i;
   int loc;
-  vtkIdType *pts;
+  vtkIdType *pts, numPts;
   
   loc = this->Locations->GetValue(cellId);
   this->Connectivity->GetCell(loc,numPts,pts); 
@@ -520,7 +520,7 @@ void vtkUnstructuredGrid::GetCellPoints(vtkIdType cellId, vtkIdList *ptIds)
 
 // Return a pointer to a list of point ids defining cell. (More efficient than alternative
 // method.)
-void vtkUnstructuredGrid::GetCellPoints(vtkIdType cellId, int& npts,
+void vtkUnstructuredGrid::GetCellPoints(vtkIdType cellId, vtkIdType& npts,
                                         vtkIdType* &pts)
 {
   int loc;
@@ -844,8 +844,7 @@ void vtkUnstructuredGrid::GetCellNeighbors(vtkIdType cellId, vtkIdList *ptIds,
   vtkIdType *pts, ptId, *cellPts, *cells;
   vtkIdType *minCells = NULL;
   int match;
-  vtkIdType minPtId = 0;
-  int npts;
+  vtkIdType minPtId = 0, npts;
   
   if ( ! this->Links )
     {

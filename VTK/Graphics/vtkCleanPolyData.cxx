@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCleanPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-18 13:13:02 $
-  Version:   $Revision: 1.59 $
+  Date:      $Date: 2001-06-21 15:21:51 $
+  Version:   $Revision: 1.60 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -122,7 +122,7 @@ void vtkCleanPolyData::Execute()
   int inCellID, newId;
   int i;
   vtkIdType ptId;
-  int npts;
+  vtkIdType npts;
   vtkIdType *pts;
   float x[3];
   float newx[3];

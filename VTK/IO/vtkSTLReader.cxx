@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSTLReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-18 13:13:03 $
-  Version:   $Revision: 1.56 $
+  Date:      $Date: 2001-06-21 15:21:52 $
+  Version:   $Revision: 1.57 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -169,8 +169,8 @@ void vtkSTLReader::Execute()
 //  if (0)
   if ( this->Merging )  
   {
-    int npts, i;
-    vtkIdType *pts, nodes[3];
+    int i;
+    vtkIdType *pts, nodes[3], npts;
     float *x;
     int nextCell=0;
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTubeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-18 13:13:03 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 2001-06-21 15:21:52 $
+  Version:   $Revision: 1.50 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -88,8 +88,8 @@ void vtkTubeFilter::Execute()
   vtkPoints *newPts;
   vtkNormals *newNormals;
   vtkCellArray *newStrips;
-  int npts, i1, i2, ptOffset=0;
-  vtkIdType *pts;
+  int i1, i2, ptOffset=0;
+  vtkIdType *pts, npts;
   float p[3], pNext[3];
   float maxSpeed = 0;
   float *n, normal[3], nP[3];

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFloatArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-18 13:13:00 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 2001-06-21 15:21:50 $
+  Version:   $Revision: 1.50 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -107,7 +107,8 @@ void vtkFloatArray::SetArray(float* array, vtkIdType size, int save)
 
 
 // Allocate memory for this array. Delete old storage only if necessary.
-int vtkFloatArray::Allocate(const vtkIdType sz, const int vtkNotUsed(ext))
+int vtkFloatArray::Allocate(const vtkIdType sz,
+                            const vtkIdType vtkNotUsed(ext))
 {
   if ( sz > this->Size)
     {
@@ -348,7 +349,7 @@ void vtkFloatArray::InsertTuple(const vtkIdType i, const double * tuple)
 }
 
 // Insert (memory allocation performed) the tuple onto the end of the array.
-int vtkFloatArray::InsertNextTuple(const float * tuple)
+vtkIdType vtkFloatArray::InsertNextTuple(const float * tuple)
 {
   vtkIdType i = this->MaxId + 1;
   float *t = this->WritePointer(i,this->NumberOfComponents);
@@ -362,7 +363,7 @@ int vtkFloatArray::InsertNextTuple(const float * tuple)
 
 }
 
-int vtkFloatArray::InsertNextTuple(const double * tuple)
+vtkIdType vtkFloatArray::InsertNextTuple(const double * tuple)
 {
   vtkIdType i = this->MaxId + 1;
   float *t = this->WritePointer(i,this->NumberOfComponents);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoidArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-18 13:13:01 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2001-06-21 15:21:51 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -80,7 +80,7 @@ vtkVoidArray::~vtkVoidArray()
 }
 
 // Allocate memory for this array. Delete old storage only if necessary.
-int vtkVoidArray::Allocate(const vtkIdType sz, const int vtkNotUsed(ext))
+int vtkVoidArray::Allocate(const vtkIdType sz, const vtkIdType vtkNotUsed(ext))
 {
   if ( sz > this->Size || this->Array != NULL )
     {
@@ -274,12 +274,12 @@ void vtkVoidArray::InsertTuple(const vtkIdType vtkNotUsed(i),
 }
 
 // Insert (memory allocation performed) the tuple onto the end of the array.
-int vtkVoidArray::InsertNextTuple(const float * vtkNotUsed(tuple))
+vtkIdType vtkVoidArray::InsertNextTuple(const float * vtkNotUsed(tuple))
 {
   return -1;
 }
 
-int vtkVoidArray::InsertNextTuple(const double * vtkNotUsed(tuple))
+vtkIdType vtkVoidArray::InsertNextTuple(const double * vtkNotUsed(tuple))
 {
   return -1;
 }

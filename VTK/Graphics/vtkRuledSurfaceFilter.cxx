@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRuledSurfaceFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-18 13:13:03 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2001-06-21 15:21:52 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -84,8 +84,7 @@ void vtkRuledSurfaceFilter::Execute()
   vtkCellArray *inLines, *newPolys, *newStrips;
   vtkPolyData *input = this->GetInput();
   vtkPolyData *output = this->GetOutput();
-  int npts, npts2;
-  vtkIdType *pts, *pts2;
+  vtkIdType *pts, *pts2, npts, npts2;
   vtkPointData *inPD=input->GetPointData(), *outPD=output->GetPointData();
 
   // Check input, pass data if requested

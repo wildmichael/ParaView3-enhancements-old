@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOBJExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-18 13:13:03 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2001-06-21 15:21:52 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -156,7 +156,7 @@ void vtkOBJExporter::WriteAnActor(vtkActor *anActor, FILE *fpObj, FILE *fpMtl,
   float *tempf, *p;
   vtkCellArray *cells;
   vtkTransform *trans = vtkTransform::New();
-  int npts;
+  vtkIdType npts;
   vtkIdType *indx;
   
   // see if the actor has a mapper. it could be an assembly

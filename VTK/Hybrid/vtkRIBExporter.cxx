@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRIBExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-18 13:13:02 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2001-06-21 15:21:51 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -672,7 +672,7 @@ void vtkRIBExporter::WritePolygons (vtkPolyData *polyData, vtkScalars *s, vtkPro
   float poly_norm[3];
   float vertexTCoords[512][2];
   vtkIdType *pts;
-  int npts;
+  vtkIdType npts;
   int k, kk;
   int rep, j, interpolation;
   int tDim;
@@ -816,10 +816,10 @@ void vtkRIBExporter::WriteStrips (vtkPolyData *polyData, vtkScalars *s, vtkPrope
   RtPoint vertexPoints[512];
   float poly_norm[3];
   float vertexTCoords[512][2];
-  vtkIdType *pts;
+  vtkIdType *pts, npts;
   int p1, p2, p3;
   int k, kk;
-  int npts, rep, j, interpolation;
+  int rep, j, interpolation;
   int tDim;
   unsigned char *colors;
   vtkCellArray *strips;

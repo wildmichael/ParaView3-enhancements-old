@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSetGet.h,v $
   Language:  C++
-  Date:      $Date: 2001-04-28 19:46:12 $
-  Version:   $Revision: 1.82 $
+  Date:      $Date: 2001-06-21 15:21:51 $
+  Version:   $Revision: 1.83 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -72,6 +72,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define VTK_UNSIGNED_LONG   9
 #define VTK_FLOAT          10
 #define VTK_DOUBLE         11 
+#define VTK_ID_TYPE        12
 
 // Some constant required for correct template performance
 #define VTK_BIT_MIN 0

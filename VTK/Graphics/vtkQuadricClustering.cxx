@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadricClustering.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-19 16:27:20 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2001-06-21 15:21:52 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -283,8 +283,8 @@ void vtkQuadricClustering::Append(vtkPolyData *pd)
 void vtkQuadricClustering::AddTriangles(vtkCellArray *tris, vtkPoints *points,
                                         int geometryFlag)
 {
-  int numCells, i, j, numPts;
-  vtkIdType *ptIds;
+  int numCells, i, j;
+  vtkIdType *ptIds, numPts;
   float *pts[3];
   int binIds[3];
   int odd;  // Used to flip order of every other triangle in a strip.
@@ -317,8 +317,8 @@ void vtkQuadricClustering::AddTriangles(vtkCellArray *tris, vtkPoints *points,
 void vtkQuadricClustering::AddPolygons(vtkCellArray *polys, vtkPoints *points,
                                        int geometryFlag)
 {
-  int numCells, i, j, numPts;
-  vtkIdType *ptIds;
+  int numCells, i, j;
+  vtkIdType *ptIds, numPts;
   float **pts;
   int binIds[3];
 
@@ -409,8 +409,8 @@ void vtkQuadricClustering::AddTriangle(int *binIds, float *pt0, float *pt1,
 void vtkQuadricClustering::AddEdges(vtkCellArray *edges, vtkPoints *points,
                                     int geometryFlag)
 {
-  int numCells, i, j, numPts;
-  vtkIdType *ptIds;
+  int numCells, i, j;
+  vtkIdType *ptIds, numPts;
   float *pt0, *pt1;
   int binIds[2];
 
@@ -538,8 +538,8 @@ void vtkQuadricClustering::AddEdge(int *binIds, float *pt0, float *pt1,
 void vtkQuadricClustering::AddVertices(vtkCellArray *verts, vtkPoints *points,
                                        int geometryFlag)
 {
-  int numCells, i, j, numPts;
-  vtkIdType *ptIds;
+  int numCells, i, j;
+  vtkIdType *ptIds, numPts;
   float *pt;
   int binId;
 
@@ -1116,8 +1116,8 @@ void vtkQuadricClustering::FindFeaturePoints(vtkCellArray *edges,
                                              vtkPoints *edgePts,
                                              float vtkNotUsed(angle))
 {
-  int i, j, pointIds[2], numCellPts;
-  vtkIdType *cellPts;
+  int i, j, pointIds[2];
+  vtkIdType *cellPts, numCellPts;
   vtkIdList *pointIdList = vtkIdList::New();
   int numPts = edgePts->GetNumberOfPoints();
   int numEdges = edges->GetNumberOfCells();

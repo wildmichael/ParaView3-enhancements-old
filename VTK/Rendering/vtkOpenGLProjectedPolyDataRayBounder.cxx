@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLProjectedPolyDataRayBounder.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-18 13:13:03 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2001-06-21 15:21:52 $
+  Version:   $Revision: 1.31 $
   Thanks:    Thanks to Lisa Sobierajski Avila who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -88,7 +88,7 @@ void vtkOpenGLProjectedPolyDataRayBounder::Build( vtkPolyData *pdata )
   vtkCellArray   *polys;
   vtkCellArray   *strips;
   vtkPoints      *points;
-  int            npts;
+  vtkIdType      npts;
   vtkIdType      *pts;
   int            current_num_vertices = -1;
   int            i;

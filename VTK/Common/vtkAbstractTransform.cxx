@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:05 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2001-06-21 15:21:50 $
+  Version:   $Revision: 1.13 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -160,8 +160,8 @@ void vtkAbstractTransform::TransformPoints(vtkPoints *in, vtkPoints *out)
   this->Update();
 
   double point[3];
-  int i;
-  int n = in->GetNumberOfPoints();
+  vtkIdType i;
+  vtkIdType n = in->GetNumberOfPoints();
 
   for (i = 0; i < n; i++)
     {
@@ -191,8 +191,8 @@ void vtkAbstractTransform::TransformPointsNormalsVectors(vtkPoints *inPts,
   double matrix[3][3];
   double coord[3];
 
-  int i;
-  int n = inPts->GetNumberOfPoints();
+  vtkIdType i;
+  vtkIdType n = inPts->GetNumberOfPoints();
 
   for (i = 0; i < n; i++)
     {

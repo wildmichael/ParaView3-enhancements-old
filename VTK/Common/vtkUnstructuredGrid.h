@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGrid.h,v $
   Language:  C++
-  Date:      $Date: 2001-06-18 13:13:01 $
-  Version:   $Revision: 1.74 $
+  Date:      $Date: 2001-06-21 15:21:51 $
+  Version:   $Revision: 1.75 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -103,7 +103,8 @@ public:
   int GetMaxCellSize();
   void BuildLinks();
   vtkCellLinks *GetCellLinks() {return this->Links;};
-  virtual void GetCellPoints(vtkIdType cellId, int& npts, vtkIdType* &pts);
+  virtual void GetCellPoints(vtkIdType cellId, vtkIdType& npts,
+                             vtkIdType* &pts);
   void ReplaceCell(vtkIdType cellId, int npts, vtkIdType *pts);
   int InsertNextLinkedCell(int type, int npts, vtkIdType *pts);
   void RemoveReferenceToCell(vtkIdType ptId, vtkIdType cellId);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObjectToDataSetFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-02 13:05:35 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2001-06-21 15:21:52 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1247,8 +1247,9 @@ int vtkDataObjectToDataSetFilter::ConstructCells(vtkUnstructuredGrid *ug)
 vtkCellArray *vtkDataObjectToDataSetFilter::ConstructCellArray(vtkDataArray *da, int comp,
                                                                int compRange[2])
 {
-  int ncells, i, j, npts, min, max, numComp=da->GetNumberOfComponents();
+  int ncells, i, j, min, max, numComp=da->GetNumberOfComponents();
   vtkCellArray *carray;
+  vtkIdType npts;
 
   min = 0;
   max = da->GetMaxId();
@@ -1261,13 +1262,13 @@ vtkCellArray *vtkDataObjectToDataSetFilter::ConstructCellArray(vtkDataArray *da,
 
   carray = vtkCellArray::New();
 
-  // If the data type is an integer, and the number of components is 1, then
+  // If the data type is vtkIdType, and the number of components is 1, then
   // we can directly use the data array without copying it. We just have to
   // figure out how many cells we have.
-  if ( da->GetDataType() == VTK_INT && da->GetNumberOfComponents() == 1 
+  if ( da->GetDataType() == VTK_ID_TYPE && da->GetNumberOfComponents() == 1 
     && comp == 0 && compRange[0] == 0 && compRange[1] == max )
     {
-    vtkIntArray *ia = (vtkIntArray *)da;
+    vtkIdTypeArray *ia = (vtkIdTypeArray *)da;
     for (ncells=i=0; i<ia->GetMaxId(); i+=(npts+1))
       {
       ncells++;

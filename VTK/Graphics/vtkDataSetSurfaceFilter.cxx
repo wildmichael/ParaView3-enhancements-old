@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetSurfaceFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-19 16:27:53 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2001-06-21 15:21:52 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -714,12 +714,13 @@ void vtkDataSetSurfaceFilter::UnstructuredGridExecute()
 {
   vtkCellArray *newPolys;
   vtkPoints *newPts;
-  int *ids;
+  vtkIdType *ids;
   int progressCount;
   int cellId, i, j, newCellId;
-  int *cellPointer;
+  vtkIdType *cellPointer;
   int cellType;
-  vtkUnstructuredGrid *input = vtkUnstructuredGrid::SafeDownCast(this->GetInput());
+  vtkUnstructuredGrid *input =
+    vtkUnstructuredGrid::SafeDownCast(this->GetInput());
   int numPts=input->GetNumberOfPoints();
   int numCells=input->GetNumberOfCells();
   vtkGenericCell *cell;

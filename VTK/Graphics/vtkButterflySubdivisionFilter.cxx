@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkButterflySubdivisionFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-18 13:13:02 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2001-06-21 15:21:51 $
+  Version:   $Revision: 1.6 $
   Thanks:    This work was supported bt PHS Research Grant No. 1 P41 RR13218-01
              from the National Center for Research Resources
 
@@ -65,7 +65,7 @@ void vtkButterflySubdivisionFilter::GenerateSubdivisionPoints (vtkPolyData *inpu
   vtkIdType *pts;
   int cellId, edgeId, newId;
   int i, j;
-  int npts;
+  vtkIdType npts;
   int p1, p2;
   int valence1, valence2;
   vtkCellArray *inputPolys=inputDS->GetPolys();
@@ -88,7 +88,8 @@ void vtkButterflySubdivisionFilter::GenerateSubdivisionPoints (vtkPolyData *inpu
   edgeTable->InitEdgeInsertion(inputDS->GetNumberOfPoints());
 
   // Generate new points for subdivisions surface
-  for (cellId=0, inputPolys->InitTraversal(); inputPolys->GetNextCell(npts, pts); cellId++)
+  for (cellId=0, inputPolys->InitTraversal();
+       inputPolys->GetNextCell(npts, pts); cellId++)
     {
     if ( inputDS->GetCellType(cellId) != VTK_TRIANGLE )
       {
@@ -301,7 +302,7 @@ void vtkButterflySubdivisionFilter::GenerateBoundaryStencil
   vtkIdType *cells;
   unsigned short ncells;
   vtkIdType *pts;
-  int npts;
+  vtkIdType npts;
   int i, j;
   int p0, p3;
 
