@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractVectorComponents.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-27 14:39:18 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2001-09-17 19:35:16 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -231,7 +231,16 @@ void vtkExtractVectorComponents::Execute()
     }
 
   const char* name = vectors->GetName();
-  char* newName = new char[strlen(name)+10];
+  char* newName=0;
+  if (name)
+    {
+    newName = new char[strlen(name)+10];
+    }
+  else
+    {
+    newName = new char[10];
+    name = "";
+    }
 
   if (vectors)
     {
