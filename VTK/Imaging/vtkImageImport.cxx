@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageImport.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-10-17 21:21:41 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2001-10-18 12:44:49 $
+  Version:   $Revision: 1.34 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -398,9 +398,9 @@ void vtkImageImport::LegacyCheckWholeExtent()
     {
     return;
     }
-  
+  int i;
   // Check whether the whole extent has been set.
-  for(int i=0; i < 6; ++i)
+  for(i=0; i < 6; ++i)
     {
     if (this->WholeExtent[i] != 0)
       {
@@ -410,7 +410,7 @@ void vtkImageImport::LegacyCheckWholeExtent()
   
   // The whole extent has not been set.  Copy it from the data extent
   // and issue a warning.
-  for(int i=0; i < 6; ++i)
+  for(i=0; i < 6; ++i)
     {
     this->WholeExtent[i] = this->DataExtent[i];
     }
