@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkDataSetReader.h,v $
   Language:  C++
-  Date:      $Date: 1995-02-15 09:27:24 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1995-05-01 21:06:53 $
+  Version:   $Revision: 1.2 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -27,7 +27,7 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 #include "DSSrc.hh"
 #include "vlDataR.hh"
 
-class vlDataSetReader : public vlDataSetSource, public vlDataReader
+class vlDataSetReader : public vlDataSetSource
 {
 public:
   vlDataSetReader();
@@ -43,7 +43,7 @@ public:
 protected:
   void Execute();
   char *Filename;
-
+  vlDataReader Reader;
 };
 
 #endif
