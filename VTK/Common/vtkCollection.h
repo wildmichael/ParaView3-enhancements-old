@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkCollection.h,v $
   Language:  C++
-  Date:      $Date: 1994-11-11 09:53:03 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1995-01-11 09:30:23 $
+  Version:   $Revision: 1.8 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -25,6 +25,7 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 
 #include "Object.hh"
 
+//BTX - begin tcl exclude
 class vlCollectionElement //;prevents pick-up by man page generator
 {
  public:
@@ -32,6 +33,7 @@ class vlCollectionElement //;prevents pick-up by man page generator
   vlObject *Item;
   vlCollectionElement *Next;
 };
+//ETX end tcl exclude
 
 class vlCollection : public vlObject
 {
