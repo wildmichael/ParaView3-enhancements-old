@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-22 16:43:26 $
-  Version:   $Revision: 1.113 $
+  Date:      $Date: 2002-03-01 14:56:09 $
+  Version:   $Revision: 1.114 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 #include <stdlib.h>
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkActor, "$Revision: 1.113 $");
+vtkCxxRevisionMacro(vtkActor, "$Revision: 1.114 $");
 
 // Creates an actor with the following defaults: origin(0,0,0) 
 // position=(0,0,0) scale=(1,1,1) visibility=1 pickable=1 dragable=1
@@ -464,7 +464,7 @@ void vtkActor::PrintSelf(ostream& os, vtkIndent indent)
 
   if ( this->Texture )
     {
-    os << indent << "Texture: this->Texture\n";
+    os << indent << "Texture: " << this->Texture << "\n";
     }
   else
     {
