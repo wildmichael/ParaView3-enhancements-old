@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor.h,v $
   Language:  C++
-  Date:      $Date: 1996-05-27 20:26:38 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 1996-06-04 20:35:36 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -194,6 +194,7 @@ class vtkActor : public vtkObject
   // a list of the parts that are first level children of the assembly.)
   virtual void InitPartTraversal() {this->TraversalLocation = 0;};
   virtual vtkActor *GetNextPart();
+  virtual int GetNumberOfParts() {return 1;};
 
   // Description:
   // Used to construct assembly paths and perform part traversal.

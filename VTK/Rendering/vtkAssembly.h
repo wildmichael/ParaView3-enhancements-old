@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAssembly.h,v $
   Language:  C++
-  Date:      $Date: 1996-05-27 20:26:40 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1996-06-04 20:35:38 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -110,6 +110,7 @@ public:
   // GetNextPart() returns a NULL pointer when the list is exhausted.
   void InitPartTraversal();
   vtkActor *GetNextPart();
+  int GetNumberOfParts();
 
   void BuildPaths(vtkAssemblyPaths *paths, vtkActorCollection *path);
 
