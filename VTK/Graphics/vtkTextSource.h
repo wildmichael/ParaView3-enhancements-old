@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkTextSource.h,v $
   Language:  C++
-  Date:      $Date: 1995-05-04 17:19:17 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1995-05-05 16:42:54 $
+  Version:   $Revision: 1.2 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -35,9 +35,16 @@ public:
   vlSetStringMacro(Text);
   vlGetStringMacro(Text);
 
+  // Description:
+  // Controlls whether or not a background is drawn with the text.
+  vlSetMacro(Backing,int);
+  vlGetMacro(Backing,int);
+  vlBooleanMacro(Backing,int);
+
 protected:
   void Execute();
   char *Text;
+  int   Backing;
 };
 
 #endif
