@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageNonMaximumSuppression.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-01-03 14:57:55 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1997-01-08 15:20:51 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -74,7 +74,7 @@ void vtkImageNonMaximumSuppression::SetAxes(int num, int *axes)
   this->Dimensionality = num;
 
   // First set the axes to fill in all axes.
-  this->vtkImageDyadicFilter::SetAxes(num, axes);
+  this->vtkImageTwoInputFilter::SetAxes(num, axes);
   
   // Copy the first four (non component) axes.
   count = 0;
@@ -96,7 +96,7 @@ void vtkImageNonMaximumSuppression::SetAxes(int num, int *axes)
   // Last axis is component
   newAxes[4] = VTK_IMAGE_COMPONENT_AXIS;
 
-  this->vtkImageDyadicFilter::SetAxes(5, newAxes);
+  this->vtkImageTwoInputFilter::SetAxes(5, newAxes);
 }
 
 
