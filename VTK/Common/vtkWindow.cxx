@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-22 19:01:31 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-06-24 17:31:45 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -133,7 +133,15 @@ void vtkWindow::PrintSelf(ostream& os, vtkIndent indent)
   vtkObject::PrintSelf(os,indent);
 
   os << indent << "Erase: " << (this->Erase ? "On\n" : "Off\n");
-  os << indent << "Window Name: " << this->WindowName << "\n";
+  if ( this->WindowName )
+    {
+    os << indent << "Window Name: " << this->WindowName << "\n";
+    }
+  else
+    {
+    os << indent << "Window Name: (none)\n";
+    }
+
   temp = this->GetPosition();
   os << indent << "Position: (" << temp[0] << ", " << temp[1] << ")\n";
   temp = this->GetSize();
