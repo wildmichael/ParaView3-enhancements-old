@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCamera.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-28 15:13:55 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 1997-07-02 18:45:58 $
+  Version:   $Revision: 1.51 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -676,7 +676,8 @@ void vtkCamera::ComputePerspectiveTransform(float aspect,
     matrix[0][2] = 0;
     matrix[1][2] = 0;
     matrix[2][2] = (nearz - farz);
-    matrix[2][3] = nearz;
+    matrix[2][3] = nearz + (nearz - farz)*this->ClippingRange[0]/
+      (this->ClippingRange[1] - this->ClippingRange[0]);
     matrix[3][2] = 0;
     matrix[3][3] = 1;
     }
