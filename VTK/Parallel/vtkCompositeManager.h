@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCompositeManager.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-12 15:20:30 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2002-08-27 17:10:48 $
+  Version:   $Revision: 1.16 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -73,6 +73,8 @@ public:
   void ExitInteractor();
   virtual void StartRender();
   virtual void EndRender();
+  virtual void SatelliteStartRender();
+  virtual void SatelliteEndRender();
   void RenderRMI();
   void ResetCamera(vtkRenderer *ren);
   void ResetCameraClippingRange(vtkRenderer *ren);
