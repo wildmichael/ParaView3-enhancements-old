@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:29:57 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1995-07-24 09:36:49 $
+  Version:   $Revision: 1.6 $
 
 This file is part of the Visualization Toolkit. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -43,8 +43,10 @@ public:
   int     *GetPosition();
   Display *GetDisplayId();
   void     SetDisplayId(Display *);
+  void     SetDisplayId(void *);
   Window   GetWindowId();
   void     SetWindowId(Window);
+  void     SetWindowId(void *);
   void     SetNextWindowId(Window);
   virtual int      GetDesiredDepth()    = 0;
   virtual Colormap GetDesiredColormap() = 0;
