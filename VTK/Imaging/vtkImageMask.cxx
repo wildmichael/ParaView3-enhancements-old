@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMask.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-02-26 14:26:44 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1997-04-01 19:02:10 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,7 +59,7 @@ vtkImageMask::vtkImageMask()
 // Description:
 // This templated function executes the filter for any type of data.
 template <class T>
-void vtkImageMaskExecute(vtkImageMask *self,
+static void vtkImageMaskExecute(vtkImageMask *self,
 			 vtkImageRegion *in1Region, T *in1Ptr,
 			 vtkImageRegion *in2Region, unsigned char *in2Ptr,
 			 vtkImageRegion *outRegion, T *outPtr)

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageIslandRemoval2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-01-03 14:56:52 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1997-04-01 19:02:02 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -108,7 +108,7 @@ void vtkImageIslandRemoval2D::InterceptCacheUpdate(vtkImageRegion *region)
 // neighborhoods is to check neighbors one by one directly.  Also, I did
 // not want to break the templated function into pieces.
 template <class T>
-void vtkImageIslandRemoval2DExecute(vtkImageIslandRemoval2D *self,
+static void vtkImageIslandRemoval2DExecute(vtkImageIslandRemoval2D *self,
 					  vtkImageRegion *inRegion, T *inPtr,
 					  vtkImageRegion *outRegion, T *outPtr)
 {

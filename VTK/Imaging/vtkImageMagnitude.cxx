@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMagnitude.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-02-26 14:26:05 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1997-04-01 19:02:09 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -99,7 +99,7 @@ void vtkImageMagnitude::ComputeRequiredInputRegionExtent(
 // This templated execute method handles any type input, but the output
 // is always floats. Axis 0 should be components. FFT is performed on axis 1.
 template <class T1, class T2>
-void vtkImageMagnitudeExecute(vtkImageMagnitude *self,
+static void vtkImageMagnitudeExecute(vtkImageMagnitude *self,
 			      vtkImageRegion *inRegion, T1 *inPtr,
 			      vtkImageRegion *outRegion, T2 *outPtr)
 {
@@ -146,7 +146,7 @@ void vtkImageMagnitudeExecute(vtkImageMagnitude *self,
 
 //----------------------------------------------------------------------------
 template <class T>
-void vtkImageMagnitudeExecute(vtkImageMagnitude *self, 
+static void vtkImageMagnitudeExecute(vtkImageMagnitude *self, 
 			      vtkImageRegion *inRegion, 
 			      vtkImageRegion *outRegion, T *outPtr)
 {
