@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPixel.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:14 $
-  Version:   $Revision: 1.61 $
+  Date:      $Date: 2001-03-26 17:48:25 $
+  Version:   $Revision: 1.62 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -252,7 +252,7 @@ vtkPixel* vtkPixel::New()
 
 
 
-static int edges[4][2] = { {0,1}, {1,3}, {3,2}, {2,0} };
+static int edges[4][2] = { {0,1}, {1,3}, {2,3}, {0,2} };
 
 void vtkPixel::Contour(float value, vtkScalars *cellScalars,
 		       vtkPointLocator *locator, 

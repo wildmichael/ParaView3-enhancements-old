@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuad.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:17 $
-  Version:   $Revision: 1.69 $
+  Date:      $Date: 2001-03-26 17:48:25 $
+  Version:   $Revision: 1.70 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -394,7 +394,7 @@ int vtkQuad::CellBoundary(int vtkNotUsed(subId), float pcoords[3],
 //
 // Marching (convex) quadrilaterals
 //
-static int edges[4][2] = { {0,1}, {1,2}, {2,3}, {3,0} };
+static int edges[4][2] = { {0,1}, {1,2}, {3,2}, {0,3} };
 
 typedef int EDGE_LIST;
 typedef struct {
