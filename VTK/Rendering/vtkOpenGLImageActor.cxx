@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLImageActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:48 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2002-01-23 14:04:07 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -39,7 +39,7 @@
 
 
 #ifndef VTK_IMPLEMENT_MESA_CXX
-vtkCxxRevisionMacro(vtkOpenGLImageActor, "$Revision: 1.10 $");
+vtkCxxRevisionMacro(vtkOpenGLImageActor, "$Revision: 1.11 $");
 vtkStandardNewMacro(vtkOpenGLImageActor);
 #endif
 
@@ -373,6 +373,22 @@ void vtkOpenGLImageActor::Load(vtkRenderer *ren)
   glEnable(GL_TEXTURE_2D);
 
   // draw the quad
+  if ( vtkMapper::GetResolveCoincidentTopology() )
+    {
+    if ( vtkMapper::GetResolveCoincidentTopology() == 
+         VTK_RESOLVE_SHIFT_ZBUFFER )
+      {
+      }
+    else
+      {
+#ifdef GL_VERSION_1_1
+      float f, u;
+      glEnable(GL_POLYGON_OFFSET_FILL);
+      vtkMapper::GetResolveCoincidentTopologyPolygonOffsetParameters(f,u);
+      glPolygonOffset(f,u);
+#endif      
+      }
+    }
   glDisable(GL_COLOR_MATERIAL);
   glDisable (GL_CULL_FACE);
   glDisable( GL_LIGHTING );
