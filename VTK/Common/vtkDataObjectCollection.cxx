@@ -3,11 +3,11 @@
 Program:   Visualization Toolkit
 Module:    $RCSfile: vtkDataObjectCollection.cxx,v $
 Language:  C++
-Date:      $Date: 2000-08-28 14:48:14 $
-Version:   $Revision: 1.1 $
+Date:      $Date: 2000-12-10 20:08:08 $
+Version:   $Revision: 1.2 $
 
 
-Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
+Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without

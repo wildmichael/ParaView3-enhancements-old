@@ -3,12 +3,12 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLegendBoxActor.h,v $
   Language:  C++
-  Date:      $Date: 2000-11-19 20:10:35 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2000-12-10 20:08:24 $
+  Version:   $Revision: 1.6 $
   Thanks:    Tim Smith who sponsored and encouraged the development
              of this class.
 
-Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
+Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without

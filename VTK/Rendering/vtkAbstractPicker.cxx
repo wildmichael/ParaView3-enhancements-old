@@ -3,11 +3,11 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractPicker.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-06-08 09:11:03 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2000-12-10 20:08:29 $
+  Version:   $Revision: 1.2 $
 
 
-Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen.
+Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen.
 
 This software is copyrighted by Ken Martin, Will Schroeder and Bill Lorensen.
 The following terms apply to all files associated with the software unless

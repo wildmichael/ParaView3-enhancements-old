@@ -3,11 +3,11 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-01 21:00:00 $
-  Version:   $Revision: 1.112 $
+  Date:      $Date: 2000-12-10 20:08:50 $
+  Version:   $Revision: 1.113 $
 
 
-Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
+Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without

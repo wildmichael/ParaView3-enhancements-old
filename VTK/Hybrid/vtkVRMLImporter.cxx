@@ -3,12 +3,12 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVRMLImporter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-06 14:49:21 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2000-12-10 20:08:27 $
+  Version:   $Revision: 1.17 $
   Thanks:    Tom Citriniti who implemented and contributed this class
 
 
-Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
+Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without

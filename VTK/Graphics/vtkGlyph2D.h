@@ -3,11 +3,11 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGlyph2D.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-07 07:39:39 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2000-12-10 20:08:38 $
+  Version:   $Revision: 1.2 $
 
 
-Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
+Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without

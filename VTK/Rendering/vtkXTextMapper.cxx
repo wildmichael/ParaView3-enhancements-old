@@ -3,11 +3,11 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-06 16:47:41 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2000-12-10 20:09:15 $
+  Version:   $Revision: 1.27 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
-Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
+Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without

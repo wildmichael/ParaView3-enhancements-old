@@ -3,11 +3,11 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkgluPickMatrix.h,v $
   Language:  C++
-  Date:      $Date: 2000-06-02 14:15:53 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2000-12-10 20:08:22 $
+  Version:   $Revision: 1.3 $
 
 
-Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
+Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without

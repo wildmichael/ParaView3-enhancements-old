@@ -3,10 +3,10 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkParallelCoordinatesActor.h,v $
   Language:  C++
-  Date:      $Date: 2000-11-19 20:11:20 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2000-12-10 20:09:13 $
+  Version:   $Revision: 1.9 $
 
-Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
+Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without

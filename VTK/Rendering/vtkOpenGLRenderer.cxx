@@ -3,11 +3,11 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-09-19 17:48:20 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2000-12-10 20:08:45 $
+  Version:   $Revision: 1.35 $
 
 
-Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
+Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without

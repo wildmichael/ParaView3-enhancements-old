@@ -3,11 +3,11 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDelaunay3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-11-18 21:05:02 $
-  Version:   $Revision: 1.52 $
+  Date:      $Date: 2000-12-10 20:08:35 $
+  Version:   $Revision: 1.53 $
 
 
-Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
+Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without

@@ -3,13 +3,13 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGlyphSource2D.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-15 13:38:06 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2000-12-10 20:09:02 $
+  Version:   $Revision: 1.5 $
   Thanks:    Tim Smith who sponsored and encouraged the development
              of this class.
 
 
-Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
+Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
