@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMPICommunicator.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-26 15:12:08 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2002-06-26 17:22:29 $
+  Version:   $Revision: 1.21 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -85,7 +85,6 @@ public:
   virtual int Send(vtkIdType* data, int length, int remoteProcessId, 
                    int tag);
 #endif
-
   virtual int Send(vtkDataObject* data, int remoteProcessId, int tag)
     { return this->vtkCommunicator::Send(data, remoteProcessId, tag); }
   virtual int Send(vtkDataArray* data, int remoteProcessId, int tag)
@@ -180,10 +179,16 @@ public:
 
   friend class vtkMPIController;
 
+  vtkMPICommunicatorOpaqueComm* GetMPIComm()
+    {
+      return this->Comm;
+    }
+
 //ETX
 
   static char* Allocate(size_t size);
   static void Free(char* ptr);
+
 
 protected:
   vtkMPICommunicator();

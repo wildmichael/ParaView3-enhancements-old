@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMPICommunicator.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-25 12:07:09 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2002-06-26 17:22:29 $
+  Version:   $Revision: 1.22 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,7 +26,7 @@
 
 #include "vtkMPI.h"
 
-vtkCxxRevisionMacro(vtkMPICommunicator, "$Revision: 1.21 $");
+vtkCxxRevisionMacro(vtkMPICommunicator, "$Revision: 1.22 $");
 vtkStandardNewMacro(vtkMPICommunicator);
 
 vtkCxxSetObjectMacro(vtkMPICommunicator,Group,vtkMPIGroup);
@@ -42,6 +42,11 @@ public:
 vtkMPICommunicatorOpaqueComm::vtkMPICommunicatorOpaqueComm()
 {
   this->Handle = 0;
+}
+
+MPI_Comm* vtkMPICommunicatorOpaqueComm::GetHandle()
+{
+  return this->Handle;
 }
 
 //----------------------------------------------------------------------------
