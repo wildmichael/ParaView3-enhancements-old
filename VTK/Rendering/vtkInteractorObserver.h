@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorObserver.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-28 03:33:50 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2002-05-28 15:19:40 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -82,7 +82,7 @@ public:
   // Description:
   // Set/Get the priority at which events are processed. This is used when
   // multiple interactor observers are used simultaneously. The default value
-  // is 1.0 (highest priority.) Note that when multiple interactor observer
+  // is 0.0 (lowest priority.) Note that when multiple interactor observer
   // have the same priority, then the last observer added will process the
   // event first. (Note: once the SetInteractor() method has been called,
   // changing the priority does not effect event processing. You will have
