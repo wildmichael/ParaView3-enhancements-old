@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.h,v $
   Language:  C++
-  Date:      $Date: 1997-08-26 18:33:29 $
-  Version:   $Revision: 1.53 $
+  Date:      $Date: 1997-11-05 15:45:56 $
+  Version:   $Revision: 1.54 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -186,7 +186,6 @@ public:
   float GetZ (int x, int y);
 
 protected:
-  void UpdateViewRays();
 
   vtkRayCaster *RayCaster;
 
