@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadraticQuad.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-27 10:55:11 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-05-27 13:07:51 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -75,8 +75,8 @@ public:
                    int dim, float *derivs);
 
   // Description:
-  // Clip this edge using scalar value provided. Like contouring, except
-  // that it cuts the edge to produce linear line segments.
+  // Clip this quadratic quad using scalar value provided. Like contouring, 
+  // except that it cuts the quad to produce linear triangles.
   void Clip(float value, vtkDataArray *cellScalars, 
             vtkPointLocator *locator, vtkCellArray *polys,
             vtkPointData *inPd, vtkPointData *outPd,
@@ -91,7 +91,7 @@ public:
 
   
   // Description:
-  // Quadratic edge specific methods. 
+  // Quadratic quad specific methods. 
   static void InterpolationFunctions(float pcoords[3], float weights[8]);
   static void InterpolationDerivs(float pcoords[3], float derivs[16]);
 
