@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32Header.h,v $
   Language:  C++
-  Date:      $Date: 2001-06-15 15:16:08 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2001-08-20 15:00:58 $
+  Version:   $Revision: 1.13 $
   Thanks:    to Horst Schreiber for developing this MFC code
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -52,6 +52,11 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //
 // Windows specific stuff------------------------------------------
 #if defined(_WIN32) || defined(WIN32)
+
+#ifdef VTK_USE_ANSI_STDLIB
+#define NOMINMAX
+#endif
+
 #include <windows.h>
 
 // Handle compiler warning messages, etc.
