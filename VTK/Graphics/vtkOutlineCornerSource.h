@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOutlineCornerSource.h,v $
   Language:  C++
-  Date:      $Date: 2000-08-05 19:05:43 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2000-09-01 07:24:50 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to Sebastien Barre who developed this class.
 
 
@@ -57,7 +57,7 @@ public:
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
-  // Construct outline corner source with defaut corner factor = 0.2
+  // Construct outline corner source with default corner factor = 0.2
   static vtkOutlineCornerSource *New();
 
   // Description:
