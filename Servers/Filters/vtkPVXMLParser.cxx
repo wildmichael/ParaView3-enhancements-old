@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkPVXMLParser.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-27 19:26:20 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-12-03 17:52:15 $
+  Version:   $Revision: 1.3 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -43,7 +43,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkObjectFactory.h"
 #include "vtkPVXMLElement.h"
 
-vtkCxxRevisionMacro(vtkPVXMLParser, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkPVXMLParser, "$Revision: 1.3 $");
 vtkStandardNewMacro(vtkPVXMLParser);
 
 //----------------------------------------------------------------------------
@@ -161,55 +161,4 @@ void vtkPVXMLParser::PrintXML(ostream& os)
 vtkPVXMLElement* vtkPVXMLParser::GetRootElement()
 {
   return this->RootElement;
-}
-
-//----------------------------------------------------------------------------
-int vtkPVXMLParser::Parse()
-{
-  if(!this->FileName)
-    {
-    vtkErrorMacro("No FileName set!");
-    return 0;
-    }
-  
-  ifstream inFile(this->FileName);
-  if(!inFile)
-    {
-    vtkErrorMacro("Error opening " << this->FileName);
-    return 0;
-    }
-  
-  // Call the superclass's parser.
-  this->SetStream(&inFile);
-  int result = this->Superclass::Parse();
-  this->SetStream(0);
-  return result;
-}
-
-//----------------------------------------------------------------------------
-int vtkPVXMLParser::Parse(const char* input)
-{
-  this->InputString = input;
-  int result = this->Superclass::Parse();
-  this->InputString = 0;
-  return result;
-}
-
-//----------------------------------------------------------------------------
-int vtkPVXMLParser::ParseXML()
-{
-  // Dispatch parser based on source of data.
-  if(this->Stream)
-    {
-    return this->Superclass::ParseXML();
-    }
-  else if(this->InputString)
-    {
-    return this->ParseBuffer(this->InputString);
-    }
-  else
-    {
-    vtkErrorMacro("ParseXML() called with no stream or input string.");
-    return 0;
-    }
 }

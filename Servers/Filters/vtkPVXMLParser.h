@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkPVXMLParser.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-27 19:26:20 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-12-03 17:52:15 $
+  Version:   $Revision: 1.3 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -70,20 +70,9 @@ public:
   vtkSetStringMacro(FileName);
   vtkGetStringMacro(FileName);
   
-  // Description:
-  // Parse the configuration file.  Returns 1 for success, 0 otherwise.
-  int Parse();
-  
-  // Description:
-  // Parse the given string.  Returns 1 for success, 0 otherwise.
-  int Parse(const char* input);
-  
 protected:
   vtkPVXMLParser();
   ~vtkPVXMLParser();
-  
-  // Override parsing driver.
-  int ParseXML();
   
   void StartElement(const char* name, const char** atts);
   void EndElement(const char* name);
@@ -102,12 +91,6 @@ protected:
   
   // Counter to assign unique element ids to those that don't have any.
   unsigned int ElementIdIndex;  
-  
-  // The name of the input file.
-  char* FileName;
-  
-  // The string currently getting parsed if not from a file.
-  const char* InputString;
   
 private:
   vtkPVXMLParser(const vtkPVXMLParser&);  // Not implemented.
