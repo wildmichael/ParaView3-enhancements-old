@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRibbonFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:45:04 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 1998-10-07 17:30:41 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -219,7 +219,7 @@ void vtkRibbonFilter::Execute()
       
       if ( inScalars )
         sFactor = 1.0 + ((this->WidthFactor - 1.0) * 
-                  (inScalars->GetScalar(j) - range[0]) / (range[1]-range[0]));
+              (inScalars->GetScalar(pts[j]) - range[0]) / (range[1]-range[0]));
 
       for (i=0; i<3; i++) s[i] = p[i] + w[i] * BevelAngle * sFactor;
       ptId = newPts->InsertNextPoint(s);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTubeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:45:13 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1998-10-07 17:30:41 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -261,7 +261,7 @@ void vtkTubeFilter::Execute()
       if ( inScalars ) // varying by scalar values
         {
         sFactor = 1.0 + ((this->RadiusFactor - 1.0) * 
-                  (inScalars->GetScalar(j) - range[0]) / (range[1]-range[0]));
+                  (inScalars->GetScalar(pts[j]) - range[0]) / (range[1]-range[0]));
 	if ((range[1] - range[0]) == 0.0)
 	  {
 	  vtkErrorMacro(<< "Dividing by zero");
@@ -270,7 +270,7 @@ void vtkTubeFilter::Execute()
       else if ( inVectors ) // use flux preserving relationship
         {
         sFactor = 
-	  sqrt((double)maxSpeed/vtkMath::Norm(inVectors->GetVector(j)));
+	  sqrt((double)maxSpeed/vtkMath::Norm(inVectors->GetVector(pts[j])));
         if ( sFactor > this->RadiusFactor ) sFactor = this->RadiusFactor;
         }
 
