@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkCleanPolyData.h,v $
   Language:  C++
-  Date:      $Date: 1994-09-12 21:19:21 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1994-09-29 07:53:36 $
+  Version:   $Revision: 1.6 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -48,7 +48,7 @@ public:
 
   // Description:
   // Create default locator. Used to create one when none is specified.
-  virtual void CreateDefaultLocator();
+  void CreateDefaultLocator();
 
 protected:
   // Usual data generation method
