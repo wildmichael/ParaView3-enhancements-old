@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagePlaneWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-16 18:36:22 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2002-08-19 11:25:15 $
+  Version:   $Revision: 1.37 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -40,7 +40,7 @@
 #include "vtkTextureMapToPlane.h"
 #include "vtkTransform.h"
 
-vtkCxxRevisionMacro(vtkImagePlaneWidget, "$Revision: 1.36 $");
+vtkCxxRevisionMacro(vtkImagePlaneWidget, "$Revision: 1.37 $");
 vtkStandardNewMacro(vtkImagePlaneWidget);
 
 vtkCxxSetObjectMacro(vtkImagePlaneWidget, PlaneProperty, vtkProperty);
@@ -1949,8 +1949,8 @@ void vtkImagePlaneWidget::AdjustState(int X, int Y)
   float x1 = planeSize1 - marginX;
   float y1 = planeSize2 - marginY;
 
-  float *raPtr;
-  float *rvPtr;
+  float *raPtr = 0;
+  float *rvPtr = 0;
   float rvfac = 1.0;
 
   if ( x2D < x0  )    //left margin
