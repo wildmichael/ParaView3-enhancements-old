@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkUnsignedCharArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-03-01 22:19:09 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1994-04-11 09:56:17 $
+  Version:   $Revision: 1.4 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -93,7 +93,7 @@ vlCharArray& vlCharArray::operator+=(vlCharArray& ia)
     this->Array[this->MaxId+1+i] = ia.Array[i];
     }
   this->MaxId += ia.MaxId + 1;
-
+  return *this;
 }
 
 void vlCharArray::PrintSelf(ostream& os, vlIndent indent)
