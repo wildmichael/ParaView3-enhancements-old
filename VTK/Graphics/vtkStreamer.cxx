@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamer.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-02-15 01:26:56 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 1999-02-16 17:59:45 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -346,10 +346,10 @@ void vtkStreamer::Integrate()
 
   // Finish initializing each streamer
   //
-  for (ptId=0; ptId < numSourcePts; ptId++)
+  for (idx=0, ptId=0; ptId < numSourcePts; ptId++)
     {
     this->Streamers[offset*ptId].Direction = 1.0;
-    sPtr = this->Streamers[offset*ptId].GetStreamPoint(idx=0);
+    sPtr = this->Streamers[offset*ptId].GetStreamPoint(idx);
     sPtr->d = 0.0;
     sPtr->t = 0.0;
     if ( sPtr->cellId >= 0 ) //starting point in dataset
@@ -384,7 +384,7 @@ void vtkStreamer::Integrate()
       this->Streamers[offset*ptId+1].Direction = -1.0;
       idxNext = this->Streamers[offset*ptId+1].InsertNextStreamPoint();
       sNext = this->Streamers[offset*ptId+1].GetStreamPoint(idxNext);
-      sPtr = this->Streamers[offset*ptId+1].GetStreamPoint(idx);
+      sPtr = this->Streamers[offset*ptId].GetStreamPoint(idx);
       *sNext = *sPtr;
       }
     else if ( this->IntegrationDirection == VTK_INTEGRATE_BACKWARD )
