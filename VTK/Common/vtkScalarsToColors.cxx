@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalarsToColors.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-05 14:04:35 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2001-12-05 14:27:16 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -221,9 +221,5 @@ void vtkScalarsToColors::PrintSelf(ostream& os, vtkIndent indent)
 {
   this->vtkObject::PrintSelf(os,indent);
 
-  os << indent << "EstimatedRenderTime: " 
-     << this->EstimatedRenderTime << endl;
-  os << indent << "RenderTimeMultiplier: " 
-     << this->RenderTimeMultiplier << endl;
-  os << indent << "Visibility: " << (this->Visibility ? "On\n" : "Off\n");
+  os << indent << "Alpha: " << this->Alpha << endl;
 }
