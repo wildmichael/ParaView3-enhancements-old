@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-06 16:27:00 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 2000-04-06 16:32:10 $
+  Version:   $Revision: 1.49 $
   Thanks:    to Horst Schreiber for developing this MFC code
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -277,7 +277,7 @@ void vtkWin32OpenGLRenderWindow::Frame(void)
 {
   this->MakeCurrent();
   glFlush();
-  if (!this->AbortRender && this->DoubleBuffer)
+  if (!this->AbortRender && this->DoubleBuffer && this->SwapBuffers)
     {
     vtkWin32OpenGLSwapBuffers(this->DeviceContext);
     vtkDebugMacro(<< " SwapBuffers\n");
