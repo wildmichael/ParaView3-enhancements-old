@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGrid.h,v $
   Language:  C++
-  Date:      $Date: 2003-01-15 21:54:26 $
-  Version:   $Revision: 1.94 $
+  Date:      $Date: 2003-02-28 17:22:15 $
+  Version:   $Revision: 1.95 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -180,6 +180,10 @@ public:
   // generates ghost levels if necessary.
   virtual void UpdateData();
 
+  // Description:
+  // The extent type is a 3D extent
+  int GetExtentType() { return VTK_3D_EXTENT; }
+
 protected:
   vtkStructuredGrid();
   ~vtkStructuredGrid();
@@ -190,9 +194,6 @@ protected:
   vtkQuad *Quad;  
   vtkHexahedron *Hexahedron;
   vtkEmptyCell *EmptyCell;
-
-  // The extent type is a 3D extent
-  int GetExtentType() { return VTK_3D_EXTENT; }
   
   // Description:
   // Reallocates and copies to set the Extent to the UpdateExtent.
