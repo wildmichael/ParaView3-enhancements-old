@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIndent.h,v $
   Language:  C++
-  Date:      $Date: 2000-01-18 14:03:55 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2000-01-19 03:41:08 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,8 +59,6 @@ public:
   static vtkIndent *New();
 
   virtual const char *GetClassName() {return "vtkIndent";};
-  virtual int IsA(const char *name);
-  static vtkIndent *SafeDownCast(vtkIndent *o);
 
   // Description:
   // Determine the next indentation level. Keep indenting by two until the 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTimeStamp.h,v $
   Language:  C++
-  Date:      $Date: 2000-01-18 14:04:10 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2000-01-19 03:41:08 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,8 +59,6 @@ public:
   void Delete() {delete this;};
 
   virtual const char *GetClassName() {return "vtkTimeStamp";};
-  virtual int IsA(const char *name);
-  static vtkTimeStamp *SafeDownCast(vtkTimeStamp *o);
 
   // Description:
   // Set this objects time to the current time. The current time is
