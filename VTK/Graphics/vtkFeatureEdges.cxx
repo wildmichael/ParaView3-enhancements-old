@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkFeatureEdges.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-04-17 21:02:11 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1995-05-13 10:17:16 $
+  Version:   $Revision: 1.11 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -106,9 +106,11 @@ void vlFeatureEdges::Execute()
       {
       p1 = pts[i];
       p2 = pts[(i+1)%npts];
-      Mesh.GetCellEdgeNeighbors(cellId,p1,p2,neighbors);
 
-      if ( this->BoundaryEdges && (numNei=neighbors.GetNumberOfIds()) < 1 )
+      Mesh.GetCellEdgeNeighbors(cellId,p1,p2,neighbors);
+      numNei = neighbors.GetNumberOfIds();
+
+      if ( this->BoundaryEdges && numNei < 1 )
         {
         numBEdges++;
         scalar = 0.0;
@@ -177,8 +179,8 @@ void vlFeatureEdges::PrintSelf(ostream& os, vlIndent indent)
   vlPolyToPolyFilter::PrintSelf(os,indent);
 
   os << indent << "Feature Angle: " << this->FeatureAngle << "\n";
-  os << indent << "BoundaryEdges: " << (this->BoundaryEdges ? "On\n" : "Off\n");
-  os << indent << "FeatureEdges: " << (this->FeatureEdges ? "On\n" : "Off\n"); 
+  os << indent << "Boundary Edges: " << (this->BoundaryEdges ? "On\n" : "Off\n");
+  os << indent << "Feature Edges: " << (this->FeatureEdges ? "On\n" : "Off\n"); 
   os << indent << "Non-Manifold Edges: " << (this->NonManifoldEdges ? "On\n" : "Off\n");
   os << indent << "Coloring: " << (this->Coloring ? "On\n" : "Off\n");
 }
