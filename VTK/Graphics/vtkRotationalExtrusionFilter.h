@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRotationalExtrusionFilter.h,v $
   Language:  C++
-  Date:      $Date: 1995-09-08 12:50:07 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1995-09-11 09:21:13 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -101,7 +101,7 @@ public:
 
   // Description:
   // Set/Get angle of rotation.
-  vtkSetClampMacro(Angle,float,0,360.0);
+  vtkSetMacro(Angle,float);
   vtkGetMacro(Angle,float);
 
   // Description:
