@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBMPReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:02 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2001-03-13 12:30:20 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -487,13 +487,16 @@ static void vtkBMPReaderUpdate2(vtkBMPReader *self, vtkImageData *data,
 //----------------------------------------------------------------------------
 // This function reads a data from a file.  The datas extent/axes
 // are assumed to be the same as the file extent/order.
-void vtkBMPReader::Execute(vtkImageData *data)
+void vtkBMPReader::ExecuteData(vtkDataObject *output)
 {
+  vtkImageData *data = this->AllocateOutputData(output);
+
   if (this->InternalFileName == NULL)
     {
     vtkErrorMacro(<< "Either a FileName or FilePrefix must be specified.");
     return;
     }
+
   this->ComputeDataIncrements();
   
   // Call the correct templated function for the output
