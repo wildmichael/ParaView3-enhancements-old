@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProp.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-22 10:40:57 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2000-10-20 13:56:50 $
+  Version:   $Revision: 1.26 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -306,9 +306,7 @@ protected:
 
   int Visibility;
   int Pickable;
-  void (*PickMethod)(void *);
-  void (*PickMethodArgDelete)(void *);
-  void *PickMethodArg;
+  unsigned long PickTag;
   int Dragable;
 
   float AllocatedRenderTime;
