@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeTextureMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-14 16:29:53 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2000-08-18 17:22:25 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -119,7 +119,6 @@ void vtkVolumeTextureMapper::InitializeRender( vtkRenderer *ren,
   float *GArray;
   int   colorChannels;
   float gradientOpacityConstant;
-  float tmp;
   
   // Hang on to the render window - we'll need it to test for abort
   this->RenderWindow = ren->GetRenderWindow();
