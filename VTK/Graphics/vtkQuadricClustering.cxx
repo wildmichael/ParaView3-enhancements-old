@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadricClustering.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-15 13:33:30 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 2002-08-26 19:37:27 $
+  Version:   $Revision: 1.45 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 #include "vtkFeatureEdges.h"
 #include "vtkTimerLog.h"
 
-vtkCxxRevisionMacro(vtkQuadricClustering, "$Revision: 1.44 $");
+vtkCxxRevisionMacro(vtkQuadricClustering, "$Revision: 1.45 $");
 vtkStandardNewMacro(vtkQuadricClustering);
 
 //----------------------------------------------------------------------------
@@ -474,7 +474,7 @@ void vtkQuadricClustering::AddEdge(vtkIdType *binIds, float *pt0, float *pt1,
 
 
   // Compute quadric for line segment
-  // Line segment quadric is the area (squared) of the triangle (seg,pt).
+  // Line segment quadric is the area (squared) of the triangle (seg,pt)
 
   // Compute the direction vector of the segment.
   d[0] = pt1[0] - pt0[0];
@@ -483,6 +483,11 @@ void vtkQuadricClustering::AddEdge(vtkIdType *binIds, float *pt0, float *pt1,
 
   // Compute the length^2 of the line segement.
   length2 = d[0]*d[0] + d[1]*d[1] + d[2]*d[2];
+
+  if (length2 == 0.0)
+    { // Coincident points.  Avoid divide by zero.
+    return;
+    }
 
   // Normalize the direction vector.
   tmp = 1.0 / sqrt(length2);
