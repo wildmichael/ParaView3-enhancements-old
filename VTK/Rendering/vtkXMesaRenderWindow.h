@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMesaRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-22 22:00:34 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2002-11-19 18:49:31 $
+  Version:   $Revision: 1.14 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -95,6 +95,18 @@ public:
   // MakeCurrent() reverts to original behavior of cache-checking     
   // on the next render.     
   void SetForceMakeCurrent();
+
+  // Description:
+  // Get report of capabilities for the render window
+  const char *ReportCapabilities();
+
+  // Description:
+  // Does this render window support OpenGL? 0-false, 1-true
+  int SupportsOpenGL();
+
+  // Description:
+  // Is this render window using hardware acceleration? 0-false, 1-true
+  int IsDirect();
 
   // Description:
   // Xwindow get set functions
