@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCleanPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-22 14:26:50 $
-  Version:   $Revision: 1.57 $
+  Date:      $Date: 2001-03-05 01:54:28 $
+  Version:   $Revision: 1.58 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -98,16 +98,16 @@ void vtkCleanPolyData::OperateOnBounds(float in[6], float out[6])
 void vtkCleanPolyData::Execute()
 {
   vtkPolyData  *input = this->GetInput();
-  vtkPoints    *inPts = input->GetPoints();
-  int numPts = input->GetNumberOfPoints();
-  //
-  vtkDebugMacro(<<"Beginning PolyData clean");
-  if (input == NULL) 
+  if (input == NULL)
     {
     vtkErrorMacro(<<"Input is NULL");
     return;
     }
-  if ( (numPts<1) || (inPts == NULL ) ) 
+  vtkPoints    *inPts = input->GetPoints();
+  int numPts = input->GetNumberOfPoints();
+  //
+  vtkDebugMacro(<<"Beginning PolyData clean");
+  if ( (numPts<1) || (inPts == NULL ) )
     {
     vtkErrorMacro(<<"No data to Operate On!");
     return;
