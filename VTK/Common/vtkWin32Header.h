@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32Header.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:42:10 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-07-31 14:27:48 $
+  Version:   $Revision: 1.5 $
   Thanks:    to Horst Schreiber for developing this MFC code
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -50,7 +50,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include <math.h>
 
 // now add in the UNIX / Windows varients
-#ifdef _WIN32
+#if defined(_WIN32) || defined(WIN32)
 #include <strstrea.h>
 #include <windows.h>
 
