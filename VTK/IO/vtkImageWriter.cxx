@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-07-29 19:27:43 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 2003-07-29 21:03:24 $
+  Version:   $Revision: 1.47 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,9 @@
 #include "vtkObjectFactory.h"
 #include "vtkPointData.h"
 
-vtkCxxRevisionMacro(vtkImageWriter, "$Revision: 1.46 $");
+#include <stdio.h>
+
+vtkCxxRevisionMacro(vtkImageWriter, "$Revision: 1.47 $");
 vtkStandardNewMacro(vtkImageWriter);
 
 #ifdef write

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBYUWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-07-29 19:27:43 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 2003-07-29 21:03:24 $
+  Version:   $Revision: 1.48 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,9 @@
 #include "vtkPointData.h"
 #include "vtkPolyData.h"
 
-vtkCxxRevisionMacro(vtkBYUWriter, "$Revision: 1.47 $");
+#include <stdio.h>
+
+vtkCxxRevisionMacro(vtkBYUWriter, "$Revision: 1.48 $");
 vtkStandardNewMacro(vtkBYUWriter);
 
 // Create object so that it writes displacement, scalar, and texture files
