@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPlaneWidget.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-21 17:28:01 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2002-09-05 11:53:07 $
+  Version:   $Revision: 1.16 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -322,10 +322,6 @@ protected:
   void Translate(double *p1, double *p2);
   void Push(double *p1, double *p2);
   
-  // Initial bounds
-  float InitialBounds[6];
-  float InitialLength;
-
   // Plane normal, normalized
   float Normal[3];
 
@@ -341,9 +337,6 @@ protected:
   void CreateDefaultProperties();
   
   void GeneratePlane();
-  
-  // Keep track of last pick position
-  float LastPickPosition[3];
   
 private:
   vtkPlaneWidget(const vtkPlaneWidget&);  //Not implemented

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPlaneWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-28 19:01:17 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2002-09-05 11:53:07 $
+  Version:   $Revision: 1.28 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -39,7 +39,7 @@
 #include "vtkSphereSource.h"
 #include "vtkTransform.h"
 
-vtkCxxRevisionMacro(vtkPlaneWidget, "$Revision: 1.27 $");
+vtkCxxRevisionMacro(vtkPlaneWidget, "$Revision: 1.28 $");
 vtkStandardNewMacro(vtkPlaneWidget);
 
 vtkCxxSetObjectMacro(vtkPlaneWidget,PlaneProperty,vtkProperty);
@@ -493,6 +493,7 @@ int vtkPlaneWidget::HighlightHandle(vtkProp *prop)
 
   if ( this->CurrentHandle )
     {
+    this->ValidPick = 1;
     this->HandlePicker->GetPickPosition(this->LastPickPosition);
     this->CurrentHandle->SetProperty(this->SelectedHandleProperty);
     for (int i=0; i<4; i++) //find handle
@@ -511,6 +512,7 @@ void vtkPlaneWidget::HighlightNormal(int highlight)
 {
   if ( highlight )
     {
+    this->ValidPick = 1;
     this->PlanePicker->GetPickPosition(this->LastPickPosition);
     this->LineActor->SetProperty(this->SelectedHandleProperty);
     this->ConeActor->SetProperty(this->SelectedHandleProperty);
@@ -530,6 +532,7 @@ void vtkPlaneWidget::HighlightPlane(int highlight)
 {
   if ( highlight )
     {
+    this->ValidPick = 1;
     this->PlanePicker->GetPickPosition(this->LastPickPosition);
     this->PlaneActor->SetProperty(this->SelectedPlaneProperty);
     }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtk3DWidget.h,v $
   Language:  C++
-  Date:      $Date: 2002-09-04 19:52:07 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2002-09-05 11:53:07 $
+  Version:   $Revision: 1.13 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -124,9 +124,17 @@ protected:
   int Placed; 
   void AdjustBounds(float bounds[6], float newBounds[6], float center[3]);
   
-  //control the size of handles
+  //control the size of handles (if there are any)
+  float InitialBounds[6];
+  float InitialLength;
   float HandleSize;
+  float SizeHandles(float factor=1.0);
+  virtual void SizeHandles() {}//subclass in turn invokes parent's SizeHandles()
   
+  //used to track the depth of the last pick; also interacts with handle sizing
+  int   ValidPick;
+  float LastPickPosition[3];
+
 private:
   vtk3DWidget(const vtk3DWidget&);  // Not implemented.
   void operator=(const vtk3DWidget&);  // Not implemented.

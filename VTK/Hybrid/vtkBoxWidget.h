@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBoxWidget.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-20 13:32:25 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2002-09-05 11:53:07 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -272,10 +272,6 @@ protected:
                 double *x1, double *x2, double *x3, double *x4,
                 double *x5);
   
-  // Initial bounds
-  float InitialBounds[6];
-  float InitialLength;
-
   // Transform the hexahedral points (used for rotations)
   vtkTransform *Transform;
   
@@ -299,9 +295,6 @@ protected:
   int TranslationEnabled;
   int ScalingEnabled;
   int RotationEnabled;
-  
-  // Keep track of last pick position
-  float LastPickPosition[3];
 
 private:
   vtkBoxWidget(const vtkBoxWidget&);  //Not implemented

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBoxWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-28 19:01:17 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2002-09-05 11:53:07 $
+  Version:   $Revision: 1.22 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -35,7 +35,7 @@
 #include "vtkRenderWindowInteractor.h"
 #include "vtkTransform.h"
 
-vtkCxxRevisionMacro(vtkBoxWidget, "$Revision: 1.21 $");
+vtkCxxRevisionMacro(vtkBoxWidget, "$Revision: 1.22 $");
 vtkStandardNewMacro(vtkBoxWidget);
 
 vtkBoxWidget::vtkBoxWidget()
@@ -537,6 +537,7 @@ void vtkBoxWidget::OnLeftButtonDown()
     this->HighlightFace(
       this->HighlightHandle(path->GetFirstNode()->GetProp()));
     this->HandlePicker->GetPickPosition(this->LastPickPosition);
+    this->ValidPick = 1;
     }
   else
     {
@@ -546,6 +547,7 @@ void vtkBoxWidget::OnLeftButtonDown()
       {
       this->State = vtkBoxWidget::Moving;
       this->HexPicker->GetPickPosition(this->LastPickPosition);
+      this->ValidPick = 1;
       if ( !this->Interactor->GetShiftKey() )
         {
         this->HighlightHandle(NULL);
@@ -606,6 +608,7 @@ void vtkBoxWidget::OnMiddleButtonDown()
     this->CurrentHandle = this->Handle[6];
     this->HighlightOutline(1);
     this->HandlePicker->GetPickPosition(this->LastPickPosition);
+    this->ValidPick = 1;
     }
   else
     {
@@ -617,6 +620,7 @@ void vtkBoxWidget::OnMiddleButtonDown()
       this->CurrentHandle = this->Handle[6];
       this->HighlightOutline(1);
       this->HexPicker->GetPickPosition(this->LastPickPosition);
+      this->ValidPick = 1;
       }
     else
       {
@@ -666,6 +670,7 @@ void vtkBoxWidget::OnRightButtonDown()
     this->State = vtkBoxWidget::Scaling;
     this->HighlightOutline(1);
     this->HandlePicker->GetPickPosition(this->LastPickPosition);
+    this->ValidPick = 1;
     }
   else
     {
@@ -676,6 +681,7 @@ void vtkBoxWidget::OnRightButtonDown()
       this->State = vtkBoxWidget::Scaling;
       this->HighlightOutline(1);
       this->HexPicker->GetPickPosition(this->LastPickPosition);
+      this->ValidPick = 1;
       }
     else
       {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointWidget.h,v $
   Language:  C++
-  Date:      $Date: 2002-09-04 19:52:18 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2002-09-05 11:53:07 $
+  Version:   $Revision: 1.14 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -252,10 +252,6 @@ protected:
   void MoveFocus(double *p1, double *p2);
   int TranslationMode;
 
-  // Initial bounds
-  float InitialBounds[6];
-  float InitialLength;
-
   // Properties used to control the appearance of selected objects and
   // the manipulator in general.
   vtkProperty *Property;
@@ -267,9 +263,6 @@ protected:
   int DetermineConstraintAxis(int constraint, double *x);
   int WaitingForMotion;
   int WaitCount;
-  
-  // Keep track of last pick position
-  float LastPickPosition[3];
   
 private:
   vtkPointWidget(const vtkPointWidget&);  //Not implemented
