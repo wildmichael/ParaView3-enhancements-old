@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastMapper.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-20 21:12:11 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2001-08-21 14:03:13 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -211,7 +211,7 @@ protected:
   float                        ImageSampleDistance;
   float                        MinimumImageSampleDistance;
   float                        MaximumImageSampleDistance;
-  float                        AutoAdjustSampleDistances;
+  int                          AutoAdjustSampleDistances;
   
   float                        WorldSampleDistance;
   int                          ScalarDataType;
