@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectorText.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-30 21:06:20 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2003-07-04 12:48:51 $
+  Version:   $Revision: 1.32 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 #include "vtkPolyDataReader.h"
 #include "vtkTransformPolyDataFilter.h"
 
-vtkCxxRevisionMacro(vtkVectorText, "$Revision: 1.31 $");
+vtkCxxRevisionMacro(vtkVectorText, "$Revision: 1.32 $");
 vtkStandardNewMacro(vtkVectorText);
 
 char *VTK_VECTOR_TEXT_33 = (char *) "11 0.438482 "
@@ -1690,7 +1690,7 @@ void vtkVectorText::Execute()
         if ((this->Text[pos] > 32)&&(this->Text[pos] < 127))
           {
           // add the result to our output
-          aLetter = this->Letters[this->Text[pos]];
+          aLetter = this->Letters[static_cast<int>(this->Text[pos])];
           ptCount = strtol(aLetter,&aLetter,10);
           width = strtod(aLetter,&aLetter);
           for (i = 0; i < ptCount; i++)
