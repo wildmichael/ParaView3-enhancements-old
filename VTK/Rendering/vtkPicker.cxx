@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPicker.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-04-03 13:57:31 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1997-04-14 00:41:54 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -113,7 +113,6 @@ int vtkPicker::Pick(float selectionX, float selectionY, float selectionZ,
   vtkCamera *camera;
   vtkMapper *mapper;
   float p1World[4], p2World[4], p1Mapper[4], p2Mapper[4];
-  static vtkVertex cell; // use to take advantage of Hitbbox() method
   int picked=0;
   int *winSize;
   float x, y, t;
@@ -268,7 +267,7 @@ int vtkPicker::Pick(float selectionX, float selectionY, float selectionZ,
 //  bounding box are picked correctly.
 //
         bounds = mapper->GetBounds();
-        if ( cell.HitBBox(bounds, (float *)p1Mapper, ray, hitPosition, t) )
+        if ( vtkCell::HitBBox(bounds, (float *)p1Mapper, ray, hitPosition, t) )
           {
           picked = 1;
           this->IntersectWithLine((float *)p1Mapper, (float *)p2Mapper,tol,actor,part,mapper);
