@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCell.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-05-06 14:33:45 $
-  Version:   $Revision: 1.56 $
+  Date:      $Date: 2003-06-18 10:50:55 $
+  Version:   $Revision: 1.57 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 #include "vtkMarchingSquaresCases.h"
 #include "vtkPoints.h"
 
-vtkCxxRevisionMacro(vtkCell, "$Revision: 1.56 $");
+vtkCxxRevisionMacro(vtkCell, "$Revision: 1.57 $");
 
 // Construct cell.
 vtkCell::vtkCell()
@@ -179,6 +179,9 @@ char vtkCell::HitBBox (float bounds[6], float origin[3], float dir[3],
 
     return 1;
 }
+#undef VTK_RIGHT 
+#undef VTK_LEFT
+#undef VTK_MIDDLE
 
 // Compute cell bounding box (xmin,xmax,ymin,ymax,zmin,zmax). Return pointer
 // to array of six float values.
