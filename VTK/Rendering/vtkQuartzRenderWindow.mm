@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuartzRenderWindow.mm,v $
   Language:  C++
-  Date:      $Date: 2001-12-13 03:55:20 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-01-05 16:20:57 $
+  Version:   $Revision: 1.8 $
   Thanks:    to Yves Starreveld for developing this class
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -62,19 +62,20 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
 //------------------------------------------------------------------------------
-vtkQuartzRenderWindow* vtkQuartzRenderWindow::New()
-{
+//vtkQuartzRenderWindow* vtkQuartzRenderWindow::New()
+//{
   // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkQuartzRenderWindow");
-  if(ret)
-    {
-    return (vtkQuartzRenderWindow*)ret;
-    }
+ // vtkObject* ret = vtkObjectFactory::CreateInstance("vtkQuartzRenderWindow");
+  //if(ret)
+  //  {
+  //  return (vtkQuartzRenderWindow*)ret;
+  //  }
   // If the factory was unable to create the object, then create it here.
-  return new vtkQuartzRenderWindow;
-}
+ // return new vtkQuartzRenderWindow;
+//}
 
-
+vtkCxxRevisionMacro(vtkQuartzRenderWindow, "$Revision: 1.8 $");
+vtkStandardNewMacro(vtkQuartzRenderWindow);
 
 
 #define VTK_MAX_LIGHTS 8
