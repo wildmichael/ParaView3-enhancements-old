@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRendererSource.h,v $
   Language:  C++
-  Date:      $Date: 1996-01-11 10:03:25 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1996-06-17 16:42:45 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -72,9 +72,17 @@ public:
   // Returns which renderer is being used as the source for the pixel data.
   vtkGetObjectMacro(Input,vtkRenderer);
 
+  // Description:
+  // Use the entire RenderWindow as a data source or just the Renderer.
+  // The default is zero, just the Renderer.
+  vtkSetMacro(WholeWindow,int);
+  vtkGetMacro(WholeWindow,int);
+  vtkBooleanMacro(WholeWindow,int);
+  
 protected:
   void Execute();
   vtkRenderer *Input;
+  int WholeWindow;
 };
 
 #endif
