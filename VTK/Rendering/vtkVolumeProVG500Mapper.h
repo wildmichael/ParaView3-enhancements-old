@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProVG500Mapper.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:28 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2001-07-06 19:07:51 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -165,6 +165,10 @@ protected:
 			     VLIPixel **outBase, int outSize[2],
 			     VLIVector2D textureCoords[6] );
 
+  // Keep track of the size of the data loaded so we know if we can
+  // simply update when a change occurs or if we need to release and
+  // create again
+  int LoadedDataSize[3];
   
 };
 
