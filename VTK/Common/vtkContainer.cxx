@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkContainer.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-18 19:03:26 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-06-19 13:20:07 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -41,7 +41,9 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 =========================================================================*/
 
 #include "vtkContainer.h"
+
 #include "vtkDebugLeaks.h"
+#include "vtkString.h"
 
 vtkContainer::vtkContainer() 
 { 
@@ -50,3 +52,15 @@ vtkContainer::vtkContainer()
 vtkContainer::~vtkContainer() 
 {
 }
+
+int vtkContainerCompareMethod(const char* d1, const char* d2)
+{ return vtkString::Compare(d1, d2); }
+
+int vtkContainerCompareMethod(char* d1, char* d2)
+{ return vtkString::Compare(d1, d2); }
+
+const char* vtkContainerCreateMethod(const char* d1)
+{ return vtkString::Duplicate(d1); }
+
+char* vtkContainerCreateMethod(char* d1)
+{ return vtkString::Duplicate(d1); }
