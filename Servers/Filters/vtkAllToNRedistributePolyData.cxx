@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAllToNRedistributePolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-28 18:41:18 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-07-01 18:42:27 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -99,6 +99,7 @@ vtkAllToNRedistributePolyData::~vtkAllToNRedistributePolyData()
 void vtkAllToNRedistributePolyData::PrintSelf(ostream& os, vtkIndent indent)
 {
   this->vtkWeightedRedistributePolyData::PrintSelf(os,indent);
+  os << indent << "Number of processes: " << this->NumberOfProcesses << endl;
 }
 
 
