@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSpatialFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-01-16 21:51:24 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2000-01-17 13:29:41 $
+  Version:   $Revision: 1.39 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -170,6 +170,7 @@ void vtkImageSpatialFilter::ComputeInputUpdateExtent(int extent[6],
     return;
     }
 
+  wholeExtent = this->GetInput()->GetWholeExtent();
   for (idx = 0; idx < 3; ++idx)
     {
     // Magnify by strides
