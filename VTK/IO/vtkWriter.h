@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWriter.h,v $
   Language:  C++
-  Date:      $Date: 1995-10-25 23:50:38 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1996-06-26 20:41:55 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -50,6 +50,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // .SECTION Caveats
 // Every subclass of vtkWriter must implement a WriteData() method. Most likely
 // will have to create SetInput() method as well.
+
+// .SECTION See Also
+// vtkBYUWriter vtkDataWriter vtkSTLWriter vtkVoxelWriter
 
 #ifndef __vtkWriter_hh
 #define __vtkWriter_hh

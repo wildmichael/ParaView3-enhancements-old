@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPoints.h,v $
   Language:  C++
-  Date:      $Date: 1995-08-31 21:21:04 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1996-06-26 20:40:31 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -44,6 +44,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // for vtkPoints is an array of x-y-z triplets accessible by point id.
 // The subclasses of vtkPoints are concrete data types (float, int, etc.) 
 // that implement the interface of vtkPoints. 
+
+// .SECTION See Also
+// vtkFloatPoints vtkIntPoints
 
 #ifndef __vtkPoints_h
 #define __vtkPoints_h

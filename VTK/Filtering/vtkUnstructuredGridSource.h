@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGridSource.h,v $
   Language:  C++
-  Date:      $Date: 1995-10-13 11:02:42 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1996-06-26 20:41:41 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,6 +42,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // .SECTION Description
 // vtkUnstructuredGridSource is an abstract class whose subclasses generate 
 // unstructured grid data.
+
+// .SECTION See Also
+// vtkUnstructuredGridReader
 
 #ifndef __vtkUnstructuredGridSource_h
 #define __vtkUnstructuredGridSource_h

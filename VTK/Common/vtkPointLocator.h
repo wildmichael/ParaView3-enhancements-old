@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointLocator.h,v $
   Language:  C++
-  Date:      $Date: 1996-06-08 13:13:01 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1996-06-26 20:40:12 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,6 +55,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // Many other types of spatial locators have been developed such as 
 // octrees and kd-trees. These are often more efficient for the 
 // operations described here.
+
+// .SECTION See Also
+// vtkCellPicker vtkPointPicker
 
 #ifndef __vtkPointLocator_h
 #define __vtkPointLocator_h

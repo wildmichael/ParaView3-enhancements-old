@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsToPolyDataFilter.h,v $
   Language:  C++
-  Date:      $Date: 1996-03-27 22:26:33 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1996-06-26 20:41:30 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -43,6 +43,10 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // vtkStructuredPointsToPolyDataFilter is an abstract filter class whose
 // subclasses take on input structured points and generate polygonal 
 // data on output.
+
+// .SECTION See Also
+// vtkDividingCubes vtkMarchingCubes vtkMarchingSquares
+// vtkRecursiveDividingCubes vtkStructuredPointsGeometryFilter
 
 #ifndef __vtkStructuredPointsToPolyDataFilter_h
 #define __vtkStructuredPointsToPolyDataFilter_h

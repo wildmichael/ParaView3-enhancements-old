@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSetToPointSetFilter.h,v $
   Language:  C++
-  Date:      $Date: 1995-12-27 10:59:07 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1996-06-26 20:40:26 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -45,6 +45,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // At a minimum, the concrete subclasses of vtkPointSetToPointSetFilter
 // modify their point coordinates. They never modify their topological 
 // form, however.
+
+// .SECTION See Also
+// vtkTransformFilter vtkWarpScalar vtkWarpTo vtkWarpVector
 
 #ifndef __vtkPointSetToPointSetFilter_h
 #define __vtkPointSetToPointSetFilter_h

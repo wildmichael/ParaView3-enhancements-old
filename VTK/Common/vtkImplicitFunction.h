@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitFunction.h,v $
   Language:  C++
-  Date:      $Date: 1995-12-27 10:58:16 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1996-06-26 20:39:58 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,8 +55,11 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // function (i.e., the model space). Typically we want to transpose the 
 // implicit model into world coordinates. In this case the inverse of the 
 // transform is required.
+
 // .SECTION See Also
 // vtkTransform
+// vtkCylinder vtkImplicitBoolean vtkPlane vtkPlanes
+// vtkQuadric vtkSphere
 
 #ifndef __vtkImplicitFunction_h
 #define __vtkImplicitFunction_h

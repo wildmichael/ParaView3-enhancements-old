@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSource.h,v $
   Language:  C++
-  Date:      $Date: 1995-10-25 23:50:33 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1996-06-26 20:40:59 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -68,6 +68,10 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // output data). If enabled the ReleaseDataFlag enables the deletion of the
 // output data once the downstream process object finishes processing the
 // data (please see text).
+
+// .SECTION See Also
+// vtkDataSetReader vtkFilter vtkPolySource vtkStructuredGridSource
+// vtkStructuredPointsSource vtkUnstructuredGridSource
 
 #ifndef __vtkSource_h
 #define __vtkSource_h

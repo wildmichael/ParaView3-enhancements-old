@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSet.h,v $
   Language:  C++
-  Date:      $Date: 1996-05-09 20:10:37 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1996-06-26 20:40:17 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -45,6 +45,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // For example, vtkPolyData and vtkUnstructuredGrid require point arrays
 // to specify point position, while vtkStructuredPoints generates point
 // positions implicitly.
+
+// .SECTION See Also
+// vtkPolyData vtkStructuredGrid vtkUnstructuredGrid
 
 #ifndef __vtkPointSet_h
 #define __vtkPointSet_h

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStructuredGridToStructuredGridFilter.h,v $
   Language:  C++
-  Date:      $Date: 1996-06-08 13:12:04 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1996-06-26 20:41:16 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -43,6 +43,9 @@ MODIFICATIONS.
 // vtkStructuredPointsToStructuredPointsFilter is an abstract filter class 
 // whose subclasses take on input a structured grid  and generate a
 // structured grid on output.
+
+// .SECTION See Also
+// vtkExtractGrid
 
 #ifndef __vtkStructuredGridToStructuredGridFilter_h
 #define __vtkStructuredGridToStructuredGridFilter_h

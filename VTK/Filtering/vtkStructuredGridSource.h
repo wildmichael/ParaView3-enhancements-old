@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridSource.h,v $
   Language:  C++
-  Date:      $Date: 1995-09-23 16:07:57 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1996-06-26 20:41:08 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,6 +41,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // .NAME vtkStructuredGridSource - Abstract class whose subclasses generates structured grid data
 // .SECTION Description
 // vtkStructuredGridSource is an abstract class whose subclasses generate structured grid data.
+
+// .SECTION See Also
+// vtkStructuredGridReader vtkPLOT3DReader
 
 #ifndef __vtkStructuredGridSource_h
 #define __vtkStructuredGridSource_h

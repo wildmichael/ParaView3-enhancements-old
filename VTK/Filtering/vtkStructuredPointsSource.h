@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsSource.h,v $
   Language:  C++
-  Date:      $Date: 1995-11-05 18:44:14 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1996-06-26 20:41:26 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,6 +42,10 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // .SECTION Description
 // vtkStructuredPointsSource is an abstract class whose subclasses
 // generate vtkStructuredPoints data.
+
+// .SECTION See Also
+// vtkBooleanTexture vtkPointLoad vtkRendererSource vtkSampleFunction
+// vtkStructuredPointsReader vtkVolumeReader vtkVoxelReader
 
 #ifndef __vtkStructuredPointsSource_h
 #define __vtkStructuredPointsSource_h

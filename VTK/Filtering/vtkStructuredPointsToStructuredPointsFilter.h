@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsToStructuredPointsFilter.h,v $
   Language:  C++
-  Date:      $Date: 1995-09-01 16:30:04 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1996-06-26 20:41:35 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -43,6 +43,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // vtkStructuredPointsToStructuredPointsFilter is an abstract filter class 
 // whose subclasses take on input structured points and generate
 // structured points on output.
+
+// .SECTION See Also
+// vtkExtractVOI vtkImageDifference vtkSweptSurface vtkTransformStructuredPoints
 
 #ifndef __vtkStructuredPointsToStructuredPointsFilter_h
 #define __vtkStructuredPointsToStructuredPointsFilter_h

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLookupTable.h,v $
   Language:  C++
-  Date:      $Date: 1995-12-27 10:56:24 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1996-06-26 20:40:03 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -54,7 +54,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // always use operator "new" to construct new objects. This procedure will
 // avoid memory problems (see text).
 // .SECTION See Also
-// vtkLogLookupTable
+// vtkLogLookupTable vtkWindowLevelLookupTable
 
 #ifndef __vtkLookupTable_h
 #define __vtkLookupTable_h
