@@ -50,7 +50,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkMarchingSquares, "$Revision: 1.57 $");
+vtkCxxRevisionMacro(vtkMarchingSquares, "$Revision: 1.58 $");
 vtkStandardNewMacro(vtkMarchingSquares);
 
 // Description:
@@ -536,7 +536,8 @@ void vtkMarchingSquares::Execute()
   output->SetLines(newLines);
   newLines->Delete();
 
-  output->GetPointData()->SetScalars(newScalars);
+  int idx = output->GetPointData()->AddArray(newScalars);
+  output->GetPointData()->SetActiveAttribute(idx, vtkDataSetAttributes::SCALARS);
   newScalars->Delete();
 
   this->Locator->Initialize();
