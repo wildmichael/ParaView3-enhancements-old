@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObjectFactoryCollection.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-15 15:40:30 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2003-01-03 17:12:54 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -17,7 +17,9 @@
 =========================================================================*/
 #include "vtkObjectFactoryCollection.h"
 
-vtkCxxRevisionMacro(vtkObjectFactoryCollection, "$Revision: 1.3 $");
+#include "vtkDebugLeaks.h"
+
+vtkCxxRevisionMacro(vtkObjectFactoryCollection, "$Revision: 1.4 $");
 
 //----------------------------------------------------------------------------
 // Needed when we don't use the vtkStandardNewMacro.
