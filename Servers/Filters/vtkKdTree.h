@@ -5,8 +5,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKdTree.h,v $
   Language:  C++
-  Date:      $Date: 2003-10-16 19:07:53 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2003-11-05 23:45:22 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -147,18 +147,9 @@ public:
     vtkGetMacro(Timing, int);
     
     // Description:
-    //  Maximum depth of binary tree
-    vtkSetMacro(MaxLevel, int);
-    vtkGetMacro(MaxLevel, int);
-
-    // Description:
     //  Minimum number of cells per spatial region
     vtkSetMacro(MinCells, int);
     vtkGetMacro(MinCells, int);
-
-    // Description:
-    //    Level of complete tree
-    vtkGetMacro(Level, int);
 
     // Description:
     //    Omit partitions along the X axis, yielding shafts in the X direction

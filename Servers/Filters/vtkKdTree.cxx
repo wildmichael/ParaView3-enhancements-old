@@ -5,8 +5,8 @@
   Program:   Visualization Toolkit
   Module:  $RCSfile: vtkKdTree.cxx,v $
   Language:  C++
-  Date:    $Date: 2003-10-16 19:07:53 $
-  Version:   $Revision: 1.10 $
+  Date:    $Date: 2003-11-05 23:45:22 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -45,7 +45,7 @@
 
 #include <algorithm>
 
-vtkCxxRevisionMacro(vtkKdTree, "$Revision: 1.10 $");
+vtkCxxRevisionMacro(vtkKdTree, "$Revision: 1.11 $");
 
 // methods for vtkKdNode -------------------------------------------
 
@@ -2973,7 +2973,8 @@ void vtkKdTree::PrintSelf(ostream& os, vtkIndent indent)
     os << indent << "CellList.boundaryCells " << this->CellList.boundaryCells << endl;
     }
   os << indent << "CellRegionList: " << this->CellRegionList << endl;
-
+  os << indent << "ComputeIntersectionsUsingDataBounds: ";
+    os << this->ComputeIntersectionsUsingDataBounds << endl;
 }
 
 
