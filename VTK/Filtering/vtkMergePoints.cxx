@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergePoints.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-07 20:50:12 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2000-12-08 14:46:13 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -125,7 +125,7 @@ int vtkMergePoints::IsInsertedPoint(const float x[3])
 
 
 int
-vtkMergePoints::InsertUniquePoint(float x[3], int&id)
+vtkMergePoints::InsertUniquePoint(const float x[3], int&id)
 {
   int i, ijk0, ijk1, ijk2;
   int idx;

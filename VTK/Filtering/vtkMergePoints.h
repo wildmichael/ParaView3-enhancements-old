@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergePoints.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-07 20:50:12 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2000-12-08 14:46:13 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -74,7 +74,7 @@ public:
   // the point (newly inserted or not) is returned in the ptId argument.
   // Note this combines the functionality of IsInsertedPoint() followed
   // by a call to InsertNextPoint().
-  int InsertUniquePoint(float x[3], int &ptId);
+  int InsertUniquePoint(const float x[3], int &ptId);
   
 protected:
   vtkMergePoints() {};
