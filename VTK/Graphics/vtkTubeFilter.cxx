@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTubeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:12:58 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 2000-05-22 01:31:00 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -118,7 +118,7 @@ void vtkTubeFilter::Execute()
       (numPts = inPts->GetNumberOfPoints()) < 1 ||
       !(inLines = input->GetLines()) || inLines->GetNumberOfCells() < 1 )
     {
-    vtkErrorMacro(<< ": No input data!\n");
+    vtkDebugMacro(<< ": No input data!\n");
     capPoints->Delete();
     capNormals->Delete();
     return;
@@ -223,7 +223,7 @@ void vtkTubeFilter::Execute()
           {
           sNext[i] = pNext[i] - p[i];
           sPrev[i] = sNext[i];
-          capNorm[i] = p[i] - pNext[i];
+          capNorm[i] = -sPrev[i];
           }
         capPointFlag = 1;
         }
@@ -233,6 +233,7 @@ void vtkTubeFilter::Execute()
           {
           sPrev[i] = sNext[i];
           p[i] = pNext[i];
+          capNorm[i] = sNext[i];
           }
         capPointFlag = 1;
         }
@@ -247,8 +248,6 @@ void vtkTubeFilter::Execute()
           {
           sPrev[i] = sNext[i];
           sNext[i] = pNext[i] - p[i];
-          // Not actually used until the end.
-          capNorm[i] = pNext[i] - p[i];
           }
         capPointFlag = 0;
         }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:11:27 $
-  Version:   $Revision: 1.66 $
+  Date:      $Date: 2000-05-22 01:30:55 $
+  Version:   $Revision: 1.67 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -623,8 +623,15 @@ int vtkDataWriter::WriteArray(ostream *fp, int dataType, vtkDataArray *data, cha
 
 int vtkDataWriter::WritePoints(ostream *fp, vtkPoints *points)
 {
-  int numPts=points->GetNumberOfPoints();
+  int numPts;
   
+  if (points == NULL)
+    {
+    *fp << "POINTS 0 ";
+    return 1;
+    }
+
+  numPts=points->GetNumberOfPoints();
   *fp << "POINTS " << numPts << " ";
   return this->WriteArray(fp, points->GetDataType(), points->GetData(), "%s\n", numPts, 3);
 }
