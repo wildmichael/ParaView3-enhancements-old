@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObjectFactoryCollection.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-05 18:48:06 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1999-10-05 21:09:50 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to William A. Hoffman who developed this class
 
 
@@ -60,16 +60,9 @@ public:
   static vtkObjectFactoryCollection *New() {return new vtkObjectFactoryCollection;};
 
   // Description:
-  // Remove a ObjectFactory from the list.
-  inline void RemoveItem(vtkObjectFactory *);
-
+  // Add an ObjectFactory from the list.
   inline void AddItem(vtkObjectFactory *t);
   
-  // Description:
-  // Determine whether a particular ObjectFactory is present. Returns its position
-  // in the list.
-  int IsItemPresent(vtkObjectFactory *);
-
   // Description:
   // Get the next ObjectFactory in the list. Return NULL when the end of the
   // list is reached.
@@ -86,16 +79,6 @@ protected:
 inline void vtkObjectFactoryCollection::AddItem(vtkObjectFactory *t) 
 {
   this->vtkCollection::AddItem((vtkObject *)t);
-}
-
-inline void vtkObjectFactoryCollection::RemoveItem(vtkObjectFactory *t) 
-{
-  this->vtkCollection::RemoveItem((vtkObject *)t);
-}
-
-inline int vtkObjectFactoryCollection::IsItemPresent(vtkObjectFactory *t) 
-{
-  return this->vtkCollection::IsItemPresent((vtkObject *)t);
 }
 
 inline vtkObjectFactory *vtkObjectFactoryCollection::GetNextItem() 
