@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToStructuredPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:03:19 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2000-02-10 02:24:29 $
+  Version:   $Revision: 1.38 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -144,7 +144,6 @@ void vtkImageToStructuredPoints::Execute()
   int idxX, idxY, idxZ, maxX, maxY, maxZ;
   int inIncX, inIncY, inIncZ, rowLength;
   unsigned char *inPtr1, *inPtr, *outPtr;
-  
   vtkStructuredPoints *output = this->GetOutput();
   vtkImageData *data = this->GetInput();
   vtkImageData *vData = this->GetVectorInput();
@@ -281,7 +280,10 @@ void vtkImageToStructuredPoints::ExecuteInformation()
     spacing = vInput->GetSpacing();
     vInput->GetOrigin(origin);
     }
-  
+  else
+    {
+    return;
+    }
   // intersections for whole extent
   if (vInput)
     {
@@ -320,7 +322,7 @@ void vtkImageToStructuredPoints::ComputeInputUpdateExtents(vtkDataObject *data)
   vtkStructuredPoints *output = (vtkStructuredPoints*)data;
   int ext[6];
   vtkImageData *input;
-  
+
   output->GetUpdateExtent(ext);
   ext[0] += this->Translate[0];
   ext[1] += this->Translate[0];
