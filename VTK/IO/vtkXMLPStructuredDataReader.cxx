@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLPStructuredDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-07-01 20:31:46 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2003-07-18 12:24:59 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 #include "vtkXMLDataElement.h"
 #include "vtkXMLStructuredDataReader.h"
 
-vtkCxxRevisionMacro(vtkXMLPStructuredDataReader, "$Revision: 1.10 $");
+vtkCxxRevisionMacro(vtkXMLPStructuredDataReader, "$Revision: 1.11 $");
 
 //----------------------------------------------------------------------------
 vtkXMLPStructuredDataReader::vtkXMLPStructuredDataReader()
@@ -400,23 +400,25 @@ int vtkXMLPStructuredDataReader::ComputePieceSubExtents()
   if(!this->ExtentSplitter->ComputeSubExtents())
     {
     // A portion of the extent is not available.
-    ostrstream e;
-    e << "No available piece provides data for the following extents:\n";    
+    ostrstream e_with_warning_C4701;
+    e_with_warning_C4701
+      << "No available piece provides data for the following extents:\n";    
     for(i=0; i < this->ExtentSplitter->GetNumberOfSubExtents(); ++i)
       {
       if(this->ExtentSplitter->GetSubExtentSource(i) < 0)
         {
         int extent[6];
         this->ExtentSplitter->GetSubExtent(i, extent);
-        e << "    "
+        e_with_warning_C4701
+          << "    "
           << extent[0] << " " << extent[1] << "  "
           << extent[2] << " " << extent[3] << "  "
           << extent[4] << " " << extent[5] << "\n";
         }
       }
-    e << "The UpdateExtent cannot be filled." << ends;
-    vtkErrorMacro(<< e.str());
-    e.rdbuf()->freeze(0);
+    e_with_warning_C4701 << "The UpdateExtent cannot be filled." << ends;
+    vtkErrorMacro(<< e_with_warning_C4701.str());
+    e_with_warning_C4701.rdbuf()->freeze(0);
     return 0;
     }
   
