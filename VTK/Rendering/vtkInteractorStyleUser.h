@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleUser.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-29 05:17:08 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2002-04-30 05:28:58 $
+  Version:   $Revision: 1.28 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -215,6 +215,8 @@ protected:
   int LastPos[2];
   int OldPos[2];
 
+  int ShiftKey;
+  int CtrlKey;
   int Char;
   char *KeySym;
   int Button;

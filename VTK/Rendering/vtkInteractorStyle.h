@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyle.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-30 05:04:42 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2002-04-30 05:28:58 $
+  Version:   $Revision: 1.39 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -238,8 +238,6 @@ protected:
   int AutoAdjustCameraClippingRange;
   void ResetCameraClippingRange();
   
-  virtual void UpdateInternalState(int ctrl, int shift, int x, int y);
-
   // These methods for the different interactions in different modes
   // are overridden in subclasses to perform the correct motion. Since
   // they might be called from OnTimer, they do not have mouse coord parameters
@@ -283,9 +281,6 @@ protected:
   float Center[2];
   float DeltaAzimuth;
   float DeltaElevation;
-
-  int   CtrlKey;
-  int   ShiftKey;
 
   int   State;  
   int   AnimState;  
