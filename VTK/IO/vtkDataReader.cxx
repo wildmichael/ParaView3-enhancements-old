@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-05-25 16:49:13 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1995-06-01 09:58:09 $
+  Version:   $Revision: 1.11 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -287,7 +287,7 @@ int vlDataReader::ReadPoints(FILE *fp, vlPointSet *ps, int numPts)
     return 0;
     }
 
-  vlDebugMacro(<<"Read " << ps->GetNumberOfPoints() << "\n");
+  vlDebugMacro(<<"Read " << ps->GetNumberOfPoints() << " points");
   return 1;
 }
 
@@ -1023,7 +1023,7 @@ char *vlDataReader::LowerCase(char *str)
 // Close a vl file.
 void vlDataReader::CloseVLFile(FILE *fp)
 {
-  vlDebugMacro(<<"Closing vl file\n");
+  vlDebugMacro(<<"Closing vl file");
   if ( fp != NULL ) fclose(fp);
 }
 
