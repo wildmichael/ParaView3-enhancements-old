@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-14 21:24:59 $
-  Version:   $Revision: 1.57 $
+  Date:      $Date: 1998-12-02 21:16:23 $
+  Version:   $Revision: 1.58 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -737,6 +737,8 @@ vtkTransform::~vtkTransform ()
 void vtkTransform::PrintSelf (ostream& os, vtkIndent indent)
 {
   vtkObject::PrintSelf(os, indent);
+
+  os << indent << (this->PreMultiplyFlag ? "PreMultiply\n" : "PostMultiply\n");
 
   os << indent << "Point: " << "( " << 
      this->Point[0] << ", " << this->Point[1] << ", " <<
