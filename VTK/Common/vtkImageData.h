@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-22 12:14:50 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1996-08-28 15:39:28 $
+  Version:   $Revision: 1.12 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -154,6 +154,7 @@ public:
   vtkBooleanMacro(PrintScalars,int);
   
   void CopyData(vtkImageData *data);
+  void CopyData(vtkImageData *data, int *bounds);
   
 
 protected:
