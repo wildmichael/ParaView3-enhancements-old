@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDebugLeaks.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-28 17:59:40 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2000-11-18 21:46:36 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -50,8 +50,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // -DVTK_DEBUG_LEAKS to the compile line, and rebuild vtkObject and
 // vtkObjectFactory.
 
-#ifndef _vtkDebugLeaks_h
-#define _vtkDebugLeaks_h
+#ifndef __vtkDebugLeaks_h
+#define __vtkDebugLeaks_h
 
 #include "vtkObject.h"
 
@@ -89,4 +89,4 @@ private:
   static vtkDebugLeaksHashTable* MemoryTable;
 };
 
-#endif // _vtkDebugLeaks_h
+#endif // __vtkDebugLeaks_h
