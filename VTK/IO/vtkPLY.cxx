@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPLY.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-03 20:56:26 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2002-07-08 20:30:31 $
+  Version:   $Revision: 1.19 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -2515,7 +2515,7 @@ Entry:
   fname - file name from which memory was requested
 ******************************************************************************/
 
-char *vtkPLY::my_alloc(int size, int lnum, char *fname)
+char *vtkPLY::my_alloc(int size, int lnum, const char *fname)
 {
   char *ptr;
 

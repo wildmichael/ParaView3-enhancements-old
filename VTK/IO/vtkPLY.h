@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPLY.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-03 20:56:27 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2002-07-08 20:30:31 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -206,7 +206,7 @@ public:
   static void get_binary_item(FILE *, int, int *, unsigned int *, double *);
   static void ascii_get_element(PlyFile *, char *);
   static void binary_get_element(PlyFile *, char *);
-  static char *my_alloc(int, int, char *);
+  static char *my_alloc(int, int, const char *);
   static int get_prop_type(char *);
   
 };
