@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageGridSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-06-01 14:26:48 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2000-06-02 13:06:46 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -95,7 +95,7 @@ void vtkImageGridSource::ExecuteInformation()
 
 //----------------------------------------------------------------------------
 template<class T>
-void vtkImageGridSourceExecute(vtkImageGridSource *self,
+static void vtkImageGridSourceExecute(vtkImageGridSource *self,
 			       vtkImageData *data, T *outPtr,
 			       int outExt[6], int id)
 {
