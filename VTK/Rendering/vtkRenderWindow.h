@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:50 $
-  Version:   $Revision: 1.104 $
+  Date:      $Date: 2001-01-16 21:07:26 $
+  Version:   $Revision: 1.105 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -395,6 +395,7 @@ protected:
   char *FileName;
   unsigned char* StereoBuffer; // used for red blue stereo
   float *AccumulationBuffer;   // used for many techniques
+  unsigned int AccumulationBufferSize;
   int AAFrames;
   int FDFrames;
   int SubFrames;               // number of sub frames
