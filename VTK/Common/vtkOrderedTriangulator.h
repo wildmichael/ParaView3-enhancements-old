@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOrderedTriangulator.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:50 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2002-06-06 19:55:28 $
+  Version:   $Revision: 1.18 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -163,6 +163,11 @@ public:
   // classified "outside." The method returns the number of tetrahedron
   // of the type requested.    
   vtkIdType AddTetras(int classification, vtkCellArray *connectivity);
+  
+  // Description:
+  // Add the triangle faces classified (2=boundary) to the connectivity
+  // list provided. The method returns the number of triangles.
+  vtkIdType AddTriangles(vtkCellArray *connectivity);
   
 protected:
   vtkOrderedTriangulator();
