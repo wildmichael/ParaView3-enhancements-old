@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader2Collection.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-03 22:51:39 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-01-04 15:10:05 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -55,7 +55,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 class VTK_IO_EXPORT vtkImageReader2Collection : public vtkCollection
 {
 public:
-  vtkTypeMacro(vtkImageReader2Collection,vtkCollection);
+  vtkTypeRevisionMacro(vtkImageReader2Collection,vtkCollection);
   static vtkImageReader2Collection *New();
 
   // Description:

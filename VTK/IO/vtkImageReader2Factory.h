@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader2Factory.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-03 22:51:40 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-01-04 15:10:05 $
+  Version:   $Revision: 1.2 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -67,7 +67,7 @@ class VTK_IO_EXPORT vtkImageReader2Factory : public vtkObject
 {
 public:
   static vtkImageReader2Factory *New();
-  vtkTypeMacro(vtkImageReader2Factory,vtkObject);
+  vtkTypeRevisionMacro(vtkImageReader2Factory,vtkObject);
   void PrintSelf(ostream& os, vtkIndent indent);   
   
   //Description: register a reader with the available readers.   

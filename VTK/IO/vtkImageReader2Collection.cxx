@@ -3,8 +3,8 @@
 Program:   Visualization Toolkit
 Module:    $RCSfile: vtkImageReader2Collection.cxx,v $
 Language:  C++
-Date:      $Date: 2002-01-03 22:51:39 $
-Version:   $Revision: 1.1 $
+Date:      $Date: 2002-01-04 15:10:05 $
+Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,20 +42,5 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkImageReader2Collection.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
-vtkImageReader2Collection* vtkImageReader2Collection::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkImageReader2Collection");
-  if(ret)
-    {
-    return (vtkImageReader2Collection*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkImageReader2Collection;
-}
-
-
-
+vtkCxxRevisionMacro(vtkImageReader2Collection, "$Revision: 1.2 $");
+vtkStandardNewMacro(vtkImageReader2Collection);
