@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSeedConnectivity.h,v $
   Language:  C++
-  Date:      $Date: 2001-01-19 19:58:04 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2001-01-23 12:24:00 $
+  Version:   $Revision: 1.23 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -110,6 +110,8 @@ protected:
   vtkImageConnector *Connector;
   int Dimensionality;
   
+  void ComputeInputUpdateExtents(vtkDataObject *out);
+
   void Execute(); 
   // Get rid of warnings.
   void Execute(vtkImageData *in, vtkImageData *out)

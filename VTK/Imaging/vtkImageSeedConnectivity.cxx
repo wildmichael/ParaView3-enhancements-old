@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSeedConnectivity.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-19 19:58:04 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2001-01-23 12:24:00 $
+  Version:   $Revision: 1.22 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -135,6 +135,17 @@ void vtkImageSeedConnectivity::AddSeed(int i0, int i1)
   this->AddSeed(2, index);
 }
 
+//----------------------------------------------------------------------------
+void vtkImageSeedConnectivity::ComputeInputUpdateExtents(vtkDataObject *out)
+{
+  vtkImageData *input = this->GetInput();
+
+  out = out;
+  if (input)
+    {
+    input->SetUpdateExtent(input->GetWholeExtent());
+    }
+}
 
 //----------------------------------------------------------------------------
 void vtkImageSeedConnectivity::Execute()
@@ -180,7 +191,7 @@ void vtkImageSeedConnectivity::Execute()
   //-------
   // threshold to eliminate unknown values ( only intermediate and 0)
   inData->GetIncrements(inInc0, inInc1, inInc2);
-  this->GetOutput()->GetUpdateExtent(min0, max0, min1, max1, min2, max2);
+  this->GetOutput()->GetExtent(min0, max0, min1, max1, min2, max2);
   outData->GetIncrements(outInc0, outInc1, outInc2);
   inPtr2 = (unsigned char *)(inData->GetScalarPointer(min0,min1,min2));
   outPtr2 = (unsigned char *)(outData->GetScalarPointer(min0,min1,min2));
@@ -260,7 +271,7 @@ void vtkImageSeedConnectivity::Execute()
   this->Connector->SetUnconnectedValue(temp1);
   this->Connector->SetConnectedValue(temp2);
   this->Connector->MarkData(outData, this->Dimensionality, 
-			    this->GetOutput()->GetUpdateExtent());
+			    this->GetOutput()->GetExtent());
 
   this->UpdateProgress(0.9);
   if (this->AbortExecute)
