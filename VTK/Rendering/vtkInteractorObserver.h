@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorObserver.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-04 18:53:45 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-04-06 11:02:55 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -128,7 +128,7 @@ protected:
   
   // Used to process events
   vtkCallbackCommand* EventCallbackCommand; //subclasses use one
-  vtkCallbackCommand* KeypressCallbackCommand; //listens to key activation
+  vtkCallbackCommand* KeyPressCallbackCommand; //listens to key activation
 
   // Priority at which events are processed
   float Priority;
