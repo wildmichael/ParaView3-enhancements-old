@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransformTextureCoords.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:14:01 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2001-11-29 20:52:43 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -96,8 +96,8 @@ void vtkTransformTextureCoords::Execute()
   vtkDataArray *newTCoords;
   vtkIdType numPts=input->GetNumberOfPoints(), ptId;
   int i, j, texDim;
-  vtkTransform *transform = vtkTransform::New();
-  vtkMatrix4x4 *matrix = vtkMatrix4x4::New();
+  vtkTransform *transform;
+  vtkMatrix4x4 *matrix;
   float *TC, newTC[3];
 
   vtkDebugMacro(<<"Transforming texture coordinates...");
@@ -110,6 +110,8 @@ void vtkTransformTextureCoords::Execute()
     vtkErrorMacro(<<"No texture coordinates to transform");
     return;
     }
+  transform = vtkTransform::New();
+  matrix = vtkMatrix4x4::New();
 
   // create same type as input
   texDim = inTCoords->GetNumberOfComponents();

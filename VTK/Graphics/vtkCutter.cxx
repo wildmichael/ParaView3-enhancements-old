@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCutter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-12 20:33:39 $
-  Version:   $Revision: 1.62 $
+  Date:      $Date: 2001-11-29 20:52:42 $
+  Version:   $Revision: 1.63 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -115,7 +115,7 @@ void vtkCutter::Execute()
   vtkIdType cellId, i;
   int iter;
   vtkPoints *cellPts;
-  vtkFloatArray *cellScalars=vtkFloatArray::New();
+  vtkFloatArray *cellScalars;
   vtkGenericCell *cell;
   vtkCellArray *newVerts, *newLines, *newPolys;
   vtkPoints *newPoints;
@@ -147,6 +147,9 @@ void vtkCutter::Execute()
     vtkErrorMacro(<<"No data to cut");
     return;
     }
+
+
+  cellScalars=vtkFloatArray::New();
 
   // Create objects to hold output of contour operation
   //

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamer.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:13:59 $
-  Version:   $Revision: 1.70 $
+  Date:      $Date: 2001-11-29 20:52:43 $
+  Version:   $Revision: 1.71 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -501,6 +501,7 @@ void vtkStreamer::Integrate()
 
   if ( ! (inVectors=pd->GetVectors()) )
     {
+    delete [] w;
     vtkErrorMacro(<<"No vector data defined!");
     return;
     }

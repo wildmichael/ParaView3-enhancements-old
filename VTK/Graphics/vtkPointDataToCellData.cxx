@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointDataToCellData.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:13:56 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2001-11-29 20:52:43 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -71,7 +71,8 @@ void vtkPointDataToCellData::Execute()
   vtkCellData *outCD=output->GetCellData();
   int maxCellSize=input->GetMaxCellSize();
   vtkIdList *cellPts;
-  float weight, *weights=new float[maxCellSize];
+  float weight;
+  float *weights;
 
   vtkDebugMacro(<<"Mapping point data to cell data");
 
@@ -80,9 +81,10 @@ void vtkPointDataToCellData::Execute()
 
   if ( (numCells=input->GetNumberOfCells()) < 1 )
     {
-    vtkErrorMacro(<<"No input cells!");
+    vtkDebugMacro(<<"No input cells!");
     return;
     }
+  weights=new float[maxCellSize];
   
   cellPts = vtkIdList::New();
   cellPts->Allocate(maxCellSize);

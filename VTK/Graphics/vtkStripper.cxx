@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStripper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:13:59 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 2001-11-29 20:52:43 $
+  Version:   $Revision: 1.52 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -99,7 +99,8 @@ void vtkStripper::Execute()
   // check input
   if ( (numCells=Mesh->GetNumberOfCells()) < 1 )
     {
-    vtkErrorMacro(<<"No data to strip!");
+    Mesh->Delete();
+    vtkDebugMacro(<<"No data to strip!");
     return;
     }
 

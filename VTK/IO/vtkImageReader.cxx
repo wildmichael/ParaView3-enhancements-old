@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-26 22:40:43 $
-  Version:   $Revision: 1.87 $
+  Date:      $Date: 2001-11-29 20:52:44 $
+  Version:   $Revision: 1.88 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -761,6 +761,7 @@ static void vtkImageReaderUpdate2(vtkImageReader *self, vtkImageData *data,
                                << ", Skip0 = " << streamSkip0
                                << ", Skip1 = " << streamSkip1
                                << ", FilePos = " << self->GetFile()->tellg());
+        delete [] buf;
         return;
         }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractUnstructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:13:53 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2001-11-29 20:52:42 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -132,7 +132,8 @@ void vtkExtractUnstructuredGrid::Execute()
   char *cellVis;
   vtkCell *cell;
   float *x;
-  vtkIdList *ptIds, *cellIds=vtkIdList::New();
+  vtkIdList *ptIds;
+  vtkIdList *cellIds;
   vtkIdType ptId;
   vtkPointData *pd = input->GetPointData();
   vtkCellData *cd = input->GetCellData();
@@ -146,9 +147,10 @@ void vtkExtractUnstructuredGrid::Execute()
 
   if ( numPts < 1 || numCells < 1 || !inPts )
     {
-    vtkErrorMacro(<<"No data to extract!");
+    vtkDebugMacro(<<"No data to extract!");
     return;
     }
+  cellIds=vtkIdList::New();
 
   if ( (!this->CellClipping) && (!this->PointClipping) && 
   (!this->ExtentClipping) )

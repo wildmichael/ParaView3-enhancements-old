@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-21 15:21:51 $
-  Version:   $Revision: 1.95 $
+  Date:      $Date: 2001-11-29 20:52:41 $
+  Version:   $Revision: 1.96 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -930,7 +930,7 @@ void vtkUnstructuredGrid::GetListOfUniqueCellTypes(vtkUnsignedCharArray *uniqueT
 int vtkUnstructuredGrid::IsHomogeneous() 
 {
   unsigned char type;
-  if (this->Types)
+  if (this->Types && this->Types->GetMaxId() >= 0)
     {
     type = Types->GetValue(0);
     for (int cellId = 0; cellId < this->GetNumberOfCells(); cellId++)

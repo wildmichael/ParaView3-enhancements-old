@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetToDataObjectFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-15 15:53:46 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2001-11-29 20:52:42 $
+  Version:   $Revision: 1.26 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -177,6 +177,7 @@ void vtkDataSetToDataObjectFilter::Execute()
     else
       {
       vtkErrorMacro(<<"Unsupported dataset type!");
+      fd->Delete();
       return;
       }
     }
@@ -279,6 +280,7 @@ void vtkDataSetToDataObjectFilter::Execute()
     else
       {
       vtkErrorMacro(<<"Unsupported dataset type!");
+      fd->Delete();
       return;
       }
     }

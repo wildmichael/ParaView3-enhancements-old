@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSurfaceReconstructionFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:01:26 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2001-11-29 20:52:44 $
+  Version:   $Revision: 1.20 $
   Thanks:    Thanks to Tim Hutton (MINORI Project, Dental and Medical
              Informatics, Eastman Dental Institute, London, UK) who
              developed and contributed this class.
@@ -159,7 +159,7 @@ void vtkSurfaceReconstructionFilter::Execute()
   };
 
   const vtkIdType COUNT = input->GetNumberOfPoints();
-  SurfacePoint *surfacePoints = new SurfacePoint[COUNT];
+  SurfacePoint *surfacePoints;
 
   vtkIdType i, j;
   int k;
@@ -169,6 +169,7 @@ void vtkSurfaceReconstructionFilter::Execute()
     vtkErrorMacro(<<"No points to reconstruct");
     return;
     }
+  surfacePoints = new SurfacePoint[COUNT];
   
   vtkDebugMacro(<<"Reconstructing " << COUNT << " points");
 
