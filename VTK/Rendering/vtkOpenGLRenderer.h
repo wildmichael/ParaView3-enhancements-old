@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLRenderer.h,v $
   Language:  C++
-  Date:      $Date: 1999-12-18 16:40:34 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1999-12-18 18:42:17 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -88,9 +88,9 @@ protected:
   virtual void DonePick();
   virtual unsigned int GetPickedID();
   virtual float GetPickedZ();
-  //ETX
   // Ivars used in picking
   class vtkGLPickInfo* PickInfo;
+  //ETX
   float PickedZ;
 };
 
