@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangle.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-10-29 16:14:26 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1995-10-30 13:11:58 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -230,14 +230,14 @@ typedef struct {
 } LINE_CASES;
 
 static LINE_CASES lineCases[] = { 
-  {-1, -1, -1},
-  {0, 2, -1},
-  {1, 0, -1},
-  {1, 2, -1},
-  {2, 1, -1},
-  {0, 1, -1},
-  {2, 0, -1},
-  {-1, -1, -1}
+  {{-1, -1, -1}},
+  {{0, 2, -1}},
+  {{1, 0, -1}},
+  {{1, 2, -1}},
+  {{2, 1, -1}},
+  {{0, 1, -1}},
+  {{2, 0, -1}},
+  {{-1, -1, -1}}
 };
 
 void vtkTriangle::Contour(float value, vtkFloatScalars *cellScalars, 
