@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkLineSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-09 19:57:43 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1995-04-30 16:33:16 $
+  Version:   $Revision: 1.11 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -44,9 +44,8 @@ void vlLineSource::Execute()
   vlFloatPoints *newPoints; 
   vlFloatTCoords *newTCoords; 
   vlCellArray *newLines;
-//
-// Set things up; allocate memory
-//
+
+  vlDebugMacro(<<"Creating line");
   this->Initialize();
 
   newPoints = new vlFloatPoints(numPts);
