@@ -1,7 +1,7 @@
 Documenting VTK with doxygen
 ----------------------------
 
-Sebastien BARRE (Time-stamp: <2001-06-28 03:03:03 barre>)
+Sebastien BARRE (Time-stamp: <2001-09-24 13:42:01 barre>)
 
 This file describes how to generate a doxygen-compliant documentation
 featuring cross-references between classes and examples, index,
@@ -17,6 +17,8 @@ now using these scripts to build an up-to-date doxygen-compliant
 documentation every night, as part of the "nightly build"
 process. Thus, you might browse a pre-built documentation here :
 
+OOOPS WE SHOULD UPDATE THAT:
+vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
          http://www.visualizationtoolkit.org/vtk/quality/Doc/html/
 
 ...and download the whole documentation (vtkMan.tar.gz) from the usual
@@ -24,18 +26,19 @@ nightly mirrors :
 
         http://www.kitware.com/vtkhtml/vtkdata/Nightly.html
         ftp://public.kitware.com/pub/vtk/nightly/vtkMan.tar.gz
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Nevertheless, doxygen might still be useful to generate additional
 PDF, Postscript, plain LaTeX or Windows Compressed HTML output.
 
-The package is made of :
+This package is made of he following Perl scripts:
 
-- doc_header2doxygen.pl : convert VTK headers to doxygen format
-- doc_version.pl : extract VTK version and add it to documentation
+- doc_header2doxygen.pl : convert the VTK headers to the doxygen format
+- doc_version.pl : extract the VTK version and add it to the documentation set
 - doc_class2example.pl : build cross-references between classes and examples
-- doc_index.pl : build full-text index 
+- doc_index.pl : build the full-text index 
 
-Use the --help option to display the allowed parameters for each
+Use the --help option to display the parameters that are allowed for each
 script.
 
 Thanks to Vetle Roeim and Jan Stifter who started the project :)
@@ -178,7 +181,7 @@ For example :
      Locating headers to update...
       => 394 found, 10 orphan class(es) removed (vtkImageShortReader, vtkImageAdaptiveFilter, vtkMINCReader, vtkImageXViewer, vtkImageMIPFilter, vtkImageConnectivity, vtkInteract, vtkImageMarkBoundary, vtkImageSubSampling, vtkImageRegion) in 1 s.
       Building documentation to ..\vtk-doxygen/doc_class2example.dox...
-       => VTK 3.1.1, $Revision: 1.1 $, $Date: 2001-08-20 15:59:31 $ (GMT)
+       => VTK 3.1.1, $Revision: 1.2 $, $Date: 2001-09-28 14:03:19 $ (GMT)
        => 394 class(es) examplified by 896 file(s) on Sat Apr 15 18:32:23 2000
        => 3 parser(s) : [Python, C++, Tcl]
        => max limit is 20 example(s) per parser (8% over)
