@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleUser.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-16 14:13:50 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2002-04-25 14:24:12 $
+  Version:   $Revision: 1.26 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkOldStyleCallbackCommand.h"
 
-vtkCxxRevisionMacro(vtkInteractorStyleUser, "$Revision: 1.25 $");
+vtkCxxRevisionMacro(vtkInteractorStyleUser, "$Revision: 1.26 $");
 vtkStandardNewMacro(vtkInteractorStyleUser);
 
 //----------------------------------------------------------------------------
@@ -579,12 +579,11 @@ void vtkInteractorStyleUser::OnConfigure(int vtkNotUsed(width),
 }
 
 //----------------------------------------------------------------------------
-void vtkInteractorStyleUser::OnEnter(int ctrl, int shift, int x, int y)
+void vtkInteractorStyleUser::OnEnter(int x, 
+                                     int y)
 {
   if (this->HasObserver(vtkCommand::EnterEvent)) 
     {
-    this->ShiftKey = shift;
-    this->CtrlKey = ctrl;
     this->LastPos[0] = x;
     this->LastPos[1] = y;
 
@@ -593,12 +592,11 @@ void vtkInteractorStyleUser::OnEnter(int ctrl, int shift, int x, int y)
 }
 
 //----------------------------------------------------------------------------
-void vtkInteractorStyleUser::OnLeave(int ctrl, int shift, int x, int y)
+void vtkInteractorStyleUser::OnLeave(int x, 
+                                     int y)
 {
   if (this->HasObserver(vtkCommand::LeaveEvent)) 
     {
-    this->ShiftKey = shift;
-    this->CtrlKey = ctrl;
     this->LastPos[0] = x;
     this->LastPos[1] = y;
 

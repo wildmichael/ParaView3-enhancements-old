@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleUser.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-16 14:13:50 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2002-04-25 14:24:12 $
+  Version:   $Revision: 1.25 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -177,32 +177,40 @@ public:
   void StartUserInteraction();
   void EndUserInteraction();
 
+  // Description:
+  // Generic event bindings
+  virtual void OnMouseMove       (int ctrl, int shift, int x, int y);
+  virtual void OnLeftButtonDown  (int ctrl, int shift, int x, int y);
+  virtual void OnLeftButtonUp    (int ctrl, int shift, int x, int y);
+  virtual void OnMiddleButtonDown(int ctrl, int shift, int x, int y);
+  virtual void OnMiddleButtonUp  (int ctrl, int shift, int x, int y);
+  virtual void OnRightButtonDown (int ctrl, int shift, int x, int y);
+  virtual void OnRightButtonUp   (int ctrl, int shift, int x, int y);
+
+
+  // Description:
+  // Keyboard functions
+  virtual void OnChar      (int ctrl, int shift, char keycode, 
+                            int repeatcount);
+  virtual void OnKeyPress  (int ctrl, int shift, char keycode, char *keysym,
+                            int repeatcount);
+  virtual void OnKeyRelease(int ctrl, int shift, char keycode, char *keysym,
+                            int repeatcount);
+
+
+  // Description:
+  // These are more esoteric events, but are useful in some cases.
+  virtual void OnExpose   (int x, int y, int width, int height);
+  virtual void OnConfigure(int width, int height);
+  virtual void OnEnter    (int x, int y);
+  virtual void OnLeave    (int x, int y);
+
+  virtual void OnTimer(void);
+
+
 protected:
   vtkInteractorStyleUser();
   ~vtkInteractorStyleUser();
-
-  void OnChar(int ctrl, int shift, char keycode, int repeatcount);
-  void OnKeyPress(int ctrl, int shift, char keycode, char *keysym,
-                  int repeatcount);
-  void OnKeyRelease(int ctrl, int shift, char keycode, char *keysym,
-                    int repeatcount);
-
-  void OnLeftButtonDown(int ctrl, int shift, int X, int Y);
-  void OnLeftButtonUp(int ctrl, int shift, int X, int Y);
-  void OnMiddleButtonDown(int ctrl, int shift, int X, int Y);
-  void OnMiddleButtonUp(int ctrl, int shift, int X, int Y);
-  void OnRightButtonDown(int ctrl, int shift, int X, int Y);
-  void OnRightButtonUp(int ctrl, int shift, int X, int Y);
-
-  void OnMouseMove(int ctrl, int shift, int X, int Y);
-
-  void OnExpose(int x, int y, int width, int height);
-  void OnConfigure(int width, int height);
- 
-  void OnEnter(int ctrl, int shift, int X, int Y);
-  void OnLeave(int ctrl, int shift, int X, int Y);
-
-  void OnTimer(void);
 
   int OldPos[2];
 
