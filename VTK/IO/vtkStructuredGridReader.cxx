@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-15 18:40:33 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 2001-07-26 21:40:45 $
+  Version:   $Revision: 1.48 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -237,6 +237,33 @@ void vtkStructuredGridReader::Execute()
         output->SetDimensions(dim);
         numCells = output->GetNumberOfCells();
         dimsRead = 1;
+        }
+
+      else if ( ! strncmp(line,"blanking",8) )
+        {
+        if (!this->Read(&npts))
+          {
+          vtkErrorMacro(<<"Error reading blanking!");
+          this->CloseVTKFile ();
+          return;
+          }
+
+        if (!this->ReadString(line)) 
+          {
+          vtkErrorMacro(<<"Cannot read blank type!" );
+          this->CloseVTKFile ();
+          return;
+          }
+
+        vtkUnsignedCharArray *data = vtkUnsignedCharArray::SafeDownCast(
+                                        this->ReadArray(line, numPts, 1));
+
+        if ( data != NULL )
+          {
+          output->BlankingOn();
+          output->SetPointVisibility(data);
+          data->Delete();
+          }
         }
 
       else if ( ! strncmp(line,"points",6) )

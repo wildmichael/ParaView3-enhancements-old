@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-26 20:41:58 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2001-07-26 21:40:45 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -115,9 +115,9 @@ void vtkStructuredGridWriter::WriteBlanking(ostream *fp, vtkStructuredGrid *grid
 {
   vtkUnsignedCharArray *blanking=grid->GetPointVisibility();
   
-  *fp << "BLANKING ";
   int numPts = grid->GetNumberOfPoints();
-  WriteArray(fp, VTK_UNSIGNED_CHAR, blanking, "%s\n", numPts, 1);
+  *fp << "BLANKING " << numPts;
+  WriteArray(fp, VTK_UNSIGNED_CHAR, blanking, " %s\n", numPts, 1);
 }
 
 
