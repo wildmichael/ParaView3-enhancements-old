@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:50 $
-  Version:   $Revision: 1.93 $
+  Date:      $Date: 2001-03-19 13:26:03 $
+  Version:   $Revision: 1.94 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -146,6 +146,9 @@ public:
 
   // Description:
   // Get the ratio between allocated time and actual render time.
+  // TimeFactor has been taken out of the render process.  
+  // It is still computed in case someone finds it useful.
+  // It may be taken away in the future.
   virtual float GetTimeFactor();
 
   // Description:
