@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDoubleArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-29 15:48:05 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1998-06-29 16:28:22 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -151,7 +151,7 @@ void vtkDoubleArray::DeepCopy(vtkDataArray& fa)
 
 void vtkDoubleArray::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkReferenceCount::PrintSelf(os,indent);
+  vtkDataArray::PrintSelf(os,indent);
 
   os << indent << "Array: " << this->Array << "\n";
 }

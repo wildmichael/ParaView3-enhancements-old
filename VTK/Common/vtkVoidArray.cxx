@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoidArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-29 15:48:13 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1998-06-29 16:28:30 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -113,7 +113,7 @@ void vtkVoidArray::DeepCopy(vtkDataArray& da)
 
 void vtkVoidArray::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkReferenceCount::PrintSelf(os,indent);
+  vtkDataArray::PrintSelf(os,indent);
 
   os << indent << "Array: " << this->Array << "\n";
 }

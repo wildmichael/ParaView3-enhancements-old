@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLongArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-29 15:48:08 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1998-06-29 16:28:25 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -151,7 +151,7 @@ void vtkLongArray::DeepCopy(vtkDataArray& sa)
 
 void vtkLongArray::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkReferenceCount::PrintSelf(os,indent);
+  vtkDataArray::PrintSelf(os,indent);
 
   os << indent << "Array: " << this->Array << "\n";
 }
