@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToStructuredPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-06-10 13:39:20 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1997-06-10 14:02:40 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -726,7 +726,7 @@ vtkImageToStructuredPoints::ReformatRegionData(vtkImageRegion *region)
   vtkImageRegion *temp = NULL;
   vtkScalars *scalars;
   int min, max, dim;
-  int colorScalarsFlag;
+  int colorScalarsFlag = 0;
   
   // If we have more than one component then we want color
   // scalars. Also if we have one component and it is 
