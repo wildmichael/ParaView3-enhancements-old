@@ -3,8 +3,8 @@
  Program:   Visualization Toolkit
  Module:    $RCSfile: vtkSource.cxx,v $
  Language:  C++
- Date:      $Date: 2001-01-04 19:57:05 $
- Version:   $Revision: 1.74 $
+ Date:      $Date: 2001-01-05 14:22:01 $
+ Version:   $Revision: 1.75 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -530,7 +530,7 @@ void vtkSource::ComputeEstimatedOutputMemorySize( vtkDataObject *output,
 						  unsigned long size[2] )
 {
   int idx;
-  int tmp;
+  unsigned long tmp;
 
   size[0] = 0;
   size[1] = 0;

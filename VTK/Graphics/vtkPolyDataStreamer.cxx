@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataStreamer.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-11 20:19:45 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2001-01-05 14:22:01 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -78,7 +78,7 @@ vtkPolyDataStreamer::~vtkPolyDataStreamer()
 //----------------------------------------------------------------------------
 void vtkPolyDataStreamer::ComputeNumberOfStreamDivisionsFromMemoryLimit()
 {
-  int num;
+  unsigned long num;
   vtkPolyData *input = this->GetInput();
   vtkPolyData *output = this->GetOutput();
 
