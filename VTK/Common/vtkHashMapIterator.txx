@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHashMapIterator.txx,v $
   Language:  C++
-  Date:      $Date: 2002-07-10 19:37:28 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-07-17 21:35:26 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -53,7 +53,7 @@ template<class KeyType,class DataType>
 int vtkHashMapIterator<KeyType,DataType>::GetKey(KeyType& key)
 {
   if(this->IsDoneWithTraversal()) { return VTK_ERROR; }
-  ItemType item;
+  ItemType item = { KeyType(), DataType() };
   if(this->Iterator->GetData(item) == VTK_OK)
     {
     key = item.Key;
@@ -67,7 +67,7 @@ template<class KeyType,class DataType>
 int vtkHashMapIterator<KeyType,DataType>::GetData(DataType& data)
 {
   if(this->IsDoneWithTraversal()) { return VTK_ERROR; }
-  ItemType item;
+  ItemType item = { KeyType(), DataType() };
   if(this->Iterator->GetData(item) == VTK_OK)
     {
     data = item.Data;
