@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTensorGlyph.h,v $
   Language:  C++
-  Date:      $Date: 2002-12-11 20:22:31 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2002-12-13 16:29:03 $
+  Version:   $Revision: 1.40 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -57,9 +57,10 @@
 // singularities or large order of magnitude differences exist in 
 // the eigenvalues.
 //
-// If the boolean variable ColorEigen is set the glyphs are colored
-// according to the largest eigenvalue (if ThreeGlyphs is false) or each 
-// eigenvalue (if ThreeGlyphs is true).
+// If the boolean variable ColorGlyphs is set to true the glyphs are
+// colored.  The glyphs can be colored using the input scalars
+// (SetColorModeToScalars), which is the default, or colored using the
+// eigenvalues (SetColorModeToEigenvalues).
 //
 // Another instance variable, ExtractEigenvalues, has been provided to
 // control extraction of eigenvalues/eigenvectors. If this boolean is
