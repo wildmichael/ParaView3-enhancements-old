@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-08 10:58:45 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2000-08-08 14:22:18 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -72,29 +72,6 @@ vtkPolyData *vtkPolyDataMapper::GetInput()
   return (vtkPolyData *)(this->Inputs[0]);
 }
 
-
-// Request a piece before we get the bounds.
-float *vtkPolyDataMapper::GetBounds()
-{
-  if (this->GetInput() ) 
-    {
-    this->GetInput()->SetUpdateExtent(this->Piece, this->NumberOfPieces);
-    }
-
-  return this->vtkMapper::GetBounds();
-}
-
-// Get the bounds
-void vtkPolyDataMapper::GetBounds(float bounds[6])
-{
-  float *boundsPtr;
-  
-  boundsPtr = this->GetBounds();
-  for (int i=0; i<6; i++)
-    {
-    bounds[i] = boundsPtr[i];
-    }
-}
 
 // Update the network connected to this mapper.
 void vtkPolyDataMapper::Update()

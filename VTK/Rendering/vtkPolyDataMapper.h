@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataMapper.h,v $
   Language:  C++
-  Date:      $Date: 2000-08-08 10:58:45 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2000-08-08 14:22:18 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -68,9 +68,9 @@ public:
   void SetInput(vtkPolyData *in);
   vtkPolyData *GetInput();
   
+  // Description:
+  // Update that sets the update piece first.
   void Update();
-  float *GetBounds();
-  void GetBounds(float bounds[6]);
 
   // Description:
   // If you want only a part of the data, specify by seting the piece.

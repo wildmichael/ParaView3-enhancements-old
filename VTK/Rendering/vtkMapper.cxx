@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-07-14 14:15:18 $
-  Version:   $Revision: 1.70 $
+  Date:      $Date: 2000-08-08 14:22:18 $
+  Version:   $Revision: 1.71 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -95,7 +95,7 @@ float *vtkMapper::GetBounds()
     }
   else
     {
-    this->GetInput()->Update();
+    this->Update();
     this->GetInput()->GetBounds(this->Bounds);
     return this->Bounds;
     }
