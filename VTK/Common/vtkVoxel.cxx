@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoxel.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-03-12 21:09:54 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 1997-04-14 00:40:00 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -377,7 +377,7 @@ int vtkVoxel::IntersectWithLine(float p1[3], float p2[3], float vtkNotUsed(tol),
     bounds[2*i+1] = maxPt[i];
     }
 
-  if ( ! this->HitBBox(bounds, p1, p21, x, t) )
+  if ( ! vtkCell::HitBBox(bounds, p1, p21, x, t) )
     return 0;
 //
 // Evaluate intersection
