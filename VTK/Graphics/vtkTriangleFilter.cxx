@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangleFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-02 12:54:39 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2001-04-04 15:48:01 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -44,9 +44,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkTriangleStrip.h"
 #include "vtkObjectFactory.h"
 
-
-
-//------------------------------------------------------------------------------
+//------------------------------------------------------------------------
 vtkTriangleFilter* vtkTriangleFilter::New()
 {
   // First try to create the object from the vtkObjectFactory
@@ -58,9 +56,6 @@ vtkTriangleFilter* vtkTriangleFilter::New()
   // If the factory was unable to create the object, then create it here.
   return new vtkTriangleFilter;
 }
-
-
-
 
 void vtkTriangleFilter::Execute()
 {
@@ -76,7 +71,6 @@ void vtkTriangleFilter::Execute()
   int updateInterval;
   int numPoints=input->GetNumberOfPoints();
 
-  
   output->Allocate(numPoints, numPoints);
   outCD->CopyAllocate(inCD,numPoints);
 
