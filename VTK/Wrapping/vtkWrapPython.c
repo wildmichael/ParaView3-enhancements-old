@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWrapPython.c,v $
   Language:  C++
-  Date:      $Date: 2000-12-08 06:13:46 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2000-12-08 21:39:32 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -451,7 +451,7 @@ void get_python_signature()
   
   if (currentFunction->Signature)
     {
-    add_to_sig(result,"\\n ",&currPos);
+    add_to_sig(result,"\\nC++: ",&currPos);
     add_to_sig(result,currentFunction->Signature,&currPos);
     }
 
