@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObject.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:10:12 $
-  Version:   $Revision: 1.71 $
+  Date:      $Date: 2000-10-20 13:54:50 $
+  Version:   $Revision: 1.72 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -68,6 +68,9 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkIndent.h"
 #include "vtkTimeStamp.h"
 #include "vtkSetGet.h"
+
+class vtkSubjectHelper;
+class vtkCommand;
 
 class VTK_EXPORT vtkObject 
 {
@@ -184,13 +187,22 @@ public:
   // Sets the reference count (use with care)
   void SetReferenceCount(int);
 
-  //BTX
   // Description:
-  // A callback for when the destructor is called. Scripting
-  // languages use this to know when a C++ object has been freed.
-  // This is not intended for any use other than scripting.
-  void SetDeleteMethod(void (*f)(void *));
+  // Allow people to add/remove/invoke observers (callbacks) to any VTK object
+  // This is an implementation of the subject/observer design pattern. An 
+  // observer is added by specifying an event to respond to and a vtkCommand
+  // to execute. It returns an unsigned long tag which can be used later to
+  // remove the event or retrieve the command.
+  //BTX
+  unsigned long AddObserver(unsigned long event, vtkCommand *);
+  unsigned long AddObserver(const char *event, vtkCommand *);
+  vtkCommand *GetCommand(unsigned long tag);
+  void InvokeEvent(unsigned long event, void *callData);
+  void InvokeEvent(const char *event, void *callData);
   //ETX
+  void RemoveObserver(unsigned long tag);
+  int HasObserver(unsigned long event);
+  int HasObserver(const char *event);
   
 protected:
   vtkObject(); 
@@ -201,7 +213,7 @@ protected:
   unsigned char Debug;         // Enable debug messages
   vtkTimeStamp MTime; // Keep track of modification time
   int ReferenceCount;      // Number of uses of this object by other objects
-  void (*DeleteMethod)(void *);
+  vtkSubjectHelper *SubjectHelper;
 
 private:
   //BTX

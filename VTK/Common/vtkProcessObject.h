@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProcessObject.h,v $
   Language:  C++
-  Date:      $Date: 2000-10-09 01:01:04 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2000-10-20 13:54:50 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -165,15 +165,9 @@ protected:
   void operator=(const vtkProcessObject&) {};
 
   // Progress/Update handling
-  void (*StartMethod)(void *);
-  void (*StartMethodArgDelete)(void *);
-  void *StartMethodArg;
-  void (*ProgressMethod)(void *);
-  void *ProgressMethodArg;
-  void (*ProgressMethodArgDelete)(void *);
-  void (*EndMethod)(void *);
-  void (*EndMethodArgDelete)(void *);
-  void *EndMethodArg;
+  unsigned long StartTag;
+  unsigned long ProgressTag;
+  unsigned long EndTag;
   float Progress;
   char  *ProgressText;
 
