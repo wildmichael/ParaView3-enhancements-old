@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkParseJava.c,v $
   Language:  C++
-  Date:      $Date: 2003-01-29 13:45:04 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2003-02-04 14:40:40 $
+  Version:   $Revision: 1.27 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -452,7 +452,7 @@ void vtkParseOutput(FILE *fp, FileInfo *data)
   fname = data->OutputFileName;
   dir = (char*)malloc(strlen(fname) + strlen(javaDone) + 2);
   sprintf(dir, "%s", fname);
-  len = strlen(dir); 
+  len = (int)strlen(dir); 
   for ( cc = len-1; cc > 0; cc -- )
     {
     if ( dir[cc] == '/' || dir[cc] == '\\' )
