@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader2.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-09 21:20:28 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2002-01-14 16:12:31 $
+  Version:   $Revision: 1.11 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -197,7 +197,7 @@ public:
   // Description:
   // Return 1 if the reader can read the given file name.
   // Should be implemented by all sub-classes of vtkImageReader2.
-  virtual int CanReadFile(const char* fname)
+  virtual int CanReadFile(const char* vtkNotUsed(fname))
     {
       return 0;
     }
