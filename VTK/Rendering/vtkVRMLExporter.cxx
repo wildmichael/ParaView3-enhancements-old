@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVRMLExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-11-15 16:09:43 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1996-11-22 12:57:03 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -355,8 +355,8 @@ void vtkVRMLExporter::WriteAnActor(vtkActor *anActor, FILE *fp)
 	  }
 	else
 	  {
-	  i1 = i - 1;
-	  i2 = i - 2;
+	  i1 = i - 2;
+	  i2 = i - 1;
 	  }
 	fprintf(fp,"              %i, %i, %i, -1,\n",indx[i1], 
 		indx[i2], indx[i]);
