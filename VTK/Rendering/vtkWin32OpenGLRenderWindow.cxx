@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-29 21:25:48 $
-  Version:   $Revision: 1.84 $
+  Date:      $Date: 2002-05-27 13:44:07 $
+  Version:   $Revision: 1.85 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -37,7 +37,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkString.h"
 
-vtkCxxRevisionMacro(vtkWin32OpenGLRenderWindow, "$Revision: 1.84 $");
+vtkCxxRevisionMacro(vtkWin32OpenGLRenderWindow, "$Revision: 1.85 $");
 vtkStandardNewMacro(vtkWin32OpenGLRenderWindow);
 
 #define VTK_MAX_LIGHTS 8
@@ -131,8 +131,14 @@ void vtkWin32OpenGLRenderWindow::Clean()
       ren->SetRenderWindow(NULL);
       }
     
-    wglMakeCurrent(NULL, NULL);
-    wglDeleteContext(this->ContextId);
+    if (wglMakeCurrent(NULL, NULL) != TRUE) 
+      {
+      vtkErrorMacro("wglMakeCurrent failed in Clean(), error: " << GetLastError());
+      }
+    if (wglDeleteContext(this->ContextId) != TRUE) 
+      {
+      vtkErrorMacro("wglDeleteContext failed in Clean(), error: " << GetLastError());
+      }
     this->ContextId = NULL;
     }
   if (this->Palette)
@@ -187,7 +193,10 @@ void vtkWin32OpenGLRenderWindow::MakeCurrent()
     // Try to avoid doing anything (for performance).
     if (this->ContextId)
       {
-      wglMakeCurrent(this->DeviceContext, this->ContextId);
+      if (wglMakeCurrent(this->DeviceContext, this->ContextId) != TRUE) 
+        {
+        vtkErrorMacro("wglMakeCurrent failed in MakeCurrent(), error: " << GetLastError());
+        }
       }
     vtkWin32OpenGLGlobalContext = this->ContextId;
     }
@@ -576,6 +585,10 @@ void vtkWin32OpenGLRenderWindow::CreateAWindow(int x, int y, int width,
     }
   this->SetupPalette(this->DeviceContext);
   this->ContextId = wglCreateContext(this->DeviceContext);
+  if (this->ContextId == NULL) 
+    {
+    vtkErrorMacro("wglCreateContext failed in CreateAWindow(), error: " << GetLastError());
+    }
   this->MakeCurrent();
   this->OpenGLInit();
   this->Mapped = 1;
@@ -962,6 +975,10 @@ void vtkWin32OpenGLRenderWindow::CreateOffScreenDC(HBITMAP hbmp, HDC aHdc)
                          PFD_DRAW_TO_BITMAP, this->GetDebug(), 24, 32);
   this->SetupPalette(this->DeviceContext);
   this->ContextId = wglCreateContext(this->DeviceContext);
+  if (this->ContextId == NULL) 
+    {
+    vtkErrorMacro("wglCreateContext failed in CreateOffScreenDC(), error: " << GetLastError());
+    }
   this->MakeCurrent();
   
   // we need to release resources
@@ -1022,7 +1039,10 @@ void vtkWin32OpenGLRenderWindow::CleanUpOffScreenRendering(void)
     {
     ren->SetRenderWindow(NULL);
     }
-  wglDeleteContext(this->ContextId);
+  if (wglDeleteContext(this->ContextId) != TRUE) 
+    {
+    vtkErrorMacro("wglDeleteContext failed in CleanUpOffScreenRendering(), error: " << GetLastError());
+    }
 }
 
 void vtkWin32OpenGLRenderWindow::ResumeScreenRendering(void)
