@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataToImageStencil.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:30:35 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-05-07 21:15:48 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -51,7 +51,6 @@ public:
 protected:
   vtkPolyDataToImageStencil();
   ~vtkPolyDataToImageStencil();
-  void operator=(const vtkPolyDataToImageStencil&);
 
   void ExecuteData(vtkDataObject *out);
   void ThreadedExecute(vtkImageStencilData *output,
@@ -60,8 +59,8 @@ protected:
   float Tolerance;
   vtkOBBTree *OBBTree;
 private:
-  vtkPolyDataToImageStencil(const vtkPolyDataToImageStencil&)  // Not implemented.
-    {};  // Not implemented.
+  vtkPolyDataToImageStencil(const vtkPolyDataToImageStencil&);  // Not implemented.
+  void operator=(const vtkPolyDataToImageStencil&);  // Not implemented.
 };
 
 #endif

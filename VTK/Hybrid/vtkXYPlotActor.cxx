@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXYPlotActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:30:46 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2002-05-07 21:15:48 $
+  Version:   $Revision: 1.34 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -31,7 +31,7 @@
 
 #define VTK_MAX_PLOTS 50
 
-vtkCxxRevisionMacro(vtkXYPlotActor, "$Revision: 1.33 $");
+vtkCxxRevisionMacro(vtkXYPlotActor, "$Revision: 1.34 $");
 vtkStandardNewMacro(vtkXYPlotActor);
 
 // Instantiate object
@@ -1727,8 +1727,10 @@ void vtkXYPlotActor::ClipPlotData(int *pos, int *pos2, vtkPolyData *pd)
   vtkCellArray *lines=pd->GetLines();
   vtkCellArray *newLines, *newVerts;
   vtkIdType numPts=pd->GetNumberOfPoints();
-  vtkIdType npts;
-  vtkIdType newPts[2], *pts, i, id;
+  vtkIdType npts = 0;
+  vtkIdType newPts[2];
+  vtkIdType *pts=0;
+  vtkIdType i, id;
   int j;
   float *x1, *x2, *px, *n, xint[3], t;
   float p1[2], p2[2];

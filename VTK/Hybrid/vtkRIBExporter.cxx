@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRIBExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-25 01:26:17 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 2002-05-07 21:15:48 $
+  Version:   $Revision: 1.43 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -29,7 +29,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkFieldData.h"
 
-vtkCxxRevisionMacro(vtkRIBExporter, "$Revision: 1.42 $");
+vtkCxxRevisionMacro(vtkRIBExporter, "$Revision: 1.43 $");
 vtkStandardNewMacro(vtkRIBExporter);
 
 typedef float RtColor[3];
@@ -681,8 +681,8 @@ void vtkRIBExporter::WritePolygons (vtkPolyData *polyData,
   RtPoint vertexPoints[512];
   float poly_norm[3];
   float vertexTCoords[512][2];
-  vtkIdType *pts;
-  vtkIdType npts;
+  vtkIdType *pts = 0;
+  vtkIdType npts = 0;
   int k, kk;
   int rep, j, interpolation;
   int tDim;
@@ -911,7 +911,8 @@ void vtkRIBExporter::WriteStrips (vtkPolyData *polyData,
   RtPoint vertexPoints[512];
   float poly_norm[3];
   float vertexTCoords[512][2];
-  vtkIdType *pts, npts;
+  vtkIdType *pts = 0;
+  vtkIdType npts = 0;
   int p1, p2, p3;
   int k, kk;
   int rep, j, interpolation;
