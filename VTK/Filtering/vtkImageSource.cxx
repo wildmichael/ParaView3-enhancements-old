@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-22 12:14:56 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1996-09-11 14:39:06 $
+  Version:   $Revision: 1.7 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -83,6 +83,21 @@ unsigned long vtkImageSource::GetPipelineMTime()
   return this->GetMTime();
 }
 
+
+//----------------------------------------------------------------------------
+// Description:
+// This method updates the whole region and returns it.
+vtkImageRegion *vtkImageSource::Update()
+{
+  vtkImageRegion *region;
+  
+  region = new vtkImageRegion;
+  this->UpdateImageInformation(region);
+  region->SetBounds(region->GetImageBounds());
+  this->UpdateRegion(region);
+  
+  return region;
+}
 
   
 

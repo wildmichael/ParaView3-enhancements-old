@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSource.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-22 12:14:57 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1996-09-11 14:39:07 $
+  Version:   $Revision: 1.7 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -63,6 +63,8 @@ public:
   char *GetClassName() {return "vtkImageSource";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
+  virtual vtkImageRegion *Update();
+  
   // Description:
   // This method should the allocate and generate the Region's data, or
   // if the data could not be generated set the split factor.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 21:03:09 $
-  Version:   $Revision: 1.64 $
+  Date:      $Date: 1996-09-11 14:39:08 $
+  Version:   $Revision: 1.65 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -404,23 +404,17 @@ void vtkPolyData::BuildCells()
   vtkCellArray *inStrips=this->GetStrips();
   int npts, *pts;
   vtkCellList *cells;
-  vtkPoints *inPoints=this->GetPoints();
 
   vtkDebugMacro (<< "Building PolyData cells.");
 
-  numCells = this->GetNumberOfCells();
+  if ( this->GetNumberOfCells() < 1 )
+    {
+    numCells = 1000; //may be allocating empty list to begin with
+    }
 
-  if ( inPoints == NULL || numCells < 1 ) 
-    {
-    vtkErrorMacro (<< "No data to build");
-    return;
-    }
-  else
-    {
-    this->Cells = cells = new vtkCellList(numCells,3*numCells);
-    this->Cells->Register(this);
-    cells->Delete();
-    }
+  this->Cells = cells = new vtkCellList(numCells,3*numCells);
+  this->Cells->Register(this);
+  cells->Delete();
 //
 // Traverse various lists to create cell array
 //
