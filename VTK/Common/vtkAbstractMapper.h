@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractMapper.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:04:24 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-11-21 21:21:07 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,10 +59,6 @@ class VTK_EXPORT vtkAbstractMapper : public vtkProcessObject
 public:
   const char *GetClassName() {return "vtkAbstractMapper";};
   void PrintSelf(ostream& os, vtkIndent indent);
-
-  // Description:
-  // Instantiate object.
-  static vtkAbstractMapper *New();
 
   // Description:
   // Release any graphics resources that are being consumed by this mapper.
