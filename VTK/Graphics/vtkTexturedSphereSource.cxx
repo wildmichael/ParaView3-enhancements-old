@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTexturedSphereSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-06-25 11:40:55 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1996-07-08 20:26:52 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -106,7 +106,7 @@ void vtkTexturedSphereSource::Execute()
       x[0] /= norm; x[1] /= norm; x[2] /= norm; 
       newNormals->InsertNextNormal(x);
 
-      tc[1] = phi/3.1415926;
+      tc[1] = 1.0 - phi/3.1415926;
       newTCoords->InsertNextTCoord(tc);
       }
     }
