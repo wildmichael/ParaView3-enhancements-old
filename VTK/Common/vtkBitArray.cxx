@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBitArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-08-22 19:03:14 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1998-09-04 19:54:29 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -202,8 +202,10 @@ unsigned char *vtkBitArray::Resize(const int sz)
 
   if (this->Array)
     {
+    int usedSize = (sz < this->Size) ? sz : this->Size;
+
     memcpy(newArray, this->Array, 
-         (sz < this->Size ? sz : this->Size) * sizeof(char));
+         ((usedSize+7)/8)*sizeof(unsigned char));
     if (!this->SaveUserArray)
       {
 	delete[] this->Array;
