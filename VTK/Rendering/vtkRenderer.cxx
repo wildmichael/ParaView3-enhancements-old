@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-07 12:12:34 $
-  Version:   $Revision: 1.121 $
+  Date:      $Date: 1999-10-07 15:55:26 $
+  Version:   $Revision: 1.122 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -251,6 +251,8 @@ void vtkRenderer::Render(void)
   if ( this->PropArrayCount == 0 )
     {
     vtkDebugMacro( << "There are no visible props!" );
+    this->NumberOfPropsToRayCast = 0;
+    this->NumberOfPropsToRenderIntoImage = 0;
     }
   else
     {
