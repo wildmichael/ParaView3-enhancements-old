@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUGFacetReader.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 20:54:18 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1997-05-09 12:24:43 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -79,12 +79,29 @@ public:
   vtkSetMacro(PartNumber,int);
   vtkGetMacro(PartNumber,int);
 
+  // Description:
+  // Turn on/off merging of points/triangles.
+  vtkSetMacro(Merging,int);
+  vtkGetMacro(Merging,int);
+  vtkBooleanMacro(Merging,int);
+
+  void SetLocator(vtkPointLocator *locator);
+  void SetLocator(vtkPointLocator& locator) {this->SetLocator(&locator);};
+  vtkGetObjectMacro(Locator,vtkPointLocator);
+
+  // Description:
+  // Create default locator. Used to create one when none is specified.
+  void CreateDefaultLocator();
+
 protected:
   void Execute();
 
   char *Filename;
   vtkShortArray *PartColors;
   int PartNumber;
+  int Merging;
+  vtkPointLocator *Locator;
+  int SelfCreatedLocator;
 };
 
 #endif
