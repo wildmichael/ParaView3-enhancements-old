@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCylinderSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-12-19 11:58:07 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1996-12-20 15:54:13 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -50,6 +50,7 @@ vtkCylinderSource::vtkCylinderSource (int res)
   this->Height = 1.0;
   this->Radius = 0.5;
   this->Capping = 1;
+  this->Center[0] = this->Center[1] = this->Center[2] = 0.0;
 }
 
 void vtkCylinderSource::Execute()
