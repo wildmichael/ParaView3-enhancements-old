@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCocoaTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-30 05:45:43 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-08-23 18:30:17 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 #include "vtkTextProperty.h"
 #include "vtkViewport.h"
 
-vtkCxxRevisionMacro(vtkCocoaTextMapper, "$Revision: 1.4 $");
+vtkCxxRevisionMacro(vtkCocoaTextMapper, "$Revision: 1.5 $");
 vtkStandardNewMacro(vtkCocoaTextMapper);
 
 vtkCocoaTextMapper::vtkCocoaTextMapper()
@@ -322,4 +322,8 @@ void vtkCocoaTextMapper::RenderOverlay(vtkViewport* viewport,
 
 }
 
-
+//----------------------------------------------------------------------------
+void vtkCocoaTextMapper::PrintSelf(ostream& os, vtkIndent indent)
+{
+  this->Superclass::PrintSelf(os,indent);
+}
