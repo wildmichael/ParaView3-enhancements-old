@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkCellLocator.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-21 11:25:03 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1995-01-11 15:49:47 $
+  Version:   $Revision: 1.4 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -209,4 +209,8 @@ void vlCellLocator::SubDivide()
   this->SubDivideTime.Modified();
 }
 
+void MarkParents(void* a, int i, int j, int k)
+{
+  // will's code
+}
 
