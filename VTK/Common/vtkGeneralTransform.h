@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGeneralTransform.h,v $
   Language:  C++
-  Date:      $Date: 2000-03-19 15:44:52 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2000-03-20 19:25:09 $
+  Version:   $Revision: 1.17 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -134,26 +134,6 @@ public:
   // Description:
   // Copy this transform from another of the same type.
   virtual void DeepCopy(vtkGeneralTransform *) = 0;
-
-  // Description:
-  // Create a pipelined concatenation of two transforms.  
-  static vtkGeneralTransform *Concatenate(vtkGeneralTransform *t1,
-					  vtkGeneralTransform *t2) {
-    return vtkGeneralTransform::Concatenate(t1,t2,0,0); };
-
-  // Description:
-  // Create a pipelined concatenation of three transforms.  
-  static vtkGeneralTransform *Concatenate(vtkGeneralTransform *t1,
-					  vtkGeneralTransform *t2,
-					  vtkGeneralTransform *t3) {
-    return vtkGeneralTransform::Concatenate(t1,t2,t3,0); };
-
-  // Description:
-  // Create a pipelined concatenation of four transforms.  
-  static vtkGeneralTransform *Concatenate(vtkGeneralTransform *t1,
-					  vtkGeneralTransform *t2,
-					  vtkGeneralTransform *t3,
-					  vtkGeneralTransform *t4);
 
   // Description:
   // Update the transform to account for any changes which

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransform.h,v $
   Language:  C++
-  Date:      $Date: 2000-03-20 18:00:10 $
-  Version:   $Revision: 1.59 $
+  Date:      $Date: 2000-03-20 19:25:12 $
+  Version:   $Revision: 1.60 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -210,51 +210,6 @@ class VTK_EXPORT vtkTransform : public vtkLinearTransform
   // Description:
   // Set the current matrix directly (copies Elements).
   void SetMatrix(double Elements[16]);
-
-  // Description:
-  // Create a pipelined concatenation of two transforms.  
-  static vtkLinearTransform *Concatenate(vtkLinearTransform *t1,
-					 vtkLinearTransform *t2) {
-    return vtkLinearTransform::Concatenate(t1,t2,0,0); };
-  static vtkPerspectiveTransform *Concatenate(vtkPerspectiveTransform *t1,
-					      vtkPerspectiveTransform *t2) {
-    return vtkPerspectiveTransform::Concatenate(t1,t2,0,0); };
-  static vtkGeneralTransform *Concatenate(vtkGeneralTransform *t1,
-					  vtkGeneralTransform *t2) {
-    return vtkGeneralTransform::Concatenate(t1,t2,0,0); };
-
-  // Description:
-  // Create a pipelined concatenation of three transforms.  
-  static vtkLinearTransform *Concatenate(vtkLinearTransform *t1,
-					 vtkLinearTransform *t2,
-					 vtkLinearTransform *t3) {
-    return vtkLinearTransform::Concatenate(t1,t2,t3,0); };
-  static vtkPerspectiveTransform *Concatenate(vtkPerspectiveTransform *t1,
-					      vtkPerspectiveTransform *t2,
-					      vtkPerspectiveTransform *t3) {
-    return vtkPerspectiveTransform::Concatenate(t1,t2,t3,0); };
-  static vtkGeneralTransform *Concatenate(vtkGeneralTransform *t1,
-					  vtkGeneralTransform *t2,
-					  vtkGeneralTransform *t3) {
-    return vtkGeneralTransform::Concatenate(t1,t2,t3,0); };
-
-  // Description:
-  // Create a pipelined concatenation of four transforms.  
-  static vtkLinearTransform *Concatenate(vtkLinearTransform *t1,
-					 vtkLinearTransform *t2,
-					 vtkLinearTransform *t3,
-					 vtkLinearTransform *t4) {
-    return vtkLinearTransform::Concatenate(t1,t2,t3,t4); };
-  static vtkPerspectiveTransform *Concatenate(vtkPerspectiveTransform *t1,
-					      vtkPerspectiveTransform *t2,
-					      vtkPerspectiveTransform *t3,
-					      vtkPerspectiveTransform *t4) {
-    return vtkPerspectiveTransform::Concatenate(t1,t2,t3,t4); };
-  static vtkGeneralTransform *Concatenate(vtkGeneralTransform *t1,
-					  vtkGeneralTransform *t2,
-					  vtkGeneralTransform *t3,
-					  vtkGeneralTransform *t4) {
-    return vtkGeneralTransform::Concatenate(t1,t2,t3,t4); };
 
   // Description:
   // Concatenates the input matrix with the current transformation matrix.

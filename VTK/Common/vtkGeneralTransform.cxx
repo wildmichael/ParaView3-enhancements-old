@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGeneralTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-03-20 14:49:47 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2000-03-20 19:25:09 $
+  Version:   $Revision: 1.19 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,7 +42,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "vtkGeneralTransform.h"
 #include "vtkGeneralTransformInverse.h"
-#include "vtkGeneralTransformConcatenation.h"
 #include "vtkMath.h"
 
 //----------------------------------------------------------------------------
@@ -206,24 +205,6 @@ void vtkGeneralTransform::UnRegister(vtkObject *o)
     }
 
   this->vtkObject::UnRegister(o);
-}
-
-//----------------------------------------------------------------------------
-vtkGeneralTransform *vtkGeneralTransform::Concatenate(
-					vtkGeneralTransform *t1,
-					vtkGeneralTransform *t2,
-					vtkGeneralTransform *t3,
-					vtkGeneralTransform *t4)
-{
-  vtkGeneralTransformConcatenation *concat =
-    vtkGeneralTransformConcatenation::New();
-
-  if (t1) { concat->Concatenate(t1); }
-  if (t2) { concat->Concatenate(t2); }
-  if (t3) { concat->Concatenate(t3); }
-  if (t4) { concat->Concatenate(t4); }
-
-  return concat;
 }
 
 //----------------------------------------------------------------------------
