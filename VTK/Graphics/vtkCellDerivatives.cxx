@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellDerivatives.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-02-17 21:26:20 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1999-02-19 15:27:32 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,6 +40,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include <math.h>
 #include "vtkCellDerivatives.h"
+#include "vtkFloatArray.h"
 
 vtkCellDerivatives::vtkCellDerivatives()
 {
