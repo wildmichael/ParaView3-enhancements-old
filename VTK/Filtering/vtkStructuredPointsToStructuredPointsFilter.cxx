@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsToStructuredPointsFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-12-19 21:47:25 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1999-12-19 22:13:05 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -115,7 +115,7 @@ int vtkStructuredPointsToStructuredPointsFilter::ComputeInputUpdateExtents(
   if (input == NULL)
     {
     vtkErrorMacro(<<"Input is NULL");
-    return;
+    return 0;
     }
 
   input->CopyUpdateExtent(output);
