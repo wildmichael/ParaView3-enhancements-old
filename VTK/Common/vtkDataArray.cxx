@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-18 18:11:50 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 2002-03-21 22:26:12 $
+  Version:   $Revision: 1.49 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -33,7 +33,7 @@
 #include "vtkIdList.h"
 #include "vtkMath.h"
 
-vtkCxxRevisionMacro(vtkDataArray, "$Revision: 1.48 $");
+vtkCxxRevisionMacro(vtkDataArray, "$Revision: 1.49 $");
 
 // Construct object with default tuple dimension (number of components) of 1.
 vtkDataArray::vtkDataArray(vtkIdType numComp)
@@ -65,7 +65,7 @@ void vtkDataArray::SetName(const char* name)
   this->Name = 0;
   if (name)
     {
-    int size = strlen(name);
+    int size = static_cast<int>(strlen(name));
     this->Name = new char[size+1];
     strcpy(this->Name, name);
     }

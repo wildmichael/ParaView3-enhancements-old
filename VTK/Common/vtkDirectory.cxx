@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDirectory.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:19 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2002-03-21 22:26:12 $
+  Version:   $Revision: 1.14 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -17,7 +17,7 @@
 =========================================================================*/
 #include "vtkDirectory.h"
 
-vtkCxxRevisionMacro(vtkDirectory, "$Revision: 1.13 $");
+vtkCxxRevisionMacro(vtkDirectory, "$Revision: 1.14 $");
 
 vtkDirectory::vtkDirectory() 
   : Path(0), Files(0), NumberOfFiles(0)
@@ -73,7 +73,7 @@ void vtkDirectory::PrintSelf(ostream& os, vtkIndent indent)
 int vtkDirectory::Open(const char* name)
 {
   char* buf=0;
-  int n = strlen(name);
+  int n = static_cast<int>(strlen(name));
   if (name[n - 1] == '/') 
     {
     buf = new char[n + 1 + 1];

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetAttributes.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-19 19:01:06 $
-  Version:   $Revision: 1.59 $
+  Date:      $Date: 2002-03-21 22:26:12 $
+  Version:   $Revision: 1.60 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -33,7 +33,7 @@
 #include "vtkIdTypeArray.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkDataSetAttributes, "$Revision: 1.59 $");
+vtkCxxRevisionMacro(vtkDataSetAttributes, "$Revision: 1.60 $");
 vtkStandardNewMacro(vtkDataSetAttributes);
 
 //--------------------------------------------------------------------------
@@ -1923,7 +1923,7 @@ void vtkDataSetAttributes::FieldList::SetField(int index, vtkDataArray *da)
   this->LUT[index] = lut;
   if (name)
     {
-    int len = strlen(name);
+    int len = static_cast<int>(strlen(name));
     if (len > 0)
       {
       this->Fields[index] = new char[len+1];

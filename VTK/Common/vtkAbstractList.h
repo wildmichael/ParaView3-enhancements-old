@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractList.h,v $
   Language:  C++
-  Date:      $Date: 2002-03-21 21:55:46 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-03-21 22:26:12 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -70,7 +70,7 @@ public:
   virtual int Find(DType a, unsigned long &res) = 0;
 
   // Description:
-  // Find an item in the vector using a comparison routine. 
+  // Find an item in the list using a comparison routine. 
   // Return one if it was found, zero if it was
   // not found. The location of the item is returned in res.
   virtual int Find(DType a, CompareFunction compare, unsigned long &res) = 0;

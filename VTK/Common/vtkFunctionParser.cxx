@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFunctionParser.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-25 19:16:19 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2002-03-21 22:26:12 $
+  Version:   $Revision: 1.18 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 
 #include <ctype.h>
 
-vtkCxxRevisionMacro(vtkFunctionParser, "$Revision: 1.17 $");
+vtkCxxRevisionMacro(vtkFunctionParser, "$Revision: 1.18 $");
 vtkStandardNewMacro(vtkFunctionParser);
 
 static double vtkParserVectorErrorResult[3] = { VTK_PARSER_ERROR_RESULT, 
@@ -935,7 +935,7 @@ void vtkFunctionParser::RemoveSpaces()
   int i, length;
   
   this->FunctionLength = 0;
-  length = strlen(this->Function);
+  length = static_cast<int>(strlen(this->Function));
   
   tempString = new char[length+1];
   for (i = 0; i < length; i++)
@@ -1366,12 +1366,13 @@ int vtkFunctionParser::GetVariableNameLength(int variableNumber)
 {
   if (variableNumber < this->NumberOfScalarVariables)
     {
-    return strlen(this->ScalarVariableNames[variableNumber]);
+    return static_cast<int>(strlen(this->ScalarVariableNames[variableNumber]));
     }
   else
     {
-    return strlen(this->VectorVariableNames[variableNumber -
-                                           this->NumberOfScalarVariables]);
+    return static_cast<int>(strlen(
+      this->VectorVariableNames[variableNumber -
+                               this->NumberOfScalarVariables]));
     }
 }
 
