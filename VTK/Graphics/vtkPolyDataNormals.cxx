@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataNormals.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-12 02:00:35 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 2001-09-28 19:31:21 $
+  Version:   $Revision: 1.48 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -646,16 +646,3 @@ void vtkPolyDataNormals::PrintSelf(ostream& os, vtkIndent indent)
      << (this->NonManifoldTraversal ? "On\n" : "Off\n");
 }
 
-void vtkPolyDataNormals::ComputeInputUpdateExtents(vtkDataObject *output)
-{
-  int numPieces, ghostLevel;
-  
-  this->vtkPolyDataSource::ComputeInputUpdateExtents(output);
-
-  numPieces = output->GetUpdateNumberOfPieces();
-  ghostLevel = output->GetUpdateGhostLevel();
-  if (numPieces > 1)
-    {
-    this->GetInput()->SetUpdateGhostLevel(ghostLevel + 1);
-    }
-}
