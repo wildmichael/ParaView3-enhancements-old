@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-08-18 17:44:00 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2003-08-26 20:31:25 $
+  Version:   $Revision: 1.20 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 #include "vtkViewport.h"
 #include "vtkWindow.h"
 
-vtkCxxRevisionMacro(vtkTextActor, "$Revision: 1.19 $");
+vtkCxxRevisionMacro(vtkTextActor, "$Revision: 1.20 $");
 vtkStandardNewMacro(vtkTextActor);
 
 vtkCxxSetObjectMacro(vtkTextActor,TextProperty,vtkTextProperty);
@@ -311,7 +311,7 @@ int vtkTextActor::RenderOpaqueGeometry(vtkViewport *viewport)
           size[0], 
           (size[1] < max_height ? size[1] : max_height));
         // apply non-linear scaling
-        fsize = static_cast<int>(pow(fsize,this->FontScaleExponent)*
+        fsize = static_cast<int>(pow(static_cast<double>(fsize),this->FontScaleExponent)*
           pow(this->FontScaleTarget, 1.0 - this->FontScaleExponent));
         tpropmapper->SetFontSize(fsize);
         }
