@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMILVideoSource.h,v $
   Language:  C++
-  Date:      $Date: 1999-12-13 14:40:15 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1999-12-14 00:50:22 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -125,7 +125,11 @@ public:
   vtkGetMacro(VideoInput,int);
 
   // Description:
-  // Set/Get the video levels: the valid range is [0.0,2.0]
+  // Set/Get the video levels: the valid ranges are: 
+  // Contrast [0.0,2.0] 
+  // Brighness [0.0,255.0] 
+  // Hue [-0.5,0.5] 
+  // Saturation [0.0,2.0] 
   virtual void SetContrastLevel(float contrast);
   vtkGetMacro(ContrastLevel,float);
   virtual void SetBrightnessLevel(float brightness);

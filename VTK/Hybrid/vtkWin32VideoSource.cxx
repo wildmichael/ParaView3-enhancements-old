@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32VideoSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-12-13 14:40:13 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1999-12-14 00:50:21 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -90,7 +90,7 @@ vtkWin32VideoSource::~vtkWin32VideoSource()
 //----------------------------------------------------------------------------
 void vtkWin32VideoSource::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkWin32VideoSource::PrintSelf(os,indent);
+  vtkVideoSource::PrintSelf(os,indent);
 }
 
 //----------------------------------------------------------------------------
@@ -273,7 +273,6 @@ void vtkWin32VideoSource::Initialize()
     vtkErrorMacro(<< "Initialize: couldn't connect to driver"\
                     << " (" << GetLastError() << ")");
     this->ReleaseSystemResources();
-    this->FatalVFWError = 1;
     return;
     }
 
@@ -395,7 +394,7 @@ void vtkWin32VideoSource::ReleaseSystemResources()
     }
   UnregisterClass(this->WndClassName,GetModuleHandle(NULL));
 
-  this->FatalVFWError = 0;
+  this->FatalVFWError = 1;
   this->Initialized = 0;
 }
 
