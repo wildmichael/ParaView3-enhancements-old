@@ -1,10 +1,10 @@
 /*=========================================================================
 
   Program:   Visualization Toolkit
-  Module:    $RCSfile: AmoebaMinimizer.cxx,v $
+  Module:    $RCSfile: TestAmoebaMinimizer.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-08 19:36:38 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-11-07 15:39:36 $
+  Version:   $Revision: 1.1 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -33,7 +33,7 @@ static void vtkFunctionToMinimize(void *arg)
   minimizer->SetFunctionValue(r);
 }
 
-int AmoebaMinimizer(int argc, char*[])
+int TestAmoebaMinimizer(int argc, char*[])
 {
   vtkAmoebaMinimizer *minimizer = vtkAmoebaMinimizer::New();
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAmoebaMinimizer.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-13 23:05:11 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-11-07 15:39:36 $
+  Version:   $Revision: 1.1 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAmoebaMinimizer.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-13 23:05:11 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-11-07 15:39:36 $
+  Version:   $Revision: 1.1 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkAmoebaMinimizer.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkAmoebaMinimizer, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkAmoebaMinimizer, "$Revision: 1.1 $");
 vtkStandardNewMacro(vtkAmoebaMinimizer);
 
 //----------------------------------------------------------------------------
