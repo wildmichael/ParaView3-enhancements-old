@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLPolyDataMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-03-05 16:12:59 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-08-02 20:04:22 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -48,16 +48,13 @@ void vtkOpenGLPolyDataMapper2D::RenderOpaqueGeometry(vtkViewport* viewport,
 {
   int numPts;
   vtkPolyData *input= (vtkPolyData *)this->Input;
-  int npts, idx[3], rep, j;
-  float fclr[4];
-  short clr[4];
+  int npts, j;
   vtkPoints *p, *displayPts;
   vtkCellArray *aPrim;
   vtkScalars *c=NULL;
   unsigned char *rgba;
 	unsigned char color[4];
   int *pts;
-  float *ftmp;
   int cellScalars = 0;
   int cellNum = 0;
 

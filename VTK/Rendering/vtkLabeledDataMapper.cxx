@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLabeledDataMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-21 14:05:41 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1999-08-02 20:04:21 $
+  Version:   $Revision: 1.14 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -105,7 +105,7 @@ void vtkLabeledDataMapper::RenderOverlay(vtkViewport *viewport,
 					 vtkActor2D *actor)
 {
   int i;
-  float val, x[3];
+  float x[3];
   vtkDataSet *input=this->GetInput();
 
   if ( ! input )

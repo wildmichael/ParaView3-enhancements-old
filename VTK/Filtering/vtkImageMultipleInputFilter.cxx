@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMultipleInputFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:46 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 1999-08-02 20:04:21 $
+  Version:   $Revision: 1.30 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -72,8 +72,6 @@ vtkImageMultipleInputFilter::~vtkImageMultipleInputFilter()
 //----------------------------------------------------------------------------
 void vtkImageMultipleInputFilter::PrintSelf(ostream& os, vtkIndent indent)
 {
-  int idx;
-  
   os << indent << "NumberOfThreads: " << this->NumberOfThreads << "\n";
   os << indent << "Bypass: " << this->Bypass << "\n";
   
@@ -118,8 +116,6 @@ unsigned long int vtkImageMultipleInputFilter::GetPipelineMTime()
 // Expands the list memory if necessary
 void vtkImageMultipleInputFilter::AddInput(vtkImageData *input)
 {
-  int idx;
-  
   this->vtkProcessObject::AddInput(input);
 }
 
