@@ -3,8 +3,8 @@
 Program:   Visualization Toolkit
 Module:    $RCSfile: vtkPropCollection.cxx,v $
 Language:  C++
-Date:      $Date: 2000-12-06 07:42:28 $
-Version:   $Revision: 1.5 $
+Date:      $Date: 2000-12-06 14:59:38 $
+Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -61,7 +61,7 @@ int vtkPropCollection::GetNumberOfPaths()
   int numPaths=0;
   vtkProp *aProp;
 
-  for ( this->InitTraversal(); aProp=this->GetNextProp(); )
+  for ( this->InitTraversal(); (aProp=this->GetNextProp()); )
     {
     numPaths += aProp->GetNumberOfPaths();
     }

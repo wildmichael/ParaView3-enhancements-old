@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCriticalSection.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:09:50 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2000-12-06 14:59:38 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -92,7 +92,7 @@ class VTK_EXPORT vtkSimpleCriticalSection
 {
 public:
   vtkSimpleCriticalSection();
-  ~vtkSimpleCriticalSection();
+  virtual ~vtkSimpleCriticalSection();
 
   static vtkSimpleCriticalSection *New();
 

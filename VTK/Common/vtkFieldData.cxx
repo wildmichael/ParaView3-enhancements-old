@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFieldData.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-11-08 22:13:01 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2000-12-06 14:59:38 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -633,7 +633,7 @@ int vtkFieldData::AddArray(vtkDataArray *array, const char *name)
 int vtkFieldData::AddReplaceArray(vtkDataArray *array, const char *name)
 {
     int index;
-    vtkDataArray *oldarray = this->GetArray(name, index);
+
     if (index==-1)
     {
       index = this->AddArray(array, name);
