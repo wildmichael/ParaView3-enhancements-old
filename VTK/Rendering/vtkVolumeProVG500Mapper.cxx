@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProVG500Mapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-02-13 05:16:53 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2001-04-04 20:55:26 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -216,6 +216,12 @@ void vtkVolumeProVG500Mapper::UpdateCamera( vtkRenderer *ren, vtkVolume * vtkNot
   ren->GetActiveCamera()->GetFocalPoint( focalPointVTK );
   ren->GetActiveCamera()->GetViewUp( viewUpVTK );
 
+  // make sure we are in parallel mode
+  if (!ren->GetActiveCamera()->GetParallelProjection())
+    {
+    vtkWarningMacro("The Volume Pro VG500 does not support perspective projection and the camera is currently not in ParallelProjection mode.");
+    }
+  
   // Create the three vectors we need to do the lookat
   positionVLI = new VLIVector3D( positionVTK );
   focalPointVLI = new VLIVector3D( focalPointVTK );
