@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVRML.h,v $
   Language:  C++
-  Date:      $Date: 2002-07-01 22:05:24 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2002-08-08 13:29:58 $
+  Version:   $Revision: 1.26 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -68,7 +68,7 @@ struct vtkVRMLAllocator
 
   
 template <class T> 
-class VTK_HYBRID_EXPORT VectorType
+class VTK_HYBRID_EXPORT vtkVRMLVectorType
 {
 protected:
   T *Data;
@@ -90,16 +90,16 @@ public:
         }
       Used=0;
     }
-  VectorType()
+  vtkVRMLVectorType()
     { 
       this->UseNew = 0;
       this->Init();
     }
-  VectorType(int usenew) : UseNew(usenew)
+  vtkVRMLVectorType(int usenew) : UseNew(usenew)
     { 
       this->Init();
     }
-  ~VectorType(void)
+  ~vtkVRMLVectorType(void)
     {
       if (this->UseNew)
         {
@@ -161,7 +161,7 @@ public:
     {
       return Data;
     }
-  VectorType<T>& operator+=(T datum)
+  vtkVRMLVectorType<T>& operator+=(T datum)
     {
       Reserve(Used+1);
       Data[Used]=datum;
