@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkDataSetToDataSetFilter.h,v $
   Language:  C++
-  Date:      $Date: 1994-02-07 17:17:24 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1994-02-17 21:52:12 $
+  Version:   $Revision: 1.8 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -23,7 +23,7 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 #include "DataSetF.hh"
 #include "DataSet.hh"
 
-class vlDataSetToDataSetFilter : public vlDataSetFilter,  public vlDataSet 
+class vlDataSetToDataSetFilter : public vlDataSet, public vlDataSetFilter
 {
 public:
   vlDataSetToDataSetFilter();
