@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:40:58 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 1998-09-28 11:46:23 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -166,11 +166,18 @@ void vtkDataSetReader::Execute()
   vtkDataSet *output = NULL;
   
   vtkDebugMacro(<<"Reading vtk dataset...");
-  if ( this->Debug ) this->Reader.DebugOn();
-  else this->Reader.DebugOff();
-
+  if ( this->Debug )
+    {
+    this->Reader.DebugOn();
+    }
+  else
+    {
+    this->Reader.DebugOff();
+    }
   if (!this->Reader.OpenVTKFile() || !this->Reader.ReadHeader())
-      return;
+    {
+    return;
+    }
 //
 // Determine dataset type
 //
@@ -297,7 +304,10 @@ void vtkDataSetReader::Execute()
   //
   // Create appropriate dataset
   //
-  if ( this->Output ) this->Output->Delete();
+  if ( this->Output )
+    {
+    this->Output->Delete();
+    }
   this->Output = output;
 
   return;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetToDataSetFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:40:58 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 1998-09-28 11:46:24 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -85,7 +85,10 @@ void vtkDataSetToDataSetFilter::SetInput(vtkDataSet *input)
     this->Input = input;
     this->Modified();
 
-    if ( input == NULL ) return;
+    if ( input == NULL )
+      {
+      return;
+      }
 
     if ( input->GetDataSetType() == VTK_POLY_DATA )
       {
@@ -139,7 +142,10 @@ void vtkDataSetToDataSetFilter::Update()
     }
 
   // prevent chasing our tail
-  if (this->Updating) return;
+  if (this->Updating)
+    {
+    return;
+    }
 
   this->Updating = 1;
   this->Input->Update();
@@ -153,7 +159,10 @@ void vtkDataSetToDataSetFilter::Update()
       this->Input->ForceUpdate();
       }
 
-    if ( this->StartMethod ) (*this->StartMethod)(this->StartMethodArg);
+    if ( this->StartMethod )
+      {
+      (*this->StartMethod)(this->StartMethodArg);
+      }
     // copy topological/geometric structure from input
     ((vtkDataSet *)this->Output)->CopyStructure((vtkDataSet *)this->Input);
     // reset AbortExecute flag and Progress
@@ -161,12 +170,21 @@ void vtkDataSetToDataSetFilter::Update()
     this->Progress = 0.0;
     this->Execute();
     this->ExecuteTime.Modified();
-    if ( !this->AbortExecute ) this->UpdateProgress(1.0);
+    if ( !this->AbortExecute )
+      {
+      this->UpdateProgress(1.0);
+      }
     this->SetDataReleased(0);
-    if ( this->EndMethod ) (*this->EndMethod)(this->EndMethodArg);
+    if ( this->EndMethod )
+      {
+      (*this->EndMethod)(this->EndMethodArg);
+      }
     }
 
-  if ( this->Input->ShouldIReleaseData() ) this->Input->ReleaseData();
+  if ( this->Input->ShouldIReleaseData() )
+    {
+    this->Input->ReleaseData();
+    }
 }
 
   
