@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEdgeTable.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-05-20 19:18:43 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1996-07-19 16:13:12 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -116,7 +116,7 @@ void vtkEdgeTable::InsertEdge(int p1, int p2)
 
   if ( this->Table[index] == NULL ) 
     {
-    this->Table[index] = new vtkIdList(6);
+    this->Table[index] = new vtkIdList(6,12);
     }
 
   this->Table[index]->InsertNextId(search);
