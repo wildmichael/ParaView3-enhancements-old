@@ -12,7 +12,7 @@
  *          In addition to that, the memory image of the file is
  *          read from/written to a socket during an open/flush operation.
  *
- * Version: $Id: H5FDstream.c,v 1.2 2003-03-04 15:24:30 andy Exp $
+ * Version: $Id: H5FDstream.c,v 1.3 2003-04-09 19:34:42 andy Exp $
  *
  * Modifications:
  *          Thomas Radke, Thursday, October 26, 2000
