@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkParse.y,v $
   Language:  C++
-  Date:      $Date: 2002-10-24 20:35:02 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2002-11-19 19:41:46 $
+  Version:   $Revision: 1.39 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -1054,10 +1054,12 @@ int main(int argc,char *argv[])
   if (argc == 5)
     {
     fout = fopen(argv[4],"w");
+    data.OutputFileName = argv[4];
     }
   else
     {
     fout = fopen(argv[3],"w");
+    data.OutputFileName = argv[3];
     }
   
   if (!fout)

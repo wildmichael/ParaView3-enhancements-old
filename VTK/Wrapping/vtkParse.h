@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkParse.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:35:48 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-11-19 19:41:46 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -45,6 +45,7 @@
     int   IsConcrete;
     char *ClassName;
     char *FileName;
+    char *OutputFileName;
     
     char *SuperClasses[10];
     int   NumberOfSuperClasses;
