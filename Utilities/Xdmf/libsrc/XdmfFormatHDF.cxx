@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfFormatHDF.cxx,v 1.7 2004-01-21 20:25:34 andy Exp $  */
-/*  Date : $Date: 2004-01-21 20:25:34 $ */
-/*  Version : $Revision: 1.7 $ */
+/*  Id : $Id: XdmfFormatHDF.cxx,v 1.8 2004-02-13 20:20:24 andy Exp $  */
+/*  Date : $Date: 2004-02-13 20:20:24 $ */
+/*  Version : $Revision: 1.8 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -56,8 +56,8 @@ XdmfDebug("Getting array from element");
 NumberType = this->DOM->GetNumberType( Element );
 Data = this->DOM->Get(Element, "CData");
 if( Data && strlen( Data ) > 1 ){
-  XdmfString NewData = new char [ strlen(Data) + 1 ];
-  strcpy(NewData, Data);
+  XdmfString NewData = 0;
+  XDMF_STRING_DUPLICATE(NewData, Data);
   if( Array == NULL ){
     NewArray = Array = new XdmfArray( NumberType );
     }
