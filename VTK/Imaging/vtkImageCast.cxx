@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCast.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:28 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1999-07-29 19:32:47 $
+  Version:   $Revision: 1.25 $
   Thanks:    Thanks to Abdalmajeid M. Alyassin who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,6 +56,7 @@ vtkImageCast::vtkImageCast()
 void vtkImageCast::ExecuteInformation()
 {
   this->GetOutput()->SetScalarType(this->OutputScalarType);
+  this->GetOutput()->SetSpacing(this->GetInput()->GetSpacing());
 }
 
 //----------------------------------------------------------------------------

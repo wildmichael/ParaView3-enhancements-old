@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageClip.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:29 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1999-07-29 19:33:02 $
+  Version:   $Revision: 1.20 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -154,6 +154,8 @@ void vtkImageClip::ExecuteInformation()
     }
   
   this->GetOutput()->SetWholeExtent(extent);
+  
+  this->GetOutput()->SetSpacing(this->GetInput()->GetSpacing());
 }
 
 
