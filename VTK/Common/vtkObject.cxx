@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkObject.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-02-07 17:30:35 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1994-02-16 16:09:09 $
+  Version:   $Revision: 1.10 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -15,6 +15,12 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 =========================================================================*/
 
 #include "Object.hh"
+
+ostream& operator<<(ostream& os, vlObject& o)
+{
+  o.Print(os);
+  return os;
+}
 
 vlObject::vlObject()
 {
