@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMapper.h,v $
   Language:  C++
-  Date:      $Date: 1998-03-17 13:33:34 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-03-18 16:05:12 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -118,7 +118,7 @@ protected:
   float ColorWindow;
   float ColorLevel;
  
-  int DisplayExtent[6];
+  int PositionAdjustment[2];
   int ZSlice;
 };
 
