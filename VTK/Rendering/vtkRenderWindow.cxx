@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-01-31 16:15:47 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1995-03-01 10:07:20 $
+  Version:   $Revision: 1.12 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -593,8 +593,8 @@ void vlRenderWindow::StereoRenderComplete(void)
 	  res = p1[0] + p1[1] + p1[2];
 	  p3[0] = res/3;
 	  res = p2[0] + p2[1] + p2[2];
+	  p3[1] = 0;
 	  p3[2] = res/3;
-	  p3[1] = res/3;
 	  p1 += 3;
 	  p2 += 3;
 	  p3 += 3;
