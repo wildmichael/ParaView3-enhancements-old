@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSelectVisiblePoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:07:43 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2000-01-17 18:10:12 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -89,6 +89,12 @@ void vtkSelectVisiblePoints::Execute()
   int numPts=input->GetNumberOfPoints();
   float x[4], dx[3], z, diff;
   int selection[4];
+
+  if ( this->Renderer == NULL )
+    {
+    vtkErrorMacro(<<"Renderer must be set");
+    return;
+    }
 
   if ( numPts < 1 )
     {
