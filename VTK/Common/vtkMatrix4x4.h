@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMatrix4x4.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:03:28 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 2000-03-02 03:37:42 $
+  Version:   $Revision: 1.48 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -139,6 +139,13 @@ class VTK_EXPORT vtkMatrix4x4 : public vtkObject
 //BTX
   static void PointMultiply(double Elements[16], float in[4], float out[4]);
   static void PointMultiply(double Elements[16], double in[4], double out[4]);
+//ETX
+
+  // Description:
+  // Multiplies matrices a and b and stores the result in c.
+  static void Multiply4x4(vtkMatrix4x4 *a, vtkMatrix4x4 *b, vtkMatrix4x4 *c);
+//BTX
+  static void Multiply4x4(double a[16], double b[16], double c[16]);
 //ETX
 
   // Description:
