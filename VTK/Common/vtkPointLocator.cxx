@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointLocator.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-23 20:17:13 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1999-01-06 15:07:47 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -677,6 +677,26 @@ int vtkPointLocator::IsInsertedPoint(float x[3])
 
   return -1;
 }
+
+
+int vtkPointLocator::InsertUniquePoint(float x[3], int &id)
+{
+  int ptId;
+
+  ptId = this->IsInsertedPoint(x);
+  
+  if (ptId > -1)
+    {
+    id = ptId;
+    return 0;
+    }
+  else
+    {
+    id = this->InsertNextPoint(x);
+    return 1;
+    }
+}
+
 
 // Given a position x, return the id of the point closest to it. This method
 // is used when performing incremental point insertion.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointLocator.h,v $
   Language:  C++
-  Date:      $Date: 1998-12-28 20:52:44 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1999-01-06 15:07:47 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -140,6 +140,15 @@ public:
     return this->IsInsertedPoint (xyz);
     }
   virtual int IsInsertedPoint(float x[3]);
+
+  // Description:
+  // Determine whether point given by x[3] has been inserted into points list.
+  // Return 0 if point was already in the list, otherwise return 1. If the
+  // point was not in the list, it will be ADDED.  In either case, the id of
+  // the point (newly inserted or not) is returned in the ptId argument.
+  // Note this combines the functionality of IsInsertedPoint() followed
+  // by a call to InsertNextPoint().
+  virtual int InsertUniquePoint(float x[3], int &ptId);
 
   // Description:
   // Given a position x, return the id of the point closest to it. This method

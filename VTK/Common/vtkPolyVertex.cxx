@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyVertex.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-11-06 13:53:57 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 1999-01-06 15:07:47 $
+  Version:   $Revision: 1.46 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -225,9 +225,8 @@ void vtkPolyVertex::Clip(float value, vtkScalars *cellScalars,
     if ( (!insideOut && s > value) || (insideOut && s <= value) )
       {
       this->Points->GetPoint(i,x);
-      if ( (pts[0] = locator->IsInsertedPoint(x)) < 0 )
+      if ( locator->InsertUniquePoint(x, pts[0]) )
         {
-        pts[0] = locator->InsertNextPoint(x);
         outPd->CopyData(inPd,this->PointIds->GetId(i),pts[0]);
         }
       newCellId = verts->InsertNextCell(1,pts);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangle.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-14 21:25:00 $
-  Version:   $Revision: 1.70 $
+  Date:      $Date: 1999-01-06 15:07:49 $
+  Version:   $Revision: 1.71 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -389,9 +389,8 @@ void vtkTriangle::Contour(float value, vtkScalars *cellScalars,
 	{
 	x[j] = x1[j] + t * (x2[j] - x1[j]);
 	}
-      if ( (pts[i] = locator->IsInsertedPoint(x)) < 0 )
+      if ( locator->InsertUniquePoint(x, pts[i]) )
         {
-        pts[i] = locator->InsertNextPoint(x);
         if ( outPd ) 
           {
           int p1 = this->PointIds->GetId(e1);
@@ -828,9 +827,8 @@ void vtkTriangle::Clip(float value, vtkScalars *cellScalars,
         {
 	vertexId = edge[i] - 100;
         this->Points->GetPoint(vertexId, x);
-        if ( (pts[i] = locator->IsInsertedPoint(x)) < 0 )
+        if ( locator->InsertUniquePoint(x, pts[i]) )
           {
-          pts[i] = locator->InsertNextPoint(x);
           outPd->CopyData(inPd,this->PointIds->GetId(vertexId),pts[i]);
           }
 	}
@@ -868,9 +866,8 @@ void vtkTriangle::Clip(float value, vtkScalars *cellScalars,
 	  {
 	  x[j] = x1[j] + t * (x2[j] - x1[j]);
 	  }
-        if ( (pts[i] = locator->IsInsertedPoint(x)) < 0 )
+        if ( locator->InsertUniquePoint(x, pts[i]) )
           {
-          pts[i] = locator->InsertNextPoint(x);
           int p1 = this->PointIds->GetId(e1);
           int p2 = this->PointIds->GetId(e2);
           outPd->InterpolateEdge(inPd,pts[i],p1,p2,t);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoxel.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-14 21:25:04 $
-  Version:   $Revision: 1.53 $
+  Date:      $Date: 1999-01-06 15:07:50 $
+  Version:   $Revision: 1.54 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -333,9 +333,8 @@ void vtkVoxel::Contour(float value, vtkScalars *cellScalars,
 	{
 	x[j] = x1[j] + t * (x2[j] - x1[j]);
 	}
-      if ( (pts[i] = locator->IsInsertedPoint(x)) < 0 )
+      if ( locator->InsertUniquePoint(x, pts[i]) )
         {
-        pts[i] = locator->InsertNextPoint(x);
         if ( outPd ) 
           {
           int p1 = this->PointIds->GetId(vert[0]);

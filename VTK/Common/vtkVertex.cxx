@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVertex.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-14 21:25:03 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 1999-01-06 15:07:49 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -239,9 +239,8 @@ void vtkVertex::Clip(float value, vtkScalars *cellScalars,
   if ( ( !insideOut && s > value) || (insideOut && s <= value) )
     {
     x = this->Points->GetPoint(0);
-    if ( (pts[0] = locator->IsInsertedPoint(x)) < 0 )
+    if ( locator->InsertUniquePoint(x, pts[0]) )
       {
-      pts[0] = locator->InsertNextPoint(x);
       outPd->CopyData(inPd,this->PointIds->GetId(0),pts[0]);
       }
     newCellId = verts->InsertNextCell(1,pts);
