@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellArray.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:36:02 $
-  Version:   $Revision: 1.83 $
+  Date:      $Date: 2001-11-12 12:47:42 $
+  Version:   $Revision: 1.84 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -238,7 +238,6 @@ public:
   
 protected:
   vtkCellArray();
-  vtkCellArray (const vtkIdType sz, const int ext=1000);
   ~vtkCellArray();
 
   vtkIdType NumberOfCells;
