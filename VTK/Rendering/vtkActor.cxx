@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:24:49 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1995-07-13 14:31:01 $
+  Version:   $Revision: 1.29 $
 
 This file is part of the Visualization Toolkit. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -283,9 +283,14 @@ float *vtkActor::GetBounds()
   float *result;
   vtkMatrix4x4 matrix;
   
-  // get the bounds of the Mapper
+  // get the bounds of the Mapper if we have one
+  if (!this->Mapper)
+    {
+    return this->Bounds;
+    }
+
   bounds = this->Mapper->GetBounds();
-  
+
   // fill out vertices of a bounding box
   bbox[ 0] = bounds[1]; bbox[ 1] = bounds[3]; bbox[ 2] = bounds[5];
   bbox[ 3] = bounds[1]; bbox[ 4] = bounds[2]; bbox[ 5] = bounds[5];
@@ -362,11 +367,18 @@ void vtkActor::PrintSelf(ostream& os, vtkIndent indent)
   vtkObject::PrintSelf(os,indent);
 
   // make sure our bounds are up to date
-  this->GetBounds();
-  os << indent << "Bounds: \n";
-  os << indent << "  Xmin,Xmax: (" << this->Bounds[0] << ", " << this->Bounds[1] << ")\n";
-  os << indent << "  Ymin,Ymax: (" << this->Bounds[2] << ", " << this->Bounds[3] << ")\n";
-  os << indent << "  Zmin,Zmax: (" << this->Bounds[4] << ", " << this->Bounds[5] << ")\n";
+  if ( this->Mapper )
+    {
+    this->GetBounds();
+    os << indent << "Bounds: \n";
+    os << indent << "  Xmin,Xmax: (" << this->Bounds[0] << ", " << this->Bounds[1] << ")\n";
+    os << indent << "  Ymin,Ymax: (" << this->Bounds[2] << ", " << this->Bounds[3] << ")\n";
+    os << indent << "  Zmin,Zmax: (" << this->Bounds[4] << ", " << this->Bounds[5] << ")\n";
+    }
+  else
+    {
+    os << indent << "Bounds: (not defined)\n";
+    }
 
   os << indent << "Dragable: " << (this->Dragable ? "On\n" : "Off\n");
   if ( this->Mapper )
