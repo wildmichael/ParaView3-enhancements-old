@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkImageViewerWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-05-02 17:00:35 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2001-05-15 21:39:20 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -472,7 +472,7 @@ static int vtkTkImageViewerWidget_MakeImageViewer(struct vtkTkImageViewerWidget 
   TkWindow *winPtr = (TkWindow *) self->TkWin;
   Tcl_HashEntry *hPtr;
   int new_flag;
-  vtkImageViewer *ImageViewer;
+  vtkImageViewer *ImageViewer = NULL;
   TkWinDrawable *twdPtr;
   HWND parentWin;
   vtkImageWindow *ImageWindow;
