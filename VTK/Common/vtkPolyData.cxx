@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-08-15 07:49:22 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 1994-08-15 07:59:34 $
+  Version:   $Revision: 1.38 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -239,7 +239,7 @@ vlCellArray* vlPolyData::GetStrips()
 }
 
 // Description:
-// 
+// Restore object to initial state. Release memory back to system.
 void vlPolyData::Initialize()
 {
   vlPointSet::Initialize();
