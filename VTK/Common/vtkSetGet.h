@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSetGet.h,v $
   Language:  C++
-  Date:      $Date: 2003-05-27 20:04:50 $
-  Version:   $Revision: 1.112 $
+  Date:      $Date: 2003-08-21 12:34:17 $
+  Version:   $Revision: 1.113 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -554,7 +554,7 @@ virtual float *Get##name() \
   { \
     return this->thisClass::IsTypeOf(type); \
   } \
-  static thisClass* SafeDownCast(vtkObject *o) \
+  static thisClass* SafeDownCast(vtkObjectBase *o) \
   { \
     if ( o && o->IsA(#thisClass) ) \
       { \
@@ -563,7 +563,7 @@ virtual float *Get##name() \
     return NULL;\
   } \
   protected: \
-  virtual vtkObject *NewInstanceInternal() const \
+  virtual vtkObjectBase *NewInstanceInternal() const \
   { \
     return thisClass::New(); \
   } \
