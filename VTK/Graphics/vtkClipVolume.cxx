@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipVolume.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-10-15 19:59:29 $
-  Version:   $Revision: 1.59 $
+  Date:      $Date: 2003-11-05 14:45:34 $
+  Version:   $Revision: 1.60 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -33,7 +33,7 @@
 #include "vtkIntArray.h"
 #include "vtkUnsignedCharArray.h"
 
-vtkCxxRevisionMacro(vtkClipVolume, "$Revision: 1.59 $");
+vtkCxxRevisionMacro(vtkClipVolume, "$Revision: 1.60 $");
 vtkStandardNewMacro(vtkClipVolume);
 vtkCxxSetObjectMacro(vtkClipVolume,ClipFunction,vtkImplicitFunction);
 
@@ -285,6 +285,10 @@ void vtkClipVolume::Execute()
         cellId = i + j*numICells + k*sliceSize;
         
         input->GetCell(cellId,cell);
+        if ( cell->GetCellType() == VTK_EMPTY_CELL )
+          {
+          continue;
+          }
         cellPts = cell->GetPoints();
         cellIds = cell->GetPointIds();
 
