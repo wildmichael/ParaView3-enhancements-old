@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSet.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-04-16 21:28:00 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 1999-04-16 21:33:13 $
+  Version:   $Revision: 1.51 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -293,7 +293,10 @@ void vtkPointSet::UnRegister(vtkObject *o)
       this->Locator != o)
     {
     this->SetSource(NULL);
-    // the locater will get freed by a recursive call
+    if (this->Locator)
+      {
+      this->Locator->SetDataSet(NULL);
+      }
     }  
   
   this->vtkObject::UnRegister(o);
