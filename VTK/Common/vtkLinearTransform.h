@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinearTransform.h,v $
   Language:  C++
-  Date:      $Date: 2000-06-09 09:32:53 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2000-09-06 21:56:48 $
+  Version:   $Revision: 1.20 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -50,13 +50,13 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #ifndef __vtkLinearTransform_h
 #define __vtkLinearTransform_h
 
-#include "vtkHomogenousTransform.h"
+#include "vtkHomogeneousTransform.h"
 
-class VTK_EXPORT vtkLinearTransform : public vtkHomogenousTransform
+class VTK_EXPORT vtkLinearTransform : public vtkHomogeneousTransform
 {
 public:
 
-  vtkTypeMacro(vtkLinearTransform,vtkHomogenousTransform);
+  vtkTypeMacro(vtkLinearTransform,vtkHomogeneousTransform);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-07-06 14:51:27 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2000-09-06 21:56:48 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -41,7 +41,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 =========================================================================*/
 
 #include "vtkAbstractTransform.h"
-#include "vtkHomogenousTransform.h"
+#include "vtkHomogeneousTransform.h"
 #include "vtkMath.h"
 
 //----------------------------------------------------------------------------
@@ -309,10 +309,10 @@ void vtkAbstractTransform::UnRegister(vtkObject *o)
 
 //----------------------------------------------------------------------------
 // A very, very minimal transformation
-class VTK_EXPORT vtkSimpleTransform : public vtkHomogenousTransform
+class VTK_EXPORT vtkSimpleTransform : public vtkHomogeneousTransform
 {
 public:
-  vtkTypeMacro(vtkSimpleTransform,vtkHomogenousTransform);
+  vtkTypeMacro(vtkSimpleTransform,vtkHomogeneousTransform);
   static vtkSimpleTransform *New() { return new vtkSimpleTransform; };
   vtkAbstractTransform *MakeTransform() { return vtkSimpleTransform::New(); };
   void Inverse() { this->Matrix->Invert(); this->Modified(); };

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinearTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-06-09 09:32:53 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2000-09-06 21:56:48 $
+  Version:   $Revision: 1.23 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -46,7 +46,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //------------------------------------------------------------------------
 void vtkLinearTransform::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkHomogenousTransform::PrintSelf(os, indent);
+  vtkHomogeneousTransform::PrintSelf(os, indent);
 }
 
 //------------------------------------------------------------------------

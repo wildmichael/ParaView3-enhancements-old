@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-06-06 23:28:04 $
-  Version:   $Revision: 1.90 $
+  Date:      $Date: 2000-09-06 21:56:48 $
+  Version:   $Revision: 1.91 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -238,8 +238,8 @@ void vtkTransform::InternalUpdate()
   // concatenate PreTransforms 
   for (i = nPreTransforms-1; i >= 0; i--)
     {
-    vtkHomogenousTransform *transform = 
-      (vtkHomogenousTransform *)this->Concatenation->GetTransform(i);
+    vtkHomogeneousTransform *transform = 
+      (vtkHomogeneousTransform *)this->Concatenation->GetTransform(i);
     vtkMatrix4x4::Multiply4x4(this->Matrix,transform->GetMatrix(),
 			      this->Matrix);
     }
@@ -247,8 +247,8 @@ void vtkTransform::InternalUpdate()
   // concatenate PostTransforms
   for (i = nPreTransforms; i < nTransforms; i++)
     {
-    vtkHomogenousTransform *transform = 
-      (vtkHomogenousTransform *)this->Concatenation->GetTransform(i);
+    vtkHomogeneousTransform *transform = 
+      (vtkHomogeneousTransform *)this->Concatenation->GetTransform(i);
     vtkMatrix4x4::Multiply4x4(transform->GetMatrix(),this->Matrix,
 			      this->Matrix);
     }

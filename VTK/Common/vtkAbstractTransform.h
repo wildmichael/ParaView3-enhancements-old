@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractTransform.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-01 07:21:57 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2000-09-06 21:56:48 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -55,7 +55,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // the vtkGeneralTransform class, the vtkPerspectiveTransform class,
 // or the vtkTransform class. 
 // .SECTION see also
-// vtkGeneralTransform vtkWarpTransform vtkHomogenousTransform
+// vtkGeneralTransform vtkWarpTransform vtkHomogeneousTransform
 // vtkLinearTransform vtkIdentityTransform
 // vtkTransformPolyDataFilter vtkTransformFilter vtkImageReslice
 // vtkImplicitFunction
