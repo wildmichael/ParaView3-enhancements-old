@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkUnstructuredGridWriter.h,v $
   Language:  C++
-  Date:      $Date: 1995-02-14 15:31:28 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1995-02-15 10:09:50 $
+  Version:   $Revision: 1.2 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -32,6 +32,13 @@ public:
   vlUnstructuredGridWriter() {};
   ~vlUnstructuredGridWriter() {};
   char *GetClassName() {return "vlUnstructuredGridWriter";};
+  void PrintSelf(ostream& os, vlIndent indent);
+
+  // Multiple inheritance/Object interface
+  void Modified();
+  unsigned long int GetMTime();
+  void DebugOn();
+  void DebugOff();
 
 protected:
   void WriteData();

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStructuredPointsWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-02-14 15:31:26 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1995-02-15 10:09:48 $
+  Version:   $Revision: 1.2 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -17,4 +17,35 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 
 void vlStructuredPointsWriter::WriteData()
 {
+}
+
+void vlStructuredPointsWriter::Modified()
+{
+  this->vlDataWriter::Modified();
+  this->vlStructuredPointsFilter::_Modified();
+}
+
+unsigned long int vlStructuredPointsWriter::GetMTime()
+{
+  unsigned long dtime = this->vlDataWriter::GetMTime();
+  unsigned long ftime = this->vlStructuredPointsFilter::_GetMTime();
+  return (dtime > ftime ? dtime : ftime);
+}
+
+void vlStructuredPointsWriter::DebugOn()
+{
+  vlDataWriter::DebugOn();
+  vlStructuredPointsFilter::_DebugOn();
+}
+
+void vlStructuredPointsWriter::DebugOff()
+{
+  vlDataWriter::DebugOff();
+  vlStructuredPointsFilter::_DebugOff();
+}
+
+void vlStructuredPointsWriter::PrintSelf(ostream& os, vlIndent indent)
+{
+  vlDataWriter::PrintSelf(os,indent);
+  vlStructuredPointsFilter::_PrintSelf(os,indent);
 }

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkUnstructuredGridWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-02-14 15:31:28 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1995-02-15 10:09:49 $
+  Version:   $Revision: 1.2 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -19,3 +19,33 @@ void vlUnstructuredGridWriter::WriteData()
 {
 }
 
+void vlUnstructuredGridWriter::Modified()
+{
+  this->vlDataWriter::Modified();
+  this->vlUnstructuredGridFilter::_Modified();
+}
+
+unsigned long int vlUnstructuredGridWriter::GetMTime()
+{
+  unsigned long dtime = this->vlDataWriter::GetMTime();
+  unsigned long ftime = this->vlUnstructuredGridFilter::_GetMTime();
+  return (dtime > ftime ? dtime : ftime);
+}
+
+void vlUnstructuredGridWriter::DebugOn()
+{
+  vlDataWriter::DebugOn();
+  vlUnstructuredGridFilter::_DebugOn();
+}
+
+void vlUnstructuredGridWriter::DebugOff()
+{
+  vlDataWriter::DebugOff();
+  vlUnstructuredGridFilter::_DebugOff();
+}
+
+void vlUnstructuredGridWriter::PrintSelf(ostream& os, vlIndent indent)
+{
+  vlDataWriter::PrintSelf(os,indent);
+  vlUnstructuredGridFilter::_PrintSelf(os,indent);
+}
