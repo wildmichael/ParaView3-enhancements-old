@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGridSynchronizedTemplates3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-11 18:08:59 $
-  Version:   $Revision: 1.58 $
+  Date:      $Date: 2002-06-04 02:07:27 $
+  Version:   $Revision: 1.59 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -44,7 +44,7 @@
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkGridSynchronizedTemplates3D, "$Revision: 1.58 $");
+vtkCxxRevisionMacro(vtkGridSynchronizedTemplates3D, "$Revision: 1.59 $");
 vtkStandardNewMacro(vtkGridSynchronizedTemplates3D);
 
 //----------------------------------------------------------------------------
@@ -1086,3 +1086,4 @@ void vtkGridSynchronizedTemplates3D::Execute()
   
   output->Squeeze();
 }
+

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMarchingCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 22:02:20 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 2002-06-04 02:07:27 $
+  Version:   $Revision: 1.48 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -30,14 +30,17 @@
      for more information.
 
 =========================================================================*/
-#include <math.h>
 #include "vtkImageMarchingCubes.h"
-#include "vtkObjectFactory.h"
-#include "vtkCommand.h"
-#include "vtkMarchingCubesCases.h"
-#include "vtkFloatArray.h"
 
-vtkCxxRevisionMacro(vtkImageMarchingCubes, "$Revision: 1.47 $");
+#include "vtkCommand.h"
+#include "vtkFloatArray.h"
+#include "vtkImageData.h"
+#include "vtkMarchingCubesCases.h"
+#include "vtkObjectFactory.h"
+
+#include <math.h>
+
+vtkCxxRevisionMacro(vtkImageMarchingCubes, "$Revision: 1.48 $");
 vtkStandardNewMacro(vtkImageMarchingCubes);
 
 //----------------------------------------------------------------------------

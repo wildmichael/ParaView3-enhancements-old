@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSynchronizedTemplates2D.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 22:02:33 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2002-06-04 02:07:27 $
+  Version:   $Revision: 1.24 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -42,9 +42,10 @@
 #define __vtkSynchronizedTemplates2D_h
 
 #include "vtkPolyDataSource.h"
-#include "vtkImageData.h"
 #include "vtkContourValues.h"
-#include "vtkKitwareContourFilter.h"
+
+class vtkImageData;
+class vtkKitwareContourFilter;
 
 class VTK_PATENTED_EXPORT vtkSynchronizedTemplates2D : public vtkPolyDataSource
 {

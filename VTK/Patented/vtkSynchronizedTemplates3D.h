@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSynchronizedTemplates3D.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 22:02:34 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2002-06-04 02:07:27 $
+  Version:   $Revision: 1.29 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -43,10 +43,11 @@
 #define __vtkSynchronizedTemplates3D_h
 
 #include "vtkPolyDataSource.h"
-#include "vtkImageData.h"
-#include "vtkContourValues.h"
-#include "vtkMultiThreader.h"
-#include "vtkKitwareContourFilter.h"
+#include "vtkContourValues.h" // Passes calls through
+#include "vtkMultiThreader.h" // For VTK_MAX_THREADS
+
+class vtkImageData;
+class vtkKitwareContourFilter;
 
 class VTK_PATENTED_EXPORT vtkSynchronizedTemplates3D : public vtkPolyDataSource
 {
