@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXdmfReader.h,v $
   Language:  C++
-  Date:      $Date: 2004-01-15 21:43:56 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2005-01-10 18:31:11 $
+  Version:   $Revision: 1.14 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -201,8 +201,11 @@ protected:
   vtkXdmfReader();
   ~vtkXdmfReader();   
 
-  virtual void Execute();
-  virtual void ExecuteInformation();
+  virtual int RequestData(vtkInformation *, vtkInformationVector **,
+                          vtkInformationVector *);
+  virtual int RequestInformation(vtkInformation *, vtkInformationVector **,
+                                 vtkInformationVector *);
+  virtual int FillOutputPortInformation(int port, vtkInformation *info);
 
   // Callback registered with the SelectionObserver.
   static void SelectionModifiedCallback(vtkObject* caller, unsigned long eid,
