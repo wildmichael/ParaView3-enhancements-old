@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkShortArray.h,v $
   Language:  C++
-  Date:      $Date: 1994-08-05 09:01:00 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1994-09-27 13:46:57 $
+  Version:   $Revision: 1.7 $
 
 ---------------------------------------------------------------------------
 This file is part of the Visualization Library. No part of this file
@@ -46,7 +46,7 @@ public:
   // special operators
   vlShortArray &operator=(const vlShortArray& ia);
   void operator+=(const vlShortArray& ia);
-  void operator+=(const short i) {this->InsertNextValue(i);};
+  void operator+=(const short i);
   short& operator[](const int i);
 
   // miscellaneous methods
@@ -88,6 +88,10 @@ inline int vlShortArray::InsertNextValue(const short i)
 {
   this->InsertValue (++this->MaxId,i); 
   return this->MaxId;
+}
+inline void vlShortArray::operator+=(const short i) 
+{
+  this->InsertNextValue(i);
 }
 
 // Description:
