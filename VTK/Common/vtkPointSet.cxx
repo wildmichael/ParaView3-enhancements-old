@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSet.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-04-16 21:21:41 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 1999-04-16 21:28:00 $
+  Version:   $Revision: 1.50 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -300,7 +300,7 @@ void vtkPointSet::UnRegister(vtkObject *o)
 }
 
 
-int void vtkPointSet::GetNetReferenceCount()
+int vtkPointSet::GetNetReferenceCount()
 {
   if (this->Locator && this->Locator->GetDataSet() == this)
     {    
