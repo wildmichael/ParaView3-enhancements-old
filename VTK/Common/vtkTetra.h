@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTetra.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-14 21:24:59 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 1999-01-07 14:09:32 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -102,7 +102,7 @@ public:
 
 
   // Description:
-  // Return the center of the triangle in parametric coordinates.
+  // Return the center of the tetrahedron in parametric coordinates.
   int GetParametricCenter(float pcoords[3]);
 
   // Description:
