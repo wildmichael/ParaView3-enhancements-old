@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinkEdgels.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-27 20:10:01 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1996-10-15 17:12:59 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -75,7 +75,6 @@ public:
   vtkGetMacro(GradientThreshold,float);
 
   void Update();
-  void ConditionalUpdate(int forced);
   
 protected:
   vtkImageSource *Input;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractVectorComponents.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:52:29 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1996-10-15 17:12:55 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -135,7 +135,7 @@ void vtkExtractVectorComponents::SetInput(vtkDataSet *input)
       }
 
     // since the input has changed we might need to create a new output
-    if (!strcmp(this->Output->GetClassName(),this->Input->GetClassName()))
+    if (strcmp(this->Output->GetClassName(),this->Input->GetClassName()))
       {
       this->Output->Delete();
       this->VyComponent->Delete();

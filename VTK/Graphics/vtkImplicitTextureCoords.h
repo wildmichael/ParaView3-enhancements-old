@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitTextureCoords.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:53:17 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1996-10-15 17:12:57 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -81,7 +81,7 @@ public:
   vtkImplicitTextureCoords();
   char *GetClassName() {return "vtkImplicitTextureCoords";};
   void PrintSelf(ostream& os, vtkIndent indent);
-
+  
   // Description:
   // Specify an implicit function to compute the r texture coordinate.
   vtkSetObjectMacro(RFunction,vtkImplicitFunction);
@@ -103,7 +103,9 @@ public:
   vtkSetMacro(FlipTexture,int);
   vtkGetMacro(FlipTexture,int);
   vtkBooleanMacro(FlipTexture,int);
-
+  
+  void Update();
+  
 protected:
   void Execute();
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetToDataSetFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:51:41 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 1996-10-15 17:12:54 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -60,7 +60,7 @@ void vtkDataSetToDataSetFilter::SetInput(vtkDataSet *input)
       }
 
     // since the input has changed we might need to create a new output
-    if (!strcmp(this->Output->GetClassName(),this->Input->GetClassName()))
+    if (strcmp(this->Output->GetClassName(),this->Input->GetClassName()))
       {
       this->Output->Delete();
       this->Output = this->Input->MakeObject();
