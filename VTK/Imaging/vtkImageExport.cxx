@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageExport.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-06-13 20:14:16 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-03-26 23:27:59 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -41,8 +41,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include <math.h>
 #include "vtkImageExport.h"
-#include "vtkBitmap.h"
-
 
 
 //----------------------------------------------------------------------------

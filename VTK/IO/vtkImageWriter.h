@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageWriter.h,v $
   Language:  C++
-  Date:      $Date: 1997-12-17 01:27:38 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-03-26 23:28:00 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -46,17 +46,17 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // The dimensionality determines whether the data will be written in one or
 // multiple files.
 
-
 #ifndef __vtkImageWriter_h
 #define __vtkImageWriter_h
 
 #include <iostream.h>
 #include <fstream.h>
+#include "vtkProcessObject.h"
 #include "vtkImageCache.h"
 #include "vtkStructuredPoints.h"
 #include "vtkStructuredPointsToImage.h"
 
-class VTK_EXPORT vtkImageWriter : public vtkObject
+class VTK_EXPORT vtkImageWriter : public vtkProcessObject
 {
 public:
   vtkImageWriter();
