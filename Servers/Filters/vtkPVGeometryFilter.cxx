@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPVGeometryFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-11-21 19:05:06 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2003-11-21 22:36:37 $
+  Version:   $Revision: 1.20 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -38,7 +38,7 @@
 #include "vtkStructuredGridOutlineFilter.h"
 #include "vtkUnstructuredGrid.h"
 
-vtkCxxRevisionMacro(vtkPVGeometryFilter, "$Revision: 1.19 $");
+vtkCxxRevisionMacro(vtkPVGeometryFilter, "$Revision: 1.20 $");
 vtkStandardNewMacro(vtkPVGeometryFilter);
 
 //----------------------------------------------------------------------------
@@ -136,7 +136,6 @@ void vtkPVGeometryFilter::Execute()
     vtkDataSet *ds = static_cast<vtkDataSet*>(input);
     if (!ds->GetNumberOfPoints())
       {
-      vtkErrorMacro("No input points");
       return;
       }
     }
