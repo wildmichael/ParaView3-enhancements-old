@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkJavaUtil.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 13:22:44 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1999-11-22 13:43:55 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -231,7 +231,9 @@ JNIEXPORT void vtkJavaSetId(JNIEnv *env,jobject obj, int newVal)
   env->SetIntField(obj,id,jNewVal);
 }
 
-JNIEXPORT void vtkJavaRegisterCastFunction(JNIEnv *env, jobject obj, int id, void *tcFunc) 
+JNIEXPORT void vtkJavaRegisterCastFunction(JNIEnv *vtkNotUsed(env), 
+					   jobject vtkNotUsed(obj), 
+					   int id, void *tcFunc) 
 {
   VTK_GET_MUTEX();
 #ifdef VTKJAVADEBUG
