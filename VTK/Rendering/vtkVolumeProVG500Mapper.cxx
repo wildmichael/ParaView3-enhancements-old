@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProVG500Mapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-11 19:19:07 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2002-05-29 16:47:22 $
+  Version:   $Revision: 1.32 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,18 +16,21 @@
 
 =========================================================================*/
 #include "vtkVolumeProVG500Mapper.h"
+
+#include "vtkCamera.h"
+#include "vtkDebugLeaks.h"
+#include "vtkGraphicsFactory.h"
+#include "vtkLight.h"
+#include "vtkObjectFactory.h"
 #include "vtkOpenGLVolumeProVG500Mapper.h"
 #include "vtkRenderWindow.h"
 #include "vtkRenderer.h"
-#include "vtkVolume.h"
-#include "vtkObjectFactory.h"
-#include "vtkGraphicsFactory.h"
 #include "vtkToolkits.h"
-#include "vtkDebugLeaks.h"
+#include "vtkVolume.h"
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkVolumeProVG500Mapper, "$Revision: 1.31 $");
+vtkCxxRevisionMacro(vtkVolumeProVG500Mapper, "$Revision: 1.32 $");
 
 vtkVolumeProVG500Mapper::vtkVolumeProVG500Mapper()
 {
