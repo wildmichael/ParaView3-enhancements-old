@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMultipleInputFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:13:50 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 2000-10-11 12:31:49 $
+  Version:   $Revision: 1.46 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -101,6 +101,12 @@ void vtkImageMultipleInputFilter::PrintSelf(ostream& os, vtkIndent indent)
 void vtkImageMultipleInputFilter::AddInput(vtkImageData *input)
 {
   this->vtkProcessObject::AddInput(input);
+}
+
+//----------------------------------------------------------------------------
+void vtkImageMultipleInputFilter::RemoveInput(vtkImageData *input)
+{
+  this->vtkProcessObject::RemoveInput(input);
 }
 
 //----------------------------------------------------------------------------
