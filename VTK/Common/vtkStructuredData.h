@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredData.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:05:09 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 1999-12-02 21:12:45 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -84,11 +84,17 @@ public:
   // Description:
   // Get the points defining a cell. (See vtkDataSet for more info.)
   static void GetCellPoints(int cellId, vtkIdList *ptIds, 
-                     int dataDescription, int dim[3]);
+                            int dataDescription, int dim[3]);
 
   // Description:
   // Get the cells using a point. (See vtkDataSet for more info.)
   static void GetPointCells(int ptId, vtkIdList *cellIds, int dim[3]);
+
+  // Description:
+  // Get the cells using the points ptIds, exclusive of the cell cellId. 
+  // (See vtkDataSet for more info.)
+  static void GetCellNeigbors(int cellId, vtkIdList *ptIds, 
+                              vtkIdList *cellIds, int dim[3]);
 
   // Description:
   // Given a location in structured coordinates (i-j-k), and the dimensions

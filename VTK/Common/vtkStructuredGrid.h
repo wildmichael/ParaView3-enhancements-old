@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGrid.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-12 15:55:19 $
-  Version:   $Revision: 1.55 $
+  Date:      $Date: 1999-12-02 21:13:15 $
+  Version:   $Revision: 1.56 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -94,6 +94,7 @@ public:
     {vtkStructuredData::GetPointCells(ptId,cellIds,this->Dimensions);}
   void Initialize();
   int GetMaxCellSize() {return 8;}; //hexahedron is the largest
+  void GetCellNeighbors(int cellId, vtkIdList *ptIds, vtkIdList *cellIds);
 
   // Description:
   // following methods are specific to structured grid
@@ -221,6 +222,12 @@ protected:
 
   // This is a helper method that is not used at the moment. (law)
   void ClipWithUpdateExtent();
+
+private:
+  // Description:
+  // For legacy compatibility. Do not use.
+  void GetCellNeighbors(int cellId, vtkIdList& ptIds, vtkIdList& cellIds)
+    {this->GetCellNeighbors(cellId, &ptIds, &cellIds);}
 };
 
 
