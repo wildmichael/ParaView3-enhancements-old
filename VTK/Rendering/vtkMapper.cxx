@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-21 19:12:59 $
-  Version:   $Revision: 1.100 $
+  Date:      $Date: 2003-03-13 22:58:10 $
+  Version:   $Revision: 1.101 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 #include "vtkLookupTable.h"
 #include "vtkDataSet.h"
 
-vtkCxxRevisionMacro(vtkMapper, "$Revision: 1.100 $");
+vtkCxxRevisionMacro(vtkMapper, "$Revision: 1.101 $");
 
 // Initialize static member that controls global immediate mode rendering
 static int vtkMapperGlobalImmediateModeRendering = 0;
@@ -155,7 +155,7 @@ void vtkMapper::SetResolveCoincidentTopologyPolygonOffsetParameters(
     return;
     }
   vtkMapperGlobalResolveCoincidentTopologyPolygonOffsetFactor = factor;
-  vtkMapperGlobalResolveCoincidentTopologyPolygonOffsetFactor = units;
+  vtkMapperGlobalResolveCoincidentTopologyPolygonOffsetUnits = units;
 }
 
 void vtkMapper::GetResolveCoincidentTopologyPolygonOffsetParameters(
