@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStripper.h,v $
   Language:  C++
-  Date:      $Date: 1994-05-17 21:29:38 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1994-05-23 22:24:25 $
+  Version:   $Revision: 1.2 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -34,11 +34,22 @@ public:
   vlSetClampMacro(MaximumStripLength,int,4,MAX_CELL_SIZE);
   vlGetMacro(MaximumStripLength,int);
 
+  vlBooleanMacro(PassVerts,int);
+  vlSetMacro(PassVerts,int);
+  vlGetMacro(PassVerts,int);
+
+  vlBooleanMacro(PassLines,int);
+  vlSetMacro(PassLines,int);
+  vlGetMacro(PassLines,int);
+
 protected:
   // Usual data generation method
   void Execute();
 
   int MaximumStripLength;
+  // control whether vertices and lines are passed through filter
+  int PassVerts;
+  int PassLines;
 };
 
 #endif
