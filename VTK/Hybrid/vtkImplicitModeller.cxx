@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitModeller.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-13 15:58:53 $
-  Version:   $Revision: 1.76 $
+  Date:      $Date: 2002-06-14 12:23:32 $
+  Version:   $Revision: 1.77 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -31,7 +31,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkImplicitModeller, "$Revision: 1.76 $");
+vtkCxxRevisionMacro(vtkImplicitModeller, "$Revision: 1.77 $");
 vtkStandardNewMacro(vtkImplicitModeller);
 
 struct vtkImplicitModellerAppendInfo
@@ -713,7 +713,7 @@ void vtkImplicitModeller::ExecuteInformation()
 
 
 //----------------------------------------------------------------------------
-void vtkImplicitModeller::ExecuteData(vtkDataObject *outp)
+void vtkImplicitModeller::ExecuteData(vtkDataObject *)
 {
   vtkDebugMacro(<< "Executing implicit model");
 
