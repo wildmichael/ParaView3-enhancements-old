@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMultiProcessLog.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:53 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-10-03 15:30:45 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -52,7 +52,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 #define VTK_MULTI_PROCESS_LOG_MAX 1000
 
-class VTK_EXPORT vtkMultiProcessLog : public vtkObject
+class VTK_PARALLEL_EXPORT vtkMultiProcessLog : public vtkObject
 {
 public:
   static vtkMultiProcessLog *New();

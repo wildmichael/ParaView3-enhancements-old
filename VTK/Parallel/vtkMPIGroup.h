@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMPIGroup.h,v $
   Language:  C++
-  Date:      $Date: 2001-09-03 21:23:01 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-10-03 15:30:44 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -58,7 +58,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 class vtkMPIController;
 class vtkMPICommunicator;
 
-class VTK_EXPORT vtkMPIGroup : public vtkObject
+class VTK_PARALLEL_EXPORT vtkMPIGroup : public vtkObject
 {
 
 public:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMPICommunicator.h,v $
   Language:  C++
-  Date:      $Date: 2001-09-03 21:23:01 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2001-10-03 15:30:43 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -66,7 +66,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 class vtkMPIController;
 
-class VTK_EXPORT vtkMPICommunicator : public vtkCommunicator
+class VTK_PARALLEL_EXPORT vtkMPICommunicator : public vtkCommunicator
 {
 
 public:
@@ -113,7 +113,7 @@ public:
 
 //BTX
 
-  class VTK_EXPORT Request
+  class VTK_PARALLEL_EXPORT Request
   {
   public:
     int Test();

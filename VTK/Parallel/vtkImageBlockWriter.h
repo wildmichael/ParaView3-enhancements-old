@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageBlockWriter.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:53 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2001-10-03 15:30:43 $
+  Version:   $Revision: 1.12 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -52,7 +52,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkProcessObject.h"
 #include "vtkImageData.h"
 
-class VTK_EXPORT vtkImageBlockWriter : public vtkProcessObject
+class VTK_PARALLEL_EXPORT vtkImageBlockWriter : public vtkProcessObject
 {
 public:
   static vtkImageBlockWriter *New();

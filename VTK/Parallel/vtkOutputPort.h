@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOutputPort.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:53 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-10-03 15:30:45 $
+  Version:   $Revision: 1.3 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -59,7 +59,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkMultiProcessController.h"
 
 
-class VTK_EXPORT vtkOutputPort : public vtkProcessObject
+class VTK_PARALLEL_EXPORT vtkOutputPort : public vtkProcessObject
 {
 public:
   static vtkOutputPort *New();

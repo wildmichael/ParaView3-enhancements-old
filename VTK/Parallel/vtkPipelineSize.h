@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPipelineSize.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 22:05:44 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-10-03 15:30:48 $
+  Version:   $Revision: 1.4 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -49,7 +49,7 @@ class vtkSource;
 class vtkDataObject;
 class vtkPolyDataMapper;
 
-class VTK_EXPORT vtkPipelineSize : public vtkObject
+class VTK_PARALLEL_EXPORT vtkPipelineSize : public vtkObject
 {
 public:
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPSphereSource.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:53 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-10-03 15:30:46 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -46,7 +46,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "vtkSphereSource.h"
 
-class VTK_EXPORT vtkPSphereSource : public vtkSphereSource
+class VTK_PARALLEL_EXPORT vtkPSphereSource : public vtkSphereSource
 {
 public:
   vtkTypeMacro(vtkPSphereSource,vtkSphereSource);

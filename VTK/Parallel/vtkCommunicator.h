@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCommunicator.h,v $
   Language:  C++
-  Date:      $Date: 2001-09-19 13:41:29 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2001-10-03 15:30:40 $
+  Version:   $Revision: 1.9 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -62,7 +62,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 class vtkDataSet;
 class vtkImageData;
 
-class VTK_EXPORT vtkCommunicator : public vtkObject
+class VTK_PARALLEL_EXPORT vtkCommunicator : public vtkObject
 {
 
 public:

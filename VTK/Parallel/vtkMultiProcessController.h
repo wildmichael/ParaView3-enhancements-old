@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMultiProcessController.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-17 20:43:01 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2001-10-03 15:30:45 $
+  Version:   $Revision: 1.8 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -87,7 +87,7 @@ typedef void (*vtkRMIFunctionType)(void *localArg,
 //ETX
 
 
-class VTK_EXPORT vtkMultiProcessController : public vtkObject
+class VTK_PARALLEL_EXPORT vtkMultiProcessController : public vtkObject
 {
 public:
   static vtkMultiProcessController *New();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBranchExtentTranslator.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:53 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2001-10-03 15:30:40 $
+  Version:   $Revision: 1.6 $
 
 
 
@@ -59,7 +59,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkImageData.h"
 
 
-class VTK_EXPORT vtkBranchExtentTranslator : public vtkExtentTranslator
+class VTK_PARALLEL_EXPORT vtkBranchExtentTranslator : public vtkExtentTranslator
 {
 public:
   static vtkBranchExtentTranslator *New();

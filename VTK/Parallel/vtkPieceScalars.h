@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPieceScalars.h,v $
   Language:  C++
-  Date:      $Date: 2001-09-12 16:09:44 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2001-10-03 15:30:48 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -52,7 +52,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "vtkDataSetToDataSetFilter.h"
 
-class VTK_EXPORT vtkPieceScalars : public vtkDataSetToDataSetFilter
+class VTK_PARALLEL_EXPORT vtkPieceScalars : public vtkDataSetToDataSetFilter
 {
 public:
   static vtkPieceScalars *New();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPImageWriter.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:53 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-10-03 15:30:45 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -54,7 +54,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkImageWriter.h"
 class vtkPipelineSize;
 
-class VTK_EXPORT vtkPImageWriter : public vtkImageWriter
+class VTK_PARALLEL_EXPORT vtkPImageWriter : public vtkImageWriter
 {
 public:
   static vtkPImageWriter *New();

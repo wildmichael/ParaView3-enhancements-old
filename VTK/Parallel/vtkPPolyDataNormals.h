@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPPolyDataNormals.h,v $
   Language:  C++
-  Date:      $Date: 2001-09-28 19:34:24 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-10-03 15:30:46 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -47,7 +47,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "vtkPolyDataNormals.h"
 
-class VTK_EXPORT vtkPPolyDataNormals : public vtkPolyDataNormals
+class VTK_PARALLEL_EXPORT vtkPPolyDataNormals : public vtkPolyDataNormals
 {
 public:
   vtkTypeMacro(vtkPPolyDataNormals,vtkPolyDataNormals);

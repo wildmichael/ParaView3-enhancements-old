@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInputPort.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:53 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-10-03 15:30:43 $
+  Version:   $Revision: 1.4 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -65,7 +65,7 @@ class vtkImageData;
 
 
 
-class VTK_EXPORT vtkInputPort : public vtkSource
+class VTK_PARALLEL_EXPORT vtkInputPort : public vtkSource
 {
 public:
   static vtkInputPort *New();

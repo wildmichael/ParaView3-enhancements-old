@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSharedMemoryCommunicator.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:53 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2001-10-03 15:30:49 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -64,7 +64,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 class vtkThreadedController;
 class vtkSharedMemoryCommunicatorMessage;
 
-class VTK_EXPORT vtkSharedMemoryCommunicator : public vtkCommunicator
+class VTK_PARALLEL_EXPORT vtkSharedMemoryCommunicator : public vtkCommunicator
 {
 
 public:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTreeComposite.h,v $
   Language:  C++
-  Date:      $Date: 2001-09-26 18:50:50 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2001-10-03 15:30:50 $
+  Version:   $Revision: 1.13 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -92,7 +92,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 class vtkTimerLog;
 
 
-class VTK_EXPORT vtkTreeComposite : public vtkObject
+class VTK_PARALLEL_EXPORT vtkTreeComposite : public vtkObject
 {
 public:
   static vtkTreeComposite *New();

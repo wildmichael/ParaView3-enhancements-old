@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThreadedController.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-16 21:40:49 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-10-03 15:30:50 $
+  Version:   $Revision: 1.5 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -59,7 +59,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkSharedMemoryCommunicator.h"
 #include "vtkCriticalSection.h"
 
-class VTK_EXPORT vtkThreadedController : public vtkMultiProcessController
+class VTK_PARALLEL_EXPORT vtkThreadedController : public vtkMultiProcessController
 {
 public:
   static vtkThreadedController *New();
