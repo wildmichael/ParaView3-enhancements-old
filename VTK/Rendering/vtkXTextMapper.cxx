@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-04-02 13:19:25 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1999-04-05 12:48:44 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -152,7 +152,7 @@ void vtkXTextMapper::GetSize(vtkViewport* viewport, int *size)
 
   strcat(fontname, tempString);
 
-  vtkDebugMacro(<<"vtkXTextMapper::Render - Font specifier: " << fontname);
+  vtkDebugMacro(<<"Render - Font specifier: " << fontname);
 
   // Set the font
   int cnt;
@@ -192,9 +192,6 @@ void vtkXTextMapper::RenderOverlay(vtkViewport* viewport, vtkActor2D* actor)
     return;
     }
   
-  int size[2];
-  this->GetSize(viewport,size);
-
   // Get the window info
   vtkWindow*  window = viewport->GetVTKWindow();
   Display* displayId = (Display*) window->GetGenericDisplayId();
@@ -282,8 +279,10 @@ void vtkXTextMapper::RenderOverlay(vtkViewport* viewport, vtkActor2D* actor)
 
   // compute the size of the string so that we can center it etc.
   // a side effect is that this->CurrentFont will be set so that
-  // we can use it here. That saves the expensice process of 
-  // computing it again
+  // we can use it here. That saves the expensive process of 
+  // computing it again.
+  int size[2];
+  this->GetSize(viewport,size);
   XSetFont(displayId, gc, this->CurrentFont);
   
   // adjust actorPos to account for justification
@@ -308,7 +307,6 @@ void vtkXTextMapper::RenderOverlay(vtkViewport* viewport, vtkActor2D* actor)
     case VTK_TEXT_BOTTOM: 
       break;
     }
-  
     
   // Get the drawable to draw into
   Drawable drawable = (Drawable) window->GetGenericDrawable();
