@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinearExtrusionFilter.h,v $
   Language:  C++
-  Date:      $Date: 1995-08-31 21:21:40 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1995-09-06 18:05:29 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,7 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-// .NAME vtkLinearExtrusionFilter - sweep polygonal data creating "skirt" from free edges and lines, and lines from vertices
+// .NAME vtkLinearExtrusionFilter - sweep polygonal data creating a "skirt" from free edges and lines, and lines from vertices
 // .SECTION Description
 // vtkLinearExtrusionFilter is a modelling filter. It takes polygonal data as 
 // input and generates polygonal data on output. The input dataset is swept
@@ -74,9 +74,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 #include "vtkPolyToPolyFilter.hh"
 
-#define VECTOR_EXTRUSION 1
-#define NORMAL_EXTRUSION 2
-#define POINT_EXTRUSION 3
+#define VTK_VECTOR_EXTRUSION 1
+#define VTK_NORMAL_EXTRUSION 2
+#define VTK_POINT_EXTRUSION 3
 
 class vtkLinearExtrusionFilter : public vtkPolyToPolyFilter 
 {
@@ -87,7 +87,7 @@ public:
 
   // Description:
   // Set/Get the type of extrusion.
-  vtkSetClampMacro(ExtrusionType,int,VECTOR_EXTRUSION,POINT_EXTRUSION);
+  vtkSetClampMacro(ExtrusionType,int,VTK_VECTOR_EXTRUSION,VTK_POINT_EXTRUSION);
   vtkGetMacro(ExtrusionType,int);
 
   // Description:
