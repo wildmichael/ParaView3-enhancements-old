@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageIslandRemoval2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-10-16 12:26:52 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1996-10-17 15:10:35 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -484,7 +484,7 @@ void vtkImageIslandRemoval2D::Execute(vtkImageRegion *inRegion,
     }
 
   inPtr = inRegion->GetScalarPointer();
-  outPtr = outRegion->GetScalarWritePointer();
+  outPtr = outRegion->GetScalarPointer();
 
   switch (inRegion->GetScalarType())
     {
