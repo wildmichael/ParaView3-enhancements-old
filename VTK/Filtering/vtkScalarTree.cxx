@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalarTree.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:51 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2001-04-20 23:12:04 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -320,10 +320,11 @@ vtkCell *vtkScalarTree::GetNextCell(int& cellId, vtkIdList* &cellPts,
   float *s, min=VTK_LARGE_FLOAT, max=(-VTK_LARGE_FLOAT);
   int i, numScalars;
   vtkCell *cell;
+  int numCells = this->DataSet->GetNumberOfCells();
 
   while ( this->TreeIndex < this->TreeSize )
     {
-    for ( ; this->ChildNumber < this->BranchingFactor; 
+    for ( ; this->ChildNumber<this->BranchingFactor && this->CellId<numCells; 
     this->ChildNumber++, this->CellId++ )
       {
       cell = this->DataSet->GetCell(this->CellId);
