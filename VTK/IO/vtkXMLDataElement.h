@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLDataElement.h,v $
   Language:  C++
-  Date:      $Date: 2002-12-09 14:50:08 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2003-03-26 16:28:27 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -57,6 +57,7 @@ public:
   // value.  Returns whether value was extracted.
   int GetScalarAttribute(const char* name, int& value);
   int GetScalarAttribute(const char* name, float& value);
+  int GetScalarAttribute(const char* name, double& value);
   int GetScalarAttribute(const char* name, unsigned long& value);
 #ifdef VTK_ID_TYPE_IS_NOT_BASIC_TYPE
   int GetScalarAttribute(const char* name, vtkIdType& value);
@@ -67,6 +68,7 @@ public:
   // value.  Returns length of vector read.
   int GetVectorAttribute(const char* name, int length, int* value);
   int GetVectorAttribute(const char* name, int length, float* value);
+  int GetVectorAttribute(const char* name, int length, double* value);
   int GetVectorAttribute(const char* name, int length, unsigned long* value);
 #ifdef VTK_ID_TYPE_IS_NOT_BASIC_TYPE
   int GetVectorAttribute(const char* name, int length, vtkIdType* value);
@@ -74,7 +76,7 @@ public:
   
   // Description:
   // Get the attribute with the given name and converted to a word type
-  // such sas VTK_FLOAT or VTK_UNSIGNED_LONG.
+  // such as VTK_FLOAT or VTK_UNSIGNED_LONG.
   int GetWordTypeAttribute(const char* name, int& value);
   
   // Description:

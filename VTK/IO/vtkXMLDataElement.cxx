@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLDataElement.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-31 21:58:34 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2003-03-26 16:28:27 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 
 #include <ctype.h>
 
-vtkCxxRevisionMacro(vtkXMLDataElement, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkXMLDataElement, "$Revision: 1.6 $");
 vtkStandardNewMacro(vtkXMLDataElement);
 
 //----------------------------------------------------------------------------
@@ -287,6 +287,12 @@ int vtkXMLDataElement::GetScalarAttribute(const char* name, float& value)
 }
 
 //----------------------------------------------------------------------------
+int vtkXMLDataElement::GetScalarAttribute(const char* name, double& value)
+{
+  return this->GetVectorAttribute(name, 1, &value);
+}
+
+//----------------------------------------------------------------------------
 int vtkXMLDataElement::GetScalarAttribute(const char* name,
                                           unsigned long& value)
 {
@@ -328,6 +334,14 @@ int vtkXMLDataElement::GetVectorAttribute(const char* name, int length,
 //----------------------------------------------------------------------------
 int vtkXMLDataElement::GetVectorAttribute(const char* name, int length,
                                           float* data)
+{
+  return vtkXMLDataElementVectorAttributeParse(this->GetAttribute(name),
+                                               length, data);
+}
+
+//----------------------------------------------------------------------------
+int vtkXMLDataElement::GetVectorAttribute(const char* name, int length,
+                                          double* data)
 {
   return vtkXMLDataElementVectorAttributeParse(this->GetAttribute(name),
                                                length, data);
