@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCollectPolyData.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-12 15:20:30 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2003-02-28 17:29:31 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -28,6 +28,7 @@
 #include "vtkPolyDataToPolyDataFilter.h"
 
 class vtkMultiProcessController;
+class vtkSocketController;
 
 class VTK_PARALLEL_EXPORT vtkCollectPolyData : public vtkPolyDataToPolyDataFilter
 {
@@ -43,6 +44,13 @@ public:
   vtkGetObjectMacro(Controller, vtkMultiProcessController);
 
   // Description:
+  // When this filter is being used in client-server mode,
+  // this is the controller used to communicate between
+  // client and server.  Client should not set the other controller.
+  virtual void SetSocketController(vtkSocketController*);
+  vtkGetObjectMacro(SocketController, vtkSocketController);
+
+  // Description:
   // Threshold that determines whether data will be collected.
   // If the total size of the data in kilobytes is less than this threshold, 
   // then the data remains distributed.
@@ -53,19 +61,25 @@ public:
   // This flag is set based on whether the data was collected to process 0 or not.
   vtkGetMacro(Collected, int);
 
+  // Description:
+  // Gets the total memory size in kBytes.  This is the sum from all processes.
+  vtkGetMacro(MemorySize, unsigned long);
+
 protected:
   vtkCollectPolyData();
   ~vtkCollectPolyData();
 
   // Data generation method
   void ComputeInputUpdateExtents(vtkDataObject *output);
-  void Execute();
+  void ExecuteData(vtkDataObject*);
   void ExecuteInformation();
 
   unsigned long Threshold;
+  unsigned long MemorySize;
   int Collected;
 
   vtkMultiProcessController *Controller;
+  vtkSocketController *SocketController;
 
 private:
   vtkCollectPolyData(const vtkCollectPolyData&); // Not implemented
