@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCamera.h,v $
   Language:  C++
-  Date:      $Date: 2000-05-12 02:12:05 $
-  Version:   $Revision: 1.66 $
+  Date:      $Date: 2000-05-31 22:29:24 $
+  Version:   $Revision: 1.67 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -391,8 +391,6 @@ protected:
   vtkProjectionTransform *Transform;
 
   double FocalDisk;
-
-  int LegacyFlag;
 
   // ViewingRaysMtime keeps track of camera modifications which will 
   // change the calculation of viewing rays for the camera before it is 
