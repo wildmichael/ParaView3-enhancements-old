@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClientCompositeManager.h,v $
   Language:  C++
-  Date:      $Date: 2003-03-05 13:57:41 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2003-06-04 19:01:13 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -60,12 +60,7 @@ public:
   // Description:
   // Callbacks that initialize and finish the compositing.
   virtual void StartRender();
-  void ResetCamera(vtkRenderer *ren);
-  void ResetCameraClippingRange(vtkRenderer *ren);
-  void ComputeVisiblePropBounds(vtkRenderer *ren, 
-                                float bounds[6]);
   void RenderRMI();
-  void ComputeVisiblePropBoundsRMI();
   
   // Description:
   // If the user wants to handle the event loop, then they must call this
@@ -163,8 +158,6 @@ protected:
   int ClientFlag;
   unsigned long StartTag;
   //unsigned long EndTag;
-  unsigned long ResetCameraTag;
-  unsigned long ResetCameraClippingRangeTag;
   
   void SetPDataSize(int x, int y);
   void ReallocPDataArrays();
