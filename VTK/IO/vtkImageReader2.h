@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader2.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-04 13:32:50 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-01-04 13:51:25 $
+  Version:   $Revision: 1.8 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -219,9 +219,9 @@ protected:
   int SwapBytes;
 
   int FileDimensionality;
-  int HeaderSize;
+  unsigned long HeaderSize;
   int DataScalarType;
-  int ManualHeaderSize;
+  unsigned long ManualHeaderSize;
   int Initialized;
 
   int DataDimensions[3];
