@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectors.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 22:50:53 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1998-05-13 13:34:12 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -51,13 +51,14 @@ vtkVectors::vtkVectors(int dataType) : vtkAttributeData(dataType)
 
 // Description:
 // Given a list of pt ids, return an array of vectors.
-void vtkVectors::GetVectors(vtkIdList& ptIds, vtkVectors& fv)
+void vtkVectors::GetVectors(vtkIdList& ptIds, vtkVectors& v)
 {
   int num=ptIds.GetNumberOfIds();
-
+  
+  v.SetNumberOfVectors(num);
   for (int i=0; i<num; i++)
     {
-    fv.InsertVector(i,this->GetVector(ptIds.GetId(i)));
+    v.SetVector(i,this->GetVector(ptIds.GetId(i)));
     }
 }
 

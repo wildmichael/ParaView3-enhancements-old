@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTensors.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 22:50:38 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1998-05-13 13:34:11 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -106,13 +106,14 @@ int vtkTensors::InsertNextTensor(float t11, float t12, float t13,
 
 // Description:
 // Given a list of pt ids, return an array of tensors.
-void vtkTensors::GetTensors(vtkIdList& ptIds, vtkTensors& ft)
+void vtkTensors::GetTensors(vtkIdList& ptIds, vtkTensors& t)
 {
   int num=ptIds.GetNumberOfIds();
 
+  t.SetNumberOfTensors(num);
   for (int i=0; i<num; i++)
     {
-    ft.InsertTensor(i,this->GetTensor(ptIds.GetId(i)));
+    t.SetTensor(i,this->GetTensor(ptIds.GetId(i)));
     }
 }
 
