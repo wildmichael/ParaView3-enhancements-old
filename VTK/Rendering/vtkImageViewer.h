@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageViewer.h,v $
   Language:  C++
-  Date:      $Date: 1997-01-29 18:24:12 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1997-02-26 14:26:58 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -137,7 +137,11 @@ public:
   vtkGetMacro(XOffset, int);
   vtkSetMacro(YOffset, int);
   vtkGetMacro(YOffset, int);
-  
+
+  // Description:
+  // These are here for using a tk window.
+  virtual void SetDisplayId(void *) = 0;
+  virtual void SetWindowId(void *) = 0;
   
 protected:
   // location of upper left corner in window.
