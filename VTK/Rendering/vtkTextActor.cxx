@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-05 10:27:18 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-06-20 19:17:01 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkTextActor.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkTextActor, "$Revision: 1.4 $");
+vtkCxxRevisionMacro(vtkTextActor, "$Revision: 1.5 $");
 vtkStandardNewMacro(vtkTextActor);
 // ----------------------------------------------------------------------------
 vtkTextActor::vtkTextActor()
@@ -94,8 +94,7 @@ void vtkTextActor::ReleaseGraphicsResources(vtkWindow *win)
 int vtkTextActor::RenderOverlay(vtkViewport *viewport)
 {
   // Everything is built in RenderOpaqueGeometry, just have to render
-  this->vtkActor2D::RenderOverlay(viewport);
-  return 1;
+  return this->vtkActor2D::RenderOverlay(viewport);
 }
 // ----------------------------------------------------------------------------
 int vtkTextActor::RenderOpaqueGeometry(vtkViewport *viewport)
