@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCompositeManager.h,v $
   Language:  C++
-  Date:      $Date: 2002-03-18 20:47:26 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-03-27 20:37:11 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -39,7 +39,8 @@
 #include "vtkMultiProcessController.h"
 
 class vtkTimerLog;
-
+class vtkFloatArray;
+class vtkDataArray;
 
 class VTK_PARALLEL_EXPORT vtkCompositeManager : public vtkObject
 {
@@ -91,7 +92,7 @@ public:
   // Description:
   // This flag tells the compositer to use char values for pixel data rather than float.
   // Default is float.  I have seen some artifacts on some systems with char.
-  vtkSetMacro(UseChar, int);
+  void SetUseChar(int useChar);
   vtkGetMacro(UseChar, int);
   vtkBooleanMacro(UseChar, int);
 
@@ -161,12 +162,19 @@ protected:
   
   // A compositing algorithm to be implemented by the subclass.
   virtual void CompositeBuffer(int width, int height, int useCharFlag,
-                               void *pBuf, float *zBuf,
-                               void *pTmp, float *zTmp) = 0;
+                               vtkDataArray *pBuf, vtkFloatArray *zBuf,
+                               vtkDataArray *pTmp, vtkFloatArray *zTmp) = 0;
 
   void SetRendererSize(int x, int y);
-  float* MagnifyBuffer(float *localPdata, int windowSize[2]);
+  void MagnifyBuffer(vtkDataArray *localPdata, vtkDataArray* magPdata,
+		     int windowSize[2]);
 
+  static void DeleteArray(vtkDataArray* da);
+  static void ResizeFloatArray(vtkFloatArray* fa, int numComp,
+			       int size);
+  static void ResizeUnsignedCharArray(vtkUnsignedCharArray* uca, 
+				      int numComp, int size);
+  
   vtkRenderWindow* RenderWindow;
   vtkRenderWindowInteractor* RenderWindowInteractor;
   vtkMultiProcessController* Controller;
@@ -186,8 +194,10 @@ protected:
   void SetRenderWindowInteractor(vtkRenderWindowInteractor *iren);
 
   // Arrays for compositing.
-  float *PData;
-  float *ZData;
+  vtkDataArray *PData;
+  vtkFloatArray *ZData;
+  vtkDataArray *LocalPData;
+  vtkFloatArray *LocalZData;
   int RendererSize[2];
 
   // Reduction factor (For fast interactive compositing).

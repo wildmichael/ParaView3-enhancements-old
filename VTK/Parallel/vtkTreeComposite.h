@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTreeComposite.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:35:03 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2002-03-27 20:37:12 $
+  Version:   $Revision: 1.19 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -71,8 +71,8 @@ protected:
   void operator=(const vtkTreeComposite&);
   
   virtual void CompositeBuffer(int width, int height, int useCharFlag,
-                               void *pBuf, float *zBuf,
-                               void *pTmp, float *zTmp);
+                               vtkDataArray *pBuf, vtkFloatArray *zBuf,
+                               vtkDataArray *pTmp, vtkFloatArray *zTmp);
 
 };
 
