@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkUnsignedCharArray.h,v $
   Language:  C++
-  Date:      $Date: 1994-03-25 10:12:54 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1994-04-14 15:30:55 $
+  Version:   $Revision: 1.4 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -41,8 +41,8 @@ public:
     }
   int InsertNextValue(const int i)
     {this->InsertValue (++this->MaxId,i); return this->MaxId;};
-  vlCharArray &operator=(vlCharArray& ia);
-  vlCharArray &operator+=(vlCharArray& ia);
+  vlCharArray &operator=(const vlCharArray& ia);
+  vlCharArray &operator+=(const vlCharArray& ia);
   void operator+=(const char i) {this->InsertNextValue(i);};
   // operator[] can be used on both left and right side of expression;
   // Note: if used on lh side, user's responsibility to do range checking

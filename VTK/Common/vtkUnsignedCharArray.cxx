@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkUnsignedCharArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-04-11 09:56:17 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1994-04-14 15:30:53 $
+  Version:   $Revision: 1.5 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -60,7 +60,7 @@ vlCharArray::vlCharArray(const vlCharArray& ia)
 
 }
 
-vlCharArray& vlCharArray::operator=(vlCharArray& ia)
+vlCharArray& vlCharArray::operator=(const vlCharArray& ia)
 {
   int i;
 
@@ -82,7 +82,7 @@ vlCharArray& vlCharArray::operator=(vlCharArray& ia)
 //
 // Copy on write if used by more than one object
 //
-vlCharArray& vlCharArray::operator+=(vlCharArray& ia)
+vlCharArray& vlCharArray::operator+=(const vlCharArray& ia)
 {
   int i, sz;
 

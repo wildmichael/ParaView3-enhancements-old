@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkIntArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-03-01 22:19:11 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1994-04-14 15:30:58 $
+  Version:   $Revision: 1.11 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -58,7 +58,7 @@ vlIntArray::vlIntArray(const vlIntArray& ia)
 
 }
 
-vlIntArray& vlIntArray::operator=(vlIntArray& ia)
+vlIntArray& vlIntArray::operator=(const vlIntArray& ia)
 {
   int i;
 
@@ -80,7 +80,7 @@ vlIntArray& vlIntArray::operator=(vlIntArray& ia)
 //
 // Copy on write if used by more than one object
 //
-void vlIntArray::operator+=(vlIntArray& ia)
+void vlIntArray::operator+=(const vlIntArray& ia)
 {
   int i, sz;
 

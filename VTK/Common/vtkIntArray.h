@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkIntArray.h,v $
   Language:  C++
-  Date:      $Date: 1994-03-25 10:12:59 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1994-04-14 15:31:00 $
+  Version:   $Revision: 1.10 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -39,8 +39,8 @@ public:
     }
   int InsertNextValue(const int i)
     {this->InsertValue (++this->MaxId,i); return this->MaxId;};
-  vlIntArray &operator=(vlIntArray& ia);
-  void operator+=(vlIntArray& ia);
+  vlIntArray &operator=(const vlIntArray& ia);
+  void operator+=(const vlIntArray& ia);
   void operator+=(const int i) {this->InsertNextValue(i);};
   // operator[] can be used on both left and right side of expression;
   // Note: if used on lh side, user's responsibility to do range checking

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkShortArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-03-01 22:19:13 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1994-04-14 15:31:03 $
+  Version:   $Revision: 1.4 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -60,7 +60,7 @@ vlShortArray::vlShortArray(const vlShortArray& sa)
 
 }
 
-vlShortArray& vlShortArray::operator=(vlShortArray& sa)
+vlShortArray& vlShortArray::operator=(const vlShortArray& sa)
 {
   int i;
 
@@ -82,7 +82,7 @@ vlShortArray& vlShortArray::operator=(vlShortArray& sa)
 //
 // Copy on write if used by more than one object
 //
-vlShortArray& vlShortArray::operator+=(vlShortArray& sa)
+vlShortArray& vlShortArray::operator+=(const vlShortArray& sa)
 {
   int i, sz;
 
