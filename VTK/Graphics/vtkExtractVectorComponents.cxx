@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractVectorComponents.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-27 13:49:58 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2001-08-27 14:39:18 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -105,8 +105,9 @@ vtkDataSet *vtkExtractVectorComponents::GetVxComponent()
   if ( this->NumberOfOutputs < 1)
     {
     vtkErrorMacro(<<"Abstract filters require input to be set before VxComponent can be retrieved");
+    return 0;
     }
-  return (vtkDataSet *)this->Outputs[0];
+  return static_cast<vtkDataSet *>(this->Outputs[0]);
 }
 
 // Get the output dataset representing velocity y-component. If output is NULL
@@ -118,8 +119,9 @@ vtkDataSet *vtkExtractVectorComponents::GetVyComponent()
   if ( this->NumberOfOutputs < 2)
     {
     vtkErrorMacro(<<"Abstract filters require input to be set before VyComponent can be retrieved");
+    return 0;
     }
-  return (vtkDataSet *)this->Outputs[1];
+  return static_cast<vtkDataSet *>(this->Outputs[1]);
 }
 
 // Get the output dataset representing velocity z-component. If output is NULL
@@ -131,8 +133,9 @@ vtkDataSet *vtkExtractVectorComponents::GetVzComponent()
   if ( this->NumberOfOutputs < 3)
     {
     vtkErrorMacro(<<"Abstract filters require input to be set before VzComponent can be retrieved");
+    return 0;
     }
-  return (vtkDataSet *)this->Outputs[2];
+  return static_cast<vtkDataSet *>(this->Outputs[2]);
 }
 
 // Specify the input data or filter.
