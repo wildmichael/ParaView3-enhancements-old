@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-27 22:50:14 $
-  Version:   $Revision: 1.67 $
+  Date:      $Date: 2002-03-30 23:42:08 $
+  Version:   $Revision: 1.68 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 #include <stdlib.h>
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkVolume, "$Revision: 1.67 $");
+vtkCxxRevisionMacro(vtkVolume, "$Revision: 1.68 $");
 vtkStandardNewMacro(vtkVolume);
 
 // Creates a Volume with the following defaults: origin(0,0,0) 
@@ -517,9 +517,10 @@ void vtkVolume::UpdateTransferFunctions( vtkRenderer *vtkNotUsed(ren) )
   vtkPiecewiseFunction      *graytf;
   vtkColorTransferFunction  *rgbtf;
   int                        colorChannels;
-  int                        sotfNeedsUpdate = 0;
-  int                        rgbtfNeedsUpdate = 0;
-  int                        graytfNeedsUpdate = 0;
+  
+  //int                        sotfNeedsUpdate = 0;
+  //int                        rgbtfNeedsUpdate = 0;
+  //int                        graytfNeedsUpdate = 0;
   int                        arraySize = 0;
   
   // Check that we have scalars
