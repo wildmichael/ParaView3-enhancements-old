@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPriorityQueue.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-30 16:03:16 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1999-09-24 11:58:51 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -74,7 +74,10 @@ void vtkPriorityQueue::Allocate(const int sz, const int ext)
 // Desctructor for the vtkPriorityQueue class
 vtkPriorityQueue::~vtkPriorityQueue()
 {
-  this->ItemLocation->Delete();
+  if (this->ItemLocation)
+    {
+    this->ItemLocation->Delete();
+    }
   if ( this->Array != NULL )
     {
     delete [] this->Array;
