@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBandedPolyDataContourFilter.h,v $
   Language:  C++
-  Date:      $Date: 2002-02-11 21:26:30 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2002-06-12 14:11:41 $
+  Version:   $Revision: 1.15 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -107,6 +107,13 @@ public:
     {return static_cast<vtkPolyData *>(this->Outputs[1]);}
 
   // Description:
+  // If you want to contour by an arbitrary array, then set its name here.
+  // By default this in NULL and the filter will use the active scalar array.
+  vtkGetStringMacro(InputScalarsSelection);
+  void SelectInputScalars(const char *fieldName) 
+    {this->SetInputScalarsSelection(fieldName);}
+
+  // Description:
   // Overload GetMTime because we delegate to vtkContourValues so its
   // modified time must be taken into account.
   unsigned long GetMTime();
@@ -138,6 +145,9 @@ protected:
   
   //the second output
   int GenerateContourEdges;
+
+  char *InputScalarsSelection;
+  vtkSetStringMacro(InputScalarsSelection);
   
 private:
   vtkBandedPolyDataContourFilter(const vtkBandedPolyDataContourFilter&);  // Not implemented.
