@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingSquares.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-02 22:02:28 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1997-06-25 12:42:31 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -134,7 +134,7 @@ inline float *vtkMarchingSquares::GetValues()
 
 // Description:
 // Fill a supplied list with contour values. There will be
-// GetNumberOfContours() values in the list.Make sure you allocate
+// GetNumberOfContours() values in the list. Make sure you allocate
 // enough memory to hold the list.
 inline void vtkMarchingSquares::GetValues(float *contourValues)
 {this->ContourValues->GetValues(contourValues);};
@@ -149,7 +149,7 @@ inline void vtkMarchingSquares::SetNumberOfContours(int number)
 // Description:
 // Get the number of contours in the list of contour values.
 inline int vtkMarchingSquares::GetNumberOfContours()
-{return this->GetNumberOfContours();};
+{return this->ContourValues->GetNumberOfContours();};
 
 // Description:
 // Generate numContours equally spaced contour values between specified
