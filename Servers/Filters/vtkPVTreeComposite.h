@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkPVTreeComposite.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-11 13:46:35 $
-  Version:   $Revision: 1.16 $  
+  Date:      $Date: 2002-06-11 19:03:27 $
+  Version:   $Revision: 1.17 $  
   
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -130,10 +130,6 @@ protected:
   // There is no initialize method.
   int Initialized;
 
-
-
-
-  
 //BTX 
 #ifdef VTK_USE_MPI 
   void SatelliteFinalAbortCheck();
