@@ -1,4 +1,4 @@
-/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/tiff/Attic/tif_zip.c,v 1.2 2002-01-30 13:38:05 andy Exp $ */
+/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/tiff/Attic/tif_zip.c,v 1.3 2002-02-04 01:53:22 andy Exp $ */
 
 /*
  * Copyright (c) 1995-1997 Sam Leffler
@@ -24,6 +24,10 @@
  * OF THIS SOFTWARE.
  */
 
+#ifdef ZIP_SUPPORT
+#include "zlib.h"
+#endif
+
 #include "tiffiop.h"
 #ifdef ZIP_SUPPORT
 /*
@@ -47,7 +51,6 @@
  * last found at ftp://ftp.uu.net/pub/archiving/zip/zlib/zlib-0.99.tar.gz.
  */
 #include "tif_predict.h"
-#include "zlib.h"
 
 #include <stdio.h>
 #include <assert.h>

@@ -1,4 +1,4 @@
-/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/tiff/Attic/tif_read.c,v 1.1 2002-01-29 22:38:22 andy Exp $ */
+/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/tiff/Attic/tif_read.c,v 1.2 2002-02-04 01:53:21 andy Exp $ */
 
 /*
  * Copyright (c) 1988-1997 Sam Leffler
@@ -92,7 +92,7 @@ TIFFSeek(TIFF* tif, uint32 row, tsample_t sample)
 }
 
 int
-TIFFReadScanline(TIFF* tif, tdata_t buf, uint32 row, tsample_t sample)
+TEXPORT TIFFReadScanline(TIFF* tif, tdata_t buf, uint32 row, tsample_t sample)
 {
         int e;
 

@@ -1,4 +1,4 @@
-/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/tiff/Attic/tif_getimage.c,v 1.4 2002-02-01 14:46:39 andy Exp $ */
+/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/tiff/Attic/tif_getimage.c,v 1.5 2002-02-04 01:53:21 andy Exp $ */
 
 /*
  * Copyright (c) 1991-1997 Sam Leffler
@@ -394,7 +394,7 @@ TIFFRGBAImageGet(TIFFRGBAImage* img, uint32* raster, uint32 w, uint32 h)
  * Read the specified image into an ABGR-format raster.
  */
 int
-TIFFReadRGBAImage(TIFF* tif,
+TEXPORT TIFFReadRGBAImage(TIFF* tif,
     uint32 rwidth, uint32 rheight, uint32* raster, int stop)
 {
     char emsg[1024];
