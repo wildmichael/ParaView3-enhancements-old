@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-06-13 20:15:04 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1997-06-23 19:39:39 $
+  Version:   $Revision: 1.20 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder,ill Lorensen.
@@ -53,7 +53,7 @@ vtkImageReader::vtkImageReader()
   this->File = NULL;
   this->DataScalarType = VTK_SHORT;
   // Output should default to the same scalar type as file data.
-  // this->SetOutputScalarType(VTK_SHORT);
+  this->SetOutputScalarType(VTK_SHORT);
   
   this->SetAxes(VTK_IMAGE_X_AXIS, VTK_IMAGE_Y_AXIS,
 		VTK_IMAGE_Z_AXIS, VTK_IMAGE_COMPONENT_AXIS);
@@ -729,12 +729,13 @@ void vtkImageReader::UpdateFromFile(vtkImageRegion *region)
 // after this method is called.
 void vtkImageReader::SetDataScalarType(int type)
 {
+  vtkImageCache *cache;
+  
   this->Modified();
   this->DataScalarType = type;
-
   // Set the default output scalar type
-  // cache = this->GetCache();
-  // cache->SetScalarType(type);
+  cache = this->GetCache();
+  cache->SetScalarType(type);
 }
 
 
@@ -744,13 +745,6 @@ void vtkImageReader::SetDataScalarType(int type)
 vtkImageCache *vtkImageReader::GetOutput()
 {
   this->CheckCache();
-  if (this->Output->GetScalarType() == VTK_VOID)
-    {
-    vtkDebugMacro("GetOutput: Setting default OutputScalarType to "
-		  << vtkImageScalarTypeNameMacro(this->DataScalarType));
-    this->Output->SetScalarType(this->DataScalarType);
-    }
-  
   return this->Output;
 }
 
