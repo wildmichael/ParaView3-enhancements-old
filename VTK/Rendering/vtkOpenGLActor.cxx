@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-05-17 16:16:21 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2001-07-14 04:21:42 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -45,7 +45,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkOpenGLRenderer.h"
 #include "vtkOpenGLActor.h"
 #ifndef VTK_IMPLEMENT_MESA_CXX
-#ifdef VTK_USE_QUARTZ
+#ifdef __APPLE__
 #include <OpenGL/gl.h>
 #else
 #include <GL/gl.h>
