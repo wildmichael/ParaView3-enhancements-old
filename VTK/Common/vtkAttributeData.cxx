@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAttributeData.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-16 15:58:15 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1998-11-08 00:32:05 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -147,17 +147,17 @@ void vtkAttributeData::SetDataType(int dataType)
 
     case VTK_UNSIGNED_INT:
       this->Data->Delete();
-      this->Data = vtkUnsignedShortArray::New();
+      this->Data = vtkUnsignedIntArray::New();
       break;
 
     case VTK_LONG:
       this->Data->Delete();
-      this->Data = vtkIntArray::New();
+      this->Data = vtkLongArray::New();
       break;
 
     case VTK_UNSIGNED_LONG:
       this->Data->Delete();
-      this->Data = vtkUnsignedShortArray::New();
+      this->Data = vtkUnsignedLongArray::New();
       break;
 
     case VTK_FLOAT:
