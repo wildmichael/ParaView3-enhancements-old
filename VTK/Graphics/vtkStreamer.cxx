@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamer.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-12 18:32:04 $
-  Version:   $Revision: 1.81 $
+  Date:      $Date: 2002-11-19 15:12:16 $
+  Version:   $Revision: 1.82 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,7 +25,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkRungeKutta2.h"
 
-vtkCxxRevisionMacro(vtkStreamer, "$Revision: 1.81 $");
+vtkCxxRevisionMacro(vtkStreamer, "$Revision: 1.82 $");
 vtkCxxSetObjectMacro(vtkStreamer,Integrator,vtkInitialValueProblemSolver);
 
 #define VTK_START_FROM_POSITION 0
@@ -482,7 +482,7 @@ void vtkStreamer::Integrate()
   if (inScalars)
     {
     cellScalars = inScalars->NewInstance();
-    cellScalars->SetNumberOfComponents(cellScalars->GetNumberOfComponents());
+    cellScalars->SetNumberOfComponents(inScalars->GetNumberOfComponents());
     cellScalars->Allocate(cellScalars->GetNumberOfComponents()*VTK_CELL_SIZE);
     }
   
