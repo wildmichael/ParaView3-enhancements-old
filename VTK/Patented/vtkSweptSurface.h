@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkSweptSurface.h,v $
   Language:  C++
-  Date:      $Date: 1995-08-01 10:45:40 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1995-08-04 11:15:15 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -100,8 +100,8 @@ public:
   // performed, that is, interpolation is computed so that potential errors 
   // fall below the error bounds defined in the text. By default, automatic
   // computation is performed (Interpolation = 0).
-  vtkSetMacro(Interpolation,int);
-  vtkGetMacro(Interpolation,int);
+  vtkSetMacro(NumberOfInterpolationSteps,int);
+  vtkGetMacro(NumberOfInterpolationSteps,int);
 
   // Description:
   // The outer boundary of the sampling volume can be capped (i.e., assigned 
@@ -138,7 +138,7 @@ protected:
   int SampleDimensions[3];
   float FillValue;
   float ModelBounds[6];
-  int Interpolation;
+  int NumberOfInterpolationSteps;
   int Capping;
 
   vtkTransformCollection *Transforms;
