@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkDataWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-05-01 21:05:32 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1995-05-02 18:43:12 $
+  Version:   $Revision: 1.3 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -75,15 +75,22 @@ vlDataWriter::~vlDataWriter()
 
 // Description:
 // Open a vl data file. Returns NULL if error.
-FILE *vlDataWriter::OpenVLFile(char *filename)
+FILE *vlDataWriter::OpenVLFile()
 {
   FILE *fptr;
 
   vlDebugMacro(<<"Opening vl file for writing...");
 
-  if ( !filename || (fptr=fopen(filename, "wb")) == NULL )
+  if ( !this->Filename )
     {
-    vlErrorMacro(<< "Unable to open file: "<< filename);
+    vlErrorMacro(<< "No filename specified! Can't write!");
+    return NULL;
+    }
+
+  if ( (fptr=fopen(this->Filename, "wb")) == NULL )
+    {
+    vlErrorMacro(<< "Unable to open file: "<< this->Filename);
+    return NULL;
     }
 
   return fptr;

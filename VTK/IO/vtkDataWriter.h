@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkDataWriter.h,v $
   Language:  C++
-  Date:      $Date: 1995-05-01 21:05:33 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1995-05-02 18:43:13 $
+  Version:   $Revision: 1.3 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -87,7 +87,7 @@ public:
   vlSetStringMacro(LookupTableName);
   vlGetStringMacro(LookupTableName);
 
-  FILE *OpenVLFile(char *filename);
+  FILE *OpenVLFile();
   int WriteHeader(FILE *fp);
   int WritePoints(FILE *fp, vlPoints *p);
   int WriteCells(FILE *fp, vlCellArray *cells, char *label);

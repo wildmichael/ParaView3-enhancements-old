@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkSTLWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-02-14 15:30:12 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1995-05-02 18:43:08 $
+  Version:   $Revision: 1.6 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -28,13 +28,23 @@ vlSTLWriter::~vlSTLWriter()
   if ( this->Filename ) delete [] this->Filename;
 }
 
+// Description:
+// Specify the input data or filter.
+void vlSTLWriter::SetInput(vlPolyData *input)
+{
+  if ( this->Input != input )
+    {
+    vlDebugMacro(<<" setting Input to " << (void *)input);
+    this->Input = (vlDataSet *) input;
+    this->Modified();
+    }
+}
+
 void vlSTLWriter::WriteData()
 {
   vlPoints *pts;
   vlCellArray *polys;
   vlPolyData *input=(vlPolyData *)this->Input;
-
-  input->Update();
 
   if ( (pts = input->GetPoints()) == NULL ||
   (polys = input->GetPolys()) == NULL )
@@ -154,9 +164,14 @@ void vlSTLWriter::WriteBinarySTL(vlPoints *pts, vlCellArray *polys)
 
 void vlSTLWriter::PrintSelf(ostream& os, vlIndent indent)
 {
-  vlPolyFilter::_PrintSelf(os,indent);
   vlWriter::PrintSelf(os,indent);
-
+ 
   os << indent << "Filename: " << this->Filename << "\n";
+
+  if ( this->WriteMode == STL_ASCII  )
+    os << indent << "Write Mode: ASCII\n";
+  else
+    os << indent << "Write Mode: BINARY\n";
+
 }
 
