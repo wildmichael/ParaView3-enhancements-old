@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-21 00:50:26 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1999-09-22 12:58:11 $
+  Version:   $Revision: 1.19 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -114,6 +114,8 @@ vtkTextMapper::~vtkTextMapper()
 //----------------------------------------------------------------------------
 void vtkTextMapper::PrintSelf(ostream& os, vtkIndent indent)
 {
+  vtkMapper2D::PrintSelf(os,indent);
+
   os << indent << "Line Offset: " << this->LineOffset;
   os << indent << "Line Spacing: " << this->LineSpacing;
   os << indent << "Bold: " << (this->Bold ? "On\n" : "Off\n");
@@ -137,7 +139,7 @@ void vtkTextMapper::PrintSelf(ostream& os, vtkIndent indent)
     case VTK_TEXT_BOTTOM: os << "Bottom" << endl; break;
     }
   
-  vtkMapper2D::PrintSelf(os,indent);
+  os << indent << "NumberOfLines: " << this->NumberOfLines << "\n";  
 }
 
 int vtkTextMapper::GetWidth(vtkViewport* viewport)
