@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:33:07 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1996-05-24 19:54:34 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -81,7 +81,7 @@ float *vtkDataSetMapper::GetBounds()
 //
 // Receives from Actor -> maps data to primitives
 //
-void vtkDataSetMapper::Render(vtkRenderer *ren)
+void vtkDataSetMapper::Render(vtkRenderer *ren, vtkActor *act)
 {
 //
 // make sure that we've been properly initialized
@@ -115,7 +115,7 @@ void vtkDataSetMapper::Render(vtkRenderer *ren)
   this->PolyMapper->SetScalarRange(this->GetScalarRange());
 
   this->GeometryExtractor->SetInput(this->Input);
-  this->PolyMapper->Render(ren);
+  this->PolyMapper->Render(ren,act);
 }
 
 void vtkDataSetMapper::PrintSelf(ostream& os, vtkIndent indent)
