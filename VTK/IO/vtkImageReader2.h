@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader2.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-31 23:53:13 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2002-02-19 16:30:42 $
+  Version:   $Revision: 1.15 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -156,7 +156,7 @@ public:
   vtkGetVectorMacro(DataIncrements,unsigned long,4);
 //ETX
 
-  void OpenFile();
+  int OpenFile();
   void SeekFile(int i, int j, int k);
 
   // Description:
