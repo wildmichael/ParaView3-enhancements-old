@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkFloatArray.h,v $
   Language:  C++
-  Date:      $Date: 1994-03-25 10:12:57 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1994-05-15 19:25:19 $
+  Version:   $Revision: 1.10 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -24,8 +24,9 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 class vlFloatArray : public vlObject 
 {
 public:
-  vlFloatArray():Array(0),Size(0),MaxId(-1),Extend(1000) {};
-  int Initialize(const int sz, const int ext=1000);
+  vlFloatArray():Array(NULL),Size(0),MaxId(-1),Extend(1000) {};
+  int Allocate(const int sz, const int ext=1000);
+  void Initialize();
   vlFloatArray(const int sz, const int ext=1000);
   vlFloatArray(const vlFloatArray& fa);
   ~vlFloatArray();

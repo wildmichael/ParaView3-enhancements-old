@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkShortArray.h,v $
   Language:  C++
-  Date:      $Date: 1994-04-14 15:31:04 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1994-05-15 19:25:22 $
+  Version:   $Revision: 1.5 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -26,8 +26,9 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 class vlShortArray : public vlObject 
 {
 public:
-  vlShortArray():Array(0),Size(0),MaxId(-1),Extend(1000) {};
-  int Initialize(const int sz, const int ext=1000);
+  vlShortArray():Array(NULL),Size(0),MaxId(-1),Extend(1000) {};
+  void Initialize();
+  int Allocate(const int sz, const int ext=1000);
   vlShortArray(const int sz, const int ext=1000);
   vlShortArray(const vlShortArray& sa);
   ~vlShortArray();

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkFloatArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-03-01 22:19:10 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1994-05-15 19:25:18 $
+  Version:   $Revision: 1.9 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -22,16 +22,27 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 //
 #include "FArray.hh"
 
-int vlFloatArray::Initialize(const int sz, const int ext)
+int vlFloatArray::Allocate(const int sz, const int ext)
 {
   if ( this->Array ) delete [] this->Array;
 
   this->Size = ( sz > 0 ? sz : 1);
-  if ( (this->Array = new float[sz]) == 0 ) return 0;
+  if ( (this->Array = new float[sz]) == NULL ) return 0;
   this->Extend = ( ext > 0 ? ext : 1);
   this->MaxId = -1;
 
   return 1;
+}
+
+void vlFloatArray::Initialize()
+{
+  if ( this->Array != NULL )
+    {
+    delete [] this->Array;
+    this->Array = NULL;
+    }
+  this->Size = 0;
+  this->MaxId = -1;
 }
 
 vlFloatArray::vlFloatArray(const int sz, const int ext)
@@ -124,7 +135,7 @@ float *vlFloatArray::Resize(const int sz)
     this->Extend*(((sz-this->Size)/this->Extend)+1);
   else newSize = sz;
 
-  if ( (newArray = new float[newSize]) == 0 )
+  if ( (newArray = new float[newSize]) == NULL )
     { 
     vlErrorMacro(<< "Cannot allocate memory\n");
     return 0;

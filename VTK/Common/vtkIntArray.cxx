@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkIntArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-04-14 15:30:58 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1994-05-15 19:25:20 $
+  Version:   $Revision: 1.12 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -19,16 +19,27 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 //
 #include "IntArray.hh"
 
-vlIntArray::Initialize(const int sz, const int ext)
+vlIntArray::Allocate(const int sz, const int ext)
 {
-  if ( this->Array != 0 ) delete [] this->Array;
+  if ( this->Array != NULL ) delete [] this->Array;
 
   this->Size = ( sz > 0 ? sz : 1);
-  if ( (this->Array = new int[sz]) == 0 ) return 0;
+  if ( (this->Array = new int[sz]) == NULL ) return 0;
   this->Extend = ( ext > 0 ? ext : 1);
   this->MaxId = -1;
 
   return 1;
+}
+
+void vlIntArray::Initialize()
+{
+  if ( this->Array != NULL )
+    {
+    delete [] this->Array;
+    this->Array = NULL;
+    }
+  this->Size = 0;
+  this->MaxId = -1;
 }
 
 vlIntArray::vlIntArray(const int sz, const int ext)
@@ -120,7 +131,7 @@ int *vlIntArray::Resize(const int sz)
     this->Extend*(((sz-this->Size)/this->Extend)+1);
   else newSize = sz;
 
-  if ( (newArray = new int[newSize]) == 0 )
+  if ( (newArray = new int[newSize]) == NULL )
     {
     vlErrorMacro(<< "Cannot allocate memory\n");
     return 0;

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkBitArray.h,v $
   Language:  C++
-  Date:      $Date: 1994-05-11 12:50:57 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1994-05-15 19:25:15 $
+  Version:   $Revision: 1.2 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -24,8 +24,9 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 class vlBitArray : public vlObject 
 {
 public:
-  vlBitArray():Array(0),Size(0),MaxId(-1),Extend(1000) {};
-  int Initialize(const int sz, const int ext);
+  vlBitArray():Array(NULL),Size(0),MaxId(-1),Extend(1000) {};
+  void Initialize();
+  int Allocate(const int sz, const int ext);
   vlBitArray(const int sz, const int ext);
   vlBitArray(const vlBitArray& ia);
   ~vlBitArray();
