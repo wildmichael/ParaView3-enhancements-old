@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleUser.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-06 19:13:49 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1999-10-11 12:42:15 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -90,6 +90,8 @@ public:
 protected:
   vtkInteractorStyleUser();
   ~vtkInteractorStyleUser();
+  vtkInteractorStyleUser(const vtkInteractorStyleUser&) {};
+  void operator=(const vtkInteractorStyleUser&) {};
 
   virtual void OnTimer(void);
 
