@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCell.h,v $
   Language:  C++
-  Date:      $Date: 1998-05-06 19:05:50 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 1998-06-15 20:13:53 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -243,6 +243,7 @@ public:
   void GetBounds(float bounds[6]);
   float *GetBounds();
   float GetLength2();
+  virtual int GetParametricCenter(float pcoords[3]);
 
   // Quick intersection of cell bounding box.  Returns != 0 for hit.
   static char HitBBox(float bounds[6], float origin[3], float dir[3], 
@@ -251,6 +252,9 @@ public:
   // left public for quick computational access
   vtkPoints Points;
   vtkIdList PointIds;
+
+protected:
+  float Bounds[6];
 
 };
 
