@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-08-15 07:59:34 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 1994-09-30 17:08:30 $
+  Version:   $Revision: 1.39 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -461,29 +461,32 @@ void vlPolyData::Allocate(int numCells, int extSize)
 // the PolyData::Allocate() function has been called first or that vertex,
 // line, polygon, and triangle strip arrays have been supplied.
 
-void vlPolyData::InsertNextCell(int type, int npts, int pts[MAX_CELL_SIZE])
+int vlPolyData::InsertNextCell(int type, int npts, int pts[MAX_CELL_SIZE])
 {
+  int id = 0;
+
   switch (type)
     {
     case vlPOINT: case vlPOLY_POINTS:
-      this->Verts->InsertNextCell(npts,pts);
+      id = this->Verts->InsertNextCell(npts,pts);
       break;
 
     case vlLINE: case vlPOLY_LINE:
-      this->Lines->InsertNextCell(npts,pts);
+      id = this->Lines->InsertNextCell(npts,pts);
       break;
 
     case vlTRIANGLE: case vlQUAD: case vlPOLYGON:
-      this->Polys->InsertNextCell(npts,pts);
+      id = this->Polys->InsertNextCell(npts,pts);
       break;
 
     case vlTRIANGLE_STRIP:
-      this->Strips->InsertNextCell(npts,pts);
+      id = this->Strips->InsertNextCell(npts,pts);
       break;
 
     default:
       vlErrorMacro(<<"Bad cell type! Can't insert!");
     }
+  return id;
 }
 
 // Description:
