@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: TestCxxFeatures.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-16 19:49:35 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2002-12-13 22:22:24 $
+  Version:   $Revision: 1.15 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -74,16 +74,6 @@
 // Assume standard behavior if symbol is not already defined.
 #if !defined(VTK_CLASS_TEMPLATE_SPECIALIZATION)
 # define VTK_CLASS_TEMPLATE_SPECIALIZATION template <>
-#endif
-
-//----------------------------------------------------------------------------
-
-/* Test inclusion of iosfwd header.  */
-#if defined(VTK_USE_ANSI_STDLIB) && !defined(VTK_CXX_ACC)
-# include <iosfwd>
-#else
-// No iosfwd header.  Just see if forward declaring the class works.
-class ostream;
 #endif
 
 //----------------------------------------------------------------------------

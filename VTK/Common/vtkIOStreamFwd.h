@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIOStreamFwd.h,v $
   Language:  C++
-  Date:      $Date: 2002-12-10 19:10:39 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-12-13 22:22:24 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -39,8 +39,10 @@ using std::filebuf;
 using std::ifstream;
 using std::ofstream;
 using std::fstream;
-
 #else
+# ifdef __BORLANDC__
+#  include <iosfwd.h>
+# else
 
 // Forward-declare non-ansi streams.
 class ios;
@@ -52,6 +54,7 @@ class filebuf;
 class ifstream;
 class ofstream;
 class fstream;
+# endif
 
 #endif
 
