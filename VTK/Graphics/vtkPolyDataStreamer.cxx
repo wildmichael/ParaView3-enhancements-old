@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataStreamer.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-10-27 13:35:29 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2000-11-09 21:16:14 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -142,9 +142,10 @@ void vtkPolyDataStreamer::Execute()
   vtkPolyData *output = this->GetOutput();
   vtkPolyData *copy;
   vtkAppendPolyData *append = vtkAppendPolyData::New();
-  int outPiece, outNumPieces;
+  int outPiece, outNumPieces, outGhost;
   int i;
 
+  outGhost = output->GetUpdateGhostLevel();
   outPiece = output->GetUpdatePiece();
   outNumPieces = output->GetUpdateNumberOfPieces();
   for (i = 0; i < this->NumberOfStreamDivisions; ++i)
@@ -161,6 +162,11 @@ void vtkPolyDataStreamer::Execute()
 
   append->Update();
   output->ShallowCopy(append->GetOutput());
+  // set the piece and number of pieces back to the correct value
+  // since the shallow copy of the append filter has overwritten them.
+  output->SetUpdateNumberOfPieces(outNumPieces );
+  output->SetUpdatePiece(outPiece);
+  output->SetUpdateGhostLevel(outGhost);
   append->Delete();
 }
 
