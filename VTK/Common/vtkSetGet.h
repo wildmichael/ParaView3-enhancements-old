@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSetGet.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-18 16:03:14 $
-  Version:   $Revision: 1.77 $
+  Date:      $Date: 2000-12-19 00:29:48 $
+  Version:   $Revision: 1.78 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -434,6 +434,7 @@ virtual void Get##name (type data[count]) \
 // This is to avoid vtkObject #include of vtkOutputWindow
 // while vtkOutputWindow #includes vtkObject
 
+extern VTK_EXPORT void vtkOutputWindowDisplayText(const char*);
 extern VTK_EXPORT void vtkOutputWindowDisplayErrorText(const char*);
 extern VTK_EXPORT void vtkOutputWindowDisplayWarningText(const char*);
 extern VTK_EXPORT void vtkOutputWindowDisplayGenericWarningText(const char*);
