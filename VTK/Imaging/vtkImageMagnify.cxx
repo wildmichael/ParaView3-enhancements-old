@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMagnify.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-02-18 14:21:12 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1999-02-19 16:34:06 $
+  Version:   $Revision: 1.20 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -156,6 +156,7 @@ static void vtkImageMagnifyExecute(vtkImageMagnify *self,
   inMaxX = inExt[1];
   inMaxY = inExt[3];
   inMaxZ = inExt[5];
+  inData->GetExtent(idxC, inMaxX, idxC, inMaxY, idxC, inMaxZ);
   
   // Loop through ouput pixels
   for (idxC = 0; idxC < maxC; idxC++)
