@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageVariance3D.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-11 20:13:19 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-05-11 20:16:10 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -54,30 +54,27 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 #include "vtkImageSpatialFilter.h"
 
+class vtkImageEllipsoidSource;
+
 class VTK_EXPORT vtkImageVariance3D : public vtkImageSpatialFilter
 {
 public:
   vtkImageVariance3D();
+  ~vtkImageVariance3D();
   static vtkImageVariance3D *New() 
     {return new vtkImageVariance3D;};
   const char *GetClassName() {return "vtkImageVariance3D";};
   void PrintSelf(ostream& os, vtkIndent indent);
   
-  void SetFilteredAxes(int axis0, int axis1, int axis2);
-
   // Set/Get the size of the neighood.
   void SetKernelSize(int size0, int size1, int size2);
   
-  // Description:
-  // Get the Mask used as a footprint.
-  vtkGetObjectMacro(Mask, vtkImageRegion);
-  
 protected:
-  vtkImageRegion *Mask;
+  vtkImageEllipsoidSource *Ellipse;
     
-  void ExecuteCenter(vtkImageRegion *inRegion, vtkImageRegion *outRegion);
-  void Execute(vtkImageRegion *inRegion, vtkImageRegion *outRegion);
-  void ComputeMask();
+  void ExecuteImageInformation();
+  void ThreadedExecute(vtkImageData *inData, vtkImageData *outData, 
+		       int extent[6], int id);
 };
 
 #endif
