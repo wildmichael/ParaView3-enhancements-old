@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-07-29 21:17:00 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2003-08-22 18:18:50 $
+  Version:   $Revision: 1.38 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,9 +22,12 @@
 
 #if !defined(_WIN32) || defined(__CYGWIN__)
 # include <unistd.h> /* unlink */
+#else
+# include <io.h> /* unlink */
 #endif
 
-vtkCxxRevisionMacro(vtkStructuredPointsWriter, "$Revision: 1.37 $");
+
+vtkCxxRevisionMacro(vtkStructuredPointsWriter, "$Revision: 1.38 $");
 vtkStandardNewMacro(vtkStructuredPointsWriter);
 
 //----------------------------------------------------------------------------

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSTLWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-08-06 21:24:46 $
-  Version:   $Revision: 1.52 $
+  Date:      $Date: 2003-08-22 18:18:50 $
+  Version:   $Revision: 1.53 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,9 +26,11 @@
 
 #if !defined(_WIN32) || defined(__CYGWIN__)
 # include <unistd.h> /* unlink */
+#else
+# include <io.h> /* unlink */
 #endif
 
-vtkCxxRevisionMacro(vtkSTLWriter, "$Revision: 1.52 $");
+vtkCxxRevisionMacro(vtkSTLWriter, "$Revision: 1.53 $");
 vtkStandardNewMacro(vtkSTLWriter);
 
 vtkSTLWriter::vtkSTLWriter()
