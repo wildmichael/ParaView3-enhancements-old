@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPointLoad.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-16 08:29:11 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1995-07-17 17:05:31 $
+  Version:   $Revision: 1.2 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -33,6 +33,8 @@ public:
   char *GetClassName() {return "vtkPointLoad";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
+  // Description:
+  // Set/Get value of applied load.
   vtkSetMacro(LoadValue,float);
   vtkGetMacro(LoadValue,float);
 
@@ -44,10 +46,16 @@ public:
   void SetModelBounds(float *bounds);
   vtkGetVectorMacro(ModelBounds,float,6);
 
+  // Description:
+  // Set/Get Poisson's ratio.
+  vtkSetMacro(PoissonsRatio,float);
+  vtkGetMacro(PoissonsRatio,float);
+
 protected:
   void Execute();
 
   float LoadValue;
+  float PoissonsRatio;
   int SampleDimensions[3];
   float ModelBounds[6];
 
