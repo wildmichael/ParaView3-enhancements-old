@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetAttributes.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-13 22:44:37 $
-  Version:   $Revision: 1.58 $
+  Date:      $Date: 2002-02-19 19:01:06 $
+  Version:   $Revision: 1.59 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -33,7 +33,7 @@
 #include "vtkIdTypeArray.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkDataSetAttributes, "$Revision: 1.58 $");
+vtkCxxRevisionMacro(vtkDataSetAttributes, "$Revision: 1.59 $");
 vtkStandardNewMacro(vtkDataSetAttributes);
 
 //--------------------------------------------------------------------------
@@ -1385,10 +1385,13 @@ int vtkDataSetAttributes::SetActiveAttribute(int index, int attributeType)
     this->Modified();
     return index;
     }
-  else
+  else if (index == -1)
     {
-    return -1;
+    this->AttributeIndices[attributeType] = index;
+    this->Modified();
     }
+
+  return -1;
 }
 
 const int vtkDataSetAttributes
