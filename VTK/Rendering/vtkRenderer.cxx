@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:55:01 $
-  Version:   $Revision: 1.58 $
+  Date:      $Date: 1996-08-26 18:27:38 $
+  Version:   $Revision: 1.59 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -570,7 +570,7 @@ float *vtkRenderer::GetViewRays()
 
   unsigned long  cam_mtime;
 
-  int    update_rays = false;
+  int    update_rays = 0;
 
   // get physical window dimensions
   rwin_size = this->RenderWindow->GetSize();
@@ -592,7 +592,7 @@ float *vtkRenderer::GetViewRays()
 
     this->ViewRays = new float[(size[0]*size[1]*3)];
 
-    update_rays = true;
+    update_rays = 1;
   }
 
   // Check to see if camera mtime has changed
@@ -601,7 +601,7 @@ float *vtkRenderer::GetViewRays()
   if( cam_mtime != this->ViewRaysCamMtime )
     {
     this->ViewRaysCamMtime = cam_mtime;
-    update_rays = true;
+    update_rays = 1;
     }
 
   if( update_rays )
