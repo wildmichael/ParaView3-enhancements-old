@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSocketCommunicator.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-21 21:23:24 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2001-06-21 21:28:33 $
+  Version:   $Revision: 1.12 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -114,7 +114,7 @@ static int SendMessage(T* data, int length, int tag, int sock, int maxSize)
 
   int totalLength = length*sizeof(T);
   int sent;
-  sent = send(sock, data, totalLength, 0);
+  sent = send(sock, (char*)data, totalLength, 0);
   if (sent == -1)
     {
     vtkGenericWarningMacro("Could not send message.");
@@ -123,7 +123,7 @@ static int SendMessage(T* data, int length, int tag, int sock, int maxSize)
   cout << "Sent: " << sent << endl;
   while ( sent < totalLength )
     {
-    sent += send ( sock, &(data[sent]), totalLength-sent, 0 );
+    sent += send ( sock, (char*)data+sent, totalLength-sent, 0 );
     if (sent == -1)
       {
       vtkGenericWarningMacro("Could not send message.");
