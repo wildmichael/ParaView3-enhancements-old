@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPVContourFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-09 18:53:52 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2000-08-21 16:17:24 $
+  Version:   $Revision: 1.14 $
 
 Copyright (c) 1998-2000 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -127,7 +127,7 @@ void vtkPVContourFilter::SetOutput(vtkPVPolyData *pvd)
     }  
   
   this->SetPVData(pvd);  
-  pvd->SetPolyData(this->Contour->GetOutput());
+  pvd->SetData(this->Contour->GetOutput());
 }
 
 //----------------------------------------------------------------------------
