@@ -1,8 +1,8 @@
 /************************************************************************
   Module:    $RCSfile: otherEmptyCell.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-03 13:42:05 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-12-07 16:00:06 $
+  Version:   $Revision: 1.2 $
  ************************************************************************/
 
 #include "vtkEmptyCell.h"
@@ -82,7 +82,7 @@ void Test(ostream& strm)
   strm << "Testing EmptyCell Complete" << endl;
 }
 
-int main(int argc, char* argv[])
+int main()
 {
   vtkDebugLeaks::PromptUserOff();
 

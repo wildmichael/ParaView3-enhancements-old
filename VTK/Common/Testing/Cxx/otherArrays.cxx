@@ -1,8 +1,8 @@
 /************************************************************************
   Module:    $RCSfile: otherArrays.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-10-14 17:03:51 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-12-07 16:00:05 $
+  Version:   $Revision: 1.5 $
  ************************************************************************/
 
 #include "vtkDebugLeaks.h"
@@ -451,7 +451,7 @@ void Test(ostream& strm)
   }
 }
 
-int main(int argc, char* argv[])
+int main()
 {
   vtkDebugLeaks::PromptUserOff();
 

@@ -3,8 +3,8 @@
   Program: 
   Module:    $RCSfile: otherCellArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-11 18:52:53 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-12-07 16:00:06 $
+  Version:   $Revision: 1.3 $
 
   ==========================================================================*/
 
@@ -72,7 +72,7 @@ void Test(ostream& strm)
   strm << "Test CellArray Complete" << endl;
 }
 
-int main(int argc, char* argv[])
+int main()
 {
   vtkDebugLeaks::PromptUserOff();
 

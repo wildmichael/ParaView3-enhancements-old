@@ -3,8 +3,8 @@
   Program: 
   Module:    $RCSfile: otherCellBoundaries.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-10-06 19:17:56 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-12-07 16:00:06 $
+  Version:   $Revision: 1.2 $
 
   ==========================================================================*/
 
@@ -354,7 +354,7 @@ void Test(ostream& strm)
 }
 
 
-int main(int argc, char* argv[])
+int main()
 {
   vtkDebugLeaks::PromptUserOff();
 

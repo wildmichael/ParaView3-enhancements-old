@@ -3,8 +3,8 @@
   Program: 
   Module:    $RCSfile: otherRectilinearGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-02 16:41:27 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-12-07 16:00:07 $
+  Version:   $Revision: 1.3 $
 
   ==========================================================================*/
 
@@ -586,7 +586,7 @@ void Test(ostream& strm)
   
 }
 
-int main(int argc, char* argv[])
+int main()
 {
   vtkDebugLeaks::PromptUserOff();
 

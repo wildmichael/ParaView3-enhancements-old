@@ -3,8 +3,8 @@
   Program: 
   Module:    $RCSfile: otherCellPosition.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-10-06 19:17:57 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-12-07 16:00:06 $
+  Version:   $Revision: 1.2 $
 
   ==========================================================================*/
 
@@ -420,7 +420,7 @@ void Test(ostream& strm)
   strm << "Test vtkCell::CellPosition Complete" << endl;
 }
 
-int main(int argc, char* argv[])
+int main()
 {
   vtkDebugLeaks::PromptUserOff();
 

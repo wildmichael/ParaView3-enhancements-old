@@ -3,8 +3,8 @@
   Program: 
   Module:    $RCSfile: otherByteSwap.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-11 15:51:39 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-12-07 16:00:05 $
+  Version:   $Revision: 1.2 $
 
   ==========================================================================*/
 
@@ -147,7 +147,7 @@ int Test(ostream& strm)
 }
 
 
-int main(int argc, char* argv[])
+int main()
 {
   vtkDebugLeaks::PromptUserOff();
 

@@ -3,8 +3,8 @@
   Program: 
   Module:    $RCSfile: otherCellTypes.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 12:51:15 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-12-07 16:00:06 $
+  Version:   $Revision: 1.3 $
 
   ==========================================================================*/
 
@@ -69,7 +69,7 @@ void Test(ostream& strm)
   strm << "Test CellTypes Complete" << endl;
 }
 
-int main(int argc, char* argv[])
+int main()
 {
   vtkDebugLeaks::PromptUserOff();
 

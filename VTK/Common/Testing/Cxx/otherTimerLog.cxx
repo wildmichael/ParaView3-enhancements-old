@@ -3,8 +3,8 @@
   Program: 
   Module:    $RCSfile: otherTimerLog.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-06 03:45:17 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2001-12-07 16:00:07 $
+  Version:   $Revision: 1.8 $
 
   ==========================================================================*/
 
@@ -56,7 +56,7 @@ void Test(ostream& strm)
 }
 
 
-int main(int argc, char* argv[])
+int main()
 {
   vtkDebugLeaks::PromptUserOff();
 
