@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyle.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:56 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2001-08-30 15:35:18 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -83,6 +83,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // Eyes LCD stereo glasses; you have to invoke SetStereoTypeToCrystalEyes()
 // on the rendering window.
 // - Keypress e: exit the application.
+// - Keypress f: fly to the picked point
 // - Keypress p: perform a pick operation. The render window interactor has
 // an internal instance of vtkCellPicker that it uses to pick. 
 // - Keypress r: reset the camera view along the current view

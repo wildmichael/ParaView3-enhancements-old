@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyle.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-25 14:17:13 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 2001-08-30 15:35:18 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -695,6 +695,26 @@ void vtkInteractorStyle::OnChar(int ctrl, int shift,
       rwi->ExitCallback();
       break;
       //-----
+    case 'f' :      
+    case 'F' :
+      {
+      this->AnimState = VTKIS_ANIM_ON;
+      vtkAssemblyPath *path=NULL;
+      this->FindPokedRenderer(this->LastPos[0],this->LastPos[1]);
+      rwi->GetPicker()->Pick(this->LastPos[0],this->LastPos[1], 0.0, 
+                             this->CurrentRenderer);
+      vtkAbstractPropPicker *picker;
+      if ( (picker=vtkAbstractPropPicker::SafeDownCast(rwi->GetPicker())) )
+        {
+        path = picker->GetPath();
+        }
+      if ( path != NULL )
+        {
+        rwi->FlyTo(this->CurrentRenderer,picker->GetPickPosition());
+        }
+      this->AnimState = VTKIS_ANIM_OFF;
+      break;
+      }
     case 'u' :
     case 'U' :
       rwi->UserCallback();
@@ -709,43 +729,43 @@ void vtkInteractorStyle::OnChar(int ctrl, int shift,
       //-----
     case 'w' :
     case 'W' :
-    {
-    vtkActorCollection *ac;
-    vtkActor *anActor, *aPart;
-    vtkAssemblyPath *path;
-    this->FindPokedRenderer(this->LastPos[0],this->LastPos[1]);
-    ac = this->CurrentRenderer->GetActors();
-    for (ac->InitTraversal(); (anActor = ac->GetNextItem()); ) 
       {
-      for (anActor->InitPathTraversal(); (path=anActor->GetNextPath()); ) 
+      vtkActorCollection *ac;
+      vtkActor *anActor, *aPart;
+      vtkAssemblyPath *path;
+      this->FindPokedRenderer(this->LastPos[0],this->LastPos[1]);
+      ac = this->CurrentRenderer->GetActors();
+      for (ac->InitTraversal(); (anActor = ac->GetNextItem()); ) 
         {
-        aPart=(vtkActor *)path->GetLastNode()->GetProp();
-        aPart->GetProperty()->SetRepresentationToWireframe();
+        for (anActor->InitPathTraversal(); (path=anActor->GetNextPath()); ) 
+          {
+          aPart=(vtkActor *)path->GetLastNode()->GetProp();
+          aPart->GetProperty()->SetRepresentationToWireframe();
+          }
         }
+      rwi->Render();
       }
-    rwi->Render();
-    }
-    break;
+      break;
     //-----
     case 's' :
     case 'S' :
-    {
-    vtkActorCollection *ac;
-    vtkActor *anActor, *aPart;
-    vtkAssemblyPath *path;
-    this->FindPokedRenderer(this->LastPos[0],this->LastPos[1]);
-    ac = this->CurrentRenderer->GetActors();
-    for (ac->InitTraversal(); (anActor = ac->GetNextItem()); ) 
       {
-      for (anActor->InitPathTraversal(); (path=anActor->GetNextPath()); ) 
+      vtkActorCollection *ac;
+      vtkActor *anActor, *aPart;
+      vtkAssemblyPath *path;
+      this->FindPokedRenderer(this->LastPos[0],this->LastPos[1]);
+      ac = this->CurrentRenderer->GetActors();
+      for (ac->InitTraversal(); (anActor = ac->GetNextItem()); ) 
         {
-        aPart=(vtkActor *)path->GetLastNode()->GetProp();
-        aPart->GetProperty()->SetRepresentationToSurface();
+        for (anActor->InitPathTraversal(); (path=anActor->GetNextPath()); ) 
+          {
+          aPart=(vtkActor *)path->GetLastNode()->GetProp();
+          aPart->GetProperty()->SetRepresentationToSurface();
+          }
         }
+      rwi->Render();
       }
-    rwi->Render();
-    }
-    break;
+      break;
     //-----
     case '3' :
       if (rwi->GetRenderWindow()->GetStereoRender()) 
