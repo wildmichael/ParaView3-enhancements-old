@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkParticleReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-01-14 22:55:22 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2003-01-15 04:06:05 $
+  Version:   $Revision: 1.15 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,7 +25,7 @@
 #include "vtkPoints.h"
 #include "vtkPolyData.h"
 
-vtkCxxRevisionMacro(vtkParticleReader, "$Revision: 1.14 $");
+vtkCxxRevisionMacro(vtkParticleReader, "$Revision: 1.15 $");
 vtkStandardNewMacro(vtkParticleReader);
 
 // These are copied right from vtkImageReader.
@@ -175,7 +175,7 @@ void vtkParticleReader::Execute()
   if ( this->File->gcount() != (length*4*sizeof(float))
      // On apple read to eof returns fail
 #ifndef __APPLE_CC__     
-     || this->File->Fail()
+     || this->File->fail()
 #endif // __APPLE_CC__     
      )
     {
