@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractGeometry.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:03:45 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1998-05-06 19:14:31 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -67,18 +67,20 @@ unsigned long vtkExtractGeometry::GetMTime()
 
 void vtkExtractGeometry::Execute()
 {
-  int ptId, numPts, numCells, i, cellId;
+  int ptId, numPts, numCells, i, cellId, newCellId;
   vtkIdList *cellPts;
   vtkCell *cell;
   int numCellPts, newId, *pointMap;
-  vtkPointData *pd;
   float *x;
   float multiplier;
   vtkPoints *newPts;
   vtkIdList newCellPts(VTK_CELL_SIZE);
   vtkDataSet *input = (vtkDataSet *)this->Input;
+  vtkPointData *pd = input->GetPointData();
+  vtkCellData *cd = input->GetCellData();
   vtkUnstructuredGrid *output = this->GetOutput();
   vtkPointData *outputPD = output->GetPointData();
+  vtkCellData *outputCD = output->GetCellData();
   
   vtkDebugMacro(<< "Extracting geometry");
 
@@ -102,8 +104,8 @@ void vtkExtractGeometry::Execute()
   output->Allocate(numCells/4); //allocate storage for geometry/topology
   newPts = vtkPoints::New();
   newPts->Allocate(numPts/4,numPts);
-  pd = input->GetPointData();
   outputPD->CopyAllocate(pd);
+  outputCD->CopyAllocate(cd);
   
   for ( ptId=0; ptId < numPts; ptId++ )
     {
@@ -135,7 +137,8 @@ void vtkExtractGeometry::Execute()
 
     if ( i >= numCellPts )
       {
-      output->InsertNextCell(cell->GetCellType(),newCellPts);
+      newCellId = output->InsertNextCell(cell->GetCellType(),newCellPts);
+      outputCD->CopyData(cd,cellId,newCellId);
       }
     }
 //

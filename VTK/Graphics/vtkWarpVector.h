@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpVector.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:49:34 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1998-05-06 19:14:38 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -43,6 +43,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // vtkWarpVector is a filter that modifies point coordinates by moving
 // points along vector times the scale factor. Useful for showing flow
 // profiles or mechanical deformation.
+//
+// The filter passes both its point data and cell data to its output.
 
 #ifndef __vtkWarpVector_h
 #define __vtkWarpVector_h

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpScalar.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:05:34 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1998-05-06 19:14:36 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -133,6 +133,8 @@ void vtkWarpScalar::Execute()
 //
   output->GetPointData()->CopyNormalsOff(); // distorted geometry 
   output->GetPointData()->PassData(input->GetPointData());
+  output->GetCellData()->CopyNormalsOff(); // distorted geometry 
+  output->GetCellData()->PassData(input->GetCellData());
 
   output->SetPoints(newPts);
   newPts->Delete();

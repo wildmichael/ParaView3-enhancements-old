@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkShrinkPolyData.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:47:29 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1998-05-06 19:14:34 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -45,6 +45,10 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // The centroid of a cell is computed as the average position of the
 // cell points. Shrinking results in disconnecting the cells from
 // one another. The output dataset type of this filter is polygonal data.
+//
+// During execution the filter passes its input cell data to its
+// output. Point data attributes are copied to the points created during the
+// shrinking process.
 // .SECTION Caveats
 // It is possible to turn cells inside out or cause self intersection
 // in special cases.
