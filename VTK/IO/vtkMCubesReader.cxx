@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMCubesReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-05-30 13:54:15 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1996-06-08 13:07:19 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -155,7 +155,11 @@ void vtkMCubesReader::Execute()
     for (j=0; j<3; j++) 
       {
       fread (&point, sizeof(pointType), 1, fp);
-      nodes[j] = this->Locator->InsertPoint(point.x);
+      if ( (nodes[j] = this->Locator->IsInsertedPoint(point.x)) < 0 )
+        {
+        nodes[j] = this->Locator->InsertNextPoint(point.x);
+        }
+
       if ( this->Normals )
         {
         for (k=0; k<3; k++) n[k] = point.n[k] * direction;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangle.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-05-30 01:49:39 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 1996-06-08 13:07:26 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -421,7 +421,8 @@ float vtkTriangle::Circumcircle(float  x1[2], float x2[2], float x3[2],
     sum += diff*diff;
     }
 
-  return (float) (sum / 3.0);
+  if ( (sum /= 3.0) > VTK_LARGE_FLOAT ) return VTK_LARGE_FLOAT;
+  else return sum;
 }
 #undef VTK_DOT
 

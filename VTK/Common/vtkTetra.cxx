@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTetra.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-05-30 01:49:36 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1996-06-08 13:07:25 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -453,7 +453,8 @@ float vtkTetra::Circumsphere(float  x1[3], float x2[3], float x3[3],
     sum += diff*diff;
     }
 
-  return (float)(sum / 4.0);
+  if ( (sum /= 4.0) > VTK_LARGE_FLOAT ) return VTK_LARGE_FLOAT;
+  else return sum;
 }
 #undef VTK_DOT
 
