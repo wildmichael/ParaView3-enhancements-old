@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataNormals.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-17 17:56:37 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1999-11-24 14:52:07 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -256,6 +256,7 @@ void vtkPolyDataNormals::Execute()
   //
   PolyNormals = vtkNormals::New();
   PolyNormals->Allocate(numPolys);
+  PolyNormals->SetNumberOfNormals(numPolys);
 
   for (cellId=0, newPolys->InitTraversal(); newPolys->GetNextCell(npts,pts); 
   cellId++ )
