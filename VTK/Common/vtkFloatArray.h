@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkFloatArray.h,v $
   Language:  C++
-  Date:      $Date: 1994-02-04 12:42:21 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1994-03-25 10:12:57 $
+  Version:   $Revision: 1.9 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -44,7 +44,8 @@ public:
   void operator+=(const float f) {this->InsertNextValue(f);};
   // operator[] can be used on both left and right side of expression;
   // Note: if used on lh side, user's responsibility to do range checking
-  float& operator[](const int i) {return this->Array[i];};
+  float& operator[](const int i)
+    {if (i > this->MaxId) this->MaxId = i; return this->Array[i];};
   void Squeeze() {this->Resize (this->MaxId+1);};
   int GetSize() {return this->Size;};
   int GetMaxId() {return this->MaxId;};
