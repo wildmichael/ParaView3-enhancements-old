@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTreeComposite.h,v $
   Language:  C++
-  Date:      $Date: 2002-11-21 16:18:21 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2002-11-22 16:31:36 $
+  Version:   $Revision: 1.24 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,12 +24,6 @@
 #define __vtkTreeComposite_h
 
 #include "vtkCompositeManager.h"
-
-//BTX
-#ifdef VTK_REMOVE_LEGACY_CODE
-vtkTreeComposite_is_deprecated__Do_not_use
-#endif
-//ETX
 
 class VTK_PARALLEL_EXPORT vtkTreeComposite : public vtkCompositeManager
 {
