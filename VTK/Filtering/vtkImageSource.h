@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSource.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-03 10:39:08 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 1999-08-04 17:24:52 $
+  Version:   $Revision: 1.31 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -75,6 +75,12 @@ public:
   // Description:
   // Legacy.  Sets the UpdateExtent to the WholeExtent, and Updates.
   void UpdateWholeExtent();
+  
+  // Description:
+  // For streaming.  ExecuteExtent is set to the extent
+  // of the output that is currently being generated. 
+  // Note: Threaded execution might break this up further.
+  int *GetExecuteExtent() {return this->ExecuteExtent;}
   
 protected:
   // Used by streaming: The extent of the output being processed
