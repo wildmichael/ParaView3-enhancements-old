@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLookupTable.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:35:39 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1995-08-22 12:51:55 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -222,7 +222,7 @@ void vtkLookupTable::SetTableValue (int indx, float rgba[4])
 void vtkLookupTable::SetTableValue(int indx, float r, float g, float b, float a)
 {
   float rgba[4];
-  rgba[0] = r; rgba[1] = g; rgba[2] = b; rgba[4] = a;
+  rgba[0] = r; rgba[1] = g; rgba[2] = b; rgba[3] = a;
   this->SetTableValue(indx,rgba);
 }
 
