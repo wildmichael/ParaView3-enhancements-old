@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStructuredGridWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-05-02 18:44:16 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1995-05-24 08:35:01 $
+  Version:   $Revision: 1.5 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -48,6 +48,8 @@ void vlStructuredGridWriter::WriteData()
   this->WritePoints(fp, input->GetPoints());
 
   this->WritePointData(fp, input);
+
+  this->CloseVLFile(fp);
 }
 
 void vlStructuredGridWriter::PrintSelf(ostream& os, vlIndent indent)
