@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageGaussianSmooth.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-10-03 12:04:09 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1996-10-29 18:19:07 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -43,6 +43,12 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 //----------------------------------------------------------------------------
 vtkImageGaussianSmooth::vtkImageGaussianSmooth()
 {
+  int idx;
+
+  for (idx = 0; idx < VTK_IMAGE_DIMENSIONS; ++idx)
+    {
+    this->Strides[idx] = 1;
+    }
 }
 
 
@@ -67,6 +73,8 @@ void vtkImageGaussianSmooth::SetDimensionality(int num)
       }
     this->Filters[idx] = new vtkImageGaussianSmooth1D;
     this->Filters[idx]->SetAxes(this->Axes[idx]);
+    ((vtkImageGaussianSmooth1D *)
+     (this->Filters[idx]))->SetStride(this->Strides[idx]);
     }
   
   this->Dimensionality = num;
@@ -130,5 +138,24 @@ void vtkImageGaussianSmooth::SetRadiusFactor(float factor)
       }
     }
 
+  this->Modified();
+}
+
+
+//----------------------------------------------------------------------------
+void vtkImageGaussianSmooth::SetStrides(int num, int *strides)
+{
+  int idx;
+  
+  for (idx = 0; idx < num; ++idx)
+    {
+    this->Strides[idx] = strides[idx];
+    if (this->Filters[idx])
+      {
+      ((vtkImageGaussianSmooth1D *)
+       (this->Filters[idx]))->SetStride(strides[idx]);
+      }
+    }
+  
   this->Modified();
 }
