@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkUnstructuredGridReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-05-24 08:04:55 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1995-05-24 09:48:29 $
+  Version:   $Revision: 1.6 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -213,7 +213,7 @@ void vlUnstructuredGridReader::Execute()
           }
         else //ascii
           {
-          for (int i=0; i<size; i++)
+          for (int i=0; i<ncells; i++)
             {
             if ((retStat=fscanf(fp,"%d",types+i)) == EOF || retStat < 1) 
               {
