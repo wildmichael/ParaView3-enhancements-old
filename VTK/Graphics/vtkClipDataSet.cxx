@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipDataSet.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-08 20:56:20 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2002-02-11 20:55:12 $
+  Version:   $Revision: 1.16 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkClipDataSet, "$Revision: 1.15 $");
+vtkCxxRevisionMacro(vtkClipDataSet, "$Revision: 1.16 $");
 vtkStandardNewMacro(vtkClipDataSet);
 
 //----------------------------------------------------------------------------
@@ -391,4 +391,10 @@ void vtkClipDataSet::PrintSelf(ostream& os, vtkIndent indent)
 
   os << indent << "Generate Clipped Output: " 
      << (this->GenerateClippedOutput ? "On\n" : "Off\n");
+
+  if (this->InputScalarsSelection)
+    {
+    os << indent << "InputScalarsSelection: " 
+       << this->InputScalarsSelection << endl;
+    }
 }
