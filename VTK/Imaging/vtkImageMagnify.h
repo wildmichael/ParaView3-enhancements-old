@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMagnify.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-16 21:09:12 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1999-06-16 19:33:57 $
+  Version:   $Revision: 1.13 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,15 +38,15 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-// .NAME vtkImageMagnify - Magnifies an image by integer values
+// .NAME vtkImageMagnify - magnify an image by an integer value
 // .SECTION Description
 // vtkImageMagnify maps each pixel of the input onto a nxmx... region
-// of the output.  Location (0,0,...) remains in the same place.
-
+// of the output.  Location (0,0,...) remains in the same place. The
+// magnification occurs via pixel replication, or if Interpolate is on,
+// by bilinear interpolation.
 
 #ifndef __vtkImageMagnify_h
 #define __vtkImageMagnify_h
-
 
 #include "vtkImageFilter.h"
 
@@ -59,12 +59,12 @@ public:
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
-  // Set/Get Magnification factors
+  // Set/Get the integer magnification factors in the i-j-k directions.
   vtkSetVector3Macro(MagnificationFactors,int);
   vtkGetVector3Macro(MagnificationFactors,int);
   
   // Description:
-  // Turn interpolation on and off (pixel replication used when off)
+  // Turn interpolation on and off (pixel replication is used when off).
   vtkSetMacro(Interpolate,int);
   vtkGetMacro(Interpolate,int);
   vtkBooleanMacro(Interpolate,int);
