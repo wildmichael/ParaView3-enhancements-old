@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTetra.h,v $
   Language:  C++
-  Date:      $Date: 1996-02-26 14:58:43 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1996-07-03 20:46:53 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -85,6 +85,10 @@ public:
   int BarycentricCoords(float x[3], float  x1[3], float x2[3], float x3[3], 
                         float x4[3], float bcoords[4]);
   
+  void InterpolationFunctions(float pcoords[3], float weights[4]);
+  void InterpolationDerivs(float derivs[12]);
+  void JacobianInverse(double **inverse, float derivs[12]);
+
 };
 
 #endif
