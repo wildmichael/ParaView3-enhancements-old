@@ -16,12 +16,13 @@
 
 #include "vtkImageData.h"
 
-vtkCxxRevisionMacro(vtkSimpleImageToImageFilter, "$Revision: 1.11 $");
+vtkCxxRevisionMacro(vtkSimpleImageToImageFilter, "$Revision: 1.12 $");
 
 //----------------------------------------------------------------------------
 vtkSimpleImageToImageFilter::vtkSimpleImageToImageFilter()
 {
   this->NumberOfRequiredInputs = 1;
+  this->SetNumberOfInputPorts(1);
 }
 
 //----------------------------------------------------------------------------
