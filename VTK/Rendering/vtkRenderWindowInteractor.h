@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 1997-10-28 20:53:48 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 1998-05-06 19:25:55 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -186,6 +186,7 @@ protected:
   float DeltaElevation;
   int   Size[2];
   int   State;
+  int   AnimationState;
   float FocalDepth;
   int   Initialized;
   float DesiredUpdateRate;

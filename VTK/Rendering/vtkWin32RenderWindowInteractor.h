@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32RenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:49:38 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1998-05-06 19:25:56 $
+  Version:   $Revision: 1.9 $
   
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -62,6 +62,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkWin32RenderWindowInteractor_h
 #define __vtkWin32RenderWindowInteractor_h
 
+#include <stdlib.h>
 #include "vtkRenderWindowInteractor.h"
 
 class VTK_EXPORT vtkWin32RenderWindowInteractor : public vtkRenderWindowInteractor
@@ -82,6 +83,8 @@ public:
   void EndZoom();
   void StartPan();
   void EndPan();
+  void StartAnimation();
+  void EndAnimation();
   //BTX
   friend LRESULT CALLBACK vtkHandleMessage(HWND hwnd,UINT uMsg,
 					   WPARAM w, LPARAM l);
