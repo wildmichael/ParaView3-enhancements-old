@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:17:35 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 2001-12-07 16:03:44 $
+  Version:   $Revision: 1.49 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -94,7 +94,8 @@ public:
   // Description:
   // Set the size of the window.
   virtual void SetSize(int,int);
-
+  virtual void SetSize(int a[2]) {vtkOpenGLRenderWindow::SetSize(a);};
+  
   // Description:
   // Get the current size of the window.
   virtual int *GetSize();
@@ -102,6 +103,7 @@ public:
   // Description:
   // Set the position of the window.
   virtual void SetPosition(int,int);
+  virtual void SetPosition(int a[2]) {vtkOpenGLRenderWindow::SetPosition(a);};
   
   // Description:
   // Return the screen size.

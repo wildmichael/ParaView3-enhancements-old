@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-29 13:42:25 $
-  Version:   $Revision: 1.76 $
+  Date:      $Date: 2001-12-07 16:03:43 $
+  Version:   $Revision: 1.77 $
   Thanks:    to Horst Schreiber for developing this MFC code
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -356,7 +356,7 @@ void vtkWin32OpenGLRenderWindow::SetupPixelFormat(HDC hDC, DWORD dwFlags,
     DescribePixelFormat(hDC, pixelFormat,sizeof(pfd), &pfd); 
     if (SetPixelFormat(hDC, pixelFormat, &pfd) != TRUE) 
       {
-      int err = GetLastError();
+      // int err = GetLastError();
       MessageBox(WindowFromDC(hDC), "SetPixelFormat failed.", "Error",
                  MB_ICONERROR | MB_OK);
       exit(1);
@@ -961,8 +961,6 @@ void vtkWin32OpenGLRenderWindow::CreateOffScreenDC(HBITMAP hbmp, HDC aHdc)
   
   // Create a compatible device context
   this->MemoryHdc = (HDC)CreateCompatibleDC(aHdc);
-  int cxPage = GetDeviceCaps(aHdc,LOGPIXELSX);
-  int mxPage = GetDeviceCaps(this->MemoryHdc,LOGPIXELSX);
   
   // Put the bitmap into the device context
   SelectObject(this->MemoryHdc, this->MemoryBuffer);
