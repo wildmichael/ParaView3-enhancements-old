@@ -1,12 +1,10 @@
-// -*- c++ -*- *******************************************************
-
 /*=========================================================================
 
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIceTRenderManager.h,v $
   Language:  C++
-  Date:      $Date: 2003-09-24 17:44:43 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2003-09-24 19:35:11 $
+  Version:   $Revision: 1.4 $
 
   Copyright 2003 Sandia Coporation
   Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -52,8 +50,7 @@
 
 #include <GL/ice-t.h>
 
-class VTK_EXPORT vtkIceTRenderManager
-    : public vtkParallelRenderManager
+class VTK_EXPORT vtkIceTRenderManager : public vtkParallelRenderManager
 {
 public:
   static vtkIceTRenderManager *New();
