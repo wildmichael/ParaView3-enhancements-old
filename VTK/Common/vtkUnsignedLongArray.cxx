@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnsignedLongArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-19 17:51:14 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2001-12-27 21:41:33 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -408,5 +408,5 @@ void vtkUnsignedLongArray::InsertComponent(const vtkIdType i, const int j,
                                            const float c)
 {
   this->InsertValue(i*this->NumberOfComponents + j, 
-                    static_cast<const unsigned long>(c));
+                    static_cast<unsigned long>(c));
 }

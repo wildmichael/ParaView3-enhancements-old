@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLongArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-19 17:51:13 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2001-12-27 21:41:33 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -403,5 +403,5 @@ void vtkLongArray::InsertComponent(const vtkIdType i, const int j,
                                    const float c)
 {
   this->InsertValue(i*this->NumberOfComponents + j, 
-                    static_cast<const long>(c));
+                    static_cast<long>(c));
 }
