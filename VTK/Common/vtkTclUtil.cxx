@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTclUtil.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-10-20 13:56:34 $
-  Version:   $Revision: 1.56 $
+  Date:      $Date: 2000-10-23 21:05:05 $
+  Version:   $Revision: 1.57 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -67,8 +67,7 @@ VTKTCL_EXPORT int vtkTclInDelete(Tcl_Interp *interp)
 
 
 // just another way into DeleteCommand
-VTKTCL_EXPORT void vtkTclDeleteObjectFromHash(vtkObject *obj, void *cd, 
-                                              void *callData)
+VTKTCL_EXPORT void vtkTclDeleteObjectFromHash(vtkObject *obj, void *cd, void *)
 {
   vtkTclCommandArgStruct *as = (vtkTclCommandArgStruct *)cd;
   char temps[80];
