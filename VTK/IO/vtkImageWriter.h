@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageWriter.h,v $
   Language:  C++
-  Date:      $Date: 1999-02-24 17:47:56 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-04-15 18:52:47 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -97,7 +97,8 @@ public:
   vtkSetObjectMacro(Input,vtkImageCache);
   vtkGetObjectMacro(Input,vtkImageCache);
   void SetInput(vtkStructuredPoints *spts)
-    {this->SetInput(spts->GetStructuredPointsToImage()->GetOutput());}
+    {vtkStructuredPointsToImage *tmp = spts->MakeStructuredPointsToImage();
+     this->SetInput(tmp->GetOutput()); tmp->Delete();}
 
   // Description:
   // The main interface which triggers the writer to start.
