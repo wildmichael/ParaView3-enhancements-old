@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSplineWidget.h,v $
   Language:  C++
-  Date:      $Date: 2003-03-06 20:26:29 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2003-05-09 15:12:10 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -181,7 +181,7 @@ public:
 
   // Description:
   // Set/Get the number of handles for this widget.
-  void SetNumberOfHandles(int npts);
+  virtual void SetNumberOfHandles(int npts);
   vtkGetMacro(NumberOfHandles, int);
 
   // Description:
