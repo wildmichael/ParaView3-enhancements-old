@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredVisibilityConstraint.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-11-05 14:49:14 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-11-13 15:18:14 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 #include "vtkUnsignedCharArray.h"
 
 vtkCxxRevisionMacro(vtkStructuredVisibilityConstraint, 
-                    "$Revision: 1.1 $");
+                    "$Revision: 1.2 $");
 vtkStandardNewMacro(vtkStructuredVisibilityConstraint);
 
 vtkCxxSetObjectMacro(vtkStructuredVisibilityConstraint,
@@ -34,7 +34,7 @@ vtkStructuredVisibilityConstraint::vtkStructuredVisibilityConstraint()
   this->VisibilityById = 0;
   for (int i=0; i<3; i++)
     {
-    this->Dimensions[3] = 0;
+    this->Dimensions[i] = 0;
     }
   this->NumberOfIds = 0;
   this->Initialized = 0;
