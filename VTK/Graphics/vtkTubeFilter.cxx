@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTubeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:48:54 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1997-07-11 15:27:26 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -123,9 +123,6 @@ void vtkTubeFilter::Execute()
         {
         vtkErrorMacro(<< "No normals for line!\n");
         if (deleteNormals) inNormals->Delete();
-        newPts->Delete();
-        newNormals->Delete();
-        newStrips->Delete();
         return;
         }
       }
