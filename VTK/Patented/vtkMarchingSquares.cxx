@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingSquares.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-09-20 19:43:17 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1996-09-30 16:31:35 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -44,6 +44,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkStructuredPoints.h"
 #include "vtkMergePoints.h"
 #include "vtkUnsignedCharScalars.h"
+#include "vtkUnsignedShortScalars.h"
 #include "vtkShortScalars.h"
 #include "vtkFloatScalars.h"
 #include "vtkIntScalars.h"
@@ -357,6 +358,14 @@ void vtkMarchingSquares::Execute()
                  this->Values,this->NumberOfContours,this->Locator,newLines);
     }
 
+  else if ( !strcmp(type,"unsigned short") )
+    {
+    unsigned short *scalars = ((vtkUnsignedShortScalars *)inScalars)->GetPtr(0);
+    newScalars = new vtkUnsignedShortScalars(5000,25000);
+    ContourImage(scalars,newScalars,roi,dir,start,end,offset,ar,origin,
+                 this->Values,this->NumberOfContours,this->Locator,newLines);
+    }
+  
   else if ( !strcmp(type,"short") )
     {
     short *scalars = ((vtkShortScalars *)inScalars)->GetPtr(0);
@@ -389,7 +398,7 @@ void vtkMarchingSquares::Execute()
     float *scalars = image->GetPtr(0);
     ContourImage(scalars,newScalars,roi,dir,start,end,offset,ar,origin,
                  this->Values,this->NumberOfContours,this->Locator,newLines);
-    delete image;
+    image->Delete();
     }
   
   vtkDebugMacro(<<"Created: " 
