@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:10:01 $
-  Version:   $Revision: 1.66 $
+  Date:      $Date: 2000-07-26 11:41:34 $
+  Version:   $Revision: 1.67 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -297,10 +297,6 @@ public:
 
   // Must only be called with vtkImageData (or subclass) as input
   void CopyTypeSpecificInformation( vtkDataObject *image );
-
-  // Description:
-  // Return non zero if the UpdateExtent is outside of the Extent
-  virtual int UpdateExtentIsOutsideOfTheExtent();
 
   // Description:
   // Needs to be overridden from vtkDataObject so that we can call

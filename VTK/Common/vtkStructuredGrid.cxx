@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:10:28 $
-  Version:   $Revision: 1.66 $
+  Date:      $Date: 2000-07-26 11:41:34 $
+  Version:   $Revision: 1.67 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -48,7 +48,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
 
-//------------------------------------------------------------------------------
+//----------------------------------------------------------------------------
 vtkStructuredGrid* vtkStructuredGrid::New()
 {
   // First try to create the object from the vtkObjectFactory
@@ -161,7 +161,6 @@ void vtkStructuredGrid::CopyStructure(vtkDataSet *ds)
 }
 
 //----------------------------------------------------------------------------
-
 void vtkStructuredGrid::Initialize()
 {
   vtkPointSet::Initialize(); 
@@ -175,20 +174,6 @@ void vtkStructuredGrid::Initialize()
 
 
 //----------------------------------------------------------------------------
-int vtkStructuredGrid::UpdateExtentIsOutsideOfTheExtent()
-{
-  if ( this->UpdateExtent[0] < this->Extent[0] ||
-       this->UpdateExtent[1] > this->Extent[1] ||
-       this->UpdateExtent[2] < this->Extent[2] ||
-       this->UpdateExtent[3] > this->Extent[3] ||
-       this->UpdateExtent[4] < this->Extent[4] ||
-       this->UpdateExtent[5] > this->Extent[5] )
-    {
-    return 1;
-    }
-  return 0;
-}
-
 void vtkStructuredGrid::ModifyExtentForUpdateExtent()
 {
   if ( this->UpdateExtent[0] < this->Extent[0] ||
