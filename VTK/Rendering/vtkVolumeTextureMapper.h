@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeTextureMapper.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-19 17:25:07 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-10-19 20:05:42 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -88,12 +88,6 @@ public:
   virtual int GetMapperType() {return VTK_FRAMEBUFFER_VOLUME_MAPPER;};
 
   // Description:
-  // WARNING: INTERNAL METHOD - NOT INTENDED FOR GENERAL USE
-  // DO NOT USE THIS METHOD OUTSIDE OF THE RENDERING PROCESS
-  // Render the volume
-  virtual void Render(vtkRenderer *ren, vtkVolume *vol)=0;
-
-  // Description:
   // Allow access to the arrays / variables from the templated functions in the
   // subclasses.
   float *GetGradientOpacityArray(){return this->GradientOpacityArray;};
@@ -111,6 +105,12 @@ public:
   vtkGetVectorMacro( DataOrigin, float, 3 );
   vtkGetVectorMacro( DataSpacing, float, 3 );
 //ETX
+
+  // Description:
+  // WARNING: INTERNAL METHOD - NOT INTENDED FOR GENERAL USE
+  // DO NOT USE THIS METHOD OUTSIDE OF THE RENDERING PROCESS
+  // Render the volume
+  virtual void Render(vtkRenderer *ren, vtkVolume *vol)=0;
 
 
 protected:
