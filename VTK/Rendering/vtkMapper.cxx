@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-05-23 13:32:13 $
-  Version:   $Revision: 1.83 $
+  Date:      $Date: 2001-06-22 17:15:19 $
+  Version:   $Revision: 1.84 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -87,7 +87,7 @@ vtkMapper::~vtkMapper()
     }
   if ( this->Colors != NULL )
     {
-    this->Colors->Delete();
+    this->Colors->UnRegister(this);
     }
 }
 
@@ -266,10 +266,19 @@ vtkScalars *vtkMapper::GetColors()
       scalars = vtkScalars::New();
       numScalars = dataArray->GetNumberOfTuples();
       scalars->SetNumberOfScalars(numScalars);
-      for (i = 0; i < numScalars; i++)
+      if (dataArray->GetNumberOfComponents() == 1)
         {
-        scalars->
-          InsertScalar(i, dataArray->GetComponent(i, this->ArrayComponent));
+        scalars->SetData(dataArray);
+        }
+      else
+        { // I do not know how useful it is to color by a componenet.
+        // This could probably be done with out a copy
+        // by using active component.
+        for (i = 0; i < numScalars; i++)
+          {
+          scalars->
+            InsertScalar(i, dataArray->GetComponent(i, this->ArrayComponent));
+          }
         }
       }
     }
@@ -294,10 +303,19 @@ vtkScalars *vtkMapper::GetColors()
       scalars = vtkScalars::New();
       numScalars = dataArray->GetNumberOfTuples();
       scalars->SetNumberOfScalars(numScalars);
-      for (i = 0; i < numScalars; i++)
+      if (dataArray->GetNumberOfComponents() == 1)
         {
-        scalars->
-          InsertScalar(i, dataArray->GetComponent(i, this->ArrayComponent));
+        scalars->SetData(dataArray);
+        }
+      else
+        { // I do not know how useful it is to color by a componenet.
+        // This could probably be done with out a copy
+        // by using active component.
+        for (i = 0; i < numScalars; i++)
+          {
+          scalars->
+            InsertScalar(i, dataArray->GetComponent(i, this->ArrayComponent));
+          }
         }
       }
     }
@@ -328,7 +346,7 @@ vtkScalars *vtkMapper::GetColors()
 
     if (this->Colors)
       {
-      this->Colors->Delete();
+      this->Colors->UnRegister(this);
       }
     this->Colors = scalars;
     this->Colors->Register(this);
@@ -339,7 +357,7 @@ vtkScalars *vtkMapper::GetColors()
     {
     if ( this->Colors )
       {
-      this->Colors->Delete();
+      this->Colors->UnRegister(this);
       }
     this->Colors = NULL;
     }
