@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-09 19:53:45 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1994-11-21 11:14:14 $
+  Version:   $Revision: 1.16 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -19,6 +19,8 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 // Construct with initial range (0,1).
 vlMapper::vlMapper()
 {
+  this->Input = NULL;
+
   this->StartRender = NULL;
   this->StartRenderArg = NULL;
   this->EndRender = NULL;
@@ -125,6 +127,15 @@ float *vlMapper::GetCenter()
 void vlMapper::PrintSelf(ostream& os, vlIndent indent)
 {
   vlObject::PrintSelf(os,indent);
+
+  if ( this->Input )
+    {
+    os << indent << "Input: (" << this->Input << ")\n";
+    }
+  else
+    {
+    os << indent << "Input: (none)\n";
+    }
 
   os << indent << "Build Time: " <<this->BuildTime.GetMTime() << "\n";
   if ( this->StartRender )

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkMapper.h,v $
   Language:  C++
-  Date:      $Date: 1994-11-01 23:17:24 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1994-11-21 11:14:15 $
+  Version:   $Revision: 1.13 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -28,6 +28,7 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 #include "Object.hh"
 #include "GeomPrim.hh"
 #include "Lut.hh"
+#include "DataSet.hh"
 
 class vlRenderer;
 
@@ -78,8 +79,11 @@ public:
   virtual float *GetBounds() = 0;
 
   float *GetCenter();
+  virtual vlDataSet *GetInput() {return this->Input;};
 
 protected:
+  vlDataSet *Input;
+
   void (*StartRender)(void *);
   void *StartRenderArg;
   void (*EndRender)(void *);

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPointPicker.h,v $
   Language:  C++
-  Date:      $Date: 1994-11-07 10:02:39 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1994-11-21 11:14:22 $
+  Version:   $Revision: 1.2 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -35,8 +35,15 @@ public:
   char *GetClassName() {return "vlPointPicker";};
   void PrintSelf(ostream& os, vlIndent indent);
 
+  // Description:
+  // Get the id of the picked point. If PointId = -1, nothing was picked.
+  vlGetMacro(PointId,int);
+
 protected:
-  void Intersect(float p1[3], float p2[3], float tol, vlActor *a, vlMapper *m);
+  int PointId; //picked point
+
+  void IntersectWithLine(float p1[3], float p2[3], float tol, 
+                         vlActor *a, vlMapper *m);
   void Initialize();
 
 };

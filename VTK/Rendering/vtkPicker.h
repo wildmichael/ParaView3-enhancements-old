@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPicker.h,v $
   Language:  C++
-  Date:      $Date: 1994-11-07 10:05:26 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1994-11-21 11:14:18 $
+  Version:   $Revision: 1.3 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -82,6 +82,11 @@ public:
   // Return mapper that was picked.
   vlGetObjectMacro(Mapper,vlMapper);
 
+  // Description:
+  // Get a pointer to the dataset that was picked. If nothing was picked then
+  // NULL is returned.
+  vlGetObjectMacro(DataSet,vlDataSet);
+
   vlActorCollection *GetActors();
 
   int Pick(float selectionPt[3]);  
@@ -98,6 +103,7 @@ protected:
   float MapperPosition[3]; //selection point in untransformed coordinates
   vlActor *Actor; //selected actor
   vlMapper *Mapper; //selected mapper
+  vlDataSet *DataSet; //selected dataset
   float GlobalTMin; //parametric coordinate along pick ray where hit occured
   vlTransform Transform; //use to perform ray transformation
   vlActorCollection Actors; //candidate actors (based on bounding box)
