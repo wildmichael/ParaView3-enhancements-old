@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBoxWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-29 18:26:39 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2002-05-30 12:50:29 $
+  Version:   $Revision: 1.15 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -32,7 +32,7 @@
 #include "vtkSphereSource.h"
 #include "vtkRenderWindowInteractor.h"
 
-vtkCxxRevisionMacro(vtkBoxWidget, "$Revision: 1.14 $");
+vtkCxxRevisionMacro(vtkBoxWidget, "$Revision: 1.15 $");
 vtkStandardNewMacro(vtkBoxWidget);
 
 vtkBoxWidget::vtkBoxWidget()
@@ -322,7 +322,7 @@ void vtkBoxWidget::SetEnabled(int enabling)
   this->Interactor->Render();
 }
 
-void vtkBoxWidget::ProcessEvents(vtkObject* object, 
+void vtkBoxWidget::ProcessEvents(vtkObject* vtkNotUsed(object), 
                                  unsigned long event,
                                  void* clientdata, 
                                  void* vtkNotUsed(calldata))

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSphereWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-29 18:26:39 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2002-05-30 12:50:29 $
+  Version:   $Revision: 1.15 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -30,7 +30,7 @@
 #include "vtkSphere.h"
 #include "vtkSphereSource.h"
 
-vtkCxxRevisionMacro(vtkSphereWidget, "$Revision: 1.14 $");
+vtkCxxRevisionMacro(vtkSphereWidget, "$Revision: 1.15 $");
 vtkStandardNewMacro(vtkSphereWidget);
 
 vtkSphereWidget::vtkSphereWidget()
@@ -200,8 +200,10 @@ void vtkSphereWidget::SetEnabled(int enabling)
   this->Interactor->Render();
 }
 
-void vtkSphereWidget::ProcessEvents(vtkObject* object, unsigned long event,
-                                  void* clientdata, void* vtkNotUsed(calldata))
+void vtkSphereWidget::ProcessEvents(vtkObject* vtkNotUsed(object), 
+                                    unsigned long event,
+                                    void* clientdata, 
+                                    void* vtkNotUsed(calldata))
 {
   vtkSphereWidget* self = reinterpret_cast<vtkSphereWidget *>( clientdata );
 

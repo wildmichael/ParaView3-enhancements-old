@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObject.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-29 18:24:20 $
-  Version:   $Revision: 1.74 $
+  Date:      $Date: 2002-05-30 12:50:08 $
+  Version:   $Revision: 1.75 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -56,11 +56,11 @@ class vtkObserver
   ~vtkObserver();
   void PrintSelf(ostream& os, vtkIndent indent);
   
-  float Priority;
   vtkCommand *Command;
   unsigned long Event;
   unsigned long Tag;
   vtkObserver *Next;
+  float Priority;
 };
 
 void vtkObserver::PrintSelf(ostream& os, vtkIndent indent)
@@ -288,7 +288,7 @@ vtkObject *vtkObject::SafeDownCast(vtkObject *o)
 
 void vtkObject::CollectRevisions(ostream& os)
 {
-  os << "vtkObject $Revision: 1.74 $\n";
+  os << "vtkObject $Revision: 1.75 $\n";
 }
 
 //----------------------------------Command/Observer stuff-------------------

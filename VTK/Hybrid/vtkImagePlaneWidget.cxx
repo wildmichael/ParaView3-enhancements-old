@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagePlaneWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-29 18:26:39 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2002-05-30 12:50:29 $
+  Version:   $Revision: 1.24 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -38,7 +38,7 @@
 #include "vtkTextureMapToPlane.h"
 #include "vtkTransform.h"
 
-vtkCxxRevisionMacro(vtkImagePlaneWidget, "$Revision: 1.23 $");
+vtkCxxRevisionMacro(vtkImagePlaneWidget, "$Revision: 1.24 $");
 vtkStandardNewMacro(vtkImagePlaneWidget);
 
 vtkCxxSetObjectMacro(vtkImagePlaneWidget, PlaneProperty,vtkProperty);
@@ -254,8 +254,10 @@ void vtkImagePlaneWidget::SetEnabled(int enabling)
   this->Interactor->Render();
 }
 
-void vtkImagePlaneWidget::ProcessEvents(vtkObject* object, unsigned long event,
-                                        void* clientdata, void* vtkNotUsed(calldata))
+void vtkImagePlaneWidget::ProcessEvents(vtkObject* vtkNotUsed(object), 
+                                        unsigned long event,
+                                        void* clientdata, 
+                                        void* vtkNotUsed(calldata))
 {
   vtkImagePlaneWidget* self = 
     reinterpret_cast<vtkImagePlaneWidget *>( clientdata );
