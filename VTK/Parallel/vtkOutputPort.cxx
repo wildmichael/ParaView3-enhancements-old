@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOutputPort.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-16 16:40:01 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-10-01 17:58:43 $
+  Version:   $Revision: 1.2 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -145,6 +145,10 @@ void vtkOutputPort::TriggerUpdateInformation(int remoteProcessId)
   unsigned long mtime = input->GetPipelineMTime();
   
   this->Controller->Send( &mtime, 1,
+                          remoteProcessId, vtkInputPort::INFORMATION_TRANSFER_TAG );
+
+  int maxNumPieces = input->GetMaximumNumberOfPieces();
+  this->Controller->Send( &maxNumPieces, 1,
                           remoteProcessId, vtkInputPort::INFORMATION_TRANSFER_TAG );
 }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInputPort.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-17 21:06:47 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-10-01 17:58:43 $
+  Version:   $Revision: 1.5 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -325,6 +325,11 @@ void vtkInputPort::UpdateInformation()
   this->Controller->Receive( &pmt, 1, 
                              this->RemoteProcessId,
                              vtkInputPort::INFORMATION_TRANSFER_TAG);
+  int maxNumPieces;
+  this->Controller->Receive( &maxNumPieces, 1, 
+                             this->RemoteProcessId,
+                             vtkInputPort::INFORMATION_TRANSFER_TAG);
+  output->SetMaximumNumberOfPieces(maxNumPieces);
 
   output->SetWholeExtent( wholeInformation );
     
