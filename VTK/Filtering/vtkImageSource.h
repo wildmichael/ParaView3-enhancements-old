@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSource.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-04 17:24:52 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1999-08-06 17:12:44 $
+  Version:   $Revision: 1.32 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -45,7 +45,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // to the source.
 
 // .SECTION See Also
-// vtkImageFilter
+// vtkImageToImageFilter
 
 
 #ifndef __vtkImageSource_h
