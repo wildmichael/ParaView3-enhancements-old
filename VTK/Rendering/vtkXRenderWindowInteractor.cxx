@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkXRenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-24 00:05:47 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1994-12-14 16:38:11 $
+  Version:   $Revision: 1.9 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -333,18 +333,27 @@ void vlXRenderWindowInteractorCallback(Widget w,XtPointer client_data,
 	  // prepare the new window
 	  if (me->RenderWindow->GetStereoRender())
 	    {
-	    me->SetupNewWindow(1);
+	    if (me->RenderWindow->GetRemapWindow())
+	      {
+	      me->SetupNewWindow(1);
+	      }
 	    me->RenderWindow->StereoRenderOff();
 	    }
 	  else
 	    {
 	    memcpy(me->PositionBeforeStereo,me->RenderWindow->GetPosition(),
 		   sizeof(int)*2);
-	    me->SetupNewWindow(1);
+	    if (me->RenderWindow->GetRemapWindow())
+	      {
+	      me->SetupNewWindow(1);
+	      }
 	    me->RenderWindow->StereoRenderOn();
 	    }
 	  me->RenderWindow->Render();
-          me->FinishSettingUpNewWindow();
+	  if (me->RenderWindow->GetRemapWindow())
+	    {
+	    me->FinishSettingUpNewWindow();
+	    }
           }
 	  break;
 
