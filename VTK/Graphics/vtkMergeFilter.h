@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkMergeFilter.h,v $
   Language:  C++
-  Date:      $Date: 1994-06-02 21:03:16 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1994-06-07 11:00:53 $
+  Version:   $Revision: 1.2 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -44,8 +44,8 @@ public:
     {this->Geometry->GetCellPoints(cellId, ptIds);};
   void GetPointCells(int ptId, vlIdList *cellIds)
     {this->Geometry->GetPointCells(ptId, cellIds);};
-  int FindCell(float x[3], vlCell *cell, float tol2) 
-    {return this->Geometry->FindCell(x,cell,tol2);};
+  int FindCell(float x[3], vlCell *cell, float tol2, int& subId, float pc[3]) 
+    {return this->Geometry->FindCell(x,cell,tol2,subId,pc);};
 
   void ComputeBounds() {this->Geometry->ComputeBounds();};
   vlMapper *MakeMapper();

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkProbeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-05-15 19:19:44 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1994-06-07 11:00:53 $
+  Version:   $Revision: 1.4 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -58,11 +58,11 @@ void vlProbeFilter::Execute()
   for (ptId=0; ptId < this->Source->GetNumberOfPoints(); ptId++)
     {
     x = this->Source->GetPoint(ptId);
-    cellId = this->Input->FindCell(x,NULL,tol2);
+    cellId = this->Input->FindCell(x,NULL,tol2,subId,pcoords);
     if ( cellId >= 0 )
       {
       cell = this->Input->GetCell(cellId);
-      cell->EvaluatePosition(x,closestPoint,subId,pcoords,dist2,weights);
+      cell->EvaluateLocation(subId,pcoords,x,weights);
       this->PointData.InterpolatePoint(pd,ptId,&(cell->PointIds),weights);
       }
     else
