@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBitArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-21 15:21:50 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 2001-11-12 18:57:33 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -408,3 +408,10 @@ vtkIdType vtkBitArray::InsertNextTuple(const double * tuple)
   return this->MaxId / this->NumberOfComponents;
 }
 
+
+void vtkBitArray::InsertComponent(const vtkIdType i, const int j, 
+                                  const float c)
+{
+  this->InsertValue(i*this->NumberOfComponents + j, 
+                    static_cast<const int>(c));
+}

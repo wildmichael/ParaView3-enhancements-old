@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBitArray.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:36:01 $
-  Version:   $Revision: 1.58 $
+  Date:      $Date: 2001-11-12 18:57:33 $
+  Version:   $Revision: 1.59 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -130,6 +130,11 @@ public:
   // Insets values and checks to make sure there is enough memory
   void InsertValue(const vtkIdType id, const int i);
   vtkIdType InsertNextValue(const int i);
+
+  // Description:
+  // Insert the data component at ith tuple and jth component location. 
+  // Note that memory allocation is performed as necessary to hold the data.
+  virtual void InsertComponent(const vtkIdType i, const int j, const float c);
 
   // Description:
   // Direct manipulation of the underlying data.
