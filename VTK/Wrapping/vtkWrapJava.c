@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWrapJava.c,v $
   Language:  C++
-  Date:      $Date: 2003-05-07 21:26:05 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 2003-05-07 21:27:45 $
+  Version:   $Revision: 1.46 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -544,7 +544,6 @@ void HandleDataArray(FILE *fp, FileInfo *data)
     }
   else
     {
-    printf("%s is not a data array\n", data->ClassName);
     return;
     }
 
