@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAssembly.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-06-04 20:36:25 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1996-06-24 20:13:30 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -303,6 +303,8 @@ float *vtkAssembly::GetBounds()
         }//for each point of box
       }//if mapper
     }//for each path
+
+  this->Transform.PreMultiply();  
 
   return this->Bounds;
 }
