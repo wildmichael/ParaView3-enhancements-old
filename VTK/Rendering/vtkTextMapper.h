@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextMapper.h,v $
   Language:  C++
-  Date:      $Date: 1998-03-16 21:53:23 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-03-30 20:32:45 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -109,6 +109,14 @@ public:
   vtkBooleanMacro(Italic, int);
 
   // Description:
+  // Set/Get the shadow property.
+  // vtkSetMacro(Shadow, int);
+  void SetShadow(int val) 
+  {this->Shadow = val; this->FontChanged = 1; this->Modified();};
+  vtkGetMacro(Shadow, int);
+  vtkBooleanMacro(Shadow, int);
+  
+  // Description:
   // Set/Get the font family.  Three font types are allowed: Arial (VTK_ARIAL),
   // Courier (VTK_COURIER), and Times (VTK_TIMES).
   // vtkSetMacro(FontFamily, int);
@@ -122,6 +130,7 @@ public:
 protected:
   int   Italic;
   int	Bold;
+  int   Shadow;
   int   FontSize;
   int   FontFamily;
   char* Input;

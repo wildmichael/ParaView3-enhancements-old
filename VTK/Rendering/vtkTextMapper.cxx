@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-09 19:29:11 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-03-30 20:32:46 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,6 +55,7 @@ vtkTextMapper::vtkTextMapper()
   this->FontSize = 12;
   this->Bold = 0;
   this->Italic = 0;
+  this->Shadow = 0;
   this->FontFamily = VTK_ARIAL;
   this->FontChanged = 0;
 }
@@ -75,10 +76,11 @@ vtkTextMapper *vtkTextMapper::New()
 void vtkTextMapper::PrintSelf(ostream& os, vtkIndent indent)
 {
   os << indent << "Bold: " << (this->Bold ? "On\n" : "Off\n");
+  os << indent << "Italic: " << (this->Italic ? "On\n" : "Off\n");
+  os << indent << "Shadow: " << (this->Shadow ? "On\n" : "Off\n");
   os << indent << "FontFamily: " << this->FontFamily << "\n";
   os << indent << "FontSize: " << this->FontSize << "\n";
   os << indent << "Input: " << (this->Input ? this->Input : "(none)") << "\n";
-  os << indent << "Italic: " << (this->Italic ? "On\n" : "Off\n");
  
   vtkMapper2D::PrintSelf(os,indent);
 }
