@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCommand.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-23 17:28:45 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2002-05-03 12:40:25 $
+  Version:   $Revision: 1.33 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -55,7 +55,8 @@ class VTK_COMMON_EXPORT vtkCommand
 public:
   // Description:
   // vtkCommand is not a subclass of vtkObject, but it has the same reference
-  // counting semantics. So Delete(), Register(), and UnRegister() are implemented.
+  // counting semantics. So Delete(), Register(), and UnRegister() are 
+  // implemented.
   void Delete() 
     { this->UnRegister(); }
 
