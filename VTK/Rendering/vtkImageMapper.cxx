@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-03-09 21:13:39 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1999-03-18 17:11:35 $
+  Version:   $Revision: 1.19 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -97,11 +97,18 @@ void vtkImageMapper::PrintSelf(ostream& os, vtkIndent indent)
 vtkImageMapper* vtkImageMapper::New()
 {
 #ifdef _WIN32
+#ifndef VTK_USE_NATIVE_IMAGING
   return vtkOpenGLImageMapper::New();
+#else
   return vtkWin32ImageMapper::New();
+#endif
 #else
 #ifdef VTK_USE_OGLR
+#ifndef VTK_USE_NATIVE_IMAGING
   return vtkOpenGLImageMapper::New();
+#else
+  return vtkXImageMapper::New();
+#endif
 #endif
   return vtkXImageMapper::New();
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-03-09 21:15:43 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-03-18 17:11:36 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -66,11 +66,18 @@ vtkTextMapper::vtkTextMapper()
 vtkTextMapper *vtkTextMapper::New()
 {
 #ifdef _WIN32
+#ifndef VTK_USE_NATIVE_IMAGING
   return vtkWin32OpenGLTextMapper::New();
+#else
   return vtkWin32TextMapper::New();
+#endif
 #else
 #ifdef VTK_USE_OGLR
+#ifndef VTK_USE_NATIVE_IMAGING
   return vtkXOpenGLTextMapper::New();
+#else
+  return vtkXTextMapper::New();
+#endif
 #else
   return vtkXTextMapper::New();
 #endif
