@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLODActor.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-10 18:45:48 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1995-08-13 16:29:10 $
+  Version:   $Revision: 1.2 $
   
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -83,8 +83,10 @@ void vtkLODActor::Render(vtkRenderer *ren)
     this->PointSource.SetRadius(0);
     this->PointSource.SetNumberOfPoints(1);
     this->MediumMapper.SetInput(&this->Glyph3D);
+    this->MediumMapper.SetScalarRange(this->Mapper->GetScalarRange());
+    this->MediumMapper.SetScalarsVisible(this->Mapper->GetScalarsVisible());
     this->MaskPoints.SetInput(this->Mapper->GetInput());
-    this->MaskPoints.SetMaximumNumberOfPoints(100);
+    this->MaskPoints.SetMaximumNumberOfPoints(120);
     this->MaskPoints.SetRandomMode(1);
     this->Glyph3D.SetInput(&this->MaskPoints);
     this->Glyph3D.SetSource(&this->PointSource);
