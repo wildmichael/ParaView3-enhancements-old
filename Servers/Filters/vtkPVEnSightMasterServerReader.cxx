@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkPVEnSightMasterServerReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-09-10 19:41:55 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2003-10-07 18:30:49 $
+  Version:   $Revision: 1.9 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -63,7 +63,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro(vtkPVEnSightMasterServerReader);
-vtkCxxRevisionMacro(vtkPVEnSightMasterServerReader, "$Revision: 1.8 $");
+vtkCxxRevisionMacro(vtkPVEnSightMasterServerReader, "$Revision: 1.9 $");
 
 #ifdef VTK_USE_MPI
 vtkCxxSetObjectMacro(vtkPVEnSightMasterServerReader, Controller,
@@ -629,6 +629,15 @@ int vtkPVEnSightMasterServerReader::ParseMasterServerFile()
   // specified in the file and the number of processes to read the
   // data.
   int numProcs = this->Controller->GetNumberOfProcesses();
+
+  // Make sure we have enoght processes to read all the pieces.
+  if (numProcs < numServers)
+    {
+    vtkErrorMacro("Not enough processes (" << numProcs
+                << ") to read all Ensight server files (" 
+                << numServers << ")");
+    }
+  
   this->NumberOfPieces = (numServers < numProcs)? numServers:numProcs;
 
   for (int i = 0; i < this->GetNumberOfOutputs(); i++)
