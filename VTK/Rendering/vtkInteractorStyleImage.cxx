@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleImage.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-28 03:33:50 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2003-09-04 17:18:51 $
+  Version:   $Revision: 1.24 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkRenderWindowInteractor.h"
 
-vtkCxxRevisionMacro(vtkInteractorStyleImage, "$Revision: 1.23 $");
+vtkCxxRevisionMacro(vtkInteractorStyleImage, "$Revision: 1.24 $");
 vtkStandardNewMacro(vtkInteractorStyleImage);
 
 //----------------------------------------------------------------------------
@@ -270,9 +270,11 @@ void vtkInteractorStyleImage::PrintSelf(ostream& os, vtkIndent indent)
 {
   this->Superclass::PrintSelf(os, indent);
   
-  os << indent << "Window Level Current Position: " <<
-    this->WindowLevelCurrentPosition << endl;
+  os << indent << "Window Level Current Position: ("
+     << this->WindowLevelCurrentPosition[0] << ", "
+     << this->WindowLevelCurrentPosition[1] << ")" << endl;
 
-  os << indent << "Window Level Start Position: " <<
-    this->WindowLevelStartPosition << endl;
+  os << indent << "Window Level Start Position: ("
+     << this->WindowLevelStartPosition[0] << ", "
+     << this->WindowLevelStartPosition[1] << ")" << endl;
 }
