@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-11 21:41:40 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 2002-11-13 22:04:21 $
+  Version:   $Revision: 1.50 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 #include "vtkTextProperty.h"
 #include "vtkToolkits.h"
 
-vtkCxxRevisionMacro(vtkTextMapper, "$Revision: 1.49 $");
+vtkCxxRevisionMacro(vtkTextMapper, "$Revision: 1.50 $");
 
 //----------------------------------------------------------------------------
 // Needed when we don't use the vtkStandardNewMacro.
@@ -502,9 +502,6 @@ void vtkTextMapper::RenderOverlayMultipleLines(vtkViewport *viewport,
     this->TextLines[lineNum]->GetTextProperty()->ShallowCopy(tprop);
     this->TextLines[lineNum]->GetTextProperty()->SetLineOffset
       (tprop->GetLineOffset() + (int)((float)this->LineSize * (lineNum + offset) * tprop->GetLineSpacing()));
-#ifndef VTK_USE_FREETYPE
-    this->TextLines[lineNum]->GetTextProperty()->SetVerticalJustificationToBottom();
-#endif
     this->TextLines[lineNum]->RenderOverlay(viewport,actor);
     }
 }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagingFactory.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-22 18:39:30 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2002-11-13 22:04:21 $
+  Version:   $Revision: 1.28 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,69 +24,45 @@
 #ifdef VTK_USE_OGLR
 #include "vtkOpenGLImageMapper.h"
 #include "vtkOpenGLPolyDataMapper2D.h"
-#ifdef VTK_USE_FREETYPE
 #include "vtkOpenGLFreeTypeTextMapper.h"
-#else
-#include "vtkXOpenGLTextMapper.h"
-#endif
 #endif
 
 #if defined(VTK_MANGLE_MESA)
 #include "vtkMesaImageMapper.h"
 #include "vtkMesaPolyDataMapper2D.h"
-#ifdef VTK_USE_FREETYPE
 #include "vtkMesaFreeTypeTextMapper.h"
-#else
-#include "vtkXMesaTextMapper.h"
-#endif
 #endif
 
 #ifdef _WIN32
 #include "vtkOpenGLImageMapper.h"
 #include "vtkOpenGLPolyDataMapper2D.h"
-#ifdef VTK_USE_FREETYPE
 #include "vtkOpenGLFreeTypeTextMapper.h"
-#else
-#include "vtkWin32OpenGLTextMapper.h"
-#endif
 #else
 #ifdef VTK_USE_QUARTZ
 #include "vtkOpenGLImageMapper.h"
 #include "vtkOpenGLPolyDataMapper2D.h"
 #include "vtkQuartzImageMapper.h"
-#ifdef VTK_USE_FREETYPE
 #include "vtkOpenGLFreeTypeTextMapper.h"
-#else
-#include "vtkQuartzTextMapper.h"
-#endif
 #endif
 #endif
 
 #ifdef VTK_USE_CARBON
 #include "vtkOpenGLImageMapper.h"
 #include "vtkOpenGLPolyDataMapper2D.h"
-#ifdef VTK_USE_FREETYPE
 #include "vtkOpenGLFreeTypeTextMapper.h"
-#else
-#include "vtkCarbonTextMapper.h"
-#endif
 #endif
 
 #ifdef VTK_USE_COCOA
 #include "vtkOpenGLImageMapper.h"
 #include "vtkOpenGLPolyDataMapper2D.h"
-#ifdef VTK_USE_FREETYPE
 #include "vtkOpenGLFreeTypeTextMapper.h"
-#else
-#include "vtkCocoaTextMapper.h"
-#endif
 #endif
 
 #include "vtkCriticalSection.h"
 static vtkSimpleCriticalSection vtkUseMesaClassesCriticalSection;
 int vtkImagingFactory::UseMesaClasses = 0;
 
-vtkCxxRevisionMacro(vtkImagingFactory, "$Revision: 1.27 $");
+vtkCxxRevisionMacro(vtkImagingFactory, "$Revision: 1.28 $");
 vtkStandardNewMacro(vtkImagingFactory);
 
 const char *vtkImagingFactoryGetRenderLibrary()
@@ -160,18 +136,10 @@ vtkObject* vtkImagingFactory::CreateInstance(const char* vtkclassname )
 #if defined(VTK_MANGLE_MESA)
       if ( vtkImagingFactory::UseMesaClasses )
         {
-#ifdef VTK_USE_FREETYPE
         return vtkMesaFreeTypeTextMapper::New();
-#else
-        return vtkXMesaTextMapper::New();
-#endif
         }
 #endif
-#ifdef VTK_USE_FREETYPE
       return vtkOpenGLFreeTypeTextMapper::New();
-#else
-      return vtkXOpenGLTextMapper::New();
-#endif
       }
     if(strcmp(vtkclassname, "vtkImageMapper") == 0)
       {
@@ -201,11 +169,7 @@ vtkObject* vtkImagingFactory::CreateInstance(const char* vtkclassname )
     {
     if(strcmp(vtkclassname, "vtkTextMapper") == 0)
       {
-#ifdef VTK_USE_FREETYPE
       return vtkOpenGLFreeTypeTextMapper::New();
-#else
-      return vtkWin32OpenGLTextMapper::New();
-#endif
       }
     if(strcmp(vtkclassname, "vtkImageMapper") == 0)
       {
@@ -223,11 +187,7 @@ vtkObject* vtkImagingFactory::CreateInstance(const char* vtkclassname )
     {
     if(strcmp(vtkclassname, "vtkTextMapper") == 0)
       {
-#ifdef VTK_USE_FREETYPE
       return vtkOpenGLFreeTypeTextMapper::New();
-#else
-      return vtkCarbonTextMapper::New();
-#endif
       }
     if(strcmp(vtkclassname, "vtkImageMapper") == 0)
       {
@@ -244,11 +204,7 @@ vtkObject* vtkImagingFactory::CreateInstance(const char* vtkclassname )
     {
     if(strcmp(vtkclassname, "vtkTextMapper") == 0)
       {
-#ifdef VTK_USE_FREETYPE
-        return vtkOpenGLFreeTypeTextMapper::New();
-#else
-      return vtkCocoaTextMapper::New();
-#endif
+      return vtkOpenGLFreeTypeTextMapper::New();
       }
     if(strcmp(vtkclassname, "vtkImageMapper") == 0)
       {
