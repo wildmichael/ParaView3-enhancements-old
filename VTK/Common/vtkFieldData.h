@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFieldData.h,v $
   Language:  C++
-  Date:      $Date: 2000-05-02 05:11:15 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2000-05-19 15:52:22 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -115,6 +115,12 @@ public:
   // Add an array to the end of the array list, and set the name
   // return the new array index
   int AddArray(vtkDataArray *array, char *name);
+
+  // Description:
+  // Add an array to the end of the array list, and set the name
+  // return the new array index. if array with given name
+  // already exists - overwrites it
+  int AddReplaceArray(vtkDataArray *array, char *name);
 
   // Description:
   // Add an array to the end of the array list, and set the name
