@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLCamera.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-07 13:54:44 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 2002-02-13 20:44:11 $
+  Version:   $Revision: 1.52 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -30,28 +30,28 @@
 #include "vtkgluPickMatrix.h"
 
 #ifndef VTK_IMPLEMENT_MESA_CXX
-vtkCxxRevisionMacro(vtkOpenGLCamera, "$Revision: 1.51 $");
+vtkCxxRevisionMacro(vtkOpenGLCamera, "$Revision: 1.52 $");
 vtkStandardNewMacro(vtkOpenGLCamera);
 #endif
 
-void vtkOpenGLCameraBound(float &vpu, float &vpv)
-{
-  if (vpu > 1.0) 
-    {
-    vpu = 1.0;
-    }
-  if (vpu < 0.0)
-    {
-    vpu = 0.0;
-    }
-  if (vpv > 1.0) 
-    {
-    vpv = 1.0;
-    }
-  if (vpv < 0.0)
-    {
-    vpv = 0.0;
-    }  
+#define vtkOpenGLCameraBound(vpu, vpv) \
+{ \
+  if (vpu > 1.0) \
+    { \
+    vpu = 1.0; \
+    } \
+  if (vpu < 0.0) \
+    { \
+    vpu = 0.0; \
+    } \
+  if (vpv > 1.0) \
+    { \
+    vpv = 1.0; \
+    } \
+  if (vpv < 0.0) \
+    { \
+    vpv = 0.0; \
+    }  \
 }
 
 // Implement base class method.
