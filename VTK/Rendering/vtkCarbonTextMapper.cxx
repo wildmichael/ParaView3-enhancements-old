@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCarbonTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-16 18:52:09 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-05-16 19:36:23 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 #include "vtkgluPickMatrix.h"
 #include "vtkString.h"
 
-vtkCxxRevisionMacro(vtkCarbonTextMapper, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkCarbonTextMapper, "$Revision: 1.3 $");
 vtkStandardNewMacro(vtkCarbonTextMapper);
 
 struct vtkFontStruct
@@ -198,7 +198,7 @@ int vtkCarbonTextMapper::GetListBaseForFont(vtkViewport *vp)
   cache[numCached]->Italic = this->GetItalic();
   cache[numCached]->Bold = this->GetBold();
   cache[numCached]->FontSize = this->GetFontSize();
-  cache[numCached]->FontFamily = this->currentFontNum;
+  cache[numCached]->FontFamily = this->GetFontFamily();
   if (cache[numCached]->FontSize < 9)
     cache[numCached]->FontSize = 9; // minimum font size (or it goes blank!)
   aglUseFont((AGLContext)win->GetGenericDisplayId(), cache[numCached]->FontFamily,
