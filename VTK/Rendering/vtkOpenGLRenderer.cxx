@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-06-08 09:11:04 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2000-08-01 17:54:27 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -236,6 +236,15 @@ void vtkOpenGLRenderer::DeviceRender(void)
 
   this->UpdateCamera();
   this->UpdateLights();
+
+  if (this->RenderWindow->GetNumLayers() > 1)
+    {
+    // Find the acceptable range for the z-buffer for this layer and clamp
+    // our geometry to it when we render.
+    float  zbuff_min, zbuff_max;
+    this->RenderWindow->GetLayer(this->Layer, zbuff_min, zbuff_max);
+    glDepthRange(zbuff_min, zbuff_max);
+    }
 
   // set matrix mode for actors 
   glMatrixMode(GL_MODELVIEW);
