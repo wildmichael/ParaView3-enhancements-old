@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTreeComposite.h,v $
   Language:  C++
-  Date:      $Date: 2001-04-10 14:15:21 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-04-18 18:08:09 $
+  Version:   $Revision: 1.5 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -154,6 +154,10 @@ public:
   vtkGetMacro(GetBuffersTime, double);
   vtkGetMacro(SetBuffersTime, double);
   vtkGetMacro(TransmitTime, double);
+
+  // Description:
+  // Get the value of the z buffer at a position. 
+  float GetZ(int x, int y);
   
 //BTX
 
