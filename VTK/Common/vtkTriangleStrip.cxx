@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkTriangleStrip.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-08-15 07:47:20 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1994-09-14 20:18:56 $
+  Version:   $Revision: 1.10 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -18,12 +18,16 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 #include "CellArr.hh"
 #include "Line.hh"
 
-//
-// Note: the ordering of the Points and PointIds is important.  See text.
-//
+// Description:
+// Deep copy of cell.
+vlTriangleStrip::vlTriangleStrip(const vlTriangleStrip& ts)
+{
+  this->Points = ts.Points;
+  this->PointIds = ts.PointIds;
+}
 
 //
-// eliminate constructor / destructor calls
+// Static minimizes constructor / destructor calls
 //
 static vlTriangle tri;
 

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkTriangle.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-08-15 07:47:22 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1994-09-14 20:18:57 $
+  Version:   $Revision: 1.13 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -19,6 +19,14 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 #include "vlMath.hh"
 #include "CellArr.hh"
 #include "Line.hh"
+
+// Description:
+// Deep copy of cell.
+vlTriangle::vlTriangle(const vlTriangle& t)
+{
+  this->Points = t.Points;
+  this->PointIds = t.PointIds;
+}
 
 int vlTriangle::EvaluatePosition(float x[3], float closestPoint[3],
                                  int& subId, float pcoords[3], 

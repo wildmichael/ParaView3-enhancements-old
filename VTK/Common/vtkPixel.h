@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPixel.h,v $
   Language:  C++
-  Date:      $Date: 1994-08-15 07:49:37 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1994-09-14 20:18:53 $
+  Version:   $Revision: 1.7 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -28,8 +28,10 @@ class vlRectangle : public vlCell
 {
 public:
   vlRectangle() {};
+  vlRectangle(const vlRectangle& r);
   char *GetClassName() {return "vlRectangle";};
 
+  vlCell *MakeObject() {return new vlRectangle(*this);};
   int GetCellType() {return vlRECTANGLE;};
   int GetCellDimension() {return 2;};
   int GetNumberOfEdges() {return 4;};

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPixel.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-08-15 07:49:36 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1994-09-14 20:18:52 $
+  Version:   $Revision: 1.8 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -13,7 +13,6 @@ without the express written consent of the authors.
 Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994 
 
 =========================================================================*/
-#include <math.h>
 #include "Rect.hh"
 #include "Quad.hh"
 #include "Polygon.hh"
@@ -22,9 +21,13 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 #include "CellArr.hh"
 #include "Line.hh"
 
-//
-// Note: the ordering of the Points and PointIds is important.  See text.
-//
+// Description:
+// Deep copy of cell.
+vlRectangle::vlRectangle(const vlRectangle& r)
+{
+  this->Points = r.Points;
+  this->PointIds = r.PointIds;
+}
 
 int vlRectangle::EvaluatePosition(float x[3], float closestPoint[3],
                                   int& subId, float pcoords[3], 

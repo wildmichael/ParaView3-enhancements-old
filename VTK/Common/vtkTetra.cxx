@@ -3,11 +3,9 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkTetra.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-06-13 12:15:25 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1994-09-14 20:18:54 $
+  Version:   $Revision: 1.9 $
 
-Description:
----------------------------------------------------------------------------
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
 without the express written consent of the authors.
@@ -20,6 +18,14 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 #include "Line.hh"
 #include "Triangle.hh"
 #include "CellArr.hh"
+
+// Description:
+// Deep copy of cell.
+vlTetra::vlTetra(const vlTetra& t)
+{
+  this->Points = t.Points;
+  this->PointIds = t.PointIds;
+}
 
 int vlTetra::EvaluatePosition(float x[3], float closestPoint[3],
                               int& subId, float pcoords[3], 

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkQuad.h,v $
   Language:  C++
-  Date:      $Date: 1994-08-15 07:49:34 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1994-09-14 20:18:51 $
+  Version:   $Revision: 1.9 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -27,8 +27,10 @@ class vlQuad : public vlCell
 {
 public:
   vlQuad() {};
+  vlQuad(const vlQuad& q);
   char *GetClassName() {return "vlQuad";};
 
+  vlCell *MakeObject() {return new vlQuad(*this);};
   int GetCellType() {return vlQUAD;};
   int GetCellDimension() {return 2;};
   int GetNumberOfEdges() {return 4;};

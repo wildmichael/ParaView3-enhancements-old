@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkTetra.h,v $
   Language:  C++
-  Date:      $Date: 1994-08-15 07:47:19 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1994-09-14 20:18:55 $
+  Version:   $Revision: 1.9 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -27,8 +27,10 @@ class vlTetra : public vlCell
 {
 public:
   vlTetra() {};
+  vlTetra(const vlTetra& t);
   char *GetClassName() {return "vlTetra";};
 
+  vlCell *MakeObject() {return new vlTetra(*this);};
   int GetCellType() {return vlTETRA;};
   int GetCellDimension() {return 3;};
   int GetNumberOfEdges() {return 6;};

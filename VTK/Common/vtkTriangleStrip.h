@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkTriangleStrip.h,v $
   Language:  C++
-  Date:      $Date: 1994-08-15 07:47:21 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1994-09-14 20:18:56 $
+  Version:   $Revision: 1.9 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -31,8 +31,10 @@ class vlTriangleStrip : public vlCell
 {
 public:
   vlTriangleStrip() {};
+  vlTriangleStrip(const vlTriangleStrip& ts);
   char *GetClassName() {return "vlTriangleStrip";};
 
+  vlCell *MakeObject() {return new vlTriangleStrip(*this);};
   int GetCellType() {return vlTRIANGLE_STRIP;};
   int GetCellDimension() {return 2;};
   int GetNumberOfEdges() {return this->GetNumberOfPoints();};
