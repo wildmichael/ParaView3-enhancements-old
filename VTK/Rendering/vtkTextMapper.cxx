@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:48:17 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-02-10 18:02:57 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,6 +57,7 @@ vtkTextMapper::vtkTextMapper()
   this->Shadow = 0;
   this->FontFamily = VTK_ARIAL;
   this->FontChanged = 0;
+  this->Justification = 0;
 }
 
 vtkTextMapper *vtkTextMapper::New()
