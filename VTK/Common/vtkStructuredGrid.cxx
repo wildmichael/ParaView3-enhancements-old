@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-05-23 22:28:22 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1994-09-26 16:13:11 $
+  Version:   $Revision: 1.6 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -26,7 +26,7 @@ vlStructuredGrid::vlStructuredGrid()
 }
 
 vlStructuredGrid::vlStructuredGrid(const vlStructuredGrid& sg) :
-vlStructuredDataSet(sg), vlPointSet(sg)
+vlStructuredData(sg), vlPointSet(sg)
 {
 }
 
@@ -38,7 +38,7 @@ vlStructuredGrid::~vlStructuredGrid()
 void vlStructuredGrid::Initialize()
 {
   vlPointSet::Initialize(); 
-  vlStructuredDataSet::Initialize();
+  vlStructuredData::Initialize();
 }
 
 int vlStructuredGrid::GetCellType(int cellId)
@@ -167,7 +167,7 @@ void vlStructuredGrid::PrintSelf(ostream& os, vlIndent indent)
 {
   if (this->ShouldIPrint(vlStructuredGrid::GetClassName()))
     {
-    vlDataSet::PrintSelf(os,indent);
+    vlStructuredData::PrintSelf(os,indent);
     }
 }
 

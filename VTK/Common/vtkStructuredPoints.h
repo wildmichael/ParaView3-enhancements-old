@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStructuredPoints.h,v $
   Language:  C++
-  Date:      $Date: 1994-09-14 08:17:27 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1994-09-26 16:13:18 $
+  Version:   $Revision: 1.14 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -16,8 +16,8 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 // .NAME vlStructuredPoints - topologically and geometrically regular array of data
 // .SECTION Description
 // vlStructuredPoints is a data object that is a concrete implementation of
-// vlDataSet.vlStructuredPoints represents a geometric structure that is a 
-// topological and geometrical regular array of points. Examples include
+// vlDataSet. vlStructuredPoints represents a geometric structure that is 
+// a topological and geometrical regular array of points. Examples include
 // volumes (voxel data) and pixmaps. 
 
 #ifndef __vlStructuredPoints_h
@@ -25,7 +25,7 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 
 #include "StrData.hh"
 
-class vlStructuredPoints : public vlStructuredDataSet {
+class vlStructuredPoints : public vlStructuredData {
 public:
   vlStructuredPoints();
   vlStructuredPoints(const vlStructuredPoints& v);

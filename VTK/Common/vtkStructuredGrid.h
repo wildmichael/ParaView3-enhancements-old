@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStructuredGrid.h,v $
   Language:  C++
-  Date:      $Date: 1994-08-15 07:49:38 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1994-09-26 16:13:12 $
+  Version:   $Revision: 1.7 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -28,7 +28,7 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 #include "PointSet.hh"
 #include "StrData.hh"
 
-class vlStructuredGrid : public vlPointSet, public vlStructuredDataSet {
+class vlStructuredGrid : public vlPointSet, public vlStructuredData {
 public:
   vlStructuredGrid();
   vlStructuredGrid(const vlStructuredGrid& sg);
