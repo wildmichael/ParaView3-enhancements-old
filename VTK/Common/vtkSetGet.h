@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSetGet.h,v $
   Language:  C++
-  Date:      $Date: 1999-06-18 20:42:40 $
-  Version:   $Revision: 1.54 $
+  Date:      $Date: 1999-06-20 13:20:07 $
+  Version:   $Revision: 1.55 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -145,7 +145,7 @@ type Get##name () { \
 // is succeptible to this problem.
 //
 #define vtkSafeSetStringMacro(name) \
-void Set##name (char* _arg);
+void Set##name (char* _arg)
 
 #define vtkSafeSetStringMacro2(name,cname) \
 void cname##::Set##name (char* _arg) \
