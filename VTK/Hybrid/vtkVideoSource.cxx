@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVideoSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-12-08 06:24:49 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1999-12-08 07:08:49 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,9 +40,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include <ctype.h>
 #include <string.h>
 #include <iostream.h>
+#include <unistd.h>
 #include "vtkVideoSource.h"
 #include "vtkObjectFactory.h"
-#include "vtkMultiThreader.h"
 
 
 //----------------------------------------------------------------------------
