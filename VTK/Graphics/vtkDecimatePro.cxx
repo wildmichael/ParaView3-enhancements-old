@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDecimatePro.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-17 02:05:38 $
-  Version:   $Revision: 1.73 $
+  Date:      $Date: 2003-02-25 16:37:04 $
+  Version:   $Revision: 1.74 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -29,7 +29,7 @@
 #include "vtkPointData.h"
 #include "vtkCellData.h"
 
-vtkCxxRevisionMacro(vtkDecimatePro, "$Revision: 1.73 $");
+vtkCxxRevisionMacro(vtkDecimatePro, "$Revision: 1.74 $");
 vtkStandardNewMacro(vtkDecimatePro);
 
 #define VTK_TOLERANCE 1.0e-05
@@ -978,6 +978,9 @@ void vtkDecimatePro::SplitVertex(vtkIdType ptId, int type,
      //changes in group size control how to split loop
     if ( numTris <= 1 )
       {
+      triangles->Delete();
+      cellIds->Delete();
+      group->Delete();
       return; //prevents infinite recursion
       }
     maxGroupSize = ( numTris < this->VertexDegree ? numTris : (this->VertexDegree - 1));
