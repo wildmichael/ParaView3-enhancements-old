@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLPolyDataMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-17 17:57:15 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-11-30 16:53:56 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -195,6 +195,9 @@ void vtkOpenGLPolyDataMapper2D::RenderOpaqueGeometry(vtkViewport* viewport,
     glEnd();
     }
 
+  // Set the LineWidth
+  glLineWidth(actor->GetProperty()->GetLineWidth());
+
   aPrim = input->GetLines();
   for (aPrim->InitTraversal(); aPrim->GetNextCell(npts,pts); cellNum++)
     { 
@@ -218,6 +221,32 @@ void vtkOpenGLPolyDataMapper2D::RenderOpaqueGeometry(vtkViewport* viewport,
     glEnd();
     }
 
+  // Set the PointSize
+  glPointSize(actor->GetProperty()->GetPointSize());
+
+  aPrim = input->GetVerts();
+  glBegin(GL_POINTS);
+  for (aPrim->InitTraversal(); aPrim->GetNextCell(npts,pts); cellNum++)
+    { 
+    for (j = 0; j < npts; j++) 
+      {
+      if (c) 
+	{
+	if (cellScalars) 
+	  {
+	  rgba = c->GetColor(cellNum);
+	  }
+	else
+	  {
+	  rgba = c->GetColor(pts[j]);
+	  }
+	glColor4ubv(rgba);
+	}
+      glVertex2fv(p->GetPoint(pts[j]));
+      }
+    }
+  glEnd();
+  
   if ( this->TransformCoordinate )
     {
     p->Delete();
