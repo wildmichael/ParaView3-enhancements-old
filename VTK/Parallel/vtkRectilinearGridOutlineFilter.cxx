@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGridOutlineFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-12 18:20:21 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-03-13 12:55:13 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkRectilinearGridOutlineFilter.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkRectilinearGridOutlineFilter, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkRectilinearGridOutlineFilter, "$Revision: 1.2 $");
 vtkStandardNewMacro(vtkRectilinearGridOutlineFilter);
 
 
@@ -45,6 +45,12 @@ void vtkRectilinearGridOutlineFilter::Execute()
   vtkDataArray* zCoords  = input->GetZCoordinates();
   int*          ext      = input->GetExtent();;
   int*          wholeExt = input->GetWholeExtent();
+
+  if (xCoords == NULL || yCoords == NULL || zCoords == NULL ||
+      input->GetNumberOfCells() == 0)
+    {
+    return;
+    }
 
   // We could probably use just the input bounds ...
   range = xCoords->GetRange();
