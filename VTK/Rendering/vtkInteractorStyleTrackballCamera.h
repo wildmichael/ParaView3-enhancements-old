@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleTrackballCamera.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-30 05:04:42 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2002-04-30 21:50:35 $
+  Version:   $Revision: 1.14 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -68,7 +68,6 @@ protected:
   virtual void Dolly();
   
   float MotionFactor;
-  float RadianToDegree;                 // constant: for conv from deg to rad
 
 private:
   vtkInteractorStyleTrackballCamera(const vtkInteractorStyleTrackballCamera&);  // Not implemented.

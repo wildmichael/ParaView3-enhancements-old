@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleTrackballActor.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-30 05:04:42 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2002-04-30 21:50:35 $
+  Version:   $Revision: 1.15 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -84,19 +84,8 @@ protected:
                        double *scale);
   
   float MotionFactor;
-  float RadianToDegree;                 // constant: for conv from deg to rad
+
   vtkProp3D *InteractionProp;
-  double ViewUp[3];
-  double ViewLook[3];
-  double ViewRight[3];
-  float ObjCenter[3];
-  float DispObjCenter[3];
-  float Radius;
-  float NewPickPoint[4];
-  float OldPickPoint[4];
-  float MotionVector[3];
-  double ViewPoint[3];
-  double ViewFocus[3];
   vtkCellPicker *InteractionPicker;
 
 private:

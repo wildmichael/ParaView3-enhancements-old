@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleImage.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-30 05:04:42 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2002-04-30 21:50:35 $
+  Version:   $Revision: 1.19 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 #include "vtkMath.h"
 #include "vtkCommand.h"
 
-vtkCxxRevisionMacro(vtkInteractorStyleImage, "$Revision: 1.18 $");
+vtkCxxRevisionMacro(vtkInteractorStyleImage, "$Revision: 1.19 $");
 vtkStandardNewMacro(vtkInteractorStyleImage);
 
 //----------------------------------------------------------------------------
@@ -87,12 +87,12 @@ void vtkInteractorStyleImage::OnMouseMove(int ctrl,
   switch (this->State) 
     {
     case VTKIS_WINDOW_LEVEL:
-      this->FindPokedCamera(x, y);
+      this->FindPokedRenderer(x, y);
       this->WindowLevel();
       break;
 
     case VTKIS_PICK:
-      this->FindPokedCamera(x, y);
+      this->FindPokedRenderer(x, y);
       this->Pick();
       break;
     }
