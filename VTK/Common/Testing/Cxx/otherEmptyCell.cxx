@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: otherEmptyCell.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:26:52 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-03-15 15:29:39 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -97,7 +97,8 @@ int main()
 {
   vtkDebugLeaks::PromptUserOff();
 
-  Test(cout);
+  ostrstream vtkmsg; 
+  Test(vtkmsg);
 
   return 0;
 } 

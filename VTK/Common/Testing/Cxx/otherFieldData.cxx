@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: otherFieldData.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:26:52 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-03-15 15:29:39 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -62,8 +62,12 @@ int main()
   ptIds->Delete();
 
   int arrayComp;
-  cout << fd->GetArrayContainingComponent(1, arrayComp) << endl;
-
+  int a = fd->GetArrayContainingComponent(1, arrayComp);
+  if (a != 0)
+    {
+    return 1;
+    }
+  
   float tuple[10];
   fd->GetTuple(2);
   fd->SetTuple(2, tuple);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: otherColorTransferFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:28:16 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-03-15 15:29:54 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 #include "vtkColorTransferFunction.h"
 #include "vtkDebugLeaks.h"
 
-void Test(ostream& strm)
+int Test(ostream& strm)
 {
   int i, j, k;
   vtkColorTransferFunction *ctf1 = vtkColorTransferFunction::New();
@@ -144,6 +144,7 @@ void Test(ostream& strm)
   delete []dData;
 
   strm << "Test vtkColorTransferFunction End" << endl;
+  return 0;
 }
 
 
@@ -151,7 +152,6 @@ int main()
 {
   vtkDebugLeaks::PromptUserOff();
 
-  Test(cout);
-
-  return 0;
+  ostrstream vtkmsg; 
+  return Test(vtkmsg);
 } 

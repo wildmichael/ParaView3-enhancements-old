@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: otherCellBoundaries.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:26:50 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-03-15 15:29:39 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -36,7 +36,7 @@
 #include "vtkTriangle.h"
 #include "vtkTriangleStrip.h"
 
-void Test(ostream& strm)
+int Test(ostream& strm)
 {
   // actual test
   vtkIdList *ids = vtkIdList::New();
@@ -359,6 +359,8 @@ void Test(ostream& strm)
   hexahedron->Delete();
 
  strm << "Test vtkCell::CellBoundary Complete" << endl;
+
+ return 0;
 }
 
 
@@ -366,7 +368,6 @@ int main()
 {
   vtkDebugLeaks::PromptUserOff();
 
-  Test(cout);
-
-  return 0;
+  ostrstream vtkmsg; 
+  return Test(vtkmsg);
 } 

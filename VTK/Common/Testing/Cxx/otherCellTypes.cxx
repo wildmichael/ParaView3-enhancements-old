@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: otherCellTypes.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:26:52 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-03-15 15:29:39 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,10 +25,9 @@
 #include "vtkCellTypes.h"
 #include "vtkCellType.h"
 
-void Test(ostream& strm)
+void Test()
 {
   // actual test
-  strm << "Test CellTypes Start" << endl;
   vtkCellTypes *ct = vtkCellTypes::New();
   ct->Allocate();
 
@@ -74,14 +73,13 @@ void Test(ostream& strm)
   ct->Delete();
   cellLocations->Delete();
   cellTypes->Delete();
-  strm << "Test CellTypes Complete" << endl;
 }
 
 int main()
 {
   vtkDebugLeaks::PromptUserOff();
 
-  Test(cout);
+  Test();
 
   return 0;
 } 

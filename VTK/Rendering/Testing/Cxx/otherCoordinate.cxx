@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: otherCoordinate.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:40:08 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-03-15 15:30:04 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -55,7 +55,7 @@ void ToAll (ostream& strm, vtkCoordinate *c1, vtkViewport *ren1,
 
 
 }
-void Test(ostream& strm)
+int Test(ostream& strm)
 {
   // actual test
   strm << "Testing vtkCoordinate" << endl;
@@ -166,15 +166,14 @@ void Test(ostream& strm)
   camera->Delete ();
 
   strm << "Testing completed" << endl;
-  
+  return 0;
 }
 
 int main()
 {
   vtkDebugLeaks::PromptUserOff();
 
-  Test(cout);
-
-  return 0;
+  ostrstream vtkmsg; 
+  return Test(vtkmsg);
 }
 
