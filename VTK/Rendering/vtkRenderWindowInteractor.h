@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-27 12:53:42 $
-  Version:   $Revision: 1.58 $
+  Date:      $Date: 1999-08-27 13:25:03 $
+  Version:   $Revision: 1.59 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -244,7 +244,8 @@ protected:
   int   ActorMode;
   float DesiredUpdateRate;
   float StillUpdateRate;
-  int   EventPosition[2], Size[2];
+  int   EventPosition[2];
+  int   Size[2];
   
   // user methods that can be used to override default behaviour
   void (*StartPickMethod)(void *);
