@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKWMath.h,v $
   Language:  C++
-  Date:      $Date: 2003-05-30 18:12:49 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2003-06-03 21:04:29 $
+  Version:   $Revision: 1.4 $
 
 Copyright (c) 1998-2003 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -90,6 +90,15 @@ public:
   // Get the data's scalar minimum difference among all values
   // Return 1 on success, 0 otherwise.
   static int GetScalarMinDelta(vtkDataArray *array, int comp, double *delta);
+ 
+  // Description:
+  // Get the scalar type that will be able to store a given range of data 
+  // once it has been scaled and shifted. If any of those parameters is not
+  // an integer number, the search will default to float types (float, double)
+  // Return -1 on error or no scalar type found.
+  static int GetScalarTypeFittingRange(
+    double range_min, double range_max, 
+    double scale = 1.0, double shift = 0.0);
  
 protected:
   vtkKWMath() {};
