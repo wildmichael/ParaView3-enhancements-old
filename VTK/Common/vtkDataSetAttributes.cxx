@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetAttributes.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-14 15:30:13 $
-  Version:   $Revision: 1.52 $
+  Date:      $Date: 2001-12-17 13:47:23 $
+  Version:   $Revision: 1.53 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -95,7 +95,6 @@ vtkDataSetAttributes::~vtkDataSetAttributes()
   delete[] this->TargetIndices;
   this->TargetIndices = 0;
 }
-
 
 // Turn on copying of all data.
 void vtkDataSetAttributes::CopyAllOn()
@@ -1991,3 +1990,16 @@ void vtkDataSetAttributes::FieldList::RemoveField(const char *name)
       }
     }
 }
+
+
+const char* vtkDataSetAttributes::GetAttributeTypeAsString(int attributeType)
+{
+  if (attributeType < 0 || attributeType >= NUM_ATTRIBUTES)
+    {
+    vtkGenericWarningMacro("Bad attribute type.");
+    return NULL;
+    }
+  return vtkDataSetAttributes::AttributeNames[attributeType];
+}
+
+

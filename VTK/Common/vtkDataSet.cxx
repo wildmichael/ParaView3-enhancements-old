@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSet.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-10 23:11:30 $
-  Version:   $Revision: 1.85 $
+  Date:      $Date: 2001-12-17 13:47:22 $
+  Version:   $Revision: 1.86 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -361,6 +361,76 @@ void vtkDataSet::InternalDataSetCopy(vtkDataSet *src)
     this->Bounds[2*idx] = src->Bounds[2*idx];
     this->Bounds[2*idx+1] = src->Bounds[2*idx+1];
     }
+}
+
+
+//----------------------------------------------------------------------------
+int vtkDataSet::CheckAttributes()
+{
+  int numPts, numCells;
+  int numArrays, idx;
+  vtkDataArray *array;
+  int numTuples;
+  const char* name;
+
+  numPts = this->GetNumberOfPoints();
+  numCells = this->GetNumberOfCells();
+
+  numArrays = this->GetPointData()->GetNumberOfArrays();
+  for (idx = 0; idx < numArrays; ++idx)
+    {
+    array = this->GetPointData()->GetArray(idx);
+    numTuples = array->GetNumberOfTuples();
+    name = array->GetName();
+    if (name == NULL)
+      {
+      name = "";
+      }
+    if (numTuples < numPts)
+      {
+      vtkErrorMacro("Point array " << name << " with " 
+                    << array->GetNumberOfComponents()
+                    << " components, only has " << numTuples << " but there are " 
+                    << numPts << " points");
+      return 1;
+      }
+    if (numTuples > numPts)
+      {
+      vtkWarningMacro("Point array " << name << " with " 
+                    << array->GetNumberOfComponents()
+                    << " components, has " << numTuples << " but there are only " 
+                    << numPts << " points");
+      }
+    }
+
+  numArrays = this->GetCellData()->GetNumberOfArrays();
+  for (idx = 0; idx < numArrays; ++idx)
+    {
+    array = this->GetCellData()->GetArray(idx);
+    numTuples = array->GetNumberOfTuples();
+    name = array->GetName();
+    if (name == NULL)
+      {
+      name = "";
+      }
+    if (numTuples < numCells)
+      {
+      vtkErrorMacro("Cell array " << name << " with " 
+                    << array->GetNumberOfComponents()
+                    << " components, has only " << numTuples << " but there are "
+                    << numCells << " cells");
+      return 1;
+      }
+    if (numTuples > numCells)
+      {
+      vtkWarningMacro("Cell array " << name << " with " 
+                    << array->GetNumberOfComponents() 
+                    << " components, has " << numTuples << " but there are only " 
+                    << numCells << " cells");
+      }
+    }
+
+  return 0;
 }
 
 //----------------------------------------------------------------------------

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetAttributes.h,v $
   Language:  C++
-  Date:      $Date: 2001-12-10 21:17:16 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 2001-12-17 13:47:24 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -330,6 +330,11 @@ public:
   // Description:
   // Remove an array (with the given name) from the list of arrays.
   virtual void RemoveArray(const char *name);
+
+  // Description:
+  // Given an integer attribute type, this static method returns a string type
+  // for the attribute (i.e. type = 0: returns "Scalars").
+  static const char* GetAttributeTypeAsString(int attributeType);
 
 //BTX
   // Always keep NUM_ATTRIBUTES as the last entry
