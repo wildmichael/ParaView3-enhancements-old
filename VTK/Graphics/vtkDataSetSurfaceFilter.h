@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetSurfaceFilter.h,v $
   Language:  C++
-  Date:      $Date: 2002-11-03 22:51:55 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2003-10-14 15:08:25 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -30,9 +30,22 @@
 
 #include "vtkDataSetToPolyDataFilter.h"
 
-class vtkFastGeomQuad; 
+
 class vtkPointData;
 class vtkPoints;
+//BTX
+// Helper structure for hashing faces.
+struct vtkFastGeomQuadStruct
+{
+  vtkIdType p0;
+  vtkIdType p1;
+  vtkIdType p2;
+  vtkIdType p3;
+  vtkIdType SourceId;
+  struct vtkFastGeomQuadStruct *Next;
+};
+typedef struct vtkFastGeomQuadStruct vtkFastGeomQuad;
+//ETX
 
 class VTK_GRAPHICS_EXPORT vtkDataSetSurfaceFilter : public vtkDataSetToPolyDataFilter
 {
@@ -89,6 +102,18 @@ protected:
   
   vtkIdType NumberOfNewCells;
   
+  // Better memory allocation for faces (hash)
+  void InitFastGeomQuadAllocation(int numberOfCells);
+  vtkFastGeomQuad* NewFastGeomQuad();
+  void DeleteAllFastGeomQuads();
+  // -----
+  int FastGeomQuadArrayLength;
+  int NumberOfFastGeomQuadArrays;
+  vtkFastGeomQuad** FastGeomQuadArrays;
+  // These indexes allow us to find the next available face.
+  int NextArrayIndex;
+  int NextQuadIndex;
+
 private:
   vtkDataSetSurfaceFilter(const vtkDataSetSurfaceFilter&);  // Not implemented.
   void operator=(const vtkDataSetSurfaceFilter&);  // Not implemented.
