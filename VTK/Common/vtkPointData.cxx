@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointData.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-10-25 23:45:16 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 1996-07-08 20:26:13 $
+  Version:   $Revision: 1.42 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -126,7 +126,7 @@ void vtkPointData::CopyData(vtkPointData* fromPd, int fromId, int toId)
 {
   if ( fromPd->Scalars && this->Scalars && this->CopyScalars )
     {
-    if ( this->Scalars->GetNumberOfValuesPerScalar() == 1 ) //single-valued scalar
+    if (strcmp(this->Scalars->GetScalarType(),"ColorScalar"))
       {
       this->Scalars->InsertScalar(toId,fromPd->Scalars->GetScalar(fromId));
       }
