@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkImageViewerWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-03-29 14:22:51 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2000-08-06 10:55:01 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -45,6 +45,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #ifdef _WIN32
 #include "vtkWin32ImageWindow.h"
+#pragma warning ( disable : 4273 )
 #else
 #include "vtkXImageWindow.h"
 #endif
