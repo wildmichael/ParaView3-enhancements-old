@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoxel.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-01-06 15:07:50 $
-  Version:   $Revision: 1.54 $
+  Date:      $Date: 1999-06-14 21:07:07 $
+  Version:   $Revision: 1.55 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -89,7 +89,7 @@ int vtkVoxel::EvaluatePosition(float x[3], float closestPoint[3],
   pcoords[1] = (x[1] - pt1[1]) / (pt3[1] - pt1[1]);
   pcoords[2] = (x[2] - pt1[2]) / (pt4[2] - pt1[2]);
 
-  if ( pcoords[0] >= 0.0 && pcoords[1] <= 1.0 &&
+  if ( pcoords[0] >= 0.0 && pcoords[0] <= 1.0 &&
   pcoords[1] >= 0.0 && pcoords[1] <= 1.0 &&
   pcoords[2] >= 0.0 && pcoords[2] <= 1.0 )
     {
