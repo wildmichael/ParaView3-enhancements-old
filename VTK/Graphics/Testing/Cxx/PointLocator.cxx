@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: PointLocator.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:57 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-05-27 14:27:44 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,6 +23,7 @@
 #include "vtkActor.h"
 #include "vtkRenderWindowInteractor.h"
 #include "vtkPointLocator.h"
+#include "vtkProperty.h"
 
 #include "vtkRegressionTestImage.h"
 #include "vtkDebugLeaks.h"

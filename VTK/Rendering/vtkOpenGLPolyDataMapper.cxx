@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLPolyDataMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-16 20:13:38 $
-  Version:   $Revision: 1.70 $
+  Date:      $Date: 2002-05-27 14:27:44 $
+  Version:   $Revision: 1.71 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -15,11 +15,17 @@
      PURPOSE.  See the above copyright notice for more information.
 
 =========================================================================*/
-#include <stdlib.h>
-#include <string.h>
-#include <math.h>
-
 #include "vtkOpenGLPolyDataMapper.h"
+
+#include "vtkCommand.h"
+#include "vtkDataArray.h"
+#include "vtkObjectFactory.h"
+#include "vtkOpenGLRenderer.h"
+#include "vtkPlane.h"
+#include "vtkPolyData.h"
+#include "vtkPolygon.h"
+#include "vtkProperty.h"
+#include "vtkTriangle.h"
 
 #ifdef VTK_USE_CARBON
  #include "vtkCarbonRenderWindow.h"
@@ -34,18 +40,14 @@
   #endif
  #endif
 #endif
-#include "vtkOpenGLRenderer.h"
-#include "vtkPolyData.h"
-#include "vtkPolygon.h"
-#include "vtkTriangle.h"
-#include "vtkPlane.h"
-#include "vtkDataArray.h"
 
-#include "vtkObjectFactory.h"
-#include "vtkCommand.h"
+#include <stdlib.h>
+#include <string.h>
+#include <math.h>
+
 
 #ifndef VTK_IMPLEMENT_MESA_CXX
-vtkCxxRevisionMacro(vtkOpenGLPolyDataMapper, "$Revision: 1.70 $");
+vtkCxxRevisionMacro(vtkOpenGLPolyDataMapper, "$Revision: 1.71 $");
 vtkStandardNewMacro(vtkOpenGLPolyDataMapper);
 #endif
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRIBExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-07 21:15:48 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 2002-05-27 14:27:44 $
+  Version:   $Revision: 1.44 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -15,21 +15,23 @@
      PURPOSE.  See the above copyright notice for more information.
 =========================================================================*/
 #include "vtkRIBExporter.h"
-#include "vtkRIBProperty.h"
-#include "vtkRIBLight.h"
+
+#include "vtkAssemblyNode.h"
+#include "vtkAssemblyPath.h"
+#include "vtkFieldData.h"
 #include "vtkGeometryFilter.h"
-#include "vtkMath.h"
-#include "vtkPolygon.h"
-#include "vtkTIFFWriter.h"
+#include "vtkImageAppendComponents.h"
 #include "vtkImageConstantPad.h"
 #include "vtkImageExtractComponents.h"
-#include "vtkImageAppendComponents.h"
-#include "vtkAssemblyPath.h"
-#include "vtkAssemblyNode.h"
+#include "vtkMapper.h"
+#include "vtkMath.h"
 #include "vtkObjectFactory.h"
-#include "vtkFieldData.h"
+#include "vtkPolygon.h"
+#include "vtkRIBLight.h"
+#include "vtkRIBProperty.h"
+#include "vtkTIFFWriter.h"
 
-vtkCxxRevisionMacro(vtkRIBExporter, "$Revision: 1.43 $");
+vtkCxxRevisionMacro(vtkRIBExporter, "$Revision: 1.44 $");
 vtkStandardNewMacro(vtkRIBExporter);
 
 typedef float RtColor[3];

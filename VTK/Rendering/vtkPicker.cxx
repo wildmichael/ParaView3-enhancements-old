@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPicker.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:39:04 $
-  Version:   $Revision: 1.72 $
+  Date:      $Date: 2002-05-27 14:27:44 $
+  Version:   $Revision: 1.73 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,17 +16,19 @@
 
 =========================================================================*/
 #include "vtkPicker.h"
-#include "vtkCamera.h"
-#include "vtkMath.h"
-#include "vtkVertex.h"
-#include "vtkRenderWindow.h"
-#include "vtkAssemblyNode.h"
-#include "vtkVolume.h"
-#include "vtkObjectFactory.h"
-#include "vtkLODProp3D.h"
-#include "vtkCommand.h"
 
-vtkCxxRevisionMacro(vtkPicker, "$Revision: 1.72 $");
+#include "vtkAssemblyNode.h"
+#include "vtkCamera.h"
+#include "vtkCommand.h"
+#include "vtkLODProp3D.h"
+#include "vtkMath.h"
+#include "vtkObjectFactory.h"
+#include "vtkProperty.h"
+#include "vtkRenderWindow.h"
+#include "vtkVertex.h"
+#include "vtkVolume.h"
+
+vtkCxxRevisionMacro(vtkPicker, "$Revision: 1.73 $");
 vtkStandardNewMacro(vtkPicker);
 
 // Construct object with initial tolerance of 1/40th of window. There are no

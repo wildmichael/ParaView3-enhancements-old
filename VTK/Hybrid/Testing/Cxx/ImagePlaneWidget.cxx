@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: ImagePlaneWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-24 19:40:44 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-05-27 14:27:44 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -29,6 +29,8 @@
 #include "vtkRenderWindowInteractor.h"
 #include "vtkTextMapper.h"
 #include "vtkVolume16Reader.h"
+#include "vtkProperty.h"
+#include "vtkLookupTable.h"
 
 #include "vtkRegressionTestImage.h"
 #include "vtkDebugLeaks.h"

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-01 14:56:09 $
-  Version:   $Revision: 1.114 $
+  Date:      $Date: 2002-05-27 14:27:44 $
+  Version:   $Revision: 1.115 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,14 +16,21 @@
 
 =========================================================================*/
 #include "vtkActor.h"
-#include "vtkRenderWindow.h"
-#include "vtkGraphicsFactory.h"
+
 #include "vtkAssemblyPaths.h"
+#include "vtkGraphicsFactory.h"
+#include "vtkMapper.h"
+#include "vtkProperty.h"
+#include "vtkRenderWindow.h"
+#include "vtkTexture.h"
 
 #include <stdlib.h>
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkActor, "$Revision: 1.114 $");
+vtkCxxRevisionMacro(vtkActor, "$Revision: 1.115 $");
+
+vtkCxxSetObjectMacro(vtkActor,Texture,vtkTexture);
+
 
 // Creates an actor with the following defaults: origin(0,0,0) 
 // position=(0,0,0) scale=(1,1,1) visibility=1 pickable=1 dragable=1

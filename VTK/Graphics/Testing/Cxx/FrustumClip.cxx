@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: FrustumClip.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:57 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-05-27 14:27:44 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,6 +23,7 @@
 #include "vtkActor.h"
 #include "vtkRenderWindowInteractor.h"
 #include "vtkClipPolyData.h"
+#include "vtkProperty.h"
 
 #include "vtkRegressionTestImage.h"
 #include "vtkDebugLeaks.h"

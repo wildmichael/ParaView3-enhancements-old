@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLODActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-22 16:33:01 $
-  Version:   $Revision: 1.59 $
+  Date:      $Date: 2002-05-27 14:27:44 $
+  Version:   $Revision: 1.60 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,14 +16,17 @@
 
 =========================================================================*/
 #include "vtkLODActor.h"
-#include "vtkRenderWindow.h"
-#include "vtkTimerLog.h"
+
 #include "vtkObjectFactory.h"
+#include "vtkProperty.h"
+#include "vtkRenderWindow.h"
+#include "vtkTexture.h"
+#include "vtkTimerLog.h"
 
 #include <stdlib.h>
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkLODActor, "$Revision: 1.59 $");
+vtkCxxRevisionMacro(vtkLODActor, "$Revision: 1.60 $");
 vtkStandardNewMacro(vtkLODActor);
 
 //----------------------------------------------------------------------------

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLineWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-30 21:49:49 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2002-05-27 14:27:44 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,19 +16,21 @@
 
 =========================================================================*/
 #include "vtkLineWidget.h"
+
+#include "vtkAssemblyNode.h"
+#include "vtkCallbackCommand.h"
+#include "vtkCellPicker.h"
+#include "vtkDoubleArray.h"
+#include "vtkFloatArray.h"
 #include "vtkMath.h"
+#include "vtkObjectFactory.h"
+#include "vtkPlanes.h"
 #include "vtkPolyData.h"
 #include "vtkPolyDataMapper.h"
+#include "vtkProperty.h"
 #include "vtkSphereSource.h"
-#include "vtkFloatArray.h"
-#include "vtkCellPicker.h"
-#include "vtkAssemblyNode.h"
-#include "vtkDoubleArray.h"
-#include "vtkPlanes.h"
-#include "vtkCallbackCommand.h"
-#include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkLineWidget, "$Revision: 1.11 $");
+vtkCxxRevisionMacro(vtkLineWidget, "$Revision: 1.12 $");
 vtkStandardNewMacro(vtkLineWidget);
 
 vtkLineWidget::vtkLineWidget()

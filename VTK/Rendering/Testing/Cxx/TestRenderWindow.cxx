@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: TestRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-24 15:04:46 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-05-27 14:27:44 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,6 +23,7 @@
 #include "vtkActor.h"
 #include "vtkUnsignedCharArray.h"
 #include "vtkFloatArray.h"
+#include "vtkProperty.h"
 
 #include "vtkRegressionTestImage.h"
 

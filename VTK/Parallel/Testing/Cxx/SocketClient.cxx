@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: SocketClient.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:35:06 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-05-27 14:27:44 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -15,20 +15,21 @@
      PURPOSE.  See the above copyright notice for more information.
 
 =========================================================================*/
-#include "vtkSocketController.h"
-#include "vtkUnstructuredGrid.h"
-#include "vtkRectilinearGrid.h"
-#include "vtkStructuredGrid.h"
-#include "vtkDataSetMapper.h"
 #include "vtkActor.h"
-#include "vtkRenderWindow.h"
-#include "vtkRenderer.h"
+#include "vtkContourFilter.h"
+#include "vtkDataSetMapper.h"
+#include "vtkDebugLeaks.h"
 #include "vtkDoubleArray.h"
-#include "vtkRegressionTestImage.h"
 #include "vtkInputPort.h"
 #include "vtkPolyDataMapper.h"
-#include "vtkContourFilter.h"
-#include "vtkDebugLeaks.h"
+#include "vtkRectilinearGrid.h"
+#include "vtkRegressionTestImage.h"
+#include "vtkRenderWindow.h"
+#include "vtkRenderer.h"
+#include "vtkSocketController.h"
+#include "vtkStructuredGrid.h"
+#include "vtkStructuredPoints.h"
+#include "vtkUnstructuredGrid.h"
 
 static const int scMsgLength = 10;
 

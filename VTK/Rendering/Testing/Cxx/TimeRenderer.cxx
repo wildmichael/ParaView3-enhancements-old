@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: TimeRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:40:06 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-05-27 14:27:44 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -28,6 +28,7 @@
 #include "vtkTriangleFilter.h"
 #include "vtkStripper.h"
 #include "vtkTimerLog.h"
+#include "vtkProperty.h"
 
 int main( int argc, char *argv[] )
 {

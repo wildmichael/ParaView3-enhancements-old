@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActorCollection.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:28 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-05-27 14:27:44 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,9 +16,11 @@
 
 =========================================================================*/
 #include "vtkActorCollection.h"
-#include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkActorCollection, "$Revision: 1.8 $");
+#include "vtkObjectFactory.h"
+#include "vtkProperty.h"
+
+vtkCxxRevisionMacro(vtkActorCollection, "$Revision: 1.9 $");
 vtkStandardNewMacro(vtkActorCollection);
 
 void vtkActorCollection::ApplyProperties(vtkProperty *p)

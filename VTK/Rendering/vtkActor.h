@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor.h,v $
   Language:  C++
-  Date:      $Date: 2002-02-22 16:43:26 $
-  Version:   $Revision: 1.96 $
+  Date:      $Date: 2002-05-27 14:27:44 $
+  Version:   $Revision: 1.97 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -33,13 +33,13 @@
 #define __vtkActor_h
 
 #include "vtkProp3D.h"
-#include "vtkProperty.h"
-#include "vtkTexture.h"
-#include "vtkMapper.h"
 
 class vtkRenderer;
 class vtkPropCollection;
 class vtkActorCollection;
+class vtkTexture;
+class vtkMapper;
+class vtkProperty;
 
 class VTK_RENDERING_EXPORT vtkActor : public vtkProp3D
 {
@@ -108,7 +108,7 @@ public:
   // Set/Get the texture object to control rendering texture maps.  This will
   // be a vtkTexture object. An actor does not need to have an associated
   // texture map and multiple actors can share one texture.
-  vtkSetObjectMacro(Texture,vtkTexture);
+  virtual void SetTexture(vtkTexture*);
   vtkGetObjectMacro(Texture,vtkTexture);
 
   // Description:

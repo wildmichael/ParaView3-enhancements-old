@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleUnicam.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-06 21:19:25 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2002-05-27 14:27:44 $
+  Version:   $Revision: 1.25 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,15 +24,16 @@
  */
 
 #include "vtkInteractorStyleUnicam.h"
+
 #include "vtkMath.h"
-#include "vtkWorldPointPicker.h"
-#include "vtkRenderWindowInteractor.h"
 #include "vtkObjectFactory.h"
-
-#include "vtkSphereSource.h"
 #include "vtkPolyDataMapper.h"
+#include "vtkProperty.h"
+#include "vtkRenderWindowInteractor.h"
+#include "vtkSphereSource.h"
+#include "vtkWorldPointPicker.h"
 
-vtkCxxRevisionMacro(vtkInteractorStyleUnicam, "$Revision: 1.24 $");
+vtkCxxRevisionMacro(vtkInteractorStyleUnicam, "$Revision: 1.25 $");
 vtkStandardNewMacro(vtkInteractorStyleUnicam);
 
 vtkInteractorStyleUnicam::vtkInteractorStyleUnicam()

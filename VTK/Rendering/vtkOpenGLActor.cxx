@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:47 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2002-05-27 14:27:44 $
+  Version:   $Revision: 1.24 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -15,20 +15,22 @@
      PURPOSE.  See the above copyright notice for more information.
 
 =========================================================================*/
-#include <math.h>
-
-
-#include "vtkOpenGLRenderer.h"
 #include "vtkOpenGLActor.h"
+
+#include "vtkMapper.h"
+#include "vtkObjectFactory.h"
+#include "vtkOpenGLRenderer.h"
+#include "vtkProperty.h"
+
 #ifdef __APPLE__
 #include <OpenGL/gl.h>
 #else
 #include <GL/gl.h>
 #endif
-#include "vtkObjectFactory.h"
+#include <math.h>
 
 #ifndef VTK_IMPLEMENT_MESA_CXX
-vtkCxxRevisionMacro(vtkOpenGLActor, "$Revision: 1.23 $");
+vtkCxxRevisionMacro(vtkOpenGLActor, "$Revision: 1.24 $");
 vtkStandardNewMacro(vtkOpenGLActor);
 #endif
 
