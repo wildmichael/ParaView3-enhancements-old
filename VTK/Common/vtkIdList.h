@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIdList.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 19:22:15 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 1997-04-18 20:47:40 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,7 +57,7 @@ class VTK_EXPORT vtkIdList : public vtkObject
   ~vtkIdList();
 
   vtkIdList &operator=(const vtkIdList& ids) {*(this->Ia) = *(ids.Ia); return *this;};
-  vtkIdList *New() {return new vtkIdList;};
+  static vtkIdList *New() {return new vtkIdList;};
   char *GetClassName() {return "vtkIdList";};
   void Squeeze() {this->Ia->Squeeze();};
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEmptyCell.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 19:22:06 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1997-04-18 20:47:29 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -53,7 +53,7 @@ class VTK_EXPORT vtkEmptyCell : public vtkCell
 public:
   vtkEmptyCell() {};
   vtkEmptyCell(const vtkEmptyCell& p);
-  vtkEmptyCell *New() {return new vtkEmptyCell;};
+  static vtkEmptyCell *New() {return new vtkEmptyCell;};
   char *GetClassName() {return "vtkEmptyCell";};
 
   vtkCell *MakeObject() {return new vtkEmptyCell(*this);};

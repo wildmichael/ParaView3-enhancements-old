@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBitArray.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 19:53:14 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1997-04-18 20:47:20 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,7 +59,7 @@ public:
   vtkBitArray(const int sz, const int ext=1000);
   vtkBitArray(const vtkBitArray& ia);
   ~vtkBitArray();
-  vtkBitArray *New() {return new vtkBitArray;};
+  static vtkBitArray *New() {return new vtkBitArray;};
   virtual char *GetClassName() {return "vtkBitArray";};
   void PrintSelf(ostream& os, vtkIndent indent);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVertex.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 19:22:56 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1997-04-18 20:48:28 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -52,7 +52,7 @@ class VTK_EXPORT vtkVertex : public vtkCell
 public:
   vtkVertex();
   vtkVertex(const vtkVertex& p);
-  vtkVertex *New() {return new vtkVertex;};
+  static vtkVertex *New() {return new vtkVertex;};
   char *GetClassName() {return "vtkVertex";};
 
   vtkCell *MakeObject() {return new vtkVertex(*this);};

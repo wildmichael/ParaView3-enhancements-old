@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointData.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 19:22:33 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 1997-04-18 20:47:59 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -63,7 +63,7 @@ public:
   vtkPointData();
   void Initialize();
   ~vtkPointData();
-  vtkPointData *New() {return new vtkPointData;};
+  static vtkPointData *New() {return new vtkPointData;};
   char *GetClassName() {return "vtkPointData";};
   void PrintSelf(ostream& os, vtkIndent indent);
   vtkPointData (const vtkPointData& pd);

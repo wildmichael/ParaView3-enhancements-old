@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLine.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 19:22:23 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 1997-04-18 20:47:48 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -52,7 +52,7 @@ class VTK_EXPORT vtkLine : public vtkCell
 public:
   vtkLine();
   vtkLine(const vtkLine& l);
-  vtkLine *New() {return new vtkLine;};
+  static vtkLine *New() {return new vtkLine;};
   char *GetClassName() {return "vtkLine";};
 
   // cell methods

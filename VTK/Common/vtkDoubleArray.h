@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDoubleArray.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 19:53:16 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1997-04-18 20:47:27 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,7 +58,7 @@ public:
   vtkDoubleArray(const int sz, const int ext=1000);
   vtkDoubleArray(const vtkDoubleArray& fa);
   ~vtkDoubleArray();
-  vtkDoubleArray *New() {return new vtkDoubleArray;};
+  static vtkDoubleArray *New() {return new vtkDoubleArray;};
   char *GetClassName() {return "vtkDoubleArray";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
