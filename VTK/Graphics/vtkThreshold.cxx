@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkThreshold.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-08-11 07:41:33 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1994-09-27 15:56:58 $
+  Version:   $Revision: 1.5 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -22,7 +22,7 @@ vlThreshold::vlThreshold()
   this->LowerThreshold = 0.0;
   this->UpperThreshold = 1.0;
 
-  this->ThresholdFunction = this->Upper;
+  this->ThresholdFunction = &vlThreshold::Upper;
 }
 
 // Description:
@@ -32,7 +32,7 @@ void vlThreshold::ThresholdByLower(float lower)
   if ( this->LowerThreshold != lower )
     {
     this->LowerThreshold = lower; 
-    this->ThresholdFunction = this->Lower;
+    this->ThresholdFunction = &vlThreshold::Lower;
     this->Modified();
     }
 }
@@ -44,7 +44,7 @@ void vlThreshold::ThresholdByUpper(float upper)
   if ( this->UpperThreshold != upper )
     {
     this->UpperThreshold = upper; 
-    this->ThresholdFunction = Upper;
+    this->ThresholdFunction = &vlThreshold::Upper;
     this->Modified();
     }
 }
@@ -57,7 +57,7 @@ void vlThreshold::ThresholdBetween(float lower, float upper)
     {
     this->LowerThreshold = lower; 
     this->UpperThreshold = upper;
-    this->ThresholdFunction = Between;
+    this->ThresholdFunction = vlThreshold::Between;
     this->Modified();
     }
 }
@@ -105,7 +105,7 @@ void vlThreshold::Execute()
     for ( i=0; i < numCellPts; i++)
       {
       ptId = cellPts->GetId(i);
-      if ( ! ((this->ThresholdFunction)(cellScalars.GetScalar(ptId))) ) break;
+      if ( ! ((this->*(this->ThresholdFunction))(cellScalars.GetScalar(ptId))) ) break;
       }
 
     if ( i >= numCellPts ) // satisfied thresholding
