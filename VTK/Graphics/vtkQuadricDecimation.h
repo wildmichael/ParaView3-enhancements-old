@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadricDecimation.h,v $
   Language:  C++
-  Date:      $Date: 2003-07-02 11:31:47 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2003-07-29 09:39:09 $
+  Version:   $Revision: 1.19 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -140,7 +140,7 @@ protected:
 
   // Description:
   // Compute quadric for all vertices
-  void InitializeQuadrics(void);
+  void InitializeQuadrics(vtkIdType numPts);
   
   // Description:
   // Free boundary edges are weighted
