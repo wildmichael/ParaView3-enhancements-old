@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadraticEdge.h,v $
   Language:  C++
-  Date:      $Date: 2002-03-08 16:56:14 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-03-08 21:02:29 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -84,9 +84,10 @@ public:
   virtual void Tesselate(vtkIdType cellId, 
                          vtkDataSet *input, vtkPolyData *output, 
                          vtkPointLocator *locator=NULL);
-  virtual void Tesselate(vtkIdType cellId, 
-                         vtkDataSet *input, vtkUnstructuredGrid *output, 
-                         vtkPointLocator *locator=NULL);
+  virtual void Tesselate(vtkIdType vtkNotUsed(cellId), 
+                         vtkDataSet* vtkNotUsed(input), 
+                         vtkUnstructuredGrid* vtkNotUsed(output), 
+                         vtkPointLocator* vtkNotUsed(locator)=NULL);
   
   
   // Description:

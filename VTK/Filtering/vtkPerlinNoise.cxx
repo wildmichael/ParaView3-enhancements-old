@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPerlinNoise.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-05 20:34:00 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-03-08 21:02:29 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,7 +19,7 @@
 #include "vtkObjectFactory.h"
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkPerlinNoise, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkPerlinNoise, "$Revision: 1.4 $");
 vtkStandardNewMacro(vtkPerlinNoise);
 
 // These functions are from Greg Ward's recursive implementation in 
@@ -121,7 +121,8 @@ float vtkPerlinNoise::EvaluateFunction(float x[3])
 }
 
 // Evaluate PerlinNoise gradient.
-void vtkPerlinNoise::EvaluateGradient(float x[3], float n[3])
+void vtkPerlinNoise::EvaluateGradient(float* vtkNotUsed(x), // Was x[3]
+                                      float n[3])
 {
   // contrary to the paper, the vector computed as a byproduct of
   // the Perlin Noise computation isn't a gradient;  it's a tangent.

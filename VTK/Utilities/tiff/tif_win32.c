@@ -1,4 +1,4 @@
-/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/tiff/Attic/tif_win32.c,v 1.2 2002-02-04 01:53:22 andy Exp $ */
+/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/tiff/Attic/tif_win32.c,v 1.3 2002-03-08 21:02:30 andy Exp $ */
 
 /*
  * Copyright (c) 1988-1997 Sam Leffler
@@ -28,6 +28,10 @@
  * TIFF Library Win32-specific Routines.  Adapted from tif_unix.c 4/5/95 by
  * Scott Wagner (wagner@itek.com), Itek Graphix, Rochester, NY USA
  */
+#if defined ( _MSC_VER )
+#pragma warning ( disable : 4115 )
+#endif
+
 #include <windows.h>
 #include "tiffiop.h"
 
