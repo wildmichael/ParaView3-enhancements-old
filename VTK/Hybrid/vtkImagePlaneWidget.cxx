@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagePlaneWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-19 14:40:23 $
-  Version:   $Revision: 1.53 $
+  Date:      $Date: 2002-12-20 13:26:16 $
+  Version:   $Revision: 1.54 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -44,7 +44,7 @@
 #include "vtkTextureMapToPlane.h"
 #include "vtkTransform.h"  
 
-vtkCxxRevisionMacro(vtkImagePlaneWidget, "$Revision: 1.53 $");
+vtkCxxRevisionMacro(vtkImagePlaneWidget, "$Revision: 1.54 $");
 vtkStandardNewMacro(vtkImagePlaneWidget);
 
 vtkCxxSetObjectMacro(vtkImagePlaneWidget, PlaneProperty, vtkProperty);
@@ -1777,7 +1777,7 @@ void vtkImagePlaneWidget::UpdateCursor(int X, int Y )
   //
   float qi[3];
   // Compute world to image coords
-  for (int i = 0; i < 3; i++)
+  for (i = 0; i < 3; i++)
     {
     qi[i] = (closestPt[i]-origin[i])/spacing[i];
     }
