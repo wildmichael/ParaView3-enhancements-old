@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractPolyDataPiece.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-14 19:26:21 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2001-09-26 18:50:50 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -167,7 +167,7 @@ void vtkExtractPolyDataPiece::Execute()
   outPD->CopyAllocate(pd);
   outCD->CopyAllocate(cd);
 
-  if (this->CreateGhostCells)
+  if (ghostLevel > 0 && this->CreateGhostCells)
     {
     cellGhostLevels = vtkUnsignedCharArray::New();
     pointGhostLevels = vtkUnsignedCharArray::New();

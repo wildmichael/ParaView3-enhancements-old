@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTreeComposite.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-31 15:35:18 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2001-09-26 18:50:50 $
+  Version:   $Revision: 1.12 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -217,7 +217,7 @@ protected:
   // the compositer's render window (not exactly true).
   void SetRenderWindowInteractor(vtkRenderWindowInteractor *iren);
 
-  void ComputeVisiblePropBounds(vtkRenderer *ren, float bounds[6]);
+  virtual void ComputeVisiblePropBounds(vtkRenderer *ren, float bounds[6]);
 
   // Arrays for compositing.
   float *PData;
