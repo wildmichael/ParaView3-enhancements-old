@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-12-17 01:27:37 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1997-12-17 14:53:37 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -204,7 +204,7 @@ void vtkImageWriter::Write()
 void vtkImageWriter::RecursiveWrite(int axis, vtkImageCache *cache,
 				    ofstream *file)
 {
-  int idx, min, max, mid;
+  int min, max, mid;
   vtkImageData *data;
   int fileOpenedHere = 0;
   
@@ -222,7 +222,11 @@ void vtkImageWriter::RecursiveWrite(int axis, vtkImageCache *cache,
       sprintf(this->InternalFileName, "%s", this->FileName);
       }
     // Open the file
+#ifdef _WIN32
     file = new ofstream(this->InternalFileName, ios::out | ios::binary);
+#else
+    file = new ofstream(this->InternalFileName, ios::out);
+#endif
     fileOpenedHere = 1;
     if (! file)
       {
@@ -329,7 +333,11 @@ void vtkImageWriter::RecursiveWrite(int axis, vtkImageCache *cache,
       sprintf(this->InternalFileName, "%s", this->FileName);
       }
     // Open the file
+#ifdef _WIN32
     file = new ofstream(this->InternalFileName, ios::out | ios::binary);
+#else
+    file = new ofstream(this->InternalFileName, ios::out);
+#endif
     if (! file)
       {
       vtkErrorMacro("RecursiveWrite: Could not open file " << 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageConstantPad.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-12-17 01:27:25 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1997-12-17 14:53:29 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -81,7 +81,7 @@ static void vtkImageConstantPadExecute(vtkImageConstantPad *self,
   inMaxX = inExt[1];
   
   // Get increments to march through data 
-  inData->GetContinuousIncrements(inExt, inIncX, inIncY, inIncZ);
+  inData->GetContinuousIncrements(outExt, inIncX, inIncY, inIncZ);
   outData->GetContinuousIncrements(outExt, outIncX, outIncY, outIncZ);
 
   // Loop through ouput pixels

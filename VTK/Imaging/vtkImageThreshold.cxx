@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageThreshold.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-12-17 01:27:33 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1997-12-17 14:53:34 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -133,7 +133,7 @@ static void vtkImageThresholdExecute(vtkImageThreshold *self,
 				     int outExt[6])
 {
   int idxR, idxY, idxZ;
-  int maxX, maxY, maxZ;
+  int maxY, maxZ;
   int inIncX, inIncY, inIncZ;
   int outIncX, outIncY, outIncZ;
   int rowLength;

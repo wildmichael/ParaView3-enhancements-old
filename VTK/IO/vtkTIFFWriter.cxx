@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTIFFWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-12-17 01:27:41 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1997-12-17 14:53:39 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -243,13 +243,12 @@ typedef	enum {
 
 void vtkTIFFWriter::WriteFileHeader(ofstream *file, vtkImageCache *cache)
 {
-  int min0, max0, min1, max1, min2, max2, min3, max3;
+  int min0, max0, min1, max1, min2, max2;
   int bpp, i;
   TIFFHeader myHeader;
   TIFFDirEntry myDir;
   int longShift;
   int width, height;
-  int depthDataOffset;
   long nextIFDOffset;
   short numDirEntries;
   int offset;

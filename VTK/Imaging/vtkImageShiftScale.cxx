@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageShiftScale.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-12-17 01:27:31 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1997-12-17 14:53:32 $
+  Version:   $Revision: 1.17 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -65,7 +65,7 @@ static void vtkImageShiftScaleExecute(vtkImageShiftScale *self,
   float shift = self->GetShift();
   float scale = self->GetScale();
   int idxR, idxY, idxZ;
-  int maxX, maxY, maxZ;
+  int maxY, maxZ;
   int inIncX, inIncY, inIncZ;
   int outIncX, outIncY, outIncZ;
   int rowLength;
