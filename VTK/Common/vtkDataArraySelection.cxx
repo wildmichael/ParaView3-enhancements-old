@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataArraySelection.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-15 14:59:26 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-10-15 19:02:33 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,7 +19,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkVector.txx"
 
-vtkCxxRevisionMacro(vtkDataArraySelection, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkDataArraySelection, "$Revision: 1.2 $");
 vtkStandardNewMacro(vtkDataArraySelection);
 
 //----------------------------------------------------------------------------
@@ -96,6 +96,21 @@ int vtkDataArraySelection::ArrayIsEnabled(const char* name)
     }
   
   // The array does not have an entry.  Assume it is disabled.
+  return 0;
+}
+
+//----------------------------------------------------------------------------
+int vtkDataArraySelection::ArrayExists(const char* name)
+{
+  // Check if there is a specific entry for this array.
+  vtkIdType pos=0;
+  int result=0;
+  if( this->ArrayNames->FindItem(name, pos) == VTK_OK )
+    {
+    return 1;
+    }
+  
+  // The array does not have an entry. 
   return 0;
 }
 

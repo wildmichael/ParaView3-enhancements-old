@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataArraySelection.h,v $
   Language:  C++
-  Date:      $Date: 2002-10-15 14:59:26 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-10-15 19:02:33 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -54,6 +54,10 @@ public:
   // there is no entry, the array is assumed to be disabled.
   int ArrayIsEnabled(const char* name);
   
+  // Description:
+  // Return whether the array with the given name exists.
+  int ArrayExists(const char* name);
+
   // Description:
   // Enable all arrays that currently have an entry.
   void EnableAllArrays();
