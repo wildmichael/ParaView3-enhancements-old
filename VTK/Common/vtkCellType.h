@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkCellType.h,v $
   Language:  C++
-  Date:      $Date: 1994-10-27 21:34:57 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1994-11-29 15:32:10 $
+  Version:   $Revision: 1.4 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -24,8 +24,6 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 #ifndef __vlCellTypes_h
 #define __vlCellTypes_h
 
-class vlCell;
-
 #define vlNULL_ELEMENT 0
 #define vlVERTEX 1
 #define vlPOLY_VERTEX 2
@@ -39,12 +37,6 @@ class vlCell;
 #define vlTETRA 10
 #define vlVOXEL 11
 #define vlHEXAHEDRON 12
-
-class vlCellTypes
-{
-public:
-  vlCell *MapType(int type);
-};
 
 #endif
 
