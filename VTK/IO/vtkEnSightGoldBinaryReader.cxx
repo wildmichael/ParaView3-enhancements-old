@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSightGoldBinaryReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-11-07 14:18:38 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 2003-11-07 14:21:01 $
+  Version:   $Revision: 1.42 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -34,7 +34,7 @@
 #include <ctype.h>
 #include <vtkstd/string>
 
-vtkCxxRevisionMacro(vtkEnSightGoldBinaryReader, "$Revision: 1.41 $");
+vtkCxxRevisionMacro(vtkEnSightGoldBinaryReader, "$Revision: 1.42 $");
 vtkStandardNewMacro(vtkEnSightGoldBinaryReader);
 
 //----------------------------------------------------------------------------
@@ -2647,7 +2647,7 @@ int vtkEnSightGoldBinaryReader::CreateRectilinearGridOutput(int partId,
   vtkCharArray* nmArray =  vtkCharArray::New();
   nmArray->SetName("Name");
   size_t len = strlen(name);
-  nmArray->SetNumberOfTuples(static_cast<vtkIdType(len)+1);
+  nmArray->SetNumberOfTuples(static_cast<vtkIdType>(len)+1);
   char* copy = nmArray->GetPointer(0);
   memcpy(copy, name, len);
   copy[len] = '\0';
