@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGlyph3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-16 19:39:01 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 1997-07-30 14:28:15 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -186,7 +186,7 @@ void vtkGlyph3D::Execute()
     }
 
   // Setting up for calls to PolyData::InsertNextCell()
-  output->Allocate(numPts*numSourceCells,numPts);
+  output->Allocate(3*numPts*numSourceCells,numPts*numSourceCells);
     
   //
   // Traverse all Input points, transforming Source points and copying 
