@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLight.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-08 15:40:58 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2000-08-09 08:36:56 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -82,7 +82,7 @@ vtkLight *vtkLight::New()
 
 void vtkLight::GetTransformedPosition(float a[3]) 
 {
-  float f[3];
+  float f[4];
 
   f[0] = this->Position[0];
   f[1] = this->Position[1];
