@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkLinearExtrusionFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-05-21 14:45:29 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1995-06-01 07:48:17 $
+  Version:   $Revision: 1.2 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -219,8 +219,8 @@ void vlLinearExtrusionFilter::Execute()
         edge = cell->GetEdge(i);
         for (j=0; j<(edge->GetNumberOfPoints()-1); j++)
           {
-          p1 = pts[j];
-          p2 = pts[(j+1)%npts];
+          p1 = edge->PointIds.GetId(j);
+          p2 = edge->PointIds.GetId(j+1);
           mesh.GetCellEdgeNeighbors(cellId, p1, p2, cellIds);
 
           if ( cellIds.GetNumberOfIds() < 1 ) //generate strip
