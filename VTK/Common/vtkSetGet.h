@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSetGet.h,v $
   Language:  C++
-  Date:      $Date: 2002-02-07 19:52:40 $
-  Version:   $Revision: 1.96 $
+  Date:      $Date: 2002-02-07 20:47:18 $
+  Version:   $Revision: 1.97 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -196,7 +196,7 @@ virtual type Get##name##MaxValue () \
 // reference counting methodology. Creates method 
 // Set"name"() (e.g., SetPoints()).
 //
-#define vtkSetObjectMacroBody(name,type,args)                   \
+#define vtkSetObjectBodyMacro(name,type,args)                   \
   {                                                             \
   vtkDebugMacro(<< this->GetClassName() << " (" << this         \
                 << "): setting " << #name " to " << args );     \
@@ -217,7 +217,7 @@ virtual type Get##name##MaxValue () \
 #define vtkSetObjectMacro(name,type)            \
 virtual void Set##name (type* _arg)             \
   {                                             \
-  vtkSetObjectMacroBody(name,type,_arg);        \
+  vtkSetObjectBodyMacro(name,type,_arg);        \
   }
 
 //
@@ -227,10 +227,10 @@ virtual void Set##name (type* _arg)             \
 // prototype in the header file. The prototype should look like this:
 // virtual void Set"name"("type" *);
 //
-#define vtkSetObjectMacroImplementation(class,name,type)        \
+#define vtkSetObjectImplementationMacro(class,name,type)        \
 void class::Set##name (type* _arg)                              \
   {                                                             \
-  vtkSetObjectMacroBody(name,type,_arg);                        \
+  vtkSetObjectBodyMacro(name,type,_arg);                        \
   }
 
 //
