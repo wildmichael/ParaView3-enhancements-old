@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-19 18:13:15 $
-  Version:   $Revision: 1.78 $
+  Date:      $Date: 2001-05-02 14:27:25 $
+  Version:   $Revision: 1.79 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -89,11 +89,6 @@ vtkStructuredGrid::vtkStructuredGrid()
 vtkStructuredGrid::~vtkStructuredGrid()
 {
   this->Initialize();
-  if (this->PointVisibility) 
-    {
-    this->PointVisibility->UnRegister((vtkObject *)this);
-    }
-  this->PointVisibility = NULL;
 
   this->Vertex->Delete();
   this->Line->Delete();
