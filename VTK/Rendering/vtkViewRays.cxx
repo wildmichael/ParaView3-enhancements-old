@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkViewRays.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-23 20:36:29 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1997-07-01 21:02:26 $
+  Version:   $Revision: 1.4 $
 =========================================================================*/
 
 #include "vtkRenderer.h"
@@ -117,8 +117,6 @@ void vtkViewRays::ComputePerspectiveInfo(float *vr_ptr,int size[2])
   int           x, y;
   vtkMatrix4x4  mat;
   float         result[4];
-
-printf("Calculating New Perspective View Rays\n"); 
 
 
   // Is there a renderer associated with this object?
@@ -316,8 +314,6 @@ void vtkViewRays::ComputeParallelInfo( int size[2] )
   float         x_half_inc, y_half_inc;
   float		p_scale;
   float         ren_aspect[2], aspect;
-
-printf("Calculating New Parallel View Rays\n");
 
   // Get the aspect ratio of the renderer
   this->Renderer->GetAspect( ren_aspect );
