@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: TestCxxFeatures.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-08-22 14:52:39 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2003-08-25 17:30:48 $
+  Version:   $Revision: 1.30 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -375,6 +375,10 @@ public:
   operator SafeBool()
     {
     return this->Value? &SafeBoolDummy::Dummy : 0;
+    }
+  SafeBool operator !()
+    {
+    return this->Value? 0 : &SafeBoolDummy::Dummy;
     }
 protected:
   int Value;
