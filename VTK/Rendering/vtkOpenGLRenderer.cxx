@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-12-18 16:40:33 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1999-12-18 17:00:28 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -420,7 +420,7 @@ void vtkOpenGLRenderer::DonePick()
   glFlush();
   GLuint hits = glRenderMode(GL_RENDER); 
   unsigned int depth = (unsigned int)-1;
-  unsigned int* ptr = this->PickInfo->PickBuffer;
+  GLuint* ptr = this->PickInfo->PickBuffer;
   this->PickInfo->PickedID = 0;
   for(unsigned int k =0; k < hits; k++)
     {
