@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageClip.h,v $
   Language:  C++
-  Date:      $Date: 1997-03-25 21:57:32 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1997-04-04 12:31:23 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -75,6 +75,9 @@ public:
   void GetOutputImageExtent(int dim, int *extent);
   vtkImageGetExtentMacro(OutputImageExtent);
   
+  // Description:
+  // Sets the output image extent to be the input image extent.
+  void ResetOutputImageExtent();
 
 protected:
   // Time when OutputImageExtent was computed.
