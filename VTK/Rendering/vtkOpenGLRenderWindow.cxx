@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-23 16:44:51 $
-  Version:   $Revision: 1.57 $
+  Date:      $Date: 2002-01-24 14:15:01 $
+  Version:   $Revision: 1.58 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,7 @@
 #include "vtkObjectFactory.h"
 
 #ifndef VTK_IMPLEMENT_MESA_CXX
-vtkCxxRevisionMacro(vtkOpenGLRenderWindow, "$Revision: 1.57 $");
+vtkCxxRevisionMacro(vtkOpenGLRenderWindow, "$Revision: 1.58 $");
 #endif
 
 #define MAX_LIGHTS 8
@@ -209,9 +209,7 @@ unsigned char *vtkOpenGLRenderWindow::GetPixelData(int x1, int y1,
     }
 
   data = new unsigned char[(x_hi - x_low + 1)*(y_hi - y_low + 1)*3];
-
   glDisable( GL_SCISSOR_TEST );
-  glViewport(0,0, this->Size[0], this->Size[1]);
 
 #ifdef sparc
   // We need to read the image data one row at a time and convert it
