@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-17 15:36:45 $
-  Version:   $Revision: 1.56 $
+  Date:      $Date: 1999-08-18 13:03:16 $
+  Version:   $Revision: 1.57 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -603,7 +603,6 @@ void vtkUnstructuredGrid::CopyInformation(vtkDataObject *data)
 //----------------------------------------------------------------------------
 unsigned long vtkUnstructuredGrid::GetEstimatedUpdateExtentMemorySize()
 {
-  int idx;
   unsigned long size;
   
   if (this->UpdateNumberOfPieces <= 0)

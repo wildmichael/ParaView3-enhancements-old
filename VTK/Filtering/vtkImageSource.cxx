@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-03 10:39:07 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 1999-08-18 13:03:14 $
+  Version:   $Revision: 1.36 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -73,7 +73,6 @@ vtkImageData *vtkImageSource::GetOutput()
 void vtkImageSource::StreamExecuteStart()
 {
   vtkImageData *output = this->GetOutput();
-  int idx;
 
   this->InterceptCacheUpdate();
   // If we have multiple Outputs, they need to be allocate

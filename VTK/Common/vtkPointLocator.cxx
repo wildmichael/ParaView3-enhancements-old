@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointLocator.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-31 20:47:08 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1999-08-18 13:03:15 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -618,7 +618,6 @@ void vtkPointLocator::FindPointsWithinRadius(float R, float x[3],
   int i, j;
   float dist2;
   float *pt;
-  int level;
   int ptId, cno;
   vtkIdList *ptIds;
   int ijk[3], *nei;
