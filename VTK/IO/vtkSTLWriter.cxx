@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSTLWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-09-07 09:12:52 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1995-09-07 10:16:07 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -45,7 +45,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 vtkSTLWriter::vtkSTLWriter()
 {
   this->Filename = NULL;
-  this->WriteMode = STL_ASCII;
+  this->WriteMode = VTK_STL_ASCII;
 }
 
 vtkSTLWriter::~vtkSTLWriter()
