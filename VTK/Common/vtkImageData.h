@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-30 19:13:41 $
-  Version:   $Revision: 1.98 $
+  Date:      $Date: 2002-08-05 17:43:52 $
+  Version:   $Revision: 1.99 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -313,6 +313,13 @@ public:
   // the will have different increments.
   void GetArrayIncrements(vtkDataArray *array, int increments[3]);
 
+  // Description:
+  // Given how many pixel are required on a side for bounrary conditions (in
+  // bnds), the target extent to traverse, compute the internal extent (the
+  // extent for this ImageData that does nto suffer from any boundary
+  // conditions) and place it in intExt
+  void ComputeInternalExtent(int *intExt, int *tgtExt, int *bnds);
+  
 protected:
   vtkImageData();
   ~vtkImageData();
