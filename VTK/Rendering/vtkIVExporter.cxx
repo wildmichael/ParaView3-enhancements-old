@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIVExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-18 20:47:04 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1999-06-21 14:08:53 $
+  Version:   $Revision: 1.15 $
   Thanks:    to Jon A. Webb of Visual Interface Inc.
 
 
@@ -43,8 +43,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkGeometryFilter.h"
 #include "vtkPolyDataMapper.h"
 #include "vtkMath.h"
-
-vtkSafeSetStringMacro2(FileName,vtkIVExporter);
 
 vtkIVExporter::vtkIVExporter()
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIVExporter.h,v $
   Language:  C++
-  Date:      $Date: 1999-06-18 20:47:04 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1999-06-21 14:08:53 $
+  Version:   $Revision: 1.6 $
   Thanks:    to Jon A. Webb of Visual Interface Inc.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,7 +64,7 @@ public:
 
   // Description:
   // Specify the name of the OpenInventor file to write.
-  vtkSafeSetStringMacro(FileName);
+  vtkSetStringMacro(FileName);
   vtkGetStringMacro(FileName);
 
 protected:

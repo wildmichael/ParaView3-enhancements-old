@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImporter.h,v $
   Language:  C++
-  Date:      $Date: 1999-06-18 20:47:05 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1999-06-21 14:08:53 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -86,7 +86,7 @@ public:
 
   // Description:
   // Specify the name of the file to read.
-  vtkSafeSetStringMacro(FileName);
+  vtkSetStringMacro(FileName);
   vtkGetStringMacro(FileName);
 
   // Description

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataWriter.h,v $
   Language:  C++
-  Date:      $Date: 1999-06-18 20:47:03 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1999-06-21 14:08:52 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -80,12 +80,12 @@ public:
 
   // Description:
   // Specify file name of vtk polygon data file to write.
-  vtkSafeSetStringMacro(FileName);
+  vtkSetStringMacro(FileName);
   vtkGetStringMacro(FileName);
 
   // Description:
   // Specify the header for the vtk data file.
-  vtkSafeSetStringMacro(Header);
+  vtkSetStringMacro(Header);
   vtkGetStringMacro(Header);
 
   // Description:
@@ -98,43 +98,43 @@ public:
   // Description:
   // Give a name to the scalar data. If not specified, uses default
   // name "scalars".
-  vtkSafeSetStringMacro(ScalarsName);
+  vtkSetStringMacro(ScalarsName);
   vtkGetStringMacro(ScalarsName);
 
   // Description:
   // Give a name to the vector data. If not specified, uses default
   // name "vectors".
-  vtkSafeSetStringMacro(VectorsName);
+  vtkSetStringMacro(VectorsName);
   vtkGetStringMacro(VectorsName);
 
   // Description:
   // Give a name to the tensors data. If not specified, uses default
   // name "tensors".
-  vtkSafeSetStringMacro(TensorsName);
+  vtkSetStringMacro(TensorsName);
   vtkGetStringMacro(TensorsName);
 
   // Description:
   // Give a name to the normals data. If not specified, uses default
   // name "normals".
-  vtkSafeSetStringMacro(NormalsName);
+  vtkSetStringMacro(NormalsName);
   vtkGetStringMacro(NormalsName);
 
   // Description:
   // Give a name to the texture coordinates data. If not specified, uses 
   // default name "textureCoords".
-  vtkSafeSetStringMacro(TCoordsName);
+  vtkSetStringMacro(TCoordsName);
   vtkGetStringMacro(TCoordsName);
 
   // Description:
   // Give a name to the lookup table. If not specified, uses default
   // name "lookupTable".
-  vtkSafeSetStringMacro(LookupTableName);
+  vtkSetStringMacro(LookupTableName);
   vtkGetStringMacro(LookupTableName);
 
   // Description:
   // Give a name to the field data. If not specified, uses default 
   // name "field".
-  vtkSafeSetStringMacro(FieldDataName);
+  vtkSetStringMacro(FieldDataName);
   vtkGetStringMacro(FieldDataName);
 
   // Description:

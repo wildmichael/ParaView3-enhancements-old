@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-18 20:47:03 $
-  Version:   $Revision: 1.74 $
+  Date:      $Date: 1999-06-21 14:08:51 $
+  Version:   $Revision: 1.75 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,17 +56,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkUnsignedLongArray.h"
 #include "vtkDoubleArray.h"
 #include "vtkFloatArray.h"
-
-vtkSafeSetStringMacro2(FileName,vtkDataReader);
-vtkSafeSetStringMacro2(InputString,vtkDataReader);
-vtkSafeSetStringMacro2(ScalarsName,vtkDataReader);
-vtkSafeSetStringMacro2(ScalarLut,vtkDataReader);
-vtkSafeSetStringMacro2(VectorsName,vtkDataReader);
-vtkSafeSetStringMacro2(TensorsName,vtkDataReader);
-vtkSafeSetStringMacro2(NormalsName,vtkDataReader);
-vtkSafeSetStringMacro2(TCoordsName,vtkDataReader);
-vtkSafeSetStringMacro2(FieldDataName,vtkDataReader);
-vtkSafeSetStringMacro2(LookupTableName,vtkDataReader);
 
 // Construct object.
 vtkDataReader::vtkDataReader()

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-18 20:47:04 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 1999-06-21 14:08:52 $
+  Version:   $Revision: 1.49 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,16 +55,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkUnsignedLongArray.h"
 #include "vtkDoubleArray.h"
 #include "vtkFloatArray.h"
-
-vtkSafeSetStringMacro2(FileName,vtkDataWriter);
-vtkSafeSetStringMacro2(Header,vtkDataWriter);
-vtkSafeSetStringMacro2(ScalarsName,vtkDataWriter);
-vtkSafeSetStringMacro2(VectorsName,vtkDataWriter);
-vtkSafeSetStringMacro2(TensorsName,vtkDataWriter);
-vtkSafeSetStringMacro2(NormalsName,vtkDataWriter);
-vtkSafeSetStringMacro2(TCoordsName,vtkDataWriter);
-vtkSafeSetStringMacro2(FieldDataName,vtkDataWriter);
-vtkSafeSetStringMacro2(LookupTableName,vtkDataWriter);
 
 // Created object with default header, ASCII format, and default names for 
 // scalars, vectors, tensors, normals, and texture coordinates.
