@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointLocator.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-15 21:19:37 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1998-12-23 20:17:13 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -125,6 +125,15 @@ void vtkPointLocator::FreeSearchStructure()
     delete [] this->HashTable;
     this->HashTable = NULL;
     }
+}
+
+// Given a position x-y-z, return the id of the point closest to it.
+int vtkPointLocator::FindClosestPoint(float x, float y, float z)
+{
+  float xyz[3];
+
+  xyz[0] = x; xyz[1] = y; xyz[2] = z;
+  return this->FindClosestPoint(xyz);
 }
 
 // Given a position x, return the id of the point closest to it.
