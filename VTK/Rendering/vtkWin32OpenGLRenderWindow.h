@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 1997-08-26 18:33:31 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1997-08-26 19:25:15 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -85,7 +85,7 @@ public:
   int *GetScreenSize();
   int *GetPosition();
 
-  virtual SetWindowName(char *);
+  virtual void SetWindowName(char *);
   
   void SetWindowInfo(char *);
   //BTX
@@ -105,7 +105,6 @@ public:
   //ETX
 
   // supply base class virtual function
-  void SetDisplayId(void *) {};
   vtkSetMacro(MultiSamples,int);
   vtkGetMacro(MultiSamples,int);
 
