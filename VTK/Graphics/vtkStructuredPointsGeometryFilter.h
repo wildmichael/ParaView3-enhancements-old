@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsGeometryFilter.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:38:38 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1995-08-30 12:31:46 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -45,7 +45,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // "Extent" instance variable), it is possible to extract a point, a line, a 
 // plane (i.e., image), or a "volume" from dataset. (Since the output is 
 // of type polydata, the volume is actually a (n x m x o) region of points).
-//    The extent specification is zero-offset. That is, the first k-plane in
+//
+// The extent specification is zero-offset. That is, the first k-plane in
 // a 50x50x50 volume is given by (0,49, 0,49, 0,0).
 // .SECTION Caveats
 // If you don't know the dimensions of the input dataset, you can use a large
@@ -65,7 +66,6 @@ class vtkStructuredPointsGeometryFilter : public vtkStructuredPointsToPolyDataFi
 {
 public:
   vtkStructuredPointsGeometryFilter();
-  ~vtkStructuredPointsGeometryFilter() {};
   char *GetClassName() {return "vtkStructuredPointsGeometryFilter";};
   void PrintSelf(ostream& os, vtkIndent indent);
 

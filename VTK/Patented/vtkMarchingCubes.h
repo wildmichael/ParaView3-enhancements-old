@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingCubes.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:37:03 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1995-08-30 12:32:16 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -66,7 +66,6 @@ class vtkMarchingCubes : public vtkStructuredPointsToPolyDataFilter
 {
 public:
   vtkMarchingCubes();
-  ~vtkMarchingCubes();
   char *GetClassName() {return "vtkMarchingCubes";};
   void PrintSelf(ostream& os, vtkIndent indent);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkHyperStreamline.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:36:24 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1995-08-30 12:32:14 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -98,7 +98,6 @@ class vtkHyperStreamline : public vtkDataSetToPolyFilter
 {
 public:
   vtkHyperStreamline();
-  ~vtkHyperStreamline() {};
   char *GetClassName() {return "vtkHyperStreamline";};
   void PrintSelf(ostream& os, vtkIndent indent);
 

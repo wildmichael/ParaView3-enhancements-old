@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextSource.h,v $
   Language:  C++
-  Date:      $Date: 1995-08-15 19:24:25 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1995-08-30 12:32:22 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -70,7 +70,7 @@ public:
 protected:
   void Execute();
   char *Text;
-  int   Backing;
+  int  Backing;
 };
 
 #endif

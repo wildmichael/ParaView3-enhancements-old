@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGeometryFilter.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:36:06 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1995-08-30 12:32:13 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -46,7 +46,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // used by only one 3D cell (i.e., boundary faces) are extracted. It is 
 // also possible to specify conditions on point ids, cell ids, and on 
 // bounding box (referred to as "Extent") to control the extraction process.
-//    This filter may be also used to convert any type of data to polygonal
+//
+// This filter may be also used to convert any type of data to polygonal
 // type. The conversion process may be less than satisfactory for some 3D
 // datasets. For example, this filter will extract the outer surface of a 
 // volume or structured grid dataset. (For structured data you may want to
@@ -66,7 +67,6 @@ class vtkGeometryFilter : public vtkDataSetToPolyFilter
 {
 public:
   vtkGeometryFilter();
-  ~vtkGeometryFilter() {};
   char *GetClassName() {return "vtkGeometryFilter";};
   void PrintSelf(ostream& os, vtkIndent indent);
 

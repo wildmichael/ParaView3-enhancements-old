@@ -3,11 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDiskSource.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:35:49 $
-  Version:   $Revision: 1.9 $
-
-Description:
----------------------------------------------------------------------------
+  Date:      $Date: 1995-08-30 12:31:23 $
+  Version:   $Revision: 1.10 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -51,6 +48,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #define __vtkDiskSource_h
 
 #include "vtkPolySource.hh"
+#include "vtkPolyData.hh"
 
 class vtkDiskSource : public vtkPolySource 
 {

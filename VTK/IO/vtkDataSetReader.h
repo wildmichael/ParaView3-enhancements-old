@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetReader.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:35:40 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1995-08-30 12:32:24 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -49,14 +49,13 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkDataSetReader_h
 #define __vtkDataSetReader_h
 
-#include "vtkDataSetSource.hh"
+#include "vtkSource.hh"
 #include "vtkDataReader.hh"
 
-class vtkDataSetReader : public vtkDataSetSource
+class vtkDataSetReader : public vtkSource
 {
 public:
   vtkDataSetReader();
-  ~vtkDataSetReader();
   char *GetClassName() {return "vtkDataSetReader";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -82,6 +81,10 @@ public:
 
   void SetLookupTableName(char *name);
   char *GetLookupTableName();
+
+  // Description:
+  // Get the output of this source.
+  vtkDataSet *GetOutput() {return this->Output;};
 
 protected:
   void Execute();

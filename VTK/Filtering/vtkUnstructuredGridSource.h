@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGridSource.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:38:56 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1995-08-30 12:32:02 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -48,26 +48,15 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkSource.hh"
 #include "vtkUnstructuredGrid.hh"
 
-class vtkUnstructuredGridSource : public vtkSource, public vtkUnstructuredGrid 
+class vtkUnstructuredGridSource : public vtkSource
 {
 public:
+  vtkUnstructuredGridSource();
   char *GetClassName() {return "vtkUnstructuredGridSource";};
-  void PrintSelf(ostream& os, vtkIndent indent);
 
-  // Object interface
-  void Modified();
-  unsigned long int GetMTime();
-  unsigned long int _GetMTime() {return this->GetMTime();};
-  void DebugOn();
-  void DebugOff();
-
-  //DataSet interface
-  void Update();
-
-protected:
-  //Source interface
-  int GetDataReleased();
-  void SetDataReleased(int flag);
+  // Description:
+  // Get the output of this source.
+  vtkUnstructuredGrid *GetOutput() {return (vtkUnstructuredGrid *)this->Output;};
 };
 
 #endif

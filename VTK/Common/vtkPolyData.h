@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyData.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:37:40 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 1995-08-30 12:31:37 $
+  Version:   $Revision: 1.44 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -121,9 +121,10 @@ public:
   void RemoveCellReference(int cellId);
   void ResizeCellList(int ptId, int size);
 
-protected:
-  void Initialize();
+  // Restore data object to initial state,
+  virtual void Initialize();
 
+protected:
   // points inherited
   // point data (i.e., scalars, vectors, normals, tcoords) inherited
   vtkCellArray *Verts;

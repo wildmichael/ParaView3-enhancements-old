@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBooleanTexture.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:35:11 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1995-08-30 12:32:11 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -46,7 +46,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // coordinates are normally generated using a filter like 
 // vtkImplicitTextureCoords which generates the texture coordinates for 
 // any implicit function.
-//   vtkBooleanTexture generates the map according to the s-t texture
+//
+// vtkBooleanTexture generates the map according to the s-t texture
 // coordinates plus the notion of being in, on, or outside of a
 // region. An in region is when the texture coordinate is between
 // (0,0.5-thickness/2).  An out region is where the texture coordinate

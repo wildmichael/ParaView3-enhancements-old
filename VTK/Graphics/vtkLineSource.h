@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLineSource.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:36:55 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1995-08-30 12:31:30 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProbeFilter.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:37:51 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1995-08-30 12:31:39 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -53,12 +53,10 @@ class vtkProbeFilter : public vtkDataSetToDataSetFilter
 {
 public:
   vtkProbeFilter();
-  ~vtkProbeFilter() {};
   char *GetClassName() {return "vtkProbeFilter";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
   void Update();
-  void Initialize();
 
   // Description:
   // Specify the point locations used to probe input. Any geometry

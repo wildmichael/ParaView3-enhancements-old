@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFeatureEdges.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:35:56 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1995-08-30 12:31:25 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,7 +57,6 @@ class vtkFeatureEdges : public vtkPolyToPolyFilter
 {
 public:
   vtkFeatureEdges();
-  ~vtkFeatureEdges() {};
   char *GetClassName() {return "vtkFeatureEdges";};
   void PrintSelf(ostream& os, vtkIndent indent);
 

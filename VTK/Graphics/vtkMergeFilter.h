@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergeFilter.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:37:08 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1995-08-30 12:31:32 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -49,41 +49,26 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkDataSet.hh"
 #include "vtkFilter.hh"
 
-class vtkMergeFilter : public vtkDataSet, public vtkFilter
+class vtkMergeFilter : public vtkFilter
 {
 public:
   vtkMergeFilter();
-  ~vtkMergeFilter();
   char *GetClassName() {return "vtkMergeFilter";};
   void PrintSelf(ostream& os, vtkIndent indent);
-
-  // dataset interface
-  char *GetDataType() {return this->Geometry->GetDataType();};
-  vtkDataSet *MakeObject() {return this->Geometry->MakeObject();};
-  int GetNumberOfCells() {return this->Geometry->GetNumberOfCells();};
-  int GetNumberOfPoints() {return this->Geometry->GetNumberOfPoints();};
-  float *GetPoint(int i) {return this->Geometry->GetPoint(i);};
-  void GetPoint(int i, float x[3]) {this->Geometry->GetPoint(i,x);};
-  vtkCell *GetCell(int cellId) {return this->Geometry->GetCell(cellId);};
-  int GetCellType(int cellId) {return this->Geometry->GetCellType(cellId);};
-  void Initialize();
-  void GetCellPoints(int cellId, vtkIdList& ptIds)
-    {this->Geometry->GetCellPoints(cellId, ptIds);};
-  void GetPointCells(int ptId, vtkIdList& cellIds)
-    {this->Geometry->GetPointCells(ptId, cellIds);};
-  int FindCell(float x[3], vtkCell *cell, float tol2, int& subId, float pc[3], float weights[MAX_CELL_SIZE]) 
-    {return this->Geometry->FindCell(x,cell,tol2,subId,pc,weights);};
-
-  void ComputeBounds() {this->Geometry->ComputeBounds();};
 
   // Filter interface
   void Update();
 
   // Description:
   // Specify object from which to extract geometry information.
-  vtkSetObjectMacro(Geometry,vtkDataSet);
-  vtkGetObjectMacro(Geometry,vtkDataSet);
-  
+  void SetGeometry(vtkDataSet *input);
+  void SetGeometry(vtkDataSet &input) {this->SetGeometry(&input);};
+  vtkDataSet *GetGeometry() {return this->Input;};
+
+  // Description:
+  // Get the output of this source.
+  vtkDataSet *GetOutput() {return this->Output;};
+
   // Description:
   // Specify object from which to extract scalar information.
   vtkSetObjectMacro(Scalars,vtkDataSet);
@@ -125,10 +110,6 @@ protected:
   vtkDataSet *TCoords;  // texture coords
   vtkDataSet *Tensors;  // tensors
   vtkDataSet *UserDefined;  // user defined
-
-  //Filter interface
-  int GetDataReleased();
-  void SetDataReleased(int flag);
 };
 
 #endif

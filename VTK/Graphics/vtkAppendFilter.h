@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAppendFilter.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:35:03 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1995-08-30 12:31:27 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -50,15 +50,13 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkAppendFilter_h
 #define __vtkAppendFilter_h
 
-#include "vtkUnstructuredGrid.hh"
-#include "vtkFilter.hh"
+#include "vtkDataSetToUnstructuredGridFilter.hh"
 #include "vtkDataSetCollection.hh"
 
-class vtkAppendFilter : public vtkUnstructuredGrid, public vtkFilter
+class vtkAppendFilter : public vtkDataSetToUnstructuredGridFilter
 {
 public:
   vtkAppendFilter();
-  ~vtkAppendFilter();
   char *GetClassName() {return "vtkAppendFilter";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -76,9 +74,6 @@ protected:
   void Execute();
   // list of data sets to append together
   vtkDataSetCollection InputList;
-  //Filter interface
-  int GetDataReleased();
-  void SetDataReleased(int flag);
 };
 
 #endif

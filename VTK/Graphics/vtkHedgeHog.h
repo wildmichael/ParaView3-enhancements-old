@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHedgeHog.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:36:22 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1995-08-30 12:31:27 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -53,7 +53,6 @@ class vtkHedgeHog : public vtkDataSetToPolyFilter
 {
 public:
   vtkHedgeHog() : ScaleFactor(1.0) {};
-  ~vtkHedgeHog() {};
   char *GetClassName() {return "vtkHedgeHog";};
   void PrintSelf(ostream& os, vtkIndent indent);
 

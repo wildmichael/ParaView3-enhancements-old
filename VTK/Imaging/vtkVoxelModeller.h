@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoxelModeller.h,v $
   Language:  C++
-  Date:      $Date: 1995-08-17 19:30:07 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1995-08-30 12:32:05 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,11 +57,10 @@ class vtkVoxelModeller : public vtkDataSetToStructuredPointsFilter
 {
 public:
   vtkVoxelModeller();
-  ~vtkVoxelModeller() {};
   char *GetClassName() {return "vtkVoxelModeller";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
-  float ComputeModelBounds();
+  float ComputeModelBounds(float origin[3], float ar[3]);
 
   void SetSampleDimensions(int i, int j, int k);
   void SetSampleDimensions(int dim[3]);

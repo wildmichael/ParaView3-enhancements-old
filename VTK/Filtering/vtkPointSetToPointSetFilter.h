@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSetToPointSetFilter.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:37:37 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1995-08-30 12:32:26 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -52,44 +52,17 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkPointSetFilter.hh"
 #include "vtkPointSet.hh"
 
-class vtkPointSetToPointSetFilter : public vtkPointSet, public vtkPointSetFilter
+class vtkPointSetToPointSetFilter : public vtkPointSetFilter
 {
 public:
-  vtkPointSetToPointSetFilter();
-  ~vtkPointSetToPointSetFilter();
-  char *GetDataType() {return this->PointSet->GetDataType();};
   char *GetClassName() {return "vtkPointSetToPointSetFilter";};
-  void PrintSelf(ostream& os, vtkIndent indent);
+  vtkPointSetToPointSetFilter() {this->Output = NULL;};
+  
+  void SetInput(vtkPointSet *input);
 
-  // dataset interface
-  vtkDataSet *MakeObject();
-  int GetNumberOfCells() {return this->PointSet->GetNumberOfCells();};
-  vtkCell *GetCell(int cellId) {return this->PointSet->GetCell(cellId);};
-  int GetCellType(int cellId) {return this->PointSet->GetCellType(cellId);};
-  void GetCellPoints(int cellId, vtkIdList& ptIds)
-    {this->PointSet->GetCellPoints(cellId, ptIds);};
-  void GetPointCells(int ptId, vtkIdList& cellIds)
-    {this->PointSet->GetPointCells(ptId, cellIds);};
-  void Initialize();
-
-  void ComputeBounds();
-
-  // Object interface
-  void Modified();
-  unsigned long int GetMTime();
-  unsigned long int _GetMTime() {return this->GetMTime();};
-  void DebugOn();
-  void DebugOff();
-
-  //DataSet interface
-  void Update();
-
-protected:
-  vtkDataSet *PointSet;
-
-  //Filter interface
-  int GetDataReleased();
-  void SetDataReleased(int flag);
+  // Description:
+  // Get the output of this filter.
+  vtkPointSet *GetOutput() {return (vtkPointSet *)this->Output;};
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectorDot.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:38:57 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1995-08-30 12:32:03 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -61,6 +61,7 @@ public:
   // Description:
   // Specify range to map scalars into.
   vtkSetVector2Macro(ScalarRange,float);
+
   // Description:
   // Get the range that scalars map into.
   vtkGetVectorMacro(ScalarRange,float,2);

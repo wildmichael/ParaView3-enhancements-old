@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamLine.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:38:29 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1995-08-30 12:32:09 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -50,7 +50,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // vorticity along the streamline. Vorticity is the projection (i.e., dot
 // product) of the flow rotation on the velocity vector, i.e., the rotation
 // of flow around the streamline.
-//   vtkStreamLine defines the instance variable StepLength. This parameter 
+//
+// vtkStreamLine defines the instance variable StepLength. This parameter 
 // controls the length of the line segments used to define the streamline.
 // The streamline(s) will consist of one (or more) polylines with line
 // segment lengths of size StepLength. Smaller values reduce in more line 
@@ -75,7 +76,6 @@ class vtkStreamLine : public vtkStreamer
 {
 public:
   vtkStreamLine();
-  ~vtkStreamLine() {};
   char *GetClassName() {return "vtkStreamLine";};
   void PrintSelf(ostream& os, vtkIndent indent);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectorNorm.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:38:58 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1995-08-30 12:32:04 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.

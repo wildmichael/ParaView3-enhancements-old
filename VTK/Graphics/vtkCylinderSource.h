@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCylinderSource.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:35:33 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1995-08-30 12:32:25 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.

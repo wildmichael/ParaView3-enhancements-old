@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGlyph3D.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:36:19 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1995-08-30 12:31:26 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.

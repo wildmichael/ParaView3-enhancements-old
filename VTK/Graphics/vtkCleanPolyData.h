@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCleanPolyData.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:35:22 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1995-08-30 12:32:11 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -45,7 +45,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // points (within specified tolerance) and transforms degenerate 
 // topology into appropriate form (for example, triangle is converted
 // into line if two points of triangle are merged).
-//    If tolerance is specified precisely=0.0, then this object will use
+//
+// If tolerance is specified precisely=0.0, then this object will use
 // the vtkMergePoints object to merge points (very fast). Otherwise the 
 // slower vtkLocator is used.
 // .SECTION Caveats

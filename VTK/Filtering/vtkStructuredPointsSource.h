@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsSource.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:38:38 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1995-08-30 12:31:47 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -49,26 +49,15 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkSource.hh"
 #include "vtkStructuredPoints.hh"
 
-class vtkStructuredPointsSource : public vtkSource, public vtkStructuredPoints
+class vtkStructuredPointsSource : public vtkSource
 {
 public:
+  vtkStructuredPointsSource();
   char *GetClassName() {return "vtkStructuredPointSource";};
-  void PrintSelf(ostream& os, vtkIndent indent);
 
-  // Object interface
-  void Modified();
-  unsigned long int GetMTime();
-  unsigned long int _GetMTime() {return this->GetMTime();};
-  void DebugOn();
-  void DebugOff();
-
-  //DataSet interface
-  void Update();
-
-protected:
-  //Source interface
-  int GetDataReleased();
-  void SetDataReleased(int flag);
+  // Description:
+  // Get the output of this source.
+  vtkStructuredPoints *GetOutput() {return (vtkStructuredPoints *)this->Output;};
 };
 
 #endif

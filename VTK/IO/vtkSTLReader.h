@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSTLReader.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:38:06 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1995-08-30 12:31:49 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -44,7 +44,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // lithography files (.stl files). The filename must be specified to
 // vtkSTLReader. The object automatically detects whether the file is
 // ASCII or binary.
-//     .stl files are quite inefficient and duplicate vertex definitions. 
+//
+// .stl files are quite inefficient and duplicate vertex definitions. 
 // By setting the Merging boolean you can control wether the point data
 // is merged after reading. Merging is performed by default, however,
 // merging requires a large amount of temporary storage since a 3D hash

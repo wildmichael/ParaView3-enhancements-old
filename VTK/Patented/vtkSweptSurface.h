@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkSweptSurface.h,v $
   Language:  C++
-  Date:      $Date: 1995-08-04 11:15:15 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1995-08-30 12:31:51 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -67,7 +67,6 @@ class vtkSweptSurface : public vtkStructuredPointsToStructuredPointsFilter
 {
 public:
   vtkSweptSurface();
-  ~vtkSweptSurface() {};
   char *GetClassName() {return "vtkSweptSurface";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -129,7 +128,7 @@ public:
 
 protected:
   void Execute();
-  void ComputeBounds();
+  void ComputeBounds(float origin[3], float ar[3]);
   int ComputeNumberOfSteps(vtkTransform *t1, vtkTransform *t2);
   void SampleInput(vtkMatrix4x4& m, int inDim[3], float inOrigin[3],
                    float inAr[3], vtkScalars *in, vtkScalars *out);

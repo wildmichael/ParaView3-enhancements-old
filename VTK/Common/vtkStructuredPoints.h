@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPoints.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:38:36 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1995-08-30 12:31:52 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -76,6 +76,7 @@ public:
   void GetCellPoints(int cellId, vtkIdList& ptIds);
   void GetPointCells(int ptId, vtkIdList& cellIds);
   void ComputeBounds();
+  void Initialize();
 
   void GetVoxelGradient(int i, int j, int k, vtkScalars *s, vtkFloatVectors& g);
   void GetPointGradient(int i, int j, int k, vtkScalars *s, float g[3]);
@@ -93,8 +94,6 @@ public:
   vtkGetVectorMacro(Origin,float,3);
 
 protected:
-  void Initialize();
-
   float Origin[3];
   float AspectRatio[3];
 };

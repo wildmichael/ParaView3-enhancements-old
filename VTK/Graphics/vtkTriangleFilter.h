@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangleFilter.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:38:51 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1995-08-30 12:32:23 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -53,7 +53,6 @@ class vtkTriangleFilter : public vtkPolyToPolyFilter
 {
 public:
   vtkTriangleFilter() : PassVerts(1), PassLines(1) {};
-  ~vtkTriangleFilter() {};
   char *GetClassName() {return "vtkTriangleFilter";};
   void PrintSelf(ostream& os, vtkIndent indent);
 

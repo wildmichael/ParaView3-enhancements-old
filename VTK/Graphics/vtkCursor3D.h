@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCursor3D.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:35:30 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1995-08-30 12:31:17 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridSource.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:38:35 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1995-08-30 12:31:44 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -48,26 +48,15 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkSource.hh"
 #include "vtkStructuredGrid.hh"
 
-class vtkStructuredGridSource : public vtkSource, public vtkStructuredGrid 
+class vtkStructuredGridSource : public vtkSource
 {
 public:
+  vtkStructuredGridSource();
   char *GetClassName() {return "vtkStructuredGridSource";};
-  void PrintSelf(ostream& os, vtkIndent indent);
 
-  // Object interface
-  void Modified();
-  unsigned long int GetMTime();
-  unsigned long int _GetMTime() {return this->GetMTime();};
-  void DebugOn();
-  void DebugOff();
-
-  //DataSet interface
-  void Update();
-
-protected:
-  //Source interface
-  int GetDataReleased();
-  void SetDataReleased(int flag);
+  // Description:
+  // Get the output of this source.
+  vtkStructuredGrid *GetOutput() {return (vtkStructuredGrid *)this->Output;};
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGrid.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:38:32 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1995-08-30 12:31:43 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -77,9 +77,9 @@ public:
   void GetCellPoints(int cellId, vtkIdList& ptIds);
   void GetPointCells(int ptId, vtkIdList& cellIds);
 
-protected:
   void Initialize();
 
+protected:
   // points inherited
   // point data (i.e., scalars, vectors, normals, tcoords) inherited
   // blanking information inherited

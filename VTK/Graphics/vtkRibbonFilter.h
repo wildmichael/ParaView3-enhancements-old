@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRibbonFilter.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:38:05 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1995-08-30 12:31:40 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -46,7 +46,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // normals are the original line normals projected to be perpendicular to 
 // the local line segment. An offset angle can be specified to rotate the 
 // ribbon with respect to the normal.
-//    The input line must not have duplicate points, or normals at points that
+//
+// The input line must not have duplicate points, or normals at points that
 // are parallel to the incoming/outgoing line segments. (Duplicate points
 // can be removed with vtkCleanPolyData).
 
@@ -59,7 +60,6 @@ class vtkRibbonFilter : public vtkPolyToPolyFilter
 {
 public:
   vtkRibbonFilter();
-  ~vtkRibbonFilter() {};
   char *GetClassName() {return "vtkRibbonFilter";};
   void PrintSelf(ostream& os, vtkIndent indent);
 

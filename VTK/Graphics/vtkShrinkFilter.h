@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkShrinkFilter.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:38:23 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1995-08-30 12:31:50 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,14 +56,14 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class vtkShrinkFilter : public vtkDataSetToUnstructuredGridFilter
 {
 public:
-  vtkShrinkFilter(float sf=0.5) {this->ShrinkFactor = sf;};
-  ~vtkShrinkFilter() {};
+  vtkShrinkFilter(float sf=0.5);
   char *GetClassName() {return "vtkShrinkFilter";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Set the fraction of shrink for each cell.
   vtkSetClampMacro(ShrinkFactor,float,0.0,1.0);
+
   // Description:
   // Get the fraction of shrink for each cell.
   vtkGetMacro(ShrinkFactor,float);

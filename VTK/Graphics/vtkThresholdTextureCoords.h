@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThresholdTextureCoords.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:38:47 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1995-08-30 12:31:56 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,7 +57,6 @@ class vtkThresholdTextureCoords : public vtkDataSetToDataSetFilter
 {
 public:
   vtkThresholdTextureCoords();
-  ~vtkThresholdTextureCoords() {};
   char *GetClassName() {return "vtkThresholdTextureCoords";};
   void PrintSelf(ostream& os, vtkIndent indent);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTubeFilter.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:38:52 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1995-08-30 12:32:00 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -51,7 +51,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // .SECTION Caveats
 // The number of tube sides must be greater than 3. If you wish to use fewer
 // sides (i.e., a ribbon), use vtkRibbonFilter.
-//    The input line must not have duplicate points, or normals at points that
+//
+// The input line must not have duplicate points, or normals at points that
 // are parallel to the incoming/outgoing line segments. (Duplicate points
 // can be removed with vtkCleanPolyData).
 
@@ -64,7 +65,6 @@ class vtkTubeFilter : public vtkPolyToPolyFilter
 {
 public:
   vtkTubeFilter();
-  ~vtkTubeFilter() {};
   char *GetClassName() {return "vtkTubeFilter";};
   void PrintSelf(ostream& os, vtkIndent indent);
 

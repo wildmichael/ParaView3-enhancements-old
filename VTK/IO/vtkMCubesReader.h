@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMCubesReader.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:37:01 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1995-08-30 12:31:48 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
