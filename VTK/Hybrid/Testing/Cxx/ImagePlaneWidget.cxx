@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: ImagePlaneWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-15 20:12:57 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-04-18 16:23:19 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -72,31 +72,28 @@ int main( int argc, char *argv[] )
     picker->PickFromListOn();
 
   vtkImagePlaneWidget* planeWidgetX = vtkImagePlaneWidget::New();
-  planeWidgetX->SetInput(v16->GetOutput());
-  planeWidgetX->RestrictPlaneToVolumeOn();
+  planeWidgetX->SetInput(v16->GetOutput());  
   planeWidgetX->SetInteractor( iren);
   planeWidgetX->SetPlaneOrientationToXAxes();  
+  planeWidgetX->SetSliceIndex(32);
   planeWidgetX->SetPicker(picker);
   planeWidgetX->On();
-  planeWidgetX->SetSliceIndex(32);
 
   vtkImagePlaneWidget* planeWidgetY = vtkImagePlaneWidget::New();
   planeWidgetY->SetInput(v16->GetOutput());
-  planeWidgetY->RestrictPlaneToVolumeOn();
   planeWidgetY->SetInteractor( iren);
   planeWidgetY->SetPlaneOrientationToYAxes();
+  planeWidgetY->SetSliceIndex(32);
   planeWidgetY->SetPicker(picker);
   planeWidgetY->On();
-  planeWidgetY->SetSliceIndex(32);
 
   vtkImagePlaneWidget* planeWidgetZ = vtkImagePlaneWidget::New();
   planeWidgetZ->SetInput(v16->GetOutput());
-  planeWidgetZ->RestrictPlaneToVolumeOn();
   planeWidgetZ->SetInteractor( iren);
   planeWidgetZ->SetPlaneOrientationToZAxes();
+  planeWidgetZ->SetSliceIndex(46);
   planeWidgetZ->SetPicker(picker);
   planeWidgetZ->On();
-  planeWidgetZ->SetSliceIndex(46);
 
   ren1->AddActor( outlineActor);
 
