@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageIslandRemoval2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-10-17 15:10:35 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1997-01-03 14:56:52 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,6 +57,9 @@ vtkImageIslandRemoval2D::vtkImageIslandRemoval2D()
   this->SquareNeighborhoodOff();
   this->SetReplaceValue(255);
   this->SetIslandValue(0);
+
+  this->ExecuteDimensionality = 2;
+  this->Dimensionality = 2;
 }
 
 //----------------------------------------------------------------------------

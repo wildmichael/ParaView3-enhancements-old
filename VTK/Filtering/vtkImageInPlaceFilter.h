@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageInPlaceFilter.h,v $
   Language:  C++
-  Date:      $Date: 1996-10-17 15:10:28 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1997-01-03 14:56:44 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -68,10 +68,24 @@ public:
   // Description:
   // Get input to this InPlaceFilter.
   vtkGetObjectMacro(Input,vtkImageSource);
-
+  
+  // Description:
+  // The basic operation is on regions with this dimensionality.  
+  // Filters that operate on pixels would have dimensionality 0.
+  // 2D Image filters would have dimensionality 2.
+  vtkGetMacro(Dimensionality, int);
+    
 protected:
   vtkImageSource *Input;     
 
+  int Dimensionality;
+  // This is set in the subclass constructor and (probably) should not be 
+  // changed.  It indicates the dimensionality of the regions the
+  // execute/update methods expect.  It may be larger than dimensionality
+  // to make the filter faster (this supper class is not efficient at
+  // looping over extra dimensions.
+  int ExecuteDimensionality;
+  
   // Description:
   // These are conveniance functions for writing InPlaceFilters that have their
   // own UpdateRegion methods.  They create the region object as well as 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMagnitude.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-10-21 18:50:38 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1997-01-03 14:57:15 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -46,6 +46,12 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 vtkImageMagnitude::vtkImageMagnitude()
 {
   this->SetAxes(VTK_IMAGE_COMPONENT_AXIS);
+
+  // For better performance, the execute function was written as a 3d.
+  this->ExecuteDimensionality = 3;
+  // Here we are counting the component axis (it can be any axis really).
+  // Not used.
+  this->Dimensionality = 1;
 }
 
 //----------------------------------------------------------------------------

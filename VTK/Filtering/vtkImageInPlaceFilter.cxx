@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageInPlaceFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-10-17 21:03:19 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1997-01-03 14:56:35 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -249,7 +249,7 @@ void vtkImageInPlaceFilter::Execute(int dim, vtkImageRegion *inRegion,
   
   
   // Terminate recursion?
-  if (dim <= this->Dimensionality)
+  if (dim <= this->ExecuteDimensionality)
     {
     this->Execute(inRegion, outRegion);
     return;
