@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkCubeSource.h,v $
   Language:  C++
-  Date:      $Date: 1994-07-20 08:18:25 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1994-08-10 08:05:57 $
+  Version:   $Revision: 1.8 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -31,12 +31,18 @@ public:
   char *GetClassName() {return "vlCubeSource";};
   void PrintSelf(ostream& os, vlIndent indent);
 
+  // Description:
+  // Set the length of the cube in the x-direction.
   vlSetClampMacro(XLength,float,0.0,LARGE_FLOAT);
   vlGetMacro(XLength,float);
 
+  // Description:
+  // Set the length of the cube in the y-direction.
   vlSetClampMacro(YLength,float,0.0,LARGE_FLOAT);
   vlGetMacro(YLength,float);
 
+  // Description:
+  // Set the length of the cube in the z-direction.
   vlSetClampMacro(ZLength,float,0.0,LARGE_FLOAT);
   vlGetMacro(ZLength,float);
 

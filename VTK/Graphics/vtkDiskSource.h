@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkDiskSource.h,v $
   Language:  C++
-  Date:      $Date: 1994-07-20 08:18:27 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1994-08-10 08:05:58 $
+  Version:   $Revision: 1.3 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -36,15 +36,23 @@ public:
   char *GetClassName() {return "vlDiskSource";};
   void PrintSelf(ostream& os, vlIndent indent);
 
+  // Description:
+  // Specify radius of hole in disc.
   vlSetClampMacro(InnerRadius,float,0.0,LARGE_FLOAT)
   vlGetMacro(InnerRadius,float);
 
+  // Description:
+  // Specify radius of disc.
   vlSetClampMacro(OuterRadius,float,0.0,LARGE_FLOAT)
   vlGetMacro(OuterRadius,float);
 
+  // Description:
+  // Set the number of points in radius direction.
   vlSetClampMacro(RadialResolution,int,1,LARGE_INTEGER)
   vlGetMacro(RadialResolution,int);
 
+  // Description:
+  // Set the number of points in circumferential direction.
   vlSetClampMacro(CircumferentialResolution,int,3,LARGE_INTEGER)
   vlGetMacro(CircumferentialResolution,int);
 

@@ -3,11 +3,9 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStructuredGridSource.h,v $
   Language:  C++
-  Date:      $Date: 1994-05-08 20:59:30 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1994-08-10 08:06:03 $
+  Version:   $Revision: 1.2 $
 
-Description:
----------------------------------------------------------------------------
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
 without the express written consent of the authors.
@@ -15,9 +13,10 @@ without the express written consent of the authors.
 Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994 
 
 =========================================================================*/
-//
-// Abstract class for specifying behavior of structured grid sources
-//
+// .NAME vlStructuredGridSource - Abstract class whose subclasses generates structured grid data
+// .SECTION Description
+// vlStructuredGridSource is an abstract class whose subclasses generate structured grid data.
+
 #ifndef __vlStructuredGridSource_h
 #define __vlStructuredGridSource_h
 

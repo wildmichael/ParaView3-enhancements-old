@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkCylinderSource.h,v $
   Language:  C++
-  Date:      $Date: 1994-07-20 08:18:26 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1994-08-10 08:05:57 $
+  Version:   $Revision: 1.10 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -34,15 +34,23 @@ public:
   char *GetClassName() {return "vlCylinderSource";};
   void PrintSelf(ostream& os, vlIndent indent);
 
+  // Description:
+  // Set the height of the cylinder.
   vlSetClampMacro(Height,float,0.0,LARGE_FLOAT)
   vlGetMacro(Height,float);
 
+  // Description:
+  // Set the radius of the cylinder.
   vlSetClampMacro(Radius,float,0.0,LARGE_FLOAT)
   vlGetMacro(Radius,float);
 
+  // Description:
+  // Set the number of facets used to define cylinder.
   vlSetClampMacro(Resolution,int,0,MAX_RESOLUTION)
   vlGetMacro(Resolution,int);
 
+  // Description:
+  // Turn on/off whether to cap cylinder with polygons.
   vlSetMacro(Capping,int);
   vlGetMacro(Capping,int);
   vlBooleanMacro(Capping,int);

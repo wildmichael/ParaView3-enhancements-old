@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPlaneSource.h,v $
   Language:  C++
-  Date:      $Date: 1994-07-20 08:18:28 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1994-08-10 08:06:00 $
+  Version:   $Revision: 1.12 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -29,10 +29,11 @@ class vlPlaneSource : public vlPolySource
 public:
   vlPlaneSource() : XRes(1), YRes(1) {};
   vlPlaneSource(const int xR, const int yR) {XRes=xR; YRes=yR;};
+  void PrintSelf(ostream& os, vlIndent indent);
+  char *GetClassName() {return "vlPlaneSource";};
+
   void SetResolution(const int xR, const int yR);
   void GetResolution(int& xR,int& yR) {xR=this->XRes; yR=this->YRes;};
-  char *GetClassName() {return "vlPlaneSource";};
-  void PrintSelf(ostream& os, vlIndent indent);
 
 protected:
   void Execute();

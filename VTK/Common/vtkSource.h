@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkSource.h,v $
   Language:  C++
-  Date:      $Date: 1994-05-15 19:17:17 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1994-08-10 08:06:03 $
+  Version:   $Revision: 1.11 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -13,9 +13,13 @@ written consent of the authors.
 Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994 
 
 =========================================================================*/
-//
-// Abstract class for specifying behavior of data sources
-//
+// .NAME vlSource - abstract class specifies interface of data sources
+// .SECTION Description
+// vlSource is an abstract object that specifies behavior and interface
+// of source objects. Source objects are objects that begin visualization
+// pipeline. Sources include readers (read data from file or communications
+// port) and procedural sources (generate data programatically).
+
 #ifndef __vlSource_h
 #define __vlSource_h
 
@@ -28,14 +32,21 @@ public:
   ~vlSource() {};
   char *GetClassName() {return "vlSource";};
   void PrintSelf(ostream& os, vlIndent indent);
+
+  // Description:
+  // Bring object up-to-date before execution. Update() checks modified
+  // time against last execution time, and re-executes object if necessary.
   virtual void Update();
-  void SetStartMethod(void (*f)());
-  void SetEndMethod(void (*f)());
+
+  void SetStartMethod(void (*f)(void *), void *arg);
+  void SetEndMethod(void (*f)(void *), void *arg);
 
 protected:
   virtual void Execute();
-  void (*StartMethod)();
-  void (*EndMethod)();
+  void (*StartMethod)(void *arg);
+  void *StartMethodArg;
+  void (*EndMethod)(void *arg);
+  void *EndMethodArg;
   vlTimeStamp ExecuteTime;
 };
 

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPointSource.h,v $
   Language:  C++
-  Date:      $Date: 1994-07-20 21:32:09 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1994-08-10 08:06:01 $
+  Version:   $Revision: 1.6 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -18,7 +18,7 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 // vlPointSource is a source object that creates a user-specified number 
 // of points within a specified radius about a specified center point. 
 // The location of the points is random within the sphere.
-//
+
 #ifndef __vlPointSource_h
 #define __vlPointSource_h
 
@@ -31,12 +31,18 @@ public:
   char *GetClassName() {return "vlPointSource";};
   void PrintSelf(ostream& os, vlIndent indent);
 
+  // Description:
+  // Set the number of points to generate.
   vlSetClampMacro(NumberOfPoints,int,1,LARGE_INTEGER);
   vlGetMacro(NumberOfPoints,int);
 
+  // Description:
+  // Set the center of the point cloud.
   vlSetVector3Macro(Center,float);
   vlGetVectorMacro(Center,float);
 
+  // Description:
+  // Set the radius of the point cloud.
   vlSetClampMacro(Radius,float,0.0,LARGE_FLOAT);
   vlGetMacro(Radius,float);
 

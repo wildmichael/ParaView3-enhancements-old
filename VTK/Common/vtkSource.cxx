@@ -4,9 +4,8 @@
  Program:   Visualization Library
  Module:    $RCSfile: vtkSource.cxx,v $
  Language:  C++
-
- Date:      $Date: 1994-03-01 22:23:07 $
- Version:   $Revision: 1.7 $
+ Date:      $Date: 1994-08-10 08:06:04 $
+ Version:   $Revision: 1.8 $
 
  This file is part of the Visualization Library. No part of this file or its
  contents may be copied, reproduced or altered in any way without the express
@@ -28,27 +27,33 @@ void vlSource::Update()
   // Make sure virtual getMTime method is called since subclasses will overload
   if ( this->GetMTime() > this->ExecuteTime )
     {
-    if ( this->StartMethod ) (*this->StartMethod)();
+    if ( this->StartMethod ) (*this->StartMethod)(this->StartMethodArg);
     this->Execute();
     this->ExecuteTime.Modified();
-    if ( this->EndMethod ) (*this->EndMethod)();
+    if ( this->EndMethod ) (*this->EndMethod)(this->EndMethodArg);
     }
 }
 
-void vlSource::SetStartMethod(void (*f)())
+// Description:
+// Specify function to be called before source executes.
+void vlSource::SetStartMethod(void (*f)(void *), void *arg)
 {
-  if ( f != this->StartMethod )
+  if ( f != this->StartMethod || arg != this->StartMethodArg )
     {
     this->StartMethod = f;
+    this->StartMethodArg = arg;
     this->Modified();
     }
 }
 
-void vlSource::SetEndMethod(void (*f)())
+// Description:
+// Specify function to be called after source executes.
+void vlSource::SetEndMethod(void (*f)(void *), void *arg)
 {
-  if ( f != this->EndMethod )
+  if ( f != this->EndMethod || arg != this->EndMethodArg )
     {
     this->EndMethod = f;
+    this->EndMethodArg = arg;
     this->Modified();
     }
 }
