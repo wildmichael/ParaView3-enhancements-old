@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLODProp3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-15 17:39:35 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-09-16 14:22:02 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -744,7 +744,6 @@ void vtkLODProp3D::SetAllocatedRenderTime( float t )
   float  bestTime;
   float  targetTime;
   float  estimatedTime;
-  float  factor;
 
 
   if ( this->AutomaticLODSelection )
