@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfFormatXML.cxx,v 1.3 2003-09-29 16:00:41 andy Exp $  */
-/*  Date : $Date: 2003-09-29 16:00:41 $ */
-/*  Version : $Revision: 1.3 $ */
+/*  Id : $Id: XdmfFormatXML.cxx,v 1.4 2003-09-30 22:07:56 andy Exp $  */
+/*  Date : $Date: 2003-09-30 22:07:56 $ */
+/*  Version : $Revision: 1.4 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -105,7 +105,7 @@ return( Array );
 
 XdmfXNode *
 XdmfFormatXML::ArrayToElement( XdmfArray *Array,
-      XdmfString HeavyDataset,
+      XdmfString /*HeavyDataset*/,
       XdmfXNode *Element,
       XdmfDataDesc *Desc ) {
 

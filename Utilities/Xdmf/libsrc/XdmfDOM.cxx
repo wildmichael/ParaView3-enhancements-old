@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDOM.cxx,v 1.5 2003-09-29 16:00:41 andy Exp $  */
-/*  Date : $Date: 2003-09-29 16:00:41 $ */
-/*  Version : $Revision: 1.5 $ */
+/*  Id : $Id: XdmfDOM.cxx,v 1.6 2003-09-30 22:07:56 andy Exp $  */
+/*  Date : $Date: 2003-09-30 22:07:56 $ */
+/*  Version : $Revision: 1.6 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -688,10 +688,8 @@ XdmfDOM::FindElementByAttribute(const char * Attribute,
 
 char  *attribute = (char *)Attribute;
 int  occurance = Index;
-XDMF_TREE_NODE *Start;
-XDMF_TREE_NODE **children;
+XDMF_TREE_NODE * Start;
 XdmfXNode *node;
-int nchildren;
 FindNodeData fndata;
 
 // XdmfDebug( " IN FindElement , type = " << type << " Node = " << Node << " #  " << occurance);

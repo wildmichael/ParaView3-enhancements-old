@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfArray.cxx,v 1.6 2003-09-29 16:00:41 andy Exp $  */
-/*  Date : $Date: 2003-09-29 16:00:41 $ */
-/*  Version : $Revision: 1.6 $ */
+/*  Id : $Id: XdmfArray.cxx,v 1.7 2003-09-30 22:07:56 andy Exp $  */
+/*  Date : $Date: 2003-09-30 22:07:56 $ */
+/*  Version : $Revision: 1.7 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -366,8 +366,8 @@ return( this->SetValue( Index, Value ) );
 }
 
 XdmfInt32 XdmfArray::CopyCompound( XdmfPointer ArrayPointer,
-      XdmfInt32 ArrayType,
-      XdmfInt64 ArrayStride,
+      XdmfInt32 /*ArrayType*/,
+      XdmfInt64 /*ArrayStride*/,
       XdmfPointer ValuePointer,
       XdmfInt32  ValueType,
       XdmfInt64 ValueStride,

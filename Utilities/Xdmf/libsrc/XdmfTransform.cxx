@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfTransform.cxx,v 1.4 2003-09-29 16:00:41 andy Exp $  */
-/*  Date : $Date: 2003-09-29 16:00:41 $ */
-/*  Version : $Revision: 1.4 $ */
+/*  Id : $Id: XdmfTransform.cxx,v 1.5 2003-09-30 22:07:56 andy Exp $  */
+/*  Date : $Date: 2003-09-30 22:07:56 $ */
+/*  Version : $Revision: 1.5 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -61,8 +61,7 @@ XdmfXNode *
 XdmfTransform::DataDescToElement( XdmfDataDesc *Desc,
       XdmfString HeavyDataName,  XdmfXNode *Element ) {
 
-XdmfInt32  j, i, Rank, SelectionType;
-XdmfString  Type;
+XdmfInt32  Rank, SelectionType;
 char    Attribute[ XDMF_MAX_STRING_LENGTH  ];
 XdmfInt64  *Coordinates, Dimensions[ XDMF_MAX_DIMENSION ];
 XdmfFormatMulti  Formatter;
@@ -223,7 +222,7 @@ XdmfDataDesc  *Desc;
 XdmfArray  *Selection;
 XdmfXNode    *Child;
 XdmfString  Attribute;
-XdmfInt32  i, Rank = 1, NumberType;
+XdmfInt32  Rank = 1;
 XdmfInt64  Dimensions[ XDMF_MAX_DIMENSION ];
 
 if( !this->DOM ){

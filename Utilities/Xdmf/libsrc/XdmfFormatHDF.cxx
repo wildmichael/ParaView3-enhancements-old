@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfFormatHDF.cxx,v 1.3 2003-09-29 16:00:41 andy Exp $  */
-/*  Date : $Date: 2003-09-29 16:00:41 $ */
-/*  Version : $Revision: 1.3 $ */
+/*  Id : $Id: XdmfFormatHDF.cxx,v 1.4 2003-09-30 22:07:56 andy Exp $  */
+/*  Date : $Date: 2003-09-30 22:07:56 $ */
+/*  Version : $Revision: 1.4 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -97,7 +97,7 @@ if( Data && strlen( Data ) > 1 ){
           Array->SelectAll();
           }
       } else {
-        XdmfInt64  i, NumberOfCoordinates;
+        XdmfInt64  NumberOfCoordinates;
         XdmfInt64  *Coordinates;
 
 
