@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderLargeImage.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-11 16:07:30 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2003-02-06 18:17:21 $
+  Version:   $Revision: 1.23 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 #include "vtkRenderWindow.h"
 #include "vtkRenderer.h"
 
-vtkCxxRevisionMacro(vtkRenderLargeImage, "$Revision: 1.22 $");
+vtkCxxRevisionMacro(vtkRenderLargeImage, "$Revision: 1.23 $");
 vtkStandardNewMacro(vtkRenderLargeImage);
 
 vtkCxxSetObjectMacro(vtkRenderLargeImage,Input,vtkRenderer);
@@ -113,7 +113,8 @@ void vtkRenderLargeImage::ExecuteData(vtkDataObject *output)
   unsigned char *pixels, *outPtr;
   int x, y, row;
   int rowSize, rowStart, rowEnd, colStart, colEnd;
-  int doublebuffer, swapbuffers;
+  int doublebuffer;
+  int swapbuffers = 0;
   
   if (this->GetOutput()->GetScalarType() != VTK_UNSIGNED_CHAR)
     {
