@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkCutter.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-07-13 21:43:27 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1994-08-23 22:39:02 $
+  Version:   $Revision: 1.5 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -30,6 +30,9 @@ vlCutter::~vlCutter()
   if ( this->CutFunction ) this->CutFunction->UnRegister(this);
 }
 
+// Description:
+// Overload standard modified time function. If cut functions is modified,
+// then we are modified as well.
 unsigned long vlCutter::GetMTime()
 {
   unsigned long mTime=this->MTime.GetMTime();
