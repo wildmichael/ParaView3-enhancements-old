@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinkEdgels.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-29 15:45:52 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1996-09-11 12:11:42 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -137,10 +137,7 @@ void vtkLinkEdgels::Execute()
   // chekc data type for float
   if (region->GetDataType() != VTK_IMAGE_FLOAT)
     {
-    cerr << region->GetDataType() << "\n";
-    
-    /*
-      vtkImageRegion *temp = region;
+    vtkImageRegion *temp = region;
     
     vtkWarningMacro(<<"Converting non float image data to float");
     
@@ -149,7 +146,6 @@ void vtkLinkEdgels::Execute()
     region->SetBounds(temp->GetBounds());
     region->CopyRegionData(temp);
     temp->Delete();
-    */
     }
     
   // Finally do edge following to extract the edge data from the Thin image
@@ -202,7 +198,7 @@ void vtkLinkEdgels::LinkEdgels(vtkImageRegion *region,
   int currX, currY, i;
   int newX, newY;
   int startX, startY;
-  float vec[2], vec1[2], vec2[2];
+  float vec[3], vec1[2], vec2[2];
   float linkThresh, phiThresh;
   // these direction vectors are rotated 90 degrees
   // to convert gradient direction into edgel direction
