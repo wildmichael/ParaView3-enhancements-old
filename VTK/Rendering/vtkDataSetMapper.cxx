@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-28 03:33:50 $
-  Version:   $Revision: 1.62 $
+  Date:      $Date: 2002-11-03 22:52:54 $
+  Version:   $Revision: 1.63 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,11 +16,13 @@
 
 =========================================================================*/
 #include "vtkDataSetMapper.h"
+
 #include "vtkPolyDataMapper.h"
 #include "vtkObjectFactory.h"
 #include "vtkDataSetSurfaceFilter.h"
+#include "vtkDataSet.h"
 
-vtkCxxRevisionMacro(vtkDataSetMapper, "$Revision: 1.62 $");
+vtkCxxRevisionMacro(vtkDataSetMapper, "$Revision: 1.63 $");
 vtkStandardNewMacro(vtkDataSetMapper);
 
 vtkDataSetMapper::vtkDataSetMapper()
