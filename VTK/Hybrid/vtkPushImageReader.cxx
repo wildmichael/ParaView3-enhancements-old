@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPushImageReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-06 13:55:36 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-08-06 19:08:29 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -53,7 +53,7 @@ public:
     }
 };
 
-vtkCxxRevisionMacro(vtkPushImageReader, "$Revision: 1.4 $");
+vtkCxxRevisionMacro(vtkPushImageReader, "$Revision: 1.5 $");
 vtkStandardNewMacro(vtkPushImageReader);
 
 vtkPushImageReader::vtkPushImageReader()
@@ -187,6 +187,8 @@ void vtkPushImageReader::ExecuteData(vtkDataObject *output)
     }
 
   ext = data->GetExtent();
+
+  data->GetPointData()->GetScalars()->SetName("ImageFile");
 
   vtkDebugMacro("Reading extent: " << ext[0] << ", " << ext[1] << ", " 
         << ext[2] << ", " << ext[3] << ", " << ext[4] << ", " << ext[5]);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBMPReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-17 14:10:26 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2002-08-06 19:08:29 $
+  Version:   $Revision: 1.34 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,7 +19,7 @@
 #include "vtkByteSwap.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkBMPReader, "$Revision: 1.33 $");
+vtkCxxRevisionMacro(vtkBMPReader, "$Revision: 1.34 $");
 vtkStandardNewMacro(vtkBMPReader);
 
 #ifdef read
@@ -458,6 +458,8 @@ void vtkBMPReader::ExecuteData(vtkDataObject *output)
     vtkErrorMacro(<< "Either a FileName or FilePrefix must be specified.");
     return;
     }
+
+  data->GetPointData()->GetScalars()->SetName("BMPImage");
 
   this->ComputeDataIncrements();
   

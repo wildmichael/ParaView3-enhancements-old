@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPNGReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-17 14:10:26 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2002-08-06 19:08:29 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 
 #include <png.h>
 
-vtkCxxRevisionMacro(vtkPNGReader, "$Revision: 1.11 $");
+vtkCxxRevisionMacro(vtkPNGReader, "$Revision: 1.12 $");
 vtkStandardNewMacro(vtkPNGReader);
 
 void vtkPNGReader::ExecuteInformation()
@@ -287,6 +287,8 @@ void vtkPNGReader::ExecuteData(vtkDataObject *output)
     vtkErrorMacro(<< "Either a FileName or FilePrefix must be specified.");
     return;
     }
+
+  data->GetPointData()->GetScalars()->SetName("PNGImage");
 
   this->ComputeDataIncrements();
   
