@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-20 19:17:01 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-06-20 19:34:38 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkTextActor.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkTextActor, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkTextActor, "$Revision: 1.6 $");
 vtkStandardNewMacro(vtkTextActor);
 // ----------------------------------------------------------------------------
 vtkTextActor::vtkTextActor()
@@ -160,8 +160,7 @@ int vtkTextActor::RenderOpaqueGeometry(vtkViewport *viewport)
 
     viewport->ViewportToNormalizedViewport(u, v);
     this->AdjustedPositionCoordinate->SetValue(u,v);
-    this->vtkActor2D::RenderOpaqueGeometry(viewport);
-    return 1;
+    return this->vtkActor2D::RenderOpaqueGeometry(viewport);
     }
 
   // Check to see whether we have to rebuild everything
@@ -285,8 +284,7 @@ int vtkTextActor::RenderOpaqueGeometry(vtkViewport *viewport)
     }
 
   // Everything is built, just have to render
-  this->vtkActor2D::RenderOpaqueGeometry(viewport);
-  return 1;
+  return this->vtkActor2D::RenderOpaqueGeometry(viewport);
 }
 // ----------------------------------------------------------------------------
 void vtkTextActor::PrintSelf(ostream& os, vtkIndent indent)
