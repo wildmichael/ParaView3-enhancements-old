@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:57 $
-  Version:   $Revision: 1.84 $
+  Date:      $Date: 1999-10-13 00:44:44 $
+  Version:   $Revision: 1.85 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -61,12 +61,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include <stdio.h>
 
 class vtkRenderWindowInteractor;
-class vtkLightDevice;
-class vtkCameraDevice;
-class vtkActorDevice;
-class vtkTextureDevice;
-class vtkPropertyDevice;
-class vtkPolyDataMapperDevice;
 
 // lets define the different types of stereo
 #define VTK_STEREO_CRYSTAL_EYES 1
