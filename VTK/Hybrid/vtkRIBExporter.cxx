@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRIBExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-11-05 14:28:40 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1998-12-28 17:08:11 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -404,6 +404,19 @@ void vtkRIBExporter::WriteLight (vtkLight *aLight, int count)
     }
   else
     {
+    float coneAngle = aLight->GetConeAngle ();
+    float exponent = aLight->GetExponent ();
+    fprintf (this->FilePtr, "LightSource \"spotlight\" %d ", count);
+    fprintf (this->FilePtr, "\"intensity\" [%f] ", Intensity);
+    fprintf (this->FilePtr, "\"lightcolor\" [%f %f %f] ",
+	color[0], color[1], color[2]);
+    fprintf (this->FilePtr, "\"from\" [%f %f %f] ",
+	Position[0], Position[1], Position[2]);
+    fprintf (this->FilePtr, "\"to\" [%f %f %f]\n",
+	FocalPoint[0], FocalPoint[1], FocalPoint[2]);
+    fprintf (this->FilePtr, "\"coneangle\" [%f]\n", coneAngle);
+    fprintf (this->FilePtr, "\"beamdistribution\" [%f]\n", exponent);
+    fprintf (this->FilePtr, "\"conedeltaangle\" [%f]\n", 0.0);
     }
   if (strcmp ("vtkRIBLight", aLight->GetClassName ()) == 0)
     {
