@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDebugLeaks.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-11-02 18:41:59 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2000-11-10 20:48:54 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -286,14 +286,15 @@ void vtkDebugLeaks::DestructClass(const char* p)
   DebugLeaksCritSec.Lock();
   // Due to globals being deleted, this table may already have
   // been deleted.
-  if(vtkDebugLeaks::MemoryTable)
+  if(vtkDebugLeaks::MemoryTable && !vtkDebugLeaks::MemoryTable->DecrementCount(p))
     {
-    if(!vtkDebugLeaks::MemoryTable->DecrementCount(p))
-      {
-      vtkGenericWarningMacro("Deleting unknown object: " << p);
-      }
+    DebugLeaksCritSec.Unlock();
+    vtkGenericWarningMacro("Deleting unknown object: " << p);
     }
-  DebugLeaksCritSec.Unlock();
+  else
+    {
+    DebugLeaksCritSec.Unlock();
+    }
 }
 
 void vtkDebugLeaks::PrintCurrentLeaks()
