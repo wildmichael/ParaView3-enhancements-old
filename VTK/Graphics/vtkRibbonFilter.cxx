@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRibbonFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-02-28 12:49:54 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 2001-05-11 17:40:21 $
+  Version:   $Revision: 1.49 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -133,7 +133,6 @@ void vtkRibbonFilter::Execute()
     vtkPolyLine *lineNormalGenerator = vtkPolyLine::New();
     deleteNormals = 1;
     inNormals = vtkNormals::New();
-
     ((vtkNormals *)inNormals)->Allocate(numPts);
     if ( this->UseDefaultNormal )
       {
@@ -166,6 +165,7 @@ void vtkRibbonFilter::Execute()
   newPts->Allocate(numNewPts);
   newNormals = vtkNormals::New();
   newNormals->Allocate(numNewPts);
+  newNormals->GetData()->SetName("Normals");
   newStrips = vtkCellArray::New();
   newStrips->Allocate(newStrips->EstimateSize(1,numNewPts));
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAxes.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-05-08 17:52:40 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2001-05-11 17:40:21 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -93,9 +93,12 @@ void vtkAxes::Execute()
   newLines->Allocate(newLines->EstimateSize(numLines,2));
   newScalars = vtkFloatArray::New();
   newScalars->Allocate(numPts);
+  newScalars->SetName("Axes");
   newNormals = vtkFloatArray::New();
   newNormals->SetNumberOfComponents(3);
   newNormals->Allocate(numPts);
+  newNormals->SetName("Normals");
+  
 //
 // Create axes
 //
