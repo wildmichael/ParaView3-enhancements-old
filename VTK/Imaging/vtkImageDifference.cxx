@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDifference.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-15 18:30:16 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1998-09-18 12:48:03 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,7 +41,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkImageDifference.h"
 #include "stdlib.h"
 
-// Description:
 // Construct object to extract all of the input data.
 vtkImageDifference::vtkImageDifference()
 {
@@ -106,7 +105,6 @@ vtkImageDifference::vtkImageDifference()
 
 
 //----------------------------------------------------------------------------
-// Description:
 // This method computes the input extent necessary to generate the output.
 void vtkImageDifference::ComputeRequiredInputUpdateExtent(int inExt[6],
 							  int outExt[6],

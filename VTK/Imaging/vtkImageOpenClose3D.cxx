@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageOpenClose3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-03 17:53:19 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1998-09-18 12:48:10 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,7 +58,6 @@ vtkImageOpenClose3D::vtkImageOpenClose3D()
 
 
 //----------------------------------------------------------------------------
-// Description:
 // Destructor: Delete the sub filters.
 vtkImageOpenClose3D::~vtkImageOpenClose3D()
 {
@@ -87,7 +86,6 @@ void vtkImageOpenClose3D::PrintSelf(ostream& os, vtkIndent indent)
 
 
 //----------------------------------------------------------------------------
-// Description:
 // Turn debugging output on. (in sub filters also)
 void vtkImageOpenClose3D::DebugOn()
 {
@@ -105,7 +103,6 @@ void vtkImageOpenClose3D::DebugOn()
 
 
 //----------------------------------------------------------------------------
-// Description:
 // Pass modified message to sub filters.
 void vtkImageOpenClose3D::Modified()
 {
@@ -125,7 +122,6 @@ void vtkImageOpenClose3D::Modified()
 
 
 //----------------------------------------------------------------------------
-// Description:
 // This method sets the cache object of the filter.
 // It justs feeds the request to the sub filter.
 void vtkImageOpenClose3D::SetCache(vtkImageCache *cache)
@@ -142,7 +138,6 @@ void vtkImageOpenClose3D::SetCache(vtkImageCache *cache)
 }
   
 //----------------------------------------------------------------------------
-// Description:
 // This method returns the cache to make a connection
 // It justs feeds the request to the sub filter.
 vtkImageCache *vtkImageOpenClose3D::GetOutput()
@@ -164,7 +159,6 @@ vtkImageCache *vtkImageOpenClose3D::GetOutput()
   
 
 //----------------------------------------------------------------------------
-// Description:
 // This method returns the l;ast cache of the internal pipline.
 vtkImageCache *vtkImageOpenClose3D::GetCache()
 {
@@ -185,7 +179,6 @@ vtkImageCache *vtkImageOpenClose3D::GetCache()
   
 
 //----------------------------------------------------------------------------
-// Description:
 // This method considers the sub filters MTimes when computing this objects
 // MTime
 unsigned long int vtkImageOpenClose3D::GetMTime()
@@ -218,7 +211,6 @@ unsigned long int vtkImageOpenClose3D::GetMTime()
 
 
 //----------------------------------------------------------------------------
-// Description:
 // This Method returns the MTime of the pipeline before this filter.
 // It propagates the message back.
 unsigned long int vtkImageOpenClose3D::GetPipelineMTime()
@@ -252,7 +244,6 @@ unsigned long int vtkImageOpenClose3D::GetPipelineMTime()
 
 
 //----------------------------------------------------------------------------
-// Description:
 // Set the Input of the filter.
 void vtkImageOpenClose3D::SetInput(vtkImageCache *input)
 {
@@ -292,7 +283,6 @@ void vtkImageOpenClose3D::SetInput(vtkImageCache *input)
 
 
 //----------------------------------------------------------------------------
-// Description:
 // Selects the size of gaps or objects removed.
 void vtkImageOpenClose3D::SetKernelSize(int size0, int size1, int size2)
 {
@@ -310,7 +300,6 @@ void vtkImageOpenClose3D::SetKernelSize(int size0, int size1, int size2)
   
 
 //----------------------------------------------------------------------------
-// Description:
 // Determines the value that will closed.
 // Close value is first dilated, and then eroded
 void vtkImageOpenClose3D::SetCloseValue(float value)
@@ -342,7 +331,6 @@ float vtkImageOpenClose3D::GetCloseValue()
 
 
 //----------------------------------------------------------------------------
-// Description:
 // Determines the value that will opened.  
 // Open value is first eroded, and then dilated.
 void vtkImageOpenClose3D::SetOpenValue(float value)

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageRGBToHSV.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-15 18:30:23 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1998-09-18 12:48:11 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -50,7 +50,6 @@ vtkImageRGBToHSV::vtkImageRGBToHSV()
 }
 
 //----------------------------------------------------------------------------
-// Description:
 // This templated function executes the filter for any type of data.
 template <class T>
 static void vtkImageRGBToHSVExecute(vtkImageRGBToHSV *self,

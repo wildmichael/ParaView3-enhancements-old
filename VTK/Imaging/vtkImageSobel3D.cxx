@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSobel3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-15 18:30:25 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1998-09-18 12:48:13 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -45,7 +45,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 //----------------------------------------------------------------------------
-// Description:
 // Construct an instance of vtkImageSobel3D fitler.
 vtkImageSobel3D::vtkImageSobel3D()
 {
@@ -74,7 +73,6 @@ void vtkImageSobel3D::ExecuteImageInformation()
 
 
 //----------------------------------------------------------------------------
-// Description:
 // This execute method handles boundaries.
 // it handles boundaries. Pixels are just replicated to get values 
 // out of extent.
@@ -215,7 +213,6 @@ static void vtkImageSobel3DExecute(vtkImageSobel3D *self,
 
 
 //----------------------------------------------------------------------------
-// Description:
 // This method contains a switch statement that calls the correct
 // templated function for the input Data type.  The output Data
 // must be of type float.  This method does handle boundary conditions.

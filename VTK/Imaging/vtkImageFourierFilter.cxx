@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageFourierFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-01-30 19:26:09 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1998-09-18 12:48:06 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -54,7 +54,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 //----------------------------------------------------------------------------
-// Description:
 // This function calculates one step of a FFT.
 // It is specialized for a factor of 2. 
 // It is engineered for no decimation.
@@ -122,7 +121,6 @@ void vtkImageFourierFilter::ExecuteFftStep2(vtkImageComplex *p_in,
 }
 
 //----------------------------------------------------------------------------
-// Description:
 // This function calculates one step of a FFT (using any factor).
 // It is engineered for no decimation.
 //  N: length of arrays 
@@ -178,7 +176,6 @@ void vtkImageFourierFilter::ExecuteFftStepN(vtkImageComplex *p_in,
 
 
 //----------------------------------------------------------------------------
-// Description:
 // This function calculates the whole fft (or rfft) of an array.
 // The contents of the input array are changed.
 // It is engineered for no decimation so input and output cannot be equal.
@@ -245,7 +242,6 @@ void vtkImageFourierFilter::ExecuteFftForwardBackward(vtkImageComplex *in,
 
 
 //----------------------------------------------------------------------------
-// Description:
 // This function calculates the whole fft of an array.
 // The contents of the input array are changed.
 // (It is engineered for no decimation)
@@ -256,7 +252,6 @@ void vtkImageFourierFilter::ExecuteFft(vtkImageComplex *in,
 }
 
 //----------------------------------------------------------------------------
-// Description:
 // This function calculates the whole fft of an array.
 // The contents of the input array are changed.
 // (It is engineered for no decimation)

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageConnector.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-29 20:35:00 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1998-09-18 12:48:02 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -131,7 +131,6 @@ vtkImageConnectorSeed *vtkImageConnector::PopSeed()
 }
 
 //----------------------------------------------------------------------------
-// Description:
 // Input a data of 0's and "UnconnectedValue"s. Seeds of this object are 
 // used to find connected pixels.
 // All pixels connected to seeds are set to ConnectedValue.  

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageClip.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-04-03 15:03:54 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1998-09-18 12:48:02 $
+  Version:   $Revision: 1.18 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -159,7 +159,6 @@ void vtkImageClip::ExecuteImageInformation()
 
 
 //----------------------------------------------------------------------------
-// Description:
 // Sets the output whole extent to be the input whole extent.
 void vtkImageClip::ResetOutputWholeExtent()
 {
@@ -176,7 +175,6 @@ void vtkImageClip::ResetOutputWholeExtent()
 
 
 //----------------------------------------------------------------------------
-// Description:
 // This method simply copies by reference the input data to the output.
 void vtkImageClip::InternalUpdate(vtkImageData *outData)
 {

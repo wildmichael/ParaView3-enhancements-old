@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-03 17:53:27 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-09-18 12:48:15 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -49,7 +49,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 #include "vtkImagerCollection.h"
 
-// Description:
 // Creates a vtkImageWindow with 
 // background erasing disabled and gray scale hint off
 vtkImageWindow::vtkImageWindow()

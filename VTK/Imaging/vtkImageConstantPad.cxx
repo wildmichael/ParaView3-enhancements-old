@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageConstantPad.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-15 18:30:15 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1998-09-18 12:48:02 $
+  Version:   $Revision: 1.17 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -43,7 +43,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 //----------------------------------------------------------------------------
-// Description:
 // Constructor sets default values
 vtkImageConstantPad::vtkImageConstantPad()
 {
@@ -53,7 +52,6 @@ vtkImageConstantPad::vtkImageConstantPad()
 
 
 //----------------------------------------------------------------------------
-// Description:
 // This templated function executes the filter for any type of data.
 template <class T>
 static void vtkImageConstantPadExecute(vtkImageConstantPad *self,
@@ -158,7 +156,6 @@ static void vtkImageConstantPadExecute(vtkImageConstantPad *self,
 
 
 //----------------------------------------------------------------------------
-// Description:
 // This method is passed a input and output data, and executes the filter
 // algorithm to fill the output from the input.
 // It just executes a switch statement to call the correct function for

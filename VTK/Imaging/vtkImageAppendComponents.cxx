@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAppendComponents.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-15 18:30:14 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1998-09-18 12:48:00 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -44,7 +44,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 //----------------------------------------------------------------------------
-// Description:
 // This method tells the ouput it will have more components
 void vtkImageAppendComponents::ExecuteImageInformation()
 {
@@ -63,7 +62,6 @@ void vtkImageAppendComponents::ExecuteImageInformation()
 
 
 //----------------------------------------------------------------------------
-// Description:
 // This templated function executes the filter for any type of data.
 template <class T>
 static void vtkImageAppendComponentsExecute(vtkImageAppendComponents *self,
@@ -127,7 +125,6 @@ static void vtkImageAppendComponentsExecute(vtkImageAppendComponents *self,
 }
 
 //----------------------------------------------------------------------------
-// Description:
 // This method is passed a input and output regions, and executes the filter
 // algorithm to fill the output from the inputs.
 // It just executes a switch statement to call the correct function for

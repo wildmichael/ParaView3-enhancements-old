@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageHSVToRGB.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-15 18:30:18 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1998-09-18 12:48:07 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -51,7 +51,6 @@ vtkImageHSVToRGB::vtkImageHSVToRGB()
 
 
 //----------------------------------------------------------------------------
-// Description:
 // This templated function executes the filter for any type of data.
 template <class T>
 static void vtkImageHSVToRGBExecute(vtkImageHSVToRGB *self,

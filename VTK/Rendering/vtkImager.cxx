@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImager.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-03 14:04:07 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-09-18 12:48:16 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,7 +42,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkImager.h"
 #include "vtkImageWindow.h"
 
-// Description:
 // Create an imager with viewport (0, 0, 1, 1)
 vtkImager::vtkImager()
 {

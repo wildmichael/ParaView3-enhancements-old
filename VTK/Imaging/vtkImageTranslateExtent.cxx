@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageTranslateExtent.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-23 08:35:43 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-09-18 12:48:15 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -96,7 +96,6 @@ void vtkImageTranslateExtent::ExecuteImageInformation()
 
 
 //----------------------------------------------------------------------------
-// Description:
 // This method simply copies by reference the input data to the output.
 void vtkImageTranslateExtent::InternalUpdate(vtkImageData *outData)
 {

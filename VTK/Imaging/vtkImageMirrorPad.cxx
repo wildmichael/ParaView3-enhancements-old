@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMirrorPad.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-15 18:30:22 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1998-09-18 12:48:10 $
+  Version:   $Revision: 1.15 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -70,7 +70,6 @@ void vtkImageMirrorPad::ComputeRequiredInputUpdateExtent(int inExt[6],
 
 
 //----------------------------------------------------------------------------
-// Description:
 template <class T>
 static void vtkImageMirrorPadExecute(vtkImageMirrorPad *self,
 				     vtkImageData *inData,
@@ -240,7 +239,6 @@ static void vtkImageMirrorPadExecute(vtkImageMirrorPad *self,
 
 
 //----------------------------------------------------------------------------
-// Description:
 // This method is passed a input and output data, and executes the filter
 // algorithm to fill the output from the input.
 // It just executes a switch statement to call the correct function for

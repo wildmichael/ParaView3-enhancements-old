@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageInPlaceFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-15 18:30:19 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1998-09-18 12:48:07 $
+  Version:   $Revision: 1.19 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -43,7 +43,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
   
 //----------------------------------------------------------------------------
-// Description:
 // This method is called by the cache.  It eventually calls the
 // Execute(vtkImageData *, vtkImageData *) method.
 // ImageInformation has already been updated by this point, 
@@ -141,7 +140,6 @@ void vtkImageInPlaceFilter::InternalUpdate(vtkImageData *outData)
 }
 
 //----------------------------------------------------------------------------
-// Description:
 // This method can be called recursively for streaming.
 // The extent of the outRegion changes, dim remains the same.
 // Same as the one in Filter except that it copies the data

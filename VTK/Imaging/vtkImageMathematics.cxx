@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMathematics.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-15 18:30:21 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1998-09-18 12:48:09 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -53,7 +53,6 @@ vtkImageMathematics::vtkImageMathematics()
 
 
 //----------------------------------------------------------------------------
-// Description:
 // The output extent is the intersection.
 void vtkImageMathematics::ExecuteImageInformation()
 {
@@ -88,7 +87,6 @@ void vtkImageMathematics::ExecuteImageInformation()
 
 
 //----------------------------------------------------------------------------
-// Description:
 // This templated function executes the filter for any type of data.
 // Handles the one input operations
 template <class T>
@@ -175,7 +173,6 @@ static void vtkImageMathematicsExecute1(vtkImageMathematics *self,
 
 
 //----------------------------------------------------------------------------
-// Description:
 // This templated function executes the filter for any type of data.
 // Handles the two input operations
 template <class T>
@@ -281,7 +278,6 @@ static void vtkImageMathematicsExecute2(vtkImageMathematics *self,
 
 
 //----------------------------------------------------------------------------
-// Description:
 // This method is passed a input and output datas, and executes the filter
 // algorithm to fill the output from the inputs.
 // It just executes a switch statement to call the correct function for

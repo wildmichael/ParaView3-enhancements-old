@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32ImageWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-16 21:13:38 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1998-09-18 12:48:17 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -275,7 +275,6 @@ void vtkWin32ImageWindow::PrintSelf(ostream& os, vtkIndent indent)
   vtkImageWindow::PrintSelf(os, indent);
 }
 
-// Description:
 // Get the position in screen coordinates of the window.
 int *vtkWin32ImageWindow::GetPosition(void)
 {
@@ -411,7 +410,6 @@ void vtkWin32ImageWindow::SetSize(int x, int y)
     }
 }
 
-// Description:
 // Get the current size of the window.
 int *vtkWin32ImageWindow::GetSize(void)
 {
@@ -815,7 +813,6 @@ void vtkWin32ImageWindow::MakeDefaultWindow()
   this->Mapped = 1;
 }
 
-// Description:
 // Get the window id.
 HWND vtkWin32ImageWindow::GetWindowId()
 {
@@ -824,7 +821,6 @@ HWND vtkWin32ImageWindow::GetWindowId()
   return this->WindowId;
 }
 
-// Description:
 // Set the window id to a pre-existing window.
 void vtkWin32ImageWindow::SetWindowId(HWND arg)
 {
@@ -833,7 +829,6 @@ void vtkWin32ImageWindow::SetWindowId(HWND arg)
   this->WindowId = arg;
 }
 
-// Description:
 // Set the window id to a pre-existing window.
 void vtkWin32ImageWindow::SetParentId(HWND arg)
 {

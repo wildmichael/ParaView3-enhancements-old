@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagePermute.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-15 18:30:23 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1998-09-18 12:48:11 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to Abdalmajeid M. Alyassin who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -95,7 +95,6 @@ void vtkImagePermute::ComputeRequiredInputUpdateExtent(int inExt[6],
 
 
 //----------------------------------------------------------------------------
-// Description:
 // This templated function executes the filter for any type of data.
 template <class T>
 static void vtkImagePermuteExecute(vtkImagePermute *self,
@@ -168,7 +167,6 @@ static void vtkImagePermuteExecute(vtkImagePermute *self,
 
 
 //----------------------------------------------------------------------------
-// Description:
 // This method is passed a input and output region, and executes the filter
 // algorithm to fill the output from the input.
 // It just executes a switch statement to call the correct function for

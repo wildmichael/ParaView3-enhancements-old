@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAccumulate.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-15 18:30:13 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-09-18 12:47:59 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -45,7 +45,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 //----------------------------------------------------------------------------
-// Description:
 // Constructor sets default values
 vtkImageAccumulate::vtkImageAccumulate()
 {
@@ -108,7 +107,6 @@ void vtkImageAccumulate::GetComponentExtent(int extent[6])
 
 
 //----------------------------------------------------------------------------
-// Description:
 // This templated function executes the filter for any type of data.
 template <class T>
 static void vtkImageAccumulateExecute(vtkImageAccumulate *self,
@@ -190,7 +188,6 @@ static void vtkImageAccumulateExecute(vtkImageAccumulate *self,
 	
 
 //----------------------------------------------------------------------------
-// Description:
 // This method is passed a input and output Data, and executes the filter
 // algorithm to fill the output from the input.
 // It just executes a switch statement to call the correct function for
@@ -264,7 +261,6 @@ void vtkImageAccumulate::ExecuteImageInformation()
 }
 
 //----------------------------------------------------------------------------
-// Description:
 // Get ALL of the input.
 void vtkImageAccumulate::ComputeRequiredInputUpdateExtent(int inExt[6], 
 							  int outExt[6])
@@ -277,7 +273,6 @@ void vtkImageAccumulate::ComputeRequiredInputUpdateExtent(int inExt[6],
 }
 
 //----------------------------------------------------------------------------
-// Description:
 // Intercepts the caches Update to make the extent larger than requested.
 void vtkImageAccumulate::InterceptCacheUpdate()
 {

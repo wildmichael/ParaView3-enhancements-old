@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageLaplacian.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-15 18:30:20 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1998-09-18 12:48:08 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -44,7 +44,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 //----------------------------------------------------------------------------
-// Description:
 // Construct an instance of vtkImageLaplacian fitler.
 vtkImageLaplacian::vtkImageLaplacian()
 {
@@ -98,7 +97,6 @@ void vtkImageLaplacian::ComputeRequiredInputUpdateExtent(int inExt[6],
 
 
 //----------------------------------------------------------------------------
-// Description:
 // This execute method handles boundaries.
 // it handles boundaries. Pixels are just replicated to get values 
 // out of extent.
@@ -202,7 +200,6 @@ static void vtkImageLaplacianExecute(vtkImageLaplacian *self,
 
   
 //----------------------------------------------------------------------------
-// Description:
 // This method contains a switch statement that calls the correct
 // templated function for the input data type.  The output data
 // must match input type.  This method does handle boundary conditions.

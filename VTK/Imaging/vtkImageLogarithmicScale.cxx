@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageLogarithmicScale.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-15 18:30:20 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1998-09-18 12:48:08 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -45,7 +45,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 //----------------------------------------------------------------------------
-// Description:
 // Constructor sets default values
 vtkImageLogarithmicScale::vtkImageLogarithmicScale()
 {
@@ -53,7 +52,6 @@ vtkImageLogarithmicScale::vtkImageLogarithmicScale()
 }
 
 //----------------------------------------------------------------------------
-// Description:
 // This templated function executes the filter for any type of data.
 template <class T>
 static void vtkImageLogarithmicScaleExecute(vtkImageLogarithmicScale *self,
@@ -122,7 +120,6 @@ static void vtkImageLogarithmicScaleExecute(vtkImageLogarithmicScale *self,
 
 
 //----------------------------------------------------------------------------
-// Description:
 // This method is passed a input and output region, and executes the filter
 // algorithm to fill the output from the input.
 // It just executes a switch statement to call the correct function for

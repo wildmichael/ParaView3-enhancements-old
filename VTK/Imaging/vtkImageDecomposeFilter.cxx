@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSFile: vtkImageDecomposeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-20 14:02:55 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-09-18 12:48:03 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -44,7 +44,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 //----------------------------------------------------------------------------
-// Description:
 // Construct an instance of vtkImageDecomposeFilter fitler.
 vtkImageDecomposeFilter::vtkImageDecomposeFilter()
 {

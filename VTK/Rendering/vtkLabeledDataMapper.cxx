@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLabeledDataMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-03 17:53:31 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-09-18 12:48:16 $
+  Version:   $Revision: 1.4 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -40,7 +40,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkLabeledDataMapper.h"
 #include "vtkDataSet.h"
 
-// Description:
 // Instantiate object with font size 12 of font Arial (bolding,
 // italic, shadows on) and %%-#6.3g label format. By default, point ids
 // are labeled.

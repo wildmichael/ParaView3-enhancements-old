@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCorrelation.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-15 18:30:15 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1998-09-18 12:48:03 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -51,7 +51,6 @@ vtkImageCorrelation::vtkImageCorrelation()
 
 
 //----------------------------------------------------------------------------
-// Description:
 // Grow the output image 
 void vtkImageCorrelation::ExecuteImageInformation()
 {
@@ -66,7 +65,6 @@ void vtkImageCorrelation::ExecuteImageInformation()
 }
 
 //----------------------------------------------------------------------------
-// Description:
 // Grow
 void vtkImageCorrelation::ComputeRequiredInputUpdateExtent(int inExt[6], 
 							   int outExt[6],
@@ -101,7 +99,6 @@ void vtkImageCorrelation::ComputeRequiredInputUpdateExtent(int inExt[6],
 
 
 //----------------------------------------------------------------------------
-// Description:
 // This templated function executes the filter for any type of data.
 // Handles the two input operations
 template <class T>
@@ -216,7 +213,6 @@ static void vtkImageCorrelationExecute(vtkImageCorrelation *self,
 
 
 //----------------------------------------------------------------------------
-// Description:
 // This method is passed a input and output datas, and executes the filter
 // algorithm to fill the output from the inputs.
 // It just executes a switch statement to call the correct function for

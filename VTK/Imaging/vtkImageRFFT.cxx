@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageRFFT.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-01-30 19:26:14 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1998-09-18 12:48:11 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -44,7 +44,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 //----------------------------------------------------------------------------
-// Description:
 // This extent of the components changes to real and imaginary values.
 void vtkImageRFFT::ExecuteImageInformation()
 {
@@ -53,7 +52,6 @@ void vtkImageRFFT::ExecuteImageInformation()
 }
 
 //----------------------------------------------------------------------------
-// Description:
 // This method tells the superclass that the whole input array is needed
 // to compute any output region.
 void vtkImageRFFT::ComputeRequiredInputUpdateExtent(int inExt[6], 
@@ -69,7 +67,6 @@ void vtkImageRFFT::ComputeRequiredInputUpdateExtent(int inExt[6],
 }
 
 //----------------------------------------------------------------------------
-// Description:
 // This templated execute method handles any type input, but the output
 // is always floats.
 template <class T>
@@ -163,7 +160,6 @@ static void vtkImageRFFTExecute(vtkImageRFFT *self,
 
 
 //----------------------------------------------------------------------------
-// Description:
 // This method is passed input and output Datas, and executes the RFFT
 // algorithm to fill the output from the input.
 // Not threaded yet.
@@ -224,7 +220,6 @@ void vtkImageRFFT::ThreadedExecute(vtkImageData *inData, vtkImageData *outData,
 
 
 //----------------------------------------------------------------------------
-// Description:
 // For streaming and threads.  Splits output update extent into num pieces.
 // This method needs to be called num times.  Results must not overlap for
 // consistent starting extent.  Subclass can override this method.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-15 18:30:26 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1998-09-18 12:48:16 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -109,7 +109,6 @@ void vtkImageWriter::PrintSelf(ostream& os, vtkIndent indent)
 }
 
 //----------------------------------------------------------------------------
-// Description:
 // This function sets the name of the file. 
 void vtkImageWriter::SetFileName(char *name)
 {
@@ -136,7 +135,6 @@ void vtkImageWriter::SetFileName(char *name)
 }
 
 //----------------------------------------------------------------------------
-// Description:
 // This function sets the prefix of the file name. "image" would be the
 // name of a series: image.1, image.2 ...
 void vtkImageWriter::SetFilePrefix(char *prefix)
@@ -164,7 +162,6 @@ void vtkImageWriter::SetFilePrefix(char *prefix)
 }
 
 //----------------------------------------------------------------------------
-// Description:
 // This function sets the pattern of the file name which turn a prefix
 // into a file name. "%s.%3d" would be the
 // pattern of a series: image.001, image.002 ...
@@ -194,7 +191,6 @@ void vtkImageWriter::SetFilePattern(char *pattern)
 }
 
 //----------------------------------------------------------------------------
-// Description:
 // Writes all the data from the input.
 void vtkImageWriter::Write()
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageTwoInputFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-29 17:42:40 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1998-09-18 12:48:15 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -50,7 +50,6 @@ vtkImageTwoInputFilter::vtkImageTwoInputFilter()
 }
 
 //----------------------------------------------------------------------------
-// Description:
 // Set the Input1 of this filter. If a ScalarType has not been set,
 // then the ScalarType of the input is used.
 void vtkImageTwoInputFilter::SetInput1(vtkImageCache *input)
@@ -82,7 +81,6 @@ void vtkImageTwoInputFilter::SetInput1(vtkImageCache *input)
 
 
 //----------------------------------------------------------------------------
-// Description:
 // Set the Input2 of this filter. If a ScalarType has not been set,
 // then the ScalarType of the input is used.
 void vtkImageTwoInputFilter::SetInput2(vtkImageCache *input)

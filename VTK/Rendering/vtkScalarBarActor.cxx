@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalarBarActor.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-15 18:30:27 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-09-18 12:48:16 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to Kitware & RPI/SCOREC who supported the development
              of this class.
 
@@ -41,7 +41,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 #include "vtkScalarBarActor.h"
 
-// Description:
 // Instantiate object with 64 maximum colors; 5 labels; font size 12
 // of font Arial (bolding, italic, shadows on); %%-#6.3g label
 // format, no title, and vertical orientation. The initial scalar bar

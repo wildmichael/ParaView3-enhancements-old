@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageFourierCenter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-11 13:25:00 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-09-18 12:48:05 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -44,7 +44,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 //----------------------------------------------------------------------------
-// Description:
 // Construct an instance of vtkImageFourierCenter fitler.
 vtkImageFourierCenter::vtkImageFourierCenter()
 {
@@ -52,7 +51,6 @@ vtkImageFourierCenter::vtkImageFourierCenter()
 
 
 //----------------------------------------------------------------------------
-// Description:
 // This method tells the superclass which input extent is needed.
 // This gets the whole input (even though it may not be needed).
 void vtkImageFourierCenter::ComputeRequiredInputUpdateExtent(int inExt[6], 
@@ -68,7 +66,6 @@ void vtkImageFourierCenter::ComputeRequiredInputUpdateExtent(int inExt[6],
 }
 
 //----------------------------------------------------------------------------
-// Description:
 // This method is passed input and output regions, and executes the fft
 // algorithm to fill the output from the input.
 void vtkImageFourierCenter::ThreadedExecute(vtkImageData *inData, 

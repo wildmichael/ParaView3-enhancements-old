@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMagnitude.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-15 18:30:21 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1998-09-18 12:48:09 $
+  Version:   $Revision: 1.13 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -44,7 +44,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 //----------------------------------------------------------------------------
-// Description:
 // This method tells the superclass that the first axis will collapse.
 void vtkImageMagnitude::ExecuteImageInformation()
 {
@@ -52,7 +51,6 @@ void vtkImageMagnitude::ExecuteImageInformation()
 }
 
 //----------------------------------------------------------------------------
-// Description:
 // This execute method handles boundaries.
 // it handles boundaries. Pixels are just replicated to get values 
 // out of extent.
@@ -116,7 +114,6 @@ static void vtkImageMagnitudeExecute(vtkImageMagnitude *self,
 
 
 //----------------------------------------------------------------------------
-// Description:
 // This method contains a switch statement that calls the correct
 // templated function for the input data type.  The output data
 // must match input type.  This method does handle boundary conditions.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageGaussianSmooth.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-03 17:53:04 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1998-09-18 12:48:06 $
+  Version:   $Revision: 1.15 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -243,7 +243,6 @@ vtkImageGaussianSmoothExecute(vtkImageGaussianSmooth *self, int axis,
 
 
 //----------------------------------------------------------------------------
-// Description:
 // This method convolves over one axis. It loops over the convolved axis,
 // and handles boundary conditions.
 void vtkImageGaussianSmooth::ExecuteAxis(int axis, 
@@ -390,7 +389,6 @@ void vtkImageGaussianSmooth::ExecuteAxis(int axis,
 }
   
 //----------------------------------------------------------------------------
-// Description:
 // This method decomposes the gaussian and smooths along each axis.
 void vtkImageGaussianSmooth::ThreadedExecute(vtkImageData *inData, 
 					     vtkImageData *outData,

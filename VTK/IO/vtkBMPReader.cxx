@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBMPReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-15 18:30:12 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1998-09-18 12:47:59 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -223,7 +223,6 @@ void vtkBMPReader::UpdateImageInformation()
 }
 
 //----------------------------------------------------------------------------
-// Description:
 // This function opens a file to determine the file size, and to
 // automatically determine the header size.
 void vtkBMPReader::ComputeDataIncrements()
@@ -274,7 +273,6 @@ void vtkBMPReader::ComputeDataIncrements()
 }
 
 //----------------------------------------------------------------------------
-// Description:
 // This function reads in one data of data.
 // templated to handle different data types.
 template <class OT>
@@ -408,7 +406,6 @@ static void vtkBMPReaderUpdate2(vtkBMPReader *self, vtkImageData *data,
 
 
 //----------------------------------------------------------------------------
-// Description:
 // This function reads a data from a file.  The datas extent/axes
 // are assumed to be the same as the file extent/order.
 void vtkBMPReader::Execute(vtkImageData *data)

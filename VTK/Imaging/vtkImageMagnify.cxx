@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMagnify.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-15 18:30:21 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1998-09-18 12:48:08 $
+  Version:   $Revision: 1.15 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -43,7 +43,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 //----------------------------------------------------------------------------
-// Description:
 // Constructor: Sets default filter to be identity.
 vtkImageMagnify::vtkImageMagnify()
 {
@@ -58,7 +57,6 @@ vtkImageMagnify::vtkImageMagnify()
 
 
 //----------------------------------------------------------------------------
-// Description:
 // Computes any global image information associated with regions.
 void vtkImageMagnify::ExecuteImageInformation()
 {
@@ -86,7 +84,6 @@ void vtkImageMagnify::ExecuteImageInformation()
 }
 
 //----------------------------------------------------------------------------
-// Description:
 // This method computes the Region of input necessary to generate outRegion.
 // It assumes offset and size are multiples of Magnify Factors.
 void vtkImageMagnify::ComputeRequiredInputUpdateExtent(int inExt[6],

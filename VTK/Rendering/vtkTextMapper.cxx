@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-26 20:02:36 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-09-18 12:48:17 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -46,7 +46,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
   #include "vtkXTextMapper.h"
 #endif
 
-// Description:
 // Creates a new text mapper with Font size 12, bold off, italic off,
 // and Arial font
 vtkTextMapper::vtkTextMapper()

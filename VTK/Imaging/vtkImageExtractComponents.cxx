@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageExtractComponents.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-15 18:30:17 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1998-09-18 12:48:04 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -122,7 +122,6 @@ void vtkImageExtractComponents::SetComponents(int c1)
 }
 
 //----------------------------------------------------------------------------
-// Description:
 // This method tells the superclass that only one component will remain.
 void vtkImageExtractComponents::ExecuteImageInformation()
 {
@@ -222,7 +221,6 @@ static void vtkImageExtractComponentsExecute(vtkImageExtractComponents *self,
 
 
 //----------------------------------------------------------------------------
-// Description:
 // This method is passed input and output datas, and executes the
 // ExtractComponents function on each line.  
 void vtkImageExtractComponents::ThreadedExecute(vtkImageData *inData, 

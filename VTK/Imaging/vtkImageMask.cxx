@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMask.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-15 18:30:21 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1998-09-18 12:48:09 $
+  Version:   $Revision: 1.13 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -93,7 +93,6 @@ void vtkImageMask::SetMaskedOutputValue(int num, float *v)
 
 
 //----------------------------------------------------------------------------
-// Description:
 // This templated function executes the filter for any type of data.
 template <class T>
 static void vtkImageMaskExecute(vtkImageMask *self, int ext[6],
@@ -188,7 +187,6 @@ static void vtkImageMaskExecute(vtkImageMask *self, int ext[6],
 
 
 //----------------------------------------------------------------------------
-// Description:
 // This method is passed a input and output Datas, and executes the filter
 // algorithm to fill the output from the inputs.
 // It just executes a switch statement to call the correct function for

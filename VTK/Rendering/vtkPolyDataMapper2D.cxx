@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-03 17:53:33 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1998-09-18 12:48:16 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -82,7 +82,6 @@ vtkPolyDataMapper2D *vtkPolyDataMapper2D::New()
 }
 
 
-// Description:
 // Overload standard modified time function. If lookup table is modified,
 // then this object is modified as well.
 unsigned long vtkPolyDataMapper2D::GetMTime()
@@ -160,7 +159,6 @@ vtkScalars *vtkPolyDataMapper2D::GetColors()
   return this->Colors;
 }
 
-// Description:
 // Specify a lookup table for the mapper to use.
 void vtkPolyDataMapper2D::SetLookupTable(vtkLookupTable *lut)
 {
@@ -197,7 +195,6 @@ void vtkPolyDataMapper2D::CreateDefaultLookupTable()
   this->LookupTable = vtkLookupTable::New();
 }
 
-// Description:
 // Return the method of coloring scalar data.
 char *vtkPolyDataMapper2D::GetColorModeAsString(void)
 {

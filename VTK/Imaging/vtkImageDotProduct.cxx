@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDotProduct.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-15 18:30:16 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1998-09-18 12:48:04 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -43,7 +43,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 //----------------------------------------------------------------------------
-// Description:
 // Colapse the first axis
 void vtkImageDotProduct::ExecuteImageInformation()
 {
@@ -52,7 +51,6 @@ void vtkImageDotProduct::ExecuteImageInformation()
 
 
 //----------------------------------------------------------------------------
-// Description:
 // This templated function executes the filter for any type of data.
 // Handles the two input operations
 template <class T>
@@ -126,7 +124,6 @@ static void vtkImageDotProductExecute(vtkImageDotProduct *self,
 
 
 //----------------------------------------------------------------------------
-// Description:
 // This method is passed a input and output regions, and executes the filter
 // algorithm to fill the output from the inputs.
 // It just executes a switch statement to call the correct function for

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAnisotropicDiffusion2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-15 18:30:13 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1998-09-18 12:48:00 $
+  Version:   $Revision: 1.28 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -43,7 +43,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 //----------------------------------------------------------------------------
-// Description:
 // Construct an instance of vtkImageAnisotropicDiffusion2D fitler.
 vtkImageAnisotropicDiffusion2D::vtkImageAnisotropicDiffusion2D()
 {
@@ -102,7 +101,6 @@ vtkImageAnisotropicDiffusion2D::PrintSelf(ostream& os, vtkIndent indent)
 
 
 //----------------------------------------------------------------------------
-// Description:
 // This method sets the number of inputs which also affects the
 // input neighborhood needed to compute one output pixel.
 void vtkImageAnisotropicDiffusion2D::SetNumberOfIterations(int num)
@@ -131,7 +129,6 @@ void vtkImageAnisotropicDiffusion2D::SetNumberOfIterations(int num)
   
   
 //----------------------------------------------------------------------------
-// Description:
 // This method contains a switch statement that calls the correct
 // templated function for the input data type.  The input and output datas
 // must have the same data type.
@@ -197,7 +194,6 @@ void vtkImageAnisotropicDiffusion2D::ThreadedExecute(vtkImageData *inData,
   
 
 //----------------------------------------------------------------------------
-// Description:
 // This method performs one pass of the diffusion filter.
 // The inData and outData are assumed to have data type float,
 // and have the same extent.

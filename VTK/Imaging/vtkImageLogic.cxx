@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageLogic.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-15 18:30:20 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1998-09-18 12:48:08 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -53,7 +53,6 @@ vtkImageLogic::vtkImageLogic()
 
 
 //----------------------------------------------------------------------------
-// Description:
 // This templated function executes the filter for any type of data.
 // Handles the one input operations
 template <class T>
@@ -138,7 +137,6 @@ static void vtkImageLogicExecute1(vtkImageLogic *self,
 
 
 //----------------------------------------------------------------------------
-// Description:
 // This templated function executes the filter for any type of data.
 // Handles the two input operations
 template <class T>
@@ -259,7 +257,6 @@ static void vtkImageLogicExecute2(vtkImageLogic *self,
 
 
 //----------------------------------------------------------------------------
-// Description:
 // This method is passed a input and output regions, and executes the filter
 // algorithm to fill the output from the inputs.
 // It just executes a switch statement to call the correct function for
