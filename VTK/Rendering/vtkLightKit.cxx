@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLightKit.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-09-07 08:31:51 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2000-09-07 09:25:12 $
+  Version:   $Revision: 1.3 $
   Thanks:    Michael Halle, Brigham and Women's Hospital
 
 
@@ -241,6 +241,22 @@ void vtkLightKit::PrintSelf(ostream& os, vtkIndent indent) {
 
   os << indent << "MaintainLuminance: " << 
     (this->MaintainLuminance ? "On" : "Off") << "\n";
+
+  // here, but commented out to satisfy validation tests....
+  // os << indent << "KeyLightColor: (" 
+  //    << this->KeyLightColor[0] << ", " 
+  //    << this->KeyLightColor[1] << ", " 
+  //    << this->KeyLightColor[2] << ")\n";
+
+  // os << indent << "FillLightColor: (" 
+  //    << this->FillLightColor[0] << ", " 
+  //    << this->FillLightColor[1] << ", " 
+  //    << this->FillLightColor[2] << ")\n";
+
+  // os << indent << "HeadlightColor: (" 
+  //    << this->HeadlightColor[0] << ", " 
+  //    << this->HeadlightColor[1] << ", " 
+  //    << this->HeadlightColor[2] << ")\n";
 }
 
 void vtkLightKit::DeepCopy( vtkLightKit *k ) {
