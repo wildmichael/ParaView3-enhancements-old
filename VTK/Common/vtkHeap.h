@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHeap.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:36:14 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2001-12-21 04:04:31 $
+  Version:   $Revision: 1.6 $
   Thanks:    Tom Citriniti who implemented and contributed this class
 
 
@@ -86,7 +86,7 @@ public:
   
   // Description:
   // Convenience method performs string duplication.
-  char* StrDup(const char* str);
+  char* vtkStrDup(const char* str);
 
   // Description:
   // Get the number of allocations thus far.

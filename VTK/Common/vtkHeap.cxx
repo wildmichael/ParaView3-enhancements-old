@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHeap.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-21 11:36:43 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-12-21 04:04:30 $
+  Version:   $Revision: 1.3 $
   Thanks:    Tom Citriniti who implemented and contributed this class
 
 
@@ -117,7 +117,7 @@ void* vtkHeap::AllocateMemory(size_t n)
   return node->Ptr;
 }
 
-char* vtkHeap::StrDup(const char* str)
+char* vtkHeap::vtkStrDup(const char* str)
 {
   this->NumberOfAllocations++;
 
