@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-15 21:29:19 $
-  Version:   $Revision: 1.85 $
+  Date:      $Date: 2001-12-18 15:20:49 $
+  Version:   $Revision: 1.86 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -619,11 +619,11 @@ int vtkDataWriter::WriteArray(ostream *fp, int dataType, vtkDataArray *data,
     case VTK_ID_TYPE:
       {
       // currently writing vtkIdType as int.
-      int size = data->GetSize();
-      int *intArray = new int[size];
+      int size = data->GetNumberOfTuples();
+      int *intArray = new int[size*numComp];
       sprintf (str, format, "int"); *fp << str; 
       vtkIdType *s=((vtkIdTypeArray *)data)->GetPointer(0);
-      for (i = 0; i < size; i++)
+      for (i = 0; i < size*numComp; i++)
         {
         intArray[i] = s[i];
         }
@@ -912,7 +912,7 @@ int vtkDataWriter::WriteCells(ostream *fp, vtkCellArray *cells, const char *labe
     // swap the bytes if necc
     // currently writing vtkIdType as int
     vtkIdType *tempArray = cells->GetPointer();
-    int arraySize = cells->GetSize();
+    int arraySize = cells->GetNumberOfConnectivityEntries();
     int *intArray = new int[arraySize];
     int i;
     
