@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRecursiveSphereDirectionEncoder.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-04-06 17:37:55 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-04-06 17:41:48 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -83,7 +83,7 @@ int vtkRecursiveSphereDirectionEncoder::GetEncodedDirection( float n[3] )
   // This is done by computing the (x,y) grid position of this 
   // normal in the 2*NORM_SQR_SIZE - 1 grid, then passing this
   // through the IndexTable to look up the 16 bit index value
-  if ( (n[0]*n[0] + n[1]*n[1] + n[2]*n[2]) >= 
+  if ( (n[0]*n[0] + n[1]*n[1] + n[2]*n[2]) > 
        this->ZeroNormalToleranceSquared )
     {
 
