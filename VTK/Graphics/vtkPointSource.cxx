@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPointSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-02-08 11:47:32 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1994-05-15 19:19:55 $
+  Version:   $Revision: 1.7 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -41,7 +41,7 @@ void vlPointSource::Execute()
 
   newPoints = new vlFloatPoints(this->NumberOfPoints);
   newVerts = new vlCellArray;
-  newVerts->Initialize(newVerts->EstimateSize(1,this->NumberOfPoints));
+  newVerts->Allocate(newVerts->EstimateSize(1,this->NumberOfPoints));
 
   newVerts->InsertNextCell(this->NumberOfPoints);
   for (i=0; i<this->NumberOfPoints; i++)

@@ -1,10 +1,10 @@
-/*=========================================================================
+/*========================================================================
 
   Program:   Visualization Library
   Module:    $RCSfile: vtkPolyLine.h,v $
   Language:  C++
-  Date:      $Date: 1994-04-05 07:43:19 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1994-05-15 19:19:50 $
+  Version:   $Revision: 1.7 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -45,7 +45,8 @@ public:
                vlFloatPoints *points, vlCellArray *verts, 
                vlCellArray *lines, vlCellArray *polys, 
                vlFloatScalars *s);
-  int EvaluatePosition(float x[3], int& subId, float pcoords[3],
+  int EvaluatePosition(float x[3], float closestPoint[3],
+                       int& subId, float pcoords[3],
                        float& dist2, float weights[MAX_CELL_SIZE]);
   void EvaluateLocation(int& subId, float pcoords[3], float x[3],
                         float weights[MAX_CELL_SIZE]);

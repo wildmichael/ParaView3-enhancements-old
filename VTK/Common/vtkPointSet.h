@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPointSet.h,v $
   Language:  C++
-  Date:      $Date: 1994-04-15 16:11:12 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1994-05-15 19:19:56 $
+  Version:   $Revision: 1.3 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -40,9 +40,10 @@ public:
 
   float *GetPoint(int ptId) {return this->Points->GetPoint(ptId);};
 
-  // Locate cell point is in based on global coordiate and tolerance.
-  // Returns cellId >= 0 if inside, < 0 otherwise.
-  int FindCell(float x[3], float dist2);
+  // Locate cell based on global coordinate x and tolerance squared.  If cell 
+  // is non-Null, then search starts from this cell and looks at 
+  // immediate neighbors. Returns cellId >= 0 if inside, < 0 otherwise.
+  int FindCell(float x[3], vlCell *cell, float tol2);
 
   // some data sets are composite objects and need to check each part for MTime
   unsigned long int GetMTime();
