@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAppendPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-30 15:57:48 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 1999-08-25 17:15:05 $
+  Version:   $Revision: 1.42 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -387,11 +387,12 @@ int vtkAppendPolyData::ComputeInputUpdateExtents(vtkDataObject *data)
       {
       if (this->ParallelStreaming)
         {
-        this->Inputs[idx]->SetUpdateExtent(piece+idx, numPieces);
+        this->Inputs[idx]->SetUpdateExtent(piece + idx, 
+				numPieces * this->NumberOfInputs);
         }
       else
         {
-        this->Inputs[idx]->SetUpdateExtent(piece, this->NumberOfInputs);
+        this->Inputs[idx]->SetUpdateExtent(piece, numPieces);
         }
       }
     }
