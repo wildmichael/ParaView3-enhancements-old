@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCast.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 20:57:16 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1997-06-13 19:52:07 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to Abdalmajeid M. Alyassin who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,12 +38,10 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-// .NAME vtkImageCast -  Flexible threshold
+// .NAME vtkImageCast -  Image Data type Casting Filter
 // .SECTION Description
-// vtkImageCast Can do binary or continous thresholding
-// for lower, upper or a range of data.
-//  The output data type may be different than the output, but defaults
-// to the same type.
+// vtkImageCast filter casts the input type to match the output type in
+// the image processing pipeline
 
 
 #ifndef __vtkImageCast_h
