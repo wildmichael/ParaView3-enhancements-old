@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCell3D.h,v $
   Language:  C++
-  Date:      $Date: 2001-04-27 16:59:10 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-04-27 19:27:24 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -65,7 +65,7 @@ public:
   // are 0-offset; that is, they refer to the ids of the cell, not the
   // point ids of the mesh that the cell belongs to. The edgeId must range
   // between 0<=edgeId<this->GetNumberOfEdges().
-  virtual void GetEdge(int edgeId, int* &pts) = 0;
+  virtual void GetEdgePoints(int edgeId, int* &pts) = 0;
   
   // Description:
   // Get the list of vertices that define a face.  The list is terminated
@@ -73,7 +73,7 @@ public:
   // they refer to the ids of the cell, not the point ids of the mesh that
   // the cell belongs to. The faceId must range between
   // 0<=faceId<this->GetNumberOfFaces().
-  virtual void GetFace(int faceId, int* &pts) = 0;
+  virtual void GetFacePoints(int faceId, int* &pts) = 0;
 
   // Description:
   // Cut (or clip) the cell based on the input cellScalars and the

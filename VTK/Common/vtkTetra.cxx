@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTetra.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-27 15:38:51 $
-  Version:   $Revision: 1.61 $
+  Date:      $Date: 2001-04-27 19:27:24 $
+  Version:   $Revision: 1.62 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -697,12 +697,12 @@ int vtkTetra::JacobianInverse(double **inverse, float derivs[12])
   return 1;
 }
 
-void vtkTetra::GetEdge(int edgeId, int* &pts)
+void vtkTetra::GetEdgePoints(int edgeId, int* &pts)
 {
   pts = this->GetEdgeArray(edgeId);
 }
 
-void vtkTetra::GetFace(int faceId, int* &pts)
+void vtkTetra::GetFacePoints(int faceId, int* &pts)
 {
   pts = this->GetFaceArray(faceId);
 }

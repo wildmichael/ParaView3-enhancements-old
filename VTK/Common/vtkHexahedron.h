@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHexahedron.h,v $
   Language:  C++
-  Date:      $Date: 2001-04-27 15:38:51 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 2001-04-27 19:27:24 $
+  Version:   $Revision: 1.52 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -59,8 +59,8 @@ public:
 
   // Description:
   // See vtkCell3D API for description of these methods.
-  virtual void GetEdge(int edgeId, int* &pts);
-  virtual void GetFace(int faceId, int* &pts);
+  virtual void GetEdgePoints(int edgeId, int* &pts);
+  virtual void GetFacePoints(int faceId, int* &pts);
 
   // Description:
   // See the vtkCell API for descriptions of these methods.

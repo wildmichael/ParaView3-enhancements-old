@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHexahedron.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-27 15:38:51 $
-  Version:   $Revision: 1.66 $
+  Date:      $Date: 2001-04-27 19:27:24 $
+  Version:   $Revision: 1.67 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -747,12 +747,12 @@ void vtkHexahedron::JacobianInverse(float pcoords[3], double **inverse,
     }
 }
 
-void vtkHexahedron::GetEdge(int edgeId, int* &pts)
+void vtkHexahedron::GetEdgePoints(int edgeId, int* &pts)
 {
   pts = this->GetEdgeArray(edgeId);
 }
 
-void vtkHexahedron::GetFace(int faceId, int* &pts)
+void vtkHexahedron::GetFacePoints(int faceId, int* &pts)
 {
   pts = this->GetFaceArray(faceId);
 }

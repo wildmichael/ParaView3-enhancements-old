@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoxel.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-27 15:38:51 $
-  Version:   $Revision: 1.63 $
+  Date:      $Date: 2001-04-27 19:27:24 $
+  Version:   $Revision: 1.64 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -591,12 +591,12 @@ void vtkVoxel::Derivatives(int vtkNotUsed(subId), float pcoords[3],
     }
 }
 
-void vtkVoxel::GetEdge(int edgeId, int* &pts)
+void vtkVoxel::GetEdgePoints(int edgeId, int* &pts)
 {
   pts = this->GetEdgeArray(edgeId);
 }
 
-void vtkVoxel::GetFace(int faceId, int* &pts)
+void vtkVoxel::GetFacePoints(int faceId, int* &pts)
 {
   pts = this->GetFaceArray(faceId);
 }
