@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLPDataSetWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-16 18:23:06 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-12-06 02:33:28 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -30,7 +30,7 @@
 #include "vtkXMLPStructuredGridWriter.h"
 #include "vtkXMLPUnstructuredGridWriter.h"
 
-vtkCxxRevisionMacro(vtkXMLPDataSetWriter, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkXMLPDataSetWriter, "$Revision: 1.2 $");
 vtkStandardNewMacro(vtkXMLPDataSetWriter);
 
 //----------------------------------------------------------------------------
@@ -69,6 +69,12 @@ vtkDataSet* vtkXMLPDataSetWriter::GetInput()
 //----------------------------------------------------------------------------
 int vtkXMLPDataSetWriter::Write()
 {
+  // Make sure there are enough settings to write (Input, FileName, etc).
+  if(!this->IsSafeToWrite())
+    {
+    return 0;
+    }
+  
   vtkDataSet* input = this->GetInput();
   vtkXMLPDataWriter* writer = 0;
   
