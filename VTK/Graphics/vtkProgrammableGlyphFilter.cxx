@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProgrammableGlyphFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-11-06 12:04:42 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-11-08 12:49:43 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -331,6 +331,18 @@ void vtkProgrammableGlyphFilter::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "Source: " << (void *)this->Source << "\n";
 
   os << indent << "Color Mode: " << this->GetColorModeAsString() << endl;
+  os << indent << "Point Id: " << this->PointId << "\n";
+  os << indent << "Point: " << this->Point[0]
+                    << ", " << this->Point[1]
+                    << ", " << this->Point[2] << "\n";
+  if (this->PointData)
+    {
+    os << indent << "PointData: " << this->PointData << "\n";
+    }
+  else
+    {
+    os << indent << "PointData: (not defined)\n";
+    }
 
   if ( this->GlyphMethod )
     {
