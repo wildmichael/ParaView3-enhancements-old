@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWindowToImageFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-19 16:19:45 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2002-03-20 15:28:57 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 #include "vtkRenderWindow.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkWindowToImageFilter, "$Revision: 1.11 $");
+vtkCxxRevisionMacro(vtkWindowToImageFilter, "$Revision: 1.12 $");
 vtkStandardNewMacro(vtkWindowToImageFilter);
 
 //----------------------------------------------------------------------------
@@ -69,6 +69,7 @@ void vtkWindowToImageFilter::PrintSelf(ostream& os, vtkIndent indent)
     {
     os << indent << "Input: (none)\n";
     }
+  os << indent << "ReadFrontBuffer: " << this->ReadFrontBuffer << "\n";
   os << indent << "Magnification: " << this->Magnification << "\n";
 }
 
