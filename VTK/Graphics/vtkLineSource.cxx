@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLineSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:42 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2001-06-26 15:02:52 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,7 +42,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <math.h>
 #include "vtkLineSource.h"
 #include "vtkPoints.h"
-#include "vtkTCoords.h"
+#include "vtkFloatArray.h"
 #include "vtkObjectFactory.h"
 
 
@@ -83,7 +83,7 @@ void vtkLineSource::Execute()
   float x[3], tc[3], v[3];
   int i, j;
   vtkPoints *newPoints; 
-  vtkTCoords *newTCoords; 
+  vtkFloatArray *newTCoords; 
   vtkCellArray *newLines;
   vtkPolyData *output = this->GetOutput();
   
@@ -91,8 +91,9 @@ void vtkLineSource::Execute()
 
   newPoints = vtkPoints::New();
   newPoints->Allocate(numPts);
-  newTCoords = vtkTCoords::New();
-  newTCoords->Allocate(numPts,2);
+  newTCoords = vtkFloatArray::New();
+  newTCoords->SetNumberOfComponents(2);
+  newTCoords->Allocate(2*numPts);
 
   newLines = vtkCellArray::New();
   newLines->Allocate(newLines->EstimateSize(numLines,2));
@@ -114,7 +115,7 @@ void vtkLineSource::Execute()
       x[j] = this->Point1[j] + tc[0]*v[j];
       }
     newPoints->InsertPoint(i,x);
-    newTCoords->InsertTCoord(i,tc);
+    newTCoords->InsertTuple(i,tc);
     }
 //
 //  Generate lines

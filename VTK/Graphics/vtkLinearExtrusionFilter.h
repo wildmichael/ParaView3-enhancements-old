@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinearExtrusionFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:42 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2001-06-26 15:02:52 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -140,10 +140,11 @@ protected:
   float ExtrusionPoint[3];
 
   //BTX
-  float *(vtkLinearExtrusionFilter::*ExtrudePoint)(float x[3], int id, vtkNormals *normals);
-  float *ViaNormal(float x[3], int id, vtkNormals *normals=NULL);
-  float *ViaVector(float x[3], int id, vtkNormals *normals=NULL);
-  float *ViaPoint(float x[3], int id, vtkNormals *normals=NULL);
+  float *(vtkLinearExtrusionFilter::*ExtrudePoint)(float x[3], int id, 
+						   vtkDataArray *normals);
+  float *ViaNormal(float x[3], int id, vtkDataArray *normals);
+  float *ViaVector(float x[3], int id, vtkDataArray *normals=0);
+  float *ViaPoint(float x[3], int id, vtkDataArray *normals=0);
   //ETX
  
 };

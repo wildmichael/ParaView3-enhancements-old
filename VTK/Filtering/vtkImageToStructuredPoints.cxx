@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToStructuredPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-16 13:28:37 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 2001-06-26 15:03:10 $
+  Version:   $Revision: 1.45 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -229,14 +229,13 @@ void vtkImageToStructuredPoints::Execute()
 	wExtent[4] == uExtent[4] && wExtent[5] == uExtent[5])
       {
       vtkVectors *fv = vtkVectors::New(vData->GetScalarType());
-      output->GetPointData()->SetVectors(fv);
       fv->SetData(vData->GetPointData()->GetScalars()->GetData());
+      output->GetPointData()->SetVectors(fv);
       fv->Delete();
       }
     else
       {
       vtkVectors *fv = vtkVectors::New(vData->GetScalarType());
-      output->GetPointData()->SetVectors(fv);
       float *inPtr2 = (float *)(vData->GetScalarPointerForExtent(uExtent));
       
       fv->SetNumberOfVectors((maxZ+1)*(maxY+1)*(maxX+1));
@@ -259,6 +258,7 @@ void vtkImageToStructuredPoints::Execute()
 	  }
 	inPtr2 += inIncZ;
 	}
+      output->GetPointData()->SetVectors(fv);
       fv->Delete();
       }
     }

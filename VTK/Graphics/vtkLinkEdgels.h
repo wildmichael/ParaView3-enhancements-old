@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinkEdgels.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:42 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2001-06-26 15:02:52 $
+  Version:   $Revision: 1.21 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -106,9 +106,9 @@ protected:
   void operator=(const vtkLinkEdgels&) {};
 
   void Execute();
-  void LinkEdgels(int xdim, int ydim,float *image, vtkVectors *inVectors,
+  void LinkEdgels(int xdim, int ydim,float *image, vtkDataArray *inVectors,
 		  vtkCellArray *newLines, vtkPoints *newPts,
-		  vtkScalars *outScalars, vtkVectors *outVectors,
+		  vtkFloatArray *outScalars, vtkFloatArray *outVectors,
 		  int z);
   float GradientThreshold;
   float PhiThreshold;

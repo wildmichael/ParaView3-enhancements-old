@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOBBDicer.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:44 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2001-06-26 15:03:35 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -57,6 +57,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "vtkDicer.h"
 #include "vtkOBBTree.h"
+class vtkShortArray;
 
 class VTK_EXPORT vtkOBBDicer : public vtkDicer 
 {
@@ -79,7 +80,7 @@ protected:
 
   //implementation ivars and methods
   void BuildTree(vtkIdList *ptIds, vtkOBBNode *OBBptr);
-  void MarkPoints(vtkOBBNode *OBBptr, vtkScalars *groupIds);
+  void MarkPoints(vtkOBBNode *OBBptr, vtkShortArray *groupIds);
   void DeleteTree(vtkOBBNode *OBBptr);
   vtkPoints *PointsList;
   
