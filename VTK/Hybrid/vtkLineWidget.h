@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLineWidget.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-27 16:12:01 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-05-29 18:26:39 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -185,17 +185,19 @@ protected:
 //ETX
     
   //handles the events
-  static void ProcessEvents(vtkObject* object, unsigned long event,
-                            void* clientdata, void* calldata);
+  static void ProcessEvents(vtkObject* object, 
+                            unsigned long event,
+                            void* clientdata, 
+                            void* calldata);
 
   // ProcessEvents() dispatches to these methods.
-  void OnLeftButtonDown(int ctrl, int shift, int X, int Y);
-  void OnLeftButtonUp(int ctrl, int shift, int X, int Y);
-  void OnMiddleButtonDown(int ctrl, int shift, int X, int Y);
-  void OnMiddleButtonUp(int ctrl, int shift, int X, int Y);
-  void OnRightButtonDown(int ctrl, int shift, int X, int Y);
-  void OnRightButtonUp(int ctrl, int shift, int X, int Y);
-  void OnMouseMove(int ctrl, int shift, int X, int Y);
+  void OnLeftButtonDown();
+  void OnLeftButtonUp();
+  void OnMiddleButtonDown();
+  void OnMiddleButtonUp();
+  void OnRightButtonDown();
+  void OnRightButtonUp();
+  void OnMouseMove();
 
   // controlling ivars
   int AlignWithXAxis;
