@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVRMLImporter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-11-02 12:53:45 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2000-11-10 12:07:04 $
+  Version:   $Revision: 1.15 $
   Thanks:    Tom Citriniti who implemented and contributed this class
 
 
@@ -724,6 +724,7 @@ static const short yycheck[] = {    66,
    in version 1.24 of Bison.  */
 
 #ifdef __GNUC__
+#undef alloca
 #define alloca __builtin_alloca
 #else /* not __GNUC__ */
 #if HAVE_ALLOCA_H
