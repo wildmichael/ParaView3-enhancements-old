@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingCubes.h,v $
   Language:  C++
-  Date:      $Date: 2001-12-17 18:44:56 $
-  Version:   $Revision: 1.53 $
+  Date:      $Date: 2001-12-17 18:55:52 $
+  Version:   $Revision: 1.54 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -123,7 +123,7 @@ public:
 
   // Description:
   // Overide the default locator.  Useful for changing the number of
-  // bins for performance or specifying a more aggressive locator.
+  // bins or specifying a more aggressive locator.
   void SetLocator(vtkPointLocator *locator);
   vtkGetObjectMacro(Locator,vtkPointLocator);
 
