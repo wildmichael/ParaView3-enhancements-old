@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-29 17:22:45 $
-  Version:   $Revision: 1.94 $
+  Date:      $Date: 2002-09-03 20:54:31 $
+  Version:   $Revision: 1.95 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -38,7 +38,7 @@
 #include <GL/gl.h>
 #endif
 
-vtkCxxRevisionMacro(vtkWin32OpenGLRenderWindow, "$Revision: 1.94 $");
+vtkCxxRevisionMacro(vtkWin32OpenGLRenderWindow, "$Revision: 1.95 $");
 vtkStandardNewMacro(vtkWin32OpenGLRenderWindow);
 
 #define VTK_MAX_LIGHTS 8
@@ -1141,6 +1141,10 @@ void vtkWin32OpenGLRenderWindow::SetCursorPosition(int x, int y)
 
 void vtkWin32OpenGLRenderWindow::SetCurrentCursor(int shape)
 {
+  if ( this->InvokeEvent(vtkCommand::CursorChangedEvent,&shape) )
+    {
+    return;
+    }
   this->Superclass::SetCurrentCursor(shape);
   LPCTSTR cursorName = 0;
   switch (shape)

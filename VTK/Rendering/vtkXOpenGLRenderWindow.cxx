@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXOpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-12 15:22:18 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2002-09-03 20:54:31 $
+  Version:   $Revision: 1.31 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -37,13 +37,15 @@
  #endif
 #endif
 
-#include <X11/Xlib.h>
-#include <X11/Xutil.h>
-
+#include "vtkCommand.h"
 #include "vtkIdList.h"
 #include "vtkObjectFactory.h"
 #include "vtkRendererCollection.h"
 #include "vtkString.h"
+
+#include <X11/Xlib.h>
+#include <X11/Xutil.h>
+#include <X11/cursorfont.h>
 
 class vtkXOpenGLRenderWindow;
 class vtkRenderWindow;
@@ -86,7 +88,7 @@ vtkXOpenGLRenderWindowInternal::vtkXOpenGLRenderWindowInternal(
 
 
 #ifndef VTK_IMPLEMENT_MESA_CXX
-vtkCxxRevisionMacro(vtkXOpenGLRenderWindow, "$Revision: 1.30 $");
+vtkCxxRevisionMacro(vtkXOpenGLRenderWindow, "$Revision: 1.31 $");
 vtkStandardNewMacro(vtkXOpenGLRenderWindow);
 #endif
 
@@ -1339,9 +1341,12 @@ void *vtkXOpenGLRenderWindow::GetGenericWindowId()
   return (void *)this->WindowId;
 }
 
-#include <X11/cursorfont.h>
 void vtkXOpenGLRenderWindow::SetCurrentCursor(int shape)
 {
+  if ( this->InvokeEvent(vtkCommand::CursorChangedEvent,&shape) )
+    {
+    return;
+    }
   this->Superclass::SetCurrentCursor(shape);
   if (!this->DisplayId || !this->WindowId)
     {
