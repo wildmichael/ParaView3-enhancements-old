@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-02-28 23:41:34 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2001-08-24 15:48:29 $
+  Version:   $Revision: 1.30 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -275,7 +275,7 @@ vtkDebugMacro (<< "RenderOpaqueGeometry");
   int* actorPos = 
     actor->GetPositionCoordinate()->GetComputedViewportValue(viewport);
   ptDestOff.x = actorPos[0];
-  ptDestOff.y = actorPos[1] - this->LineOffset;
+  ptDestOff.y = static_cast<long>(actorPos[1] - this->LineOffset);
 
   // Set up the font color from the text actor
   unsigned char red = 0;
