@@ -8,7 +8,7 @@
  * of authorship are reproduced on all copies.
  */
 
-/* $Id: draw.c,v 1.8 2003-08-22 22:37:03 kmorel Exp $ */
+/* $Id: draw.c,v 1.9 2003-11-10 15:49:32 kmorel Exp $ */
 
 #include <GL/ice-t.h>
 #include <state.h>
@@ -664,7 +664,7 @@ void icetDrawFrame(void)
 	GLubyte *colorBuffer;
 	GLenum output_buffers;
 
-	icetGetIntegerv(ICET_OUTPUT_BUFFERS, &output_buffers);
+	icetGetIntegerv(ICET_OUTPUT_BUFFERS, (GLint *)&output_buffers);
 	if ((output_buffers & ICET_COLOR_BUFFER_BIT) != 0) {
 	    icetStateSetBoolean(ICET_COLOR_BUFFER_VALID, 1);
 	    colorBuffer = icetGetImageColorBuffer(image);

@@ -1,5 +1,5 @@
 /* -*- c -*- *****************************************************************
-** $Id: CompressionSize.c,v 1.1 2003-06-17 18:38:54 andy Exp $
+** $Id: CompressionSize.c,v 1.2 2003-11-10 15:49:32 kmorel Exp $
 **
 ** Copyright (C) 2003 Sandia Corporation
 ** Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -127,8 +127,7 @@ static int DoCompressionTest(int num_buffers)
     size = icetCompressImage(imagebuffer, compressedbuffer);
     printf("Expected size: %d.  Actual size: %d\n",
 	   icetSparseImageSize(0), size);
-    if (   (size > icetSparseImageSize(0))
-	|| (size < 0) ) {
+    if (size > icetSparseImageSize(0)) {
 	printf("Size differs from expected size!\n");
 	result = TEST_FAILED;
     }

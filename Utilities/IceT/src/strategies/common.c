@@ -8,7 +8,7 @@
  * of authorship are reproduced on all copies.
  */
 
-/* $Id: common.c,v 1.6 2003-08-22 22:37:03 kmorel Exp $ */
+/* $Id: common.c,v 1.7 2003-11-10 15:49:32 kmorel Exp $ */
 
 #include "common.h"
 
@@ -331,7 +331,7 @@ static void BswapCollectFinalImages(GLint *compose_group, GLint group_size,
 
   /* All processors have the same number for pixels and their offset
    * is group_rank*offset. */
-    icetGetIntegerv(ICET_OUTPUT_BUFFERS, &output_buffers);
+    icetGetIntegerv(ICET_OUTPUT_BUFFERS, (GLint *)&output_buffers);
     requests = malloc((group_size)*sizeof(IceTCommRequest));
 
     if ((output_buffers & ICET_COLOR_BUFFER_BIT) != 0) {
@@ -383,7 +383,7 @@ static void BswapSendFinalImage(GLint *compose_group, GLint image_dest,
 {
     GLenum output_buffers;
 
-    icetGetIntegerv(ICET_OUTPUT_BUFFERS, &output_buffers);
+    icetGetIntegerv(ICET_OUTPUT_BUFFERS, (GLint *)&output_buffers);
     if ((output_buffers & ICET_COLOR_BUFFER_BIT) != 0) {
 	GLubyte *colorBuffer = icetGetImageColorBuffer(imageBuffer);
 	    icetRaiseDebug("Sending image data.");

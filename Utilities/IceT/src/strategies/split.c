@@ -8,7 +8,7 @@
  * of authorship are reproduced on all copies.
  */
 
-/* $Id: split.c,v 1.5 2003-08-11 18:43:23 kmorel Exp $ */
+/* $Id: split.c,v 1.6 2003-11-10 15:49:32 kmorel Exp $ */
 
 #include <GL/ice-t.h>
 #include <image.h>
@@ -247,7 +247,7 @@ static IceTImage splitStrategy(void)
     }
 
   /* Send composited fragment to display process. */
-    icetGetIntegerv(ICET_OUTPUT_BUFFERS, &output_buffers);
+    icetGetIntegerv(ICET_OUTPUT_BUFFERS, (GLint *)&output_buffers);
     if ((output_buffers & ICET_COLOR_BUFFER_BIT) != 0) {
 	icetAddSentBytes(4*fragment_size);
 	requests[0] = ICET_COMM_ISEND(icetGetImageColorBuffer(imageFragment),
