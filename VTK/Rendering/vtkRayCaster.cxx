@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRayCaster.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-02 20:39:31 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1998-12-06 19:09:39 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -1313,5 +1313,7 @@ void vtkRayCaster::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "Bilinear Image Zoom: " << this->BilinearImageZoom << "\n";
 
   os << indent << "Total Render Time: " << this->TotalRenderTime << "\n";
+
+  os << indent << "Number Of Threads: " << this->NumberOfThreads << "\n";
 }
 
