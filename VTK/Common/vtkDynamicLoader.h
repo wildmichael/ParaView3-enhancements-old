@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDynamicLoader.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:20 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2002-07-01 22:18:25 $
+  Version:   $Revision: 1.17 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 
 #ifndef __vtkDynamicLoader_h
 #define __vtkDynamicLoader_h
-#include "vtkConfigure.h"
+#include "vtkObject.h"
 
 //BTX
 // Ugly stuff for library handles
@@ -32,14 +32,12 @@
 # include <dl.h>
   typedef shl_t vtkLibHandle;
 #elif defined(_WIN32)
-# include "vtkWin32Header.h"
   typedef HMODULE vtkLibHandle;
 #else
   typedef void* vtkLibHandle;
 #endif
 //ETX
 
-#include "vtkObject.h"
 
 
 class VTK_COMMON_EXPORT vtkDynamicLoader : public vtkObject
