@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRIBLight.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-08 14:53:53 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-10-28 20:12:59 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -62,6 +62,7 @@ void vtkRIBLight::Render(vtkRenderer *ren, int index)
   // Copy this light's ivars into the light to be rendered
   ref = this->Light->GetReferenceCount();
   *this->Light = *((vtkLight *) this);
+	this->Light->SetDeleteMethod(NULL);
   this->Light->SetReferenceCount(ref);
   
   // Render the light
