@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPlaneWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-03 14:53:12 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-04-04 03:29:03 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -30,7 +30,7 @@
 #include "vtkCallbackCommand.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkPlaneWidget, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkPlaneWidget, "$Revision: 1.4 $");
 vtkStandardNewMacro(vtkPlaneWidget);
 
 vtkPlaneWidget::vtkPlaneWidget()
@@ -399,7 +399,7 @@ void vtkPlaneWidget::PrintSelf(ostream& os, vtkIndent indent)
 
 void vtkPlaneWidget::PositionHandles()
 {
-  int res = this->PlaneSource->GetXResolution();
+  //int res = this->PlaneSource->GetXResolution();
   float *o = this->PlaneSource->GetOrigin();
   float *pt1 = this->PlaneSource->GetPoint1();
   float *pt2 = this->PlaneSource->GetPoint2();
@@ -993,7 +993,7 @@ void vtkPlaneWidget::Translate(double *p1, double *p2)
   v[1] = p2[1] - p1[1];
   v[2] = p2[2] - p1[2];
   
-  int res = this->PlaneSource->GetXResolution();
+  //int res = this->PlaneSource->GetXResolution();
   float *o = this->PlaneSource->GetOrigin();
   float *pt1 = this->PlaneSource->GetPoint1();
   float *pt2 = this->PlaneSource->GetPoint2();
@@ -1022,7 +1022,7 @@ void vtkPlaneWidget::Scale(double *p1, double *p2, int X, int Y)
   v[1] = p2[1] - p1[1];
   v[2] = p2[2] - p1[2];
 
-  int res = this->PlaneSource->GetXResolution();
+  //int res = this->PlaneSource->GetXResolution();
   float *o = this->PlaneSource->GetOrigin();
   float *pt1 = this->PlaneSource->GetPoint1();
   float *pt2 = this->PlaneSource->GetPoint2();
