@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfFormatHDF.h,v 1.1 2002-12-02 17:11:03 clarke Exp $  */
-/*  Date : $Date: 2002-12-02 17:11:03 $ */
-/*  Version : $Revision: 1.1 $ */
+/*  Id : $Id: XdmfFormatHDF.h,v 1.2 2003-06-26 18:02:26 andy Exp $  */
+/*  Date : $Date: 2003-06-26 18:02:26 $ */
+/*  Version : $Revision: 1.2 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -29,7 +29,7 @@
 #include "XdmfFormat.h"
 #include "XdmfHDF.h"
 
-class XdmfFormatHDF : public XdmfFormat {
+class XDMF_EXPORT XdmfFormatHDF : public XdmfFormat {
 
 public :
 

@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfGrid.h,v 1.2 2003-03-04 15:24:31 andy Exp $  */
-/*  Date : $Date: 2003-03-04 15:24:31 $ */
-/*  Version : $Revision: 1.2 $ */
+/*  Id : $Id: XdmfGrid.h,v 1.3 2003-06-26 18:02:26 andy Exp $  */
+/*  Date : $Date: 2003-06-26 18:02:26 $ */
+/*  Version : $Revision: 1.3 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -77,5 +77,5 @@ protected:
   XdmfAttribute  *AssignedAttribute;
 };
 
-extern XdmfGrid *HandleToXdmfGrid( char *Source);
+extern XDMF_EXPORT XdmfGrid *HandleToXdmfGrid( char *Source);
 #endif // __XdmfGrid_h

@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDOM.h,v 1.3 2003-06-03 11:21:26 andy Exp $  */
-/*  Date : $Date: 2003-06-03 11:21:26 $ */
-/*  Version : $Revision: 1.3 $ */
+/*  Id : $Id: XdmfDOM.h,v 1.4 2003-06-26 18:02:26 andy Exp $  */
+/*  Date : $Date: 2003-06-26 18:02:26 $ */
+/*  Version : $Revision: 1.4 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -242,8 +242,8 @@ void ReNew(XdmfInt32 *size);
 
 };
 
-extern int GetXNodeSize( XdmfXNode *Node );
-extern char *GetXNodeName(XdmfXNode *Node, int index);
-extern char *GetXNodeData(XdmfXNode *Node, int index);
-XdmfDOM *HandleToXdmfDOM( char *Source );
+extern XDMF_EXPORT int GetXNodeSize( XdmfXNode *Node );
+extern XDMF_EXPORT char *GetXNodeName(XdmfXNode *Node, int index);
+extern XDMF_EXPORT char *GetXNodeData(XdmfXNode *Node, int index);
+extern XDMF_EXPORT XdmfDOM *HandleToXdmfDOM( char *Source );
 #endif

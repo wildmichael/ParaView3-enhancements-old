@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfHDF.h,v 1.2 2003-03-04 15:24:31 andy Exp $  */
-/*  Date : $Date: 2003-03-04 15:24:31 $ */
-/*  Version : $Revision: 1.2 $ */
+/*  Id : $Id: XdmfHDF.h,v 1.3 2003-06-26 18:02:26 andy Exp $  */
+/*  Date : $Date: 2003-06-26 18:02:26 $ */
+/*  Version : $Revision: 1.3 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -144,6 +144,6 @@ protected:
 extern XdmfArray *CreateArrayFromType( XdmfType *Type,
   XdmfInt64 NumberOfElements = 10 );
 */
-extern XdmfArray *CopyArray( XdmfArray *Source, XdmfArray *Target = NULL );
+extern XDMF_EXPORT XdmfArray *CopyArray( XdmfArray *Source, XdmfArray *Target = NULL );
 
 #endif // __XdmfHDF_h

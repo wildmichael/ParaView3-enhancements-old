@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfExpression.h,v 1.1 2002-12-02 17:11:03 clarke Exp $  */
-/*  Date : $Date: 2002-12-02 17:11:03 $ */
-/*  Version : $Revision: 1.1 $ */
+/*  Id : $Id: XdmfExpression.h,v 1.2 2003-06-26 18:02:26 andy Exp $  */
+/*  Date : $Date: 2003-06-26 18:02:26 $ */
+/*  Version : $Revision: 1.2 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -24,10 +24,10 @@
 /*******************************************************************/
 #include "XdmfArray.h"
 
-void XdmfArrayExpr( XdmfArray *Array,
+XDMF_EXPORT void XdmfArrayExpr( XdmfArray *Array,
     XdmfString Operation, XdmfArray *Values );
-void XdmfScalarExpr( XdmfArray *Array,
+XDMF_EXPORT void XdmfScalarExpr( XdmfArray *Array,
     XdmfString Operation, XdmfFloat64 Value);
 
-XdmfArray *XdmfExpr( XdmfString Statement );
+XDMF_EXPORT XdmfArray *XdmfExpr( XdmfString Statement );
 

@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfHDFSupport.h,v 1.1 2002-12-02 17:11:03 clarke Exp $  */
-/*  Date : $Date: 2002-12-02 17:11:03 $ */
-/*  Version : $Revision: 1.1 $ */
+/*  Id : $Id: XdmfHDFSupport.h,v 1.2 2003-06-26 18:02:26 andy Exp $  */
+/*  Date : $Date: 2003-06-26 18:02:26 $ */
+/*  Version : $Revision: 1.2 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -32,11 +32,11 @@ extern "C" {
 }
 #endif
 
-extern hid_t    XdmfTypeToHDF5Type( XdmfInt32 XdmfType );
-extern XdmfInt32  HDF5TypeToXdmfType( hid_t HDF5Type );
-extern XdmfString  XdmfTypeToString( XdmfInt32 XdmfType );
-extern XdmfInt32  StringToXdmfType( XdmfString TypeName );
-extern XdmfString  XdmfTypeToClassString( XdmfInt32 XdmfType );
+extern XDMF_EXPORT hid_t    XdmfTypeToHDF5Type( XdmfInt32 XdmfType );
+extern XDMF_EXPORT XdmfInt32  HDF5TypeToXdmfType( hid_t HDF5Type );
+extern XDMF_EXPORT XdmfString  XdmfTypeToString( XdmfInt32 XdmfType );
+extern XDMF_EXPORT XdmfInt32  StringToXdmfType( XdmfString TypeName );
+extern XDMF_EXPORT XdmfString  XdmfTypeToClassString( XdmfInt32 XdmfType );
 
 
 #endif // __XdmfHDFSupport_h

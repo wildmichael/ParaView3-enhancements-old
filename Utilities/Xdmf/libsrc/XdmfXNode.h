@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfXNode.h,v 1.1 2002-12-02 17:11:04 clarke Exp $  */
-/*  Date : $Date: 2002-12-02 17:11:04 $ */
-/*  Version : $Revision: 1.1 $ */
+/*  Id : $Id: XdmfXNode.h,v 1.2 2003-06-26 18:02:27 andy Exp $  */
+/*  Date : $Date: 2003-06-26 18:02:27 $ */
+/*  Version : $Revision: 1.2 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -43,7 +43,7 @@ XdmfXNode : XDMF Runtime Expandable Structure.
 This is an attempt to implement Tcl Arrays in C++.
 */
 #ifndef DOXYGEN_SKIP
-class XdmfXNodeNode : public virtual XdmfObject {
+class XDMF_EXPORT XdmfXNodeNode : public virtual XdmfObject {
 
 public :
   XdmfXNodeNode();
@@ -60,7 +60,7 @@ XdmfString Data;
 
 };
 #endif /* DOXYGEN_SKIP */
-class XdmfXNode : public virtual XdmfObject {
+class XDMF_EXPORT XdmfXNode : public virtual XdmfObject {
 
 public :
   
