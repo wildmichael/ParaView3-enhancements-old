@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeReader.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-31 23:12:41 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2002-06-19 18:36:11 $
+  Version:   $Revision: 1.30 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -45,12 +45,12 @@
 #ifndef __vtkVolumeReader_h
 #define __vtkVolumeReader_h
 
-#include "vtkStructuredPointsSource.h"
+#include "vtkImageSource.h"
 
-class VTK_IO_EXPORT vtkVolumeReader : public vtkStructuredPointsSource
+class VTK_IO_EXPORT vtkVolumeReader : public vtkImageSource
 {
 public:
-  vtkTypeRevisionMacro(vtkVolumeReader,vtkStructuredPointsSource);
+  vtkTypeRevisionMacro(vtkVolumeReader,vtkImageSource);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
@@ -80,7 +80,7 @@ public:
 
   // Description:
   // Other objects make use of this method.
-  virtual vtkStructuredPoints *GetImage(int ImageNumber) = 0;
+  virtual vtkImageData *GetImage(int ImageNumber) = 0;
 
 protected:
   vtkVolumeReader();

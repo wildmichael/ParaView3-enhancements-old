@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume16Reader.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-31 22:21:23 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 2002-06-19 18:36:11 $
+  Version:   $Revision: 1.42 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -118,14 +118,14 @@ public:
 
   // Description:
   // Other objects make use of these methods
-  vtkStructuredPoints *GetImage(int ImageNumber);
+  vtkImageData *GetImage(int ImageNumber);
 
 protected:
   vtkVolume16Reader();
   ~vtkVolume16Reader();
 
-  void Execute();
-  void ExecuteInformation();
+  virtual void ExecuteData(vtkDataObject *);
+  virtual void ExecuteInformation();
   int   DataDimensions[2];
   unsigned short DataMask;
   int   SwapBytes;
@@ -138,8 +138,8 @@ protected:
   void ComputeTransformedSpacing(float Spacing[3]);
   void ComputeTransformedOrigin(float origin[3]);
   void AdjustSpacingAndOrigin(int dimensions[3], float Spacing[3], float origin[3]);
-  vtkUnsignedShortArray *ReadImage(int ImageNumber);
-  vtkUnsignedShortArray *ReadVolume(int FirstImage, int LastImage);
+  void ReadImage(int ImageNumber, vtkUnsignedShortArray *);
+  void ReadVolume(int FirstImage, int LastImage, vtkUnsignedShortArray *);
   int Read16BitImage(FILE *fp, unsigned short *pixels, int xsize, int ysize, 
                      int skip, int swapBytes);
 
