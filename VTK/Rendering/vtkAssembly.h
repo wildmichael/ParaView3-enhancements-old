@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAssembly.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-14 21:25:08 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1999-02-19 21:53:14 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -112,6 +112,12 @@ public:
   // assemblies; that is, assemblies that only serve to group and transform
   // its parts.
   void Render(vtkRenderer *ren);
+
+  // Description:
+  // Release any graphics resources that are being consumed by this actor.
+  // The parameter RenderWindow could be used to determine which graphic
+  // resources to release.
+  void ReleaseGraphicsResources(vtkRenderWindow *);
 
   // Description:
   // Methods to traverse the parts of an assembly. Each part (starting from

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLTexture.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-16 11:54:34 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1999-02-19 21:53:19 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -251,4 +251,18 @@ void vtkOpenGLTexture::Load(vtkRenderer *vtkNotUsed(ren))
 
   // now bind it 
   glEnable(GL_TEXTURE_2D);
+}
+
+
+void vtkOpenGLTexture::ReleaseGraphicsResources(vtkRenderWindow *renWin)
+{
+  GLuint tempIndex;
+  
+#ifdef GL_VERSION_1_1
+  tempIndex = this->Index;
+  glDeleteTextures(1, &tempIndex);
+#else
+  glDeleteLists(this->Index,1);
+#endif
+  this->Index = 0;
 }

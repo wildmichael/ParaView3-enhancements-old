@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-01-07 22:43:19 $
-  Version:   $Revision: 1.76 $
+  Date:      $Date: 1999-02-19 21:53:20 $
+  Version:   $Revision: 1.77 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -704,7 +704,8 @@ void vtkRenderWindow::DoStereoRender()
 // Add a renderer to the list of renderers.
 void vtkRenderWindow::AddRenderer(vtkRenderer *ren)
 {
-  // we are its parent 
+  // we are its parent
+  this->MakeCurrent();
   ren->SetRenderWindow(this);
   this->Renderers->AddItem(ren);
 }

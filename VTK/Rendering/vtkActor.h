@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-26 14:21:44 $
-  Version:   $Revision: 1.63 $
+  Date:      $Date: 1999-02-19 21:53:14 $
+  Version:   $Revision: 1.64 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -87,6 +87,12 @@ class VTK_EXPORT vtkActor : public vtkProp
   // effect of this method is that the
   virtual void Render(vtkRenderer *ren);
   virtual void Render(vtkRenderer *, vtkMapper *) {};
+
+  // Description:
+  // Release any graphics resources that are being consumed by this actor.
+  // The parameter RenderWindow could be used to determine which graphic
+  // resources to release.
+  void ReleaseGraphicsResources(vtkRenderWindow *);
 
   // Description:
   // Shallow copy of an actor.
@@ -187,6 +193,7 @@ class VTK_EXPORT vtkActor : public vtkProp
   // render.
   void SetAllocatedRenderTime(float t) {this->AllocatedRenderTime = t;};
   vtkGetMacro(AllocatedRenderTime, float);
+
   
   // Description:
   // For legacy compatibility. Do not use.

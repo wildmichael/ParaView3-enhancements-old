@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-01-07 22:43:18 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1999-02-19 21:53:18 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -182,15 +182,30 @@ vtkOpenGLRenderWindow::vtkOpenGLRenderWindow()
 vtkOpenGLRenderWindow::~vtkOpenGLRenderWindow()
 {
   short cur_light;
-
-  /* first delete all the old lights */
+  vtkOpenGLRenderer *ren;
+  
   // make sure we have been initialized 
   if (this->ContextId)
     {
+    this->MakeCurrent();
+    
+    /* first delete all the old lights */
     for (cur_light = GL_LIGHT0; cur_light < GL_LIGHT0+MAX_LIGHTS; cur_light++)
       {
       glDisable((GLenum)cur_light);
       }
+
+    // tell each of the renderers that this render window/graphics context
+    // is being removed (the RendererCollection is removed by vtkRenderWindow's
+    // destructor)
+    this->Renderers->InitTraversal();
+    for ( ren = (vtkOpenGLRenderer *) this->Renderers->GetNextItemAsObject();
+	  ren != NULL;
+	  ren = (vtkOpenGLRenderer *) this->Renderers->GetNextItemAsObject() )
+      {
+      ren->SetRenderWindow(NULL);
+      }
+
     glXDestroyContext( this->DisplayId, this->ContextId);
   
     // then close the old window 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume.h,v $
   Language:  C++
-  Date:      $Date: 1998-12-02 17:05:41 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 1999-02-19 21:53:23 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -78,6 +78,12 @@ public:
   // Description:
   // Render the volume by calling the Render() method of its mapper
   virtual void Render(vtkRenderer *ren);
+
+  // Description:
+  // Release any graphics resources that are being consumed by this volume.
+  // The parameter RenderWindow could be used to determine which graphic
+  // resources to release.
+  void ReleaseGraphicsResources(vtkRenderWindow *);
 
   // Description:
   // Update the volume rendering pipeline by updating the volume mapper

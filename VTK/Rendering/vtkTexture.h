@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTexture.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-26 14:22:01 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1999-02-19 21:53:22 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -73,6 +73,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkImageToStructuredPoints.h"
 
 class vtkRenderer;
+class vtkRenderWindow;
 
 class VTK_EXPORT vtkTexture : public vtkObject
 {
@@ -88,6 +89,12 @@ public:
   // to make sure the texture maps Input is valid, then it invokes the 
   // Load() method.
   virtual void Render(vtkRenderer *ren);
+
+  // Description:
+  // Release any graphics resources that are being consumed by this texture.
+  // The parameter RenderWindow could be used to determine which graphic
+  // resources to release.
+  virtual void ReleaseGraphicsResources(vtkRenderWindow *) {};
 
   // Description:
   // Abstract interface to renderer. Each concrete subclass of 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAssembly.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-11-05 13:41:20 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1999-02-19 21:53:14 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -112,6 +112,19 @@ void vtkAssembly::Render(vtkRenderer *ren)
       }
     }
 }
+
+
+void vtkAssembly::ReleaseGraphicsResources(vtkRenderWindow *renWin)
+{
+  vtkActor *actor;
+  
+  // broadcast the message down the Paths
+  for ( this->InitPartTraversal(); (actor  = this->GetNextPart()); )
+    {
+    actor->ReleaseGraphicsResources(renWin);
+    }
+}
+
 
 void vtkAssembly::InitPartTraversal()
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRayBounder.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-08 18:42:12 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-02-19 21:53:20 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -69,6 +69,14 @@ public:
   // no clipping.
   virtual float *GetRayBounds( vtkRenderer *ren )=0;
 
+
+  // Description:
+  // Release any graphics resources that are being consumed by this ray bounder.
+  // The parameter RenderWindow could be used to determine which graphic
+  // resources to release.
+  virtual void ReleaseGraphicsResources(vtkRenderWindow *) {};
+
+  
 protected:
 };
 

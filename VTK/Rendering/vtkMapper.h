@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-14 21:25:19 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 1999-02-19 21:53:16 $
+  Version:   $Revision: 1.42 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -80,6 +80,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #define VTK_SCALAR_MODE_USE_POINT_DATA 1
 #define VTK_SCALAR_MODE_USE_CELL_DATA 2
 
+class vtkRenderWindow;
 class vtkRenderer;
 class vtkActor;
 
@@ -101,6 +102,12 @@ public:
   // Method initiates the mapping process. Generally sent by the actor 
   // as each frame is rendered.
   virtual void Render(vtkRenderer *ren, vtkActor *a) = 0;
+
+  // Description:
+  // Release any graphics resources that are being consumed by this mapper.
+  // The parameter RenderWindow could be used to determine which graphic
+  // resources to release.
+  virtual void ReleaseGraphicsResources(vtkRenderWindow *) {};
 
   // Description:
   // Specify a lookup table for the mapper to use.

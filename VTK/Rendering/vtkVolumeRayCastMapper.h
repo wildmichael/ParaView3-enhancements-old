@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastMapper.h,v $
   Language:  C++
-  Date:      $Date: 1998-12-03 16:28:37 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1999-02-19 21:53:24 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -119,6 +119,14 @@ public:
   void InitializeRender( vtkRenderer *ren, vtkVolume *vol,
 			 struct VolumeRayCastVolumeInfoStruct *volumeInfo );
 //ETX
+
+  // Description:
+  // Release any graphics resources that are being consumed by this mapper.
+  // The parameter RenderWindow could be used to determine which graphic
+  // resources to release.
+  void ReleaseGraphicsResources(vtkRenderWindow *);
+
+
   // Description:
   // Return the scalar value below which all opacities are zero
   float GetZeroOpacityThreshold( vtkVolume *vol );

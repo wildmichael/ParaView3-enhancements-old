@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLTexture.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-08 18:42:06 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1999-02-19 21:53:19 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -48,6 +48,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 #include "vtkTexture.h"
 
+class vtkRenderWindow;
 class vtkOpenGLRenderer;
 
 class VTK_EXPORT vtkOpenGLTexture : public vtkTexture
@@ -61,7 +62,13 @@ public:
   // Implement base class method.
   void Load(vtkRenderer *ren);
   
-protected:
+  // Description:
+  // Release any graphics resources that are being consumed by this texture.
+  // The parameter RenderWindow could be used to determine which graphic
+  // resources to release.
+  void ReleaseGraphicsResources(vtkRenderWindow *);
+
+ protected:
   vtkTimeStamp   LoadTime;
   long          Index;
   static   long GlobalIndex;

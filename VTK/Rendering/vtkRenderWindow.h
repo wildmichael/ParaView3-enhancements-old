@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 1999-01-07 22:43:19 $
-  Version:   $Revision: 1.76 $
+  Date:      $Date: 1999-02-19 21:53:20 $
+  Version:   $Revision: 1.77 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -310,6 +310,8 @@ public:
   virtual void *GetGenericContext() {return NULL;};
   virtual void *GetGenericDrawable() {return NULL;};
   virtual void SetWindowInfo(char *) {};
+
+  virtual void MakeCurrent() {};
 
 protected:
   virtual void DoStereoRender();

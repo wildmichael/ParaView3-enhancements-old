@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLPolyDataMapper.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-08 18:42:05 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-02-19 21:53:17 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -51,9 +51,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include <stdlib.h>
 #include <GL/gl.h>
 
-
-class vtkOpenGLRenderer;
 class vtkProperty;
+class vtkRenderWindow;
+class vtkOpenGLRenderer;
 
 class VTK_EXPORT vtkOpenGLPolyDataMapper : public vtkPolyDataMapper
 {
@@ -66,6 +66,12 @@ class VTK_EXPORT vtkOpenGLPolyDataMapper : public vtkPolyDataMapper
   // Description:
   // Implement superclass render method.
   void Render(vtkRenderer *ren, vtkActor *a);
+
+  // Description:
+  // Release any graphics resources that are being consumed by this mapper.
+  // The parameter RenderWindow could be used to determine which graphic
+  // resources to release.
+  void ReleaseGraphicsResources(vtkRenderWindow *);
 
   // Description:
   // Draw method for OpenGL.
@@ -82,7 +88,8 @@ class VTK_EXPORT vtkOpenGLPolyDataMapper : public vtkPolyDataMapper
   //ETX
 
  private:
-   int ListId;
+  int ListId;
+  vtkRenderWindow *RenderWindow;   // RenderWindow used for the previous render
 };
 
 #endif

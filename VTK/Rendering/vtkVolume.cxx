@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-28 12:54:08 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1999-02-19 21:53:22 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -295,6 +295,15 @@ void vtkVolume::Render( vtkRenderer *ren )
     {
     // Force the creation of a property
     this->GetVolumeProperty();
+    }
+}
+
+void vtkVolume::ReleaseGraphicsResources(vtkRenderWindow *renWin)
+{
+  // pass this information onto the mapper
+  if (this->VolumeMapper)
+    {
+    this->VolumeMapper->ReleaseGraphicsResources(renWin);
     }
 }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-26 14:21:44 $
-  Version:   $Revision: 1.74 $
+  Date:      $Date: 1999-02-19 21:53:13 $
+  Version:   $Revision: 1.75 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -191,6 +191,21 @@ void vtkActor::Render(vtkRenderer *ren)
     }
 
   this->Render(ren,this->Mapper);
+}
+
+void vtkActor::ReleaseGraphicsResources(vtkRenderWindow *renWin)
+{
+  // pass this information onto the mapper
+  if (this->Mapper)
+    {
+    this->Mapper->ReleaseGraphicsResources(renWin);
+    }
+
+  // pass this information onto the texture
+  if (this->Texture)
+    {
+    this->Texture->ReleaseGraphicsResources(renWin);
+    }
 }
 
 void vtkActor::SetProperty(vtkProperty *lut)

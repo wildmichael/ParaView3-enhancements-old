@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImporter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-01-05 13:11:36 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-02-19 21:53:15 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -54,6 +54,12 @@ vtkImporter::vtkImporter ()
 vtkImporter::~vtkImporter ()
 {
   this->SetRenderWindow(NULL);
+
+  if (this->Renderer)
+    {
+    this->Renderer->UnRegister( NULL );
+    this->Renderer = NULL;
+    }
   
   if (this->FileName)
     {
@@ -85,6 +91,7 @@ void vtkImporter::Read ()
   else
     {
     this->Renderer = renderer;
+    this->Renderer->Register( this );
     }
 
   // Open the import file

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLProjectedPolyDataRayBounder.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-08 18:42:05 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-02-19 21:53:18 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to Lisa Sobierajski Avila who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -75,6 +75,13 @@ public:
   // buffer is initially NULL and no display list has been created
   static vtkOpenGLProjectedPolyDataRayBounder *New() {
     return new vtkOpenGLProjectedPolyDataRayBounder;};
+
+  // Description:
+  // Release any graphics resources that are being consumed by this ray bounder.
+  // The parameter RenderWindow could be used to determine which graphic
+  // resources to release.
+  void ReleaseGraphicsResources(vtkRenderWindow *);
+
 
 protected:
   GLuint    DisplayList;
