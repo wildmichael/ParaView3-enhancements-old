@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-31 23:13:18 $
-  Version:   $Revision: 1.53 $
+  Date:      $Date: 2002-10-09 17:05:24 $
+  Version:   $Revision: 1.54 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkStructuredGrid.h"
 
-vtkCxxRevisionMacro(vtkStructuredGridReader, "$Revision: 1.53 $");
+vtkCxxRevisionMacro(vtkStructuredGridReader, "$Revision: 1.54 $");
 vtkStandardNewMacro(vtkStructuredGridReader);
 
 vtkStructuredGridReader::vtkStructuredGridReader()
@@ -36,7 +36,7 @@ vtkStructuredGridReader::~vtkStructuredGridReader()
 {
 }
 
-//----------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 vtkStructuredGrid *vtkStructuredGridReader::GetOutput()
 {
   if (this->NumberOfOutputs < 1)
@@ -48,12 +48,13 @@ vtkStructuredGrid *vtkStructuredGridReader::GetOutput()
 }
 
 
-//----------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 void vtkStructuredGridReader::SetOutput(vtkStructuredGrid *output)
 {
   this->vtkSource::SetNthOutput(0, output);
 }
 
+//-----------------------------------------------------------------------------
 // We just need to read the dimensions
 void vtkStructuredGridReader::ExecuteInformation()
 {
@@ -102,6 +103,13 @@ void vtkStructuredGridReader::ExecuteInformation()
         break;
         }
 
+      // Have to read field data because it may be binary.
+      if (! strncmp(this->LowerCase(line), "field", 5))
+        {
+        vtkFieldData* fd = this->ReadFieldData();
+        fd->Delete(); 
+        }
+
       if ( ! strncmp(this->LowerCase(line),"dimensions",10) )
         {
         int ext[6];
@@ -130,6 +138,7 @@ void vtkStructuredGridReader::ExecuteInformation()
   this->CloseVTKFile ();
 }
 
+//-----------------------------------------------------------------------------
 void vtkStructuredGridReader::Execute()
 {
   int numPts=0, npts=0, numCells=0, ncells;
