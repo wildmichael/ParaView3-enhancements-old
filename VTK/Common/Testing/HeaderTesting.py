@@ -5,8 +5,8 @@
 ##   Program:   Visualization Toolkit
 ##   Module:    $RCSfile: HeaderTesting.py,v $
 ##   Language:  Python
-##   Date:      $Date: 2002-08-12 02:04:32 $
-##   Version:   $Revision: 1.9 $
+##   Date:      $Date: 2002-08-12 15:20:59 $
+##   Version:   $Revision: 1.10 $
 
 ##   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
 ##   All rights reserved.
@@ -157,13 +157,15 @@ class TestVTKFiles:
         count = 0
         lines = []
         oldlines = []
-        typere = "^\s*vtkType(Revision)*Macro\((vtk[^ ,]+)\s*,\s*(vtk[^ \)]+)\s*\)\s*;"
+        typere = "^\s*vtkType(Revision)*Macro\s*\(\s*(vtk[^ ,]+)\s*,\s*(vtk[^ \)]+)\s*\)\s*;"
         regx = re.compile(typere)
         cc = 0
+        found = 0
         for a in self.FileLines:
             line = string.strip(a)
             rm = regx.match(line)
             if rm:
+                found = 1
                 if rm.group(1) != "Revision":
                     oldlines.append(" %4d: %s" % (cc, line))
                 cname = rm.group(2)
@@ -175,7 +177,7 @@ class TestVTKFiles:
             self.Print( "File: %s has broken type macro(s):" % self.FileName )
             for a in lines:
                 self.Print( a )
-            self.Print( "Should be: vtkTypeRevisionMacro(%s, %s)" %
+            self.Print( "Should be:\n vtkTypeRevisionMacro(%s, %s)" %
                         (self.ClassName, self.ParentName) )
             self.Error("Broken type macro")
         if len(oldlines) > 0:
@@ -185,6 +187,11 @@ class TestVTKFiles:
                 self.Print( "Should be:\n vtkTypeRevisionMacro(%s, %s);" %
                             (self.ClassName, self.ParentName))
             self.Error("Old style type macro")
+        if not found:
+            self.Print( "File: %s does not have type macro" % self.FileName )
+            self.Print( "Should be:\n vtkTypeRevisionMacro(%s, %s);" %
+                            (self.ClassName, self.ParentName))
+            self.Error("No type macro")
         pass
     def CheckForCopyAndAssignment(self):
         if not self.ClassName:
