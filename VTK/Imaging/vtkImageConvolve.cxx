@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageConvolve.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-05-23 11:44:15 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-05-23 11:53:55 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to Zeger F. Knops who developed this class
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -74,7 +74,10 @@ vtkImageConvolve::vtkImageConvolve()
 void vtkImageConvolve::PrintSelf(ostream& os, vtkIndent indent)
 {
   this->vtkImageToImageFilter::PrintSelf(os, indent);
+
   os << indent << "Dimensionality: " << this->Dimensionality;
+  os << indent << "Kernel: (" << this->Kernel[0] << ", " 
+     << this->Kernel[1] << ", " << this->Kernel[2] << ")\n";
 }
 
 
