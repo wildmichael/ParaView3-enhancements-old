@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObject.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:09:51 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2000-06-02 14:31:54 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -273,13 +273,15 @@ public:
   vtkGetMacro( UpdateNumberOfPieces, int );
 
   // Description:
-  // Get the maximum number of pieces this data can be broken into
+  // Set / Get the maximum number of pieces this data can be broken into
+  vtkSetMacro( MaximumNumberOfPieces, int );
   vtkGetMacro( MaximumNumberOfPieces, int );
 
   // Description:
-  // Get the whole extent of this data object
+  // Set/Get the whole extent of this data object
+  vtkSetVector6Macro( WholeExtent, int );
   vtkGetVector6Macro( WholeExtent, int );
-
+  
   // Description:
   // This method is called by the source when it executes to generate data.
   // It is sort of the opposite of ReleaseData.
