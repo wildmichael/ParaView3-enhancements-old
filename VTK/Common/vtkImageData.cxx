@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-18 11:11:48 $
-  Version:   $Revision: 1.115 $
+  Date:      $Date: 2001-04-26 14:01:56 $
+  Version:   $Revision: 1.116 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -1722,9 +1722,15 @@ void vtkImageData::Crop()
   newScalars->SetNumberOfScalars((nExt[1] - nExt[0] + 1)*
 		                 (nExt[3] - nExt[2] + 1)*
 		                 (nExt[5] - nExt[4] + 1));
+  // Keep the array name the same.
+  newScalars->GetData()->SetName(
+    this->GetPointData()->GetScalars()->GetData()->GetName());
   
   inPtr = (unsigned char *) this->GetScalarPointerForExtent(nExt);
   outPtr = (unsigned char *) newScalars->GetVoidPointer(0);
+  
+  
+  
   
   // Get increments to march through inData 
   this->GetIncrements(inIncX, inIncY, inIncZ);
