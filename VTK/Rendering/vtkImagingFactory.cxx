@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagingFactory.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-07-20 13:16:43 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2000-07-25 16:59:31 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -278,7 +278,9 @@ vtkObject* vtkImagingFactory::CreateInstance(const char* vtkclassname )
       }
     }
 #endif
-#endif  
+#endif 
+  vtkGenericWarningMacro("Attempting to create an OpenGL or Mesa based object with a VTK that is not linked/configured with Mesa/OpenGL.");
+  abort();
   return 0;
 }
 
