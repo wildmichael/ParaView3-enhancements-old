@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBYUReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-21 14:07:52 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 1999-07-30 11:28:36 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -318,6 +318,23 @@ void vtkBYUReader::ReadTextureFile(int numPts)
 
   output->GetPointData()->SetTCoords(newTCoords);
   newTCoords->Delete();
+}
+
+//----------------------------------------------------------------------------
+// This source does not know how to generate pieces yet.
+int vtkBYUReader::ComputeDivisionExtents(vtkDataObject *vtkNotUsed(output),
+					 int idx, int numDivisions)
+{
+  if (idx == 0 && numDivisions == 1)
+    {
+    // I will give you the whole thing
+    return 1;
+    }
+  else
+    {
+    // I have nothing to give you for this piece.
+    return 0;
+    }
 }
 
 void vtkBYUReader::PrintSelf(ostream& os, vtkIndent indent)
