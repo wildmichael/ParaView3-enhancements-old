@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkArcPlotter.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:30:24 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-02-27 16:26:50 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -57,7 +57,7 @@ public:
   // Description:
   // Instantiate with no default camera and plot mode set to
   // VTK_SCALARS.
-  static vtkArcPlotter *New() {return new vtkArcPlotter;};
+  static vtkArcPlotter *New();
 
   vtkTypeRevisionMacro(vtkArcPlotter,vtkPolyDataToPolyDataFilter);
   void PrintSelf(ostream& os, vtkIndent indent);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkArcPlotter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:30:24 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2002-02-27 16:26:50 $
+  Version:   $Revision: 1.16 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,8 +19,10 @@
 #include "vtkMath.h"
 #include "vtkPlane.h"
 #include "vtkFloatArray.h"
+#include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkArcPlotter, "$Revision: 1.15 $");
+vtkCxxRevisionMacro(vtkArcPlotter, "$Revision: 1.16 $");
+vtkStandardNewMacro(vtkArcPlotter);
 
 vtkArcPlotter::vtkArcPlotter()
 {
