@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsGeometryFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:17 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2001-11-01 18:02:50 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,57 +39,28 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-// .NAME vtkStructuredPointsGeometryFilter - extract geometry for structured points
+// .NAME vtkStructuredPointsGeometryFilter - obsolete class
 // .SECTION Description
-// vtkStructuredPointsGeometryFilter is a filter that extracts geometry from a
-// structured points dataset. By specifying appropriate i-j-k indices (via the 
-// "Extent" instance variable), it is possible to extract a point, a line, a 
-// plane (i.e., image), or a "volume" from dataset. (Since the output is 
-// of type polydata, the volume is actually a (n x m x o) region of points.)
-//
-// The extent specification is zero-offset. That is, the first k-plane in
-// a 50x50x50 volume is given by (0,49, 0,49, 0,0).
-// .SECTION Caveats
-// If you don't know the dimensions of the input dataset, you can use a large
-// number to specify extent (the number will be clamped appropriately). For 
-// example, if the dataset dimensions are 50x50x50, and you want a the fifth 
-// k-plane, you can use the extents (0,100, 0,100, 4,4). The 100 will 
-// automatically be clamped to 49.
-
-// .SECTION See Also
-// vtkGeometryFilter vtkStructuredGridFilter
+// vtkStructuredPointsGeometryFilter has been renamed to
+// vtkImageDataGeometryFilter
 
 #ifndef __vtkStructuredPointsGeometryFilter_h
 #define __vtkStructuredPointsGeometryFilter_h
 
-#include "vtkStructuredPointsToPolyDataFilter.h"
+#include "vtkImageDataGeometryFilter.h"
 
-class VTK_GRAPHICS_EXPORT vtkStructuredPointsGeometryFilter : public vtkStructuredPointsToPolyDataFilter
+class VTK_GRAPHICS_EXPORT vtkStructuredPointsGeometryFilter : public vtkImageDataGeometryFilter
 {
 public:
-  vtkTypeMacro(vtkStructuredPointsGeometryFilter,vtkStructuredPointsToPolyDataFilter);
-  void PrintSelf(ostream& os, vtkIndent indent);
+  vtkTypeMacro(vtkStructuredPointsGeometryFilter,vtkImageDataGeometryFilter);
   
   // Description:
   // Construct with initial extent of all the data
   static vtkStructuredPointsGeometryFilter *New();
 
-  
-  // Description:
-  // Set / get the extent (imin,imax, jmin,jmax, kmin,kmax) indices.
-  void SetExtent(int extent[6]);
-  void SetExtent(int iMin, int iMax, int jMin, int jMax, int kMin, int kMax);
-  int *GetExtent() { return this->Extent;};
-
 protected:
   vtkStructuredPointsGeometryFilter();
   ~vtkStructuredPointsGeometryFilter() {};
-
-  void Execute();
-  int Extent[6];
-private:
-  vtkStructuredPointsGeometryFilter(const vtkStructuredPointsGeometryFilter&);  // Not implemented.
-  void operator=(const vtkStructuredPointsGeometryFilter&);  // Not implemented.
 };
 
 #endif

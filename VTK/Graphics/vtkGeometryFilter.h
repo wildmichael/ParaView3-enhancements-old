@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGeometryFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:37:04 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 2001-11-01 18:02:49 $
+  Version:   $Revision: 1.52 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -52,7 +52,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // type. The conversion process may be less than satisfactory for some 3D
 // datasets. For example, this filter will extract the outer surface of a 
 // volume or structured grid dataset. (For structured data you may want to
-// use vtkStructuredPointsGeometryFilter, vtkStructuredGridGeometryFilter,
+// use vtkImageDataGeometryFilter, vtkStructuredGridGeometryFilter,
 // vtkUnstructuredGridGeometryFilter, vtkRectilinearGridGeometryFilter, or 
 // vtkExtractVOI.)
 
@@ -65,7 +65,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // together. Turn merging off to prevent this from occurring.
 
 // .SECTION See Also
-// vtkStructuredPointsGeometryFilter vtkStructuredGridGeometryFilter
+// vtkImageDataGeometryFilter vtkStructuredGridGeometryFilter
 // vtkExtractGeometry vtkExtractVOI
 
 #ifndef __vtkGeometryFilter_h
