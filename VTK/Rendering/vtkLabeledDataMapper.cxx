@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLabeledDataMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-03-19 14:25:47 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-03-22 22:39:09 $
+  Version:   $Revision: 1.11 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -225,7 +225,7 @@ void vtkLabeledDataMapper::RenderOpaqueGeometry(vtkViewport *viewport,
     if ( this->NumberOfLabels > this->NumberOfLabelsAllocated )
       {
       // delete old stuff
-      for (int i=0; i < this->NumberOfLabelsAllocated; i++)
+      for (i=0; i < this->NumberOfLabelsAllocated; i++)
 	{
 	this->TextMappers[i]->Delete();
 	}
