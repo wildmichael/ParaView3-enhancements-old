@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: ice.h,v 1.3 2003-04-11 12:24:41 andy Exp $  */
-/*  Date : $Date: 2003-04-11 12:24:41 $ */
-/*  Version : $Revision: 1.3 $ */
+/*  Id : $Id: ice.h,v 1.4 2003-05-09 14:54:55 andy Exp $  */
+/*  Date : $Date: 2003-05-09 14:54:55 $ */
+/*  Version : $Revision: 1.4 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -25,7 +25,7 @@
 #ifndef ice_included
 #define ice_included
 
-#ifndef WIN32 
+#if !defined( WIN32 ) || defined(__CYGWIN__)
 #define UNIX
 #endif /* WIN32 */
 
@@ -49,7 +49,7 @@
 #define STRNCMP strncmp
 #endif
 
-#ifdef WIN32
+#if defined(WIN32) && !defined(__CYGWIN__)
 #include "winsock.h"
 /* String comparison routine. */
 #define STRCASECMP _stricmp
