@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDecimatePro.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:44:09 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1997-09-17 14:29:21 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -73,7 +73,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // To use this object, at a minimum you need to specify the ivar
 // TargetReduction. The algorithm is guaranteed to generate a reduced mesh
 // at this level as long as the following four conditions are met: 1)
-// topology modification is allowed (i.e., the ivar PreserveTopology is on);
+// topology modification is allowed (i.e., the ivar PreserveTopology is off);
 // 2) mesh splitting is enabled (i.e., the ivar Splitting is on); 3) the
 // algorithm is allowed to modify the boundary of the mesh (i.e., the ivar
 // BoundaryVertexDeletion is on); and 4) the maximum allowable error (i.e.,
