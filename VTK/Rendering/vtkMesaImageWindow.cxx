@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaImageWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:09:00 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2000-03-16 19:03:10 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -215,7 +215,18 @@ void vtkMesaImageWindow::SwapBuffers()
     vtkDebugMacro(<< " glXSwapBuffers\n");
     }
 }
- 
+
+// End the Imaging process and display the image.
+void vtkMesaImageWindow::Frame()
+{
+  glFlush();
+  vtkDebugMacro(<< "Frame\n");
+  if (this->DoubleBuffer)
+    {
+    glXSwapBuffers(this->DisplayId, this->WindowId);
+    }
+}
+
 
 // Initialize the window for Imaging.
 void vtkMesaImageWindow::MakeDefaultWindow()

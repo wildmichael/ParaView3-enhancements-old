@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLImageWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:09:02 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2000-03-16 19:03:11 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -186,7 +186,18 @@ void vtkOpenGLImageWindow::SwapBuffers()
     vtkDebugMacro(<< " glXSwapBuffers\n");
     }
 }
- 
+
+// End the Imaging process and display the image.
+void vtkOpenGLImageWindow::Frame()
+{
+  glFlush();
+  vtkDebugMacro(<< "Frame\n");
+  if (this->DoubleBuffer)
+    {
+    glXSwapBuffers(this->DisplayId, this->WindowId);
+    }
+}
+
 
 // Initialize the window for Imaging.
 void vtkOpenGLImageWindow::MakeDefaultWindow()

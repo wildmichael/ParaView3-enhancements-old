@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32ImageWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:09:09 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2000-03-16 19:03:12 $
+  Version:   $Revision: 1.19 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -182,6 +182,11 @@ unsigned char *vtkWin32ImageWindow::GetDIBPtr()
 //---------------------------------------------------------------------------
 // Win32 version does not handle double buffering
 void vtkWin32ImageWindow::SwapBuffers()
+{
+}
+
+// Win32 version does not handle double buffering
+void vtkWin32ImageWindow::Frame()
 {
 }
 

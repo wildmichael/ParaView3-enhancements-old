@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:08:55 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2000-03-16 19:03:10 $
+  Version:   $Revision: 1.20 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -219,11 +219,9 @@ void vtkImageWindow::Render()
     {
     tempImager->RenderTranslucentGeometry(); 
     }
- 
-  if (this->DoubleBuffer)
-    {
-    this->SwapBuffers();
-    }
+
+  // flush buffer and swap if necessary
+  this->Frame();
 
   // tell each of the imagers to render
   for (this->Imagers->InitTraversal(); 

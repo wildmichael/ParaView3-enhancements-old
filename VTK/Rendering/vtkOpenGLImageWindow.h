@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLImageWindow.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:09:02 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2000-03-16 19:03:11 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -70,7 +70,11 @@ public:
   // Description:
   // Swap the front and back buffers if double buffering is being used.
   void SwapBuffers();
-  
+
+  // Description:
+  // Flush the buffers and swap if necessary
+  void Frame();
+
   // Description:
   // Draw the contents of the window
   void Render();

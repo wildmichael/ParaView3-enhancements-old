@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageWindow.h,v $
   Language:  C++
-  Date:      $Date: 2000-03-07 20:22:04 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2000-03-16 19:03:10 $
+  Version:   $Revision: 1.21 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -108,6 +108,10 @@ public:
   // double buffering, invoke DoubleBufferOn
   virtual void SwapBuffers() = 0;
 
+  // Description:
+  // Flush the buffer and swap if necessary.
+  virtual void Frame() = 0;
+  
   // Description:
   // useful for scripting languages
   virtual void SetWindowInfo(char *) 

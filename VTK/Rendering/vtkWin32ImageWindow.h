@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32ImageWindow.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:09:09 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2000-03-16 19:03:12 $
+  Version:   $Revision: 1.17 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -68,7 +68,13 @@ public:
 
   // Description:
   // Swap the front and back buffers. Normally not called by the user.
+  // Double buffering is not supported in this class.
   void SwapBuffers();
+  
+  // Description:
+  // Flush and swap buffers if necessary. Double buffering is not
+  // supported in this class.
+  void Frame();
 
   // output to the viewer.
   vtkWin32ImageWindow *GetOutput(){return this;};
