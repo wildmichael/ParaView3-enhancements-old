@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProperty.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-02 17:05:41 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1998-12-02 20:43:57 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -109,6 +109,7 @@ float vtkVolumeProperty::GetGradientOpacityBias( )
 {
   vtkErrorMacro( << "This is an obsolete method.\n" <<
     "Get the opacity bias from the vtkEncodedGradientEstimator" );
+  return 0.0;
 }
 
 unsigned long int vtkVolumeProperty::GetMTime()
