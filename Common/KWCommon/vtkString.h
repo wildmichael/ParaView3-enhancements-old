@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkString.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-11 20:34:18 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-06-04 17:55:00 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -43,22 +43,20 @@ public:
   static void Copy(char* dest, const char* src);
 
   // Description:
-  // This method makes a duplicate of the string similar to
-  // C function strdup but it uses new to create new string, so
-  // you can use delete to remove it. It returns empty string 
-  // "" if the input is empty.
+  // This method makes a duplicate of the string similar to C function
+  // strdup but it uses new to create new string, so you can use
+  // delete to remove it. It returns 0 if the input is empty.
   static char* Duplicate(const char* str);
 
-  // Description:
-  // This method compare two strings. It is similar to strcmp,
-  // but it can handle null pointers.
+  // Description: 
+  // This method compare two strings. It is similar to strcmp, but it
+  // can handle null pointers.
   static int Compare(const char* str1, const char* str2);
 
   // Description:
-  // This method compare two strings. It is similar to strcmp,
-  // but it can handle null pointers. Also it only returns 
-  // C style true or false versus compare which returns also which 
-  // one is greater.
+  // This method compare two strings. It is similar to strcmp, but it
+  // can handle null pointers. Also it only returns C style true or
+  // false versus compare which returns also which one is greater.
   static int Equals(const char* str1, const char* str2)
     { return vtkString::Compare(str1, str2) == 0; }
 
@@ -67,7 +65,7 @@ public:
   static int StartsWith(const char* str1, const char* str2);
 
   // Description:
-  // Check if the first string starts with the second one.
+  // Check if the first string ends with the second one.
   static int EndsWith(const char* str1, const char* str2);
   
 protected:
