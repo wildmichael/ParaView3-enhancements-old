@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDirectory.h,v $
   Language:  C++
-  Date:      $Date: 2002-10-04 16:53:59 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2002-11-20 21:07:26 $
+  Version:   $Revision: 1.20 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -60,7 +60,13 @@ public:
   const char* GetFile(int index);
 
   // Description:
+  // Get the current working directory.
   static const char* GetCurrentWorkingDirectory(char* buf, unsigned int len);
+
+  // Description:
+  // Create directory. Needs rework to do all the testing and to work
+  // on all platforms.
+  static int CreateDirectory(const char* dir);
 
 protected:
   vtkDirectory();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDirectory.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-04 16:53:59 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2002-11-20 21:07:26 $
+  Version:   $Revision: 1.19 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,7 +19,9 @@
 
 #include "vtkDebugLeaks.h"
 
-vtkCxxRevisionMacro(vtkDirectory, "$Revision: 1.18 $");
+#include <sys/stat.h>
+
+vtkCxxRevisionMacro(vtkDirectory, "$Revision: 1.19 $");
 
 //----------------------------------------------------------------------------
 // Needed when we don't use the vtkStandardNewMacro.
@@ -83,7 +85,6 @@ void vtkDirectory::PrintSelf(ostream& os, vtkIndent indent)
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <sys/stat.h>
 #include <sys/types.h>
 
 int vtkDirectory::Open(const char* name)
@@ -197,6 +198,15 @@ const char* vtkDirectory::GetCurrentWorkingDirectory(char* buf,
 }
 
 #endif
+
+int vtkDirectory::CreateDirectory(const char* dir)
+{
+#if defined(_WIN32) && (defined(_MSC_VER) || defined(__BORLANDC__))
+  return _mkdir(dir) == 0;
+#else 
+  return mkdir(dir, 00777) == 0;
+#endif
+}
 
 
 const char* vtkDirectory::GetFile(int index)
