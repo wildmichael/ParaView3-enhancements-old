@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTreeComposite.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-05-03 15:30:44 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2001-05-07 18:23:19 $
+  Version:   $Revision: 1.12 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -94,6 +94,7 @@ struct vtkCompositeRendererInfo
   float CameraClippingRange[2];
   float LightPosition[3];
   float LightFocalPoint[3];
+  float Background[3];
 };
 
 
@@ -468,6 +469,7 @@ void vtkTreeComposite::RenderRMI()
         light->SetPosition(renInfo.LightPosition);
         light->SetFocalPoint(renInfo.LightFocalPoint);
         }
+      ren->SetBackground(renInfo.Background);
       }
     }
   renWin->Render();
@@ -616,6 +618,7 @@ void vtkTreeComposite::StartRender()
       light->GetPosition(renInfo.LightPosition);
       light->GetFocalPoint(renInfo.LightFocalPoint);
       }
+    ren->GetBackground(renInfo.Background);
     
     for (id = 1; id < numProcs; ++id)
       {
