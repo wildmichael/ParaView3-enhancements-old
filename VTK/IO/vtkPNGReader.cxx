@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPNGReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-03 22:51:40 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-01-04 13:32:51 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -350,7 +350,7 @@ int vtkPNGReader::CanReadFile(const char* fname)
     }
   unsigned char header[8];
   fread(header, 1, 8, fp);
-  bool is_png = !png_sig_cmp(header, 0, 8);
+  int is_png = !png_sig_cmp(header, 0, 8);
   if(!is_png)
     {
     fclose(fp);

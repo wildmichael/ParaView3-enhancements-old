@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader2.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-03 22:51:39 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-01-04 13:32:50 $
+  Version:   $Revision: 1.7 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -199,7 +199,7 @@ public:
   // Should be implemented by all sub-classes of vtkImageReader2.
   virtual int CanReadFile(const char* fname)
     {
-      return false;
+      return 0;
     }
 
 protected:
