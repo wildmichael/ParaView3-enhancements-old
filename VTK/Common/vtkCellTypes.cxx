@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellTypes.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-15 16:56:07 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2001-03-17 22:38:39 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -94,21 +94,22 @@ int vtkCellTypes::Allocate(int sz, int ext)
 // Add a cell at specified id.
 void vtkCellTypes::InsertCell(int cellId, unsigned char type, int loc)
 {
-
+  vtkDebugMacro(<<"Insert Cell id: " << cellId << " at location " << loc);
   TypeArray->InsertValue(cellId, type);
+
   LocationArray->InsertValue(cellId, loc);
 
   if ( cellId > this->MaxId )
     {
     this->MaxId = cellId;
     }
-
   return;
 }
 
 // Add a cell to the object in the next available slot.
 int vtkCellTypes::InsertNextCell(unsigned char type, int loc)
 {
+  vtkDebugMacro(<<"Insert Next Cell " << type << " location " << loc);
   this->InsertCell (++this->MaxId,type,loc);
   return this->MaxId;
 }
