@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFollower.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-29 20:50:40 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1997-07-07 12:29:34 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -272,6 +272,11 @@ void vtkFollower::Render(vtkRenderer *ren)
     }
   this->Device->SetProperty (this->Property);
   this->Property->Render(this, ren);
+  if (this->BackfaceProperty)
+    {
+    this->BackfaceProperty->BackfaceRender(this, ren);
+    this->Device->SetBackfaceProperty(this->BackfaceProperty);
+    }
 
   /* render the texture */
   if (this->Texture) this->Texture->Render(ren);
