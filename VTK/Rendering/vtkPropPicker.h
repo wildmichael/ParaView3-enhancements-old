@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPropPicker.h,v $
   Language:  C++
-  Date:      $Date: 1999-12-27 19:54:49 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2000-01-03 18:43:46 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -83,6 +83,9 @@ public:
   // Overide superclasses' Pick() method.
   int Pick(float selectionX, float selectionY, float selectionZ, 
            vtkRenderer *renderer);  
+  int Pick(float selectionPt[3], vtkRenderer *renderer)
+    { return this->Pick( selectionPt[0], 
+			 selectionPt[1], selectionPt[2], renderer); };  
 
   // Return the vtkProp that has been picked. If NULL, nothing was picked.
   vtkGetObjectMacro(Prop, vtkProp);
