@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeCollection.h,v $
   Language:  C++
-  Date:      $Date: 1995-08-16 21:48:20 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1995-09-07 09:39:45 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,10 +38,10 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-// .NAME vtkVolumeCollection - a list of Volumes
+// .NAME vtkVolumeCollection - a list of volumes
 // .SECTION Description
 // vtkVolumeCollection represents and provides methods to manipulate a list of
-// Volumes (i.e., vtkVolume and subclasses). The list is unsorted and duplicate
+// volumes (i.e., vtkVolume and subclasses). The list is unsorted and duplicate
 // entries are not prevented.
 
 // .SECTION see also
