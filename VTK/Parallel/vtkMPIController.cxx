@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMPIController.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-21 14:04:28 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2002-07-30 17:33:11 $
+  Version:   $Revision: 1.16 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -68,9 +68,9 @@ void vtkMPIController::CreateOutputWindow()
   vtkOutputWindow::SetInstance(this->OutputWindow);
 }
 
-vtkCxxRevisionMacro(vtkMPIOutputWindow, "$Revision: 1.15 $");
+vtkCxxRevisionMacro(vtkMPIOutputWindow, "$Revision: 1.16 $");
 
-vtkCxxRevisionMacro(vtkMPIController, "$Revision: 1.15 $");
+vtkCxxRevisionMacro(vtkMPIController, "$Revision: 1.16 $");
 vtkStandardNewMacro(vtkMPIController);
 
 //----------------------------------------------------------------------------
@@ -198,6 +198,12 @@ void vtkMPIController::Finalize(int finalizedExternally)
     vtkMPIController::WorldRMICommunicator->Delete();
     vtkMPIController::WorldRMICommunicator = 0;
     vtkMPICommunicator::WorldCommunicator->Delete();
+    this->SetCommunicator(0);
+    if (this->RMICommunicator)
+      {
+      this->RMICommunicator->Delete();
+      this->RMICommunicator = 0;
+      }
     if (finalizedExternally == 0)
       {
         MPI_Finalize();
