@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDecimatePro.h,v $
   Language:  C++
-  Date:      $Date: 2002-12-17 02:05:38 $
-  Version:   $Revision: 1.57 $
+  Date:      $Date: 2003-04-11 19:58:47 $
+  Version:   $Revision: 1.58 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -102,12 +102,13 @@ public:
   static vtkDecimatePro *New();
 
   // Description:
-  // Specify the desired reduction in the total number of polygons. Because
-  // of various constraints, this level of reduction may not be realized. If
-  // you want to guarantee a particular reduction, you must turn off 
-  // PreserveTopology and BoundaryVertexDeletion, turn on SplitEdges,
-  // and set the MaximumError to VTK_LARGE_FLOAT (these ivars are initialized 
-  // this way when the object is instantiated).
+  // Specify the desired reduction in the total number of polygons (e.g., if
+  // TargetReduction is set to 0.9, this filter will try to reduce the data set
+  // to 10% of its original size). Because of various constraints, this level of
+  // reduction may not be realized. If you want to guarantee a particular
+  // reduction, you must turn off PreserveTopology and BoundaryVertexDeletion,
+  // turn on SplitEdges, and set the MaximumError to VTK_LARGE_FLOAT (these ivars
+  // are initialized this way when the object is instantiated).
   vtkSetClampMacro(TargetReduction,float,0.0,1.0);
   vtkGetMacro(TargetReduction,float);
 
