@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkConeSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-16 13:28:38 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 2001-03-17 13:47:49 $
+  Version:   $Revision: 1.50 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -111,7 +111,6 @@ void vtkConeSource::Execute()
     }
   else
     {
-    vtkErrorMacro (<<"Resolution is zero!");
     angle = 0.0;
     }
   //
