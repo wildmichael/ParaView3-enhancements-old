@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAmoebaMinimizer.h,v $
   Language:  C++
-  Date:      $Date: 2002-11-07 18:18:47 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-11-12 19:07:11 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -133,14 +133,6 @@ public:
   // Evaluate the function.  This is usually called internally by the
   // minimization code, but it is provided here as a public method.
   void EvaluateFunction();
-
-//BTX
-  // Description:
-  // Virtual constructor creates an object of the same type as this one.
-  // This method is commented out until someone makes a vtkAbstractMinimizer
-  // base class for the vtkAmoebaMinimizer.
-  // virtual vtkMinimizer *MakeObject() { return vtkAmoebaMinimizer::New(); };
-//ETX
 
 protected:
   vtkAmoebaMinimizer();
