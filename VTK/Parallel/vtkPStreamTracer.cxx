@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPStreamTracer.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-14 16:51:29 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-11-15 13:29:19 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,7 @@
 #include "vtkPolyData.h"
 #include "vtkRungeKutta2.h"
 
-vtkCxxRevisionMacro(vtkPStreamTracer, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkPStreamTracer, "$Revision: 1.2 $");
 vtkStandardNewMacro(vtkPStreamTracer);
 
 vtkCxxSetObjectMacro(vtkPStreamTracer, Controller, vtkMultiProcessController);
@@ -334,7 +334,6 @@ void vtkPStreamTracer::Execute()
                         this->IntegrationDirections);
   
   int myid = this->Controller->GetLocalProcessId();
-  float lastPoint[3];
   if (this->Seeds)
     {
     if (myid == 0)
