@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLImageMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:09:01 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2000-03-07 20:22:05 $
+  Version:   $Revision: 1.27 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -488,6 +488,10 @@ void vtkOpenGLImageMapper::RenderData(vtkViewport* viewport,
     vtkErrorMacro (<<"vtkOpenGLImageMapper::RenderData - no window set for viewport");
     return;
     }
+
+  // Make this window current. May have become not current due to
+  // data updates since the render started.
+  window->MakeCurrent();
 
   // Determine the size of the displayed data.
   int* extent = this->Input->GetUpdateExtent();

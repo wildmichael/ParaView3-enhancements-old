@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageWindow.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:08:55 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2000-03-07 20:22:04 $
+  Version:   $Revision: 1.20 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -156,6 +156,11 @@ public:
   // method.
   vtkSetStringMacro(FileName);
   vtkGetStringMacro(FileName);
+
+  // Description:
+  // Make this window current. Overridden in subclasses to do, for
+  // example, glXMakeCurrent or wglMakeCurrent
+  virtual void MakeCurrent() {};
 
 protected:
   vtkImageWindow();

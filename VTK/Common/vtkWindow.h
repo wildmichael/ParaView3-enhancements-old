@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWindow.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:04:08 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2000-03-07 20:22:04 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -140,6 +140,11 @@ public:
   vtkSetMacro(OffScreenRendering,int);
   vtkGetMacro(OffScreenRendering,int);
   vtkBooleanMacro(OffScreenRendering,int);
+
+  // Description:
+  // Make the window current. May be overridden in subclasses to do
+  // for example a glXMakeCurrent or a wglMakeCurrent.
+  virtual void MakeCurrent() {};
 
 protected:
   int OffScreenRendering;
