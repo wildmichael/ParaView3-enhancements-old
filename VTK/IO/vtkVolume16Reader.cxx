@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume16Reader.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-05-30 01:49:41 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1996-06-09 20:05:15 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -108,7 +108,7 @@ void vtkVolume16Reader::Execute()
     }
 }
 
-vtkStructuredPoints *vtkVolume16Reader::GetImage(int ImageNumber)
+vtkStructuredPoints *vtkVolume16Reader::GetImage(int vtkNotUsed(ImageNumber))
 {
   vtkScalars *newScalars;
   int *dim;
@@ -204,7 +204,7 @@ vtkScalars *vtkVolume16Reader::ReadVolume(int first, int last)
   FILE *fp;
   int numPts;
   int fileNumber;
-  int status;
+  int status=0;
   int numberSlices = last - first + 1;
   char filename[1024];
 
@@ -216,14 +216,15 @@ vtkScalars *vtkVolume16Reader::ReadVolume(int first, int last)
   vtkDebugMacro (<< "Creating scalars with " << numPts * numberSlices << " points.");
 
   // build each file name and read the data from the file
-  for (fileNumber = first; fileNumber <= last; fileNumber++) {
+  for (fileNumber = first; fileNumber <= last; fileNumber++) 
+    {
     // build the file name
     sprintf (filename, this->FilePattern, this->FilePrefix, fileNumber);
     if ( !(fp = fopen(filename,"r")) )
       {
-	vtkErrorMacro(<<"Can't find file: " << filename);
-	return NULL;
-    }
+      vtkErrorMacro(<<"Can't find file: " << filename);
+      return NULL;
+      }
 
     vtkDebugMacro ( << "Reading " << filename );
     // get a pointer to the data
@@ -235,12 +236,13 @@ vtkScalars *vtkVolume16Reader::ReadVolume(int first, int last)
     fclose (fp);
 
     if (status == 0) break;
-  }
+    }
 
-  if (status == 0) {
+  if (status == 0) 
+    {
     scalars->Delete();
     return NULL;
-  }
+    }
   else return scalars;
 }
 
