@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-11-29 21:07:44 $
-  Version:   $Revision: 1.95 $
+  Date:      $Date: 2000-11-29 21:25:29 $
+  Version:   $Revision: 1.96 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -2073,7 +2073,7 @@ void vtkDataReader::CheckFor(const char* name, char *line, int &num,
     sscanf(line, "%*s %s", nameOfAttribute);
     if ( nameOfAttribute )
       {
-      array[num-1] = new char [strlen(nameOfAttribute)];
+      array[num-1] = new char [strlen(nameOfAttribute)+1];
       strcpy(array[num-1],nameOfAttribute);
       }
     }//found one
