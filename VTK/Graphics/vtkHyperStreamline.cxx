@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkHyperStreamline.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-10-28 12:58:53 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1995-11-06 20:28:10 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -229,7 +229,7 @@ void vtkHyperStreamline::IntegrateMajorEigenvector()
 // Description:
 // Use the major eigenvector field as the vector field through which to 
 // integrate. The major eigenvector is the eigenvector whose corresponding
-// eigenvalue is between the major and minro eigenvalues.
+// eigenvalue is between the major and minor eigenvalues.
 void vtkHyperStreamline::IntegrateMediumEigenvector()
 {
   if ( this->IntegrationEigenvector != 1 )
