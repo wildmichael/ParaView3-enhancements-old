@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCubeAxesActor2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-06 17:43:30 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-08-19 11:15:13 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thorsten Dowe who modified and improved this class.
 
 Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -175,7 +175,6 @@ int vtkCubeAxesActor2D::RenderOpaqueGeometry(vtkViewport *viewport)
 {
   float bounds[6], slope, minSlope, num, den;
   float pts[8][3], d2, d2Min, min;
-  int *p;
   int i, idx;
   int xIdx, yIdx, zIdx, zIdx2, renderedSomething=0;
   int xAxes, yAxes, zAxes;
