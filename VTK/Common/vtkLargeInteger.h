@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLargeInteger.h,v $
   Language:  C++
-  Date:      $Date: 2001-01-19 21:43:44 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-02-16 16:53:41 $
+  Version:   $Revision: 1.4 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -50,6 +50,9 @@ class VTK_EXPORT vtkLargeInteger
 public:
   vtkLargeInteger(void);
   vtkLargeInteger(long n);
+  vtkLargeInteger(unsigned long n);
+  vtkLargeInteger(int n);
+  vtkLargeInteger(unsigned int n);
   vtkLargeInteger(const vtkLargeInteger& n);
   ~vtkLargeInteger(void);
   

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtentTranslator.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-31 18:39:06 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2001-02-16 16:53:41 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -169,7 +169,8 @@ int vtkExtentTranslator::SplitExtent(int piece, int numPieces, int *ext,
                                      int splitMode)
 {
   int numPiecesInFirstHalf;
-  int size[3], splitAxis;
+  unsigned long size[3];
+  int splitAxis;
   vtkLargeInteger mid;
   
   // keep splitting until we have only one piece.

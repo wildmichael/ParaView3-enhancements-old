@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-28 18:34:33 $
-  Version:   $Revision: 1.112 $
+  Date:      $Date: 2001-02-16 16:53:41 $
+  Version:   $Revision: 1.113 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -224,6 +224,7 @@ unsigned long vtkImageData::GetEstimatedMemorySize()
   // In case the extent is set improperly, set the size to 0
   if (size < 0)
     {
+    vtkWarningMacro("Oops, size should not be negative.");
     size = 0;
     }
 
