@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-04-28 12:58:41 $
-  Version:   $Revision: 1.62 $
+  Date:      $Date: 1999-04-29 16:00:01 $
+  Version:   $Revision: 1.63 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,6 +55,7 @@ vtkTransform::vtkTransform ()
   this->Identity();
 
   this->Point[0] = this->Point[1] = this->Point[2] = this->Point[3] = 0.0;
+  this->DoublePoint[0] = this->DoublePoint[1] = this->DoublePoint[2] = this->DoublePoint[3] = 0.0;
   this->Orientation[0] = this->Orientation[1] = this->Orientation[2] = 0.0;
 }
 
@@ -832,11 +833,11 @@ void vtkTransform::PrintSelf (ostream& os, vtkIndent indent)
 
   os << indent << "DoublePoint: " << "( " << 
      this->DoublePoint[0] << ", " << this->DoublePoint[1] << ", " <<
-     this->DoublePoint[2] << ", " << this->DoublePoint[3] << "\n";
+     this->DoublePoint[2] << ", " << this->DoublePoint[3] << ")\n";
 
   os << indent << "Point: " << "( " << 
      this->Point[0] << ", " << this->Point[1] << ", " <<
-     this->Point[2] << ", " << this->Point[3] << "\n";
+     this->Point[2] << ", " << this->Point[3] << ")\n";
 
   os << indent << "Current Transformation:" << "\n";
 
