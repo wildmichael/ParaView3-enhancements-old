@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-06-30 17:01:30 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2000-07-11 11:57:00 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -72,6 +72,20 @@ vtkImageActor::~vtkImageActor()
     }
 }
 
+int vtkImageActor::GetSliceNumber()
+{
+  // find the first axis with a one pixel extent and return
+  // its value
+  if (this->DisplayExtent[0] == this->DisplayExtent[1])
+    {
+    return this->DisplayExtent[0];
+    }
+  if (this->DisplayExtent[2] == this->DisplayExtent[3])
+    {
+    return this->DisplayExtent[2];
+    }
+  return this->DisplayExtent[4];
+}
 
 //----------------------------------------------------------------------------
 void vtkImageActor::SetDisplayExtent(int extent[6])
@@ -94,8 +108,8 @@ void vtkImageActor::SetDisplayExtent(int extent[6])
 }
 //----------------------------------------------------------------------------
 void vtkImageActor::SetDisplayExtent(int minX, int maxX, 
-					     int minY, int maxY,
-					     int minZ, int maxZ)
+                                     int minY, int maxY,
+                                     int minZ, int maxZ)
 {
   int extent[6];
   

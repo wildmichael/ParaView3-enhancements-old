@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageActor.h,v $
   Language:  C++
-  Date:      $Date: 2000-06-28 17:45:23 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2000-07-11 11:57:00 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -102,9 +102,13 @@ public:
   // Support the standard render methods.
   // int RenderTranslucentGeometry(vtkViewport *viewport);
   int RenderOpaqueGeometry(vtkViewport *viewport);
-  virtual void Load(vtkRenderer *ren) {};
+  virtual void Load(vtkRenderer *) {};
 //ETX
 
+  // Description:
+  // Return a slice number computed from the display extent
+  int GetSliceNumber();
+  
 protected:
   vtkImageActor();
   ~vtkImageActor();
