@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObjectToDataSetFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:11:22 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2000-07-27 08:58:45 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -236,6 +236,57 @@ vtkDataObject *vtkDataObjectToDataSetFilter::GetInput()
   return (vtkDataObject *)(this->Inputs[0]);
 }
 
+
+//----------------------------------------------------------------------------
+void vtkDataObjectToDataSetFilter::ExecuteInformation()
+{
+  int npts;
+  vtkDataObject *input = this->GetInput();
+
+  switch (this->DataSetType)
+    {
+    case VTK_POLY_DATA:
+      break;
+
+    case VTK_STRUCTURED_POINTS:
+      // We need the array to get the dimensions
+      input->Update();
+      this->ConstructDimensions();
+      this->ConstructSpacing();
+      this->ConstructOrigin();
+      
+      this->GetStructuredPointsOutput()->SetWholeExtent(
+		  0, this->Dimensions[0]-1, 0, this->Dimensions[1]-1, 
+                  0, this->Dimensions[2]-1);
+      this->GetStructuredPointsOutput()->SetOrigin(this->Origin);
+      this->GetStructuredPointsOutput()->SetSpacing(this->Spacing);
+      break;
+
+    case VTK_STRUCTURED_GRID:
+      // We need the array to get the dimensions
+      input->Update();
+      this->ConstructDimensions();
+      this->GetStructuredGridOutput()->SetWholeExtent(
+		  0, this->Dimensions[0]-1, 0, this->Dimensions[1]-1, 
+                  0, this->Dimensions[2]-1);
+      break;
+
+    case VTK_RECTILINEAR_GRID:
+      // We need the array to get the dimensions
+      input->Update();
+      this->ConstructDimensions();
+      this->GetRectilinearGridOutput()->SetWholeExtent(
+		  0, this->Dimensions[0]-1, 0, this->Dimensions[1]-1, 
+                  0, this->Dimensions[2]-1);
+      break;
+
+    case VTK_UNSTRUCTURED_GRID:
+      break;
+
+    default:
+      vtkErrorMacro(<<"Unsupported dataset type!");
+    }
+}
 
 //----------------------------------------------------------------------------
 void vtkDataObjectToDataSetFilter::Execute()
