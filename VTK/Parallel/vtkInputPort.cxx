@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInputPort.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:25:59 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2001-12-08 16:09:05 $
+  Version:   $Revision: 1.7 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -98,6 +98,7 @@ void vtkInputPort::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "Controller: (" << this->Controller << ")\n";
   os << indent << "DataTime: " << this->DataTime << endl;
   os << indent << "TransferNeeded: " << this->TransferNeeded << endl;  
+  os << indent << "DoUpdateInformation: " << this->DoUpdateInformation << endl;
 }
 
 //----------------------------------------------------------------------------
