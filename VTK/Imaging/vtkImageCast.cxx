@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCast.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 21:15:39 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1997-08-11 18:56:31 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to Abdalmajeid M. Alyassin who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -54,7 +54,7 @@ vtkImageCast::vtkImageCast()
 //----------------------------------------------------------------------------
 // Description:
 // The update method first checks to see is a cast is necessary.
-void vtkImageCast::Update()
+void vtkImageCast::InternalUpdate()
 {
   
   if (! this->Input || ! this->Output)

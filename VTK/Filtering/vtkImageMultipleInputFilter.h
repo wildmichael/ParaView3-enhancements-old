@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMultipleInputFilter.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-17 11:25:02 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1997-08-11 18:56:40 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -77,7 +77,7 @@ public:
   void AddInput(vtkStructuredPoints *spts)
     {this->AddInput(spts->GetStructuredPointsToImage()->GetOutput());}
   
-  void Update();
+  void InternalUpdate();
   void UpdateImageInformation();
   unsigned long int GetPipelineMTime();
   

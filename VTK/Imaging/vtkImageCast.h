@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCast.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 21:15:40 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1997-08-11 18:56:32 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to Abdalmajeid M. Alyassin who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -60,7 +60,7 @@ public:
   const char *GetClassName() {return "vtkImageCast";};
 
 protected:
-  void Update();
+  void InternalUpdate();
   void Execute(vtkImageRegion *inRegion, vtkImageRegion *outRegion);
 };
 

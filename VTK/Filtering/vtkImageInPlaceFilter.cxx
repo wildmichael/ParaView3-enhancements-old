@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageInPlaceFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-17 14:29:45 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1997-08-11 18:56:36 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -171,7 +171,7 @@ void vtkImageInPlaceFilter::SetInput(vtkImageCache *input)
 //----------------------------------------------------------------------------
 // Description:
 // This method is called by the cache.
-void vtkImageInPlaceFilter::Update()
+void vtkImageInPlaceFilter::InteralUpdate()
 {
   vtkImageRegion *inRegion, *outRegion;
 

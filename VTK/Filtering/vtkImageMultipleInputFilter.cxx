@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMultipleInputFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-17 14:30:03 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1997-08-11 18:56:39 $
+  Version:   $Revision: 1.13 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -285,7 +285,7 @@ void vtkImageMultipleInputFilter::SetInput(int num, vtkImageCache *input)
 //----------------------------------------------------------------------------
 // Description:
 // Called by cache
-void vtkImageMultipleInputFilter::Update()
+void vtkImageMultipleInputFilter::InternalUpdate()
 {
   vtkImageRegion *outRegion;
   int idx, idx2;

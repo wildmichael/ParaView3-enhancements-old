@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageInPlaceFilter.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-17 14:29:47 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1997-08-11 18:56:38 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -70,7 +70,7 @@ public:
   void SetInput(vtkStructuredPoints *spts)
     {this->SetInput(spts->GetStructuredPointsToImage()->GetOutput());}
 
-  void Update();
+  void InternalUpdate();
   void UpdateImageInformation();
   unsigned long int GetPipelineMTime();
   
