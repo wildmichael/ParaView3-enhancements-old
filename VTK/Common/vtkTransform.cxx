@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-03-05 23:13:35 $
-  Version:   $Revision: 1.81 $
+  Date:      $Date: 2000-03-20 17:12:18 $
+  Version:   $Revision: 1.82 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -886,10 +886,6 @@ void vtkTransform::PrintSelf (ostream& os, vtkIndent indent)
   os << indent << "Point: " << "( " << 
      this->Point[0] << ", " << this->Point[1] << ", " <<
      this->Point[2] << ", " << this->Point[3] << ")\n";
-
-  os << indent << "Current Transformation:" << "\n";
-
-  this->Matrix->PrintSelf (os, indent.GetNextIndent());
 }
 
 // Returns the result of multiplying the currently set Point by the current 
