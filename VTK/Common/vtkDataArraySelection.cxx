@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataArraySelection.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-01-07 15:52:50 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2003-01-08 13:20:16 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,17 +22,17 @@
 #include <string>
 #include <algorithm>
 
-vtkCxxRevisionMacro(vtkDataArraySelection, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkDataArraySelection, "$Revision: 1.7 $");
 vtkStandardNewMacro(vtkDataArraySelection);
 
-class vtkDataArraySelection::ArrayNamesType: public vtkstd::vector<vtkstd::string> {};
-class vtkDataArraySelection::ArraySettingsType: public vtkstd::vector<int> {};
+class vtkDataArraySelectionArrayNamesType: public vtkstd::vector<vtkstd::string> {};
+class vtkDataArraySelectionArraySettingsType: public vtkstd::vector<int> {};
 
 //----------------------------------------------------------------------------
 vtkDataArraySelection::vtkDataArraySelection()
 {
-  this->ArrayNames = new ArrayNamesType;
-  this->ArraySettings = new ArraySettingsType;
+  this->ArrayNames = new vtkDataArraySelectionArrayNamesType;
+  this->ArraySettings = new vtkDataArraySelectionArraySettingsType;
 }
 
 //----------------------------------------------------------------------------
@@ -219,8 +219,10 @@ void vtkDataArraySelection::SetArrays(const char* const* names, int numArrays)
   // changed.
   
   // Create a new map for this set of arrays.
-  ArrayNamesType* newNames = new ArrayNamesType;
-  ArraySettingsType* newSettings = new ArraySettingsType;
+  vtkDataArraySelectionArrayNamesType* newNames =
+    new vtkDataArraySelectionArrayNamesType;
+  vtkDataArraySelectionArraySettingsType* newSettings =
+    new vtkDataArraySelectionArraySettingsType;
   
   newNames->reserve(numArrays);
   newSettings->reserve(numArrays);
