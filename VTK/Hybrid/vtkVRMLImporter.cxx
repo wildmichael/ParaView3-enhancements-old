@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVRMLImporter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-06-29 10:22:15 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2000-07-06 13:21:03 $
+  Version:   $Revision: 1.5 $
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -42,6 +42,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #pragma warning( disable : 4005 )
 #endif
 
+#include "vtkVRML.h"
+
 #include "vtkVRMLImporter.h"
 #include "vtkByteSwap.h"
 #include "vtkPolyDataMapper.h"
@@ -55,8 +57,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkFloatPoints.h"
 #include "vtkFloatNormals.h"
 #include "vtkSystemIncludes.h"
-
-#include "vtkVRML.h"
 
 // Used later to get the current VRMLImporter
 vtkVRMLImporter *curImporter;
