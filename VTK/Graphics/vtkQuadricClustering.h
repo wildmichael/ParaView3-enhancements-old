@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadricClustering.h,v $
   Language:  C++
-  Date:      $Date: 2001-04-09 13:56:33 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2001-06-22 17:16:24 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -160,6 +160,15 @@ public:
   vtkGetVector3Macro(DivisionSpacing, float);
 
   // Description:
+  // When this flag is on (and it is on by default), then triangles that are 
+  // completely contained in a bin are added to the bin quadrics.  When the
+  // the flag is off the filter operates faster, but the surface may not be
+  // as well behaved.
+  vtkSetMacro(UseInternalTriangles, int);
+  vtkGetMacro(UseInternalTriangles, int);
+  vtkBooleanMacro(UseInternalTriangles, int);
+
+  // Description:
   // Normally the point that minimizes the quadric error function 
   // is used as the output of the bin.  When this flag is on,
   // the bin point is forced to be one of the points from the input
@@ -247,6 +256,7 @@ protected:
   void AppendFeatureQuadrics(vtkPolyData *pd);
   int UseFeatureEdges;
   int UseFeaturePoints;
+  int UseInternalTriangles;
 
   int NumberOfXDivisions;
   int NumberOfYDivisions;
