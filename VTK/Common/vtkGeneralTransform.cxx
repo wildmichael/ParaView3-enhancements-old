@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGeneralTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-03-19 15:44:52 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2000-03-20 14:49:47 $
+  Version:   $Revision: 1.18 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -396,9 +396,9 @@ void vtkGeneralTransform::Transpose3x3(const float A[3][3], float AT[3][3])
   AT[2][1] = A[1][2];
   AT[1][2] = tmp;
 
+  AT[0][0] = A[0][0];
   AT[1][1] = A[1][1];
   AT[2][2] = A[2][2];
-  AT[3][3] = A[3][3];
 }
 
 //----------------------------------------------------------------------------
