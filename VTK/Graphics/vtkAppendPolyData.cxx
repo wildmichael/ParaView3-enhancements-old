@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAppendPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:43:00 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 1997-08-13 15:14:07 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -156,7 +156,7 @@ void vtkAppendPolyData::Execute()
     if ( pd->GetUserDefined() == NULL ) userDefinedPresent &= 0;
     }
 
-  if ( numPts < 1 || numCells < 1 )
+  if ( numPts < 1 )
     {
     vtkErrorMacro(<<"No data to append!");
     return;
