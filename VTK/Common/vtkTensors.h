@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTensors.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 21:03:39 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1997-03-04 17:55:18 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -54,7 +54,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class vtkIdList;
 class vtkFloatTensors;
 
-class vtkTensors : public vtkRefCount 
+class VTK_EXPORT vtkTensors : public vtkRefCount 
 {
 public:
   vtkTensors(int dim=3);

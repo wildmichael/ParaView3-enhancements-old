@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTimerLog.h,v $
   Language:  C++
-  Date:      $Date: 1997-01-24 17:25:10 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1997-03-04 17:55:21 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -82,7 +82,7 @@ typedef struct
   char Event[VTK_LOG_EVENT_LENGTH];
 } vtkTimerLogEntry;
 
-class vtkTimerLog : public vtkObject 
+class VTK_EXPORT vtkTimerLog : public vtkObject 
 {
 public:
   char *GetClassName() {return "vtkTimerLog";};

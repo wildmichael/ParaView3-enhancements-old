@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMatrix4x4.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 21:02:50 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1997-03-04 17:54:54 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -52,7 +52,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 #include "vtkObject.h"
 
-class vtkMatrix4x4 : public vtkObject
+class VTK_EXPORT vtkMatrix4x4 : public vtkObject
 {
  public:
   float Element[4][4];

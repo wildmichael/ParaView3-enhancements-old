@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTensor.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:59:24 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1997-03-04 17:55:17 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -52,8 +52,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #define __vtkTensor_h
 
 #define VTK_TENSOR_MAXDIM 3
+#include "vtkWin32Header.h"
 
-class vtkTensor
+class VTK_EXPORT vtkTensor
 {
 public:
   vtkTensor(int dim=3);

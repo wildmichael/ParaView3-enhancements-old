@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLocator.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 21:02:42 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1997-03-04 17:54:50 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -79,7 +79,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkDataSet.h"
 class vtkPolyData;
 
-class vtkLocator : public vtkObject
+class VTK_EXPORT vtkLocator : public vtkObject
 {
 public:
   vtkLocator();

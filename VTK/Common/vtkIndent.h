@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIndent.h,v $
   Language:  C++
-  Date:      $Date: 1997-02-07 15:13:53 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1997-03-04 17:54:43 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -47,13 +47,11 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkIndent_h
 #define __vtkIndent_h
 
-#ifdef _WIN32
 #include "vtkWin32Header.h"
-#endif
 
 #include <iostream.h>
 
-class vtkIndent
+class VTK_EXPORT vtkIndent
 {
 public:
   vtkIndent(int ind=0) {this->Indent=ind;};

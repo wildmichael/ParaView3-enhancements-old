@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObject.h,v $
   Language:  C++
-  Date:      $Date: 1996-10-15 17:09:22 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 1997-03-04 17:54:56 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -52,14 +52,11 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #define __vtkObject_h
 
 #include <iostream.h>
-#ifdef _WIN32
-#include "vtkWin32Header.h"
-#endif
+#include "vtkIndent.h"
 #include "vtkTimeStamp.h"
 #include "vtkSetGet.h"
-#include "vtkIndent.h"
 
-class vtkObject 
+class VTK_EXPORT vtkObject 
 {
 public:
   vtkObject(); //create a vtk object

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPoints.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 21:03:07 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1997-03-04 17:55:02 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,7 +56,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class vtkFloatPoints;
 class vtkIdList;
 
-class vtkPoints : public vtkRefCount 
+class VTK_EXPORT vtkPoints : public vtkRefCount 
 {
 public:
   vtkPoints();

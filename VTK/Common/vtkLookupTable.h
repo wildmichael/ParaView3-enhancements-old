@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLookupTable.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 21:02:46 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1997-03-04 17:54:52 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -62,7 +62,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkRefCount.h"
 #include "vtkAPixmap.h"
 
-class vtkLookupTable : public vtkRefCount
+class VTK_EXPORT vtkLookupTable : public vtkRefCount
 {
 public:
   vtkLookupTable(int sze=256, int ext=256);

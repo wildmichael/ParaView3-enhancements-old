@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBitArray.h,v $
   Language:  C++
-  Date:      $Date: 1996-09-26 20:49:20 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1997-03-04 17:54:16 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -50,7 +50,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 #include "vtkObject.h"
 
-class vtkBitArray : public vtkObject 
+class VTK_EXPORT vtkBitArray : public vtkObject 
 {
 public:
   vtkBitArray():Array(NULL),Size(0),MaxId(-1),Extend(1000) {};

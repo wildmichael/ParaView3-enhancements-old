@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSet.h,v $
   Language:  C++
-  Date:      $Date: 1996-11-18 20:53:58 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1997-03-04 17:55:01 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,7 +55,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkDataSet.h"
 #include "vtkPointLocator.h"
 
-class vtkPointSet : public vtkDataSet
+class VTK_EXPORT vtkPointSet : public vtkDataSet
 {
 public:
   vtkPointSet();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStack.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 21:03:29 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1997-03-04 17:55:13 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,7 +59,7 @@ class vtkStackElement //;prevents pick-up by man page generator
 };
 //ETX end tcl exclude
 
-class vtkStack : public vtkObject
+class VTK_EXPORT vtkStack : public vtkObject
 {
 public:
   vtkStack();

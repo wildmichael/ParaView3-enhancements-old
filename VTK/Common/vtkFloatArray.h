@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFloatArray.h,v $
   Language:  C++
-  Date:      $Date: 1996-09-26 20:49:29 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1997-03-04 17:54:26 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -49,7 +49,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 #include "vtkObject.h"
 
-class vtkFloatArray : public vtkObject 
+class VTK_EXPORT vtkFloatArray : public vtkObject 
 {
 public:
   vtkFloatArray():Array(NULL),Size(0),MaxId(-1),Extend(1000) {};

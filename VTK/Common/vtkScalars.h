@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalars.h,v $
   Language:  C++
-  Date:      $Date: 1996-09-26 20:51:47 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 1997-03-04 17:55:09 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -70,7 +70,7 @@ class vtkFloatScalars;
 class vtkShortScalars;
 class vtkLookupTable;
 
-class vtkScalars : public vtkRefCount 
+class VTK_EXPORT vtkScalars : public vtkRefCount 
 {
 public:
   vtkScalars();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnsignedCharArray.h,v $
   Language:  C++
-  Date:      $Date: 1996-09-26 20:53:10 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1997-03-04 17:55:26 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -49,7 +49,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 #include "vtkObject.h"
 
-class vtkUnsignedCharArray : public vtkObject 
+class VTK_EXPORT vtkUnsignedCharArray : public vtkObject 
 {
 public:
   vtkUnsignedCharArray():Array(NULL),Size(0),MaxId(-1),Extend(1000) {};

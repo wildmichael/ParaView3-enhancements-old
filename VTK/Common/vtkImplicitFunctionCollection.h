@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitFunctionCollection.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 21:02:30 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1997-03-04 17:54:42 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -51,7 +51,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkCollection.h"
 #include "vtkImplicitFunction.h"
 
-class vtkImplicitFunctionCollection : public vtkCollection
+class VTK_EXPORT vtkImplicitFunctionCollection : public vtkCollection
 {
 public:
   char *GetClassName() {return "vtkImplicitFunctionCollection";};

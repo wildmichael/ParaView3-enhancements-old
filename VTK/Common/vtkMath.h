@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMath.h,v $
   Language:  C++
-  Date:      $Date: 1997-02-26 21:05:59 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 1997-03-04 17:54:53 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -50,11 +50,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #define __vtkMath_h
 
 #include <math.h>
-#ifdef _WIN32
 #include "vtkWin32Header.h"
-#endif
 
-class vtkMath
+class VTK_EXPORT vtkMath
 {
 public:
   vtkMath() {};

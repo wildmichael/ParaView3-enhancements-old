@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAssembly.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:50:39 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1997-03-04 17:56:07 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -82,7 +82,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 class vtkAssemblyPaths;
 
-class vtkAssembly : public vtkActor
+class VTK_EXPORT vtkAssembly : public vtkActor
 {
 public:
   vtkAssembly();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCell.h,v $
   Language:  C++
-  Date:      $Date: 1996-09-30 16:34:35 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 1997-03-04 17:54:20 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -71,7 +71,7 @@ class vtkCellArray;
 class vtkPointLocator;
 class vtkPointData;
 
-class vtkCell : public vtkObject
+class VTK_EXPORT vtkCell : public vtkObject
 {
 public:
   vtkCell();

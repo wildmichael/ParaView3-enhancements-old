@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGrid.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 21:03:57 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1997-03-04 17:55:29 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -54,7 +54,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkCellList.h"
 #include "vtkLinkList.h"
 
-class vtkUnstructuredGrid : public vtkPointSet {
+class VTK_EXPORT vtkUnstructuredGrid : public vtkPointSet {
 public:
   vtkUnstructuredGrid();
   vtkUnstructuredGrid(const vtkUnstructuredGrid& up);

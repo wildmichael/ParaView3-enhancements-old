@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellPicker.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:51:07 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1997-03-04 17:56:17 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -53,7 +53,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 #include "vtkPicker.h"
 
-class vtkCellPicker : public vtkPicker
+class VTK_EXPORT vtkCellPicker : public vtkPicker
 {
 public:
   vtkCellPicker();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkByteSwap.h,v $
   Language:  C++
-  Date:      $Date: 1997-02-07 15:13:52 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1997-03-04 17:54:19 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -49,11 +49,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #define __vtkByteSwap_h
 #include <stdio.h>
 
-#ifdef _WIN32
 #include "vtkWin32Header.h"
-#endif
 
-class vtkByteSwap
+class VTK_EXPORT vtkByteSwap
 {
 public:
   void Delete() {delete this;};
