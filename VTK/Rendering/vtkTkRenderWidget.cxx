@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkRenderWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-03 15:55:36 $
-  Version:   $Revision: 1.52 $
+  Date:      $Date: 2001-08-06 21:15:12 $
+  Version:   $Revision: 1.53 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -672,7 +672,6 @@ static int
 vtkTkRenderWidget_MakeRenderWindow(struct vtkTkRenderWidget *self) 
 {
   Display *dpy;
-  int new_flag;
   vtkXRenderWindow *renderWindow;
   
   if (self->RenderWindow)
@@ -714,6 +713,7 @@ vtkTkRenderWidget_MakeRenderWindow(struct vtkTkRenderWidget *self)
     else
       {
 #ifndef VTK_PYTHON_BUILD
+      int new_flag;
       renderWindow = (vtkXRenderWindow *)
 	vtkTclGetPointerFromObject(self->RW,"vtkRenderWindow",self->Interp, 
 				   new_flag);
