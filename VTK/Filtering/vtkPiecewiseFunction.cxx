@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPiecewiseFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-02-26 12:33:12 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-03-21 15:19:19 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -276,7 +276,7 @@ void vtkPiecewiseFunction::MovePoints( int index, int down )
 
   i = index;
 
-  if( down )
+  if( down && ((i+1) < this->FunctionSize))
     {
     // Move points down (i+1) = i
     swap1_x = this->Function[(2*i)];
@@ -510,7 +510,7 @@ void vtkPiecewiseFunction::IncreaseArraySize()
       this->Function[(2*i)+1] = old_function[(2*i)+1];
     }
 
-  delete old_function;
+  delete [] old_function;
 }
 
 // Description:
