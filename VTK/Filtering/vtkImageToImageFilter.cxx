@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToImageFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-02-12 19:10:19 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2001-03-13 18:41:20 $
+  Version:   $Revision: 1.36 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -311,23 +311,18 @@ int vtkImageToImageFilter::SplitExtent(int splitExt[6], int startExt[6],
 //----------------------------------------------------------------------------
 // This is the superclasses style of Execute method.  Convert it into
 // an imaging style Execute method.
-void vtkImageToImageFilter::Execute()
+void vtkImageToImageFilter::ExecuteData(vtkDataObject *out)
 {
-  vtkImageData *output = this->GetOutput();
-
-  output->SetExtent(output->GetUpdateExtent());
-  output->AllocateScalars();
-  this->Execute(this->GetInput(), output);
+  vtkImageData *outData = this->AllocateOutputData(out);
+  this->MultiThread(outData);
 }
 
-//----------------------------------------------------------------------------
-void vtkImageToImageFilter::Execute(vtkImageData *inData, 
-				    vtkImageData *outData)
+void vtkImageToImageFilter::MultiThread(vtkImageData *outData)
 {
   vtkImageThreadStruct str;
   
   str.Filter = this;
-  str.Input = inData;
+  str.Input = this->GetInput();
   str.Output = outData;
   
   this->Threader->SetNumberOfThreads(this->NumberOfThreads);
@@ -341,8 +336,8 @@ void vtkImageToImageFilter::Execute(vtkImageData *inData,
 //----------------------------------------------------------------------------
 // The execute method created by the subclass.
 void vtkImageToImageFilter::ThreadedExecute(vtkImageData *vtkNotUsed(inData), 
-				     vtkImageData *vtkNotUsed(outData),
-				     int extent[6], int vtkNotUsed(threadId))
+                                            vtkImageData *vtkNotUsed(outData),
+                                            int extent[6], int vtkNotUsed(threadId))
 {
   extent = extent;
   vtkErrorMacro("subclass should override this method!!!");

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToImageFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-02-13 05:16:54 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2001-03-13 18:41:20 $
+  Version:   $Revision: 1.24 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -135,13 +135,11 @@ protected:
   virtual void ExecuteInformation(vtkImageData *inData, vtkImageData *outData);
 
   // This is called by the superclass.
-  void Execute();
-
-  // This one is not currently used
-  void Execute(vtkImageData *outData) { this->vtkImageSource::Execute(outData); };
-
   // This is the method you should override.
-  virtual void Execute(vtkImageData *inData, vtkImageData *outData);
+  void ExecuteData(vtkDataObject *output);
+  
+  // The method that starts the multithreading
+  void MultiThread(vtkImageData *output);
 
   void ComputeInputUpdateExtents( vtkDataObject *output );
   virtual void ComputeInputUpdateExtent(int inExt[6], int outExt[6]);
