@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXOpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-07-29 12:41:59 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 2003-08-21 13:16:10 $
+  Version:   $Revision: 1.46 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -87,7 +87,7 @@ vtkXOpenGLRenderWindowInternal::vtkXOpenGLRenderWindowInternal(
 
 
 #ifndef VTK_IMPLEMENT_MESA_CXX
-vtkCxxRevisionMacro(vtkXOpenGLRenderWindow, "$Revision: 1.45 $");
+vtkCxxRevisionMacro(vtkXOpenGLRenderWindow, "$Revision: 1.46 $");
 vtkStandardNewMacro(vtkXOpenGLRenderWindow);
 #endif
 
@@ -111,7 +111,8 @@ void *vtkOSMesaCreateWindow(int width, int height)
 
 XVisualInfo *vtkXOpenGLRenderWindowTryForVisual(Display *DisplayId,
                                                int doublebuff, int stereo,
-                                               int multisamples)
+                                               int multisamples,
+                                               int alphaBitPlanes)
 {
   int           index;
   static int    attributes[50];
@@ -127,6 +128,11 @@ XVisualInfo *vtkXOpenGLRenderWindowTryForVisual(Display *DisplayId,
   attributes[index++] = 1;
   attributes[index++] = GLX_DEPTH_SIZE;
   attributes[index++] = 1;
+  if (alphaBitPlanes)
+    {
+    attributes[index++] = GLX_ALPHA_SIZE;
+    attributes[index++] = 1;
+    }
   if (doublebuff)
     {
     attributes[index++] = GLX_DOUBLEBUFFER;
@@ -179,7 +185,8 @@ XVisualInfo *vtkXOpenGLRenderWindow::GetDesiredVisualInfo()
         }
       v = vtkXOpenGLRenderWindowTryForVisual(this->DisplayId,
                                             this->DoubleBuffer, 
-                                            stereo, multi);
+                                            stereo, multi,
+                                            this->AlphaBitPlanes);
       if (v && this->StereoCapableWindow && !stereo)
         {
         // requested a stereo capable window but we could not get one
@@ -197,7 +204,8 @@ XVisualInfo *vtkXOpenGLRenderWindow::GetDesiredVisualInfo()
         }
       v = vtkXOpenGLRenderWindowTryForVisual(this->DisplayId,
                                             !this->DoubleBuffer, 
-                                            stereo, multi);
+                                            stereo, multi,
+                                            this->AlphaBitPlanes);
       if (v)
         {
         this->DoubleBuffer = !this->DoubleBuffer;

@@ -3,8 +3,8 @@
 Program:   Visualization Toolkit
 Module:    $RCSfile: vtkCarbonRenderWindow.cxx,v $
 Language:  C++
-Date:      $Date: 2003-08-09 14:49:29 $
-Version:   $Revision: 1.20 $
+Date:      $Date: 2003-08-21 13:16:10 $
+Version:   $Revision: 1.21 $
 Thanks:    to Yves Starreveld for developing this class
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
@@ -32,7 +32,7 @@ Thanks:    to Yves Starreveld for developing this class
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkCarbonRenderWindow, "$Revision: 1.20 $");
+vtkCxxRevisionMacro(vtkCarbonRenderWindow, "$Revision: 1.21 $");
 vtkStandardNewMacro(vtkCarbonRenderWindow);
 
 
@@ -671,6 +671,11 @@ void vtkCarbonRenderWindow::CreateAWindow(int, int, int, int)
   this->aglAttributes [i++] = AGL_PIXEL_SIZE;
   this->aglAttributes [i++] = 32;
   this->aglAttributes [i++] = AGL_ACCELERATED;
+  if (this->AlphaBitPlanes)
+    {
+    this->aglAttributes [i++] = AGL_ALPHA_SIZE;
+    this->aglAttributes [i++] = 8;
+    }
   this->aglAttributes [i++] = AGL_NONE;
   this->draggable = true;
 
