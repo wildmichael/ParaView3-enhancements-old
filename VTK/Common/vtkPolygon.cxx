@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPolygon.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-03-27 16:11:17 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1994-03-27 22:28:23 $
+  Version:   $Revision: 1.8 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -150,8 +150,8 @@ float vlPolygon::EvaluatePosition(float x[3], int& subId, float pcoords[3])
   plane.ProjectPoint(x,p0,n,xproj);
 
   for (i=0; i<3; i++) ray[i] = xproj[i] - p0[i];
-  pcoords[0] = math.Dot(ray,p10) / l10;
-  pcoords[1] = math.Dot(ray,p20) / l20;
+  pcoords[0] = math.Dot(ray,p10) / (l10*l10);
+  pcoords[1] = math.Dot(ray,p20) / (l20*l20);
 
   if ( pcoords[0] >= 0.0 && pcoords[0] <= 1.0 &&
   pcoords[1] >= 0.0 && pcoords[1] <= 1.0 &&
