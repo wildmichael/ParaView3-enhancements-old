@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkSTLReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-09-30 19:38:32 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1994-11-07 09:04:32 $
+  Version:   $Revision: 1.12 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -258,10 +258,7 @@ void vlSTLReader::CreateDefaultLocator()
 
 void vlSTLReader::PrintSelf(ostream& os, vlIndent indent)
 {
-  if (this->ShouldIPrint(vlSTLReader::GetClassName()))
-    {
-    vlPolySource::PrintSelf(os,indent);
+  vlPolySource::PrintSelf(os,indent);
 
-    os << indent << "Filename: " << this->Filename << "\n";
-    }
+  os << indent << "Filename: " << this->Filename << "\n";
 }
