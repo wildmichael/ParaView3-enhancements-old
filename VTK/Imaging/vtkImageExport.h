@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageExport.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:34 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1999-07-22 19:15:32 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 
@@ -54,8 +54,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include <fstream.h>
 #include "vtkProcessObject.h"
 #include "vtkImageFlip.h"
-#include "vtkStructuredPoints.h"
-#include "vtkStructuredPointsToImage.h"
 
 class VTK_EXPORT vtkImageExport : public vtkProcessObject
 {
