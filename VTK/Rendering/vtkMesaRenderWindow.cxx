@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-16 19:27:42 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2001-08-16 19:29:05 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -740,7 +740,7 @@ Colormap vtkMesaRenderWindow::GetDesiredColormap ()
 
 void vtkMesaRenderWindow::PrintSelf(ostream& os, vtkIndent indent)
 {
-  this->vtkXRenderWindow::PrintSelf(os,indent);
+  this->vtkOpenGLRenderWindow::PrintSelf(os,indent);
 
   os << indent << "ContextId: " << this->ContextId << "\n";
   os << indent << "OffScreenContextId: " << this->OffScreenContextId << "\n";
