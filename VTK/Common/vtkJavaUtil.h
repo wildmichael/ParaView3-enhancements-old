@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkJavaUtil.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:40:35 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1997-07-30 20:04:47 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,4 +58,14 @@ extern jarray vtkJavaMakeJArrayOfDoubleFromDouble(JNIEnv *env,
 						  double *arr, int size);
 extern jarray vtkJavaMakeJArrayOfIntFromInt(JNIEnv *env, int *arr, int size);
 
+// this is the void pointer parm passed to the vtk callback routines on
+// behalf of the Java interface for callbacks.
+struct vtkJavaVoidFuncArg 
+{
+  JNIEnv * uenv;
+  jobject  uobj;
+  jmethodID mid;
+} ;
 
+extern void vtkJavaVoidFunc(void *);
+extern void vtkJavaVoidFuncArgDelete(void *);
