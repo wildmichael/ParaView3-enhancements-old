@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSocketCommunicator.h,v $
   Language:  C++
-  Date:      $Date: 2001-07-02 19:27:12 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2001-08-02 19:35:02 $
+  Version:   $Revision: 1.10 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -61,9 +61,13 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #ifdef VTK_WORDS_BIGENDIAN
 # define vtkSwap4 vtkByteSwap::Swap4LE
 # define vtkSwap4Range vtkByteSwap::Swap4LERange
+# define vtkSwap8 vtkByteSwap::Swap8LE
+# define vtkSwap8Range vtkByteSwap::Swap8LERange
 #else
 # define vtkSwap4 vtkByteSwap::Swap4BE
 # define vtkSwap4Range vtkByteSwap::Swap4BERange
+# define vtkSwap8 vtkByteSwap::Swap8BE
+# define vtkSwap8Range vtkByteSwap::Swap8BERange
 #endif
 
 class VTK_EXPORT vtkSocketCommunicator : public vtkCommunicator
@@ -89,6 +93,10 @@ public:
   // Returns 1 if bytes must be swapped in received ints, floats, etc
   vtkGetMacro(SwapBytesInReceivedData, int);
 
+  // Description:
+  // Is the communicator connected?.
+  vtkGetMacro(IsConnected, int);
+
   //------------------ Communication --------------------
   
   // Description:
@@ -98,6 +106,7 @@ public:
   int Send(unsigned long *data, int length, int remoteProcessId, int tag);
   int Send(char *data, int length, int remoteProcessId, int tag);
   int Send(float *data, int length, int remoteProcessId, int tag);
+  int Send(double *data, int length, int remoteProcessId, int tag);
   int Send(vtkDataObject *data, int remoteId, int tag)
     {return this->vtkCommunicator::Send(data,remoteId,tag);}
 
@@ -109,6 +118,7 @@ public:
   int Receive(unsigned long *data, int length, int remoteProcessId, int tag);
   int Receive(char *data, int length, int remoteProcessId, int tag);
   int Receive(float *data, int length, int remoteProcessId, int tag);
+  int Receive(double *data, int length, int remoteProcessId, int tag);
   int Receive(vtkDataObject *data, int remoteId, int tag)
     {return this->vtkCommunicator::Receive(data, remoteId, tag);}
 
