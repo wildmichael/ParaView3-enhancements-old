@@ -1,4 +1,4 @@
-/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/tiff/Attic/tif_fax3.c,v 1.3 2002-07-15 21:39:46 andy Exp $ */
+/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/tiff/Attic/tif_fax3.c,v 1.4 2003-02-26 15:13:26 king Exp $ */
 
 /*
  * Copyright (c) 1990-1997 Sam Leffler
@@ -485,7 +485,7 @@ Fax3SetupState(TIFF* tif)
         if (sp->rw_mode == O_RDONLY) {  /* 1d/2d decoding */
                 Fax3DecodeState* dsp = DecoderState(tif);
                 uint32 nruns = needsRefLine ?
-                     2*TIFFroundup(rowpixels,32) : rowpixels;
+                     2*TIFFroundup(rowpixels,32) : (uint32)rowpixels;
 
                 dsp->runs = (uint32*) _TIFFmalloc((2*nruns+3)*sizeof (uint32));
                 if (dsp->runs == NULL) {
