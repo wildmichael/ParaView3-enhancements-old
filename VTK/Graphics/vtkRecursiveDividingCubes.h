@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRecursiveDividingCubes.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:47:00 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1998-10-08 18:42:13 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -53,6 +53,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // two. This can over-constrain subdivision. One of the advantages of the 
 // recursive technique is that the recursion is terminated earlier, which in
 // some cases can be more efficient.
+
 // .SECTION See Also
 // vtkDividingCubes vtkContourFilter vtkMarchingCubes
 
@@ -65,7 +66,8 @@ class VTK_EXPORT vtkRecursiveDividingCubes : public vtkStructuredPointsToPolyDat
 {
 public:
   vtkRecursiveDividingCubes();
-  static vtkRecursiveDividingCubes *New() {return new vtkRecursiveDividingCubes;};
+  static vtkRecursiveDividingCubes *New() {
+    return new vtkRecursiveDividingCubes;};
   const char *GetClassName() {return "vtkRecursiveDividingCubes";};
   void PrintSelf(ostream& os, vtkIndent indent);
 

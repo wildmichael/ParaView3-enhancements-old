@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkShrinkPolyData.h,v $
   Language:  C++
-  Date:      $Date: 1998-05-06 19:14:34 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 1998-10-08 18:42:17 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -49,9 +49,11 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // During execution the filter passes its input cell data to its
 // output. Point data attributes are copied to the points created during the
 // shrinking process.
+
 // .SECTION Caveats
 // It is possible to turn cells inside out or cause self intersection
 // in special cases.
+
 // .SECTION See Also
 // vtkShrinkFilter
 

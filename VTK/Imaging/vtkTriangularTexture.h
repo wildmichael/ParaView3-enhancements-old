@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangularTexture.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-14 13:22:00 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1998-10-08 18:42:27 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,15 +59,14 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkTriangularTexture : public vtkStructuredPointsSource
 {
 public:
-
-// Description:
-// Instantiate object with XSize and YSize = 64; the texture pattern =1
-// (opaque at centroid); and the scale factor set to 1.0.
   vtkTriangularTexture();
-
-  static vtkTriangularTexture *New() {return new vtkTriangularTexture;};
   const char *GetClassName() {return "vtkTriangularTexture";};
   void PrintSelf(ostream& os, vtkIndent indent);
+
+  // Description:
+  // Instantiate object with XSize and YSize = 64; the texture pattern =1
+  // (opaque at centroid); and the scale factor set to 1.0.
+  static vtkTriangularTexture *New() {return new vtkTriangularTexture;};
 
   // Description:
   // Set a Scale Factor.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridOutlineFilter.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:48:02 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1998-10-08 18:42:21 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -52,7 +52,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkStructuredGridOutlineFilter : public vtkStructuredGridToPolyDataFilter
 {
 public:
-  static vtkStructuredGridOutlineFilter *New() {return new vtkStructuredGridOutlineFilter;};
+  static vtkStructuredGridOutlineFilter *New() {
+    return new vtkStructuredGridOutlineFilter;};
   const char *GetClassName() {return "vtkStructuredGridOutlineFilter";};
 
 protected:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataToPolyDataFilter.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:46:33 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-10-08 18:42:09 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,14 +40,14 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 // .NAME vtkPolyDataToPolyDataFilter - abstract filter class
 // .SECTION Description
-// vtkPolyDataToPolyDataFilter is an abstract filter class whose subclasses take
-// as input polygonal data and generate polygonal data on output.
+// vtkPolyDataToPolyDataFilter is an abstract filter class whose subclasses
+// take as input polygonal data and generate polygonal data on output.
 
 // .SECTION See Also
-// vtkCleanPolyData vtkDecimate vtkFeatureEdges vtkFeatureVertices vtkMaskPolyData
-// vtkPolyDataNormals vtkSmoothPolyDataFilter vtkStripper
-// vtkTransformPolyDataFilter vtkTriangleFilter 
-// vtkTubeFilter vtkLinearExtrusionFilter vtkRibbonFilter vtkRotationalExtrusionFilter
+// vtkCleanPolyData vtkDecimate vtkFeatureEdges vtkFeatureVertices
+// vtkMaskPolyData vtkPolyDataNormals vtkSmoothPolyDataFilter vtkStripper
+// vtkTransformPolyDataFilter vtkTriangleFilter vtkTubeFilter
+// vtkLinearExtrusionFilter vtkRibbonFilter vtkRotationalExtrusionFilter
 // vtkShrinkPolyData
 
 #ifndef __vtkPolyDataToPolyDataFilter_h
@@ -60,7 +60,8 @@ class VTK_EXPORT vtkPolyDataToPolyDataFilter : public vtkPolyDataFilter
 {
 public:
   vtkPolyDataToPolyDataFilter();
-  static vtkPolyDataToPolyDataFilter *New() {return new vtkPolyDataToPolyDataFilter;};
+  static vtkPolyDataToPolyDataFilter *New() {
+    return new vtkPolyDataToPolyDataFilter;};
   const char *GetClassName() {return "vtkPolyDataToPolyDataFilter";};
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsGeometryFilter.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-14 13:21:57 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1998-10-08 18:42:23 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -54,6 +54,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // example, if the dataset dimensions are 50x50x50, and you want a the fifth 
 // k-plane, you can use the extents (0,100, 0,100, 4,4). The 100 will 
 // automatically be clamped to 49.
+
 // .SECTION See Also
 // vtkGeometryFilter vtkStructuredGridFilter
 
@@ -65,21 +66,20 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkStructuredPointsGeometryFilter : public vtkStructuredPointsToPolyDataFilter
 {
 public:
-
-// Description:
-// Construct with initial extent of all the data
   vtkStructuredPointsGeometryFilter();
-
-  static vtkStructuredPointsGeometryFilter *New() {return new vtkStructuredPointsGeometryFilter;};
   const char *GetClassName() {return "vtkStructuredPointsGeometryFilter";};
   void PrintSelf(ostream& os, vtkIndent indent);
+  
+  // Description:
+  // Construct with initial extent of all the data
+  static vtkStructuredPointsGeometryFilter *New() {
+    return new vtkStructuredPointsGeometryFilter;};
 
-  void SetExtent(int iMin, int iMax, int jMin, int jMax, int kMin, int kMax);
-
-// Description:
-// Specify (imin,imax, jmin,jmax, kmin,kmax) indices.
+  
+  // Description:
+  // Set / get the extent (imin,imax, jmin,jmax, kmin,kmax) indices.
   void SetExtent(int *extent);
-
+  void SetExtent(int iMin, int iMax, int jMin, int jMax, int kMin, int kMax);
   int *GetExtent() { return this->Extent;};
 
 protected:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProperty.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-14 13:22:03 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1998-10-08 18:42:30 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -80,23 +80,11 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkVolumeProperty : public vtkObject
 {
 public:
-
-// Description:
-// Construct a new vtkVolumeProperty with default values
   vtkVolumeProperty();
-
-
-// Description:
-// Destruct a vtkVolumeProperty
   ~vtkVolumeProperty();
-
   static vtkVolumeProperty *New() {return new vtkVolumeProperty;};
   const char *GetClassName() {return "vtkVolumeProperty";};
-
-// Description:
-// Print the state of the volume property.
   void PrintSelf(ostream& os, vtkIndent indent);
-
 
   // Description:
   // Set the interpolation type for sampling a volume.
@@ -112,7 +100,7 @@ public:
   // Description:
   // Get the modified time for this object (or the properties registered
   // with this object).
-  unsigned long int GetMTime();
+  unsigned long GetMTime();
   
   // Description:
   // Set the color of a volume to a gray level transfer function. This 

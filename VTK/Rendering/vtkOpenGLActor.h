@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLActor.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-14 13:21:42 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-10-08 18:42:04 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,9 +58,8 @@ public:
   static vtkOpenGLActor *New() {return new vtkOpenGLActor;};
   const char *GetClassName() {return "vtkOpenGLActor";};
 
-
-// Description:
-// Actual actor render method.
+  // Description:
+  // Actual actor render method.
   void Render(vtkRenderer *ren, vtkMapper *mapper);
 
 };

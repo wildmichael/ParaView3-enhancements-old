@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProbeFilter.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-14 13:21:47 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1998-10-08 18:42:10 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -60,20 +60,18 @@ public:
   const char *GetClassName() {return "vtkProbeFilter";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
-
-// Description:
-// Overload update method because execution can branch two ways (Input 
-// and Source). Also input and output are abstract.
+  // Description:
+  // Overload update method because execution can branch two ways (Input 
+  // and Source). Also input and output are abstract.
   void Update();
-
 
   // Description:
   // Specify the point locations used to probe input. Any geometry
   // can be used.
   vtkSetObjectMacro(Source,vtkDataSet);
   vtkGetObjectMacro(Source,vtkDataSet);
-  void SetSource(vtkImageCache *cache)
-    {this->SetSource(cache->GetImageToStructuredPoints()->GetOutput());}
+  void SetSource(vtkImageCache *cache) {
+    this->SetSource(cache->GetImageToStructuredPoints()->GetOutput());}
 
 protected:
   void Execute();

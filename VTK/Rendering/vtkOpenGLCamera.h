@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLCamera.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-14 13:21:43 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-10-08 18:42:04 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,8 +40,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 // .NAME vtkOpenGLCamera - OpenGL camera
 // .SECTION Description
-// vtkOpenGLCamera is a concrete implementation of the abstract class vtkCamera.
-// vtkOpenGLCamera interfaces to the OpenGL rendering library.
+// vtkOpenGLCamera is a concrete implementation of the abstract class
+// vtkCamera.  vtkOpenGLCamera interfaces to the OpenGL rendering library.
 
 #ifndef __vtkOpenGLCamera_h
 #define __vtkOpenGLCamera_h
@@ -56,9 +56,8 @@ class VTK_EXPORT vtkOpenGLCamera : public vtkCamera
   static vtkOpenGLCamera *New() {return new vtkOpenGLCamera;};
   const char *GetClassName() {return "vtkOpenGLCamera";};
 
-
-// Description:
-// Implement base class method.
+  // Description:
+  // Implement base class method.
   void Render(vtkRenderer *ren);
 
 };

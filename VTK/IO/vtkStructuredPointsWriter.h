@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsWriter.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:45:11 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1998-10-08 18:42:24 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,15 +56,14 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkStructuredPointsWriter : public vtkDataWriter
 {
 public:
-  vtkStructuredPointsWriter() {};
-  static vtkStructuredPointsWriter *New() {return new vtkStructuredPointsWriter;};
+  static vtkStructuredPointsWriter *New() {
+    return new vtkStructuredPointsWriter;};
   const char *GetClassName() {return "vtkStructuredPointsWriter";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
-  // Specify the input data or filter.
+  // Set / get  the input data or filter.
   void SetInput(vtkStructuredPoints *input);
-
   void SetInput(vtkStructuredPoints &input) {this->SetInput(&input);};
   void SetInput(vtkImageCache *cache)
     {this->SetInput(cache->GetImageToStructuredPoints()->GetOutput());}

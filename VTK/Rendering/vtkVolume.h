@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-06 14:43:26 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1998-10-08 18:42:29 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -63,23 +63,24 @@ class vtkRenderer;
 
 class VTK_EXPORT vtkVolume : public vtkProp
 {
- public:
+public:
+  vtkVolume();
+  ~vtkVolume();
+  const char *GetClassName() {return "vtkVolume";};
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Creates a Volume with the following defaults: origin(0,0,0) 
   // position=(0,0,0) scale=1 visibility=1 pickable=1 dragable=1
   // orientation=(0,0,0).
-  vtkVolume();
+  static vtkVolume *New() {return new vtkVolume;};
 
   // Description:
-  // Destruct a volume
-  ~vtkVolume();
-
-  static vtkVolume *New() {return new vtkVolume;};
-  const char *GetClassName() {return "vtkVolume";};
-  void PrintSelf(ostream& os, vtkIndent indent);
-
+  // Render the volume by calling the Render() method of its mapper
   virtual void Render(vtkRenderer *ren);
+
+  // Description:
+  // Update the volume rendering pipeline by updating the volume mapper
   virtual void Update();
 
   // Description:
@@ -117,7 +118,9 @@ class VTK_EXPORT vtkVolume : public vtkProp
   void SetVolumeProperty(vtkVolumeProperty *property);
   vtkVolumeProperty *GetVolumeProperty();
 
-  unsigned long int GetMTime();//overload superclasses' implementation
+  // Description:
+  // Return the MTime also considering the property etc.
+  unsigned long GetMTime();
 
   // Description:
   // For legacy compatability. Do not use.

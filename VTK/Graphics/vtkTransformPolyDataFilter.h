@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransformPolyDataFilter.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:48:46 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-10-08 18:42:27 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -52,6 +52,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // vtkTransformPolyDataFilter actually modifies point coordinates in the 
 // visualization pipeline. This is necessary for some objects 
 // (e.g., vtkProbeFilter) that require point coordinates as input.
+
 // .SECTION See Also
 // vtkTransform vtkTransformFilter vtkActor
 
@@ -65,11 +66,14 @@ class VTK_EXPORT vtkTransformPolyDataFilter : public vtkPolyDataToPolyDataFilter
 {
 public:
   vtkTransformPolyDataFilter() : Transform(NULL) {};
-  static vtkTransformPolyDataFilter *New() {return new vtkTransformPolyDataFilter;};
+  static vtkTransformPolyDataFilter *New() {
+    return new vtkTransformPolyDataFilter;};
   const char *GetClassName() {return "vtkTransformPolyDataFilter";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
-  unsigned long int GetMTime();
+  // Description:
+  // Return the MTime also considering the trnasform.
+  unsigned long GetMTime();
 
   // Description:
   // Specify the transform object used to transform points.

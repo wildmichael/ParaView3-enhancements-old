@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRendererSource.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:45:04 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1998-10-08 18:42:15 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -44,10 +44,11 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // renderer and converts it to structured points. This can then be 
 // used in a visualization pipeline. You must explicitly send a 
 // Modify() to this object to get it to reload its data from the
-// renderer.
+// renderer. Consider using vtkWindowToImageFilter instead of this
+// class.
 
 // .SECTION see also
-// vtkRenderer vtkStructuredPoints
+// vtkWindowToImageFilter vtkRenderer vtkStructuredPoints
 
 #ifndef __vtkRendererSource_h
 #define __vtkRendererSource_h
@@ -64,7 +65,9 @@ public:
   const char *GetClassName() {return "vtkRendererSource";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
-  unsigned long int GetMTime();
+  // Description:
+  // Return the MTime also considering the Renderer.
+  unsigned long GetMTime();
 
   // Description:
   // Indicates what renderer to get the pixel data from.

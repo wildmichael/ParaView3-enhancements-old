@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointPicker.h,v $
   Language:  C++
-  Date:      $Date: 1998-06-19 20:37:35 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1998-10-08 18:42:08 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -44,8 +44,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // window and intersecting with actor's defining geometry - specifically 
 // its points. Beside returning coordinates, actor, and mapper, vtkPointPicker
 // returns the id of the closest point within the tolerance along the pick ray.
+
 // .SECTION See Also
-// For quick picking, see vtkPicker. To uniquely pick actors, see vtkCellPicker.
+// vtkPicker vtkCellPicker.
 
 #ifndef __vtkPointPicker_h
 #define __vtkPointPicker_h

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMaskPoints.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:45:34 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1998-10-08 18:42:03 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -76,7 +76,7 @@ public:
 
   // Description:
   // Special flag causes randomization of point selection. If this mode is on,
-  // statically every nth point (i.e., OnRatio) will be displayed.
+  // statistically every nth point (i.e., OnRatio) will be displayed.
   vtkSetMacro(RandomMode,int);
   vtkGetMacro(RandomMode,int);
   vtkBooleanMacro(RandomMode,int);

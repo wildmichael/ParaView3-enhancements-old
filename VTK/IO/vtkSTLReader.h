@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSTLReader.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-14 13:21:51 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 1998-10-08 18:42:16 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -50,6 +50,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // point data is merged after reading. Merging is performed by default, 
 // however, merging requires a large amount of temporary storage since a 
 // 3D hash table must be constructed.
+
 // .SECTION Caveats
 // Binary files written on one system may not be readable on other systems.
 // vtkSTLWriter uses VAX or PC byte ordering and swaps bytes on other systems.
@@ -65,22 +66,19 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkSTLReader : public vtkPolyDataSource 
 {
 public:
-
-// Description:
-// Construct object with merging set to true.
   vtkSTLReader();
-
   ~vtkSTLReader();
-  static vtkSTLReader *New() {return new vtkSTLReader;};
   const char *GetClassName() {return "vtkSTLReader";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
+  // Description:
+  // Construct object with merging set to true.
+  static vtkSTLReader *New() {return new vtkSTLReader;};
 
-// Description:
-// Overload standard modified time function. If locator is modified,
-// then this object is modified as well.
+  // Description:
+  // Overload standard modified time function. If locator is modified,
+  // then this object is modified as well.
   unsigned long GetMTime();
-
 
   // Description:
   // Specify file name of stereo lithography file.
@@ -93,12 +91,10 @@ public:
   vtkGetMacro(Merging,int);
   vtkBooleanMacro(Merging,int);
 
-
-// Description:
-// Specify a spatial locator for merging points. By
-// default an instance of vtkMergePoints is used.
+  // Description:
+  // Specify a spatial locator for merging points. By
+  // default an instance of vtkMergePoints is used.
   void SetLocator(vtkPointLocator *locator);
-
   void SetLocator(vtkPointLocator& locator) {this->SetLocator(&locator);};
   vtkGetObjectMacro(Locator,vtkPointLocator);
 

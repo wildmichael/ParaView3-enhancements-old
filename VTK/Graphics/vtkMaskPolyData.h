@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMaskPolyData.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:45:35 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1998-10-08 18:42:03 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,12 +57,12 @@ public:
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
-  // Turn on every nth entity.
+  // Turn on every nth entity (cell).
   vtkSetClampMacro(OnRatio,int,1,VTK_LARGE_INTEGER);
   vtkGetMacro(OnRatio,int);
 
   // Description:
-  // Start with this entity.
+  // Start with this entity (cell).
   vtkSetClampMacro(Offset,int,0,VTK_LARGE_INTEGER);
   vtkGetMacro(Offset,int);
 

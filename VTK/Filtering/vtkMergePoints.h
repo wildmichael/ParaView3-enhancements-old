@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergePoints.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-14 13:21:42 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1998-10-08 18:42:03 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,15 +55,13 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkMergePoints : public vtkPointLocator
 {
 public:
-  vtkMergePoints() {};
   static vtkMergePoints *New() {return new vtkMergePoints;};
   const char *GetClassName() {return "vtkMergePoints";};
 
-
-// Description:
-// Determine whether point given by x[3] has been inserted into points list.
-// Return id of previously inserted point if this is true, otherwise return
-// -1.
+  // Description:
+  // Determine whether point given by x[3] has been inserted into points list.
+  // Return id of previously inserted point if this is true, otherwise return
+  // -1.
   int IsInsertedPoint(float x[3]);
 
 };

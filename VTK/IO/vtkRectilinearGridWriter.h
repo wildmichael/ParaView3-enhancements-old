@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGridWriter.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-14 13:21:49 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-10-08 18:42:13 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,6 +42,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // .SECTION Description
 // vtkRectilinearGridWriter is a source object that writes ASCII or binary 
 // rectilinear grid data files in vtk format. See text for format details.
+
 // .SECTION Caveats
 // Binary files written on one system may not be readable on other systems.
 
@@ -55,15 +56,14 @@ class VTK_EXPORT vtkRectilinearGridWriter : public vtkDataWriter
 {
 public:
   vtkRectilinearGridWriter() {};
-  static vtkRectilinearGridWriter *New() {return new vtkRectilinearGridWriter;};
+  static vtkRectilinearGridWriter *New() {
+    return new vtkRectilinearGridWriter;};
   const char *GetClassName() {return "vtkRectilinearGridWriter";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
-
-// Description:
-// Specify the input data or filter.
+  // Description:
+  // Set / get the input data or filter.
   void SetInput(vtkRectilinearGrid *input);
-
   void SetInput(vtkRectilinearGrid &input) {this->SetInput(&input);};
   vtkRectilinearGrid *GetInput() {return (vtkRectilinearGrid *)this->Input;};
                                

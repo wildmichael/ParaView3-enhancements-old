@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataWriter.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-02 18:24:40 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-10-08 18:42:10 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -60,9 +60,8 @@ public:
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
-  // Specify the input data or filter.
+  // Set / get the input data or filter.
   void SetInput(vtkPolyData *input);
-
   void SetInput(vtkPolyData &input) {this->SetInput(&input);};
   vtkPolyData *GetInput() {return (vtkPolyData *)this->Input;};
                                

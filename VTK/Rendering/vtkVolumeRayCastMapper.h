@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastMapper.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:45:17 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1998-10-08 18:42:31 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,7 +42,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // .NAME vtkVolumeRayCastMapper - Abstract class for ray casting mappers
 // .SECTION Description
 // This is the abstract class for mappers that use volumetric ray casting
-// 
 
 // .SECTION see also
 // vtkVolumeMapper
@@ -85,23 +84,11 @@ class vtkVolume;
 class VTK_EXPORT vtkVolumeRayCastMapper : public vtkVolumeMapper
 {
 public:
-
-// Description:
-// Construct a new vtkVolumeRayCastMapper with default values
   vtkVolumeRayCastMapper();
-
-
-// Description:
-// Destruct a vtkVolumeRayCastMapper - clean up any memory used
   ~vtkVolumeRayCastMapper();
-
   static vtkVolumeRayCastMapper *New() {return new vtkVolumeRayCastMapper;};
   const char *GetClassName() {return "vtkVolumeRayCastMapper";};
-
-// Description:
-// Print method for vtkVolumeRayCastMapper
   void PrintSelf( ostream& os, vtkIndent index );
-
 
   // Description:
   // Set/Get the distance between samples.  This variable is only
@@ -155,19 +142,18 @@ public:
   vtkSetObjectMacro( VolumeRayCastFunction, vtkVolumeRayCastFunction );
   vtkGetObjectMacro( VolumeRayCastFunction, vtkVolumeRayCastFunction );
 
-
   // Description:
   // Get a pointer to the depth or RGBA buffer created during the previous
   // render.  These methods are used by the vtkVolumeRenderer
-  float *GetZbufferData( void )   { return this->ZImage; };
-  float *GetRGBAPixelData( void ) { return this->RGBAImage; };
+  float *GetZbufferData()   { return this->ZImage; };
+  float *GetRGBAPixelData() { return this->RGBAImage; };
 
   // Description:
   // Required methods for volume mappers.  The Parc algorithm destroys
   // whatever is in the hardware buffer, and returns the image in
   // software (through the GetZBufferData and GetRGBAPixelData calls)
-  int DestroyHardwareBuffer( void ) { return 1; };
-  int ImageLocatedInHardware( void ) { return 0; };
+  int DestroyHardwareBuffer() { return 1; };
+  int ImageLocatedInHardware() { return 0; };
 
   // Description:
   // Render this volume.
@@ -184,7 +170,6 @@ public:
   vtkGetVectorMacro( DataIncrement, int, 3 );
 //ETX
 
-
   // Description:
   // Set / Get the gradient estimator used to estimate normals
   void SetGradientEstimator( vtkEncodedGradientEstimator *gradest );
@@ -193,7 +178,6 @@ public:
   // Description:
   // Get the gradient shader.
   vtkGetObjectMacro( GradientShader, vtkEncodedGradientShader );
-
 
 
 protected:

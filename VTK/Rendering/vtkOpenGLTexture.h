@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLTexture.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-14 13:21:44 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-10-08 18:42:06 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -53,19 +53,13 @@ class vtkOpenGLRenderer;
 class VTK_EXPORT vtkOpenGLTexture : public vtkTexture
 {
 public:
-
-// Description:
-// Initializes an instance, generates a unique index.
   vtkOpenGLTexture();
-
   static vtkOpenGLTexture *New() {return new vtkOpenGLTexture;};
   const char *GetClassName() {return "vtkOpenGLTexture";};
-  
 
-// Description:
-// Implement base class method.
+  // Description:
+  // Implement base class method.
   void Load(vtkRenderer *ren);
-
   
 protected:
   vtkTimeStamp   LoadTime;

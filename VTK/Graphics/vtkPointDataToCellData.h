@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointDataToCellData.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-14 13:21:45 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-10-08 18:42:07 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,7 +41,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // .NAME vtkPointDataToCellData - map point data to cell data
 // .SECTION Description
 // vtkPointDataToCellData is a filter that transforms point data (i.e., data
-// specified per point) into point data (i.e., data specified per cell).
+// specified per point) into cell data (i.e., data specified per cell).
 // The method of transformation is based on averaging the data
 // values of all points defining a particular cell. Optionally, the input point
 // data can be passed through to the output as well.
@@ -64,11 +64,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkPointDataToCellData : public vtkDataSetToDataSetFilter
 {
 public:
-
-// Description:
-// Instantiate object so that point data is not passed to output.
   vtkPointDataToCellData();
-
   static vtkPointDataToCellData *New() {return new vtkPointDataToCellData;};
   const char *GetClassName() {return "vtkPointDataToCellData";};
   void PrintSelf(ostream& os, vtkIndent indent);

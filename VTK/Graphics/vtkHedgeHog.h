@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHedgeHog.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:45:01 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1998-10-08 18:41:58 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -52,7 +52,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkHedgeHog : public vtkDataSetToPolyDataFilter
 {
 public:
-  vtkHedgeHog() : ScaleFactor(1.0) {};
+  vtkHedgeHog() { this->ScaleFactor = 1.0;};
   static vtkHedgeHog *New() {return new vtkHedgeHog;};
   const char *GetClassName() {return "vtkHedgeHog";};
   void PrintSelf(ostream& os, vtkIndent indent);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkShrinkFilter.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:47:27 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 1998-10-08 18:42:17 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -45,9 +45,11 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // the average position of the cell points. Shrinking results in 
 // disconnecting the cells from one another. The output of this filter is
 // of general dataset type vtkUnstructuredGrid.
+
 // .SECTION Caveats
 // It is possible to turn cells inside out or cause self intersection
 // in special cases.
+
 // .SECTION See Also
 // vtkShrinkPolyData
 

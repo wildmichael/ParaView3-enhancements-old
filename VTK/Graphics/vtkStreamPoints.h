@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamPoints.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-14 13:21:55 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1998-10-08 18:42:20 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -44,6 +44,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // The points are separated by a constant time increment. The resulting visual
 // effect (especially when coupled with vtkGlyph3D) is an indication of 
 // particle speed.
+
 // .SECTION See Also
 // vtkStreamer vtkStreamLine vtkDashedStreamLine
 
@@ -55,14 +56,13 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkStreamPoints : public vtkStreamer
 {
 public:
-
-// Description:
-// Construct object with time increment set to 1.0.
   vtkStreamPoints();
-
-  static vtkStreamPoints *New() {return new vtkStreamPoints;};
   const char *GetClassName() {return "vtkStreamPoints";};
   void PrintSelf(ostream& os, vtkIndent indent);
+
+  // Description:
+  // Construct object with time increment set to 1.0.
+  static vtkStreamPoints *New() {return new vtkStreamPoints;};
 
   // Description:
   // Specify the separation of points in terms of absolute time.

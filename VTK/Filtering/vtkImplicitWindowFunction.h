@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitWindowFunction.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-14 13:21:40 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1998-10-08 18:42:00 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -62,27 +62,23 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkImplicitWindowFunction : public vtkImplicitFunction
 {
 public:
-
-// Description:
-// Construct object with window range (0,1) and window values (0,1).
   vtkImplicitWindowFunction();
-
   ~vtkImplicitWindowFunction();
-  static vtkImplicitWindowFunction *New() {return new vtkImplicitWindowFunction;};
   const char *GetClassName() {return "vtkImplicitWindowFunction";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
-  // implicit function interface
+  // Description:
+  // Construct object with window range (0,1) and window values (0,1).
+  static vtkImplicitWindowFunction *New() {
+    return new vtkImplicitWindowFunction;};
 
-// Description
-// Evaluate window function.
+  // Description
+  // Evaluate window function.
   float EvaluateFunction(float x[3]);
 
-
-// Description
-// Evaluate window function gradient. Just return implicit function gradient.
+  // Description
+  // Evaluate window function gradient. Just return implicit function gradient.
   void EvaluateGradient(float x[3], float n[3]);
-
 
   // Description:
   // Specify an implicit function to operate on.
@@ -96,13 +92,15 @@ public:
   vtkGetVectorMacro(WindowRange,float,2);
 
   // Description:
-  // Specify the range of output values that the window range is mapped into. This
-  // is effectively a scaling and shifting of the original function values.
+  // Specify the range of output values that the window range is mapped
+  // into. This is effectively a scaling and shifting of the original
+  // function values.
   vtkSetVector2Macro(WindowValues,float);
   vtkGetVectorMacro(WindowValues,float,2);
 
+  // Description:
   // Override modified time retrieval because of object dependencies.
-  unsigned long int GetMTime();
+  unsigned long GetMTime();
 
 protected:
   vtkImplicitFunction *ImplicitFunction;

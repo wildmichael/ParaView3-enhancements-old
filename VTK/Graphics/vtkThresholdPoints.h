@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThresholdPoints.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-14 13:22:00 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1998-10-08 18:42:26 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,23 +59,21 @@ public:
   static vtkThresholdPoints *New() {return new vtkThresholdPoints;};
   const char *GetClassName() {return "vtkThresholdPoints";};
   void PrintSelf(ostream& os, vtkIndent indent);
-
-
-// Description:
-// Criterion is cells whose scalars are less than lower threshold.
+  
+  // Description:
+  // Criterion is cells whose scalars are less than lower threshold.
   void ThresholdByLower(float lower);
 
-
-// Description:
-// Criterion is cells whose scalars are less than upper threshold.
+  // Description:
+  // Criterion is cells whose scalars are less than upper threshold.
   void ThresholdByUpper(float upper);
 
-
-// Description:
-// Criterion is cells whose scalars are between lower and upper thresholds.
+  // Description:
+  // Criterion is cells whose scalars are between lower and upper thresholds.
   void ThresholdBetween(float lower, float upper);
 
-  
+  // Description:
+  // Get the upper and lower thresholds.
   vtkGetMacro(UpperThreshold,float);
   vtkGetMacro(LowerThreshold,float);
 

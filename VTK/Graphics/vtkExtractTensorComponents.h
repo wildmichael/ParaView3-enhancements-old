@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractTensorComponents.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-14 13:21:35 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1998-10-08 18:41:55 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -75,15 +75,15 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkExtractTensorComponents : public vtkDataSetToDataSetFilter 
 {
 public:
-
-// Description:
-// Construct object to extract nothing and to not pass tensor data
-// through the pipeline.
   vtkExtractTensorComponents();
-
-  static vtkExtractTensorComponents *New() {return new vtkExtractTensorComponents;};
   const char *GetClassName() {return "vtkExtractTensorComponents";};
   void PrintSelf(ostream& os, vtkIndent indent);
+
+  // Description:
+  // Construct object to extract nothing and to not pass tensor data
+  // through the pipeline.
+  static vtkExtractTensorComponents *New() {
+    return new vtkExtractTensorComponents;};
 
   // Description:
   // Boolean controls whether tensor data is passed through to output.
@@ -110,7 +110,8 @@ public:
   vtkSetMacro(ScalarMode,int);
   vtkGetMacro(ScalarMode,int);
   void ScalarIsComponent() {this->SetScalarMode(VTK_EXTRACT_COMPONENT);};
-  void ScalarIsEffectiveStress() {this->SetScalarMode(VTK_EXTRACT_EFFECTIVE_STRESS);};
+  void ScalarIsEffectiveStress() {
+    this->SetScalarMode(VTK_EXTRACT_EFFECTIVE_STRESS);};
   void ScalarIsDeterminant() {this->SetScalarMode(VTK_EXTRACT_DETERMINANT);};
 
   // Description:
@@ -144,7 +145,6 @@ public:
   // components to extract as a vector.
   vtkSetVector6Macro(NormalComponents,int);
   vtkGetVectorMacro(NormalComponents,int,6);
-
 
   // Description:
   // Boolean controls whether texture coordinates are extracted from tensor.

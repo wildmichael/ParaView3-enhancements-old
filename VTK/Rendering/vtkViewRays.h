@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkViewRays.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-14 13:22:02 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1998-10-08 18:42:29 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -85,23 +85,11 @@ class vtkRenderer;
 class VTK_EXPORT vtkViewRays :public vtkObject
   {
   public:
-
-// Description:
-// Constructor for vtkViewRays. Default everything to NULL or 0
   vtkViewRays(void);
-
-
-// Description:
-// Destructor for vtkViewRays. Free up the memory used by the view rays
   ~vtkViewRays(void);
-
   static vtkViewRays *New() {return new vtkViewRays;};
   const char *GetClassName() {return "vtkViewRays";};
-
-// Description:
-// Print the class
   void PrintSelf(ostream& os,vtkIndent indent);
-
 
   // Description:
   // Specify the vtkRenderer whose camera will be used to to calculate 

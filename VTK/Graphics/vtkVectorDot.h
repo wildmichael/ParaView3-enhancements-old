@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectorDot.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-14 13:22:01 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1998-10-08 18:42:29 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -54,14 +54,13 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkVectorDot : public vtkDataSetToDataSetFilter 
 {
 public:
-
-// Description:
-// Construct object with scalar range is (-1,1).
   vtkVectorDot();
-
-  static vtkVectorDot *New() {return new vtkVectorDot;};
   const char *GetClassName() {return "vtkVectorDot";};
   void PrintSelf(ostream& os, vtkIndent indent);
+
+  // Description:
+  // Construct object with scalar range is (-1,1).
+  static vtkVectorDot *New() {return new vtkVectorDot;};
 
   // Description:
   // Specify range to map scalars into.

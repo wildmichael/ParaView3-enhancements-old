@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRayBounder.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:46:48 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-10-08 18:42:12 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,10 +38,15 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-// .NAME vtkRayBounder
+// .NAME vtkRayBounder - An abstract class for bounding rays
 // .SECTION Description
-// 
-// 
+// vtkRayBounder is an abstract class for bounding view rays during
+// ray casting. Each concrete subclass must have a GetRayBounds 
+// method which, given a renderer, produces a floating point array
+// that is w*h*2 (w = width of viewport, h = height of viewport).
+// For each pixel, this array contains the near and far clipping
+// values for the corresponding ray. A value of -1 means no clipping
+// should be performed on that ray.
 
 // .SECTION see also
 // 
@@ -57,6 +62,11 @@ class VTK_EXPORT vtkRayBounder : public vtkObject
 public:
   const char *GetClassName() {return "vtkRayBounder";};
 
+  // Description:
+  // Get the ray bounds - a floating point array with two
+  // values for every pixel in the viewport. These values
+  // indicate near and far clipping distances, or -1 for
+  // no clipping.
   virtual float *GetRayBounds( vtkRenderer *ren )=0;
 
 protected:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransformFilter.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:48:45 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1998-10-08 18:42:27 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -51,9 +51,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // vtkTransformFilter actually modifies point coordinates in the 
 // visualization pipeline. This is necessary for some objects 
 // (e.g., vtkProbeFilter) that require point coordinates as input.
+
 // .SECTION See Also
 // vtkTransform vtkTransformPolyDataFilter vtkActor
-// .EXAMPLE XFormSph.cc
 
 #ifndef __vtkTransformFilter_h
 #define __vtkTransformFilter_h
@@ -69,7 +69,9 @@ public:
   const char *GetClassName() {return "vtkTransformFilter";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
-  unsigned long int GetMTime();
+  // Description:
+  // Return the MTime also considering the transform.
+  unsigned long GetMTime();
 
   // Description:
   // Specify the transform object used to transform points.

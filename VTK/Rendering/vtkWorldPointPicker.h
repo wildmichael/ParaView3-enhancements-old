@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWorldPointPicker.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-25 14:01:32 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-10-08 18:42:33 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -68,6 +68,8 @@ public:
   // Get the id of the picked point. If PointId = -1, nothing was picked.
   vtkGetMacro(PointId,int);
 
+  // Description:
+  // Perform the pick.
   int Pick(float selectionX, float selectionY, float selectionZ, 
            vtkRenderer *renderer);  
 

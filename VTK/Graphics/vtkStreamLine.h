@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamLine.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-14 13:21:55 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1998-10-08 18:42:20 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,6 +64,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // size and is expressed as a fraction of the cell length.) The StepLength
 // instance variable is important because subclasses of vtkStreamLine (e.g.,
 // vtkDashedStreamLine) depend on this value to build their representation.
+
 // .SECTION See Also
 // vtkStreamer vtkDashedStreamLine vtkStreamPoints
 
@@ -75,14 +76,13 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkStreamLine : public vtkStreamer
 {
 public:
-
-// Description:
-// Construct object with step size set to 1.0.
   vtkStreamLine();
-
-  static vtkStreamLine *New() {return new vtkStreamLine;};
   const char *GetClassName() {return "vtkStreamLine";};
   void PrintSelf(ostream& os, vtkIndent indent);
+
+  // Description:
+  // Construct object with step size set to 1.0.
+  static vtkStreamLine *New() {return new vtkStreamLine;};
 
   // Description:
   // Specify the length of a line segment. The length is expressed in terms of

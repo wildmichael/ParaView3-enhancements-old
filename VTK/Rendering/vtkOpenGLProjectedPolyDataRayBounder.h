@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLProjectedPolyDataRayBounder.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-14 13:21:43 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-10-08 18:42:05 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to Lisa Sobierajski Avila who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -63,28 +63,20 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 class VTK_EXPORT vtkOpenGLProjectedPolyDataRayBounder : public vtkProjectedPolyDataRayBounder
 {
- public:
-
-// Description:
-// Construct a new vtkOpenGLProjectedPolyDataRayBounder.  The depth range
-// buffer is initially NULL and no display list has been created
+public:
   vtkOpenGLProjectedPolyDataRayBounder();
-
-
-// Description:
-// Destruct the vtkOpenGLProjectedPolyDataRayBounder.  Free the 
-// DepthRangeBuffer if necessary
   ~vtkOpenGLProjectedPolyDataRayBounder();
-
-  static vtkOpenGLProjectedPolyDataRayBounder *New() {return new vtkOpenGLProjectedPolyDataRayBounder;};
-  const char *GetClassName() {return "vtkOpenGLProjectedPolyDataRayBounder";};
-
-// Description:
-// Print the vtkOpenGLProjectedPolyDataRayBounder
+  const char *GetClassName() {
+    return "vtkOpenGLProjectedPolyDataRayBounder";};  
   void PrintSelf(ostream& os, vtkIndent indent);
 
+  // Description:
+  // Construct a new vtkOpenGLProjectedPolyDataRayBounder.  The depth range
+  // buffer is initially NULL and no display list has been created
+  static vtkOpenGLProjectedPolyDataRayBounder *New() {
+    return new vtkOpenGLProjectedPolyDataRayBounder;};
 
- protected:
+protected:
   GLuint    DisplayList;
   float     *DepthRangeBuffer;
 

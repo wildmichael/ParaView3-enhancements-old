@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastIsosurfaceFunction.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-14 13:22:04 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-10-08 18:42:31 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -61,31 +61,18 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkVolumeRayCastIsosurfaceFunction : public vtkVolumeRayCastFunction
 {
 public:
-
-// Description:
-// Construct a new vtkVolumeRayCastIsosurfaceFunction with a default ramp.
-// This ramp is best suited for unsigned char data and should
-// probably be modified before rendering any other data type.
-// The ParcBuildValue is set to LinearRampRange[0] + 1, ensuring
-// that the Parc structure will be built during the first render.
   vtkVolumeRayCastIsosurfaceFunction();
-
-
-// Description:
-// Destruct the vtkVolumeRayCastIsosurfaceFunction
   ~vtkVolumeRayCastIsosurfaceFunction();
-
-  static vtkVolumeRayCastIsosurfaceFunction *New() {return new vtkVolumeRayCastIsosurfaceFunction;};
   const char *GetClassName() {return "vtkVolumeRayCastIsosurfaceFunction";};
-
-// Description:
-// Print method for vtkVolumeRayCastIsosurfaceFunction
   void PrintSelf( ostream& os, vtkIndent index );
 
+  // Description:
+  // Construct a new vtkVolumeRayCastIsosurfaceFunction
+  static vtkVolumeRayCastIsosurfaceFunction *New() {
+    return new vtkVolumeRayCastIsosurfaceFunction;};
 
   // Description:
-  // Give a ray type (0 = unsigned char, 1 = unsigned short,
-  // 2 = short) cast a ray through the scalar data starting
+  // Given a ray type, cast a ray through the scalar data starting
   // at ray_position and taking num_steps of ray_increment size.
   // Return the final compositing value in pixel_value where
   // pixel_value[0] = red, pixel_value[1] = green, 
@@ -95,6 +82,8 @@ public:
 		 float ray_position[3], float ray_increment[3],
 		 int num_steps, float pixel_value[6] );
 
+  // Description:
+  // Get the scalar value below which all scalar values have 0 opacity
   float GetZeroOpacityThreshold( vtkVolume *vol );
 
   // Description:
@@ -102,6 +91,9 @@ public:
   vtkSetMacro( IsoValue, float );
   vtkGetMacro( IsoValue, float );
 
+  
+  // Description:
+  // This is the isovalue at which to view a surface
   float IsoValue;
 
   // Description:

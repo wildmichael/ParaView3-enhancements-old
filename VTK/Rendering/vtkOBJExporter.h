@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOBJExporter.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:45:43 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1998-10-08 18:42:04 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,7 +40,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 // .NAME vtkOBJExporter - export a scene into Wavefront format.
 // .SECTION Description
-
 // vtkOBJExporter is a concrete subclass of vtkExporter that writes wavefront
 // .OBJ files in ASCII form. It also writes out a mtl file that contains the
 // material properties. The filenames are derived by appending the .obj and

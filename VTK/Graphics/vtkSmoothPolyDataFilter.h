@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSmoothPolyDataFilter.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-02 18:24:41 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-10-08 18:42:18 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -114,17 +114,17 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkSmoothPolyDataFilter : public vtkPolyDataToPolyDataFilter
 {
 public:
+  vtkSmoothPolyDataFilter();
+  const char *GetClassName() {return "vtkSmoothPolyDataFilter";};
+  void PrintSelf(ostream& os, vtkIndent indent);
+
   // Description:
   // Construct object with number of iterations 20; relaxation factor .01;
   // feature edge smoothing turned off; feature 
   // angle 45 degrees; edge angle 15 degrees; and boundary smoothing turned 
   // on. Error scalars and vectors are not generated (by default). The 
   // convergence criterion is 0.0 of the bounding box diagonal.
-  vtkSmoothPolyDataFilter();
-
   static vtkSmoothPolyDataFilter *New() {return new vtkSmoothPolyDataFilter;};
-  const char *GetClassName() {return "vtkSmoothPolyDataFilter";};
-  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Specify a convergence criterion for the iteration

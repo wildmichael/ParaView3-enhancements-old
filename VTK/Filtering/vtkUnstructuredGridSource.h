@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGridSource.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:49:01 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1998-10-08 18:42:28 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,12 +56,14 @@ class VTK_EXPORT vtkUnstructuredGridSource : public vtkSource
 {
 public:
   vtkUnstructuredGridSource();
-  static vtkUnstructuredGridSource *New() {return new vtkUnstructuredGridSource;};
+  static vtkUnstructuredGridSource *New() {
+    return new vtkUnstructuredGridSource;};
   const char *GetClassName() {return "vtkUnstructuredGridSource";};
 
   // Description:
   // Get the output of this source.
-  vtkUnstructuredGrid *GetOutput() {return (vtkUnstructuredGrid *)this->Output;};
+  vtkUnstructuredGrid *GetOutput() {
+    return (vtkUnstructuredGrid *)this->Output;};
 
 };
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIVExporter.h,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:04:07 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-10-08 18:41:58 $
+  Version:   $Revision: 1.4 $
   Thanks:    to Jon A. Webb of Visual Interface Inc.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,8 +40,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 // .NAME vtkIVExporter - export a scene into OpenInventor 2.0 format.
 // .SECTION Description
-// vtkIVExporter is a concrete subclass of vtkExporter that writes OpenInventor 2.0
-// files.
+// vtkIVExporter is a concrete subclass of vtkExporter that writes
+// OpenInventor 2.0 files.
 //
 // .SECTION See Also
 // vtkExporter
