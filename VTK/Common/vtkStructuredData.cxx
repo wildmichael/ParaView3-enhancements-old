@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredData.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:26:43 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1995-07-11 16:46:22 $
+  Version:   $Revision: 1.24 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -80,8 +80,8 @@ void vtkStructuredData::SetDimensions(int dim[3])
 {
   vtk_DebugMacro(<< " setting Dimensions to (" << dim[0] << "," << dim[1] << "," << dim[2] << ")");
 
-  if ( dim[0] != this->Dimensions[0] || dim[1] != Dimensions[1] ||
-  dim[2] != Dimensions[2] )
+  if ( dim[0] != this->Dimensions[0] || dim[1] != this->Dimensions[1] ||
+  dim[2] != this->Dimensions[2] )
     {
     if ( dim[0]<1 || dim[1]<1 || dim[2]<1 )
       {
