@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSobel3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-04-01 19:05:13 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1997-05-23 20:39:43 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -201,9 +201,9 @@ static void vtkImageSobel3DExecute(vtkImageSobel3D *self,
   // We want the input pixel to correspond to output
   inPtr = (T *)(inRegion->GetScalarPointer(min0,min1,min2));
 
-  // The aspect ratio is important for computing the gradient.
+  // The data spacing is important for computing the gradient.
   // Scale so it has the same range as gradient.
-  inRegion->GetAspectRatio(r0, r1, r2);
+  inRegion->GetSpacing(r0, r1, r2);
   r0 = 0.059923 / r0;
   r1 = 0.059923 / r1;
   r2 = 0.059923 / r2;

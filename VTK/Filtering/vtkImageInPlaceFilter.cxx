@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageInPlaceFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-15 23:24:28 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1997-05-23 20:39:30 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -155,8 +155,8 @@ void vtkImageInPlaceFilter::UpdatePointData(int dim, vtkImageRegion *outRegion)
   this->Input->UpdateRegion(inRegion);
   
   // Copy  Scalars (by reference if possible) from input to output.
-  if ((inRegion->GetData()->GetRefCount() > 1) ||
-      (inRegion->GetData()->GetScalars()->GetRefCount() > 1) ||
+  if ((inRegion->GetData()->GetReferenceCount() > 1) ||
+      (inRegion->GetData()->GetScalars()->GetReferenceCount() > 1) ||
       (inRegion->GetScalarType() != outRegion->GetScalarType()))
     {
     // we have to copy the data

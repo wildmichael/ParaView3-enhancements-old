@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageShrink3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-04-09 10:59:09 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1997-05-23 20:39:42 $
+  Version:   $Revision: 1.18 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -110,10 +110,10 @@ void vtkImageShrink3D::ComputeOutputImageInformation(
 {
   int idx;
   int imageExtent[6];
-  float aspectRatio[3];
+  float Spacing[3];
 
   inRegion->GetImageExtent(3, imageExtent);
-  inRegion->GetAspectRatio(3, aspectRatio);
+  inRegion->GetSpacing(3, Spacing);
 
   for (idx = 0; idx < 3; ++idx)
     {
@@ -124,12 +124,12 @@ void vtkImageShrink3D::ComputeOutputImageInformation(
     imageExtent[2*idx+1] = (int)(floor(
      (float)(imageExtent[2*idx+1]-this->Shift[idx]-this->ShrinkFactors[idx]+1)
          / (float)(this->ShrinkFactors[idx])));
-    // Change the aspect ratio.
-    aspectRatio[idx] *= (float)(this->ShrinkFactors[idx]);
+    // Change the data spacing
+    Spacing[idx] *= (float)(this->ShrinkFactors[idx]);
     }
 
   outRegion->SetImageExtent(3, imageExtent);
-  outRegion->SetAspectRatio(3, aspectRatio);
+  outRegion->SetSpacing(3, Spacing);
 }
 
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSpatialFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-04-30 12:42:05 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1997-05-23 20:39:44 $
+  Version:   $Revision: 1.17 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -142,21 +142,21 @@ void vtkImageSpatialFilter::ComputeOutputImageInformation(
 		    vtkImageRegion *inRegion, vtkImageRegion *outRegion)
 {
   int extent[VTK_IMAGE_EXTENT_DIMENSIONS];
-  float aspectRatio[VTK_IMAGE_DIMENSIONS];
+  float Spacing[VTK_IMAGE_DIMENSIONS];
   int idx;
   
   inRegion->GetImageExtent(VTK_IMAGE_DIMENSIONS, extent);
-  inRegion->GetAspectRatio(VTK_IMAGE_DIMENSIONS, aspectRatio);
+  inRegion->GetSpacing(VTK_IMAGE_DIMENSIONS, Spacing);
 
   this->ComputeOutputImageExtent(extent, this->HandleBoundaries);
   outRegion->SetImageExtent(VTK_IMAGE_DIMENSIONS, extent);
   
   for(idx = 0; idx < VTK_IMAGE_DIMENSIONS; ++idx)
     {
-    // Change the aspect ratio.
-    aspectRatio[idx] *= (float)(this->Strides[idx]);
+    // Change the data spacing.
+    Spacing[idx] *= (float)(this->Strides[idx]);
     }
-  outRegion->SetAspectRatio(VTK_IMAGE_DIMENSIONS, aspectRatio);
+  outRegion->SetSpacing(VTK_IMAGE_DIMENSIONS, Spacing);
 }
 
 //----------------------------------------------------------------------------
@@ -185,7 +185,7 @@ void vtkImageSpatialFilter::ComputeOutputImageExtent(int *extent,
     extent[idx*2+1] = 
       (int)(floor((((float)extent[idx*2+1]+1.0) /
 		   ((float)this->Strides[idx]))-1.0));
-    // Change the aspect ratio.
+    // Change the data spacing.
     }
 }
 

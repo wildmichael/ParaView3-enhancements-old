@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader.h,v $
   Language:  C++
-  Date:      $Date: 1997-05-23 11:56:35 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1997-05-23 20:39:36 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -95,12 +95,12 @@ public:
   
   
   // Description:
-  // Set/Get the aspect ratio of the data.
-  void SetDataAspectRatio(int num, float *ratio);
-  vtkImageSetMacro(DataAspectRatio,float);
-  void GetDataAspectRatio(int num, float *ratio);
-  vtkImageGetMacro(DataAspectRatio,float);
-  float *GetDataAspectRatio() {return this->DataAspectRatio;};  
+  // Set/Get the spacing of the data.
+  void SetDataSpacing(int num, float *ratio);
+  vtkImageSetMacro(DataSpacing,float);
+  void GetDataSpacing(int num, float *ratio);
+  vtkImageGetMacro(DataSpacing,float);
+  float *GetDataSpacing() {return this->DataSpacing;};  
   
   // Description:
   // Set/Get the origin of the data (location of point (0,0,0,...)).
@@ -179,7 +179,7 @@ protected:
   char *FileName;
 
   int DataDimensions[VTK_IMAGE_DIMENSIONS];
-  float DataAspectRatio[VTK_IMAGE_DIMENSIONS];
+  float DataSpacing[VTK_IMAGE_DIMENSIONS];
   float DataOrigin[VTK_IMAGE_DIMENSIONS];
   int DataExtent[VTK_IMAGE_EXTENT_DIMENSIONS];
   

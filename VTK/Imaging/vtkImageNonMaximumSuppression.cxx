@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageNonMaximumSuppression.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-01-08 15:20:51 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1997-05-23 20:39:34 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -209,8 +209,8 @@ void vtkImageNonMaximumSuppression::Execute(vtkImageRegion *inRegion1,
     return;
     }
 
-  // Gradient is computed with aspect ratio (world coordinates)
-  ratio = inRegion2->GetAspectRatio();
+  // Gradient is computed with data spacing (world coordinates)
+  ratio = inRegion2->GetSpacing();
   
   // Get information to march through data
   inRegion1->GetIncrements(in1Inc0, in1Inc1, in1Inc2, in1Inc3); 
