@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAppendPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-01-13 22:07:32 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 1999-01-14 12:18:18 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -255,7 +255,7 @@ void vtkAppendPolyData::Execute()
     }
 
   // Now can allocate memory
-  output->Allocate(numCells); //allocate storage for geometry/topology
+
   if ( !scalarsPresentInPD )
     {
     outputPD->CopyScalarsOff();
