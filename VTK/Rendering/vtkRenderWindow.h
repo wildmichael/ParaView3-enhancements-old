@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 1995-08-15 18:36:19 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1995-08-16 09:14:26 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -86,8 +86,8 @@ public:
   // Description:
   // Performed at the end of the rendering process to swap buffers
   // if neccessary etc.
-  virtual void Frame() = 0
-  
+  virtual void Frame() = 0;
+
   virtual void SetDisplayId(void *) = 0;
   virtual void SetWindowId(void *) = 0;
 
