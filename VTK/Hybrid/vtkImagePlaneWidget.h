@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagePlaneWidget.h,v $
   Language:  C++
-  Date:      $Date: 2002-11-10 21:59:36 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2002-11-11 22:19:53 $
+  Version:   $Revision: 1.24 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -385,13 +385,13 @@ protected:
   // The geometric represenation of the plane and it's outline
   vtkPlaneSource    *PlaneSource;
   float              Normal[3]; // plane normal normalized
-  vtkPoints         *PlaneOutlinePoints;
   vtkPolyData       *PlaneOutlinePolyData;
   vtkActor          *PlaneOutlineActor;
   vtkPolyDataMapper *PlaneOutlineMapper;
-  void               GeneratePlaneOutline();
   void               HighlightPlane(int highlight);
+  void               GeneratePlaneOutline();
 
+  // Re-builds the plane outline based on the plane source
   void BuildRepresentation();
 
   // Do the picking
