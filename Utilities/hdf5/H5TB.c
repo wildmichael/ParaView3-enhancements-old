@@ -56,7 +56,7 @@
  * void H5TB_free( ITM ***root, void (*df)(ITM *), void (*kf)(void *) );
  */
 
-/* $Id: H5TB.c,v 1.3 2003-04-09 19:34:42 andy Exp $ */
+/* $Id: H5TB.c,v 1.4 2004-01-13 22:59:52 andy Exp $ */
 
 #include "H5private.h"          /*library                                 */
 #include "H5Eprivate.h"         /*error handling                          */
@@ -65,7 +65,7 @@
 #include "H5TBprivate.h"        /*threaded, balanced, binary trees        */
 
 #define KEYcmp(k1,k2,a) ((NULL!=compar) ? (*compar)( k1, k2, a) \
-                 : HDmemcmp( k1, k2, 0<(a) ? (a) : HDstrlen(k1) )  )
+                 : HDmemcmp( k1, k2, 0<(a) ? (a) : (int)HDstrlen(k1) )  )
 
 /* Return maximum of two scalar values (use arguments w/o side effects): */
 #define   Max(a,b)  ( (a) > (b) ? (a) : (b) )

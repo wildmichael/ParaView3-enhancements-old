@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfXNode.cxx,v 1.4 2003-10-21 15:12:48 andy Exp $  */
-/*  Date : $Date: 2003-10-21 15:12:48 $ */
-/*  Version : $Revision: 1.4 $ */
+/*  Id : $Id: XdmfXNode.cxx,v 1.5 2004-01-13 22:59:52 andy Exp $  */
+/*  Date : $Date: 2004-01-13 22:59:52 $ */
+/*  Version : $Revision: 1.5 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -163,14 +163,14 @@ if (node != NULL) {
 int
 XdmfXNode::GetSize(){
 
-int size = 0;
+int isize = 0;
 XdmfXNodeNode *node;
 node = (XdmfXNodeNode *)XdmfLlist_first_member(this->key);
 while(node != NULL) {
-        size++;
+        isize++;
         node = (XdmfXNodeNode *)XdmfLlist_next_member(node);
 }
-return(size);
+return(isize);
 
 }
 

@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfXNode.h,v 1.6 2003-11-07 19:19:58 clarke Exp $  */
-/*  Date : $Date: 2003-11-07 19:19:58 $ */
-/*  Version : $Revision: 1.6 $ */
+/*  Id : $Id: XdmfXNode.h,v 1.7 2004-01-13 22:59:52 andy Exp $  */
+/*  Date : $Date: 2004-01-13 22:59:52 $ */
+/*  Version : $Revision: 1.7 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -71,8 +71,8 @@ public :
   void *GetClientData( void ) {
       return( this->ClientData );
       }
-  void SetClientData( void *ClientData ) {
-    this->ClientData = ClientData;
+  void SetClientData( void *clientData ) {
+    this->ClientData = clientData;
     }
   void ManualDelete(XdmfXNode *obj);
   XdmfGetValueMacro( UserData, XdmfPointer );

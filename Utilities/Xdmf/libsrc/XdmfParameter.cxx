@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfParameter.cxx,v 1.5 2003-10-21 15:12:48 andy Exp $  */
-/*  Date : $Date: 2003-10-21 15:12:48 $ */
-/*  Version : $Revision: 1.5 $ */
+/*  Id : $Id: XdmfParameter.cxx,v 1.6 2004-01-13 22:59:52 andy Exp $  */
+/*  Date : $Date: 2004-01-13 22:59:52 $ */
+/*  Version : $Revision: 1.6 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -104,23 +104,23 @@ return( this->ParameterArray->GetNumberOfElements() );
 }
 
 XdmfInt32
-XdmfParameter::Update( XdmfInt32 CurrentIndex ){
+XdmfParameter::Update( XdmfInt32 currentIndex ){
 
 XdmfFloat64  Value;
 XdmfInt64  IValue;
 int    LastFormatCharIndex;
 
-if( CurrentIndex < 0 ) CurrentIndex = this->CurrentIndex;
-XdmfDebug( "Setting Value from CurrentIndex = " << CurrentIndex );
+if( currentIndex < 0 ) currentIndex = this->CurrentIndex;
+XdmfDebug( "Setting Value from CurrentIndex = " << currentIndex );
 if( !this->ParameterArray ){
   Value = 0.0;
 } else {
   if( this->ParameterType == XDMF_PARAMETER_RANGE_TYPE ) {
     Value = this->ParameterArray->GetValueAsFloat64( 0 );
     Value += this->ParameterArray->GetValueAsFloat64( 1 ) *
-      MIN( this->ParameterArray->GetValueAsInt64( 2 ) - 1 , CurrentIndex );
+      MIN( this->ParameterArray->GetValueAsInt64( 2 ) - 1 , currentIndex );
   } else {
-    Value = this->ParameterArray->GetValueAsFloat64( MIN( CurrentIndex,
+    Value = this->ParameterArray->GetValueAsFloat64( MIN( currentIndex,
       this->ParameterArray->GetNumberOfElements() - 1 ));
   }
 }
