@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:12:49 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 1999-07-22 21:08:43 $
+  Version:   $Revision: 1.51 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,6 +55,13 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkUnsignedLongArray.h"
 #include "vtkDoubleArray.h"
 #include "vtkFloatArray.h"
+
+// this undef is required on the hp. vtkMutexLock ends up including
+// /usr/inclue/dce/cma_ux.h which has the gall to #define write as cma_write
+
+#ifdef write
+#undef write
+#endif
 
 // Created object with default header, ASCII format, and default names for 
 // scalars, vectors, tensors, normals, and texture coordinates.
