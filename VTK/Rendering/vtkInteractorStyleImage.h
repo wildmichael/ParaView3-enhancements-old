@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleImage.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-04 14:29:45 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-01-10 20:16:17 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -68,7 +68,7 @@ class VTK_RENDERING_EXPORT vtkInteractorStyleImage : public vtkInteractorStyle
 {
 public:
   static vtkInteractorStyleImage *New();
-  vtkTypeRevisionMacro(vtkInteractorStyleImage, vtkObject);
+  vtkTypeRevisionMacro(vtkInteractorStyleImage, vtkInteractorStyle);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
