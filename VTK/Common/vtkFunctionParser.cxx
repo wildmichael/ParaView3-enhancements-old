@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFunctionParser.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-02-13 22:13:52 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-02-14 12:03:36 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
