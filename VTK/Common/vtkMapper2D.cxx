@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:37 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2002-07-03 15:59:39 $
+  Version:   $Revision: 1.17 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,8 +20,7 @@
 #include "vtkActor2D.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkMapper2D, "$Revision: 1.16 $");
-vtkStandardNewMacro(vtkMapper2D);
+vtkCxxRevisionMacro(vtkMapper2D, "$Revision: 1.17 $");
 
 void vtkMapper2D::PrintSelf(ostream& os, vtkIndent indent)
 {

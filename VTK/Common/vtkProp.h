@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProp.h,v $
   Language:  C++
-  Date:      $Date: 2002-02-21 18:51:08 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2002-07-03 15:59:39 $
+  Version:   $Revision: 1.38 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -39,11 +39,6 @@ class vtkMatrix4x4;
 class VTK_COMMON_EXPORT vtkProp : public vtkObject
 {
 public:
-  // Description:
-  // Creates an instance with visibility=1, pickable=1,
-  // and dragable=1.
-  static vtkProp* New();
-
   vtkTypeRevisionMacro(vtkProp,vtkObject);
   void PrintSelf(ostream& os, vtkIndent indent);
 

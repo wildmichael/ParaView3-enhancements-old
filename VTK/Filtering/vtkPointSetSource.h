@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSetSource.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:28:09 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2002-07-03 15:59:39 $
+  Version:   $Revision: 1.15 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -28,7 +28,6 @@
 class VTK_FILTERING_EXPORT vtkPointSetSource : public vtkSource
 {
 public:
-  static vtkPointSetSource *New();
   vtkTypeRevisionMacro(vtkPointSetSource,vtkSource);
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPiecewiseFunctionSource.h,v $
   Language:  C++
-  Date:      $Date: 2002-02-15 16:19:51 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-07-03 15:59:39 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -29,7 +29,6 @@
 class VTK_FILTERING_EXPORT vtkPiecewiseFunctionSource : public vtkSource
 {
 public:
-  static vtkPiecewiseFunctionSource *New();
   vtkTypeRevisionMacro(vtkPiecewiseFunctionSource,vtkSource);
 
   // Description:

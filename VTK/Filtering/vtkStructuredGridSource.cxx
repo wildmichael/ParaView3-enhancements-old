@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:28:13 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2002-07-03 15:59:39 $
+  Version:   $Revision: 1.25 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,8 +18,7 @@
 #include "vtkStructuredGridSource.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkStructuredGridSource, "$Revision: 1.24 $");
-vtkStandardNewMacro(vtkStructuredGridSource);
+vtkCxxRevisionMacro(vtkStructuredGridSource, "$Revision: 1.25 $");
 
 //----------------------------------------------------------------------------
 vtkStructuredGridSource::vtkStructuredGridSource()

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSetSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:28:09 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-07-03 15:59:39 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,8 +18,7 @@
 #include "vtkPointSetSource.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkPointSetSource, "$Revision: 1.8 $");
-vtkStandardNewMacro(vtkPointSetSource);
+vtkCxxRevisionMacro(vtkPointSetSource, "$Revision: 1.9 $");
 
 //----------------------------------------------------------------------------
 vtkPointSetSource::vtkPointSetSource()

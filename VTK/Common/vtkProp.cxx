@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProp.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-21 18:51:08 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2002-07-03 15:59:39 $
+  Version:   $Revision: 1.23 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,8 +20,7 @@
 #include "vtkAssemblyPaths.h"
 #include "vtkOldStyleCallbackCommand.h"
 
-vtkCxxRevisionMacro(vtkProp, "$Revision: 1.22 $");
-vtkStandardNewMacro(vtkProp);
+vtkCxxRevisionMacro(vtkProp, "$Revision: 1.23 $");
 
 // Creates an Prop with the following defaults: visibility on.
 vtkProp::vtkProp()

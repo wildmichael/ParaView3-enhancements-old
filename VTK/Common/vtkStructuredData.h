@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredData.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:26:21 $
-  Version:   $Revision: 1.55 $
+  Date:      $Date: 2002-07-03 15:59:39 $
+  Version:   $Revision: 1.56 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -42,7 +42,6 @@
 class VTK_COMMON_EXPORT vtkStructuredData : public vtkObject 
 {
 public:
-  static vtkStructuredData *New();
   vtkTypeRevisionMacro(vtkStructuredData,vtkObject);
 
   // Description:

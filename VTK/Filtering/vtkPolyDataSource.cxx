@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:28:10 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-07-03 15:59:39 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,8 +18,7 @@
 #include "vtkPolyDataSource.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkPolyDataSource, "$Revision: 1.4 $");
-vtkStandardNewMacro(vtkPolyDataSource);
+vtkCxxRevisionMacro(vtkPolyDataSource, "$Revision: 1.5 $");
 
 //----------------------------------------------------------------------------
 vtkPolyDataSource::vtkPolyDataSource()

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObjectSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:28:02 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2002-07-03 15:59:39 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,8 +18,7 @@
 #include "vtkDataObjectSource.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkDataObjectSource, "$Revision: 1.11 $");
-vtkStandardNewMacro(vtkDataObjectSource);
+vtkCxxRevisionMacro(vtkDataObjectSource, "$Revision: 1.12 $");
 
 vtkDataObjectSource::vtkDataObjectSource()
 {

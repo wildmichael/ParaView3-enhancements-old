@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPiecewiseFunctionSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-15 16:19:50 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-07-03 15:59:39 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,8 +18,7 @@
 #include "vtkPiecewiseFunctionSource.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkPiecewiseFunctionSource, "$Revision: 1.1 $");
-vtkStandardNewMacro(vtkPiecewiseFunctionSource);
+vtkCxxRevisionMacro(vtkPiecewiseFunctionSource, "$Revision: 1.2 $");
 
 //----------------------------------------------------------------------------
 vtkPiecewiseFunctionSource::vtkPiecewiseFunctionSource()

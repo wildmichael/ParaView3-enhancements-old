@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageInPlaceFilter.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:28:05 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2002-07-03 15:59:39 $
+  Version:   $Revision: 1.32 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -35,7 +35,6 @@
 class VTK_FILTERING_EXPORT vtkImageInPlaceFilter : public vtkImageToImageFilter
 {
 public:
-  static vtkImageInPlaceFilter *New();
   vtkTypeRevisionMacro(vtkImageInPlaceFilter,vtkImageToImageFilter);
 
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProcessObject.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:26:06 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2002-07-03 15:59:39 $
+  Version:   $Revision: 1.28 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,8 +19,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkOldStyleCallbackCommand.h"
 
-vtkCxxRevisionMacro(vtkProcessObject, "$Revision: 1.27 $");
-vtkStandardNewMacro(vtkProcessObject);
+vtkCxxRevisionMacro(vtkProcessObject, "$Revision: 1.28 $");
 
 // Instantiate object with no start, end, or progress methods.
 vtkProcessObject::vtkProcessObject()
