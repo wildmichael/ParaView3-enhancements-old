@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTetra.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-02-06 03:25:50 $
-  Version:   $Revision: 1.76 $
+  Date:      $Date: 2003-03-19 11:14:00 $
+  Version:   $Revision: 1.77 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,7 @@
 #include "vtkTriangle.h"
 #include "vtkUnstructuredGrid.h"
 
-vtkCxxRevisionMacro(vtkTetra, "$Revision: 1.76 $");
+vtkCxxRevisionMacro(vtkTetra, "$Revision: 1.77 $");
 vtkStandardNewMacro(vtkTetra);
 
 // Construct the tetra with four points.
@@ -486,8 +486,9 @@ double vtkTetra::ComputeVolume(double  p1[3], double p2[3], double p3[3],
                                   p2[2]-p1[2], p3[2]-p1[2], p4[2]-p1[2])/6.0);
 }
                                
-// Compute the circumcenter (center[3]) and radius (method return value) of
-// a tetrahedron defined by the four points x1, x2, x3, and x4.
+// Compute the circumcenter (center[3]) and radius squared (method
+// return value) of a tetrahedron defined by the four points x1, x2,
+// x3, and x4.
 double vtkTetra::Circumsphere(double  x1[3], double x2[3], double x3[3], 
                              double x4[3], double center[3])
 {

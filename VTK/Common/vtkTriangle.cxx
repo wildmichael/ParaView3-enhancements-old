@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangle.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-26 18:24:22 $
-  Version:   $Revision: 1.92 $
+  Date:      $Date: 2003-03-19 11:14:00 $
+  Version:   $Revision: 1.93 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -29,7 +29,7 @@
 #include "vtkPolygon.h"
 #include "vtkQuadric.h"
 
-vtkCxxRevisionMacro(vtkTriangle, "$Revision: 1.92 $");
+vtkCxxRevisionMacro(vtkTriangle, "$Revision: 1.93 $");
 vtkStandardNewMacro(vtkTriangle);
 
 // Construct the triangle with three points.
@@ -637,10 +637,10 @@ void vtkTriangle::ComputeNormal(vtkPoints *p, int vtkNotUsed(numPts),
   vtkTriangle::ComputeNormal(v1,v2,v3,n);
 }
 
-// Compute the circumcenter (center[3]) and radius (method return value) of
-// a triangle defined by the three points x1, x2, and x3. (Note that the
-// coordinates are 2D. 3D points can be used but the z-component will be
-// ignored.)
+// Compute the circumcenter (center[3]) and radius squared (method
+// return value) of a triangle defined by the three points x1, x2, and
+// x3. (Note that the coordinates are 2D. 3D points can be used but
+// the z-component will be ignored.)
 double vtkTriangle::Circumcircle(double  x1[2], double x2[2], double x3[2], 
                                  double center[2])
 {
