@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32RenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-11-18 20:24:14 $
-  Version:   $Revision: 1.69 $
+  Date:      $Date: 2000-12-04 02:19:31 $
+  Version:   $Revision: 1.70 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -115,6 +115,13 @@ vtkWin32RenderWindowInteractor::~vtkWin32RenderWindowInteractor()
 
 void  vtkWin32RenderWindowInteractor::Start() 
 {
+  // Let the compositing handle the event loop if it wants to.
+  if (this->HasObserver(vtkCommand::StartEvent))
+    {
+    this->InvokeEvent(vtkCommand::StartEvent,NULL);
+    return;
+    }
+
   // No need to do anything if this is a 'mapped' interactor
   if (!this->Enabled || !this->InstallMessageProc) 
     {
