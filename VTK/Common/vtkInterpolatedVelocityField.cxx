@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInterpolatedVelocityField.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-30 18:11:46 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2002-09-09 12:27:15 $
+  Version:   $Revision: 1.16 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkInterpolatedVelocityField.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkInterpolatedVelocityField, "$Revision: 1.15 $");
+vtkCxxRevisionMacro(vtkInterpolatedVelocityField, "$Revision: 1.16 $");
 vtkStandardNewMacro(vtkInterpolatedVelocityField);
 
 vtkInterpolatedVelocityField::vtkInterpolatedVelocityField()
@@ -82,6 +82,9 @@ void vtkInterpolatedVelocityField::PrintSelf(ostream& os, vtkIndent indent)
     {
     os << "off." << endl;
     }
+
+  os << indent << "VectorsSelection: " 
+     << (this->VectorsSelection?this->VectorsSelection:"(none)") << endl;
 
 }
 
