@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkPVDataInformation.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-11-12 20:58:55 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2003-11-13 20:19:19 $
+  Version:   $Revision: 1.15 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -59,7 +59,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro(vtkPVDataInformation);
-vtkCxxRevisionMacro(vtkPVDataInformation, "$Revision: 1.14 $");
+vtkCxxRevisionMacro(vtkPVDataInformation, "$Revision: 1.15 $");
 
 
 //----------------------------------------------------------------------------
@@ -164,6 +164,14 @@ void vtkPVDataInformation::CopyFromCompositeDataSet(vtkCompositeDataSet* data)
     }
   iter->Delete();
   this->DataSetType = data->GetDataObjectType();
+}
+#else
+class vtkCompositeDataSet
+{
+};
+//----------------------------------------------------------------------------
+void vtkPVDataInformation::CopyFromCompositeDataSet(vtkCompositeDataSet*)
+{
 }
 #endif
 
