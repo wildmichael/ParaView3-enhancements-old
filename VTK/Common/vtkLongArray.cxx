@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLongArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-21 15:21:51 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2001-11-12 16:07:44 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -391,4 +391,11 @@ vtkIdType vtkLongArray::InsertNextTuple(const double * tuple)
     }
 
   return this->MaxId / this->NumberOfComponents;
+}
+
+void vtkLongArray::InsertComponent(const vtkIdType i, const int j, 
+                                   const float c)
+{
+  this->InsertValue(i*this->NumberOfComponents + j, 
+                    static_cast<const long>(c));
 }

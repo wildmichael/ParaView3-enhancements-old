@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDoubleArray.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:36:10 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 2001-11-12 16:07:44 $
+  Version:   $Revision: 1.51 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -136,6 +136,11 @@ public:
   // Description:
   // Insert data at the end of the array. Return its location in the array.
   vtkIdType InsertNextValue(const double f);
+
+  // Description:
+  // Insert the data component at ith tuple and jth component location. 
+  // Note that memory allocation is performed as necessary to hold the data.
+  virtual void InsertComponent(const vtkIdType i, const int j, const float c);
 
   // Description:
   // Get the address of a particular data index. Make sure data is allocated
