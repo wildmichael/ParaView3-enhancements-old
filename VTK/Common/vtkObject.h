@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkObject.h,v $
   Language:  C++
-  Date:      $Date: 1994-02-16 16:08:49 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1994-05-08 07:25:53 $
+  Version:   $Revision: 1.12 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -41,8 +41,8 @@ class vlObject
 public:
   vlObject();
   virtual ~vlObject();
-  void Register(void* p);
-  void UnRegister(void* p);
+  void Register(vlObject* o);
+  void UnRegister(vlObject* o);
   int  GetRefCount() {return this->RefCount;};
   void DebugOn();
   void DebugOff();

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkObject.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-03-08 20:47:37 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1994-05-08 07:25:51 $
+  Version:   $Revision: 1.13 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -40,15 +40,15 @@ vlObject::~vlObject()
   vlDebugMacro(<< "Destructing!");
 }
 
-void vlObject::Register(void *p)
+void vlObject::Register(vlObject* o)
 {
   this->RefCount++;
-  vlDebugMacro(<< "Registered by " << (void *)p);
+  vlDebugMacro(<< "Registered by " << o->GetClassName() << " (" << o << ")");
 }
 
-void vlObject::UnRegister(void *p)
+void vlObject::UnRegister(vlObject* o)
 {
-  vlDebugMacro(<< "UnRegistered by " << (void *)p);
+  vlDebugMacro(<< "UnRegistered by " << o->GetClassName() << " (" << 0 << ")");
 
   if (--this->RefCount <= 0) delete this;
 }

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkSetGet.h,v $
   Language:  C++
-  Date:      $Date: 1994-03-08 20:47:37 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1994-05-08 07:25:55 $
+  Version:   $Revision: 1.9 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -113,10 +113,10 @@ void Set##name (type* _arg) \
   if (Debug)   cerr << "In " __FILE__ << ", line " << __LINE__ << "\n" << this->GetClassName() << " (" << this << "): setting " << #name " to " << &_arg << "\n\n"; \
   if (name != _arg) \
     { \
-    if (name != 0) name->UnRegister((void *)this); \
+    if (name != 0) name->UnRegister(this); \
     name = _arg; \
-    name->Register((void *)this); \
-    Modified(); \
+    name->Register(this); \
+    this->Modified(); \
     } \
   } 
 
