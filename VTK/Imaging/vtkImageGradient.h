@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageGradient.h,v $
   Language:  C++
-  Date:      $Date: 1996-10-23 14:31:44 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1997-01-03 14:55:46 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -79,13 +79,14 @@ public:
   vtkBooleanMacro(HandleBoundaries, int);
   
   // Description:
-  // Mainly for templated function.  The actual number of axes used
-  // to compute the gradient.
-  vtkGetMacro(NumberOfAxes, int);
+  // Determines how the input is interpreted (set of 2d slices ...)
+  // and the number of components in the output vectors.
+  // (Input can not use the component axis).
+  vtkSetMacro(Dimensionality, int);
+  
   
 protected:
   int HandleBoundaries;
-  int NumberOfAxes;  // needs a better name
   
   void ComputeOutputImageInformation(vtkImageRegion *inRegion,
 				     vtkImageRegion *outRegion);

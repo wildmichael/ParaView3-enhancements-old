@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageGradientMagnitude.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-10-21 18:50:24 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1997-01-03 14:55:55 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -48,8 +48,12 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 vtkImageGradientMagnitude::vtkImageGradientMagnitude()
 {
   this->SetAxes(VTK_IMAGE_X_AXIS,VTK_IMAGE_Y_AXIS);
+  this->Dimensionality = 2;
+
   this->SetOutputScalarType(VTK_FLOAT);
   this->HandleBoundariesOn();
+  
+  this->ExecuteDimensionality = 4;  
 }
 
 
