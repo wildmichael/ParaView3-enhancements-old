@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGridSynchronizedTemplates3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:16 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2000-12-11 20:23:48 $
+  Version:   $Revision: 1.24 $
 
 
 
@@ -818,8 +818,6 @@ void vtkGridSynchronizedTemplates3D::ExecuteInformation()
   //  this->GetOutput()->SetEstimatedWholeMemorySize(
   //			numTris*sizeTri + numPts*sizePt);
 
-  this->GetOutput()->SetMaximumNumberOfPieces(100000);
-    
 }
 
 //----------------------------------------------------------------------------

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKitwareContourFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:16 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2000-12-11 20:23:48 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -156,8 +156,6 @@ void vtkKitwareContourFilter::ComputeInputUpdateExtents(vtkDataObject *data)
 
 void vtkKitwareContourFilter::ExecuteInformation()
 {
-  // Arbitrary to get thinks to work.
-  this->GetOutput()->SetMaximumNumberOfPieces(10000);
 }
 
 //
