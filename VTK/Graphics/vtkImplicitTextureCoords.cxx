@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitTextureCoords.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:53:17 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1996-09-20 11:18:04 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -106,9 +106,9 @@ void vtkImplicitTextureCoords::Execute()
   for (ptId=0; ptId<numPts; ptId++) //compute texture coordinates
     {
     x = input->GetPoint(ptId);
-    tCoord[0] = this->RFunction->EvaluateFunction(x);
-    if ( this->SFunction ) tCoord[1] = this->SFunction->EvaluateFunction(x);
-    if ( this->TFunction ) tCoord[2] = this->TFunction->EvaluateFunction(x);
+    tCoord[0] = this->RFunction->FunctionValue(x);
+    if ( this->SFunction ) tCoord[1] = this->SFunction->FunctionValue(x);
+    if ( this->TFunction ) tCoord[2] = this->TFunction->FunctionValue(x);
 
     for (i=0; i<tcoordDim; i++)
       {
