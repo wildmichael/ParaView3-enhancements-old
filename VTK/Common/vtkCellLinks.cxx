@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellLinks.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:39:49 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1997-12-11 11:54:03 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -121,6 +121,7 @@ void vtkCellLinks::BuildLinks(vtkDataSet *data)
 {
   int numPts = data->GetNumberOfPoints();
   int numCells = data->GetNumberOfCells();
+  int numberOfPoints;
   int i, j, ptId, cellId;
   vtkCell *cell;
   unsigned short *linkLoc;
@@ -129,7 +130,8 @@ void vtkCellLinks::BuildLinks(vtkDataSet *data)
   for (cellId=0; cellId < numCells; cellId++)
     {
     cell = data->GetCell(cellId);
-    for (j=0; j < cell->GetNumberOfPoints(); j++)
+    numberOfPoints = cell->GetNumberOfPoints();
+    for (j=0; j < numberOfPoints; j++)
       {
       this->IncrementLinkCount(cell->PointIds.GetId(j));      
       }      
@@ -146,7 +148,8 @@ void vtkCellLinks::BuildLinks(vtkDataSet *data)
   for (cellId=0; cellId < numCells; cellId++)
     {
     cell = data->GetCell(cellId);
-    for (j=0; j < cell->GetNumberOfPoints(); j++)
+    numberOfPoints = cell->GetNumberOfPoints();
+    for (j=0; j < numberOfPoints; j++)
       {
       ptId = cell->PointIds.GetId(j);
       this->InsertCellReference(ptId, (linkLoc[ptId])++, cellId);      
