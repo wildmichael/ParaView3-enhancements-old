@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPieceScalars.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-25 16:06:07 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-04-26 11:03:33 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -104,6 +104,7 @@ void vtkPieceScalars::Execute()
     }
     
   output->ShallowCopy(input);
+  pieceColors->GetData()->SetName("Piece");  
   if (this->CellScalarsFlag)
     {
     output->GetCellData()->SetScalars(pieceColors);
@@ -151,7 +152,6 @@ vtkScalars *vtkPieceScalars::MakeRandomScalars(int piece, int num)
   pieceColors = vtkScalars::New();
   pieceColors->Allocate(num);
   pieceColors->SetNumberOfScalars(num);
-  pieceColors->GetData()->SetName("Piece");
   
   for (i = 0; i < num; ++i)
     {
