@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-27 19:44:29 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1997-05-28 15:19:19 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder,ill Lorensen.
@@ -101,7 +101,7 @@ vtkImageReader::~vtkImageReader()
 
 void vtkImageReader::SetFileByteOrderToBigEndian()
 {
-#ifndef WORDS_BIGENDIAN
+#ifndef VTK_WORDS_BIGENDIAN
   this->SwapBytesOn();
 #else
   this->SwapBytesOff();
@@ -110,7 +110,7 @@ void vtkImageReader::SetFileByteOrderToBigEndian()
 
 void vtkImageReader::SetFileByteOrderToLittleEndian()
 {
-#ifdef WORDS_BIGENDIAN
+#ifdef VTK_WORDS_BIGENDIAN
   this->SwapBytesOn();
 #else
   this->SwapBytesOff();
@@ -127,7 +127,7 @@ void vtkImageReader::SetFileByteOrder(int byteOrder)
 
 int vtkImageReader::GetFileByteOrder()
 {
-#ifdef WORDS_BIGENDIAN
+#ifdef VTK_WORDS_BIGENDIAN
   if ( this->SwapBytes )
     return VTK_FILE_BYTE_ORDER_LITTLE_ENDIAN;
   else
@@ -142,7 +142,7 @@ int vtkImageReader::GetFileByteOrder()
 
 char *vtkImageReader::GetFileByteOrderAsString()
 {
-#ifdef WORDS_BIGENDIAN
+#ifdef VTK_WORDS_BIGENDIAN
   if ( this->SwapBytes )
     return "LittleEndian";
   else
