@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLFreeTypeTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-07-10 21:50:46 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-07-11 13:36:52 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -15,6 +15,7 @@
      PURPOSE.  See the above copyright notice for more information.
 
 =========================================================================*/
+
 #include "vtkOpenGLFreeTypeTextMapper.h"
 #include "vtkObjectFactory.h"
 #include "vtkgluPickMatrix.h"
@@ -176,7 +177,7 @@ public:
 private:
 
   Entry *Entries[FONT_CACHE_CAPACITY];
-  size_t NumberOfEntries;
+  int NumberOfEntries;
 };
 
 // Create cache
@@ -421,7 +422,7 @@ FTFont* vtkFontCache::GetFont(vtkTextProperty *tprop,
 vtkFontCache FontCacheSingleton;
 
 //----------------------------------------------------------------------------
-vtkCxxRevisionMacro(vtkOpenGLFreeTypeTextMapper, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkOpenGLFreeTypeTextMapper, "$Revision: 1.7 $");
 vtkStandardNewMacro(vtkOpenGLFreeTypeTextMapper);
 
 //----------------------------------------------------------------------------
@@ -441,7 +442,7 @@ vtkOpenGLFreeTypeTextMapper::~vtkOpenGLFreeTypeTextMapper()
 }
 
 //----------------------------------------------------------------------------
-void vtkOpenGLFreeTypeTextMapper::ReleaseGraphicsResources(vtkWindow *win)
+void vtkOpenGLFreeTypeTextMapper::ReleaseGraphicsResources(vtkWindow *vtkNotUsed(win))
 {
 #if VTK_FTTM_DEBUG
     printf("vtkOpenGLFreeTypeTextMapper::ReleaseGraphicsResources\n");
