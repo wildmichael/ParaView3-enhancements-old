@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAttributeData.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:06 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2001-05-28 05:50:29 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -132,15 +132,6 @@ public:
   // the pipeline has been updated.
   unsigned long GetActualMemorySize();
 
-#ifndef VTK_REMOVE_LEGACY_CODE
-  // Description:
-  // For legacy compatibility. Do not use.
-  void DeepCopy(vtkAttributeData &ad) 
-    {VTK_LEGACY_METHOD(DeepCopy,"3.2"); this->DeepCopy(&ad);}
-  void ShallowCopy(vtkAttributeData &ad) 
-    {VTK_LEGACY_METHOD(ShallowCopy,"3.2"); this->ShallowCopy(&ad);}
-#endif
-  
 protected:
   // Construct object with an initial data array of type dataType (by default
   // dataType is VTK_FLOAT.

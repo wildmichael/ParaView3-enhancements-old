@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCharArray.h,v $
   Language:  C++
-  Date:      $Date: 2001-05-09 15:35:22 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2001-05-28 05:49:17 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -194,13 +194,6 @@ public:
   void SetVoidArray(void *array,int size, int save) 
     {this->SetArray((char*)array, size, save);};
 
-#ifndef VTK_REMOVE_LEGACY_CODE
-  // Description:
-  // For legacy compatibility. Do not use.
-  void DeepCopy(vtkDataArray &ia) 
-    {VTK_LEGACY_METHOD(DeepCopy,"3.2"); this->DeepCopy(&ia);}  
-#endif
-  
 protected:
   vtkCharArray(int numComp=1);
   ~vtkCharArray();

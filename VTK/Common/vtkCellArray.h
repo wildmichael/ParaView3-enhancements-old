@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellArray.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:06 $
-  Version:   $Revision: 1.76 $
+  Date:      $Date: 2001-05-28 05:49:37 $
+  Version:   $Revision: 1.77 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -234,12 +234,6 @@ public:
   // information returned is valid only after the pipeline has 
   // been updated.
   unsigned long GetActualMemorySize();
-  
-#ifndef VTK_REMOVE_LEGACY_CODE
-  // Description:
-  // For legacy compatibility. Do not use.
-  int InsertNextCell(vtkIdList &pts);
-#endif
   
 protected:
   vtkCellArray();

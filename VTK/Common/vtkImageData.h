@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.h,v $
   Language:  C++
-  Date:      $Date: 2001-01-22 12:48:07 $
-  Version:   $Revision: 1.82 $
+  Date:      $Date: 2001-05-28 05:47:51 $
+  Version:   $Revision: 1.83 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -299,19 +299,6 @@ public:
   void ShallowCopy(vtkDataObject *src);  
   void DeepCopy(vtkDataObject *src);
 
-#ifndef VTK_REMOVE_LEGACY_CODE
-  // Description:
-  // For legacy compatibility. Do not use.
-  void GetCellPoints(int cellId, vtkIdList &ptIds)
-    {VTK_LEGACY_METHOD(GetCellPoints,"3.2");this->GetCellPoints(cellId, &ptIds);}
-  void GetPointCells(int ptId, vtkIdList &cellIds)
-    {VTK_LEGACY_METHOD(GetPointCells,"3.2");this->GetPointCells(ptId, &cellIds);}
-  void GetVoxelGradient(int i,int j,int k, vtkScalars *s, vtkVectors &g)
-    {VTK_LEGACY_METHOD(GetVoxelGradient,"3.2");this->GetVoxelGradient(i, j, k, s, &g);}
-  vtkImageData *UpdateAndReturnData() 
-    {VTK_LEGACY_METHOD(UpdateAndReturnData,"3.2");this->Update();return this;}
-#endif
-  
 protected:
   vtkImageData();
   ~vtkImageData();

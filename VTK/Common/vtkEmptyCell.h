@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEmptyCell.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:09 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2001-05-28 05:48:47 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -85,15 +85,6 @@ public:
   void Derivatives(int subId, float pcoords[3], float *values, 
                    int dim, float *derivs);
 
-#ifndef VTK_REMOVE_LEGACY_CODE
-  // Description:
-  // For legacy compatibility. Do not use.
-  int CellBoundary(int subId, float pcoords[3], vtkIdList &pts)
-    {VTK_LEGACY_METHOD(CellBoundary,"3.2"); return this->CellBoundary(subId, pcoords, &pts);}
-  int Triangulate(int index, vtkIdList &ptIds, vtkPoints &pts)
-    {VTK_LEGACY_METHOD(Triangulate,"3.2"); return this->Triangulate(index, &ptIds, &pts);}
-#endif
-  
 protected:
   vtkEmptyCell() {};
   ~vtkEmptyCell() {};

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMatrix4x4.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:13 $
-  Version:   $Revision: 1.56 $
+  Date:      $Date: 2001-05-28 05:46:17 $
+  Version:   $Revision: 1.57 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -186,10 +186,6 @@ public:
   double GetElement(int i, int j) const 
     {return this->Element[i][j];}
 
-  // Description: 
-  // For legacy compatibility. Do not use.
-  void PointMultiply(const float in[4], float out[4]);
-  void PointMultiply(const double in[4], double out[4]);
 //BTX
   double *operator[](const unsigned int i) 
     {return &(this->Element[i][0]);}

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLine.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:12 $
-  Version:   $Revision: 1.52 $
+  Date:      $Date: 2001-05-28 05:47:08 $
+  Version:   $Revision: 1.53 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -119,15 +119,6 @@ public:
   // Line specific methods.
   static void InterpolationFunctions(float pcoords[3], float weights[2]);
 
-#ifndef VTK_REMOVE_LEGACY_CODE
-  // Description:
-  // For legacy compatibility. Do not use.
-  int CellBoundary(int subId, float pcoords[3], vtkIdList &pts)
-    {VTK_LEGACY_METHOD(CellBoundary,"3.2");return this->CellBoundary(subId, pcoords, &pts);}
-  int Triangulate(int index, vtkIdList &ptIds, vtkPoints &pts)
-    {VTK_LEGACY_METHOD(Triangulate,"3.2");return this->Triangulate(index, &ptIds, &pts);}
-#endif
-  
 protected:
   vtkLine();
   ~vtkLine() {};

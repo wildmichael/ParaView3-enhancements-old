@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHomogeneousTransform.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:10 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-05-28 05:48:17 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -110,14 +110,6 @@ public:
   void InternalTransformDerivative(const double in[3], double out[3],
 				   double derivative[3][3]);
 
-#ifndef VTK_REMOVE_LEGACY_CODE
-  // Description:
-  // This is an obsolete method provided for backwards-compatibility.
-  // Do not use.
-  vtkMatrix4x4 *GetMatrixPointer() 
-    {VTK_LEGACY_METHOD(GetMatrix,"3.2");  return this->GetMatrix(); }
-#endif
-  
 protected:
   vtkHomogeneousTransform();
   ~vtkHomogeneousTransform();

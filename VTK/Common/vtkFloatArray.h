@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFloatArray.h,v $
   Language:  C++
-  Date:      $Date: 2001-05-09 15:35:22 $
-  Version:   $Revision: 1.58 $
+  Date:      $Date: 2001-05-28 05:48:32 $
+  Version:   $Revision: 1.59 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -196,13 +196,6 @@ public:
   void SetVoidArray(void *array,int size, int save) 
     {this->SetArray((float*)array, size, save);}
 
-#ifndef VTK_REMOVE_LEGACY_CODE
-  // Description:
-  // For legacy compatibility. Do not use.
-  void DeepCopy(vtkDataArray &fa) 
-    {VTK_LEGACY_METHOD(DeepCopy,"3.2"); this->DeepCopy(&fa);}
-#endif
-  
   
 protected:
   vtkFloatArray(int numComp=1);
