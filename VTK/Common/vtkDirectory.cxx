@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDirectory.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-15 15:40:30 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2002-09-25 14:41:02 $
+  Version:   $Revision: 1.16 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,7 +19,7 @@
 
 #include "vtkDebugLeaks.h"
 
-vtkCxxRevisionMacro(vtkDirectory, "$Revision: 1.15 $");
+vtkCxxRevisionMacro(vtkDirectory, "$Revision: 1.16 $");
 
 //----------------------------------------------------------------------------
 // Needed when we don't use the vtkStandardNewMacro.
@@ -78,6 +78,7 @@ void vtkDirectory::PrintSelf(ostream& os, vtkIndent indent)
 #include <windows.h>
 #include <io.h>
 #include <ctype.h>
+#include <direct.h>
 #include <fcntl.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -142,12 +143,19 @@ int vtkDirectory::Open(const char* name)
   return _findclose(srchHandle) != -1;
 }
 
+const char* vtkDirectory::GetCurrentWorkingDirectory(char* buf, 
+                                                     unsigned int len)
+{
+  return _getcwd(buf, len);
+}
+
 #else
 
 // Now the POSIX style directory access
 
 #include <sys/types.h>
 #include <dirent.h>
+#include <unistd.h>
 
 int vtkDirectory::Open(const char* name)
 {
@@ -180,6 +188,12 @@ int vtkDirectory::Open(const char* name)
   this->Path = strcpy(new char[strlen(name)+1], name);
   closedir(dir);
   return 1;
+}
+
+const char* vtkDirectory::GetCurrentWorkingDirectory(char* buf, 
+                                                     unsigned int len)
+{
+  return getcwd(buf, len);
 }
 
 #endif

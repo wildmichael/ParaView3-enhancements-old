@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDirectory.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-15 15:40:30 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2002-09-25 14:41:02 $
+  Version:   $Revision: 1.18 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -50,12 +50,18 @@ public:
   // in that directory. 0 is returned if the directory can not be 
   // opened, 1 if it is opened.   
   int Open(const char* dir);
+
   // Description:
   // Return the number of files in the current directory.
   int GetNumberOfFiles() { return this->NumberOfFiles; }
+
   // Description:
   // Return the file at the given index, the indexing is 0 based
   const char* GetFile(int index);
+
+  // Description:
+  static const char* GetCurrentWorkingDirectory(char* buf, unsigned int len);
+
 protected:
   vtkDirectory();
   ~vtkDirectory() ;
