@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXdmfReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-09-22 12:28:54 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2003-09-29 20:02:29 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen  
@@ -64,13 +64,15 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "XdmfTransform.h"
 #include "XdmfGrid.h"
 #include "XdmfXNode.h"
+#include "XdmfGeometry.h"
+#include "XdmfAttribute.h"
 
 #include <sys/stat.h>
 #include <string>
 #include <vector>
 
 vtkStandardNewMacro(vtkXdmfReader);
-vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.18 $");
+vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.19 $");
 
 #if defined(_WIN32) && (defined(_MSC_VER) || defined(__BORLANDC__))
 #  include <direct.h>
