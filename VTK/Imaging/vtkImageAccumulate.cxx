@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAccumulate.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-11 14:26:22 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 2003-09-04 17:49:18 $
+  Version:   $Revision: 1.49 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkImageAccumulate, "$Revision: 1.48 $");
+vtkCxxRevisionMacro(vtkImageAccumulate, "$Revision: 1.49 $");
 vtkStandardNewMacro(vtkImageAccumulate);
 
 //----------------------------------------------------------------------------
@@ -352,10 +352,22 @@ void vtkImageAccumulate::PrintSelf(ostream& os, vtkIndent indent)
 {
   this->Superclass::PrintSelf(os,indent);
 
-  os << indent << "Mean: " << this->Mean << "\n";
-  os << indent << "Min: " << this->Min << "\n";
-  os << indent << "Max: " << this->Max << "\n";
-  os << indent << "StandardDeviation: " << this->StandardDeviation << "\n";
+  os << indent << "Mean: ("
+     << this->Mean[0] << ", "
+     << this->Mean[1] << ", "
+     << this->Mean[2] << ")\n";
+  os << indent << "Min: ("
+     << this->Min[0] << ", "
+     << this->Min[1] << ", "
+     << this->Min[2] << ")\n";
+  os << indent << "Max: ("
+     << this->Max[0] << ", "
+     << this->Max[1] << ", "
+     << this->Max[2] << ")\n";
+  os << indent << "StandardDeviation: ("
+     << this->StandardDeviation[0] << ", "
+     << this->StandardDeviation[1] << ", "
+     << this->StandardDeviation[2] << ")\n";
   os << indent << "VoxelCount: " << this->VoxelCount << "\n";
   os << indent << "Stencil: " << this->GetStencil() << "\n";
   os << indent << "ReverseStencil: " << (this->ReverseStencil ?
