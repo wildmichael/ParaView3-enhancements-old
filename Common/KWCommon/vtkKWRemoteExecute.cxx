@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKWRemoteExecute.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-04-09 18:40:30 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2003-04-14 15:00:23 $
+  Version:   $Revision: 1.3 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -78,7 +78,7 @@ public:
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro( vtkKWRemoteExecute );
-vtkCxxRevisionMacro(vtkKWRemoteExecute, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkKWRemoteExecute, "$Revision: 1.3 $");
 
 //----------------------------------------------------------------------------
 vtkKWRemoteExecute::vtkKWRemoteExecute()
@@ -199,4 +199,5 @@ int vtkKWRemoteExecute::RunCommand(const char* command, const char* args[])
 void vtkKWRemoteExecute::PrintSelf(ostream& os, vtkIndent indent)
 {
   this->Superclass::PrintSelf(os,indent);
+  os << indent << "RemoteHost: " << this->RemoteHost << endl;
 }

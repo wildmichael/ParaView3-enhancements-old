@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKWArguments.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-04-09 12:18:03 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2003-04-14 15:00:23 $
+  Version:   $Revision: 1.6 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -85,7 +85,7 @@ public:
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro( vtkKWArguments );
-vtkCxxRevisionMacro(vtkKWArguments, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkKWArguments, "$Revision: 1.6 $");
 
 //----------------------------------------------------------------------------
 vtkKWArguments::vtkKWArguments()
@@ -385,4 +385,12 @@ void vtkKWArguments::GenerateHelp()
 void vtkKWArguments::PrintSelf(ostream& os, vtkIndent indent)
 {
   this->Superclass::PrintSelf(os,indent);
+  if ( this->Help )
+    {
+    os << indent << "Help: " << endl << this->Help << endl;
+    }
+  else
+    {
+    os << indent << "No help" << endl;
+    }
 }
