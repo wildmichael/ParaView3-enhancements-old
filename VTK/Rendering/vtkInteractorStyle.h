@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyle.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-06 17:28:38 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2000-10-05 06:44:34 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -182,6 +182,12 @@ public:
 			  int repeatcount);
   virtual void OnKeyRelease(int ctrl, int shift, char keycode, char *keysym,
 			    int repeatcount);
+
+  // Description:
+  // These are more esoteric events, but are useful in some cases.
+  virtual void OnConfigure(int width, int height);
+  virtual void OnEnter(int ctrl, int shift, int x, int y);
+  virtual void OnLeave(int ctrl, int shift, int x, int y);
 
   // Description:
   // OnTimer calls RotateCamera, RotateActor etc which should be overridden by

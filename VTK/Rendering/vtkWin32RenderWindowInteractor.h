@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32RenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-06 18:21:50 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2000-10-05 06:44:34 $
+  Version:   $Revision: 1.34 $
   
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -119,6 +119,7 @@ public:
   // Various methods that a Win32 window can redirect to this class to be 
   // handled.
   virtual void OnMouseMove  (HWND wnd, UINT nFlags, int X, int Y);
+  virtual void OnNCMouseMove(HWND wnd, UINT nFlags, int X, int Y);
   virtual void OnRButtonDown(HWND wnd, UINT nFlags, int X, int Y);
   virtual void OnRButtonUp  (HWND wnd, UINT nFlags, int X, int Y);
   virtual void OnMButtonDown(HWND wnd, UINT nFlags, int X, int Y);
@@ -155,6 +156,8 @@ protected:
   UINT    TimerId;
   WNDPROC OldProc;
   int     InstallMessageProc;
+
+  int     MouseInWindow;
 
   //BTX
   // Description:
