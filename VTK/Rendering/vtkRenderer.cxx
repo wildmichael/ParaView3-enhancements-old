@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-23 15:48:34 $
-  Version:   $Revision: 1.154 $
+  Date:      $Date: 2000-08-25 13:41:35 $
+  Version:   $Revision: 1.155 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1111,6 +1111,9 @@ void vtkRenderer::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "Lights:\n";
   this->Lights->PrintSelf(os,indent.GetNextIndent());
 
+  os << indent << "LightFollowCamera: "
+     << (this->LightFollowCamera ? "On\n" : "Off\n");
+
   os << indent << "ViewPoint: (" << this->ViewPoint[0] << ", " 
     << this->ViewPoint[1] << ", " << this->ViewPoint[2] << ")\n";
 
@@ -1314,7 +1317,7 @@ void vtkRenderer::PickRender(vtkPropCollection *props)
         }
       else //must be some other type of prop (e.g., vtkActor2D)
         {
-        for ( aProp->InitPathTraversal(); path=aProp->GetNextPath(); )
+        for ( aProp->InitPathTraversal(); (path=aProp->GetNextPath()); )
           {
           this->PathArray[this->PathArrayCount++] = path;
           }
@@ -1348,7 +1351,7 @@ void vtkRenderer::PickRender(vtkPropCollection *props)
     {
     if ( aProp != NULL )
       {
-      for ( aProp->InitPathTraversal(); path=aProp->GetNextPath(); )
+      for ( aProp->InitPathTraversal(); (path=aProp->GetNextPath()); )
         {
         this->PathArray[this->PathArrayCount++] = path;
         }
