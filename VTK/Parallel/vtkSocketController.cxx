@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSocketController.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-16 21:40:49 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-08-17 20:43:01 $
+  Version:   $Revision: 1.3 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -101,6 +101,24 @@ void vtkSocketController::SetNumberOfProcesses(int num)
 {
   vtkErrorMacro("Can not change the number of processes.");
   return;
+}
+
+void vtkSocketController::SetCommunicator(vtkSocketCommunicator* comm)
+{
+  if (comm == this->Communicator)
+    {
+    return;
+    }
+  if (this->Communicator)
+    {
+    this->Communicator->UnRegister(this);
+    }
+  this->Communicator = comm;
+  this->RMICommunicator = comm;
+  if (comm)
+    {
+    comm->Register(this);
+    }
 }
 
 //----------------------------------------------------------------------------

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSocketCommunicator.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-16 21:40:49 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2001-08-17 20:43:01 $
+  Version:   $Revision: 1.14 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -79,7 +79,7 @@ public:
 
   // Description:
   // Wait for connection on a given port
-  virtual int WaitForConnection(int port, int timeout);
+  virtual int WaitForConnection(int port);
 
   // Description:
   // Close a connection

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMultiProcessController.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-13 17:40:18 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-08-17 20:43:01 $
+  Version:   $Revision: 1.5 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -152,7 +152,6 @@ vtkMultiProcessController::~vtkMultiProcessController()
 
   this->RMIs->Delete();
   this->RMIs = NULL;
-  // deletes string
 }
 
   

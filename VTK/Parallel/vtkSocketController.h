@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSocketController.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-16 21:40:49 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2001-08-17 20:43:01 $
+  Version:   $Revision: 1.8 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -99,10 +99,10 @@ public:
   // Description:
   // Wait for connection on a given port, forwarded
   // to the communicator
-  virtual int WaitForConnection(int port, int timeout)
+  virtual int WaitForConnection(int port)
     { 
     return vtkSocketCommunicator::SafeDownCast(this->Communicator)->
-      WaitForConnection(port,timeout); 
+      WaitForConnection(port); 
     }
 
   // Description:
@@ -129,7 +129,9 @@ public:
       GetSwapBytesInReceivedData();
     }
 
-
+  // Description:
+  // Set the communicator used in normal and rmi communications.
+  void SetCommunicator(vtkSocketCommunicator* comm);
 
 //BTX
 
