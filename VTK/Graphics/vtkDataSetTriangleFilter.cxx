@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetTriangleFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-11 10:50:16 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2001-06-13 11:55:53 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -195,7 +195,7 @@ void vtkDataSetTriangleFilter::UnstructuredExecute()
   vtkCellData *outCD=output->GetCellData();
   vtkPoints *cellPts = vtkPoints::New();
   vtkIdList *cellPtIds = vtkIdList::New();
-  int numPts, type, ptId, ncells, numTets;
+  int type, ptId, ncells, numTets;
   int npts, numSimplices, dim;
   int pts[4];
   float *xPtr;

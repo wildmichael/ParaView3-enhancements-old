@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSight6BinaryReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-05-29 17:11:50 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2001-06-13 11:55:53 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -237,7 +237,7 @@ int vtkEnSight6BinaryReader::ReadGeometryFile()
 int vtkEnSight6BinaryReader::ReadMeasuredGeometryFile()
 {
   char line[80], subLine[80];
-  int i, lineRead;
+  int i;
   int *pointIds;
   float *xCoords, *yCoords, *zCoords;
   vtkPoints *points = vtkPoints::New();
@@ -286,7 +286,7 @@ int vtkEnSight6BinaryReader::ReadMeasuredGeometryFile()
 
   this->ReadLine(line); // "particle coordinates"
   
-  lineRead = this->ReadInt(&this->NumberOfMeasuredPoints);
+  this->ReadInt(&this->NumberOfMeasuredPoints);
   
   this->MeasuredNodeIds->Allocate(this->NumberOfMeasuredPoints);
 
