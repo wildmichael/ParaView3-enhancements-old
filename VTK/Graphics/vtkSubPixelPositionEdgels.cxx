@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSubPixelPositionEdgels.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-27 20:10:02 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1996-08-30 12:41:34 $
+  Version:   $Revision: 1.2 $
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -80,6 +80,13 @@ void vtkSubPixelPositionEdgels::Execute()
   region->GetImageBounds4d(regionBounds);
   region->SetBounds4d(regionBounds);
 
+  this->Gradient->UpdateRegion(region);
+  if ( ! region->IsAllocated())
+    {
+    vtkErrorMacro(<< "Execute: Could not get region.");
+    return;
+    }
+
   // chekc data type for float
   if (region->GetDataType() != VTK_IMAGE_FLOAT)
     {
@@ -94,13 +101,6 @@ void vtkSubPixelPositionEdgels::Execute()
     temp->Delete();
     }
     
-  this->Gradient->UpdateRegion(region);
-  if ( ! region->IsAllocated())
-    {
-    vtkErrorMacro(<< "Execute: Could not get region.");
-    return;
-    }
-
   // loop over all the segments
   for(inLines->InitTraversal(); inLines->GetNextCell(nptsin, idsin);)
     {
