@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageIterator.h,v $
   Language:  C++
-  Date:      $Date: 2002-03-05 18:33:49 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-03-07 13:05:27 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -29,7 +29,7 @@
 #include "vtkWin32Header.h"
 class vtkImageData;
 
-template<typename DType> class VTK_COMMON_EXPORT vtkImageIterator 
+template<class DType> class VTK_COMMON_EXPORT vtkImageIterator 
 {
 public:        
   typedef DType *SpanIterator;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageProgressIterator.txx,v $
   Language:  C++
-  Date:      $Date: 2002-03-05 18:33:50 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-03-07 13:05:28 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 #include "vtkProcessObject.h"
 #endif
 
-template <typename DType>
+template <class DType>
 vtkImageProgressIterator<DType>::vtkImageProgressIterator(vtkImageData *imgd, 
                                                        int *ext, 
                                                        vtkProcessObject *po, 
@@ -38,7 +38,7 @@ vtkImageProgressIterator<DType>::vtkImageProgressIterator(vtkImageData *imgd,
   this->ID = id;
 }
 
-template <typename DType>
+template <class DType>
 void vtkImageProgressIterator<DType>::NextSpan()
 {
   this->Pointer = this->Pointer + this->Increments[1];

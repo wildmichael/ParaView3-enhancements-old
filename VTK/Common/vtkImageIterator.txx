@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageIterator.txx,v $
   Language:  C++
-  Date:      $Date: 2002-03-05 18:33:49 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-03-07 13:05:28 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 
 #include "vtkImageData.h"
 
-template <typename DType>
+template <class DType>
 vtkImageIterator<DType>::vtkImageIterator(vtkImageData *id, int *ext)
 {
   this->Pointer = (DType *)id->GetScalarPointerForExtent(ext);
@@ -41,7 +41,7 @@ vtkImageIterator<DType>::vtkImageIterator(vtkImageData *id, int *ext)
 }
   
   
-template <typename DType>
+template <class DType>
 void vtkImageIterator<DType>::NextSpan()
 {
   this->Pointer = this->Pointer + this->Increments[1];
