@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLPolyDataMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:13 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2001-01-22 17:47:55 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -217,6 +217,18 @@ void vtkOpenGLPolyDataMapper2D::RenderOpaqueGeometry(vtkViewport* viewport,
 
   // Set the LineWidth
   glLineWidth(actor->GetProperty()->GetLineWidth());
+
+  // Set the LineStipple
+  if (actor->GetProperty()->GetLineStipplePattern() != 0xFFFF)
+    {
+    glEnable (GL_LINE_STIPPLE);
+    glLineStipple (actor->GetProperty()->GetLineStippleRepeatFactor(), 
+                   actor->GetProperty()->GetLineStipplePattern());
+    }
+  else
+    {
+    glDisable (GL_LINE_STIPPLE);
+    }
 
   aPrim = input->GetLines();
   for (aPrim->InitTraversal(); aPrim->GetNextCell(npts,pts); cellNum++)

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLProperty.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:45 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2001-01-22 17:47:45 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -156,6 +156,17 @@ void vtkOpenGLProperty::Render(vtkActor *vtkNotUsed(anActor),
 
   // Set the LineWidth
   glLineWidth (this->LineWidth);
+
+  // Set the LineStipple
+  if (this->LineStipplePattern != 0xFFFF)
+    {
+    glEnable (GL_LINE_STIPPLE);
+    glLineStipple (this->LineStippleRepeatFactor, this->LineStipplePattern);
+    }
+  else
+    {
+    glDisable (GL_LINE_STIPPLE);
+    }
 }
 
 // Implement base class method.
