@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMath.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-04-28 19:54:17 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 1999-07-08 20:28:59 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -917,7 +917,7 @@ int vtkMath::SolveLeastSquares(int numberOfSamples, double **xt, int xOrder,
   // set up intermediate variables
   double **XXt = new double *[xOrder];     // size x by x
   double **XXtI = new double *[xOrder];    // size x by x
-  double **XYt = new double *[yOrder];     // size x by y
+  double **XYt = new double *[xOrder];     // size x by y
   for (i = 0; i < xOrder; i++)
     {
     XXt[i] = new double[xOrder];
