@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextMapper.h,v $
   Language:  C++
-  Date:      $Date: 1998-03-09 19:29:11 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-03-16 21:53:23 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -72,7 +72,7 @@ public:
   // Description:
   // Draw the text to the screen.  This function is implemented in
   // the subclasses.
-  virtual void Render(vtkViewport* viewport, vtkActor2D* actor) = 0;
+  virtual void Render(vtkViewport*, vtkActor2D*) {};
 
   // Description:
   // Set the input to the mapper.  The mapper doesn't parse the string
