@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCubeAxesActor2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-24 21:55:01 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2001-05-25 11:35:28 $
+  Version:   $Revision: 1.23 $
   Thanks:    Thorsten Dowe who modified and improved this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -144,7 +144,7 @@ vtkCubeAxesActor2D::~vtkCubeAxesActor2D()
 
   if ( this->Camera )
     {
-    this->Camera->Delete();
+    this->Camera->UnRegister(this);
     }
 
   this->XAxis->Delete();
