@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXdmfWriter.h,v $
   Language:  C++
-  Date:      $Date: 2003-07-31 20:58:44 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-07-31 22:38:15 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -40,10 +40,6 @@ class VTK_EXPORT vtkXdmfWriter : public vtkProcessObject
 public:
   static vtkXdmfWriter *New();
   vtkTypeRevisionMacro(vtkXdmfWriter,vtkObject);
-
-  vtkSetClampMacro(FastWrite, int, 0, 1);
-  vtkBooleanMacro(FastWrite, int);
-  vtkGetMacro(FastWrite, int);
 
   // Description:
   // Set or get the AllLight flag. If set, all data will be written as light
@@ -98,7 +94,6 @@ protected:
   char    *FileName;
   char    *GridName;
   
-  int    FastWrite;
   int    AllLight;
   vtkXdmfWriterInternals *Internals;
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXdmfWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-07-31 20:58:44 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-07-31 22:38:15 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen  
@@ -70,7 +70,7 @@ public:
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro(vtkXdmfWriter);
-vtkCxxRevisionMacro(vtkXdmfWriter, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkXdmfWriter, "$Revision: 1.2 $");
 
 //----------------------------------------------------------------------------
 vtkXdmfWriter::vtkXdmfWriter()
@@ -81,7 +81,6 @@ vtkXdmfWriter::vtkXdmfWriter()
   this->SetHeavyDataSetName( "XdmfData.h5" );
   this->SetGridName( "Unnamed" );
 
-  this->FastWrite = 1;
   this->AllLight = 0;
 
   this->Internals = new vtkXdmfWriterInternals;
@@ -119,6 +118,10 @@ void vtkXdmfWriter::SetHeavyDataSetName( const char *name)
     this->HeavyDataSetName = new char [ strlen(name) + 1 ];
     strcpy( this->HeavyDataSetName, name);
     this->AllLight = 0;
+    }
+  else
+    {
+    this->AllLight = 1;
     }
   this->Modified();
 }
