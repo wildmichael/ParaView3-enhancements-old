@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleUnicam.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:38 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2002-04-28 03:01:42 $
+  Version:   $Revision: 1.15 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -173,10 +173,10 @@ protected:
 
   int state;                 // which navigation mode was selected?
 
-  void Choose( int X, int Y );  // method for choosing type of navigation
-  void Rotate( int X, int Y );  // method for rotating
-  void Dolly ( int X, int Y );  // method for dollying
-  void Pan   ( int X, int Y );  // method for panning
+  void ChooseXY( int X, int Y );  // method for choosing type of navigation
+  void RotateXY( int X, int Y );  // method for rotating
+  void DollyXY( int X, int Y );  // method for dollying
+  void PanXY( int X, int Y );  // method for panning
 
   // conveinence methods for translating & rotating the camera
   void  MyTranslateCamera(float v[3]);
