@@ -1,4 +1,4 @@
-# $Id: CMakeLists.txt,v 1.1 2003-06-17 18:38:54 andy Exp $
+# $Id: CMakeLists.txt,v 1.2 2003-07-16 16:32:23 kmorel Exp $
 #
 ## Copyright 2003 Sandia Coporation
 ## Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -43,7 +43,7 @@ MARK_AS_ADVANCED(CLEAR GLUT_INCLUDE_DIR)
 MARK_AS_ADVANCED(CLEAR GLUT_glut_LIBRARY)
 IF (GLUT_FOUND)
   INCLUDE_DIRECTORIES(${GLUT_INCLUDE_DIR})
-  TARGET_LINK_LIBRARIES(${GLUT_LIBRARIES})
+  TARGET_LINK_LIBRARIES(tilecomp ${GLUT_LIBRARIES})
 ELSE (GLUT_FOUND)
   MESSAGE(SEND_ERROR "Could not find GLUT library required for tilecomp.")
 ENDIF (GLUT_FOUND)

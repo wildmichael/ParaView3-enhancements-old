@@ -8,7 +8,7 @@
  * of authorship are reproduced on all copies.
  */
 
-/* $Id: tilecomp.c,v 1.1 2003-06-17 18:38:54 andy Exp $ */
+/* $Id: tilecomp.c,v 1.2 2003-07-16 16:32:23 kmorel Exp $ */
 
 #include <GL/ice-t.h>
 #include <GL/glut.h>
@@ -187,7 +187,7 @@ static void init(int argc, char **argv)
     time_t currenttime;
 
     icetGetIntegerv(ICET_RANK, &rank);
-    icetGetIntegerv(ICET_NUM_PROCESSORS, &processors);
+    icetGetIntegerv(ICET_NUM_PROCESSES, &processors);
 
     if (rank == 0) {
 	if (argc > 1) {
