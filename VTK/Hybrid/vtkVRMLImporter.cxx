@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVRMLImporter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-18 13:13:02 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2001-06-21 14:45:01 $
+  Version:   $Revision: 1.28 $
   Thanks:    Tom Citriniti who implemented and contributed this class
 
 
@@ -298,19 +298,19 @@ VrmlNodeType::~VrmlNodeType()
   for (i = 0;i < eventIns.Count(); i++) 
     {
     NameTypeRec *r = eventIns[i];
-    free(r->name);
+//    free(r->name);
     delete r;
     }
   for (i = 0;i < eventOuts.Count(); i++) 
     {
     NameTypeRec *r = eventOuts[i];
-    free(r->name);
+//    free(r->name);
     delete r;
     }
   for (i = 0;i < fields.Count(); i++) 
     {
     NameTypeRec *r = fields[i];
-    free(r->name);
+//    free(r->name);
     delete r;
     }
 }
@@ -405,7 +405,7 @@ void
 VrmlNodeType::add(VectorType<NameTypeRec*> &recs, const char *nodeName, int type)
 {
   NameTypeRec *r = new NameTypeRec;
-  r->name = strdup(nodeName);
+  r->name = vrmlPointerList::StrDup(nodeName); //strdup(nodeName);
   r->type = type;
   recs += r;
 }
@@ -5523,6 +5523,7 @@ void vtkVRMLImporter::ImportEnd ()
   vrmlPointerList::CleanUp();
   VrmlNodeType::typeList.Init();
   useList.Init();
+  currentField.Init();
   vtkDebugMacro(<<"Closing import file");
   if ( this->FileFD != NULL )
     {
