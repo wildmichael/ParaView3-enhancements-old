@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPVGeometryFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-06-01 18:32:58 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-06-11 20:25:16 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -50,7 +50,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkImageData.h"
 
 
-#define VTK_PV_SURFACE 1
+#define VTK_PV_SURFACE 0
 #define VTK_PV_IMAGE_OUTLINE 1
 
 
