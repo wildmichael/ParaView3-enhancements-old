@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkPVTreeComposite.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-07 21:16:27 $
-  Version:   $Revision: 1.18 $  
+  Date:      $Date: 2003-05-22 17:28:53 $
+  Version:   $Revision: 1.19 $  
   
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -57,8 +57,6 @@ class vtkMPIController;
 
 #include "vtkCompositeManager.h"
 
-class vtkPVRenderView;
-
 class VTK_EXPORT vtkPVTreeComposite : public vtkCompositeManager
 {
 public:
@@ -71,12 +69,7 @@ public:
   // Empty methods that can be used by the subclass to interupt a parallel render.
   virtual void CheckForAbortRender();
   virtual int CheckForAbortComposite();
-  
-  // Description:
-  // The RenderView has methods for checking for events.
-  virtual void SetRenderView(vtkPVRenderView*);
-  vtkGetObjectMacro(RenderView, vtkPVRenderView);
-  
+    
   // Description:
   // This flag is on by default.
   // If this flag is off, then the behavior of this class becomes
@@ -124,8 +117,6 @@ protected:
 
   int LocalProcessId;
   int RenderAborted;
-  vtkPVRenderView *RenderView;
-  int Printing;
   // Flag used to indicate the first call for a render.
   // There is no initialize method.
   int Initialized;
