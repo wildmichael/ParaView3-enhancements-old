@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkRenderWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:55 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 2001-02-15 20:23:00 $
+  Version:   $Revision: 1.49 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -392,7 +392,12 @@ LRESULT APIENTRY vtkTkRenderWidgetProc(HWND hWnd, UINT message,
   LRESULT rval;
   struct vtkTkRenderWidget *self = 
     (struct vtkTkRenderWidget *)GetWindowLong(hWnd,4);
-
+  
+  if (!self)
+    {
+    return 1;
+    }
+  
   // watch for WM_USER + 12  this is a special message
   // from the vtkRenderWIndowInteractor letting us 
   // know it wants to get events also
