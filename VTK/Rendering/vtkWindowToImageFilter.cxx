@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWindowToImageFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-15 15:58:13 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2002-02-18 15:03:29 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 #include "vtkRenderWindow.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkWindowToImageFilter, "$Revision: 1.9 $");
+vtkCxxRevisionMacro(vtkWindowToImageFilter, "$Revision: 1.10 $");
 vtkStandardNewMacro(vtkWindowToImageFilter);
 
 //----------------------------------------------------------------------------
@@ -164,6 +164,7 @@ void vtkWindowToImageFilter::ExecuteData(vtkDataObject *vtkNotUsed(data))
     cam->SetViewUp(cams[i]->GetViewUp());
     cam->SetClippingRange(cams[i]->GetClippingRange());
     cam->SetParallelProjection(cams[i]->GetParallelProjection());
+    cam->SetFocalDisk(cams[i]->GetFocalDisk());
     aren->SetActiveCamera(cam);
     }
   
