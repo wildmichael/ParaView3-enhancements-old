@@ -3,8 +3,8 @@
 Program:   Visualization Toolkit
 Module:    $RCSfile: vtkCarbonRenderWindow.cxx,v $
 Language:  C++
-Date:      $Date: 2002-05-16 15:01:58 $
-Version:   $Revision: 1.2 $
+Date:      $Date: 2002-05-17 15:01:25 $
+Version:   $Revision: 1.3 $
 Thanks:    to Yves Starreveld for developing this class
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
@@ -32,7 +32,7 @@ Thanks:    to Yves Starreveld for developing this class
 #include "vtkObjectFactory.h"
 
 
-vtkCxxRevisionMacro(vtkCarbonRenderWindow, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkCarbonRenderWindow, "$Revision: 1.3 $");
 vtkStandardNewMacro(vtkCarbonRenderWindow);
 
 
@@ -347,6 +347,7 @@ vtkCarbonRenderWindow::vtkCarbonRenderWindow()
   this->ContextId = 0;
   this->MultiSamples = 8;
   this->WindowId = 0;
+  this->ParentId = 0;
   this->StereoType = 0;
   this->SetWindowName("Visualization Toolkit - Carbon");
   this->TextureResourceIds = vtkIdList::New();
@@ -432,6 +433,15 @@ void vtkCarbonRenderWindow::SetWindowName( char * _arg )
 int vtkCarbonRenderWindow::GetEventPending()
 {
   return 0;
+}
+
+//--------------------------------------------------------------------------
+// Set the window id to a pre-existing window.
+void vtkCarbonRenderWindow::SetParentId(WindowPtr arg)
+{
+  vtkDebugMacro(<< "Setting ParentId to " << arg << "\n");
+
+  this->ParentId = arg;
 }
 
 //--------------------------------------------------------------------------
