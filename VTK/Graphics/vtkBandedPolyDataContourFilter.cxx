@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBandedPolyDataContourFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-05 16:12:16 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2002-02-06 20:27:56 $
+  Version:   $Revision: 1.23 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 #include "vtkObjectFactory.h"
 #include <float.h>
 
-vtkCxxRevisionMacro(vtkBandedPolyDataContourFilter, "$Revision: 1.22 $");
+vtkCxxRevisionMacro(vtkBandedPolyDataContourFilter, "$Revision: 1.23 $");
 vtkStandardNewMacro(vtkBandedPolyDataContourFilter);
 
 // Construct object.
@@ -45,6 +45,7 @@ vtkBandedPolyDataContourFilter::~vtkBandedPolyDataContourFilter()
 
 int vtkBandedPolyDataContourFilter::ComputeScalarIndex(float val)
 {
+
   for (int i=0; i < (this->NumberOfClipValues-1); i++)
     {
     if ( val >= this->ClipValues[i] && val < this->ClipValues[i+1]  )
@@ -53,6 +54,7 @@ int vtkBandedPolyDataContourFilter::ComputeScalarIndex(float val)
       }
     }
   return this->NumberOfClipValues - 1;
+
 }
 
 int vtkBandedPolyDataContourFilter::IsContourValue(float val)
@@ -206,7 +208,10 @@ void vtkBandedPolyDataContourFilter::Execute()
   this->NumberOfClipValues = this->ContourValues->GetNumberOfContours() + 2;
   this->ClipValues = new float[this->NumberOfClipValues];
   float range[2];
-  inScalars->GetRange(range); 
+  inScalars->GetRange(range);
+
+  // base clip tolerance on overall input scalar range
+  this->ClipTolerance = FLT_EPSILON*(range[1] - range[0]); 
 
   this->ClipValues[0] = range[0];
   this->ClipValues[this->NumberOfClipValues - 1] = range[1];
