@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPicker.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-08 18:04:43 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1998-05-26 02:43:37 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -211,6 +211,7 @@ int vtkPicker::Pick(float selectionX, float selectionY, float selectionZ,
   //  line intersects the back clipping plane.
   for (i=0; i<3; i++) ray[i] = this->PickPosition[i] - cameraPos[i];
   for (i=0; i<3; i++) cameraDOP[i] = cameraFP[i] - cameraPos[i];
+  vtkMath::Normalize(cameraDOP);
 
   if (( rayLength = vtkMath::Dot(cameraDOP,ray)) == 0.0 ) 
     {
