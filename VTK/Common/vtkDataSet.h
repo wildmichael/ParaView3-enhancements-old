@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSet.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-17 19:43:08 $
-  Version:   $Revision: 1.84 $
+  Date:      $Date: 1999-12-01 21:25:12 $
+  Version:   $Revision: 1.85 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -331,6 +331,9 @@ protected:
   float Bounds[6];  // (xmin,xmax, ymin,ymax, zmin,zmax) geometric bounds
   float ScalarRange[2];
   float Center[3];
+
+  // Supports the GetCellNeighbors() method
+  vtkIdList *OtherCells;
 };
 
 inline void vtkDataSet::GetPoint(int id, float x[3])
