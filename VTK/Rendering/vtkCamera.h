@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCamera.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:04:42 $
-  Version:   $Revision: 1.56 $
+  Date:      $Date: 2000-02-15 05:07:45 $
+  Version:   $Revision: 1.57 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -306,6 +306,11 @@ class VTK_EXPORT vtkCamera : public vtkObject
   // values are (A,B,C,D) which repeats for each of the planes.
   // The aspect of the viewport is needed to correctly compute the planes
   void GetFrustumPlanes( float aspect, float planes[24] );
+
+  // Description:
+  // This method should be defined by the subclass. How many bits of
+  // precision are there in the zbuffer?
+  virtual int GetDepthBufferSize() {return -1;};
 
   // Description:
   // For legacy compatibility. Do not use.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaCamera.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:05:49 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2000-02-15 05:07:45 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -60,6 +60,8 @@ public:
   // Description:
   // Implement base class method.
   void Render(vtkRenderer *ren);
+
+  int GetDepthBufferSize();
 
 protected:  
   vtkMesaCamera() {};

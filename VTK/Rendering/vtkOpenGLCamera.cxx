@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLCamera.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:05:57 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2000-02-15 05:07:46 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -65,6 +65,13 @@ vtkOpenGLCamera* vtkOpenGLCamera::New()
 }
 
 
+int vtkOpenGLCamera::GetDepthBufferSize()
+{
+  int size;
+
+  glGetIntegerv( GL_DEPTH_BITS, &size );
+  return size;
+}
 
 // Implement base class method.
 void vtkOpenGLCamera::Render(vtkRenderer *ren)
