@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkImageViewerWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-12-08 20:20:48 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1999-12-09 14:02:20 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -337,7 +337,9 @@ static void vtkTkImageViewerWidget_EventProc(ClientData clientData,
     case MapNotify:
       break;
     case DestroyNotify:
+#ifndef _WIN32
       Tcl_EventuallyFree( (ClientData) self, vtkTkImageViewerWidget_Destroy );
+#endif
       break;
     default:
       // nothing
