@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAppendPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-15 09:42:38 $
-  Version:   $Revision: 1.59 $
+  Date:      $Date: 2000-04-17 09:10:32 $
+  Version:   $Revision: 1.60 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -115,12 +115,12 @@ void vtkAppendPolyData::SetNumberOfInputs(int num)
 
 //----------------------------------------------------------------------------
 // Set Nth input, should only be used when UserManagedInputs is true.
-void vtkAppendPolyData::SetNthInput(int num, vtkPolyData *input)
+void vtkAppendPolyData::SetInputByNumber(int num, vtkPolyData *input)
 {
   if (!UserManagedInputs)
     {
     vtkErrorMacro(<<
-      "SetNthInput is not supported if UserManagedInputs is false");
+      "SetInputByNumber is not supported if UserManagedInputs is false");
     return;
     }
   this->vtkProcessObject::SetNthInput(num, input);
