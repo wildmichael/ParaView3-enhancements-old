@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXOpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-03 16:47:53 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2002-06-03 17:39:08 $
+  Version:   $Revision: 1.17 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,15 +26,19 @@
 #include "vtkOpenGLPolyDataMapper.h"
 #include <GL/gl.h>
 #include "GL/glx.h"
+#else
+#include "MangleMesaInclude/osmesa.h"
+#endif
+
+#include "vtkToolkits.h"
+#ifndef VTK_IMPLEMENT_MESA_CXX
+ #ifdef VTK_OPENGL_HAS_OSMESA
+  #include <GL/osmesa.h>
+ #endif
 #endif
 
 #include <X11/Xlib.h>
 #include <X11/Xutil.h>
-
-#include "vtkToolkits.h"
-#ifdef VTK_OPENGL_HAS_OSMESA
-#include "MangleMesaInclude/osmesa.h"
-#endif
 
 #include "vtkIdList.h"
 #include "vtkObjectFactory.h"
@@ -76,7 +80,7 @@ vtkXOpenGLRenderWindowInternal::vtkXOpenGLRenderWindowInternal(
 
 
 #ifndef VTK_IMPLEMENT_MESA_CXX
-vtkCxxRevisionMacro(vtkXOpenGLRenderWindow, "$Revision: 1.16 $");
+vtkCxxRevisionMacro(vtkXOpenGLRenderWindow, "$Revision: 1.17 $");
 vtkStandardNewMacro(vtkXOpenGLRenderWindow);
 #endif
 
