@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadricDecimation.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-11-29 14:49:34 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2000-11-30 12:30:38 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -818,4 +818,5 @@ void vtkQuadricDecimation::PrintSelf(ostream& os, vtkIndent indent)
   vtkPolyDataToPolyDataFilter::PrintSelf(os,indent);
 
   os << indent << "Maximum Cost: " << this->MaximumCost << "\n";
-}
+  os << indent << "MaximumCollapsedEdges: " << this->MaximumCollapsedEdges << "\n";
+ }
