@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageWriter.h,v $
   Language:  C++
-  Date:      $Date: 1998-12-29 17:07:03 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1999-02-24 17:47:56 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -112,13 +112,14 @@ protected:
   int FileNumber;
   int FileLowerLeft;
   char *InternalFileName;
+
   
   void RecursiveWrite(int dim, vtkImageCache *region, ofstream *file);
   void RecursiveWrite(int dim, vtkImageCache *cache, 
 		      vtkImageData *data, ofstream *file);
   virtual void WriteFile(ofstream *file, vtkImageData *data, int extent[6]);
   virtual void WriteFileHeader(ofstream *, vtkImageCache *) {};
-  
+  virtual void WriteFileTrailer(ofstream *, vtkImageCache *) {};
 };
 
 #endif

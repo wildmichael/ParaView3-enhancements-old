@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-01-28 13:25:37 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1999-02-24 17:47:57 $
+  Version:   $Revision: 1.16 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -272,6 +272,7 @@ void vtkImageWriter::RecursiveWrite(int axis, vtkImageCache *cache,
     this->RecursiveWrite(axis,cache,data,file);
     if (file && fileOpenedHere)
       {
+      this->WriteFileTrailer(file,cache);
       file->close();
       delete file;
       file = NULL;
@@ -294,6 +295,7 @@ void vtkImageWriter::RecursiveWrite(int axis, vtkImageCache *cache,
       }
     if (file && fileOpenedHere)
       {
+      this->WriteFileTrailer(file,cache);
       file->close();
       delete file;
       file = NULL;
@@ -334,6 +336,7 @@ void vtkImageWriter::RecursiveWrite(int axis, vtkImageCache *cache,
   // if we opened the file here, then we need to close it up
   if (file && fileOpenedHere)
     {
+    this->WriteFileTrailer(file,cache);
     file->close();
     delete file;
     file = NULL;
@@ -386,6 +389,7 @@ void vtkImageWriter::RecursiveWrite(int axis, vtkImageCache *cache,
     this->WriteFileHeader(file, cache);
     this->WriteFile(file,data,cache->GetUpdateExtent());
     ++this->FileNumber;
+    this->WriteFileTrailer(file,cache);
     file->close();
     delete file;
     return;
