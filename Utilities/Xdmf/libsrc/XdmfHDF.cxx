@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfHDF.cxx,v 1.17 2004-04-16 13:16:39 andy Exp $  */
-/*  Date : $Date: 2004-04-16 13:16:39 $ */
-/*  Version : $Revision: 1.17 $ */
+/*  Id : $Id: XdmfHDF.cxx,v 1.18 2004-04-28 17:15:24 clarke Exp $  */
+/*  Date : $Date: 2004-04-28 17:15:24 $ */
+/*  Version : $Revision: 1.18 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -649,11 +649,11 @@ XdmfDebug("Using Domain " << this->Domain );
         this->AccessPlist = H5Pcreate( H5P_FILE_ACCESS );
         H5Pset_fapl_mpio(this->AccessPlist, MPI_COMM_WORLD, MPI_INFO_NULL);
     }else{
-      XdmfDebug("Using Serial File Interface, Path = " << this->GetWorkingDirectory() );
+      XdmfDebug("Using Serial File Interface (Specified in DOMAIN), Path = " << this->GetWorkingDirectory() );
         }
         
 #else
-      XdmfDebug("Using Serial File Interface, Path = " << this->GetWorkingDirectory() );
+      XdmfDebug("Using Serial File Interface (Parallel Not Available), Path = " << this->GetWorkingDirectory() );
 #endif
       if( ( strlen( this->GetWorkingDirectory() ) > 0 ) && 
         ( this->FileName[0] != '/' ) ){
