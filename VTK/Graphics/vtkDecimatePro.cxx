@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDecimatePro.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-01-16 21:11:11 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1998-03-21 15:18:20 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -458,8 +458,11 @@ int vtkDecimatePro::EvaluateVertex(int ptId, unsigned short int numTris, int *tr
 
   sn.FAngle = 0.0;
 
+  t.area = 0.0;
   t.n[0] = t.n[1] = t.n[2] = 0.0;
   t.verts[0] = -1; // Marks the fact that this poly hasn't been replaced 
+  t.verts[1] = -1;
+  t.verts[2] = -1;
 //
 //  Find the starting edge.  Do it very carefully do make sure
 //  ordering is consistent (e.g., polygons ordering/normals remains consistent)
