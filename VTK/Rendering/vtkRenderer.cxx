@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-04-11 17:14:57 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1994-05-10 15:10:53 $
+  Version:   $Revision: 1.13 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -123,7 +123,7 @@ void vlRenderer::ResetCamera()
   all_bounds[1] = all_bounds[3] = all_bounds[5] = -LARGE_FLOAT;
   
   // loop through actors 
-  for (num = 0; num < this->Actors.GetNumberOfMembers(); num++)
+  for (num = 1; num <= this->Actors.GetNumberOfMembers(); num++)
     {
     anActor = this->Actors.GetMember(num);
  
