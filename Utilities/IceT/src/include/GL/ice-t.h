@@ -8,7 +8,7 @@
  * of authorship are reproduced on all copies.
  */
 
-/* $Id: ice-t.h,v 1.4 2003-07-23 19:48:00 kmorel Exp $ */
+/* $Id: ice-t.h,v 1.5 2003-07-24 17:46:19 kmorel Exp $ */
 
 #ifndef _ICET_H_
 #define _ICET_H_
@@ -136,6 +136,7 @@ ICET_EXPORT void icetInputOutputBuffers(GLenum inputs, GLenum outputs);
 ICET_EXPORT void icetCompositeOrder(const GLint *process_ranks);
 
 ICET_EXPORT void icetDataReplicationGroup(GLint size, const GLint *processes);
+ICET_EXPORT void icetDataReplicationGroupColor(GLint color);
 
 #define ICET_DIAG_OFF		0x0000
 #define ICET_DIAG_ERRORS	0x0001

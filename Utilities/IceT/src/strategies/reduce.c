@@ -8,7 +8,7 @@
  * of authorship are reproduced on all copies.
  */
 
-/* $Id: reduce.c,v 1.4 2003-07-17 23:29:50 kmorel Exp $ */
+/* $Id: reduce.c,v 1.5 2003-07-24 17:46:19 kmorel Exp $ */
 
 #include <GL/ice-t.h>
 #include <image.h>
@@ -384,13 +384,13 @@ group_sizes[(tile)]++;
 			break;
 		    }
 		}
-	    }
 #ifdef DEBUG
-	    if (i == group_sizes[tile]) {
-		icetRaiseError("Display process not participating in tile?",
-			       ICET_SANITY_CHECK_FAIL);
-	    }
+		if (i == group_sizes[tile]) {
+		    icetRaiseError("Display process not participating in tile?",
+				   ICET_SANITY_CHECK_FAIL);
+		}
 #endif
+	    }
 
 	  /* Assign nodes in the order they appear in proc_group. */
 	    for (i = 0; i < num_contributors; i++) {
