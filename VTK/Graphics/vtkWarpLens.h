@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpLens.h,v $
   Language:  C++
-  Date:      $Date: 1997-08-11 11:27:11 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1997-08-22 13:26:41 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -53,7 +53,7 @@ class VTK_EXPORT vtkWarpLens : public vtkPointSetToPointSetFilter
 public:
   vtkWarpLens();
   static vtkWarpLens *New() {return new vtkWarpLens;};
-  char *GetClassName() {return "vtkWarpLens";};
+  const char *GetClassName() {return "vtkWarpLens";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
@@ -63,7 +63,7 @@ public:
 
   // Description:
   // Set the center of the lense distortion
-  vtkSetVector3Macro(Center,float);
+  vtkSetVector2Macro(Center,float);
   vtkGetVectorMacro(Center,float,2);
 
 protected:

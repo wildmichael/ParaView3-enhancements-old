@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpLens.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-08-11 11:27:12 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1997-08-22 13:26:40 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -46,7 +46,6 @@ vtkWarpLens::vtkWarpLens()
   this->Kappa = -1.0e-6;
   this->Center[0] = 0.0;
   this->Center[1] = 0.0;
-  this->Center[2] = 0.0;
 }
 
 void vtkWarpLens::Execute()
@@ -107,6 +106,6 @@ void vtkWarpLens::PrintSelf(ostream& os, vtkIndent indent)
   vtkPointSetToPointSetFilter::PrintSelf(os,indent);
   
   os << indent << "Center: (" << this->Center[0] << ", " 
-    << this->Center[1] << ", " << this->Center[2] << ")\n";
+    << this->Center[1] << ")\n";
   os << indent << "Kappa: " << this->Kappa << "\n";
 }
