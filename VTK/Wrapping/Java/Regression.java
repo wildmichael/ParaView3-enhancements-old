@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: Regression.java,v $
   Language:  C++
-  Date:      $Date: 2003-04-09 14:53:33 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2003-04-15 12:37:28 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -44,7 +44,7 @@ public class Regression
       {
       iren.Start();
       }
-    System.exit(retVal);
+    vtkTesting.Exit(retVal);
     }
 }
 
