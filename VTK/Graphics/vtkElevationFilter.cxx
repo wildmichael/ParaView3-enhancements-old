@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkElevationFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-27 13:24:31 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 2001-07-26 17:38:46 $
+  Version:   $Revision: 1.46 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -89,6 +89,7 @@ void vtkElevationFilter::Execute()
   float l, *x, s, v[3];
   float diffVector[3], diffScalar;
   vtkDataSet *input = this->GetInput();
+  int abort=0;
 
   // Initialize
   //
@@ -123,16 +124,14 @@ void vtkElevationFilter::Execute()
 
   // Compute parametric coordinate and map into scalar range
   //
+  int tenth = numPts/10 + 1;
   diffScalar = this->ScalarRange[1] - this->ScalarRange[0];
-  for (i=0; i<numPts; i++)
+  for (i=0; i<numPts && !abort; i++)
     {
-    if ( ! (i % 10000) ) 
+    if ( ! (i % tenth) ) 
       {
       this->UpdateProgress ((float)i/numPts);
-      if (this->GetAbortExecute())
-	{
-	break;
-	}
+      abort = this->GetAbortExecute();
       }
 
     x = input->GetPoint(i);
