@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRegressionTestImage.h,v $
   Language:  C++
-  Date:      $Date: 2002-03-28 13:52:06 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2002-04-07 14:58:52 $
+  Version:   $Revision: 1.24 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -291,12 +291,12 @@ char* vtkRegressionTester::IncrementFileName(const char* fname,
   char counts[256];
   sprintf(counts, "%d", count);
   
-  int orgLen = strlen(fname);
+  int orgLen = static_cast<int>(strlen(fname));
   if (orgLen < 5)
     {
     return 0;
     }
-  int extLen = strlen(counts);
+  int extLen = static_cast<int>(strlen(counts));
   char* newFileName = new char[orgLen+extLen+2];
   strcpy(newFileName, fname);
 

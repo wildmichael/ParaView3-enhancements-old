@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVRMLImporter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:30:41 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 2002-04-07 14:58:52 $
+  Version:   $Revision: 1.49 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -4228,7 +4228,7 @@ YY_MALLOC_DECL
 #define YY_BREAK break;
 #endif
 
-vtkCxxRevisionMacro(vtkVRMLImporter, "$Revision: 1.48 $");
+vtkCxxRevisionMacro(vtkVRMLImporter, "$Revision: 1.49 $");
 vtkStandardNewMacro(vtkVRMLImporter);
 
 vtkPoints* vtkVRMLImporter::PointsNew()
@@ -6268,8 +6268,10 @@ vtkVRMLImporter::GetVRMLDEFObject(const char *name)
 
 static void memyyInput(char *buf, int &result, int max_size) {
 
-  result = strlen(strncpy(buf, standardNodes[memyyInput_i], max_size));
-  memyyInput_j = result - strlen(standardNodes[memyyInput_i]);
+  result = static_cast<int>(
+    strlen(strncpy(buf, standardNodes[memyyInput_i], max_size)));
+  memyyInput_j = result - static_cast<int>(
+    strlen(standardNodes[memyyInput_i]));
   if ( memyyInput_j == 0 ) 
     {
     memyyInput_i++;
@@ -6284,7 +6286,7 @@ static void defyyInput(char *buf, int &result, int max_size) {
     result = c == EOF ? 0 : 1; 
     buf[0] = (char) c; 
     } 
-  else if ( ((result = fread( buf, 1, max_size, yyin )) == 0) 
+  else if( ((result = static_cast<int>(fread( buf, 1, max_size, yyin ))) == 0) 
             && ferror( yyin ) ) 
     {
     YY_FATAL_ERROR( "input in flex scanner failed" );

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMultiProcessController.h,v $
   Language:  C++
-  Date:      $Date: 2002-03-18 20:47:40 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2002-04-07 14:58:52 $
+  Version:   $Revision: 1.15 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -176,7 +176,8 @@ public:
   // Description:
   // Convenience method when the arg is a string. 
   void TriggerRMI(int remoteProcessId, char *arg, int tag) 
-    { this->TriggerRMI(remoteProcessId, (void*)arg, strlen(arg)+1, tag); }
+    { this->TriggerRMI(remoteProcessId, (void*)arg, 
+                       static_cast<int>(strlen(arg))+1, tag); }
 
   // Description:
   // Convenience method when there is no argument.

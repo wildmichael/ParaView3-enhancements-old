@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLegendBoxActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:30:34 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2002-04-07 14:58:52 $
+  Version:   $Revision: 1.19 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,7 +25,7 @@
 #include "vtkTransform.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkLegendBoxActor, "$Revision: 1.18 $");
+vtkCxxRevisionMacro(vtkLegendBoxActor, "$Revision: 1.19 $");
 vtkStandardNewMacro(vtkLegendBoxActor);
 
 vtkLegendBoxActor::vtkLegendBoxActor()
@@ -405,7 +405,7 @@ int vtkLegendBoxActor::RenderOpaqueGeometry(vtkViewport *viewport)
       str = this->TextMapper[i]->GetInput();
       if ( str ) //if there is a string
         {
-        length = strlen(str);
+        length = static_cast<int>(strlen(str));
         if ( length > maxLength )
           {
           maxLength = length;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTestUtilities.h,v $
   Language:  C++
-  Date:      $Date: 2002-03-28 13:52:06 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-04-07 14:58:52 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -142,7 +142,7 @@ char* vtkTestUtilities::ExpandFileNameWithArgOrEnvOrDefault(const char* arg,
     fullName = new char[strlen(value) + strlen(fname) + 2 + (slash ? 1 : 0)];
     fullName[0] = 0;
     strcat(fullName, value);
-    int len = strlen(fullName);
+    int len = static_cast<int>(strlen(fullName));
     fullName[len] = '/';
     fullName[len+1] = 0;
     strcat(fullName, fname);

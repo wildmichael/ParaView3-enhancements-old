@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32TextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:39:49 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2002-04-07 14:58:52 $
+  Version:   $Revision: 1.28 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkWin32TextMapper.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkWin32TextMapper, "$Revision: 1.27 $");
+vtkCxxRevisionMacro(vtkWin32TextMapper, "$Revision: 1.28 $");
 
 //--------------------------------------------------------------------------
 vtkWin32TextMapper* vtkWin32TextMapper::New()
@@ -163,8 +163,10 @@ void vtkWin32TextMapper::GetSize(vtkViewport* viewport, int *size)
                      DT_CALCRECT|DT_LEFT|DT_NOPREFIX);
         delete [] wtxt;
 #else
-  size[1] = DrawText(hdc, this->Input, strlen(this->Input), &rect, 
-                     DT_CALCRECT|DT_LEFT|DT_NOPREFIX);
+  size[1] = static_cast<int>(DrawText(hdc, this->Input, 
+                                      static_cast<int>(strlen(this->Input)), 
+                                      &rect, 
+                                      DT_CALCRECT|DT_LEFT|DT_NOPREFIX));
 #endif
   size[0] = rect.right - rect.left + 1;
   this->LastSize[0] = size[0];

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPVGeometryFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-03 18:00:42 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2002-04-07 14:58:52 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkCommand.h"
 
-vtkCxxRevisionMacro(vtkPVGeometryFilter, "$Revision: 1.9 $");
+vtkCxxRevisionMacro(vtkPVGeometryFilter, "$Revision: 1.10 $");
 vtkStandardNewMacro(vtkPVGeometryFilter);
 
 //----------------------------------------------------------------------------
@@ -229,7 +229,8 @@ void vtkPVGeometryFilter::RectilinearGridExecute(vtkRectilinearGrid *input)
 
 
 //----------------------------------------------------------------------------
-void vtkPVGeometryFilter::UnstructuredGridExecute(vtkUnstructuredGrid *input)
+void vtkPVGeometryFilter::UnstructuredGridExecute(
+  vtkUnstructuredGrid* vtkNotUsed(input))
 {
   this->OutlineFlag = 0;
   this->vtkDataSetSurfaceFilter::Execute();

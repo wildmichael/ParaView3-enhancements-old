@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPDataSetWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:34:44 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-04-07 14:58:52 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkSource.h"
 
-vtkCxxRevisionMacro(vtkPDataSetWriter, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkPDataSetWriter, "$Revision: 1.6 $");
 vtkStandardNewMacro(vtkPDataSetWriter);
 
 //----------------------------------------------------------------------------
@@ -96,7 +96,7 @@ void vtkPDataSetWriter::Write()
 
 
   // Lets compute the file root from the file name supplied by the user.
-  length = strlen(this->FileName);
+  length = static_cast<int>(strlen(this->FileName));
   fileRoot = new char [length+1];
   fileName = new char [length+strlen(this->FilePattern)+20];
   strncpy(fileRoot, this->FileName, length);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtk3DSImporter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:30:22 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2002-04-07 14:58:52 $
+  Version:   $Revision: 1.27 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 #include "vtkStripper.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtk3DSImporter, "$Revision: 1.26 $");
+vtkCxxRevisionMacro(vtk3DSImporter, "$Revision: 1.27 $");
 vtkStandardNewMacro(vtk3DSImporter);
 
 static Colour Black = {0.0, 0.0, 0.0};
@@ -1135,7 +1135,7 @@ static void cleanup_name (char *name)
   strcpy (tmp, &name[i]);
 
     /* Remove any trailing blanks or quotes */
-  for (i = strlen(tmp)-1; i >= 0; i--)
+  for (i = static_cast<int>(strlen(tmp))-1; i >= 0; i--)
     {
     if (isprint(tmp[i]) && !isspace(tmp[i]) && tmp[i] != '"')
       {

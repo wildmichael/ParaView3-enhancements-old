@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:30 $
-  Version:   $Revision: 1.64 $
+  Date:      $Date: 2002-04-07 14:58:52 $
+  Version:   $Revision: 1.65 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 #include "vtkRectilinearGrid.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkMergeFilter, "$Revision: 1.64 $");
+vtkCxxRevisionMacro(vtkMergeFilter, "$Revision: 1.65 $");
 vtkStandardNewMacro(vtkMergeFilter);
 
 class vtkFieldNode
@@ -31,7 +31,7 @@ class vtkFieldNode
 public:
   vtkFieldNode(const char* name, vtkDataSet* ptr=0)
     {
-      int length = strlen(name);
+      int length = static_cast<int>(strlen(name));
       if (length > 0)
         {
         this->Name = new char[length+1];

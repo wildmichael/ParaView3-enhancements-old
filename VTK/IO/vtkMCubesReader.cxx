@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMCubesReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-24 20:01:34 $
-  Version:   $Revision: 1.57 $
+  Date:      $Date: 2002-04-07 14:58:52 $
+  Version:   $Revision: 1.58 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 
-vtkCxxRevisionMacro(vtkMCubesReader, "$Revision: 1.57 $");
+vtkCxxRevisionMacro(vtkMCubesReader, "$Revision: 1.58 $");
 vtkStandardNewMacro(vtkMCubesReader);
 
 // Construct object with FlipNormals turned off and Normals set to true.
@@ -188,7 +188,8 @@ void vtkMCubesReader::Execute()
     for (j=0; j<3; j++) 
       {
       int val;
-      val = fread (&point, static_cast<int>(sizeof(pointType)), 1, fp);
+      val = static_cast<int>(
+        fread (&point, static_cast<int>(sizeof(pointType)), 1, fp));
       if (val != 1)
          {
          vtkErrorMacro(<<"Error reading triange " << i 

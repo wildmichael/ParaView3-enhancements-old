@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCommunicator.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-29 13:55:46 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2002-04-07 14:58:52 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -29,7 +29,7 @@
 #include "vtkDoubleArray.h"
 #include "vtkIdTypeArray.h"
 
-vtkCxxRevisionMacro(vtkCommunicator, "$Revision: 1.11 $");
+vtkCxxRevisionMacro(vtkCommunicator, "$Revision: 1.12 $");
 
 template <class T>
 static int SendDataArray(T* data, int length, int handle, int tag, vtkCommunicator *self)
@@ -149,7 +149,7 @@ int vtkCommunicator::Send(vtkDataArray* data, int remoteHandle, int tag)
   int len = 0;
   if (name)
     {
-    len = strlen(name) + 1;
+    len = static_cast<int>(strlen(name)) + 1;
     }
 
   // send length of name
