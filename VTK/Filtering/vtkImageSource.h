@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSource.h,v $
   Language:  C++
-  Date:      $Date: 1997-12-17 01:24:03 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1998-03-06 22:54:12 $
+  Version:   $Revision: 1.23 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -102,6 +102,12 @@ public:
   // Update the progress of a filter. If a ProgressMEthod, exists, 
   // executes it. Then sets the Progress ivar to amount.
   void UpdateProgress(float amount);
+
+  // Description:
+  // subclass can over ride this method to do custom streaming and
+  // splitting for multiprocessing.
+  virtual int SplitExtent(int splitExt[6], int startExt[6], 
+			  int num, int total);
 
 protected:
   vtkImageCache *Output;
