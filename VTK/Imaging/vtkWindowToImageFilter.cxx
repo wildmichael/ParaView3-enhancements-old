@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWindowToImageFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:05:25 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-10-21 19:11:25 $
+  Version:   $Revision: 1.7 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder,ill Lorensen.
 
@@ -108,7 +108,7 @@ void vtkWindowToImageFilter::PrintSelf(ostream& os, vtkIndent indent)
 
 //----------------------------------------------------------------------------
 // This method returns the largest region that can be generated.
-void vtkWindowToImageFilter::UpdateInformation()
+void vtkWindowToImageFilter::ExecuteInformation()
 {
   if (this->Input == NULL )
     {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWindowToImageFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:05:25 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-10-21 19:11:25 $
+  Version:   $Revision: 1.9 $
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -70,10 +70,6 @@ public:
   // Returns which renderer is being used as the source for the pixel data.
   vtkGetObjectMacro(Input,vtkWindow);
 
-  // Description:
-  // This method returns the largest region that can be generated.
-  void UpdateInformation();
-  
 protected:
   vtkWindowToImageFilter();
   ~vtkWindowToImageFilter();
@@ -82,6 +78,7 @@ protected:
 
   // vtkWindow is not a vtkDataObject, so we need our own ivar.
   vtkWindow *Input;
+  void ExecuteInformation();
   void Execute(vtkImageData *data);
 };
 
