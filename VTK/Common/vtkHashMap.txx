@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHashMap.txx,v $
   Language:  C++
-  Date:      $Date: 2002-06-27 12:04:27 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-06-27 13:00:48 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -241,7 +241,7 @@ void vtkHashMap<KeyType,DataType>::RehashItems(vtkIdType newNumberOfBuckets)
     }
   
   // Re-hash the items.
-  ItemType item;
+  ItemType item = { KeyType(), DataType() };
   vtkIdType bucket;
   IteratorType* it = this->NewIterator();
   while(!it->IsDoneWithTraversal())
