@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkFloatArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-09 19:48:20 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1995-04-26 15:26:32 $
+  Version:   $Revision: 1.14 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -54,7 +54,10 @@ vlFloatArray::vlFloatArray(const int sz, const int ext)
 
 vlFloatArray::~vlFloatArray()
 {
-  delete [] this->Array;
+  if (this->Array)
+    {
+    delete [] this->Array;
+    }
 }
 
 // Description:
@@ -136,11 +139,15 @@ float *vlFloatArray::Resize(const int sz)
     return 0;
     }
 
-  memcpy(newArray, this->Array,
-         (sz < this->Size ? sz : this->Size) * sizeof(float));
+
+  if (this->Array)
+    {
+    memcpy(newArray, this->Array,
+	   (sz < this->Size ? sz : this->Size) * sizeof(float));
+    delete [] this->Array;
+    }
 
   this->Size = newSize;
-  delete [] this->Array;
   this->Array = newArray;
 
   return this->Array;
