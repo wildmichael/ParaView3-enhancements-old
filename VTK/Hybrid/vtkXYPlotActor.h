@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXYPlotActor.h,v $
   Language:  C++
-  Date:      $Date: 2001-05-02 12:56:00 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2001-05-22 21:06:27 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to Kitware & RPI/SCOREC who supported the development
              of this class.
 
@@ -233,6 +233,23 @@ public:
   vtkPolyData *GetPlotSymbol(int i);
   void SetPlotLabel(int i, const char *label);
   const char *GetPlotLabel(int i);
+
+  // Allow per-curve specification of line and point rendering.  These override
+  // global settings PlotPoints and PlotLines.  If not on, the default behavior
+  // is governed by PlotPoints and PlotLines ivars.
+  vtkGetMacro(PlotCurvePoints, int);
+  vtkSetMacro(PlotCurvePoints, int);
+  vtkBooleanMacro(PlotCurvePoints, int);
+
+  vtkGetMacro(PlotCurveLines, int);
+  vtkSetMacro(PlotCurveLines, int);
+  vtkBooleanMacro(PlotCurveLines, int);
+
+  void SetPlotLines(int i, int);
+  int GetPlotLines(int i);
+
+  void SetPlotPoints(int i, int);
+  int GetPlotPoints(int i);
   //---end Per Curve Properties-----------------------------------------------
 
   // Description:
@@ -342,6 +359,12 @@ public:
   vtkSetMacro(Shadow, int);
   vtkGetMacro(Shadow, int);
   vtkBooleanMacro(Shadow, int);
+
+  // Description:
+  // Enable/Disable plotting of Log of x-values.
+  vtkSetMacro(Logx, int);
+  vtkGetMacro(Logx, int);
+  vtkBooleanMacro(Logx, int);
 
   // Description:
   // Set/Get the font family for the annotation text. Three font types 
@@ -456,6 +479,7 @@ protected:
   int   Italic;
   int   Shadow;
   int   FontFamily;
+  int   Logx;
   char  *LabelFormat;
   float XRange[2];
   float YRange[2];
@@ -464,6 +488,8 @@ protected:
   int Border;
   int PlotLines;
   int PlotPoints;
+  int PlotCurveLines;
+  int PlotCurvePoints;
   int ExchangeAxes;
   int ReverseXAxis;
   int ReverseYAxis;
@@ -481,6 +507,8 @@ protected:
   int DataObjectPlotMode;
   vtkIntArray *XComponent;
   vtkIntArray *YComponent;
+  vtkIntArray *LinesOn;
+  vtkIntArray *PointsOn;
 
   //The data drawn within the axes. Each curve is one polydata.
   //color is controlled by scalar data. The curves are appended
