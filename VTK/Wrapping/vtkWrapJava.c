@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWrapJava.c,v $
   Language:  C++
-  Date:      $Date: 2000-10-25 14:28:14 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2000-11-09 04:31:21 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -444,7 +444,7 @@ void HandleDataReader(FILE *fp, FileInfo *data)
             data->ClassName, data->ClassName);
     fprintf(fp,"  jboolean isCopy;\n");
     fprintf(fp,"  jbyte *data = env->GetByteArrayElements(id0,&isCopy);\n");
-    fprintf(fp,"  op->SetBinaryInputString((unsigned char *)data,id1);\n");
+    fprintf(fp,"  op->SetBinaryInputString((const char *)data,id1);\n");
     fprintf(fp,"  env->ReleaseByteArrayElements(id0,data,JNI_ABORT);\n");
     fprintf(fp,"}\n");
 }
