@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDecimatePro.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-14 21:25:13 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1998-10-23 21:20:26 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -337,6 +337,8 @@ private:
   vtkPriorityQueue *Queue;
   vtkFloatArray *VertexError;
 
+  vtkVertexArray *V;
+  vtkTriArray *T;
 };
 
 #endif
