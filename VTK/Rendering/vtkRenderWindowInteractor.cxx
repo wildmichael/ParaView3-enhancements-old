@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-06-08 09:11:04 $
-  Version:   $Revision: 1.70 $
+  Date:      $Date: 2000-08-01 14:37:44 $
+  Version:   $Revision: 1.71 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -41,7 +41,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 =========================================================================*/
 #include "vtkRenderWindowInteractor.h"
 #include "vtkPropPicker.h"
-#include "vtkInteractorStyleTrackball.h"
+#include "vtkInteractorStyleSwitch.h"
 #include "vtkGraphicsFactory.h"
 
 
@@ -50,7 +50,7 @@ vtkRenderWindowInteractor::vtkRenderWindowInteractor()
 {
   this->RenderWindow    = NULL;
   this->InteractorStyle = NULL;
-  this->SetInteractorStyle(vtkInteractorStyleTrackball::New()); 
+  this->SetInteractorStyle(vtkInteractorStyleSwitch::New()); 
   this->InteractorStyle->Delete();
   
   this->LightFollowCamera = 1;

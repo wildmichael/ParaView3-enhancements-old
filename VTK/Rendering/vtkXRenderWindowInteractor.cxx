@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-07-17 01:59:11 $
-  Version:   $Revision: 1.85 $
+  Date:      $Date: 2000-08-01 14:37:44 $
+  Version:   $Revision: 1.86 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -192,6 +192,7 @@ void vtkXRenderWindowInteractor::Initialize()
   int *position;
   int argc = 0;
 
+  
   // make sure we have a RenderWindow and camera
   if ( ! this->RenderWindow)
     {
@@ -203,6 +204,9 @@ void vtkXRenderWindowInteractor::Initialize()
   ren = (vtkXRenderWindow *)(this->RenderWindow);
 
   // do initialization stuff if not initialized yet
+  
+  
+  
   if (this->App)
     {
     any_initialized = 1;
@@ -216,6 +220,7 @@ void vtkXRenderWindowInteractor::Initialize()
     vtkDebugMacro("app ctx " << app);
     any_initialized = 1;
     }
+  
   this->App = app;
 
   this->DisplayId = ren->GetDisplayId();

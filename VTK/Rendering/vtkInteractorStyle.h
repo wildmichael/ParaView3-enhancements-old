@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyle.h,v $
   Language:  C++
-  Date:      $Date: 2000-07-07 16:21:33 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2000-08-01 14:37:44 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -136,7 +136,7 @@ public:
 
   // Description:
   // Set/Get the Interactor wrapper being controlled by this object.
-  void SetInteractor(vtkRenderWindowInteractor *interactor);
+  virtual void SetInteractor(vtkRenderWindowInteractor *interactor);
   vtkGetObjectMacro(Interactor, vtkRenderWindowInteractor);
 
   // Description:

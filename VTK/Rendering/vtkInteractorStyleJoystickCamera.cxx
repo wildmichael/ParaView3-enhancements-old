@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleJoystickCamera.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-07-21 11:01:56 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2000-08-01 14:37:44 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -256,12 +256,15 @@ void vtkInteractorStyleJoystickCamera::OnLeftButtonDown(int ctrl, int shift,
 						int x, int y) 
 {
   this->FindPokedRenderer(x, y);
+
   if (this->CurrentRenderer == NULL)
     {
+    vtkErrorMacro("CurrentRenderer is NULL");
     return;
     }
 
   this->UpdateInternalState(ctrl, shift, x, y);
+  
   if (this->CtrlKey)
     {
     this->StartSpin();
@@ -337,5 +340,5 @@ void vtkInteractorStyleJoystickCamera::OnRightButtonUp(int ctrl, int shift,
 void vtkInteractorStyleJoystickCamera::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkInteractorStyle::PrintSelf(os,indent);
-
 }
+

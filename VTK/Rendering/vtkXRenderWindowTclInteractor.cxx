@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindowTclInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-06-28 14:23:40 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2000-08-01 14:37:44 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -112,6 +112,7 @@ static int vtkTclEventProc(XtPointer clientData,XEvent *event)
 static void vtkXTclTimerProc(ClientData clientData)
 {
   XtIntervalId id;
+  
   vtkXRenderWindowTclInteractorTimer((XtPointer)clientData,&id);
 }
 
