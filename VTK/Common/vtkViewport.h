@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkViewport.h,v $
   Language:  C++
-  Date:      $Date: 2003-04-17 15:00:28 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 2003-07-16 17:56:40 $
+  Version:   $Revision: 1.42 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -86,7 +86,7 @@ public:
   // automatically and should not be set by the user.
   vtkSetVector2Macro(Aspect,float);
   vtkGetVectorMacro(Aspect,float,2);
-  void ComputeAspect();
+  virtual void ComputeAspect();
   
   // Description:
   // Set the aspect ratio of a pixel in the rendered image. 
