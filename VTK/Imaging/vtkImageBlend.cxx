@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageBlend.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-08 13:18:53 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2002-06-14 17:04:31 $
+  Version:   $Revision: 1.26 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkImageBlend.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkImageBlend, "$Revision: 1.25 $");
+vtkCxxRevisionMacro(vtkImageBlend, "$Revision: 1.26 $");
 vtkStandardNewMacro(vtkImageBlend);
 
 //----------------------------------------------------------------------------
@@ -183,12 +183,12 @@ void vtkImageBlend::ExecuteData(vtkDataObject *output)
 //----------------------------------------------------------------------------
 // helper function for the stencil
 template <class T>
-static inline int vtkBlendGetNextExtent(vtkImageStencilData *stencil,
-                                        int &r1, int &r2, int rmin, int rmax,
-                                        int yIdx, int zIdx, 
-                                        T *&outPtr, T *&inPtr, 
-                                        int outScalars, int inScalars,
-                                        int &iter)
+inline int vtkBlendGetNextExtent(vtkImageStencilData *stencil,
+                                 int &r1, int &r2, int rmin, int rmax,
+                                 int yIdx, int zIdx, 
+                                 T *&outPtr, T *&inPtr, 
+                                 int outScalars, int inScalars,
+                                 int &iter)
 {
   // trivial case if stencil is not set
   if (!stencil)
@@ -225,10 +225,10 @@ static inline int vtkBlendGetNextExtent(vtkImageStencilData *stencil,
 //----------------------------------------------------------------------------
 // This templated function executes the filter for any type of data.
 template <class T>
-static void vtkImageBlendExecute(vtkImageBlend *self, int extent[6], 
-                                 vtkImageData *inData, T *inPtr,
-                                 vtkImageData *outData, T *outPtr,
-                                 float opacity, int id)
+void vtkImageBlendExecute(vtkImageBlend *self, int extent[6], 
+                          vtkImageData *inData, T *inPtr,
+                          vtkImageData *outData, T *outPtr,
+                          float opacity, int id)
 {
   int idxX, idxY, idxZ;
   int minX = 0;
@@ -396,10 +396,10 @@ static void vtkImageBlendExecute(vtkImageBlend *self, int extent[6],
 //----------------------------------------------------------------------------
 // This templated function executes the filter specifically for char data
 template <class T>
-static void vtkImageBlendExecuteChar(vtkImageBlend *self, int extent[6], 
-                                     vtkImageData *inData, T *inPtr,
-                                     vtkImageData *outData, T *outPtr,
-                                     float opacity, int id)
+void vtkImageBlendExecuteChar(vtkImageBlend *self, int extent[6], 
+                              vtkImageData *inData, T *inPtr,
+                              vtkImageData *outData, T *outPtr,
+                              float opacity, int id)
 {
   int idxX, idxY, idxZ;
   int minX, maxX, iter;
@@ -589,13 +589,13 @@ void vtkImageBlendCopyData(vtkImageData *inData, vtkImageData *outData,
 //----------------------------------------------------------------------------
 // This templated function executes the filter for any type of data.
 template <class T>
-static void vtkImageBlendCompoundExecute(vtkImageBlend *self,
-                                         int extent[6], 
-                                         vtkImageData *inData, 
-                                         T *inPtr,
-                                         vtkImageData *tmpData, 
-                                         float opacity,
-                                         float threshold)
+void vtkImageBlendCompoundExecute(vtkImageBlend *self,
+                                  int extent[6], 
+                                  vtkImageData *inData, 
+                                  T *inPtr,
+                                  vtkImageData *tmpData, 
+                                  float opacity,
+                                  float threshold)
 {
   unsigned long count = 0;
   unsigned long target;
@@ -765,11 +765,11 @@ static void vtkImageBlendCompoundExecute(vtkImageBlend *self,
 //----------------------------------------------------------------------------
 // This templated function executes the filter for any type of data.
 template <class T>
-static void vtkImageBlendCompoundTransferExecute(vtkImageBlend *self,
-                                                 int extent[6], 
-                                                 vtkImageData *outData, 
-                                                 T *outPtr,
-                                                 vtkImageData *tmpData)
+void vtkImageBlendCompoundTransferExecute(vtkImageBlend *self,
+                                          int extent[6], 
+                                          vtkImageData *outData, 
+                                          T *outPtr,
+                                          vtkImageData *tmpData)
 {
   // Get increments to march through data 
 

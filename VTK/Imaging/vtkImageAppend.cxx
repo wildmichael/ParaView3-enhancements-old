@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAppend.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:31:50 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2002-06-14 17:04:31 $
+  Version:   $Revision: 1.23 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkImageAppend.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkImageAppend, "$Revision: 1.22 $");
+vtkCxxRevisionMacro(vtkImageAppend, "$Revision: 1.23 $");
 vtkStandardNewMacro(vtkImageAppend);
 
 //----------------------------------------------------------------------------
@@ -188,9 +188,9 @@ void vtkImageAppend::ComputeInputUpdateExtent(int inExt[6],
 //----------------------------------------------------------------------------
 // This templated function executes the filter for any type of data.
 template <class T>
-static void vtkImageAppendExecute(vtkImageAppend *self, int id, 
-                          int inExt[6], vtkImageData *inData, T *inPtr,
-                          int outExt[6], vtkImageData *outData, T *outPtr)
+void vtkImageAppendExecute(vtkImageAppend *self, int id, 
+                           int inExt[6], vtkImageData *inData, T *inPtr,
+                           int outExt[6], vtkImageData *outData, T *outPtr)
 {
   int idxR, idxY, idxZ;
   int maxY, maxZ;

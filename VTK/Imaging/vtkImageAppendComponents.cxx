@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAppendComponents.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-16 22:29:43 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2002-06-14 17:04:31 $
+  Version:   $Revision: 1.23 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,7 +19,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkImageProgressIterator.h"
 
-vtkCxxRevisionMacro(vtkImageAppendComponents, "$Revision: 1.22 $");
+vtkCxxRevisionMacro(vtkImageAppendComponents, "$Revision: 1.23 $");
 vtkStandardNewMacro(vtkImageAppendComponents);
 
 //----------------------------------------------------------------------------
@@ -44,10 +44,10 @@ void vtkImageAppendComponents::ExecuteInformation(vtkImageData **inputs,
 //----------------------------------------------------------------------------
 // This templated function executes the filter for any type of data.
 template <class T>
-static void vtkImageAppendComponentsExecute(vtkImageAppendComponents *self,
-                                            vtkImageData *inData, 
-                                            vtkImageData *outData, 
-                                            int outComp,
+void vtkImageAppendComponentsExecute(vtkImageAppendComponents *self,
+                                     vtkImageData *inData, 
+                                     vtkImageData *outData, 
+                                     int outComp,
                                             int outExt[6], int id, T *)
 {
   vtkImageIterator<T> inIt(inData, outExt);
