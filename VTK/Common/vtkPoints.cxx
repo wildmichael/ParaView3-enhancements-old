@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-21 18:55:32 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2000-04-23 21:02:36 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -53,6 +53,11 @@ vtkPoints* vtkPoints::New(int dataType)
     }
   // If the factory was unable to create the object, then create it here.
   return new vtkPoints(dataType);
+}
+
+vtkPoints* vtkPoints::New()
+{
+  return vtkPoints::New(VTK_FLOAT);
 }
 
 vtkAttributeData *vtkPoints::MakeObject()
