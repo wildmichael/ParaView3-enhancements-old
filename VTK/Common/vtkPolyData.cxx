@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-09-11 14:39:08 $
-  Version:   $Revision: 1.65 $
+  Date:      $Date: 1996-09-12 18:23:43 $
+  Version:   $Revision: 1.66 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -397,7 +397,7 @@ int vtkPolyData::GetNumberOfStrips()
 // Create data structure that allows random access of cells.
 void vtkPolyData::BuildCells()
 {
-  int numCells=0;
+  int numCells;
   vtkCellArray *inVerts=this->GetVerts();
   vtkCellArray *inLines=this->GetLines();
   vtkCellArray *inPolys=this->GetPolys();
@@ -407,7 +407,7 @@ void vtkPolyData::BuildCells()
 
   vtkDebugMacro (<< "Building PolyData cells.");
 
-  if ( this->GetNumberOfCells() < 1 )
+  if ( (numCells = this->GetNumberOfCells()) < 1 )
     {
     numCells = 1000; //may be allocating empty list to begin with
     }
