@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkRenderWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-06 13:25:17 $
-  Version:   $Revision: 1.77 $
+  Date:      $Date: 2002-09-06 19:17:57 $
+  Version:   $Revision: 1.78 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -306,7 +306,7 @@ extern "C" {
                           block.pixelSize,
                           components );
       }
-    block.pitch = block.width;
+    block.pitch = block.width * components;
     block.pixelSize = components;
     block.pixelPtr = photobuffer;
   
