@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPicker.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:07:09 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 1999-11-11 21:05:51 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -252,6 +252,7 @@ int vtkPicker::Pick(float selectionX, float selectionY, float selectionZ,
     {
     cameraDOP[i] = cameraFP[i] - cameraPos[i];
     }
+
   vtkMath::Normalize(cameraDOP);
 
   if (( rayLength = vtkMath::Dot(cameraDOP,ray)) == 0.0 ) 
@@ -262,12 +263,25 @@ int vtkPicker::Pick(float selectionX, float selectionY, float selectionZ,
 
   clipRange = camera->GetClippingRange();
 
-  tF = clipRange[0] / rayLength;
-  tB = clipRange[1] / rayLength;
-  for (i=0; i<3; i++) 
+  if ( camera->GetParallelProjection() )
     {
-    p1World[i] = cameraPos[i] + tF*ray[i];
-    p2World[i] = cameraPos[i] + tB*ray[i];
+    tF = clipRange[0] - rayLength;
+    tB = clipRange[1] - rayLength;
+    for (i=0; i<3; i++) 
+      {
+      p1World[i] = PickPosition[i] + tF*cameraDOP[i];
+      p2World[i] = PickPosition[i] + tB*cameraDOP[i];
+      }
+    }
+  else
+    {
+    tF = clipRange[0] / rayLength;
+    tB = clipRange[1] / rayLength;
+    for (i=0; i<3; i++) 
+      {
+      p1World[i] = cameraPos[i] + tF*ray[i];
+      p2World[i] = cameraPos[i] + tB*ray[i];
+      }
     }
   p1World[3] = p2World[3] = 1.0;
 
