@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPolyDataCollection.h,v $
   Language:  C++
-  Date:      $Date: 1994-08-15 07:49:21 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1994-09-16 12:52:19 $
+  Version:   $Revision: 1.4 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -27,6 +27,7 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 class vlPolyDataCollectionElement
 {
  public:
+  vlPolyDataCollectionElement():Item(NULL),Next(NULL) {};
   vlPolyData *Item;
   vlPolyDataCollectionElement *Next;
 };
@@ -35,6 +36,7 @@ class vlPolyDataCollection : public vlObject
 {
 public:
   vlPolyDataCollection();
+  ~vlPolyDataCollection();
   void PrintSelf(ostream& os, vlIndent indent);
   char *GetClassName() {return "vlPolyDataCollection";};
 
@@ -42,13 +44,41 @@ public:
   void RemoveItem(vlPolyData *);
   int IsItemPresent(vlPolyData *);
   int GetNumberOfItems();
-  vlPolyData *GetItem(int num);
+  void InitTraversal();
+  vlPolyData *GetNextItem();
 
-private:
+protected:
   int NumberOfItems;
   vlPolyDataCollectionElement *Top;
   vlPolyDataCollectionElement *Bottom;
+  vlPolyDataCollectionElement *Current;
 
 };
+
+// Description:
+// Initialize the traversal of the collection. This means the data pointer
+// is set at the beginning of the list.
+inline void vlPolyDataCollection::InitTraversal()
+{
+  this->Current = this->Top;
+}
+
+// Description:
+// Get the next item in the collection. NULL is returned if the collection
+// is exhausted.
+inline vlPolyData *vlPolyDataCollection::GetNextItem()
+{
+  vlPolyDataCollectionElement *elem=this->Current;
+
+  if ( elem != NULL )
+    {
+    this->Current = elem->Next;
+    return elem->Item;
+    }
+  else
+    {
+    return NULL;
+    }
+}
 
 #endif
