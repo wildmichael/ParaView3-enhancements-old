@@ -8,7 +8,7 @@
  * of authorship are reproduced on all copies.
  */
 
-/* $Id: draw.c,v 1.12 2004-04-14 21:21:10 kmorel Exp $ */
+/* $Id: draw.c,v 1.13 2004-05-12 13:56:38 martink Exp $ */
 
 #include <GL/ice-t.h>
 #include <state.h>
@@ -447,10 +447,10 @@ void icetDrawFrame(void)
         if (zfar   >  1.0) zfar = 1.0;
 
       /* Use this information to build a containing viewport. */
-        contained_viewport[0] = left;
-        contained_viewport[1] = bottom;
-        contained_viewport[2] = right - left;
-        contained_viewport[3] = top - bottom;
+        contained_viewport[0] = (int)left;
+        contained_viewport[1] = (int)bottom;
+        contained_viewport[2] = (int)(right - left);
+        contained_viewport[3] = (int)(top - bottom);
 
       /* Now use this information to figure out which tiles need to be
          drawn. */
