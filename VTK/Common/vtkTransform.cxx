@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-02 18:24:36 $
-  Version:   $Revision: 1.65 $
+  Date:      $Date: 1999-09-03 21:26:54 $
+  Version:   $Revision: 1.66 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -879,7 +879,7 @@ void vtkTransform::Concatenate(double Elements[16])
 void vtkTransform::Multiply4x4(vtkMatrix4x4 *a, vtkMatrix4x4 *b, 
 			       vtkMatrix4x4 *c)
 {
-  int i, j, k;
+  int i, k;
   double Accum[4][4];
 
   for (i = 0; i < 4; i++) 
