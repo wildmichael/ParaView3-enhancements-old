@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextureMapToSphere.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:05:13 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1998-08-10 13:29:56 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -163,6 +163,8 @@ void vtkTextureMapToSphere::Execute()
 
   output->GetPointData()->CopyTCoordsOff();
   output->GetPointData()->PassData(input->GetPointData());
+
+  output->GetCellData()->PassData(input->GetCellData());
 
   output->GetPointData()->SetTCoords(newTCoords);
   newTCoords->Delete();
