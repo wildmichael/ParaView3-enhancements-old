@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPointLoad.h,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:31:49 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1995-09-12 12:35:35 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,7 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-// .NAME vtkPointLoad - compute stress tensors given point load on semi-inifinite domain
+// .NAME vtkPointLoad - compute stress tensors given point load on semi-infinite domain
 // .SECTION Description
 // vtkPointLoad is a source object that computes stress tensors on a volume. 
 // The tensors are computed from the application of a point load on a 
