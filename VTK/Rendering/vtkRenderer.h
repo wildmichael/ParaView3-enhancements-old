@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:55:03 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 1996-09-12 13:28:44 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -202,7 +202,7 @@ public:
   void WorldToDisplay();
 
   float *GetViewRays();
-  vtkGetVectorMacro(ViewRaysSize,int,2); // Call this AFTER GetViewRays()
+  int   *GetViewRaysSize();
 
   void SetStartRenderMethod(void (*f)(void *), void *arg);
   void SetEndRenderMethod(void (*f)(void *), void *arg);

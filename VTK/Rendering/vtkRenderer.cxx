@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-26 18:27:38 $
-  Version:   $Revision: 1.59 $
+  Date:      $Date: 1996-09-12 13:28:46 $
+  Version:   $Revision: 1.60 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -560,6 +560,13 @@ void vtkRenderer::UpdateViewRays()
     }
     ypos += yinc;
   }
+}
+
+int *vtkRenderer::GetViewRaysSize()
+{
+  this->GetViewRays();
+
+  return( this->ViewRaysSize );
 }
 
 float *vtkRenderer::GetViewRays()
