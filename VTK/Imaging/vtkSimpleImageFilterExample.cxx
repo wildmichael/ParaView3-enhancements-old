@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSimpleImageFilterExample.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-30 13:10:28 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-03-08 20:37:08 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -81,8 +81,8 @@ static void vtkSimpleImageFilterExampleExecute(vtkImageData* input,
     }
 }
 
-void vtkSimpleImageFilterExample::Execute(vtkImageData* input,
-					  vtkImageData* output)
+void vtkSimpleImageFilterExample::SimpleExecute(vtkImageData* input,
+                                                vtkImageData* output)
 {
 
   void* inPtr = input->GetScalarPointer();

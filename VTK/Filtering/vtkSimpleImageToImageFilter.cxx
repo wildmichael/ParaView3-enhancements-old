@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSimpleImageToImageFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-02-06 12:19:36 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-03-08 20:37:08 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -103,7 +103,7 @@ void vtkSimpleImageToImageFilter::ComputeInputUpdateExtent( int inExt[6],
   memcpy(inExt,wholeExtent,sizeof(int)*6);
 }
 
-void vtkSimpleImageToImageFilter::Execute()
+void vtkSimpleImageToImageFilter::ExecuteData(vtkDataObject *out)
 {
 
   vtkDebugMacro("Executing.");
@@ -120,5 +120,5 @@ void vtkSimpleImageToImageFilter::Execute()
   output->SetExtent(output->GetWholeExtent());
   output->AllocateScalars();
 
-  this->Execute(input, output);
+  this->SimpleExecute(input, output);
 }

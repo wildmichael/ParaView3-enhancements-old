@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSimpleImageToImageFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-02-02 12:23:24 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-03-08 20:37:08 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -90,11 +90,9 @@ protected:
   virtual void ComputeInputUpdateExtent(int inExt[6], int outExt[6]);
 
   // You don't have to touch this unless you have a good reason.
-  virtual void Execute();
+  virtual void ExecuteData(vtkDataObject *output);
   // In the simplest case, this is the only method you need to define.
-  virtual void Execute(vtkImageData* input, vtkImageData* output) = 0;
-  void Execute(vtkImageData* outData)
-    {this->vtkImageSource::Execute(outData);}
+  virtual void SimpleExecute(vtkImageData* input, vtkImageData* output) = 0;
 };
 
 #endif
