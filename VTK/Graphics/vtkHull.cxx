@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHull.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-03-22 22:34:52 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-04-20 13:57:43 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,7 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-# include "vtkHull.h"
+#include "vtkHull.h"
 
 // Construct an the hull object with no planes
 vtkHull::vtkHull()
