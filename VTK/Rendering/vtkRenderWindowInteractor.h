@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 2002-03-21 21:27:35 $
-  Version:   $Revision: 1.86 $
+  Date:      $Date: 2002-03-26 14:16:19 $
+  Version:   $Revision: 1.87 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -191,7 +191,7 @@ public:
   
   // Description:
   // Get the current position of the mouse.
-  virtual void GetMousePosition(int *x, int *y) { *x = 0 ; *y = 0; };
+  virtual void GetMousePosition(int *x, int *y) { *x = 0 ; *y = 0; }
 
   // Description:
   // Hide or show the mouse cursor, it is nice to be able to hide the
@@ -260,11 +260,7 @@ public:
         }
       this->Modified();
     }
-  
-      
-      
-  
-  
+
   // Description:
   // This methods sets the Size ivar of the interactor without
   // actually changing the size of the window. Normally
@@ -275,6 +271,13 @@ public:
   vtkSetVector2Macro(Size,int);
   vtkGetVector2Macro(Size,int);
 
+  // Description:
+  // When an event occurs, we must determine which Renderer the event
+  // occurred within, since one RenderWindow may contain multiple
+  // renderers. We also need to know what camera to operate on.
+  // These methods return this information.
+  vtkCamera *FindPokedCamera(int,int);
+  vtkRenderer * FindPokedRenderer(int,int);
 
 protected:
   vtkRenderWindowInteractor();
