@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAxisActor2D.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:53 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2001-08-29 21:45:09 $
+  Version:   $Revision: 1.17 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -282,10 +282,9 @@ protected:
   int   LastTitleFontSize;
   int   LastLabelFontSize;
   
-private:
-  void BuildAxis(vtkViewport *viewport);
+  virtual void BuildAxis(vtkViewport *viewport);
   static float ComputeStringOffset(float width, float height, float theta);
-  static void SetOffsetPosition(float xTick[3], float theta, int stringHeight, 
+  static void SetOffsetPosition(float xTick[3], float theta, int stringHeight,
                                 int stringWidth, int offset, vtkActor2D *actor);
 
   vtkTextMapper *TitleMapper;
