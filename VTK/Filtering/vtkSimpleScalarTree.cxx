@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSimpleScalarTree.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-09 13:31:59 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-01-09 14:12:00 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -43,7 +43,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkFloatArray.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkSimpleScalarTree, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkSimpleScalarTree, "$Revision: 1.3 $");
 vtkStandardNewMacro(vtkSimpleScalarTree);
 
 class vtkScalarNode {};
@@ -211,10 +211,10 @@ void vtkSimpleScalarTree::BuildTree()
 // will have scalar values that span the scalar value specified.
 void vtkSimpleScalarTree::InitTraversal(float scalarValue)
 {
+  this->BuildTree();
   vtkScalarRange<float> *TTree = 
     static_cast< vtkScalarRange<float> * > (this->Tree);
 
-  this->BuildTree();
   this->ScalarValue = scalarValue;
   this->TreeIndex = this->TreeSize;
 
