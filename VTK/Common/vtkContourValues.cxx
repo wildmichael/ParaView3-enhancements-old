@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkContourValues.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:03:02 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2000-02-15 21:07:31 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -120,16 +120,40 @@ void vtkContourValues::GetValues(float *contourValues)
 // will automatically increase list size as needed.
 void vtkContourValues::SetNumberOfContours(const int number)
 {
-  int currentNumber = this->Contours->GetMaxId()+1;
-  int n = ( number < 0 ? 0 : number);
-  int i;
+  int    currentNumber = this->Contours->GetMaxId()+1;
+  int    n = ( number < 0 ? 0 : number);
+  int    i;
+  float  *oldValues;
 
   if ( n != currentNumber )
     {
     this->Modified();
+
+    // Keep a copy of the old values
+    if ( currentNumber > 0 )
+      {
+      oldValues = new float[currentNumber];
+      for ( i = 0; i < currentNumber; i++ )
+	{
+	oldValues[i] = this->Contours->GetValue(i);
+	}
+      }
+
     this->Contours->SetNumberOfValues(n);
+
+    // Copy them back in since the array may have been re-allocated
+    if ( currentNumber > 0 )
+      {
+      int limit = (currentNumber < n)?(currentNumber):(n);
+      for ( i = 0; i < limit; i++ )
+	{
+	this->Contours->SetValue( i, oldValues[i] );
+	}
+      delete [] oldValues;
+      }
+
     }
-  // Zero out new values
+  // Set the new contour values to 0.0
   if (n > currentNumber)
     {
     for ( i = currentNumber; i < n; i++ )
