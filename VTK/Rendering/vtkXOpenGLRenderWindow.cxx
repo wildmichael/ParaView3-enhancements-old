@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXOpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-08-26 19:28:11 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 2003-08-26 19:51:59 $
+  Version:   $Revision: 1.48 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -87,7 +87,7 @@ vtkXOpenGLRenderWindowInternal::vtkXOpenGLRenderWindowInternal(
 
 
 #ifndef VTK_IMPLEMENT_MESA_CXX
-vtkCxxRevisionMacro(vtkXOpenGLRenderWindow, "$Revision: 1.47 $");
+vtkCxxRevisionMacro(vtkXOpenGLRenderWindow, "$Revision: 1.48 $");
 vtkStandardNewMacro(vtkXOpenGLRenderWindow);
 #endif
 
@@ -404,15 +404,6 @@ void vtkXOpenGLRenderWindow::WindowInitialize (void)
       }
     
     this->Internal->ContextId = glXCreateContext(this->DisplayId, v, 0, GL_TRUE);
-
-    if (this->HasObserver(vtkCommand::ExitEvent))
-      {
-        this->InvokeEvent(vtkCommand::ExitEvent, NULL);
-      }
-    else
-      {
-        cout <<"no exit event" << endl;
-      }
 
     if(!this->Internal->ContextId)
       {
