@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnsignedIntArray.h,v $
   Language:  C++
-  Date:      $Date: 1998-04-16 13:23:19 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-04-16 16:08:11 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -80,7 +80,9 @@ public:
   unsigned int *GetPointer(const int id) {return this->Array + id;}
   unsigned int *WritePointer(const int id, const int number);
   void *GetVoidPointer(const int id) {return (void *)this->GetPointer(id);};
-  void DeepCopy(vtkDataArray &da);
+  void DeepCopy(vtkDataArray& da);
+
+  void SetArray(unsigned int* array, int size, int save);
 
 private:
   unsigned int *Array;   // pointer to data
@@ -88,6 +90,8 @@ private:
 
   int TupleSize; //used for data conversion
   float *Tuple;
+
+  int SaveUserArray;
 };
 
 // Description:

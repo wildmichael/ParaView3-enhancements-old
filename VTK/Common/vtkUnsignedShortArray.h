@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnsignedShortArray.h,v $
   Language:  C++
-  Date:      $Date: 1998-04-16 13:23:21 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1998-04-16 16:08:13 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -85,7 +85,9 @@ public:
   unsigned short *GetPointer(const int id) {return this->Array + id;}
   unsigned short *WritePointer(const int id, const int number);
   void *GetVoidPointer(const int id) {return (void *)this->GetPointer(id);};
-  void DeepCopy(vtkDataArray &da);
+  void DeepCopy(vtkDataArray& ia);
+
+  void SetArray(unsigned short* array, int size, int save);
 
 private:
   unsigned short *Array;   // pointer to data
@@ -93,6 +95,8 @@ private:
 
   int TupleSize; //used for data conversion
   float *Tuple;
+
+  int SaveUserArray;
 };
 
 // Description:
