@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipDataSet.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:10 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2002-02-08 20:56:20 $
+  Version:   $Revision: 1.15 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkClipDataSet, "$Revision: 1.14 $");
+vtkCxxRevisionMacro(vtkClipDataSet, "$Revision: 1.15 $");
 vtkStandardNewMacro(vtkClipDataSet);
 
 //----------------------------------------------------------------------------
@@ -39,6 +39,7 @@ vtkClipDataSet::vtkClipDataSet(vtkImplicitFunction *cf)
   this->GenerateClippedOutput = 0;
   this->vtkSource::SetNthOutput(1,vtkUnstructuredGrid::New());
   this->Outputs[1]->Delete();
+  this->InputScalarsSelection = NULL;
 }
 
 //----------------------------------------------------------------------------
@@ -50,6 +51,7 @@ vtkClipDataSet::~vtkClipDataSet()
     this->Locator = NULL;
     }
   this->SetClipFunction(NULL);
+  this->SetInputScalarsSelection(NULL);
 }
 
 //----------------------------------------------------------------------------
@@ -195,7 +197,7 @@ void vtkClipDataSet::Execute()
     }
   else //using input scalars
     {
-    clipScalars = inPD->GetScalars();
+    clipScalars = inPD->GetScalars(this->InputScalarsSelection);
     if ( !clipScalars )
       {
       vtkErrorMacro(<<"Cannot clip without clip function or input scalars");
@@ -203,7 +205,8 @@ void vtkClipDataSet::Execute()
       }
     }
     
-  if ( !this->GenerateClipScalars && !input->GetPointData()->GetScalars())
+  if ( !this->GenerateClipScalars && 
+       !input->GetPointData()->GetScalars(this->InputScalarsSelection))
     {
     outPD->CopyScalarsOff();
     }

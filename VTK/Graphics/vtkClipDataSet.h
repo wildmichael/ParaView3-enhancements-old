@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipDataSet.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:11 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-02-08 20:56:31 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -134,6 +134,13 @@ public:
   // Return the mtime also considering the locator and clip function.
   unsigned long GetMTime();
 
+  // Description:
+  // If you want to clip by an arbitrary array, then set its name here.
+  // By default this in NULL and the filter will use the active scalar array.
+  vtkGetStringMacro(InputScalarsSelection);
+  void SelectInputScalars(const char *fieldName) 
+    {this->SetInputScalarsSelection(fieldName);}
+  
 protected:
   vtkClipDataSet(vtkImplicitFunction *cf=NULL);
   ~vtkClipDataSet();
@@ -147,6 +154,10 @@ protected:
   int GenerateClipScalars;
 
   int GenerateClippedOutput;
+
+  char *InputScalarsSelection;
+  vtkSetStringMacro(InputScalarsSelection);
+
 private:
   vtkClipDataSet(const vtkClipDataSet&);  // Not implemented.
   void operator=(const vtkClipDataSet&);  // Not implemented.
