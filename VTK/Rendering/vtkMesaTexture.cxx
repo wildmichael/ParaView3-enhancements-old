@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaTexture.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-22 19:09:39 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1999-11-18 19:34:28 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -377,7 +377,7 @@ unsigned char *vtkMesaTexture::ResampleToPowerOfTwo(int &xs, int &ys, unsigned c
       w3 = pcoords[0]*pcoords[1];
       for (k=0; k < bpp; k++)
         {
-        *p++ = p1[k]*w0 + p2[k]*w1 + p3[k]*w2 + p4[k]*w3;
+        *p++ = (unsigned char)(p1[k]*w0 + p2[k]*w1 + p3[k]*w2 + p4[k]*w3);
         }
       }
     }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWrapTcl.c,v $
   Language:  C++
-  Date:      $Date: 1999-09-13 14:46:16 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-11-18 19:34:25 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -595,7 +595,7 @@ void vtkParseOutput(FILE *fp, FileInfo *data)
   
   /* add the ListInstances method */
   fprintf(fp,"\n  if (!strcmp(\"ListInstances\",argv[1]))\n    {\n");
-  fprintf(fp,"    vtkTclListInstances(interp,%sCommand);\n",data->ClassName);
+  fprintf(fp,"    vtkTclListInstances(interp,(ClientData)%sCommand);\n",data->ClassName);
   fprintf(fp,"    return TCL_OK;\n    }\n");
   
   /* add the ListMethods method */

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAxisActor2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:08:35 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-11-18 19:34:33 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to Kitware & RPI/SCOREC who supported the development
              of this class.
 
@@ -517,7 +517,7 @@ void vtkAxisActor2D::ComputeRange(float inRange[2], float outRange[2],
     lastInterval = interval;
     }
   interval = lastInterval;
-  numTicks = ceil(range/interval) + 1; //trim number of extra ticks
+  numTicks = (int) ceil(range/interval) + 1; //trim number of extra ticks
   
   // Get the start value of the range
   for ( j=0; j < VTK_NUM_DIVS; j++ )
@@ -547,7 +547,7 @@ int vtkAxisActor2D::SetFontSize(vtkViewport *viewport,
   int tempi[2], fontSize, target, length=(size[0]>size[1]?size[0]:size[1]);
 
   // find the best size for the font
-  target = 0.015*factor*size[0] + 0.015*factor*size[1];
+  target = (int)(0.015*factor*size[0] + 0.015*factor*size[1]);
 
   fontSize = target;
   textMapper->SetFontSize(fontSize);
@@ -593,8 +593,8 @@ void vtkAxisActor2D::SetOffsetPosition(float xTick[3], float theta,
   center[0] = xTick[0] + x*sin(theta);
   center[1] = xTick[1] - y*cos(theta);
     
-  pos[0] = center[0] - stringWidth/2.0;
-  pos[1] = center[1] - stringHeight/2.0;
+  pos[0] = (int)(center[0] - stringWidth/2.0);
+  pos[1] = (int)(center[1] - stringHeight/2.0);
   
   actor->SetPosition(pos[0], pos[1]);
 }

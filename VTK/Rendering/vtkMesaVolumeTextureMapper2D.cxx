@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaVolumeTextureMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-22 19:09:39 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1999-11-18 19:34:28 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -110,7 +110,7 @@ void vtkMesaVolumeTextureMapper2D::Render(vtkRenderer *ren, vtkVolume *vol)
 
     for (i = 0; i < numClipPlanes; i++)
       {
-      glEnable(GL_CLIP_PLANE0+i);
+      glEnable((GLenum)(GL_CLIP_PLANE0+i));
 
       plane = (vtkPlane *)clipPlanes->GetItemAsObject(i);
 
@@ -120,7 +120,7 @@ void vtkMesaVolumeTextureMapper2D::Render(vtkRenderer *ren, vtkVolume *vol)
       planeEquation[3] = -(planeEquation[0]*plane->GetOrigin()[0]+
 			   planeEquation[1]*plane->GetOrigin()[1]+
 			   planeEquation[2]*plane->GetOrigin()[2]);
-      glClipPlane(GL_CLIP_PLANE0+i,planeEquation);
+      glClipPlane((GLenum)(GL_CLIP_PLANE0+i),planeEquation);
       }
     }
 
@@ -142,7 +142,7 @@ void vtkMesaVolumeTextureMapper2D::Render(vtkRenderer *ren, vtkVolume *vol)
     {
     for (i = 0; i < numClipPlanes; i++)
       {
-      glDisable(GL_CLIP_PLANE0+i);
+      glDisable((GLenum)(GL_CLIP_PLANE0+i));
       }
     }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDEMReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:05:29 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-11-18 19:34:26 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -401,7 +401,7 @@ int vtkDEMReader::ReadProfiles (vtkImageData *data)
     //
     ConvertDNotationToENotation (record);
 
-    sscanf(record, "%6d%6d%6d%6d%24g%24g%24g%24g%24g",
+    sscanf(record, "%24g%24g%24g%24g%24g",
 		   &planCoords[0],	/* 3 */
 		   &planCoords[1],	/* 3 */
 		   &localElevation,	/* 4 */

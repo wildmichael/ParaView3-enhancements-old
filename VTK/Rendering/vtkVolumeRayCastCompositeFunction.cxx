@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastCompositeFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-17 17:56:49 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1999-11-18 19:34:29 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -1133,7 +1133,7 @@ static void CastRay_TrilinSample_Shaded( T *data_ptr,
 	}
       else if ( scalar_value > volumeInfo->Volume->GetArraySize() - 1 )
 	{
-	scalar_value = volumeInfo->Volume->GetArraySize() - 1;
+	scalar_value = (int)(volumeInfo->Volume->GetArraySize() - 1);
 	}
       
       opacity = SOTF[scalar_value];
@@ -1274,7 +1274,7 @@ static void CastRay_TrilinSample_Shaded( T *data_ptr,
 	}
       else if ( scalar_value > volumeInfo->Volume->GetArraySize() - 1 )
 	{
-	scalar_value = volumeInfo->Volume->GetArraySize() - 1;
+	scalar_value = (int)(volumeInfo->Volume->GetArraySize() - 1);
 	}
       
       opacity = SOTF[scalar_value];

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeTextureMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-19 17:25:07 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-11-18 19:34:32 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -141,7 +141,7 @@ void vtkVolumeTextureMapper::InitializeRender( vtkRenderer *ren,
 
   colorChannels = vol->GetProperty()->GetColorChannels();
 
-  size = vol->GetArraySize();
+  size = (int) vol->GetArraySize();
 
   if ( this->ArraySize != size )
     {
@@ -172,10 +172,11 @@ void vtkVolumeTextureMapper::InitializeRender( vtkRenderer *ren,
     RGBArray = vol->GetRGBArray();    
     for ( i=0, j=0, k=0; i < size; i++ )
       {
-      this->RGBAArray[j++] = RGBArray[k++]*255.99;
-      this->RGBAArray[j++] = RGBArray[k++]*255.99;
-      this->RGBAArray[j++] = RGBArray[k++]*255.99;
-      this->RGBAArray[j++] = AArray[i]*255.99*gradientOpacityConstant;
+      this->RGBAArray[j++] = (unsigned char) (RGBArray[k++]*255.99);
+      this->RGBAArray[j++] = (unsigned char) (RGBArray[k++]*255.99);
+      this->RGBAArray[j++] = (unsigned char) (RGBArray[k++]*255.99);
+      this->RGBAArray[j++]
+	= (unsigned char) (AArray[i]*255.99*gradientOpacityConstant);
       }
     }
   else if ( colorChannels == 1 )
@@ -183,8 +184,9 @@ void vtkVolumeTextureMapper::InitializeRender( vtkRenderer *ren,
     GArray = vol->GetGrayArray();
     for ( i=0, j=0; i < size; i++ )
       {
-      this->RGBAArray[j++] = GArray[i]*255.99;
-      this->RGBAArray[j++] = AArray[i]*255.99*gradientOpacityConstant;
+      this->RGBAArray[j++] = (unsigned char) (GArray[i]*255.99);
+      this->RGBAArray[j++]
+	= (unsigned char) (AArray[i]*255.99*gradientOpacityConstant);
       }
     }
 

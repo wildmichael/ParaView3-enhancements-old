@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-17 17:56:51 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 1999-11-18 19:34:31 $
+  Version:   $Revision: 1.51 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -361,7 +361,7 @@ void vtkVolumeRayCastMapper::CastViewRay( VTKRayCastRayInfo *rayInfo,
       volumeRayIncrement[1] = incrementLength * volumeRayDirection[1];
       volumeRayIncrement[2] = incrementLength * volumeRayDirection[2];
       
-      rayInfo->NumberOfStepsToTake = (rayLength / incrementLength) + 1;
+      rayInfo->NumberOfStepsToTake = (int)((rayLength / incrementLength) + 1);
       
       for ( i = 0; i < 3; i++ )
 	{
@@ -489,7 +489,7 @@ void vtkVolumeRayCastMapper::CastViewRay( VTKRayCastRayInfo *rayInfo,
 	    volumeRayIncrement[1] = incrementLength * volumeRayDirection[1];
 	    volumeRayIncrement[2] = incrementLength * volumeRayDirection[2];
 
-	    rayInfo->NumberOfStepsToTake = (rayLength / incrementLength) + 1;
+	    rayInfo->NumberOfStepsToTake = (int)((rayLength/incrementLength)+1);
       
 	    for ( i = 0; i < 3; i++ )
 	      {

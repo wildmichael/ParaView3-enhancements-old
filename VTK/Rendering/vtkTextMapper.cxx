@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-17 17:57:16 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1999-11-18 19:34:34 $
+  Version:   $Revision: 1.23 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -271,7 +271,7 @@ void vtkTextMapper::GetMultiLineSize(vtkViewport* viewport, int size[2])
   
   // add in the line spacing
   this->LineSize = size[1];
-  size[1] = this->NumberOfLines* this->LineSpacing * size[1];
+  size[1] = (int)(this->NumberOfLines* this->LineSpacing * size[1]);
 }
 
 void vtkTextMapper::RenderOverlayMultipleLines(vtkViewport *viewport, 

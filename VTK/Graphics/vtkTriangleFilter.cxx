@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangleFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:08:11 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1999-11-18 19:34:29 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -79,7 +79,7 @@ void vtkTriangleFilter::Execute()
   output->Allocate(numPoints, numPoints);
   outCD->CopyAllocate(inCD,numPoints);
 
-  updateInterval = numCells/100.0;
+  updateInterval = (int)(numCells/100.0);
   if (updateInterval < 1)
     {
     updateInterval = 1;

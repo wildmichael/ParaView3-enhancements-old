@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPostScriptWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-17 17:57:15 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1999-11-18 19:34:33 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -72,7 +72,7 @@ void vtkPostScriptWriter::WriteFileHeader(ofstream *file, vtkImageData *cache)
   int bpp;
   int cols, rows, scols, srows;
   float scale = 1;
-  int pagewid = 8.5*72;
+  int pagewid = (int) (8.5*72);
   int pagehgt = 11*72;
   
   // Find the length of the rows to write.
@@ -83,21 +83,21 @@ void vtkPostScriptWriter::WriteFileHeader(ofstream *file, vtkImageData *cache)
   rows = max2 - min2 + 1;
   
   float pixfac = 0.96;	/* 1, approx. */
-  scols = cols * pixfac;
-  srows = rows * pixfac;
+  scols = (int)(cols * pixfac);
+  srows = (int)(rows * pixfac);
   if ( scols > pagewid * VTK_MARGIN || srows > pagehgt * VTK_MARGIN )
     {
     if ( scols > pagewid * VTK_MARGIN )
       {
       scale *= pagewid / scols * VTK_MARGIN;
-      scols = scale * cols * pixfac;
-      srows = scale * rows * pixfac;
+      scols = (int)(scale * cols * pixfac);
+      srows = (int)(scale * rows * pixfac);
       }
     if ( srows > pagehgt * VTK_MARGIN )
       {
       scale *= pagehgt / srows * VTK_MARGIN;
-      scols = scale * cols * pixfac;
-      srows = scale * rows * pixfac;
+      scols = (int)(scale * cols * pixfac);
+      srows = (int)(scale * rows * pixfac);
       }
     }
   float llx = ( pagewid - scols ) / 2;

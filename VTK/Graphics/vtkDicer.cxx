@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDicer.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-17 17:56:28 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1999-11-18 19:34:28 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -81,20 +81,20 @@ void vtkDicer::UpdatePieceMeasures()
 
   if ( this->DiceMode == VTK_DICE_MODE_NUMBER_OF_POINTS )
     {
-    this->NumberOfPieces = ceil((double)numPts/this->NumberOfPointsPerPiece);
+    this->NumberOfPieces = (int) ceil((double)numPts/this->NumberOfPointsPerPiece);
     this->MemoryLimit = (unsigned long) ceil((double)memSize/this->NumberOfPieces);
     }
 
   else if ( this->DiceMode == VTK_DICE_MODE_SPECIFIED_NUMBER )
     {
-    this->NumberOfPointsPerPiece = ceil((double)numPts/this->NumberOfPieces);
+    this->NumberOfPointsPerPiece = (int) ceil((double)numPts/this->NumberOfPieces);
     this->MemoryLimit = (unsigned long) ceil((double)memSize/this->NumberOfPieces);
     }
 
   else //this->DiceMode == VTK_DICE_MODE_MEMORY_LIMIT
     {
-    this->NumberOfPieces = ceil((double)memSize/this->MemoryLimit);
-    this->NumberOfPointsPerPiece = ceil((double)numPts/this->NumberOfPieces);
+    this->NumberOfPieces = (int) ceil((double)memSize/this->MemoryLimit);
+    this->NumberOfPointsPerPiece = (int) ceil((double)numPts/this->NumberOfPieces);
     }
 }
 

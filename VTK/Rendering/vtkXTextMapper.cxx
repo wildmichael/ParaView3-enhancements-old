@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:09:35 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1999-11-18 19:34:34 $
+  Version:   $Revision: 1.19 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -320,7 +320,7 @@ void vtkXTextMapper::RenderOverlay(vtkViewport* viewport, vtkActor2D* actor)
   // adjust actorPos to account for justification
   int pos[2];
   pos[0] = actorPos[0];
-  pos[1] = actorPos[1] + this->LineOffset;
+  pos[1] = (int)(actorPos[1] + this->LineOffset);
   switch (this->Justification)
     {
     // do nothing for case 0 left
