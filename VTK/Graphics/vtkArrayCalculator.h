@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkArrayCalculator.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-02 16:41:39 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2001-11-27 19:48:36 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -98,7 +98,7 @@ public:
   // evaluating this function.  If this is the name of an existing array,
   // that array will be overwritten.  Otherwise a new array will be
   // created with the specified name.
-  vtkSetStringMacro(ResultArrayName);
+  void SetResultArrayName(const char* name);
   vtkGetStringMacro(ResultArrayName);
   
   // Description:
