@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkStringList.h,v $
   Language:  C++
-  Date:      $Date: 2003-01-17 14:59:47 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2003-03-21 18:57:34 $
+  Version:   $Revision: 1.9 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -57,11 +57,15 @@ public:
   vtkTypeRevisionMacro(vtkStringList,vtkObject);
   void PrintSelf(ostream& os, vtkIndent indent);
   
-//BTX
   // Description:
-  // Add a command and format it any way you like/
-  void AddString(const char *EventString, ...);
-//ETX
+  // Add a simple string.
+  void AddString(const char* str);
+  
+  //BTX
+  // Description:
+  // Add a command and format it any way you like.
+  void AddFormattedString(const char* EventString, ...);
+  //ETX
   
   // Description:
   // Initialize to empty.
