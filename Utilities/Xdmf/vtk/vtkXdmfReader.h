@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXdmfReader.h,v $
   Language:  C++
-  Date:      $Date: 2003-07-22 19:30:11 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2003-11-04 21:03:31 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -188,6 +188,10 @@ public:
   // Get current enable/disable of the grid
   int GetGridSetting(const char* name);
   int GetGridSetting(int idx);
+
+  // Description:
+  // Determine if the file can be readed with this reader.
+  virtual int CanReadFile(const char* fname);
 
 protected:
   vtkXdmfReader();
