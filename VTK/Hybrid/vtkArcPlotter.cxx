@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkArcPlotter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 17:43:18 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2000-05-28 11:24:07 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -70,6 +70,11 @@ vtkArcPlotter::~vtkArcPlotter()
     {
     delete [] this->DataRange;
     delete [] this->Tuple;
+    }
+  if ( this->Camera )
+    {
+    this->Camera->UnRegister (this);
+    this->Camera = NULL;
     }
 }
 
