@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXdmfReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2004-01-05 02:32:03 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2004-01-06 15:03:27 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen  
@@ -74,7 +74,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <vector>
 
 vtkStandardNewMacro(vtkXdmfReader);
-vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.33 $");
+vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.34 $");
 
 #if defined(_WIN32) && (defined(_MSC_VER) || defined(__BORLANDC__))
 #  include <direct.h>
@@ -661,9 +661,13 @@ void vtkXdmfReader::Execute()
       {
       vtkImageData *vGrid = vtkImageData::SafeDownCast(this->Outputs[idx]);
       XdmfFloat64 *origin = Geometry->GetOrigin();
-      vGrid->SetOrigin(origin[0], origin[1], origin[2]);
+      vGrid->SetOrigin(origin[2], origin[1], origin[0]);
       XdmfFloat64 *spacing = Geometry->GetDxDyDz();
-      vGrid->SetSpacing(spacing[0], spacing[1], spacing[2]);
+      stride[2] = this->Stride[0];
+      stride[1] = this->Stride[1];
+      stride[0] = this->Stride[2];
+      vGrid->SetSpacing(spacing[2]*this->Stride[0], 
+        spacing[1]*this->Stride[1], spacing[0]*this->Stride[2]);
       }
     else
       {
