@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkScalars.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-09 19:56:02 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1994-11-29 12:59:05 $
+  Version:   $Revision: 1.13 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -61,6 +61,13 @@ float *vlScalars::GetRange()
 {
   this->ComputeRange();
   return this->Range;
+}
+
+void vlScalars::GetRange(float range[2])
+{
+  this->ComputeRange();
+  range[0] = this->Range[0];
+  range[1] = this->Range[1];
 }
 
 void vlScalars::PrintSelf(ostream& os, vlIndent indent)
