@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCollectPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-06 12:05:31 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-05-13 14:20:11 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,13 +19,13 @@
 #include "vtkAppendPolyData.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkCollectPolyData, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkCollectPolyData, "$Revision: 1.2 $");
 vtkStandardNewMacro(vtkCollectPolyData);
 
 //----------------------------------------------------------------------------
 vtkCollectPolyData::vtkCollectPolyData()
 {
-  this->Threshold = 0;
+  this->Threshold = 1000;
 
   // Controller keeps a reference to this object as well.
   this->Controller = NULL;
@@ -48,6 +48,24 @@ void vtkCollectPolyData::ExecuteInformation()
     }
   this->GetOutput()->SetMaximumNumberOfPieces(-1);
 }
+
+//--------------------------------------------------------------------------
+void vtkCollectPolyData::ComputeInputUpdateExtents(vtkDataObject *output)
+{
+  vtkPolyData *input = this->GetInput();
+  int piece = output->GetUpdatePiece();
+  int numPieces = output->GetUpdateNumberOfPieces();
+  int ghostLevel = output->GetUpdateGhostLevel();
+
+  if (input == NULL)
+    {
+    return;
+    }
+  input->SetUpdatePiece(piece);
+  input->SetUpdateNumberOfPieces(numPieces);
+  input->SetUpdateGhostLevel(ghostLevel);
+}
+
   
 //----------------------------------------------------------------------------
 void vtkCollectPolyData::Execute()
@@ -75,13 +93,14 @@ void vtkCollectPolyData::Execute()
     }
   
   myId = this->Controller->GetLocalProcessId();
-  numProcs = this->Controller->GetLocalProcessId();
+  numProcs = this->Controller->GetNumberOfProcesses();
   // How large will the data be if it is collected.
   size = input->GetActualMemorySize();
   if (myId == 0)
     {
     for (idx = 1; idx < numProcs; ++idx)
       {
+      cerr << "Receive size.\n";
       this->Controller->Receive(&tmp, 1, idx, 839823);
       size += tmp;
       }
@@ -96,12 +115,15 @@ void vtkCollectPolyData::Execute()
     // Communicate descision to all processes.
     for (idx = 1; idx < numProcs; ++idx)
       {
+      cerr << "Sending collection descision" << this->Collected << endl;
       this->Controller->Send(&this->Collected, 1, idx, 839824);
       }
     }
   else
     {
+    cerr << "Sending size" << size << endl;
     this->Controller->Send(&size, 1, 0, 839823);
+    cerr << "Receive collection decision.\n";
     this->Controller->Receive(&this->Collected, 1, 0, 839824);
     }
 
@@ -120,7 +142,12 @@ void vtkCollectPolyData::Execute()
 
   if (myId == 0)
     {
-    append->AddInput(input);
+    pd = vtkPolyData::New();
+    pd->CopyStructure(input);
+    pd->GetPointData()->PassData(input->GetPointData());
+    pd->GetCellData()->PassData(input->GetCellData());
+    append->AddInput(pd);
+    pd->Delete();
     for (idx = 1; idx < numProcs; ++idx)
       {
       pd = vtkPolyData::New();
@@ -153,6 +180,5 @@ void vtkCollectPolyData::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "Threshold: " << this->Threshold << "\n";
   os << indent << "Collected: " << this->Collected << "\n";
   os << indent << "Controller: (" << this->Controller << ")\n";
-
 }
 
