@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinkedList.txx,v $
   Language:  C++
-  Date:      $Date: 2002-04-10 15:54:41 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-04-12 22:06:28 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,6 +21,7 @@
 #define __vtkLinkedList_txx
 
 #include "vtkLinkedList.h"
+#include "vtkLinkedListIterator.txx"
 
 template <class DType>
 class vtkLinkedListNode 
@@ -320,6 +321,15 @@ void vtkLinkedList<DType>::DebugList()
 	 << " Data: " << curr->Data << endl;
     cc ++;
     }
+}
+
+template <class DType>
+vtkLinkedListIterator<DType> *vtkLinkedList<DType>::NewIterator()
+{
+  vtkLinkedListIterator<DType> *it = vtkLinkedListIterator<DType>::New();
+  it->SetContainer(this);
+  it->InitTraversal();
+  return it;
 }
 
 #endif

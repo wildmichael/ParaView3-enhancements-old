@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinkedList.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-04 18:04:50 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-04-12 22:06:28 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -47,14 +47,22 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkAbstractList.h"
 
 template <class DType> class vtkLinkedListNode;
+template <class DType> class vtkLinkedListIterator;
 
 template <class DType>
 class vtkLinkedList : public vtkAbstractList<DType>
 {
+  friend class vtkLinkedListIterator<DType>;
+
 public:
   vtkContainerTypeMacro(vtkLinkedList<DType>, vtkAbstractList<DType>);
   
   static vtkLinkedList<DType> *New() { return new vtkLinkedList<DType>(); }  
+
+  // Description:
+  // Return an iterator to the list. This iterator is allocated using
+  // New, so the developer is responsible for deleating it.
+  vtkLinkedListIterator<DType> *NewIterator();
   
   // Description:
   // Append an Item to the end of the linked list.

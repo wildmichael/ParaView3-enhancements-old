@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVector.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-09 22:30:42 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-04-12 22:06:28 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -46,13 +46,22 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "vtkAbstractList.h"
 
+template <class DType> class vtkVectorIterator;
+
 template <class DType>
 class vtkVector : public vtkAbstractList<DType>
 {
+  friend class vtkVectorIterator<DType>;
+
 public:
   vtkContainerTypeMacro(vtkVector<DType>, vtkAbstractList<DType>);
   
   static vtkVector<DType> *New() { return new vtkVector<DType>(); }  
+
+  // Description:
+  // Return an iterator to the list. This iterator is allocated using
+  // New, so the developer is responsible for deleating it.
+  vtkVectorIterator<DType> *NewIterator();
   
   // Description:
   // Append an Item to the end of the vector.

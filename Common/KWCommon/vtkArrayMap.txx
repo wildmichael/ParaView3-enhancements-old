@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkArrayMap.txx,v $
   Language:  C++
-  Date:      $Date: 2002-04-10 15:54:41 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-04-12 22:06:28 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,6 +23,7 @@
 #include "vtkArrayMap.h"
 #include "vtkVector.txx"
 #include "vtkAbstractMap.txx"
+#include "vtkArrayMapIterator.txx"
 
 // Description:
 // Sets the item at with specific key to data.
@@ -174,6 +175,17 @@ void vtkArrayMap<KeyType,DataType>::DebugList()
     {
     this->Array->DebugList();
     }
+}
+
+template <class KeyType, class DataType>
+vtkArrayMapIterator<KeyType,DataType> *
+vtkArrayMap<KeyType,DataType>::NewIterator()
+{
+  vtkArrayMapIterator<KeyType,DataType> *it 
+    = vtkArrayMapIterator<KeyType,DataType>::New();
+  it->SetContainer(this);
+  it->InitTraversal();
+  return it;
 }
 
 #endif

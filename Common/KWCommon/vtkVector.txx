@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVector.txx,v $
   Language:  C++
-  Date:      $Date: 2002-04-11 12:44:02 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-04-12 22:06:28 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,6 +22,7 @@
 
 #include "vtkVector.h"
 #include "vtkAbstractList.txx"
+#include "vtkVectorIterator.txx"
 
 // Description:
 // Append an Item to the end of the vector
@@ -326,6 +327,15 @@ void vtkVector<DType>::DebugList()
     {
     cout << "Item [" << cc << "]: " << this->Array[cc] << endl;
     }
+}
+
+template <class DType>
+vtkVectorIterator<DType> *vtkVector<DType>::NewIterator()
+{
+  vtkVectorIterator<DType> *it = vtkVectorIterator<DType>::New();
+  it->SetContainer(this);
+  it->InitTraversal();
+  return it;
 }
 
 #endif
