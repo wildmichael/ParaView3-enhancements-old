@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLFreeTypeTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-07-18 14:27:18 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2002-07-18 18:28:46 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -138,7 +138,7 @@ int IsAntiAliasingRequestedByThisProperty(vtkTextProperty *tprop)
 //----------------------------------------------------------------------------
 // A cache
 
-#define FONT_CACHE_CAPACITY 150
+#define FONT_CACHE_CAPACITY 15
 
 class vtkFontCache
 {
@@ -497,7 +497,7 @@ FTFont* vtkFontCache::GetFont(vtkTextProperty *tprop,
 vtkFontCache FontCacheSingleton;
 
 //----------------------------------------------------------------------------
-vtkCxxRevisionMacro(vtkOpenGLFreeTypeTextMapper, "$Revision: 1.11 $");
+vtkCxxRevisionMacro(vtkOpenGLFreeTypeTextMapper, "$Revision: 1.12 $");
 vtkStandardNewMacro(vtkOpenGLFreeTypeTextMapper);
 
 //----------------------------------------------------------------------------
@@ -852,6 +852,17 @@ void vtkOpenGLFreeTypeTextMapper::RenderOverlay(vtkViewport* viewport,
     if (shadow_font_is_ok)
       {
       shadow_font->render(this->Input);  
+      }
+    // get the font again, Duh, since it may have been freed from the 
+    // cache by the shadow font
+    if (IsAntiAliasingRequestedByThisProperty(tprop))
+      {
+      font = FontCacheSingleton.GetFont(tprop, 1, red, green, blue);
+      if (!font) 
+        {
+        vtkErrorMacro(<< "Render - No font");
+        return;
+        }
       }
 #else
     font->render(this->Input);  
