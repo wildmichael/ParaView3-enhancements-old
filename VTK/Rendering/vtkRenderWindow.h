@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 1994-11-09 19:54:07 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1994-11-23 10:47:18 $
+  Version:   $Revision: 1.10 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -116,7 +116,19 @@ public:
   vlGetMacro(DoubleBuffer,int);
   vlBooleanMacro(DoubleBuffer,int);
 
+  // Description:
+  // Turn on/off stereo rendering.
   vlGetMacro(StereoRender,int);
+  vlSetMacro(StereoRender,int);
+  vlBooleanMacro(StereoRender,int);
+
+  // Description:
+  // Set what type of stereo rendering to use.
+  vlGetMacro(StereoType,int);
+  vlSetMacro(StereoType,int);
+
+  virtual void StereoUpdate() = 0;
+  virtual void StereoRenderComplete() = 0;
 
   // Description:
   // Get name of rendering window
@@ -134,6 +146,7 @@ protected:
   int DoubleBuffer;
   int StereoRender;
   int StereoType;
+  int StereoStatus; // used for keeping track of what's going on
   vlRenderWindowInteractor *Interactor;
 
 };

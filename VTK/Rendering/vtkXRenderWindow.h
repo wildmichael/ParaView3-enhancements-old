@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkXRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 1994-11-11 08:09:49 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1994-11-23 10:47:05 $
+  Version:   $Revision: 1.3 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -45,6 +45,7 @@ public:
   void     SetDisplayId(Display *);
   Window   GetWindowId();
   void     SetWindowId(Window);
+  void     SetNextWindowId(Window);
   virtual int      GetDesiredDepth()    = 0;
   virtual Colormap GetDesiredColormap() = 0;
   virtual Visual  *GetDesiredVisual()   = 0;

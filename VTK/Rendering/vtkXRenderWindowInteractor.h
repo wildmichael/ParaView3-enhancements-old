@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkXRenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 1994-11-12 17:58:53 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1994-11-23 10:46:39 $
+  Version:   $Revision: 1.6 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -60,6 +60,9 @@ public:
   void EndZoom();
   void StartPan();
   void EndPan();
+
+  void SetupNewWindow(int Stereo = 0);
+  void FinishSettingUpNewWindow();
   
   friend void vlXRenderWindowInteractorCallback(Widget,XtPointer,
 					     XEvent *,Boolean *);
@@ -68,6 +71,7 @@ public:
 protected:
   Widget top;
   XtAppContext App;
+  int PositionBeforeStereo[2];
 };
 
 #endif

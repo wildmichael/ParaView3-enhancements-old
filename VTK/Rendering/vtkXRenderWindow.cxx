@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkXRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-11 08:09:48 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1994-11-23 10:46:52 $
+  Version:   $Revision: 1.4 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -112,6 +112,15 @@ void vlXRenderWindow::SetWindowId(Window arg)
   vlDebugMacro(<< "Setting WindowId to " << (void *)arg << "\n"); 
 
   this->WindowId = arg;
+}
+
+// Description:
+// Set the window id of the new window once a WindowRemap is done.
+void vlXRenderWindow::SetNextWindowId(Window arg)
+{
+  vlDebugMacro(<< "Setting NextWindowId to " << (void *)arg << "\n"); 
+
+  this->NextWindowId = arg;
 }
 
 // Description:
