@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOOGLExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-28 03:33:51 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2002-06-03 16:47:53 $
+  Version:   $Revision: 1.14 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,12 +26,13 @@
 #include "vtkPolyDataMapper.h"
 #include "vtkProperty.h"
 #include "vtkRenderWindow.h"
+#include "vtkRendererCollection.h"
 #include "vtkSystemIncludes.h"
 #include "vtkTexture.h"
 #include "vtkTriangleStrip.h"
 #include "vtkVersion.h"
 
-vtkCxxRevisionMacro(vtkOOGLExporter, "$Revision: 1.13 $");
+vtkCxxRevisionMacro(vtkOOGLExporter, "$Revision: 1.14 $");
 vtkStandardNewMacro(vtkOOGLExporter);
 
 vtkOOGLExporter::vtkOOGLExporter()

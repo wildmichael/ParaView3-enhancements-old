@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOBJExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-27 14:48:16 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 2002-06-03 16:47:53 $
+  Version:   $Revision: 1.46 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,8 +25,9 @@
 #include "vtkObjectFactory.h"
 #include "vtkProperty.h"
 #include "vtkRenderWindow.h"
+#include "vtkRendererCollection.h"
 
-vtkCxxRevisionMacro(vtkOBJExporter, "$Revision: 1.45 $");
+vtkCxxRevisionMacro(vtkOBJExporter, "$Revision: 1.46 $");
 vtkStandardNewMacro(vtkOBJExporter);
 
 vtkOBJExporter::vtkOBJExporter()

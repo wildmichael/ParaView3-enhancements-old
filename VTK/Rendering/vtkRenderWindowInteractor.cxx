@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-28 03:33:51 $
-  Version:   $Revision: 1.95 $
+  Date:      $Date: 2002-06-03 16:47:53 $
+  Version:   $Revision: 1.96 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,8 +24,10 @@
 #include "vtkOldStyleCallbackCommand.h"
 #include "vtkPropPicker.h"
 #include "vtkRenderWindow.h"
+#include "vtkRenderer.h"
+#include "vtkRendererCollection.h"
 
-vtkCxxRevisionMacro(vtkRenderWindowInteractor, "$Revision: 1.95 $");
+vtkCxxRevisionMacro(vtkRenderWindowInteractor, "$Revision: 1.96 $");
 
 vtkCxxSetObjectMacro(vtkRenderWindowInteractor,Picker,vtkAbstractPicker);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-24 14:57:04 $
-  Version:   $Revision: 1.121 $
+  Date:      $Date: 2002-06-03 16:47:53 $
+  Version:   $Revision: 1.122 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -42,12 +42,12 @@
 #define __vtkRenderWindow_h
 
 #include "vtkWindow.h"
-#include "vtkRendererCollection.h"
-#include <stdio.h>
 #include "vtkGraphicsFactory.h"
 
-class vtkRenderWindowInteractor;
 class vtkFloatArray;
+class vtkRenderWindowInteractor;
+class vtkRenderer;
+class vtkRendererCollection;
 class vtkUnsignedCharArray;
 
 // lets define the different types of stereo
