@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangle.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-07-21 20:44:19 $
-  Version:   $Revision: 1.97 $
+  Date:      $Date: 2003-07-22 17:04:04 $
+  Version:   $Revision: 1.98 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -29,7 +29,7 @@
 #include "vtkPolygon.h"
 #include "vtkQuadric.h"
 
-vtkCxxRevisionMacro(vtkTriangle, "$Revision: 1.97 $");
+vtkCxxRevisionMacro(vtkTriangle, "$Revision: 1.98 $");
 vtkStandardNewMacro(vtkTriangle);
 
 // Construct the triangle with three points.
@@ -779,7 +779,10 @@ int vtkTriangle::ProjectTo2D(double x1[3], double x2[3], double x3[3],
   return 1;
 }
 
-// support triangle clipping
+// Support triangle clipping. Note that the table defines triangles (three ids
+// at a time define a triangle, -1 ends the list). Numbers in the list >= 100
+// correspond to already existing vertices; otherwise the numbers refer to edge
+// ids.
 typedef int TRIANGLE_EDGE_LIST;
 typedef struct {
        TRIANGLE_EDGE_LIST edges[7];
