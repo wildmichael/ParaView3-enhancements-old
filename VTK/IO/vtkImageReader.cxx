@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-18 15:38:07 $
-  Version:   $Revision: 1.94 $
+  Date:      $Date: 2002-02-19 15:15:44 $
+  Version:   $Revision: 1.95 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 #include <ctype.h>
 #include <string.h>
 
-vtkCxxRevisionMacro(vtkImageReader, "$Revision: 1.94 $");
+vtkCxxRevisionMacro(vtkImageReader, "$Revision: 1.95 $");
 vtkStandardNewMacro(vtkImageReader);
 
 #ifdef read
@@ -123,20 +123,20 @@ void vtkImageReader::ExecuteInformation()
 
 
 
-void vtkImageReader::OpenAndSeekFile(int dataExtent[6], int idx)
+int vtkImageReader::OpenAndSeekFile(int dataExtent[6], int idx)
 {
   unsigned long streamStart;
 
   if (!this->FileName && !this->FilePattern)
     {
     vtkErrorMacro(<<"Either a FileName or FilePattern must be specified.");
-    return;
+    return 0;
     }
   this->ComputeInternalFileName(idx);
   this->OpenFile();
   if ( !this->File )
     {
-    return;
+    return 0;
     }
   // convert data extent into constants that can be used to seek.
   streamStart = 
@@ -175,9 +175,9 @@ void vtkImageReader::OpenAndSeekFile(int dataExtent[6], int idx)
                   << this->DataExtent[0] << ", " << this->DataExtent[1] << ", "
                   << this->DataExtent[2] << ", " << this->DataExtent[3] << ", "
                   << this->DataExtent[4] << ", " << this->DataExtent[5]);
-    return;
+    return 0;
     }
-        
+  return 1;        
 }
 
 //----------------------------------------------------------------------------
@@ -254,13 +254,19 @@ static void vtkImageReaderUpdate2(vtkImageReader *self, vtkImageData *data,
   // read the data row by row
   if (self->GetFileDimensionality() == 3)
     {
-    self->OpenAndSeekFile(dataExtent,0);
+    if ( !self->OpenAndSeekFile(dataExtent,0) )
+      {
+      return;
+      }
     }
   for (idx2 = dataExtent[4]; idx2 <= dataExtent[5]; ++idx2)
     {
     if (self->GetFileDimensionality() == 2)
       {
-      self->OpenAndSeekFile(dataExtent,idx2);
+      if ( !self->OpenAndSeekFile(dataExtent,idx2) )
+        {
+        return;
+        }
       }
     outPtr1 = outPtr2;
     for (idx1 = dataExtent[2]; 
@@ -370,8 +376,12 @@ void vtkImageReader::ExecuteData(vtkDataObject *output)
   
   void *ptr = NULL;
   int *ext;
+
+  void *ptrFileName = this->FileName;
+  void *ptrFilePattern = this->FilePattern;
+
   
-  if (!this->FileName && !this->FilePattern || !this->File)
+  if (!this->FileName && !this->FilePattern)
     {
     vtkErrorMacro("Either a valid FileName or FilePattern must be specified.");
     return;

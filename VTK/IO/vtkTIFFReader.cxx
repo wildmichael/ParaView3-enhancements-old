@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTIFFReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-18 15:38:08 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2002-02-19 15:15:45 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -117,8 +117,8 @@ void TIFFInternal::Clean()
 TIFFInternal::TIFFInternal()
 {
   this->Image           = NULL;
-  //TIFFSetErrorHandler(&TIFFInternal::ErrorHandler);
-  //TIFFSetWarningHandler(&TIFFInternal::ErrorHandler);
+  TIFFSetErrorHandler(&TIFFInternal::ErrorHandler);
+  TIFFSetWarningHandler(&TIFFInternal::ErrorHandler);
   this->Clean();
 }
 

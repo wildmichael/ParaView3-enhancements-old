@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:14 $
-  Version:   $Revision: 1.63 $
+  Date:      $Date: 2002-02-19 15:15:45 $
+  Version:   $Revision: 1.64 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -67,7 +67,7 @@ public:
   void ComputeInverseTransformedIncrements(int inIncr[3],
                                            int outIncr[3]);
 
-  void OpenAndSeekFile(int extent[6], int slice);
+  int OpenAndSeekFile(int extent[6], int slice);
 protected:
   vtkImageReader();
   ~vtkImageReader();
