@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLabeledDataMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-03 21:22:35 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2001-04-03 21:30:57 $
+  Version:   $Revision: 1.23 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -156,7 +156,7 @@ void vtkLabeledDataMapper::RenderOpaqueGeometry(vtkViewport *viewport,
     }
   vtkPointData *pd=input->GetPointData();
   vtkDataArray *data;
-  float *tuple;
+  float *tuple=NULL;
   vtkFieldData *fd;
 
   input->Update();
