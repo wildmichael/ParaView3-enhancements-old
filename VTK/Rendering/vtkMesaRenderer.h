@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaRenderer.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:46 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2002-06-12 11:49:45 $
+  Version:   $Revision: 1.18 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,6 @@
 #ifndef __vtkMesaRenderer_h
 #define __vtkMesaRenderer_h
 
-#include <stdlib.h>
 #include "vtkRenderer.h"
 
 class VTK_RENDERING_EXPORT vtkMesaRenderer : public vtkRenderer
