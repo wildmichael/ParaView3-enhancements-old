@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageTwoInputFilter.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-13 20:15:25 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1997-06-17 13:01:36 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,6 +57,7 @@ class VTK_EXPORT vtkImageTwoInputFilter : public vtkImageCachedSource
 {
 public:
   vtkImageTwoInputFilter();
+  static vtkImageTwoInputFilter *New() {return new vtkImageTwoInputFilter;};
   char *GetClassName() {return "vtkImageTwoInputFilter";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
