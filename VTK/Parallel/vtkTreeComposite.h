@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTreeComposite.h,v $
   Language:  C++
-  Date:      $Date: 2001-04-27 18:39:53 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2001-06-13 15:29:17 $
+  Version:   $Revision: 1.9 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -89,6 +89,9 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkRenderer.h"
 #include "vtkMultiProcessController.h"
 
+class vtkTimerLog;
+
+
 class VTK_EXPORT vtkTreeComposite : public vtkObject
 {
 public:
@@ -151,10 +154,12 @@ public:
   vtkBooleanMacro(UseCompositing, int);
   
   // Description:
-  // Get the times to set/get/transmit the buffers.
+  // Get the times to set/get the buffers, Composite,
+  // and the time it takes all processes to finish the rendering step.
   vtkGetMacro(GetBuffersTime, double);
   vtkGetMacro(SetBuffersTime, double);
-  vtkGetMacro(TransmitTime, double);
+  vtkGetMacro(CompositeTime, double);
+  vtkGetMacro(MaxRenderTime, double);
 
   // Description:
   // Get the value of the z buffer at a position. 
@@ -225,7 +230,11 @@ protected:
   
   double GetBuffersTime;
   double SetBuffersTime;
-  double TransmitTime;
+  double CompositeTime;
+  double MaxRenderTime;
+
+  // Needed to compute the MaxRenderTime.
+  vtkTimerLog *Timer;
 };
 
 #endif
