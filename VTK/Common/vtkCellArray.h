@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellArray.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:13 $
-  Version:   $Revision: 1.86 $
+  Date:      $Date: 2002-06-21 13:43:33 $
+  Version:   $Revision: 1.87 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -191,7 +191,7 @@ public:
 
   // Description:
   // Return the underlying data as a data array.
-  vtkDataArray *GetData() 
+  vtkIdTypeArray* GetData() 
     {return this->Ia;}
 
   // Description:
