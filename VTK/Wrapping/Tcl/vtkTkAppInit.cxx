@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkAppInit.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-02-14 21:40:58 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2003-05-27 16:09:16 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -193,6 +193,9 @@ void help() {
 
 int Tcl_AppInit(Tcl_Interp *interp)
 {
+#ifdef __CYGWIN__
+  Tcl_SetVar(interp, "tclDefaultLibrary", "/usr/share/tcl" TCL_VERSION, TCL_GLOBAL_ONLY);
+#endif
   if (Tcl_Init(interp) == TCL_ERROR) {
   return TCL_ERROR;
   }
