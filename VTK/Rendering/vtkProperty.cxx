@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProperty.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-22 17:47:45 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 2001-04-17 09:26:20 $
+  Version:   $Revision: 1.49 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -134,7 +134,14 @@ float *vtkProperty::GetColor()
   float norm;
   int i;
   
-  norm = 1.0 / (this->Ambient + this->Diffuse + this->Specular);
+  if ((this->Ambient + this->Diffuse + this->Specular)>0)
+    {
+    norm = 1.0 / (this->Ambient + this->Diffuse + this->Specular);
+    }
+  else
+    {
+    norm = 0.0;
+    }
   
   for (i = 0; i < 3; i ++)
     {
