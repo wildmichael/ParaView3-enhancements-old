@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProp3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-01-21 20:34:38 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2003-02-06 18:19:37 $
+  Version:   $Revision: 1.31 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,7 +26,7 @@
 
 typedef double (*SqMatPtr)[4];
 
-vtkCxxRevisionMacro(vtkProp3D, "$Revision: 1.30 $");
+vtkCxxRevisionMacro(vtkProp3D, "$Revision: 1.31 $");
 
 // Construct with the following defaults: origin(0,0,0) 
 // position=(0,0,0) and orientation=(0,0,0). No user defined 
@@ -97,7 +97,7 @@ unsigned long int vtkProp3D::GetMTime()
 
 unsigned long int vtkProp3D::GetUserTransformMatrixMTime()
 {
-  unsigned long mTime;
+  unsigned long mTime = 0;
   unsigned long time;
 
   // Factored out of GetMTime because there are times we want
