@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadricClustering.h,v $
   Language:  C++
-  Date:      $Date: 2000-10-10 17:54:08 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2000-10-18 12:32:04 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -219,6 +219,12 @@ protected:
   int NumberOfExpectedInputs;
   int AbortExecute; // We need this ivar because if we abort execute during
                     // Append, we don't want EndAppend to execute either.
+ private:
+  // hide the superclass' AddInput() from the user and the compiler
+  void AddInput(vtkDataObject *)
+    { vtkErrorMacro( << "AddInput() must be called with a vtkDataSet not a vtkDataObject."); };
+  void RemoveInput(vtkDataObject *input)
+    { this->vtkProcessObject::RemoveInput(input); };
 };
 
 #endif

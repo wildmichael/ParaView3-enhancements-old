@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMultipleInputFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-10-10 17:38:57 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2000-10-18 12:32:04 $
+  Version:   $Revision: 1.38 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -142,7 +142,8 @@ protected:
   // hide the superclass' AddInput() from the user and the compiler
   void AddInput(vtkDataObject *)
     { vtkErrorMacro( << "AddInput() must be called with a vtkImageData not a vtkDataObject."); };
-
+  void RemoveInput(vtkDataObject *)
+    { vtkErrorMacro( << "RemoveInput() must be called with a vtkImageData not a vtkDataObject."); };
 };
 
 #endif
