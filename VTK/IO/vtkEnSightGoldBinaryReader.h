@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSightGoldBinaryReader.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:12 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2002-08-13 17:14:28 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -45,7 +45,8 @@ class VTK_IO_EXPORT vtkEnSightGoldBinaryReader : public vtkEnSightReader
 public:
   static vtkEnSightGoldBinaryReader *New();
   vtkTypeRevisionMacro(vtkEnSightGoldBinaryReader, vtkEnSightReader);
-  
+  virtual void PrintSelf(ostream& os, vtkIndent indent);
+ 
 protected:
   vtkEnSightGoldBinaryReader();
   ~vtkEnSightGoldBinaryReader();

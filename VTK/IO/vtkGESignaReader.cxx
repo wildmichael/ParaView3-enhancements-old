@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGESignaReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-06 19:08:29 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2002-08-13 17:14:28 $
+  Version:   $Revision: 1.14 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,7 +19,7 @@
 #include "vtkByteSwap.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkGESignaReader, "$Revision: 1.13 $");
+vtkCxxRevisionMacro(vtkGESignaReader, "$Revision: 1.14 $");
 vtkStandardNewMacro(vtkGESignaReader);
 
 
@@ -447,4 +447,8 @@ void vtkGESignaReader::ExecuteData(vtkDataObject *output)
   vtkGESignaReaderUpdate(this, data, (unsigned short *)(outPtr));
 }
 
-
+//----------------------------------------------------------------------------
+void vtkGESignaReader::PrintSelf(ostream& os, vtkIndent indent)
+{
+  this->Superclass::PrintSelf(os,indent);
+}

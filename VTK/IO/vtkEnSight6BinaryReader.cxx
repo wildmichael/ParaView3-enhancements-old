@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSight6BinaryReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-07-31 20:15:10 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2002-08-13 17:14:28 $
+  Version:   $Revision: 1.24 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,7 @@
 #include "vtkByteSwap.h"
 #include <ctype.h>
 
-vtkCxxRevisionMacro(vtkEnSight6BinaryReader, "$Revision: 1.23 $");
+vtkCxxRevisionMacro(vtkEnSight6BinaryReader, "$Revision: 1.24 $");
 vtkStandardNewMacro(vtkEnSight6BinaryReader);
 
 //----------------------------------------------------------------------------
@@ -2567,4 +2567,10 @@ int vtkEnSight6BinaryReader::ReadFloatArray(float *result,
     }
   
   return 1;
+}
+
+//----------------------------------------------------------------------------
+void vtkEnSight6BinaryReader::PrintSelf(ostream& os, vtkIndent indent)
+{
+  this->Superclass::PrintSelf(os,indent);
 }

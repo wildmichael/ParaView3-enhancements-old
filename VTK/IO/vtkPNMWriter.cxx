@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPNMWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-31 23:13:18 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2002-08-13 17:14:28 $
+  Version:   $Revision: 1.20 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkImageData.h"
 
-vtkCxxRevisionMacro(vtkPNMWriter, "$Revision: 1.19 $");
+vtkCxxRevisionMacro(vtkPNMWriter, "$Revision: 1.20 $");
 vtkStandardNewMacro(vtkPNMWriter);
 
 #ifdef write
@@ -120,5 +120,8 @@ void vtkPNMWriter::WriteFile(ofstream *file, vtkImageData *data,
     }
 }
 
-
-
+//----------------------------------------------------------------------------
+void vtkPNMWriter::PrintSelf(ostream& os, vtkIndent indent)
+{
+  this->Superclass::PrintSelf(os,indent);
+}

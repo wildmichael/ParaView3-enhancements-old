@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkJPEGReader.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-31 23:12:41 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2002-08-13 17:14:28 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -33,6 +33,7 @@ class VTK_IO_EXPORT vtkJPEGReader : public vtkImageReader2
 public:
   static vtkJPEGReader *New();
   vtkTypeRevisionMacro(vtkJPEGReader,vtkImageReader2);
+  virtual void PrintSelf(ostream& os, vtkIndent indent);
 
   //Description: create a clone of this object.
   virtual vtkImageReader2* MakeObject() { return vtkJPEGReader::New(); }

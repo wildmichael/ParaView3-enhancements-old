@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTIFFWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-31 23:13:18 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2002-08-13 17:14:29 $
+  Version:   $Revision: 1.22 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkImageData.h"
 
-vtkCxxRevisionMacro(vtkTIFFWriter, "$Revision: 1.21 $");
+vtkCxxRevisionMacro(vtkTIFFWriter, "$Revision: 1.22 $");
 vtkStandardNewMacro(vtkTIFFWriter);
 
 #if (_MIPS_SZLONG == 64)
@@ -478,4 +478,10 @@ void vtkTIFFWriter::WriteFile(ofstream *file, vtkImageData *data,
         }
       }
     }
+}
+
+//----------------------------------------------------------------------------
+void vtkTIFFWriter::PrintSelf(ostream& os, vtkIndent indent)
+{
+  this->Superclass::PrintSelf(os,indent);
 }

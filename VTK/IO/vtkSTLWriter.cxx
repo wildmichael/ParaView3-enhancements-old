@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSTLWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-31 23:13:18 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 2002-08-13 17:14:29 $
+  Version:   $Revision: 1.46 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 #include "vtkPolyData.h"
 #include "vtkTriangle.h"
 
-vtkCxxRevisionMacro(vtkSTLWriter, "$Revision: 1.45 $");
+vtkCxxRevisionMacro(vtkSTLWriter, "$Revision: 1.46 $");
 vtkStandardNewMacro(vtkSTLWriter);
 
 vtkSTLWriter::vtkSTLWriter()
@@ -166,3 +166,8 @@ void vtkSTLWriter::WriteBinarySTL(vtkPoints *pts, vtkCellArray *polys)
   fclose (fp);
 }
 
+//----------------------------------------------------------------------------
+void vtkSTLWriter::PrintSelf(ostream& os, vtkIndent indent)
+{
+  this->Superclass::PrintSelf(os,indent);
+}

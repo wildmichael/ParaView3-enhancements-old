@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader2Collection.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-31 23:13:18 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-08-13 17:14:28 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkImageReader2.h"
 
-vtkCxxRevisionMacro(vtkImageReader2Collection, "$Revision: 1.4 $");
+vtkCxxRevisionMacro(vtkImageReader2Collection, "$Revision: 1.5 $");
 vtkStandardNewMacro(vtkImageReader2Collection);
 
 void vtkImageReader2Collection::AddItem(vtkImageReader2 *f) 
@@ -31,4 +31,10 @@ void vtkImageReader2Collection::AddItem(vtkImageReader2 *f)
 vtkImageReader2 *vtkImageReader2Collection::GetNextItem() 
 { 
   return static_cast<vtkImageReader2*>(this->GetNextItemAsObject());
+}
+
+//----------------------------------------------------------------------------
+void vtkImageReader2Collection::PrintSelf(ostream& os, vtkIndent indent)
+{
+  this->Superclass::PrintSelf(os,indent);
 }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSightGoldBinaryReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-01 12:41:18 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2002-08-13 17:14:28 $
+  Version:   $Revision: 1.27 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,7 @@
 
 #include <ctype.h>
 
-vtkCxxRevisionMacro(vtkEnSightGoldBinaryReader, "$Revision: 1.26 $");
+vtkCxxRevisionMacro(vtkEnSightGoldBinaryReader, "$Revision: 1.27 $");
 vtkStandardNewMacro(vtkEnSightGoldBinaryReader);
 
 //----------------------------------------------------------------------------
@@ -2900,4 +2900,10 @@ int vtkEnSightGoldBinaryReader::ReadFloatArray(float *result,
     }
   
   return 1;
+}
+
+//----------------------------------------------------------------------------
+void vtkEnSightGoldBinaryReader::PrintSelf(ostream& os, vtkIndent indent)
+{
+  this->Superclass::PrintSelf(os,indent);
 }

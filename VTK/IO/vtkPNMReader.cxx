@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPNMReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-12 14:00:31 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2002-08-13 17:14:28 $
+  Version:   $Revision: 1.28 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkPNMReader.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkPNMReader, "$Revision: 1.27 $");
+vtkCxxRevisionMacro(vtkPNMReader, "$Revision: 1.28 $");
 vtkStandardNewMacro(vtkPNMReader);
 
 char vtkPNMReaderGetChar(FILE *fp)
@@ -221,4 +221,10 @@ int vtkPNMReader::CanReadFile(const char* fname)
             (magic[1] >= '1' && magic[1] <= '6'));
   fclose(fp);
   return ok;
+}
+
+//----------------------------------------------------------------------------
+void vtkPNMReader::PrintSelf(ostream& os, vtkIndent indent)
+{
+  this->Superclass::PrintSelf(os,indent);
 }

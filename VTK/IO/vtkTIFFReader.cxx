@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTIFFReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-07-17 21:19:15 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2002-08-13 17:14:29 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -46,6 +46,10 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 extern "C" {
 #include <tiffio.h>
 }
+
+//-------------------------------------------------------------------------
+vtkStandardNewMacro(vtkTIFFReader);
+vtkCxxRevisionMacro(vtkTIFFReader, "$Revision: 1.36 $");
 
 class vtkTIFFReaderInternal
 {
@@ -162,9 +166,6 @@ int vtkTIFFReaderInternal::CanRead()
            ( !this->TileDepth ) &&
            ( this->BitsPerSample == 8 ) );
 }
-
-//-------------------------------------------------------------------------
-vtkStandardNewMacro(vtkTIFFReader);
 
 vtkTIFFReader::vtkTIFFReader()
 {
@@ -642,3 +643,8 @@ int vtkTIFFReader::CanReadFile(const char* fname)
   return res;
 }
 
+//----------------------------------------------------------------------------
+void vtkTIFFReader::PrintSelf(ostream& os, vtkIndent indent)
+{
+  this->Superclass::PrintSelf(os,indent);
+}

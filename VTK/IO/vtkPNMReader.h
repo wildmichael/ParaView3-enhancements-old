@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPNMReader.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-31 23:12:41 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2002-08-13 17:14:28 $
+  Version:   $Revision: 1.21 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -43,6 +43,8 @@ class VTK_IO_EXPORT vtkPNMReader : public vtkImageReader
 public:
   static vtkPNMReader *New();
   vtkTypeRevisionMacro(vtkPNMReader,vtkImageReader);
+  virtual void PrintSelf(ostream& os, vtkIndent indent);
+
   //Description: create a clone of this object.
   virtual vtkImageReader2* MakeObject() { return vtkPNMReader::New(); }
   int CanReadFile(const char* fname); 

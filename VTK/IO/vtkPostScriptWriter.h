@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPostScriptWriter.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:20 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2002-08-13 17:14:29 $
+  Version:   $Revision: 1.18 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -33,6 +33,7 @@ class VTK_IO_EXPORT vtkPostScriptWriter : public vtkImageWriter
 public:
   static vtkPostScriptWriter *New();
   vtkTypeRevisionMacro(vtkPostScriptWriter,vtkImageWriter);
+  virtual void PrintSelf(ostream& os, vtkIndent indent);
 
 protected:
   vtkPostScriptWriter() {};

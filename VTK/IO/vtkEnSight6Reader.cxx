@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSight6Reader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-07-31 20:15:10 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2002-08-13 17:14:28 $
+  Version:   $Revision: 1.34 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,7 @@
 
 #include <ctype.h>
 
-vtkCxxRevisionMacro(vtkEnSight6Reader, "$Revision: 1.33 $");
+vtkCxxRevisionMacro(vtkEnSight6Reader, "$Revision: 1.34 $");
 vtkStandardNewMacro(vtkEnSight6Reader);
 
 //----------------------------------------------------------------------------
@@ -2072,4 +2072,10 @@ int vtkEnSight6Reader::CreateStructuredGridOutput(int partId,
   // reading next line to check for EOF
   lineRead = this->ReadNextDataLine(line);
   return lineRead;
+}
+
+//----------------------------------------------------------------------------
+void vtkEnSight6Reader::PrintSelf(ostream& os, vtkIndent indent)
+{
+  this->Superclass::PrintSelf(os,indent);
 }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObjectWriter.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-31 23:12:41 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2002-08-13 17:14:28 $
+  Version:   $Revision: 1.20 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -30,6 +30,7 @@
 #ifndef __vtkDataObjectWriter_h
 #define __vtkDataObjectWriter_h
 
+#include "vtkWriter.h"
 #include "vtkDataWriter.h" // Neds data because it calls methods on it
 
 class VTK_IO_EXPORT vtkDataObjectWriter : public vtkWriter

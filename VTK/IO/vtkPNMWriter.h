@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPNMWriter.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:19 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2002-08-13 17:14:28 $
+  Version:   $Revision: 1.19 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -31,6 +31,7 @@ class VTK_IO_EXPORT vtkPNMWriter : public vtkImageWriter
 public:
   static vtkPNMWriter *New();
   vtkTypeRevisionMacro(vtkPNMWriter,vtkImageWriter);
+  virtual void PrintSelf(ostream& os, vtkIndent indent);
 
 protected:
   vtkPNMWriter() {};

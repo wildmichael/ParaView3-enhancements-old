@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPNGReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-12 14:00:31 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2002-08-13 17:14:28 $
+  Version:   $Revision: 1.14 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 
 #include <png.h>
 
-vtkCxxRevisionMacro(vtkPNGReader, "$Revision: 1.13 $");
+vtkCxxRevisionMacro(vtkPNGReader, "$Revision: 1.14 $");
 vtkStandardNewMacro(vtkPNGReader);
 
 void vtkPNGReader::ExecuteInformation()
@@ -353,4 +353,10 @@ int vtkPNGReader::CanReadFile(const char* fname)
   
   fclose(fp);
   return 1; 
+}
+
+//----------------------------------------------------------------------------
+void vtkPNGReader::PrintSelf(ostream& os, vtkIndent indent)
+{
+  this->Superclass::PrintSelf(os,indent);
 }

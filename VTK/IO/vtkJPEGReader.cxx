@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkJPEGReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-06 19:08:29 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2002-08-13 17:14:28 $
+  Version:   $Revision: 1.13 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@ extern "C" {
 }
 
 
-vtkCxxRevisionMacro(vtkJPEGReader, "$Revision: 1.12 $");
+vtkCxxRevisionMacro(vtkJPEGReader, "$Revision: 1.13 $");
 vtkStandardNewMacro(vtkJPEGReader);
 
 
@@ -343,3 +343,9 @@ int vtkJPEGReader::CanReadFile(const char* fname)
 #pragma warning( default : 4611 )
 #endif 
 
+
+//----------------------------------------------------------------------------
+void vtkJPEGReader::PrintSelf(ostream& os, vtkIndent indent)
+{
+  this->Superclass::PrintSelf(os,indent);
+}

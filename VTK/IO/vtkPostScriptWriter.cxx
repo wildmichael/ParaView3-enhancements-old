@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPostScriptWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-31 23:13:18 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2002-08-13 17:14:29 $
+  Version:   $Revision: 1.18 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkImageData.h"
 
-vtkCxxRevisionMacro(vtkPostScriptWriter, "$Revision: 1.17 $");
+vtkCxxRevisionMacro(vtkPostScriptWriter, "$Revision: 1.18 $");
 vtkStandardNewMacro(vtkPostScriptWriter);
 
 #define VTK_MARGIN 0.95
@@ -203,5 +203,8 @@ void vtkPostScriptWriter::WriteFile(ofstream *file, vtkImageData *data,
   
 }
 
-
-
+//----------------------------------------------------------------------------
+void vtkPostScriptWriter::PrintSelf(ostream& os, vtkIndent indent)
+{
+  this->Superclass::PrintSelf(os,indent);
+}

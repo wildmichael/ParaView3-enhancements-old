@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-31 22:21:23 $
-  Version:   $Revision: 1.65 $
+  Date:      $Date: 2002-08-13 17:14:28 $
+  Version:   $Revision: 1.66 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -38,7 +38,7 @@ class VTK_IO_EXPORT vtkImageReader : public vtkImageReader2
 {
 public:
   static vtkImageReader *New();
-  vtkTypeRevisionMacro(vtkImageReader,vtkImageSource);
+  vtkTypeRevisionMacro(vtkImageReader,vtkImageReader2);
   void PrintSelf(ostream& os, vtkIndent indent);   
 
   // Description:

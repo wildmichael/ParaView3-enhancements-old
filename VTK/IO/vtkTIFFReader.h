@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTIFFReader.h,v $
   Language:  C++
-  Date:      $Date: 2002-07-17 21:19:15 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2002-08-13 17:14:29 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -60,7 +60,8 @@ class VTK_IO_EXPORT vtkTIFFReader : public vtkImageReader2
 {
 public:
   static vtkTIFFReader *New();
-  vtkTypeMacro(vtkTIFFReader,vtkImageReader2);
+  vtkTypeRevisionMacro(vtkTIFFReader,vtkImageReader2);
+  virtual void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description: is the given file name a png file?
   virtual int CanReadFile(const char* fname);

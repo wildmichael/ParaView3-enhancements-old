@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSightGoldReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-07-31 20:15:10 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2002-08-13 17:14:28 $
+  Version:   $Revision: 1.33 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,7 +26,7 @@
 
 #include <ctype.h>
 
-vtkCxxRevisionMacro(vtkEnSightGoldReader, "$Revision: 1.32 $");
+vtkCxxRevisionMacro(vtkEnSightGoldReader, "$Revision: 1.33 $");
 vtkStandardNewMacro(vtkEnSightGoldReader);
 
 //----------------------------------------------------------------------------
@@ -1878,4 +1878,10 @@ int vtkEnSightGoldReader::CreateImageDataOutput(int partId, char line[256])
   // reading next line to check for EOF
   lineRead = this->ReadNextDataLine(line);
   return lineRead;
+}
+
+//----------------------------------------------------------------------------
+void vtkEnSightGoldReader::PrintSelf(ostream& os, vtkIndent indent)
+{
+  this->Superclass::PrintSelf(os,indent);
 }
