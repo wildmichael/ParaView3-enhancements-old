@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCompositeManager.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-28 16:27:36 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 2002-11-27 16:23:29 $
+  Version:   $Revision: 1.44 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -37,15 +37,13 @@
 
 #ifdef _WIN32
 #include "vtkWin32OpenGLRenderWindow.h"
-#elif defined(VTK_USE_MESA)
-#include "vtkMesaRenderWindow.h"
 #endif
 
 #ifdef VTK_USE_MPI
  #include <mpi.h>
 #endif
 
-vtkCxxRevisionMacro(vtkCompositeManager, "$Revision: 1.43 $");
+vtkCxxRevisionMacro(vtkCompositeManager, "$Revision: 1.44 $");
 vtkStandardNewMacro(vtkCompositeManager);
 
 
