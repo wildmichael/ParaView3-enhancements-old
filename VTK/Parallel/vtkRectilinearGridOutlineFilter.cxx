@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGridOutlineFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-13 12:55:13 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-03-13 13:39:48 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,12 +18,17 @@
 #include "vtkRectilinearGridOutlineFilter.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkRectilinearGridOutlineFilter, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkRectilinearGridOutlineFilter, "$Revision: 1.3 $");
 vtkStandardNewMacro(vtkRectilinearGridOutlineFilter);
 
 
 void vtkRectilinearGridOutlineFilter::ExecuteInformation()
 {
+  if (this->GetInput() == NULL)
+    {
+    return;
+    }
+
   // Although there may be overlap between piece outlines,
   // it is not worth requesting exact extents.
   this->GetInput()->RequestExactExtentOff();
@@ -40,11 +45,18 @@ void vtkRectilinearGridOutlineFilter::Execute()
   vtkCellArray* newLines;
   vtkPolyData*  output = this->GetOutput();
   vtkRectilinearGrid* input = this->GetInput();
+
+  if (this->GetInput() == NULL)
+    {
+    return;
+    }
+  
   vtkDataArray* xCoords  = input->GetXCoordinates();
   vtkDataArray* yCoords  = input->GetYCoordinates();
   vtkDataArray* zCoords  = input->GetZCoordinates();
   int*          ext      = input->GetExtent();;
   int*          wholeExt = input->GetWholeExtent();
+
 
   if (xCoords == NULL || yCoords == NULL || zCoords == NULL ||
       input->GetNumberOfCells() == 0)
