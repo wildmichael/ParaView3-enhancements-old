@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGeneralTransform.h,v $
   Language:  C++
-  Date:      $Date: 2000-03-02 03:37:37 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2000-03-04 21:47:49 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -121,7 +121,8 @@ public:
   // Description:
   // Get the inverse of this transform.  If you modify this transform,
   // the returned inverse transform will automatically update.
-  virtual vtkGeneralTransform *GetInverse();
+  vtkGeneralTransform *GetInverse() { 
+    return this->VirtualGetInverse(); };
 
   // Description:
   // Make another transform of the same type.
@@ -161,6 +162,11 @@ protected:
                           { this->MyInverse->Delete(); } }; 
   vtkGeneralTransform(const vtkGeneralTransform&) {};
   void operator=(const vtkGeneralTransform&) {};
+
+  // VirtualGetInverse() returns the InverseTransform as a
+  // vtkGeneralTransform, as opposed to GetInverse() which
+  // typecasts the InverseTransform to the correct type.
+  virtual vtkGeneralTransform *VirtualGetInverse();
 
   int TransformType;
   vtkGeneralTransform *MyInverse;

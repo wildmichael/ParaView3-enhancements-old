@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIdentityTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-03-02 03:37:39 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2000-03-04 21:47:52 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -216,9 +216,7 @@ void vtkIdentityTransform::TransformVectors(vtkVectors *inNms,
 }
 
 //----------------------------------------------------------------------------
-// The vtkIdentityTransformInverse is a special-purpose class.
-// See vtkIdentityTransformInverse.h for more details.
-vtkGeneralTransform *vtkIdentityTransform::GetInverse()
+vtkGeneralTransform *vtkIdentityTransform::VirtualGetInverse()
 {
   return this;
 }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinearTransform.h,v $
   Language:  C++
-  Date:      $Date: 2000-03-02 03:37:40 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2000-03-04 21:47:51 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -92,7 +92,8 @@ public:
   // Description:
   // Get the inverse of this transform.  If you modify this transform,
   // the returned inverse transform will automatically update.
-  vtkGeneralTransform *GetInverse();
+  vtkLinearTransform *GetInverse() {
+    return (vtkLinearTransform *)this->VirtualGetInverse(); };
 
   // Description:
   // This will calculate the transformation without calling Update.
@@ -111,6 +112,8 @@ protected:
   ~vtkLinearTransform() {};
   vtkLinearTransform(const vtkLinearTransform&) {};
   void operator=(const vtkLinearTransform&) {};
+
+  vtkGeneralTransform *VirtualGetInverse();
 };
 
 #endif

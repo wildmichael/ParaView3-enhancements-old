@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGeneralTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-03-02 23:15:50 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2000-03-04 21:47:49 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -172,7 +172,7 @@ void vtkGeneralTransform::TransformPointsNormalsVectors(vtkPoints *inPts,
 //----------------------------------------------------------------------------
 // The vtkGeneralTransformInverse is a special-purpose class.
 // See vtkGeneralTransformInverse.h for more details.
-vtkGeneralTransform *vtkGeneralTransform::GetInverse()
+vtkGeneralTransform *vtkGeneralTransform::VirtualGetInverse()
 {
   if (this->MyInverse == NULL)
     {
@@ -325,8 +325,8 @@ void vtkGeneralTransform::LUSolve3x3(const float A[3][3], const int index[3],
 }  
 
 //----------------------------------------------------------------------------
-// helper function for newton's method: solves Ay = x for y, 
-// the result is placed in x, the matrix A is destroyed
+// this method solves Ay = x for y, the result is placed in x, 
+// the matrix A is destroyed
 void vtkGeneralTransform::LinearSolve3x3(float A[3][3], float x[3])
 {
   int index[3];
