@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVRMLImporter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-20 17:09:26 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 2001-11-24 14:11:55 $
+  Version:   $Revision: 1.45 $
   Thanks:    Tom Citriniti who implemented and contributed this class
 
 
@@ -5563,11 +5563,14 @@ void vtkVRMLImporter::PrintSelf(ostream& os, vtkIndent indent)
      << (this->FileName ? this->FileName : "(none)") << "\n";
 
   os << "Defined names in File:" << endl;
-  for (int i = 0;i < VrmlNodeType::useList->Count();i++) 
+  if (VrmlNodeType::useList)
     {
-    os << "\tName: " << (*VrmlNodeType::useList)[i]->defName 
-       << " is a " << (*VrmlNodeType::useList)[i]->defObject->GetClassName() 
-       << endl;
+      for (int i = 0;i < VrmlNodeType::useList->Count();i++) 
+        {
+        os << "\tName: " << (*VrmlNodeType::useList)[i]->defName 
+           << " is a " << (*VrmlNodeType::useList)[i]->defObject->GetClassName() 
+           << endl;
+        }
     }
 }
 
