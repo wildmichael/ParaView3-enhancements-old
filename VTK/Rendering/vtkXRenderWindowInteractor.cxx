@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:13:20 $
-  Version:   $Revision: 1.80 $
+  Date:      $Date: 2000-06-28 14:23:40 $
+  Version:   $Revision: 1.81 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -305,7 +305,8 @@ void vtkXRenderWindowInteractor::Enable()
   // PERFECTLY
   XtAddEventHandler(this->top,
 		    KeyPressMask | ButtonPressMask | ExposureMask |
-		    StructureNotifyMask | ButtonReleaseMask | EnterWindowMask,
+		    StructureNotifyMask | ButtonReleaseMask | EnterWindowMask |
+                    PointerMotionMask,
 		    False,vtkXRenderWindowInteractorCallback,(XtPointer)this);
   this->Enabled = 1;
 

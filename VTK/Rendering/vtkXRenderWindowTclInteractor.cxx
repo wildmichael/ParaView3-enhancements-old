@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindowTclInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:13:21 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2000-06-28 14:23:40 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -239,7 +239,8 @@ void vtkXRenderWindowTclInteractor::Enable()
   // (Multiple calls to XSelectInput overrides the previous settings)
   XSelectInput(this->DisplayId,this->WindowId,
 	       KeyPressMask | ButtonPressMask | ExposureMask |
-	       StructureNotifyMask | ButtonReleaseMask | EnterWindowMask);
+	       StructureNotifyMask | ButtonReleaseMask | EnterWindowMask |
+               PointerMotionMask);
 
   this->Enabled = 1;
 
