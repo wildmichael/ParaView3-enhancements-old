@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPythonUtil.h,v $
   Language:  C++
-  Date:      $Date: 2003-06-24 20:24:39 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2003-07-07 10:03:58 $
+  Version:   $Revision: 1.31 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -167,7 +167,7 @@ public:
   static vtkPythonCommand *New() { return new vtkPythonCommand; };
 
   void SetObject(PyObject *o);
-  void Execute(vtkObject *ptr, unsigned long eventtype, void *);
+  void Execute(vtkObject *ptr, unsigned long eventtype, void *CallData);
  
   PyObject *obj;
 protected:
