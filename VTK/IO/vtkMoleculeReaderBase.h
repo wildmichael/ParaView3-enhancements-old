@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMoleculeReaderBase.h,v $
   Language:  C++
-  Date:      $Date: 2003-05-13 14:49:43 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2003-05-14 12:45:34 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -87,7 +87,7 @@ protected:
 
   virtual void Execute();
   int ReadMolecule(FILE *fp);
-  int MakeAtomType(char *atype);
+  int MakeAtomType(const char *atype);
   int MakeBonds(vtkPoints*, vtkIdTypeArray*, vtkCellArray*);
 
   vtkPoints *Points;
