@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPlaneSource.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 20:52:30 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1997-04-23 18:58:22 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -98,12 +98,14 @@ public:
 
   // Description:
   // Specify a point defining the first axis of the plane.
-  vtkSetVector3Macro(Point1,float);
+  void SetPoint1(float x, float y, float z);
+  void SetPoint1(float pnt[3]);
   vtkGetVectorMacro(Point1,float,3);
 
   // Description:
   // Specify a point defining the second axis of the plane.
-  vtkSetVector3Macro(Point2,float);
+  void SetPoint2(float x, float y, float z);
+  void SetPoint2(float pnt[3]);
   vtkGetVectorMacro(Point2,float,3);
 
   // Description:
