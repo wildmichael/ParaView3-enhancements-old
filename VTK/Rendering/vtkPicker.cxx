@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPicker.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-06-14 18:24:53 $
-  Version:   $Revision: 1.60 $
+  Date:      $Date: 2000-06-15 07:37:13 $
+  Version:   $Revision: 1.61 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -77,7 +77,6 @@ vtkPicker::vtkPicker()
   this->Actors = vtkActorCollection::New();
   this->Prop3Ds = vtkProp3DCollection::New();
   this->PickedPositions = vtkPoints::New();
-  this->PickList = vtkActorCollection::New();
   this->Transform = vtkTransform::New();
 }
 
