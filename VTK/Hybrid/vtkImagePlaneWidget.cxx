@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagePlaneWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-07-30 12:31:40 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2002-07-30 18:58:29 $
+  Version:   $Revision: 1.31 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -40,7 +40,7 @@
 #include "vtkTextureMapToPlane.h"
 #include "vtkTransform.h"
 
-vtkCxxRevisionMacro(vtkImagePlaneWidget, "$Revision: 1.30 $");
+vtkCxxRevisionMacro(vtkImagePlaneWidget, "$Revision: 1.31 $");
 vtkStandardNewMacro(vtkImagePlaneWidget);
 
 vtkCxxSetObjectMacro(vtkImagePlaneWidget, PlaneProperty, vtkProperty);
@@ -1788,7 +1788,6 @@ void vtkImagePlaneWidget::GetPolyData(vtkPolyData *pd)
 void vtkImagePlaneWidget::SetTextProperty(vtkTextProperty* tprop)
 {
   this->TextActor->SetTextProperty(tprop);
-  this->TextActor->Modified();
 }
 
 vtkTextProperty* vtkImagePlaneWidget::GetTextProperty()
