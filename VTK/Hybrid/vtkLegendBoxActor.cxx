@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLegendBoxActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-09-28 18:27:22 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2000-10-19 23:10:49 $
+  Version:   $Revision: 1.9 $
   Thanks:    Tim Smith who sponsored and encouraged the development
              of this class.
 
@@ -424,9 +424,9 @@ int vtkLegendBoxActor::RenderOverlay(vtkViewport *viewport)
       {
       if ( this->Symbol[i] )
         {
-        renderedSomething += this->SymbolActor[i]->RenderOpaqueGeometry(viewport);
+        renderedSomething += this->SymbolActor[i]->RenderOverlay(viewport);
         }
-      renderedSomething += this->TextActor[i]->RenderOpaqueGeometry(viewport);
+      renderedSomething += this->TextActor[i]->RenderOverlay(viewport);
       }
     }
   
