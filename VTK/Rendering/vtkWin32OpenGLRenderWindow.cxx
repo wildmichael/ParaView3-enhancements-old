@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-02-15 14:31:42 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 1999-02-23 22:27:47 $
+  Version:   $Revision: 1.31 $
   Thanks:    to Horst Schreiber for developing this MFC code
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -81,9 +81,24 @@ vtkWin32OpenGLRenderWindow::~vtkWin32OpenGLRenderWindow()
 
 void vtkWin32OpenGLRenderWindow::Clean()
 {
+  vtkRenderer *ren;
+  
   /* finish OpenGL rendering */
   if (this->ContextId) 
     {
+    this->MakeCurrent();
+
+    // tell each of the renderers that this render window/graphics context
+    // is being removed (the RendererCollection is removed by vtkRenderWindow's
+    // destructor)
+    this->Renderers->InitTraversal();
+    for ( ren = (vtkOpenGLRenderer *) this->Renderers->GetNextItemAsObject();
+	  ren != NULL;
+	  ren = (vtkOpenGLRenderer *) this->Renderers->GetNextItemAsObject() )
+      {
+      ren->SetRenderWindow(NULL);
+      }
+    
     wglMakeCurrent(NULL, NULL);
     wglDeleteContext(this->ContextId);
     this->ContextId = NULL;
