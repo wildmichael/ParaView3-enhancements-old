@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXOpenGLTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:15 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2001-10-31 20:24:09 $
+  Version:   $Revision: 1.25 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -189,6 +189,8 @@ void vtkXOpenGLTextMapper::ReleaseGraphicsResources(vtkWindow *win)
       }
     }
   this->LastWindow = NULL;
+  // forces CurrentFont to be reset if the Mapper is used again.
+  this->Modified();
 }
 
 vtkXOpenGLTextMapper::vtkXOpenGLTextMapper()
