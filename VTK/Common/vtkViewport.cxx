@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkViewport.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-07 15:55:51 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2000-08-07 16:24:21 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -490,15 +490,16 @@ void vtkViewport::ViewportToNormalizedViewport(float &u, float &v)
   if ( this->VTKWindow )
     {
     int *size;
-    float vpsizeu, vpsizev;
     
     /* get physical window dimensions */
-/*    size = this->VTKWindow->GetSize();
-    vpsizeu = size[0]*(this->Viewport[2] - this->Viewport[0]);
-    vpsizev = size[1]*(this->Viewport[3] - this->Viewport[1]);
-    
-    u = u/(vpsizeu - 1.0);
-    v = v/(vpsizev - 1.0);
+/*
+  float vpsizeu, vpsizev;
+  size = this->VTKWindow->GetSize();
+  vpsizeu = size[0]*(this->Viewport[2] - this->Viewport[0]);
+  vpsizev = size[1]*(this->Viewport[3] - this->Viewport[1]);
+  
+  u = u/(vpsizeu - 1.0);
+  v = v/(vpsizev - 1.0);
 */
     size = this->GetSize();
     u = u/(size[0] - 1.0);
@@ -554,15 +555,15 @@ void vtkViewport::NormalizedViewportToViewport(float &u, float &v)
   if ( this->VTKWindow )
     {
     int *size;
-    float vpsizeu, vpsizev;
     
     /* get physical window dimensions */
 /*
+  float vpsizeu, vpsizev;
   size = this->VTKWindow->GetSize();
-    vpsizeu = size[0]*(this->Viewport[2] - this->Viewport[0]);
-    vpsizev = size[1]*(this->Viewport[3] - this->Viewport[1]);
-    u = u * (vpsizeu - 1.0);
-    v = v * (vpsizev - 1.0);
+  vpsizeu = size[0]*(this->Viewport[2] - this->Viewport[0]);
+  vpsizev = size[1]*(this->Viewport[3] - this->Viewport[1]);
+  u = u * (vpsizeu - 1.0);
+  v = v * (vpsizev - 1.0);
 */
     size = this->GetSize();
     u = u * (size[0] - 1.0);
