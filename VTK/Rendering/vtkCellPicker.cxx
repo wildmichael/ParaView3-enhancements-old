@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellPicker.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-05-06 15:17:52 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2003-05-07 17:29:31 $
+  Version:   $Revision: 1.33 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkVolumeMapper.h"
 
-vtkCxxRevisionMacro(vtkCellPicker, "$Revision: 1.32 $");
+vtkCxxRevisionMacro(vtkCellPicker, "$Revision: 1.33 $");
 vtkStandardNewMacro(vtkCellPicker);
 
 vtkCellPicker::vtkCellPicker()
@@ -84,7 +84,7 @@ float vtkCellPicker::IntersectWithLine(float p1[3], float p2[3], float tol,
   minCellId = -1;
   minSubId = -1;
   pcoords[0] = pcoords[1] = pcoords[2] = 0;
-  float pDistMin=VTK_LARGE_FLOAT, pDistMax;
+  float pDistMin=VTK_LARGE_FLOAT, pDist;
   for (tMin=VTK_LARGE_FLOAT,cellId=0; cellId<numCells; cellId++) 
     {
     input->GetCell(cellId, this->Cell);
@@ -92,8 +92,8 @@ float vtkCellPicker::IntersectWithLine(float p1[3], float p2[3], float tol,
     if ( this->Cell->IntersectWithLine(p1, p2, tol, t, x, pcoords, subId) 
     && t <= (tMin+this->Tolerance) )
       {
-      pDistMax = this->Cell->GetParametricDistance(pcoords);
-      if ( pDistMax < pDistMin )
+      pDist = this->Cell->GetParametricDistance(pcoords);
+      if ( pDist < pDistMin || (pDist == pDistMin && t < tMin) )
         {
         minCellId = cellId;
         minSubId = subId;
@@ -103,7 +103,7 @@ float vtkCellPicker::IntersectWithLine(float p1[3], float p2[3], float tol,
           minPcoords[i] = pcoords[i];
           }
         tMin = t;
-        pDistMin = pDistMax;
+        pDistMin = pDist;
         }//if minimum, maximum
       }//if a close cell
     }//for all cells
