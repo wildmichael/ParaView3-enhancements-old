@@ -3,10 +3,12 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEarthSource.h,v $
   Language:  C++
-  Date:      $Date: 2000-01-26 17:38:37 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2000-02-01 13:58:08 $
+  Version:   $Revision: 1.15 $
   Thanks:    Thanks to Tom Johnson at Johnson Scientific International who
-             developed and contributed this class.
+             developed and contributed this class. Also see
+             ftp://www.ou.edu/pub/simtelnet/msdos/worldmap and the
+             data by John B. Allison for more information.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen.
 
