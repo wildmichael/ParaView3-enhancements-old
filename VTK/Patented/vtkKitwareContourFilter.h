@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKitwareContourFilter.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:35:27 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2002-08-13 12:39:08 $
+  Version:   $Revision: 1.17 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -62,6 +62,7 @@ class VTK_PATENTED_EXPORT vtkKitwareContourFilter : public vtkContourFilter
 {
 public:
   vtkTypeRevisionMacro(vtkKitwareContourFilter,vtkContourFilter);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Construct object with initial range (0,1) and single contour value

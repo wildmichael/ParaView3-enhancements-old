@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKitwareContourFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-04 02:07:27 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2002-08-13 12:39:08 $
+  Version:   $Revision: 1.26 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -29,7 +29,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkKitwareContourFilter, "$Revision: 1.25 $");
+vtkCxxRevisionMacro(vtkKitwareContourFilter, "$Revision: 1.26 $");
 vtkStandardNewMacro(vtkKitwareContourFilter);
 
 // Construct object with initial range (0,1) and single contour value
@@ -323,4 +323,10 @@ void vtkKitwareContourFilter::DataSetContour()
   contour->Update();
   this->SetOutput(output);
   contour->Delete();
+}
+
+//----------------------------------------------------------------------------
+void vtkKitwareContourFilter::PrintSelf(ostream& os, vtkIndent indent)
+{
+  this->Superclass::PrintSelf(os,indent);
 }
