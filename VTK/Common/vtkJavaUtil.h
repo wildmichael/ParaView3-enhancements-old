@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkJavaUtil.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:11 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2001-02-28 23:55:50 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -55,9 +55,8 @@ extern JNIEXPORT void vtkJavaRegisterCastFunction(JNIEnv *env, jobject obj, int 
           
 extern JNIEXPORT void *vtkJavaGetPointerFromObject(JNIEnv *env,jobject obj, 
            char *result_type);
-extern JNIEXPORT void vtkJavaDeleteObjectFromHash(JNIEnv *env, int id);
+extern JNIEXPORT void vtkJavaDeleteObject(JNIEnv *env, jobject obj);
 extern JNIEXPORT jobject vtkJavaGetObjectFromPointer(void *ptr);
-extern JNIEXPORT int  vtkJavaShouldIDeleteObject(JNIEnv *env,jobject obj);
 extern JNIEXPORT char *vtkJavaUTFToChar(JNIEnv *env, jstring in);
 extern JNIEXPORT jstring vtkJavaMakeJavaString(JNIEnv *env, const char *in);
 

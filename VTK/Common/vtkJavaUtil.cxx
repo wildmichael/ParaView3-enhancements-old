@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkJavaUtil.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-02-13 13:58:53 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2001-02-28 23:55:50 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -299,21 +299,6 @@ VTK_GET_MUTEX();
   return id;
 }
 
-// should we delete this object
-JNIEXPORT void vtkJavaDeleteObject(JNIEnv *env,jobject obj)
-{
-  int id = vtkJavaGetId(env,obj);
-  
-  VTK_GET_MUTEX();
-
-#ifdef VTKJAVADEBUG
-  vtkGenericWarningMacro("DeleteObject: Deleting id = " << id);
-#endif
-  vtkJavaDeleteObjectFromHash(env, id);
-  VTK_RELEASE_MUTEX();
-}
-
-
 // delete an object from the hash
 // doesn't need a mutex because it is only called from within
 // the above func which does have a mutex
@@ -340,6 +325,22 @@ JNIEXPORT void vtkJavaDeleteObjectFromHash(JNIEnv *env, int id)
 #endif
   vtkPointerLookup->DeleteHashEntry(ptr);
 }
+
+// should we delete this object
+JNIEXPORT void vtkJavaDeleteObject(JNIEnv *env,jobject obj)
+{
+  int id = vtkJavaGetId(env,obj);
+  
+  VTK_GET_MUTEX();
+
+#ifdef VTKJAVADEBUG
+  vtkGenericWarningMacro("DeleteObject: Deleting id = " << id);
+#endif
+  vtkJavaDeleteObjectFromHash(env, id);
+  VTK_RELEASE_MUTEX();
+}
+
+
 
 JNIEXPORT jobject vtkJavaGetObjectFromPointer(void *ptr)
 {

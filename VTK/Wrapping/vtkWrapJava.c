@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWrapJava.c,v $
   Language:  C++
-  Date:      $Date: 2001-02-19 17:23:55 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2001-02-28 23:55:27 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -671,8 +671,8 @@ void vtkParseOutput(FILE *fp, FileInfo *data)
     fprintf(fp,"{\n  %s *op;\n",data->ClassName);
     fprintf(fp,"  op = (%s *)vtkJavaGetPointerFromObject(env,obj,(char *) \"%s\");\n",
 	    data->ClassName,data->ClassName);
+    fprintf(fp,"  vtkJavaDeleteObject(env,obj);\n");
     fprintf(fp,"  op->Delete();\n");
-    
     fprintf(fp,"}\n");
     }
   if (data->IsConcrete)
