@@ -1,34 +1,34 @@
 /*=========================================================================
 
-  Program:   Visualization Library
+  Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsSource.h,v $
   Language:  C++
-  Date:      $Date: 1995-05-05 15:50:47 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1995-06-29 17:54:47 $
+  Version:   $Revision: 1.8 $
 
-This file is part of the Visualization Library. No part of this file
+This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
 without the express written consent of the authors.
 
 Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994 
 
 =========================================================================*/
-// .NAME vlStructuredPointsSource - abstract class whose subclasses generate structured points data
+// .NAME vtkStructuredPointsSource - abstract class whose subclasses generate structured points data
 // .SECTION Description
-// vlStructuredPointsSource is an abstract class whose subclasses
-// generate vlStructuredPoints data.
+// vtkStructuredPointsSource is an abstract class whose subclasses
+// generate vtkStructuredPoints data.
 
-#ifndef __vlStructuredPointsSource_h
-#define __vlStructuredPointsSource_h
+#ifndef __vtkStructuredPointsSource_h
+#define __vtkStructuredPointsSource_h
 
 #include "Source.hh"
 #include "StrPts.hh"
 
-class vlStructuredPointsSource : public vlSource, public vlStructuredPoints
+class vtkStructuredPointsSource : public vtkSource, public vtkStructuredPoints
 {
 public:
-  char *GetClassName() {return "vlStructuredPointSource";};
-  void PrintSelf(ostream& os, vlIndent indent);
+  char *GetClassName() {return "vtkStructuredPointSource";};
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Object interface
   void Modified();

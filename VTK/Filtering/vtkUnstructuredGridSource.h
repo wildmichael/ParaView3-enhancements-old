@@ -1,33 +1,33 @@
 /*=========================================================================
 
-  Program:   Visualization Library
+  Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGridSource.h,v $
   Language:  C++
-  Date:      $Date: 1995-05-05 15:50:48 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1995-06-29 17:55:16 $
+  Version:   $Revision: 1.4 $
 
-This file is part of the Visualization Library. No part of this file
+This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
 without the express written consent of the authors.
 
 Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994 
 
 =========================================================================*/
-// .NAME vlUnstructuredGridSource - abstract class whose subclasses generate unstructured grid data
+// .NAME vtkUnstructuredGridSource - abstract class whose subclasses generate unstructured grid data
 // .SECTION Description
-// vlUnstructuredGridSource is an abstract class whose subclasses generate unstructured grid data.
+// vtkUnstructuredGridSource is an abstract class whose subclasses generate unstructured grid data.
 
-#ifndef __vlUnstructuredGridSource_h
-#define __vlUnstructuredGridSource_h
+#ifndef __vtkUnstructuredGridSource_h
+#define __vtkUnstructuredGridSource_h
 
 #include "Source.hh"
 #include "UGrid.hh"
 
-class vlUnstructuredGridSource : public vlSource, public vlUnstructuredGrid 
+class vtkUnstructuredGridSource : public vtkSource, public vtkUnstructuredGrid 
 {
 public:
-  char *GetClassName() {return "vlUnstructuredGridSource";};
-  void PrintSelf(ostream& os, vlIndent indent);
+  char *GetClassName() {return "vtkUnstructuredGridSource";};
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Object interface
   void Modified();

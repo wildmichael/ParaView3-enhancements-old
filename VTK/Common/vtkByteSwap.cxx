@@ -1,12 +1,12 @@
 /*=========================================================================
 
-  Program:   Visualization Library
+  Program:   Visualization Toolkit
   Module:    $RCSfile: vtkByteSwap.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-11 08:31:01 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1995-06-29 17:55:47 $
+  Version:   $Revision: 1.5 $
 
-This file is part of the Visualization Library. No part of this file
+This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
 without the express written consent of the authors.
 
@@ -17,7 +17,7 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 
 // Description:
 // Swap four byte word.
-void vlByteSwap::Swap4(char *mem_ptr1)
+void vtkByteSwap::Swap4(char *mem_ptr1)
 {
   char one_byte;
 

@@ -1,33 +1,33 @@
 /*=========================================================================
 
-  Program:   Visualization Library
+  Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridSource.h,v $
   Language:  C++
-  Date:      $Date: 1995-05-05 15:50:45 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1995-06-29 17:54:44 $
+  Version:   $Revision: 1.7 $
 
-This file is part of the Visualization Library. No part of this file
+This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
 without the express written consent of the authors.
 
 Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994 
 
 =========================================================================*/
-// .NAME vlStructuredGridSource - Abstract class whose subclasses generates structured grid data
+// .NAME vtkStructuredGridSource - Abstract class whose subclasses generates structured grid data
 // .SECTION Description
-// vlStructuredGridSource is an abstract class whose subclasses generate structured grid data.
+// vtkStructuredGridSource is an abstract class whose subclasses generate structured grid data.
 
-#ifndef __vlStructuredGridSource_h
-#define __vlStructuredGridSource_h
+#ifndef __vtkStructuredGridSource_h
+#define __vtkStructuredGridSource_h
 
 #include "Source.hh"
 #include "SGrid.hh"
 
-class vlStructuredGridSource : public vlSource, public vlStructuredGrid 
+class vtkStructuredGridSource : public vtkSource, public vtkStructuredGrid 
 {
 public:
-  char *GetClassName() {return "vlStructuredGridSource";};
-  void PrintSelf(ostream& os, vlIndent indent);
+  char *GetClassName() {return "vtkStructuredGridSource";};
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Object interface
   void Modified();

@@ -1,12 +1,12 @@
 /*=========================================================================
 
-  Program:   Visualization Library
+  Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpScalar.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-09 19:52:36 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1995-06-29 17:57:50 $
+  Version:   $Revision: 1.5 $
 
-This file is part of the Visualization Library. No part of this file
+This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
 without the express written consent of the authors.
 
@@ -15,18 +15,18 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 =========================================================================*/
 #include "WarpScal.hh"
 
-void vlWarpScalar::Execute()
+void vtkWarpScalar::Execute()
 {
-  vlPoints *inPts;
-  vlNormals *inNormals;
-  vlScalars *inScalars;
-  vlFloatPoints *newPts;
-  vlPointData *pd;
+  vtkPoints *inPts;
+  vtkNormals *inNormals;
+  vtkScalars *inScalars;
+  vtkFloatPoints *newPts;
+  vtkPointData *pd;
   int i, ptId;
   float *x, *n, s, newX[3];
-  vlPointSet *input=(vlPointSet *)this->Input;
+  vtkPointSet *input=(vtkPointSet *)this->Input;
   
-  vlDebugMacro(<<"Warping data with scalars");
+  vtkDebugMacro(<<"Warping data with scalars");
   this->Initialize();
 
   inPts = input->GetPoints();
@@ -36,11 +36,11 @@ void vlWarpScalar::Execute()
 
   if ( !inNormals || !inPts || !inScalars )
     {
-    vlErrorMacro(<<"No input data");
+    vtkErrorMacro(<<"No input data");
     return;
     }
 
-  newPts = new vlFloatPoints(inPts->GetNumberOfPoints());
+  newPts = new vtkFloatPoints(inPts->GetNumberOfPoints());
 //
 // Loop over all points, adjusting locations
 //
@@ -64,9 +64,9 @@ void vlWarpScalar::Execute()
   this->SetPoints(newPts);
 }
 
-void vlWarpScalar::PrintSelf(ostream& os, vlIndent indent)
+void vtkWarpScalar::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vlPointSetToPointSetFilter::PrintSelf(os,indent);
+  vtkPointSetToPointSetFilter::PrintSelf(os,indent);
 
   os << indent << "Scale Factor: " << this->ScaleFactor << "\n";
 }

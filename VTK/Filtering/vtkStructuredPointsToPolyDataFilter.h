@@ -1,36 +1,36 @@
 /*=========================================================================
 
-  Program:   Visualization Library
+  Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsToPolyDataFilter.h,v $
   Language:  C++
-  Date:      $Date: 1995-05-05 15:51:52 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1995-06-29 17:54:45 $
+  Version:   $Revision: 1.7 $
 
-This file is part of the Visualization Library. No part of this file
+This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
 without the express written consent of the authors.
 
 Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994 
 
 =========================================================================*/
-// .NAME vlStructuredPointsToPolyDataFilter - abstract filter class
+// .NAME vtkStructuredPointsToPolyDataFilter - abstract filter class
 // .SECTION Description
-// vlStructuredPointsToPolyDataFilter is an abstract filter class whose
+// vtkStructuredPointsToPolyDataFilter is an abstract filter class whose
 // subclasses take on input structured points and generate polygonal 
 // data on output.
 
-#ifndef __vlStructuredPointsToPolyDataFilter_h
-#define __vlStructuredPointsToPolyDataFilter_h
+#ifndef __vtkStructuredPointsToPolyDataFilter_h
+#define __vtkStructuredPointsToPolyDataFilter_h
 
 #include "StrPtsF.hh"
 #include "PolyData.hh"
 
-class vlStructuredPointsToPolyDataFilter : public vlPolyData, 
-                                              public vlStructuredPointsFilter
+class vtkStructuredPointsToPolyDataFilter : public vtkPolyData, 
+                                              public vtkStructuredPointsFilter
 {
 public:
-  char *GetClassName() {return "vlDataSetToPolyDataFilter";};
-  void PrintSelf(ostream& os, vlIndent indent);
+  char *GetClassName() {return "vtkDataSetToPolyDataFilter";};
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Object interface
   void Modified();

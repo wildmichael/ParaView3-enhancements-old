@@ -1,12 +1,12 @@
 /*=========================================================================
 
-  Program:   Visualization Library
+  Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRender.h,v $
   Language:  C++
-  Date:      $Date: 1994-02-06 17:56:40 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1995-06-29 17:54:38 $
+  Version:   $Revision: 1.3 $
 
-This file is part of the Visualization Library. No part of this file or its
+This file is part of the Visualization Toolkit. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
 written consent of the authors.
 
