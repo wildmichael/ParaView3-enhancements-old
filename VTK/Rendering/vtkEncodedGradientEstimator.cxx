@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEncodedGradientEstimator.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-08-11 20:19:42 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-08-21 16:25:04 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -150,6 +150,7 @@ void vtkEncodedGradientEstimator::Update( )
 
   if ( this->GetMTime() > this->BuildTime || 
        this->DirectionEncoder->GetMTime() > this->BuildTime ||
+       this->ScalarInput->GetMTime() > this->BuildTime ||
        !this->EncodedNormals )
     {
 
