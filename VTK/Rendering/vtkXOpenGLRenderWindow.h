@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXOpenGLRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-02 14:34:19 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2002-08-09 14:12:08 $
+  Version:   $Revision: 1.15 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -157,6 +157,10 @@ public:
   void ShowCursor();
 
   // Description:
+  // Change the shape of the cursor
+  virtual void SetCurrentCursor(int);
+
+  // Description:
   // Check to see if a mouse button has been pressed.
   // All other events are ignored by this method.
   // This is a useful check to abort a long render.
@@ -196,6 +200,16 @@ protected:
   int      CursorHidden;
   int      ForceMakeCurrent;
 
+  // we must keep track of the cursors we are using
+  Cursor XCArrow;
+  Cursor XCSizeAll;
+  Cursor XCSizeNS;
+  Cursor XCSizeWE;
+  Cursor XCSizeNE;
+  Cursor XCSizeNW;
+  Cursor XCSizeSE;
+  Cursor XCSizeSW;
+  
 private:
   vtkXOpenGLRenderWindow(const vtkXOpenGLRenderWindow&);  // Not implemented.
   void operator=(const vtkXOpenGLRenderWindow&);  // Not implemented.

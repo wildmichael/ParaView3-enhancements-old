@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-08 19:18:40 $
-  Version:   $Revision: 1.128 $
+  Date:      $Date: 2002-08-09 14:11:56 $
+  Version:   $Revision: 1.129 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -60,12 +60,14 @@ class vtkUnsignedCharArray;
 
 #define VTK_CURSOR_DEFAULT  0
 #define VTK_CURSOR_ARROW    1
-#define VTK_CURSOR_SIZENESW 2
-#define VTK_CURSOR_SIZENWSE 3
-#define VTK_CURSOR_SIZENS   4
-#define VTK_CURSOR_SIZEWE   5
-#define VTK_CURSOR_SIZEALL  6
-#define VTK_CURSOR_HAND     7
+#define VTK_CURSOR_SIZENE   2
+#define VTK_CURSOR_SIZENW   3
+#define VTK_CURSOR_SIZESW   4
+#define VTK_CURSOR_SIZESE   5
+#define VTK_CURSOR_SIZENS   6
+#define VTK_CURSOR_SIZEWE   7
+#define VTK_CURSOR_SIZEALL  8
+#define VTK_CURSOR_HAND     9
 
 class VTK_RENDERING_EXPORT vtkRenderWindow : public vtkWindow
 {
