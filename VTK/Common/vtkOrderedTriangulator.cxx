@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOrderedTriangulator.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-04 13:59:47 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2001-06-06 20:11:29 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -232,7 +232,8 @@ class vtkOTPoint
 public:
   vtkOTPoint() : Id(0), InternalId(0), Type(Inside) 
     {this->X[0] = this->X[1] = this->X[2] = 0.0;}
-  enum PointClassification {Inside=0,Outside=1,Boundary=2,Added=3};
+  enum PointClassification 
+    {Inside=0,Outside=1,Boundary=2,Added=3,NoInsert=4};
   int Id; //Id to data outside this class
   int InternalId; //Id (order) of point insertion
   double X[3];
@@ -757,6 +758,11 @@ void vtkOrderedTriangulator::Triangulate()
   for (ptId=0, p=this->Mesh->Points.GetPointer(0); 
        ptId < this->NumberOfPoints; ++p, ++ptId)
     {
+    if ( p->Type == vtkOTPoint::NoInsert )
+      {
+      continue;
+      }
+      
     p->InternalId = ptId;
 
     // Find a tetrahedron containing the point

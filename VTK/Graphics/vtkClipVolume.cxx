@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipVolume.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-02 14:27:29 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2001-06-06 20:11:46 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -461,7 +461,7 @@ void vtkClipVolume::ClipVoxel(float value, vtkScalars *cellScalars,
       }
     else
       {
-      type = 1; //outside, but to be inserted anyway
+      type = 4; //no insert, but its type might change later
       }
 
     xPtr = cellPts->GetPoint(ptId);
