@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointLocator.h,v $
   Language:  C++
-  Date:      $Date: 1998-12-23 19:55:34 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1998-12-28 20:52:44 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -47,7 +47,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // and finding the closest point.
 //
 // vtkPointLocator has two distinct methods of interaction. In the first
-// method, you suppy it with a dataset, and it operates on the points in 
+// method, you supply it with a dataset, and it operates on the points in 
 // the dataset. In the second method, you supply it with an array of points,
 // and the object operates on the array.
 
@@ -136,7 +136,7 @@ public:
   int IsInsertedPoint(float x, float  y, float z)
     {
     float xyz[3];
-    xyz[0] = x; xyz[1] = y; xyz[1] = z;
+    xyz[0] = x; xyz[1] = y; xyz[2] = z;
     return this->IsInsertedPoint (xyz);
     }
   virtual int IsInsertedPoint(float x[3]);
