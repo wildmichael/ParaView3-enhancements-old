@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:02:28 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 1999-08-31 05:42:28 $
+  Version:   $Revision: 1.49 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -75,8 +75,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkAbstractMapper.h"
 #include "vtkScalarsToColors.h"
 #include "vtkDataSet.h"
-#include "vtkPlaneCollection.h"
-#include "vtkPlane.h"
 
 #define VTK_SCALAR_MODE_DEFAULT 0
 #define VTK_SCALAR_MODE_USE_POINT_DATA 1
@@ -213,17 +211,6 @@ public:
   void SetRenderTime(float time) {this->RenderTime = time;}
   vtkGetMacro(RenderTime, float);
 
-  // Description:
-  // Specify clipping planes to be applied when the data is mapped
-  // (at most 6 clipping planes can be specified)
-  void AddClippingPlane(vtkPlane *plane);
-  void RemoveClippingPlane(vtkPlane *plane);
-
-  // Description:
-  // Get/Set the vtkPlaneCollection which specifies the 
-  // clipping planes
-  vtkSetObjectMacro(ClippingPlanes,vtkPlaneCollection);
-  vtkGetObjectMacro(ClippingPlanes,vtkPlaneCollection);
 
 protected:
   vtkMapper();
@@ -241,7 +228,6 @@ protected:
 
   float RenderTime;
 
-  vtkPlaneCollection *ClippingPlanes;
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLVolumeTextureMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-30 05:17:24 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1999-08-31 05:42:29 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,10 +55,15 @@ vtkOpenGLVolumeTextureMapper2D::~vtkOpenGLVolumeTextureMapper2D()
 
 void vtkOpenGLVolumeTextureMapper2D::Render(vtkRenderer *ren, vtkVolume *vol)
 {
-  vtkMatrix4x4  *matrix = vtkMatrix4x4::New();
-  float         *bounds;
-  float         v[3];
-  vtkTimerLog   *timer;
+  vtkMatrix4x4       *matrix = vtkMatrix4x4::New();
+  float              *bounds;
+  float              v[3];
+  vtkTimerLog        *timer;
+  vtkPlaneCollection *clipPlanes;
+  vtkPlane           *plane;
+  int                i, numClipPlanes;
+  double             planeEquation[4];
+
 
   timer = vtkTimerLog::New();
   timer->StartTimer();
@@ -90,6 +95,32 @@ void vtkOpenGLVolumeTextureMapper2D::Render(vtkRenderer *ren, vtkVolume *vol)
 
   glColor3f( 1.0, 1.0, 1.0 );
 
+  // Use the OpenGL clip planes
+  clipPlanes = this->ClippingPlanes;
+  if ( clipPlanes )
+    {
+    numClipPlanes = clipPlanes->GetNumberOfItems();
+    if (numClipPlanes > 6)
+      {
+      vtkErrorMacro(<< "OpenGL guarantees only 6 additional clipping planes");
+      }
+
+    for (i = 0; i < numClipPlanes; i++)
+      {
+      glEnable(GL_CLIP_PLANE0+i);
+
+      plane = (vtkPlane *)clipPlanes->GetItemAsObject(i);
+
+      planeEquation[0] = plane->GetNormal()[0]; 
+      planeEquation[1] = plane->GetNormal()[1]; 
+      planeEquation[2] = plane->GetNormal()[2];
+      planeEquation[3] = -(planeEquation[0]*plane->GetOrigin()[0]+
+			   planeEquation[1]*plane->GetOrigin()[1]+
+			   planeEquation[2]*plane->GetOrigin()[2]);
+      glClipPlane(GL_CLIP_PLANE0+i,planeEquation);
+      }
+    }
+
   this->GenerateTexturesAndRenderRectangles(); 
     
   glDisable( GL_BLEND );
@@ -103,6 +134,14 @@ void vtkOpenGLVolumeTextureMapper2D::Render(vtkRenderer *ren, vtkVolume *vol)
   glPopMatrix();
 
   matrix->Delete();
+
+  if ( clipPlanes )
+    {
+    for (i = 0; i < numClipPlanes; i++)
+      {
+      glDisable(GL_CLIP_PLANE0+i);
+      }
+    }
 
   timer->StopTimer();      
 
