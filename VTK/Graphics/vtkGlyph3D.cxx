@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGlyph3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-09-08 12:47:10 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1995-09-14 15:44:01 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -202,7 +202,7 @@ void vtkGlyph3D::Execute()
       for (i=0; i < numSourcePts; i++) 
         newVectors->InsertVector(ptIncr+i,v);
           
-      if ( this->Orient ) 
+      if (this->Orient && (scale > 0)) 
         {
         vNew[0] = (v[0]+scale) / 2.0;
         vNew[1] = v[1] / 2.0;
