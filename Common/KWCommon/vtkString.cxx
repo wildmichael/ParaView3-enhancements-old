@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkString.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-30 15:54:13 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-12-31 14:31:23 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -17,8 +17,9 @@
 =========================================================================*/
 #include "vtkString.h"
 #include "vtkObjectFactory.h"
+#include <ctype.h>
 
-vtkCxxRevisionMacro(vtkString, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkString, "$Revision: 1.7 $");
 vtkStandardNewMacro(vtkString);
  
 //----------------------------------------------------------------------------
