@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAccumulate.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-04 14:28:09 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 2002-01-09 23:22:49 $
+  Version:   $Revision: 1.41 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -45,7 +45,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <math.h>
 #include <stdlib.h>
 
-vtkCxxRevisionMacro(vtkImageAccumulate, "$Revision: 1.40 $");
+vtkCxxRevisionMacro(vtkImageAccumulate, "$Revision: 1.41 $");
 vtkStandardNewMacro(vtkImageAccumulate);
 
 //----------------------------------------------------------------------------
@@ -360,11 +360,10 @@ void vtkImageAccumulate::ExecuteInformation(vtkImageData *input,
 //----------------------------------------------------------------------------
 // Get ALL of the input.
 void vtkImageAccumulate::ComputeInputUpdateExtent(int inExt[6], 
-                                                  int outExt[6])
+                                                  int *vtkNotUsed(outExt))
 {
   int *wholeExtent;
 
-  outExt = outExt;
   wholeExtent = this->GetInput()->GetWholeExtent();
   memcpy(inExt, wholeExtent, 6*sizeof(int));
 }
