@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:41:20 $
-  Version:   $Revision: 1.87 $
+  Date:      $Date: 1998-09-28 18:57:57 $
+  Version:   $Revision: 1.88 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -811,6 +811,10 @@ void vtkRenderer::PrintSelf(ostream& os, vtkIndent indent)
 
   os << indent << "Allocated Render Time: " << this->AllocatedRenderTime
      << "\n";
+
+  os << indent << "Last Time To Render (Seconds): " 
+     << this->LastRenderTimeInSeconds << endl;
+
 }
 
 int vtkRenderer::VisibleActorCount()

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFrustumCoverageCuller.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:41:05 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-09-28 18:57:57 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -231,6 +231,11 @@ float vtkFrustumCoverageCuller::OuterCullMethod( vtkRenderer *ren,
 
 void vtkFrustumCoverageCuller::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkCuller::PrintSelf(os,indent);
+  this->vtkCuller::PrintSelf(os,indent);
 
+  os << indent << "Minimum Coverage: " 
+     << this->MinimumCoverage << endl;
+
+  os << indent << "Maximum Coverage: " 
+     << this->MaximumCoverage << endl;
 }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFiniteDifferenceGradientEstimator.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:41:04 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-09-28 18:57:57 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -314,7 +314,7 @@ void vtkFiniteDifferenceGradientEstimator::UpdateNormals( )
 void vtkFiniteDifferenceGradientEstimator::PrintSelf(ostream& os, 
 						     vtkIndent indent)
 {
-  vtkEncodedGradientEstimator::PrintSelf(os, indent);
+  this->vtkEncodedGradientEstimator::PrintSelf(os, indent);
   
   os << indent << "Sample spacing in voxels: " << 
     this->SampleSpacingInVoxels << endl;
