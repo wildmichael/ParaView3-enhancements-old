@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSuperquadric.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:47 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2001-10-02 21:07:38 $
+  Version:   $Revision: 1.17 $
   Thanks:    Mike Halle, Brigham and Women's Hospital
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -70,7 +70,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #define VTK_MIN_SUPERQUADRIC_THICKNESS  1e-4
 
-class VTK_EXPORT vtkSuperquadric : public vtkImplicitFunction
+class VTK_FILTERING_EXPORT vtkSuperquadric : public vtkImplicitFunction
 {
 public:
   // Description

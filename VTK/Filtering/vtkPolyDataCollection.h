@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataCollection.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-20 21:12:38 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2001-10-02 21:07:32 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -53,7 +53,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkCollection.h"
 #include "vtkPolyData.h"
 
-class VTK_EXPORT vtkPolyDataCollection : public vtkCollection
+class VTK_FILTERING_EXPORT vtkPolyDataCollection : public vtkCollection
 {
 public:
   static vtkPolyDataCollection *New();

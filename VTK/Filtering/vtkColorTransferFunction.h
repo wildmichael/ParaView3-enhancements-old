@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkColorTransferFunction.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-29 20:14:13 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2001-10-02 21:07:19 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -57,7 +57,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define VTK_CTF_RGB   0
 #define VTK_CTF_HSV   1
 
-class VTK_EXPORT vtkColorTransferFunction : public vtkScalarsToColors 
+class VTK_FILTERING_EXPORT vtkColorTransferFunction : public vtkScalarsToColors 
 {
 public:
   static vtkColorTransferFunction *New();

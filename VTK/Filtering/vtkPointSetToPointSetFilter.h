@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSetToPointSetFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:47 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 2001-10-02 21:07:32 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -70,7 +70,7 @@ class vtkPolyData;
 class vtkStructuredGrid;
 class vtkUnstructuredGrid;
 
-class VTK_EXPORT vtkPointSetToPointSetFilter : public vtkPointSetSource
+class VTK_FILTERING_EXPORT vtkPointSetToPointSetFilter : public vtkPointSetSource
 {
 public:
   vtkTypeMacro(vtkPointSetToPointSetFilter,vtkPointSetSource);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellLocator.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:47 $
-  Version:   $Revision: 1.52 $
+  Date:      $Date: 2001-10-02 21:07:18 $
+  Version:   $Revision: 1.53 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -66,7 +66,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 class vtkNeighborCells;
 
-class VTK_EXPORT vtkCellLocator : public vtkLocator
+class VTK_FILTERING_EXPORT vtkCellLocator : public vtkLocator
 {
 public:
   vtkTypeMacro(vtkCellLocator,vtkLocator);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsSource.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-28 13:24:22 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2001-10-02 21:07:37 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -53,7 +53,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkSource.h"
 #include "vtkStructuredPoints.h"
 
-class VTK_EXPORT vtkStructuredPointsSource : public vtkSource
+class VTK_FILTERING_EXPORT vtkStructuredPointsSource : public vtkSource
 {
 public:
   static vtkStructuredPointsSource *New();

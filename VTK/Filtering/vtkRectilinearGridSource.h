@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGridSource.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-28 13:24:22 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2001-10-02 21:07:34 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -53,7 +53,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkSource.h"
 #include "vtkRectilinearGrid.h"
 
-class VTK_EXPORT vtkRectilinearGridSource : public vtkSource
+class VTK_FILTERING_EXPORT vtkRectilinearGridSource : public vtkSource
 {
 public:
   static vtkRectilinearGridSource *New();

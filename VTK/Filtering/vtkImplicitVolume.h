@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitVolume.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:47 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2001-10-02 21:07:29 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -67,7 +67,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkImplicitFunction.h"
 #include "vtkImageData.h"
 
-class VTK_EXPORT vtkImplicitVolume : public vtkImplicitFunction
+class VTK_FILTERING_EXPORT vtkImplicitVolume : public vtkImplicitFunction
 {
 public:
   vtkTypeMacro(vtkImplicitVolume,vtkImplicitFunction);
