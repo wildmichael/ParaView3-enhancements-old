@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSet.h,v $
   Language:  C++
-  Date:      $Date: 1997-03-04 17:54:24 $
-  Version:   $Revision: 1.59 $
+  Date:      $Date: 1997-05-13 21:04:59 $
+  Version:   $Revision: 1.60 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -197,8 +197,9 @@ public:
   virtual void Squeeze();
 
   // Description:
-  // Set the owner of this data object for Sources.
+  // Specify the filter creating this dataset. 
   vtkSetObjectMacro(Source,vtkSource);
+  vtkGetObjectMacro(Source,vtkSource);
   
   // compute geometric bounds, center, longest side
   virtual void ComputeBounds();
