@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGrid.h,v $
   Language:  C++
-  Date:      $Date: 1996-02-12 14:25:44 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1996-05-23 11:49:45 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -100,7 +100,8 @@ protected:
   int DataDescription;
   int Blanking;
   vtkBitScalars *PointVisibility;
-
+  void AllocatePointVisibility();
+  
   vtkStructuredData StructuredData; //helper class
 };
 
