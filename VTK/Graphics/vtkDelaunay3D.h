@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDelaunay3D.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:44:12 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1997-12-01 18:30:19 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -112,10 +112,13 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkPointSetFilter.h"
 #include "vtkUnstructuredGrid.h"
 
+class vtkSphereArray;
+
 class VTK_EXPORT vtkDelaunay3D : public vtkPointSetFilter
 {
 public:
   vtkDelaunay3D();
+  ~vtkDelaunay3D();
   static vtkDelaunay3D *New() {return new vtkDelaunay3D;};
   const char *GetClassName() {return "vtkDelaunay3D";};
   void PrintSelf(ostream& os, vtkIndent indent);
@@ -154,6 +157,26 @@ public:
   // Get the output of this filter.
   vtkUnstructuredGrid *GetOutput() {return (vtkUnstructuredGrid *)this->Output;};
 
+  // Use different object for locating "coincident" vertices
+  void SetLocator(vtkPointLocator *locator);
+  void SetLocator(vtkPointLocator& locator) {this->SetLocator(&locator);};
+  vtkGetObjectMacro(Locator,vtkPointLocator);
+
+  // Description:
+  // Create default locator. Used to create one when none is specified. The 
+  // locator is used to eliminate "coincident" points.
+  void CreateDefaultLocator();
+
+  // Methods available to other objects for forming and manipulating 
+  // triangulations.
+  vtkUnstructuredGrid *InitPointInsertion(float center[3], float length, 
+					  int numPts, vtkFloatPoints* &pts);
+  vtkUnstructuredGrid *InitPointInsertion(int numPtsToInsert,  int numTetra,
+                          vtkFloatPoints &boundingTetraPts, float bounds[6],
+                          vtkFloatPoints* &pts);
+  void InsertPoint(vtkUnstructuredGrid *Mesh, vtkFloatPoints *points,
+		   int id, float x[3], vtkIdList& holeTetras);
+
 protected:
   void Execute();
 
@@ -162,7 +185,24 @@ protected:
   int BoundingTriangulation;
   float Offset;
 
-  vtkPointLocator Locator; //help locate points faster
+  vtkPointLocator *Locator;  //help locate points faster
+  int SelfCreatedLocator;
+  
+  vtkSphereArray *Spheres;   //used to keep track of circumspheres
+  int InSphere(float x[3], int tetraId);
+  void InsertSphere(vtkUnstructuredGrid *Mesh, vtkFloatPoints *pts, int tetraId);
+
+  int NumberOfDuplicatePoints; //keep track of bad data
+  int NumberOfDegeneracies;
+
+  int FindEnclosingFaces(float x[3], int tetra, vtkUnstructuredGrid *Mesh,
+			 vtkFloatPoints *points, float tol,
+			 vtkIdList &tetras, vtkIdList &faces,
+			 vtkPointLocator *Locator);
+  
+  int FindTetra(float x[3], int ptIds[4], float p[4][3], 
+		int tetra, vtkUnstructuredGrid *Mesh, 
+		vtkFloatPoints *points, float tol, int depth);
 
 };
 
