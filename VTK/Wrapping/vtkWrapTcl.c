@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWrapTcl.c,v $
   Language:  C++
-  Date:      $Date: 1998-05-05 20:18:20 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-05-12 19:29:18 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -344,8 +344,7 @@ void outputFunction(FILE *fp, FileInfo *data)
   int args_ok = 1;
  
   /* some functions will not get wrapped no matter what else */
-  if (currentFunction->IsPureVirtual ||
-      currentFunction->IsOperator || 
+  if (currentFunction->IsOperator || 
       currentFunction->ArrayFailure ||
       !currentFunction->IsPublic ||
       !currentFunction->Name) 
