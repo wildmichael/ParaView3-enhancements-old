@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDynamicLoader.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:09 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2001-05-22 17:55:34 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to William A. Hoffman who developed this class
 
 
@@ -48,6 +48,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #ifndef __vtkDynamicLoader_h
 #define __vtkDynamicLoader_h
+#include "vtkConfigure.h"
 
 //BTX
 // Ugly stuff for library handles
