@@ -3,9 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProcrustesAlignmentFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-05 13:38:25 $
-  Version:   $Revision: 1.6 $
-  Thanks:    Tim Hutton and Rasmus Paulsen who developed and contributed this class
+  Date:      $Date: 2002-02-05 15:05:28 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +22,7 @@
 #include "vtkPolyData.h"
 #include "vtkMath.h"
 
-vtkCxxRevisionMacro(vtkProcrustesAlignmentFilter, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkProcrustesAlignmentFilter, "$Revision: 1.7 $");
 vtkStandardNewMacro(vtkProcrustesAlignmentFilter);
 
 //----------------------------------------------------------------------------
@@ -72,7 +71,7 @@ double static inline CentroidSize(vtkPoints* pd, float *cp)
   {
     float *p = pd->GetPoint(i);
     
-    S += vtkMath::Distance2BetweenPoints(p,cp);
+    S += sqrt(vtkMath::Distance2BetweenPoints(p,cp));
   }
   
   return S;
