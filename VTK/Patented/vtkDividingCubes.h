@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkDividingCubes.h,v $
   Language:  C++
-  Date:      $Date: 1994-08-13 08:50:07 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1994-09-20 22:22:52 $
+  Version:   $Revision: 1.3 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -13,7 +13,7 @@ without the express written consent of the authors.
 Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994 
 
 =========================================================================*/
-// .NAME vlDividingCubes -
+// .NAME vlDividingCubes - create points lying on iso-surface
 // .SECTION Description
 // vlDividingCubes is a filter that generates points laying on a surface
 // of constant scalar value (i.e., an iso-surface). Dense point clouds (i.e.,
