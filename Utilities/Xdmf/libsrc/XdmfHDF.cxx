@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfHDF.cxx,v 1.21 2004-08-25 13:30:41 clarke Exp $  */
-/*  Date : $Date: 2004-08-25 13:30:41 $ */
-/*  Version : $Revision: 1.21 $ */
+/*  Id : $Id: XdmfHDF.cxx,v 1.22 2004-08-25 13:41:28 clarke Exp $  */
+/*  Date : $Date: 2004-08-25 13:41:28 $ */
+/*  Version : $Revision: 1.22 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -244,6 +244,7 @@ XdmfInt32
 XdmfHDF::Close() {
 
 XdmfDebug("Closing");
+H5E_BEGIN_TRY {
 if ( this->CreatePlist != H5P_DEFAULT ){
   XdmfDebug("Closing Create Plist");
   H5Pclose( this->CreatePlist );
@@ -270,6 +271,7 @@ if (this->File != H5I_BADID ) {
   H5Fclose(this->File);  
   this->File = H5I_BADID;
   }
+} H5E_END_TRY;
 
 return( XDMF_SUCCESS );
 }
