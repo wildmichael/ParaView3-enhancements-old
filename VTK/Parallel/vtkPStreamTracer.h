@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPStreamTracer.h,v $
   Language:  C++
-  Date:      $Date: 2003-05-30 15:13:41 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2003-06-03 17:08:39 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -29,9 +29,8 @@
 
 #include "vtkStreamTracer.h"
 
-#include "vtkSmartPointer.h"
-
-#include <vector>
+#include "vtkSmartPointer.h" // This is a leaf node. No need to
+#include <vtkstd/vector>     // use PIMPL to avoid compile time penalty.
 
 class vtkInterpolatedVelocityField;
 class vtkMultiProcessController;
