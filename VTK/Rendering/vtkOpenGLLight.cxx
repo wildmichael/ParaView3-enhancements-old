@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLLight.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:44 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2001-03-24 22:06:41 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -72,7 +72,7 @@ void vtkOpenGLLight::Render(vtkRenderer *vtkNotUsed(ren),int light_index)
   float	dx, dy, dz;
   float	color[4];
   float Info[4];
-  vtkMatrix4x4 *xform;
+  vtkMatrix4x4 *xform = NULL;
 
   // get required info from light
   color[0] = this->Intensity * this->Color[0];

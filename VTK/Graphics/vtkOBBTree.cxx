@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOBBTree.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:44 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2001-03-24 22:06:15 $
+  Version:   $Revision: 1.37 $
   Thanks:    Thanks to Peter C. Everett <pce@world.std.com> for
              improvements and enhancements to vtkOBBTree class.
 
@@ -499,7 +499,7 @@ int vtkOBBTree::IntersectWithLine(float a0[3], float a1[3], float tol,
   vtkIdList *cells;
   int depth, ii, foundIntersection = 0, bestIntersection = 0;
   float tBest = VTK_LARGE_FLOAT, xBest[3], pcoordsBest[3];
-  int subIdBest, thisId, cellIdBest = -1;
+  int subIdBest = -1, thisId, cellIdBest = -1;
 
   OBBstack = new vtkOBBNode *[this->GetLevel()+1];
   OBBstack[0] = this->Tree;
