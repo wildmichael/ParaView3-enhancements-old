@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTIFFWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-12-17 14:53:39 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-09-27 15:53:09 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -339,6 +339,10 @@ void vtkTIFFWriter::WriteFileHeader(ofstream *file, vtkImageCache *cache)
   file->write((char *)&myDir, sizeof (myDir));
   
   short photometricInterpretation = PHOTOMETRIC_RGB;
+  if (bpp == 1 || bpp == 2)
+    {
+    photometricInterpretation = PHOTOMETRIC_MINISBLACK;
+    }
   myDir.tdir_tag = TIFFTAG_PHOTOMETRIC;
   myDir.tdir_type = TIFF_SHORT;
   myDir.tdir_count = 1;
