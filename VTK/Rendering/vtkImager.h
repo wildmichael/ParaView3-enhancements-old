@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImager.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:22:39 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1999-12-17 22:48:34 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -89,12 +89,19 @@ public:
   // Erase the contents of the imager in the window.
   virtual void Erase(){vtkErrorMacro(<<"vtkImager::Erase - Not implemented!");};
 
+  virtual vtkProp* PickProp(float selectionX, float selectionY);
+  virtual float GetPickedZ();
 protected:
   vtkImager();
   ~vtkImager() {};
   vtkImager(const vtkImager&) {};
   void operator=(const vtkImager&) {};
 
+  virtual void StartPick(unsigned int pickFromSize);
+  virtual void SetPickId(unsigned int pickID);
+  virtual void DonePick(); 
+  virtual unsigned int GetPickedID();
+  virtual void DevicePickRender();
 };
 
 

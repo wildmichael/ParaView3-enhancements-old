@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-12-15 21:03:38 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 1999-12-17 22:48:33 $
+  Version:   $Revision: 1.43 $
   Thanks:    to Horst Schreiber for developing this MFC code
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -668,6 +668,8 @@ void vtkWin32OpenGLRenderWindow::WindowInitialize (void)
     this->OpenGLInit();
     }
 
+ 
+  
   // set the DPI
   this->SetDPI(GetDeviceCaps(this->DeviceContext, LOGPIXELSY));
 }
@@ -1181,7 +1183,7 @@ float *vtkWin32OpenGLRenderWindow::GetRGBAPixelData(int x1, int y1, int x2, int 
   height = abs(y_hi - y_low) + 1;
 
   data = new float[ (width*height*4) ];
-
+  
   glReadPixels( x_low, y_low, width, height, GL_RGBA, GL_FLOAT, data);
 
   return data;
@@ -1305,7 +1307,7 @@ float *vtkWin32OpenGLRenderWindow::GetZbufferData( int x1, int y1,
   height = abs(y2 - y1)+1;
 
   z_data = new float[width*height];
-
+  
   glReadPixels( x_low, y_low, 
 		width, height,
 		GL_DEPTH_COMPONENT, GL_FLOAT,

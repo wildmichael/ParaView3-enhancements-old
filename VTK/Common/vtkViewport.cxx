@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkViewport.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-08 20:09:55 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1999-12-17 22:48:29 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -91,6 +91,12 @@ vtkViewport::vtkViewport()
 
   this->Origin[0] = 0;
   this->Origin[1] = 0;
+  
+  this->IsPicking = 0;
+  this->CurrentPickID = 0;
+  this->PickX = -1;
+  this->PickY = -1;
+  this->PickFromProps = NULL;
 
   this->Props = vtkPropCollection::New();
   this->Actors2D = vtkActor2DCollection::New();
@@ -563,3 +569,16 @@ void vtkViewport::ComputeAspect()
   
   this->SetAspect(aspect);
 }
+
+
+vtkProp* vtkViewport::PickProp(float selectionX, float selectionY, vtkPropCollection* pickfrom)
+{
+  this->PickFromProps = pickfrom;
+  return this->PickProp(selectionX, selectionY);
+  if(this->PickFromProps)
+    {
+    this->PickFromProps->Delete();
+    }
+  this->PickFromProps = NULL;
+}
+

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalarBarActor.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-18 19:34:33 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1999-12-17 22:48:35 $
+  Version:   $Revision: 1.22 $
 
 Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -202,6 +202,12 @@ int vtkScalarBarActor::RenderOverlay(vtkViewport *viewport)
     renderedSomething += this->TitleActor->RenderOverlay(viewport);
     }
   this->ScalarBarActor->RenderOverlay(viewport);
+  if( this->TextActors == NULL)
+    {
+     vtkWarningMacro(<<"Need a mapper to render a scalar bar");
+     return renderedSomething;
+    }
+  
   for (i=0; i<this->NumberOfLabels; i++)
     {
     renderedSomething += this->TextActors[i]->RenderOverlay(viewport);

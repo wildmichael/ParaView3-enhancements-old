@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLPolyDataMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-30 16:53:56 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-12-17 22:48:35 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -43,7 +43,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkOpenGLPolyDataMapper2D.h"
 #include <GL/gl.h>
 #include "vtkObjectFactory.h"
-
+#include "vtkgluPickMatrix.h"
 
 
 //------------------------------------------------------------------------------
@@ -165,6 +165,14 @@ void vtkOpenGLPolyDataMapper2D::RenderOpaqueGeometry(vtkViewport* viewport,
   glMatrixMode( GL_PROJECTION);
   glPushMatrix();
   glLoadIdentity();
+  if(viewport->GetIsPicking())
+    {
+    GLint glviewport[4];
+    glGetIntegerv( GL_VIEWPORT, glviewport);
+    vtkgluPickMatrix(viewport->GetPickX(), viewport->GetPickY(),
+		     1, 1, glviewport);
+    }
+  
   glMatrixMode( GL_MODELVIEW );
   glPushMatrix();
   glLoadIdentity();
