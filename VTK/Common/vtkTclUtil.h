@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTclUtil.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-22 19:38:48 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1997-04-25 14:23:45 $
+  Version:   $Revision: 1.12 $
 
 This file is part of the Visualization Toolkit. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -13,6 +13,9 @@ written consent of the authors.
 Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 
 =========================================================================*/
+
+#ifndef __vtkTclInclude_h
+#define __vtkTclInclude_h
 
 #include <tcl.h>
 #include <tk.h>
@@ -39,4 +42,5 @@ typedef  struct _vtkTclVoidFuncArg
 } vtkTclVoidFuncArg;
 
 
+#endif
 
