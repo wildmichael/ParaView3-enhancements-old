@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkReferenceCountedVector.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-04 18:04:50 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-04-04 18:44:58 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,7 +39,12 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-// .NAME vtkReferenceCountedVector - a dynamic vector
+// .NAME vtkReferenceCountedVector - a dynamic vector with reference counting
+//
+// .SECTION Description
+// This is a vector class with reference counting. It makes some
+// assumptions about the type it is storing. Each element is a pointer 
+// to a type that has methods Register(void*) and Unregister(void*).
 
 #ifndef __vtkReferenceCountedVector_h
 #define __vtkReferenceCountedVector_h
@@ -76,6 +81,12 @@ public:
   // Description:
   // Removes all items from the container.
   virtual void RemoveAllItems();
+
+  // Description:
+  // Since we know that the storage type is a pointer, we can use
+  // this knowledge to have easier acces for its members. This
+  // method returns either NULL or the object.
+  DType GetItem(vtkIdType id);
 
 protected:
   vtkReferenceCountedVector() {}

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkReferenceCountedVector.txx,v $
   Language:  C++
-  Date:      $Date: 2002-04-04 18:04:50 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-04-04 18:44:58 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -126,6 +126,21 @@ vtkReferenceCountedVector<DType>::~vtkReferenceCountedVector()
 	}
       }
     }
+}
+
+// Description:
+// Since we know that the storage type is a pointer, we can use
+// this knowledge to have easier acces for its members. This
+// method returns either NULL or the object.
+template <class DType>
+DType vtkReferenceCountedVector<DType>::GetItem(vtkIdType id)
+{
+  DType a = 0;
+  if ( this->GetItem(id, a) == VTK_OK )
+    {
+    return a;
+    }
+  return 0;
 }
 
 #endif
