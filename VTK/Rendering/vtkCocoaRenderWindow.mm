@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCocoaRenderWindow.mm,v $
   Language:  C++
-  Date:      $Date: 2003-01-20 15:17:52 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2003-01-20 20:52:34 $
+  Version:   $Revision: 1.10 $
   Thanks:    to Yves Starreveld for developing this class
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -58,7 +58,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define id Id // since id is a reserved token in ObjC and is used a _lot_ in vtk
 
 
-vtkCxxRevisionMacro(vtkCocoaRenderWindow, "$Revision: 1.9 $");
+vtkCxxRevisionMacro(vtkCocoaRenderWindow, "$Revision: 1.10 $");
 vtkStandardNewMacro(vtkCocoaRenderWindow);
 
 
@@ -638,6 +638,6 @@ void vtkCocoaRenderWindow::ShowCursor()
     }
   this->CursorHidden = 0;
 
-  [NSCursor show];
+  [NSCursor unhide];
 }				   
 
