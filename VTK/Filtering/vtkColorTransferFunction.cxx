@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkColorTransferFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-07-03 14:05:06 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2000-07-10 13:29:05 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -398,12 +398,12 @@ void vtkColorTransferFunction::AddRGBSegment( float x1, float r1,
   if ( j < this->NumberOfPoints && d )
     {
     this->NumberOfPoints -= d;
-    for ( int j = i+1; j < this->NumberOfPoints; j++ )
+    for ( int k = i+1; k < this->NumberOfPoints; k++ )
       {
-      this->Function[4*j  ] = this->Function[4*(j+d)  ];
-      this->Function[4*j+1] = this->Function[4*(j+d)+1];
-      this->Function[4*j+2] = this->Function[4*(j+d)+2];
-      this->Function[4*j+3] = this->Function[4*(j+d)+3];
+      this->Function[4*k  ] = this->Function[4*(k+d)  ];
+      this->Function[4*k+1] = this->Function[4*(k+d)+1];
+      this->Function[4*k+2] = this->Function[4*(k+d)+2];
+      this->Function[4*k+3] = this->Function[4*(k+d)+3];
       }    
     }
   
@@ -683,7 +683,7 @@ void vtkColorTransferFunction::DeepCopy( vtkColorTransferFunction *f )
 
 // accelerate the mapping by copying the data in 32-bit chunks instead
 // of 8-bit chunks
-template<class T>
+template <class T>
 static void 
 vtkColorTransferFunctionMapData(vtkColorTransferFunction *self, 
                                 T *input, 
