@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIdentityTransform.h,v $
   Language:  C++
-  Date:      $Date: 2000-06-06 01:24:53 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2000-06-08 13:18:07 $
+  Version:   $Revision: 1.13 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -118,10 +118,6 @@ public:
 				   double derivative[3][3]);
 
   // Description:
-  // This method does no type checking, use DeepCopy instead.
-  void InternalDeepCopy(vtkAbstractTransform *t);
-
-  // Description:
   // Make a transform of the same type.  This will actually
   // return the same transform.
   vtkAbstractTransform *MakeTransform();
@@ -131,6 +127,9 @@ protected:
   ~vtkIdentityTransform();
   vtkIdentityTransform(const vtkIdentityTransform&) {};
   void operator=(const vtkIdentityTransform&) {};
+
+  void InternalDeepCopy(vtkAbstractTransform *t);
+
 };
 
 #endif
