@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkIntArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-02-05 12:59:03 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1994-02-28 22:12:08 $
+  Version:   $Revision: 1.9 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -19,10 +19,6 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 //
 #include "IntArray.hh"
 
-//
-// External integer array provided; responsibility of user 
-// to manage memory
-//
 vlIntArray::Initialize(const int sz, const int ext)
 {
   if ( this->Array != 0 ) delete [] this->Array;
