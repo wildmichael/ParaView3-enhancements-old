@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-03 13:09:04 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 1999-09-08 20:21:47 $
+  Version:   $Revision: 1.48 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -66,6 +66,9 @@ vtkStructuredGrid::vtkStructuredGrid()
   this->PointVisibility = NULL;
 
   this->UpdateExtent = vtkStructuredExtent::New();
+
+  this->Extent[0] = this->Extent[2] = this->Extent[4] = 0;
+  this->Extent[1] = this->Extent[3] = this->Extent[5] = 0;
 
   this->WholeExtent[0] = this->WholeExtent[2] = this->WholeExtent[4] = 0;
   this->WholeExtent[1] = this->WholeExtent[3] = this->WholeExtent[5] = 0;
