@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkMergeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-02-26 10:25:04 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1995-06-13 14:44:58 $
+  Version:   $Revision: 1.8 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -35,7 +35,7 @@ vlMergeFilter::~vlMergeFilter()
 
 void vlMergeFilter::Update()
 {
-  unsigned long int mtime, dsMtime;
+  unsigned long int mtime=0, dsMtime;
 
   // prevent chasing our tail
   if (this->Updating) return;
