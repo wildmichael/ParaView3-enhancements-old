@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkCutter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-05-04 15:57:00 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1995-06-06 13:16:42 $
+  Version:   $Revision: 1.9 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -31,7 +31,7 @@ vlCutter::~vlCutter()
 // then we are modified as well.
 unsigned long vlCutter::GetMTime()
 {
-  unsigned long mTime=this->MTime.GetMTime();
+  unsigned long mTime=this->GetMTime();
   unsigned long cutFuncMTime;
 
   if ( this->CutFunction != NULL )
