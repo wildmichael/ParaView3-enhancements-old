@@ -3,10 +3,23 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMarchingCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-06-13 20:16:30 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1997-07-09 19:58:19 $
+  Version:   $Revision: 1.3 $
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
+
+    THIS CLASS IS PATENTED UNDER UNITED STATES PATENT NUMBER 4,710,876
+    "System and Method for the Display of Surface Structures Contained
+    Within The Interior Region of a Solid body".
+    Application of this software for commercial purposes requires 
+    a license grant from GE. Contact:
+        Mike Silver
+        GE Medical Systems
+        16705 West Lincoln Ave., 
+        NB 900
+        New Berlin, WI, 53151
+        Phone:1-414-827-3400 
+    for more information.
 
 This software is copyrighted by Ken Martin, Will Schroeder and Bill Lorensen.
 The following terms apply to all files associated with the software unless

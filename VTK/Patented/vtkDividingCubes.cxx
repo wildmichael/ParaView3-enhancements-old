@@ -3,11 +3,24 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDividingCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-23 20:40:42 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1997-07-09 19:58:16 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
+
+    THIS CLASS IS PATENTED UNDER UNITED STATES PATENT NUMBER 4,719,585
+    "Dividing Cubes System and Method for the Display of Surface Structures
+    Contained Within the Interior Region of a Solid Body".
+    Application of this software for commercial purposes requires 
+    a license grant from GE. Contact:
+        Mike Silver
+        GE Medical Systems
+        16705 West Lincoln Ave., 
+        NB 900
+        New Berlin, WI, 53151
+        Phone:1-414-827-3400 
+    for more information.
 
 This software is copyrighted by Ken Martin, Will Schroeder and Bill Lorensen.
 The following terms apply to all files associated with the software unless
