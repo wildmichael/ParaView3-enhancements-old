@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTclUtil.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-15 19:36:06 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1999-12-29 23:43:36 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -54,6 +54,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #endif
 
 extern VTKTCL_EXPORT Tcl_Interp *vtkGlobalTclInterp;
+extern VTKTCL_EXPORT Tcl_Interp *vtkTclGetGlobalInterp();
 extern VTKTCL_EXPORT int vtkTclEval(char *str);
 extern VTKTCL_EXPORT char *vtkTclGetResult();
 extern VTKTCL_EXPORT void vtkTclDeleteObjectFromHash(void *cd);

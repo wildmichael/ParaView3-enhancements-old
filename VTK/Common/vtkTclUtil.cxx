@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTclUtil.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-12-09 19:15:36 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 1999-12-29 23:43:36 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -44,6 +44,11 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkObject.h"
 #include "vtkTclUtil.h"
 #include "vtkSetGet.h"
+
+VTKTCL_EXPORT Tcl_Interp *vtkTclGetGlobalInterp()
+{
+  return vtkGlobalTclInterp;
+}
 
 VTKTCL_EXPORT int vtkTclEval(char *str)
 {
