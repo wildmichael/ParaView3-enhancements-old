@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitBoolean.h,v $
   Language:  C++
-  Date:      $Date: 1995-09-06 17:54:42 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1995-09-15 07:51:49 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -51,7 +51,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // The operators work as follows. The VTK_UNION operator takes the minimum
 // value of all implicit functions. The VTK_INTERSECTION operator takes the
 // maximum value of all implicit functions. The VTK_DIFFERENCE operator
-// substracts the 2cnd through last implicit functions from the first.
+// subtracts the 2nd through last implicit functions from the first.
 
 
 #ifndef __vtkImplicitBoolean_h
