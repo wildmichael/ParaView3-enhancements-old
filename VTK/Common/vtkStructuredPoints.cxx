@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-04-15 18:45:32 $
-  Version:   $Revision: 1.68 $
+  Date:      $Date: 1999-04-15 19:39:16 $
+  Version:   $Revision: 1.69 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -89,10 +89,6 @@ vtkDataSet(v)
 
 vtkStructuredPoints::~vtkStructuredPoints()
 {
-  if (this->StructuredPointsToImage)
-    {
-    this->StructuredPointsToImage->Delete();
-    }
   this->Vertex->Delete();
   this->Line->Delete();
   this->Pixel->Delete();
