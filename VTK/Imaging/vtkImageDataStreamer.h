@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDataStreamer.h,v $
   Language:  C++
-  Date:      $Date: 2000-05-09 19:41:44 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2000-08-06 10:37:19 $
+  Version:   $Revision: 1.12 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -58,7 +58,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 //BTX
 // Define a helper class to keep track of a stack of extents 
-class vtkImageDataStreamerExtentStack
+class VTK_EXPORT vtkImageDataStreamerExtentStack
 {
 public:
   vtkImageDataStreamerExtentStack()
