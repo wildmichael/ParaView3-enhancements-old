@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDataStreamer.h,v $
   Language:  C++
-  Date:      $Date: 1999-11-22 15:05:13 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1999-11-23 17:27:03 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -49,6 +49,10 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 #include "vtkImageSource.h"
 
+
+#define VTK_IMAGE_DATA_STREAMER_BLOCK_MODE 0
+#define VTK_IMAGE_DATA_STREAMER_SLAB_MODE 1
+
 class VTK_EXPORT vtkImageDataStreamer : public vtkImageSource
 {
 public:
@@ -72,6 +76,18 @@ public:
   vtkSetMacro(NumberOfDivisions, int);
   vtkGetMacro(NumberOfDivisions, int);
   
+  // Description:
+  // How should the streamer break up extents. Block mode
+  // tries to break an extent up into cube blocks.  It always chooses
+  // the largest axis to split.
+  // Slab mode first breaks up the Z axis.  If it gets to one slice,
+  // then it starts bereaking up other axes.
+  void SetSplitModeToBlock()
+    {this->SplitMode = VTK_IMAGE_DATA_STREAMER_BLOCK_MODE;}
+  void SetSplitModeToSlab()
+    {this->SplitMode = VTK_IMAGE_DATA_STREAMER_SLAB_MODE;}
+      
+  
 protected:
   vtkImageDataStreamer();
   ~vtkImageDataStreamer() {};
@@ -79,8 +95,10 @@ protected:
   void operator=(const vtkImageDataStreamer&) {};
 
   int NumberOfDivisions;
+  
+  int SplitMode;
 
-  int SplitExtent(int piece, int numPieces, int *ext);
+  int SplitExtent(int *ext, int piece, int numPieces);
 };
 
 
