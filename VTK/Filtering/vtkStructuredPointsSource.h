@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsSource.h,v $
   Language:  C++
-  Date:      $Date: 2002-07-03 15:59:39 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2002-09-03 20:33:49 $
+  Version:   $Revision: 1.38 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,8 @@
 #define __vtkStructuredPointsSource_h
 
 #include "vtkSource.h"
-#include "vtkStructuredPoints.h"
+
+class vtkStructuredPoints;
 
 class VTK_FILTERING_EXPORT vtkStructuredPointsSource : public vtkSource
 {
@@ -38,8 +39,7 @@ public:
   // Set/Get the output of this source.
   void SetOutput(vtkStructuredPoints *output);
   vtkStructuredPoints *GetOutput();
-  vtkStructuredPoints *GetOutput(int idx)
-    {return (vtkStructuredPoints *) this->vtkSource::GetOutput(idx); };
+  vtkStructuredPoints *GetOutput(int idx);
   
 protected:
   vtkStructuredPointsSource();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalarTree.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:28:11 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2002-09-03 20:33:49 $
+  Version:   $Revision: 1.32 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -36,7 +36,12 @@
 #define __vtkScalarTree_h
 
 #include "vtkObject.h"
-#include "vtkDataSet.h"
+
+class vtkCell;
+class vtkDataArray;
+class vtkDataSet;
+class vtkIdList;
+class vtkTimeStamp;
 
 class VTK_FILTERING_EXPORT vtkScalarTree : public vtkObject
 {
@@ -46,7 +51,7 @@ public:
 
   // Description:
   // Build the tree from the points/cells defining this dataset.
-  vtkSetObjectMacro(DataSet,vtkDataSet);
+  virtual void SetDataSet(vtkDataSet*);
   vtkGetObjectMacro(DataSet,vtkDataSet);
 
   // Description:

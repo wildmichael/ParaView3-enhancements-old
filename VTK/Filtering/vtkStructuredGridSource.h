@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridSource.h,v $
   Language:  C++
-  Date:      $Date: 2002-07-03 15:59:39 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2002-09-03 20:33:49 $
+  Version:   $Revision: 1.39 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,8 @@
 #define __vtkStructuredGridSource_h
 
 #include "vtkSource.h"
-#include "vtkStructuredGrid.h"
+
+class vtkStructuredGrid;
 
 class VTK_FILTERING_EXPORT vtkStructuredGridSource : public vtkSource
 {
@@ -37,8 +38,7 @@ public:
   // Description:
   // Get the output of this source.
   vtkStructuredGrid *GetOutput();
-  vtkStructuredGrid *GetOutput(int idx)
-    {return (vtkStructuredGrid *) this->vtkSource::GetOutput(idx); };
+  vtkStructuredGrid *GetOutput(int idx);
   void SetOutput(vtkStructuredGrid *output);  
 
 protected:

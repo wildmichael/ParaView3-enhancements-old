@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataToPolyDataFilter.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:28:10 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2002-09-03 20:33:49 $
+  Version:   $Revision: 1.22 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -31,7 +31,8 @@
 #define __vtkPolyDataToPolyDataFilter_h
 
 #include "vtkPolyDataSource.h"
-#include "vtkPolyData.h"
+
+class vtkPolyData;
 
 class VTK_FILTERING_EXPORT vtkPolyDataToPolyDataFilter : public vtkPolyDataSource
 {

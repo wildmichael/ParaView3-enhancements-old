@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetToUnstructuredGridFilter.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:28:04 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2002-09-03 20:33:49 $
+  Version:   $Revision: 1.40 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -29,6 +29,8 @@
 #define __vtkDataSetToUnstructuredGridFilter_h
 
 #include "vtkUnstructuredGridSource.h"
+
+class vtkDataSet;
 
 class VTK_FILTERING_EXPORT vtkDataSetToUnstructuredGridFilter : public vtkUnstructuredGridSource
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataSource.h,v $
   Language:  C++
-  Date:      $Date: 2002-07-03 15:59:39 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-09-03 20:33:49 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -30,7 +30,8 @@
 #define __vtkPolyDataSource_h
 
 #include "vtkSource.h"
-#include "vtkPolyData.h"
+
+class vtkPolyData;
 
 class VTK_FILTERING_EXPORT vtkPolyDataSource : public vtkSource
 {
@@ -40,8 +41,7 @@ public:
   // Description:
   // Get the output of this source.
   vtkPolyData *GetOutput();
-  vtkPolyData *GetOutput(int idx)
-    {return (vtkPolyData *) this->vtkSource::GetOutput(idx); };
+  vtkPolyData *GetOutput(int idx);
   void SetOutput(vtkPolyData *output);
 
 protected:

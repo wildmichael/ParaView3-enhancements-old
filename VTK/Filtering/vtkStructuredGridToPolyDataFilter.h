@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridToPolyDataFilter.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:28:13 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2002-09-03 20:33:49 $
+  Version:   $Revision: 1.20 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,8 @@
 #define __vtkStructuredGridToPolyDataFilter_h
 
 #include "vtkPolyDataSource.h"
-#include "vtkStructuredGrid.h"
+
+class vtkStructuredGrid;
 
 class VTK_FILTERING_EXPORT vtkStructuredGridToPolyDataFilter : public vtkPolyDataSource
 {

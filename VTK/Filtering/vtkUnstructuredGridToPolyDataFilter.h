@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGridToPolyDataFilter.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-07 21:12:21 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-09-03 20:33:49 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -28,7 +28,8 @@
 #define __vtkUnstructuredGridToPolyDataFilter_h
 
 #include "vtkPolyDataSource.h"
-#include "vtkUnstructuredGrid.h"
+
+class vtkUnstructuredGrid;
 
 class VTK_FILTERING_EXPORT vtkUnstructuredGridToPolyDataFilter : public vtkPolyDataSource
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGridSource.h,v $
   Language:  C++
-  Date:      $Date: 2002-07-03 15:59:39 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2002-09-03 20:33:49 $
+  Version:   $Revision: 1.37 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,8 @@
 #define __vtkUnstructuredGridSource_h
 
 #include "vtkSource.h"
-#include "vtkUnstructuredGrid.h"
+
+class vtkUnstructuredGrid;
 
 class VTK_FILTERING_EXPORT vtkUnstructuredGridSource : public vtkSource
 {
@@ -37,8 +38,7 @@ public:
   // Description:
   // Get the output of this source.
   vtkUnstructuredGrid *GetOutput();
-  vtkUnstructuredGrid *GetOutput(int idx)
-    {return (vtkUnstructuredGrid *) this->vtkSource::GetOutput(idx); };
+  vtkUnstructuredGrid *GetOutput(int idx);
   void SetOutput(vtkUnstructuredGrid *output);
   
 protected:

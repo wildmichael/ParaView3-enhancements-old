@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetSource.h,v $
   Language:  C++
-  Date:      $Date: 2002-07-03 15:59:39 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2002-09-03 20:33:49 $
+  Version:   $Revision: 1.16 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,8 @@
 #define __vtkDataSetSource_h
 
 #include "vtkSource.h"
-#include "vtkDataSet.h"
+
+class vtkDataSet;
 
 class VTK_FILTERING_EXPORT vtkDataSetSource : public vtkSource
 {
@@ -33,8 +34,8 @@ public:
   // Description:
   // Get the output of this source.
   vtkDataSet *GetOutput();
-  vtkDataSet *GetOutput(int idx)
-    {return (vtkDataSet *) this->vtkSource::GetOutput(idx); };
+  vtkDataSet *GetOutput(int idx);
+
   void SetOutput(vtkDataSet *);
   
 protected:  

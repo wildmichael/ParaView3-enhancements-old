@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGridSource.h,v $
   Language:  C++
-  Date:      $Date: 2002-07-03 15:59:39 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2002-09-03 20:33:49 $
+  Version:   $Revision: 1.21 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,8 @@
 #define __vtkRectilinearGridSource_h
 
 #include "vtkSource.h"
-#include "vtkRectilinearGrid.h"
+
+class vtkRectilinearGrid;
 
 class VTK_FILTERING_EXPORT vtkRectilinearGridSource : public vtkSource
 {
@@ -37,8 +38,7 @@ public:
   // Description:
   // Get the output of this source.
   vtkRectilinearGrid *GetOutput();
-  vtkRectilinearGrid *GetOutput(int idx)
-    {return (vtkRectilinearGrid *) this->vtkSource::GetOutput(idx); };
+  vtkRectilinearGrid *GetOutput(int idx);
   void SetOutput(vtkRectilinearGrid *output);
 
 protected:

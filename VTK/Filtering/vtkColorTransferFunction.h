@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkColorTransferFunction.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:28:01 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2002-09-03 20:33:49 $
+  Version:   $Revision: 1.37 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -28,7 +28,8 @@
 #define __vtkColorTransferFunction_h
 
 #include "vtkScalarsToColors.h"
-#include "vtkPiecewiseFunction.h"
+
+class vtkPiecewiseFunction;
 
 #define VTK_CTF_RGB   0
 #define VTK_CTF_HSV   1
