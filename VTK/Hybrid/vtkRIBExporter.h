@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRIBExporter.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:30:36 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2002-03-18 00:05:05 $
+  Version:   $Revision: 1.20 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -129,6 +129,11 @@ protected:
 
   void WriteData();
   void WriteActor(vtkActor *anActor);
+  
+  // Description:
+  // Modify array name so that you can use it in shader.
+  void ModifyArrayName(char *newname, const char* name);
+
   char *GetTextureName (vtkTexture *aTexture);
   char *GetTIFFName (vtkTexture *aTexture);
   char *FilePrefix;
