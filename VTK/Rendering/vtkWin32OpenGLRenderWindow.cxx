@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-05-27 18:43:38 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 1999-06-04 19:56:25 $
+  Version:   $Revision: 1.37 $
   Thanks:    to Horst Schreiber for developing this MFC code
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -397,6 +397,33 @@ void vtkWin32OpenGLRenderWindow::OpenGLInit()
   // initialize blending for transparency
   glBlendFunc( GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA );
   glEnable(GL_BLEND);
+
+  if (this->PointSmoothing)
+    {
+    glEnable(GL_POINT_SMOOTH);
+    }
+  else
+    {
+    glDisable(GL_POINT_SMOOTH);
+    }
+
+  if (this->LineSmoothing)
+    {
+    glEnable(GL_LINE_SMOOTH);
+    }
+  else
+    {
+    glDisable(GL_LINE_SMOOTH);
+    }
+
+  if (this->PolygonSmoothing)
+    {
+    glEnable(GL_POLYGON_SMOOTH);
+    }
+  else
+    {
+    glDisable(GL_POLYGON_SMOOTH);
+    }
 
   glEnable( GL_NORMALIZE );
   glLightModeli(GL_LIGHT_MODEL_TWO_SIDE, GL_TRUE);

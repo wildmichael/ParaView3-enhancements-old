@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-05-13 13:19:08 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 1999-06-04 19:56:25 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -439,6 +439,33 @@ void vtkOpenGLRenderWindow::WindowInitialize (void)
   glBlendFunc( GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA );
   glEnable(GL_BLEND);
   
+  if (this->PointSmoothing)
+    {
+    glEnable(GL_POINT_SMOOTH);
+    }
+  else
+    {
+    glDisable(GL_POINT_SMOOTH);
+    }
+
+  if (this->LineSmoothing)
+    {
+    glEnable(GL_LINE_SMOOTH);
+    }
+  else
+    {
+    glDisable(GL_LINE_SMOOTH);
+    }
+
+  if (this->PolygonSmoothing)
+    {
+    glEnable(GL_POLYGON_SMOOTH);
+    }
+  else
+    {
+    glDisable(GL_POLYGON_SMOOTH);
+    }
+
   glEnable( GL_NORMALIZE );
   glAlphaFunc(GL_GREATER,0);
   
