@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkDataSet.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-09-14 20:53:24 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1994-09-14 21:22:50 $
+  Version:   $Revision: 1.27 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -82,7 +82,7 @@ float *vlDataSet::GetBounds()
 void vlDataSet::GetBounds(float bounds[6])
 {
   this->ComputeBounds();
-  for (i=0; i<6; i++) bounds[i] = this->Bounds[i];
+  for (int i=0; i<6; i++) bounds[i] = this->Bounds[i];
 }
   
 // Description:
@@ -100,7 +100,7 @@ float *vlDataSet::GetCenter()
 void vlDataSet::GetCenter(float center[3])
 {
   float *c=this->GetCenter();
-  for (i=0; i<3; i++) center[i] = c[i];
+  for (int i=0; i<3; i++) center[i] = c[i];
 }
   
 // Description:
