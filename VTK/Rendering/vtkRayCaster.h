@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRayCaster.h,v $
   Language:  C++
-  Date:      $Date: 1998-12-02 17:05:40 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1998-12-03 16:28:36 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -230,8 +230,9 @@ protected:
   // Hang on to a pointer to each volume with a ray cast mapper.
   // We'll also need some information for each of these volumes
   vtkVolume     **RayCastVolumes;
+  //BTX
   struct VolumeRayCastVolumeInfoStruct *VolumeInfo;
-
+  //ETX
   int           RayCastVolumeCount;
   int           SoftwareBufferVolumeCount;
   vtkTransform  *ViewToWorldTransform;

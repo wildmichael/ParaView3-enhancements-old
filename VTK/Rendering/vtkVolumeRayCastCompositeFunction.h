@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastCompositeFunction.h,v $
   Language:  C++
-  Date:      $Date: 1998-12-02 17:05:42 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-12-03 16:28:36 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -69,16 +69,16 @@ public:
   // volume's properties from here....
   float GetZeroOpacityThreshold( vtkVolume *vol );
 
-// BTX
+//BTX
   void CastRay( struct VolumeRayCastRayInfoStruct *rayInfo,
 		struct VolumeRayCastVolumeInfoStruct *volumeInfo);
-// ETX  
-
+//ETX
 protected:
+//BTX
   void SpecificFunctionInitialize( vtkRenderer *ren,
 				   vtkVolume   *vol,
 				   struct VolumeRayCastVolumeInfoStruct *volumeInfo,
 				   vtkVolumeRayCastMapper *mapper );
-
+//ETX
 };
 #endif
