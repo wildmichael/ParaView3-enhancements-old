@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImporter.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-18 17:08:08 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1997-07-24 14:51:53 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -73,6 +73,10 @@ void vtkImporter::Read ()
     renderer = this->Renderer;
     this->RenderWindow->AddRenderer (renderer);
     }
+  else
+    {
+    this->Renderer = renderer;
+    }
 
   // Open the import file
   if (this->OpenImportFile ())
@@ -123,6 +127,20 @@ void vtkImporter::CloseImportFile()
 void vtkImporter::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkObject::PrintSelf(os,indent);
+
+  os << indent << "Render Window: ";
+  if ( this->RenderWindow ) os << this->RenderWindow << "\n";
+  else os << "(none)\n";
+
+  os << indent << "Renderer: ";
+  if ( this->Renderer ) os << this->Renderer << "\n";
+  else os << "(none)\n";
+
+  os << indent << "File Name: " 
+     << (this->FileName ? this->FileName : "(none)") << "\n";
+
+  os << indent << "Compute Normals: " 
+     << (this->ComputeNormals ? "On\n" : "Off\n");
 }
 
 
