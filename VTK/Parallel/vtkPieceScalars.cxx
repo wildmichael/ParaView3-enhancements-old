@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPieceScalars.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-27 14:06:47 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-04-25 16:06:07 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -151,6 +151,7 @@ vtkScalars *vtkPieceScalars::MakeRandomScalars(int piece, int num)
   pieceColors = vtkScalars::New();
   pieceColors->Allocate(num);
   pieceColors->SetNumberOfScalars(num);
+  pieceColors->GetData()->SetName("Piece");
   
   for (i = 0; i < num; ++i)
     {
