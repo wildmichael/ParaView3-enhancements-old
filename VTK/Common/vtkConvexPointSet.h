@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkConvexPointSet.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-20 12:10:51 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-06-21 09:52:35 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -44,8 +44,8 @@ public:
 
   // Description:
   // See vtkCell3D API for description of these methods.
-  virtual void GetEdgePoints(int edgeId, int* &pts) {}
-  virtual void GetFacePoints(int faceId, int* &pts) {}
+  virtual void GetEdgePoints(int vtkNotUsed(edgeId), int* &vtkNotUsed(pts)) {}
+  virtual void GetFacePoints(int vtkNotUsed(faceId), int* &vtkNotUsed(pts)) {}
 
   // Description:
   // See the vtkCell API for descriptions of these methods.
