@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkPVTreeComposite.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-12 19:59:30 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2002-05-06 12:10:46 $
+  Version:   $Revision: 1.23 $
   
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -55,6 +55,147 @@ vtkPVTreeComposite* vtkPVTreeComposite::New()
   // If the factory was unable to create the object, then create it here.
   return new vtkPVTreeComposite;
 }
+
+//=========================================================================
+// Stuff to avoid compositing if there is no data on statlite processes.
+
+
+//----------------------------------------------------------------------------
+void vtkPVTreeCompositeCheckForDataRMI(void *arg, void *, int, int)
+{
+  vtkPVTreeComposite* self = (vtkPVTreeComposite*) arg;
+  
+  self->CheckForDataRMI();
+}
+
+
+//-------------------------------------------------------------------------
+// This is only called in the satellite processes (not 0).
+void vtkPVTreeComposite::InitializeRMIs()
+{
+  if (this->Controller == NULL)
+    {
+    vtkErrorMacro("Missing Controller.");
+    return;
+    }
+
+  this->vtkCompositeManager::InitializeRMIs();
+
+  this->Controller->AddRMI(vtkPVTreeCompositeCheckForDataRMI, (void*)this, 
+                           vtkPVTreeComposite::RENDER_RMI_TAG);
+} 
+
+
+//-------------------------------------------------------------------------
+void vtkPVTreeComposite::CheckForDataRMI()
+{
+  int dataFlag = this->CheckForData();
+  this->Controller->Send(&dataFlag, 1, 0, 877630);
+}
+
+
+
+//-------------------------------------------------------------------------
+int vtkPVTreeComposite::CheckForData()
+{
+  int dataFlag = 0;
+  vtkRendererCollection *rens;
+  vtkRenderer *ren;
+  vtkActorCollection *actors;
+  vtkActor *actor;
+  vtkMapper *mapper;
+
+  if (this->RenderWindow == NULL || this->Controller == NULL)
+    {
+    vtkErrorMacro("Missing REnderWindow or Controller.");
+    return 0;
+    }
+
+  rens = this->RenderWindow->GetRenderers();
+  rens->InitTraversal();
+  while ( (ren = rens->GetNextItem()) )
+    {
+    actors = ren->GetActors();
+    actors->InitTraversal();
+    while ( (actor = actors->GetNextItem()) )
+      {
+      mapper = actor->GetMapper();
+      if (mapper)
+        {
+        mapper->Update();
+        if (mapper->GetInput()->GetNumberOfCells() > 0)
+          {
+          dataFlag = 1;
+          }
+        }
+      }
+    }
+
+  return dataFlag;
+}
+
+
+//-------------------------------------------------------------------------
+int vtkPVTreeComposite::ShouldIComposite()
+{
+  int idx;
+  int numProcs;
+  int myId;
+  int dataFlag = 0;
+  int tmp;
+
+  if (this->Controller == NULL)
+    {
+    return 0;
+    }
+  numProcs = this->Controller->GetNumberOfProcesses();
+  myId = this->Controller->GetLocalProcessId();
+  if (myId != 0)
+    {
+    vtkErrorMacro("This method should only be called from process 0.");
+    }
+
+  // To keep the updates balanced.
+  this->CheckForData();
+
+  for (idx = 1; idx < numProcs; ++idx)
+    {
+    this->Controller->TriggerRMI(idx, NULL, 0, 
+                                 vtkPVTreeComposite::CHECK_FOR_DATA_TAG);
+    }
+  for (idx = 1; idx < numProcs; ++idx)
+    {
+    tmp = this->Controller->Receive(&tmp, 1, idx, 877630);
+    if (tmp)
+      {
+      dataFlag = 1;
+      }  
+    }
+  
+  return dataFlag;
+}
+
+
+
+//-------------------------------------------------------------------------
+// Only called in process 0.
+void vtkPVTreeComposite::StartRender()
+{
+  if ( ! this->ShouldIComposite() )
+    {
+    // We have to disable the end render also.
+    this->UseCompositing = 0;
+    }
+  else
+    {
+    this->UseCompositing = 1;
+    this->vtkCompositeManager::StartRender();
+    }
+}
+
+// Done disabling compositing when no data is on satelite processes.
+//============================================================================
+
 
 
 //----------------------------------------------------------------------------
