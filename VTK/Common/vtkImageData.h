@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.h,v $
   Language:  C++
-  Date:      $Date: 2000-08-21 19:58:43 $
-  Version:   $Revision: 1.71 $
+  Date:      $Date: 2000-08-30 14:25:57 $
+  Version:   $Revision: 1.72 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -178,6 +178,8 @@ public:
   // (i.e. vtkDataSetToStructuredPointsFilter).  This assumes that WholeExtent
   // is valid (UpdateInformation has been called).
   void SetUpdateExtent(int piece, int numPieces, int ghostLevel);
+  void SetUpdateExtent(int piece, int numPieces)
+    {this->SetUpdateExtent(piece, numPieces, 0);}
   
   // Description:
   // Call superclass method to avoid hiding
