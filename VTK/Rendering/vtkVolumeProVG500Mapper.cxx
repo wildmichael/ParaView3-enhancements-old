@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProVG500Mapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-23 20:53:04 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2000-09-05 14:12:50 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -584,6 +584,8 @@ void vtkVolumeProVG500Mapper::UpdateCursor( vtkRenderer *vtkNotUsed(ren), vtkVol
     cursor->SetPosition( this->CursorPosition[0], 
 			 this->CursorPosition[1],
 			 this->CursorPosition[2] );
+    
+    cursor->SetWidth(1.0);
     
     if ( this->CursorType == VTK_CURSOR_TYPE_CROSSHAIR )
       {
