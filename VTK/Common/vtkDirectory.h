@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDirectory.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:09:54 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2000-09-25 11:38:15 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to William A. Hoffman who developed this class
   
 
@@ -54,6 +54,9 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define __vtkDirectory_h
 
 #include "vtkObject.h"
+#ifdef VTK_DEBUG_LEAKS
+#include "vtkDebugLeaks.h"
+#endif
 
 class VTK_EXPORT vtkDirectory : public vtkObject
 {
@@ -64,7 +67,11 @@ public:
 
   // Description:
   // Create a new vtkDirectory object.
-  static vtkDirectory *New() {return new vtkDirectory;};
+  static vtkDirectory *New() {
+#ifdef VTK_DEBUG_LEAKS
+    vtkDebugLeaks::ConstructClass("vtkDirectory");
+#endif    
+    return new vtkDirectory;};
 
   // Description:
   // Print directory to stream.
