@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-31 21:25:46 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1995-09-01 19:06:11 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -211,7 +211,7 @@ void vtkStructuredGridReader::Execute()
           return;
           }
 
-        this->Reader.ReadPoints(fp, (vtkPointSet *)this, npts);
+        this->Reader.ReadPoints(fp, output, npts);
         }
 
       else if ( ! strncmp(line, "point_data", 10) )
@@ -228,7 +228,7 @@ void vtkStructuredGridReader::Execute()
           return;
           }
 
-        this->Reader.ReadPointData(fp, (vtkDataSet *)this, npts);
+        this->Reader.ReadPointData(fp, output, npts);
         break; //out of this loop
         }
 

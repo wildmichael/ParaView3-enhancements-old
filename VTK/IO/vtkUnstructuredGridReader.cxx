@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGridReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-31 21:25:43 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1995-09-01 19:05:59 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -199,7 +199,7 @@ void vtkUnstructuredGridReader::Execute()
           return;
           }
 
-        if ( ! this->Reader.ReadPoints(fp, (vtkPointSet *)this, numPts) ) return;
+        if ( ! this->Reader.ReadPoints(fp, output, numPts) ) return;
         }
 
       else if ( ! strncmp(line,"cells",5) )
@@ -263,7 +263,7 @@ void vtkUnstructuredGridReader::Execute()
           return;
           }
 
-        this->Reader.ReadPointData(fp, (vtkDataSet *)this, npts);
+        this->Reader.ReadPointData(fp, output, npts);
         break; //out of this loop
         }
 
@@ -286,7 +286,7 @@ void vtkUnstructuredGridReader::Execute()
       return;
       }
 
-    this->Reader.ReadPointData(fp, (vtkDataSet *)this, numPts);
+    this->Reader.ReadPointData(fp, output, numPts);
     }
 
   else 
