@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellLocator.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 20:50:49 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1997-06-06 18:09:39 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -96,7 +96,6 @@ protected:
   float H[3]; // width of root octant in x-y-z directions
   int NumberOfDivisions; // number of "leaf" octant sub-divisions
   vtkIdList **Tree; // octree
-  vtkTimeStamp BuildTime;  
 
   void MarkParents(void*, int, int, int, int, int);
   void GetChildren(int idx, int level, int children[8]);
