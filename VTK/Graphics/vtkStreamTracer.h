@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamTracer.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-24 13:19:00 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-04-25 12:04:44 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -102,7 +102,7 @@ public:
   {
     TIME_UNIT,
     LENGTH_UNIT,
-    CELL_LENGTH_UNIT,
+    CELL_LENGTH_UNIT
   };
 
   enum Solvers
