@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:11:23 $
-  Version:   $Revision: 1.88 $
+  Date:      $Date: 2000-07-11 09:11:19 $
+  Version:   $Revision: 1.89 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -182,6 +182,10 @@ void vtkDataReader::SetInputString(char* in)
     }
 }
 
+void vtkDataReader::SetBinaryInputString(unsigned char* in, int len)
+{
+    this->SetInputString((char *)in,len);
+}
 
 void vtkDataReader::SetInputString(char* in, int len)
 { 
