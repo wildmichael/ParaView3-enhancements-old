@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSLCReader.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:12:34 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2000-08-16 10:19:14 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -64,6 +64,10 @@ public:
   vtkSetStringMacro(FileName);
   vtkGetStringMacro(FileName);
 
+  // Description:
+  // Was there an error on the last read performed?
+  vtkGetMacro(Error,int);
+  
 protected:
   vtkSLCReader();
   ~vtkSLCReader();
@@ -84,6 +88,7 @@ protected:
   
   // Decodes an array of eight bit run-length encoded data.
   unsigned char *Decode8BitData( unsigned char *in_ptr, int size );
+  int Error;
 };
 
 #endif
