@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCollection.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-07-11 21:16:23 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 2002-08-19 14:28:48 $
+  Version:   $Revision: 1.43 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 #include <stdlib.h>
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkCollection, "$Revision: 1.42 $");
+vtkCxxRevisionMacro(vtkCollection, "$Revision: 1.43 $");
 vtkStandardNewMacro(vtkCollection);
 
 // Construct with empty list.
@@ -45,8 +45,8 @@ vtkCollection::~vtkCollection()
     elem = this->Top;
     this->Top = elem->Next;
     this->Current = elem->Next;
-    this->DeleteElement(elem);
     this->NumberOfItems--;    
+    this->DeleteElement(elem);
     }
 }
 
@@ -125,8 +125,8 @@ void vtkCollection::RemoveAllItems()
     elem = this->Top;
     this->Top = elem->Next;
     this->Current = elem->Next;
-    this->DeleteElement(elem);
     this->NumberOfItems--;    
+    this->DeleteElement(elem);
     }
   
   this->Modified();
@@ -290,8 +290,8 @@ void vtkCollection::RemoveItem(int i)
     this->Current = elem->Next;
     }
 
-  this->DeleteElement(elem);
   this->NumberOfItems--;
+  this->DeleteElement(elem);
 }
 
 vtkCollectionIterator* vtkCollection::NewIterator()
