@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDEMReader.h,v $
   Language:  C++
-  Date:      $Date: 1999-11-17 17:55:57 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2000-01-07 08:59:21 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -170,7 +170,7 @@ protected:
   // Description:
   // This method is call by the superclass before an update.  It sets
   // the UpdateExtent to the WholeExtent.
-  void ModifyOutputUpdateExtent();
+  void EnlargeOutputUpdateExtents( vtkDataObject *data );
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellDerivatives.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:05:26 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2000-01-07 08:59:20 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -82,6 +82,9 @@ void vtkCellDerivatives::Execute()
 
   // Initialize
   vtkDebugMacro(<<"Computing cell derivatives");
+
+  // First, copy the input to the output as a starting point
+  output->CopyStructure( input );
 
   // Check input
   if ( numCells < 1 )

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVideoSource.h,v $
   Language:  C++
-  Date:      $Date: 1999-12-16 18:38:11 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2000-01-07 08:59:23 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -217,7 +217,6 @@ public:
 
   // Description:
   // This method returns the largest data that can be generated.
-  void ExecuteInformation();
   void UpdateInformation();
 
 protected:
@@ -225,6 +224,7 @@ protected:
   ~vtkVideoSource();
   vtkVideoSource(const vtkVideoSource&) {};
   void operator=(const vtkVideoSource&) {};
+  void ExecuteInformation();
 
   int Initialized;
 

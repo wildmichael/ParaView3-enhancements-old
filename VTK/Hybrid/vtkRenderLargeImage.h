@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderLargeImage.h,v $
   Language:  C++
-  Date:      $Date: 1999-11-17 17:55:57 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2000-01-07 08:59:23 $
+  Version:   $Revision: 1.10 $
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -70,8 +70,6 @@ public:
   // Returns which renderer is being used as the source for the pixel data.
   vtkGetObjectMacro(Input,vtkRenderer);
 
-  void UpdateInformation();
-  
 protected:
   vtkRenderLargeImage();
   ~vtkRenderLargeImage();
@@ -82,6 +80,7 @@ protected:
   vtkRenderer *Input;
   void Execute(vtkImageData *data);
   void Execute() { this->vtkImageSource::Execute(); };
+  void ExecuteInformation();  
 };
 
 #endif
