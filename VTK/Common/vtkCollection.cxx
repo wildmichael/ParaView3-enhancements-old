@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCollection.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-02-23 16:56:04 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2001-09-13 12:44:48 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -147,12 +147,18 @@ void vtkCollection::RemoveItem(vtkObject *a)
 // Remove all objects from the list.
 void vtkCollection::RemoveAllItems()
 {
-  int i;
+  vtkCollectionElement *elem;
 
-  for (i = this->NumberOfItems - 1; i >= 0; i--)
+  while (this->NumberOfItems )
     {
-    this->RemoveItem(i);
+    elem = this->Top;
+    this->Top = elem->Next;
+    this->Current = elem->Next;
+    this->DeleteElement(elem);
+    this->NumberOfItems--;    
     }
+  
+  this->Modified();
 }
 
 // Search for an object and return location in list. If location == 0,
