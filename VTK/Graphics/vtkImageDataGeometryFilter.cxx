@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDataGeometryFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:24 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-06-21 19:59:37 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkImageDataGeometryFilter.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkImageDataGeometryFilter, "$Revision: 1.4 $");
+vtkCxxRevisionMacro(vtkImageDataGeometryFilter, "$Revision: 1.5 $");
 vtkStandardNewMacro(vtkImageDataGeometryFilter);
 
 // Construct with initial extent of all the data
@@ -49,7 +49,10 @@ void vtkImageDataGeometryFilter::Execute()
   vtkCellData *cd, *outCD;
   vtkImageData *input = this->GetInput();
   vtkPolyData *output = this->GetOutput();
-
+  if (input==NULL)
+    {
+    return;
+    }
   vtkDebugMacro(<< "Extracting structured points geometry");
 
   pd = input->GetPointData();
