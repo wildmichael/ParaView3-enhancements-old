@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataSourceWidget.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-09 16:58:47 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-08-08 13:29:04 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -45,6 +45,7 @@ class VTK_EXPORT vtkPolyDataSourceWidget : public vtk3DWidget
 {
  public:
   vtkTypeRevisionMacro(vtkPolyDataSourceWidget, vtk3DWidget);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Overrides vtk3DWidget PlaceWidget() so that it doesn't complain if

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPushImageFilterSample.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-07 13:00:26 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-08-08 13:29:23 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -39,7 +39,7 @@ public:
     }
 };
 
-vtkCxxRevisionMacro(vtkPushImageFilterSample, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkPushImageFilterSample, "$Revision: 1.3 $");
 vtkStandardNewMacro(vtkPushImageFilterSample);
 
 vtkPushImageFilterSample::vtkPushImageFilterSample()
@@ -201,4 +201,9 @@ void vtkPushImageFilterSample::ThreadedExecute(vtkImageData **inData,
       vtkErrorMacro(<< "Execute: Unknown ScalarType");
       return;
     }
+}
+
+void vtkPushImageFilterSample::PrintSelf(ostream& os, vtkIndent indent)
+{
+  this->Superclass::PrintSelf(os,indent);
 }

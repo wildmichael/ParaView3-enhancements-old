@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPushImageFilterSample.h,v $
   Language:  C++
-  Date:      $Date: 2002-07-30 14:16:20 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-08-08 13:29:23 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -30,6 +30,7 @@ class VTK_HYBRID_EXPORT vtkPushImageFilterSample : public vtkImageTwoInputFilter
 public:
   static vtkPushImageFilterSample *New();
   vtkTypeRevisionMacro(vtkPushImageFilterSample,vtkImageTwoInputFilter);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
 protected:
   vtkPushImageFilterSample();

@@ -3,8 +3,8 @@
 Program:   Visualization Toolkit
 Module:    $RCSfile: vtkPolyDataSourceWidget.cxx,v $
 Language:  C++
-Date:      $Date: 2002-06-07 11:49:23 $
-Version:   $Revision: 1.1 $
+Date:      $Date: 2002-08-08 13:29:04 $
+Version:   $Revision: 1.2 $
 
 Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -22,7 +22,7 @@ PURPOSE.  See the above copyright notice for more information.
 #include "vtkProp3D.h"
 
 
-vtkCxxRevisionMacro(vtkPolyDataSourceWidget, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkPolyDataSourceWidget, "$Revision: 1.2 $");
 
 vtkPolyDataSourceWidget::vtkPolyDataSourceWidget() : vtk3DWidget()
 {
@@ -58,4 +58,9 @@ void vtkPolyDataSourceWidget::PlaceWidget()
     }
     
   this->PlaceWidget(bounds);
+}
+
+void vtkPolyDataSourceWidget::PrintSelf(ostream& os, vtkIndent indent)
+{
+  this->Superclass::PrintSelf(os,indent);
 }
