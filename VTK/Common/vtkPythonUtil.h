@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPythonUtil.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:16 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2001-02-26 05:16:58 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -66,15 +66,27 @@ typedef struct {
   PyVTKClass *vtk_class;
 } PyVTKObject;
 
+// This for objects not derived from vtkObject
+typedef struct {
+  PyObject_HEAD
+  void *vtk_ptr;
+  PyMethodDef *vtk_methods;
+  char *vtk_name;
+  char *vtk_doc;
+} PyVTKSpecialObject;
+
 // Standard methods for all vtk/python objects
 extern "C" 
 {
 int PyVTKObject_Check(PyObject *obj);
 int PyVTKClass_Check(PyObject *obj);
+int PyVTKSpecialObjectCheck(PyObject *obj);
 PyObject *PyVTKObject_New(PyObject *vtkclass, vtkObject *ptr);
 PyObject *PyVTKClass_New(vtknewfunc constructor, PyMethodDef *methods,
 			 char *classname, char *modulename, char *docstring,
 			 PyObject *base);
+PyObject *PyVTKSpecialObject_New(void *ptr, PyMethodDef *methods,
+				 char *classname, char *docstring);
 
 // this is a special version of ParseTuple that handles both bound
 // and unbound method calls for VTK objects
