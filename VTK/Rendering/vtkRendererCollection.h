@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRendererCollection.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:38:03 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1995-08-15 19:17:40 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,9 +40,12 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 // .NAME vtkRendererCollection - a list of renderers
 // .SECTION Description
-// vtkRendererCollection represents and provides methods to manipulate list of
-// renderers (i.e., vtkRenderer and subclasses). The list is unsorted and 
+// vtkRendererCollection represents and provides methods to manipulate a list 
+// of renderers (i.e., vtkRenderer and subclasses). The list is unsorted and 
 // duplicate entries are not prevented.
+
+// .SECTION see also
+// vtkRenderer vtkCollection
 
 #ifndef __vtkRendererCollection_hh
 #define __vtkRendererCollection_hh
@@ -63,14 +66,14 @@ class vtkRendererCollection : public vtkCollection
 };
 
 // Description:
-// Add an renderer to the list.
+// Add a renderer to the list.
 inline void vtkRendererCollection::AddItem(vtkRenderer *a) 
 {
   this->vtkCollection::AddItem((vtkObject *)a);
 }
 
 // Description:
-// Remove an renderer from the list.
+// Remove a renderer from the list.
 inline void vtkRendererCollection::RemoveItem(vtkRenderer *a) 
 {
   this->vtkCollection::RemoveItem((vtkObject *)a);
@@ -85,7 +88,7 @@ inline int vtkRendererCollection::IsItemPresent(vtkRenderer *a)
 }
 
 // Description:
-// Get the next renderer in the list.
+// Get the next renderer in the list. Return NULL when at the end of the list.
 inline vtkRenderer *vtkRendererCollection::GetNextItem() 
 {
   return (vtkRenderer *)(this->vtkCollection::GetNextItem());
