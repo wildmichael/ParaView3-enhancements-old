@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractVolumeMapper.h,v $
   Language:  C++
-  Date:      $Date: 2003-11-24 20:05:46 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-11-26 03:55:28 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -47,7 +47,7 @@ public:
   // Description:
   // Set/Get the input data
   virtual void SetInput( vtkDataSet * );
-  vtkDataSet *GetInput();
+  vtkDataSet *GetDataSetInput();
 
   // Description:
   // Return bounding box (array of six floats) of data expressed as
