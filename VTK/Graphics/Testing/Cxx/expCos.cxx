@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: expCos.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-08 13:50:50 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2002-12-26 18:19:29 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,22 +18,23 @@
 //
 // Brute force computation of Bessel functions. Might be better to create a
 // filter (or source) object. Might also consider vtkSampleFunction.
+
 #include "vtkActor.h"
 #include "vtkCamera.h"
 #include "vtkDataSetMapper.h"
+#include "vtkDebugLeaks.h"
 #include "vtkFloatArray.h"
 #include "vtkPlaneSource.h"
+#include "vtkPointData.h"
 #include "vtkPoints.h"
 #include "vtkPolyData.h"
+#include "vtkRegressionTestImage.h"
 #include "vtkRenderWindow.h"
 #include "vtkRenderWindowInteractor.h"
 #include "vtkRenderer.h"
 #include "vtkTransform.h"
 #include "vtkTransformPolyDataFilter.h"
 #include "vtkWarpScalar.h"
-
-#include "vtkRegressionTestImage.h"
-#include "vtkDebugLeaks.h"
 
 int expCos( int argc, char *argv[] )
 {
