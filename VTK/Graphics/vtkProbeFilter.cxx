@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkProbeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-06 08:41:20 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1995-06-06 08:50:47 $
+  Version:   $Revision: 1.13 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -64,15 +64,12 @@ void vlProbeFilter::Execute()
 
 void vlProbeFilter::Initialize()
 {
+  this->Modified();
   if ( this->Source )
     {
     if (this->DataSet) delete this->DataSet;
     // copies SOURCE geometry to internal data set
     this->DataSet = this->Source->MakeObject(); 
-    }
-  else
-    {
-    return;
     }
 }
 
