@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDataDesc.cxx,v 1.18 2004-01-22 15:10:16 andy Exp $  */
-/*  Date : $Date: 2004-01-22 15:10:16 $ */
-/*  Version : $Revision: 1.18 $ */
+/*  Id : $Id: XdmfDataDesc.cxx,v 1.19 2004-01-26 18:06:26 martink Exp $  */
+/*  Date : $Date: 2004-01-26 18:06:26 $ */
+/*  Version : $Revision: 1.19 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -783,7 +783,7 @@ void
 XdmfDataDesc::Print( void ){
 
 hsize_t  i, Dimensions[ XDMF_MAX_DIMENSION ];
-hsize_t  Nelements;
+hsize_t  Nelements = 0;
 XdmfInt32 rank = 0;
 if ( this->DataSpace != H5I_BADID )
   {
