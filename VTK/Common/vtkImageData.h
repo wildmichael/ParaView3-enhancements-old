@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-17 19:55:06 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 1999-09-20 19:58:23 $
+  Version:   $Revision: 1.50 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -321,7 +321,7 @@ public:
   long GetUpdateExtentMemorySize() 
     {
       vtkWarningMacro("Change GetUpdateExtentMemorySize to GetEstimatedUpdateMemorySize");
-      return GetEstimatedUpdateMemorySize();
+      return this->GetEstimatedUpdateMemorySize();
     }
 
   // Description:
