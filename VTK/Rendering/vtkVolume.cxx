@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-04-22 14:14:32 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 1999-04-22 19:55:41 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -777,6 +777,16 @@ void vtkVolume::PrintSelf(ostream& os, vtkIndent indent)
   else
     {
     os << indent << "Property: (not defined)\n";
+    }
+
+  if( this->Mapper )
+    {
+    os << indent << "Mapper:\n";
+    this->Mapper->PrintSelf(os,indent.GetNextIndent());
+    }
+  else
+    {
+    os << indent << "Mapper: (not defined)\n";
     }
 
   // make sure our bounds are up to date
