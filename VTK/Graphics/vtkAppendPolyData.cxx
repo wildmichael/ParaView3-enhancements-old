@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAppendPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-15 17:59:01 $
-  Version:   $Revision: 1.75 $
+  Date:      $Date: 2001-04-16 14:14:02 $
+  Version:   $Revision: 1.76 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -841,7 +841,7 @@ void vtkAppendPolyData::AppendData(vtkDataArray *dest, vtkDataArray *src,
 void vtkAppendPolyData::AppendDifferentPoints(vtkDataArray *dest, vtkDataArray *src,
                                                         int offset)
 {
-  float  *fSrc, *fDest;
+  float  *fSrc;
   double *dSrc, *dDest;
   int p;
 
