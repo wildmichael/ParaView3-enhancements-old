@@ -3,8 +3,8 @@
 
   Module:    $RCSfile: vtkImageData.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-01-18 17:05:47 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 1998-02-19 15:47:52 $
+  Version:   $Revision: 1.41 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -310,7 +310,7 @@ void vtkImageData::AllocateScalars()
   // if the scalar type has not been set then we have a problem
   if (this->ScalarType == VTK_VOID)
     {
-    vtkWarningMacro("Attempt to allcoate scalars before scalar type was set!.");
+    vtkWarningMacro("Attempt to allocate scalars before scalar type was set!.");
     return;
     }
   
