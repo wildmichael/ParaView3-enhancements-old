@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkVoidArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-14 10:08:39 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1994-11-15 16:58:18 $
+  Version:   $Revision: 1.2 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -15,6 +15,7 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 =========================================================================*/
 #include "VArray.hh"
 
+typedef void *voidPtr;
 // Description:
 // Allocate memory for this array. Delete old storage if present.
 int vlVoidArray::Allocate(const int sz, const int ext)
@@ -22,7 +23,7 @@ int vlVoidArray::Allocate(const int sz, const int ext)
   if ( this->Array ) delete [] this->Array;
 
   this->Size = ( sz > 0 ? sz : 1);
-  if ( (this->Array = new (void *)[sz]) == NULL ) return 0;
+  if ( (this->Array = new voidPtr[sz]) == NULL ) return 0;
   this->Extend = ( ext > 0 ? ext : 1);
   this->MaxId = -1;
 
@@ -47,7 +48,7 @@ void vlVoidArray::Initialize()
 vlVoidArray::vlVoidArray(const int sz, const int ext)
 {
   this->Size = ( sz > 0 ? sz : 1);
-  this->Array = new (void *)[sz];
+  this->Array = new voidPtr[sz];
   this->Extend = ( ext > 0 ? ext : 1);
   this->MaxId = -1;
 }
@@ -67,7 +68,7 @@ vlVoidArray::vlVoidArray(const vlVoidArray& fa)
   this->Size = fa.Size;
   this->Extend = fa.Extend;
 
-  this->Array = new (void *)[this->Size];
+  this->Array = new voidPtr[this->Size];
   for (i=0; i<this->MaxId; i++)
     this->Array[i] = fa.Array[i];
 
@@ -87,7 +88,7 @@ vlVoidArray& vlVoidArray::operator=(const vlVoidArray& fa)
     this->Size = fa.Size;
     this->Extend = fa.Extend;
 
-    this->Array = new (void *)[this->Size];
+    this->Array = new voidPtr[this->Size];
     for (i=0; i<=this->MaxId; i++)
       this->Array[i] = fa.Array[i];
     }
@@ -130,14 +131,14 @@ void** vlVoidArray::Resize(const int sz)
     this->Extend*(((sz-this->Size)/this->Extend)+1);
   else newSize = sz;
 
-  if ( (newArray = new (void *)[newSize]) == NULL )
+  if ( (newArray = new voidPtr[newSize]) == NULL )
     { 
     vlErrorMacro(<< "Cannot allocate memory\n");
     return 0;
     }
 
   memcpy(newArray, this->Array,
-         (sz < this->Size ? sz : this->Size) * sizeof(void *));
+         (sz < this->Size ? sz : this->Size) * sizeof(voidPtr));
 
   this->Size = newSize;
   delete [] this->Array;

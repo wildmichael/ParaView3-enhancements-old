@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkVoidArray.h,v $
   Language:  C++
-  Date:      $Date: 1994-11-14 10:08:39 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1994-11-15 16:58:17 $
+  Version:   $Revision: 1.2 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -37,7 +37,7 @@ public:
   void PrintSelf(ostream& os, vlIndent indent);
 
   // access/insertion methods
-  void *GetValue(const int id);
+  void* GetValue(const int id);
   void** GetPtr(const int id);
   vlVoidArray &InsertValue(const int id, void* p);
   int InsertNextValue(void* v);
@@ -56,7 +56,7 @@ public:
   void Reset();
 
 private:
-  void* *Array;   // pointer to data
+  void** Array;   // pointer to data
   int Size;       // allocated size of data
   int MaxId;     // maximum index inserted thus far
   int Extend;     // grow array by this point
