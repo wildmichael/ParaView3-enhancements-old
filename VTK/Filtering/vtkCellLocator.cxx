@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellLocator.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:28:01 $
-  Version:   $Revision: 1.72 $
+  Date:      $Date: 2002-12-10 21:00:02 $
+  Version:   $Revision: 1.73 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 #include <stdlib.h>
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkCellLocator, "$Revision: 1.72 $");
+vtkCxxRevisionMacro(vtkCellLocator, "$Revision: 1.73 $");
 vtkStandardNewMacro(vtkCellLocator);
 
 #define VTK_CELL_OUTSIDE 0
@@ -215,7 +215,8 @@ int vtkCellLocator::IntersectWithLine(float a0[3], float a1[3], float tol,
     tMax += direction2[i]*direction2[i];
     }
   
-  tMax = sqrt(tMax);
+  tMax = (tMax > 0.0 ? sqrt(tMax) : 1.0);
+  
   stopDist = tMax*this->NumberOfDivisions;
   for (i = 0; i < 3; i++) 
     {
