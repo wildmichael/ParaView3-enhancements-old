@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSuperquadric.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-08-04 12:39:54 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-08-19 12:05:32 $
+  Version:   $Revision: 1.4 $
   Thanks:    Mike Halle, Brigham and Women's Hospital
 
 
@@ -142,7 +142,7 @@ float vtkSuperquadric::EvaluateFunction(float xyz[3])
 
 // Description
 // Evaluate Superquadric function gradient.
-void vtkSuperquadric::EvaluateGradient(float xyz[3], float g[3])
+void vtkSuperquadric::EvaluateGradient(float vtkNotUsed(xyz)[3], float g[3])
 {
   // bogus! lazy!
   // if someone wants to figure these out, they are each the

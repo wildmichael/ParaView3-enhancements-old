@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSubdivideTetra.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:08:27 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-08-19 12:05:58 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,7 +64,7 @@ void vtkSubdivideTetra::Execute()
   int ptId;
   vtkCellTypes *types=vtkCellTypes::New(); types->ReferenceCountingOff();
   vtkCellArray *connect;
-  float pcoords[3], weights[4], x0[3], x1[3], x2[3], x3[3], x[3];
+  float weights[4], x0[3], x1[3], x2[3], x3[3], x[3];
   int p0, p1, p2, p3, center;
   int e01, e02, e03, e12, e13, e23;
   unsigned char type;
