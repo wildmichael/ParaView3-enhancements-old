@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIntArray.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-15 14:11:11 $
-  Version:   $Revision: 1.65 $
+  Date:      $Date: 2001-08-15 14:13:05 $
+  Version:   $Revision: 1.66 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -143,10 +143,7 @@ public:
   // Description:
   // Insert the data component at ith tuple and jth component location. 
   // Note that memory allocation is performed as necessary to hold the data.
-  void InsertComponent(const vtkIdType i, const int j, const float c)
-    {
-      this->InsertValue(i*this->NumberOfComponents + j, static_cast<int>(c));
-    }
+  virtual void InsertComponent(const vtkIdType i, const int j, const float c);
 
   // Description:
   // Get the address of a particular data index. Performs no checks
