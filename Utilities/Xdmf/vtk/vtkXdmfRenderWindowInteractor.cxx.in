@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: vtkXdmfRenderWindowInteractor.cxx.in,v 1.1 2003-05-08 18:24:07 clarke Exp $  */
-/*  Date : $Date: 2003-05-08 18:24:07 $ */
-/*  Version : $Revision: 1.1 $ */
+/*  Id : $Id: vtkXdmfRenderWindowInteractor.cxx.in,v 1.2 2003-05-08 18:58:53 andy Exp $  */
+/*  Date : $Date: 2003-05-08 18:58:53 $ */
+/*  Version : $Revision: 1.2 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -29,22 +29,13 @@
 #include <vtkCommand.h>
 
 //----------------------------------------------------------------------------
-vtkXdmfRenderWindowInteractor* vtkXdmfRenderWindowInteractor::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkXdmfRenderWindowInteractor");
-  if(ret)
-    {
-    return (vtkXdmfRenderWindowInteractor*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkXdmfRenderWindowInteractor;
-}
+vtkStandardNewMacro(vtkXdmfRenderWindowInteractor);
 
 void vtkXdmfRenderWindowInteractor::Start( int Block ) {
 
 if ( Block ) {
-#if defined(CYGWIN) | defined(WIN32)
+// Check for WIN32 but without Cygwin with X11
+#if defined(_WIN32) && !defined(VTK_USE_OGLR)
   vtkWin32RenderWindowInteractor::Start();
 #else
   vtkXRenderWindowInteractor::Start();
@@ -57,7 +48,8 @@ if ( Block ) {
 
 void vtkXdmfRenderWindowInteractor::LoopOnce( )
 {
-#if defined(CYGWIN) | defined(WIN32)
+// Check for WIN32 but without Cygwin with X11
+#if defined(_WIN32) && !defined(VTK_USE_OGLR)
 	// Nothing to do
 #else
     XEvent event;
