@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCurvatures.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-01 09:53:07 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-11-03 00:51:16 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -26,7 +26,7 @@
 #include "vtkPolygon.h"
 #include "vtkTensor.h"
 
-vtkCxxRevisionMacro(vtkCurvatures, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkCurvatures, "$Revision: 1.3 $");
 vtkStandardNewMacro(vtkCurvatures);
 
 //------------------------------------------------------------------------------
@@ -236,8 +236,8 @@ void vtkCurvatures::GetGaussCurvature()
     vtkTriangle* facet = vtkTriangle::New();
 
     // other data
-    int Nf   = output->GetNumberOfCells ();
-    int Nv   = output->GetNumberOfPoints();
+    vtkIdType Nf   = output->GetNumberOfCells ();
+    vtkIdType Nv   = output->GetNumberOfPoints();
 
     double* K = new double[Nv];
     double* dA = new double[Nv];
@@ -252,7 +252,7 @@ void vtkCurvatures::GetGaussCurvature()
 
     double A, alpha0, alpha1, alpha2;
 
-    int f, *vert;
+    vtkIdType f, *vert;
     facets->InitTraversal();
     while (facets->GetNextCell(f,vert))
       {
