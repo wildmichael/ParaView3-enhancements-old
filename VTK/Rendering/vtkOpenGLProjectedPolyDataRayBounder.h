@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLProjectedPolyDataRayBounder.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:45 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2001-04-09 01:51:16 $
+  Version:   $Revision: 1.20 $
   Thanks:    Thanks to Lisa Sobierajski Avila who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -60,7 +60,11 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkProjectedPolyDataRayBounder.h"
 #include "vtkPolyData.h"
 #ifndef VTK_IMPLEMENT_MESA_CXX
-#include <GL/gl.h>
+  #ifdef VTK_USE_QUARTZ
+    #include <OpenGL/gl.h>
+  #else
+    #include <GL/gl.h>
+  #endif
 #endif
 
 class vtkWindow;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLTexture.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-30 22:51:14 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2001-04-09 01:51:41 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -256,10 +256,14 @@ void vtkOpenGLTexture::Load(vtkRenderer *ren)
     glNewList ((GLuint) this->Index, GL_COMPILE);
 #endif
 
-#ifdef _WIN32
-    ((vtkWin32OpenGLRenderWindow *)(ren->GetRenderWindow()))->RegisterTextureResource( this->Index );
+#ifdef VTK_USE_QUARTZ
+    ((vtkQuartzRenderWindow *)(ren->GetRenderWindow()))->RegisterTextureResource(this->Index);
 #else
+  #ifdef _WIN32
+    ((vtkWin32OpenGLRenderWindow *)(ren->GetRenderWindow()))->RegisterTextureResource( this->Index );
+  #else
     ((vtkOpenGLRenderWindow *)(ren->GetRenderWindow()))->RegisterTextureResource( this->Index );
+  #endif
 #endif
     
     if (this->Interpolate)
