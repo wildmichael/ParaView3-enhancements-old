@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToStructuredPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-23 11:48:41 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1999-07-28 13:53:36 $
+  Version:   $Revision: 1.29 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -51,6 +51,7 @@ vtkImageToStructuredPoints::vtkImageToStructuredPoints()
   
   this->Translate[0] = this->Translate[1] = this->Translate[2] = 0;
   this->SetOutput(0,vtkStructuredPoints::New());
+  this->Outputs[0]->Delete();
 }
 
 
