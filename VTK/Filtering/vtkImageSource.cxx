@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-07-31 19:25:48 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1996-08-01 18:57:35 $
+  Version:   $Revision: 1.5 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -51,10 +51,6 @@ vtkImageSource::vtkImageSource()
 
 
 //----------------------------------------------------------------------------
-// Description:
-// Destructor: Deleting a vtkImageRegion automatically deletes the associated
-// vtkImageData.  However, since the data is reference counted, it may not 
-// actually be deleted.
 void vtkImageSource::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkObject::PrintSelf(os,indent);
