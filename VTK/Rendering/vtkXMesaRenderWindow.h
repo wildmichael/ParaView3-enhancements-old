@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMesaRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2001-09-19 19:54:32 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-09-21 18:17:39 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -58,11 +58,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "MangleMesaInclude/glx.h"
 #include "MangleMesaInclude/osmesa.h"
 
-
-
-// There used to be some condition for setting this.
-// Until I see the need, I am not going to duplicate the code.
-#define MESA
 
 
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXOpenGLRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-17 17:02:20 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-09-21 18:17:39 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -55,13 +55,16 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkOpenGLRenderWindow.h"
 #include "GL/glx.h"
 
+
+
+
 class vtkIdList;
 
 class VTK_EXPORT vtkXOpenGLRenderWindow : public vtkOpenGLRenderWindow
 {
 protected:
   GLXContext ContextId;
-
+  
 public:
   static vtkXOpenGLRenderWindow *New();
   vtkTypeMacro(vtkXOpenGLRenderWindow,vtkOpenGLRenderWindow);
@@ -121,7 +124,7 @@ public:
   // Description:
   // Xwindow get set functions
   virtual void *GetGenericDisplayId() {return (void *)this->GetDisplayId();};
-  virtual void *GetGenericWindowId()  {return (void *)this->WindowId;};
+  virtual void *GetGenericWindowId();
   virtual void *GetGenericParentId()  {return (void *)this->ParentId;};
   virtual void *GetGenericContext();
   virtual void *GetGenericDrawable()  {return (void *)this->WindowId;};
@@ -200,6 +203,10 @@ public:
   // before calling the supper classes render
   void Render();  
 
+  // Description:
+  // Render without displaying the window.
+  void SetOffScreenRendering(int i);
+
 protected:
   vtkXOpenGLRenderWindow();
   ~vtkXOpenGLRenderWindow();
@@ -215,6 +222,15 @@ protected:
   int      OwnDisplay;
   int      ScreenSize[2];
   int      CursorHidden;
+
+#ifdef VTK_OPENGL_HAS_OSMESA
+  // OffScreen stuff
+  OSMesaContext OffScreenContextId;
+  void *OffScreenWindow;
+  int ScreenMapped;
+  // Looks like this just stores DoubleBuffer.
+  int ScreenDoubleBuffer;
+#endif
 };
 
 
