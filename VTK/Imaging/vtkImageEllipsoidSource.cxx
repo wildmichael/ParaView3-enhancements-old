@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageEllipsoidSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:13:36 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2000-05-16 19:52:42 $
+  Version:   $Revision: 1.16 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -293,36 +293,8 @@ void vtkImageEllipsoidSource::Execute(vtkImageData *data)
   
   switch (data->GetScalarType())
     {
-    case VTK_DOUBLE:
-      vtkImageEllipsoidSourceExecute(this, data, extent, (double *)ptr);
-      break;
-    case VTK_FLOAT:
-      vtkImageEllipsoidSourceExecute(this, data, extent, (float *)ptr);
-      break;
-    case VTK_LONG:
-      vtkImageEllipsoidSourceExecute(this, data, extent, (long *)ptr);
-      break;
-    case VTK_UNSIGNED_LONG:
-      vtkImageEllipsoidSourceExecute(this, data, extent, (unsigned long *)ptr);
-      break;
-    case VTK_INT:
-      vtkImageEllipsoidSourceExecute(this, data, extent, (int *)ptr);
-      break;
-    case VTK_UNSIGNED_INT:
-      vtkImageEllipsoidSourceExecute(this, data, extent, (unsigned int *)ptr);
-      break;
-    case VTK_SHORT:
-      vtkImageEllipsoidSourceExecute(this, data, extent, (short *)ptr);
-      break;
-    case VTK_UNSIGNED_SHORT:
-      vtkImageEllipsoidSourceExecute(this, data, extent, (unsigned short *)ptr);
-      break;
-    case VTK_CHAR:
-      vtkImageEllipsoidSourceExecute(this, data, extent, (char *)ptr);
-      break;
-    case VTK_UNSIGNED_CHAR:
-      vtkImageEllipsoidSourceExecute(this, data, extent, (unsigned char *)ptr);
-      break;
+    vtkTemplateMacro4(vtkImageEllipsoidSourceExecute, this, data, 
+                      extent, (VTK_TT *)ptr);
     default:
       vtkErrorMacro("Execute: Unknown output ScalarType");
     }

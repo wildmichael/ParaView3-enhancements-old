@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageFFT.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:08:21 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2000-05-16 19:52:52 $
+  Version:   $Revision: 1.24 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -236,46 +236,9 @@ void vtkImageFFT::ThreadedExecute(vtkImageData *inData, vtkImageData *outData,
   // choose which templated function to call.
   switch (inData->GetScalarType())
     {
-    case VTK_DOUBLE:
-      vtkImageFFTExecute(this, inData, inExt, (double *)(inPtr), 
-			 outData, outExt, (float *)(outPtr), threadId);
-      break;
-    case VTK_FLOAT:
-      vtkImageFFTExecute(this, inData, inExt, (float *)(inPtr), 
-			 outData, outExt, (float *)(outPtr), threadId);
-      break;
-    case VTK_LONG:
-      vtkImageFFTExecute(this, inData, inExt, (long *)(inPtr),
-			 outData, outExt, (float *)(outPtr), threadId);
-      break;
-    case VTK_UNSIGNED_LONG:
-      vtkImageFFTExecute(this, inData, inExt, (unsigned long *)(inPtr), 
-			 outData, outExt, (float *)(outPtr), threadId);
-      break;
-    case VTK_INT:
-      vtkImageFFTExecute(this, inData, inExt, (int *)(inPtr),
-			 outData, outExt, (float *)(outPtr), threadId);
-      break;
-    case VTK_UNSIGNED_INT:
-      vtkImageFFTExecute(this, inData, inExt, (unsigned int *)(inPtr), 
-			 outData, outExt, (float *)(outPtr), threadId);
-      break;
-    case VTK_SHORT:
-      vtkImageFFTExecute(this, inData, inExt, (short *)(inPtr),
-			 outData, outExt, (float *)(outPtr), threadId);
-      break;
-    case VTK_UNSIGNED_SHORT:
-      vtkImageFFTExecute(this, inData, inExt, (unsigned short *)(inPtr), 
-			 outData, outExt, (float *)(outPtr), threadId);
-      break;
-    case VTK_CHAR:
-      vtkImageFFTExecute(this, inData, inExt, (char *)(inPtr),
-			 outData, outExt, (float *)(outPtr), threadId);
-      break;
-    case VTK_UNSIGNED_CHAR:
-      vtkImageFFTExecute(this, inData, inExt, (unsigned char *)(inPtr),
-			 outData, outExt, (float *)(outPtr), threadId);
-      break;
+    vtkTemplateMacro8(vtkImageFFTExecute, this, inData, inExt, 
+                      (VTK_TT *)(inPtr), outData, outExt, 
+                      (float *)(outPtr), threadId);
     default:
       vtkErrorMacro(<< "Execute: Unknown ScalarType");
       return;

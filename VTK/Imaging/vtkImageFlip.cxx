@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageFlip.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:13:38 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2000-05-16 19:52:52 $
+  Version:   $Revision: 1.26 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -226,46 +226,8 @@ void vtkImageFlip::ThreadedExecute(vtkImageData *inData,
   
   switch (outData->GetScalarType())
     {
-    case VTK_DOUBLE:
-      vtkImageFlipExecute(this, id, inData, inExt, 
-			  outData, outExt, (double *)(outPtr));
-      break;
-    case VTK_FLOAT:
-      vtkImageFlipExecute(this, id, inData, inExt, 
-			  outData, outExt, (float *)(outPtr));
-      break;
-    case VTK_LONG:
-      vtkImageFlipExecute(this, id, inData, inExt, 
-			  outData, outExt, (long *)(outPtr));
-      break;
-    case VTK_UNSIGNED_LONG:
-      vtkImageFlipExecute(this, id, inData, inExt, 
-			  outData, outExt, (unsigned long *)(outPtr));
-      break;
-    case VTK_INT:
-      vtkImageFlipExecute(this, id, inData, inExt, 
-			  outData, outExt, (int *)(outPtr));
-      break;
-    case VTK_UNSIGNED_INT:
-      vtkImageFlipExecute(this, id, inData, inExt, 
-			  outData, outExt, (unsigned int *)(outPtr));
-      break;
-    case VTK_SHORT:
-      vtkImageFlipExecute(this, id, inData, inExt, 
-			  outData, outExt, (short *)(outPtr));
-      break;
-    case VTK_UNSIGNED_SHORT:
-      vtkImageFlipExecute(this, id, inData, inExt, 
-			  outData, outExt, (unsigned short *)(outPtr));
-      break;
-    case VTK_UNSIGNED_CHAR:
-      vtkImageFlipExecute(this, id, inData, inExt, 
-			  outData, outExt, (unsigned char *)(outPtr));
-      break;
-    case VTK_CHAR:
-      vtkImageFlipExecute(this, id, inData, inExt, 
-			  outData, outExt, (char *)(outPtr));
-      break;
+    vtkTemplateMacro7(vtkImageFlipExecute, this, id, inData, inExt, 
+                      outData, outExt, (VTK_TT *)(outPtr));
     default:
       vtkErrorMacro(<< "Execute: Unknown input ScalarType");
       return;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAccumulate.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:13:24 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2000-05-16 19:52:00 $
+  Version:   $Revision: 1.24 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -238,56 +238,9 @@ void vtkImageAccumulate::Execute(vtkImageData *inData,
   
   switch (inData->GetScalarType())
     {
-    case VTK_DOUBLE:
-      vtkImageAccumulateExecute(this, 
-			  inData, (double *)(inPtr), 
-			  outData, (int *)(outPtr));
-      break;
-    case VTK_FLOAT:
-      vtkImageAccumulateExecute(this, 
-			  inData, (float *)(inPtr), 
-			  outData, (int *)(outPtr));
-      break;
-    case VTK_LONG:
-      vtkImageAccumulateExecute(this, 
-			  inData, (long *)(inPtr), 
-			  outData, (int *)(outPtr));
-      break;
-    case VTK_UNSIGNED_LONG:
-      vtkImageAccumulateExecute(this, 
-			  inData, (unsigned long *)(inPtr), 
-			  outData, (int *)(outPtr));
-      break;
-    case VTK_INT:
-      vtkImageAccumulateExecute(this, 
-			  inData, (int *)(inPtr), 
-			  outData, (int *)(outPtr));
-      break;
-    case VTK_UNSIGNED_INT:
-      vtkImageAccumulateExecute(this, 
-			  inData, (unsigned int *)(inPtr), 
-			  outData, (int *)(outPtr));
-      break;
-    case VTK_SHORT:
-      vtkImageAccumulateExecute(this, 
-			  inData, (short *)(inPtr), 
-			  outData, (int *)(outPtr));
-      break;
-    case VTK_UNSIGNED_SHORT:
-      vtkImageAccumulateExecute(this, 
-			  inData, (unsigned short *)(inPtr), 
-			  outData, (int *)(outPtr));
-      break;
-    case VTK_CHAR:
-      vtkImageAccumulateExecute(this, 
-			  inData, (char *)(inPtr), 
-			  outData, (int *)(outPtr));
-      break;
-    case VTK_UNSIGNED_CHAR:
-      vtkImageAccumulateExecute(this, 
-			  inData, (unsigned char *)(inPtr), 
-			  outData, (int *)(outPtr));
-      break;
+    vtkTemplateMacro5(vtkImageAccumulateExecute, this, 
+                      inData, (VTK_TT *)(inPtr), 
+                      outData, (int *)(outPtr));
     default:
       vtkErrorMacro(<< "Execute: Unknown ScalarType");
       return;

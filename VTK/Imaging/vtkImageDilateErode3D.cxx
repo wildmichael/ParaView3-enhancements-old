@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDilateErode3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:13:36 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2000-05-16 19:52:34 $
+  Version:   $Revision: 1.33 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -342,54 +342,9 @@ void vtkImageDilateErode3D::ThreadedExecute(vtkImageData *inData,
 
   switch (inData->GetScalarType())
     {
-    case VTK_DOUBLE:
-      vtkImageDilateErode3DExecute(this, mask, inData, (double *)(inPtr), 
-				outData, outExt, (double *)(outPtr),id);
-      break;
-    case VTK_FLOAT:
-      vtkImageDilateErode3DExecute(this, mask, inData, (float *)(inPtr), 
-				outData, outExt, (float *)(outPtr),id);
-      break;
-    case VTK_LONG:
-      vtkImageDilateErode3DExecute(this, mask, inData, (long *)(inPtr), 
-				outData, outExt, (long*)(outPtr),id);
-      break;
-    case VTK_UNSIGNED_LONG:
-      vtkImageDilateErode3DExecute(this, mask, 
-				   inData, (unsigned long *)(inPtr), 
-				   outData, outExt, (unsigned long *)(outPtr),
-				   id);
-      break;
-    case VTK_INT:
-      vtkImageDilateErode3DExecute(this, mask, inData, (int *)(inPtr), 
-				outData, outExt, (int*)(outPtr),id);
-      break;
-    case VTK_UNSIGNED_INT:
-      vtkImageDilateErode3DExecute(this, mask, 
-				   inData, (unsigned int *)(inPtr), 
-				   outData, outExt, (unsigned int *)(outPtr),
-				   id);
-      break;
-    case VTK_SHORT:
-      vtkImageDilateErode3DExecute(this, mask, inData, (short *)(inPtr), 
-				outData, outExt, (short *)(outPtr),id);
-      break;
-    case VTK_UNSIGNED_SHORT:
-      vtkImageDilateErode3DExecute(this, mask, 
-				   inData, (unsigned short *)(inPtr), 
-				   outData, outExt, (unsigned short *)(outPtr),
-				   id);
-      break;
-    case VTK_CHAR:
-      vtkImageDilateErode3DExecute(this, mask, 
-				inData, (char *)(inPtr), 
-				outData, outExt, (char *)(outPtr),id);
-      break;
-    case VTK_UNSIGNED_CHAR:
-      vtkImageDilateErode3DExecute(this, mask, 
-				inData, (unsigned char *)(inPtr), 
-				outData, outExt, (unsigned char *)(outPtr),id);
-      break;
+    vtkTemplateMacro8(vtkImageDilateErode3DExecute, this, mask, inData, 
+                      (VTK_TT *)(inPtr),outData, outExt, 
+                      (VTK_TT *)(outPtr),id);
     default:
       vtkErrorMacro(<< "Execute: Unknown ScalarType");
       return;

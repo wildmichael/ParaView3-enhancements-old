@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCursor3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:13:34 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2000-05-16 19:52:22 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -156,46 +156,8 @@ void vtkImageCursor3D::Execute(vtkImageData *vtkNotUsed(inData),
   
   switch (outData->GetScalarType())
     {
-    case VTK_DOUBLE:
-      vtkImageCursor3DExecute(this, 
-			      outData, (double *)(ptr));
-      break;
-    case VTK_FLOAT:
-      vtkImageCursor3DExecute(this, 
-			      outData, (float *)(ptr));
-      break;
-    case VTK_LONG:
-      vtkImageCursor3DExecute(this, 
-			      outData, (long *)(ptr));
-      break;
-    case VTK_UNSIGNED_LONG:
-      vtkImageCursor3DExecute(this, 
-			      outData, (unsigned long *)(ptr));
-      break;
-    case VTK_INT:
-      vtkImageCursor3DExecute(this, 
-			      outData, (int *)(ptr));
-      break;
-    case VTK_UNSIGNED_INT:
-      vtkImageCursor3DExecute(this, 
-			      outData, (unsigned int *)(ptr));
-      break;
-    case VTK_SHORT:
-      vtkImageCursor3DExecute(this, 
-			      outData, (short *)(ptr));
-      break;
-    case VTK_UNSIGNED_SHORT:
-      vtkImageCursor3DExecute(this, 
-			      outData, (unsigned short *)(ptr));
-      break;
-    case VTK_CHAR:
-      vtkImageCursor3DExecute(this, 
-			      outData, (char *)(ptr));
-      break;
-    case VTK_UNSIGNED_CHAR:
-      vtkImageCursor3DExecute(this, 
-			      outData, (unsigned char *)(ptr));
-      break;
+    vtkTemplateMacro3(vtkImageCursor3DExecute, this, 
+                      outData, (VTK_TT *)(ptr));
     default:
       vtkErrorMacro(<< "Execute: Unknown ScalarType");
       return;
