@@ -16,12 +16,15 @@
 
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkPVClipDataSet, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkPVClipDataSet, "$Revision: 1.4 $");
 vtkStandardNewMacro(vtkPVClipDataSet);
 
 //----------------------------------------------------------------------------
 vtkPVClipDataSet::vtkPVClipDataSet(vtkImplicitFunction *vtkNotUsed(cf))
 {
+  // setting NumberOfOutputPorts to 1 because ParaView does not allow you to
+  // generate the clipped output
+  this->SetNumberOfOutputPorts(1);
 }
 
 //----------------------------------------------------------------------------
