@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLProperty.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:45:52 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-05-12 11:25:24 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -81,16 +81,6 @@ void vtkOpenGLProperty::Render(vtkActor *vtkNotUsed(anActor),
 
   Info[3] = this->Opacity;
 
-  // deal with blending if necc
-  if (Info[3] < 1.0)
-    {
-    glEnable(GL_BLEND);
-    }
-  else
-    {
-    glDisable( GL_BLEND);
-    }
-  
   for (i=0; i < 3; i++) 
     {
     Info[i] = this->Ambient*this->AmbientColor[i];
@@ -141,16 +131,6 @@ void vtkOpenGLProperty::BackfaceRender(vtkActor *vtkNotUsed(anActor),
 
   Info[3] = this->Opacity;
 
-  // deal with blending if necc
-  if (Info[3] < 1.0)
-    {
-    glEnable(GL_BLEND);
-    }
-  else
-    {
-    glDisable( GL_BLEND);
-    }
-  
   for (i=0; i < 3; i++) 
     {
     Info[i] = this->Ambient*this->AmbientColor[i];

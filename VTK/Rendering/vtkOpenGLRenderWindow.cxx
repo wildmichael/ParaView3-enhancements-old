@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-04-17 12:33:46 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1998-05-12 11:25:25 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -399,7 +399,8 @@ void vtkOpenGLRenderWindow::WindowInitialize (void)
   // initialize blending for transparency
   vtkDebugMacro(<< " blend func stuff\n");
   glBlendFunc( GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA );
-
+  glEnable(GL_BLEND);
+  
   glEnable( GL_NORMALIZE );
   glAlphaFunc(GL_GREATER,0);
   

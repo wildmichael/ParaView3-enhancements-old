@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-02-09 22:15:48 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1998-05-12 11:25:27 $
+  Version:   $Revision: 1.18 $
   Thanks:    to Horst Schreiber for developing this MFC code
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -293,6 +293,7 @@ void vtkWin32OpenGLInit()
 
   // initialize blending for transparency
   glBlendFunc( GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA );
+  glEnable(GL_BLEND);
 
   glEnable( GL_NORMALIZE );
   glLightModeli(GL_LIGHT_MODEL_TWO_SIDE, GL_TRUE);
