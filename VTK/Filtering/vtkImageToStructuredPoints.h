@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToStructuredPoints.h,v $
   Language:  C++
-  Date:      $Date: 1998-01-21 20:09:54 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1998-03-25 19:02:07 $
+  Version:   $Revision: 1.13 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -52,12 +52,13 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkImageToStructuredPoints_h
 #define __vtkImageToStructuredPoints_h
 
-#include "vtkStructuredPointsSource.h"
+#include "vtkSource.h"
+#include "vtkImageData.h"
 class vtkImageCache;
 class vtkColorScalars;
 class vtkFloatVectors;
 
-class VTK_EXPORT vtkImageToStructuredPoints : public vtkStructuredPointsSource
+class VTK_EXPORT vtkImageToStructuredPoints : public vtkSource
   {
 public:
   vtkImageToStructuredPoints();
@@ -83,6 +84,11 @@ public:
 
   void Update();
   
+  // Description:
+  // Get the output of this source.
+  vtkImageData *GetOutput()
+    {return (vtkImageData *)this->Output;};
+
 protected:
   vtkImageCache *Input;
   vtkImageCache *VectorInput;

@@ -3,8 +3,8 @@
 
   Module:    $RCSfile: vtkImageData.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-02-19 15:47:52 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 1998-03-25 19:02:04 $
+  Version:   $Revision: 1.42 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -159,11 +159,13 @@ void vtkImageData::SetExtent(int *extent)
       this->Extent[idx*2 + 1] = extent[idx*2 + 1];
       modified = 1;
       }
-    this->Dimensions[idx] = this->Extent[idx*2+1] - this->Extent[idx*2] + 1;
     }
 
   if (modified)
     {
+    this->SetDimensions(this->Extent[1] - this->Extent[0] + 1,
+			this->Extent[3] - this->Extent[2] + 1,
+			this->Extent[5] - this->Extent[4] + 1);
     this->Modified();
     this->ComputeIncrements();
     }
