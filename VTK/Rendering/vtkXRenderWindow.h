@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 1997-10-16 18:46:30 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1998-07-02 11:57:21 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -105,6 +105,7 @@ protected:
   Display *DisplayId;
   Colormap ColorMap;
   int      OwnWindow;
+  int      OwnDisplay;
   int      ScreenSize[2];
 
 };
