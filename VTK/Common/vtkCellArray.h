@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellArray.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:04:27 $
-  Version:   $Revision: 1.68 $
+  Date:      $Date: 1999-11-10 21:20:33 $
+  Version:   $Revision: 1.69 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -154,6 +154,11 @@ public:
   // Computes the current insertion location within the internal array. 
   // Used in conjunction with GetCell(int loc,...).
   int GetInsertLocation(int npts) {return (this->InsertLocation - npts - 1);};
+  
+  // Description:
+  // Get/Set the current traversal location.
+  int GetTraversalLocation() {return this->TraversalLocation;};
+  void SetTraversalLocation(int loc) {this->TraversalLocation = loc;};
   
   // Description:
   // Computes the current traversal location within the internal array. Used 

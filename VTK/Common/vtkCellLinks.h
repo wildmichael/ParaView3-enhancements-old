@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellLinks.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:04:28 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1999-11-10 21:20:33 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -53,6 +53,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 #include "vtkObject.h"
 class vtkDataSet;
+class vtkCellArray;
 
 struct _vtkLink_s {
     unsigned short ncells;
@@ -81,6 +82,10 @@ public:
   // Description:
   // Build the link list array.
   void BuildLinks(vtkDataSet *data);
+
+  // Description:
+  // Build the link list array.
+  void BuildLinks(vtkDataSet *data, vtkCellArray *Connectivity);
 
   // Description:
   // Return a list of cell ids using the point.

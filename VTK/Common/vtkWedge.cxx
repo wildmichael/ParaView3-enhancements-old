@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWedge.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:05:24 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-11-10 21:20:37 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -463,6 +463,10 @@ vtkCell *vtkWedge::GetEdge(int edgeId)
   return this->Line;
 }
 
+int *vtkWedge::GetFaceArray(int faceId)
+{
+  return faces[faceId];
+}
 vtkCell *vtkWedge::GetFace(int faceId)
 {
   int *verts;

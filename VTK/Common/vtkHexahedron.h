@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHexahedron.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:04:42 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 1999-11-10 21:20:34 $
+  Version:   $Revision: 1.44 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -65,6 +65,7 @@ public:
   int GetNumberOfFaces() {return 6;};
   vtkCell *GetEdge(int edgeId);
   vtkCell *GetFace(int faceId);
+  static int *GetFaceArray(int faceId);
   int CellBoundary(int subId, float pcoords[3], vtkIdList *pts);
   void Contour(float value, vtkScalars *cellScalars, 
                vtkPointLocator *locator, vtkCellArray *verts, 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTetra.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:05:13 $
-  Version:   $Revision: 1.52 $
+  Date:      $Date: 1999-11-10 21:20:35 $
+  Version:   $Revision: 1.53 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -353,6 +353,10 @@ vtkCell *vtkTetra::GetEdge(int edgeId)
   return this->Line;
 }
 
+int *vtkTetra::GetFaceArray(int faceId)
+{
+  return faces[faceId];
+}
 vtkCell *vtkTetra::GetFace(int faceId)
 {
   int *verts;

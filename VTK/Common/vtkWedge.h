@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWedge.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:05:25 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-11-10 21:20:37 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -69,6 +69,7 @@ public:
   int GetNumberOfFaces() {return 5;};
   vtkCell *GetEdge(int edgeId);
   vtkCell *GetFace(int faceId);
+  static int *GetFaceArray(int faceId);
   int CellBoundary(int subId, float pcoords[3], vtkIdList *pts);
   void Contour(float value, vtkScalars *cellScalars, 
                vtkPointLocator *locator, vtkCellArray *verts, 

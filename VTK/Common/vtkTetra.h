@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTetra.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:05:14 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 1999-11-10 21:20:35 $
+  Version:   $Revision: 1.50 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -67,6 +67,7 @@ public:
   int GetNumberOfFaces() {return 4;};
   vtkCell *GetEdge(int edgeId);
   vtkCell *GetFace(int faceId);
+  static int *GetFaceArray(int faceId);
   void Contour(float value, vtkScalars *cellScalars, 
                vtkPointLocator *locator, vtkCellArray *verts, 
                vtkCellArray *lines, vtkCellArray *polys,

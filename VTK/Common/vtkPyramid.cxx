@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPyramid.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-15 12:55:37 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-11-10 21:20:35 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -423,6 +423,11 @@ vtkCell *vtkPyramid::GetEdge(int edgeId)
   this->Line->Points->SetPoint(1,this->Points->GetPoint(verts[1]));
 
   return this->Line;
+}
+
+int *vtkPyramid::GetFaceArray(int faceId)
+{
+  return faces[faceId];
 }
 
 vtkCell *vtkPyramid::GetFace(int faceId)

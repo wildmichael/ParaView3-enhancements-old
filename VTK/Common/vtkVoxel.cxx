@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoxel.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:05:24 $
-  Version:   $Revision: 1.56 $
+  Date:      $Date: 1999-11-10 21:20:37 $
+  Version:   $Revision: 1.57 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -391,6 +391,10 @@ vtkCell *vtkVoxel::GetEdge(int edgeId)
   return this->Line;
 }
 
+int *vtkVoxel::GetFaceArray(int faceId)
+{
+  return faces[faceId];
+}
 vtkCell *vtkVoxel::GetFace(int faceId)
 {
   int *verts, i;

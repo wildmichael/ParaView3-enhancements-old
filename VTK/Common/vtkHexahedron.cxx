@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHexahedron.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:04:42 $
-  Version:   $Revision: 1.58 $
+  Date:      $Date: 1999-11-10 21:20:34 $
+  Version:   $Revision: 1.59 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -483,6 +483,10 @@ vtkCell *vtkHexahedron::GetEdge(int edgeId)
   return this->Line;
 }
 
+int *vtkHexahedron::GetFaceArray(int faceId)
+{
+  return faces[faceId];
+}
 vtkCell *vtkHexahedron::GetFace(int faceId)
 {
   int *verts, i;
