@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinearExtrusionFilter.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-14 13:21:41 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1998-10-06 20:55:00 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -95,6 +95,12 @@ public:
   // Set/Get the type of extrusion.
   vtkSetClampMacro(ExtrusionType,int,VTK_VECTOR_EXTRUSION,VTK_POINT_EXTRUSION);
   vtkGetMacro(ExtrusionType,int);
+  void SetExtrusionTypeToVectorExtrusion()
+    {this->SetExtrusionType(VTK_VECTOR_EXTRUSION);};
+  void SetExtrusionTypeToNormalExtrusion()
+    {this->SetExtrusionType(VTK_NORMAL_EXTRUSION);};
+  void SetExtrusionTypeToPointExtrusion()
+    {this->SetExtrusionType(VTK_POINT_EXTRUSION);};
 
   // Description:
   // Turn on/off the capping of the skirt.
