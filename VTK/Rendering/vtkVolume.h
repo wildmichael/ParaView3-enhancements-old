@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume.h,v $
   Language:  C++
-  Date:      $Date: 1997-08-18 14:54:24 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1997-12-11 22:02:02 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -116,8 +116,6 @@ class VTK_EXPORT vtkVolume : public vtkProp
 protected:
 
   float             Scale;
-  vtkMatrix4x4      Matrix;
-  vtkTimeStamp      MatrixMTime;
 
   vtkVolumeMapper   *VolumeMapper;
 
