@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLookupTable.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-22 12:51:55 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1995-09-12 12:16:23 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -228,7 +228,7 @@ void vtkLookupTable::SetTableValue(int indx, float r, float g, float b, float a)
 
 // Description:
 // Return a rgba color value for the given index into the lookup table. Color
-// componenets are expressed as [0,1] float values.
+// components are expressed as [0,1] float values.
 float *vtkLookupTable::GetTableValue (int indx)
 {
   static float rgba[4];
@@ -243,7 +243,7 @@ float *vtkLookupTable::GetTableValue (int indx)
 
 // Description:
 // Return a rgba color value for the given index into the lookup table. Color
-// componenets are expressed as [0,1] float values.
+// components are expressed as [0,1] float values.
 void vtkLookupTable::GetTableValue (int indx, float rgba[4])
 {
   float *_rgba = this->GetTableValue(indx);
