@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCompleteArrays.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-05-09 15:57:22 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-06-03 18:59:31 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -39,7 +39,7 @@
 #include "vtkPVDataSetAttributesInformation.h"
 #include "vtkPVArrayInformation.h"
 
-vtkCxxRevisionMacro(vtkCompleteArrays, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkCompleteArrays, "$Revision: 1.2 $");
 vtkStandardNewMacro(vtkCompleteArrays);
 
 
@@ -127,8 +127,10 @@ void vtkCompleteArrays::Execute()
       return;
       }    
     vtkPVDataInformation* dataInfo = vtkPVDataInformation::New();
-    dataInfo->CopyFromData(output);
-    msg = dataInfo->NewMessage(length);
+    dataInfo->CopyFromObject(output);
+    length = dataInfo->GetMessageLength();
+    msg = new unsigned char[length];
+    dataInfo->WriteMessage(msg);
     this->Controller->Send(&length, 1, 0, 3389002);
     this->Controller->Send(msg, length, 0, 3389003);
     dataInfo->Delete();
