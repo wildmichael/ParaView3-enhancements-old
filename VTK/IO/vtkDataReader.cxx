@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:49:22 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1995-07-29 12:01:08 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -681,7 +681,9 @@ int vtkDataReader::ReadTensorData(FILE *fp, vtkDataSet *ds, int numPts)
       float t[9];
       for (i=0; i<numPts; i++)
         {
-        if ((retStat=fscanf(fp,"%f %f %f",t,t+1,t+2,t+3,t+4,t+5,t+6,t+7,t+8)) == EOF || retStat < 9)
+        if ((retStat=fscanf(fp,"%f %f %f %f %f %f %f %f %f",
+			    t,t+1,t+2,t+3,t+4,t+5,t+6,t+7,t+8)) 
+	    == EOF || retStat < 9)
           {
           vtkErrorMacro(<<"Error reading tensors!");
           return 0;
