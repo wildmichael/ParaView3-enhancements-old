@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPVUpdateSuppressor.h,v $
   Language:  C++
-  Date:      $Date: 2002-07-10 15:20:17 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-07-10 17:49:07 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -49,6 +49,11 @@ public:
   // Description:
   // Overwrite UpdateData so that it will not propagate update.
   void UpdateData(vtkDataObject *output);
+
+  // Description:
+  // Set number of pieces and piece on the data.
+  virtual void SetUpdateNumberOfPieces(int);
+  virtual void SetUpdatePiece(int);
 
 protected:
   vtkPVUpdateSupressor();
