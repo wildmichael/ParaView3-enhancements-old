@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastFunction.h,v $
   Language:  C++
-  Date:      $Date: 1999-01-07 18:47:57 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1999-01-21 00:30:24 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -105,6 +105,10 @@ struct VolumeRayCastVolumeInfoStruct
   float                        *RedSpecularShadingTable;
   float                        *GreenSpecularShadingTable;
   float                        *BlueSpecularShadingTable;
+  int                          DataIncrement[3];
+  int                          DataSize[3];
+  unsigned short               *EncodedNormals;
+  unsigned char                *GradientMagnitudes;
 };
 
 
@@ -133,11 +137,6 @@ public:
   // Get the value below which all scalar values are considered to
   // have 0 opacity.
   virtual float GetZeroOpacityThreshold( vtkVolume *vol )=0;
-
-  int                          DataIncrement[3];
-  int                          DataSize[3];
-  unsigned short               *EncodedNormals;
-  unsigned char                *GradientMagnitudes;
 
 protected:
 

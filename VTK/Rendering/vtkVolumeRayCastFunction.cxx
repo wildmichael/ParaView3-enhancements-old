@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-02 17:05:42 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-01-21 00:30:24 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -67,10 +67,10 @@ void vtkVolumeRayCastFunction::FunctionInitialize(
 
   // What are the data increments? 
   // (One voxel, one row, and one slice offsets)
-  mapper->GetDataIncrement( this->DataIncrement );
+  mapper->GetDataIncrement( volumeInfo->DataIncrement );
 
   // The size of the scalar input data
-  mapper->GetScalarInput()->GetDimensions( this->DataSize );
+  mapper->GetScalarInput()->GetDimensions( volumeInfo->DataSize );
 
   // Get the encoded normals from the normal encoder in the
   // volume ray cast mapper. We need to do this if shading is on
@@ -80,7 +80,7 @@ void vtkVolumeRayCastFunction::FunctionInitialize(
   // direction as well.
   if ( volumeInfo->Shading )
     {
-    this->EncodedNormals = 
+    volumeInfo->EncodedNormals = 
       mapper->GetGradientEstimator()->GetEncodedNormals();
 
     // Get the diffuse shading tables from the normal encoder
@@ -103,7 +103,7 @@ void vtkVolumeRayCastFunction::FunctionInitialize(
     }
   else
     {
-    this->EncodedNormals            = NULL;
+    volumeInfo->EncodedNormals            = NULL;
     volumeInfo->RedDiffuseShadingTable    = NULL;
     volumeInfo->GreenDiffuseShadingTable  = NULL;
     volumeInfo->BlueDiffuseShadingTable   = NULL;
@@ -117,12 +117,12 @@ void vtkVolumeRayCastFunction::FunctionInitialize(
   if ( vol->GetGradientOpacityArray() && 
        vol->GetGradientOpacityConstant() == -1.0 )
     {
-    this->GradientMagnitudes = 
+    volumeInfo->GradientMagnitudes = 
       mapper->GetGradientEstimator()->GetGradientMagnitudes();
     }
   else
     {
-    this->GradientMagnitudes = NULL;
+    volumeInfo->GradientMagnitudes = NULL;
     }
 
   // Give the subclass a chance to do any initialization it needs
