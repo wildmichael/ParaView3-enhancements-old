@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkGeometryFilter.h,v $
   Language:  C++
-  Date:      $Date: 1995-05-14 18:46:31 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1995-05-24 12:28:56 $
+  Version:   $Revision: 1.6 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -26,6 +26,9 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 // datasets. For example, this filter will extract the outer surface of a 
 // volume or structured grid dataset. (For structured data you may want to
 // use vlStructuredPointsGeometryFilter or vlStructuredGridGeometryFilter).
+// .SECTION Caveats
+// When vlGeometryFilter extracts cells (or boundaries of cells) it may create
+// duplicate points. Use vlCleanPolyData to merge duplicate points.
 // .SECTION See Also
 // vlStructuredPointsGeometryFilter, vlStructuredGridGeometryFilter
 
