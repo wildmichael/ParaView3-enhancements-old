@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPLY.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-07 16:28:47 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2001-12-07 20:45:44 $
+  Version:   $Revision: 1.12 $
   Thanks:    Mike Dresser MD/PhD
              Director of Core Facility for Imaging
              Program in Molecular and Cell Biology
@@ -2433,7 +2433,7 @@ Entry:
   nwords  - number of words in the list
 ******************************************************************************/
 
-void vtkPLY::add_property (PlyFile *plyfile, char **words, int nwords)
+void vtkPLY::add_property (PlyFile *plyfile, char **words, int )
 {
   PlyProperty *prop;
   PlyElement *elem;
