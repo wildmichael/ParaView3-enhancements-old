@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkFloatArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-09-30 18:30:45 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1994-11-09 19:48:20 $
+  Version:   $Revision: 1.13 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -111,15 +111,12 @@ void vlFloatArray::operator+=(const vlFloatArray& fa)
 
 void vlFloatArray::PrintSelf(ostream& os, vlIndent indent)
 {
-  if (this->ShouldIPrint(vlFloatArray::GetClassName()))
-    {
-    vlObject::PrintSelf(os,indent);
+  vlObject::PrintSelf(os,indent);
 
-    os << indent << "Array: " << this->Array << "\n";
-    os << indent << "Size: " << this->Size << "\n";
-    os << indent << "MaxId: " << this->MaxId << "\n";
-    os << indent << "Extend size: " << this->Extend << "\n";
-  }
+  os << indent << "Array: " << this->Array << "\n";
+  os << indent << "Size: " << this->Size << "\n";
+  os << indent << "MaxId: " << this->MaxId << "\n";
+  os << indent << "Extend size: " << this->Extend << "\n";
 }
 
 // Protected function does "reallocate"

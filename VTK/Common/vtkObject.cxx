@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkObject.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-09-12 21:24:45 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1994-11-09 19:48:34 $
+  Version:   $Revision: 1.17 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -61,11 +61,8 @@ void vlObject::PrintHeader(ostream& os, vlIndent indent)
 // superclasses.
 void vlObject::PrintSelf(ostream& os, vlIndent indent)
 {
-  if (this->ShouldIPrint(vlObject::GetClassName()))
-    {
-    os << indent << "Debug: " << (this->Debug ? "On\n" : "Off\n");
-    os << indent << "Modified Time: " << this->GetMTime() << "\n";
-    }
+  os << indent << "Debug: " << (this->Debug ? "On\n" : "Off\n");
+  os << indent << "Modified Time: " << this->GetMTime() << "\n";
 }
 
 void vlObject::PrintTrailer(ostream& os, vlIndent indent)
