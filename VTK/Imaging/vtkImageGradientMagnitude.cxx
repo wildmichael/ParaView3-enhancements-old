@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageGradientMagnitude.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-01-19 18:07:50 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1998-01-19 20:17:13 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -184,7 +184,7 @@ static void vtkImageGradientMagnitudeExecute(vtkImageGradientMagnitude *self,
 	}
       useYMin = ((idxY + outExt[2]) <= wholeExtent[2]) ? 0 : -inIncs[1];
       useYMax = ((idxY + outExt[2]) >= wholeExtent[3]) ? 0 : inIncs[1];
-      for (idxX = 0; idxX < maxX; idxX++)
+      for (idxX = 0; idxX <= maxX; idxX++)
 	{
 	useXMin = ((idxX + outExt[0]) <= wholeExtent[0]) ? 0 : -inIncs[0];
 	useXMax = ((idxX + outExt[0]) >= wholeExtent[1]) ? 0 : inIncs[0];

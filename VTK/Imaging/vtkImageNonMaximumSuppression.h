@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageNonMaximumSuppression.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-17 14:30:05 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1998-01-19 20:17:16 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -62,8 +62,6 @@ public:
   static vtkImageNonMaximumSuppression *New() {return new vtkImageNonMaximumSuppression;};
   const char *GetClassName() {return "vtkImageNonMaximumSuppression";};
   
-  void SetNumberOfFilteredAxes(int num);
-
   // Description:
   // Rename the inputs.
   void SetMagnitudeInput(vtkImageCache *input) {this->SetInput1(input);};
@@ -78,15 +76,21 @@ public:
   vtkGetMacro(HandleBoundaries, int);
   vtkBooleanMacro(HandleBoundaries, int);
 
+  // Description:
+  // Determines how the input is interpreted (set of 2d slices ...)
+  vtkSetClampMacro(Dimensionality,int,2,3);
+  vtkGetMacro(Dimensionality,int);
   
 protected:
   int HandleBoundaries;
-
+  int Dimensionality;
+  
   void ExecuteImageInformation();
-  void ComputeRequiredInputUpdateExtent(int whichInput);
-  void Execute(vtkImageRegion *inRegion1, vtkImageRegion *inRegion2, 
-	       vtkImageRegion *outRegion);
-
+  virtual void ComputeRequiredInputUpdateExtent(int inExt[6], int outExt[6],
+						int whichInput);
+  void ThreadedExecute(vtkImageData **inDatas, vtkImageData *outData,
+		       int extent[6], int id);
+  
 };
 
 #endif
