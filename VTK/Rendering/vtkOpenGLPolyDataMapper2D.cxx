@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLPolyDataMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-24 16:11:01 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2002-02-15 15:56:19 $
+  Version:   $Revision: 1.34 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -29,7 +29,7 @@
 #include "vtkgluPickMatrix.h"
 
 #ifndef VTK_IMPLEMENT_MESA_CXX
-vtkCxxRevisionMacro(vtkOpenGLPolyDataMapper2D, "$Revision: 1.33 $");
+vtkCxxRevisionMacro(vtkOpenGLPolyDataMapper2D, "$Revision: 1.34 $");
 vtkStandardNewMacro(vtkOpenGLPolyDataMapper2D);
 #endif
 
@@ -93,7 +93,9 @@ void vtkOpenGLPolyDataMapper2D::RenderOpaqueGeometry(vtkViewport* viewport,
     }
 
   // Get the position of the actor
-  int *size = viewport->GetSize();
+  int size[2];
+  size[0] = viewport->GetSize()[0];
+  size[1] = viewport->GetSize()[1];
   float *vport = viewport->GetViewport();
   int* actorPos = 
     actor->GetPositionCoordinate()->GetComputedViewportValue(viewport);
@@ -105,11 +107,11 @@ void vtkOpenGLPolyDataMapper2D::RenderOpaqueGeometry(vtkViewport* viewport,
   visVP[1] = (vport[1] >= tileViewPort[1]) ? vport[1] : tileViewPort[1];
   visVP[2] = (vport[2] <= tileViewPort[2]) ? vport[2] : tileViewPort[2];
   visVP[3] = (vport[3] <= tileViewPort[3]) ? vport[3] : tileViewPort[3];
-  if (visVP[0] == visVP[2])
+  if (visVP[0] >= visVP[2])
     {
     return;
     }
-  if (visVP[1] == visVP[3])
+  if (visVP[1] >= visVP[3])
     {
     return;
     }
