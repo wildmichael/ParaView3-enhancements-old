@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: Cylinder.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:27:37 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-06-25 13:55:35 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,6 +25,8 @@
 #include "vtkRenderer.h"
 #include "vtkRenderWindow.h"
 #include "vtkRenderWindowInteractor.h"
+#include "vtkProperty.h"
+#include "vtkCamera.h"
 
 int main(int argc, char *argv[])
 {
