@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSpatialRepresentationFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:22:02 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1999-09-29 00:43:46 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -123,7 +123,7 @@ public:
   virtual void SetInput(vtkDataSet *input);
   virtual void SetInput(vtkImageData *cache)
     {vtkImageToStructuredPoints *tmp = cache->MakeImageToStructuredPoints();
-    this->SetInput(tmp->GetOutput()); tmp->Delete();}
+    this->SetInput((vtkDataSet *)tmp->GetOutput()); tmp->Delete();}
   vtkDataSet *GetInput();
 
 protected:

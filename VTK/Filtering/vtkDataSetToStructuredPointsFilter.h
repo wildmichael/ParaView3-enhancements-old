@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetToStructuredPointsFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:29 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1999-09-29 00:43:45 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -65,7 +65,7 @@ public:
   virtual void SetInput(vtkDataSet *input);
   virtual void SetInput(vtkImageData *cache)
     {vtkImageToStructuredPoints *tmp = cache->MakeImageToStructuredPoints();
-    this->SetInput(tmp->GetOutput()); tmp->Delete();}
+    this->SetInput(((vtkDataSet *)tmp->GetOutput())); tmp->Delete();}
   vtkDataSet *GetInput();
   
 protected:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProbeFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:52 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1999-09-29 00:43:46 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -66,7 +66,7 @@ public:
   vtkDataSet *GetSource();
   void SetSource(vtkImageData *cache) 
     {vtkImageToStructuredPoints *tmp = cache->MakeImageToStructuredPoints();
-    this->SetSource(tmp->GetOutput()); tmp->Delete();}
+    this->SetSource((vtkDataSet *)tmp->GetOutput()); tmp->Delete();}
 
 protected:
   vtkProbeFilter();
