@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThinPlateSplineTransform.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-30 23:03:57 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2000-05-03 20:53:36 $
+  Version:   $Revision: 1.13 $
   Thanks:    Thanks to David G. Gobbi who developed this class 
              based on code from vtkThinPlateSplineMeshWarp.cxx
 	     written by Tim Hutton.
@@ -109,10 +109,6 @@ public:
   unsigned long GetMTime();
 
   // Description:
-  // Prepare the transformation for application.
-  void Update();
-
-  // Description:
   // This method does no type checking, use DeepCopy instead.
   void InternalDeepCopy(vtkGeneralTransform *transform);
 
@@ -125,6 +121,10 @@ protected:
   ~vtkThinPlateSplineTransform();
   vtkThinPlateSplineTransform(const vtkThinPlateSplineTransform&) {};
   void operator=(const vtkThinPlateSplineTransform&) {};
+
+  // Description:
+  // Prepare the transformation for application.
+  void InternalUpdate();
 
   void ForwardTransformPoint(const float in[3], float out[3]) {
     vtkWarpTransform::ForwardTransformPoint(in,out); };
@@ -156,11 +156,8 @@ protected:
   float InverseTolerance;
 
   int UpdateRequired;
-  vtkTimeStamp UpdateTime;
   int NumberOfPoints;
   double **MatrixW;
-
-  vtkMutexLock *UpdateMutex;
 };
 
 #endif

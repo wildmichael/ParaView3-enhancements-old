@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLandmarkTransform.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-30 18:19:48 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2000-05-03 20:53:36 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to Tim Hutton and David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -99,9 +99,6 @@ public:
   // Get the MTime.
   unsigned long GetMTime();
 
-  // Update the matrix from the quaternion.
-  void Update();
-
   // Description:
   // This method does no type checking, use DeepCopy instead.
   void InternalDeepCopy(vtkGeneralTransform *transform);
@@ -116,9 +113,8 @@ protected:
   vtkLandmarkTransform(const vtkLandmarkTransform&) {};
   void operator=(const vtkLandmarkTransform&) {};
 
-  int MatrixNeedsUpdate;
-  vtkTimeStamp UpdateTime;
-  vtkMutexLock *UpdateMutex;
+  // Update the matrix from the quaternion.
+  void InternalUpdate();
 
   vtkPoints* SourceLandmarks;
   vtkPoints* TargetLandmarks;

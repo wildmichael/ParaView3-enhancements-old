@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPerspectiveTransform.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-30 18:19:45 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2000-05-03 20:53:35 $
+  Version:   $Revision: 1.16 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -63,24 +63,6 @@ public:
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
-  // Apply the transformation to a coordinate.  You can use the same 
-  // array to store both the input and output point.
-  void TransformPoint(const float in[3], float out[3]);
-
-  // Description:
-  // Apply the transformation to a double-precision coordinate.
-  // You can use the same array to store both the input and output point.
-  void TransformPoint(const double in[3], double out[3]);
-
-  // Description:
-  // Apply the transformation to an (x,y,z) coordinate.
-  // Use this if you are programming in python, tcl or Java.
-  float *TransformPoint(float x, float y, float z) {
-    return this->vtkGeneralTransform::TransformPoint(x,y,z); }
-  float *TransformPoint(const float point[3]) {
-    return this->TransformPoint(point[0],point[1],point[2]); };
-
-  // Description:
   // Apply the transformation to a series of points, and append the
   // results to outPts.  
   void TransformPoints(vtkPoints *inPts, vtkPoints *outPts);
@@ -114,12 +96,7 @@ public:
   vtkMatrix4x4 *GetMatrixPointer() { this->Update(); return this->Matrix; };
 
   // Description:
-  // Get the inverse of this transform.  If you modify this transform,
-  // the returned inverse transform will automatically update.
-  vtkGeneralTransform *GetInverse();
-
-  // Description:
-  // Get the inverse of this transform typecast to a vtkPerspectiveTransform.
+  // Just like GetInverse(), but includestypecast to vtkPerspectiveTransform.
   vtkPerspectiveTransform *GetPerspectiveInverse() {
     return (vtkPerspectiveTransform *)this->GetInverse(); };
 

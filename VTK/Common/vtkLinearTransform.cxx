@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinearTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-30 18:19:38 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2000-05-03 20:53:34 $
+  Version:   $Revision: 1.19 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -41,7 +41,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 =========================================================================*/
 
 #include "vtkLinearTransform.h"
-#include "vtkLinearTransformConcatenation.h"
 #include "vtkMath.h"
 
 //----------------------------------------------------------------------------
@@ -110,55 +109,6 @@ static inline void vtkLinearTransformNormal(T1 mat[4][4],
   vtkMath::Normalize(out);
 }
 
-//------------------------------------------------------------------------
-void vtkLinearTransform::TransformPoint(const float in[3], float out[3])
-{
-  this->Update();
-
-  vtkLinearTransformPoint(this->Matrix->Element,in,out);
-}
-
-//------------------------------------------------------------------------
-void vtkLinearTransform::TransformPoint(const double in[3], double out[3])
-{
-  this->Update();
-
-  vtkLinearTransformPoint(this->Matrix->Element,in,out);
-}
-
-//------------------------------------------------------------------------
-void vtkLinearTransform::TransformNormal(const float in[3], float out[3])
-{
-  this->Update();
-
-  vtkLinearTransformNormal(this->Matrix->Element,in,out);
-}
-
-//------------------------------------------------------------------------
-void vtkLinearTransform::TransformNormal(const double in[3], double out[3])
-{
-  this->Update();
-
-  vtkLinearTransformNormal(this->Matrix->Element,in,out);
-}
-
-//------------------------------------------------------------------------
-void vtkLinearTransform::TransformVector(const float in[3], float out[3])
-{
-  this->Update();
-
-  vtkLinearTransformVector(this->Matrix->Element,in,out);
-}
-
-//------------------------------------------------------------------------
-
-void vtkLinearTransform::TransformVector(const double in[3], double out[3])
-{
-  this->Update();
-
-  vtkLinearTransformVector(this->Matrix->Element,in,out);
-}
-
 //----------------------------------------------------------------------------
 // These four functions are definitely not thread safe, and should
 // really only be called from python or tcl.
@@ -221,6 +171,34 @@ void vtkLinearTransform::InternalTransformPoint(const double in[3],
 						double out[3])
 {
   vtkLinearTransformPoint(this->Matrix->Element,in,out);
+}
+
+//------------------------------------------------------------------------
+void vtkLinearTransform::InternalTransformNormal(const float in[3], 
+						 float out[3])
+{
+  vtkLinearTransformNormal(this->Matrix->Element,in,out);
+}
+
+//------------------------------------------------------------------------
+void vtkLinearTransform::InternalTransformNormal(const double in[3], 
+						 double out[3])
+{
+  vtkLinearTransformNormal(this->Matrix->Element,in,out);
+}
+
+//------------------------------------------------------------------------
+void vtkLinearTransform::InternalTransformVector(const float in[3], 
+						 float out[3])
+{
+  vtkLinearTransformVector(this->Matrix->Element,in,out);
+}
+
+//------------------------------------------------------------------------
+void vtkLinearTransform::InternalTransformVector(const double in[3], 
+						 double out[3])
+{
+  vtkLinearTransformVector(this->Matrix->Element,in,out);
 }
 
 //----------------------------------------------------------------------------
@@ -332,17 +310,5 @@ void vtkLinearTransform::TransformVectors(vtkVectors *inNms,
     }
 }
 
-//----------------------------------------------------------------------------
-vtkGeneralTransform *vtkLinearTransform::GetInverse()
-{
-  if (this->MyInverse == NULL)
-    {
-    vtkLinearTransformConcatenation *inverse = 
-      vtkLinearTransformConcatenation::New();
-    inverse->Concatenate(this);
-    inverse->Inverse();
-    this->MyInverse = inverse;
-    }
-  return this->MyInverse;
-}
+
 
