@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAsynchronousBuffer.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-17 21:25:34 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-08-17 21:31:18 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -163,7 +163,7 @@ void vtkAsynchronousBuffer::NonblockingUpdateInformation()
     }
   output->SetPipelineMTime(t1);
   // Is it up to date? Really? Oh well.
-  output->SetEstimatedWholeMemorySize(input->GetEstimatedMemorySize());
+  output->SetEstimatedWholeMemorySize(input->GetEstimatedWholeMemorySize());
   // Copy data specific information
   output->CopyInformation(input);
 }
