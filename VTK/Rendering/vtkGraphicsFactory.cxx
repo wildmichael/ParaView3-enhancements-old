@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGraphicsFactory.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:17:42 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2001-11-15 18:03:14 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -46,7 +46,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "stdlib.h"
 #include "vtkDebugLeaks.h"
 
-#ifdef VTK_USE_OGLR
+// if using some sort of opengl, then include these files
+#if defined(VTK_USE_OGLR) || defined(_WIN32) || defined(VTK_USE_QUARTZ)
 #include "vtkOpenGLActor.h"
 #include "vtkOpenGLCamera.h"
 #include "vtkOpenGLImageActor.h"
@@ -54,43 +55,29 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkOpenGLProperty.h"
 #include "vtkOpenGLPolyDataMapper.h"
 #include "vtkOpenGLRenderer.h"
-#include "vtkXOpenGLRenderWindow.h"
 #include "vtkOpenGLTexture.h"
 #include "vtkOpenGLVolumeTextureMapper2D.h"
 #include "vtkOpenGLVolumeRayCastMapper.h"
 #endif
 
+// Win32 specific stuff
 #ifdef _WIN32
-#include "vtkOpenGLActor.h"
-#include "vtkOpenGLCamera.h"
-#include "vtkOpenGLImageActor.h"
-#include "vtkOpenGLLight.h"
-#include "vtkOpenGLProperty.h"
-#include "vtkOpenGLPolyDataMapper.h"
-#include "vtkOpenGLRenderer.h"
 #include "vtkWin32OpenGLRenderWindow.h"
-#include "vtkOpenGLTexture.h"
-#include "vtkOpenGLVolumeTextureMapper2D.h"
-#include "vtkOpenGLVolumeRayCastMapper.h"
 #include "vtkWin32RenderWindowInteractor.h"
-#else
+#endif
+
+// Apple OSX stuff
 #ifdef VTK_USE_QUARTZ
-#include "vtkOpenGLActor.h"
-#include "vtkOpenGLCamera.h"
-#include "vtkOpenGLImageActor.h"
-#include "vtkOpenGLLight.h"
-#include "vtkOpenGLProperty.h"
-#include "vtkOpenGLPolyDataMapper.h"
-#include "vtkOpenGLRenderer.h"
 #include "vtkQuartzRenderWindow.h"
-#include "vtkOpenGLTexture.h"
-#include "vtkOpenGLVolumeTextureMapper2D.h"
-#include "vtkOpenGLVolumeRayCastMapper.h"
 #include "vtkQuartzRenderWindowInteractor.h"
-#else
+#endif
+
+// X OpenGL stuff
+#ifdef VTK_USE_OGLR
 #include "vtkXRenderWindowInteractor.h"
+#include "vtkXOpenGLRenderWindow.h"
 #endif
-#endif
+
 
 const char *vtkGraphicsFactory::GetRenderLibrary()
 {
