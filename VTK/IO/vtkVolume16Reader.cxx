@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume16Reader.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:58 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2001-07-09 11:37:23 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -601,7 +601,7 @@ void vtkVolume16Reader::AdjustSpacingAndOrigin (int dimensions[3], float Spacing
     {
     if (Spacing[i] < 0)
       {
-      origin[i] = origin[i] + Spacing[i] * (dimensions[i] - 1);
+      origin[i] = origin[i] + Spacing[i] * dimensions[i];
       Spacing[i] = -Spacing[i];
       }
     }

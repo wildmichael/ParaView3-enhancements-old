@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-19 19:03:28 $
-  Version:   $Revision: 1.82 $
+  Date:      $Date: 2001-07-09 11:37:23 $
+  Version:   $Revision: 1.83 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -933,7 +933,7 @@ void vtkImageReader::ComputeTransformedOrigin (float origin[3])
       if (transformedSpacing[i] < 0)
 	{
 	origin[i] = transformedOrigin[i] + transformedSpacing[i]*
-	  (transformedExtent[i*2+1] -  transformedExtent[i*2]);
+	  (transformedExtent[i*2+1] -  transformedExtent[i*2] + 1);
 	}
       else
 	{
