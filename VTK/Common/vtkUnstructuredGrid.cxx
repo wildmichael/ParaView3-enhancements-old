@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-09-26 20:53:12 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 1996-11-13 13:39:49 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -165,7 +165,7 @@ vtkCell *vtkUnstructuredGrid::GetCell(int cellId)
      break;
 
     case VTK_POLY_VERTEX:
-     pvertex.PointIds.Reset(); //reset number of points
+     pvertex.Points.Reset(); pvertex.PointIds.Reset(); //reset number of points
      cell = &pvertex;
      break;
 
@@ -174,7 +174,7 @@ vtkCell *vtkUnstructuredGrid::GetCell(int cellId)
       break;
 
     case VTK_POLY_LINE:
-      pline.PointIds.Reset(); //reset number of points
+      pline.Points.Reset(); pline.PointIds.Reset(); //reset number of points
       cell = &pline;
       break;
 
@@ -183,7 +183,7 @@ vtkCell *vtkUnstructuredGrid::GetCell(int cellId)
       break;
 
     case VTK_TRIANGLE_STRIP:
-      strip.PointIds.Reset(); //reset number of points
+      strip.Points.Reset(); strip.PointIds.Reset(); //reset number of points
       cell = &strip;
       break;
 
@@ -196,7 +196,7 @@ vtkCell *vtkUnstructuredGrid::GetCell(int cellId)
       break;
 
     case VTK_POLYGON:
-      poly.PointIds.Reset(); //reset number of points
+      poly.Points.Reset(); poly.PointIds.Reset(); //reset number of points
       cell = &poly;
       break;
 
@@ -218,8 +218,8 @@ vtkCell *vtkUnstructuredGrid::GetCell(int cellId)
 
   for (i=0; i<numPts; i++)
     {
-    cell->PointIds.SetId(i,pts[i]);
-    cell->Points.SetPoint(i,this->Points->GetPoint(pts[i]));
+    cell->PointIds.InsertId(i,pts[i]);
+    cell->Points.InsertPoint(i,this->Points->GetPoint(pts[i]));
     }
 
   return cell;
