@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMarchingCubes.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 21:20:43 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1997-11-12 22:00:02 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -154,6 +154,8 @@ public:
   int GetLocatorPoint(int cellX, int cellY, int edge);
   void AddLocatorPoint(int cellX, int cellY, int edge, int ptId);
   void IncrementLocatorZ();
+
+  void Update();
   
 protected:
   vtkImageCache *Input;

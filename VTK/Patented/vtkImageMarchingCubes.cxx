@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMarchingCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-08-21 15:40:11 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1997-11-12 21:59:57 $
+  Version:   $Revision: 1.9 $
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -89,6 +89,26 @@ unsigned long vtkImageMarchingCubes::GetMTime()
   return mTime;
 }
 
+void vtkImageMarchingCubes::Update()
+{
+  if ( ! this->Input)
+    {
+    vtkErrorMacro("No Input");
+    return;
+    }
+  
+  // Make sure virtual getMTime method is called since subclasses will overload
+  if ( this->GetMTime() > this->ExecuteTime ||
+       this->Input->GetPipelineMTime() > this->ExecuteTime)
+    {
+    if ( this->StartMethod ) (*this->StartMethod)(this->StartMethodArg);
+    if (this->Output) this->Output->Initialize(); //clear output
+    this->Execute();
+    this->ExecuteTime.Modified();
+    this->SetDataReleased(0);
+    if ( this->EndMethod ) (*this->EndMethod)(this->EndMethodArg);
+    }
+}
 
 //----------------------------------------------------------------------------
 void vtkImageMarchingCubes::Execute()
@@ -101,6 +121,7 @@ void vtkImageMarchingCubes::Execute()
   int numContours=this->ContourValues->GetNumberOfContours();
   float *values=this->ContourValues->GetValues();
   
+  vtkDebugMacro("Starting Execute Method");
   if ( ! this->Input)
     {
     vtkErrorMacro(<< "No Input");
@@ -685,6 +706,7 @@ void vtkImageMarchingCubes::DeleteLocator()
   if (this->LocatorPointIds)
     {
     delete this->LocatorPointIds;
+    this->LocatorPointIds = NULL;
     }
 }
 
