@@ -1,17 +1,14 @@
 /*=========================================================================
 
-  Program:   Visualization Toolkit
+  Program:   ParaView
   Module:    $RCSfile: vtkVRMLSource.cxx,v $
-  Language:  C++
-  Date:      $Date: 2003-05-09 17:08:23 $
-  Version:   $Revision: 1.6 $
 
-  Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
+  Copyright (c) Kitware, Inc.
   All rights reserved.
-  See Copyright.txt or http://www.kitware.com/Copyright.htm for details.
+  See Copyright.txt or http://www.paraview.org/HTML/Copyright.html for details.
 
-     This software is distributed WITHOUT ANY WARRANTY; without even 
-     the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR 
+     This software is distributed WITHOUT ANY WARRANTY; without even
+     the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
      PURPOSE.  See the above copyright notice for more information.
 
 =========================================================================*/
@@ -32,7 +29,7 @@
 #include "vtkUnsignedCharArray.h"
 
 
-vtkCxxRevisionMacro(vtkVRMLSource, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkVRMLSource, "$Revision: 1.7 $");
 vtkStandardNewMacro(vtkVRMLSource);
 
 //------------------------------------------------------------------------------

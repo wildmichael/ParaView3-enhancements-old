@@ -1,12 +1,15 @@
-// -*- c++ -*-
-
 /*=========================================================================
 
-  Program:   Visualization Toolkit
+  Program:   ParaView
   Module:    $RCSfile: vtkIceTRenderer.h,v $
-  Language:  C++
-  Date:      $Date: 2003-10-07 20:14:58 $
-  Version:   $Revision: 1.4 $
+
+  Copyright (c) Kitware, Inc.
+  All rights reserved.
+  See Copyright.txt or http://www.paraview.org/HTML/Copyright.html for details.
+
+     This software is distributed WITHOUT ANY WARRANTY; without even
+     the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
+     PURPOSE.  See the above copyright notice for more information.
 
 =========================================================================*/
 // .NAME vtkIceTRenderer

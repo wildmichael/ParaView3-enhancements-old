@@ -1,17 +1,14 @@
 /*=========================================================================
 
-  Program:   Visualization Toolkit
+  Program:   ParaView
   Module:    $RCSfile: vtkStructuredCacheFilter.cxx,v $
-  Language:  C++
-  Date:      $Date: 2003-10-21 18:11:29 $
-  Version:   $Revision: 1.3 $
 
-  Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
+  Copyright (c) Kitware, Inc.
   All rights reserved.
-  See Copyright.txt or http://www.kitware.com/Copyright.htm for details.
+  See Copyright.txt or http://www.paraview.org/HTML/Copyright.html for details.
 
-     This software is distributed WITHOUT ANY WARRANTY; without even 
-     the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR 
+     This software is distributed WITHOUT ANY WARRANTY; without even
+     the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
      PURPOSE.  See the above copyright notice for more information.
 
 =========================================================================*/
@@ -31,7 +28,7 @@
 #include "vtkTableExtentTranslator.h"
 #include "vtkTimerLog.h"
 
-vtkCxxRevisionMacro(vtkStructuredCacheFilter, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkStructuredCacheFilter, "$Revision: 1.4 $");
 vtkStandardNewMacro(vtkStructuredCacheFilter);
 
 //----------------------------------------------------------------------------

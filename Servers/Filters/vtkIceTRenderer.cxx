@@ -1,6 +1,20 @@
+/*=========================================================================
+
+  Program:   ParaView
+  Module:    $RCSfile: vtkIceTRenderer.cxx,v $
+
+  Copyright (c) Kitware, Inc.
+  All rights reserved.
+  See Copyright.txt or http://www.paraview.org/HTML/Copyright.html for details.
+
+     This software is distributed WITHOUT ANY WARRANTY; without even
+     the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
+     PURPOSE.  See the above copyright notice for more information.
+
+=========================================================================*/
 /* -*- c++ -*- *******************************************************/
 
-/* $Id: vtkIceTRenderer.cxx,v 1.6 2003-12-15 16:25:29 henderson Exp $ */
+/* $Id: vtkIceTRenderer.cxx,v 1.7 2003-12-15 20:21:32 king Exp $ */
 
 #include "vtkIceTRenderer.h"
 
@@ -24,7 +38,7 @@ static vtkIceTRenderer *currentRenderer;
 // vtkIceTRenderer implementation.
 //******************************************************************
 
-vtkCxxRevisionMacro(vtkIceTRenderer, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkIceTRenderer, "$Revision: 1.7 $");
 vtkStandardNewMacro(vtkIceTRenderer);
 
 vtkIceTRenderer::vtkIceTRenderer()
