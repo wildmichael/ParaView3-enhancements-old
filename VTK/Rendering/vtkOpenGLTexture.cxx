@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLTexture.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:04:25 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1998-03-27 15:37:43 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -72,7 +72,7 @@ void vtkOpenGLTexture::Load(vtkRenderer *vtkNotUsed(ren))
     unsigned char *resultData;
     int xsize, ysize;
     unsigned short xs,ys;
-    unsigned int tempIndex;
+    GLuint tempIndex;
 
     // get some info
     size = this->Input->GetDimensions();
@@ -238,7 +238,7 @@ void vtkOpenGLTexture::Load(vtkRenderer *vtkNotUsed(ren))
 
   // execute the display list that uses creates the texture
 #ifdef GL_VERSION_1_1
-  glBindTexture(GL_TEXTURE_2D, Index);
+  glBindTexture(GL_TEXTURE_2D, this->Index);
 #else
   glCallList ((GLuint) this->Index);
 #endif
