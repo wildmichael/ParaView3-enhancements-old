@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTclUtil.h,v $
   Language:  C++
-  Date:      $Date: 1996-11-11 17:59:50 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1997-04-16 18:48:13 $
+  Version:   $Revision: 1.9 $
 
 This file is part of the Visualization Toolkit. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -22,7 +22,8 @@ extern int vtkTclDeleteObjectFromHash(ClientData cd);
 extern void vtkTclGenericDeleteObject(ClientData cd);
 extern void vtkTclGetObjectFromPointer(Tcl_Interp *interp,void *temp,
 			  int command(ClientData, Tcl_Interp *,int, char *[]));
-extern void *vtkTclGetPointerFromObject(char *name,char *result_type);
+extern void *vtkTclGetPointerFromObject(char *name,char *result_type,
+					Tcl_Interp *interp);
 extern void vtkTclVoidFunc(void *);
 extern void vtkTclVoidFuncArgDelete(void *);
 extern void vtkTclListInstances(Tcl_Interp *interp, ClientData arg);
