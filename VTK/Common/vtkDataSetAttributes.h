@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetAttributes.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-04 14:20:39 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 2002-01-11 22:21:57 $
+  Version:   $Revision: 1.49 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -433,7 +433,6 @@ public:
 
     //Determine whether data is available
     int IsAttributePresent(int attrType); //true/false attributes specified
-    int IsFieldPresent(const char *name); //return idx into field arrays
 
     friend class vtkDataSetAttributes;
 

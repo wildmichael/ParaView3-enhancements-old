@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFieldData.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-04 14:20:43 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2002-01-11 22:21:57 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -443,7 +443,6 @@ public:
       }
     
   protected:
-    int IsInList(int index);
 
     int* List;
     int ListSize;
@@ -454,7 +453,6 @@ public:
   {
   public:
 
-    Iterator();
     Iterator(const Iterator& source);
     Iterator& operator=(const Iterator& source);
     virtual ~Iterator();
