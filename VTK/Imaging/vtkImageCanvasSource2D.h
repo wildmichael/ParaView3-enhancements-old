@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCanvasSource2D.h,v $
   Language:  C++
-  Date:      $Date: 2002-03-11 20:10:45 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2002-10-08 18:56:27 $
+  Version:   $Revision: 1.30 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -83,6 +83,14 @@ public:
     { float p1[3], p2[3]; 
     p1[0] = x1; p1[1] = y1; p1[2] = z1; p2[0] = x2; p2[1] = y2; p2[2] = z2;
     this->DrawSegment3D(p1, p2);}
+
+  // Description:
+  // Draw subimage of the input image in the canvas at position x0 and
+  // y0. The subimage is defined with sx, sy, width, and height.
+  void DrawImage(int x0, int y0, vtkImageData* i)
+    { this->DrawImage(x0, y0, i, -1, -1, -1, -1); }
+  void DrawImage(int x0, int y0, vtkImageData*, int sx, int sy,
+                 int width, int height);
 
   // Description:
   // Fill a colored area with another color. (like connectivity)
