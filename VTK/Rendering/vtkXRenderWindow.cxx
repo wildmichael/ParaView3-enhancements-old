@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:08:32 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 1999-10-22 19:14:25 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -183,6 +183,16 @@ int *vtkXRenderWindow::GetPosition(void)
 // Get this RenderWindow's X display id.
 Display *vtkXRenderWindow::GetDisplayId()
 {
+  // get the default display connection 
+  if (!this->DisplayId)
+    {
+    this->DisplayId = XOpenDisplay((char *)NULL); 
+    if (this->DisplayId == NULL) 
+      {
+      vtkErrorMacro(<< "bad X server connection.\n");
+      }
+    this->OwnDisplay = 1;
+    }
   vtkDebugMacro(<< "Returning DisplayId of " << (void *)this->DisplayId << "\n"); 
 
   return this->DisplayId;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:08:32 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 1999-10-22 19:14:24 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -66,7 +66,7 @@ public:
   
   // Description:
   // Xwindow get set functions
-  virtual void *GetGenericDisplayId() {return (void *)this->DisplayId;};
+  virtual void *GetGenericDisplayId() {return (void *)this->GetDisplayId();};
   virtual void *GetGenericWindowId()  {return (void *)this->WindowId;};
   virtual void *GetGenericParentId()  {return (void *)this->ParentId;};
   virtual void *GetGenericContext();
