@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObject.h,v $
   Language:  C++
-  Date:      $Date: 1995-08-15 17:36:09 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1995-09-06 18:10:14 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,7 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-// .NAME vtkObject - abstract base class for most of vtk
+// .NAME vtkObject - abstract base class for most of the vtk objects
 // .SECTION Description
 // vtkObject is the base class for many objects in the visualization 
 // toolkit. vtkObject provides methods for tracking modification times, 
