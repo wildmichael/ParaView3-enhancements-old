@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:10:35 $
-  Version:   $Revision: 1.75 $
+  Date:      $Date: 2000-08-02 13:46:12 $
+  Version:   $Revision: 1.76 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -58,7 +58,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
 
-//------------------------------------------------------------------------------
+//----------------------------------------------------------------------------
 vtkUnstructuredGrid* vtkUnstructuredGrid::New()
 {
   // First try to create the object from the vtkObjectFactory
@@ -579,6 +579,7 @@ void vtkUnstructuredGrid::SetUpdateExtent(int piece, int numPieces)
 {
   this->UpdatePiece = piece;
   this->UpdateNumberOfPieces = numPieces;
+  this->UpdateExtentInitialized = 1;
 }
 
 //----------------------------------------------------------------------------

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-01 13:03:27 $
-  Version:   $Revision: 1.119 $
+  Date:      $Date: 2000-08-02 13:46:12 $
+  Version:   $Revision: 1.120 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -53,7 +53,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
 
-//------------------------------------------------------------------------------
+//----------------------------------------------------------------------------
 vtkPolyData* vtkPolyData::New()
 {
   // First try to create the object from the vtkObjectFactory
@@ -1534,6 +1534,7 @@ void vtkPolyData::SetUpdateExtent(int piece, int numPieces)
 {
   this->UpdatePiece = piece;
   this->UpdateNumberOfPieces = numPieces;
+  this->UpdateExtentInitialized = 1;
 }
 
 //----------------------------------------------------------------------------

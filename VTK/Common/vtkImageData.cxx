@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-07-26 11:41:34 $
-  Version:   $Revision: 1.88 $
+  Date:      $Date: 2000-08-02 13:46:12 $
+  Version:   $Revision: 1.89 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -1580,6 +1580,7 @@ void vtkImageData::SetAxisUpdateExtent(int idx, int min, int max)
     this->UpdateExtent[idx*2+1] = max;
     }
 
+  this->UpdateExtentInitialized = 1;
   if (modified)
     {
     this->Modified();
