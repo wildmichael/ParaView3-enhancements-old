@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkElevationFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-25 16:00:00 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 1999-09-09 01:57:00 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -75,7 +75,7 @@ void vtkElevationFilter::Execute()
 
   if ( ((numPts=input->GetNumberOfPoints()) < 1) )
     {
-    vtkErrorMacro(<< "No input!");
+    //vtkErrorMacro(<< "No input!");
     return;
     }
 
