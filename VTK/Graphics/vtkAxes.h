@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAxes.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-07 13:10:59 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1999-07-30 11:27:08 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -76,6 +76,9 @@ public:
 
 protected:
   void Execute();
+  // This source does not know how to generate pieces yet.
+  int ComputeDivisionExtents(vtkDataObject *output, 
+			     int idx, int numDivisions);
 
   float Origin[3];
   float ScaleFactor;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAxes.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-25 15:59:57 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1999-07-30 11:26:56 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -152,6 +152,23 @@ void vtkAxes::Execute()
 
   output->SetLines(newLines);
   newLines->Delete();
+}
+
+//----------------------------------------------------------------------------
+// This source does not know how to generate pieces yet.
+int vtkAxes::ComputeDivisionExtents(vtkDataObject *vtkNotUsed(output),
+				      int idx, int numDivisions)
+{
+  if (idx == 0 && numDivisions == 1)
+    {
+    // I will give you the whole thing
+    return 1;
+    }
+  else
+    {
+    // I have nothing to give you for this piece.
+    return 0;
+    }
 }
 
 void vtkAxes::PrintSelf(ostream& os, vtkIndent indent)
