@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-24 09:39:37 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1995-07-26 20:44:07 $
+  Version:   $Revision: 1.22 $
 
 This file is part of the Visualization Toolkit. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -527,7 +527,8 @@ void vtkRenderWindow::SaveImageAsPPM()
   int    *size;
   FILE   *fp;
   unsigned char *buffer;
- 
+  int i;
+
   // get the size
   size = this->GetSize();
   // get the data
@@ -548,7 +549,10 @@ void vtkRenderWindow::SaveImageAsPPM()
     fprintf(fp,"P6\n%i %i\n255\n",size[0],size[1]);
  
     // now write the binary info 
-    fwrite(buffer,3,size[0]*size[1],fp);
+    for (i = size[1]-1; i >= 0; i--)
+      {
+      fwrite(buffer + i*size[0]*3,3,size[0],fp);
+      }
     fclose(fp);
     }
 
