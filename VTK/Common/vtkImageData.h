@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-01 07:22:50 $
-  Version:   $Revision: 1.73 $
+  Date:      $Date: 2000-09-21 15:26:39 $
+  Version:   $Revision: 1.74 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -80,6 +80,10 @@ public:
   // Return what type of dataset this is.
   int GetDataObjectType() {return VTK_IMAGE_DATA;};
 
+  // Description:
+  // This update method will supply the ghost level arrays if they are requested.
+  void UpdateData();
+  
   // Description:
   // Standard vtkDataSet API methods. See vtkDataSet for more information.
   int GetNumberOfCells();
