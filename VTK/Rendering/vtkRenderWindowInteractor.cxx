@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkRenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-01-02 11:51:50 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1995-01-15 21:56:34 $
+  Version:   $Revision: 1.10 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -29,8 +29,8 @@ vlRenderWindowInteractor::vlRenderWindowInteractor()
   this->LightFollowCamera = 1;
   this->Initialized = 0;
 
-  this->Picker = this->CreateDefaultPicker();
   this->SelfCreatedPicker = 0;
+  this->Picker = this->CreateDefaultPicker();
   this->OutlineActor = NULL;
   this->OutlineMapper.SetInput(this->Outline);
   this->PickedRenderer = NULL;
