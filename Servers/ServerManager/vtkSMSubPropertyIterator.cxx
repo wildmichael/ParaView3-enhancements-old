@@ -19,7 +19,7 @@
 #include "vtkSMPropertyInternals.h"
 
 vtkStandardNewMacro(vtkSMSubPropertyIterator);
-vtkCxxRevisionMacro(vtkSMSubPropertyIterator, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkSMSubPropertyIterator, "$Revision: 1.2 $");
 
 struct vtkSMSubPropertyIteratorInternals
 {
@@ -94,7 +94,6 @@ void vtkSMSubPropertyIterator::Next()
     return;
     }
 
-  // If we are still in the root property, move to the next element.
   if (this->Internals->SubPropertyIterator != 
       this->Property->PInternals->SubProperties.end())
     {

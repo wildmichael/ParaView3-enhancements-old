@@ -14,16 +14,18 @@
 =========================================================================*/
 #include "vtkSMDomain.h"
 
-vtkCxxRevisionMacro(vtkSMDomain, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkSMDomain, "$Revision: 1.2 $");
 
 //---------------------------------------------------------------------------
 vtkSMDomain::vtkSMDomain()
 {
+  this->XMLName = 0;
 }
 
 //---------------------------------------------------------------------------
 vtkSMDomain::~vtkSMDomain()
 {
+  this->SetXMLName(0);
 }
 
 //---------------------------------------------------------------------------
