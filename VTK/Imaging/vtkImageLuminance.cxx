@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageLuminance.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-30 18:37:46 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-08-18 18:38:11 $
+  Version:   $Revision: 1.9 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -43,15 +43,10 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 //----------------------------------------------------------------------------
-// This method tells the superclass that the first axis will collapse.
-void vtkImageLuminance::ExecuteInformation()
+// This method overrides information set by parent's ExecuteInformation.
+void vtkImageLuminance::ExecuteImageInformation()
 {
   this->GetOutput()->SetNumberOfScalarComponents(1);
-
-  this->GetOutput()->SetOrigin(this->GetInput()->GetOrigin());
-  this->GetOutput()->SetSpacing(this->GetInput()->GetSpacing());
-  this->GetOutput()->SetWholeExtent(this->GetInput()->GetWholeExtent());
-  this->GetOutput()->SetScalarType(this->GetInput()->GetScalarType());
 }
 
 //----------------------------------------------------------------------------
