@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSynchronizedTemplates2D.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:17 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2001-01-17 13:39:03 $
+  Version:   $Revision: 1.12 $
 
 
 
@@ -67,11 +67,11 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #ifndef __vtkSynchronizedTemplates2D_h
 #define __vtkSynchronizedTemplates2D_h
 
-#include "vtkStructuredPointsToPolyDataFilter.h"
+#include "vtkImageToPolyDataFilter.h"
 #include "vtkContourValues.h"
 #include "vtkKitwareContourFilter.h"
 
-class VTK_EXPORT vtkSynchronizedTemplates2D : public vtkStructuredPointsToPolyDataFilter
+class VTK_EXPORT vtkSynchronizedTemplates2D : public vtkPolyDataSource
 {
 public:
   static vtkSynchronizedTemplates2D *New();
@@ -79,6 +79,11 @@ public:
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
+  // Set / get the input data or filter.
+  void SetInput(vtkImageData *input);
+  vtkImageData *GetInput();
+  
+// Description:
   // Because we delegate to vtkContourValues
   unsigned long int GetMTime();
 
