@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAxes.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-07-03 13:20:06 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1998-08-18 15:58:52 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -162,4 +162,5 @@ void vtkAxes::PrintSelf(ostream& os, vtkIndent indent)
                << this->Origin[1] << ", "
                << this->Origin[2] << ")\n";
   os << indent << "Scale Factor: " << this->ScaleFactor << "\n";
+  os << indent << "Symmetric: " << this->Symmetric << "\n";
 }
