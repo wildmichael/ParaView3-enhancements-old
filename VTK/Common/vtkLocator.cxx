@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLocator.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:35:37 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1995-09-08 12:47:15 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -154,7 +154,7 @@ int vtkLocator::FindClosestPoint(float x[3])
 //  points in this bucket, search 1st level neighbors, and so on,
 //  until closest point found.
 //
-  for (closest=0,minDist2=LARGE_FLOAT,level=0; (closest == 0) && 
+  for (closest=0,minDist2=VTK_LARGE_FLOAT,level=0; (closest == 0) && 
   (level < this->Divisions[0] || level < this->Divisions[1] || 
   level < this->Divisions[2]); level++) 
     {
@@ -258,7 +258,7 @@ int *vtkLocator::MergePoints()
   tol2 = this->Tolerance * this->Tolerance;
   newPtId = 0; // renumbering points
 
-  for (maxDivs=0, hmin=LARGE_FLOAT, i=0; i<3; i++) 
+  for (maxDivs=0, hmin=VTK_LARGE_FLOAT, i=0; i<3; i++) 
     {
     hmin = (this->H[i] < hmin ? this->H[i] : hmin);
     maxDivs = (maxDivs > this->Divisions[i] ? maxDivs : this->Divisions[i]);
@@ -504,7 +504,7 @@ int vtkLocator::InitPointInsertion(vtkPoints *newPts, float bounds[6])
 
   this->InsertionTol2 = this->Tolerance * this->Tolerance;
 
-  for (maxDivs=0, hmin=LARGE_FLOAT, i=0; i<3; i++) 
+  for (maxDivs=0, hmin=VTK_LARGE_FLOAT, i=0; i<3; i++) 
     {
     hmin = (this->H[i] < hmin ? this->H[i] : hmin);
     maxDivs = (maxDivs > this->Divisions[i] ? maxDivs : this->Divisions[i]);

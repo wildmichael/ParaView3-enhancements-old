@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSet.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-09-01 10:51:26 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1995-09-08 12:47:38 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -117,15 +117,15 @@ unsigned long int vtkPointSet::GetMTime()
 }
 
 int vtkPointSet::FindCell(float x[3], vtkCell *cell, float tol2, int& subId,
-                         float pcoords[3], float weights[MAX_CELL_SIZE])
+                         float pcoords[3], float weights[VTK_MAX_CELL_SIZE])
 {
   int i, j;
   int closestCell = -1;
   int ptId, cellId;
-  float dist2, minDist2=LARGE_FLOAT;
-  static vtkIdList cellIds(MAX_CELL_SIZE);
+  float dist2, minDist2=VTK_LARGE_FLOAT;
+  static vtkIdList cellIds(VTK_MAX_CELL_SIZE);
   int sId;
-  float pc[3], w[MAX_CELL_SIZE];
+  float pc[3], w[VTK_MAX_CELL_SIZE];
   float closestPoint[3];
 
   if ( !this->Points ) return -1;

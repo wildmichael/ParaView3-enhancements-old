@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-09-01 09:59:56 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 1995-09-08 12:47:40 $
+  Version:   $Revision: 1.52 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -523,7 +523,7 @@ void vtkPolyData::Allocate(int numCells, int extSize)
 // the PolyData::Allocate() function has been called first or that vertex,
 // line, polygon, and triangle strip arrays have been supplied.
 // Note: will also insert vtkPIXEL, but converts it to vtkQUAD.
-int vtkPolyData::InsertNextCell(int type, int npts, int pts[MAX_CELL_SIZE])
+int vtkPolyData::InsertNextCell(int type, int npts, int pts[VTK_MAX_CELL_SIZE])
 {
   int id = 0;
 

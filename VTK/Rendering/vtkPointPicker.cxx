@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointPicker.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:36:12 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1995-09-08 12:46:28 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -69,7 +69,7 @@ void vtkPointPicker::IntersectWithLine(float p1[3], float p2[3], float tol,
 //  Project each point onto ray.  Keep track of the one within the
 //  tolerance and closest to the eye (and within the clipping range).
 //
-  for (minPtId=(-1),tMin=LARGE_FLOAT,ptId=0; ptId<numPts; ptId++) 
+  for (minPtId=(-1),tMin=VTK_LARGE_FLOAT,ptId=0; ptId<numPts; ptId++) 
     {
     p = input->GetPoint(ptId);
 

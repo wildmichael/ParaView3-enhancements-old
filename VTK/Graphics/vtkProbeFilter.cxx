@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProbeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-09-02 23:21:55 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1995-09-08 12:47:19 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -53,7 +53,7 @@ void vtkProbeFilter::Execute()
   vtkPointData *pd, *outPD;
   
   int numPts, subId;
-  float pcoords[3], weights[MAX_CELL_SIZE];
+  float pcoords[3], weights[VTK_MAX_CELL_SIZE];
   vtkDataSet *source=this->Source, *input=this->Input;
   vtkDataSet *output=this->Output;
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCylinderSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-31 21:22:40 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1995-09-08 12:46:51 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,7 +59,7 @@ void vtkCylinderSource::Execute()
   float xbot[3], tcbot[2], nbot[3];
   float xtop[3], tctop[2], ntop[3];
   int i, idx;
-  int pts[MAX_CELL_SIZE];
+  int pts[VTK_MAX_CELL_SIZE];
   vtkFloatPoints *newPoints; 
   vtkFloatNormals *newNormals;
   vtkFloatTCoords *newTCoords;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:36:17 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1995-09-08 12:46:35 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -95,8 +95,8 @@ void vtkPoints::ComputeBounds()
 
   if ( this->GetMTime() > this->ComputeTime )
     {
-    this->Bounds[0] = this->Bounds[2] = this->Bounds[4] =  LARGE_FLOAT;
-    this->Bounds[1] = this->Bounds[3] = this->Bounds[5] = -LARGE_FLOAT;
+    this->Bounds[0] = this->Bounds[2] = this->Bounds[4] =  VTK_LARGE_FLOAT;
+    this->Bounds[1] = this->Bounds[3] = this->Bounds[5] = -VTK_LARGE_FLOAT;
     for (i=0; i<this->GetNumberOfPoints(); i++)
       {
       x = this->GetPoint(i);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCleanPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-31 21:22:23 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1995-09-08 12:46:43 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -67,7 +67,7 @@ void vtkCleanPolyData::Execute()
   vtkPoints *inPts;
   int *Index;
   int i, j, count;
-  int npts, *pts, updatedPts[MAX_CELL_SIZE];
+  int npts, *pts, updatedPts[VTK_MAX_CELL_SIZE];
   vtkCellArray *inVerts=input->GetVerts(), *newVerts=NULL;
   vtkCellArray *inLines=input->GetLines(), *newLines=NULL;
   vtkCellArray *inPolys=input->GetPolys(), *newPolys=NULL;

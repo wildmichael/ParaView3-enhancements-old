@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalars.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:36:59 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1995-09-08 12:46:30 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -75,8 +75,8 @@ void vtkScalars::ComputeRange()
 
   if ( this->GetMTime() > this->ComputeTime )
     {
-    this->Range[0] =  LARGE_FLOAT;
-    this->Range[1] =  -LARGE_FLOAT;
+    this->Range[0] =  VTK_LARGE_FLOAT;
+    this->Range[1] =  -VTK_LARGE_FLOAT;
     for (i=0; i<this->GetNumberOfScalars(); i++)
       {
       s = this->GetScalar(i);

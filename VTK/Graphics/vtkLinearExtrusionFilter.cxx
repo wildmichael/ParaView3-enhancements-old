@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinearExtrusionFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-09-06 18:05:03 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1995-09-08 12:47:23 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -101,7 +101,7 @@ void vtkLinearExtrusionFilter::Execute()
   vtkFloatPoints *newPts;
   vtkCellArray *newLines=NULL, *newPolys=NULL, *newStrips=NULL;
   vtkCell *cell, *edge;
-  vtkIdList cellIds(MAX_CELL_SIZE), *cellPts;
+  vtkIdList cellIds(VTK_MAX_CELL_SIZE), *cellPts;
   vtkPolyData *output = this->GetOutput();
   vtkPointData *outputPD = output->GetPointData();
   

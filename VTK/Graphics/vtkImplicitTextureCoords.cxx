@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitTextureCoords.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-31 21:22:02 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1995-09-08 12:46:27 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -97,8 +97,8 @@ void vtkImplicitTextureCoords::Execute()
 //
   for (i=0; i<3; i++) //initialize min/max values array
     {
-    min[i] = LARGE_FLOAT;
-    max[i] = -LARGE_FLOAT;
+    min[i] = VTK_LARGE_FLOAT;
+    max[i] = -VTK_LARGE_FLOAT;
     }
   for (ptId=0; ptId<numPts; ptId++) //compute texture coordinates
     {

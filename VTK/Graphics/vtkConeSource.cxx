@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkConeSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-31 21:22:25 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1995-09-08 12:46:45 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,7 +59,7 @@ void vtkConeSource::Execute()
   int numLines, numPolys, numPts;
   float x[3], xbot;
   int i;
-  int pts[MAX_CELL_SIZE];
+  int pts[VTK_MAX_CELL_SIZE];
   vtkFloatPoints *newPoints; 
   vtkCellArray *newLines=0;
   vtkCellArray *newPolys=0;

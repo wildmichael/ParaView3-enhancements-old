@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIdList.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:35:09 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1995-09-08 12:46:37 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -43,7 +43,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 void vtkIdList::DeleteId(int cellId)
 {
-  static vtkIdList tempList(MAX_CELL_SIZE);
+  static vtkIdList tempList(VTK_MAX_CELL_SIZE);
   int i, id;
 
   tempList.Reset();

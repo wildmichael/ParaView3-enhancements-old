@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGlyph3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-09-06 17:49:18 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1995-09-08 12:47:10 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -82,7 +82,7 @@ void vtkGlyph3D::Execute()
   vtkTransform trans;
   vtkCell *cell;
   vtkIdList *cellPts;
-  int npts, pts[MAX_CELL_SIZE];
+  int npts, pts[VTK_MAX_CELL_SIZE];
   int orient, scaleSource, ptIncr, cellId;
   float scale, den;
   vtkMath math;

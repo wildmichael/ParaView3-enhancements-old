@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCutter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-09-02 14:14:15 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1995-09-08 12:46:50 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -71,7 +71,7 @@ void vtkCutter::Execute()
 {
   int cellId, i;
   vtkFloatPoints *cellPts;
-  vtkFloatScalars cellScalars(MAX_CELL_SIZE);
+  vtkFloatScalars cellScalars(VTK_MAX_CELL_SIZE);
   vtkCell *cell;
   vtkFloatScalars *newScalars;
   vtkCellArray *newVerts, *newLines, *newPolys;
