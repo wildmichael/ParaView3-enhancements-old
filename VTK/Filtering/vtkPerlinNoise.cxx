@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPerlinNoise.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-03 17:30:27 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-03-05 20:29:03 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,16 +19,14 @@
 #include "vtkObjectFactory.h"
 #include <math.h>
 
-#ifdef vtkCxxRevisionMacro
-vtkCxxRevisionMacro(vtkPerlinNoise, "$Revision: 1.1 $");
-#endif
+vtkCxxRevisionMacro(vtkPerlinNoise, "$Revision: 1.2 $");
 
 // These functions are from Greg Ward's recursive implementation in 
 // Graphics Gems II.  I've kept the names the same for instructional
 // purposes, and only changed things where optimizations could be made.
 
 static float hermite(float p0, float p1, 
-                      float r0, float r1, float t) 
+                     float r0, float r1, float t) 
 {
   float tt = t*t;
 
@@ -148,11 +146,7 @@ void vtkPerlinNoise::EvaluateGradient(float x[3], float n[3])
 
 void vtkPerlinNoise::PrintSelf(ostream& os, vtkIndent indent)
 {
-#if VTK_MAJOR_VERSION < 4
-  vtkImplicitFunction::PrintSelf(os,indent);
-#else
   this->Superclass::PrintSelf(os,indent);
-#endif
 
   os << indent << "Amplitude: " << this->Amplitude << "\n";
   os << indent << "Frequency: (" 
