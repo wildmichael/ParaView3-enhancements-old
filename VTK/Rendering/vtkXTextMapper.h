@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXTextMapper.h,v $
   Language:  C++
-  Date:      $Date: 1999-02-12 13:54:53 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-02-24 18:34:11 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -76,7 +76,7 @@ public:
 
   // Description:
   // Draw the text to the screen.
-  void Render(vtkViewport* viewport, vtkActor2D* actor);
+  void RenderOverlay(vtkViewport* viewport, vtkActor2D* actor);
 
   // Description:
   // What is the size of the rectangle required to draw this

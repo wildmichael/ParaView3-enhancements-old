@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-02-12 13:54:53 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-02-24 18:34:11 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -124,11 +124,6 @@ int vtkXTextMapper::GetCompositingMode(vtkActor2D* actor)
 
 void vtkXTextMapper::GetSize(vtkViewport* viewport, int *size)
 {
-  if (this->Input == NULL) 
-    {
-    vtkErrorMacro (<<"vtkXTextMapper::Render - No input");
-    }
-  
   // Get the window info
   vtkWindow*  window = viewport->GetVTKWindow();
   Display* displayId = (Display*) window->GetGenericDisplayId();
@@ -207,7 +202,7 @@ void vtkXTextMapper::GetSize(vtkViewport* viewport, int *size)
   this->CurrentFont = font;
 }
 
-void vtkXTextMapper::Render(vtkViewport* viewport, vtkActor2D* actor)
+void vtkXTextMapper::RenderOverlay(vtkViewport* viewport, vtkActor2D* actor)
 {
   if (this->Input == NULL) 
     {

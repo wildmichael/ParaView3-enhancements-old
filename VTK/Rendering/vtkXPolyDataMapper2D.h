@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXPolyDataMapper2D.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-16 21:09:21 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-02-24 18:34:11 $
+  Version:   $Revision: 1.4 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -64,7 +64,7 @@ public:
 
   // Description:
   // Actually draw the poly data.
-  void Render(vtkViewport* viewport, vtkActor2D* actor);
+  void RenderOverlay(vtkViewport* viewport, vtkActor2D* actor);
 
 protected:
   
