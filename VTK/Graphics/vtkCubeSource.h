@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCubeSource.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:43:36 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1998-08-26 12:07:56 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -77,6 +77,9 @@ public:
   vtkSetVector3Macro(Center,float);
   vtkGetVectorMacro(Center,float,3);
 
+  void SetBounds(float xMin, float xMax,
+	         float yMin, float yMax,
+		 float zMin, float zMax);
   void SetBounds(float bounds[6]);
 
 protected:
