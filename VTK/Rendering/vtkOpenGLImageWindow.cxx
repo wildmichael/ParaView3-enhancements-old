@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLImageWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-04-23 12:57:18 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-05-06 01:05:38 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -115,7 +115,7 @@ vtkOpenGLImageWindow::vtkOpenGLImageWindow()
     delete [] this->WindowName;
   this->WindowName = new char[strlen("Visualization Toolkit - OpenGL")+1];
     strcpy( this->WindowName, "Visualization Toolkit - OpenGL" );
-  this->DoubleBuffer = 0;
+  this->DoubleBuffer = 1;
   this->Erase = 1;
 }
 
