@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMCubesReader.h,v $
   Language:  C++
-  Date:      $Date: 1996-07-03 20:45:59 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1996-07-13 21:18:00 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -89,7 +89,9 @@ public:
   vtkGetStringMacro(LimitsFilename);
 
   // Description:
-  // Specify whether to flip normals in opposite direction.
+  // Specify whether to flip normals in opposite direction. Flipping ONLY changes
+  // the direction of the normal vector. Contrast this with flipping in
+  // vtkPolyNormals which flips both the normal and the cell point order.
   vtkSetMacro(FlipNormals,int);
   vtkGetMacro(FlipNormals,int);
   vtkBooleanMacro(FlipNormals,int);
