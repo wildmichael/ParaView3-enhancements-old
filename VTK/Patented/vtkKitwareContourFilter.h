@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKitwareContourFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-08-24 13:58:23 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2000-11-28 19:35:04 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -97,7 +97,8 @@ protected:
   ~vtkKitwareContourFilter();
   vtkKitwareContourFilter(const vtkKitwareContourFilter&) {};
   void operator=(const vtkKitwareContourFilter&) {};
-  
+
+  void ComputeInputUpdateExtents(vtkDataObject *data);
   void Execute();
   void ExecuteInformation();
 

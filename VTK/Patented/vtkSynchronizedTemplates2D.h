@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSynchronizedTemplates2D.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:14:21 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2000-11-28 19:35:04 $
+  Version:   $Revision: 1.10 $
 
 
 
@@ -69,6 +69,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "vtkStructuredPointsToPolyDataFilter.h"
 #include "vtkContourValues.h"
+#include "vtkKitwareContourFilter.h"
 
 class VTK_EXPORT vtkSynchronizedTemplates2D : public vtkStructuredPointsToPolyDataFilter
 {
@@ -134,6 +135,11 @@ protected:
 
   void Execute();
   vtkContourValues *ContourValues;
+
+private:
+  //BTX
+  friend VTK_EXPORT vtkKitwareContourFilter;
+  //ETX
 };
 
 
