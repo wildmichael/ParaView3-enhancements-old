@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuartzRenderWindowInteractor.mm,v $
   Language:  C++
-  Date:      $Date: 2001-09-01 16:35:41 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-09-02 04:22:10 $
+  Version:   $Revision: 1.2 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -100,7 +100,6 @@ void DoMouseUp(void *vtkClass, int shiftDown, int controlDown, int altDown, int 
 void DoMouseDown(void *vtkClass, int shiftDown, int controlDown, int altDown, int commandDown, float xLoc, float yLoc)
 {
     int button=1;
-    
     if (vtkClass){
         if (altDown) {button=2;}
         if (commandDown) {button=3;}
@@ -250,7 +249,7 @@ void vtkQuartzRenderWindowInteractor::TerminateApp(void)
 
 int vtkQuartzRenderWindowInteractor::CreateTimer(int notUsed) 
 {
-    //QBStartTimer(0.01); can be implemented with NSTimer
+    [NSEvent startPeriodicEventsAfterDelay:0.01 withPeriod:0.01];
     return 1;
 }
 
