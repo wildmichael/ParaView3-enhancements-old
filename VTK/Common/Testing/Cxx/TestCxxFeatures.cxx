@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: TestCxxFeatures.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-02-24 14:01:22 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2003-04-04 18:19:01 $
+  Version:   $Revision: 1.24 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -95,12 +95,15 @@
 
 /* Test inclusion of some stl headers.  */
 #ifdef _MSC_VER
-#pragma warning (push, 3)
+#pragma warning (push, 2)
 #endif
+
 #include <vector>
+
 #ifdef _MSC_VER
 #pragma warning(pop)
 #endif
+
 #ifndef VTK_NO_STD_NAMESPACE
 # define vtkstd std
 #else
