@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataWriter.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-04 08:34:30 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 2000-09-17 11:12:53 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -197,7 +197,12 @@ public:
   // Description:
   // Write out the field data.
   int WriteFieldData(ostream *fp, vtkFieldData *f);
-  
+
+  // Description:
+  // Write out the data associated with the dataset (i.e. field data owned by
+  // the dataset itself - distinct from that owned by the cells or points).
+  int WriteDataSetData(ostream *fp, vtkDataSet *ds);
+
   // Description:
   // Close a vtk file.
   void CloseVTKFile(ostream *fp);

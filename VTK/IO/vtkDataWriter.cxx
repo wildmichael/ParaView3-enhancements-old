@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-09-06 21:31:19 $
-  Version:   $Revision: 1.69 $
+  Date:      $Date: 2000-09-17 11:12:53 $
+  Version:   $Revision: 1.70 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1041,4 +1041,17 @@ void vtkDataWriter::PrintSelf(ostream& os, vtkIndent indent)
     os << indent << "Field Data Name: (None)\n";
     }
 
+}
+
+int vtkDataWriter::WriteDataSetData(ostream *fp, vtkDataSet *ds)
+{
+  vtkFieldData* field = ds->GetFieldData();
+  if (field && field->GetNumberOfTuples() > 0) 
+    {
+    if ( !this->WriteFieldData(fp, field) ) 
+      {
+      return 0; // we tried to write field data, but we couldn't
+      }
+    }
+  return 1;
 }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetReader.h,v $
   Language:  C++
-  Date:      $Date: 2000-08-10 13:50:00 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 2000-09-17 11:12:53 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -69,7 +69,7 @@ public:
 
   // Description:
   // Set / get the file name of vtk data file to read.
-  void SetFileName(char *name);
+  void SetFileName(const char *name);
   char *GetFileName();
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-10 13:50:00 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 2000-09-17 11:12:53 $
+  Version:   $Revision: 1.49 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -122,7 +122,7 @@ unsigned long int vtkDataSetReader::GetMTime()
 }
 
 // Specify file name of vtk data file to read.
-void vtkDataSetReader::SetFileName(char *name) 
+void vtkDataSetReader::SetFileName(const char *name) 
 {
   this->Reader->SetFileName(name);
 }
