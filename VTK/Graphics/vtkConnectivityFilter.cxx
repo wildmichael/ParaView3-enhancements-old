@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkConnectivityFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-14 21:25:10 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 1999-02-21 16:15:04 $
+  Version:   $Revision: 1.46 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -228,11 +228,11 @@ void vtkConnectivityFilter::Execute()
 	  minId = i;
           minDist2 = dist2;
 	  }
-	input->GetPointCells(minId,cellIds);
-	for (j=0; j < cellIds->GetNumberOfIds(); j++) 
-	  {
-	  this->RecursionSeeds->InsertNextId(cellIds->GetId(j));
-	  }
+	}
+      input->GetPointCells(minId,cellIds);
+      for (j=0; j < cellIds->GetNumberOfIds(); j++) 
+	{
+	this->RecursionSeeds->InsertNextId(cellIds->GetId(j));
 	}
       }
     this->UpdateProgress (0.5);

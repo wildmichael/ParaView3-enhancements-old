@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataConnectivityFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-01-01 22:07:31 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1999-02-21 16:15:04 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -236,11 +236,11 @@ void vtkPolyDataConnectivityFilter::Execute()
 	  minId = i;
           minDist2 = dist2;
 	  }
-        this->Mesh->GetPointCells(minId,ncells,cells);
-        for (j=0; j < ncells; j++) 
-	  {
-          this->RecursionSeeds->InsertNextId(cells[j]);
-	  }
+	}
+      this->Mesh->GetPointCells(minId,ncells,cells);
+      for (j=0; j < ncells; j++) 
+	{
+        this->RecursionSeeds->InsertNextId(cells[j]);
 	}
       }
     this->UpdateProgress (0.5);
