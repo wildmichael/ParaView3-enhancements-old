@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPiecewiseFunctionSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-07-03 15:59:39 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-10-04 20:43:44 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,9 +16,11 @@
 
 =========================================================================*/
 #include "vtkPiecewiseFunctionSource.h"
-#include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkPiecewiseFunctionSource, "$Revision: 1.2 $");
+#include "vtkObjectFactory.h"
+#include "vtkPiecewiseFunction.h"
+
+vtkCxxRevisionMacro(vtkPiecewiseFunctionSource, "$Revision: 1.3 $");
 
 //----------------------------------------------------------------------------
 vtkPiecewiseFunctionSource::vtkPiecewiseFunctionSource()
@@ -42,7 +44,19 @@ vtkPiecewiseFunction *vtkPiecewiseFunctionSource::GetOutput()
 }
 
 //----------------------------------------------------------------------------
+vtkPiecewiseFunction *vtkPiecewiseFunctionSource::GetOutput(int idx)
+{
+  return (vtkPiecewiseFunction *) this->vtkSource::GetOutput(idx); 
+};
+
+//----------------------------------------------------------------------------
 void vtkPiecewiseFunctionSource::SetOutput(vtkPiecewiseFunction *output)
 {
   this->vtkSource::SetNthOutput(0, output);
+}
+
+//----------------------------------------------------------------------------
+void vtkPiecewiseFunctionSource::PrintSelf(ostream& os, vtkIndent indent)
+{
+  this->Superclass::PrintSelf(os,indent);
 }

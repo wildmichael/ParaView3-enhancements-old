@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsToPolyDataFilter.h,v $
   Language:  C++
-  Date:      $Date: 2002-09-03 20:33:49 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 2002-10-04 20:43:44 $
+  Version:   $Revision: 1.44 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -36,6 +36,7 @@ class VTK_FILTERING_EXPORT vtkStructuredPointsToPolyDataFilter : public vtkPolyD
 {
 public:
   vtkTypeRevisionMacro(vtkStructuredPointsToPolyDataFilter,vtkPolyDataSource);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Set / get the input data or filter.

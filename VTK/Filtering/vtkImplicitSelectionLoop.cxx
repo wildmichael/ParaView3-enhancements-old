@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitSelectionLoop.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:28:07 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2002-10-04 20:43:44 $
+  Version:   $Revision: 1.15 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,13 +16,18 @@
 
 =========================================================================*/
 #include "vtkImplicitSelectionLoop.h"
-#include "vtkMath.h"
-#include "vtkPlane.h"
-#include "vtkFloatArray.h"
-#include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkImplicitSelectionLoop, "$Revision: 1.14 $");
+#include "vtkFloatArray.h"
+#include "vtkLine.h"
+#include "vtkMath.h"
+#include "vtkObjectFactory.h"
+#include "vtkPlane.h"
+#include "vtkPoints.h"
+#include "vtkPolygon.h"
+
+vtkCxxRevisionMacro(vtkImplicitSelectionLoop, "$Revision: 1.15 $");
 vtkStandardNewMacro(vtkImplicitSelectionLoop);
+vtkCxxSetObjectMacro(vtkImplicitSelectionLoop, Loop,vtkPoints);
 
 // Instantiate object with no initial loop.
 vtkImplicitSelectionLoop::vtkImplicitSelectionLoop()

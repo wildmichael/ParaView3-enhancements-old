@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObjectSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-07-03 15:59:39 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2002-10-04 20:43:43 $
+  Version:   $Revision: 1.13 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkDataObjectSource.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkDataObjectSource, "$Revision: 1.12 $");
+vtkCxxRevisionMacro(vtkDataObjectSource, "$Revision: 1.13 $");
 
 vtkDataObjectSource::vtkDataObjectSource()
 {
@@ -47,3 +47,9 @@ void vtkDataObjectSource::SetOutput(vtkDataObject *output)
   this->vtkSource::SetNthOutput(0, output);
 }
 
+
+//----------------------------------------------------------------------------
+void vtkDataObjectSource::PrintSelf(ostream& os, vtkIndent indent)
+{
+  this->Superclass::PrintSelf(os,indent);
+}

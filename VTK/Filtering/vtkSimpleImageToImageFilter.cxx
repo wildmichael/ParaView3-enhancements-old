@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSimpleImageToImageFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:28:12 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-10-04 20:43:44 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -17,7 +17,9 @@
 =========================================================================*/
 #include "vtkSimpleImageToImageFilter.h"
 
-vtkCxxRevisionMacro(vtkSimpleImageToImageFilter, "$Revision: 1.8 $");
+#include "vtkImageData.h"
+
+vtkCxxRevisionMacro(vtkSimpleImageToImageFilter, "$Revision: 1.9 $");
 
 //----------------------------------------------------------------------------
 vtkSimpleImageToImageFilter::vtkSimpleImageToImageFilter()
@@ -96,4 +98,10 @@ void vtkSimpleImageToImageFilter::ExecuteData(vtkDataObject *vtkNotUsed(out))
   output->AllocateScalars();
 
   this->SimpleExecute(input, output);
+}
+
+//----------------------------------------------------------------------------
+void vtkSimpleImageToImageFilter::PrintSelf(ostream& os, vtkIndent indent)
+{
+  this->Superclass::PrintSelf(os,indent);
 }

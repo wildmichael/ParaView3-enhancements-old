@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSetToPointSetFilter.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:28:09 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 2002-10-04 20:43:44 $
+  Version:   $Revision: 1.49 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -50,6 +50,7 @@ class VTK_FILTERING_EXPORT vtkPointSetToPointSetFilter : public vtkPointSetSourc
 {
 public:
   vtkTypeRevisionMacro(vtkPointSetToPointSetFilter,vtkPointSetSource);
+  void PrintSelf(ostream& os, vtkIndent indent);
   
   // Description:
   // Specify the input data or filter.

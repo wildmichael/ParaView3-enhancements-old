@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGridToPolyDataFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-03 20:33:58 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-10-04 20:43:44 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,7 +19,7 @@
 
 #include "vtkUnstructuredGrid.h"
 
-vtkCxxRevisionMacro(vtkUnstructuredGridToPolyDataFilter, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkUnstructuredGridToPolyDataFilter, "$Revision: 1.6 $");
 
 //----------------------------------------------------------------------------
 // Specify the input data or filter.
@@ -52,4 +52,10 @@ void vtkUnstructuredGridToPolyDataFilter::ComputeInputUpdateExtents(vtkDataObjec
     this->vtkPolyDataSource::ComputeInputUpdateExtents(output);
     input->RequestExactExtentOn();
     }
+}
+
+//----------------------------------------------------------------------------
+void vtkUnstructuredGridToPolyDataFilter::PrintSelf(ostream& os, vtkIndent indent)
+{
+  this->Superclass::PrintSelf(os,indent);
 }

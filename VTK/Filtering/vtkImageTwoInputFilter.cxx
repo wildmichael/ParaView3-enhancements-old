@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageTwoInputFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-07-04 22:02:24 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2002-10-04 20:43:43 $
+  Version:   $Revision: 1.24 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,9 +16,11 @@
 
 =========================================================================*/
 #include "vtkImageTwoInputFilter.h"
+
+#include "vtkImageData.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkImageTwoInputFilter, "$Revision: 1.23 $");
+vtkCxxRevisionMacro(vtkImageTwoInputFilter, "$Revision: 1.24 $");
 
 //----------------------------------------------------------------------------
 vtkImageTwoInputFilter::vtkImageTwoInputFilter()
@@ -47,13 +49,8 @@ void vtkImageTwoInputFilter::SetInput2(vtkImageData *input)
   this->vtkImageMultipleInputFilter::SetNthInput(1,input);
 }
 
-
-
-
-
-
-
-
-
-
-
+//----------------------------------------------------------------------------
+void vtkImageTwoInputFilter::PrintSelf(ostream& os, vtkIndent indent)
+{
+  this->Superclass::PrintSelf(os,indent);
+}

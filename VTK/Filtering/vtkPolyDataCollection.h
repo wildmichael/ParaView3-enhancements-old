@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataCollection.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:28:10 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2002-10-04 20:43:44 $
+  Version:   $Revision: 1.39 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,13 +27,15 @@
 #define __vtkPolyDataCollection_h
 
 #include "vtkCollection.h"
-#include "vtkPolyData.h"
+
+#include "vtkPolyData.h" // Needed for static cast
 
 class VTK_FILTERING_EXPORT vtkPolyDataCollection : public vtkCollection
 {
 public:
   static vtkPolyDataCollection *New();
   vtkTypeRevisionMacro(vtkPolyDataCollection,vtkCollection);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Add a poly data to the list.

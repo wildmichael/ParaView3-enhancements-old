@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitVolume.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:28:07 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2002-10-04 20:43:44 $
+  Version:   $Revision: 1.27 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,12 +16,15 @@
 
 =========================================================================*/
 #include "vtkImplicitVolume.h"
-#include "vtkVoxel.h"
-#include "vtkObjectFactory.h"
-#include "vtkFloatArray.h"
 
-vtkCxxRevisionMacro(vtkImplicitVolume, "$Revision: 1.26 $");
+#include "vtkFloatArray.h"
+#include "vtkImageData.h"
+#include "vtkObjectFactory.h"
+#include "vtkVoxel.h"
+
+vtkCxxRevisionMacro(vtkImplicitVolume, "$Revision: 1.27 $");
 vtkStandardNewMacro(vtkImplicitVolume);
+vtkCxxSetObjectMacro(vtkImplicitVolume,Volume,vtkImageData);
 
 // Construct an vtkImplicitVolume with no initial volume; the OutValue
 // set to a large negative number; and the OutGradient set to (0,0,1).

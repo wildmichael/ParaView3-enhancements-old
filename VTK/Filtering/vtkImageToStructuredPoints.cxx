@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToStructuredPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:28:06 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 2002-10-04 20:43:43 $
+  Version:   $Revision: 1.51 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkImageToStructuredPoints, "$Revision: 1.50 $");
+vtkCxxRevisionMacro(vtkImageToStructuredPoints, "$Revision: 1.51 $");
 vtkStandardNewMacro(vtkImageToStructuredPoints);
 
 //----------------------------------------------------------------------------
@@ -285,6 +285,12 @@ void vtkImageToStructuredPoints::ExecuteInformation()
   // How about xyx arrays in RectilinearGrid of Points in StructuredGrid?
   output->SetOrigin(origin);
   output->SetSpacing(spacing);
+}
+
+//----------------------------------------------------------------------------
+vtkStructuredPoints *vtkImageToStructuredPoints::GetOutput(int idx)
+{
+  return (vtkStructuredPoints *) this->vtkSource::GetOutput(idx); 
 }
 
 //----------------------------------------------------------------------------

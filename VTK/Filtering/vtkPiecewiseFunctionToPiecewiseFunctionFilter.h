@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPiecewiseFunctionToPiecewiseFunctionFilter.h,v $
   Language:  C++
-  Date:      $Date: 2002-02-15 16:19:52 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-10-04 20:43:44 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,12 +25,14 @@
 #define __vtkPiecewiseFunctionToPiecewiseFunctionFilter_h
 
 #include "vtkPiecewiseFunctionSource.h"
-#include "vtkPiecewiseFunction.h"
+ 
+class vtkPiecewiseFunction;
 
 class VTK_FILTERING_EXPORT vtkPiecewiseFunctionToPiecewiseFunctionFilter : public vtkPiecewiseFunctionSource
 {
 public:
   vtkTypeRevisionMacro(vtkPiecewiseFunctionToPiecewiseFunctionFilter,vtkPiecewiseFunctionSource);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Set / get the input data or filter.

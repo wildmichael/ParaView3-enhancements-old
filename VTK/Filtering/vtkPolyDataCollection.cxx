@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataCollection.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:28:09 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-10-04 20:43:44 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,5 +18,11 @@
 #include "vtkPolyDataCollection.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkPolyDataCollection, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkPolyDataCollection, "$Revision: 1.7 $");
 vtkStandardNewMacro(vtkPolyDataCollection);
+
+//----------------------------------------------------------------------------
+void vtkPolyDataCollection::PrintSelf(ostream& os, vtkIndent indent)
+{
+  this->Superclass::PrintSelf(os,indent);
+}

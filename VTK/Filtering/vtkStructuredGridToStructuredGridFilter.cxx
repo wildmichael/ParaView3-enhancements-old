@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridToStructuredGridFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-03 20:33:58 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2002-10-04 20:43:44 $
+  Version:   $Revision: 1.18 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,7 +19,7 @@
 
 #include "vtkStructuredGrid.h"
 
-vtkCxxRevisionMacro(vtkStructuredGridToStructuredGridFilter, "$Revision: 1.17 $");
+vtkCxxRevisionMacro(vtkStructuredGridToStructuredGridFilter, "$Revision: 1.18 $");
 
 //----------------------------------------------------------------------------
 // Specify the input data or filter.
@@ -40,3 +40,9 @@ vtkStructuredGrid *vtkStructuredGridToStructuredGridFilter::GetInput()
   return (vtkStructuredGrid *)(this->Inputs[0]);
 }
 
+
+//----------------------------------------------------------------------------
+void vtkStructuredGridToStructuredGridFilter::PrintSelf(ostream& os, vtkIndent indent)
+{
+  this->Superclass::PrintSelf(os,indent);
+}

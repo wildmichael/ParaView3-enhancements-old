@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetToImageFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-13 14:08:28 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-10-04 20:43:43 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -17,7 +17,10 @@
 =========================================================================*/
 #include "vtkDataSetToImageFilter.h"
 
-vtkCxxRevisionMacro(vtkDataSetToImageFilter, "$Revision: 1.1 $");
+#include "vtkDataSet.h"
+#include "vtkImageData.h"
+
+vtkCxxRevisionMacro(vtkDataSetToImageFilter, "$Revision: 1.2 $");
 
 //----------------------------------------------------------------------------
 // Specify the input data or filter.
@@ -62,9 +65,8 @@ void vtkDataSetToImageFilter::ComputeInputUpdateExtents(
   input->SetUpdateExtent(0, 1, 0);
 }
 
-    
-
-
-
-
-
+//----------------------------------------------------------------------------
+void vtkDataSetToImageFilter::PrintSelf(ostream& os, vtkIndent indent)
+{
+  this->Superclass::PrintSelf(os,indent);
+}

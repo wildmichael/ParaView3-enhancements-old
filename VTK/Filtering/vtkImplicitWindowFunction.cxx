@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitWindowFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:28:07 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2002-10-04 20:43:44 $
+  Version:   $Revision: 1.15 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,8 +18,9 @@
 #include "vtkImplicitWindowFunction.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkImplicitWindowFunction, "$Revision: 1.14 $");
+vtkCxxRevisionMacro(vtkImplicitWindowFunction, "$Revision: 1.15 $");
 vtkStandardNewMacro(vtkImplicitWindowFunction);
+vtkCxxSetObjectMacro(vtkImplicitWindowFunction,ImplicitFunction,vtkImplicitFunction);
 
 // Construct object with window range (0,1) and window values (0,1).
 vtkImplicitWindowFunction::vtkImplicitWindowFunction()

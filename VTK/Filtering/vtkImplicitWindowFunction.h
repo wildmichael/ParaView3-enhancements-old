@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitWindowFunction.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:28:08 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2002-10-04 20:43:44 $
+  Version:   $Revision: 1.27 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -33,7 +33,6 @@
 #ifndef __vtkImplicitWindowFunction_h
 #define __vtkImplicitWindowFunction_h
 
-#include <math.h>
 #include "vtkImplicitFunction.h"
 
 class VTK_FILTERING_EXPORT vtkImplicitWindowFunction : public vtkImplicitFunction
@@ -58,7 +57,7 @@ public:
 
   // Description:
   // Specify an implicit function to operate on.
-  vtkSetObjectMacro(ImplicitFunction,vtkImplicitFunction);
+  virtual void SetImplicitFunction(vtkImplicitFunction*);
   vtkGetObjectMacro(ImplicitFunction,vtkImplicitFunction);
 
   // Description:

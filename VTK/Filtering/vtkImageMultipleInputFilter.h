@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMultipleInputFilter.h,v $
   Language:  C++
-  Date:      $Date: 2002-07-04 22:02:24 $
-  Version:   $Revision: 1.52 $
+  Date:      $Date: 2002-10-04 20:43:43 $
+  Version:   $Revision: 1.53 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -29,10 +29,9 @@
 #ifndef __vtkImageMultipleInputFilter_h
 #define __vtkImageMultipleInputFilter_h
 
-
 #include "vtkImageSource.h"
-#include "vtkMultiThreader.h"
 
+#include "vtkMultiThreader.h" // Needed for VTK_MAX_THREADS
 
 class VTK_FILTERING_EXPORT vtkImageMultipleInputFilter : public vtkImageSource
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitDataSet.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:28:07 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2002-10-04 20:43:44 $
+  Version:   $Revision: 1.26 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -41,7 +41,8 @@
 #define __vtkImplicitDataSet_h
 
 #include "vtkImplicitFunction.h"
-#include "vtkDataSet.h"
+
+class vtkDataSet;
 
 class VTK_FILTERING_EXPORT vtkImplicitDataSet : public vtkImplicitFunction
 {
@@ -71,7 +72,7 @@ public:
 
   // Description:
   // Set / get the dataset used for the implicit function evaluation.
-  vtkSetObjectMacro(DataSet,vtkDataSet);
+  virtual void SetDataSet(vtkDataSet*);
   vtkGetObjectMacro(DataSet,vtkDataSet);
 
   // Description:

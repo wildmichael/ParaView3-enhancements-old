@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitSelectionLoop.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:28:07 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2002-10-04 20:43:44 $
+  Version:   $Revision: 1.20 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -49,7 +49,9 @@
 #define __vtkImplicitSelectionLoop_h
 
 #include "vtkImplicitFunction.h"
-#include "vtkPolygon.h"
+
+class vtkPoints;
+class vtkPolygon;
 
 class VTK_FILTERING_EXPORT vtkImplicitSelectionLoop : public vtkImplicitFunction
 {
@@ -74,7 +76,7 @@ public:
   // Description:
   // Set/Get the array of point coordinates defining the loop. There must
   // be at least three points used to define a loop.
-  vtkSetObjectMacro(Loop,vtkPoints);
+  virtual void SetLoop(vtkPoints*);
   vtkGetObjectMacro(Loop,vtkPoints);
 
   // Description:

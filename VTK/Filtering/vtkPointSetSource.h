@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSetSource.h,v $
   Language:  C++
-  Date:      $Date: 2002-07-03 15:59:39 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2002-10-04 20:43:44 $
+  Version:   $Revision: 1.16 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,18 +23,19 @@
 #define __vtkPointDataSource_h
 
 #include "vtkSource.h"
-#include "vtkPointSet.h"
+
+class vtkPointSet;
 
 class VTK_FILTERING_EXPORT vtkPointSetSource : public vtkSource
 {
 public:
   vtkTypeRevisionMacro(vtkPointSetSource,vtkSource);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Get the output of this source.
   vtkPointSet *GetOutput();
-  vtkPointSet *GetOutput(int idx)
-    {return (vtkPointSet *) this->vtkSource::GetOutput(idx); };
+  vtkPointSet *GetOutput(int idx);
   void SetOutput(vtkPointSet *output);
   
 protected:

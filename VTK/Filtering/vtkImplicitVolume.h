@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitVolume.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:28:07 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2002-10-04 20:43:44 $
+  Version:   $Revision: 1.32 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -41,7 +41,9 @@
 #define __vtkImplicitVolume_h
 
 #include "vtkImplicitFunction.h"
-#include "vtkImageData.h"
+
+class vtkIdList;
+class vtkImageData;
 
 class VTK_FILTERING_EXPORT vtkImplicitVolume : public vtkImplicitFunction
 {
@@ -73,7 +75,7 @@ public:
 
   // Description:
   // Specify the volume for the implicit function.
-  vtkSetObjectMacro(Volume,vtkImageData);
+  virtual void SetVolume(vtkImageData*);
   vtkGetObjectMacro(Volume,vtkImageData);
 
   // Description:
@@ -95,6 +97,7 @@ protected:
   float OutGradient[3];
   // to replace a static
   vtkIdList *PointIds;
+
 private:
   vtkImplicitVolume(const vtkImplicitVolume&);  // Not implemented.
   void operator=(const vtkImplicitVolume&);  // Not implemented.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetToDataSetFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:28:03 $
-  Version:   $Revision: 1.61 $
+  Date:      $Date: 2002-10-04 20:43:43 $
+  Version:   $Revision: 1.62 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 #include "vtkUnstructuredGrid.h"
 #include "vtkRectilinearGrid.h"
 
-vtkCxxRevisionMacro(vtkDataSetToDataSetFilter, "$Revision: 1.61 $");
+vtkCxxRevisionMacro(vtkDataSetToDataSetFilter, "$Revision: 1.62 $");
 
 // Construct object.
 vtkDataSetToDataSetFilter::vtkDataSetToDataSetFilter()
@@ -189,4 +189,16 @@ void vtkDataSetToDataSetFilter::ComputeInputUpdateExtents(vtkDataObject *output)
   input->SetUpdateGhostLevel( output->GetUpdateGhostLevel() );
   input->SetUpdateExtent( output->GetUpdateExtent() );
   input->RequestExactExtentOn();
+}
+
+//----------------------------------------------------------------------------
+vtkDataSet *vtkDataSetToDataSetFilter::GetOutput(int idx)
+{
+  return (vtkDataSet *) this->vtkDataSetSource::GetOutput(idx); 
+}
+
+//----------------------------------------------------------------------------
+void vtkDataSetToDataSetFilter::PrintSelf(ostream& os, vtkIndent indent)
+{
+  this->Superclass::PrintSelf(os,indent);
 }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitBoolean.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:28:06 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2002-10-04 20:43:44 $
+  Version:   $Revision: 1.31 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,11 +16,13 @@
 
 =========================================================================*/
 #include "vtkImplicitBoolean.h"
+
+#include "vtkImplicitFunctionCollection.h"
 #include "vtkObjectFactory.h"
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkImplicitBoolean, "$Revision: 1.30 $");
+vtkCxxRevisionMacro(vtkImplicitBoolean, "$Revision: 1.31 $");
 vtkStandardNewMacro(vtkImplicitBoolean);
 
 // Construct with union operation.

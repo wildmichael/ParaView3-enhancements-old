@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitBoolean.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:28:07 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 2002-10-04 20:43:44 $
+  Version:   $Revision: 1.45 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -36,7 +36,8 @@
 #define __vtkImplicitBoolean_h
 
 #include "vtkImplicitFunction.h"
-#include "vtkImplicitFunctionCollection.h"
+ 
+class vtkImplicitFunctionCollection;
 
 #define VTK_UNION 0
 #define VTK_INTERSECTION 1

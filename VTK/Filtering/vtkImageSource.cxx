@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-04 16:53:59 $
-  Version:   $Revision: 1.55 $
+  Date:      $Date: 2002-10-04 20:43:43 $
+  Version:   $Revision: 1.56 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,9 +16,11 @@
 
 =========================================================================*/
 #include "vtkImageSource.h"
+
+#include "vtkImageData.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkImageSource, "$Revision: 1.55 $");
+vtkCxxRevisionMacro(vtkImageSource, "$Revision: 1.56 $");
 
 //----------------------------------------------------------------------------
 vtkImageSource::vtkImageSource()
@@ -93,4 +95,16 @@ vtkImageData *vtkImageSource::AllocateOutputData(vtkDataObject *out)
   res->AllocateScalars();
 
   return res;
+}
+
+//----------------------------------------------------------------------------
+vtkImageData *vtkImageSource::GetOutput(int idx)
+{
+  return (vtkImageData *) this->vtkSource::GetOutput(idx);
+}
+
+//----------------------------------------------------------------------------
+void vtkImageSource::PrintSelf(ostream& os, vtkIndent indent)
+{
+  this->Superclass::PrintSelf(os,indent);
 }

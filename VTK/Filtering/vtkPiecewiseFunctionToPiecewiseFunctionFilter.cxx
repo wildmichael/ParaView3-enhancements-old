@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPiecewiseFunctionToPiecewiseFunctionFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-15 16:19:52 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-10-04 20:43:44 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -17,7 +17,9 @@
 =========================================================================*/
 #include "vtkPiecewiseFunctionToPiecewiseFunctionFilter.h"
 
-vtkCxxRevisionMacro(vtkPiecewiseFunctionToPiecewiseFunctionFilter, "$Revision: 1.1 $");
+#include "vtkPiecewiseFunction.h"
+
+vtkCxxRevisionMacro(vtkPiecewiseFunctionToPiecewiseFunctionFilter, "$Revision: 1.2 $");
 
 //----------------------------------------------------------------------------
 vtkPiecewiseFunctionToPiecewiseFunctionFilter::vtkPiecewiseFunctionToPiecewiseFunctionFilter() 
@@ -42,4 +44,10 @@ vtkPiecewiseFunction *vtkPiecewiseFunctionToPiecewiseFunctionFilter::GetInput()
     }
   
   return (vtkPiecewiseFunction *)(this->Inputs[0]);
+}
+
+//----------------------------------------------------------------------------
+void vtkPiecewiseFunctionToPiecewiseFunctionFilter::PrintSelf(ostream& os, vtkIndent indent)
+{
+  this->Superclass::PrintSelf(os,indent);
 }

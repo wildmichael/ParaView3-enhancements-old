@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridToPolyDataFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-03 20:33:58 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2002-10-04 20:43:44 $
+  Version:   $Revision: 1.13 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,7 +19,7 @@
 
 #include "vtkStructuredGrid.h"
 
-vtkCxxRevisionMacro(vtkStructuredGridToPolyDataFilter, "$Revision: 1.12 $");
+vtkCxxRevisionMacro(vtkStructuredGridToPolyDataFilter, "$Revision: 1.13 $");
 
 //----------------------------------------------------------------------------
 // Specify the input data or filter.
@@ -40,5 +40,8 @@ vtkStructuredGrid *vtkStructuredGridToPolyDataFilter::GetInput()
   return (vtkStructuredGrid *)(this->Inputs[0]);
 }
 
-
-
+//----------------------------------------------------------------------------
+void vtkStructuredGridToPolyDataFilter::PrintSelf(ostream& os, vtkIndent indent)
+{
+  this->Superclass::PrintSelf(os,indent);
+}

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGridToUnstructuredGridFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-03 20:33:58 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2002-10-04 20:43:44 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,7 +19,7 @@
 
 #include "vtkUnstructuredGrid.h"
 
-vtkCxxRevisionMacro(vtkUnstructuredGridToUnstructuredGridFilter, "$Revision: 1.10 $");
+vtkCxxRevisionMacro(vtkUnstructuredGridToUnstructuredGridFilter, "$Revision: 1.11 $");
 
 //----------------------------------------------------------------------------
 // Specify the input data or filter.
@@ -40,4 +40,8 @@ vtkUnstructuredGrid *vtkUnstructuredGridToUnstructuredGridFilter::GetInput()
   return (vtkUnstructuredGrid *)(this->Inputs[0]);
 }
 
-
+//----------------------------------------------------------------------------
+void vtkUnstructuredGridToUnstructuredGridFilter::PrintSelf(ostream& os, vtkIndent indent)
+{
+  this->Superclass::PrintSelf(os,indent);
+}

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageInPlaceFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-07-03 15:59:39 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2002-10-04 20:43:43 $
+  Version:   $Revision: 1.36 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,9 +16,11 @@
 
 =========================================================================*/
 #include "vtkImageInPlaceFilter.h"
+
+#include "vtkImageData.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkImageInPlaceFilter, "$Revision: 1.35 $");
+vtkCxxRevisionMacro(vtkImageInPlaceFilter, "$Revision: 1.36 $");
 
 //----------------------------------------------------------------------------
 
@@ -91,4 +93,10 @@ void vtkImageInPlaceFilter::CopyData(vtkImageData *inData,
     outPtr += outIncZ;
     inPtr += inIncZ;
     }
+}
+
+//----------------------------------------------------------------------------
+void vtkImageInPlaceFilter::PrintSelf(ostream& os, vtkIndent indent)
+{
+  this->Superclass::PrintSelf(os,indent);
 }

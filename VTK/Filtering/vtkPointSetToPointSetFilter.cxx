@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSetToPointSetFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:28:09 $
-  Version:   $Revision: 1.57 $
+  Date:      $Date: 2002-10-04 20:43:44 $
+  Version:   $Revision: 1.58 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 #include "vtkStructuredGrid.h"
 #include "vtkUnstructuredGrid.h"
 
-vtkCxxRevisionMacro(vtkPointSetToPointSetFilter, "$Revision: 1.57 $");
+vtkCxxRevisionMacro(vtkPointSetToPointSetFilter, "$Revision: 1.58 $");
 
 //----------------------------------------------------------------------------
 // Construct object.
@@ -148,17 +148,8 @@ void vtkPointSetToPointSetFilter::ComputeInputUpdateExtents(vtkDataObject *outpu
   input->RequestExactExtentOn();  
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//----------------------------------------------------------------------------
+void vtkPointSetToPointSetFilter::PrintSelf(ostream& os, vtkIndent indent)
+{
+  this->Superclass::PrintSelf(os,indent);
+}

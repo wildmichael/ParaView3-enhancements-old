@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsToPolyDataFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-03 20:33:58 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2002-10-04 20:43:44 $
+  Version:   $Revision: 1.26 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,7 +19,7 @@
 
 #include "vtkImageData.h"
 
-vtkCxxRevisionMacro(vtkStructuredPointsToPolyDataFilter, "$Revision: 1.25 $");
+vtkCxxRevisionMacro(vtkStructuredPointsToPolyDataFilter, "$Revision: 1.26 $");
 
 //----------------------------------------------------------------------------
 // Specify the input data or filter.
@@ -52,4 +52,10 @@ void vtkStructuredPointsToPolyDataFilter::ComputeInputUpdateExtents(
     }
   // assume that we cannot handle more than the requested extent.
   this->GetInput()->RequestExactExtentOn();
+}
+
+//----------------------------------------------------------------------------
+void vtkStructuredPointsToPolyDataFilter::PrintSelf(ostream& os, vtkIndent indent)
+{
+  this->Superclass::PrintSelf(os,indent);
 }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-03 20:33:58 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2002-10-04 20:43:44 $
+  Version:   $Revision: 1.34 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkStructuredPoints.h"
 
-vtkCxxRevisionMacro(vtkStructuredPointsSource, "$Revision: 1.33 $");
+vtkCxxRevisionMacro(vtkStructuredPointsSource, "$Revision: 1.34 $");
 
 //----------------------------------------------------------------------------
 vtkStructuredPointsSource::vtkStructuredPointsSource()
@@ -75,5 +75,8 @@ void vtkStructuredPointsSource::ExecuteInformation()
   output->SetWholeExtent(output->GetExtent());
 }
 
-
-
+//----------------------------------------------------------------------------
+void vtkStructuredPointsSource::PrintSelf(ostream& os, vtkIndent indent)
+{
+  this->Superclass::PrintSelf(os,indent);
+}

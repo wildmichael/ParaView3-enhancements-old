@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsToStructuredPointsFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-03 20:33:58 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2002-10-04 20:43:44 $
+  Version:   $Revision: 1.28 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 #include "vtkImageData.h"
 #include "vtkStructuredPoints.h"
 
-vtkCxxRevisionMacro(vtkStructuredPointsToStructuredPointsFilter, "$Revision: 1.27 $");
+vtkCxxRevisionMacro(vtkStructuredPointsToStructuredPointsFilter, "$Revision: 1.28 $");
 
 //----------------------------------------------------------------------------
 // Specify the input data or filter.
@@ -69,4 +69,10 @@ void vtkStructuredPointsToStructuredPointsFilter::ComputeInputUpdateExtents(
 
   // assume that we cannot handle more than the requested extent.
   this->GetInput()->RequestExactExtentOn();
+}
+
+//----------------------------------------------------------------------------
+void vtkStructuredPointsToStructuredPointsFilter::PrintSelf(ostream& os, vtkIndent indent)
+{
+  this->Superclass::PrintSelf(os,indent);
 }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetToPolyDataFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:28:03 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2002-10-04 20:43:43 $
+  Version:   $Revision: 1.14 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -17,7 +17,9 @@
 =========================================================================*/
 #include "vtkDataSetToPolyDataFilter.h"
 
-vtkCxxRevisionMacro(vtkDataSetToPolyDataFilter, "$Revision: 1.13 $");
+#include "vtkDataSet.h"
+
+vtkCxxRevisionMacro(vtkDataSetToPolyDataFilter, "$Revision: 1.14 $");
 
 //----------------------------------------------------------------------------
 // Specify the input data or filter.
@@ -52,4 +54,10 @@ void vtkDataSetToPolyDataFilter::ComputeInputUpdateExtents(vtkDataObject *output
   
   this->vtkPolyDataSource::ComputeInputUpdateExtents(output);
   input->RequestExactExtentOn();
+}
+
+//----------------------------------------------------------------------------
+void vtkDataSetToPolyDataFilter::PrintSelf(ostream& os, vtkIndent indent)
+{
+  this->Superclass::PrintSelf(os,indent);
 }

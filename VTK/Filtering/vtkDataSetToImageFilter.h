@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetToImageFilter.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-13 14:08:28 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-10-04 20:43:43 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -28,10 +28,13 @@
 
 #include "vtkImageSource.h"
 
+class vtkDataSet;
+
 class VTK_FILTERING_EXPORT vtkDataSetToImageFilter : public vtkImageSource
 {
 public:
   vtkTypeRevisionMacro(vtkDataSetToImageFilter,vtkImageSource);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Set / get the input data or filter.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCastToConcrete.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:28:00 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2002-10-04 20:43:43 $
+  Version:   $Revision: 1.28 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 #include "vtkRectilinearGrid.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkCastToConcrete, "$Revision: 1.27 $");
+vtkCxxRevisionMacro(vtkCastToConcrete, "$Revision: 1.28 $");
 vtkStandardNewMacro(vtkCastToConcrete);
 
 void vtkCastToConcrete::Execute()
@@ -45,4 +45,8 @@ void vtkCastToConcrete::ExecuteInformation()
   output->CopyInformation(input);
 }
 
-
+//----------------------------------------------------------------------------
+void vtkCastToConcrete::PrintSelf(ostream& os, vtkIndent indent)
+{
+  this->Superclass::PrintSelf(os,indent);
+}
