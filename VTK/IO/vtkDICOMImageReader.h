@@ -4,8 +4,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDICOMImageReader.h,v $
   Language:  C++
-  Date:      $Date: 2003-06-11 14:16:24 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2003-07-02 16:02:12 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -49,6 +49,10 @@ class VTK_IO_EXPORT vtkDICOMImageReader : public vtkImageReader2
   // the reader will only read a single file.
   void SetFileName(const char* fn)
   {
+    if (this->DirectoryName)
+      {
+      delete [] this->DirectoryName;
+      }
     this->DirectoryName = NULL;
     this->vtkImageReader2::SetFileName(fn);
   }

@@ -4,8 +4,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDICOMImageReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-06-11 14:16:24 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2003-07-02 16:02:12 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -29,7 +29,7 @@
 #include <vtkstd/vector>
 #include <vtkstd/string>
 
-vtkCxxRevisionMacro(vtkDICOMImageReader, "$Revision: 1.8 $");
+vtkCxxRevisionMacro(vtkDICOMImageReader, "$Revision: 1.9 $");
 vtkStandardNewMacro(vtkDICOMImageReader);
 
 class vtkDICOMImageReaderVector : public vtkstd::vector<vtkstd::string>
@@ -189,7 +189,15 @@ void vtkDICOMImageReader::ExecuteInformation()
       }
     
     vtkstd::vector<vtkstd::pair<int, vtkstd::string> > sortedFiles;
-    this->AppHelper->GetSliceNumberFilenamePairs(sortedFiles);
+    
+    this->AppHelper->SortFilenamesBySlice();
+    unsigned int num_files = this->AppHelper->GetNumberOfSortedFilenames();
+    for (unsigned int k = 0; k < num_files; k++)
+      {
+      sortedFiles.push_back(std::pair<int,std::string>(k, this->AppHelper->GetFilenameForSlice(k)));
+      }
+
+    //this->AppHelper->GetSliceNumberFilenamePairs(sortedFiles);
 
     this->SetupOutputInformation(static_cast<int>(sortedFiles.size()));
 
