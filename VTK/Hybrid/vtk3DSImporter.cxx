@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtk3DSImporter.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-31 10:54:34 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1997-09-22 21:18:23 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -999,7 +999,7 @@ static dword read_dword(vtk3DSImporter *importer)
 
   if (fread (&data, 4, 1, importer->GetFileFD()) != 1)
     {
-    vtkGenericWarningMacro(<<"Pre-mature end of file in read_dword\n");
+//    vtkGenericWarningMacro(<<"Pre-mature end of file in read_dword\n");
     data = 0;
     }
 
