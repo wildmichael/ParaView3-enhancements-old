@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkImageViewerWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-07 03:13:23 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2001-10-04 03:47:38 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -353,7 +353,7 @@ static void vtkTkImageViewerWidget_EventProc(ClientData clientData,
 //----------------------------------------------------------------------------
 // vtkTkImageViewerWidget_Init
 // Called upon system startup to create vtkTkImageViewerWidget command.
-extern "C" {VTK_EXPORT int Vtktkimageviewerwidget_Init(Tcl_Interp *interp);}
+extern "C" {VTK_TK_EXPORT int Vtktkimageviewerwidget_Init(Tcl_Interp *interp);}
 int Vtktkimageviewerwidget_Init(Tcl_Interp *interp)
 {
   if (Tcl_PkgProvide(interp, (char *) "Vtktkimageviewerwidget", (char *) "1.2") != TCL_OK) 

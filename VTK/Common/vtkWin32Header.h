@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32Header.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-03 15:31:37 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2001-10-04 03:47:37 $
+  Version:   $Revision: 1.15 $
   Thanks:    to Horst Schreiber for developing this MFC code
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -132,6 +132,13 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  #define VTK_PARALLEL_EXPORT
  #define VTK_PATENTED_EXPORT
  #define VTK_EXPORT
+#endif
+
+// this is exclusively for the tcl Init functions
+#if defined(WIN32)
+ #define VTK_TK_EXPORT __declspec( dllexport )
+#else
+ #define VTK_TK_EXPORT
 #endif
 
 #endif

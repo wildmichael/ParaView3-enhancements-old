@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkRenderWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-25 20:55:26 $
-  Version:   $Revision: 1.55 $
+  Date:      $Date: 2001-10-04 03:47:37 $
+  Version:   $Revision: 1.56 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -48,10 +48,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #ifdef _WIN32
 #include "vtkWin32OpenGLRenderWindow.h"
-#define VTK_TK_EXPORT __declspec( dllexport ) 
 #else
 #include "vtkXOpenGLRenderWindow.h"
-#define VTK_TK_EXPORT
 #endif
 
 #define VTK_ALL_EVENTS_MASK \
