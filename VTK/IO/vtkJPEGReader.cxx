@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkJPEGReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-04 22:56:24 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-01-05 15:12:40 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -48,7 +48,7 @@ extern "C" {
 }
 
 
-vtkCxxRevisionMacro(vtkJPEGReader, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkJPEGReader, "$Revision: 1.6 $");
 vtkStandardNewMacro(vtkJPEGReader);
 
 
@@ -62,8 +62,7 @@ struct vtk_jpeg_error_mgr
 };
 
 // this is called on jpeg error conditions
-METHODDEF(void)
-vtk_jpeg_error_exit (j_common_ptr cinfo)
+extern "C" void vtk_jpeg_error_exit (j_common_ptr cinfo)
 {
   /* cinfo->err really points to a my_error_mgr struct, so coerce pointer */
   vtk_jpeg_error_mgr * err = reinterpret_cast<vtk_jpeg_error_mgr*>(cinfo->err);
@@ -72,8 +71,7 @@ vtk_jpeg_error_exit (j_common_ptr cinfo)
   longjmp(err->setjmp_buffer, 1);
 }
 
-METHODDEF(void)
-vtk_jpeg_output_message (j_common_ptr cinfo)
+extern "C" void vtk_jpeg_output_message (j_common_ptr cinfo)
 {
   char buffer[JMSG_LENGTH_MAX];
 
