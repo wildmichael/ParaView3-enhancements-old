@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSweptSurface.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:09:22 $
-  Version:   $Revision: 1.54 $
+  Date:      $Date: 2000-04-11 22:59:19 $
+  Version:   $Revision: 1.55 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -850,14 +850,11 @@ void vtkSweptSurface::PrintSelf(ostream& os, vtkIndent indent)
 void vtkSweptSurface::GetRelativePosition(vtkTransform &t,float *origin,
 					  float *position)
 {
-  t.PostMultiply();
   // get position relative to the origin (of the geometry)
-  t.SetPoint( origin[0], origin[1], origin[2], 1.0f);
-  t.GetPoint( position );
+  t.TransformPoint(origin,position);
   position[0] -= origin[0];
   position[1] -= origin[1];
   position[2] -= origin[2];
-  t.PreMultiply();
 }
 
 

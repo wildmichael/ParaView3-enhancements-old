@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-03-19 06:50:55 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 2000-04-11 22:59:18 $
+  Version:   $Revision: 1.48 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -214,13 +214,7 @@ float *vtkVolume::GetBounds()
   fptr = bbox;
   for (n = 0; n < 8; n++) 
     {
-    this->Transform->SetPoint(fptr[0],fptr[1],fptr[2],1.0);
-  
-    // now store the result
-    result = this->Transform->GetPoint();
-    fptr[0] = result[0] / result[3];
-    fptr[1] = result[1] / result[3];
-    fptr[2] = result[2] / result[3];
+    this->Transform->TransformPoint(fptr,fptr);
     fptr += 3;
     }
   

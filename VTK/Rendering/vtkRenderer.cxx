@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-03-18 16:03:16 $
-  Version:   $Revision: 1.140 $
+  Date:      $Date: 2000-04-11 22:59:17 $
+  Version:   $Revision: 1.141 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -874,8 +874,7 @@ void vtkRenderer::ViewToWorld()
   result[2] = this->ViewPoint[2];
   result[3] = 1.0;
 
-  mat->Transpose();
-  mat->PointMultiply(result,result);
+  mat->MultiplyPoint(result,result);
   
   // Get the transformed vector & set WorldPoint 
   // while we are at it try to keep w at one
@@ -909,8 +908,7 @@ void vtkRenderer::ViewToWorld(float &x, float &y, float &z)
   result[2] = z;
   result[3] = 1.0;
 
-  mat->Transpose();
-  mat->PointMultiply(result,result);
+  mat->MultiplyPoint(result,result);
   
   // Get the transformed vector & set WorldPoint 
   // while we are at it try to keep w at one

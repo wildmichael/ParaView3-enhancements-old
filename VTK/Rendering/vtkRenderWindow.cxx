@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:06:34 $
-  Version:   $Revision: 1.94 $
+  Date:      $Date: 2000-04-11 22:59:17 $
+  Version:   $Revision: 1.95 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -586,8 +586,11 @@ void vtkRenderWindow::DoFDRender()
 	aTrans->Identity();
 	aTrans->Scale(focalDisk,focalDisk,focalDisk);
 	aTrans->RotateWXYZ(offsets[1],vpn[0],vpn[1],vpn[2]);
-	aTrans->SetDoublePoint(viewUp);
-	vpn = aTrans->GetDoublePoint();
+	// Use Transpose() and TransformVector() instead of
+	// Inverse() and TransformNormal() -- it is mathematically
+	// equivalent and but is more efficient
+	aTrans->Transpose();
+	aTrans->TransformVector(viewUp,vpn);
 	dpoint = acam->GetPosition();
 
 	// store the position for later
