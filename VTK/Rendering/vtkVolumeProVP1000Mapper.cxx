@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProVP1000Mapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-23 21:34:14 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2002-08-26 22:15:15 $
+  Version:   $Revision: 1.19 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -33,11 +33,11 @@
 #include <stdio.h>
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkVolumeProVP1000Mapper, "$Revision: 1.18 $");
+vtkCxxRevisionMacro(vtkVolumeProVP1000Mapper, "$Revision: 1.19 $");
 
 //----------------------------------------------------------------------------
 // Needed when we don't use the vtkStandardNewMacro.
-vtkInstantiatorNewMacro(vtkVolumeProMapper);
+vtkInstantiatorNewMacro(vtkVolumeProVP1000Mapper);
 //----------------------------------------------------------------------------
 
 vtkVolumeProVP1000Mapper::vtkVolumeProVP1000Mapper()
