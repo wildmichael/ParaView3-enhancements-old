@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCarbonRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-28 16:44:22 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-09-27 23:45:02 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -146,10 +146,6 @@ public:
   vtkSetMacro(MultiSamples,int);
   vtkGetMacro(MultiSamples,int);
 
-  // Description:
-  // Update system if needed due to stereo rendering.
-  virtual void StereoUpdate();
-  
   // Description:
   // Prescribe that the window be created in a stereo-capable mode. This
   // method must be called before the window is realized. This method
