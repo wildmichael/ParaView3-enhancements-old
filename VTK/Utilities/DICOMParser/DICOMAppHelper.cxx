@@ -3,8 +3,8 @@
   Program:   DICOMParser
   Module:    $RCSfile: DICOMAppHelper.cxx,v $
   Language:  C++
-  Date:      $Date: 2004-02-11 13:59:51 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2004-02-23 20:48:57 $
+  Version:   $Revision: 1.19 $
 
   Copyright (c) 2003 Matt Turek
   All rights reserved.
@@ -1215,7 +1215,14 @@ void DICOMAppHelper::PatientNameCallback(DICOMParser *,
     delete this->PatientName;
     }
 
-  this->PatientName = new dicom_stl::string((char*) val);
+  if (val)
+    {
+    this->PatientName = new dicom_stl::string((char*) val);
+    }
+  else
+    {
+    this->PatientName = new dicom_stl::string();
+    }
 }
 
 void DICOMAppHelper::StudyUIDCallback(DICOMParser *,
@@ -1246,9 +1253,17 @@ void DICOMAppHelper::StudyIDCallback(DICOMParser *,
     delete this->StudyID;
     }
 
-  this->StudyID = new dicom_stl::string((char*) val);
+  if (val)
+    {
+    this->StudyID = new dicom_stl::string((char*) val);
+    }
+  else
+    {
+    this->StudyID = new dicom_stl::string();
+    }
 
 }
+
 
 void DICOMAppHelper::GantryAngleCallback(DICOMParser * parser,
                            doublebyte,
