@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:05:44 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1999-10-11 17:37:09 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -44,6 +44,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkRayCaster.h"
 
 #include "vtkVolumeProVG500Mapper.h"
+#include "vtkObjectFactory.h"
 
 // Create the mapper. No context has been created, no volume has
 // been created yet.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLVolumeProVG500Mapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-15 21:11:28 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-10-11 17:37:09 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -44,6 +44,19 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkRenderer.h"
 #include "vtkVolume.h"
 #include <GL/gl.h>
+#include "vtkObjectFactory.h"
+
+vtkOpenGLVolumeProVG500Mapper* vtkOpenGLVolumeProVG500Mapper::New()
+{
+  // First try to create the object from the vtkObjectFactory
+  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkOpenGLVolumeProVG500Mapper");
+  if(ret)
+    {
+    return (vtkOpenGLVolumeProVG500Mapper*)ret;
+    }
+  // If the factory was unable to create the object, then create it here.
+  return new vtkOpenGLVolumeProVG500Mapper;
+}
 
 void vtkOpenGLVolumeProVG500Mapper::RenderHexagon(  vtkRenderer  *ren,
 						    vtkVolume    *vol,
