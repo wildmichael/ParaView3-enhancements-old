@@ -3,8 +3,8 @@
  Program:   Visualization Toolkit
  Module:    $RCSfile: vtkSource.cxx,v $
  Language:  C++
- Date:      $Date: 2000-05-19 15:51:56 $
- Version:   $Revision: 1.66 $
+ Date:      $Date: 2000-05-21 21:45:07 $
+ Version:   $Revision: 1.67 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -76,8 +76,6 @@ vtkSource::vtkSource()
 //----------------------------------------------------------------------------
 vtkSource::~vtkSource()
 {
-  int idx;
-
   UnRegisterAllOutputs();
   if (this->Outputs)
     {
