@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDilateErode3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-28 19:19:51 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1996-08-29 12:25:46 $
+  Version:   $Revision: 1.5 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -139,6 +139,7 @@ vtkImage3dDilateErodeFilter::SetKernelSize(int size0, int size1, int size2)
       }
     ptr2 += inc2;
     }
+    this->Modified ();
 }
 
 
