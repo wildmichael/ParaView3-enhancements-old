@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-08-30 10:35:06 $
-  Version:   $Revision: 1.194 $
+  Date:      $Date: 2003-11-06 17:04:32 $
+  Version:   $Revision: 1.195 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -36,7 +36,7 @@
 #include "vtkTimerLog.h"
 #include "vtkVolume.h"
 
-vtkCxxRevisionMacro(vtkRenderer, "$Revision: 1.194 $");
+vtkCxxRevisionMacro(vtkRenderer, "$Revision: 1.195 $");
 
 //----------------------------------------------------------------------------
 // Needed when we don't use the vtkStandardNewMacro.
@@ -433,6 +433,7 @@ int vtkRenderer::UpdateGeometry()
 
   if ( this->PropArrayCount == 0 ) 
     {
+    this->InvokeEvent(vtkCommand::EndEvent,NULL);
     return 0;
     }
 
@@ -445,8 +446,7 @@ int vtkRenderer::UpdateGeometry()
   // loop through props and give them a chance to 
   // render themselves as opaque geometry
   for ( i = 0; i < this->PropArrayCount; i++ )
-    {
-    
+    {    
     this->NumberOfPropsRendered += 
       this->PropArray[i]->RenderOpaqueGeometry(this);
     }
