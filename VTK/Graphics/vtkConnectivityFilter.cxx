@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkConnectivityFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-05-25 15:18:33 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1995-05-25 15:37:52 $
+  Version:   $Revision: 1.9 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -73,6 +73,7 @@ void vlConnectivityFilter::Execute()
   RecursionSeeds = new vlIdList(1000,10000);
 
   NumExceededMaxDepth = 0;
+  PointNumber = 0;
   RegionNumber = 0;
   maxCellsInRegion = 0;
 
@@ -340,7 +341,7 @@ void vlConnectivityFilter::InitializeSeedList()
 }
 
 // Description:
-// Add a seed id (point or cell id).
+// Add a seed id (point or cell id). Note: ids are 0-offset.
 void vlConnectivityFilter::AddSeed(int id)
 {
   this->Modified();
@@ -348,7 +349,7 @@ void vlConnectivityFilter::AddSeed(int id)
 }
 
 // Description:
-// Delete a seed id (point or cell id).
+// Delete a seed id (point or cell id). Note: ids are 0-offset.
 void vlConnectivityFilter::DeleteSeed(int id)
 {
   this->Modified();
@@ -364,7 +365,7 @@ void vlConnectivityFilter::InitializeSpecifiedRegionList()
 }
 
 // Description:
-// Add a region id to extract.
+// Add a region id to extract. Note: ids are 0-offset.
 void vlConnectivityFilter::AddSpecifiedRegion(int id)
 {
   this->Modified();
@@ -372,7 +373,7 @@ void vlConnectivityFilter::AddSpecifiedRegion(int id)
 }
 
 // Description:
-// Delete a region id to extract.
+// Delete a region id to extract. Note: ids are 0-offset.
 void vlConnectivityFilter::DeleteSpecifiedRegion(int id)
 {
   this->Modified();
