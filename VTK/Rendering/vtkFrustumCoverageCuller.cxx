@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFrustumCoverageCuller.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-18 15:47:32 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2001-10-04 09:26:55 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -226,7 +226,14 @@ float vtkFrustumCoverageCuller::Cull( vtkRenderer *ren,
           }
 
         // Compute the fraction of coverage
-        coverage = (part_w * part_h) / (full_w * full_h);
+        if ((full_w * full_h)!=0.0)
+          {
+          coverage = (part_w * part_h) / (full_w * full_h);
+          }
+        else
+          {
+          coverage = 0;
+          }
         // Convert this to an allocated render time - coverage less than
         // the minumum result in 0.0 time, greater than the maximum result in
         // 1.0 time, and in between a linear ramp is used
