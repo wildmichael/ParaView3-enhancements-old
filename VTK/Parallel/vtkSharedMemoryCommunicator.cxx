@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSharedMemoryCommunicator.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-08 17:54:25 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2001-08-22 18:15:23 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -345,6 +345,7 @@ vtkSharedMemoryCommunicatorMessage
   message->Object = NULL;
   message->Data = NULL;
   message->DataLength = 0;
+  message->Array = 0;
 
   if (object)
     {
@@ -456,6 +457,12 @@ void vtkSharedMemoryCommunicator::DeleteMessage(
     {
     message->Object->Delete();
     message->Object = NULL;
+    }
+
+  if (message->Array)
+    {
+    message->Array->Delete();
+    message->Array = NULL;
     }
 
   if (message->Data)
