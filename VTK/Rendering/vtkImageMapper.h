@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMapper.h,v $
   Language:  C++
-  Date:      $Date: 1999-03-03 21:06:51 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-04-15 18:51:26 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -85,7 +85,8 @@ public:
   vtkSetObjectMacro(Input, vtkImageCache);
   vtkGetObjectMacro(Input,vtkImageCache);
   void SetInput(vtkStructuredPoints *spts)
-    {this->SetInput(spts->GetStructuredPointsToImage()->GetOutput());}
+    {vtkStructuredPointsToImage *tmp = spts->MakeStructuredPointsToImage();
+     this->SetInput(tmp->GetOutput()); tmp->Delete();}
 
   // Description:
   // Set/Get the current slice number. The axis Z in ZSlice does not

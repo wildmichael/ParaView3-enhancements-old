@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAppendComponents.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-14 13:28:36 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1999-04-15 18:51:25 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,10 +64,12 @@ public:
   // two input filter.
   virtual void SetInput1(vtkImageCache *input){this->SetInput(0, input);}
   void SetInput1(vtkStructuredPoints *spts)
-    {this->SetInput1(spts->GetStructuredPointsToImage()->GetOutput());}
+    {vtkStructuredPointsToImage *tmp = spts->MakeStructuredPointsToImage();
+     this->SetInput1(tmp->GetOutput()); tmp->Delete();}
   virtual void SetInput2(vtkImageCache *input){this->SetInput(1, input);}
   void SetInput2(vtkStructuredPoints *spts)
-    {this->SetInput2(spts->GetStructuredPointsToImage()->GetOutput());}
+    {vtkStructuredPointsToImage *tmp = spts->MakeStructuredPointsToImage();
+     this->SetInput2(tmp->GetOutput()); tmp->Delete();}
 
 protected:
   
