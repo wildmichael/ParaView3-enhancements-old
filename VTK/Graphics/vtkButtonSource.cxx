@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkButtonSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-16 13:59:22 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-02-19 13:46:12 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkFloatArray.h"
 
-vtkCxxRevisionMacro(vtkButtonSource, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkButtonSource, "$Revision: 1.3 $");
 vtkStandardNewMacro(vtkButtonSource);
 
 // Construct 
@@ -301,6 +301,7 @@ void vtkButtonSource::Execute()
 
   newPts->Delete();
   tcoords->Delete();
+  normals->Delete();
   newPolys->Delete();
 }
 
