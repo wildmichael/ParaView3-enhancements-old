@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: TestCxxFeatures.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-05 20:02:16 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2002-10-01 21:22:48 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,6 +22,8 @@
 // by VTK.
 
 #include "vtkSystemIncludes.h"
+
+#include <sstream>
 
 //----------------------------------------------------------------------------
 
