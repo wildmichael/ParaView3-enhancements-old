@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: TestCxxFeatures.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-01-07 20:32:48 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2003-01-16 14:44:41 $
+  Version:   $Revision: 1.19 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -31,8 +31,11 @@
 # define VTK_CXX_MSVC
 #endif
 
-#if defined(__sgi) && !defined(__GNUC__) && !defined(_COMPILER_VERSION)
-# define VTK_CXX_SGI_6
+#if defined(__sgi) && !defined(__GNUC__)
+# define VTK_CXX_SGI
+# if !defined(_COMPILER_VERSION)
+#  define VTK_CXX_SGI_6
+# endif
 #endif
 
 #if defined(__HP_aCC)
@@ -116,8 +119,9 @@ int FullySpecializedFunction(T*)
   return 0;
 }
 
-#if !defined(VTK_CXX_SGI_6)
+#if !defined(VTK_CXX_SGI)
 // Fails on kulu.crd IRIX64-6.5-CC-o32 (old SGI compiler).
+// Fails on manifold.crd IRIX64-6.5-CC-n32 (new SGI compiler).
 template <>
 int FullySpecializedFunction<int>(int*)
 {
