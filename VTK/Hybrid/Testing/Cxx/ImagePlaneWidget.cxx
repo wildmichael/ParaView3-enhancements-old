@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: ImagePlaneWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-12 14:08:17 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-04-15 20:12:57 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,6 +24,7 @@
 #include "vtkRenderWindowInteractor.h"
 #include "vtkImagePlaneWidget.h"
 #include "vtkImageReader.h"
+#include "vtkCellPicker.h"
 
 #include "vtkRegressionTestImage.h"
 #include "vtkDebugLeaks.h"
@@ -66,29 +67,36 @@ int main( int argc, char *argv[] )
   vtkRenderWindowInteractor* iren = vtkRenderWindowInteractor::New();
     iren->SetRenderWindow( renWin);
 
+  vtkCellPicker* picker = vtkCellPicker::New();
+    picker->SetTolerance(0.005); 
+    picker->PickFromListOn();
+
   vtkImagePlaneWidget* planeWidgetX = vtkImagePlaneWidget::New();
   planeWidgetX->SetInput(v16->GetOutput());
   planeWidgetX->RestrictPlaneToVolumeOn();
   planeWidgetX->SetInteractor( iren);
-  planeWidgetX->PlaceWidget();
-  planeWidgetX->SetPlaneOrientationToXAxes();
+  planeWidgetX->SetPlaneOrientationToXAxes();  
+  planeWidgetX->SetPicker(picker);
   planeWidgetX->On();
+  planeWidgetX->SetSliceIndex(32);
 
   vtkImagePlaneWidget* planeWidgetY = vtkImagePlaneWidget::New();
   planeWidgetY->SetInput(v16->GetOutput());
   planeWidgetY->RestrictPlaneToVolumeOn();
   planeWidgetY->SetInteractor( iren);
-  planeWidgetY->PlaceWidget();
   planeWidgetY->SetPlaneOrientationToYAxes();
+  planeWidgetY->SetPicker(picker);
   planeWidgetY->On();
+  planeWidgetY->SetSliceIndex(32);
 
   vtkImagePlaneWidget* planeWidgetZ = vtkImagePlaneWidget::New();
   planeWidgetZ->SetInput(v16->GetOutput());
   planeWidgetZ->RestrictPlaneToVolumeOn();
   planeWidgetZ->SetInteractor( iren);
-  planeWidgetZ->PlaceWidget();
   planeWidgetZ->SetPlaneOrientationToZAxes();
+  planeWidgetZ->SetPicker(picker);
   planeWidgetZ->On();
+  planeWidgetZ->SetSliceIndex(46);
 
   ren1->AddActor( outlineActor);
 
@@ -99,6 +107,12 @@ int main( int argc, char *argv[] )
   iren->SetKeyCode('r');
   iren->InvokeEvent(vtkCommand::CharEvent,NULL);
   renWin->Render();
+
+  ren1->GetActiveCamera()->Elevation(110);
+  ren1->GetActiveCamera()->SetViewUp(0, 0, -1);
+  ren1->GetActiveCamera()->Azimuth(45);
+  ren1->ResetCameraClippingRange();
+
   int retVal = vtkRegressionTestImage( renWin );
   if ( retVal == vtkRegressionTester::DO_INTERACTOR)
     {
@@ -108,6 +122,7 @@ int main( int argc, char *argv[] )
   planeWidgetX->Delete();
   planeWidgetY->Delete();
   planeWidgetZ->Delete();
+  picker->Delete();
   outlineActor->Delete();
   outlineMapper->Delete();
   outline->Delete();
