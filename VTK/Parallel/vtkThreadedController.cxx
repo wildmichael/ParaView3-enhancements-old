@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThreadedController.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-14 20:44:49 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2001-08-15 12:20:26 $
+  Version:   $Revision: 1.6 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -453,7 +453,7 @@ vtkMultiProcessController *vtkThreadedController::GetLocalController()
 #else
 
   vtkErrorMacro("ThreadedController only works with windows api, pthreads or sproc");
-  return NULL;
+  return this;
   
 #endif  
 }
