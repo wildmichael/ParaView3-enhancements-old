@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLImageMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:09:24 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1999-10-22 18:04:05 $
+  Version:   $Revision: 1.22 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -313,7 +313,7 @@ static void vtkOpenGLImageMapperRenderShort(vtkOpenGLImageMapper *self,
 	while (--i >= 0)
 	  {
 	  vtkClampIntToUnsignedChar(tmp,(*inPtr++*sscale+sshift),bitShift);
-	  *ptr++;
+	  *ptr++ = tmp;
 	  vtkClampIntToUnsignedChar(*ptr++,(*inPtr++*sscale+sshift),bitShift);
 	  *ptr++ = tmp;
 	  }
