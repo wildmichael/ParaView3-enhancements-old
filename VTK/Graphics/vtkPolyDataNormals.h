@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataNormals.h,v $
   Language:  C++
-  Date:      $Date: 2002-11-21 16:13:15 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2003-07-15 18:01:05 $
+  Version:   $Revision: 1.31 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -76,6 +76,20 @@ public:
   vtkBooleanMacro(Consistency,int);
 
   // Description:
+  // Turn on/off the automatic determination of correct normal
+  // orientation. NOTE: This assumes a completely closed surface
+  // (i.e. no boundary edges) and no non-manifold edges. If these
+  // constraints do not hold, all bets are off. This option adds some
+  // computational complexity, and is useful if you don't want to have
+  // to inspect the rendered image to determine whether to turn on the 
+  // FlipNormals flag. However, this flag can work with the FlipNormals 
+  // flag, and if both are set, all the normals in the output will 
+  // point "inward".
+  vtkSetMacro(AutoOrientNormals, int);
+  vtkGetMacro(AutoOrientNormals, int);
+  vtkBooleanMacro(AutoOrientNormals, int);
+
+  // Description:
   // Turn on/off the computation of point normals.
   vtkSetMacro(ComputePointNormals,int);
   vtkGetMacro(ComputePointNormals,int);
@@ -115,6 +129,7 @@ protected:
   int Splitting;
   int Consistency;
   int FlipNormals;
+  int AutoOrientNormals;
   int NonManifoldTraversal;
   int ComputePointNormals;
   int ComputeCellNormals;
