@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGlyphSource2D.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-03 14:10:25 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2000-09-15 13:38:06 $
+  Version:   $Revision: 1.4 $
   Thanks:    Tim Smith who sponsored and encouraged the development
              of this class.
 
@@ -100,7 +100,7 @@ public:
   vtkGetMacro(Scale2,float);
 
   // Description:
-  // Set the center of the glyph. By default the center is (0,0).
+  // Set the color of the glyph. The default color is white.
   vtkSetVector3Macro(Color,float);
   vtkGetVectorMacro(Color,float,3);
 
