@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLPolyDataMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-09-19 17:48:10 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2000-11-29 23:59:41 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -199,17 +199,17 @@ void vtkOpenGLPolyDataMapper2D::RenderOpaqueGeometry(vtkViewport* viewport,
     for (j = 0; j < npts; j++) 
       {
       if (c) 
-	{
-	if (cellScalars) 
-	  {
-	  rgba = c->GetColor(cellNum);
-	  }
-	else
-	  {
-	  rgba = c->GetColor(pts[j]);
-	  }
-	glColor4ubv(rgba);
-	}
+	      {
+	      if (cellScalars)
+	        {
+	        rgba = c->GetColor(cellNum);
+	        }
+	      else
+	        {
+	        rgba = c->GetColor(pts[j]);
+	        }
+	      glColor4ubv(rgba);
+	      }
       glVertex2fv(p->GetPoint(pts[j]));
       }
     glEnd();
@@ -220,22 +220,22 @@ void vtkOpenGLPolyDataMapper2D::RenderOpaqueGeometry(vtkViewport* viewport,
 
   aPrim = input->GetLines();
   for (aPrim->InitTraversal(); aPrim->GetNextCell(npts,pts); cellNum++)
-    { 
+    {
     glBegin(GL_LINE_STRIP);
-    for (j = 0; j < npts; j++) 
+    for (j = 0; j < npts; j++)
       {
-      if (c) 
-	{
-	if (cellScalars) 
-	  {
-	  rgba = c->GetColor(cellNum);
-	  }
-	else
-	  {
-	  rgba = c->GetColor(pts[j]);
-	  }
-	glColor4ubv(rgba);
-	}
+      if (c)
+	      {
+	      if (cellScalars)
+	        {
+	        rgba = c->GetColor(cellNum);
+	        }
+	      else
+	        {
+	        rgba = c->GetColor(pts[j]);
+	        }
+	      glColor4ubv(rgba);
+	      }
       glVertex2fv(p->GetPoint(pts[j]));
       }
     glEnd();
@@ -247,26 +247,26 @@ void vtkOpenGLPolyDataMapper2D::RenderOpaqueGeometry(vtkViewport* viewport,
   aPrim = input->GetVerts();
   glBegin(GL_POINTS);
   for (aPrim->InitTraversal(); aPrim->GetNextCell(npts,pts); cellNum++)
-    { 
-    for (j = 0; j < npts; j++) 
+    {
+    for (j = 0; j < npts; j++)
       {
-      if (c) 
-	{
-	if (cellScalars) 
-	  {
-	  rgba = c->GetColor(cellNum);
-	  }
-	else
-	  {
-	  rgba = c->GetColor(pts[j]);
-	  }
-	glColor4ubv(rgba);
-	}
+      if (c)
+	      {
+	      if (cellScalars)
+	        {
+	        rgba = c->GetColor(cellNum);
+	        }
+	      else
+	        {
+	        rgba = c->GetColor(pts[j]);
+	        }
+	      glColor4ubv(rgba);
+	      }
       glVertex2fv(p->GetPoint(pts[j]));
       }
     }
   glEnd();
-  
+
   if ( this->TransformCoordinate )
     {
     p->Delete();
