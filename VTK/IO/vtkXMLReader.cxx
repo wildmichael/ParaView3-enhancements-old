@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-27 00:16:04 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-11-27 01:17:17 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -31,7 +31,7 @@
 
 #include <sys/stat.h>
 
-vtkCxxRevisionMacro(vtkXMLReader, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkXMLReader, "$Revision: 1.6 $");
 
 //----------------------------------------------------------------------------
 vtkXMLReader::vtkXMLReader()
@@ -263,13 +263,13 @@ void vtkXMLReader::ExecuteData(vtkDataObject* vtkNotUsed(output))
     // If there was an error, provide empty output.
     if(this->DataError)
       {
-      this->SetupEmptyOutput();
+      this->GetOutputAsDataSet()->Initialize();
       }
     }
   else
     {
     // There was an error reading the file.  Provide empty output.
-    this->SetupEmptyOutput();
+    this->GetOutputAsDataSet()->Initialize();
     }
   
   // Close the file to prevent resource leaks.
@@ -292,7 +292,7 @@ void vtkXMLReader::ReadXMLInformation()
     {
     // There was an error reading the file.  Provide empty output.
     this->InformationError = 1;
-    this->SetupEmptyOutput();
+    this->GetOutputAsDataSet()->Initialize();
     }
 }
 
