@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-03-01 19:42:28 $
-  Version:   $Revision: 1.103 $
+  Date:      $Date: 1999-03-11 18:19:57 $
+  Version:   $Revision: 1.104 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -342,7 +342,7 @@ int vtkRenderer::UpdateActors()
 {
   vtkProp   *aProp, **actorList;
   vtkCuller  *aCuller;
-  int        count = 0, num_actors;
+  int        num_actors;
   float      total_time, actor_time, gained_time, additional_time;
   int        allocated_time_initialized = 0, i;
   float      render_time, new_render_time;
@@ -364,11 +364,6 @@ int vtkRenderer::UpdateActors()
       if ( aProp->GetVisibility() )
 	{
 	aProp->SetAllocatedRenderTime( actor_time );
-
-	// Count the number of actors we actually draw
-	count++;
-	
-	// Finally - render the thing!
 	renderedPropsCount += aProp->RenderOpaqueGeometry(this);
 	}
       }
@@ -379,7 +374,6 @@ int vtkRenderer::UpdateActors()
       if ( aProp->GetVisibility() )
 	{
 	aProp->SetAllocatedRenderTime( actor_time );
-	// Finally - render the thing!
 	renderedPropsCount += aProp->RenderTranslucentGeometry(this);
 	}
       }
@@ -470,9 +464,6 @@ int vtkRenderer::UpdateActors()
 	// If it didn't get culled, we really need to render it
 	if ( new_render_time > 0.0 )
 	  {
-	  // Count the number of actors we actually draw
-	  count++;
-
 	  // If we culled a previous actor using the inner culling method, 
 	  // we will have some additional time that we can add to this actor
 	  additional_time = gained_time / (float)(num_actors - i);
@@ -545,11 +536,11 @@ int vtkRenderer::UpdateActors()
     delete [] actorList;
     }
 
-  vtkDebugMacro( << "Rendered " << count << " actors" );
+  vtkDebugMacro( << "Rendered " << renderedPropsCount << " actors" );
 
   this->NumberOfPropsRenderedAsGeometry = renderedPropsCount;
 
-  return count;
+  return renderedPropsCount;
 }
 
 vtkWindow *vtkRenderer::GetVTKWindow()
