@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-12-23 12:02:08 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 1996-12-31 17:10:55 $
+  Version:   $Revision: 1.44 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -727,6 +727,7 @@ void vtkTransform::Multiply4x4 ( vtkMatrix4x4 & a, vtkMatrix4x4 & b, vtkMatrix4x
 void vtkTransform::Transpose ()
 {
   this->GetTranspose (**this->Stack);
+  this->Modified();
 }
 
 // Description:
