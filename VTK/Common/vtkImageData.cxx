@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-04-01 18:42:15 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1997-04-04 12:30:14 $
+  Version:   $Revision: 1.22 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -650,6 +650,13 @@ void *vtkImageData::GetScalarPointer(int coordinates[VTK_IMAGE_DIMENSIONS])
     {
     this->AllocateScalars();
     scalars = this->PointData.GetScalars();    
+    if (scalars == NULL)
+      {
+      vtkErrorMacro("Can't allocate scalars");
+      // for debugging
+      this->AllocateScalars();
+      scalars = this->PointData.GetScalars();    
+      }
     }
   
   // error checking: since most acceses will be from pointer arithmetic.
