@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIndent.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:40:27 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1998-09-03 17:51:08 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,18 +39,21 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkIndent.h"
-#define vtkStdIndent 2
-#define NumberOfBlanks 40
+#define VTK_STD_INDENT 2
+#define VTK_NUMBER_OF_BLANKS 40
 
-static const char blanks[NumberOfBlanks+1]="                                        ";
+static const char blanks[VTK_NUMBER_OF_BLANKS+1]="                                        ";
 
 // Description:
 // Determine the next indentation level. Keep indenting by two until the 
 // max of forty.
 vtkIndent vtkIndent::GetNextIndent()
 {
-  int indent = this->Indent + vtkStdIndent;
-  if ( indent > NumberOfBlanks ) indent = NumberOfBlanks;
+  int indent = this->Indent + VTK_STD_INDENT;
+  if ( indent > VTK_NUMBER_OF_BLANKS )
+    {
+    indent = VTK_NUMBER_OF_BLANKS;
+    }
   return indent;
 }
  
@@ -58,6 +61,6 @@ vtkIndent vtkIndent::GetNextIndent()
 // Print out the indentation. Basically output a bunch of spaces.
 ostream& operator<<(ostream& os, vtkIndent& ind)
 {
-  os << blanks + (NumberOfBlanks-ind.Indent) ;
+  os << blanks + (VTK_NUMBER_OF_BLANKS-ind.Indent) ;
   return os;
 }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkViewport.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-08-19 11:57:54 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1998-09-03 17:51:57 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -300,7 +300,7 @@ void vtkViewport::SetEndRenderMethodArgDelete(void (*f)(void *))
 // Function will be called with argument provided.
 void vtkViewport::SetEndRenderMethod(void (*f)(void *), void *arg)
 {
-  if ( f != this->EndRenderMethod || arg != EndRenderMethodArg )
+  if ( f != this->EndRenderMethod || arg != this->EndRenderMethodArg )
     {
     // delete the current arg if there is one and a delete meth
     if ((this->EndRenderMethodArg)&&(this->EndRenderMethodArgDelete))

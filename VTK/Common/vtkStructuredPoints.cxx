@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-04-26 15:08:51 $
-  Version:   $Revision: 1.57 $
+  Date:      $Date: 1998-09-03 17:51:41 $
+  Version:   $Revision: 1.58 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -254,7 +254,9 @@ float *vtkStructuredPoints::GetPoint(int ptId)
     }
 
   for (i=0; i<3; i++)
+    {
     x[i] = this->Origin[i] + loc[i] * this->Spacing[i];
+    }
 
   return x;
 }
@@ -582,7 +584,9 @@ void vtkStructuredPoints::SetDimensions(int dim[3])
     {
     this->DataDescription = returnStatus;
     if (returnStatus != VTK_UNCHANGED)
+      {
       this->Modified();
+      }
     }
    else if ( returnStatus < 0 ) //improperly specified
     {

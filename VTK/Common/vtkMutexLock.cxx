@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMutexLock.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-01-07 22:40:37 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-09-03 17:51:18 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -49,7 +49,7 @@ vtkMutexLock::vtkMutexLock()
 #endif
 
 #ifdef _WIN32
-  MutexLock = CreateMutex( NULL, FALSE, NULL ); 
+  this->MutexLock = CreateMutex( NULL, FALSE, NULL ); 
 #endif
 }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPlane.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:40:57 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1998-09-03 17:51:20 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,9 +64,15 @@ void vtkPlane::ProjectPoint(float x[3], float origin[3], float normal[3], float 
   int i;
   float t, xo[3];
 
-  for (i=0; i<3; i++) xo[i] = x[i] - origin[i];
+  for (i=0; i<3; i++)
+    {
+    xo[i] = x[i] - origin[i];
+    }
   t = vtkMath::Dot(normal,xo);
-  for (i=0; i<3; i++) xproj[i] = x[i] - t * normal[i];
+  for (i=0; i<3; i++)
+    {
+    xproj[i] = x[i] - t * normal[i];
+    }
 }
 
 // Description
@@ -82,10 +88,13 @@ float vtkPlane::EvaluateFunction(float x[3])
 // Evaluate function gradient at point x[3].
 void vtkPlane::EvaluateGradient(float vtkNotUsed(x)[3], float n[3])
 {
-  for (int i=0; i<3; i++) n[i] = this->Normal[i];
+  for (int i=0; i<3; i++)
+    {
+    n[i] = this->Normal[i];
+    }
 }
 
-#define TOL 1.0e-06
+#define VTK_PLANE_TOL 1.0e-06
 
 // Description:
 // Given a line defined by the two points p1,p2; and a plane defined by the
@@ -98,26 +107,41 @@ int vtkPlane::IntersectWithLine(float p1[3], float p2[3], float n[3],
 {
   float num, den, p21[3];
   int i;
-//
-// Compute line vector
-// 
-  for (i=0; i<3; i++) p21[i] = p2[i] - p1[i];
-//
-// Compute denominator.  If ~0, line and plane are parallel.
-// 
+  //
+  // Compute line vector
+  // 
+  for (i=0; i<3; i++)
+    {
+    p21[i] = p2[i] - p1[i];
+    }
+  //
+  // Compute denominator.  If ~0, line and plane are parallel.
+  // 
   num = vtkMath::Dot(n,p0) - ( n[0]*p1[0] + n[1]*p1[1] + n[2]*p1[2] ) ;
   den = n[0]*p21[0] + n[1]*p21[1] + n[2]*p21[2];
-//
-// If denominator with respect to numerator is "zero", then the line and
-// plane are considered parallel. 
-//
-  if ( fabs(den) <= fabs(TOL*num)) return 0;
+  //
+  // If denominator with respect to numerator is "zero", then the line and
+  // plane are considered parallel. 
+  //
+  if ( fabs(den) <= fabs(VTK_PLANE_TOL*num))
+    {
+    return 0;
+    }
 
   t = num / den;
-  for (i=0; i<3; i++) x[i] = p1[i] + t*p21[i];
+  for (i=0; i<3; i++)
+    {
+    x[i] = p1[i] + t*p21[i];
+    }
 
-  if ( t >= 0.0 && t <= 1.0 ) return 1;
-  else return 0;
+  if ( t >= 0.0 && t <= 1.0 )
+    {
+    return 1;
+    }
+  else
+    {
+    return 0;
+    }
 }
 
 void vtkPlane::PrintSelf(ostream& os, vtkIndent indent)

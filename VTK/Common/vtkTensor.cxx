@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTensor.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 22:50:36 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-09-03 17:51:44 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -46,7 +46,11 @@ vtkTensor::vtkTensor()
 {
   this->T = this->Storage;
   for (int j=0; j<3; j++)
+    {
     for (int i=0; i<3; i++)
+      {
       this->T[i+j*3] = 0.0;
+      }
+    }
 }
 

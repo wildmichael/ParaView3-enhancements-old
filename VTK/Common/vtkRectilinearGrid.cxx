@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 22:50:22 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-09-03 17:51:32 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -99,19 +99,28 @@ vtkDataSet(v)
   if ( this->XCoordinates != v.XCoordinates )
     {
     this->XCoordinates = v.XCoordinates;
-    if ( this->XCoordinates ) this->XCoordinates->Register(this);
+    if ( this->XCoordinates )
+      {
+      this->XCoordinates->Register(this);
+      }
     }
 
   if ( this->YCoordinates != v.YCoordinates )
     {
     this->YCoordinates = v.YCoordinates;
-    if ( this->YCoordinates ) this->YCoordinates->Register(this);
+    if ( this->YCoordinates )
+      {
+      this->YCoordinates->Register(this);
+      }
     }
 
   if ( this->ZCoordinates != v.ZCoordinates )
     {
     this->ZCoordinates = v.ZCoordinates;
-    if ( this->ZCoordinates ) this->ZCoordinates->Register(this);
+    if ( this->ZCoordinates )
+      {
+      this->ZCoordinates->Register(this);
+      }
     }
 }
 
@@ -130,13 +139,22 @@ void vtkRectilinearGrid::CopyStructure(vtkDataSet *ds)
   this->DataDescription = rGrid->DataDescription;
 
   this->XCoordinates = rGrid->XCoordinates;
-  if ( this->XCoordinates ) this->XCoordinates->Register(this);
+  if ( this->XCoordinates )
+    {
+    this->XCoordinates->Register(this);
+    }
 
   this->YCoordinates = rGrid->YCoordinates;
-  if ( this->YCoordinates ) this->YCoordinates->Register(this);
+  if ( this->YCoordinates )
+    {
+    this->YCoordinates->Register(this);
+    }
 
   this->ZCoordinates = rGrid->ZCoordinates;
-  if ( this->ZCoordinates ) this->ZCoordinates->Register(this);
+  if ( this->ZCoordinates )
+    {
+    this->ZCoordinates->Register(this);
+    }
  }
 
 vtkCell *vtkRectilinearGrid::GetCell(int cellId)
@@ -309,15 +327,24 @@ int vtkRectilinearGrid::FindPoint(float x[3])
     loc[j] = 0;
     xPrev = scalars[j]->GetScalar(0);
     xNext = scalars[j]->GetScalar(scalars[j]->GetNumberOfScalars()-1);
-    if ( x[j] < xPrev || x[j] > xNext ) return -1;
+    if ( x[j] < xPrev || x[j] > xNext )
+      {
+      return -1;
+      }
 
     for (i=1; i < scalars[j]->GetNumberOfScalars(); i++)
       {
       xNext = scalars[j]->GetScalar(i);
       if ( x[j] >= xPrev && x[j] <= xNext )
         {
-        if ( (x[j]-xPrev) < (xNext-x[j]) ) loc[j] = i-1;
-        else loc[j] = i;
+        if ( (x[j]-xPrev) < (xNext-x[j]) )
+	  {
+	  loc[j] = i-1;
+	  }
+        else
+	  {
+	  loc[j] = i;
+	  }
         }
       }
     }
@@ -464,7 +491,10 @@ int vtkRectilinearGrid::ComputeStructuredCoordinates(float x[3], int ijk[3],
     loc[j] = 0;
     xPrev = scalars[j]->GetScalar(0);
     xNext = scalars[j]->GetScalar(scalars[j]->GetNumberOfScalars()-1);
-    if ( x[j] < xPrev || x[j] > xNext ) return 0;
+    if ( x[j] < xPrev || x[j] > xNext )
+      {
+      return 0;
+      }
 
     for (i=1; i < scalars[j]->GetNumberOfScalars(); i++)
       {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkReferenceCount.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-08-21 15:39:44 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-09-03 17:51:33 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -109,7 +109,10 @@ void vtkReferenceCount::UnRegister(vtkObject* o)
      << (this->ReferenceCount-1));
     }
 
-  if (--this->ReferenceCount <= 0) delete this;
+  if (--this->ReferenceCount <= 0)
+    {
+    delete this;
+    }
 }
 
 void vtkReferenceCount::PrintSelf(ostream& os, vtkIndent indent)

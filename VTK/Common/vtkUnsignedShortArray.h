@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnsignedShortArray.h,v $
   Language:  C++
-  Date:      $Date: 1998-05-06 19:47:03 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1998-09-03 17:51:55 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -128,8 +128,14 @@ inline void vtkUnsignedShortArray::SetValue(const int id, const unsigned short v
 inline unsigned short *vtkUnsignedShortArray::WritePointer(const int id, const int number) 
 {
   int newSize=id+number;
-  if ( newSize > this->Size ) this->Resize(newSize);
-  if ( (--newSize) > this->MaxId ) this->MaxId = newSize;
+  if ( newSize > this->Size )
+    {
+    this->Resize(newSize);
+    }
+  if ( (--newSize) > this->MaxId )
+    {
+    this->MaxId = newSize;
+    }
   return this->Array + id;
 }
 
@@ -137,9 +143,15 @@ inline unsigned short *vtkUnsignedShortArray::WritePointer(const int id, const i
 // Insert data at a specified position in the array.
 inline void vtkUnsignedShortArray::InsertValue(const int id, const unsigned short i)
 {
-  if ( id >= this->Size ) this->Resize(id+1);
+  if ( id >= this->Size )
+    {
+    this->Resize(id+1);
+    }
   this->Array[id] = i;
-  if ( id > this->MaxId ) this->MaxId = id;
+  if ( id > this->MaxId )
+    {
+    this->MaxId = id;
+    }
 }
 
 // Description:

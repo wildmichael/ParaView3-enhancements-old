@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTensor.h,v $
   Language:  C++
-  Date:      $Date: 1998-08-21 13:46:10 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1998-09-03 17:51:44 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -77,8 +77,12 @@ protected:
 inline void vtkTensor::Initialize()
 {
   for (int j=0; j<3; j++)
+    {
     for (int i=0; i<3; i++)
+      {
       this->T[i+j*3] = 0.0;
+      }
+    }
 }
 
 // Description:
@@ -114,8 +118,12 @@ inline float *vtkTensor::GetColumn(int j)
 inline void vtkTensor::DeepCopy(vtkTensor &t)
 {
   for (int j=0; j < 3; j++)
+    {
     for (int i=0; i < 3; i++)
+      {
       this->T[i+3*j] = t.T[i+3*j];
+      }
+    }
 }
 
 #endif

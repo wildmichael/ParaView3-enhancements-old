@@ -3,8 +3,8 @@
  Program:   Visualization Toolkit
  Module:    $RCSfile: vtkSource.cxx,v $
  Language:  C++
- Date:      $Date: 1998-03-26 22:50:29 $
- Version:   $Revision: 1.31 $
+ Date:      $Date: 1998-09-03 17:51:36 $
+ Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -98,16 +98,28 @@ void vtkSource::Update()
   // Make sure virtual getMTime method is called since subclasses will overload
   if ( this->GetMTime() > this->ExecuteTime )
     {
-    if ( this->StartMethod ) (*this->StartMethod)(this->StartMethodArg);
-    if (this->Output) this->Output->Initialize(); //clear output
+    if ( this->StartMethod )
+      {
+      (*this->StartMethod)(this->StartMethodArg);
+      }
+    if (this->Output)
+      {
+      this->Output->Initialize(); //clear output
+      }
     // reset AbortExecute flag and Progress
     this->AbortExecute = 0;
     this->Progress = 0.0;
     this->Execute();
     this->ExecuteTime.Modified();
-    if ( !this->AbortExecute ) this->UpdateProgress(1.0);
+    if ( !this->AbortExecute )
+      {
+      this->UpdateProgress(1.0);
+      }
     this->SetDataReleased(0);
-    if ( this->EndMethod ) (*this->EndMethod)(this->EndMethodArg);
+    if ( this->EndMethod )
+      {
+      (*this->EndMethod)(this->EndMethodArg);
+      }
     }
 }
 

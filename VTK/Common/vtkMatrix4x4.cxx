@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMatrix4x4.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-17 17:12:16 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1998-09-03 17:51:16 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -54,8 +54,14 @@ vtkMatrix4x4::vtkMatrix4x4 ()
     {
     for (j = 0; j < 4; j++)
       {
-      if ( i == j ) this->Element[i][j] = 1.0;
-      else this->Element[i][j] = 0.0;
+      if ( i == j )
+	{
+	this->Element[i][j] = 1.0;
+	}
+      else
+	{
+	this->Element[i][j] = 0.0;
+	}
       }
     }
 }
@@ -168,8 +174,12 @@ void vtkMatrix4x4::Invert (vtkMatrix4x4 in,vtkMatrix4x4 & out)
 
   // scale the adjoint matrix to get the inverse
   for (i=0; i<4; i++)
+    {
     for(j=0; j<4; j++)
+      {
       out.Element[i][j] = out.Element[i][j] / det;
+      }
+    }
 }
 
 // Description:

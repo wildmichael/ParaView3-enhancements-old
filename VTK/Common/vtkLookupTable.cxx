@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLookupTable.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-22 19:01:24 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 1998-09-03 17:51:13 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -223,7 +223,10 @@ void vtkLookupTable::SetTableValue (int indx, float rgba[4])
   unsigned char *_rgba;
 
   _rgba = this->Table.WritePointer(4*indx,4);
-  for (int i=0; i<4; i++) _rgba[i] = (unsigned char) ((float)255.0 * rgba[i]);
+  for (int i=0; i<4; i++)
+    {
+    _rgba[i] = (unsigned char) ((float)255.0 * rgba[i]);
+    }
 
   indx = (indx < 0 ? 0 : (indx >= this->NumberOfColors ? this->NumberOfColors-1 : indx));
   this->InsertTime.Modified();
@@ -269,7 +272,10 @@ void vtkLookupTable::GetTableValue (int indx, float rgba[4])
 {
   float *_rgba = this->GetTableValue(indx);
 
-  for (int i=0; i<4; i++) rgba[i] = _rgba[i];
+  for (int i=0; i<4; i++)
+    {
+    rgba[i] = _rgba[i];
+    }
 }
 
 void vtkLookupTable::PrintSelf(ostream& os, vtkIndent indent)

@@ -3,8 +3,8 @@
 
   Module:    $RCSfile: vtkImageData.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-08-19 11:41:37 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 1998-09-03 17:51:04 $
+  Version:   $Revision: 1.49 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -178,13 +178,25 @@ void vtkImageData::GetContinuousIncrements(int extent[6], int &incX,
   incX = 0;
 
   e0 = extent[0];
-  if (e0 < this->Extent[0]) e0 = this->Extent[0];
+  if (e0 < this->Extent[0])
+    {
+    e0 = this->Extent[0];
+    }
   e1 = extent[1];
-  if (e1 > this->Extent[1]) e1 = this->Extent[1];
+  if (e1 > this->Extent[1])
+    {
+    e1 = this->Extent[1];
+    }
   e2 = extent[2];
-  if (e2 < this->Extent[2]) e2 = this->Extent[2];
+  if (e2 < this->Extent[2])
+    {
+    e2 = this->Extent[2];
+    }
   e3 = extent[3];
-  if (e3 > this->Extent[3]) e3 = this->Extent[3];
+  if (e3 > this->Extent[3])
+    {
+    e3 = this->Extent[3];
+    }
   
   incY = this->Increments[1] - (e1 - e0 + 1)*this->Increments[0];
   incZ = this->Increments[2] - (e3 - e2 + 1)*this->Increments[1];

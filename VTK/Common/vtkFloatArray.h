@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFloatArray.h,v $
   Language:  C++
-  Date:      $Date: 1998-05-06 19:46:52 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 1998-09-03 17:50:59 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -125,8 +125,14 @@ inline void vtkFloatArray::SetValue(const int id, const float value)
 inline float *vtkFloatArray::WritePointer(const int id, const int number) 
 {
   int newSize=id+number;
-  if ( newSize > this->Size ) this->Resize(newSize);
-  if ( (--newSize) > this->MaxId ) this->MaxId = newSize;
+  if ( newSize > this->Size )
+    {
+    this->Resize(newSize);
+    }
+  if ( (--newSize) > this->MaxId )
+    {
+    this->MaxId = newSize;
+    }
   return this->Array + id;
 }
 
@@ -134,9 +140,15 @@ inline float *vtkFloatArray::WritePointer(const int id, const int number)
 // Insert data at a specified position in the array.
 inline void vtkFloatArray::InsertValue(const int id, const float f)
 {
-  if ( id >= this->Size ) this->Resize(id+1);
+  if ( id >= this->Size )
+    {
+    this->Resize(id+1);
+    }
   this->Array[id] = f;
-  if ( id > this->MaxId ) this->MaxId = id;
+  if ( id > this->MaxId )
+    {
+    this->MaxId = id;
+    }
 }
 
 // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectors.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-13 13:34:12 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1998-09-03 17:51:56 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -76,7 +76,10 @@ void vtkVectors::ComputeMaxNorm()
       {
       v = this->GetVector(i);
       norm = vtkMath::Norm(v);
-      if ( norm > this->MaxNorm ) this->MaxNorm = norm;
+      if ( norm > this->MaxNorm )
+	{
+	this->MaxNorm = norm;
+	}
       }
 
     this->ComputeTime.Modified();

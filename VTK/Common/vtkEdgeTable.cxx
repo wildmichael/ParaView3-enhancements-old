@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEdgeTable.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:40:04 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1998-09-03 17:50:57 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -44,10 +44,16 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // Instantiate object based on maximum point id.
 vtkEdgeTable::vtkEdgeTable(int numPoints)
 {
-  if ( numPoints < 1 ) numPoints = 1;
+  if ( numPoints < 1 )
+    {
+    numPoints = 1;
+    }
 
   this->Table = new vtkIdList *[numPoints];
-  for (int i=0; i < numPoints; i++) this->Table[i] = NULL;
+  for (int i=0; i < numPoints; i++)
+    {
+    this->Table[i] = NULL;
+    }
   this->TableSize = numPoints;
 
   this->Position[0] = 0;

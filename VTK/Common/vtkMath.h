@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMath.h,v $
   Language:  C++
-  Date:      $Date: 1998-08-21 13:46:09 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 1998-09-03 17:51:15 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -162,7 +162,13 @@ inline float vtkMath::Norm2D(float x[3])
 inline float vtkMath::Normalize(float x[3])
 {
   float den; 
-  if ( (den = vtkMath::Norm(x)) != 0.0 ) for (int i=0; i < 3; i++) x[i] /= den;
+  if ( (den = vtkMath::Norm(x)) != 0.0 )
+    {
+    for (int i=0; i < 3; i++)
+      {
+      x[i] /= den;
+      }
+    }
   return den;
 }
 
@@ -171,7 +177,13 @@ inline float vtkMath::Normalize(float x[3])
 inline float vtkMath::Normalize2D(float x[3])
 {
   float den; 
-  if ( (den = vtkMath::Norm2D(x)) != 0.0 ) for (int i=0; i < 2; i++) x[i] /= den;
+  if ( (den = vtkMath::Norm2D(x)) != 0.0 )
+    {
+    for (int i=0; i < 2; i++)
+      {
+      x[i] /= den;
+      }
+    }
   return den;
 }
 

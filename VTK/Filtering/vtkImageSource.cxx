@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-22 19:01:23 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1998-09-03 17:51:05 $
+  Version:   $Revision: 1.28 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -124,9 +124,15 @@ void vtkImageSource::Update()
 // This method is called by the cache.
 void vtkImageSource::InternalUpdate(vtkImageData *data)
 {
-  if ( this->StartMethod ) (*this->StartMethod)(this->StartMethodArg);  
+  if ( this->StartMethod )
+    {
+    (*this->StartMethod)(this->StartMethodArg);
+    }
   this->Execute(data);
-  if ( this->EndMethod ) (*this->EndMethod)(this->EndMethodArg);  
+  if ( this->EndMethod )
+    {
+    (*this->EndMethod)(this->EndMethodArg);
+    }
 }
 
 //----------------------------------------------------------------------------

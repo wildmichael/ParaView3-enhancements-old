@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGrid.h,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 22:50:23 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1998-09-03 17:51:32 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -145,8 +145,12 @@ inline int vtkRectilinearGrid::GetNumberOfCells()
   int i;
 
   for (i=0; i<3; i++)
+    {
     if (this->Dimensions[i] > 1)
+      {
       nCells *= (this->Dimensions[i]-1);
+      }
+    }
 
   return nCells;
 }

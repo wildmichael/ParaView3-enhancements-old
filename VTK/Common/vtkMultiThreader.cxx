@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMultiThreader.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-22 19:01:26 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1998-09-03 17:51:18 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,7 +57,10 @@ static int vtkMultiThreaderGlobalMaximumNumberOfThreads = 0;
 
 void vtkMultiThreader::SetGlobalMaximumNumberOfThreads(int val)
 {
-  if (val == vtkMultiThreaderGlobalMaximumNumberOfThreads) return;
+  if (val == vtkMultiThreaderGlobalMaximumNumberOfThreads)
+    {
+    return;
+    }
   vtkMultiThreaderGlobalMaximumNumberOfThreads = val;
 }
 
@@ -357,11 +360,13 @@ void vtkMultiThreader::MultipleMethodExecute()
     }
 
   for ( thread_loop = 0; thread_loop < this->NumberOfThreads; thread_loop++ )
+    {
     if ( this->MultipleMethod[thread_loop] == (vtkThreadFunctionType)NULL)
       {
       vtkErrorMacro( << "No multiple method set for: " << thread_loop );
       return;
       }
+    }
 
   // We are using sproc (on SGIs), pthreads(on Suns), CreateThread
   // on a PC or a single thread (the default)  
@@ -521,7 +526,10 @@ int vtkMultiThreader::SpawnThread( vtkThreadFunctionType f, void *UserData )
 
   while ( id < VTK_MAX_THREADS )
     {
-    if ( this->SpawnedThreadActiveFlagLock[id] == NULL ) break;
+    if ( this->SpawnedThreadActiveFlagLock[id] == NULL )
+      {
+      break;
+      }
     id++;
     }
 

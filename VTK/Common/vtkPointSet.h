@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSet.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:41:04 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 1998-09-03 17:51:23 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -95,8 +95,14 @@ protected:
 
 inline int vtkPointSet::GetNumberOfPoints()
 {
-  if (this->Points) return this->Points->GetNumberOfPoints();
-  else return 0;
+  if (this->Points)
+    {
+    return this->Points->GetNumberOfPoints();
+    }
+  else
+    {
+    return 0;
+    }
 }
 
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPoints.h,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 22:50:34 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 1998-09-03 17:51:41 $
+  Version:   $Revision: 1.48 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -138,8 +138,12 @@ inline int vtkStructuredPoints::GetNumberOfCells()
   int i;
 
   for (i=0; i<3; i++)
+    {
     if (this->Dimensions[i] > 1)
+      {
       nCells *= (this->Dimensions[i]-1);
+      }
+    }
 
   return nCells;
 }

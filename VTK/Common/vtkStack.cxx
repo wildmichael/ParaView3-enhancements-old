@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStack.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:41:28 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1998-09-03 17:51:38 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -68,9 +68,13 @@ void vtkStack::Push(vtkObject *a)
   elem = new vtkStackElement;
   
   if ( this->Top == NULL )
+    {
     this->Bottom = elem;
+    }
   else
+    {
     elem->Next = this->Top;
+    }
 
   this->Top = elem;
   elem->Item = a;
@@ -84,16 +88,23 @@ vtkObject *vtkStack::Pop()
   vtkObject *item;
   vtkStackElement *next;
   
-  if ( this->Top == NULL ) return NULL;
+  if ( this->Top == NULL )
+    {
+    return NULL;
+    }
 
   item = this->Top->Item;
   next = this->Top->Next;
   delete this->Top;
 
   if ( this->Top == this->Bottom )
+    {
     this->Top = this->Bottom = NULL;
+    }
   else
+    {
     this->Top = next;
+    }
 
   this->NumberOfItems--;
   return item;
@@ -104,9 +115,13 @@ vtkObject *vtkStack::Pop()
 vtkObject *vtkStack::GetTop()
 {
   if ( this->Top != NULL )
+    {
     return this->Top->Item;
+    }
   else
+    {
     return NULL;
+    }
 }
 
 // Description:

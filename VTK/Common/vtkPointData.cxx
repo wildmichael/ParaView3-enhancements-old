@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointData.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 22:50:09 $
-  Version:   $Revision: 1.53 $
+  Date:      $Date: 1998-09-03 17:51:20 $
+  Version:   $Revision: 1.54 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,12 +64,12 @@ void vtkPointData::NullPoint (int ptId)
 
   if ( this->Tensors )
     {
-    this->Tensors->InsertTensor(ptId,&NullTensor);
+    this->Tensors->InsertTensor(ptId,&this->NullTensor);
     }
 
   if ( this->FieldData )
     {
-    this->FieldData->InsertTuple(ptId,NullTuple);
+    this->FieldData->InsertTuple(ptId,this->NullTuple);
     }
 }
 

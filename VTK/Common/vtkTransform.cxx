@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-22 19:01:28 $
-  Version:   $Revision: 1.52 $
+  Date:      $Date: 1998-09-03 17:51:47 $
+  Version:   $Revision: 1.53 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -119,7 +119,10 @@ vtkTransform& vtkTransform::operator=(const vtkTransform& t)
 void vtkTransform::Pop ()
 {
   // if we're at the bottom of the stack, don't pop
-  if (this->Stack == this->StackBottom) return;
+  if (this->Stack == this->StackBottom)
+    {
+    return;
+    }
 
   // free the stack matrix storage
   (*this->Stack)->Delete();
@@ -775,7 +778,10 @@ float *vtkTransform::GetPoint()
 void vtkTransform::GetPoint(float p[4])
 {
   float *x=this->vtkTransform::GetPoint();
-  for (int i=0; i<4; i++) p[i] = x[i];
+  for (int i=0; i<4; i++)
+    {
+    p[i] = x[i];
+    }
 }
 
 // Description:

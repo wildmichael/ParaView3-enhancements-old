@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper2D.h,v $
   Language:  C++
-  Date:      $Date: 1998-03-17 21:36:12 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-09-03 17:51:14 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -54,11 +54,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkWindow.h"
 #include "vtkActor2D.h"
 // #include "vtkImager.h"
-
-#define XMIN 0
-#define YMIN 1
-#define XMAX 2
-#define YMAX 3
 
 class VTK_EXPORT vtkMapper2D : public vtkReferenceCount
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGrid.h,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 22:50:32 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 1998-09-03 17:51:40 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -118,8 +118,12 @@ inline int vtkStructuredGrid::GetNumberOfCells()
   int i;
 
   for (i=0; i<3; i++)
+    {
     if (this->Dimensions[i] > 1)
+      {
       nCells *= (this->Dimensions[i]-1);
+      }
+    }
 
   return nCells;
 }
@@ -144,8 +148,14 @@ inline void vtkStructuredGrid::GetPointCells(int ptId, vtkIdList& cellIds)
 // Return non-zero value if specified point is visible.
 inline int vtkStructuredGrid::IsPointVisible(int ptId) 
 {
-  if (!this->Blanking) return 1; 
-  else return (int) this->PointVisibility->GetScalar(ptId);
+  if (!this->Blanking)
+    {
+    return 1;
+    }
+  else
+    {
+    return (int) this->PointVisibility->GetScalar(ptId);
+    }
 }
 
 #endif

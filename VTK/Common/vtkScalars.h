@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalars.h,v $
   Language:  C++
-  Date:      $Date: 1998-03-27 14:33:58 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 1998-09-03 17:51:34 $
+  Version:   $Revision: 1.50 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -146,7 +146,8 @@ public:
   // Get the color value at a particular id. Returns a pointer to a 4-byte
   // array of rgba. Make sure you call InitColorTraversal() before
   // invoking this method.
-  unsigned char *GetColor(int id) {return (this->*(CurrentColorFunction))(id);};
+  unsigned char *GetColor(int id) {return
+				   (this->*(this->CurrentColorFunction))(id);};
 
 protected:
   float Range[8];

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnsignedLongArray.h,v $
   Language:  C++
-  Date:      $Date: 1998-05-06 19:47:02 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-09-03 17:51:53 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -123,8 +123,14 @@ inline void vtkUnsignedLongArray::SetValue(const int id, const unsigned long val
 inline unsigned long *vtkUnsignedLongArray::WritePointer(const int id, const int number) 
 {
   int newSize=id+number;
-  if ( newSize > this->Size ) this->Resize(newSize);
-  if ( (--newSize) > this->MaxId ) this->MaxId = newSize;
+  if ( newSize > this->Size )
+    {
+    this->Resize(newSize);
+    }
+  if ( (--newSize) > this->MaxId )
+    {
+    this->MaxId = newSize;
+    }
   return this->Array + id;
 }
 
@@ -132,9 +138,15 @@ inline unsigned long *vtkUnsignedLongArray::WritePointer(const int id, const int
 // Insert data at a specified position in the array.
 inline void vtkUnsignedLongArray::InsertValue(const int id, const unsigned long i)
 {
-  if ( id >= this->Size ) this->Resize(id+1);
+  if ( id >= this->Size )
+    {
+    this->Resize(id+1);
+    }
   this->Array[id] = i;
-  if ( id > this->MaxId ) this->MaxId = id;
+  if ( id > this->MaxId )
+    {
+    this->MaxId = id;
+    }
 }
 
 // Description:
