@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyData.h,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:31:37 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 1995-09-01 10:02:14 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -70,6 +70,7 @@ public:
 
   // dataset interface
   vtkDataSet *MakeObject() {return new vtkPolyData(*this);};
+  void CopyStructure(vtkDataSet *ds);
   int GetNumberOfCells();
   vtkCell *GetCell(int cellId);
   int GetCellType(int cellId);

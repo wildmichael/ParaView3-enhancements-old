@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPoints.h,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:31:52 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1995-09-01 10:02:40 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -65,6 +65,7 @@ public:
 
   // dataset interface
   vtkDataSet *MakeObject() {return new vtkStructuredPoints(*this);};
+  void CopyStructure(vtkDataSet *ds);
   int GetNumberOfCells();
   int GetNumberOfPoints();
   float *GetPoint(int ptId);

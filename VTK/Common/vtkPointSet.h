@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSet.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:37:35 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1995-09-01 10:02:05 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -63,6 +63,7 @@ public:
 
   // dataset interface
   void Initialize();
+  void CopyStructure(vtkDataSet *pd);
   int GetNumberOfPoints();
   float *GetPoint(int ptId) {return this->Points->GetPoint(ptId);};
   void GetPoint(int ptId, float x[3]) {this->Points->GetPoint(ptId,x);};

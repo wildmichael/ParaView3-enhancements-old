@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSet.h,v $
   Language:  C++
-  Date:      $Date: 1995-08-31 21:20:29 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 1995-09-01 10:01:58 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -71,6 +71,12 @@ public:
   // Description:
   // Create concrete instance of this dataset.
   virtual vtkDataSet *MakeObject() = 0;
+
+  // Description:
+  // Copy the geometric and topological structure of an object. Note that
+  // the invoking object and the object pointed to by the parameter ds must
+  // be of the same type.
+  virtual void CopyStructure(vtkDataSet *ds) = 0;
 
   // Description:
   // Return class name of data type. This is one of vtkStructuredGrid, 
