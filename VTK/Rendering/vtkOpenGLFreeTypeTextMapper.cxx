@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLFreeTypeTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-07-09 21:38:12 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-07-10 13:26:48 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -120,7 +120,7 @@ static vtkEmbeddedFontStruct embedded_fonts[3][2][2] =
   }
 };
 
-vtkCxxRevisionMacro(vtkOpenGLFreeTypeTextMapper, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkOpenGLFreeTypeTextMapper, "$Revision: 1.3 $");
 vtkStandardNewMacro(vtkOpenGLFreeTypeTextMapper);
 
 //----------------------------------------------------------------------------
@@ -214,7 +214,6 @@ FTFont* vtkFontStruct::GetFTFont(vtkTextProperty *tprop,
   vtkWindow *win = vp->GetVTKWindow();
 
   int antialiasing_requested = vtkFontStruct::IsAntiAliasingRequested(tprop);
-  char *face_file_name = tprop->GetFaceFileName();
 
 #if VTK_FTTM_CACHE_BY_RGBA
   float opacity = tprop->GetOpacity();
