@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OutputWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:10:02 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2001-12-07 16:13:32 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -215,7 +215,7 @@ int vtkWin32OutputWindow::Initialize()
   const int maxsize = 5242880;
   
   SendMessage(vtkWin32OutputWindow::OutputWindow, 
-              EM_LIMITTEXT, 5242880, 0L);
+              EM_LIMITTEXT, maxsize, 0L);
 
   
   // show the top level container window

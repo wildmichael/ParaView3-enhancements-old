@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergeFields.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-06 02:51:56 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2001-12-07 16:13:30 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -394,15 +394,12 @@ void vtkMergeFields::AddComponent(Component* op)
 
 Component* vtkMergeFields::FindComponent(int index)
 {
-  Component* before;
   Component* cur = this->GetFirst();
   if (!cur) { return 0; }
 
-  before = 0;
   if (cur->Index == index) { return cur; }
   while (cur->Next)
     {
-    before = cur;
     if (cur->Next->Index == index)
       {
       return cur->Next;

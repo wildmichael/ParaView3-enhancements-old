@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSplitField.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:13:59 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2001-12-07 16:13:31 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -356,15 +356,12 @@ void vtkSplitField::AddComponent(Component* op)
 
 Component* vtkSplitField::FindComponent(int index)
 {
-  Component* before;
   Component* cur = this->GetFirst();
   if (!cur) { return 0; }
 
-  before = 0;
   if (cur->Index == index) { return cur; }
   while (cur->Next)
     {
-    before = cur;
     if (cur->Next->Index == index)
       {
       return cur->Next;
