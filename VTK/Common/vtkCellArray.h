@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkCellArray.h,v $
   Language:  C++
-  Date:      $Date: 1994-05-28 06:49:53 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1994-05-31 14:22:26 $
+  Version:   $Revision: 1.21 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -120,16 +120,24 @@ public:
   
   // Special method flips ordering of current cell.  Works in conjunction with
   // cell traversal methods.
-  void ReverseOrder(int npts)
+  void ReverseCell(int loc)
   {
-    int i, tmp, loc=this->Location - npts;
-    int *pts=this->Ia.GetPtr(loc);
+    int i, tmp;
+    int npts=this->Ia.GetValue(loc);
+    int *pts=this->Ia.GetPtr(loc+1);
     for (i=0; i < (npts/2); i++) 
       {
       tmp = pts[i];
       pts[i] = pts[npts-i-1];
       pts[npts-i-1] = tmp;
       }
+  }
+  void ReplaceCell(int loc, vlIdList& ptIds)
+  {
+    int i;
+    int npts=this->Ia.GetValue(loc);
+    int *pts=this->Ia.GetPtr(loc+1);
+    for (i=0; i < npts; i++)  pts[i] = ptIds.GetId(i);
   }
 
 protected:

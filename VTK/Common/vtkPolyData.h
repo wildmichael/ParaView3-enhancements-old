@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPolyData.h,v $
   Language:  C++
-  Date:      $Date: 1994-05-28 06:49:58 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1994-05-31 14:22:30 $
+  Version:   $Revision: 1.27 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -66,6 +66,10 @@ public:
 
   // create verts, lines, polys, tmeshes from cell object
   void InsertNextCell(int type, int npts, int pts[MAX_CELL_SIZE]);
+
+  // special operations on cell
+  void ReverseCell(int cellId);
+  void ReplaceCell(int cellId, vlIdList& ptIds);
 
   // following stuff supports cell structure
   // Booleans control whether certain types of data are loaded.
