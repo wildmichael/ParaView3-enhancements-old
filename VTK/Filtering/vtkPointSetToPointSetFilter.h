@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPointSetToPointSetFilter.h,v $
   Language:  C++
-  Date:      $Date: 1994-05-01 16:16:29 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1994-06-10 08:31:58 $
+  Version:   $Revision: 1.2 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -31,6 +31,7 @@ public:
   vlPointSetToPointSetFilter();
   ~vlPointSetToPointSetFilter();
   char *GetClassName() {return "vlPointSetToPointSetFilter";};
+  char *GetDataType() {return this->PointSet->GetDataType();};
   void PrintSelf(ostream& os, vlIndent indent);
 
   // dataset interface
@@ -42,7 +43,6 @@ public:
   void Initialize();
 
   void ComputeBounds() {this->PointSet->ComputeBounds();};
-  vlMapper *MakeMapper();
   void Update();
 
 protected:
