@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkDividingCubes.h,v $
   Language:  C++
-  Date:      $Date: 1995-06-14 14:27:22 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1995-06-16 08:38:01 $
+  Version:   $Revision: 1.6 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -53,7 +53,7 @@ public:
 
 protected:
   void Execute();
-  void SubDivide(float origin[3], float h[3], vlFloatScalars &values);
+  void SubDivide(float origin[3], float h[3], float values[8]);
   void AddPoint(float x[3]);
 
   float Value;
