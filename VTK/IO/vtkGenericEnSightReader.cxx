@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGenericEnSightReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-02-01 19:25:12 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2001-02-01 20:13:14 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -255,7 +255,7 @@ int vtkGenericEnSightReader::DetermineEnSightVersion()
   if (strncmp(line, "FORMAT", 6) == 0)
     {
     // found the FORMAT section
-    vtkErrorMacro("*** FORMAT section");
+    vtkDebugMacro("*** FORMAT section");
     this->ReadNextDataLine(line);
     
     stringRead = sscanf(line, " %*s %*s %s", subLine);
