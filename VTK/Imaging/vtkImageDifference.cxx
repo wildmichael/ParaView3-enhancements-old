@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDifference.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-02 19:39:49 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-06-29 12:07:30 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -100,8 +100,8 @@ void vtkImageDifference::ThreadedExecute(vtkImageData **inData,
     
   // this filter expects that input is the same type as output.
   if (inData[0]->GetScalarType() != VTK_UNSIGNED_CHAR || 
-      inData[0]->GetScalarType() != VTK_UNSIGNED_CHAR || 
-      inData[0]->GetScalarType() != VTK_UNSIGNED_CHAR)
+      inData[1]->GetScalarType() != VTK_UNSIGNED_CHAR || 
+      outData->GetScalarType() != VTK_UNSIGNED_CHAR)
       {
       vtkErrorMacro(<< "Execute: All ScalarTypes must be unsigned char");
       this->Error = 1;
