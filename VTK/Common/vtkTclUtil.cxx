@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTclUtil.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-14 23:09:04 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 2000-02-15 12:51:25 $
+  Version:   $Revision: 1.49 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -478,7 +478,9 @@ int vtkTclNewInstanceCommand(ClientData cd, Tcl_Interp *interp,
   if (Tcl_FindHashEntry(&vtkInstanceLookup,argv[1]))
     { 
     Tcl_SetResult(interp, argv[1], TCL_VOLATILE);
-    Tcl_AppendResult(interp, ": a vtk object with that name already exists.");
+    Tcl_AppendResult(interp,
+		     ": a vtk object with that name already exists.",
+		     NULL);
     return TCL_ERROR;
     }
 
