@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageActor.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:54 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2001-10-02 16:08:35 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -116,6 +116,23 @@ public:
   int RenderOpaqueGeometry(vtkViewport *viewport);
   virtual void Load(vtkRenderer *) {};
 //ETX
+
+  // Description:
+  // Set/Get the current slice number. The axis Z in ZSlice does not
+  // necessarily have any relation to the z axis of the data on disk.
+  // It is simply the axis orthogonal to the x,y, display plane.
+  // GetWholeZMax and Min are convenience methods for obtaining
+  // the number of slices that can be displayed. Again the number
+  // of slices is in reference to the display z axis, which is not
+  // necessarily the z axis on disk. (due to reformatting etc)
+  void SetZSlice(int z) {this->SetDisplayExtent(
+    this->DisplayExtent[0], this->DisplayExtent[1],
+    this->DisplayExtent[2], this->DisplayExtent[3], z, z);
+  };
+  
+  int GetZSlice() { return this->DisplayExtent[4];};
+  int GetWholeZMin();
+  int GetWholeZMax();
 
 protected:
   vtkImageActor();

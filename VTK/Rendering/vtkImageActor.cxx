@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-24 20:37:25 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2001-10-02 16:08:35 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -232,4 +232,32 @@ void vtkImageActor::PrintSelf(ostream& os, vtkIndent indent)
     os << ", " << this->DisplayExtent[idx];
     }
   os << ")\n";
+}
+
+//----------------------------------------------------------------------------
+int vtkImageActor::GetWholeZMin()
+{
+  int *extent;
+  
+  if ( ! this->GetInput())
+    {
+    return 0;
+    }
+  this->GetInput()->UpdateInformation();
+  extent = this->GetInput()->GetWholeExtent();
+  return extent[4];
+}
+
+//----------------------------------------------------------------------------
+int vtkImageActor::GetWholeZMax()
+{
+  int *extent;
+  
+  if ( ! this->GetInput())
+    {
+    return 0;
+    }
+  this->GetInput()->UpdateInformation();
+  extent = this->GetInput()->GetWholeExtent();
+  return extent[5];
 }
