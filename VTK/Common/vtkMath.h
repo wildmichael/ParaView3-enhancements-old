@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMath.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-04 14:21:13 $
-  Version:   $Revision: 1.77 $
+  Date:      $Date: 2002-01-15 19:03:19 $
+  Version:   $Revision: 1.78 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -67,6 +67,13 @@ public:
   // Useful constants. (double-precision version)
   static double DoubleDegreesToRadians() {return 0.017453292519943295;};
 
+  // Description:
+  // Rounds a float to the nearest integer.
+  static int Round(float f) {
+    return static_cast<int>(f + (f >= 0 ? 0.5 : -0.5)); }
+  static int Round(double f) {
+    return static_cast<int>(f + (f >= 0 ? 0.5 : -0.5)); }
+    
   // Description:
   // Dot product of two 3-vectors (float version).
   static float Dot(const float x[3], const float y[3]) {
