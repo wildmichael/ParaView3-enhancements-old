@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXdmfWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2004-01-28 19:15:37 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2004-01-30 14:57:14 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen  
@@ -107,7 +107,7 @@ struct vtkXdmfWriterInternal
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro(vtkXdmfWriter);
-vtkCxxRevisionMacro(vtkXdmfWriter, "$Revision: 1.14 $");
+vtkCxxRevisionMacro(vtkXdmfWriter, "$Revision: 1.15 $");
 
 //----------------------------------------------------------------------------
 vtkXdmfWriter::vtkXdmfWriter()
@@ -942,14 +942,14 @@ void vtkXdmfWriter::Write()
     if ( cellTypes.size() > 1 )
       {
       vtkXdmfWriterInternal::MapOfCellTypes::iterator it;
-      int cc = 0;
+      int ct = 0;
       for ( it = cellTypes.begin(); it != cellTypes.end(); ++it )
         {
         ostrstream str;
-        str << this->GridName << "_" << cc << ends;
+        str << this->GridName << "_" << ct << ends;
         this->WriteGrid(ofs, str.str(), ds, &cellTypes, &(*it));
         str.rdbuf()->freeze(2);
-        cc ++;
+        ct ++;
         }
       }
     else
