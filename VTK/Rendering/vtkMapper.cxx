@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:44 $
-  Version:   $Revision: 1.59 $
+  Date:      $Date: 1999-09-30 18:53:55 $
+  Version:   $Revision: 1.60 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -271,7 +271,7 @@ char *vtkMapper::GetScalarModeAsString(void)
 
 void vtkMapper::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkAbstractMapper::PrintSelf(os,indent);
+  this->vtkAbstractMapper3D::PrintSelf(os,indent);
 
   if ( this->LookupTable )
     {

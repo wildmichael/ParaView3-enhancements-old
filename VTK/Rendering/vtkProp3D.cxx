@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProp3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-30 15:14:17 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1999-09-30 18:53:56 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,7 +42,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include <math.h>
 
 #include "vtkProp3D.h"
-#include "vtkAbstractMapper.h"
 
 typedef double (*SqMatPtr)[4];
 

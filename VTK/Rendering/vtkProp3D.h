@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProp3D.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-30 15:14:16 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-09-30 18:53:55 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,7 +59,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkTransform.h"
 
 class vtkRenderer;
-class vtkAbstractMapper;
 
 class VTK_EXPORT vtkProp3D : public vtkProp
 {

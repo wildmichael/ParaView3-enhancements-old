@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:44 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 1999-09-30 18:53:55 $
+  Version:   $Revision: 1.51 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -72,7 +72,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkMapper_h
 #define __vtkMapper_h
 
-#include "vtkAbstractMapper.h"
+#include "vtkAbstractMapper3D.h"
 #include "vtkScalarsToColors.h"
 #include "vtkDataSet.h"
 
@@ -84,7 +84,7 @@ class vtkWindow;
 class vtkRenderer;
 class vtkActor;
 
-class VTK_EXPORT vtkMapper : public vtkAbstractMapper
+class VTK_EXPORT vtkMapper : public vtkAbstractMapper3D
 {
 public:
   const char *GetClassName() {return "vtkMapper";};
