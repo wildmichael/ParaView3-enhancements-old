@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCamera.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-05-02 19:22:51 $
-  Version:   $Revision: 1.83 $
+  Date:      $Date: 2000-05-03 16:14:27 $
+  Version:   $Revision: 1.84 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -274,6 +274,7 @@ void vtkCamera::SetDirectionOfProjection(double x, double y, double z)
   this->DirectionOfProjection[2] = z;
 
   // set focal point to match
+  this->Distance = this->Distance*10;
   this->SetDistance(this->Distance);
 }
 
@@ -515,7 +516,7 @@ void vtkCamera::Zoom(double amount)
     return;
     }
   
-  if (this->ParallelScale)
+  if (this->ParallelProjection)
     {
     this->SetParallelScale(this->ParallelScale/amount);
     }
