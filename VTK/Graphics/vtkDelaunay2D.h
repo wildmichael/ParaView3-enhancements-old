@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDelaunay2D.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:36:56 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2001-12-12 21:22:44 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -79,6 +79,11 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // avoids transforming the data back as would be required when using the
 // vtkTransformFilter method.  Specifying a transform directly also allows
 // any transform to be used: rigid, non-rigid, non-invertible, etc.
+//
+// If an input transform is used, then alpha values are applied (for the
+// most part) in the original data space.  The exception is when
+// BoundingTriangulation is on.  In this case, alpha values are applied in
+// the original data space unless a cell uses a bounding vertex.  
 // 
 // The Delaunay triangulation can be numerically sensitive in some cases. To
 // prevent problems, try to avoid injecting points that will result in
