@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridGeometryFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-09-30 14:17:20 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1995-10-25 23:45:30 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,7 +41,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkStructuredGridGeometryFilter.hh"
 
 // Description:
-// Construct with initial extent (0,100, 0,100, 0,0) (i.e., a plane).
+// Construct with initial extent (0,100, 0,100, 0,0) (i.e., a k-plane).
 vtkStructuredGridGeometryFilter::vtkStructuredGridGeometryFilter()
 {
   this->Extent[0] = 0;
@@ -290,6 +290,8 @@ void vtkStructuredGridGeometryFilter::Execute()
     }
 }
 
+// Description:
+// Specify (imin,imax, jmin,jmax, kmin,kmax) indices.
 void vtkStructuredGridGeometryFilter::SetExtent(int iMin, int iMax, int jMin, int jMax, 
                                    int kMin, int kMax)
 {
@@ -306,7 +308,7 @@ void vtkStructuredGridGeometryFilter::SetExtent(int iMin, int iMax, int jMin, in
 }
 
 // Description:
-// Specify (imin,imax, jmin,jmax, kmin,kmax) indices.
+// Specify (imin,imax, jmin,jmax, kmin,kmax) indices in array form.
 void vtkStructuredGridGeometryFilter::SetExtent(int *extent)
 {
   int i;

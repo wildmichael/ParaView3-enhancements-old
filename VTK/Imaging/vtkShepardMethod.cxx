@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkShepardMethod.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-09-12 13:47:55 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1995-10-25 23:45:20 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -247,6 +247,8 @@ void vtkShepardMethod::SetSampleDimensions(int i, int j, int k)
   this->SetSampleDimensions(dim);
 }
 
+// Description:
+// Set the i-j-k dimensions on which to sample the distance function.
 void vtkShepardMethod::SetSampleDimensions(int dim[3])
 {
   int dataDim, i;

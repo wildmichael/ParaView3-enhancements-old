@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGeometryFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-10-09 16:43:47 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1995-10-25 23:45:05 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -62,6 +62,8 @@ vtkGeometryFilter::vtkGeometryFilter()
   this->ExtentClipping = 0;
 }
 
+// Description:
+// Specify a (xmin,xmax, ymin,ymax, zmin,zmax) bounding box to clip data.
 void vtkGeometryFilter::SetExtent(float xMin, float xMax, float yMin,
                                      float yMax, float zMin, float zMax)
 {

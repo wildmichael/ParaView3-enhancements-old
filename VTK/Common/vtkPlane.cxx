@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPlane.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:36:09 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1995-10-25 23:45:15 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -86,15 +86,14 @@ void vtkPlane::EvaluateGradient(float x[3], float n[3])
   for (int i=0; i<3; i++) n[i] = this->Normal[i];
 }
 
+#define TOL 1.0e-06
+
 // Description:
 // Given a line defined by the two points p1,p2; and a plane defined by the
 // normal n and point p0, compute an intersection. The parametric
 // coordinate along the line is returned in t, and the coordinates of 
 // intersection are returned in x. A 0 is returned is the plane and line
 // are parallel.
-//
-#define TOL 1.0e-06
-
 int vtkPlane::IntersectWithLine(float p1[3], float p2[3], float n[3], 
                                float p0[3], float& t, float x[3])
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-09-08 12:48:43 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1995-10-25 23:45:24 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -651,7 +651,7 @@ int vtkDataWriter::WriteTensorData(FILE *fp, vtkTensors *tensors, int numPts)
 int vtkDataWriter::WriteCells(FILE *fp, vtkCellArray *cells, char *label)
 {
   int ncells=cells->GetNumberOfCells();
-  int size=cells->GetSize();
+  int size=cells->GetNumberOfConnectivityEntries();
 
   if ( ncells < 1 ) return 1;
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIdList.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-10-09 16:43:09 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1995-10-25 23:45:02 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,7 +41,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkIdList.hh"
 #include "vtkCell.hh"
 
-void vtkIdList::DeleteId(int cellId)
+// Description:
+// Delete specified id from list.
+void vtkIdList::DeleteId(int Id)
 {
   static vtkIdList tempList(VTK_CELL_SIZE);
   int i, id;
@@ -49,7 +51,7 @@ void vtkIdList::DeleteId(int cellId)
   tempList.Reset();
   for (i=0; i < this->GetNumberOfIds(); i++)
     {
-    if ( (id = this->GetId(i)) != cellId ) tempList.InsertNextId(id);
+    if ( (id = this->GetId(i)) != Id ) tempList.InsertNextId(id);
     }
 
   this->Reset();
@@ -59,7 +61,9 @@ void vtkIdList::DeleteId(int cellId)
     }
 }
 
-
+// Description:
+// Intersect this list with another vtkIdList. Updates current list according
+// to result of intersection operation.
 void vtkIdList::IntersectWith(vtkIdList& otherIds)
 {
   int id, i, j;

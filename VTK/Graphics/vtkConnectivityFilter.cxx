@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkConnectivityFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-10-09 16:44:53 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1995-10-25 23:45:26 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -340,7 +340,7 @@ void vtkConnectivityFilter::ExtractCellSeededRegions()
 
 // Description:
 // Set the extraction mode to extract regions of specified id. You may 
-// have to execute filter first to determine region ids.
+// have to execute filter first (with debug turned on) to determine region ids.
 void vtkConnectivityFilter::ExtractSpecifiedRegions()
 {
   if ( this->ExtractionMode != VTK_EXTRACT_SPECIFIED_REGIONS )

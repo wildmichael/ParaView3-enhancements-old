@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPointLoad.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-09-08 12:47:54 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1995-10-25 23:45:18 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -203,10 +203,12 @@ void vtkPointLoad::Execute()
                                y2*(zPlus2rho)/(rho*rhoPlusz2)));
         sz = 3.0*P*z2*z/(twoPi*rho5);
         
-        //shear stresses
-        txy = P/(twoPi*rho2) * (3.0*x*y*z/rho3 - 
-                                nu*x*y*(zPlus2rho)/(rho*rhoPlusz2));
-        txz = 3.0*P*x*z2/(twoPi*rho5);
+        //shear stresses - negative signs are coordinate transformations
+        //that is, equations (in text) are in different coordinate system
+        //than volume is in.
+        txy = -(P/(twoPi*rho2) * (3.0*x*y*z/rho3 - 
+                                nu*x*y*(zPlus2rho)/(rho*rhoPlusz2)));
+        txz = -(3.0*P*x*z2/(twoPi*rho5));
         tyz = 3.0*P*y*z2/(twoPi*rho5);
 
         tensor.SetComponent(0,0, sx);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointData.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-10-09 16:44:17 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 1995-10-25 23:45:16 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -48,7 +48,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkPixmap.hh"
 
 // Description:
-// Construct with copying turned on for all data.
+// Construct object with copying turned on for all data.
 vtkPointData::vtkPointData()
 {
   this->Scalars = NULL;

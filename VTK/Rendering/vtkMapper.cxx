@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:35:41 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1995-10-25 23:45:09 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -68,7 +68,7 @@ vtkMapper::~vtkMapper()
 }
 
 // Description:
-// Overload standard modified time function. If cut functions is modified,
+// Overload standard modified time function. If lookup table is modified,
 // then we are modified as well.
 unsigned long vtkMapper::GetMTime()
 {
