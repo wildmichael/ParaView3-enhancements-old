@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkRecursiveDividingCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-22 20:04:51 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1995-07-25 15:41:45 $
+  Version:   $Revision: 1.2 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -133,11 +133,17 @@ void vtkRecursiveDividingCubes::Execute()
     }
   vtkDebugMacro(<< "Created " << NewPts->GetNumberOfPoints() << "points");
 //
-// Update ourselves
+// Update ourselves and release memory
 //
   this->SetPoints(NewPts);
+  NewPts->Delete();
+
   this->SetVerts(NewVerts);
+  NewVerts->Delete();
+
   this->GetPointData()->SetNormals(NewNormals);
+  NewNormals->Delete();
+
   this->Squeeze();
 }
 
