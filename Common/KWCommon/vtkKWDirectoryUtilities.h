@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKWDirectoryUtilities.h,v $
   Language:  C++
-  Date:      $Date: 2003-03-17 23:33:13 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2003-03-28 22:46:30 $
+  Version:   $Revision: 1.6 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -114,6 +114,19 @@ public:
   // directory path) and write it to 'name'.
   // Return a pointer to the name (i.e. 'name').
   static const char* GetFilenameName(const char *filename, char *name);
+
+  // Description:
+  // Try to locate the file 'filename' in the directory 'dir'.
+  // If 'filename' is a fully qualified path, the basename of the file is
+  // extracted first to check for its existence in 'dir'.
+  // If 'dir' is not a directory, GetFilenamePath() is called on 'dir' to
+  // get the directory (thus, you can pass a filename actually and save
+  // yourself that step).
+  // 'try_fname' is where the fully qualified name/path of the file will be
+  // stored if it is found in 'dir'.
+  // Return a pointer to the file found (i.e. 'try_fname') or 0 if not.
+  static const char* LocateFileInDir(const char *filename, 
+                                     const char *dir, char *try_fname);
 
 protected:
   vtkKWDirectoryUtilities();
