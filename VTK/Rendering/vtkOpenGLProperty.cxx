@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLProperty.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-07-31 15:12:13 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2003-09-30 13:42:34 $
+  Version:   $Revision: 1.27 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -38,7 +38,7 @@
 
 
 #ifndef VTK_IMPLEMENT_MESA_CXX
-vtkCxxRevisionMacro(vtkOpenGLProperty, "$Revision: 1.26 $");
+vtkCxxRevisionMacro(vtkOpenGLProperty, "$Revision: 1.27 $");
 vtkStandardNewMacro(vtkOpenGLProperty);
 #endif
 
@@ -145,11 +145,17 @@ void vtkOpenGLProperty::Render(vtkActor *vtkNotUsed(anActor),
   if (this->LineStipplePattern != 0xFFFF)
     {
     glEnable (GL_LINE_STIPPLE);
+#ifdef VTK_USE_GL2PS
+    gl2psEnable(GL2PS_LINE_STIPPLE);
+#endif // VTK_USE_GL2PS
     glLineStipple (this->LineStippleRepeatFactor, this->LineStipplePattern);
     }
   else
     {
     glDisable (GL_LINE_STIPPLE);
+#ifdef VTK_USE_GL2PS
+    gl2psDisable(GL2PS_LINE_STIPPLE);
+#endif // VTK_USE_GL2PS
     }
 }
 
