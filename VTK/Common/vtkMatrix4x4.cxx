@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkMatrix4x4.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-02-22 11:19:37 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1994-02-24 15:03:49 $
+  Version:   $Revision: 1.2 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -32,6 +32,22 @@ void vlMatrix4x4::operator= (float element)
   }
   this->Modified ();
 }
+
+void vlMatrix4x4::VectorMultiply(float,float,float,float,float result[4])
+{
+  int i;
+  
+  for (i = 0; i < 4; i++)
+    {
+    result[i] = 
+      result[0] * this->Element[0][3] +
+      result[1] * this->Element[1][3] +
+      result[2] * this->Element[2][3] +
+      result[3] * this->Element[3][3];
+    }
+  
+}
+
 void vlMatrix4x4::Invert (vlMatrix4x4 in,vlMatrix4x4 & out)
 {
 // Matrix Inversion
