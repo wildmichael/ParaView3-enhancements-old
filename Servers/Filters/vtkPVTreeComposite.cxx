@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPVTreeComposite.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-01 13:33:55 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2001-06-01 15:03:55 $
+  Version:   $Revision: 1.9 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -317,7 +317,7 @@ void vtkPVTreeComposite::RootFinalAbortCheck()
     }
 
   // Sends the final message to all satellites.
-  this->RootSendFinalCompositeDescision();
+  this->RootSendFinalCompositeDecision();
 }
 
 
@@ -365,7 +365,7 @@ void vtkPVTreeComposite::RootWaitForSatelliteToFinish(int satelliteId)
 
 //-------------------------------------------------------------------------
 // This method has simplified to the point that it could be eliminated.
-void vtkPVTreeComposite::RootSendFinalCompositeDescision()
+void vtkPVTreeComposite::RootSendFinalCompositeDecision()
 {
   int message;
   int idx, num;
@@ -565,15 +565,15 @@ int vtkPVTreeComposite::CheckForAbortComposite()
 }
 
 //-------------------------------------------------------------------------
-int vtkPVTreeComposite::RootWaitForSatelliteToFinish(int satelliteId)
-{
-  satelliteId = satelliteId;
-}
+//int vtkPVTreeComposite::RootWaitForSatelliteToFinish(int satelliteId)
+//{
+//  satelliteId = satelliteId;
+//}
 
 //----------------------------------------------------------------------------
-void vtkPVTreeComposite::RootSendFinalCompositeDescision()
-{
-}
+//void vtkPVTreeComposite::RootSendFinalCompositeDecision()
+//{
+//}
 
 
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPVTreeComposite.h,v $
   Language:  C++
-  Date:      $Date: 2001-05-30 18:54:20 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2001-06-01 15:03:55 $
+  Version:   $Revision: 1.7 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -96,7 +96,7 @@ protected:
   void RootAbortCheck();
   void RootFinalAbortCheck();
   void RootWaitForSatelliteToFinish(int satelliteId);
-  void RootSendFinalCompositeDescision();
+  void RootSendFinalCompositeDecision();
   
   // For the asynchronous receives.
   vtkMPIController *MPIController;
