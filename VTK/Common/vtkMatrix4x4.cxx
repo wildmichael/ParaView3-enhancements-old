@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMatrix4x4.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-15 17:27:45 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1995-08-18 08:48:55 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -74,7 +74,7 @@ vtkMatrix4x4::vtkMatrix4x4(const vtkMatrix4x4& m)
 }
 
 // Description:
-// Set all elements of matrix to the given value.
+// Set all the elements of the matrix to the given value.
 void vtkMatrix4x4::operator= (float element)
 {
   int i,j;
@@ -182,7 +182,7 @@ float vtkMatrix4x4::Determinant (vtkMatrix4x4 & in)
 }
 
 // Description:
-// Compute adjoint of matrix andput it into out.
+// Compute adjoint of the matrix and put it into out.
 void vtkMatrix4x4::Adjoint (vtkMatrix4x4 & in,vtkMatrix4x4 & out)
 {
 // 
