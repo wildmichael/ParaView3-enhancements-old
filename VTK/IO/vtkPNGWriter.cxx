@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPNGWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:18 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-01-30 22:40:02 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 
 #include <png.h>
 
-vtkCxxRevisionMacro(vtkPNGWriter, "$Revision: 1.7 $");
+vtkCxxRevisionMacro(vtkPNGWriter, "$Revision: 1.8 $");
 vtkStandardNewMacro(vtkPNGWriter);
 
 vtkPNGWriter::vtkPNGWriter()
@@ -98,8 +98,9 @@ void vtkPNGWriter::WriteSlice(vtkImageData *data)
   void *outPtr;
   unsigned int ui;
 
+  int* uext = data->GetUpdateExtent();
   // Call the correct templated function for the input
-  outPtr = data->GetScalarPointer();
+  outPtr = data->GetScalarPointer(uext[0], uext[2], uext[4]);
   if (data->GetScalarType() != VTK_UNSIGNED_SHORT &&
       data->GetScalarType() != VTK_UNSIGNED_CHAR)
     {
