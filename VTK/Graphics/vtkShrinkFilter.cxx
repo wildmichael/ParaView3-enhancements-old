@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkShrinkFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-06-11 08:09:09 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1994-07-09 08:19:14 $
+  Version:   $Revision: 1.14 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -40,6 +40,7 @@ void vlShrinkFilter::Execute()
     return;
     }
 
+  this->Allocate(numCells);
   newPts = new vlFloatPoints(numPts*8,numPts);
   pd = this->Input->GetPointData();
   this->PointData.CopyAllocate(pd,numPts*8,numPts);
@@ -47,7 +48,7 @@ void vlShrinkFilter::Execute()
 // Traverse all cells, obtaining node coordinates.  Compute "center" of cell,
 // then create new vertices shrunk towards center.
 //
-  for (cellId=0; cellId < numCells; i++)
+  for (cellId=0; cellId < numCells; cellId++)
     {
     this->Input->GetCellPoints(cellId,ptIds);
 
@@ -55,7 +56,7 @@ void vlShrinkFilter::Execute()
     center[0] = center[1] = center[2] = 0.0;
     for (i=0; i < ptIds.GetNumberOfIds(); i++)
       {
-      p = this->Input->GetPoint(i);
+      p = this->Input->GetPoint(ptIds.GetId(i));
       for (j=0; j < 3; j++) center[j] += p[j];
       }
     for (j=0; j<3; j++) center[j] /= ptIds.GetNumberOfIds();
@@ -71,19 +72,16 @@ void vlShrinkFilter::Execute()
       newId = newPts->InsertNextPoint(pt);
       newPtIds.SetId(i,newId);
 
-      this->InsertNextCell(this->Input->GetCellType(cellId), newPtIds);
-      
       this->PointData.CopyData(pd, oldId, newId);
       }
+    this->InsertNextCell(this->Input->GetCellType(cellId), newPtIds);
     }
 //
 // Update ourselves
 //
   
-  newPts->Squeeze();
   this->SetPoints(newPts);
-
-  this->PointData.Squeeze();
+  this->Squeeze();
 }
 
 void vlShrinkFilter::PrintSelf(ostream& os, vlIndent indent)
