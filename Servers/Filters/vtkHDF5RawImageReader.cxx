@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHDF5RawImageReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-03-28 19:13:35 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2003-04-18 19:37:07 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -30,22 +30,13 @@
 #include "vtkShortArray.h"
 
 // Include ordering of these four files is very sensitive on HP-UX.
-#ifdef _MSC_VER
-#pragma warning (push, 3)
-#endif
-
-#include <vector>
-#include <string>
-
-#ifdef _MSC_VER
-#pragma warning(pop)
-#endif
-
+#include <vtkstd/vector>
+#include <vtkstd/string>
 #include <sys/stat.h>
 #include <hdf5.h>
 
 //----------------------------------------------------------------------------
-vtkCxxRevisionMacro(vtkHDF5RawImageReader, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkHDF5RawImageReader, "$Revision: 1.6 $");
 vtkStandardNewMacro(vtkHDF5RawImageReader);
 
 //----------------------------------------------------------------------------
