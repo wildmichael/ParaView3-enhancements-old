@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPythonUtil.h,v $
   Language:  C++
-  Date:      $Date: 1997-11-12 22:24:10 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-11-02 17:31:01 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -46,9 +46,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 extern void *vtkPythonGetPointerFromObject(PyObject *obj,char *result_type);
 extern PyObject *vtkPythonGetObjectFromPointer(void *ptr);
 extern void vtkPythonAddObjectToHash(PyObject *obj, void *anInstance,
-				   void *tcFunc, int deleteMe);
+				   void *tcFunc);
 extern void vtkPythonDeleteObjectFromHash(PyObject *obj);
-extern int  vtkPythonShouldIDeleteObject(PyObject *obj);
 
 extern void vtkPythonVoidFunc(void *);
 extern void vtkPythonVoidFuncArgDelete(void *);
