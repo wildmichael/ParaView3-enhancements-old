@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransformFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-03-31 20:56:31 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 2003-04-02 15:18:23 $
+  Version:   $Revision: 1.43 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 #include "vtkPointData.h"
 #include "vtkPointSet.h"
 
-vtkCxxRevisionMacro(vtkTransformFilter, "$Revision: 1.42 $");
+vtkCxxRevisionMacro(vtkTransformFilter, "$Revision: 1.43 $");
 vtkStandardNewMacro(vtkTransformFilter);
 vtkCxxSetObjectMacro(vtkTransformFilter,Transform,vtkAbstractTransform);
 
@@ -87,12 +87,14 @@ void vtkTransformFilter::Execute()
     newVectors = vtkFloatArray::New();
     newVectors->SetNumberOfComponents(3);
     newVectors->Allocate(3*numPts);
+    newVectors->SetName(inVectors->GetName());
     }
   if ( inNormals ) 
     {
     newNormals = vtkFloatArray::New();
     newNormals->SetNumberOfComponents(3);
     newNormals->Allocate(3*numPts);
+    newNormals->SetName(inNormals->GetName());
     }
 
   this->UpdateProgress (.2);
