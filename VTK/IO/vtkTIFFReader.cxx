@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTIFFReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-01 20:54:58 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2002-02-02 15:50:45 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -445,7 +445,8 @@ void vtkTIFFReader::ReadImageInternal( void* vtkNotUsed(in), void* outPtr,
       tempImage = new unsigned long int[ width * height ];
       }
     if ( !TIFFReadRGBAImage(this->GetInternalImage()->Image, 
-                            width, height, tempImage, 0 ) )
+                            width, height, 
+                            static_cast<uint32*>(tempImage), 0 ) )
       {
       vtkErrorMacro("Problem reading RGB image");
       if ( tempImage != outPtr )
