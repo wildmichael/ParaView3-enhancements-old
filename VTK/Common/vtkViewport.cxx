@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkViewport.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-12-08 14:29:22 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-04-23 15:03:31 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -88,20 +88,35 @@ vtkViewport::vtkViewport()
   this->Origin[0] = 0;
   this->Origin[1] = 0;
 
+  this->Actors2D = vtkActor2DCollection::New();
 }
 
+vtkViewport::~vtkViewport()
+{
+  this->Actors2D->Delete();
+
+  // delete the current arg if there is one and a delete meth
+  if ((this->StartRenderMethodArg)&&(this->StartRenderMethodArgDelete))
+    {
+    (*this->StartRenderMethodArgDelete)(this->StartRenderMethodArg);
+    }
+  if ((this->EndRenderMethodArg)&&(this->EndRenderMethodArgDelete))
+    {
+    (*this->EndRenderMethodArgDelete)(this->EndRenderMethodArg);
+    }
+}
 
 void vtkViewport::AddActor2D(vtkActor2D* actor)
 {
   vtkDebugMacro (<< "vtkViewport::AddActor2D");
-  this->Actors2D.AddItem(actor);
+  this->Actors2D->AddItem(actor);
 }
 
 void vtkViewport::RemoveActor2D(vtkActor2D* actor)
 {
   vtkDebugMacro (<< "vtkViewport::RemoveActor2D");
 
-  this->Actors2D.RemoveItem(actor);
+  this->Actors2D->RemoveItem(actor);
 }
 
 

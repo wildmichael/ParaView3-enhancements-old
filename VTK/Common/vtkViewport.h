@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkViewport.h,v $
   Language:  C++
-  Date:      $Date: 1998-03-10 15:28:48 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-04-23 15:03:29 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,6 +64,7 @@ class VTK_EXPORT vtkViewport : public vtkObject
 {
 public:
   vtkViewport();
+  ~vtkViewport();
   const char *GetClassName() {return "vtkViewport";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -150,7 +151,7 @@ protected:
   float DisplayPoint[3];
   float ViewPoint[3];
   float WorldPoint[4];
-  vtkActor2DCollection Actors2D;
+  vtkActor2DCollection *Actors2D;
 
 };
 
