@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPushPipeline.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-07-31 17:21:51 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-08-05 13:33:50 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -103,7 +103,7 @@ public:
   vtkPushPipeline *PushPipeline;
 };
 
-vtkCxxRevisionMacro(vtkPushPipeline, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkPushPipeline, "$Revision: 1.3 $");
 vtkStandardNewMacro(vtkPushPipeline);
 
 vtkPushPipeline::vtkPushPipeline()
@@ -139,6 +139,8 @@ vtkPushPipeline::~vtkPushPipeline()
     }
   dmi->Delete();
   this->DataMap->Delete();
+
+  this->Windows->Delete();
 }
 
 void vtkPushPipeline::AddPusher(vtkProcessObject* pusher)
