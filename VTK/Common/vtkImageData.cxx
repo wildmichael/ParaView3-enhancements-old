@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 21:18:28 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 1997-07-11 20:23:28 $
+  Version:   $Revision: 1.30 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,7 +64,7 @@ vtkImageData::vtkImageData()
   this->MemoryOrder[2] = VTK_IMAGE_Y_AXIS;
   this->MemoryOrder[3] = VTK_IMAGE_Z_AXIS;
   this->MemoryOrder[4] = VTK_IMAGE_TIME_AXIS;
-  this->NumberOfScalars = 0;
+  this->NumberOfScalars = 1;
 }
 
 
