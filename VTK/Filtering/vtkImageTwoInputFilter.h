@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageTwoInputFilter.h,v $
   Language:  C++
-  Date:      $Date: 2002-10-04 20:43:44 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2003-10-17 17:53:14 $
+  Version:   $Revision: 1.30 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -46,8 +46,8 @@ public:
   
   // Description:
   // Get the inputs to this filter.
-  vtkImageData *GetInput1() {return (vtkImageData *)this->Inputs[0];}
-  vtkImageData *GetInput2() {return (vtkImageData *)this->Inputs[1];}
+  vtkImageData *GetInput1();
+  vtkImageData *GetInput2();
   
 protected:
   vtkImageTwoInputFilter();
