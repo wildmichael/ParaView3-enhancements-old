@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGlyph3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-10 14:21:30 $
-  Version:   $Revision: 1.95 $
+  Date:      $Date: 2001-09-20 13:13:08 $
+  Version:   $Revision: 1.96 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -298,7 +298,14 @@ void vtkGlyph3D::Execute()
     }
 
   // Setting up for calls to PolyData::InsertNextCell()
-  output->Allocate(3*numPts*numSourceCells,numPts*numSourceCells);
+  if (this->IndexMode != VTK_INDEXING_OFF )
+    {
+    output->Allocate(3*numPts*numSourceCells,numPts*numSourceCells);
+    }
+  else
+    {
+    output->Allocate(this->GetSource(0),3*numPts*numSourceCells,numPts*numSourceCells);
+    }
 
   // Traverse all Input points, transforming Source points and copying
   // point attributes.
