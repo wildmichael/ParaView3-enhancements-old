@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStructuredPointsCollection.h,v $
   Language:  C++
-  Date:      $Date: 1994-09-16 12:52:21 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1995-01-11 09:58:35 $
+  Version:   $Revision: 1.4 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -21,63 +21,49 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 #ifndef __vlStructuredPointsCollection_hh
 #define __vlStructuredPointsCollection_hh
 
+#include "Collect.hh"
 #include "StrPts.hh"
 
-class vlStructuredPointsCollectionElement
-{
- public:
-  vlStructuredPointsCollectionElement():Item(NULL),Next(NULL) {};
-  vlStructuredPoints *Item;
-  vlStructuredPointsCollectionElement *Next;
-};
-
-class vlStructuredPointsCollection : public vlObject
+class vlStructuredPointsCollection : public vlCollection
 {
 public:
-  vlStructuredPointsCollection();
-  ~vlStructuredPointsCollection();
-  void PrintSelf(ostream& os, vlIndent indent);
   char *GetClassName() {return "vlStructuredPointsCollection";};
 
   void AddItem(vlStructuredPoints *);
   void RemoveItem(vlStructuredPoints *);
   int IsItemPresent(vlStructuredPoints *);
-  int GetNumberOfItems();
-  void InitTraversal();
   vlStructuredPoints *GetNextItem();
-
-protected:
-  int NumberOfItems;
-  vlStructuredPointsCollectionElement *Top;
-  vlStructuredPointsCollectionElement *Bottom;
-  vlStructuredPointsCollectionElement *Current;
-
 };
 
 // Description:
-// Initialize the traversal of the collection. This means the data pointer
-// is set at the beginning of the list.
-inline void vlStructuredPointsCollection::InitTraversal()
+// Add an StructuredPoints to the list.
+inline void vlStructuredPointsCollection::AddItem(vlStructuredPoints *ds) 
 {
-  this->Current = this->Top;
+  this->vlCollection::AddItem((vlObject *)ds);
 }
+
+// Description:
+// Remove an StructuredPoints from the list.
+inline void vlStructuredPointsCollection::RemoveItem(vlStructuredPoints *ds) 
+{
+  this->vlCollection::RemoveItem((vlObject *)ds);
+}
+
+// Description:
+// Determine whether a particular StructuredPoints is present. 
+// Returns its position in the list.
+inline int vlStructuredPointsCollection::IsItemPresent(vlStructuredPoints *ds) 
+{
+  return this->vlCollection::IsItemPresent((vlObject *)ds);
+}
+
 
 // Description:
 // Get the next item in the collection. NULL is returned if the collection
 // is exhausted.
 inline vlStructuredPoints *vlStructuredPointsCollection::GetNextItem()
 {
-  vlStructuredPointsCollectionElement *elem=this->Current;
-
-  if ( elem != NULL )
-    {
-    this->Current = elem->Next;
-    return elem->Item;
-    }
-  else
-    {
-    return NULL;
-    }
+ return (vlStructuredPoints *)(this->vlCollection::GetNextItem());
 }
 
 #endif
