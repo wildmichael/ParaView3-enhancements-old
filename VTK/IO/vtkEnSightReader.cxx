@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSightReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-04-16 12:39:38 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 2003-04-16 15:52:40 $
+  Version:   $Revision: 1.46 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -39,7 +39,7 @@
 #pragma warning(pop)
 #endif
 
-vtkCxxRevisionMacro(vtkEnSightReader, "$Revision: 1.45 $");
+vtkCxxRevisionMacro(vtkEnSightReader, "$Revision: 1.46 $");
 
 //----------------------------------------------------------------------------
 typedef vtkstd::vector< vtkSmartPointer<vtkIdList> > vtkEnSightReaderCellIdsTypeBase;
@@ -1051,6 +1051,11 @@ int vtkEnSightReader::ReadCaseFile()
           this->MinimumTimeValue = timeStep;
           this->MaximumTimeValue = timeStep;
           firstTimeStep = 0;
+          // Set this as default TimeValue.
+          if(!this->TimeValueInitialized)
+            {
+            this->SetTimeValue(timeStep);
+            }
           }
         else
           {

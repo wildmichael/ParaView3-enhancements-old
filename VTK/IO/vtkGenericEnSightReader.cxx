@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGenericEnSightReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-04-16 15:11:25 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 2003-04-16 15:52:40 $
+  Version:   $Revision: 1.41 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -38,7 +38,7 @@
 #pragma warning(pop)
 #endif
 
-vtkCxxRevisionMacro(vtkGenericEnSightReader, "$Revision: 1.40 $");
+vtkCxxRevisionMacro(vtkGenericEnSightReader, "$Revision: 1.41 $");
 vtkStandardNewMacro(vtkGenericEnSightReader);
 
 vtkCxxSetObjectMacro(vtkGenericEnSightReader,TimeSets, 
@@ -80,6 +80,8 @@ vtkGenericEnSightReader::vtkGenericEnSightReader()
   this->TimeValue = 0;
   this->MinimumTimeValue = 0;
   this->MaximumTimeValue = 0;
+  
+  this->TimeValueInitialized = 0;
   
   this->TimeSets = NULL;
   
@@ -236,6 +238,18 @@ void vtkGenericEnSightReader::Execute()
     this->AddComplexVariableType(this->Reader->GetComplexVariableType(i));
     this->NumberOfComplexVariables++;
     }
+}
+
+//----------------------------------------------------------------------------
+void vtkGenericEnSightReader::SetTimeValue(float value)
+{
+  vtkDebugMacro(<< this->GetClassName() << " (" << this << "): setting TimeValue to " << value);
+  if (this->TimeValue != value)
+    {
+    this->TimeValue = value;
+    this->Modified();
+    }
+  this->TimeValueInitialized = 1;
 }
 
 //----------------------------------------------------------------------------
@@ -685,6 +699,10 @@ void vtkGenericEnSightReader::ExecuteInformation()
   this->Reader->UpdateInformation();
   
   this->SetTimeSets(this->Reader->GetTimeSets());
+  if(!this->TimeValueInitialized)
+    {
+    this->SetTimeValue(this->Reader->GetTimeValue());
+    }
   this->MinimumTimeValue = this->Reader->GetMinimumTimeValue();
   this->MaximumTimeValue = this->Reader->GetMaximumTimeValue();
   

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGenericEnSightReader.h,v $
   Language:  C++
-  Date:      $Date: 2003-04-15 19:18:55 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2003-04-16 15:52:40 $
+  Version:   $Revision: 1.21 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -97,7 +97,7 @@ public:
   
   // Description:
   // Set/Get the time value at which to get the value.
-  vtkSetMacro(TimeValue, float);
+  virtual void SetTimeValue(float value);
   vtkGetMacro(TimeValue, float);
 
   // Description:
@@ -288,6 +288,9 @@ protected:
   float TimeValue;
   float MinimumTimeValue;
   float MaximumTimeValue;
+  
+  // Flag for whether TimeValue has been set.
+  int TimeValueInitialized;
   
   vtkDataArrayCollection *TimeSets;
   virtual void SetTimeSets(vtkDataArrayCollection*);
