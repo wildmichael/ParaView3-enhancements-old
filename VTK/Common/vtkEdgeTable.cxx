@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEdgeTable.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-04 14:20:40 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2002-01-17 14:44:29 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -44,7 +44,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkIdList.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkEdgeTable, "$Revision: 1.28 $");
+vtkCxxRevisionMacro(vtkEdgeTable, "$Revision: 1.29 $");
 vtkStandardNewMacro(vtkEdgeTable);
 
 // Instantiate object based on maximum point id.
@@ -157,7 +157,7 @@ int vtkEdgeTable::InitEdgeInsertion(vtkIdType numPoints, int storeAttributes)
     numPoints = 1;
     }
 
-  // Discard old memory if not enough has benn previously allocated
+  // Discard old memory if not enough has been previously allocated
   if ( numPoints > this->TableSize )
     {
     this->Initialize();
