@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMultiProcessController.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-07 14:58:52 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2002-05-17 01:50:34 $
+  Version:   $Revision: 1.16 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -40,17 +40,14 @@
 #ifndef __vtkMultiProcessController_h
 #define __vtkMultiProcessController_h
 
-#include "vtkObject.h"
-#include "vtkDataObject.h"
 #include "vtkCommunicator.h"
 
 class vtkDataSet;
 class vtkImageData;
 class vtkCollection;
 class vtkOutputWindow;
-
+class vtkDataObject;
 class vtkMultiProcessController;
-
 
 //BTX
 // The type of function that gets called when new processes are initiated.

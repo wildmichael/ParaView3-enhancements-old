@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCompressCompositer.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-13 14:21:52 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-05-17 01:50:34 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -28,10 +28,10 @@
 #define __vtkCompressCompositer_h
 
 #include "vtkCompositer.h"
-#include "vtkDataArray.h"
-#include "vtkFloatArray.h"
 
 class vtkTimerLog;
+class vtkDataArray;
+class vtkFloatArray;
 
 class VTK_PARALLEL_EXPORT vtkCompressCompositer : public vtkCompositer
 {

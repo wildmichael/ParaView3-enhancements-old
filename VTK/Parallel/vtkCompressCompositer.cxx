@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCompressCompositer.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-16 12:53:54 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-05-17 01:50:34 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -51,10 +51,11 @@
 #include "vtkToolkits.h"
 #include "vtkFloatArray.h"
 #include "vtkUnsignedCharArray.h"
+#include "vtkMultiProcessController.h"
 
 #include "vtkTimerLog.h"
 
-vtkCxxRevisionMacro(vtkCompressCompositer, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkCompressCompositer, "$Revision: 1.3 $");
 vtkStandardNewMacro(vtkCompressCompositer);
 
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThreadedController.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-25 23:11:20 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2002-05-17 01:50:34 $
+  Version:   $Revision: 1.15 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,6 +22,7 @@
 #include "vtkImageData.h"
 #include "vtkOutputWindow.h"
 #include "vtkCriticalSection.h"
+#include "vtkSharedMemoryCommunicator.h"
 
 #ifdef VTK_USE_SPROC
 #include <sys/prctl.h>
@@ -68,9 +69,9 @@ private:
   void operator=(const vtkThreadedControllerOutputWindow&);
 };
 
-vtkCxxRevisionMacro(vtkThreadedControllerOutputWindow, "$Revision: 1.14 $");
+vtkCxxRevisionMacro(vtkThreadedControllerOutputWindow, "$Revision: 1.15 $");
 
-vtkCxxRevisionMacro(vtkThreadedController, "$Revision: 1.14 $");
+vtkCxxRevisionMacro(vtkThreadedController, "$Revision: 1.15 $");
 vtkStandardNewMacro(vtkThreadedController);
 
 void vtkThreadedController::CreateOutputWindow()

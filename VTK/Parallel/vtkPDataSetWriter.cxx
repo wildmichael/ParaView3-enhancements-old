@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPDataSetWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-07 14:58:52 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-05-17 01:50:34 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,8 +20,11 @@
 #include "vtkDataSet.h"
 #include "vtkObjectFactory.h"
 #include "vtkSource.h"
+#include "vtkImageData.h"
+#include "vtkStructuredGrid.h"
+#include "vtkRectilinearGrid.h"
 
-vtkCxxRevisionMacro(vtkPDataSetWriter, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkPDataSetWriter, "$Revision: 1.7 $");
 vtkStandardNewMacro(vtkPDataSetWriter);
 
 //----------------------------------------------------------------------------

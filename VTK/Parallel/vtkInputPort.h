@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInputPort.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:34:34 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-05-17 01:50:34 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -32,15 +32,14 @@
 #define __vtkInputPort_h
 
 #include "vtkSource.h"
-#include "vtkMultiProcessController.h"
+
 class vtkPolyData;
 class vtkUnstructuredGrid;
 class vtkStructuredGrid;
 class vtkRectilinearGrid;
 class vtkStructuredPoints;
 class vtkImageData;
-
-
+class vtkMultiProcessController;
 
 class VTK_PARALLEL_EXPORT vtkInputPort : public vtkSource
 {
@@ -90,7 +89,7 @@ public:
   // Access to the controller used for communication.  By default, the
   // global controller is used.
   vtkMultiProcessController *GetController() {return this->Controller;}
-  vtkSetObjectMacro(Controller, vtkMultiProcessController);
+  virtual void SetController(vtkMultiProcessController*);
   
   // Description:
   // If DoUpdateInformation if false (it is true by default),

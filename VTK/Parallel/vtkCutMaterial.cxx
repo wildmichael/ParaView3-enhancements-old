@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCutMaterial.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:34:28 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-05-17 01:50:34 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,8 +20,9 @@
 #include "vtkThreshold.h"
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
+#include "vtkPlane.h"
 
-vtkCxxRevisionMacro(vtkCutMaterial, "$Revision: 1.8 $");
+vtkCxxRevisionMacro(vtkCutMaterial, "$Revision: 1.9 $");
 vtkStandardNewMacro(vtkCutMaterial);
 
 // Instantiate object with no input and no defined output.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCommunicator.h,v $
   Language:  C++
-  Date:      $Date: 2002-03-29 13:55:46 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2002-05-17 01:50:34 $
+  Version:   $Revision: 1.16 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -33,11 +33,11 @@
 #define __vtkCommunicator_h
 
 #include "vtkObject.h"
-#include "vtkDataObject.h"
-#include "vtkDataArray.h"
 
 class vtkDataSet;
 class vtkImageData;
+class vtkDataObject;
+class vtkDataArray;
 
 class VTK_PARALLEL_EXPORT vtkCommunicator : public vtkObject
 {

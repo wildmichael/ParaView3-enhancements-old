@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThreadedController.h,v $
   Language:  C++
-  Date:      $Date: 2002-02-15 19:29:36 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2002-05-17 01:50:34 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -30,10 +30,8 @@
 #ifndef __vtkThreadedController_h
 #define __vtkThreadedController_h
 
-#include "vtkObject.h"
 #include "vtkMultiProcessController.h"
 #include "vtkMultiThreader.h"
-#include "vtkSharedMemoryCommunicator.h"
 #include "vtkCriticalSection.h"
 
 class VTK_PARALLEL_EXPORT vtkThreadedController : public vtkMultiProcessController
@@ -78,9 +76,7 @@ public:
   // by the process id.
   virtual void CreateOutputWindow();
 
-
 protected:
-
   vtkThreadedController();
   ~vtkThreadedController();
   

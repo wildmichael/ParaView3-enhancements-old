@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThreadSafeLog.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:34:59 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-05-17 01:50:34 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,8 +24,6 @@
 
 
 #include "vtkObject.h"
-#include "vtkTimerLog.h"
-
 
 #define VTK_THREAD_SAFE_LOG_MAX 1000
 

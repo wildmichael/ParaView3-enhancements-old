@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCompositer.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-17 11:10:59 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-05-17 01:50:34 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,9 +19,13 @@
 #include "vtkCompositer.h"
 #include "vtkObjectFactory.h"
 #include "vtkToolkits.h"
+#include "vtkDataArray.h"
+#include "vtkMultiProcessController.h"
 
-vtkCxxRevisionMacro(vtkCompositer, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkCompositer, "$Revision: 1.4 $");
 vtkStandardNewMacro(vtkCompositer);
+
+vtkCxxSetObjectMacro(vtkCompositer,Controller,vtkMultiProcessController);
 
 //-------------------------------------------------------------------------
 vtkCompositer::vtkCompositer()

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCompositer.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-12 19:58:46 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-05-17 01:50:34 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,8 +27,11 @@
 #define __vtkCompositer_h
 
 #include "vtkObject.h"
-#include "vtkFloatArray.h"
-#include "vtkMultiProcessController.h"
+
+class vtkMultiProcessController;
+class vtkCompositer;
+class vtkDataArray;
+class vtkFloatArray;
 
 class VTK_PARALLEL_EXPORT vtkCompositer : public vtkObject
 {
@@ -45,7 +48,7 @@ public:
 
   // Description:
   // Access to the controller.
-  vtkSetObjectMacro(Controller,vtkMultiProcessController);
+  virtual void SetController(vtkMultiProcessController*);
   vtkGetObjectMacro(Controller,vtkMultiProcessController);
 
 protected:

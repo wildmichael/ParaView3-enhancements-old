@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMultiProcessLog.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:34:41 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-05-17 01:50:34 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,10 +22,7 @@
 #ifndef __vtkMultiProcessLog_h
 #define __vtkMultiProcessLog_h
 
-
-#include "vtkObject.h"
 #include "vtkThreadSafeLog.h"
-
 
 #define VTK_MULTI_PROCESS_LOG_MAX 1000
 

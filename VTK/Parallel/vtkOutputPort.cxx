@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOutputPort.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:34:42 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-05-17 01:50:34 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,9 +20,12 @@
 #include "vtkMultiProcessController.h"
 #include "vtkObjectFactory.h"
 #include "vtkCommand.h"
+#include "vtkMultiProcessController.h"
 
-vtkCxxRevisionMacro(vtkOutputPort, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkOutputPort, "$Revision: 1.6 $");
 vtkStandardNewMacro(vtkOutputPort);
+
+vtkCxxSetObjectMacro(vtkOutputPort,Controller,vtkMultiProcessController);
 
 //----------------------------------------------------------------------------
 vtkOutputPort::vtkOutputPort()
@@ -309,3 +312,7 @@ void vtkOutputPort::SetParameterMethodArgDelete(void (*f)(void *))
     this->Modified();
     }
 }
+
+//----------------------------------------------------------------------------
+void vtkOutputPort::WaitForUpdate() 
+{this->Controller->ProcessRMIs();}

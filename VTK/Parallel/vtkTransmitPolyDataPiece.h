@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransmitPolyDataPiece.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:35:01 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-05-17 01:50:34 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,8 +27,8 @@
 #define __vtkTransmitPolyDataPiece_h
 
 #include "vtkPolyDataToPolyDataFilter.h"
-#include "vtkMultiProcessController.h"
 
+class vtkMultiProcessController;
 
 class VTK_PARALLEL_EXPORT vtkTransmitPolyDataPiece : public vtkPolyDataToPolyDataFilter
 {
@@ -40,7 +40,7 @@ public:
   // Description:
   // By defualt this filter uses the global controller,
   // but this method can be used to set another instead.
-  vtkSetObjectMacro(Controller, vtkMultiProcessController);
+  virtual void SetController(vtkMultiProcessController*);
   vtkGetObjectMacro(Controller, vtkMultiProcessController);
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSocketCommunicator.h,v $
   Language:  C++
-  Date:      $Date: 2002-03-28 13:13:14 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2002-05-17 01:50:34 $
+  Version:   $Revision: 1.25 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -43,7 +43,6 @@
  #include <unistd.h>
 #endif
 
-#include "vtkObject.h"
 #include "vtkByteSwap.h"
 #include "vtkCommunicator.h"
 

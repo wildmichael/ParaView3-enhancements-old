@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSharedMemoryCommunicator.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:34:56 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2002-05-17 01:50:34 $
+  Version:   $Revision: 1.13 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -34,11 +34,10 @@
 #define __vtkSharedMemoryCommunicator_h
 
 #include "vtkCommunicator.h"
-#include "vtkMultiProcessController.h"
-#include "vtkCriticalSection.h"
 
 class vtkThreadedController;
 class vtkSharedMemoryCommunicatorMessage;
+class vtkSimpleCriticalSection;
 
 class VTK_PARALLEL_EXPORT vtkSharedMemoryCommunicator : public vtkCommunicator
 {
@@ -158,23 +157,9 @@ protected:
   vtkSimpleCriticalSection* Gate;
 #endif
 
-  void SignalNewMessage(vtkSharedMemoryCommunicator* receiveCommunicator)
-    {
-#ifdef _WIN32
-    SetEvent( receiveCommunicator->MessageSignal );
-#else
-    receiveCommunicator->Gate->Unlock();
-#endif
-    }
+  void SignalNewMessage(vtkSharedMemoryCommunicator* receiveCommunicator);
 
-  void WaitForNewMessage()
-    {
-#ifdef _WIN32
-      WaitForSingleObject( this->MessageSignal, INFINITE );
-#else
-      this->Gate->Lock();
-#endif
-    }
+  void WaitForNewMessage();
 
 private:
   vtkSharedMemoryCommunicator(const vtkSharedMemoryCommunicator&);  // Not implemented.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInputPort.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-07 19:30:04 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2002-05-17 01:50:34 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,19 +16,22 @@
 
 =========================================================================*/
 #include "vtkInputPort.h"
-#include "vtkOutputPort.h"
-#include "vtkMultiProcessController.h"
-#include "vtkPolyData.h"
-#include "vtkUnstructuredGrid.h"
-#include "vtkStructuredGrid.h"
-#include "vtkRectilinearGrid.h"
-#include "vtkStructuredPoints.h"
-#include "vtkImageData.h"
-#include "vtkObjectFactory.h"
-#include "vtkCommand.h"
 
-vtkCxxRevisionMacro(vtkInputPort, "$Revision: 1.10 $");
+#include "vtkCommand.h"
+#include "vtkImageData.h"
+#include "vtkMultiProcessController.h"
+#include "vtkObjectFactory.h"
+#include "vtkOutputPort.h"
+#include "vtkPolyData.h"
+#include "vtkRectilinearGrid.h"
+#include "vtkStructuredGrid.h"
+#include "vtkStructuredPoints.h"
+#include "vtkUnstructuredGrid.h"
+
+vtkCxxRevisionMacro(vtkInputPort, "$Revision: 1.11 $");
 vtkStandardNewMacro(vtkInputPort);
+
+vtkCxxSetObjectMacro(vtkInputPort,Controller, vtkMultiProcessController);
 
 //----------------------------------------------------------------------------
 vtkInputPort::vtkInputPort()

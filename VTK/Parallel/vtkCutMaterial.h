@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCutMaterial.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:34:29 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-05-17 01:50:34 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,8 +27,8 @@
 #define __vtkCutMaterial_h
 
 #include "vtkDataSetToPolyDataFilter.h"
-#include "vtkPlane.h"
 
+class vtkPlane;
 
 class VTK_PARALLEL_EXPORT vtkCutMaterial : public vtkDataSetToPolyDataFilter
 {

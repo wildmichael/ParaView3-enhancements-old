@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBranchExtentTranslator.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:34:25 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2002-05-17 01:50:34 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,9 +19,12 @@
 #include "vtkBranchExtentTranslator.h"
 #include "vtkObjectFactory.h"
 #include "vtkSource.h"
+#include "vtkImageData.h"
 
-vtkCxxRevisionMacro(vtkBranchExtentTranslator, "$Revision: 1.9 $");
+vtkCxxRevisionMacro(vtkBranchExtentTranslator, "$Revision: 1.10 $");
 vtkStandardNewMacro(vtkBranchExtentTranslator);
+
+vtkCxxSetObjectMacro(vtkBranchExtentTranslator,OriginalSource,vtkImageData);
 
 //----------------------------------------------------------------------------
 vtkBranchExtentTranslator::vtkBranchExtentTranslator()

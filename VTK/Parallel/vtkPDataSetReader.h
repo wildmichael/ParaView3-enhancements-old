@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPDataSetReader.h,v $
   Language:  C++
-  Date:      $Date: 2002-03-07 02:12:45 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2002-05-17 01:50:34 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,9 +25,8 @@
 #define __vtkPDataSetReader_h
 
 #include "vtkSource.h"
-#include "vtkDataSet.h"
-#include "vtkImageData.h"
 
+class vtkDataSet;
 
 class VTK_PARALLEL_EXPORT vtkPDataSetReader : public vtkSource
 {

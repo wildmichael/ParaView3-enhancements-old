@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPDataSetWriter.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:34:45 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-05-17 01:50:34 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,10 +25,10 @@
 #define __vtkPDataSetWriter_h
 
 #include "vtkDataSetWriter.h"
-#include "vtkImageData.h"
-#include "vtkStructuredGrid.h"
-#include "vtkRectilinearGrid.h"
 
+class vtkImageData;
+class vtkRectilinearGrid;
+class vtkStructuredGrid;
 
 class VTK_PARALLEL_EXPORT vtkPDataSetWriter : public vtkDataSetWriter
 {

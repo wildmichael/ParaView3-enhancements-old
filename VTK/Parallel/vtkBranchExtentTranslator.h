@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBranchExtentTranslator.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:34:26 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2002-05-17 01:50:34 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -31,8 +31,8 @@
 #define __vtkBranchExtentTranslator_h
 
 #include "vtkExtentTranslator.h"
-#include "vtkImageData.h"
 
+class vtkImageData;
 
 class VTK_PARALLEL_EXPORT vtkBranchExtentTranslator : public vtkExtentTranslator
 {
@@ -44,7 +44,7 @@ public:
 
   // Description:
   // This is the original upstream image source.
-  vtkSetObjectMacro(OriginalSource,vtkImageData);
+  virtual void SetOriginalSource(vtkImageData*);
   vtkGetObjectMacro(OriginalSource,vtkImageData);
 
   // Description:

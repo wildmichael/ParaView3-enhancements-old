@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCompositeManager.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-16 16:18:40 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2002-05-17 01:50:34 $
+  Version:   $Revision: 1.30 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -17,13 +17,18 @@
 =========================================================================*/
 
 #include "vtkCompositeManager.h"
+
 #include "vtkCallbackCommand.h"
-#include "vtkPolyDataMapper.h"
-#include "vtkToolkits.h"
-#include "vtkFloatArray.h"
-#include "vtkUnsignedCharArray.h"
 #include "vtkCompressCompositer.h"
+#include "vtkFloatArray.h"
+#include "vtkMultiProcessController.h"
 #include "vtkObjectFactory.h"
+#include "vtkPolyDataMapper.h"
+#include "vtkRenderWindow.h"
+#include "vtkRenderWindowInteractor.h"
+#include "vtkRenderer.h"
+#include "vtkToolkits.h"
+#include "vtkUnsignedCharArray.h"
 
 #ifdef _WIN32
 #include "vtkWin32OpenGLRenderWindow.h"
@@ -35,8 +40,10 @@
  #include <mpi.h>
 #endif
 
-vtkCxxRevisionMacro(vtkCompositeManager, "$Revision: 1.29 $");
+vtkCxxRevisionMacro(vtkCompositeManager, "$Revision: 1.30 $");
 vtkStandardNewMacro(vtkCompositeManager);
+
+vtkCxxSetObjectMacro(vtkCompositeManager,Compositer, vtkCompositer);
 
 // Structures to communicate render info.
 struct vtkCompositeRenderWindowInfo 
@@ -763,7 +770,6 @@ void vtkCompositeManager::EndRender()
 void vtkCompositeManager::ResetCamera(vtkRenderer *ren)
 {
   float bounds[6];
-  vtkCamera *cam;
 
   if (this->Controller == NULL || this->Lock)
     {

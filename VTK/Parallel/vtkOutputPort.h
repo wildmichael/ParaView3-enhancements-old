@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOutputPort.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:34:42 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-05-17 01:50:34 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -33,8 +33,8 @@
 #define __vtkOutputPort_h
 
 #include "vtkProcessObject.h"
-#include "vtkMultiProcessController.h"
 
+class vtkMultiProcessController;
 
 class VTK_PARALLEL_EXPORT vtkOutputPort : public vtkProcessObject
 {
@@ -64,12 +64,12 @@ public:
   // This method will only return if the BreakFlag is turned on in the 
   // controller.  The controller automatically creates a break rmi with 
   // the vtkMultiProcessController::BREAK_RMI_TAG for doing this remotely.
-  void WaitForUpdate() {this->Controller->ProcessRMIs();}
+  void WaitForUpdate();
   
   // Description:
   // Access to the global controller.
-  vtkMultiProcessController *GetController() {return this->Controller;}
-  vtkSetObjectMacro(Controller, vtkMultiProcessController);
+  vtkGetObjectMacro(Controller, vtkMultiProcessController);
+  virtual void SetController(vtkMultiProcessController*);
 
   // Description:
   // RMI function needs to call this.  Should make function a friend.

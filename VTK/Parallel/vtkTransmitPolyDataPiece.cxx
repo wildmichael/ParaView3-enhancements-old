@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransmitPolyDataPiece.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-22 19:18:29 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-05-17 01:50:34 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,9 +18,13 @@
 #include "vtkTransmitPolyDataPiece.h"
 #include "vtkExtractPolyDataPiece.h"
 #include "vtkObjectFactory.h"
+#include "vtkMultiProcessController.h"
 
-vtkCxxRevisionMacro(vtkTransmitPolyDataPiece, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkTransmitPolyDataPiece, "$Revision: 1.7 $");
 vtkStandardNewMacro(vtkTransmitPolyDataPiece);
+
+vtkCxxSetObjectMacro(vtkTransmitPolyDataPiece,Controller,
+                     vtkMultiProcessController);
 
 //----------------------------------------------------------------------------
 vtkTransmitPolyDataPiece::vtkTransmitPolyDataPiece()

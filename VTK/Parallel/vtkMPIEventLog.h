@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMPIEventLog.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:34:37 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-05-17 01:50:34 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -34,13 +34,10 @@
 #define __vtkMPIEventLog_h
 
 #include "vtkObject.h"
-#include "vtkMPIController.h"
 
 class VTK_PARALLEL_EXPORT vtkMPIEventLog : public vtkObject
 {
-
 public:
-
   vtkTypeRevisionMacro(vtkMPIEventLog,vtkObject);
   
   // Description:
