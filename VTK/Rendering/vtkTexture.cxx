@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTexture.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:56:27 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1996-11-06 12:37:00 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -129,7 +129,10 @@ unsigned char *vtkTexture::MapScalarsToColors (vtkScalars *scalars)
   if (this->SelfCreatedLookupTable) this->LookupTable->SetTableRange (scalars->GetRange ());
 
   // map the scalars to colors
-  mappedScalars = this->MappedScalars;
+  mappedScalars = (vtkAPixmap *) this->MappedScalars;
+  
+  // insert the last entry to allocate ensure there is enough memory
+  mappedScalars->InsertColor(numPts-1, this->LookupTable->MapValue(scalars->GetScalar(numPts-1)));
   for (int i = 0; i < numPts; i++)
     {
       mappedScalars->SetColor(i, this->LookupTable->MapValue(scalars->GetScalar(i)));
@@ -142,11 +145,7 @@ void vtkTexture::Render(vtkRenderer *ren)
   if (this->Input) //load texture map
     {
     this->Input->Update();
-    if (this->Input->GetMTime() > this->GetMTime()
-	|| (this->LookupTable && this->LookupTable->GetMTime() > this->GetMTime ()))
-      {
-      this->Load(ren);
-      }
+    this->Load(ren);
     }
 }
 
