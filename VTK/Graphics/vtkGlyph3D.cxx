@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGlyph3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-01-02 13:58:14 $
-  Version:   $Revision: 1.59 $
+  Date:      $Date: 1999-04-27 20:43:49 $
+  Version:   $Revision: 1.60 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -355,7 +355,7 @@ void vtkGlyph3D::Execute()
          vNew[0] = (v[0]+vMag) / 2.0;
          vNew[1] = v[1] / 2.0;
          vNew[2] = v[2] / 2.0;
-         trans->RotateWXYZ(180.0,vNew[0],vNew[1],vNew[2]);
+         trans->RotateWXYZ((float)180.0,vNew[0],vNew[1],vNew[2]);
          }
         }
       }
