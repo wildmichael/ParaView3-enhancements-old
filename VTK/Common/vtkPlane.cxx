@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPlane.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-04-14 15:30:01 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1994-07-07 13:08:51 $
+  Version:   $Revision: 1.4 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -29,6 +29,7 @@ vlPlane::vlPlane()
   this->Origin[2] = 0.0;
 }
 
+// NOTE : normal assumed to have magnitude 1
 void vlPlane::ProjectPoint(float x[3], float origin[3], float normal[3], float xproj[3])
 {
   int i;
