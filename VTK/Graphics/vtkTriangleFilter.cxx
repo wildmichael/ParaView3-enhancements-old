@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangleFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-19 15:26:36 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 2001-09-19 17:20:44 $
+  Version:   $Revision: 1.44 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -67,7 +67,6 @@ void vtkTriangleFilter::Execute()
   vtkCellData *inCD=input->GetCellData();
   vtkCellData *outCD=output->GetCellData();
   vtkIdType updateInterval;
-  vtkIdType numPoints=input->GetNumberOfPoints();
   vtkCellArray *cells, *newCells;
   vtkPoints *inPts=input->GetPoints();
 
