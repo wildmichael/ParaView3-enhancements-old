@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFunctionParser.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-02-14 12:03:36 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2001-02-14 14:37:38 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1377,4 +1377,8 @@ void vtkFunctionParser::PrintSelf(ostream& os, vtkIndent indent)
 
   os << indent << "Function: "
      << (this->Function ? this->Function : "(none)") << endl;
+  os << indent << "NumberOfScalarVariables: "
+     << this->NumberOfScalarVariables << endl;
+  os << indent << "NumberOfVectorVariables: "
+     << this->NumberOfVectorVariables << endl;
 }
