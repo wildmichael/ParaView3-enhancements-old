@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-18 11:11:48 $
-  Version:   $Revision: 1.76 $
+  Date:      $Date: 2001-04-20 14:25:10 $
+  Version:   $Revision: 1.77 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -626,7 +626,7 @@ int vtkDataWriter::WritePoints(ostream *fp, vtkPoints *points)
   
   if (points == NULL)
     {
-    *fp << "POINTS 0 ";
+    *fp << "POINTS 0 float\n";
     return 1;
     }
 
