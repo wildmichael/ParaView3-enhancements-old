@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkByteSwap.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-11-03 17:18:04 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1996-06-19 18:54:18 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -121,6 +121,50 @@ void vtkByteSwap::Swap4LERange(char *mem_ptr1,int num)
     pos[1] = pos[2];
     pos[2] = one_byte;
     pos = pos + 4;
+    }
+  
+#endif
+}
+
+// Description:
+// Swap bunch of bytes. Num is the number of two byte words to swap.
+void vtkByteSwap::Swap2BERange(char *mem_ptr1,int num)
+{
+#ifndef WORDS_BIGENDIAN
+  char one_byte;
+  char *pos;
+  int i;
+  
+  pos = mem_ptr1;
+  
+  for (i = 0; i < num; i++)
+    {
+    one_byte = pos[0];
+    pos[0] = pos[1];
+    pos[1] = one_byte;
+    pos = pos + 2;
+    }
+  
+#endif
+}
+
+// Description:
+// Swap bunch of bytes. Num is the number of two byte words to swap.
+void vtkByteSwap::Swap2LERange(char *mem_ptr1,int num)
+{
+#ifdef WORDS_BIGENDIAN
+  char one_byte;
+  char *pos;
+  int i;
+  
+  pos = mem_ptr1;
+  
+  for (i = 0; i < num; i++)
+    {
+    one_byte = pos[0];
+    pos[0] = pos[1];
+    pos[1] = one_byte;
+    pos = pos + 2;
     }
   
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-04-03 20:40:59 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 1996-06-19 18:54:20 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -530,7 +530,6 @@ int vtkDataReader::ReadScalarData(vtkDataSet *ds, int numPts)
         vtkErrorMacro(<<"Error reading binary char scalars!");
         return 0;
         }
-      swap.Swap4BERange(ptr,numPts);
       scalars->WrotePtr();
       }
     else // ascii
@@ -564,7 +563,7 @@ int vtkDataReader::ReadScalarData(vtkDataSet *ds, int numPts)
         vtkErrorMacro(<<"Error reading binary short scalars!");
         return 0;
         }
-      swap.Swap4BERange(ptr,numPts);
+      swap.Swap2BERange(ptr,numPts);
       scalars->WrotePtr();
       }
     else // ascii
