@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-26 14:22:04 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1998-11-09 14:49:19 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -70,7 +70,8 @@ float *vtkVolumeMapper::GetBounds()
   else
     {
     this->ScalarInput->Update();
-    return this->ScalarInput->GetBounds();
+    this->ScalarInput->GetBounds(this->Bounds);
+    return this->Bounds;
     }
 }
 
