@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:05:47 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 2000-04-25 12:39:57 $
+  Version:   $Revision: 1.52 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -97,7 +97,7 @@ vtkDataSet *vtkMergeFilter::GetVectors()
     {
     return NULL;
     }
-  return (vtkDataSet *)(this->Inputs[3]);
+  return (vtkDataSet *)(this->Inputs[2]);
 }
 
 void vtkMergeFilter::SetNormals(vtkDataSet *input)
