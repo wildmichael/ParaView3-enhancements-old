@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCleanPolyData.h,v $
   Language:  C++
-  Date:      $Date: 2000-03-01 18:23:02 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2000-03-01 19:23:20 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen
@@ -158,8 +158,11 @@ protected:
   // Usual data generation method
   void Execute();
 
-  float Tolerance, AbsoluteTolerance;
-  int ConvertLinesToPoints, ConvertPolysToLines, ConvertStripsToPolys;
+  float Tolerance;
+  float AbsoluteTolerance;
+  int ConvertLinesToPoints;
+  int ConvertPolysToLines;
+  int ConvertStripsToPolys;
   int ToleranceIsAbsolute;
   vtkPointLocator *Locator;
 };
