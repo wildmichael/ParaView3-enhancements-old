@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXOpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-24 13:30:27 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-09-24 13:34:00 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -812,21 +812,21 @@ void vtkXOpenGLRenderWindow::PrintSelf(ostream& os, vtkIndent indent)
 // When uncommented (along with the lines in MakeCurrent) 
 // it will cause a segfault upon an XError instead of 
 // the normal XError handler
-extern "C" {int vtkXError(Display *display, XErrorEvent *err)
-{
-// cause a segfault
-  *(float *)(0x01) = 1.0;
-  return 1;
-}}
+//  extern "C" {int vtkXError(Display *display, XErrorEvent *err)
+//  {
+//  // cause a segfault
+//    *(float *)(0x01) = 1.0;
+//    return 1;
+//  }}
 
 void vtkXOpenGLRenderWindow::MakeCurrent()
 {
   // when debugging XErrors uncomment the following lines
-  if (this->DisplayId)
-    {
-      XSynchronize(this->DisplayId,1);
-    }
-  XSetErrorHandler(vtkXError);
+//    if (this->DisplayId)
+//      {
+//        XSynchronize(this->DisplayId,1);
+//      }
+//     XSetErrorHandler(vtkXError);
 #ifdef VTK_OPENGL_HAS_OSMESA
   // set the current window 
   if (this->OffScreenRendering)
