@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTclUtil.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 20:39:13 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1997-04-22 19:38:47 $
+  Version:   $Revision: 1.16 $
 
 This file is part of the Visualization Toolkit. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -18,7 +18,6 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 #include <stdlib.h>
 #include "vtkTclUtil.h"
 
-extern Tcl_Interp *vtkGlobalTclInterp;
 int vtkTclEval(char *str)
 {
   return Tcl_GlobalEval(vtkGlobalTclInterp, str);

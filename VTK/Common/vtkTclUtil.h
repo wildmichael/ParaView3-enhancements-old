@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTclUtil.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 20:39:14 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1997-04-22 19:38:48 $
+  Version:   $Revision: 1.11 $
 
 This file is part of the Visualization Toolkit. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -18,6 +18,7 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 #include <tk.h>
 #include <string.h>
 
+extern Tcl_Interp *vtkGlobalTclInterp;
 extern int vtkTclEval(char *str);
 extern char *vtkTclGetResult();
 extern int vtkTclDeleteObjectFromHash(ClientData cd);
