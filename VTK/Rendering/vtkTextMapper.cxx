@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-02-10 18:02:57 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-02-12 13:37:10 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -91,7 +91,14 @@ void vtkTextMapper::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "FontFamily: " << this->FontFamily << "\n";
   os << indent << "FontSize: " << this->FontSize << "\n";
   os << indent << "Input: " << (this->Input ? this->Input : "(none)") << "\n";
- 
+  os << indent << "Justification: ";
+  switch (this->Justification)
+    {
+    case 0: os << "Left  (0)" << endl; break;
+    case 1: os << "Centered  (1)" << endl; break;
+    case 2: os << "Right  (2)" << endl; break;
+    }
+  
   vtkMapper2D::PrintSelf(os,indent);
 }
 
