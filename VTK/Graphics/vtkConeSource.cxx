@@ -1,10 +1,10 @@
 /*=========================================================================
 
   Program:   Visualization Toolkit
-  Module:    vtkConeSource.cc
+  Module:    $RCSfile: vtkConeSource.cxx,v $
   Language:  C++
-  Date:      09 Oct 1995
-  Version:   1.22
+  Date:      $Date: 1998-12-02 21:17:12 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
