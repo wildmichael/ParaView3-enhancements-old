@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkGlyph3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-15 16:49:19 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1995-05-02 13:30:29 $
+  Version:   $Revision: 1.16 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -133,8 +133,8 @@ void vlGlyph3D::Execute()
 // Traverse all Input points, transforming Source points and copying 
 // point attributes.
 //
-  if ( this->VectorMode == USE_VECTOR && inVectors != NULL ||
-  this->VectorMode == USE_NORMAL && inNormals != NULL )
+  if ( (this->VectorMode == USE_VECTOR && inVectors != NULL) ||
+  (this->VectorMode == USE_NORMAL && inNormals != NULL) )
     orient = 1;
   else
     orient = 0;
@@ -156,14 +156,14 @@ void vlGlyph3D::Execute()
     x = this->Input->GetPoint(inPtId);
     trans.Translate(x[0], x[1], x[2]);
 
-    if ( this->VectorMode == USE_NORMAL )
-      v = inNormals->GetNormal(inPtId);
-    else
-      v = inVectors->GetVector(inPtId);
-    scale = math.Norm(v);
-
     if ( orient )
       {
+      if ( this->VectorMode == USE_NORMAL )
+        v = inNormals->GetNormal(inPtId);
+      else
+        v = inVectors->GetVector(inPtId);
+      scale = math.Norm(v);
+
       // Copy Input vector
       for (i=0; i < numSourcePts; i++) 
         newVectors->InsertVector(ptIncr+i,v);
