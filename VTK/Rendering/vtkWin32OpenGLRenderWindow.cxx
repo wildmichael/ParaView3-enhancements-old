@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-04 13:17:46 $
-  Version:   $Revision: 1.72 $
+  Date:      $Date: 2001-10-03 15:40:44 $
+  Version:   $Revision: 1.73 $
   Thanks:    to Horst Schreiber for developing this MFC code
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -58,7 +58,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkOpenGLLight.h"
 #include "vtkOpenGLPolyDataMapper.h"
 #include "vtkObjectFactory.h"
-
 
 
 //------------------------------------------------------------------------------
@@ -603,7 +602,7 @@ void vtkWin32OpenGLRenderWindow::CreateAWindow(int x, int y, int width,
     }
   this->SetupPalette(this->DeviceContext);
   this->ContextId = wglCreateContext(this->DeviceContext);
-  wglMakeCurrent(this->DeviceContext, this->ContextId);
+  this->MakeCurrent();
   this->OpenGLInit();
   this->Mapped = 1;
 }
@@ -627,7 +626,7 @@ void vtkWin32OpenGLRenderWindow::WindowInitialize()
     }	
   else 
     {
-    wglMakeCurrent(this->DeviceContext, this->ContextId); // hsr
+    this->MakeCurrent(); // hsr
     this->OpenGLInit();
     }
   
@@ -991,7 +990,7 @@ void vtkWin32OpenGLRenderWindow::CreateOffScreenDC(HBITMAP hbmp, HDC aHdc)
                          PFD_DRAW_TO_BITMAP, this->GetDebug(), 24, 32);
   this->SetupPalette(this->DeviceContext);
   this->ContextId = wglCreateContext(this->DeviceContext);
-  wglMakeCurrent(this->DeviceContext, this->ContextId);
+  this->MakeCurrent();
   
   // we need to release resources
   for (this->Renderers->InitTraversal(); 
@@ -1063,7 +1062,7 @@ void vtkWin32OpenGLRenderWindow::ResumeScreenRendering(void)
   this->DeviceContext = this->ScreenDeviceContext;
   this->DoubleBuffer = this->ScreenDoubleBuffer;
   this->ContextId = this->ScreenContextId;
-  wglMakeCurrent(this->DeviceContext, this->ContextId);
+  this->MakeCurrent();
 
   vtkRenderer* ren;
   for (this->Renderers->InitTraversal();
