@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOStreamWrapper.h,v $
   Language:  C++
-  Date:      $Date: 2003-02-07 19:30:05 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2003-04-18 17:03:05 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -77,6 +77,15 @@ public:
   vtkOStreamWrapper& operator << (bool);
 #endif
   
+  // Work-around for IBM Visual Age bug in overload resolution.
+#if defined(__IBMCPP__)
+  template <typename T>
+  vtkOStreamWrapper& operator << (T* p)
+    {
+    return this->operator << (p);
+    }
+#endif
+
 #ifdef VTK_NEED_ID_TYPE_STREAM_OPERATORS
   vtkOStreamWrapper& operator << (vtkIdType);
 #endif
