@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellLocator.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:46:58 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1995-07-29 11:08:37 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -137,7 +137,6 @@ void vtkCellLocator::SubDivide()
   vtkCell *cell;
   float *bounds, *cellBounds;
   int numCells;
-  float level;
   int ndivs, product;
   int i, j, k, cellId, ijkMin[3], ijkMax[3];
   int idx, parentOffset;
