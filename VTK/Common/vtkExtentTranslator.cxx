@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtentTranslator.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-08 08:59:00 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2000-08-09 11:02:28 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -184,6 +184,11 @@ void vtkExtentTranslator::PrintSelf(ostream& os, vtkIndent indent)
      << this->Extent[1] << ", " << this->Extent[2] << ", " 
      << this->Extent[3] << ", " << this->Extent[4] << ", " 
      << this->Extent[5] << endl; 
+
+  os << indent << "WholeExtent: " << this->WholeExtent[0] << ", " 
+     << this->WholeExtent[1] << ", " << this->WholeExtent[2] << ", " 
+     << this->WholeExtent[3] << ", " << this->WholeExtent[4] << ", " 
+     << this->WholeExtent[5] << endl; 
 
   os << indent << "MiniumuPieceSize: " << this->MinimumPieceSize[0] << ", "
      << this->MinimumPieceSize[1] << ", " 
