@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGenericEnSightReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-04-18 18:57:10 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 2003-05-07 18:10:23 $
+  Version:   $Revision: 1.43 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -30,7 +30,7 @@
 
 #include <vtkstd/string>
 
-vtkCxxRevisionMacro(vtkGenericEnSightReader, "$Revision: 1.42 $");
+vtkCxxRevisionMacro(vtkGenericEnSightReader, "$Revision: 1.43 $");
 vtkStandardNewMacro(vtkGenericEnSightReader);
 
 vtkCxxSetObjectMacro(vtkGenericEnSightReader,TimeSets, 
@@ -80,6 +80,8 @@ vtkGenericEnSightReader::vtkGenericEnSightReader()
   this->ReadAllVariables = 1;
 
   this->ByteOrder = FILE_BIG_ENDIAN;
+  
+  this->EnSightVersion = -1;
   
   this->PointDataArraySelection = vtkDataArraySelection::New();
   this->CellDataArraySelection = vtkDataArraySelection::New();
@@ -598,7 +600,6 @@ void vtkGenericEnSightReader::ExecuteInformation()
 {
   int version = this->DetermineEnSightVersion();
   int createReader = 1;
-  
   if (version == vtkGenericEnSightReader::ENSIGHT_6)
     {
     vtkDebugMacro("EnSight6");
@@ -679,8 +680,10 @@ void vtkGenericEnSightReader::ExecuteInformation()
   else
     {
     vtkErrorMacro("Error determining EnSightVersion");
+    this->EnSightVersion = -1;
     return;
     }
+  this->EnSightVersion = version;
   
   // Copy current array selections to internal reader.
   this->SetReaderDataArraySelectionSetsFromSelf();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGenericEnSightReader.h,v $
   Language:  C++
-  Date:      $Date: 2003-04-16 15:52:40 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2003-05-07 18:10:24 $
+  Version:   $Revision: 1.22 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -298,6 +298,10 @@ protected:
   int ReadAllVariables;
 
   int ByteOrder;
+  
+  // The EnSight file version being read.  Valid after
+  // UpdateInformation.  Value is -1 for unknown version.
+  int EnSightVersion;
   
   // The array selections.  These map over the variables and complex
   // variables to hide the details of EnSight behind VTK terminology.
