@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32RenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-01 21:00:08 $
-  Version:   $Revision: 1.83 $
+  Date:      $Date: 2002-06-21 19:12:04 $
+  Version:   $Revision: 1.84 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -49,7 +49,7 @@ VTK_RENDERING_EXPORT LRESULT CALLBACK vtkHandleMessage2(HWND,UINT,WPARAM,LPARAM,
 
 
 #ifndef VTK_IMPLEMENT_MESA_CXX
-vtkCxxRevisionMacro(vtkWin32RenderWindowInteractor, "$Revision: 1.83 $");
+vtkCxxRevisionMacro(vtkWin32RenderWindowInteractor, "$Revision: 1.84 $");
 vtkStandardNewMacro(vtkWin32RenderWindowInteractor);
 #endif
 
@@ -641,10 +641,7 @@ LRESULT CALLBACK vtkHandleMessage2(HWND hWnd,UINT uMsg, WPARAM wParam,
         {
         (*me->ClassExitMethod)(me->ClassExitMethodArg);
         }
-      else 
-        {
-        me->TerminateApp();
-        }
+      me->TerminateApp();
       break;
       
     case WM_CHAR:
@@ -724,10 +721,7 @@ void vtkWin32RenderWindowInteractor::ExitCallback()
     {
     (*this->ClassExitMethod)(this->ClassExitMethodArg);
     }
-  else
-    {
-    this->TerminateApp();
-    }
+  this->TerminateApp();
 }
 
 
