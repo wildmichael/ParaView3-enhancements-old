@@ -1,10 +1,10 @@
 /*=========================================================================
 
   Program:   Visualization Toolkit
-  Module:    $RCSfile: vtkImageDotProduct.h,v $
+  Module:    $RCSfile: vtkImageConstantPad.h,v $
   Language:  C++
-  Date:      $Date: 1997-01-08 15:19:32 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1997-01-08 15:19:23 $
+  Version:   $Revision: 1.1 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,37 +38,34 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-// .NAME vtkImageDotProduct - Dot product of two vector images.
+// .NAME vtkImageConstantPad - Makes image larger by padding with contant.
 // .SECTION Description
-// vtkImageDotProduct interpretes one axis of the input images as
-// vectors and takes the dot product vector by vector.  The first axis
-// is the vector axis and defaults to VTK_IMAGE_COMPONENT_AXIS.
-// The output collapses the vector axis to the extent (0,0).
+// vtkImageConstantPad changes the image extent of its input.
+// Any pixels outside of the original image extent are filled with
+// a constant value.
 
 
-#ifndef __vtkImageDotProduct_h
-#define __vtkImageDotProduct_h
+#ifndef __vtkImageConstantPad_h
+#define __vtkImageConstantPad_h
 
 
+#include "vtkImagePadFilter.h"
 
-#include "vtkImageTwoInputFilter.h"
-
-class vtkImageDotProduct : public vtkImageTwoInputFilter
+class vtkImageConstantPad : public vtkImagePadFilter
 {
 public:
-  vtkImageDotProduct();
-  char *GetClassName() {return "vtkImageDotProduct";};
+  vtkImageConstantPad();
+  char *GetClassName() {return "vtkImageConstantPad";};
 
+  // Set/Get the pad value.
+  vtkSetMacro(Constant, float);
+  vtkGetMacro(Constant, float);
+  
+  
 protected:
-  void ComputeOutputImageInformation(vtkImageRegion *inRegion1,
-				     vtkImageRegion *inRegion2,
-				     vtkImageRegion *outRegion);
-  void ComputeRequiredInputRegionExtent(vtkImageRegion *outRegion,
-					vtkImageRegion *inRegion1,
-					vtkImageRegion *inRegion2);
-  void Execute(vtkImageRegion *inRegion1, 
-	       vtkImageRegion *inRegion2, 
-	       vtkImageRegion *outRegion);
+  float Constant;
+  
+  void Execute(vtkImageRegion *inRegion, vtkImageRegion *outRegion);
 };
 
 #endif
