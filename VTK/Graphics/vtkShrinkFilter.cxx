@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkShrinkFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:04:52 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 1998-04-03 18:58:32 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -109,6 +109,8 @@ void vtkShrinkFilter::Execute()
 //
 // Update ourselves and release memory
 //
+  output->GetCellData()->PassData(input->GetCellData());
+
   output->SetPoints(newPts);
   output->Squeeze();
 

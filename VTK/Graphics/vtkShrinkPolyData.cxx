@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkShrinkPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:04:53 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 1998-04-03 18:58:33 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -228,6 +228,8 @@ void vtkShrinkPolyData::Execute()
  
   output->SetPolys(newPolys);
   newPolys->Delete();
+
+  output->GetCellData()->PassData(input->GetCellData());
 }
 
 
