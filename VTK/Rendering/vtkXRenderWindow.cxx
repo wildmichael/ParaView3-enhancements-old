@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkXRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-09 19:58:53 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1994-11-11 08:09:48 $
+  Version:   $Revision: 1.3 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -17,6 +17,7 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 #include <stdlib.h>
 #include <iostream.h>
 #include "XRenWin.hh"
+#include "XInter.hh"
 
 vlXRenderWindow::vlXRenderWindow()
 {
@@ -122,6 +123,14 @@ void vlXRenderWindow::SetDisplayId(Display  *arg)
   this->DisplayId = arg;
 }
 
+// Description:
+// Create named interactor type
+vlRenderWindowInteractor *vlXRenderWindow::MakeRenderWindowInteractor()
+{
+  this->Interactor = (vlRenderWindowInteractor *)new vlXRenderWindowInteractor;
+  this->Interactor->SetRenderWindow((vlRenderWindow *)this);
+  return this->Interactor;
+}
 
 void vlXRenderWindow::PrintSelf(ostream& os, vlIndent indent)
 {

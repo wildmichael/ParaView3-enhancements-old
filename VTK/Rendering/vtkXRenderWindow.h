@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkXRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 1994-10-17 13:52:11 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1994-11-11 08:09:49 $
+  Version:   $Revision: 1.2 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -13,11 +13,10 @@ written consent of the authors.
 Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 
 =========================================================================*/
-// .NAME vlSbrRenderWindow - HP starbase rendering window
+// .NAME vlXRenderWindow - rendering window for X Window system
 // .SECTION Description
-// vlSbrRenderWindow is a concrete implementation of the abstract class
-// vlRenderWindow. vlSbrRenderer interfaces to the Hewlett-Packard starbase
-// graphics library.
+// vlXRenderWindow is a concrete implementation of the abstract class
+// vlRenderWindow. vlXRenderer interfaces to the X Window system.
 
 #ifndef __vlXRenderWindow_hh
 #define __vlXRenderWindow_hh
@@ -35,6 +34,9 @@ public:
   char *GetClassName() {return "vlXRenderWindow";};
   void PrintSelf(ostream& os, vlIndent indent);
   
+  // supply base class virtual function
+  vlRenderWindowInteractor *MakeRenderWindowInteractor();
+
   // Xwindow get set functions
   int     *GetSize();
   int     *GetScreenSize();
