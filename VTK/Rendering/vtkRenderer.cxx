@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-04 20:04:41 $
-  Version:   $Revision: 1.119 $
+  Date:      $Date: 1999-10-06 15:50:04 $
+  Version:   $Revision: 1.120 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -222,11 +222,20 @@ void vtkRenderer::Render(void)
   // the props that need to be rendered into an image.
   // Fill these in later (in AllocateTime) - get a 
   // count of them there too
-  this->PropArray                = new vtkProp *[this->Props->GetNumberOfItems()];
-  this->RayCastPropArray         = new vtkProp *[this->Props->GetNumberOfItems()];
-  this->RenderIntoImagePropArray = new vtkProp *[this->Props->GetNumberOfItems()];
-  this->PropArrayCount = 0;
+  if ( this->Props->GetNumberOfItems() > 0 )
+    {
+    this->PropArray                = new vtkProp *[this->Props->GetNumberOfItems()];
+    this->RayCastPropArray         = new vtkProp *[this->Props->GetNumberOfItems()];
+    this->RenderIntoImagePropArray = new vtkProp *[this->Props->GetNumberOfItems()];
+    }
+  else
+    {
+    this->PropArray = NULL;
+    this->RayCastPropArray = NULL;
+    this->RenderIntoImagePropArray = NULL;
+    }
 
+  this->PropArrayCount = 0;
   for ( i = 0, this->Props->InitTraversal(); 
 	(aProp = this->Props->GetNextProp());i++ )
     {
@@ -240,18 +249,25 @@ void vtkRenderer::Render(void)
     {
     vtkDebugMacro( << "There are no visible props!" );
     }
+  else
+    {
+    // Call all the outer culling methods to set allocated time
+    // for each prop and re-order the prop list if desired
 
-  // Call all the outer culling methods to set allocated time
-  // for each prop and re-order the prop list if desired
-  this->AllocateTime();
+    this->AllocateTime();
+    }
 
   // do the render library specific stuff
   this->DeviceRender();
 
-  // Clean up the space we allocated before
-  delete [] this->PropArray;
-  delete [] this->RayCastPropArray;
-  delete [] this->RenderIntoImagePropArray;
+  // Clean up the space we allocated before. If the PropArray exists,
+  // they all should exist
+  if ( this->PropArray )
+    {
+    delete [] this->PropArray;
+    delete [] this->RayCastPropArray;
+    delete [] this->RenderIntoImagePropArray;
+    }
 
   if (this->BackingStore)
     {
