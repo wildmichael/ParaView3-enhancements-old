@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitModeller.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:39 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 2001-06-21 15:26:49 $
+  Version:   $Revision: 1.50 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -222,7 +222,7 @@ protected:
   void Execute();
   void ExecuteInformation();
   
-  void Cap(vtkScalars *s);
+  void Cap(vtkDataArray *s);
 
   vtkMultiThreader *Threader;
   int              NumberOfThreads;
