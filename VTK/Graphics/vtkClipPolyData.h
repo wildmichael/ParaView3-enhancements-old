@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipPolyData.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-14 21:25:10 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1999-03-19 20:12:00 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -77,7 +77,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // output may consist of different cell types than the input data.
 
 // .SECTION See Also
-// vtkImplicitFunction vtkCutter
+// vtkImplicitFunction vtkCutter vtkClipVolume
 
 #ifndef __vtkClipPolyData_h
 #define __vtkClipPolyData_h
@@ -164,6 +164,7 @@ public:
 
 protected:
   void Execute();
+  void Update();
   vtkImplicitFunction *ClipFunction;
   
   vtkPointLocator *Locator;
