@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-01-20 12:27:11 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 1996-02-01 14:21:23 $
+  Version:   $Revision: 1.48 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -79,7 +79,6 @@ vtkRenderer::vtkRenderer()
   this->Viewport[2] = 1;
   this->Viewport[3] = 1;
 
-  this->BackLight = 1;
   this->AllocatedRenderTime = 0;
   
   this->Aspect[0] = this->Aspect[1] = 1.0;
@@ -569,7 +568,6 @@ void vtkRenderer::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "Background: (" << this->Background[0] << ", " 
     << this->Background[1] << ", "  << this->Background[2] << ")\n";
 
-  os << indent << "Back Light: " << (this->BackLight ? "On\n" : "Off\n");
   os << indent << "DisplayPoint: ("  << this->DisplayPoint[0] << ", " 
     << this->DisplayPoint[1] << ", " << this->DisplayPoint[2] << ")\n";
   os << indent << "Lights:\n";
