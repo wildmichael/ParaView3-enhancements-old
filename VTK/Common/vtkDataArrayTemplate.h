@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataArrayTemplate.h,v $
   Language:  C++
-  Date:      $Date: 2003-11-18 13:38:32 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2003-11-20 19:54:47 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -170,8 +170,13 @@ private:
   void operator=(const vtkDataArrayTemplate&);  // Not implemented.
 };
 
-#define VTK_DATA_ARRAY_TEMPLATE_INSTANTIATE(T) \
-  template class VTK_COMMON_EXPORT vtkDataArrayTemplate< T >
+#if !defined(VTK_NO_EXPLICIT_TEMPLATE_INSTANTIATION)
+# define VTK_DATA_ARRAY_TEMPLATE_INSTANTIATE(T) \
+   template class VTK_COMMON_EXPORT vtkDataArrayTemplate< T >
+#else
+# include "vtkDataArrayTemplate.txx"
+# define VTK_DATA_ARRAY_TEMPLATE_INSTANTIATE(T)
+#endif
 
 #endif // !defined(__vtkDataArrayTemplate_h)
 
