@@ -4,8 +4,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFrustumCoverageCuller.h,v $
   Language:  C++
-  Date:      $Date: 1998-07-02 16:13:08 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-08-20 20:41:10 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -80,7 +80,7 @@ public:
 
   // Description:
   // Every actor passes the inner cull method (the actor is not culled)
-  int   InnerCullMethod( vtkRenderer *ren, vtkActor *act ) { return 1; };
+  int   InnerCullMethod( vtkRenderer *, vtkActor *) { return 1; };
 
   
   // Description:

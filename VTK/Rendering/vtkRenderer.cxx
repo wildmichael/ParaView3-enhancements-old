@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-08-11 18:56:04 $
-  Version:   $Revision: 1.84 $
+  Date:      $Date: 1998-08-20 20:41:11 $
+  Version:   $Revision: 1.85 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -230,7 +230,7 @@ int vtkRenderer::UpdateActors()
   int        count = 0, num_actors;
   float      total_time, actor_time, gained_time, additional_time;
   int        allocated_time_initialized = 0, i;
-  float      *bounds, render_time, new_render_time;
+  float      render_time, new_render_time;
 
   num_actors = this->Actors.GetNumberOfItems();
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastIsosurfaceFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-23 19:13:42 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-08-20 20:41:14 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -1117,8 +1117,7 @@ void vtkVolumeRayCastIsosurfaceFunction::CastARay( int ray_type,
     }
 }
 
-// Description:
-float vtkVolumeRayCastIsosurfaceFunction::GetZeroOpacityThreshold( vtkVolume *vol )
+float vtkVolumeRayCastIsosurfaceFunction::GetZeroOpacityThreshold(vtkVolume *)
 {
   return( this->IsoValue );
 }
