@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPythonAppInit.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-09-16 15:03:17 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2003-11-12 14:33:54 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -144,7 +144,9 @@ int main(int argc, char **argv)
   
   // Get the pointer to path list object, append both paths, and
   // make sure to decrease reference counting for both path strings.
-  PyObject* path = PySys_GetObject("path");
+  char tmpPath[5];
+  sprintf(tmpPath,"path");
+  PyObject* path = PySys_GetObject(tmpPath);
   PyObject* newpath;
   if ( ::vtkPythonAppInitFileExists(VTK_PYTHON_LIBRARY_DIR) )
     {
