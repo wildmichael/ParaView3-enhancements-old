@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCommand.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-11 17:25:14 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2002-04-16 14:11:17 $
+  Version:   $Revision: 1.20 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -45,6 +45,7 @@ static const char *vtkCommandEventStrings[] = {
   "KeyPressEvent",
   "KeyReleaseEvent",
   "CharEvent",
+  "ExposeEvent",
   "ConfigureEvent",
   "TimerEvent",
   "MouseMoveEvent",
