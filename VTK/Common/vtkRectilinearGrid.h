@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGrid.h,v $
   Language:  C++
-  Date:      $Date: 2002-11-12 19:21:02 $
-  Version:   $Revision: 1.59 $
+  Date:      $Date: 2003-02-28 17:20:32 $
+  Version:   $Revision: 1.60 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -186,6 +186,10 @@ public:
   // a request is made as pieces.
   virtual void UpdateData();
 
+  // Description:
+  // Structured extent. The extent type is a 3D extent
+  int GetExtentType() { return VTK_3D_EXTENT; };
+
 protected:
   vtkRectilinearGrid();
   ~vtkRectilinearGrid();
@@ -196,9 +200,6 @@ protected:
   vtkPixel *Pixel;
   vtkVoxel *Voxel;
   
-  // The extent type is a 3D extent
-  int GetExtentType() { return VTK_3D_EXTENT; };
-
   // Description:
   // Reallocates and copies to set the Extent to the UpdateExtent.
   // This is used internally when the exact extent is requested, 
