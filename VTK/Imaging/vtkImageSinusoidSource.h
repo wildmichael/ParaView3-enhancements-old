@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSinusoidSource.h,v $
   Language:  C++
-  Date:      $Date: 1998-04-09 17:48:01 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-06-29 17:24:39 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,6 +39,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 // .NAME vtkImageSinusoidSource - Create an image with sinusoidal pixel values.
+// .SECTION Description
 // vtkImageSinusoidSource just produces images with pixel values determined 
 // by a sinusoid.
 
