@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-14 21:24:52 $
-  Version:   $Revision: 1.87 $
+  Date:      $Date: 1998-12-07 21:02:06 $
+  Version:   $Revision: 1.88 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -683,6 +683,12 @@ void vtkPolyData::Allocate(int numCells, int extSize)
 {
   vtkCellArray *cells;
 
+  if (!this->Cells)
+    {
+    this->Cells = vtkCellTypes::New();
+    this->Cells->Allocate(numCells,3*numCells);
+    }
+
   cells = vtkCellArray::New();
   cells->Allocate(numCells,extSize);
   this->SetVerts(cells);
@@ -715,6 +721,8 @@ int vtkPolyData::InsertNextCell(int type, int npts, int *pts)
 
   if ( !this->Cells ) 
     {
+    // if we get to this point, the user has not made any guess at the
+    // number of cells, so this guess is as good as any
     this->Cells = new vtkCellTypes(5000,10000);
     }
 
