@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkParallelCoordinatesActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-05-24 11:17:36 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2000-05-27 14:54:24 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to Kitware & RPI/SCOREC who supported the development
              of this class.
 
@@ -90,13 +90,6 @@ vtkParallelCoordinatesActor::vtkParallelCoordinatesActor()
   this->PlotMapper->SetInput(this->PlotData);
   this->PlotActor = vtkActor2D::New();
   this->PlotActor->SetMapper(this->PlotMapper);
-
-  int   NumberOfLabels; //along each axis
-  int	Bold;
-  int   Italic;
-  int   Shadow;
-  int   FontFamily;
-  char  *LabelFormat;
 
   this->NumberOfLabels = 2;
   this->Bold = 1;
