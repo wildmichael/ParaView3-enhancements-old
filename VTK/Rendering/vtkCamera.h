@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCamera.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:29 $
-  Version:   $Revision: 1.82 $
+  Date:      $Date: 2002-03-20 21:12:52 $
+  Version:   $Revision: 1.83 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -222,6 +222,12 @@ class VTK_RENDERING_EXPORT vtkCamera : public vtkObject
   // The angles are (45,90) by default.  Oblique projections 
   // commonly use (30,63.435).
   void SetObliqueAngles(double alpha, double beta);
+
+  // Description:
+  // Apply a transform to the camera.  The camera position, focal-point,
+  // and view-up are re-calulated using the transform's matrix to
+  // multiply the old points by the new transform.
+  void ApplyTransform(vtkTransform *t);
 
   // Description:
   // Get the ViewPlaneNormal.  This vector will point opposite to
