@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: Cone3.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-14 21:00:04 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-11-15 17:53:45 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -77,7 +77,7 @@ int main( int argc, char *argv[] )
 
   vtkRenderer *ren2= vtkRenderer::New();
   ren2->AddActor( coneActor );
-  ren2->SetBackground( 0.1, 0.2, 0.4 );
+  ren2->SetBackground( 0.2, 0.3, 0.5 );
   ren2->SetViewport(0.5, 0.0, 1.0, 1.0);
 
   //
