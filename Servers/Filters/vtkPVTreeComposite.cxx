@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkPVTreeComposite.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-19 20:25:41 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2002-02-19 22:25:30 $
+  Version:   $Revision: 1.20 $
   
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -147,7 +147,7 @@ void vtkPVTreeComposite::ComputeVisiblePropBounds(vtkRenderer *ren,
 
 
 //#########################################################################
-// If we are not using MPI, just stub out this class so the supper class
+// If we are not using MPI, just stub out this class so the super class
 // will do every thing.
 #ifdef VTK_USE_MPI
 
