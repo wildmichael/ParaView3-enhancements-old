@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkEdgePoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-02-27 13:18:16 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1995-02-27 13:22:02 $
+  Version:   $Revision: 1.3 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -75,7 +75,7 @@ void vlEdgePoints::Execute()
     cell = this->Input->GetCell(cellId);
     inScalars->GetScalars(cell->PointIds,cellScalars);
 
-    // loop over 8 points of voxel to check if cell straddles value
+    // loop over cell points to check if cell straddles iso-surface value
     for ( above=below=0, ptId=0; ptId < cell->GetNumberOfPoints(); ptId++ )
       {
       if ( cellScalars.GetScalar(ptId) >= this->Value )
