@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPicker.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:36:06 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1995-08-15 08:58:03 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -228,7 +228,7 @@ int vtkPicker::Pick(float selectionX, float selectionY, float selectionZ,
     {
     visible = actor->GetVisibility();
     pickable = actor->GetPickable();
-    transparency = actor->GetProperty()->GetTransparency();
+    transparency = actor->GetProperty()->GetOpacity();
 //
 //  If actor can be picked, get its composite matrix, invert it, and
 //  use the inverted matrix to transform the ray points into mapper
