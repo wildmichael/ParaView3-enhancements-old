@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLPolyDataMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-07 20:24:21 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 2001-03-08 00:40:52 $
+  Version:   $Revision: 1.52 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -2631,8 +2631,10 @@ void vtkOpenGLPolyDataMapper::Draw(vtkRenderer *aren, vtkActor *act)
     else
       {
 #ifdef GL_VERSION_1_1
+      float f, u;
       glEnable(GL_POLYGON_OFFSET_FILL);
-      glPolygonOffset(1,1);
+      this->GetResolveCoincidentTopologyPolygonOffsetParameters(f,u);
+      glPolygonOffset(f,u);
 #endif      
       }
     }
