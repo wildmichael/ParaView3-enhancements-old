@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitBoolean.h,v $
   Language:  C++
-  Date:      $Date: 1995-10-13 13:30:27 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1995-11-05 18:44:22 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -44,7 +44,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // combinations of implicit functions. The class has a list of functions
 // (FunctionList) that are combined according to a specified operator
 // (VTK_UNION or VTK_INTERSECTION or VTK_DIFFERENCE). You can use nested
-// combinations of vtkImplicitFunctions (and/or vtkImplicitBoolean) to create
+// combinations of vtkImplicitFunction's (and/or vtkImplicitBoolean) to create
 // elaborate implicit functions.  vtkImplicitBoolean is a concrete
 // implementation of vtkImplicitFunction.
 //

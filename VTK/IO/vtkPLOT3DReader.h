@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPLOT3DReader.h,v $
   Language:  C++
-  Date:      $Date: 1995-10-25 23:50:17 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1995-11-05 18:44:11 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,7 +40,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 // .NAME vtkPLOT3DReader - read PLOT3D data files
 // .SECTION Description
-// vtkPLOT3D is a reader object that reads PLOT3D formatted files and generates
+// vtkPLOT3DReader is a reader object that reads PLOT3D formatted files and generates
 // a structured grid on output. PLOT3D is a computer graphics program designed
 // to visualize the grids and solutions of computational fluid dynamics.
 // Please see the "PLOT3D User's Manual" available from NASA Ames Research 

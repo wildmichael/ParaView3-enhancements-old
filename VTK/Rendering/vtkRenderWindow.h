@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 1995-09-12 12:47:26 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1995-11-05 18:44:21 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 1995-09-12 12:49:59 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1995-11-05 18:44:20 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -89,7 +89,7 @@ public:
   vtkBooleanMacro(LightFollowCamera,int);
 
   // Description:
-  // Set/Get the desired update rate. This is used by vtkLODActors to tell 
+  // Set/Get the desired update rate. This is used by vtkLODActor's to tell 
   // them how quickly they need to render.  This update is in effect only
   // when the camera is being rotated, or zoomed.  When the interactor is
   // still the StillUpdateRate is used instead. A value of zero indicates

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSampleFunction.h,v $
   Language:  C++
-  Date:      $Date: 1995-10-25 23:50:37 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1995-11-05 18:44:15 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,7 +41,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // .NAME vtkSampleFunction - sample an implicit function over a structured point set
 // .SECTION Description
 // vtkSampleFunction is a source object that evaluates an implicit function
-// and normals at each point in a vtkStructuredPointSet. The user can 
+// and normals at each point in a vtkStructuredPoints. The user can 
 // specify the sample dimensions and location in space to perform the
 // sampling. To create closed surfaces (in conjunction with the 
 // vtkContourFilter), capping can be turned on to set a particular 

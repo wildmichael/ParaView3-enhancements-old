@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkHyperStreamline.h,v $
   Language:  C++
-  Date:      $Date: 1995-10-26 10:43:03 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1995-11-05 18:44:20 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,7 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-// .NAME vtkHyperStreamLine - generate hyperstreamline in arbitrary dataset
+// .NAME vtkHyperStreamline - generate hyperstreamline in arbitrary dataset
 // .SECTION Description
 // vtkHyperStreamline is a filter that integrates through tensor field to 
 // generate a hyperstreamline. The integration is along the maximum eigenvector
@@ -65,7 +65,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // logarithmic scale. Use LogScalingOn to turn this capability on. The Radius 
 // value controls the initial radius of the tube.
 // .SECTION See Also
-// vtkTensorEllipsoids vtkStreamer
+// vtkTensorGlyph vtkStreamer
 
 #ifndef __vtkHyperStreamline_h
 #define __vtkHyperStreamline_h

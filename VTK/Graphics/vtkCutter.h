@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCutter.h,v $
   Language:  C++
-  Date:      $Date: 1995-10-25 23:49:48 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1995-11-05 18:44:08 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,7 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-// .NAME vtkCutter - Cut vtkDataSets with user-specified implicit function
+// .NAME vtkCutter - Cut vtkDataSet with user-specified implicit function
 // .SECTION Description
 // vtkCutter is a filter to cut through data using any subclass of 
 // vtkImplicitFunction. That is, a polygonal surface is created

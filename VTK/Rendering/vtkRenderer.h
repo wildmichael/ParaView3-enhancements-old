@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.h,v $
   Language:  C++
-  Date:      $Date: 1995-09-12 12:57:05 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 1995-11-05 18:44:12 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -111,7 +111,7 @@ public:
   // Description:
   // Set/Get the amount of time this renderer is allowed to spend
   // rendering its scene. Zero indicates an infinite amount of time.
-  // This is used by vtkLODActors.
+  // This is used by vtkLODActor's.
   vtkSetMacro(AllocatedRenderTime,float);
   vtkGetMacro(AllocatedRenderTime,float);
 

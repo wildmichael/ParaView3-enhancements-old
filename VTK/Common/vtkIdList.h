@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIdList.h,v $
   Language:  C++
-  Date:      $Date: 1995-10-25 23:49:58 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1995-11-05 18:44:10 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,7 +40,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 // .NAME vtkIdList - list of point or cell ids
 // .SECTION Description
-// vtkIdLIst is used to represent and pass data id's between objects. vtkIdList
+// vtkIdList is used to represent and pass data id's between objects. vtkIdList
 // may represent any type of integer id but usually represent point and
 // cell ids.
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractGeometry.h,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:31:24 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1995-11-05 18:44:09 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,7 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-// .NAME vtkExtractGeomtry - extract cells that lie either entirely in or outside of a specified implicit function
+// .NAME vtkExtractGeometry - extract cells that lie either entirely in or outside of a specified implicit function
 // .SECTION Description
 // vtkExtractGeometry extracts from its input dataset all cells that are either
 // completely inside or outside of a specified implicit function. Any type of
