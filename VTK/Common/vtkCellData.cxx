@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellData.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 22:49:21 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-08-22 19:03:18 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,12 +64,12 @@ void vtkCellData::NullCell (int ptId)
 
   if ( this->Tensors )
     {
-    this->Tensors->InsertTensor(ptId,&NullTensor);
+    this->Tensors->InsertTensor(ptId,&(this->NullTensor));
     }
 
   if ( this->FieldData )
     {
-    this->FieldData->InsertTuple(ptId,NullTuple);
+    this->FieldData->InsertTuple(ptId,this->NullTuple);
     }
 
 }

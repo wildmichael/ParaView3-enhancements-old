@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBitArray.h,v $
   Language:  C++
-  Date:      $Date: 1998-05-06 19:46:46 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1998-08-22 19:03:15 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -101,8 +101,14 @@ private:
 inline unsigned char *vtkBitArray::WritePointer(const int id, const int number)
 {
   int newSize=id+number;
-  if ( newSize > this->Size ) this->Resize(newSize);
-  if ( (--newSize) > this->MaxId ) this->MaxId = newSize;
+  if ( newSize > this->Size )
+    {
+    this->Resize(newSize);
+    }
+  if ( (--newSize) > this->MaxId )
+    {
+    this->MaxId = newSize;
+    }
   return this->Array + id/8;
 }
 
@@ -121,18 +127,36 @@ inline void vtkBitArray::SetNumberOfValues(const int number)
 // you use the method SetNumberOfValues() before inserting data.
 inline void vtkBitArray::SetValue(const int id, const int value) 
 {
-  if (value) this->Array[id/8] |= (0x80 >> id%8);
-  else this->Array[id/8] &= (~(0x80 >> id%8));
+  if (value)
+    {
+    this->Array[id/8] |= (0x80 >> id%8);
+    }
+  else
+    {
+    this->Array[id/8] &= (~(0x80 >> id%8));
+    }
 }
 
 // Description:
 // Insert data at a specified position in the array.
 inline void vtkBitArray::InsertValue(const int id, const int i)
 {
-  if ( id >= this->Size ) this->Resize(id+1);
-  if (i) this->Array[id/8] |= (0x80 >> id%8);
-  else this->Array[id/8] &= (~(0x80 >> id%8));
-  if ( id > this->MaxId ) this->MaxId = id;
+  if ( id >= this->Size )
+    {
+    this->Resize(id+1);
+    }
+  if (i)
+    {
+    this->Array[id/8] |= (0x80 >> id%8);
+    }
+  else
+    {
+    this->Array[id/8] &= (~(0x80 >> id%8));
+    }
+  if ( id > this->MaxId )
+    {
+    this->MaxId = id;
+    }
 }
 
 // Description:

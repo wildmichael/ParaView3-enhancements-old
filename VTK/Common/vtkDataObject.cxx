@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObject.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-24 17:31:42 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-08-22 19:03:24 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -67,7 +67,10 @@ void vtkDataObject::Initialize()
 
 void vtkDataObject::SetGlobalReleaseDataFlag(int val)
 {
-  if (val == vtkDataObjectGlobalReleaseDataFlag) return;
+  if (val == vtkDataObjectGlobalReleaseDataFlag)
+    {
+    return;
+    }
   vtkDataObjectGlobalReleaseDataFlag = val;
 }
 
@@ -84,8 +87,14 @@ void vtkDataObject::ReleaseData()
 
 int vtkDataObject::ShouldIReleaseData()
 {
-  if ( vtkDataObjectGlobalReleaseDataFlag || this->ReleaseDataFlag ) return 1;
-  else return 0;
+  if ( vtkDataObjectGlobalReleaseDataFlag || this->ReleaseDataFlag )
+    {
+    return 1;
+    }
+  else
+    {
+    return 0;
+    }
 }
 
 void vtkDataObject::Update()

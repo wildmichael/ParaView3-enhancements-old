@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSet.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-06 19:05:51 $
-  Version:   $Revision: 1.56 $
+  Date:      $Date: 1998-08-22 19:03:25 $
+  Version:   $Revision: 1.57 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -62,7 +62,10 @@ vtkDataSet::vtkDataSet ()
 vtkDataSet::vtkDataSet (const vtkDataSet& ds) :
 PointData(ds.PointData)
 {
-  for (int i=0; i < 6; i++) this->Bounds[i] = ds.Bounds[i];
+  for (int i=0; i < 6; i++)
+    {
+    this->Bounds[i] = ds.Bounds[i];
+    }
   this->DataReleased = 1;
   this->ReleaseDataFlag = ds.ReleaseDataFlag;
 }
@@ -93,8 +96,14 @@ void vtkDataSet::ComputeBounds()
       x = this->GetPoint(i);
       for (j=0; j<3; j++)
         {
-        if ( x[j] < this->Bounds[2*j] ) this->Bounds[2*j] = x[j];
-        if ( x[j] > this->Bounds[2*j+1] ) this->Bounds[2*j+1] = x[j];
+        if ( x[j] < this->Bounds[2*j] )
+	  {
+	  this->Bounds[2*j] = x[j];
+	  }
+        if ( x[j] > this->Bounds[2*j+1] )
+	  {
+	  this->Bounds[2*j+1] = x[j];
+	  }
         }
       }
 
@@ -150,7 +159,10 @@ float *vtkDataSet::GetBounds()
 void vtkDataSet::GetBounds(float bounds[6])
 {
   this->ComputeBounds();
-  for (int i=0; i<6; i++) bounds[i] = this->Bounds[i];
+  for (int i=0; i<6; i++)
+    {
+    bounds[i] = this->Bounds[i];
+    }
 }
   
 // Description:
@@ -160,15 +172,20 @@ float *vtkDataSet::GetCenter()
   static float center[3];
 
   this->ComputeBounds();
-  for (int i=0; i<3; i++) 
+  for (int i=0; i<3; i++)
+    {
     center[i] = (this->Bounds[2*i+1] + this->Bounds[2*i]) / 2.0;
+    }
   return center;
 }
 
 void vtkDataSet::GetCenter(float center[3])
 {
   float *c=this->GetCenter();
-  for (int i=0; i<3; i++) center[i] = c[i];
+  for (int i=0; i<3; i++)
+    {
+    center[i] = c[i];
+    }
 }
   
 // Description:

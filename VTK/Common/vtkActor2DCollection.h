@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor2DCollection.h,v $
   Language:  C++
-  Date:      $Date: 1998-04-23 15:02:32 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1998-08-22 19:03:13 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -91,8 +91,14 @@ inline vtkActor2D *vtkActor2DCollection::GetNextItem()
 // Get the last actor in the list.
 inline vtkActor2D *vtkActor2DCollection::GetLastItem() 
 { 
-  if ( this->Bottom == NULL ) return NULL;
-  else return (vtkActor2D *)(this->Bottom->Item);
+  if ( this->Bottom == NULL )
+    {
+    return NULL;
+    }
+  else
+    {
+    return (vtkActor2D *)(this->Bottom->Item);
+    }
 }
 
 #endif

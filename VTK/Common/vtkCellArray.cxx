@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 22:49:21 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1998-08-22 19:03:17 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -82,7 +82,9 @@ int vtkCellArray::GetMaxCellSize()
   for (i=0; i<this->Ia->GetMaxId(); i+=(npts+1))
     {
     if ( (npts=this->Ia->GetValue(i)) > maxSize )
+      {
       maxSize = npts;
+      }
     }
   return maxSize;
 }

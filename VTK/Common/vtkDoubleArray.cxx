@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDoubleArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-29 16:28:22 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1998-08-22 19:03:27 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -53,7 +53,10 @@ vtkDoubleArray::vtkDoubleArray(int numComp)
 
 vtkDoubleArray::~vtkDoubleArray()
 {
-  if ((this->Array) && (!this->SaveUserArray)) delete [] this->Array;
+  if ((this->Array) && (!this->SaveUserArray))
+    {
+    delete [] this->Array;
+    }
   delete [] this->Tuple;
 }
 
@@ -97,7 +100,10 @@ int vtkDoubleArray::Allocate(const int sz, const int ext)
       }
 
     this->Size = ( sz > 0 ? sz : 1);
-    if ( (this->Array = new double[this->Size]) == NULL ) return 0;
+    if ( (this->Array = new double[this->Size]) == NULL )
+      {
+      return 0;
+      }
     this->SaveUserArray = 0;
     }
 
@@ -219,7 +225,10 @@ float *vtkDoubleArray::GetTuple(const int i)
     }
 
   double *t = this->Array + this->NumberOfComponents*i;
-  for (int j=0; j<this->NumberOfComponents; j++) this->Tuple[j] = (float)t[j];
+  for (int j=0; j<this->NumberOfComponents; j++)
+    {
+    this->Tuple[j] = (float)t[j];
+    }
   return this->Tuple;
 }
 
@@ -228,7 +237,10 @@ float *vtkDoubleArray::GetTuple(const int i)
 void vtkDoubleArray::GetTuple(const int i, float * tuple)
 {
   double *t = this->Array + this->NumberOfComponents*i;
-  for (int j=0; j<this->NumberOfComponents; j++) tuple[j] = (float)t[j];
+  for (int j=0; j<this->NumberOfComponents; j++)
+    {
+    tuple[j] = (float)t[j];
+    }
 }
 
 // Description:
@@ -237,7 +249,9 @@ void vtkDoubleArray::SetTuple(const int i, const float * tuple)
 {
   int loc = i * this->NumberOfComponents; 
   for (int j=0; j<this->NumberOfComponents; j++) 
+    {
     this->Array[loc+j] = (double)tuple[j];
+    }
 }
 
 // Description:
@@ -247,7 +261,10 @@ void vtkDoubleArray::InsertTuple(const int i, const float * tuple)
 {
   double *t = this->WritePointer(i*this->NumberOfComponents,this->NumberOfComponents);
 
-  for (int j=0; j<this->NumberOfComponents; j++) *t++ = (double)*tuple++;
+  for (int j=0; j<this->NumberOfComponents; j++)
+    {
+    *t++ = (double)*tuple++;
+    }
 }
 
 // Description:
@@ -257,7 +274,10 @@ int vtkDoubleArray::InsertNextTuple(const float * tuple)
   int i = this->MaxId + 1;
   double *t = this->WritePointer(i,this->NumberOfComponents);
 
-  for (i=0; i<this->NumberOfComponents; i++) *t++ = (double)*tuple++;
+  for (i=0; i<this->NumberOfComponents; i++)
+    {
+    *t++ = (double)*tuple++;
+    }
 
   return this->MaxId / this->NumberOfComponents;
 }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCoordinate.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-08-19 11:57:49 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-08-22 19:03:23 $
+  Version:   $Revision: 1.5 $
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -99,7 +99,10 @@ float *vtkCoordinate::GetComputedWorldValue(vtkViewport* viewport)
   float *val = this->ComputedWorldValue;
   
   // prevent infinite loops
-  if (this->Computing) return val;
+  if (this->Computing)
+    {
+    return val;
+    }
   this->Computing = 1;
 
   val[0] = this->Value[0];
@@ -272,7 +275,10 @@ int *vtkCoordinate::GetComputedDisplayValue(vtkViewport* viewport)
   float val[3];
 
   // prevent infinite loops
-  if (this->Computing) return this->ComputedDisplayValue;
+  if (this->Computing)
+    {
+    return this->ComputedDisplayValue;
+    }
   this->Computing = 1;
 
   val[0] = this->Value[0];

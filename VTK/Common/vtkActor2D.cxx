@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-15 20:18:57 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1998-08-22 19:03:12 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -88,6 +88,9 @@ void vtkActor2D::PrintSelf(ostream& os, vtkIndent indent)
   this->vtkProp2D::PrintSelf(os,indent);
 
   os << indent << "Mapper: " << this->Mapper << "\n";
-  if (this->Mapper) this->Mapper->PrintSelf(os, indent.GetNextIndent());
+  if (this->Mapper)
+    {
+    this->Mapper->PrintSelf(os, indent.GetNextIndent());
+    }
 }
 

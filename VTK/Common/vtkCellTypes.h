@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellTypes.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:39:52 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-08-22 19:03:20 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -141,8 +141,13 @@ inline int vtkCellTypes::IsType(unsigned char type)
 {
   int numTypes=this->GetNumberOfTypes();
 
-  for (int i=0; i<numTypes; i++) 
-    if ( type == this->GetCellType(i)) return 1;
+  for (int i=0; i<numTypes; i++)
+    {
+    if ( type == this->GetCellType(i))
+      {
+      return 1;
+      }
+    }
   return 0;
 }
 

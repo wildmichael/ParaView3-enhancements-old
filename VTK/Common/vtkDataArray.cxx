@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-04-16 13:23:09 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-08-22 19:03:23 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -89,7 +89,10 @@ void vtkDataArray::SetComponent(const int i, const int j, const float c)
     }
   else
     {
-    for (int k=0; k<this->NumberOfComponents; k++) tuple[k] = 0.0;
+    for (int k=0; k<this->NumberOfComponents; k++)
+      {
+      tuple[k] = 0.0;
+      }
     }
 
   tuple[j] = c;
@@ -108,7 +111,10 @@ void vtkDataArray::InsertComponent(const int i, const int j, const float c)
     }
   else
     {
-    for (int k=0; k<this->NumberOfComponents; k++) tuple[k] = 0.0;
+    for (int k=0; k<this->NumberOfComponents; k++)
+      {
+      tuple[k] = 0.0;
+      }
     }
 
   tuple[j] = c;
