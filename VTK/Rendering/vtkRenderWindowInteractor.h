@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 2003-01-06 20:36:14 $
-  Version:   $Revision: 1.100 $
+  Date:      $Date: 2003-10-31 14:25:19 $
+  Version:   $Revision: 1.101 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 // vtkRenderWindowInteractor provides a platform-independent interaction
 // mechanism for mouse/key/time events. It serves as a base class for
 // platform-dependent implementations that handle routing of mouse/key/timer
-// messages to vtkInterActorStyle and its subclasses. 
+// messages to vtkInteractorStyle and its subclasses. 
 // vtkRenderWindowInteractor also provides controls for picking,
 // rendering frame rate, and headlights.
 //
