@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-08-12 14:13:54 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1998-04-07 12:09:53 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -51,6 +51,11 @@ vtkVolumeReader::vtkVolumeReader()
   this->ImageRange[0] = this->ImageRange[1] = 1;
   this->DataOrigin[0] = this->DataOrigin[1] = this->DataOrigin[2] = 0.0;
   this->DataSpacing[0] = this->DataSpacing[1] = this->DataSpacing[2] = 1.0;
+}
+
+vtkVolumeReader::~vtkVolumeReader ()
+{
+  delete this->FilePattern;
 }
 
 void vtkVolumeReader::PrintSelf(ostream& os, vtkIndent indent)
