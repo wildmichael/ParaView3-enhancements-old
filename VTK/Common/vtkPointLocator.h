@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointLocator.h,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 22:50:11 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1998-06-19 20:35:41 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -91,6 +91,8 @@ public:
 
   // these all operate on array of points from InitPointInsertion()
   virtual int InitPointInsertion(vtkPoints *newPts, float bounds[6]);
+  virtual int InitPointInsertion(vtkPoints *newPts, float bounds[6], 
+				 int estSize);
   virtual void InsertPoint(int ptId, float x[3]);
   virtual int InsertNextPoint(float x[3]);
   virtual int IsInsertedPoint(float x[3]);
