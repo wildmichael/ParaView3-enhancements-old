@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKWRemoteExecute.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-04-24 17:38:12 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2003-04-24 17:49:40 $
+  Version:   $Revision: 1.13 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -81,7 +81,7 @@ public:
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro( vtkKWRemoteExecute );
-vtkCxxRevisionMacro(vtkKWRemoteExecute, "$Revision: 1.12 $");
+vtkCxxRevisionMacro(vtkKWRemoteExecute, "$Revision: 1.13 $");
 
 //----------------------------------------------------------------------------
 vtkKWRemoteExecute::vtkKWRemoteExecute()
@@ -245,4 +245,5 @@ void vtkKWRemoteExecute::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "SSHCommand: " << (this->SSHCommand?this->SSHCommand:"(none)") << endl;
   os << indent << "Result: " << this->Result << endl;
   os << indent << "SSHArguments: " << (this->SSHArguments?this->SSHArguments:"(none)") << endl;
+  os << indent << "SSHUser: " << (this->SSHUser?this->SSHUser:"(none)") << endl;
 }
