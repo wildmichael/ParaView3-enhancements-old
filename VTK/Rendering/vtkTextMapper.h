@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextMapper.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-29 23:54:53 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 2002-06-30 00:57:05 $
+  Version:   $Revision: 1.47 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -171,6 +171,11 @@ public:
                                             vtkTextMapper** mappers, 
                                             int nbOfMappers, 
                                             int* maxResultingSize);
+
+  // Description:
+  // Get the available system font size matching a font size.
+  virtual int GetSystemFontSize(int size) 
+    { return size; };
 
 protected:
   vtkTextMapper();

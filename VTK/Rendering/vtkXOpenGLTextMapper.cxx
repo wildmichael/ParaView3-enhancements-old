@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXOpenGLTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-30 00:21:50 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2002-06-30 00:57:05 $
+  Version:   $Revision: 1.35 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,9 +20,11 @@
 #include <GL/glx.h>
 #include "vtkObjectFactory.h"
 #include "vtkgluPickMatrix.h"
+#include "vtkProperty2D.h"
 #include "vtkTextProperty.h"
+#include "vtkViewport.h"
 
-vtkCxxRevisionMacro(vtkXOpenGLTextMapper, "$Revision: 1.34 $");
+vtkCxxRevisionMacro(vtkXOpenGLTextMapper, "$Revision: 1.35 $");
 vtkStandardNewMacro(vtkXOpenGLTextMapper);
 
 struct vtkFontStruct
@@ -53,7 +55,7 @@ int vtkXOpenGLTextMapper::GetListBaseForFont(vtkTextMapper *tm,
   vtkWindow *win = vp->GetVTKWindow();
 
   vtkTextProperty *tprop = tm->GetTextProperty();
-  tm_font_size = tm->GetMatchingFontSize();
+  int tm_font_size = tm->GetSystemFontSize(tprop->GetFontSize());
 
   // has the font been cached ?
   for (i = 0; i < numCached; i++)

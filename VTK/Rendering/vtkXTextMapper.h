@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXTextMapper.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-30 00:21:50 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2002-06-30 00:57:05 $
+  Version:   $Revision: 1.23 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -47,13 +47,13 @@ public:
   // mapper ?
   void GetSize(vtkViewport* viewport, int size[2]);
 
+  // Description:
+  // Get the available system font size matching a font size.
+  virtual int GetSystemFontSize(int size);
+
 protected:
   vtkXTextMapper();
   ~vtkXTextMapper() {};
-
-  // Description:
-  // Get the font size that matches an available X font size.
-  int GetMatchingFontSize();
 
   // Description:
   // Actually get the size of the rectangle.
