@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingSquares.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-24 21:56:51 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2001-03-26 16:19:31 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -180,7 +180,7 @@ static void ContourImage(T *scalars, vtkScalars *newScalars, int roi[6], int dir
   float pts[4][3], min, max;
   int contNum, jOffset, idx, ii, jj, index, *vert;
   static int CASE_MASK[4] = {1,2,8,4};  LINE_CASES *lineCase;
-  static int edges[4][2] = { {0,1}, {1,3}, {3,2}, {2,0} };
+  static int edges[4][2] = { {0,1}, {1,3}, {2,3}, {0,2} };
   EDGE_LIST  *edge;
   float value, s[4];
 
