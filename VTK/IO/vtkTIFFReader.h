@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTIFFReader.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:53 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2001-10-02 21:09:03 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -79,7 +79,7 @@ struct _vtkTifTag
   vtkTiffLong  DataOffset;
 };
 //ETX
-class VTK_EXPORT vtkTIFFReader : public vtkImageReader
+class VTK_IO_EXPORT vtkTIFFReader : public vtkImageReader
 {
 public:
   static vtkTIFFReader *New();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGenericEnSightReader.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:52 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2001-10-02 21:08:51 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -54,7 +54,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define VTK_ENSIGHT_GOLD 2
 #define VTK_ENSIGHT_GOLD_BINARY 3
 
-class VTK_EXPORT vtkGenericEnSightReader : public vtkDataSetSource
+class VTK_IO_EXPORT vtkGenericEnSightReader : public vtkDataSetSource
 {
 public:
   static vtkGenericEnSightReader *New();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataWriter.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:52 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 2001-10-02 21:08:47 $
+  Version:   $Revision: 1.48 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -61,7 +61,7 @@ class vtkPoints;
 class vtkCellArray;
 class vtkDataArray;
 
-class VTK_EXPORT vtkDataWriter : public vtkWriter
+class VTK_IO_EXPORT vtkDataWriter : public vtkWriter
 {
 public:
   vtkTypeMacro(vtkDataWriter,vtkWriter);

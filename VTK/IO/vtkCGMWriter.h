@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCGMWriter.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:52 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2001-10-02 21:08:44 $
+  Version:   $Revision: 1.6 $
   Credit:    The origin of much of this code was from the cd package
              written by G. Edward Johnson at the National Institute 
              of Standards and Technology (US).
@@ -73,7 +73,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define VTK_COLOR_MODE_SPECIFIED_COLOR 1
 #define VTK_COLOR_MODE_RANDOM_COLORS 2
 
-class VTK_EXPORT vtkCGMWriter : public vtkPolyDataWriter
+class VTK_IO_EXPORT vtkCGMWriter : public vtkPolyDataWriter
 {
 public:
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataReader.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:52 $
-  Version:   $Revision: 1.62 $
+  Date:      $Date: 2001-10-02 21:08:46 $
+  Version:   $Revision: 1.63 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -63,7 +63,7 @@ class vtkDataSet;
 class vtkPointSet;
 class vtkRectilinearGrid;
 
-class VTK_EXPORT vtkDataReader : public vtkSource
+class VTK_IO_EXPORT vtkDataReader : public vtkSource
 {
 public:
   static vtkDataReader *New();

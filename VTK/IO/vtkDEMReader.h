@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDEMReader.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:52 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2001-10-02 21:08:45 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -54,7 +54,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include <stdio.h>
 #include "vtkImageSource.h"
-class VTK_EXPORT vtkDEMReader : public vtkImageSource
+class VTK_IO_EXPORT vtkDEMReader : public vtkImageSource
 {
 public:
   static vtkDEMReader *New();

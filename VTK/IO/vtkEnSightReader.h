@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSightReader.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:52 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2001-10-02 21:08:50 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -79,7 +79,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define VTK_COMPLEX_SCALAR_PER_ELEMENT 10
 #define VTK_COMPLEX_VECTOR_PER_ELEMENT 11
 
-class VTK_EXPORT vtkEnSightReader : public vtkDataSetSource
+class VTK_IO_EXPORT vtkEnSightReader : public vtkDataSetSource
 {
 public:
   vtkTypeMacro(vtkEnSightReader, vtkDataSetSource);

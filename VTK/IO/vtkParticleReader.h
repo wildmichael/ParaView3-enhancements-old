@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkParticleReader.h,v $
   Language:  C++
-  Date:      $Date: 2001-09-18 15:13:37 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-10-02 21:08:58 $
+  Version:   $Revision: 1.2 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -57,7 +57,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define VTK_FILE_BYTE_ORDER_BIG_ENDIAN 0
 #define VTK_FILE_BYTE_ORDER_LITTLE_ENDIAN 1
 
-class VTK_EXPORT vtkParticleReader : public vtkPolyDataSource
+class VTK_IO_EXPORT vtkParticleReader : public vtkPolyDataSource
 {
 public:
   static vtkParticleReader *New();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBMPReader.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:52 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2001-10-02 21:08:42 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -66,7 +66,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <stdio.h>
 #include "vtkImageReader.h"
 
-class VTK_EXPORT vtkBMPReader : public vtkImageReader
+class VTK_IO_EXPORT vtkBMPReader : public vtkImageReader
 {
 public:
   static vtkBMPReader *New();

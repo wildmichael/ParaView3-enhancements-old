@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataReader.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:52 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2001-10-02 21:08:58 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -58,7 +58,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkDataReader.h"
 #include "vtkPolyData.h"
 
-class VTK_EXPORT vtkPolyDataReader : public vtkDataReader
+class VTK_IO_EXPORT vtkPolyDataReader : public vtkDataReader
 {
 public:
   static vtkPolyDataReader *New();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPLOT3DReader.h,v $
   Language:  C++
-  Date:      $Date: 2001-09-19 18:16:47 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 2001-10-02 21:08:55 $
+  Version:   $Revision: 1.44 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -105,7 +105,7 @@ class vtkFloatArray;
 #define VTK_WHOLE_SINGLE_GRID_NO_IBLANKING 0
 #define VTK_WHOLE_MULTI_GRID_NO_IBLANKING 2
 
-class VTK_EXPORT vtkPLOT3DReader : public vtkStructuredGridSource 
+class VTK_IO_EXPORT vtkPLOT3DReader : public vtkStructuredGridSource 
 {
 public:
   static vtkPLOT3DReader *New();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPLYWriter.h,v $
   Language:  C++
-  Date:      $Date: 2001-09-12 15:13:11 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-10-02 21:08:56 $
+  Version:   $Revision: 1.3 $
   Thanks:    Mike Dresser MD/PhD
              Director of Core Facility for Imaging
              Program in Molecular and Cell Biology
@@ -74,7 +74,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define VTK_COLOR_MODE_OFF 4
 
 
-class VTK_EXPORT vtkPLYWriter : public vtkPolyDataWriter
+class VTK_IO_EXPORT vtkPLYWriter : public vtkPolyDataWriter
 {
 public:
   static vtkPLYWriter *New();

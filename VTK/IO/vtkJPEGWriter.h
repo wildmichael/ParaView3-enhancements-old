@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkJPEGWriter.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-31 14:23:43 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-10-02 21:08:54 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -53,7 +53,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "vtkImageWriter.h"
 
-class VTK_EXPORT vtkJPEGWriter : public vtkImageWriter
+class VTK_IO_EXPORT vtkJPEGWriter : public vtkImageWriter
 {
 public:
   static vtkJPEGWriter *New();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkJPEGReader.h,v $
   Language:  C++
-  Date:      $Date: 2001-09-05 02:17:44 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-10-02 21:08:53 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -53,7 +53,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <stdio.h>
 #include "vtkImageReader2.h"
 
-class VTK_EXPORT vtkJPEGReader : public vtkImageReader2
+class VTK_IO_EXPORT vtkJPEGReader : public vtkImageReader2
 {
 public:
   static vtkJPEGReader *New();
