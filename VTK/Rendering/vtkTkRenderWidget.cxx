@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkRenderWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-16 14:45:23 $
-  Version:   $Revision: 1.54 $
+  Date:      $Date: 2001-09-25 20:55:26 $
+  Version:   $Revision: 1.55 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -232,7 +232,7 @@ int vtkTkRenderWidget_Cmd(ClientData clientData, Tcl_Interp *interp,
   Tk_SetClass(tkwin, (char *) "vtkTkRenderWidget");
   
   // Create vtkTkRenderWidget data structure 
-  self = (struct vtkTkRenderWidget *)malloc(sizeof(struct vtkTkRenderWidget));
+  self = (struct vtkTkRenderWidget *)ckalloc(sizeof(struct vtkTkRenderWidget));
   self->TkWin = tkwin;
   self->Interp = interp;
   self->Width = 0;
