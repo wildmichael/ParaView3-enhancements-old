@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProjectedTexture.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:10:50 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2000-07-31 03:18:34 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -77,9 +77,9 @@ vtkProjectedTexture::vtkProjectedTexture()
   this->Up[0] = 0.0;
   this->Up[1] = 1.0;
   this->Up[2] = 0.0;
-  this->AspectRatio[0] = 0.0;
+  this->AspectRatio[0] = 1.0;
   this->AspectRatio[1] = 1.0;
-  this->AspectRatio[2] = 0.0;
+  this->AspectRatio[2] = 1.0;
   this->SRange[0] = 0.0;
   this->SRange[1] = 1.0;
   this->TRange[0] = 0.0;
