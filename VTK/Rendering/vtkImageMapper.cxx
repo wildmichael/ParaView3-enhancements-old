@@ -22,7 +22,7 @@
 #include "vtkImagingFactory.h"
 #include "vtkInformation.h"
 
-vtkCxxRevisionMacro(vtkImageMapper, "$Revision: 1.49 $");
+vtkCxxRevisionMacro(vtkImageMapper, "$Revision: 1.50 $");
 
 //----------------------------------------------------------------------------
 // Needed when we don't use the vtkStandardNewMacro.
@@ -273,6 +273,6 @@ int vtkImageMapper::FillInputPortInformation(int port, vtkInformation* info)
     {
     return 0;
     }
-  info->Set(vtkInformation::INPUT_REQUIRED_DATA_TYPE(), "vtkImageData");
+  info->Set(vtkAlgorithm::INPUT_REQUIRED_DATA_TYPE(), "vtkImageData");
   return 1;
 }

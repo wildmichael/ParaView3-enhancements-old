@@ -18,7 +18,7 @@
 #include "vtkImageData.h"
 #include "vtkInformation.h"
 
-vtkCxxRevisionMacro(vtkDataSetToImageFilter, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkDataSetToImageFilter, "$Revision: 1.6 $");
 
 //----------------------------------------------------------------------------
 vtkDataSetToImageFilter::vtkDataSetToImageFilter()
@@ -84,7 +84,7 @@ vtkDataSetToImageFilter
     {
     return 0;
     }
-  info->Set(vtkInformation::INPUT_REQUIRED_DATA_TYPE(), "vtkDataSet");
+  info->Set(vtkAlgorithm::INPUT_REQUIRED_DATA_TYPE(), "vtkDataSet");
   return 1;
 }
 

@@ -17,7 +17,7 @@
 #include "vtkInformation.h"
 #include "vtkPiecewiseFunction.h"
 
-vtkCxxRevisionMacro(vtkPiecewiseFunctionToPiecewiseFunctionFilter, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkPiecewiseFunctionToPiecewiseFunctionFilter, "$Revision: 1.6 $");
 
 //----------------------------------------------------------------------------
 vtkPiecewiseFunctionToPiecewiseFunctionFilter::vtkPiecewiseFunctionToPiecewiseFunctionFilter() 
@@ -53,7 +53,7 @@ vtkPiecewiseFunctionToPiecewiseFunctionFilter
     {
     return 0;
     }
-  info->Set(vtkInformation::INPUT_REQUIRED_DATA_TYPE(), "vtkPiecewiseFunction");
+  info->Set(vtkAlgorithm::INPUT_REQUIRED_DATA_TYPE(), "vtkPiecewiseFunction");
   return 1;
 }
 
