@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIOStream.h,v $
   Language:  C++
-  Date:      $Date: 2003-03-21 20:12:26 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2003-04-18 15:48:02 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -41,6 +41,8 @@
 using std::dec;
 using std::hex;
 using std::setw;
+using std::setfill;
+using std::setprecision;
 using std::cerr;
 using std::cout;
 using std::cin;
