@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLParser.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-29 15:17:34 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-05-29 18:07:59 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -53,6 +53,15 @@ public:
   // Description:
   // Parse the XML input.
   virtual int Parse();
+
+  // Description:
+  // Parse the XML message.
+  virtual int Parse(const char* inputString);
+
+  // Description:
+  // Set and get file name.
+  vtkSetStringMacro(FileName);
+  vtkGetStringMacro(FileName);
   
 protected:
   vtkXMLParser();
@@ -60,6 +69,12 @@ protected:
   
   // Input stream.  Set by user.
   istream* Stream;
+
+  // File name to parse
+  char* FileName;
+  
+  // Character message to parse
+  const char* InputString;
   
   // Expat parser structure.  Exists only during call to Parse().
   void* Parser;

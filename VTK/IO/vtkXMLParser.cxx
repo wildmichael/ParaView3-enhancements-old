@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLParser.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-29 15:17:34 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-05-29 18:07:59 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,13 @@
 #include "expat.h"
 #include <ctype.h>
 
-vtkCxxRevisionMacro(vtkXMLParser, "$Revision: 1.4 $");
+#ifdef VTK_USE_ANSI_STDLIB
+#define VTK_IOS_NOCREATE 
+#else
+#define VTK_IOS_NOCREATE | ios::nocreate
+#endif
+
+vtkCxxRevisionMacro(vtkXMLParser, "$Revision: 1.5 $");
 vtkStandardNewMacro(vtkXMLParser);
 
 //----------------------------------------------------------------------------
@@ -29,13 +35,16 @@ vtkXMLParser::vtkXMLParser()
 {
   this->Stream = 0;
   this->Parser = 0;
-  this->LegacyHack = 0;
+  this->LegacyHack  = 0;
+  this->FileName    = 0;
+  this->InputString = 0;
 }
 
 //----------------------------------------------------------------------------
 vtkXMLParser::~vtkXMLParser()
 {
   this->SetStream(0);
+  this->SetFileName(0);
 }
 
 //----------------------------------------------------------------------------
@@ -53,8 +62,29 @@ void vtkXMLParser::PrintSelf(ostream& os, vtkIndent indent)
 }
 
 //----------------------------------------------------------------------------
+int vtkXMLParser::Parse(const char* inputString)
+{
+  this->InputString = inputString;
+  int result = this->vtkXMLParser::Parse();
+  this->InputString = 0;
+  return result;
+}
+
+
+//----------------------------------------------------------------------------
 int vtkXMLParser::Parse()
 {
+  ifstream ifs;
+  if ( !this->InputString && !this->Stream && this->FileName )
+    {
+    ifs.open(this->FileName, ios::in VTK_IOS_NOCREATE);
+    if ( !ifs )
+      {
+      return 0;
+      }
+    this->Stream = &ifs;
+    }
+
   // Create the expat XML parser.
   this->Parser = XML_ParserCreate(0);
   XML_SetElementHandler(this->Parser,
@@ -81,12 +111,23 @@ int vtkXMLParser::Parse()
   XML_ParserFree(this->Parser);
   this->Parser = 0;
   
+  if ( this->Stream == &ifs )
+    {
+    this->Stream = 0;
+    }
+
   return result;
 }
 
 //----------------------------------------------------------------------------
 int vtkXMLParser::ParseXML()
 {
+  // Parsing of message
+  if ( this->InputString )
+    {
+    return this->ParseBuffer(this->InputString);
+    }
+
   // Make sure we have input.
   if(!this->Stream)
     {
