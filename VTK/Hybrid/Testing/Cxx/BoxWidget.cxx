@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: BoxWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-21 13:54:58 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-08-08 19:36:38 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -49,7 +49,7 @@ public:
 };
 
 
-int main( int argc, char *argv[] )
+int BoxWidget( int argc, char *argv[] )
 {
   vtkDebugLeaks::PromptUserOff();
 

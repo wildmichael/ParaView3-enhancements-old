@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: TestPlaneWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-07 11:28:44 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-08-08 19:36:38 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -34,7 +34,7 @@
 #include "vtkRegressionTestImage.h"
 #include "vtkDebugLeaks.h"
 
-char eventLog[] =
+char TPWeventLog[] =
 "# StreamVersion 1\n"
 "CharEvent 192 232 0 0 105 1 i\n"
 "KeyReleaseEvent 192 230 0 0 105 1 i\n"
@@ -406,7 +406,7 @@ public:
   vtkActor *Actor;
 };
 
-int main( int argc, char *argv[] )
+int TestPlaneWidget( int argc, char *argv[] )
 {
   char* fname = 
     vtkTestUtilities::ExpandDataFileName(argc, argv, "Data/combxyz.bin");
@@ -491,7 +491,7 @@ int main( int argc, char *argv[] )
 //  recorder->SetFileName("c:/record.log");
 //  recorder->Record();
   recorder->ReadFromInputStringOn();
-  recorder->SetInputString(eventLog);
+  recorder->SetInputString(TPWeventLog);
 
   // render the image
   //

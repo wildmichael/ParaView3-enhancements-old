@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: TestImplicitPlaneWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-07 11:28:44 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-08-08 19:36:38 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -436,7 +436,7 @@ public:
 
 };
 
-int main( int argc, char *argv[] )
+int TestImplicitPlaneWidget( int argc, char *argv[] )
 {
   // Create a mace out of filters.
   //

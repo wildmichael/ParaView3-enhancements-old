@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: ImagePlaneWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-28 19:06:20 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2002-08-08 19:36:38 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -35,7 +35,7 @@
 #include "vtkRegressionTestImage.h"
 #include "vtkDebugLeaks.h"
 
-int main( int argc, char *argv[] )
+int ImagePlaneWidget( int argc, char *argv[] )
 {
   vtkDebugLeaks::PromptUserOff();
 

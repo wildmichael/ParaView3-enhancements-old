@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: AmoebaMinimizer.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-13 23:05:11 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-08-08 19:36:38 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -33,7 +33,7 @@ static void vtkFunctionToMinimize(void *arg)
   minimizer->SetFunctionValue(r);
 }
 
-int main(int argc, char** vtkNotUsed(argv))
+int AmoebaMinimizer(int argc, char*[])
 {
   vtkAmoebaMinimizer *minimizer = vtkAmoebaMinimizer::New();
 
@@ -63,7 +63,7 @@ int main(int argc, char** vtkNotUsed(argv))
 
   // check parameters to make sure that they converged to the
   // correct values
-  if (argc > 1 ||
+  if (argc > 10 ||
       fabs(x - 5.0) > 1e-4 ||
       fabs(y + 2.0) > 1e-4 ||
       fabs(z - 0.0) > 1e-4 ||
