@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkCell.h,v $
   Language:  C++
-  Date:      $Date: 1995-02-26 10:17:52 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1995-04-30 16:29:52 $
+  Version:   $Revision: 1.14 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -123,6 +123,7 @@ public:
   virtual int IntersectWithLine(float p1[3], float p2[3], float tol, float& t,
                                 float x[3], float pcoords[3], int& subId) = 0;
 
+  void GetBounds(float bounds[6]);
   float *GetBounds();
   float GetLength2();
 

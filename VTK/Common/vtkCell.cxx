@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkCell.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-01 23:12:22 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1995-04-30 16:29:51 $
+  Version:   $Revision: 1.8 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -118,7 +118,8 @@ char vlCell::HitBBox (float bounds[6], float origin[3], float dir[3],
 }
 
 // Description:
-// Compute cell bounding box (xmin,xmax,ymin,ymax,zmin,zmax).
+// Compute cell bounding box (xmin,xmax,ymin,ymax,zmin,zmax). Return pointer
+// to array of six float values.
 float *vlCell::GetBounds ()
 {
   float *x;
@@ -138,6 +139,15 @@ float *vlCell::GetBounds ()
       }
     }
   return bounds;
+}
+
+// Description:
+// Compute cell bounding box (xmin,xmax,ymin,ymax,zmin,zmax). Copy result into
+// user provided array.
+void vlCell::GetBounds(float bounds[6])
+{
+  float *b=this->GetBounds();
+  for (int i=0; i < 6; i++) bounds[i] = b[i];
 }
 
 // Description:
