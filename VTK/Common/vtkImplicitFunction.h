@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitFunction.h,v $
   Language:  C++
-  Date:      $Date: 1995-08-31 13:38:07 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1995-08-31 21:21:38 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -68,7 +68,6 @@ class vtkImplicitFunction : public vtkObject
 {
 public:
   vtkImplicitFunction();
-  ~vtkImplicitFunction() {};
   char *GetClassName() {return "vtkImplicitFunction";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
