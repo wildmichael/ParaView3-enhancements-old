@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKWSerializer.h,v $
   Language:  C++
-  Date:      $Date: 2003-03-03 21:39:18 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2003-03-24 20:48:17 $
+  Version:   $Revision: 1.5 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -50,6 +50,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "vtkObject.h"
 
+#define VTK_KWSERIALIZER_MAX_TOKEN_LENGTH 8000
+
 class VTK_EXPORT vtkKWSerializer : public vtkObject
 {
 public:
@@ -61,7 +63,7 @@ public:
   // The primary helper functions instances can invoke.
   static void FindClosingBrace(istream *is, vtkObject *obj);
   static void ReadNextToken(istream *is,const char *tok, vtkObject *obj);
-  static int GetNextToken(istream *is, char result[1024]);
+  static int GetNextToken(istream *is, char *result);
   static void WriteSafeString(ostream& os, const char *val);
   
   static void EatWhiteSpace(istream *is);
