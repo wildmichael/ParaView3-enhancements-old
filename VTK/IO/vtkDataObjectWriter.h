@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObjectWriter.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-13 17:14:28 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2002-11-21 16:14:01 $
+  Version:   $Revision: 1.21 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -57,11 +57,6 @@ public:
   void SetFileTypeToBinary() {this->Writer->SetFileType(VTK_BINARY);};
   void SetFieldDataName(char *fieldname) {this->Writer->SetFieldDataName(fieldname);};
   char *GetFieldDataName() {return this->Writer->GetFieldDataName();};
-
-  // Description:
-  // For legacy compatibility. Do not use.
-  void SetInput(vtkDataObject &input) 
-    {this->SetInput(&input);}
 
 protected:
   vtkDataObjectWriter();
