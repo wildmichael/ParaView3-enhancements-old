@@ -3,8 +3,8 @@
 Program:   Visualization Toolkit
 Module:    $RCSfile: vtkCarbonRenderWindow.cxx,v $
 Language:  C++
-Date:      $Date: 2003-04-17 12:46:52 $
-Version:   $Revision: 1.19 $
+Date:      $Date: 2003-08-09 14:49:29 $
+Version:   $Revision: 1.20 $
 Thanks:    to Yves Starreveld for developing this class
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
@@ -32,7 +32,7 @@ Thanks:    to Yves Starreveld for developing this class
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkCarbonRenderWindow, "$Revision: 1.19 $");
+vtkCxxRevisionMacro(vtkCarbonRenderWindow, "$Revision: 1.20 $");
 vtkStandardNewMacro(vtkCarbonRenderWindow);
 
 
@@ -48,7 +48,7 @@ static void CStrToPStr (StringPtr outString, const char *inString)
     {
     *(((char*)outString) + x + 1) = *(inString + x++);
     }  
-  while ((*(inString + x) != 0)  && (x < 256));
+  while ((*(inString + x) != 0)  && (x < 255));
   *((char*)outString) = (char) x;
 }
 

@@ -3,8 +3,8 @@
 Program:   Visualization Toolkit
 Module:    $RCSfile: vtkCarbonRenderWindowInteractor.cxx,v $
 Language:  C++
-Date:      $Date: 2003-04-17 12:43:17 $
-Version:   $Revision: 1.6 $
+Date:      $Date: 2003-08-09 14:49:29 $
+Version:   $Revision: 1.7 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen
 All rights reserved.
@@ -54,7 +54,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #import <Carbon/Carbon.h>
 
 
-vtkCxxRevisionMacro(vtkCarbonRenderWindowInteractor, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkCarbonRenderWindowInteractor, "$Revision: 1.7 $");
 vtkStandardNewMacro(vtkCarbonRenderWindowInteractor);
 
 void (*vtkCarbonRenderWindowInteractor::ClassExitMethod)(void *) 
@@ -185,7 +185,7 @@ static pascal OSStatus myWinEvtHndlr(EventHandlerCallRef nextHandler,
           case kEventRawKeyDown:
             {
             me->SetKeyEventInformation(controlDown, shiftDown,
-                                       (int)charCode,1,&((char)charCode));
+                                       (int)charCode,1,(char*)&charCode);
             me->InvokeEvent(vtkCommand::KeyPressEvent, NULL);
             me->InvokeEvent(vtkCommand::CharEvent, NULL);
             break;
@@ -193,7 +193,7 @@ static pascal OSStatus myWinEvtHndlr(EventHandlerCallRef nextHandler,
           case kEventRawKeyRepeat:
             {
             me->SetKeyEventInformation(controlDown, shiftDown,
-                                       (int)charCode,1,&((char)charCode));
+                                       (int)charCode,1,(char*)&charCode);
             me->InvokeEvent(vtkCommand::KeyPressEvent, NULL);
             me->InvokeEvent(vtkCommand::CharEvent, NULL);
             break;
@@ -201,7 +201,7 @@ static pascal OSStatus myWinEvtHndlr(EventHandlerCallRef nextHandler,
           case kEventRawKeyUp:
             {
             me->SetKeyEventInformation(controlDown, shiftDown,
-                                       (int)charCode,1,&((char)charCode));
+                                       (int)charCode,1,(char*)&charCode);
             me->InvokeEvent(vtkCommand::KeyReleaseEvent, NULL);
             break;
             }
