@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractVOI.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-05 14:25:37 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2002-08-06 13:55:12 $
+  Version:   $Revision: 1.30 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkExtractVOI.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkExtractVOI, "$Revision: 1.29 $");
+vtkCxxRevisionMacro(vtkExtractVOI, "$Revision: 1.30 $");
 vtkStandardNewMacro(vtkExtractVOI);
 
 // Construct object to extract all of the input data.
@@ -56,10 +56,8 @@ void vtkExtractVOI::ComputeInputUpdateExtent(int inExt[6],
     }
 }
 
-void vtkExtractVOI::ExecuteInformation()
+void vtkExtractVOI::ExecuteInformation(vtkImageData *input, vtkImageData *output)
 {
-  vtkImageData *input=this->GetInput();
-  vtkImageData *output=this->GetOutput();
   int i, dims[3], outDims[3], voi[6];
   int rate[3];
   int wholeExtent[6];
@@ -122,7 +120,7 @@ void vtkExtractVOI::ExecuteInformation()
   output->SetWholeExtent( wholeExtent );
 }
 
-void vtkExtractVOI::ExecuteData(vtkDataObject *outp)
+void vtkExtractVOI::ExecuteData(vtkDataObject *)
 {
   vtkImageData *input=this->GetInput();
   vtkPointData *pd=input->GetPointData();

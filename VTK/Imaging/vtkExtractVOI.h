@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractVOI.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-05 15:00:37 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2002-08-06 13:55:12 $
+  Version:   $Revision: 1.32 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -71,7 +71,8 @@ protected:
   ~vtkExtractVOI() {};
 
   virtual void ComputeInputUpdateExtent(int inExt[6], int outExt[6]);
-  virtual void ExecuteInformation();
+  void ExecuteInformation(vtkImageData *input, vtkImageData *output);
+  void ExecuteInformation(){this->vtkImageToImageFilter::ExecuteInformation();};
   virtual void ExecuteData(vtkDataObject *);
 
   int VOI[6];
