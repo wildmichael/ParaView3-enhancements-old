@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOldStyleCallbackCommand.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:49 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-11-21 16:11:06 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -17,6 +17,9 @@
 =========================================================================*/
 #include "vtkOldStyleCallbackCommand.h"
 
+#include "vtkSetGet.h"
+#include "vtkObject.h"
+
 #include <string.h>
 #include <ctype.h>
 
@@ -26,6 +29,8 @@ vtkOldStyleCallbackCommand::vtkOldStyleCallbackCommand()
   this->ClientData = NULL;
   this->Callback = NULL; 
   this->ClientDataDeleteCallback = NULL;
+  vtkGenericWarningMacro("vtkOldStyleCallbackCommand is deprecated in VTK 4.2 and "
+                         "will be removed in a future version.");
 }
   
 vtkOldStyleCallbackCommand::~vtkOldStyleCallbackCommand() 

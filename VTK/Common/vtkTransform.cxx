@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:26:28 $
-  Version:   $Revision: 1.101 $
+  Date:      $Date: 2002-11-21 16:11:30 $
+  Version:   $Revision: 1.102 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 
 #include <stdlib.h>
 
-vtkCxxRevisionMacro(vtkTransform, "$Revision: 1.101 $");
+vtkCxxRevisionMacro(vtkTransform, "$Revision: 1.102 $");
 vtkStandardNewMacro(vtkTransform);
 
 //----------------------------------------------------------------------------
@@ -98,7 +98,7 @@ void vtkTransform::Identity()
   // support for the legacy hack in InternalUpdate
   if (this->Matrix->GetMTime() > this->MatrixUpdateMTime)
     {
-    vtkDebugMacro(<<"Identity: Legacy Hack");
+    vtkWarningMacro(<<"Identity: Legacy Hack deprecated in VTK 4.2.  May be removed in a future version.");
     this->Matrix->Identity();
     }
 }
@@ -112,7 +112,7 @@ void vtkTransform::Inverse()
   // for the legacy hack in InternalUpdate
   if (this->Matrix->GetMTime() > this->MatrixUpdateMTime)
     {
-    vtkDebugMacro(<<"Inverse: Legacy Hack");
+    vtkWarningMacro(<<"Inverse: Legacy Hack deprecated in VTK 4.2.  May be removed in a future version.");
     this->Matrix->Invert();
     }
 }
@@ -158,7 +158,7 @@ void vtkTransform::InternalDeepCopy(vtkAbstractTransform *gtrans)
   this->MatrixUpdateMTime = this->Matrix->GetMTime();
   if (transform->Matrix->GetMTime() > transform->MatrixUpdateMTime)
     { // this copies the legacy hack flag to the transform
-    vtkDebugMacro(<<"InternalDeepCopy: Legacy Hack");
+    vtkWarningMacro(<<"InternalDeepCopy: Legacy Hack deprecated in VTK 4.2.  May be removed in a future version.");
     this->MatrixUpdateMTime--;
     }
 }
@@ -200,7 +200,9 @@ void vtkTransform::InternalUpdate()
     }
   else if (doTheLegacyHack)
     {
-    vtkDebugMacro(<<"InternalUpdate: doing hack to support legacy code");
+    vtkWarningMacro("InternalUpdate: doing hack to support legacy code.  "
+                    "This is deprecated in VTK 4.2.  May be removed in a "
+                    "future version.");
     // this heuristic works perfectly if GetMatrix() or GetMatrixPointer()
     // was called immediately prior to the matrix modifications 
     // (fortunately, this is almost always the case)

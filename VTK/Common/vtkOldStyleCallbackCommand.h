@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOldStyleCallbackCommand.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-03 12:40:25 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-11-21 16:11:06 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -35,6 +35,10 @@
 #define __vtkOldStyleCallbackCommand_h
 
 #include "vtkCommand.h"
+
+#ifdef VTK_REMOVE_LEGACY_CODE
+vtkOldStyleCallbackCommand_is_deprecated__Do_not_use
+#endif
 
 // the old style void fund(void *) callbacks
 class VTK_COMMON_EXPORT vtkOldStyleCallbackCommand : public vtkCommand
