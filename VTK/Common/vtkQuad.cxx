@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuad.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:48:16 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1995-07-29 11:45:40 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -74,8 +74,6 @@ int vtkQuad::EvaluatePosition(float x[3], float closestPoint[3],
   float  params[2];
   float  fcol[2], rcol[3], scol[3];
   float derivs[8];
-  vtkLine *aLine;
-  int edge;
 
   subId = 0;
   pcoords[0] = pcoords[1] = params[0] = params[1] = 0.5;
