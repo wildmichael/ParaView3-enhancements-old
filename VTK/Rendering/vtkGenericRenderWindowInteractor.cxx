@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGenericRenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-16 14:13:17 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-05-02 21:15:23 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,7 +19,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkCommand.h"
 
-vtkCxxRevisionMacro(vtkGenericRenderWindowInteractor, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkGenericRenderWindowInteractor, "$Revision: 1.4 $");
 vtkStandardNewMacro(vtkGenericRenderWindowInteractor);
 // Construct object so that light follows camera motion.
 vtkGenericRenderWindowInteractor::vtkGenericRenderWindowInteractor()
@@ -195,9 +195,9 @@ int vtkGenericRenderWindowInteractor::CreateTimer(int )
 
 int vtkGenericRenderWindowInteractor::DestroyTimer()
 {
-  if(this->HasObserver(vtkCommand::CreateTimerEvent))
+  if(this->HasObserver(vtkCommand::DestroyTimerEvent))
     {
-    this->InvokeEvent(vtkCommand::CreateTimerEvent, NULL);
+    this->InvokeEvent(vtkCommand::DestroyTimerEvent, NULL);
     return 1;
     }
   return 0;
