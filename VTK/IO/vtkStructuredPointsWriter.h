@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsWriter.h,v $
   Language:  C++
-  Date:      $Date: 1995-08-31 21:21:32 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1995-09-13 07:14:04 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -43,7 +43,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // vtkStructuredPointsWriter is a source object that writes ASCII or binary 
 // structured points data in vtk file format. See text for format details.
 // .SECTION Caveats
-// Binary files written on one system may not be writeable on other systems.
+// Binary files written on one system may not be writable on other systems.
 
 #ifndef __vtkStructuredPointsWriter_hh
 #define __vtkStructuredPointsWriter_hh
