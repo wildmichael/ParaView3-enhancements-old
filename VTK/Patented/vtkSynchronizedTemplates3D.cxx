@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSynchronizedTemplates3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-21 15:21:52 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 2001-06-28 13:31:14 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -756,7 +756,6 @@ void vtkSynchronizedTemplates3D::Execute()
   vtkPointData *threadPD;
   vtkCellData *threadCD;
   vtkCellArray *threadTris;
-  vtkImageData *input = this->GetInput();
 
   // Just in case some one changed the maximum number of threads.
   if (this->NumberOfThreads <= 1)

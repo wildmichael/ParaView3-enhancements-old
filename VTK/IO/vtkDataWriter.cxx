@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-21 15:21:52 $
-  Version:   $Revision: 1.81 $
+  Date:      $Date: 2001-06-28 13:31:14 $
+  Version:   $Revision: 1.82 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -616,7 +616,6 @@ int vtkDataWriter::WriteArray(ostream *fp, int dataType, vtkDataArray *data,
       {
       // currently writing vtkIdType as int.
       int size = data->GetSize();
-      int i;
       int *intArray = new int[size];
       sprintf (str, format, "int"); *fp << str; 
       vtkIdType *s=((vtkIdTypeArray *)data)->GetPointer(0);
