@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCompressCompositer.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-07-26 13:49:23 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2003-03-14 14:57:01 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -56,7 +56,7 @@
 
 #include "vtkTimerLog.h"
 
-vtkCxxRevisionMacro(vtkCompressCompositer, "$Revision: 1.7 $");
+vtkCxxRevisionMacro(vtkCompressCompositer, "$Revision: 1.8 $");
 vtkStandardNewMacro(vtkCompressCompositer);
 
 
@@ -192,7 +192,7 @@ void vtkCompressCompositer::Compress(vtkFloatArray *zIn, vtkDataArray *pIn,
       }
     else 
       {
-      vtkErrorMacro("Pixels have unexpected number of components.");
+      vtkGenericWarningMacro("Pixels have unexpected number of components.");
       return;
       }
     }
@@ -206,7 +206,7 @@ void vtkCompressCompositer::Compress(vtkFloatArray *zIn, vtkDataArray *pIn,
     }
   else
     {
-    vtkErrorMacro("Unexpected pixel type.");
+    vtkGenericWarningMacro("Unexpected pixel type.");
     return;
     }
 
@@ -287,7 +287,7 @@ void vtkCompressCompositer::Uncompress(vtkFloatArray *zIn, vtkDataArray *pIn,
       }
     else 
       {
-      vtkErrorMacro("Pixels have unexpected number of components.");
+      vtkGenericWarningMacro("Pixels have unexpected number of components.");
       return;
       }
     }
@@ -301,7 +301,7 @@ void vtkCompressCompositer::Uncompress(vtkFloatArray *zIn, vtkDataArray *pIn,
     }
   else
     {
-    vtkErrorMacro("Unexpected pixel type.");
+    vtkGenericWarningMacro("Unexpected pixel type.");
     return;
     }
 
@@ -473,7 +473,7 @@ void vtkCompressCompositer::CompositeImagePair(
       }
     else 
       {
-      vtkErrorMacro("Pixels have unexpected number of components.");
+      vtkGenericWarningMacro("Pixels have unexpected number of components.");
       return;
       }
     }
@@ -488,7 +488,7 @@ void vtkCompressCompositer::CompositeImagePair(
     }
   else
     {
-    vtkErrorMacro("Unexpected pixel type.");
+    vtkGenericWarningMacro("Unexpected pixel type.");
     return;
     }
 
