@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMesaRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-08 21:32:20 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2002-08-05 12:38:28 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -90,6 +90,12 @@ public:
   // Make this window the current OpenGL context.
   void MakeCurrent();
   
+  // Description:
+  // If called, allow MakeCurrent() to skip cache-check when called.
+  // MakeCurrent() reverts to original behavior of cache-checking     
+  // on the next render.     
+  void SetForceMakeCurrent();
+
   // Description:
   // Xwindow get set functions
   virtual void *GetGenericDisplayId() {return (void *)this->GetDisplayId();};
@@ -187,6 +193,7 @@ protected:
   int      OwnDisplay;
   int      ScreenSize[2];
   int      CursorHidden;
+  int      ForceMakeCurrent;
 
 private:
   vtkXMesaRenderWindow(const vtkXMesaRenderWindow&);  // Not implemented.
