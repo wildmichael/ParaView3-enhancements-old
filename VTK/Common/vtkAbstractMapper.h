@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractMapper.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:02:55 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2000-02-16 14:13:19 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -60,10 +60,6 @@ class VTK_EXPORT vtkAbstractMapper : public vtkProcessObject
 public:
   vtkTypeMacro(vtkAbstractMapper,vtkProcessObject);
   void PrintSelf(ostream& os, vtkIndent indent);
-
-  // Description:
-  // Construct object.
-  static vtkAbstractMapper *New();
 
   // Description:
   // Release any graphics resources that are being consumed by this mapper.

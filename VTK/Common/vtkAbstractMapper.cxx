@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:02:55 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2000-02-16 14:13:19 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,24 +42,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkAbstractMapper.h"
 #include "vtkDataSet.h"
 #include "vtkObjectFactory.h"
-
-
-
-//------------------------------------------------------------------------------
-vtkAbstractMapper* vtkAbstractMapper::New()
-{
-  // First try to create the object from the vtkObjectFactory
-  vtkObject* ret = vtkObjectFactory::CreateInstance("vtkAbstractMapper");
-  if(ret)
-    {
-    return (vtkAbstractMapper*)ret;
-    }
-  // If the factory was unable to create the object, then create it here.
-  return new vtkAbstractMapper;
-}
-
-
-
 
 // Construct object.
 vtkAbstractMapper::vtkAbstractMapper()
