@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXOpenGLRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2001-09-21 18:17:39 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-09-24 15:40:35 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -54,9 +54,12 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <X11/Xutil.h>
 #include "vtkOpenGLRenderWindow.h"
 #include "GL/glx.h"
+#include "vtkToolkits.h"
 
 
-
+#ifdef VTK_OPENGL_HAS_OSMESA
+#include "GL/osmesa.h"
+#endif
 
 class vtkIdList;
 
