@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProgrammableFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-04-15 21:31:24 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-04-16 19:50:24 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -243,4 +243,51 @@ void vtkProgrammableFilter::UnRegister(vtkObject *o)
     }
   
   this->vtkObject::UnRegister(o);
+}
+
+int vtkProgrammableFilter::InRegisterLoop(vtkObject *o)
+{
+  int num = 0;
+  int cnum = 0;
+  
+  if (this->OutputStructuredPoints->GetSource() == this)
+    {
+    num++;
+    cnum += this->OutputStructuredPoints->GetReferenceCount();
+    }
+  if (this->OutputRectilinearGrid->GetSource() == this)
+    {
+    num++;
+    cnum += this->OutputRectilinearGrid->GetReferenceCount();
+    }
+  if (this->OutputPolyData->GetSource() == this)
+    {
+    num++;
+    cnum += this->OutputPolyData->GetReferenceCount();
+    }
+  if (this->OutputStructuredGrid->GetSource() == this)
+    {
+    num++;
+    cnum += this->OutputStructuredGrid->GetReferenceCount();
+    }
+  if (this->OutputUnstructuredGrid->GetSource() == this)
+    {
+    num++;
+    cnum += this->OutputUnstructuredGrid->GetReferenceCount();
+    }
+  
+  // if no one outside is using us
+  // and our data objects are down to one net reference
+  // and we are being asked by one of our data objects
+  if (this->ReferenceCount == num &&
+      cnum == (num + 1) &&
+      (this->OutputPolyData == o ||
+       this->OutputStructuredPoints == o ||
+       this->OutputRectilinearGrid == o ||
+       this->OutputStructuredGrid == o ||
+       this->OutputUnstructuredGrid == o))
+    {
+    return 1;
+    }
+  return 0;
 }

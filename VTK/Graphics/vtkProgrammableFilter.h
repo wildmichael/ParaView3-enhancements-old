@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProgrammableFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-04-15 21:31:24 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1999-04-16 19:50:24 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -144,6 +144,10 @@ public:
   // Description:
   // Handle the source/data loop.
   void UnRegister(vtkObject *o);
+
+  // Description:
+  // Test to see if this object is in a reference counting loop.
+  virtual int InRegisterLoop(vtkObject *);
 
 protected:
   void Execute();

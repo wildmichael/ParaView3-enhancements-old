@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSetToPointSetFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-04-15 21:23:24 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 1999-04-16 19:50:23 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -213,4 +213,39 @@ void vtkPointSetToPointSetFilter::UnRegister(vtkObject *o)
     }
   
   this->vtkObject::UnRegister(o);
+}
+
+int vtkPointSetToPointSetFilter::InRegisterLoop(vtkObject *o)
+{
+  int num = 0;
+  int cnum = 0;
+  
+  if (this->PolyData->GetSource() == this)
+    {
+    num++;
+    cnum += this->PolyData->GetReferenceCount();
+    }
+  if (this->StructuredGrid->GetSource() == this)
+    {
+    num++;
+    cnum += this->StructuredGrid->GetReferenceCount();
+    }
+  if (this->UnstructuredGrid->GetSource() == this)
+    {
+    num++;
+    cnum += this->UnstructuredGrid->GetReferenceCount();
+    }
+  
+  // if no one outside is using us
+  // and our data objects are down to one net reference
+  // and we are being asked by one of our data objects
+  if (this->ReferenceCount == num &&
+      cnum == (num + 1) &&
+      (this->PolyData == o ||
+       this->StructuredGrid == o ||
+       this->UnstructuredGrid == o))
+    {
+    return 1;
+    }
+  return 0;
 }

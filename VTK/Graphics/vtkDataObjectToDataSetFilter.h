@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObjectToDataSetFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-04-15 21:23:22 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1999-04-16 19:50:21 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -273,6 +273,10 @@ public:
   // Description:
   // Handle the source/data loop.
   void UnRegister(vtkObject *o);
+
+  // Description:
+  // Test to see if this object is in a reference counting loop.
+  virtual int InRegisterLoop(vtkObject *);
 
 protected:
   void Execute(); //generate output data

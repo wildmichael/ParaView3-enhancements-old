@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-04-15 21:23:24 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1999-04-16 19:50:20 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -499,4 +499,32 @@ void vtkClipPolyData::UnRegister(vtkObject *o)
     }
   
   this->vtkObject::UnRegister(o);
+}
+
+int vtkClipPolyData::InRegisterLoop(vtkObject *o)
+{
+  int num = 0;
+  int cnum = 0;
+  
+  if (this->Output->GetSource() == this)
+    {
+    num++;
+    cnum += this->Output->GetReferenceCount();
+    }
+  if (this->ClippedOutput->GetSource() == this)
+    {
+    num++;
+    cnum += this->ClippedOutput->GetReferenceCount();
+    }
+  
+  // if no one outside is using us
+  // and our data objects are down to one net reference
+  // and we are being asked by one of our data objects
+  if (this->ReferenceCount == num &&
+      cnum == (num + 1) &&
+      (this->Output == o || this->ClippedOutput == o))
+    {
+    return 1;
+    }
+  return 0;
 }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipPolyData.h,v $
   Language:  C++
-  Date:      $Date: 1999-04-15 21:23:24 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1999-04-16 19:50:20 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -165,6 +165,10 @@ public:
   // Description:
   // Handle the source/data loop.
   void UnRegister(vtkObject *o);
+
+  // Description:
+  // Test to see if this object is in a reference counting loop.
+  virtual int InRegisterLoop(vtkObject *);
 
 protected:
   void Execute();
