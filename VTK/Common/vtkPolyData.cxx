@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-01-09 21:47:50 $
-  Version:   $Revision: 1.59 $
+  Date:      $Date: 1996-03-05 21:18:08 $
+  Version:   $Revision: 1.60 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -737,7 +737,7 @@ int vtkPolyData::InsertNextLinkedCell(int type, int npts, int *pts)
 
   id = this->InsertNextCell(type,npts,pts);
 
-  for (i=0; i<3; i++)
+  for (i=0; i<npts; i++)
     {
     this->Links->ResizeCellList(pts[i],1);
     this->Links->AddCellReference(id,pts[i]);  

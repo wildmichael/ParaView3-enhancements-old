@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-01-31 10:25:13 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 1996-03-05 21:18:11 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -410,7 +410,7 @@ int vtkUnstructuredGrid::InsertNextLinkedCell(int type, int npts, int *pts)
 
   id = this->InsertNextCell(type,npts,pts);
 
-  for (i=0; i<3; i++)
+  for (i=0; i<npts; i++)
     {
     this->Links->ResizeCellList(pts[i],1);
     this->Links->AddCellReference(id,pts[i]);  
