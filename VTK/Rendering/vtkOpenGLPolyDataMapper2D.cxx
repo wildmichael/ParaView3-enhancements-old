@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLPolyDataMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 14:17:56 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2001-12-28 21:11:38 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -130,6 +130,10 @@ void vtkOpenGLPolyDataMapper2D::RenderOpaqueGeometry(vtkViewport* viewport,
   int* actorPos = 
     actor->GetPositionCoordinate()->GetComputedViewportValue(viewport);
 
+  // get window info
+  float *tileViewPort = viewport->GetVTKWindow()->GetTileViewport();
+  int tileScale = viewport->GetVTKWindow()->GetTileScale();
+
   // Set up the font color from the text actor
   float*  actorColor = actor->GetProperty()->GetColor();
   color[0] = (unsigned char) (actorColor[0] * 255.0);
@@ -185,16 +189,20 @@ void vtkOpenGLPolyDataMapper2D::RenderOpaqueGeometry(vtkViewport* viewport,
 
   glDisable(GL_TEXTURE_2D);
   glDisable( GL_LIGHTING);
+
+  int xoff = actorPos[0] - size[0]*tileViewPort[0];
+  int yoff = actorPos[1] - size[1]*tileViewPort[1];
+
   if ( actor->GetProperty()->GetDisplayLocation() == 
        VTK_FOREGROUND_LOCATION )
     {
-    glOrtho(-actorPos[0],-actorPos[0] + size[0],
-            -actorPos[1], -actorPos[1] +size[1], 0, 1);
+    glOrtho(-xoff,-xoff + (float)size[0]/tileScale,
+            -yoff, -yoff +(float)size[1]/tileScale, 0, 1);
     }  
   else
     {
-    glOrtho(-actorPos[0],-actorPos[0] + size[0],
-            -actorPos[1], -actorPos[1] +size[1], -1, 0);
+    glOrtho(-xoff,-xoff + (float)size[0]/tileScale,
+            -yoff, -yoff + (float)size[1]/tileScale, -1, 0);
     }
     
   // Clipping plane stuff
