@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDoubleArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-04 14:20:40 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 2002-01-18 16:48:06 $
+  Version:   $Revision: 1.42 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,7 +42,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkDoubleArray.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkDoubleArray, "$Revision: 1.41 $");
+vtkCxxRevisionMacro(vtkDoubleArray, "$Revision: 1.42 $");
 vtkStandardNewMacro(vtkDoubleArray);
 
 vtkDataArray *vtkDoubleArray::MakeObject()
@@ -83,12 +83,12 @@ void vtkDoubleArray::SetArray(double* array, vtkIdType size, int save)
   
   if ((this->Array) && (!this->SaveUserArray))
     {
-      vtkDebugMacro (<< "Deleting the array...");
-      delete [] this->Array;
+    vtkDebugMacro (<< "Deleting the array...");
+    delete [] this->Array;
     }
   else 
     {
-      vtkDebugMacro (<<"Warning, array not deleted, but will point to new array.");
+    vtkDebugMacro (<<"Warning, array not deleted, but will point to new array.");
     }
 
   vtkDebugMacro(<<"Setting array to: " << array);
