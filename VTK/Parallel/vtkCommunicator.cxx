@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCommunicator.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-06-12 20:37:01 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2003-06-13 14:40:29 $
+  Version:   $Revision: 1.20 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -37,7 +37,7 @@
 #include "vtkXMLStructuredGridReader.h"
 #include "vtkXMLUnstructuredGridReader.h"
 
-vtkCxxRevisionMacro(vtkCommunicator, "$Revision: 1.19 $");
+vtkCxxRevisionMacro(vtkCommunicator, "$Revision: 1.20 $");
 
 template <class T>
 int SendDataArray(T* data, int length, int handle, int tag, vtkCommunicator *self)
@@ -462,7 +462,7 @@ int vtkCommunicator::ReadDataSet(vtkDataSet* object)
   
   // We will read data from a string stream.
   istrstream istr(this->MarshalString, this->MarshalDataLength);
-  vtkDataSet* output;
+  vtkDataSet* output = 0;
   vtkXMLDataReader* reader = 0;
   
   if(strcmp(object->GetClassName(), "vtkImageData") == 0)
