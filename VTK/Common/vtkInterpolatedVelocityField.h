@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInterpolatedVelocityField.h,v $
   Language:  C++
-  Date:      $Date: 2003-01-08 13:22:38 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2003-02-11 21:08:33 $
+  Version:   $Revision: 1.17 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -65,7 +65,11 @@ public:
   virtual int FunctionValues(float* x, float* f);
 
   // Description:
-  // Set / get the dataset used for the implicit function evaluation.
+  // Add a dataset used for the implicit function evaluation.
+  // If more than one dataset is added, the evaluation point is
+  // searched in all until a match is found. THIS FUNCTION
+  // DOES NOT CHANGE THE REFERENCE COUNT OF dataset FOR THREAD
+  // SAFETY REASONS.
   virtual void AddDataSet(vtkDataSet* dataset);
 
   // Description:
