@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastFunction.h,v $
   Language:  C++
-  Date:      $Date: 1999-01-21 16:44:06 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1999-03-12 22:12:19 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -97,6 +97,7 @@ struct VolumeRayCastVolumeInfoStruct
   float                        CenterDistance;
   int                          ScalarDataType;
   void                         *ScalarDataPointer;
+  unsigned char                *RGBDataPointer;
   int                          Shading;
   int                          ColorChannels;
   float                        Color[3];
@@ -109,6 +110,13 @@ struct VolumeRayCastVolumeInfoStruct
   float                        *BlueSpecularShadingTable;
   int                          DataIncrement[3];
   int                          DataSize[3];
+  float                        DataSpacing[3];
+  float                        DataOrigin[3];
+  int                          RGBDataIncrement[3];
+  int                          RGBDataSize[3];
+  float                        RGBDataSpacing[3];
+  float                        RGBDataOrigin[3];
+  float                        RGBTextureCoefficient;
   unsigned short               *EncodedNormals;
   unsigned char                *GradientMagnitudes;
 };

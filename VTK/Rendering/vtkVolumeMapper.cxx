@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-28 12:54:09 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-03-12 22:12:18 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -115,6 +115,41 @@ float vtkVolumeMapper::GetLength()
   return (float)sqrt(l);
 }
 
+void vtkVolumeMapper::SetRGBTextureInput( vtkStructuredPoints *rgbTexture )
+{
+  vtkPointData    *pd;
+  vtkScalars      *scalars;
+
+  if ( rgbTexture && rgbTexture != this->RGBTextureInput )
+    {
+    rgbTexture->Update();
+    pd = rgbTexture->GetPointData();
+    if ( !pd )
+      {
+      vtkErrorMacro( << "No PointData in texture!" );
+      return;
+      }
+    scalars = pd->GetScalars();
+    if ( !scalars )
+      {
+      vtkErrorMacro( << "No scalars in texture!" );
+      return;
+      }
+    if ( scalars->GetDataType() != VTK_UNSIGNED_CHAR )
+      {
+      vtkErrorMacro( << "Scalars in texture must be unsigned char!" );
+      return;      
+      }
+    if ( scalars->GetNumberOfComponents() != 3 )
+      {
+      vtkErrorMacro( << "Scalars must have 3 components (r, g, and b)" );
+      return;      
+      }
+    this->RGBTextureInput = rgbTexture;
+    this->Modified();
+    }
+}
+
 // Print the vtkVolumeMapper
 void vtkVolumeMapper::PrintSelf(ostream& os, vtkIndent indent)
 {
@@ -127,6 +162,15 @@ void vtkVolumeMapper::PrintSelf(ostream& os, vtkIndent indent)
   else
     {
     os << indent << "ScalarInput: (none)\n";
+    }
+
+  if ( this->RGBTextureInput )
+    {
+    os << indent << "RGBTextureInput: (" << this->RGBTextureInput << ")\n";
+    }
+  else
+    {
+    os << indent << "RGBTextureInput: (none)\n";
     }
 
   os << indent << "Clipping: " << (this->Clipping ? "On\n" : "Off\n");

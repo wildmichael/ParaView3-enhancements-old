@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProperty.h,v $
   Language:  C++
-  Date:      $Date: 1998-12-28 12:54:09 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1999-03-12 22:12:18 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -185,6 +185,14 @@ public:
   vtkGetMacro(SpecularPower,float);
 
   // Description:
+  // Set/Get the texture coefficient. This controls how much of the
+  // color comes from the color transfer function and how much comes
+  // from the RGB texture, with RGBTextureCoefficient used for the texture
+  // and (1 - RGBTextureCoefficient) used for the transfer function.
+  vtkSetClampMacro(RGBTextureCoefficient,float,0.0,1.0);
+  vtkGetMacro(RGBTextureCoefficient,float);
+
+  // Description:
   // The gradient magnitude opacity scale and bias values
   // should be set in the vtkEncodedGradientEstimator.
   // Do not use these methods.
@@ -223,7 +231,7 @@ protected:
   float 			Diffuse;
   float				Specular;
   float				SpecularPower;
-
+  float                         RGBTextureCoefficient;
 };
 
 // Description:

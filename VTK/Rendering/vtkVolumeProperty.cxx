@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProperty.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-01-13 20:59:24 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1999-03-12 22:12:18 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -53,11 +53,12 @@ vtkVolumeProperty::vtkVolumeProperty()
   this->ScalarOpacity			= NULL;
   this->GradientOpacity			= NULL;
 
-  this->Shade				= 0;  // False
+  this->Shade				= 0;  
   this->Ambient				= 0.1;
   this->Diffuse				= 0.7;
   this->Specular			= 0.2;
   this->SpecularPower			= 10.0;
+  this->RGBTextureCoefficient           = 0.0;
 }
 
 // Destruct a vtkVolumeProperty

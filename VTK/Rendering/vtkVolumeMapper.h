@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeMapper.h,v $
   Language:  C++
-  Date:      $Date: 1999-03-01 19:42:29 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1999-03-12 22:12:18 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -134,12 +134,22 @@ public:
     {this->SetScalarInput(cache->GetImageToStructuredPoints()->GetOutput());}
   virtual vtkStructuredPoints *GetScalarInput() {return this->ScalarInput;};
 
+
+  // Description:
+  // Set/Get the rgb texture input data
+  void SetRGBTextureInput( vtkStructuredPoints *rgbTexture );
+  void SetRGBTextureInput(vtkImageCache *cache)
+    {this->SetRGBTextureInput(cache->GetImageToStructuredPoints()->GetOutput());}
+  virtual vtkStructuredPoints *GetRGBTextureInput() {return this->RGBTextureInput;};
+
+
   virtual int GetMapperType()=0;
 
   virtual float *GetRGBAPixelData() {return NULL;};
 
 protected:
   vtkStructuredPoints  *ScalarInput;
+  vtkStructuredPoints  *RGBTextureInput;
   int                  Clipping;
   float                ClippingPlanes[6];
   vtkTimeStamp         BuildTime;

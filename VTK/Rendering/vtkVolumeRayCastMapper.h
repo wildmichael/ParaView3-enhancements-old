@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastMapper.h,v $
   Language:  C++
-  Date:      $Date: 1999-03-01 19:42:30 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1999-03-12 22:12:19 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -131,13 +131,6 @@ public:
   // Return the scalar value below which all opacities are zero
   float GetZeroOpacityThreshold( vtkVolume *vol );
 
-//BTX - this is for interal use by the ray cast function, not for 
-//      general use
-  // Description:
-  // Provided for the ray cast function to query the data increments
-  vtkGetVectorMacro( DataIncrement, int, 3 );
-//ETX
-
   // Description:
   // Set / Get the gradient estimator used to estimate normals
   void SetGradientEstimator( vtkEncodedGradientEstimator *gradest );
@@ -154,8 +147,6 @@ public:
 //ETX
 
 protected:
-
-  int                          DataIncrement[3];
 
   vtkVolumeRayCastFunction     *VolumeRayCastFunction;
 
