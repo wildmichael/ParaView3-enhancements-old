@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectorIterator.txx,v $
   Language:  C++
-  Date:      $Date: 2002-06-20 21:12:26 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-07-10 19:37:28 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -59,6 +59,16 @@ int vtkVectorIterator<DType>::GetData(DType& data)
   vtkVector<DType> *llist = static_cast<vtkVector<DType>*>(this->Container);
   if ( this->Index == llist->NumberOfItems ) { return VTK_ERROR; }
   data = llist->Array[this->Index];
+  return VTK_OK;
+}
+
+//----------------------------------------------------------------------------
+template<class DType>
+int vtkVectorIterator<DType>::SetData(const DType& data)
+{
+  vtkVector<DType> *llist = static_cast<vtkVector<DType>*>(this->Container);
+  if ( this->Index == llist->NumberOfItems ) { return VTK_ERROR; }
+  llist->Array[this->Index] = data;
   return VTK_OK;
 }
 

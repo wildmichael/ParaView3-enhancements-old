@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHashMapIterator.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-20 21:13:17 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-07-10 19:37:28 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -72,6 +72,11 @@ public:
   // Retrieve the key and data of the current element.
   // This method returns VTK_OK if key and data were retrieved correctly.
   int GetKeyAndData(KeyType&, DataType&);
+  
+  // Description:
+  // Set the data at the iterator's position.
+  // This method returns VTK_OK if data were set correctly.
+  int SetData(const DataType&);
   
   // Description:
   // Initialize the traversal of the container. 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectorIterator.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-20 21:12:26 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-07-10 19:37:28 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -64,8 +64,13 @@ public:
 
   // Description:
   // Retrieve the data from the iterator. 
-  // This method returns VTK_OK if key was retrieved correctly.
+  // This method returns VTK_OK if data were retrieved correctly.
   int GetData(DType&);
+  
+  // Description:
+  // Set the data at the iterator's position.
+  // This method returns VTK_OK if data were set correctly.
+  int SetData(const DType&);
   
   // Description:
   // Initialize the traversal of the container. 
