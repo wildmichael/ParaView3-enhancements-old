@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: TestCxxFeatures.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-02 17:29:42 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2002-10-03 13:00:33 $
+  Version:   $Revision: 1.13 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -44,7 +44,11 @@
 #endif
 
 #if defined(__GNUC__) && (__GNUC__ < 3)
-# define VTK_CXX_GCC_2
+# if (__GNUC__ < 3)
+#  define VTK_CXX_GCC_2
+# elif (__GNUC__ == 3)
+#  define VTK_CXX_GCC_3
+# endif
 #endif
 
 //----------------------------------------------------------------------------
@@ -75,8 +79,9 @@
 //----------------------------------------------------------------------------
 
 /* Test inclusion of sstream header.  */
-#if !(defined(VTK_CXX_GCC_2) || defined(VTK_CXX_ACC) || defined(VTK_CXX_SGI_6))
-#include <sstream>
+//#if !(defined(VTK_CXX_GCC_2) || defined(VTK_CXX_ACC) || defined(VTK_CXX_SGI_6))
+#if defined(VTK_CXX_GCC_3)
+# include <sstream>
 #endif
 
 //----------------------------------------------------------------------------
