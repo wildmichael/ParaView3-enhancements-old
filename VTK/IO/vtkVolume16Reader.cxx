@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume16Reader.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-12-27 10:54:25 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1996-03-28 21:37:50 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,7 +42,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 // Description:
 // Construct object with NULL file prefix; file pattern "%s.%d"; image range 
-// set to(1,1); data origin (0,0,0); data aspect ratio (1,1,1); no data mask;
+// set to (1,1); data origin (0,0,0); data aspect ratio (1,1,1); no data mask;
 // header size 0; and byte swapping turned off.
 vtkVolume16Reader::vtkVolume16Reader()
 {
