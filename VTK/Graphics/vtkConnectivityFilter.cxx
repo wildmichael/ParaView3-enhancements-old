@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkConnectivityFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:51:14 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1996-09-20 12:43:50 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -185,7 +185,7 @@ void vtkConnectivityFilter::Execute()
 
   vtkDebugMacro (<<"Extracted " << RegionNumber << " region(s)");
   vtkDebugMacro (<<"Exceeded recursion depth " << NumExceededMaxDepth 
-                << " times\n");
+                 << " times");
 
   RecursionSeeds->Delete();
 //
@@ -279,6 +279,7 @@ void vtkConnectivityFilter::Execute()
 
   delete [] Visited;
   delete [] PointMap;
+  output->Squeeze();
 
   vtkDebugMacro (<<"Extracted " << output->GetNumberOfCells() << " cells");
 
