@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagingFactory.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-23 17:06:11 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-11-07 13:52:15 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -100,6 +100,17 @@ const char *vtkImagingFactoryGetRenderLibrary()
       temp = NULL;
       }
     }
+  
+  // if the environment variable is set to openGL and the user
+  //  does not have opengl but they do have mesa, then use it
+#ifndef VTK_USE_OGLR
+#ifdef VTK_USE_MESA
+  if (!strcmp("OpenGL",temp))
+    {
+    temp = "Mesa";
+    }
+#endif
+#endif
   
   // if nothing is set then work down the list of possible renderers
   if ( !temp )
