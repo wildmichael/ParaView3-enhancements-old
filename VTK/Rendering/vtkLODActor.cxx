@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLODActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-10-21 14:06:46 $
-  Version:   $Revision: 1.54 $
+  Date:      $Date: 2001-10-30 21:47:17 $
+  Version:   $Revision: 1.55 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -347,6 +347,7 @@ void vtkLODActor::UpdateOwnLODs()
   this->MediumMapper->ShallowCopy(this->Mapper);
   this->MediumMapper->SetInput(this->MaskPoints->GetOutput());
   this->LowMapper->ShallowCopy(this->Mapper);
+  this->LowMapper->ScalarVisibilityOff();
   this->LowMapper->SetInput(this->OutlineFilter->GetOutput());
 
   this->BuildTime.Modified();
