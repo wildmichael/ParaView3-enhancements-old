@@ -17,7 +17,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkPiecewiseFunction.h"
 
-vtkCxxRevisionMacro(vtkPiecewiseFunctionShiftScale, "$Revision: 1.4 $");
+vtkCxxRevisionMacro(vtkPiecewiseFunctionShiftScale, "$Revision: 1.5 $");
 vtkStandardNewMacro(vtkPiecewiseFunctionShiftScale);
 
 vtkPiecewiseFunctionShiftScale::vtkPiecewiseFunctionShiftScale()
@@ -32,7 +32,6 @@ vtkPiecewiseFunctionShiftScale::vtkPiecewiseFunctionShiftScale()
 
 vtkPiecewiseFunctionShiftScale::~vtkPiecewiseFunctionShiftScale()
 {
-  this->SetInput(NULL);
 }
 
 void vtkPiecewiseFunctionShiftScale::Execute()
