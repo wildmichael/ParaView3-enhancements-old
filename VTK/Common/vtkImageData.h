@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.h,v $
   Language:  C++
-  Date:      $Date: 1996-09-26 21:01:53 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1996-10-16 12:23:07 $
+  Version:   $Revision: 1.16 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -138,15 +138,17 @@ public:
   vtkGetVectorMacro(Increments,int,5);
 
   int AreScalarsAllocated();
-  int AllocateScalars();
   void *GetScalarPointer(int coordinates[VTK_IMAGE_DIMENSIONS]);
   void *GetScalarPointer();
+  void MakeScalarsWritable();
+  int AllocateScalars();
 
   int AreVectorsAllocated();
-  int AllocateVectors();
   float *GetVectorPointer(int coordinates[VTK_IMAGE_DIMENSIONS]);
   float *GetVectorPointer();
-
+  void MakeVectorsWritable();
+  int AllocateVectors();
+  
   void Translate(int vector[VTK_IMAGE_DIMENSIONS]);
   
   
@@ -175,6 +177,7 @@ protected:
   int Volume;
   int ScalarsAllocated;
   int VectorsAllocated;
+
 };
 
 
