@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitSum.h,v $
   Language:  C++
-  Date:      $Date: 2002-03-03 17:30:27 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-03-03 18:54:50 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -60,11 +60,13 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 class VTK_FILTERING_EXPORT vtkImplicitSum : public vtkImplicitFunction
 {
 public:
+//BTX
 #ifdef vtkTypeRevisionMacro
   vtkTypeRevisionMacro(vtkImplicitSum,vtkImplicitFunction);
 #else
   vtkTypeMacro(vtkImplicitSum,vtkImplicitFunction);
 #endif
+//ETX
 
   void PrintSelf(ostream& os, vtkIndent indent);
 

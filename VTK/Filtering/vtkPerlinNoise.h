@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPerlinNoise.h,v $
   Language:  C++
-  Date:      $Date: 2002-03-03 17:30:27 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-03-03 18:54:50 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -38,11 +38,13 @@
 class VTK_FILTERING_EXPORT vtkPerlinNoise : public vtkImplicitFunction
 {
 public:
+//BTX
 #ifdef vtkTypeRevisionMacro
   vtkTypeRevisionMacro(vtkPerlinNoise,vtkImplicitFunction);
 #else
   vtkTypeMacro(vtkPerlinNoise,vtkImplicitFunction);
 #endif
+//ETX
 
   void PrintSelf(ostream& os, vtkIndent indent);
 
