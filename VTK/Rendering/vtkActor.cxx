@@ -3,8 +3,8 @@
   Program:   OSCAR 
   Module:    $RCSfile: vtkActor.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-01-17 12:49:02 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1994-01-28 17:39:13 $
+  Version:   $Revision: 1.8 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -41,6 +41,8 @@ vlActor::vlActor()
   this->Scale[2] = 1.0;
 
   this->Visibility = 1;
+  this->Pickable   = 1;
+  this->Dragable   = 1;
 }
 
 vlActor::~vlActor()
