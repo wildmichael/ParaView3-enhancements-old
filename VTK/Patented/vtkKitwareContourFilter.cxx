@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKitwareContourFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-11 20:23:48 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2001-01-19 19:58:04 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -152,8 +152,6 @@ void vtkKitwareContourFilter::ComputeInputUpdateExtents(vtkDataObject *data)
 
 }
 
-
-
 void vtkKitwareContourFilter::ExecuteInformation()
 {
 }
@@ -181,7 +179,21 @@ void vtkKitwareContourFilter::Execute()
   if ( input->GetDataObjectType() == VTK_STRUCTURED_POINTS || 
        input->GetDataObjectType() == VTK_IMAGE_DATA )
     {
-    int dim = input->GetCell(0)->GetCellDimension();
+    // We need a better way to determine dimensionality for images.
+    int dim = 3;
+    int *uExt = input->GetUpdateExtent();
+    if (uExt[0] == uExt[1])
+      {
+      --dim;
+      }
+    if (uExt[2] == uExt[3])
+      {
+      --dim;
+      }
+    if (uExt[4] == uExt[5])
+      {
+      --dim;
+      }
 
     if ( input->GetCell(0)->GetCellDimension() >= 2 ) 
       {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:43 $
-  Version:   $Revision: 1.56 $
+  Date:      $Date: 2001-01-19 19:58:03 $
+  Version:   $Revision: 1.57 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -356,6 +356,7 @@ void vtkMergeFilter::ComputeInputUpdateExtents(vtkDataObject *vtkNotUsed(data))
     if (input)
       {
       input->SetUpdateExtent(0, 1, 0);
+      input->RequestExactExtentOn();
       }
     }
 }

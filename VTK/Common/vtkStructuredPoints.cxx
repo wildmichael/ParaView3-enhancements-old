@@ -3,8 +3,8 @@
 
   Module:    $RCSfile: vtkStructuredPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:18 $
-  Version:   $Revision: 1.85 $
+  Date:      $Date: 2001-01-19 19:58:03 $
+  Version:   $Revision: 1.86 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -40,7 +40,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 =========================================================================*/
 #include <math.h>
 #include "vtkStructuredPoints.h"
-#include "vtkImageToStructuredPoints.h"
 #include "vtkObjectFactory.h"
 
 

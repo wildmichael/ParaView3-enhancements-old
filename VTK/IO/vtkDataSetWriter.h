@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetWriter.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:35 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2001-01-19 19:58:03 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -49,7 +49,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define __vtkDataSetWriter_h
 
 #include "vtkDataWriter.h"
-#include "vtkImageToStructuredPoints.h"
 
 class VTK_EXPORT vtkDataSetWriter : public vtkDataWriter
 {
@@ -61,9 +60,6 @@ public:
   // Description:
   // Set / get the input data or filter.
   void SetInput(vtkDataSet *input);
-  void SetInput(vtkImageData *cache)
-    {vtkImageToStructuredPoints *tmp = cache->MakeImageToStructuredPoints();
-    this->SetInput(((vtkDataSet *)tmp->GetOutput())); tmp->Delete();}
   vtkDataSet *GetInput();
 
 protected:

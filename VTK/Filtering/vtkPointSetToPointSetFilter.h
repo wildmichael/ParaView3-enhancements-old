@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSetToPointSetFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:46 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 2001-01-19 19:58:03 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -102,6 +102,10 @@ public:
   // Get the output as vtkUnstructuredGrid. Performs run-time checking.
   vtkUnstructuredGrid *GetUnstructuredGridOutput();
   
+  // Description:
+  // By default copy the output update extent to the input
+  virtual void ComputeInputUpdateExtents( vtkDataObject *output );
+
 protected:
   vtkPointSetToPointSetFilter();
   ~vtkPointSetToPointSetFilter();

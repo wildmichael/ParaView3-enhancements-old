@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageIterateFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:07 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2001-01-19 19:58:04 $
+  Version:   $Revision: 1.25 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -95,6 +95,9 @@ protected:
   void Execute(vtkImageData *inData, vtkImageData *outData);
   void Execute(vtkImageData *outData)
     { this->vtkImageToImageFilter::Execute(outData);};
+
+  // Replaces "EnlargeOutputUpdateExtent"
+  virtual void AllocateOutputScalars(vtkImageData *outData);
   
   // Allows subclass to specify the number of iterations  
   virtual void SetNumberOfIterations(int num);

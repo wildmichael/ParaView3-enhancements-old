@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGlyph3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-11 20:19:45 $
-  Version:   $Revision: 1.83 $
+  Date:      $Date: 2001-01-19 19:58:03 $
+  Version:   $Revision: 1.84 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -633,4 +633,5 @@ void vtkGlyph3D::ComputeInputUpdateExtents( vtkDataObject *output )
   this->GetInput()->SetUpdateExtent(outPd->GetUpdatePiece(), 
                                     outPd->GetUpdateNumberOfPieces(),
                                     outPd->GetUpdateGhostLevel());
+  this->GetInput()->RequestExactExtentOn();
 }

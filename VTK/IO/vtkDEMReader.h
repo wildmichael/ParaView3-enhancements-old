@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDEMReader.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:23 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2001-01-19 19:58:03 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -165,13 +165,7 @@ protected:
   void ComputeExtentOriginAndSpacing (int extent[6], float origin[6], float spacing[6]);
   int ReadTypeARecord ();
   int ReadProfiles (vtkImageData *data);
-  void Execute(vtkImageData *outData);
-  void Execute() { this->vtkImageSource::Execute(); };
-
-  // Description:
-  // This method is call by the superclass before an update.  It sets
-  // the UpdateExtent to the WholeExtent.
-  void EnlargeOutputUpdateExtents( vtkDataObject *data );
+  void Execute();
 };
 
 #endif

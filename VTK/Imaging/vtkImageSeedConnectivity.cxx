@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSeedConnectivity.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:10 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2001-01-19 19:58:04 $
+  Version:   $Revision: 1.21 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -136,19 +136,11 @@ void vtkImageSeedConnectivity::AddSeed(int i0, int i1)
 }
 
 
-
 //----------------------------------------------------------------------------
-void vtkImageSeedConnectivity::EnlargeOutputUpdateExtents( vtkDataObject 
-							   *vtkNotUsed(data))
+void vtkImageSeedConnectivity::Execute()
 {
-  this->GetOutput()->SetUpdateExtent(this->GetOutput()->GetWholeExtent());
-}
-
-
-//----------------------------------------------------------------------------
-void vtkImageSeedConnectivity::Execute(vtkImageData *inData,
-				       vtkImageData *outData)
-{
+  vtkImageData *inData = this->GetInput();
+  vtkImageData *outData = this->GetOutput();
   vtkImageConnectorSeed *seed;
   int idx0, idx1, idx2;
   int inInc0, inInc1, inInc2;
@@ -159,6 +151,9 @@ void vtkImageSeedConnectivity::Execute(vtkImageData *inData,
   unsigned char temp1, temp2;
   int temp;
 
+  outData->SetExtent(this->GetOutput()->GetWholeExtent());
+  outData->AllocateScalars();
+  
   if (inData->GetScalarType() != VTK_UNSIGNED_CHAR ||
       outData->GetScalarType() != VTK_UNSIGNED_CHAR)
     {

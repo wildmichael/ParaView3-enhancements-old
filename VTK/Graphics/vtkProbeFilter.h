@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProbeFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:47 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2001-01-19 19:58:03 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -65,12 +65,6 @@ public:
   // can be used.
   void SetSource(vtkDataSet *source);
   vtkDataSet *GetSource();
-  void SetSource(vtkImageData *cache)
-    {vtkImageToStructuredPoints *tmp = cache->MakeImageToStructuredPoints();
-    this->SetSource((vtkDataSet *)tmp->GetOutput()); tmp->Delete();}
-
-  virtual void SetSource(vtkStructuredPoints *sp)
-    { this->SetSource((vtkDataSet *)sp); }
 
   // Description:
   // This flag is used only when a piece is requested to update.  By default

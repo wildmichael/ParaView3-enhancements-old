@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSource.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:11 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 2001-01-19 19:58:03 $
+  Version:   $Revision: 1.47 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -77,14 +77,6 @@ public:
   
   // Description:
   virtual void PropagateUpdateExtent(vtkDataObject *output);
-  
-#ifndef VTK_REMOVE_LEGACY_CODE
-  // Description:
-  // Legacy compatibility.  Do not use.
-  virtual void InterceptCacheUpdate() 
-    {VTK_LEGACY_METHOD(InterceptCacheUpdate,"3.2");this->LegacyHack = 0;}
-  int LegacyHack;
-#endif
   
 protected:
   vtkImageSource();

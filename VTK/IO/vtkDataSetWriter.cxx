@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:35 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2001-01-19 19:58:03 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -100,10 +100,10 @@ void vtkDataSetWriter::WriteData()
     writer = (vtkDataWriter *)pwriter;
     }
 
-  else if ( type == VTK_STRUCTURED_POINTS )
+  else if ( type == VTK_STRUCTURED_POINTS || type == VTK_IMAGE_DATA)
     {
     vtkStructuredPointsWriter *spwriter = vtkStructuredPointsWriter::New();
-    spwriter->SetInput((vtkStructuredPoints *)input);
+    spwriter->SetInput((vtkImageData *)input);
     writer = (vtkDataWriter *)spwriter;
     }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSetToPointSetFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:46 $
-  Version:   $Revision: 1.53 $
+  Date:      $Date: 2001-01-19 19:58:03 $
+  Version:   $Revision: 1.54 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -155,6 +155,19 @@ vtkUnstructuredGrid *vtkPointSetToPointSetFilter::GetUnstructuredGridOutput()
     return (vtkUnstructuredGrid *)ds;
     }
   return NULL;
+}
+
+//----------------------------------------------------------------------------
+// Copy the update information across
+void vtkPointSetToPointSetFilter::ComputeInputUpdateExtents(vtkDataObject *output)
+{
+  vtkDataObject *input = this->GetInput();
+
+  input->SetUpdatePiece( output->GetUpdatePiece() );
+  input->SetUpdateNumberOfPieces( output->GetUpdateNumberOfPieces() );
+  input->SetUpdateGhostLevel( output->GetUpdateGhostLevel() );
+  input->SetUpdateExtent( output->GetUpdateExtent() );
+  input->RequestExactExtentOn();  
 }
 
 

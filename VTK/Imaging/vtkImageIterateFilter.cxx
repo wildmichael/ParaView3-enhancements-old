@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageIterateFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:07 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2001-01-19 19:58:04 $
+  Version:   $Revision: 1.26 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -142,7 +142,14 @@ void vtkImageIterateFilter::ComputeInputUpdateExtents( vtkDataObject *output )
     out = in;
     }
 }
-  
+
+//----------------------------------------------------------------------------
+void vtkImageIterateFilter::AllocateOutputScalars(vtkImageData *outData)
+{
+  outData->SetExtent(outData->GetUpdateExtent());
+  outData->AllocateScalars();
+}
+
 //----------------------------------------------------------------------------
 // Some filters (decomposes, anisotropic difusion ...) have execute 
 // called multiple times per update.
@@ -160,8 +167,7 @@ void vtkImageIterateFilter::Execute()
     inData = this->IterationData[idx];
     outData = this->IterationData[idx + 1];
     
-    outData->SetExtent(outData->GetUpdateExtent());
-    outData->AllocateScalars();      
+    this->AllocateOutputScalars(outData);
 
     // execute for this iteration
     this->Execute(inData, outData);

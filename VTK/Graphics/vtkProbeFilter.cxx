@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProbeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-11 20:19:45 $
-  Version:   $Revision: 1.57 $
+  Date:      $Date: 2001-01-19 19:58:03 $
+  Version:   $Revision: 1.58 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -198,6 +198,8 @@ void vtkProbeFilter::ComputeInputUpdateExtents( vtkDataObject *output )
     {
     usePiece = 1;
     }
+  
+  input->RequestExactExtentOn();
   
   if ( ! this->SpatialMatch)
     {

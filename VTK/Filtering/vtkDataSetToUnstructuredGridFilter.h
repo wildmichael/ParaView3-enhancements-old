@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetToUnstructuredGridFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:35 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2001-01-19 19:58:03 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -53,7 +53,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define __vtkDataSetToUnstructuredGridFilter_h
 
 #include "vtkUnstructuredGridSource.h"
-#include "vtkImageToStructuredPoints.h"
 
 class VTK_EXPORT vtkDataSetToUnstructuredGridFilter : public vtkUnstructuredGridSource
 {
@@ -63,9 +62,6 @@ public:
   // Description:
   // Set / get the input data or filter.
   virtual void SetInput(vtkDataSet *input);
-  virtual void SetInput(vtkImageData *cache)
-    {vtkImageToStructuredPoints *tmp = cache->MakeImageToStructuredPoints();
-    this->SetInput(((vtkDataSet *)tmp->GetOutput())); tmp->Delete();}
   vtkDataSet *GetInput();
   
 protected:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetToPolyDataFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:34 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2001-01-19 19:58:03 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -55,7 +55,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "vtkPolyDataSource.h"
 #include "vtkPolyData.h"
-#include "vtkImageToStructuredPoints.h"
 
 class VTK_EXPORT vtkDataSetToPolyDataFilter : public vtkPolyDataSource
 {

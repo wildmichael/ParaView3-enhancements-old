@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergeFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:43 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 2001-01-19 19:58:03 $
+  Version:   $Revision: 1.48 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -67,9 +67,6 @@ public:
   // Specify object from which to extract scalar information.
   void SetScalars(vtkDataSet *);
   vtkDataSet *GetScalars();
-  void SetScalars(vtkImageData *cache)
-    {vtkImageToStructuredPoints *tmp = cache->MakeImageToStructuredPoints();
-    this->SetScalars(((vtkDataSet *)tmp->GetOutput())); tmp->Delete();}
 
   // Description:
   // Set / get the object from which to extract vector information.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObject.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-11 20:22:22 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 2001-01-19 19:58:02 $
+  Version:   $Revision: 1.52 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -285,6 +285,17 @@ public:
   vtkGetMacro(UpdateGhostLevel, int);
   
   // Description:
+  // This request flag indicates whether the requester can handle 
+  // more data than requested.  Right now it is used in vtkImageData.
+  // Image filters can return more data than requested.  The the 
+  // consumer cannot handle this (i.e. DataSetToDataSetFitler)
+  // the image will crop itself.  This functionality used to be in 
+  // ImageToStructuredPoints.
+  vtkSetMacro(RequestExactExtent, int);
+  vtkGetMacro(RequestExactExtent, int);
+  vtkBooleanMacro(RequestExactExtent, int);
+  
+  // Description:
   // Set/Get the whole extent of this data object
   vtkSetVector6Macro( WholeExtent, int );
   vtkGetVector6Macro( WholeExtent, int );
@@ -374,11 +385,19 @@ protected:
   // An object to translate from unstructured pieces to structured extents.
   vtkExtentTranslator *ExtentTranslator;
  
-  // Unstructured extent stuff
+  // Unstructured request stuff
   int NumberOfPieces;
   int Piece;
   int UpdateNumberOfPieces;
   int UpdatePiece;
+  
+  // This request flag indicates whether the requester can handle 
+  // more data than requested.  Right now it is used in vtkImageData.
+  // Image filters can return more data than requested.  The the 
+  // consumer cannot handle this (i.e. DataSetToDataSetFitler)
+  // this image will crop itself.  This functionality used to be in 
+  // ImageToStructuredPoints.
+  int RequestExactExtent;
   
   int GhostLevel;
   int UpdateGhostLevel;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTexture.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:55 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 2001-01-19 19:58:03 $
+  Version:   $Revision: 1.47 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -72,7 +72,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkStructuredPoints.h"
 #include "vtkLookupTable.h"
 #include "vtkScalars.h"
-#include "vtkImageToStructuredPoints.h"
 
 class vtkRenderer;
 class vtkWindow;
@@ -143,9 +142,6 @@ public:
   // Specify the data for the texture map.
   vtkSetObjectMacro(Input,vtkStructuredPoints);
   vtkGetObjectMacro(Input,vtkStructuredPoints);
-  void SetInput(vtkImageData *cache)
-    {vtkImageToStructuredPoints *tmp = cache->MakeImageToStructuredPoints();
-    this->SetInput(tmp->GetOutput()); tmp->Delete();}
   
   // Description:
   // Specify the lookup table to convert scalars if necessary

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetMapper.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:34 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 2001-01-19 19:58:03 $
+  Version:   $Revision: 1.47 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -82,10 +82,6 @@ public:
   // Description:
   // Set the Input of this mapper.
   void SetInput(vtkDataSet *input);
-  void SetInput(vtkImageData *cache)
-    {vtkImageToStructuredPoints *tmp = cache->MakeImageToStructuredPoints();
-    this->SetInput(((vtkDataSet *)tmp->GetOutput())); tmp->Delete();}  
-
   vtkDataSet *GetInput();
   
 protected:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetToDataObjectFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:34 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2001-01-19 19:58:03 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -403,6 +403,7 @@ void vtkDataSetToDataObjectFilter::ComputeInputUpdateExtents(
     {
     // what should we do here?
     this->GetInput()->SetUpdateExtent(0, 1, 0);
+    this->GetInput()->RequestExactExtentOn();
     }
 }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSpatialRepresentationFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:52 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2001-01-19 19:58:03 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -82,7 +82,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "vtkPolyDataSource.h"
 #include "vtkLocator.h"
-#include "vtkImageToStructuredPoints.h"
 
 #define VTK_MAX_SPATIAL_REP_LEVEL 24
 
@@ -117,9 +116,6 @@ public:
   // Description:
   // Set / get the input data or filter.
   virtual void SetInput(vtkDataSet *input);
-  virtual void SetInput(vtkImageData *cache)
-    {vtkImageToStructuredPoints *tmp = cache->MakeImageToStructuredPoints();
-    this->SetInput((vtkDataSet *)tmp->GetOutput()); tmp->Delete();}
   vtkDataSet *GetInput();
 
 protected:

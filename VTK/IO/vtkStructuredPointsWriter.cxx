@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:54 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2001-01-19 19:58:03 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -62,28 +62,28 @@ vtkStructuredPointsWriter* vtkStructuredPointsWriter::New()
 
 //----------------------------------------------------------------------------
 // Specify the input data or filter.
-void vtkStructuredPointsWriter::SetInput(vtkStructuredPoints *input)
+void vtkStructuredPointsWriter::SetInput(vtkImageData *input)
 {
   this->vtkProcessObject::SetNthInput(0, input);
 }
 
 //----------------------------------------------------------------------------
 // Specify the input data or filter.
-vtkStructuredPoints *vtkStructuredPointsWriter::GetInput()
+vtkImageData *vtkStructuredPointsWriter::GetInput()
 {
   if (this->NumberOfInputs < 1)
     {
     return NULL;
     }
   
-  return (vtkStructuredPoints *)(this->Inputs[0]);
+  return (vtkImageData *)(this->Inputs[0]);
 }
 
 
 void vtkStructuredPointsWriter::WriteData()
 {
   ostream *fp;
-  vtkStructuredPoints *input=this->GetInput();
+  vtkImageData *input=this->GetInput();
   int dim[3];
   float spacing[3], origin[3];
 

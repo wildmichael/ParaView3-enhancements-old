@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToImageFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:11 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2001-01-19 19:58:04 $
+  Version:   $Revision: 1.34 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -171,6 +171,7 @@ void vtkImageToImageFilter::ComputeInputUpdateExtents( vtkDataObject *output )
     {
     if (this->Inputs[idx] != NULL)
       {
+      this->Inputs[idx]->RequestExactExtentOff();
       this->Inputs[idx]->SetUpdateExtent( inExt );
       }
     }  

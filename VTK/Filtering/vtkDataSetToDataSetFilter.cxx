@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetToDataSetFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:34 $
-  Version:   $Revision: 1.57 $
+  Date:      $Date: 2001-01-19 19:58:03 $
+  Version:   $Revision: 1.58 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -210,4 +210,5 @@ void vtkDataSetToDataSetFilter::ComputeInputUpdateExtents(vtkDataObject *output)
   input->SetUpdateNumberOfPieces( output->GetUpdateNumberOfPieces() );
   input->SetUpdateGhostLevel( output->GetUpdateGhostLevel() );
   input->SetUpdateExtent( output->GetUpdateExtent() );
+  input->RequestExactExtentOn();
 }

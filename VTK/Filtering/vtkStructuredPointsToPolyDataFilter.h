@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsToPolyDataFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:54 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2001-01-19 19:58:03 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -53,7 +53,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define __vtkStructuredPointsToPolyDataFilter_h
 
 #include "vtkPolyDataSource.h"
-#include "vtkImageToStructuredPoints.h"
+#include "vtkStructuredPoints.h"
 
 class VTK_EXPORT vtkStructuredPointsToPolyDataFilter : public vtkPolyDataSource
 {
@@ -63,9 +63,6 @@ public:
   // Description:
   // Set / get the input data or filter.
   void SetInput(vtkStructuredPoints *input);
-  void SetInput(vtkImageData *cache)
-    {vtkImageToStructuredPoints *tmp = cache->MakeImageToStructuredPoints();
-    this->SetInput(tmp->GetOutput()); tmp->Delete();}
   vtkStructuredPoints *GetInput();
   
 protected:  
