@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-12 13:18:59 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 2001-06-15 12:27:50 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -75,6 +75,7 @@ vtkRectilinearGrid::vtkRectilinearGrid()
   this->DataDescription = VTK_SINGLE_POINT;
 
   vtkFloatArray *fs=vtkFloatArray::New(); fs->Allocate(1);
+  fs->SetNumberOfTuples(1);
   fs->SetComponent(0, 0, 0.0);
   this->XCoordinates = fs; fs->Register(this);
   this->YCoordinates = fs; fs->Register(this);
