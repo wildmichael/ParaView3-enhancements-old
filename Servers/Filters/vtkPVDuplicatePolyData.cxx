@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPVDuplicatePolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-06-13 17:53:39 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2003-06-16 14:39:21 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,7 +26,7 @@
 #include "vtkSocketController.h"
 #include "vtkTiledDisplaySchedule.h"
 
-vtkCxxRevisionMacro(vtkPVDuplicatePolyData, "$Revision: 1.4 $");
+vtkCxxRevisionMacro(vtkPVDuplicatePolyData, "$Revision: 1.5 $");
 vtkStandardNewMacro(vtkPVDuplicatePolyData);
 
 vtkCxxSetObjectMacro(vtkPVDuplicatePolyData,Controller, vtkMultiProcessController);
@@ -129,7 +129,14 @@ void vtkPVDuplicatePolyData::Execute()
     }
   // MPIRoot as client.
   // Subset of satellites for zero empty.
-  myId = this->Controller->GetLocalProcessId() - this->ZeroEmpty;
+  if (this->Controller)
+    {
+    myId = this->Controller->GetLocalProcessId() - this->ZeroEmpty;
+    }
+  else
+    {
+    myId = 0;
+    }
   if (myId < 0)
     {
     this->ClientExecute(this->Controller);
