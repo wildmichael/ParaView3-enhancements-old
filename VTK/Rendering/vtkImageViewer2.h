@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageViewer2.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:38:10 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-10-17 13:23:56 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -59,10 +59,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkImageMapToWindowLevelColors.h"
 
 class vtkInteractorStyleImage;
-
-// For placement of origin in the viewer.
-#define VTK_IMAGE_VIEWER_UPPER_LEFT 0
-#define VTK_IMAGE_VIEWER_LOWER_LEFT 1
 
 class VTK_RENDERING_EXPORT vtkImageViewer2 : public vtkObject 
 {
