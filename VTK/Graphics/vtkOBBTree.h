@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOBBTree.h,v $
   Language:  C++
-  Date:      $Date: 1996-05-17 21:13:35 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1996-07-30 13:29:02 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -53,6 +53,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // is found that (approximately) divides the number cells in half. These are 
 // then assigned to the children OBB's. This process then continues until
 // the MaxLevel ivar limits the recursion, or no split plane can be found.
+//
+// A good reference for OBB-trees is Gottschalk & Manocha in Proceedings of 
+// Siggraph `96.
 
 // .SECTION Caveats
 // Since this algorithms works from a list of cells, the OBB tree will only 
