@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.h,v $
   Language:  C++
-  Date:      $Date: 2000-03-21 16:47:13 $
-  Version:   $Revision: 1.60 $
+  Date:      $Date: 2000-03-23 20:47:36 $
+  Version:   $Revision: 1.61 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -311,7 +311,7 @@ public:
   // make the output data ready for new data to be inserted. For most 
   // objects we just call Initialize. But for imagedata we leave the old
   // data in case the memory can be reused.
-  virtual void PrepareForNewData() {};
+  virtual void PrepareForNewData();
 
   void SetMemoryLimit( int vtkNotUsed(x) ) 
     { vtkErrorMacro( << "Memory limit no longer supported - use streamer" ); };
