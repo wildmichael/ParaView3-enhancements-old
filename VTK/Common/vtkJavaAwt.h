@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkJavaAwt.h,v $
   Language:  C++
-  Date:      $Date: 2003-01-23 20:07:25 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2003-02-12 22:09:02 $
+  Version:   $Revision: 1.18 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -82,7 +82,7 @@ Java_vtk_vtkPanel_RenderCreate(JNIEnv *env, jobject canvas, jobject id0)
   // also set parent id to avoid border sizes being added
   temp0->SetParentId((void *)dsi_win->hdc);
 // use mac code
-#elif defined(VTK_USE_CARBON)
+#elif defined(VTK_USE_CARBON) || defined(VTK_USE_COCOA)
   JAWT_MacDrawingSurfaceInfo* dsi_mac;
   dsi_mac = (JAWT_MacDrawingSurfaceInfo*)dsi->platformInfo;
   temp0->SetWindowId((void *)dsi_mac->fQDWindow);
