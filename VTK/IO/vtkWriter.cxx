@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:45:18 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1998-12-26 19:31:47 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -67,13 +67,24 @@ void vtkWriter::Write()
     }
 
   this->Input->Update();
-  if ( this->Input->GetDataReleased() ) this->Input->ForceUpdate();
-
-  if ( this->StartMethod ) (*this->StartMethod)(this->StartMethodArg);
+  if ( this->Input->GetDataReleased() )
+    {
+    this->Input->ForceUpdate();
+    }
+  if ( this->StartMethod )
+    {
+    (*this->StartMethod)(this->StartMethodArg);
+    }
   this->WriteData();
-  if ( this->EndMethod ) (*this->EndMethod)(this->EndMethodArg);
+  if ( this->EndMethod )
+    {
+    (*this->EndMethod)(this->EndMethodArg);
+    }
 
-  if ( this->Input->ShouldIReleaseData() ) this->Input->ReleaseData();
+  if ( this->Input->ShouldIReleaseData() )
+    {
+    this->Input->ReleaseData();
+    }
 }
 
 // Convenient alias for Write() method.
