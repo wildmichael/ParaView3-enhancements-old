@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkDataWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-05-05 14:19:56 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1995-05-24 07:43:53 $
+  Version:   $Revision: 1.5 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -618,6 +618,8 @@ int vlDataWriter::WriteCells(FILE *fp, vlCellArray *cells, char *label)
   int ncells=cells->GetNumberOfCells();
   int size=cells->GetSize();
 
+  if ( ncells < 1 ) return 1;
+
   fprintf (fp, "%s %d %d\n", label, ncells, size);
 
   if ( this->FileType == ASCII )
@@ -639,6 +641,7 @@ int vlDataWriter::WriteCells(FILE *fp, vlCellArray *cells, char *label)
     }
 
   fprintf (fp,"\n");
+  return 1;
 }
 
 void vlDataWriter::PrintSelf(ostream& os, vlIndent indent)
