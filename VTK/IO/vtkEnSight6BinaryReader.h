@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSight6BinaryReader.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-13 17:14:28 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2002-09-01 13:03:05 $
+  Version:   $Revision: 1.14 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -41,6 +41,7 @@
 #include "vtkEnSightReader.h"
 
 class vtkIdTypeArray;
+class vtkPoints;
 
 class VTK_IO_EXPORT vtkEnSight6BinaryReader : public vtkEnSightReader
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOBJReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:17 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2002-09-01 13:03:05 $
+  Version:   $Revision: 1.21 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,10 +16,12 @@
 
 =========================================================================*/
 #include "vtkOBJReader.h"
-#include "vtkObjectFactory.h"
-#include "vtkFloatArray.h"
 
-vtkCxxRevisionMacro(vtkOBJReader, "$Revision: 1.20 $");
+#include "vtkFloatArray.h"
+#include "vtkObjectFactory.h"
+#include "vtkPolyData.h"
+
+vtkCxxRevisionMacro(vtkOBJReader, "$Revision: 1.21 $");
 vtkStandardNewMacro(vtkOBJReader);
 
 // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBYUReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:09 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 2002-09-01 13:03:05 $
+  Version:   $Revision: 1.47 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,11 +16,13 @@
 
 =========================================================================*/
 #include "vtkBYUReader.h"
-#include "vtkPoints.h"
+
 #include "vtkFloatArray.h"
 #include "vtkObjectFactory.h"
+#include "vtkPoints.h"
+#include "vtkPolyData.h"
 
-vtkCxxRevisionMacro(vtkBYUReader, "$Revision: 1.46 $");
+vtkCxxRevisionMacro(vtkBYUReader, "$Revision: 1.47 $");
 vtkStandardNewMacro(vtkBYUReader);
 
 vtkBYUReader::vtkBYUReader()

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSightReader.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-20 16:49:40 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2002-09-01 13:03:05 $
+  Version:   $Revision: 1.20 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,6 +23,7 @@
 #include "vtkGenericEnSightReader.h"
 
 class vtkDataSetCollection;
+class vtkIdList;
 
 class VTK_IO_EXPORT vtkEnSightReader : public vtkGenericEnSightReader
 {
