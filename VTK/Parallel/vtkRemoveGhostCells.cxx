@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRemoveGhostCells.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-26 20:49:40 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-07-02 18:56:14 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -43,7 +43,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkObjectFactory.h"
 #include "vtkUnsignedCharArray.h"
 
-//------------------------------------------------------------------------------
+//----------------------------------------------------------------------------
 vtkRemoveGhostCells* vtkRemoveGhostCells::New()
 {
   // First try to create the object from the vtkObjectFactory
@@ -66,7 +66,7 @@ void vtkRemoveGhostCells::Execute()
 {
   vtkCellArray *newCells;
   vtkCellData *cellData;
-  int numCells, cellId, newCellId;
+  vtkIdType numCells, cellId, newCellId;
   vtkPolyData *input = this->GetInput();
   vtkPolyData *output = this->GetOutput();
   vtkCell *cell;

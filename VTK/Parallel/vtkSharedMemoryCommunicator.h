@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSharedMemoryCommunicator.h,v $
   Language:  C++
-  Date:      $Date: 2001-01-12 21:24:10 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-07-02 18:56:14 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -85,6 +85,7 @@ public:
 		   int tag);
   virtual int Send(char* data, int length, int remoteThreadId, int tag);
   virtual int Send(float* data, int length, int remoteThreadId, int tag);
+  virtual int Send(vtkIdType* data, int length, int remoteThreadId, int tag);
   virtual int Send(vtkDataObject* data, int remoteThreadId, int tag);
 
   // Description:
@@ -98,6 +99,8 @@ public:
   virtual int Receive(char* data, int length, int remoteThreadId, 
 		      int tag);
   virtual int Receive(float* data, int length, int remoteThreadId, 
+		      int tag);
+  virtual int Receive(vtkIdType* data, int length, int remoteThreadId, 
 		      int tag);
   virtual int Receive(vtkDataObject *data, int remoteThreadId, int tag);
 

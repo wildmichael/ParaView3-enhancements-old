@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCutMaterial.h,v $
   Language:  C++
-  Date:      $Date: 2001-02-21 17:23:09 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-07-02 18:56:14 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -112,5 +112,3 @@ protected:
 };
 
 #endif
-
-

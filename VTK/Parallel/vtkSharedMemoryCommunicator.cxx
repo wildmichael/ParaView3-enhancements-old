@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSharedMemoryCommunicator.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-12 21:24:10 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-07-02 18:56:14 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -402,8 +402,13 @@ int vtkSharedMemoryCommunicator::Send(float* data, int length,
   return this->Send(NULL, (void*)data, length, remoteThreadId, tag);
 }
 
-
-
+//----------------------------------------------------------------------------
+int vtkSharedMemoryCommunicator::Send(vtkIdType* data, int length, 
+				      int remoteThreadId, int tag)
+{
+  length = length * sizeof(float);
+  return this->Send(NULL, (void*)data, length, remoteThreadId, tag);
+}
 
 //----------------------------------------------------------------------------
 int vtkSharedMemoryCommunicator::Receive(int* data, int length, 
@@ -438,7 +443,13 @@ int vtkSharedMemoryCommunicator::Receive(float* data, int length,
   return this->Receive(NULL, (void*)data, length, remoteThreadId, tag);
 }
 
-
+//----------------------------------------------------------------------------
+int vtkSharedMemoryCommunicator::Receive(vtkIdType* data, int length, 
+					 int remoteThreadId, int tag)
+{
+  length = length * sizeof(vtkIdType);
+  return this->Receive(NULL, (void*)data, length, remoteThreadId, tag);
+}
 
 //----------------------------------------------------------------------------
 int vtkSharedMemoryCommunicator::Send(vtkDataObject* data, 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageComposite.h,v $
   Language:  C++
-  Date:      $Date: 2001-01-16 16:40:02 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-07-02 18:56:14 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -106,5 +106,3 @@ private:
 };
 
 #endif
-
-
