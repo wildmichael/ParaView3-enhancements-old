@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 1998-12-21 14:59:16 $
-  Version:   $Revision: 1.53 $
+  Date:      $Date: 1999-02-10 18:06:56 $
+  Version:   $Revision: 1.54 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -430,6 +430,12 @@ public:
   // know about the change.
   vtkSetVector2Macro(Size,int);
   vtkGetVector2Macro(Size,int);
+  
+  // Description:
+  // Return the CurrentRenderer. This is the renderer that was selected
+  // by the latest FindPokedRenderer call.
+  vtkGetObjectMacro(CurrentRenderer,vtkRenderer);
+  
   
 protected:
   vtkRenderWindow *RenderWindow;
