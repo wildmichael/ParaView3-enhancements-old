@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyle.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-30 05:28:58 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2002-04-30 16:33:06 $
+  Version:   $Revision: 1.40 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -278,16 +278,13 @@ protected:
   
   // Keep track of current state
 
-  float Center[2];
-  float DeltaAzimuth;
-  float DeltaElevation;
-
   int   State;  
   int   AnimState;  
 
-  int   HandleObservers; // bool: should observers be handled here
+  // Should observers be handled here, should we fire timers
 
-  int   UseTimers;       // bool: should we fire timers
+  int   HandleObservers; 
+  int   UseTimers;       
 
   vtkLight           *CurrentLight;
 
