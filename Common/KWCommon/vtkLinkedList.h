@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinkedList.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-04 00:07:14 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-04-04 18:04:50 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -46,10 +46,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "vtkAbstractList.h"
 
-#define vtkAbstractListCompareFunction(DType, CompareFunction) \
-    int (*CompareFunction)(DType item1, DType item2)
-
-
 template <class DType> class vtkLinkedListNode;
 
 template <class DType>
@@ -62,58 +58,59 @@ public:
   
   // Description:
   // Append an Item to the end of the linked list.
-  int AppendItem(DType a);
+  virtual int AppendItem(DType a);
   
   // Description:
   // Insert an Item to the front of the linked list.
-  int PrependItem(DType a);
+  virtual int PrependItem(DType a);
   
   // Description:
   // Insert an Item to the specific location in the linked list.
-  int InsertItem(unsigned long loc, DType a);
+  virtual int InsertItem(vtkIdType loc, DType a);
   
   // Description:
   // Sets the Item at the specific location in the list to a new value.
   // It also checks if the item can be set.
   // It returns VTK_OK if successfull.
-  virtual int SetItem(unsigned long loc, DType a);
+  virtual int SetItem(vtkIdType loc, DType a);
 
   // Description:
   // Sets the Item at the specific location in the list to a new value.
   // This method does not perform any error checking.
-  virtual void SetItemNoCheck(unsigned long loc, DType a);
+  virtual void SetItemNoCheck(vtkIdType loc, DType a);
 
    // Description:
   // Remove an Item from the linked list
-  int RemoveItem(unsigned long id);
+  virtual int RemoveItem(vtkIdType id);
   
   // Description:
   // Return an item that was previously added to this linked list. 
-  int GetItem(unsigned long id, DType& ret);
+  virtual int GetItem(vtkIdType id, DType& ret);
       
   // Description:
   // Find an item in the linked list. Return VTK_OK if it was found
   // od VTK_ERROR if not found. The location of the item is returned in res.
-  int FindItem(DType a, unsigned long &res);
+  virtual int FindItem(DType a, vtkIdType &res);
 
   // Description:
   // Find an item in the linked list using a comparison routine. 
   // Return VTK_OK if it was found
   // od VTK_ERROR if not found. The location of the item is returned in res.
-  int FindItem(DType a, vtkAbstractListCompareFunction(DType, compare), 
-	       unsigned long &res);
+  virtual int FindItem(DType a, 
+		       vtkAbstractListCompareFunction(DType, compare), 
+		       vtkIdType &res);
   
   // Description:
   // Return the number of items currently held in this container. This
   // different from GetSize which is provided for some containers. GetSize
   // will return how many items the container can currently hold.
-  virtual unsigned long GetNumberOfItems() { return this->NumberOfItems; }
+  virtual vtkIdType GetNumberOfItems() { return this->NumberOfItems; }
   
   // Description:
   // Returns the number of items the container can currently hold.
   // Since capacity is arbitrary for the linked list, this will 
   // always return the current number of elements.
-  virtual unsigned long GetSize() { return this->NumberOfItems; }
+  virtual vtkIdType GetSize() { return this->NumberOfItems; }
 
   // Description:
   // Removes all items from the container.
@@ -122,24 +119,24 @@ public:
   // Description:
   // Since linked list does not have the notion of capacity,
   // this method always return VTK_ERROR.
-  virtual int SetSize(unsigned long ) { return VTK_ERROR; }
+  virtual int SetSize(vtkIdType ) { return VTK_ERROR; }
 
   // Description:
   // This method dumps debug of the linked list.
-  void DebugList();
+  virtual void DebugList();
 
 protected:
   vtkLinkedList() {
     this->Head = 0; this->Tail = 0;
     this->NumberOfItems = 0; 
   }
-  ~vtkLinkedList();
+  virtual ~vtkLinkedList();
 
   // Description:
   // Find a node with given index.
-  virtual vtkLinkedListNode<DType>* FindNode(unsigned long i);
+  virtual vtkLinkedListNode<DType>* FindNode(vtkIdType i);
 
-  unsigned long NumberOfItems;
+  vtkIdType NumberOfItems;
   vtkLinkedListNode<DType> *Head;
   vtkLinkedListNode<DType> *Tail;
 };
