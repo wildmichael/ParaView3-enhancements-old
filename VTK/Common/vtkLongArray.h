@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLongArray.h,v $
   Language:  C++
-  Date:      $Date: 1998-04-16 16:08:07 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-04-16 19:05:03 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -82,12 +82,16 @@ public:
   void *GetVoidPointer(const int id) {return (void *)this->GetPointer(id);};
   void DeepCopy(vtkDataArray& da);
 
+  void SetArray(long* array, int size, int save);
+
 private:
   long *Array;   // pointer to data
   long *Resize(const int sz);  // function to resize data
 
   int TupleSize; //used for data conversion
   float *Tuple;
+
+  int SaveUserArray;
 };
 
 // Description:
