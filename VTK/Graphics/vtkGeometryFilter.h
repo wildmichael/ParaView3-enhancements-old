@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGeometryFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:06:33 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 1999-11-10 21:32:36 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -160,8 +160,9 @@ protected:
   void operator=(const vtkGeometryFilter&) {};
 
   void Execute();
-  int PointMinimum;
+  void UnstructuredGridExecute();
   int PointMaximum;
+  int PointMinimum;
   int CellMinimum;
   int CellMaximum;
   float Extent[6];
