@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtentTranslator.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-18 19:55:45 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2001-01-19 21:43:44 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -192,7 +192,7 @@ int vtkExtentTranslator::SplitExtent(int piece, int numPieces, int *ext)
         {
         // piece is in the first half
         // set extent to the first half of the previous value.
-        ext[splitAxis*2+1] = mid.to_int();
+        ext[splitAxis*2+1] = mid.CastToInt();
         // piece must adjust.
         numPieces = numPiecesInFirstHalf;
         }
@@ -200,7 +200,7 @@ int vtkExtentTranslator::SplitExtent(int piece, int numPieces, int *ext)
         {
         // piece is in the second half.
         // set the extent to be the second half. (two halves share points)
-        ext[splitAxis*2] = mid.to_int();
+        ext[splitAxis*2] = mid.CastToInt();
         // piece must adjust
         numPieces = numPieces - numPiecesInFirstHalf;
         piece -= numPiecesInFirstHalf;

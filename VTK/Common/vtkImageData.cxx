@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-19 19:58:02 $
-  Version:   $Revision: 1.103 $
+  Date:      $Date: 2001-01-19 21:43:44 $
+  Version:   $Revision: 1.104 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -229,7 +229,7 @@ unsigned long vtkImageData::GetEstimatedMemorySize()
 
   // Convert from double bytes to unsigned long kilobytes
   size = size >> 10;
-  lsize = size.to_unsigned_long();
+  lsize = size.CastToUnsignedLong();
   return lsize;
 }
 
