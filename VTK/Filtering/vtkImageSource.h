@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSource.h,v $
   Language:  C++
-  Date:      $Date: 2000-01-07 08:57:12 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2000-01-12 15:00:51 $
+  Version:   $Revision: 1.40 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -94,7 +94,8 @@ protected:
   void Execute();
   virtual void Execute(vtkImageData *data);
 
-  void ComputeRequiredInputUpdateExtent( int in[6], int out[6] ) 
+  void ComputeRequiredInputUpdateExtent( int *vtkNotUsed(in), 
+					 int *vtkNotUsed(out) ) 
     { vtkErrorMacro( << "Obsolete method: Use ComputeInputUpdateExtent" ); };
 };
 
