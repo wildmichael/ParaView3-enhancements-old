@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPLOT3DReader.h,v $
   Language:  C++
-  Date:      $Date: 2002-09-05 18:50:32 $
-  Version:   $Revision: 1.53 $
+  Date:      $Date: 2003-05-14 19:54:31 $
+  Version:   $Revision: 1.54 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -231,7 +231,7 @@ public:
   // Description:
   // Return 1 if the reader can read the given file name. Only meaningful
   // for binary files.
-  virtual int CanReadFile(const char* fname);
+  virtual int CanReadBinaryFile(const char* fname);
 
 //BTX
   enum 
