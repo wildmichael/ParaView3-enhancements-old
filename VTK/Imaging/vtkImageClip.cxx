@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageClip.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-02-05 17:00:44 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1998-02-20 15:14:02 $
+  Version:   $Revision: 1.16 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -192,7 +192,10 @@ void vtkImageClip::InternalUpdate(vtkImageData *outData)
   this->Input->SetUpdateExtent(this->Output->GetUpdateExtent());
   inData = this->Input->UpdateAndReturnData();
   outData->GetPointData()->PassData(inData->GetPointData());
-
+  // cliping will change the extent but since we are passing the data
+  // we need to reset it back to the original input size
+  outData->SetExtent(inData->GetExtent());
+  
   // release input data
   if (this->Input->ShouldIReleaseData())
     {
