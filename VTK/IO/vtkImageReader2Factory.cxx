@@ -3,8 +3,8 @@
 Program:   Visualization Toolkit
 Module:    $RCSfile: vtkImageReader2Factory.cxx,v $
 Language:  C++
-Date:      $Date: 2002-01-04 22:58:46 $
-Version:   $Revision: 1.3 $
+Date:      $Date: 2002-01-07 22:48:09 $
+Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -44,12 +44,15 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkImageReader2.h"
 #include "vtkGESignaReader.h"
 #include "vtkPNGReader.h"
+#include "vtkPNMReader.h"
 #include "vtkJPEGReader.h"
 #include "vtkTIFFReader.h"
+#include "vtkBMPReader.h"
+#include "vtkSLCReader.h"
 #include "vtkImageReader2Collection.h"
 #include "vtkObjectFactoryCollection.h"
 
-vtkCxxRevisionMacro(vtkImageReader2Factory, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkImageReader2Factory, "$Revision: 1.4 $");
 vtkStandardNewMacro(vtkImageReader2Factory);
 
 class vtkCleanUpImageReader2Factory
@@ -149,7 +152,16 @@ void vtkImageReader2Factory::InitializeReaders()
     AddItem((reader = vtkPNGReader::New()));
   reader->Delete();
   vtkImageReader2Factory::AvailiableReaders->
+    AddItem((reader = vtkPNMReader::New()));
+  reader->Delete();
+  vtkImageReader2Factory::AvailiableReaders->
     AddItem((reader = vtkTIFFReader::New()));
+  reader->Delete();
+  vtkImageReader2Factory::AvailiableReaders->
+    AddItem((reader = vtkBMPReader::New()));
+  reader->Delete();
+  vtkImageReader2Factory::AvailiableReaders->
+    AddItem((reader = vtkSLCReader::New()));
   reader->Delete();
   vtkImageReader2Factory::AvailiableReaders->
     AddItem((reader = vtkJPEGReader::New()));
