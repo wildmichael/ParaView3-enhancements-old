@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastCompositeFunction.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:08:22 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1999-10-19 17:25:05 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -65,11 +65,6 @@ public:
   void PrintSelf( ostream& os, vtkIndent index );
 
   // Description:
-  // Bogus routine right now until I figure out how to get to the
-  // volume's properties from here....
-  float GetZeroOpacityThreshold( vtkVolume *vol );
-
-  // Description:
   // Set the CompositeMethod to either Classify First or Interpolate First
   vtkSetClampMacro( CompositeMethod, int,
         VTK_COMPOSITE_CLASSIFY_FIRST, VTK_COMPOSITE_INTERPOLATE_FIRST );
@@ -83,7 +78,10 @@ public:
 //BTX
   void CastRay( VTKRayCastRayInfo *rayInfo,
 		VTKRayCastVolumeInfo *volumeInfo);
+
+  float GetZeroOpacityThreshold( vtkVolume *vol );
 //ETX
+
 protected:
   vtkVolumeRayCastCompositeFunction();
   ~vtkVolumeRayCastCompositeFunction();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeTextureMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-24 21:17:12 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1999-10-19 17:25:07 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -90,6 +90,23 @@ void vtkVolumeTextureMapper::SetGradientEstimator(
   // Actually set the estimator, and consider the object Modified
   this->GradientEstimator = gradest;
   this->Modified();
+}
+
+void vtkVolumeTextureMapper::GetGradientMagnitudeRange( float range[2] )
+{
+  if ( this->GradientEstimator == NULL )
+    {
+    range[0] = 0.0;
+    range[1] = 1.0;
+    }
+  else
+    {
+    range[0] = -(this->GradientEstimator->GetGradientMagnitudeBias());
+    range[1] = 
+      ( 255.0 / 
+	this->GradientEstimator->GetGradientMagnitudeScale() ) -
+      this->GradientEstimator->GetGradientMagnitudeBias();
+    }
 }
 
 void vtkVolumeTextureMapper::Update()

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeTextureMapper.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-24 21:17:12 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-10-19 17:25:07 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -68,6 +68,23 @@ public:
   // Update the volume rendering pipeline by updating the scalar input
   virtual void Update();
 
+  // Description:
+  // Set / Get the gradient estimator used to estimate normals
+  void SetGradientEstimator( vtkEncodedGradientEstimator *gradest );
+  vtkGetObjectMacro( GradientEstimator, vtkEncodedGradientEstimator );
+
+  // Description:
+  // Get the gradient shader.
+  vtkGetObjectMacro( GradientShader, vtkEncodedGradientShader );
+
+//BTX
+
+  // Description:
+  // WARNING: INTERNAL METHOD - NOT INTENDED FOR GENERAL USE
+  virtual void GetGradientMagnitudeRange( float range[2] );
+
+  // Description:
+  // WARNING: INTERNAL METHOD - NOT INTENDED FOR GENERAL USE
   virtual int GetMapperType() {return VTK_FRAMEBUFFER_VOLUME_MAPPER;};
 
   // Description:
@@ -75,8 +92,6 @@ public:
   // DO NOT USE THIS METHOD OUTSIDE OF THE RENDERING PROCESS
   // Render the volume
   virtual void Render(vtkRenderer *ren, vtkVolume *vol)=0;
-
-//BTX
 
   // Description:
   // Allow access to the arrays / variables from the templated functions in the
@@ -97,14 +112,6 @@ public:
   vtkGetVectorMacro( DataSpacing, float, 3 );
 //ETX
 
-  // Description:
-  // Set / Get the gradient estimator used to estimate normals
-  void SetGradientEstimator( vtkEncodedGradientEstimator *gradest );
-  vtkGetObjectMacro( GradientEstimator, vtkEncodedGradientEstimator );
-
-  // Description:
-  // Get the gradient shader.
-  vtkGetObjectMacro( GradientShader, vtkEncodedGradientShader );
 
 protected:
   vtkVolumeTextureMapper();

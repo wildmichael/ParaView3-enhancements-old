@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProperty.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:08:21 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1999-10-19 17:25:05 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -111,33 +111,6 @@ void vtkVolumeProperty::UpdateMTimes()
   this->RGBTransferFunctionMTime.Modified();
   this->ScalarOpacityMTime.Modified();
   this->GradientOpacityMTime.Modified();
-}
-
-void vtkVolumeProperty::SetGradientOpacityScale( float v )
-{
-  vtkWarningMacro( << "This is an obsolete method.\n" <<
-    "Set the opacity scale in the vtkEncodedGradientEstimator" );
-}
-
-float vtkVolumeProperty::GetGradientOpacityScale( )
-{
-  vtkWarningMacro( << "This is an obsolete method.\n" <<
-    "Get the opacity scale from the vtkEncodedGradientEstimator" );
-
-  return 0;
-}
-
-void vtkVolumeProperty::SetGradientOpacityBias( float v )
-{
-  vtkErrorMacro( << "This is an obsolete method.\n" <<
-    "Set the opacity bias in the vtkEncodedGradientEstimator" );
-}
-
-float vtkVolumeProperty::GetGradientOpacityBias( )
-{
-  vtkWarningMacro( << "This is an obsolete method.\n" <<
-    "Get the opacity bias from the vtkEncodedGradientEstimator" );
-  return 0.0;
 }
 
 unsigned long int vtkVolumeProperty::GetMTime()
