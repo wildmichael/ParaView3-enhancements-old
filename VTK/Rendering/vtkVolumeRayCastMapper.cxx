@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-20 21:12:11 $
-  Version:   $Revision: 1.61 $
+  Date:      $Date: 2001-08-20 21:18:41 $
+  Version:   $Revision: 1.62 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1898,6 +1898,11 @@ void vtkVolumeRayCastMapper::PrintSelf(ostream& os, vtkIndent indent)
   vtkVolumeMapper::PrintSelf(os,indent);
 
   os << indent << "Sample Distance: " << this->SampleDistance << "\n";
+  os << indent << "Image Sample Distance: " << this->ImageSampleDistance << "\n";
+  os << indent << "Minimum Image Sample Distance: " << this->MinimumImageSampleDistance << "\n";
+  os << indent << "Maximum Image Sample Distance: " << this->MaximumImageSampleDistance << "\n";
+  os << indent << "Auto Adjust Sample Distances: " << this->AutoAdjustSampleDistances << "\n";
+  os << indent << "Number Of Threads: " << this->NumberOfThreads << "\n";
 
   if ( this->RayBounder )
     {
