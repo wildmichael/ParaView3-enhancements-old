@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGlyph2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:21 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2002-06-12 14:47:13 $
+  Version:   $Revision: 1.15 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 #include "vtkUnsignedCharArray.h"
 #include "vtkFloatArray.h"
 
-vtkCxxRevisionMacro(vtkGlyph2D, "$Revision: 1.14 $");
+vtkCxxRevisionMacro(vtkGlyph2D, "$Revision: 1.15 $");
 vtkStandardNewMacro(vtkGlyph2D);
 
 void vtkGlyph2D::Execute()
@@ -60,9 +60,9 @@ void vtkGlyph2D::Execute()
 
   pd = input->GetPointData();
 
-  inScalars = pd->GetScalars();
-  inVectors = pd->GetVectors();
-  inNormals = pd->GetNormals();
+  inScalars = pd->GetScalars(this->InputScalarsSelection);
+  inVectors = pd->GetVectors(this->InputVectorsSelection);
+  inNormals = pd->GetNormals(this->InputNormalsSelection);
 
   vtkDataArray* temp = 0;
   if (pd)
