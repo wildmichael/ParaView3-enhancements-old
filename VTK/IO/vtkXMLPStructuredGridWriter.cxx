@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLPStructuredGridWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-16 18:23:07 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-11-22 20:48:59 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 #include "vtkXMLStructuredGridWriter.h"
 #include "vtkStructuredGrid.h"
 
-vtkCxxRevisionMacro(vtkXMLPStructuredGridWriter, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkXMLPStructuredGridWriter, "$Revision: 1.2 $");
 vtkStandardNewMacro(vtkXMLPStructuredGridWriter);
 
 //----------------------------------------------------------------------------
@@ -76,4 +76,12 @@ vtkXMLPStructuredGridWriter::CreateStructuredPieceWriter()
   vtkXMLStructuredGridWriter* pWriter = vtkXMLStructuredGridWriter::New();
   pWriter->SetInput(this->GetInput());
   return pWriter;
+}
+
+//----------------------------------------------------------------------------
+void vtkXMLPStructuredGridWriter::WritePData(vtkIndent indent)
+{
+  this->Superclass::WritePData(indent);
+  vtkStructuredGrid* input = this->GetInput();  
+  this->WritePPoints(input->GetPoints(), indent);
 }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLPStructuredGridWriter.h,v $
   Language:  C++
-  Date:      $Date: 2002-10-16 18:23:07 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-11-22 20:48:59 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -53,6 +53,7 @@ protected:
   const char* GetDataSetName();
   const char* GetDefaultFileExtension();
   vtkXMLStructuredDataWriter* CreateStructuredPieceWriter(); 
+  void WritePData(vtkIndent indent);
   
 private:
   vtkXMLPStructuredGridWriter(const vtkXMLPStructuredGridWriter&);  // Not implemented.

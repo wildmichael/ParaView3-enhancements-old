@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLPStructuredGridReader.h,v $
   Language:  C++
-  Date:      $Date: 2002-10-16 18:23:06 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-11-22 20:48:59 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -54,10 +54,14 @@ protected:
   const char* GetDataSetName();
   void SetOutputExtent(int* extent);
   void GetPieceInputExtent(int index, int* extent);
+  int ReadPrimaryElement(vtkXMLDataElement* ePrimary);
   void SetupOutputInformation();
   void SetupOutputData();
   int ReadPieceData();
-  vtkXMLDataReader* CreatePieceReader();
+  vtkXMLDataReader* CreatePieceReader();  
+  
+  // The PPoints element with point information.
+  vtkXMLDataElement* PPointsElement;
   
 private:
   vtkXMLPStructuredGridReader(const vtkXMLPStructuredGridReader&);  // Not implemented.
