@@ -5,8 +5,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDesktopDeliveryClient.h,v $
   Language:  C++
-  Date:      $Date: 2003-09-10 19:41:54 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2003-09-22 16:59:41 $
+  Version:   $Revision: 1.3 $
 
 =========================================================================*/
 // .NAME vtkDesktopDeliveryClient - An object for remote rendering.
@@ -29,12 +29,9 @@
 #ifndef __vtkDesktopDeliveryClient_h
 #define __vtkDesktopDeliveryClient_h
 
-//#include "vtksnlParallelWin32Header.h"
+#include "vtkParallelRenderManager.h"
 
-#include <vtkParallelRenderManager.h>
-
-class VTK_EXPORT vtkDesktopDeliveryClient
-    : public vtkParallelRenderManager
+class VTK_EXPORT vtkDesktopDeliveryClient : public vtkParallelRenderManager
 {
 public:
   vtkTypeRevisionMacro(vtkDesktopDeliveryClient, vtkParallelRenderManager);
@@ -133,6 +130,8 @@ protected:
   vtkUnsignedCharArray *SquirtBuffer;
 
   void SquirtDecompress(vtkUnsignedCharArray *in, vtkUnsignedCharArray *out);
+
+  int UseCompositing;
 
 private:
   vtkDesktopDeliveryClient(const vtkDesktopDeliveryClient &); //Not implemented
