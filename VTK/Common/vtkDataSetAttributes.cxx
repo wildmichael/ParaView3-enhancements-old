@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetAttributes.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-29 17:14:46 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2001-07-26 13:02:10 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -481,7 +481,7 @@ void vtkDataSetAttributes::CopyAllocate(vtkDataSetAttributes* pd, vtkIdType sze,
       newDA->SetName(da->GetName());
       if ( sze > 0 )
         {
-        newDA->Allocate(sze,ext);
+        newDA->Allocate(sze*da->GetNumberOfTuples(),ext);
         }
       else
         {
