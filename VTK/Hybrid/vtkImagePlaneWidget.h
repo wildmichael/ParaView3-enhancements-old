@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagePlaneWidget.h,v $
   Language:  C++
-  Date:      $Date: 2003-02-04 16:40:13 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2003-03-04 14:23:54 $
+  Version:   $Revision: 1.32 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -377,6 +377,11 @@ protected:
                             unsigned long event,
                             void* clientdata,
                             void* calldata);
+
+  // internal utility method that adds observers to the RenderWindowInteractor
+  // so that our ProcessEvents is eventually called.  this method is called
+  // by SetEnabled as well as SetInteraction
+  void AddObservers();
 
   // ProcessEvents() dispatches to these methods.
   void OnMouseMove();

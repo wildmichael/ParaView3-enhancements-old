@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagePlaneWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-02-04 16:40:47 $
-  Version:   $Revision: 1.61 $
+  Date:      $Date: 2003-03-04 14:23:54 $
+  Version:   $Revision: 1.62 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -44,7 +44,7 @@
 #include "vtkTextureMapToPlane.h"
 #include "vtkTransform.h"
 
-vtkCxxRevisionMacro(vtkImagePlaneWidget, "$Revision: 1.61 $");
+vtkCxxRevisionMacro(vtkImagePlaneWidget, "$Revision: 1.62 $");
 vtkStandardNewMacro(vtkImagePlaneWidget);
 
 vtkCxxSetObjectMacro(vtkImagePlaneWidget, PlaneProperty, vtkProperty);
@@ -252,22 +252,12 @@ void vtkImagePlaneWidget::SetEnabled(int enabling)
 
     this->Enabled = 1;
 
-    // listen for the following events
-    vtkRenderWindowInteractor *i = this->Interactor;
-    i->AddObserver(vtkCommand::MouseMoveEvent, this->EventCallbackCommand,
-                   this->Priority);
-    i->AddObserver(vtkCommand::LeftButtonPressEvent,
-                   this->EventCallbackCommand, this->Priority);
-    i->AddObserver(vtkCommand::LeftButtonReleaseEvent,
-                   this->EventCallbackCommand, this->Priority);
-    i->AddObserver(vtkCommand::MiddleButtonPressEvent,
-                   this->EventCallbackCommand, this->Priority);
-    i->AddObserver(vtkCommand::MiddleButtonReleaseEvent,
-                   this->EventCallbackCommand, this->Priority);
-    i->AddObserver(vtkCommand::RightButtonPressEvent,
-                   this->EventCallbackCommand, this->Priority);
-    i->AddObserver(vtkCommand::RightButtonReleaseEvent,
-                   this->EventCallbackCommand, this->Priority);
+    // we have to honour this ivar: it could be that this->Interaction was
+    // set to off when we were disabled
+    if (this->Interaction)
+    {
+      this->AddObservers();
+    }
 
     // Add the plane
     this->CurrentRenderer->AddProp(this->PlaneOutlineActor);
@@ -373,6 +363,29 @@ void vtkImagePlaneWidget::ProcessEvents(vtkObject* vtkNotUsed(object),
     }
 }
 
+void vtkImagePlaneWidget::AddObservers(void)
+{
+    // listen for the following events
+    vtkRenderWindowInteractor *i = this->Interactor;
+    if (i)
+    {
+        i->AddObserver(vtkCommand::MouseMoveEvent, this->EventCallbackCommand,
+                       this->Priority);
+        i->AddObserver(vtkCommand::LeftButtonPressEvent,
+                       this->EventCallbackCommand, this->Priority);
+        i->AddObserver(vtkCommand::LeftButtonReleaseEvent,
+                       this->EventCallbackCommand, this->Priority);
+        i->AddObserver(vtkCommand::MiddleButtonPressEvent,
+                       this->EventCallbackCommand, this->Priority);
+        i->AddObserver(vtkCommand::MiddleButtonReleaseEvent,
+                       this->EventCallbackCommand, this->Priority);
+        i->AddObserver(vtkCommand::RightButtonPressEvent,
+                       this->EventCallbackCommand, this->Priority);
+        i->AddObserver(vtkCommand::RightButtonReleaseEvent,
+                       this->EventCallbackCommand, this->Priority);
+    }
+}
+
 void vtkImagePlaneWidget::SetInteraction(int interact)
 {
   if (this->Interactor && this->Enabled)
@@ -387,21 +400,7 @@ void vtkImagePlaneWidget::SetInteraction(int interact)
       }
     else
       {
-      vtkRenderWindowInteractor *i = this->Interactor;
-      i->AddObserver(vtkCommand::MouseMoveEvent, this->EventCallbackCommand,
-                     this->Priority);
-      i->AddObserver(vtkCommand::LeftButtonPressEvent,
-                     this->EventCallbackCommand, this->Priority);
-      i->AddObserver(vtkCommand::LeftButtonReleaseEvent,
-                     this->EventCallbackCommand, this->Priority);
-      i->AddObserver(vtkCommand::MiddleButtonPressEvent,
-                     this->EventCallbackCommand, this->Priority);
-      i->AddObserver(vtkCommand::MiddleButtonReleaseEvent,
-                     this->EventCallbackCommand, this->Priority);
-      i->AddObserver(vtkCommand::RightButtonPressEvent,
-                     this->EventCallbackCommand, this->Priority);
-      i->AddObserver(vtkCommand::RightButtonReleaseEvent,
-                     this->EventCallbackCommand, this->Priority);
+        this->AddObservers();
       }
     this->Interaction = interact;
     }
