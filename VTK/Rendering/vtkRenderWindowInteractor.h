@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 1998-11-05 22:13:10 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 1998-11-11 21:46:12 $
+  Version:   $Revision: 1.50 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -381,6 +381,15 @@ public:
   void SetTrackballModeToJoystick();
   vtkGetMacro(TrackballMode, int);
   
+  // Description:
+  // This methods sets the Size ivar of the interactor without
+  // actually changing the size of the window. Normally
+  // application programmers would use UpdateSize if anything.
+  // This is useful for letting someone else change the size of
+  // the rendering window and just letting the interactor
+  // know about the change.
+  vtkSetVector2Macro(Size,int);
+  vtkGetVector2Macro(Size,int);
   
 protected:
   vtkRenderWindow *RenderWindow;
