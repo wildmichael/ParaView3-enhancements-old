@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtentTranslator.h,v $
   Language:  C++
-  Date:      $Date: 2000-07-26 11:43:01 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2000-08-07 22:31:30 $
+  Version:   $Revision: 1.2 $
 
 
 
@@ -76,16 +76,35 @@ public:
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
-  // Returns 0 if no data exist for a piece.
-  // The whole extent SHould be passed in as the ext.
-  // It is modified to return the result.
-  int SplitExtent(int piece, int numPieces, int *ext);  
+  // Set the Piece/NumPieces. Set the WholeExtent and then call PieceToExtent.
+  // The result can be obtained from the Extent ivar.
+  vtkSetVector6Macro(WholeExtent, int);
+  vtkGetVector6Macro(WholeExtent, int);
+  vtkSetVector6Macro(Extent, int);
+  vtkGetVector6Macro(Extent, int);
+  void PieceToExtent();
+  vtkSetMacro(Piece,int);
+  vtkGetMacro(Piece,int);
+  vtkSetMacro(NumberOfPieces,int);
+  vtkGetMacro(NumberOfPieces,int);
 
 protected:
   vtkExtentTranslator();
   ~vtkExtentTranslator();
   vtkExtentTranslator(const vtkExtentTranslator&) {};
   void operator=(const vtkExtentTranslator&) {};
+
+  // Description:
+  // Returns 0 if no data exist for a piece.
+  // The whole extent SHould be passed in as the ext.
+  // It is modified to return the result.
+  int SplitExtent(int piece, int numPieces, int *ext);  
+
+
+  int Piece;
+  int NumberOfPieces;
+  int Extent[6];
+  int WholeExtent[6];
 
   int MinimumPieceSize[3];
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGrid.h,v $
   Language:  C++
-  Date:      $Date: 2000-07-31 12:07:00 $
-  Version:   $Revision: 1.68 $
+  Date:      $Date: 2000-08-07 22:31:30 $
+  Version:   $Revision: 1.69 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -77,12 +77,6 @@ public:
   // Description:
   // Copy the geometric and topological structure of an input poly data object.
   void CopyStructure(vtkDataSet *ds);
-
-  // Description:
-  // If the update extent does not lie within the extent, this method will
-  // release the data and set the extent to be the update extent.
-  // Otherwise, nothing changes. 
-  virtual void ModifyExtentForUpdateExtent();
 
   // Description:
   // Standard vtkDataSet API methods. See vtkDataSet for more information.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-07-26 11:41:34 $
-  Version:   $Revision: 1.67 $
+  Date:      $Date: 2000-08-07 22:31:30 $
+  Version:   $Revision: 1.68 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -170,22 +170,6 @@ void vtkStructuredGrid::Initialize()
     }
   this->PointVisibility = NULL;
   this->Blanking = 0;
-}
-
-
-//----------------------------------------------------------------------------
-void vtkStructuredGrid::ModifyExtentForUpdateExtent()
-{
-  if ( this->UpdateExtent[0] < this->Extent[0] ||
-       this->UpdateExtent[1] > this->Extent[1] ||
-       this->UpdateExtent[2] < this->Extent[2] ||
-       this->UpdateExtent[3] > this->Extent[3] ||
-       this->UpdateExtent[4] < this->Extent[4] ||
-       this->UpdateExtent[5] > this->Extent[5] )
-    {
-    this->ReleaseData();
-    this->SetExtent( this->UpdateExtent );
-    }
 }
 
 //----------------------------------------------------------------------------

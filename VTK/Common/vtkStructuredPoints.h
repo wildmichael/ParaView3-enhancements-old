@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPoints.h,v $
   Language:  C++
-  Date:      $Date: 2000-03-21 16:47:15 $
-  Version:   $Revision: 1.70 $
+  Date:      $Date: 2000-08-07 22:31:30 $
+  Version:   $Revision: 1.71 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -69,11 +69,6 @@ public:
   // Description:
   // To simplify filter superclasses,
   int GetDataObjectType() {return VTK_STRUCTURED_POINTS;}
-
-  // Description:
-  // The update extent is set to the whole extent, since this is required by
-  // vtkStructuredPoints data object.
-  virtual void ModifyExtentForUpdateExtent();
 
   // Description:
   // Internal method in a class we hope to remove
