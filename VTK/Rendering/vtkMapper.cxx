@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:53:31 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 1997-01-03 18:41:29 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -133,6 +133,10 @@ vtkColorScalars *vtkMapper::GetColors()
 	this->Colors->SetColor(i,this->LookupTable->
 			       MapValue(scalars->GetScalar(i)));
 	}
+      // make sure that MaxID is set correctly
+      this->Colors->InsertColor(numPts-1,this->LookupTable->
+			        MapValue(scalars->GetScalar(numPts-1)));
+      
       colors = this->Colors;
       }
     else //color scalar
