@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThresholdTextureCoords.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-31 21:25:29 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1995-09-30 14:16:50 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -124,6 +124,9 @@ void vtkThresholdTextureCoords::Execute()
       }
 
     } //for all points
+
+  output->GetPointData()->CopyTCoordsOff();
+  output->GetPointData()->PassData(input->GetPointData());
 
   output->GetPointData()->SetTCoords(newTCoords);
   newTCoords->Delete();
