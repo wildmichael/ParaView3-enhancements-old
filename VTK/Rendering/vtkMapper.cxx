@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:04:17 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 1998-04-07 12:36:45 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -115,7 +115,12 @@ vtkScalars *vtkMapper::GetColors()
     
   // get point data and scalars
   scalars = this->Input->GetPointData()->GetScalars();
-
+  // if we don;t have point data scalars, try cell data
+  if (!scalars)
+    {
+    scalars = this->Input->GetCellData()->GetScalars();
+    }
+  
   // do we have any scalars ?
   if (scalars && this->ScalarVisibility)
     {
