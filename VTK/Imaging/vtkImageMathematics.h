@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMathematics.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:33:05 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2002-01-30 19:14:31 $
+  Version:   $Revision: 1.30 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -91,6 +91,11 @@ public:
   vtkSetMacro(ConstantC,double);
   vtkGetMacro(ConstantC,double);
 
+  // How to handle divide by zero
+  vtkSetMacro(DivideByZeroToC,int);
+  vtkGetMacro(DivideByZeroToC,int);
+  vtkBooleanMacro(DivideByZeroToC,int);
+
 protected:
   vtkImageMathematics();
   ~vtkImageMathematics() {};
@@ -98,6 +103,7 @@ protected:
   int Operation;
   double ConstantK;
   double ConstantC;
+  int DivideByZeroToC;
   
   void ExecuteInformation(vtkImageData **inDatas, vtkImageData *outData);
   void ExecuteInformation(){this->vtkImageTwoInputFilter::ExecuteInformation();};
