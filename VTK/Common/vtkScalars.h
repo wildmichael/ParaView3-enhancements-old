@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkScalars.h,v $
   Language:  C++
-  Date:      $Date: 1995-01-05 14:46:15 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1995-01-11 13:02:21 $
+  Version:   $Revision: 1.18 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -110,5 +110,6 @@ protected:
 // all other classes necessary for compilation are also included. 
 #include "IdList.hh"
 #include "FScalars.hh"
+#include "Lut.hh"
 
 #endif
