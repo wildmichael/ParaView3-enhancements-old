@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFollower.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:37 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2001-06-06 18:55:27 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -119,6 +119,9 @@ void vtkFollower::GetMatrix(vtkMatrix4x4 *result)
     if (this->Camera->GetParallelProjection())
       {
       this->Camera->GetDirectionOfProjection(Rz);
+      Rz[0] = -Rz[0];
+      Rz[1] = -Rz[1];
+      Rz[2] = -Rz[2];
       }
     else
       {
