@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObject.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-26 17:16:15 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1999-08-03 10:39:06 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -173,7 +173,8 @@ public:
   // the estimated size of the data (in kilobytes) after the whole
   // extent is updated.  Setting the value does not alter MTime.
   void SetEstimatedMemorySize(unsigned long v) {this->EstimatedMemorySize = v;}
-  unsigned long GetEstimatedMemorySize() {return this->EstimatedMemorySize;}
+  virtual unsigned long GetEstimatedMemorySize() 
+    {return this->EstimatedMemorySize;}
 
   // Description:
   // Method implemented in the subclasses to make sure the update extent

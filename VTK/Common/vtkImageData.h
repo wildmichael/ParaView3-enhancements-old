@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:12:20 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 1999-08-03 10:39:07 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -285,13 +285,6 @@ public:
   // Used by some filter superclasses during UpdateInformation to 
   // copy requested piece from output to input.  
   void CopyUpdateExtent(vtkDataObject *data); 
-
-  // Description:
-  // Must resolve this method with EstimatedMemorySize ...
-  // This method returns the memory that would be required for scalars on
-  // update.  The returned value is in units KBytes.  This method is used for
-  // determining when to stream.
-  long GetUpdateExtentMemorySize();
   
   // Description:  
   // This method is used translparently by the "SetInput(vtkImageCache *)"
@@ -299,7 +292,15 @@ public:
   vtkImageToStructuredPoints *MakeImageToStructuredPoints();
 
   // Description:
-  // Legacy.  Sets the UpdateExtent to the WholeExtent, and updates.
+  // This method computes the memory size from the UpdateExtent, ScalarType,
+  // and NumberOfScalarComponents.  UpdateInformation does not need to set
+  // the EstimatedMemorySize in ImageData, but should call this method
+  // to set it anyway.
+  unsigned long GetEstimatedMemorySize(); 
+
+  // Description:
+  // Legacy.  Replaced with GetEstimatedMemorySize.
+  long GetUpdateExtentMemorySize() {return GetEstimatedMemorySize();}
   
 protected:
   vtkImageToStructuredPoints *ImageToStructuredPoints;
@@ -324,6 +325,10 @@ protected:
   int NumberOfScalarComponents;
   
   void ComputeIncrements();
+
+  // Computes the estimated memory size from the Update extent,
+  // ScalarType, and NumberOfComponents
+  void ComputeMemorySize();
 };
 
 inline void vtkImageData::GetPoint(int id, float x[3])
