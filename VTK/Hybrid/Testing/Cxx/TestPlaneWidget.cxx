@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: TestPlaneWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-12 12:22:23 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-08-30 21:06:20 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -15,21 +15,22 @@
      PURPOSE.  See the above copyright notice for more information.
 
 =========================================================================*/
-#include "vtkPLOT3DReader.h"
-#include "vtkPlaneWidget.h"
-#include "vtkProbeFilter.h"
-#include "vtkStructuredGridOutlineFilter.h"
-#include "vtkPolyDataMapper.h"
+#include "vtkActor.h"
+#include "vtkCommand.h"
 #include "vtkConeSource.h"
 #include "vtkGlyph3D.h"
-#include "vtkActor.h"
-#include "vtkRenderer.h"
+#include "vtkInteractorEventRecorder.h"
+#include "vtkPLOT3DReader.h"
+#include "vtkPlaneWidget.h"
+#include "vtkPolyData.h"
+#include "vtkPolyDataMapper.h"
+#include "vtkProbeFilter.h"
+#include "vtkProperty.h"
 #include "vtkRenderWindow.h"
 #include "vtkRenderWindowInteractor.h"
-#include "vtkCommand.h"
-#include "vtkPolyData.h"
-#include "vtkProperty.h"
-#include "vtkInteractorEventRecorder.h"
+#include "vtkRenderer.h"
+#include "vtkStructuredGrid.h"
+#include "vtkStructuredGridOutlineFilter.h"
 
 #include "vtkRegressionTestImage.h"
 #include "vtkDebugLeaks.h"

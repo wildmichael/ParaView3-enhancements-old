@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSphereWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-28 16:27:36 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2002-08-30 21:06:20 $
+  Version:   $Revision: 1.19 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,6 +25,7 @@
 #include "vtkDoubleArray.h"
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
+#include "vtkPolyData.h"
 #include "vtkPolyDataMapper.h"
 #include "vtkProperty.h"
 #include "vtkRenderer.h"
@@ -32,7 +33,7 @@
 #include "vtkSphere.h"
 #include "vtkSphereSource.h"
 
-vtkCxxRevisionMacro(vtkSphereWidget, "$Revision: 1.18 $");
+vtkCxxRevisionMacro(vtkSphereWidget, "$Revision: 1.19 $");
 vtkStandardNewMacro(vtkSphereWidget);
 
 vtkSphereWidget::vtkSphereWidget()
@@ -678,3 +679,7 @@ void vtkSphereWidget::PlaceHandle(float *center, float radius)
   this->HandleSource->SetCenter(this->HandlePosition);
 }
 
+void vtkSphereWidget::GetPolyData(vtkPolyData *pd)
+{ 
+  pd->ShallowCopy(this->SphereSource->GetOutput()); 
+}

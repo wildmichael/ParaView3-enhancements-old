@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointWidget.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-21 18:43:16 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2002-08-30 21:06:20 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -99,8 +99,7 @@ public:
   // Description:
   // Grab the polydata (including points) that defines the point. A
   // single point and a vertex compose the vtkPolyData.
-  void GetPolyData(vtkPolyData *pd)
-    {this->Cursor3D->Update(); pd->DeepCopy(this->Cursor3D->GetFocus()); }
+  void GetPolyData(vtkPolyData *pd);
   
   // Description:
   // Set/Get the position of the point. Note that if the position is set

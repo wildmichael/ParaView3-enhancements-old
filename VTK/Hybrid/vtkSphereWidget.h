@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSphereWidget.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-21 15:48:40 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2002-08-30 21:06:20 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -183,8 +183,7 @@ public:
   // sphere. These point values are guaranteed to be up-to-date when either the
   // InteractionEvent or EndInteraction events are invoked. The user provides
   // the vtkPolyData and the points and polysphere are added to it.
-  void GetPolyData(vtkPolyData *pd)
-    { pd->ShallowCopy(this->SphereSource->GetOutput()); }
+  void GetPolyData(vtkPolyData *pd);
 
   // Description:
   // Get the spherical implicit function defined by this widget.  Note that

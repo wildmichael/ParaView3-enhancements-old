@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLineWidget.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-21 20:29:43 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2002-08-30 21:06:20 $
+  Version:   $Revision: 1.19 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -153,8 +153,7 @@ public:
   // line. These point values are guaranteed to be up-to-date when either the
   // InteractionEvent or EndInteraction events are invoked. The user provides
   // the vtkPolyData and the points and polyline are added to it.
-  void GetPolyData(vtkPolyData *pd)
-    { pd->ShallowCopy(this->LineSource->GetOutput()); }
+  void GetPolyData(vtkPolyData *pd);
 
   // Description:
   // Get the handle properties (the little balls are the handles). The 

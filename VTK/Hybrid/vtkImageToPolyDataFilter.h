@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToPolyDataFilter.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-15 15:37:24 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2002-08-30 21:06:20 $
+  Version:   $Revision: 1.13 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -71,10 +71,15 @@
 #define VTK_COLOR_MODE_LUT 0
 #define VTK_COLOR_MODE_LINEAR_256 1
 
-class vtkStructuredPoints;
-class vtkEdgeTable;
 class vtkAppendPolyData;
+class vtkDataArray;
+class vtkEdgeTable;
+class vtkIdTypeArray;
+class vtkIntArray;
 class vtkScalarsToColors;
+class vtkStructuredPoints;
+class vtkTimeStamp;
+class vtkUnsignedCharArray;
 
 class VTK_HYBRID_EXPORT vtkImageToPolyDataFilter : public vtkStructuredPointsToPolyDataFilter
 {

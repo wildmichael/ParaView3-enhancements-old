@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVRMLImporter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-28 16:27:36 $
-  Version:   $Revision: 1.55 $
+  Date:      $Date: 2002-08-30 21:06:20 $
+  Version:   $Revision: 1.56 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -49,6 +49,7 @@
 #include "vtkLookupTable.h"
 #include "vtkObjectFactory.h"
 #include "vtkPoints.h"
+#include "vtkPolyData.h"
 #include "vtkPolyDataMapper.h"
 #include "vtkPolyDataNormals.h"
 #include "vtkProperty.h"
@@ -4252,7 +4253,7 @@ YY_MALLOC_DECL
 #define YY_BREAK break;
 #endif
 
-vtkCxxRevisionMacro(vtkVRMLImporter, "$Revision: 1.55 $");
+vtkCxxRevisionMacro(vtkVRMLImporter, "$Revision: 1.56 $");
 vtkStandardNewMacro(vtkVRMLImporter);
 
 vtkPoints* vtkVRMLImporter::PointsNew()

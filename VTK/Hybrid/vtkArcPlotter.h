@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkArcPlotter.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-16 02:04:35 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2002-08-30 21:06:20 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -51,6 +51,9 @@
 #define VTK_PLOT_FIELD_DATA 6
 
 class vtkCamera;
+class vtkDataArray;
+class vtkPointData;
+class vtkPoints;
 
 class VTK_HYBRID_EXPORT vtkArcPlotter : public vtkPolyDataToPolyDataFilter 
 {

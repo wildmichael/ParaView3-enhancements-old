@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEarthSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:30:27 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2002-08-30 21:06:20 $
+  Version:   $Revision: 1.23 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,14 +16,16 @@
 
 =========================================================================*/
 #include "vtkEarthSource.h"
-#include "vtkPoints.h"
+
+#include "vtkFloatArray.h"
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
-#include "vtkFloatArray.h"
+#include "vtkPoints.h"
+#include "vtkPolyData.h"
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkEarthSource, "$Revision: 1.22 $");
+vtkCxxRevisionMacro(vtkEarthSource, "$Revision: 1.23 $");
 vtkStandardNewMacro(vtkEarthSource);
 
 // Description:

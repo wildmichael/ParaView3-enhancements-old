@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLineWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-29 18:42:24 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2002-08-30 21:06:20 $
+  Version:   $Revision: 1.34 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -37,7 +37,7 @@
 #include "vtkPointWidget.h"
 #include "vtkCommand.h"
 
-vtkCxxRevisionMacro(vtkLineWidget, "$Revision: 1.33 $");
+vtkCxxRevisionMacro(vtkLineWidget, "$Revision: 1.34 $");
 vtkStandardNewMacro(vtkLineWidget);
 
 // This class is used to coordinate the interaction between the point widget
@@ -931,3 +931,7 @@ void vtkLineWidget::SetPoint2(float x, float y, float z)
   this->PositionHandles();
 }
 
+void vtkLineWidget::GetPolyData(vtkPolyData *pd)
+{ 
+  pd->ShallowCopy(this->LineSource->GetOutput()); 
+}
