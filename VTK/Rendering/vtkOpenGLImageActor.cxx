@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLImageActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-04 20:42:26 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2002-05-16 20:13:38 $
+  Version:   $Revision: 1.13 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,15 +19,20 @@
 #include <string.h>
 
 #include "vtkRenderWindow.h"
-#ifdef VTK_USE_QUARTZ
-#include "vtkQuartzRenderWindow.h"
+#ifdef VTK_USE_CARBON
+ #include "vtkCarbonRenderWindow.h"
 #else
-#ifdef _WIN32
-#include "vtkWin32OpenGLRenderWindow.h"
-#else
-#include "vtkOpenGLRenderWindow.h"
+ #ifdef VTK_USE_COCOA
+  #include "vtkCocoaRenderWindow.h"
+ #else
+  #ifdef _WIN32
+   #include "vtkWin32OpenGLRenderWindow.h"
+  #else
+   #include "vtkOpenGLRenderWindow.h"
+  #endif
+ #endif
 #endif
-#endif
+
 #include "vtkOpenGLRenderer.h"
 #include "vtkOpenGLImageActor.h"
 #ifdef __APPLE__
@@ -39,7 +44,7 @@
 
 
 #ifndef VTK_IMPLEMENT_MESA_CXX
-vtkCxxRevisionMacro(vtkOpenGLImageActor, "$Revision: 1.12 $");
+vtkCxxRevisionMacro(vtkOpenGLImageActor, "$Revision: 1.13 $");
 vtkStandardNewMacro(vtkOpenGLImageActor);
 #endif
 
@@ -300,15 +305,7 @@ void vtkOpenGLImageActor::Load(vtkRenderer *ren)
     glNewList ((GLuint) this->Index, GL_COMPILE);
 #endif
 
-#ifdef VTK_USE_QUARTZ
-    ((vtkQuartzRenderWindow *)(ren->GetRenderWindow()))->RegisterTextureResource( this->Index );
-#else
-  #ifdef _WIN32
-    ((vtkWin32OpenGLRenderWindow *)(ren->GetRenderWindow()))->RegisterTextureResource( this->Index );
-  #else
-    ((vtkOpenGLRenderWindow *)(ren->GetRenderWindow()))->RegisterTextureResource( this->Index );
-  #endif
-#endif
+   ((vtkOpenGLRenderWindow *)(ren->GetRenderWindow()))->RegisterTextureResource( this->Index );
     
     if (this->Interpolate)
       {
