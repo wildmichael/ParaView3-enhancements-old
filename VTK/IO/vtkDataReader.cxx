@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-10-16 17:06:48 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1995-10-24 10:47:22 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -1027,7 +1027,7 @@ int vtkDataReader::ReadCells(FILE *fp, int size, int *data)
       {
       if ((retStat=fscanf(fp,"%d",data+i)) == EOF || retStat < 1) 
         {
-        vtkErrorMacro(<<"Error reading texture coordinates!");
+        vtkErrorMacro(<<"Error reading ascii cell data!");
         return 0;
         }
       }
