@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSet.h,v $
   Language:  C++
-  Date:      $Date: 1997-12-17 01:23:53 $
-  Version:   $Revision: 1.65 $
+  Date:      $Date: 1998-01-16 21:18:21 $
+  Version:   $Revision: 1.66 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -87,9 +87,10 @@ public:
   virtual void CopyStructure(vtkDataSet *ds) = 0;
 
   // Description:
-  // Return class name of data type. This is one of vtkStructuredGrid, 
-  // vtkStructuredPoints, vtkUnstructuredGrid, vtkPolyData.
-  virtual char *GetDataType() = 0;
+  // Return class name of data type. This is one of VTK_STRUCTURED_GRID, 
+  // VTK_STRUCTURED_POINTS, VTK_UNSTRUCTURED_GRID, VTK_POLY_DATA, or
+  // VTK_RECTILINEAR_GRID.
+  virtual int GetDataSetType() = 0;
 
   // Description:
   // Determine number of points composing dataset.

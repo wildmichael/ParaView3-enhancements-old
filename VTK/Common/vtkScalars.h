@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalars.h,v $
   Language:  C++
-  Date:      $Date: 1997-12-17 01:24:09 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 1998-01-16 21:18:47 $
+  Version:   $Revision: 1.47 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -107,8 +107,8 @@ public:
   // Description:
   // Return the type of scalar. Want to differentiate between
   // single-valued scalars and multiple-valued (e.g., "color" scalars).
-  // Returns either "SingleValued" or "ColorScalar".
-  virtual char *GetScalarType() {return "SingleValued";};
+  // Returns either VTK_SINGLE_VALUED or VTK_COLOR_SCALAR.
+  virtual int GetScalarType() {return VTK_SINGLE_VALUED;};
 
   // Description:
   // Return the number of values per scalar. Should range between (1,4).

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGrid.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:41:18 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-01-16 21:18:41 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -71,7 +71,7 @@ public:
   ~vtkRectilinearGrid();
   static vtkRectilinearGrid *New() {return new vtkRectilinearGrid;};
   const char *GetClassName() {return "vtkRectilinearGrid";};
-  char *GetDataType() {return "vtkRectilinearGrid";};
+  int GetDataSetType() {return VTK_RECTILINEAR_GRID;};
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // dataset interface

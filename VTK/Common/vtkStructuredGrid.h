@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGrid.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:41:32 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 1998-01-16 21:19:11 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -61,7 +61,7 @@ public:
   ~vtkStructuredGrid();
   static vtkStructuredGrid *New() {return new vtkStructuredGrid;};
   const char *GetClassName() {return "vtkStructuredGrid";};
-  char *GetDataType() {return "vtkStructuredGrid";};
+  int GetDataSetType() {return VTK_STRUCTURED_GRID;};
   void PrintSelf(ostream& os, vtkIndent indent);
  
   // dataset interface

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointData.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:40:59 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 1998-01-16 21:18:27 $
+  Version:   $Revision: 1.51 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -172,7 +172,7 @@ void vtkPointData::CopyData(vtkPointData* fromPd, int fromId, int toId)
 {
   if ( fromPd->Scalars && this->Scalars && this->CopyScalars )
     {
-    if (strcmp(this->Scalars->GetScalarType(),"ColorScalar"))
+    if ( this->Scalars->GetScalarType() != VTK_COLOR_SCALAR )
       {
       this->Scalars->InsertScalar(toId,fromPd->Scalars->GetScalar(fromId));
       }
@@ -509,7 +509,7 @@ void vtkPointData::InterpolateEdge(vtkPointData *fromPd, int toId,
 {
   if ( fromPd->Scalars && this->Scalars && this->CopyScalars )
     {
-    if (strcmp(this->Scalars->GetScalarType(),"ColorScalar"))
+    if ( this->Scalars->GetScalarType() != VTK_COLOR_SCALAR )
       {
       float s1 = fromPd->Scalars->GetScalar(p1);
       float s2 = fromPd->Scalars->GetScalar(p2);
