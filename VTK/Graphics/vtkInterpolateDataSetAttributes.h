@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInterpolateDataSetAttributes.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:06:44 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-11-17 17:56:10 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -91,6 +91,12 @@ protected:
   vtkDataSetCollection *InputList; // list of data sets to interpolate 
   float T; // interpolation parameter
 
+private:
+  // hide the superclass' AddInput() from the user and the compiler
+  void AddInput(vtkDataObject *)
+    { vtkErrorMacro( << "AddInput() must be called with a vtkDataSet not a vtkDataObject."); };
+  void RemoveInput(vtkDataObject *input)
+    { this->vtkProcessObject::RemoveInput(input); };
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageQuantizeRGBToIndex.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:09:10 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1999-11-17 17:57:11 $
+  Version:   $Revision: 1.12 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -270,7 +270,8 @@ static void vtkImageQuantizeRGBToIndexExecute(vtkImageQuantizeRGBToIndex *self,
   vtkTimerLog          *timer;
   int                  totalCount;
   float                weight;
-
+  int                  done=0;
+  
   timer = vtkTimerLog::New();
   timer->StartTimer();
   type = self->GetInputType();
@@ -375,7 +376,7 @@ static void vtkImageQuantizeRGBToIndexExecute(vtkImageQuantizeRGBToIndex *self,
 	  rgbPtr++;	  
 	  }
 	tmp = root;
-	while( 1 )
+	while( !done )
 	  {
 	  if ( tmp->GetIndex() != -1 )
 	    {
@@ -673,8 +674,9 @@ void vtkImageQuantizeRGBToIndex::ExecuteInformation(
 }
 
 // Get ALL of the input.
-void vtkImageQuantizeRGBToIndex::ComputeRequiredInputUpdateExtent(int inExt[6],
-								 int outExt[6])
+void
+vtkImageQuantizeRGBToIndex::ComputeRequiredInputUpdateExtent(int inExt[6],
+						    int vtkNotUsed(outExt)[6])
 {
   int *wholeExtent;
 

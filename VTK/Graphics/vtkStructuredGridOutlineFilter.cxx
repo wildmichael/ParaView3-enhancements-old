@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridOutlineFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:07:52 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1999-11-17 17:56:43 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -226,7 +226,8 @@ int vtkStructuredGridOutlineFilter::GetNumberOfStreamDivisions()
 //----------------------------------------------------------------------------
 // Always stream into 12 pieces.
 int vtkStructuredGridOutlineFilter::ComputeDivisionExtents(vtkDataObject *out,
-						   int idx, int NumDivisions)
+					          int idx,
+						  int vtkNotUsed(NumDivisions))
 {
   vtkStructuredGrid *input = this->GetInput();
   vtkPolyData *output = (vtkPolyData *)out;
@@ -337,7 +338,7 @@ void vtkStructuredGridOutlineFilter::UpdateInformation()
   vtkStructuredGrid *input = this->GetInput();
   vtkPolyData *output = this->GetOutput();
   int *ext;
-  long t1, t2;
+  unsigned long t1, t2;
   long numPts, numLines;
   long sizePt, sizeLine;
   long size;

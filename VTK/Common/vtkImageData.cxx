@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-10 13:58:14 $
-  Version:   $Revision: 1.72 $
+  Date:      $Date: 1999-11-17 17:55:49 $
+  Version:   $Revision: 1.73 $
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -950,7 +950,6 @@ int vtkImageData::ComputeStructuredCoordinates(float x[3], int ijk[3],
 void vtkImageData::PrintSelf(ostream& os, vtkIndent indent)
 {
   int idx;
-  vtkIndent i2 = indent.GetNextIndent();
   
   vtkDataSet::PrintSelf(os,indent);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDEMReader.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:05:29 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-11-17 17:55:57 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -166,6 +166,7 @@ protected:
   int ReadTypeARecord ();
   int ReadProfiles (vtkImageData *data);
   void Execute(vtkImageData *outData);
+  void Execute() { this->vtkImageSource::Execute(); };
   // Description:
   // This method is call by the superclass before an update.  It sets
   // the UpdateExtent to the WholeExtent.

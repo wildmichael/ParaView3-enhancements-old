@@ -4,8 +4,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFrustumCoverageCuller.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:06:32 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-11-17 17:56:08 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -124,26 +124,5 @@ protected:
   int          SortingStyle;
 };
 
-// Description:
-// Return the sorting style as a descriptive character string.
-inline char *vtkFrustumCoverageCuller::GetSortingStyleAsString(void)
-{
-  if( this->SortingStyle == VTK_CULLER_SORT_NONE )
-    {
-    return "None";
-    }
-  if( this->SortingStyle == VTK_CULLER_SORT_FRONT_TO_BACK )
-    {
-    return "Front To Back";
-    }
-  if( this->SortingStyle == VTK_CULLER_SORT_BACK_TO_FRONT )
-    {
-    return "Back To Front";
-    }
-  else
-    {
-    return "Unknown";
-    }
-}
                                          
 #endif

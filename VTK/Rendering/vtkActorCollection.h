@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActorCollection.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:05:47 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 1999-11-17 17:56:03 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -84,6 +84,12 @@ protected:
   vtkActorCollection(const vtkActorCollection&) {};
   void operator=(const vtkActorCollection&) {};
     
+
+private:
+  // hide the standard AddItem from the user and the compiler.
+  void AddItem(vtkObject *o) { this->vtkCollection::AddItem(o); };
+  void AddItem(vtkProp *o) { this->vtkPropCollection::AddItem(o); };
+
 };
 
 inline void vtkActorCollection::AddItem(vtkActor *a) 

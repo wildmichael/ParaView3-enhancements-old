@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataCollection.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:07:17 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1999-11-17 17:56:12 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -72,6 +72,11 @@ protected:
   ~vtkPolyDataCollection() {};
   vtkPolyDataCollection(const vtkPolyDataCollection&) {};
   void operator=(const vtkPolyDataCollection&) {};
+
+private:
+  // hide the standard AddItem from the user and the compiler.
+  void AddItem(vtkObject *o) { this->vtkCollection::AddItem(o); };
+
 };
 
 

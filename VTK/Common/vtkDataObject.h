@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObject.h,v $
   Language:  C++
-  Date:      $Date: 1999-11-10 13:58:14 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1999-11-17 17:55:40 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -206,8 +206,8 @@ public:
   // It does not include mtimes of the data objects.
   // UpdateInformation must be called for the PipelineMTime to be correct.
   // Only the source should set the PipelineMTime.
-  void SetPipelineMTime(long t);
-  long GetPipelineMTime();
+  void SetPipelineMTime(unsigned long t);
+  unsigned long GetPipelineMTime();
   
   // Description:
   // Copies the UpdateExtent from another dataset of the same type.

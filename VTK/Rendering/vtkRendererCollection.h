@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRendererCollection.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:07:36 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 1999-11-17 17:56:16 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -80,6 +80,11 @@ protected:
   ~vtkRendererCollection() {};
   vtkRendererCollection(const vtkRendererCollection&) {};
   void operator=(const vtkRendererCollection&) {};
+
+private:
+  // hide the standard AddItem from the user and the compiler.
+  void AddItem(vtkObject *o) { this->vtkCollection::AddItem(o); };
+
 };
 
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeCollection.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:08:21 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1999-11-17 17:56:18 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -83,6 +83,12 @@ protected:
   ~vtkVolumeCollection() {};
   vtkVolumeCollection(const vtkVolumeCollection&) {};
   void operator=(const vtkVolumeCollection&) {};
+
+private:
+  // hide the standard AddItem from the user and the compiler.
+  void AddItem(vtkObject *o) { this->vtkCollection::AddItem(o); };
+  void AddItem(vtkProp *o) { this->vtkPropCollection::AddItem(o); };
+
 };
 
 

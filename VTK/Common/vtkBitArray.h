@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBitArray.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:04:26 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 1999-11-17 17:55:40 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -168,6 +168,11 @@ protected:
   float *Tuple;
 
   int SaveUserArray;
+
+private:
+  // hide superclass' DeepCopy() from the user and the compiler
+  void DeepCopy(vtkDataArray &da) {this->vtkDataArray::DeepCopy(&da);}
+  
 };
 
 inline unsigned char *vtkBitArray::WritePointer(const int id, const int number)

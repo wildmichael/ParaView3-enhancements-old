@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAppendPolyData.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:05:48 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1999-11-17 17:56:04 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -74,6 +74,7 @@ public:
   // Description:
   // Get any input of this filter.
   vtkPolyData *GetInput(int idx);
+  vtkPolyData *GetInput() { return this->GetInput( 0 ); };
   
   // Description:
   // ParallelStreaming is for a particular application.
@@ -106,6 +107,14 @@ protected:
   void AppendData(vtkDataArray *dest, vtkDataArray *src, int offset);
   int *AppendCells(int *pDest, vtkCellArray *src, int offset);
 
+ private:
+  // hide the superclass' AddInput() from the user and the compiler
+  void AddInput(vtkDataObject *)
+    { vtkErrorMacro( << "AddInput() must be called with a vtkPolyData not a vtkDataObject."); };
+  void RemoveInput(vtkDataObject *input)
+    { this->vtkProcessObject::RemoveInput(input); };
+  
+  
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-14 15:32:32 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 1999-11-17 17:56:21 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -75,7 +75,7 @@ vtkClipPolyData::vtkClipPolyData(vtkImplicitFunction *cf)
   this->GenerateClipScalars = 0;
 
   this->GenerateClippedOutput = 0;
-  this->vtkSource::SetOutput(1,vtkPolyData::New());
+  this->vtkSource::SetNthOutput(1,vtkPolyData::New());
   this->Outputs[1]->Delete();
 }
 

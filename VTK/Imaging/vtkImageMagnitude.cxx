@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMagnitude.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:09:02 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1999-11-17 17:57:10 $
+  Version:   $Revision: 1.19 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -118,7 +118,7 @@ static void vtkImageMagnitudeExecute(vtkImageMagnitude *self,
 	sum = 0;
 	for (idxC = 0; idxC < maxC; idxC++)
 	  {
-	  sum += (*inPtr * *inPtr);
+	  sum += (float) (*inPtr * *inPtr);
 	  inPtr++;
 	  }
 	*outPtr = (T)(sqrt(sum));

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGlyph3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:06:34 $
-  Version:   $Revision: 1.66 $
+  Date:      $Date: 1999-11-17 17:56:29 $
+  Version:   $Revision: 1.67 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -511,7 +511,7 @@ void vtkGlyph3D::SetSource(int id, vtkPolyData *pd)
     vtkErrorMacro("Bad index " << id << " for source.");
     return;
     }
-  this->vtkProcessObject::SetInput(id + 1, pd);
+  this->vtkProcessObject::SetNthInput(id + 1, pd);
 }
 
 // Get a pointer to a source object at a specified table location.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObjectToDataSetFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:06:09 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-11-17 17:56:06 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -133,6 +133,8 @@ public:
   // SetDataSetType(). Also, GetOutput() will return NULL if the filter
   // aborted due to inconsistent data.)
   vtkDataSet *GetOutput();
+  vtkDataSet *GetOutput(int idx)
+    {return (vtkDataSet *) this->vtkSource::GetOutput(idx); };
   vtkPolyData *GetPolyDataOutput();
   vtkStructuredPoints *GetStructuredPointsOutput();
   vtkStructuredGrid *GetStructuredGridOutput();

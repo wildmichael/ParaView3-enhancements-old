@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTimerLog.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-14 15:31:02 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1999-11-17 17:55:54 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -405,5 +405,7 @@ void vtkTimerLog::Sleep(int ms)
 {
 #ifdef _WIN32
   Sleep(ms);
+#else
+  ms = ms;  // avoid warning
 #endif    
 }

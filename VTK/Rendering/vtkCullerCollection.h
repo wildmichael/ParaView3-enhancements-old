@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCullerCollection.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:06:03 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-11-17 17:56:05 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -79,6 +79,11 @@ protected:
   vtkCullerCollection(const vtkCullerCollection&) {};
   void operator=(const vtkCullerCollection&) {};
   
+
+private:
+  // hide the standard AddItem from the user and the compiler.
+  void AddItem(vtkObject *o) { this->vtkCollection::AddItem(o); };
+
 };
 
 

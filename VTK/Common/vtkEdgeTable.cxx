@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEdgeTable.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:04:34 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1999-11-17 17:55:49 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -78,9 +78,11 @@ vtkEdgeTable::vtkEdgeTable()
 // Free memory and return to instantiated state.
 void vtkEdgeTable::Initialize()
 {
+  int i;
+  
   if ( this->Table )
     {
-    for (int i=0; i < this->TableSize; i++)
+    for (i=0; i < this->TableSize; i++)
       {
       if ( this->Table[i] )
         {
@@ -94,7 +96,7 @@ void vtkEdgeTable::Initialize()
 
     if ( this->StoreAttributes )
       {
-      for (int i=0; i < this->TableSize; i++)
+      for (i=0; i < this->TableSize; i++)
         {
         if ( this->Attributes[i] )
           {
@@ -161,6 +163,8 @@ vtkEdgeTable::~vtkEdgeTable()
 
 int vtkEdgeTable::InitEdgeInsertion(int numPoints, int storeAttributes)
 {
+  int i;
+  
   if ( numPoints < 1 )
     {
     numPoints = 1;
@@ -171,7 +175,7 @@ int vtkEdgeTable::InitEdgeInsertion(int numPoints, int storeAttributes)
     {
     this->Initialize();
     this->Table = new vtkIdList *[numPoints];
-    for (int i=0; i < numPoints; i++)
+    for (i=0; i < numPoints; i++)
       {
       this->Table[i] = NULL;
       }
@@ -180,7 +184,7 @@ int vtkEdgeTable::InitEdgeInsertion(int numPoints, int storeAttributes)
     if ( this->StoreAttributes )
       {
       this->Attributes = new vtkIdList *[numPoints];
-      for (int i=0; i < numPoints; i++)
+      for (i=0; i < numPoints; i++)
         {
         this->Attributes[i] = NULL;
         }

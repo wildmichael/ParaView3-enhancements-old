@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMassProperties.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:05:35 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-11-17 17:56:01 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to Abdalmajeid M. Alyassin who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -84,7 +84,7 @@ vtkMassProperties::~vtkMassProperties()
 // Specifies the input data...
 void vtkMassProperties::SetInput(vtkPolyData *input)
 {
-  this->vtkProcessObject::SetInput(0, input);
+  this->vtkProcessObject::SetNthInput(0, input);
 }
 
 //----------------------------------------------------------------------------

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkColorTransferFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:05:59 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1999-11-17 17:56:22 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -392,7 +392,7 @@ vtkColorTransferFunctionMapDataToRGBAClamp(vtkColorTransferFunction *self,
 
   while (--i >= 0) 
     {
-    findx = *input;
+    findx = (float) *input;
 
     // do red
     if( findx < RRange[0] ) 
@@ -560,7 +560,7 @@ vtkColorTransferFunctionMapDataToRGBANoClamp(vtkColorTransferFunction *self,
 
   while (--i >= 0) 
     {
-    findx = *input;
+    findx = (float) *input;
 
     // do red
     if( findx < RRange[0] ) 

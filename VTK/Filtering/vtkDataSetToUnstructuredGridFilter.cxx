@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetToUnstructuredGridFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:06:16 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1999-11-17 17:56:26 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,7 +64,7 @@ vtkDataSetToUnstructuredGridFilter* vtkDataSetToUnstructuredGridFilter::New()
 // Specify the input data or filter.
 void vtkDataSetToUnstructuredGridFilter::SetInput(vtkDataSet *input)
 {
-  this->vtkProcessObject::SetInput(0, input);
+  this->vtkProcessObject::SetNthInput(0, input);
 }
 
 //----------------------------------------------------------------------------

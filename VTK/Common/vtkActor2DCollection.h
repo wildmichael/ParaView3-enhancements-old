@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor2DCollection.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:04:25 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1999-11-17 17:55:40 $
+  Version:   $Revision: 1.16 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -100,6 +100,13 @@ protected:
   void operator=(const vtkActor2DCollection&) {};
 
   virtual void DeleteElement(vtkCollectionElement *); 
+
+private:
+  // hide the standard AddItem from the user and the compiler.
+  void AddItem(vtkObject *o) { this->vtkCollection::AddItem(o); };
+  void AddItem(vtkProp *o) { this->vtkPropCollection::AddItem(o); };
+  int IsItemPresent(vtkObject *o) { return this->vtkCollection::IsItemPresent(o); };
+
 };
 
 inline int vtkActor2DCollection::IsItemPresent(vtkActor2D *a) 

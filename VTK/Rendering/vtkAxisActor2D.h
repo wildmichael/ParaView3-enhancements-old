@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAxisActor2D.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:08:35 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-11-17 17:56:52 $
+  Version:   $Revision: 1.8 $
 
 Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -210,7 +210,7 @@ public:
   // Draw the axis. 
   int RenderOverlay(vtkViewport* viewport);
   int RenderOpaqueGeometry(vtkViewport* viewport);
-  int RenderTranslucentGeometry(vtkViewport *viewport) {return 0;}
+  int RenderTranslucentGeometry(vtkViewport *) {return 0;}
 
   // Description:
   // Release any graphics resources that are being consumed by this actor.

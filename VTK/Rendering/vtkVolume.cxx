@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:08:19 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 1999-11-17 17:56:49 $
+  Version:   $Revision: 1.44 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -537,7 +537,7 @@ unsigned long int vtkVolume::GetRedrawMTime()
   return mTime;
 }
 
-void vtkVolume::UpdateTransferFunctions( vtkRenderer *ren )
+void vtkVolume::UpdateTransferFunctions( vtkRenderer *vtkNotUsed(ren) )
 {
   int                       data_type;
   vtkPiecewiseFunction      *scalar_opacity_transfer_function;
@@ -769,7 +769,8 @@ void vtkVolume::UpdateTransferFunctions( vtkRenderer *ren )
 // This method computes the corrected alpha blending for a given
 // step size.  The ScalarOpacityArray reflects step size 1.
 // The CorrectedScalarOpacityArray reflects step size CorrectedStepSize.
-void vtkVolume::UpdateScalarOpacityforSampleSize( vtkRenderer *ren, float sample_distance )
+void vtkVolume::UpdateScalarOpacityforSampleSize( vtkRenderer *vtkNotUsed(ren),
+						  float sample_distance )
 {
   int i;
   int needsRecomputing;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXPolyDataMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:09:34 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1999-11-17 17:57:16 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -150,7 +150,8 @@ void vtkXPolyDataMapper2D::RenderOverlay(vtkViewport* viewport, vtkActor2D* acto
   p = input->GetPoints();
   if ( this->TransformCoordinate )
     {
-    int *itmp, numPts = p->GetNumberOfPoints();
+    int *itmp;
+    numPts = p->GetNumberOfPoints();
     displayPts = vtkPoints::New();
     displayPts->SetNumberOfPoints(numPts);
     for ( j=0; j < numPts; j++ )

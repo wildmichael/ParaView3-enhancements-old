@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergeDataObjectFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:06:55 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-11-17 17:56:32 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -75,7 +75,7 @@ vtkMergeDataObjectFilter::~vtkMergeDataObjectFilter()
 // Specify a data object at a specified table location.
 void vtkMergeDataObjectFilter::SetDataObject(vtkDataObject *d)
 {
-  this->vtkProcessObject::SetInput(1, d);
+  this->vtkProcessObject::SetNthInput(1, d);
 }
 
 //----------------------------------------------------------------------------

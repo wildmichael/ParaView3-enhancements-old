@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGridSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-10 14:02:09 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-11-17 17:56:40 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -62,7 +62,7 @@ vtkRectilinearGridSource* vtkRectilinearGridSource::New()
 //----------------------------------------------------------------------------
 vtkRectilinearGridSource::vtkRectilinearGridSource()
 {
-  this->vtkSource::SetOutput(0,vtkRectilinearGrid::New());
+  this->vtkSource::SetNthOutput(0,vtkRectilinearGrid::New());
   // Releasing data for pipeline parallism.
   // Filters will know it is empty. 
   this->Outputs[0]->ReleaseData();
@@ -85,6 +85,6 @@ vtkRectilinearGrid *vtkRectilinearGridSource::GetOutput()
 //----------------------------------------------------------------------------
 void vtkRectilinearGridSource::SetOutput(vtkRectilinearGrid *output)
 {
-  this->vtkSource::SetOutput(0, output);
+  this->vtkSource::SetNthOutput(0, output);
 }
 

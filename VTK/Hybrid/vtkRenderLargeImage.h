@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderLargeImage.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:05:40 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-11-17 17:55:57 $
+  Version:   $Revision: 1.9 $
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -81,6 +81,7 @@ protected:
   int Magnification;
   vtkRenderer *Input;
   void Execute(vtkImageData *data);
+  void Execute() { this->vtkImageSource::Execute(); };
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-10 14:02:08 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-11-17 17:56:24 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -78,6 +78,6 @@ vtkDataSet *vtkDataSetSource::GetOutput()
 //----------------------------------------------------------------------------
 void vtkDataSetSource::SetOutput(vtkDataSet *output)
 {
-  this->vtkSource::SetOutput(0, output);
+  this->vtkSource::SetNthOutput(0, output);
 }
 

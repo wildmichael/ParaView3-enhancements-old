@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLogLookupTable.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:04:48 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1999-11-17 17:55:44 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -72,6 +72,7 @@ public:
   // range value. (The log base 10 of these values is taken and mapping is
   // performed in logarithmic space.)
   void SetTableRange(float min, float max);
+  void SetTableRange(float r[2]) { this->SetTableRange(r[0], r[1]);}; 
 
   // Description:
   // Given a scalar value v, return an rgba color value from lookup table. 
@@ -81,7 +82,7 @@ public:
 
   // Description:
   // map a set of scalars through the lookup table
-  void MapScalarsThroughTable(void *input, unsigned char *output,
+  void MapScalarsThroughTable2(void *input, unsigned char *output,
 			      int inputDataType, int numberOfValues,
 			      int inputIncrement);
 protected:

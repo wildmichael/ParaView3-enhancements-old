@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-10 13:58:15 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 1999-11-17 17:55:50 $
+  Version:   $Revision: 1.42 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -62,7 +62,7 @@ vtkImageSource* vtkImageSource::New()
 //----------------------------------------------------------------------------
 vtkImageSource::vtkImageSource()
 {
-  this->vtkSource::SetOutput(0,vtkImageData::New());
+  this->vtkSource::SetNthOutput(0,vtkImageData::New());
   // Releasing data for pipeline parallism.
   // Filters will know it is empty. 
   this->Outputs[0]->ReleaseData();
@@ -73,7 +73,7 @@ vtkImageSource::vtkImageSource()
 // Specify the input data or filter.
 void vtkImageSource::SetOutput(vtkImageData *output)
 {
-  this->vtkSource::SetOutput(0, output);
+  this->vtkSource::SetNthOutput(0, output);
 }
 
 //----------------------------------------------------------------------------

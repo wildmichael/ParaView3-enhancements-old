@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-11 15:58:15 $
-  Version:   $Revision: 1.66 $
+  Date:      $Date: 1999-11-17 17:55:55 $
+  Version:   $Revision: 1.67 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -593,14 +593,14 @@ int vtkUnstructuredGrid::ClipUpdateExtentWithWholeExtent()
   int valid = 1;
   int piece = this->GetUnstructuredUpdateExtent()->GetPiece();
   int numPieces = this->GetUnstructuredUpdateExtent()->GetNumberOfPieces();
-  int maxPieces;
+  unsigned long maxPieces;
   
   // Check to see if upstream filters can break up the data into the
   // requested number of pieces.
   maxPieces = this->GetUnstructuredInformation()->GetMaximumNumberOfPieces();
   if (numPieces > maxPieces)
     {
-    numPieces = maxPieces;
+    numPieces = (int) maxPieces;
     }
   
   if (numPieces <= 0 || piece < 0 || piece >= numPieces)

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkChairDisplay.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-13 00:53:04 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-11-17 17:55:58 $
+  Version:   $Revision: 1.8 $
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -91,7 +91,7 @@ vtkChairDisplay::~vtkChairDisplay()
 //----------------------------------------------------------------------------
 void vtkChairDisplay::SetInput(vtkImageData *input)
 {
-  this->vtkProcessObject::SetInput(0, input);
+  this->vtkProcessObject::SetNthInput(0, input);
 }
 
 //----------------------------------------------------------------------------

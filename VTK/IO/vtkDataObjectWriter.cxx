@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObjectWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:06:09 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1999-11-17 17:56:23 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -72,7 +72,7 @@ vtkDataObjectWriter::~vtkDataObjectWriter()
 //----------------------------------------------------------------------------
 void vtkDataObjectWriter::SetInput(vtkDataObject *input)
 {
-  this->vtkProcessObject::SetInput(0, input);
+  this->vtkProcessObject::SetNthInput(0, input);
 }
 
 //----------------------------------------------------------------------------

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-09 15:32:28 $
-  Version:   $Revision: 1.73 $
+  Date:      $Date: 1999-11-17 17:55:55 $
+  Version:   $Revision: 1.74 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -870,7 +870,7 @@ void vtkTransform::Multiply4x4(double a[16], double b[16], double c[16])
   SqMatPtr aMat = (SqMatPtr) a;
   SqMatPtr bMat = (SqMatPtr) b;
   SqMatPtr cMat = (SqMatPtr) c;
-  int i, j, k;
+  int i, k;
   double Accum[4][4];
 
   for (i = 0; i < 4; i++) 

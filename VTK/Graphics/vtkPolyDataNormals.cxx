@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataNormals.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:07:18 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1999-11-17 17:56:37 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -102,7 +102,7 @@ void vtkPolyDataNormals::Execute()
   vtkPoints *newPts = NULL;
   vtkNormals *newNormals;
   vtkPointData *pd, *outPD;
-  vtkCellData *cd, *outCD;
+  vtkCellData *outCD;
   float n[3];
   vtkCellArray *newPolys;
   int ptId, oldId;
@@ -182,7 +182,6 @@ void vtkPolyDataNormals::Execute()
   pd = input->GetPointData();
   outPD = output->GetPointData();
     
-  cd = input->GetCellData();
   outCD = output->GetCellData();
     
   NewMesh = vtkPolyData::New();

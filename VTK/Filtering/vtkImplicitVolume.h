@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitVolume.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:06:41 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1999-11-17 17:56:10 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -84,6 +84,8 @@ public:
   // Evaluate the ImplicitVolume. This returns the interpolated scalar value
   // at x[3].
   float EvaluateFunction(float x[3]);
+  float EvaluateFunction(float x, float y, float z)
+    {return this->vtkImplicitFunction::EvaluateFunction(x, y, z); } ;
 
   // Description
   // Evaluate ImplicitVolume gradient.

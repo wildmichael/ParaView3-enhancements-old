@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCubeAxesActor2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:05:28 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1999-11-17 17:55:58 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thorsten Dowe who modified and improved this class.
 
 Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -197,7 +197,6 @@ int vtkCubeAxesActor2D::RenderOpaqueGeometry(vtkViewport *viewport)
   int i, idx;
   int xIdx, yIdx, zIdx, zIdx2, renderedSomething=0;
   int xAxes, yAxes, zAxes;
-  int *size = viewport->GetSize();
 
   // Initialization
   if ( !this->Camera )
@@ -573,7 +572,7 @@ void vtkCubeAxesActor2D::GetBounds(float& xmin, float& xmax,
   ymin = bounds[2];
   ymax = bounds[3];
   zmin = bounds[4];
-  zmin = bounds[5];
+  zmax = bounds[5];
 }
 
 // Compute the bounds

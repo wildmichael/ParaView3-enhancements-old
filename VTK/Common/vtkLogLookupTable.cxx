@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLogLookupTable.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:04:48 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1999-11-17 17:55:51 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -68,7 +68,7 @@ vtkLookupTable(sze,ext)
   this->LogMinRange = 0.0;
   this->LogMaxRange = 1.0;
   this->UseAbsoluteValue = 0;
-};
+}
 
 // Set the minimum/maximum scalar values for scalar mapping. Scalar values
 // less than minimum range value are clamped to minimum range value.
@@ -162,7 +162,7 @@ static void vtkLogLookupTableMapDataToRGBA(vtkLogLookupTable *self,
     }
 }
 
-void vtkLogLookupTable::MapScalarsThroughTable(void *input, 
+void vtkLogLookupTable::MapScalarsThroughTable2(void *input, 
 					       unsigned char *output,
 					       int inputDataType, 
 					       int numberOfValues,

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageNonMaximumSuppression.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:09:07 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 1999-11-17 17:57:10 $
+  Version:   $Revision: 1.31 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -205,13 +205,13 @@ static void vtkImageNonMaximumSuppressionExecute(vtkImageNonMaximumSuppression *
 	useXMax = ((idxX + outExt[0]) >= wholeExtent[1]) ? 0 : inIncs[0];
 
 	// calculate the neighbors
-	d = vector[0] = *in2Ptr * ratio[0];
+	d = vector[0] = (float)*in2Ptr * ratio[0];
 	normalizeFactor = (d * d);
-	d = vector[1] = in2Ptr[1] * ratio[1];
+	d = vector[1] = (float)in2Ptr[1] * ratio[1];
 	normalizeFactor += (d * d);
 	if (axesNum == 3)
 	  {
-	  d = vector[2] = in2Ptr[2] * ratio[2];
+	  d = vector[2] = (float)in2Ptr[2] * ratio[2];
 	  normalizeFactor += (d * d);
 	  }
 	if (normalizeFactor)

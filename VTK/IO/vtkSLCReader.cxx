@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSLCReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:07:39 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1999-11-17 17:56:41 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -73,7 +73,7 @@ vtkSLCReader::~vtkSLCReader()
     {
     delete [] this->FileName;
     }
-  };
+  }
 
 // Decodes an array of eight bit run-length encoded data.
 unsigned char* vtkSLCReader::Decode8BitData( unsigned char *in_ptr, 
@@ -84,12 +84,13 @@ unsigned char* vtkSLCReader::Decode8BitData( unsigned char *in_ptr,
   unsigned char           *return_ptr;
   unsigned char           current_value;
   unsigned char           remaining;
-
+  int done=0;
+  
   curr_ptr = in_ptr;
 
   decode_ptr = return_ptr = new unsigned char[size];
 
-  while( 1 )
+  while( !done )
   {
     current_value = *(curr_ptr++);
 

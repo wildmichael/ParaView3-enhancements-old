@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPyramid.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-10 21:20:35 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-11-17 17:55:53 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -678,8 +678,7 @@ void vtkPyramid::Clip(float vtkNotUsed(value),
 		    vtkCellArray *vtkNotUsed(tetras),
 		    vtkPointData *vtkNotUsed(inPd), 
 		    vtkPointData *vtkNotUsed(outPd),
-		    vtkCellData *vtkNotUsed(inCd), int cellId, 
-		    vtkCellData *vtkNotUsed(outCd), int insideOut)
+		    vtkCellData *vtkNotUsed(inCd), int vtkNotUsed(cellId), 
+		    vtkCellData *vtkNotUsed(outCd), int vtkNotUsed(insideOut))
 {
-
 }

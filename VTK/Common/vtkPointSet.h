@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSet.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-17 19:44:32 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 1999-11-17 17:55:46 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -75,6 +75,7 @@ public:
   float *GetPoint(int ptId) {return this->Points->GetPoint(ptId);};
   void GetPoint(int ptId, float x[3]) {this->Points->GetPoint(ptId,x);};
   int FindPoint(float x[3]);
+  int FindPoint(float x, float y, float z) { return this->vtkDataSet::FindPoint(x, y, z);};
   int FindCell(float x[3], vtkCell *cell, int cellId, float tol2, int& subId, 
                float pcoords[3], float *weights);
   int FindCell(float x[3], vtkCell *cell, vtkGenericCell *gencell,

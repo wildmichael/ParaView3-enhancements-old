@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageGaussianSource.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-21 19:08:16 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-11-17 17:56:57 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -89,6 +89,7 @@ protected:
 
   void ExecuteInformation();
   void Execute(vtkImageData *data);
+  void Execute() { this->vtkImageSource::Execute(); };
 };
 
 

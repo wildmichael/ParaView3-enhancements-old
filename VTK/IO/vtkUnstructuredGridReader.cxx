@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGridReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:08:13 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 1999-11-17 17:56:47 $
+  Version:   $Revision: 1.48 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -184,6 +184,7 @@ void vtkUnstructuredGridReader::Execute()
   int piece, numPieces, skip1, read2, skip3, tmp;
   vtkCellArray *cells=NULL;
   int *types=NULL;
+  int done=0;
   vtkUnstructuredGrid *output = this->GetOutput();
 
   // to test streaming
@@ -233,7 +234,7 @@ void vtkUnstructuredGridReader::Execute()
 
     // Might find points, cells, and cell types
     //
-    while (1)
+    while (!done)
       {
       if (!this->Reader->ReadString(line))
 	{
@@ -312,13 +313,15 @@ void vtkUnstructuredGridReader::Execute()
 	  // skip
 	  if (skip1 != 0)
 	    {
-	    this->Reader->GetIStream()->seekg(sizeof(int)*skip1, ios::cur);
+	    this->Reader->GetIStream()
+	      ->seekg((long)sizeof(int)*skip1, ios::cur);
 	    }
           this->Reader->GetIStream()->read((char *)types,sizeof(int)*read2);
 	  // skip
 	  if (skip3 != 0)
 	    {
-	    this->Reader->GetIStream()->seekg(sizeof(int)*skip3, ios::cur);
+	    this->Reader->GetIStream()
+	      ->seekg((long)sizeof(int)*skip3, ios::cur);
 	    }
 
           if (this->Reader->GetIStream()->eof())

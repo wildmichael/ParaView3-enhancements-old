@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCorrelation.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:08:45 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1999-11-17 17:57:08 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -207,7 +207,7 @@ static void vtkImageCorrelationExecute(vtkImageCorrelation *self,
 	      {
 	      for (idxC = 0; idxC < maxC; idxC++)
 		{
-		*outPtr = *outPtr + (*in1Ptr2) * (*in2Ptr2);
+		*outPtr = *outPtr + (float)((*in1Ptr2) * (*in2Ptr2));
 		in1Ptr2++;
 		in2Ptr2++;
 		}

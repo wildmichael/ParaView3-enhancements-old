@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSynchronizedTemplates3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-13 14:54:04 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1999-11-17 17:57:17 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -1064,7 +1064,7 @@ int vtkSynchronizedTemplates3D::ComputeDivisionExtents(vtkDataObject *out,
 //----------------------------------------------------------------------------
 void vtkSynchronizedTemplates3D::SetInput(vtkImageData *input)
 {
-  this->vtkProcessObject::SetInput(0, input);
+  this->vtkProcessObject::SetNthInput(0, input);
 }
 
 //----------------------------------------------------------------------------

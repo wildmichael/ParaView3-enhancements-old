@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:07:57 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1999-11-17 17:56:44 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -63,7 +63,7 @@ vtkStructuredGridWriter* vtkStructuredGridWriter::New()
 // Specify the input data or filter.
 void vtkStructuredGridWriter::SetInput(vtkStructuredGrid *input)
 {
-  this->vtkProcessObject::SetInput(0, input);
+  this->vtkProcessObject::SetNthInput(0, input);
 }
 
 //----------------------------------------------------------------------------

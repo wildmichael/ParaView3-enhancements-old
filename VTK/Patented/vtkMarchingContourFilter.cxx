@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingContourFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-13 14:53:59 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1999-11-17 17:57:17 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -140,21 +140,14 @@ unsigned long vtkMarchingContourFilter::GetMTime()
 //
 void vtkMarchingContourFilter::Execute()
 {
-  int cellId, i;
-  vtkIdList *cellPts;
   vtkScalars *inScalars;
-  vtkCell *cell;
-  float range[2];
-  vtkCellArray *newVerts, *newLines, *newPolys;
-  vtkPoints *newPts;
   vtkDataSet *input=this->GetInput();
   vtkPolyData *output=this->GetOutput();
-  int numCells, estimatedSize;
+  int numCells;
   vtkPointData *inPd=input->GetPointData(), *outPd=output->GetPointData();
   vtkCellData *inCd=input->GetCellData(), *outCd=output->GetCellData();
   int numContours=this->ContourValues->GetNumberOfContours();
   float *values=this->ContourValues->GetValues();
-  vtkScalars *cellScalars;
   
   vtkDebugMacro(<< "Executing marching contour filter");
 

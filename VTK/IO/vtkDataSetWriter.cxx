@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:06:17 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1999-11-17 17:56:26 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -68,7 +68,7 @@ vtkDataSetWriter* vtkDataSetWriter::New()
 // Specify the input data or filter.
 void vtkDataSetWriter::SetInput(vtkDataSet *input)
 {
-  this->vtkProcessObject::SetInput(0, input);
+  this->vtkProcessObject::SetNthInput(0, input);
 }
 
 //----------------------------------------------------------------------------

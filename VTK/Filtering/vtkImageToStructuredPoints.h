@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToStructuredPoints.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:04:45 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1999-11-17 17:55:43 $
+  Version:   $Revision: 1.23 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -68,6 +68,7 @@ public:
   void SetInput(vtkImageData *input);
   vtkImageData *GetInput();
 
+
   // Description:
   // Set/Get the input object from the image pipeline.
   void SetVectorInput(vtkImageData *input);
@@ -76,6 +77,8 @@ public:
   // Description:
   // Get the output of this source.
   vtkStructuredPoints *GetOutput();
+  vtkStructuredPoints *GetOutput(int idx)
+    {return (vtkStructuredPoints *) this->vtkSource::GetOutput(idx); };
   
 protected:
   vtkImageToStructuredPoints();
@@ -89,6 +92,8 @@ protected:
   void Execute();
   void ExecuteInformation();
   int ComputeInputUpdateExtents(vtkDataObject *data);
+
+  
 };
 
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointLocator.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:13:00 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 1999-11-17 17:55:51 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -1083,8 +1083,6 @@ void vtkPointLocator::InsertPoint(int ptId, float x[3])
 int vtkPointLocator::IsInsertedPoint(float x[3])
 {
   int i, j, ijk[3];
-  int idx;
-  vtkIdList *bucket;
 
   //
   //  Locate bucket that point is in.
@@ -1095,8 +1093,8 @@ int vtkPointLocator::IsInsertedPoint(float x[3])
         (this->Bounds[2*i+1] - this->Bounds[2*i])) * (this->Divisions[i] - 1));
     }
 
-  idx = ijk[0] + ijk[1]*this->Divisions[0] + 
-        ijk[2]*this->Divisions[0]*this->Divisions[1];
+  //   idx = ijk[0] + ijk[1]*this->Divisions[0] + 
+  //         ijk[2]*this->Divisions[0]*this->Divisions[1];
 
   //
   // Check the list of points in that bucket for merging.  Also need to 

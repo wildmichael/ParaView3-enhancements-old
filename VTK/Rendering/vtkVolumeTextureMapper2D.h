@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeTextureMapper2D.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:22:17 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-11-17 17:56:20 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -66,10 +66,11 @@ public:
   // WARNING: INTERNAL METHOD - NOT INTENDED FOR GENERAL USE
   // DO NOT USE THIS METHOD OUTSIDE OF THE RENDERING PROCESS
   // Render the volume
-  virtual void Render(vtkRenderer *ren, vtkVolume *vol) {};
+  virtual void Render(vtkRenderer *, vtkVolume *) {};
 
-  virtual void RenderRectangle( float v[12], float t[8],
-				unsigned char *texture, int size[2]) {};
+  virtual void RenderRectangle( float vtkNotUsed(v)[12], float vtkNotUsed(t)[8],
+				unsigned char *vtkNotUsed(texture),
+				int vtkNotUsed(size)[2]) {};
 
   void ApplyProperties( unsigned char *texture,
 			int size[2], int tsize[2] ); 

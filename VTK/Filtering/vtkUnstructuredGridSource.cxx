@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGridSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-10 14:02:10 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1999-11-17 17:56:48 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -62,7 +62,7 @@ vtkUnstructuredGridSource* vtkUnstructuredGridSource::New()
 //----------------------------------------------------------------------------
 vtkUnstructuredGridSource::vtkUnstructuredGridSource()
 {
-  this->vtkSource::SetOutput(0, vtkUnstructuredGrid::New());
+  this->vtkSource::SetNthOutput(0, vtkUnstructuredGrid::New());
   // Releasing data for pipeline parallism.
   // Filters will know it is empty. 
   this->Outputs[0]->ReleaseData();
@@ -83,7 +83,7 @@ vtkUnstructuredGrid *vtkUnstructuredGridSource::GetOutput()
 //----------------------------------------------------------------------------
 void vtkUnstructuredGridSource::SetOutput(vtkUnstructuredGrid *output)
 {
-  this->vtkSource::SetOutput(0, output);
+  this->vtkSource::SetNthOutput(0, output);
 }
 
 

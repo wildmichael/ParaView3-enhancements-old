@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHull.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-02 20:02:46 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1999-11-17 17:56:30 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -407,7 +407,6 @@ void vtkHull::Execute()
 {
   vtkPolyData    *input       = this->GetInput();
   vtkPolyData    *output      = this->GetOutput();
-  vtkCellArray   *polys       = input->GetPolys(); 
   int            num_points;
   vtkPoints      *out_points;
   vtkCellArray   *out_polys;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProgrammableGlyphFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:07:25 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-11-17 17:56:39 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -91,7 +91,7 @@ vtkProgrammableGlyphFilter::~vtkProgrammableGlyphFilter()
 // Specify a source object at a specified table location.
 void vtkProgrammableGlyphFilter::SetSource(vtkPolyData *pd)
 {
-  this->vtkProcessObject::SetInput(1, pd);
+  this->vtkProcessObject::SetNthInput(1, pd);
 }
 
 // Get a pointer to a source object at a specified table location.

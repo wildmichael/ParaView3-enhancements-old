@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageRange3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:09:12 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1999-11-17 17:57:12 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -294,7 +294,7 @@ static void vtkImageRange3DExecute(vtkImageRange3D *self,
 	    hoodPtr2 += inInc2;
 	    maskPtr2 += maskInc2;
 	    }
-	  *outPtr0 = (pixelMax - pixelMin);
+	  *outPtr0 = (float)(pixelMax - pixelMin);
 	  
 	  inPtr0 += inInc0;
 	  outPtr0 += outInc0;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-02 19:33:01 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 1999-11-17 17:56:24 $
+  Version:   $Revision: 1.42 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -277,7 +277,7 @@ void vtkDataSetReader::Execute()
       preader->SetFieldDataName(this->Reader->GetFieldDataName());
       preader->Update();
       // whether we used the old output or not, we need to set the output.
-      this->SetOutput(0, preader->GetOutput());
+      this->SetNthOutput(0, preader->GetOutput());
       preader->Delete();
       }
 
@@ -303,7 +303,7 @@ void vtkDataSetReader::Execute()
       preader->SetFieldDataName(this->Reader->GetFieldDataName());
       preader->Update();
       // whether we used the old output or not, we need to set the output.
-      this->SetOutput(0, preader->GetOutput());
+      this->SetNthOutput(0, preader->GetOutput());
       preader->Delete();
       }
 
@@ -329,7 +329,7 @@ void vtkDataSetReader::Execute()
       preader->SetFieldDataName(this->Reader->GetFieldDataName());
       preader->Update();
       // whether we used the old output or not, we need to set the output.
-      this->SetOutput(0, preader->GetOutput());
+      this->SetNthOutput(0, preader->GetOutput());
       preader->Delete();
       }
 
@@ -355,7 +355,7 @@ void vtkDataSetReader::Execute()
       preader->SetFieldDataName(this->Reader->GetFieldDataName());
       preader->Update();
       // whether we used the old output or not, we need to set the output.
-      this->SetOutput(0, preader->GetOutput());
+      this->SetNthOutput(0, preader->GetOutput());
       preader->Delete();
       }
 
@@ -381,7 +381,7 @@ void vtkDataSetReader::Execute()
       preader->SetFieldDataName(this->Reader->GetFieldDataName());
       preader->Update();
       // whether we used the old output or not, we need to set the output.
-      this->SetOutput(0, preader->GetOutput());
+      this->SetNthOutput(0, preader->GetOutput());
       preader->Delete();
       }
     

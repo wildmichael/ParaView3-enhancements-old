@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetSource.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:06:13 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-11-17 17:56:07 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,6 +57,8 @@ public:
   // Description:
   // Get the output of this source.
   vtkDataSet *GetOutput();
+  vtkDataSet *GetOutput(int idx)
+    {return (vtkDataSet *) this->vtkSource::GetOutput(idx); };
   void SetOutput(vtkDataSet *);
   
 protected:  

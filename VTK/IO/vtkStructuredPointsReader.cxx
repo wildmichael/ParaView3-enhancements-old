@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:08:00 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1999-11-17 17:56:44 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -177,6 +177,7 @@ void vtkStructuredPointsReader::Execute()
   char line[256];
   int npts, ncells;
   int dimsRead=0, arRead=0, originRead=0;
+  int done=0;
   vtkStructuredPoints *output = this->GetOutput();
   
   vtkDebugMacro(<<"Reading vtk structured points file...");
@@ -225,7 +226,7 @@ void vtkStructuredPointsReader::Execute()
 // Read keyword and number of points
 //
     numPts = output->GetNumberOfPoints(); // get default
-    while (1)
+    while (!done)
       {
       if (!this->Reader->ReadString(line))
 	{

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSetToPointSetFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:07:15 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 1999-11-17 17:56:12 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -87,6 +87,8 @@ public:
   // Get the output of this filter. If output is NULL, then input hasn't been
   // set, which is necessary for abstract filter objects.
   vtkPointSet *GetOutput();
+  vtkPointSet *GetOutput(int idx)
+    {return (vtkPointSet *) this->vtkPointSetSource::GetOutput(idx); };
 
   // Description:
   // Get the output as vtkPolyData. Performs run-time checking.

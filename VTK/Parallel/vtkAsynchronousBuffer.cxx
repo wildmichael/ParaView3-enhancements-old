@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAsynchronousBuffer.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:05:26 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-11-17 17:55:57 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -220,7 +220,7 @@ void vtkAsynchronousBuffer::BlockingUpdateInformation()
 
 
 //----------------------------------------------------------------------------
-void vtkAsynchronousBuffer::InternalUpdate(vtkDataObject *output)
+void vtkAsynchronousBuffer::InternalUpdate(vtkDataObject *vtkNotUsed(output))
 {
   if (this->Blocking)
     {

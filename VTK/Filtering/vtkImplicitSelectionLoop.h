@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitSelectionLoop.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:06:40 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-11-17 17:56:09 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -87,6 +87,8 @@ public:
   // Description:
   // Evaluate selection loop returning a signed distance.
   float EvaluateFunction(float x[3]);
+  float EvaluateFunction(float x, float y, float z)
+    {return this->vtkImplicitFunction::EvaluateFunction(x, y, z); } ;
 
   // Description:
   // Evaluate selection loop returning the gradient.

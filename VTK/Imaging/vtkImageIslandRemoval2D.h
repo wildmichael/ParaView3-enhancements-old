@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageIslandRemoval2D.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:08:59 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1999-11-17 17:56:58 $
+  Version:   $Revision: 1.22 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -103,6 +103,9 @@ protected:
   float ReplaceValue;
 
   void Execute(vtkImageData *inData, vtkImageData *outData);
+  void Execute() { this->vtkImageToImageFilter::Execute(); };
+  void Execute(vtkImageData *output)
+    { this->vtkImageToImageFilter::Execute(output); };
 
   // Description:
   // Generate more than requested.  Called by the superclass before

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSuperquadric.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:05:41 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-11-17 17:55:57 $
+  Version:   $Revision: 1.7 $
   Thanks:    Mike Halle, Brigham and Women's Hospital
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -82,6 +82,8 @@ public:
 
   // ImplicitFunction interface
   float EvaluateFunction(float x[3]);
+  float EvaluateFunction(float x, float y, float z)
+    {return this->vtkImplicitFunction::EvaluateFunction(x, y, z); } ;
   void EvaluateGradient(float x[3], float g[3]);
 
   // Description:

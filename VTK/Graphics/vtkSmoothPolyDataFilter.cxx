@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSmoothPolyDataFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:07:46 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1999-11-17 17:56:42 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -165,7 +165,7 @@ vtkSmoothPolyDataFilter::vtkSmoothPolyDataFilter()
 
 void vtkSmoothPolyDataFilter::SetSource(vtkPolyData *source)
 {
-  this->vtkProcessObject::SetInput(1, source);
+  this->vtkProcessObject::SetNthInput(1, source);
 }
 
 vtkPolyData *vtkSmoothPolyDataFilter::GetSource()

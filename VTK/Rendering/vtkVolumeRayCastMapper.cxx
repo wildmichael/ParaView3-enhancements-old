@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-19 17:25:06 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 1999-11-17 17:56:51 $
+  Version:   $Revision: 1.50 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -673,9 +673,9 @@ int vtkVolumeRayCastMapper::ClipRayAgainstClippingPlanes(
 }
 
 int vtkVolumeRayCastMapper::ClipRayAgainstVolume( 
-					   VTKRayCastRayInfo *rayInfo, 
-					   VTKRayCastVolumeInfo *volumeInfo,
-					   float bounds[6] )
+			   VTKRayCastRayInfo *rayInfo, 
+			   VTKRayCastVolumeInfo *vtkNotUsed(volumeInfo),
+			   float bounds[6] )
 {
   int    loop;
   float  diff;

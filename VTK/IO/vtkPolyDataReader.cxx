@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:07:19 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1999-11-17 17:56:37 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -176,6 +176,7 @@ void vtkPolyDataReader::Execute()
   int numPts=0;
   char line[256];
   int npts, size, ncells;
+  int done=0;
   vtkPolyData *output = this->GetOutput();
 
   vtkDebugMacro(<<"Reading vtk polygonal data...");
@@ -224,7 +225,7 @@ void vtkPolyDataReader::Execute()
 //
 // Might find points, vertices, lines, polygons, or triangle strips
 //
-    while (1)
+    while (!done)
       {
       if (!this->Reader->ReadString(line))
 	{

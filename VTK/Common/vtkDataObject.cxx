@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObject.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-10 13:58:14 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1999-11-17 17:55:48 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -125,7 +125,7 @@ void vtkDataObject::Initialize()
 // no modification when initialized.
 //
   this->FieldData->Initialize();
-};
+}
 
 //----------------------------------------------------------------------------
 void vtkDataObject::SetGlobalReleaseDataFlag(int val)
@@ -348,13 +348,13 @@ unsigned long vtkDataObject::GetEstimatedWholeMemorySize()
 }
 
 //----------------------------------------------------------------------------
-void vtkDataObject::SetPipelineMTime(long t) 
+void vtkDataObject::SetPipelineMTime(unsigned long t) 
 {
   this->Information->SetPipelineMTime(t);
 }
 
 //----------------------------------------------------------------------------
-long vtkDataObject::GetPipelineMTime() 
+unsigned long vtkDataObject::GetPipelineMTime() 
 {
   return this->Information->GetPipelineMTime();
 }

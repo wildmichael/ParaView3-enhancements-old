@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-22 19:11:40 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1999-11-17 17:56:36 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -54,7 +54,7 @@ vtkPolyDataMapper *vtkPolyDataMapper::New()
 // Specify the input data or filter.
 void vtkPolyDataMapper::SetInput(vtkPolyData *input)
 {
-  this->vtkProcessObject::SetInput(0, input);
+  this->vtkProcessObject::SetNthInput(0, input);
 }
 
 //----------------------------------------------------------------------------

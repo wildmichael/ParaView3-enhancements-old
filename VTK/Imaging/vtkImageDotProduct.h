@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDotProduct.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:08:49 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1999-11-17 17:56:56 $
+  Version:   $Revision: 1.15 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -63,6 +63,7 @@ protected:
   void operator=(const vtkImageDotProduct&) {};
 
   void ExecuteInformation(vtkImageData **inDatas, vtkImageData *outData);
+  void ExecuteInformation(){this->vtkImageTwoInputFilter::ExecuteInformation();};
   void ThreadedExecute(vtkImageData **inDatas, vtkImageData *outData,
 		       int extent[6], int id);
 };

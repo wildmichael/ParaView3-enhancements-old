@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastCompositeFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:08:22 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1999-11-17 17:56:49 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -2582,6 +2582,23 @@ void vtkVolumeRayCastCompositeFunction::SpecificFunctionInitialize(
 {
 }
 
+// Description:
+// Return the composite method as a descriptive character string.
+char *vtkVolumeRayCastCompositeFunction::GetCompositeMethodAsString(void)
+{
+  if( this->CompositeMethod == VTK_COMPOSITE_INTERPOLATE_FIRST )
+    {
+    return "Interpolate First";
+    }
+  if( this->CompositeMethod == VTK_COMPOSITE_CLASSIFY_FIRST )
+    {
+    return "Classify First";
+    }
+  else
+    {
+    return "Unknown";
+    }
+}
 
 // Print method for vtkVolumeRayCastCompositeFunction
 // Since there is nothing local to print, just print the object stuff.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkRenderWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-05-28 17:26:11 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 1999-11-17 17:56:47 $
+  Version:   $Revision: 1.37 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -331,7 +331,7 @@ static void vtkTkRenderWidget_EventProc(ClientData clientData,
 	}
       break;
     case ConfigureNotify:
-      if ( 1 /*Tk_IsMapped(self->TkWin)*/ ) 
+      //if ( Tk_IsMapped(self->TkWin) ) 
         {
 	self->Width = Tk_Width(self->TkWin);
 	self->Height = Tk_Height(self->TkWin);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageOpenClose3D.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:09:09 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1999-11-17 17:57:01 $
+  Version:   $Revision: 1.13 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -90,6 +90,8 @@ public:
   // This method returns the cache to make a connection
   // It justs feeds the request to the sub filter.
   vtkImageData *GetOutput();
+  vtkImageData *GetOutput(int idx)
+    {return (vtkImageData *) this->vtkImageSource::GetOutput(idx); };
 
 
   // Foward filter messages

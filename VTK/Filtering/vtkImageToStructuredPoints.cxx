@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToStructuredPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:04:45 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1999-11-17 17:55:50 $
+  Version:   $Revision: 1.32 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -67,7 +67,7 @@ vtkImageToStructuredPoints* vtkImageToStructuredPoints::New()
 vtkImageToStructuredPoints::vtkImageToStructuredPoints()
 {
   this->Translate[0] = this->Translate[1] = this->Translate[2] = 0;
-  this->SetOutput(0,vtkStructuredPoints::New());
+  this->SetNthOutput(0,vtkStructuredPoints::New());
   this->Outputs[0]->Delete();
 }
 
@@ -98,7 +98,7 @@ vtkStructuredPoints *vtkImageToStructuredPoints::GetOutput()
 //----------------------------------------------------------------------------
 void vtkImageToStructuredPoints::SetInput(vtkImageData *input)
 {
-  this->vtkProcessObject::SetInput(0, input);
+  this->vtkProcessObject::SetNthInput(0, input);
 }
 
 //----------------------------------------------------------------------------
@@ -116,7 +116,7 @@ vtkImageData *vtkImageToStructuredPoints::GetInput()
 //----------------------------------------------------------------------------
 void vtkImageToStructuredPoints::SetVectorInput(vtkImageData *input)
 {
-  this->vtkProcessObject::SetInput(1, input);
+  this->vtkProcessObject::SetNthInput(1, input);
 }
 
 //----------------------------------------------------------------------------

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointLocator2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:04:57 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-11-17 17:55:52 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -945,7 +945,7 @@ int vtkPointLocator2D::IsInsertedPoint(float x[2])
 // Build polygonal representation of locator. Create faces that separate
 // inside/outside buckets, or separate inside/boundary of locator.
 void vtkPointLocator2D::GenerateRepresentation(int vtkNotUsed(level),
-					       vtkPolyData *pd)
+					       vtkPolyData *vtkNotUsed(pd))
 {
   // to be done
 }
@@ -954,6 +954,12 @@ void vtkPointLocator2D::GenerateFace(int face, int i, int j, int k,
                                    vtkPoints *pts, vtkCellArray *polys)
 {
   // to be done
+  face = face;
+  i = i;
+  j = j;
+  k = k;
+  pts = pts;
+  polys = polys;
 }
 
 

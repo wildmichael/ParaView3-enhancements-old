@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSeedConnectivity.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:09:14 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1999-11-17 17:57:03 $
+  Version:   $Revision: 1.13 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -110,6 +110,9 @@ protected:
   int Dimensionality;
   
   void Execute(vtkImageData *inData, vtkImageData *outData);
+  void Execute() { this->vtkImageToImageFilter::Execute(); };
+  void Execute(vtkImageData *outData)
+    { this->vtkImageToImageFilter::Execute(outData); };
 
   // Description:
   // Generate more than requested.  Called by the superclass before

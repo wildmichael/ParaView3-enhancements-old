@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMagnify.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:09:01 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1999-11-17 17:57:09 $
+  Version:   $Revision: 1.27 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -270,14 +270,14 @@ static void vtkImageMagnifyExecute(vtkImageMagnify *self,
 	      interpSetup = 1;
 	      }
 	    *outPtrC = (T)
-	      (dataP*(magXIdx + 1)*iMagP + 
-	       dataPX*(magX - magXIdx - 1)*iMagP +
-	       dataPY*(magXIdx + 1)*iMagPY + 
-	       dataPXY*(magX - magXIdx - 1)*iMagPY +
-	       dataPZ*(magXIdx + 1)*iMagPZ + 
-	       dataPXZ*(magX - magXIdx - 1)*iMagPZ +
-	       dataPYZ*(magXIdx + 1)*iMagPYZ + 
-	       dataPXYZ*(magX - magXIdx - 1)*iMagPYZ);
+	      ((float)dataP*(magXIdx + 1)*iMagP + 
+	       (float)dataPX*(magX - magXIdx - 1)*iMagP +
+	       (float)dataPY*(magXIdx + 1)*iMagPY + 
+	       (float)dataPXY*(magX - magXIdx - 1)*iMagPY +
+	       (float)dataPZ*(magXIdx + 1)*iMagPZ + 
+	       (float)dataPXZ*(magX - magXIdx - 1)*iMagPZ +
+	       (float)dataPYZ*(magXIdx + 1)*iMagPYZ + 
+	       (float)dataPXYZ*(magX - magXIdx - 1)*iMagPYZ);
 	    }
 	  outPtrC += maxC;
 	  if (!magXIdx) 

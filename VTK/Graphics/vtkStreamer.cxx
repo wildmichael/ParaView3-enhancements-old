@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamer.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:07:50 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 1999-11-17 17:56:42 $
+  Version:   $Revision: 1.48 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -138,7 +138,7 @@ vtkStreamer::~vtkStreamer()
 
 void vtkStreamer::SetSource(vtkDataSet *source)
 {
-  this->vtkProcessObject::SetInput(1, source);
+  this->vtkProcessObject::SetNthInput(1, source);
 }
 
 vtkDataSet *vtkStreamer::GetSource()

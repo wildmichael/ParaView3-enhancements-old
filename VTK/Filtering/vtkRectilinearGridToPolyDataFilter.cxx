@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGridToPolyDataFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:07:31 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-11-17 17:56:40 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,7 +64,7 @@ vtkRectilinearGridToPolyDataFilter* vtkRectilinearGridToPolyDataFilter::New()
 // Specify the input data or filter.
 void vtkRectilinearGridToPolyDataFilter::SetInput(vtkRectilinearGrid *input)
 {
-  this->vtkProcessObject::SetInput(0, input);
+  this->vtkProcessObject::SetNthInput(0, input);
 }
 
 //----------------------------------------------------------------------------

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageImport.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:08:58 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1999-11-17 17:56:58 $
+  Version:   $Revision: 1.17 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -141,6 +141,7 @@ protected:
   float DataOrigin[3];
   
   void Execute(vtkImageData *data);
+  void Execute() { this->vtkImageSource::Execute(); };
 };
 
 

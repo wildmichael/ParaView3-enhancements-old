@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOBBTree.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:06:58 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1999-11-17 17:56:11 $
+  Version:   $Revision: 1.26 $
   Thanks:    Thanks to Peter C. Everett <pce@world.std.com> for
              improvements and enhancements to vtkOBBTree class.
 
@@ -132,6 +132,10 @@ public:
   int IntersectWithLine(float a0[3], float a1[3], float tol,
                         float& t, float x[3], float pcoords[3],
                         int &subId, int &cellId);
+  
+  int IntersectWithLine(float a0[3], float a1[3], float tol,
+			float& t, float x[3], float pcoords[3],
+			int &subId, int &cellId, vtkGenericCell *cell);
 
   //BTX
   // Description:

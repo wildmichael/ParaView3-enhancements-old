@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWedge.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-10 21:20:37 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1999-11-17 17:55:56 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -731,8 +731,8 @@ void vtkWedge::Clip(float vtkNotUsed(value),
 		    vtkCellArray *vtkNotUsed(tetras),
 		    vtkPointData *vtkNotUsed(inPd), 
 		    vtkPointData *vtkNotUsed(outPd),
-		    vtkCellData *vtkNotUsed(inCd), int cellId, 
-		    vtkCellData *vtkNotUsed(outCd), int insideOut)
+		    vtkCellData *vtkNotUsed(inCd), int vtkNotUsed(cellId), 
+		    vtkCellData *vtkNotUsed(outCd), int vtkNotUsed(insideOut))
 {
 
 }

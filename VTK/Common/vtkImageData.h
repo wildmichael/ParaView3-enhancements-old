@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-22 15:51:34 $
-  Version:   $Revision: 1.52 $
+  Date:      $Date: 1999-11-17 17:55:42 $
+  Version:   $Revision: 1.53 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -95,6 +95,7 @@ public:
   vtkCell *GetCell(int cellId);
   void GetCell(int cellId, vtkGenericCell *cell);
   void GetCellBounds(int cellId, float bounds[6]);
+  int FindPoint(float x, float y, float z) { return this->vtkDataSet::FindPoint(x, y, z);};
   int FindPoint(float x[3]);
   int FindCell(float x[3], vtkCell *cell, int cellId, float tol2, int& subId, 
                float pcoords[3], float *weights);
@@ -322,7 +323,7 @@ public:
   
   // Description:
   // Legacy.  Replaced with GetEstimatedUpdateMemorySize.
-  long GetUpdateExtentMemorySize() 
+  unsigned long GetUpdateExtentMemorySize() 
     {
       vtkWarningMacro("Change GetUpdateExtentMemorySize to GetEstimatedUpdateMemorySize");
       return this->GetEstimatedUpdateMemorySize();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAppend.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:08:38 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1999-11-17 17:56:53 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -79,6 +79,7 @@ protected:
   int *Shifts;
 
   void ExecuteInformation(vtkImageData **inputs, vtkImageData *output);
+  void ExecuteInformation(){this->vtkImageMultipleInputFilter::ExecuteInformation();};
   void ComputeRequiredInputUpdateExtent(int inExt[6], int outExt[6],
 					int whichInput);
   

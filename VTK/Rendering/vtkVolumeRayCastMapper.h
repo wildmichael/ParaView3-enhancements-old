@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastMapper.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-19 17:25:06 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1999-11-17 17:56:20 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -121,7 +121,7 @@ public:
   // Description:
   // WARNING: INTERNAL METHOD - NOT INTENDED FOR GENERAL USE
   // Initialize rendering for this volume.
-  void Render( vtkRenderer *ren, vtkVolume *vol ) {};
+  void Render( vtkRenderer *, vtkVolume * ) {};
 
   // Description:
   // WARNING: INTERNAL METHOD - NOT INTENDED FOR GENERAL USE

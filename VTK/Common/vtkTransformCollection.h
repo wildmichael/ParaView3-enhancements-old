@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransformCollection.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:05:16 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1999-11-17 17:55:48 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -73,6 +73,11 @@ protected:
   ~vtkTransformCollection() {};
   vtkTransformCollection(const vtkTransformCollection&) {};
   void operator=(const vtkTransformCollection&) {};
+
+
+private:
+  // hide the standard AddItem from the user and the compiler.
+  void AddItem(vtkObject *o) { this->vtkCollection::AddItem(o); };
 
 };
 

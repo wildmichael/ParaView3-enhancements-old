@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCubeAxesActor2D.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:05:28 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1999-11-17 17:55:56 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thorsten Dowe who modified and improved this class.
 
 Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -88,7 +88,7 @@ public:
   // Draw the axes as per the vtkProp superclass' API.
   int RenderOverlay(vtkViewport*);
   int RenderOpaqueGeometry(vtkViewport*);
-  int RenderTranslucentGeometry(vtkViewport *viewport) {return 0;}
+  int RenderTranslucentGeometry(vtkViewport *) {return 0;}
 
   // Description:
   // Use the bounding box of this input dataset to draw the cube axes. If this

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeMapper.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-21 20:00:52 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 1999-11-17 17:56:18 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -136,6 +136,8 @@ public:
   // Return bounding box (array of six floats) of data expressed as
   // (xmin,xmax, ymin,ymax, zmin,zmax).
   virtual float *GetBounds();
+  virtual void GetBounds(float bounds[6])
+    { this->vtkAbstractMapper3D::GetBounds(bounds); };
 
 
 //BTX

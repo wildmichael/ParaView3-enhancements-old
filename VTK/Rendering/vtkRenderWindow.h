@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 1999-11-04 16:30:25 $
-  Version:   $Revision: 1.88 $
+  Date:      $Date: 1999-11-17 17:56:15 $
+  Version:   $Revision: 1.89 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -388,15 +388,15 @@ inline char *vtkRenderWindow::GetStereoTypeAsString(void)
   switch ( this->StereoType )
     {
     case VTK_STEREO_CRYSTAL_EYES:
-      return "CrystalEyes";
+      return (char *)"CrystalEyes";
     case VTK_STEREO_RED_BLUE:
-      return "RedBlue";
+      return (char *)"RedBlue";
     case VTK_STEREO_LEFT:
-      return "Left";
+      return (char *)"Left";
     case VTK_STEREO_RIGHT:
-      return "Right";
+      return (char *)"Right";
     default:
-      return "";
+      return (char *)"";
     }
 }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGridWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:08:15 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1999-11-17 17:56:48 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,7 +64,7 @@ vtkUnstructuredGridWriter* vtkUnstructuredGridWriter::New()
 // Specify the input data or filter.
 void vtkUnstructuredGridWriter::SetInput(vtkUnstructuredGrid *input)
 {
-  this->vtkProcessObject::SetInput(0, input);
+  this->vtkProcessObject::SetNthInput(0, input);
 }
 
 //----------------------------------------------------------------------------

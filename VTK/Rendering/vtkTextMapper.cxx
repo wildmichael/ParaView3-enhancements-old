@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-22 19:20:24 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1999-11-17 17:57:16 $
+  Version:   $Revision: 1.22 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -342,4 +342,59 @@ void vtkTextMapper::RenderOpaqueGeometryMultipleLines(vtkViewport *viewport,
     this->TextLines[lineNum]->SetLineSpacing(this->LineSpacing);
     this->TextLines[lineNum]->RenderOpaqueGeometry(viewport,actor);
     }
+}
+
+
+void vtkTextMapper::SetFontSize(int size)
+{
+  if (size != this->FontSize)
+    {
+    this->FontSize = size;
+    this->Modified();
+    this->FontMTime.Modified();
+    }
+
+}
+
+void vtkTextMapper::SetBold(int val)
+{
+  if (val == this->Bold)
+    {
+    return;
+    }
+  this->Bold = val;
+  this->Modified();
+  this->FontMTime.Modified();
+}
+
+void vtkTextMapper::SetItalic(int val)
+{
+  if (val == this->Italic)
+    {
+    return;
+    }
+  this->Italic = val;
+  this->Modified();
+  this->FontMTime.Modified();
+}
+
+void vtkTextMapper::SetShadow(int val)
+{
+  if (val == this->Shadow)
+    {
+    return;
+    }
+  this->Shadow = val;
+  this->Modified();
+}
+
+void vtkTextMapper::SetFontFamily(int val)
+{
+  if (val == this->FontFamily)
+    {
+    return;
+    }
+  this->FontFamily = val;
+  this->Modified();
+  this->FontMTime.Modified();
 }

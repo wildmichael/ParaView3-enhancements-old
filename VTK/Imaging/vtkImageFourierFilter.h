@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageFourierFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:08:53 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1999-11-17 17:56:57 $
+  Version:   $Revision: 1.20 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -103,9 +103,9 @@ typedef struct{
 // This macro calculates exp(cIn) and puts the result in cOut 
 #define vtkImageComplexExponential(cIn, cOut) \
 { \
-  float temp = exp(cIn.Real); \
-  cOut.Real = temp * cos(cIn.Imag); \
-  cOut.Imag = temp * sin(cIn.Imag); \
+  float tmp = exp(cIn.Real); \
+  cOut.Real = tmp * cos(cIn.Imag); \
+  cOut.Imag = tmp * sin(cIn.Imag); \
 }
 
 /******************* End of COMPLEX number stuff ********************/

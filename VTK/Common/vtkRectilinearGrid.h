@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGrid.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:05:06 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1999-11-17 17:55:47 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -103,6 +103,7 @@ public:
   vtkCell *GetCell(int cellId);
   void GetCell(int cellId, vtkGenericCell *cell);
   void GetCellBounds(int cellId, float bounds[6]);
+  int FindPoint(float x, float y, float z) { return this->vtkDataSet::FindPoint(x, y, z);};
   int FindPoint(float x[3]);
   int FindCell(float x[3], vtkCell *cell, int cellId, float tol2, int& subId, 
                float pcoords[3], float *weights);

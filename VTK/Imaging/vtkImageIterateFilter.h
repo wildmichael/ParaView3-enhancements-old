@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageIterateFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:08:59 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1999-11-17 17:56:59 $
+  Version:   $Revision: 1.15 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -91,6 +91,8 @@ protected:
   void Execute();
   // defined in superclass, but hidden by Execute().
   void Execute(vtkImageData *inData, vtkImageData *outData);
+  void Execute(vtkImageData *outData)
+    { this->vtkImageToImageFilter::Execute(outData);};
   
   // Allows subclass to specify the number of iterations  
   virtual void SetNumberOfIterations(int num);

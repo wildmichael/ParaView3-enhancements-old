@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetToDataObjectFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:06:13 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-11-17 17:56:24 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -313,7 +313,6 @@ void vtkDataSetToDataObjectFilter::Execute()
 
     if ( fieldData=inPD->GetFieldData() )
       {
-      vtkDataArray *da;
       for (int i=0; i<fieldData->GetNumberOfArrays(); i++)
         {
         da = fieldData->GetArray(i);
@@ -359,7 +358,6 @@ void vtkDataSetToDataObjectFilter::Execute()
 
     if ( fieldData=inCD->GetFieldData() )
       {
-      vtkDataArray *da;
       for (int i=0; i<fieldData->GetNumberOfArrays(); i++)
         {
         da = fieldData->GetArray(i);
@@ -380,7 +378,7 @@ void vtkDataSetToDataObjectFilter::Execute()
 // Specify the input data or filter.
 void vtkDataSetToDataObjectFilter::SetInput(vtkDataSet *input)
 {
-  this->vtkProcessObject::SetInput(0, input);
+  this->vtkProcessObject::SetNthInput(0, input);
 }
 
 //----------------------------------------------------------------------------
@@ -397,7 +395,7 @@ vtkDataSet *vtkDataSetToDataObjectFilter::GetInput()
 
 //----------------------------------------------------------------------------
 int 
-vtkDataSetToDataObjectFilter::ComputeInputUpdateExtents(vtkDataObject *output)
+vtkDataSetToDataObjectFilter::ComputeInputUpdateExtents(vtkDataObject *vtkNotUsed(output))
 {
   // what should we do here?
   this->GetInput()->SetUpdateExtent(0, 1);

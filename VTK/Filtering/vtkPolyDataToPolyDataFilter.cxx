@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataToPolyDataFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:07:20 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-11-17 17:56:38 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -63,7 +63,7 @@ vtkPolyDataToPolyDataFilter* vtkPolyDataToPolyDataFilter::New()
 // Specify the input data or filter.
 void vtkPolyDataToPolyDataFilter::SetInput(vtkPolyData *input)
 {
-  this->vtkProcessObject::SetInput(0, input);
+  this->vtkProcessObject::SetNthInput(0, input);
 }
 
 //----------------------------------------------------------------------------

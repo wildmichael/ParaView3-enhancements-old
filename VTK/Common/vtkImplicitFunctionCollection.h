@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitFunctionCollection.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:04:46 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1999-11-17 17:55:43 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -71,6 +71,11 @@ protected:
   vtkImplicitFunctionCollection(const vtkImplicitFunctionCollection&) {};
   void operator=(const vtkImplicitFunctionCollection&) {};
   
+
+private:
+  // hide the standard AddItem from the user and the compiler.
+  void AddItem(vtkObject *o) { this->vtkCollection::AddItem(o); };
+
 };
 
 inline void vtkImplicitFunctionCollection::AddItem(vtkImplicitFunction *f) 

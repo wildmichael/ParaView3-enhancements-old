@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipVolume.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:05:58 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1999-11-17 17:56:22 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -85,7 +85,7 @@ vtkClipVolume::vtkClipVolume(vtkImplicitFunction *cf)
   
   this->Triangulator = vtkDelaunay3D::New();
   this->Triangulator->SetLocator(this->MeshLocator);
-  this->vtkSource::SetOutput(1,vtkUnstructuredGrid::New());
+  this->vtkSource::SetNthOutput(1,vtkUnstructuredGrid::New());
   this->Outputs[1]->Delete();
 }
 
@@ -418,7 +418,8 @@ void vtkClipVolume::Execute()
 // regular spacing of voxel points, we don't have to worry about constrained
 // Delaunay problems.
 void vtkClipVolume::ClipVoxel(float value, vtkScalars *cellScalars, 
-                              int flip, float origin[3], float spacing[3], 
+                              int flip, float vtkNotUsed(origin)[3],
+			      float spacing[3], 
                               vtkIdList *cellIds, vtkPoints *cellPts,
                               vtkPointData *inPD, vtkPointData *outPD,
                               vtkCellData *inCD, int cellId, 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProgrammableDataObjectSource.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:07:24 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-11-17 17:56:13 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -80,6 +80,8 @@ public:
   // Description:
   // Get the output data object.
   vtkDataObject *GetOutput();
+  vtkDataObject *GetOutput(int idx)
+    {return (vtkDataObject *) this->vtkSource::GetOutput(idx); };
 
 protected:
   vtkProgrammableDataObjectSource();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPropAssembly.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:05:03 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-11-17 17:55:47 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -131,6 +131,9 @@ protected:
   vtkPropCollection *Parts;
   float Bounds[6];
   
+private:
+  // hide the superclass' ShallowCopy() from the user and the compiler.
+  void ShallowCopy(vtkProp *prop) { this->vtkProp::ShallowCopy( prop ); };
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageIterateFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:08:59 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1999-11-17 17:57:09 $
+  Version:   $Revision: 1.18 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -205,15 +205,16 @@ void vtkImageIterateFilter::ExecuteInformation()
 //----------------------------------------------------------------------------
 //  Called by the above for each decomposition.  Subclass can modify
 // the defaults by implementing this method.
-void vtkImageIterateFilter::ExecuteInformation(vtkImageData *inData,
-					       vtkImageData *outData)
+void vtkImageIterateFilter::ExecuteInformation(vtkImageData *vtkNotUsed(inData),
+				       vtkImageData *vtkNotUsed(outData))
 {
 }
 
 
 //----------------------------------------------------------------------------
 int vtkImageIterateFilter::ComputeDivisionExtents(vtkDataObject *output,
-						  int division, int numDivisions)
+						  int division,
+						  int vtkNotUsed(numDivisions))
 {
   vtkImageData *in, *out = (vtkImageData*)output;
   int inExt[6], idx;

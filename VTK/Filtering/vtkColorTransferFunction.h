@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkColorTransferFunction.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:05:59 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1999-11-17 17:56:05 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -122,6 +122,7 @@ public:
   // The set method does nothing.
   float *GetRange();
   virtual void SetRange(float, float) {};
+  void SetRange(float rng[2]) {this->SetRange(rng[0],rng[1]);};
 
   // Description:
   // Fills in a table of n function values between x1 and x2

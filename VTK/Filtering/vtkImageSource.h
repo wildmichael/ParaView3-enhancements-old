@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSource.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:04:45 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 1999-11-17 17:55:43 $
+  Version:   $Revision: 1.38 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,6 +64,8 @@ public:
   // Get the output of this source.
   void SetOutput(vtkImageData *output);
   vtkImageData *GetOutput();
+  vtkImageData *GetOutput(int idx)
+    {return (vtkImageData *) this->vtkSource::GetOutput(idx); };
   
   // Description:
   // Legacy.  Sets the UpdateExtent to the WholeExtent, and Updates.

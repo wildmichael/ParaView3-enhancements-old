@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCone.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:06:00 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1999-11-17 17:56:05 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -69,6 +69,8 @@ public:
   // Description
   // Evaluate cone equation.
   float EvaluateFunction(float x[3]);
+  float EvaluateFunction(float x, float y, float z)
+    {return this->vtkImplicitFunction::EvaluateFunction(x, y, z); } ;
 
   // Description
   // Evaluate cone normal.

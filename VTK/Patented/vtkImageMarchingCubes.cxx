@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMarchingCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-13 14:53:58 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1999-11-17 17:57:16 $
+  Version:   $Revision: 1.29 $
 
 Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -907,7 +907,7 @@ int *vtkImageMarchingCubes::GetLocatorPointer(int cellX,int cellY,int edge)
 //----------------------------------------------------------------------------
 void vtkImageMarchingCubes::SetInput(vtkImageData *input)
 {
-  this->vtkProcessObject::SetInput(0, input);
+  this->vtkProcessObject::SetNthInput(0, input);
 }
 
 //----------------------------------------------------------------------------

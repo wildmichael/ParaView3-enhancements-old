@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPostScriptWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:09:27 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-11-17 17:57:15 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -61,7 +61,7 @@ vtkPostScriptWriter* vtkPostScriptWriter::New()
 #define VTK_MARGIN 0.95
 
 void vtkPostScriptWriter::WriteFileTrailer(ofstream *file, 
-					   vtkImageData *cache)
+					   vtkImageData *vtkNotUsed(cache))
 {
   *file << "\ngrestore\nshowpage\n%%%%Trailer\n";
 }

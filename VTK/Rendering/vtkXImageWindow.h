@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXImageWindow.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:09:34 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1999-11-17 17:57:07 $
+  Version:   $Revision: 1.15 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -99,13 +99,17 @@ public:
   // Description:
   // Set/Get the position of the window.
   int     *GetPosition();
+  void     GetPosition(int* x, int* y) {this->vtkImageWindow::GetPosition(x, y);};
   void     SetPosition(int,int);
-
+  void     SetPosition(int a[2]) { this->SetPosition(a[0],a[1]); };
+ 
   // Description:
   // Set/Get the size of the window.
   int     *GetSize();
+  void     GetSize(int* x, int* y) {this->vtkImageWindow::GetSize(x, y);};
   void     SetSize(int x, int y);
-
+  void     SetSize(int a[2]) { this->SetSize(a[0], a[1]); };
+  
   // Description:
   // The GetGenericXXX functions are necessary to draw into
   // a VTKWindow.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLODProp3D.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:06:46 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1999-11-17 17:56:10 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -82,6 +82,7 @@ public:
   // Description:
   // Standard vtkProp method to get 3D bounds of a 3D prop
   float *GetBounds();
+  void GetBounds(float bounds[6]) { this->vtkProp3D::GetBounds( bounds ); };
 
   // Description:
   // Do we need to ray cast this prop?

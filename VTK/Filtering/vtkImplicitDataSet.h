@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitDataSet.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:06:39 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1999-11-17 17:56:09 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -85,6 +85,8 @@ public:
   // Evaluate the implicit function. This returns the interpolated scalar value
   // at x[3].
   float EvaluateFunction(float x[3]);
+  float EvaluateFunction(float x, float y, float z)
+    {return this->vtkImplicitFunction::EvaluateFunction(x, y, z); } ;
 
   // Description
   // Evaluate implicit function gradient.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastMIPFunction.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:08:24 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1999-11-17 17:56:19 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -110,22 +110,5 @@ protected:
 };
 
 
-// Description:
-// Return the maximize method as a descriptive character string.
-inline char *vtkVolumeRayCastMIPFunction::GetMaximizeMethodAsString(void)
-{
-  if( this->MaximizeMethod == VTK_MAXIMIZE_SCALAR_VALUE )
-    {
-    return "Maximize Scalar Value";
-    }
-  if( this->MaximizeMethod == VTK_MAXIMIZE_OPACITY )
-    {
-    return "Maximize Opacity";
-    }
-  else
-    {
-    return "Unknown";
-    }
-}
 
 #endif

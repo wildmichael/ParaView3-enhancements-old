@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFieldDataToAttributeDataFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:06:29 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1999-11-17 17:56:29 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -1002,7 +1002,9 @@ void vtkFieldDataToAttributeDataFilter::ConstructTensors(int num, vtkFieldData *
 
 // Stuff related to fields --------------------------------------------
 //
-void vtkFieldDataToAttributeDataFilter::ConstructFieldData(int num, vtkDataSetAttributes *attr)
+void
+vtkFieldDataToAttributeDataFilter::ConstructFieldData(int vtkNotUsed(num),
+				      vtkDataSetAttributes *vtkNotUsed(attr))
 {
 }
 

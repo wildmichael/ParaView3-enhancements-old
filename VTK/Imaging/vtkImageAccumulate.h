@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAccumulate.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:08:37 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1999-11-17 17:56:53 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to C. Charles Law who developed this class
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -88,8 +88,11 @@ protected:
   int ComponentExtent[6];
 
   void ExecuteInformation(vtkImageData *input, vtkImageData *output);
+  void ExecuteInformation(){this->vtkImageToImageFilter::ExecuteInformation();};
   void ComputeRequiredInputUpdateExtent(int inExt[6], int outExt[6]);
   void Execute(vtkImageData *inData, vtkImageData *outData);
+  void Execute() { this->vtkImageToImageFilter::Execute(); };
+  void Execute(vtkImageData *outData) { this->vtkImageToImageFilter::Execute(outData); };
 
   // Description:
   // Generate more than requested.  Called by the superclass before

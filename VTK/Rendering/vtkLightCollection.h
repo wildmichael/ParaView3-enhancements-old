@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLightCollection.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:06:47 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1999-11-17 17:56:11 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -73,6 +73,12 @@ protected:
   ~vtkLightCollection() {};
   vtkLightCollection(const vtkLightCollection&) {};
   void operator=(const vtkLightCollection&) {};
+
+
+private:
+  // hide the standard AddItem from the user and the compiler.
+  void AddItem(vtkObject *o) { this->vtkCollection::AddItem(o); };
+
 };
 
 

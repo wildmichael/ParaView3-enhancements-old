@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetReader.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:06:12 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 1999-11-17 17:56:06 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -135,6 +135,8 @@ public:
   // to know the type of the data, the FileName must be set before GetOutput 
   // is applied.
   vtkDataSet *GetOutput();
+  vtkDataSet *GetOutput(int idx)
+    {return (vtkDataSet *) this->vtkSource::GetOutput(idx); };
 
   // Description:
   // Get the output as various concrete types. This method is typically used

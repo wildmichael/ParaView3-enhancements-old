@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSource.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:05:08 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 1999-11-17 17:55:47 $
+  Version:   $Revision: 1.47 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -163,7 +163,7 @@ protected:
   vtkDataObject *GetOutput(int idx);
 
   // protected methods for setting inputs.
-  virtual void SetOutput(int num, vtkDataObject *output);
+  virtual void SetNthOutput(int num, vtkDataObject *output);
   virtual void AddOutput(vtkDataObject *output);
   virtual void RemoveOutput(vtkDataObject *output);
 

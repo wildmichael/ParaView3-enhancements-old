@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProcessObject.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:05:01 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-11-17 17:55:46 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -159,7 +159,7 @@ protected:
   void SetNumberOfInputs(int num);
 
   // protected methods for setting inputs.
-  virtual void SetInput(int num, vtkDataObject *input);
+  virtual void SetNthInput(int num, vtkDataObject *input);
   virtual void AddInput(vtkDataObject *input);
   virtual void RemoveInput(vtkDataObject *input);
   

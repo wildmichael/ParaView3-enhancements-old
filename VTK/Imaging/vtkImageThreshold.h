@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageThreshold.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:09:18 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1999-11-17 17:57:05 $
+  Version:   $Revision: 1.19 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -125,6 +125,7 @@ protected:
   int OutputScalarType;
 
   void ExecuteInformation(vtkImageData *inData, vtkImageData *outData);
+  void ExecuteInformation(){this->vtkImageToImageFilter::ExecuteInformation();};
   void ThreadedExecute(vtkImageData *inData, vtkImageData *outData, 
 		       int extent[6], int id);
 };

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-22 19:11:41 $
-  Version:   $Revision: 1.126 $
+  Date:      $Date: 1999-11-17 17:56:41 $
+  Version:   $Revision: 1.127 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -154,7 +154,6 @@ void vtkRenderer::Render(void)
     {
     int mods = 0;
     vtkLight *light;
-    vtkProp *aProp;
     
     // now we just need to check the lights and actors
     for(this->Lights->InitTraversal(); 

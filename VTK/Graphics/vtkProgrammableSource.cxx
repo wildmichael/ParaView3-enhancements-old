@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProgrammableSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:07:25 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1999-11-17 17:56:39 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -71,19 +71,19 @@ vtkProgrammableSource::vtkProgrammableSource()
   this->ExecuteMethodArg = NULL;
   this->ExecuteMethodArgDelete = NULL;
 
-  this->vtkSource::SetOutput(0,vtkPolyData::New());
+  this->vtkSource::SetNthOutput(0,vtkPolyData::New());
   this->Outputs[0]->Delete();
 
-  this->vtkSource::SetOutput(1,vtkStructuredPoints::New());
+  this->vtkSource::SetNthOutput(1,vtkStructuredPoints::New());
   this->Outputs[1]->Delete();
 
-  this->vtkSource::SetOutput(2,vtkStructuredGrid::New());
+  this->vtkSource::SetNthOutput(2,vtkStructuredGrid::New());
   this->Outputs[2]->Delete();
 
-  this->vtkSource::SetOutput(3,vtkUnstructuredGrid::New());
+  this->vtkSource::SetNthOutput(3,vtkUnstructuredGrid::New());
   this->Outputs[3]->Delete();
 
-  this->vtkSource::SetOutput(4,vtkRectilinearGrid::New());
+  this->vtkSource::SetNthOutput(4,vtkRectilinearGrid::New());
   this->Outputs[4]->Delete();
 }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPlane.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:04:54 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 1999-11-17 17:55:46 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,6 +64,8 @@ public:
   // Description
   // Evaluate plane equation for point x[3].
   float EvaluateFunction(float x[3]);
+  float EvaluateFunction(float x, float y, float z)
+    {return this->vtkImplicitFunction::EvaluateFunction(x, y, z); } ;
 
   // Description
   // Evaluate function gradient at point x[3].

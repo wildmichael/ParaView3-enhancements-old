@@ -3,8 +3,8 @@
  Program:   Visualization Toolkit
  Module:    $RCSfile: vtkProcessObject.cxx,v $
  Language:  C++
- Date:      $Date: 1999-10-11 15:05:01 $
- Version:   $Revision: 1.6 $
+ Date:      $Date: 1999-11-17 17:55:53 $
+ Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -222,11 +222,11 @@ void vtkProcessObject::RemoveInput(vtkDataObject *input)
 
 //----------------------------------------------------------------------------
 // Set an Input of this filter. 
-void vtkProcessObject::SetInput(int idx, vtkDataObject *input)
+void vtkProcessObject::SetNthInput(int idx, vtkDataObject *input)
 {
   if (idx < 0)
     {
-    vtkErrorMacro(<< "SetInput: " << idx << ", cannot set input. ");
+    vtkErrorMacro(<< "SetNthInput: " << idx << ", cannot set input. ");
     return;
     }
   // Expand array if necessary.

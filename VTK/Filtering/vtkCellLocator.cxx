@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellLocator.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:05:56 $
-  Version:   $Revision: 1.52 $
+  Date:      $Date: 1999-11-17 17:56:21 $
+  Version:   $Revision: 1.53 $
   
     
   Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -1089,7 +1089,7 @@ void vtkCellLocator::GetBucketNeighbors(int ijk[3], int ndivs, int level)
 // layer before they can be used. Only buckets that have cells are placed
 // in the bucket list.
 //
-void vtkCellLocator::GetOverlappingBuckets(float x[3], int ijk[3], 
+void vtkCellLocator::GetOverlappingBuckets(float x[3], int vtkNotUsed(ijk)[3], 
                                            float dist, 
                                            int prevMinLevel[3],
                                            int prevMaxLevel[3])
@@ -1097,7 +1097,7 @@ void vtkCellLocator::GetOverlappingBuckets(float x[3], int ijk[3],
   int i, j, k, nei[3], minLevel[3], maxLevel[3];
   int leafStart, kFactor, jFactor;
   int numberOfBucketsPerPlane, jkSkipFlag, kSkipFlag;
-  
+
   numberOfBucketsPerPlane = this->NumberOfDivisions*this->NumberOfDivisions;
   leafStart = this->NumberOfOctants
     - numberOfBucketsPerPlane*this->NumberOfDivisions;

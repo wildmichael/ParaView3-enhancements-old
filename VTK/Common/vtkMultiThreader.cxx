@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMultiThreader.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:04:52 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1999-11-17 17:55:51 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -182,7 +182,7 @@ void vtkMultiThreader::SetMultipleMethod( int index,
 // Execute the method set as the SingleMethod on NumberOfThreads threads.
 void vtkMultiThreader::SingleMethodExecute()
 {
-  int                thread_loop;
+  int                thread_loop = 0;
 
 #ifdef _WIN32
   DWORD              threadId;
@@ -541,6 +541,10 @@ int vtkMultiThreader::SpawnThread( vtkThreadFunctionType f, void *UserData )
 {
   int id;
 
+  // avoid a warning
+  vtkThreadFunctionType tf;
+  tf = f; tf= tf;
+  
 #ifdef _WIN32
   DWORD              threadId;
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageVariance3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:09:20 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1999-11-17 17:57:14 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -144,7 +144,7 @@ void vtkImageVariance3D::SetKernelSize(int size0, int size1, int size2)
 
 //----------------------------------------------------------------------------
 // Output is always float
-void vtkImageVariance3D::ExecuteInformation(vtkImageData *inData, 
+void vtkImageVariance3D::ExecuteInformation(vtkImageData *vtkNotUsed(inData), 
 					    vtkImageData *outData)
 {
   outData->SetScalarType(VTK_FLOAT);

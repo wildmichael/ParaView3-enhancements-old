@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:06:11 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 1999-11-17 17:56:23 $
+  Version:   $Revision: 1.48 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -81,7 +81,7 @@ vtkDataSetMapper::~vtkDataSetMapper()
 
 void vtkDataSetMapper::SetInput(vtkDataSet *input)
 {
-  this->vtkProcessObject::SetInput(0, input);
+  this->vtkProcessObject::SetNthInput(0, input);
 }
 
 vtkDataSet *vtkDataSetMapper::GetInput()

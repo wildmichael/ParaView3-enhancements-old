@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGrid.h,v $
   Language:  C++
-  Date:      $Date: 1999-11-10 21:20:36 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 1999-11-17 17:55:48 $
+  Version:   $Revision: 1.51 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -193,6 +193,14 @@ protected:
   // Returns 0 if upstream filter cannot generate the UpdateExtent.
   // This also releases the data if a different piece is requested.
   int ClipUpdateExtentWithWholeExtent();
+
+ private:
+  // Hide these from the user and the compiler.
+  
+  // Description:
+  // For legacy compatibility. Do not use.
+  void GetCellNeighbors(int cellId, vtkIdList& ptIds, vtkIdList& cellIds)
+    {this->GetCellNeighbors(cellId, &ptIds, &cellIds);}
 };
 
 #endif

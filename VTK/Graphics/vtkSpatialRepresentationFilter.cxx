@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSpatialRepresentationFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:07:46 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1999-11-17 17:56:42 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -96,7 +96,7 @@ vtkPolyData *vtkSpatialRepresentationFilter::GetOutput(int level)
 
   if ( this->Outputs[level] == NULL )
     {
-    this->vtkSource::SetOutput(level, vtkPolyData::New());
+    this->vtkSource::SetNthOutput(level, vtkPolyData::New());
     this->Modified(); //asking for new output
     }
 
@@ -108,7 +108,7 @@ void vtkSpatialRepresentationFilter::ResetOutput()
   this->TerminalNodesRequested = 0;
   for ( int i=0; i <= VTK_MAX_SPATIAL_REP_LEVEL; i++)
     {
-    this->vtkSource::SetOutput(i, NULL);
+    this->vtkSource::SetNthOutput(i, NULL);
     }
 }
 
@@ -241,7 +241,7 @@ void vtkSpatialRepresentationFilter::PrintSelf(ostream& os, vtkIndent indent)
 // Specify the input data or filter.
 void vtkSpatialRepresentationFilter::SetInput(vtkDataSet *input)
 {
-  this->vtkProcessObject::SetInput(0, input);
+  this->vtkProcessObject::SetNthInput(0, input);
 }
 
 //----------------------------------------------------------------------------

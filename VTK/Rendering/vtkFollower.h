@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFollower.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:06:31 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 1999-11-17 17:56:08 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -79,6 +79,9 @@ class VTK_EXPORT vtkFollower : public vtkActor
   // Description:
   // Copy the follower's composite 4x4 matrix into the matrix provided.
   virtual void GetMatrix(vtkMatrix4x4 *m);
+  virtual vtkMatrix4x4& GetMatrix() {return *(this->GetMatrixPointer());}
+  virtual void GetMatrix(double m[16])
+    {this->GetMatrix(this->Matrix); vtkMatrix4x4::DeepCopy(m,this->Matrix);};
 
   // Description:
   // Set/Get the camera to follow. If this is not set, then the follower
@@ -98,6 +101,9 @@ protected:
 
   vtkCamera *Camera; 
   vtkActor  *Device;
+private:
+  // hide the two parameter Render() method from the user and the compiler.
+  virtual void Render(vtkRenderer *, vtkMapper *) {};
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageRFFT.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:09:11 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1999-11-17 17:57:11 $
+  Version:   $Revision: 1.18 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,7 +64,7 @@ vtkImageRFFT* vtkImageRFFT::New()
 
 //----------------------------------------------------------------------------
 // This extent of the components changes to real and imaginary values.
-void vtkImageRFFT::ExecuteInformation(vtkImageData *inData, 
+void vtkImageRFFT::ExecuteInformation(vtkImageData *vtkNotUsed(inData), 
 				      vtkImageData *outData)
 {
   outData->SetNumberOfScalarComponents(2);

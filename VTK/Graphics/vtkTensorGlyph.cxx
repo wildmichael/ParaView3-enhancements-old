@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTensorGlyph.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:08:04 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1999-11-17 17:56:46 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -412,7 +412,7 @@ void vtkTensorGlyph::Update()
 
 void vtkTensorGlyph::SetSource(vtkPolyData *source)
 {
-  this->vtkProcessObject::SetInput(1, source);
+  this->vtkProcessObject::SetNthInput(1, source);
 }
 
 vtkPolyData *vtkTensorGlyph::GetSource()

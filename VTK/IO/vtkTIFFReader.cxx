@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTIFFReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-24 16:35:44 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-11-17 17:57:15 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -98,7 +98,9 @@ void vtkTIFFReader::ReadTag(_vtkTifTag *tag, FILE *fp)
   this->Swap2(&stmp);
   tag->DataType = stmp;
 
-  if (sizeof(long) == 4)
+  int sizeLong;
+  sizeLong = sizeof(long);
+  if (sizeLong == 4)
     {
     fread(&ltmp,sizeof(long),1,fp);
     this->Swap4(&ltmp);
@@ -236,7 +238,9 @@ void vtkTIFFReader::ExecuteInformation()
     }
   
   // get the offset to the image file directory
-  if (sizeof(long) == 4)
+  int sizeLong;
+  sizeLong = sizeof(long);
+  if (sizeLong == 4)
     {
     fread(&IFDOffset,sizeof(long),1,fp);
     this->Swap4(&IFDOffset);

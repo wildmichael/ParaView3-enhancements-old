@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-13 21:17:39 $
-  Version:   $Revision: 1.75 $
+  Date:      $Date: 1999-11-17 17:56:51 $
+  Version:   $Revision: 1.76 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -383,7 +383,7 @@ void vtkXRenderWindowInteractorTimer(XtPointer client_data,
   me->InteractorStyle->OnTimer();
 }
 
-int vtkXRenderWindowInteractor::CreateTimer(int timertype) 
+int vtkXRenderWindowInteractor::CreateTimer(int vtkNotUsed(timertype)) 
 {
   this->AddTimeOut(this->App, 10,
 		   vtkXRenderWindowInteractorTimer,

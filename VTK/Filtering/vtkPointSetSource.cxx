@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSetSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:07:15 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1999-11-17 17:56:36 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -80,7 +80,7 @@ vtkPointSet *vtkPointSetSource::GetOutput()
 //----------------------------------------------------------------------------
 void vtkPointSetSource::SetOutput(vtkPointSet *output)
 {
-  this->vtkSource::SetOutput(0, output);
+  this->vtkSource::SetNthOutput(0, output);
 }
 
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridToStructuredGridFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:07:56 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-11-17 17:56:44 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -63,7 +63,7 @@ vtkStructuredGridToStructuredGridFilter* vtkStructuredGridToStructuredGridFilter
 // Specify the input data or filter.
 void vtkStructuredGridToStructuredGridFilter::SetInput(vtkStructuredGrid *input)
 {
-  this->vtkProcessObject::SetInput(0, input);
+  this->vtkProcessObject::SetNthInput(0, input);
 }
 
 //----------------------------------------------------------------------------

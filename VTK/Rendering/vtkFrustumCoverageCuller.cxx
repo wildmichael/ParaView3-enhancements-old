@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFrustumCoverageCuller.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:06:32 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1999-11-17 17:56:29 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -361,6 +361,28 @@ float vtkFrustumCoverageCuller::Cull( vtkRenderer *ren,
   delete [] distanceList;
 
   return total_time;
+}
+
+// Description:
+// Return the sorting style as a descriptive character string.
+char *vtkFrustumCoverageCuller::GetSortingStyleAsString(void)
+{
+  if( this->SortingStyle == VTK_CULLER_SORT_NONE )
+    {
+    return "None";
+    }
+  if( this->SortingStyle == VTK_CULLER_SORT_FRONT_TO_BACK )
+    {
+    return "Front To Back";
+    }
+  if( this->SortingStyle == VTK_CULLER_SORT_BACK_TO_FRONT )
+    {
+    return "Back To Front";
+    }
+  else
+    {
+    return "Unknown";
+    }
 }
 
 void vtkFrustumCoverageCuller::PrintSelf(ostream& os, vtkIndent indent)

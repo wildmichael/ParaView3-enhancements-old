@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-06 13:17:25 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1999-11-17 17:56:49 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -94,7 +94,7 @@ float *vtkVolumeMapper::GetBounds()
 
 void vtkVolumeMapper::SetInput( vtkStructuredPoints *input )
 {
-  this->vtkProcessObject::SetInput(0, input);
+  this->vtkProcessObject::SetNthInput(0, input);
 }
 
 vtkStructuredPoints *vtkVolumeMapper::GetInput()
@@ -139,7 +139,7 @@ void vtkVolumeMapper::SetRGBTextureInput( vtkStructuredPoints *rgbTexture )
       }
     }
   
-  this->vtkProcessObject::SetInput(1, rgbTexture);
+  this->vtkProcessObject::SetNthInput(1, rgbTexture);
 
 }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWindowToImageFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-21 19:11:25 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1999-11-17 17:55:48 $
+  Version:   $Revision: 1.10 $
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -80,6 +80,7 @@ protected:
   vtkWindow *Input;
   void ExecuteInformation();
   void Execute(vtkImageData *data);
+  void Execute() { this->vtkImageSource::Execute(); };
 };
 
 #endif

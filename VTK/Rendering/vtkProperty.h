@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProperty.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:55 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 1999-11-17 17:56:14 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -237,15 +237,15 @@ inline char *vtkProperty::GetInterpolationAsString(void)
 {
   if ( this->Interpolation == VTK_FLAT )
     {
-    return "Flat";
+    return (char *)"Flat";
     }
   else if ( this->Interpolation == VTK_GOURAUD ) 
     {
-    return "Gouraud";
+    return (char *)"Gouraud";
     }
   else 
     {
-    return "Phong";
+    return (char *)"Phong";
     }
 }
 
@@ -256,15 +256,15 @@ inline char *vtkProperty::GetRepresentationAsString(void)
 {
   if ( this->Representation == VTK_POINTS )
     {
-    return "Points";
+    return (char *)"Points";
     }
   else if ( this->Representation == VTK_WIREFRAME ) 
     {
-    return "Wireframe";
+    return (char *)"Wireframe";
     }
   else 
     {
-    return "Surface";
+    return (char *)"Surface";
     }
 }
 
