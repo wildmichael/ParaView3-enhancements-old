@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-30 15:09:00 $
-  Version:   $Revision: 1.56 $
+  Date:      $Date: 1999-09-30 19:11:30 $
+  Version:   $Revision: 1.57 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder,ill Lorensen.
@@ -560,7 +560,7 @@ int vtkImageReader::GetHeaderSize(int idx)
     this->File->seekg(0,ios::end);
     
     return this->File->tellg() - 
-      this->DataIncrements[this->GetFileDimensionality()];
+      (int)this->DataIncrements[this->GetFileDimensionality()];
     }
   
   return this->HeaderSize;
