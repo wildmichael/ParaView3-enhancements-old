@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellArray.h,v $
   Language:  C++
-  Date:      $Date: 1998-06-25 19:50:37 $
-  Version:   $Revision: 1.57 $
+  Date:      $Date: 1998-06-25 20:06:39 $
+  Version:   $Revision: 1.58 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -91,7 +91,7 @@ public:
   int InsertNextCell(int npts, int* pts);
   int InsertNextCell(vtkIdList &pts);
 
-  //this and next two methods work together
+  // this and next two methods work together
   int InsertNextCell(int npts);
   void InsertCellPoint(int id);
   void UpdateCellCount(int npts);
