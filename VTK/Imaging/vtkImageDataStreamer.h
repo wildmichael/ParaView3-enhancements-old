@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDataStreamer.h,v $
   Language:  C++
-  Date:      $Date: 2000-01-18 14:05:46 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2000-01-24 21:00:41 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -61,7 +61,7 @@ public:
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
-  // Set the memory limit in kilobytes.
+  // Set / Get the memory limit in kilobytes.
   vtkSetMacro(MemoryLimit, unsigned long);
   vtkGetMacro(MemoryLimit, unsigned long);
   
