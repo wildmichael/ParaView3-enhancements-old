@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProcessObject.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:12:24 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-07-27 21:04:21 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -135,7 +135,7 @@ public:
   // Return an array with all the inputs of this process object.
   // This is useful for tracing back in the pipeline to contruct
   // graphs etc.
-  vtkDataObject **GetInputs();
+  vtkDataObject **GetInputs() {return this->Inputs;};
   vtkGetMacro(NumberOfInputs,int);
 
 protected:
