@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObject.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-06 01:47:22 $
-  Version:   $Revision: 1.77 $
+  Date:      $Date: 2001-12-06 02:38:05 $
+  Version:   $Revision: 1.78 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -807,6 +807,7 @@ void vtkDataObject::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "Global Release Data: " 
      << (vtkDataObjectGlobalReleaseDataFlag ? "On\n" : "Off\n");
 
+  os << indent << "MaximumNumberOfPieces: " << this->MaximumNumberOfPieces << endl;
   os << indent << "PipelineMTime: " << this->PipelineMTime << endl;
   os << indent << "UpdateTime: " << this->UpdateTime << endl;
   
