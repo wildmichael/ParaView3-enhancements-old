@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergeFields.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-26 22:12:35 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-09-28 19:52:10 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -309,6 +309,7 @@ void vtkMergeFields::Execute()
     } 
   while (cur);
   outputFD->AddArray(outputArray);
+  outputArray->Delete();
 }
 
 // fast pointer copy
