@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAppendPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-31 21:22:09 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1995-09-04 21:46:46 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -43,6 +43,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 vtkAppendPolyData::vtkAppendPolyData()
 {
   this->Output = new vtkPolyData;
+  this->Output->SetSource(this);
 }
 
 // Description:
