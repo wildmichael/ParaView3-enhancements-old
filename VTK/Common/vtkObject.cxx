@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObject.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-03 17:36:15 $
-  Version:   $Revision: 1.73 $
+  Date:      $Date: 2002-05-29 18:24:20 $
+  Version:   $Revision: 1.74 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -52,7 +52,7 @@ int vtkObject::GetGlobalWarningDisplay()
 class vtkObserver
 {
  public:
-  vtkObserver():Command(0),Event(0),Tag(0),Next(0) {}
+  vtkObserver():Command(0),Event(0),Tag(0),Next(0),Priority(0.0) {}
   ~vtkObserver();
   void PrintSelf(ostream& os, vtkIndent indent);
   
@@ -288,7 +288,7 @@ vtkObject *vtkObject::SafeDownCast(vtkObject *o)
 
 void vtkObject::CollectRevisions(ostream& os)
 {
-  os << "vtkObject $Revision: 1.73 $\n";
+  os << "vtkObject $Revision: 1.74 $\n";
 }
 
 //----------------------------------Command/Observer stuff-------------------
