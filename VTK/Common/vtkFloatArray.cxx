@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkFloatArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-02-05 12:59:02 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1994-03-01 22:19:10 $
+  Version:   $Revision: 1.8 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -126,7 +126,7 @@ float *vlFloatArray::Resize(const int sz)
 
   if ( (newArray = new float[newSize]) == 0 )
     { 
-    cerr << "Cannot allocate memory\n";
+    vlErrorMacro(<< "Cannot allocate memory\n");
     return 0;
     }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkShortArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-03-01 20:22:09 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1994-03-01 22:19:13 $
+  Version:   $Revision: 1.3 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -125,7 +125,7 @@ short *vlShortArray::Resize(const int sz)
 
   if ( (newArray = new short[newSize]) == 0 )
     {
-    cerr << "Cannot allocate memory\n";
+    vlErrorMacro(<< "Cannot allocate memory\n");
     return 0;
     }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkSetGet.h,v $
   Language:  C++
-  Date:      $Date: 1994-02-04 12:42:28 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1994-03-01 22:19:13 $
+  Version:   $Revision: 1.7 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -231,6 +231,13 @@ type *Get##name () { \
 // vlDebugMacro(<< "this is debug info" << this->SomeVariable << "\n");
 //
 #define vlDebugMacro(x) \
-  if (Debug) cerr << "In " __FILE__ << ", line " << __LINE__ << "\n   : " x
+  if (Debug) cerr << "In " __FILE__ << ", line " << __LINE__ << "\n" << this->GetClassName() << ": " x
+
+//
+// This macro is used to print out errors
+// vlErrorMacro(<< "Error message" << variable << "\n");
+//
+#define vlErrorMacro(x) \
+  cerr << "In " __FILE__ << ", line " << __LINE__ << "\n" << this->GetClassName() << ": " x
 
 #endif
