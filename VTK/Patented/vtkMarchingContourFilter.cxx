@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingContourFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:14:18 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2000-12-06 14:39:15 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -143,12 +143,7 @@ void vtkMarchingContourFilter::Execute()
 {
   vtkScalars *inScalars;
   vtkDataSet *input=this->GetInput();
-  vtkPolyData *output=this->GetOutput();
   int numCells;
-  vtkPointData *outPd=output->GetPointData();
-  vtkCellData *outCd=output->GetCellData();
-  int numContours=this->ContourValues->GetNumberOfContours();
-  float *values=this->ContourValues->GetValues();
   
   vtkDebugMacro(<< "Executing marching contour filter");
 
@@ -259,7 +254,6 @@ void vtkMarchingContourFilter::StructuredPointsContour(int dim)
 void vtkMarchingContourFilter::DataSetContour()
 {
   vtkPolyData *output = this->GetOutput();
-  vtkPolyData *thisOutput = this->GetOutput();
   int numContours=this->ContourValues->GetNumberOfContours();
   float *values=this->ContourValues->GetValues();
 
@@ -284,7 +278,6 @@ void vtkMarchingContourFilter::DataSetContour()
 void vtkMarchingContourFilter::ImageContour(int dim)
 {
   vtkPolyData *output = this->GetOutput();
-  vtkPolyData *thisOutput = this->GetOutput();
   int numContours=this->ContourValues->GetNumberOfContours();
   float *values=this->ContourValues->GetValues();
 

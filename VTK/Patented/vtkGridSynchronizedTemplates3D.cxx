@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGridSynchronizedTemplates3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-21 19:58:43 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2000-12-06 14:39:15 $
+  Version:   $Revision: 1.22 $
 
 
 
@@ -702,8 +702,6 @@ void vtkGridSynchronizedTemplates3D::ThreadedExecute(int *exExt, int threadId)
   vtkCellArray *newPolys;
   vtkScalars *inScalars = pd->GetScalars();
   vtkPolyData *output = this->GetOutput();
-  int *dims = this->GetInput()->GetDimensions();
-  int *inUpdateExtent = input->GetUpdateExtent();
   long dataSize;
   vtkScalars *newScalars;
   vtkNormals *newNormals;
