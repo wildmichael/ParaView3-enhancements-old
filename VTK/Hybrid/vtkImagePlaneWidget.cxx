@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagePlaneWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-13 15:11:20 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2002-06-13 16:30:55 $
+  Version:   $Revision: 1.27 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -38,7 +38,7 @@
 #include "vtkTextureMapToPlane.h"
 #include "vtkTransform.h"
 
-vtkCxxRevisionMacro(vtkImagePlaneWidget, "$Revision: 1.26 $");
+vtkCxxRevisionMacro(vtkImagePlaneWidget, "$Revision: 1.27 $");
 vtkStandardNewMacro(vtkImagePlaneWidget);
 
 vtkCxxSetObjectMacro(vtkImagePlaneWidget, PlaneProperty,vtkProperty);
@@ -255,7 +255,7 @@ void vtkImagePlaneWidget::SetEnabled(int enabling)
 
     if ( this->PlanePicker )
       {
-      this->PlaneActor->PickableOn();
+      this->PlaneActor->PickableOff();
       }
 
     this->InvokeEvent(vtkCommand::DisableEvent,0);
