@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObject.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-27 17:43:06 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1999-08-17 15:30:10 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -54,7 +54,7 @@ vtkDataObject::vtkDataObject()
   // --- streaming stuff ---
   this->PipelineMTime = 0;
   this->MemoryLimit = VTK_LARGE_INTEGER;
-  this->EstimatedMemorySize = 0;
+  this->EstimatedWholeMemorySize = 0;
   this->Locality = 0;
 }
 
@@ -199,7 +199,8 @@ void vtkDataObject::PrintSelf(ostream& os, vtkIndent indent)
 
   os << indent << "UpdateTime: " << this->UpdateTime << endl;
   os << indent << "PipelineMTime: " << this->PipelineMTime << endl;
-  os << indent << "EstimatedMemorySize: " << this->EstimatedMemorySize << endl;
+  os << indent << "EstimatedWholeMemorySize: " 
+     << this->EstimatedWholeMemorySize << endl;
   os << indent << "MemoryLimit: " << this->MemoryLimit << endl;
   os << indent << "Locality: " << this->Locality << endl;
 
