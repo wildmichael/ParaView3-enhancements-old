@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObject.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-26 14:21:40 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 1998-10-28 20:14:47 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -106,12 +106,6 @@ void vtkObject::Delete()
 vtkObject::~vtkObject() 
 {
   vtkDebugMacro(<< "Destructing!");
-
-  // invoke the delete method
-  if ( this->DeleteMethod )
-    {
-      (*this->DeleteMethod)(this);
-    }
 
   // warn user if reference counting is on and the object is being referenced
   // by another object
@@ -269,9 +263,15 @@ void vtkObject::UnRegister(vtkObject* o)
 
   if (--this->ReferenceCount <= 0)
     {
+      // invoke the delete method
+      if ( this->DeleteMethod )
+	{
+	  (*this->DeleteMethod)(this);
+	}
     delete this;
     }
 }
+
 
 
 
