@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKWRemoteExecute.h,v $
   Language:  C++
-  Date:      $Date: 2003-04-09 17:10:52 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-04-17 20:25:13 $
+  Version:   $Revision: 1.2 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -65,6 +65,15 @@ public:
   // Description:
   // Run command.
   int RunCommand(const char* command, const char* args[]);
+
+  static void* RunCommandThread(void*);
+
+  enum {
+    NOT_RUN,
+    RUNNING,
+    SUCCESS,
+    FAIL
+  };
 //ETX
 
   // Description:
@@ -78,13 +87,31 @@ public:
   vtkSetStringMacro(RemoteHost);
   vtkGetStringMacro(RemoteHost);
 
+  // Description:
+  // Get the result. It can be NOT_RUN, RUNNING, SUCCESS, FAIL
+  vtkGetMacro(Result, int);
+
+  // Description:
+  // Set SSH command
+  vtkSetStringMacro(SSHCommand);
+  vtkGetStringMacro(SSHCommand);
+
+  // Description:
+  // Set SSH arguments
+  vtkSetStringMacro(SSHArguments);
+  vtkGetStringMacro(SSHArguments);
+
 protected:
   vtkKWRemoteExecute();
   ~vtkKWRemoteExecute();
 
   vtkKWRemoteExecuteInternal* Internals;
 
+  char* SSHCommand;
+  char* SSHArguments;
   char* RemoteHost;
+  int ProcessRunning;
+  int Result;
 
 private:
   vtkKWRemoteExecute(const vtkKWRemoteExecute&); // Not implemented
