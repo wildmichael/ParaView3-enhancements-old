@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTubeFilter.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:56:55 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1997-03-04 18:01:12 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -67,7 +67,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #define VTK_VARY_RADIUS_BY_SCALAR 1
 #define VTK_VARY_RADIUS_BY_VECTOR 2
 
-class vtkTubeFilter : public vtkPolyToPolyFilter
+class VTK_EXPORT vtkTubeFilter : public vtkPolyToPolyFilter
 {
 public:
   vtkTubeFilter();

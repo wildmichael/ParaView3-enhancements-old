@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader.h,v $
   Language:  C++
-  Date:      $Date: 1997-02-13 14:12:14 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1997-03-04 18:00:44 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -50,7 +50,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include <fstream.h>
 #include "vtkImageCachedSource.h"
 
-class vtkImageReader : public vtkImageCachedSource
+class VTK_EXPORT vtkImageReader : public vtkImageCachedSource
 {
 public:
   vtkImageReader();
