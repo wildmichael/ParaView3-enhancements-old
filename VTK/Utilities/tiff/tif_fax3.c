@@ -1,4 +1,4 @@
-/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/tiff/Attic/tif_fax3.c,v 1.2 2002-06-24 22:02:59 andy Exp $ */
+/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/tiff/Attic/tif_fax3.c,v 1.3 2002-07-15 21:39:46 andy Exp $ */
 
 /*
  * Copyright (c) 1990-1997 Sam Leffler
@@ -935,17 +935,17 @@ Fax3Encode1DRow(TIFF* tif, u_char* bp, uint32 bits)
 }
 
 static const tableentry horizcode =
-    { 3, 0x1 };         /* 001 */
+    { 3, 0x1, 0 };         /* 001 */
 static const tableentry passcode =
-    { 4, 0x1 };         /* 0001 */
+    { 4, 0x1, 0 };         /* 0001 */
 static const tableentry vcodes[7] = {
-    { 7, 0x03 },        /* 0000 011 */
-    { 6, 0x03 },        /* 0000 11 */
-    { 3, 0x03 },        /* 011 */
-    { 1, 0x1 },         /* 1 */
-    { 3, 0x2 },         /* 010 */
-    { 6, 0x02 },        /* 0000 10 */
-    { 7, 0x02 }         /* 0000 010 */
+    { 7, 0x03, 0 },        /* 0000 011 */
+    { 6, 0x03, 0 },        /* 0000 11 */
+    { 3, 0x03, 0 },        /* 011 */
+    { 1, 0x1,  0 },        /* 1 */
+    { 3, 0x2,  0 },        /* 010 */
+    { 6, 0x02, 0 },        /* 0000 10 */
+    { 7, 0x02, 0 }         /* 0000 010 */
 };
 
 /*

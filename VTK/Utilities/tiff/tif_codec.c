@@ -1,4 +1,4 @@
-/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/tiff/Attic/tif_codec.c,v 1.2 2002-06-24 22:02:59 andy Exp $ */
+/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/tiff/Attic/tif_codec.c,v 1.3 2002-07-15 21:39:46 andy Exp $ */
 
 /*
  * Copyright (c) 1988-1997 Sam Leffler
@@ -95,7 +95,7 @@ TIFFCodec _TIFFBuiltinCODECS[] = {
     { "PixarLog",       COMPRESSION_PIXARLOG,   TIFFInitPixarLog },
     { "SGILog",         COMPRESSION_SGILOG,     TIFFInitSGILog },
     { "SGILog24",       COMPRESSION_SGILOG24,   TIFFInitSGILog },
-    { NULL }
+    { NULL, 0, 0 }
 };
 
 static int
