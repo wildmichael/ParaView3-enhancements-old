@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMarchingCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:14:17 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2000-10-20 13:58:52 $
+  Version:   $Revision: 1.34 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -56,7 +56,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkMarchingCubesCases.h"
 #include "vtkImageMarchingCubes.h"
 #include "vtkObjectFactory.h"
-
+#include "vtkCommand.h"
 
 
 //------------------------------------------------------------------------------
@@ -281,19 +281,13 @@ void vtkImageMarchingCubes::Execute()
     inData->SetUpdateExtent(extent);
     inData->Update();
     
-    if ( this->StartMethod )
-      {
-      (*this->StartMethod)(this->StartMethodArg);    
-      }
+    this->InvokeEvent(vtkCommand::StartEvent,NULL);
     this->March(inData, chunkMin, chunkMax, numContours, values);
     if ( !this->AbortExecute )
       {
       this->UpdateProgress(1.0);
       }
-    if ( this->EndMethod )
-      {
-      (*this->EndMethod)(this->EndMethodArg);
-      }
+    this->InvokeEvent(vtkCommand::EndEvent,NULL);
 
     if (inData->ShouldIReleaseData())
       {
