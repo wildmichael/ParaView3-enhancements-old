@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointLocator2D.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:14 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2000-12-27 13:09:01 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -70,7 +70,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkPoints.h"
 #include "vtkIdList.h"
 
-class vtkNeighborPoints;
+class vtkNeighborPoints2D;
 
 class VTK_EXPORT vtkPointLocator2D : public vtkLocator
 {
@@ -158,7 +158,7 @@ protected:
   vtkIdList **HashTable; // lists of point ids in buckets
   int NumberOfBuckets; // total size of hash table
   float H[2]; // width of each bucket in x-y-z directions
-  vtkNeighborPoints *Buckets;
+  vtkNeighborPoints2D *Buckets;
   float InsertionTol2;
 };
 
