@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleFlight.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-23 22:06:26 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2000-04-04 17:32:05 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to John Biddiscombe of the Rutherford Appleton Laboratory
              who developed class.
 
@@ -186,14 +186,16 @@ void vtkInteractorStyleFlight::OnKeyDown(int ctrl, int shift,
 #ifdef _WIN32
   switch (keycode)
     {
-		case VK_LEFT  	: this->KeysDown |=1;  break;
-		case VK_RIGHT 	: this->KeysDown |=2;  break;
-		case VK_UP    	: this->KeysDown |=4;  break;
-		case VK_DOWN  	: this->KeysDown |=8;  break;
-		case 'a','A'	: this->KeysDown |=16; break;
-		case 'z','Z' 	: this->KeysDown |=32; break;
+    case VK_LEFT  	: this->KeysDown |=1;  break;
+    case VK_RIGHT 	: this->KeysDown |=2;  break;
+    case VK_UP    	: this->KeysDown |=4;  break;
+    case VK_DOWN  	: this->KeysDown |=8;  break;
+    case 'a':
+    case 'A'	: this->KeysDown |=16; break;
+    case 'z':
+    case 'Z' 	: this->KeysDown |=32; break;
     }
-    // it may already be started but it doesn't matter
+  // it may already be started but it doesn't matter
 	if (KeysDown) this->DoTimerStart();
 #endif
 }
@@ -205,14 +207,17 @@ void vtkInteractorStyleFlight::OnKeyUp(int ctrl, int shift,
   this->CtrlKey  = ctrl;
   this->ShiftKey = shift;
 #ifdef _WIN32
-  switch (keycode) {
-		case VK_LEFT  	: this->KeysDown &= ~1;  break;
-		case VK_RIGHT 	: this->KeysDown &= ~2;  break;
-		case VK_UP    	: this->KeysDown &= ~4;  break;
-		case VK_DOWN  	: this->KeysDown &= ~8;  break;
-		case 'a','A'	: this->KeysDown &= ~16; break;
-		case 'z','Z' 	: this->KeysDown &= ~32; break;
-	}
+  switch (keycode) 
+    {
+    case VK_LEFT  	: this->KeysDown &= ~1;  break;
+    case VK_RIGHT 	: this->KeysDown &= ~2;  break;
+    case VK_UP    	: this->KeysDown &= ~4;  break;
+    case VK_DOWN  	: this->KeysDown &= ~8;  break;
+    case 'a':
+    case 'A'	: this->KeysDown &= ~16; break;
+    case 'z':
+    case 'Z' 	: this->KeysDown &= ~32; break;
+    }
 #endif
 }
 //---------------------------------------------------------------------------
