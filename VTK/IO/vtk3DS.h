@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtk3DS.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-24 14:32:48 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-04-17 12:51:41 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -83,6 +83,7 @@ typedef struct {
 
     Vector pos;            /* Light position */
     Colour col;            /* Light colour */
+    vtkLight *aLight;
 } OmniLight;
 
 
@@ -107,6 +108,7 @@ typedef struct {
     Vector target;         /* Camera target */
     float  bank;           /* Banking angle (degrees) */
     float  lens;           /* Camera lens size (mm) */
+    vtkCamera *aCamera;
 } Camera;
 
 
@@ -147,6 +149,14 @@ typedef struct {
 
 
 
+class vtkActor;
+class vtkPolyDataMapper;
+class vtkPolyDataNormals;
+class vtkStripper;
+class vtkPoints;
+class vtkCellArray;
+class vtkPolyData;
+
 /* A mesh object */
 typedef struct {
     LIST_FIELDS
@@ -160,6 +170,14 @@ typedef struct {
 
     int hidden;            /* Hidden flag */
     int shadow;            /* Shadow flag */
+    vtkActor *anActor;
+    vtkPolyDataMapper *aMapper;
+    vtkPolyDataNormals *aNormals;
+    vtkStripper *aStripper;
+    vtkPoints *aPoints;
+    vtkCellArray *aCellArray;
+    vtkPolyData *aPolyData;
+ 
 } Mesh;
 
 
