@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSystemIncludes.h,v $
   Language:  C++
-  Date:      $Date: 2001-06-18 13:13:01 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2001-06-18 20:09:53 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -91,27 +91,7 @@ using std::ifstream;
 #endif
 
 #ifdef VTK_USE_64BIT_IDS
-#ifdef _WIN32
-typedef __int64 vtkIdType;
-
-/* ostream operator for __int64 */
-inline ostream& __cdecl operator<<(ostream& _O, __int64 i64Val)
-{
-  wchar_t wchBuf[32];
-  if (i64Val < 0)
-  {
-    _O << char("-");
-    i64Val *= -1;
-  }
-  return (_O << _i64tow(i64Val, wchBuf, 10));
-};
-
+typedef long vtkIdType
 #else
-typedef long long vtkIdType;
+typedef int vtkIdType;
 #endif
-#else
-typedef long vtkIdType;
-#endif
-
-#endif
-
