@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 1995-08-17 19:56:10 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1995-08-23 16:15:50 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,7 +56,10 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 //    r - reset camera view
 //    w - turn all actors wireframe
 //    s - turn all actors surface
-//    e - exits
+//    u - execute user defined function
+//    p - pick actor under mouse pointer (if pickable)
+//    3 - toggle in/out of 3D mode (if supported by renderer)
+//    e - exit
 
 #ifndef __vtkXRenderWindowInteractor_h
 #define __vtkXRenderWindowInteractor_h
