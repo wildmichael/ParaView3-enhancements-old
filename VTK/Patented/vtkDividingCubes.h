@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDividingCubes.h,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:27:49 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1995-07-22 19:36:48 $
+  Version:   $Revision: 1.10 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -40,7 +40,7 @@ public:
   vtkGetMacro(Value,float);
 
   // Description:
-  // Specifysub-voxel size at which to generate point..
+  // Specify sub-voxel size at which to generate point..
   vtkSetClampMacro(Distance,float,1.0e-06,LARGE_FLOAT);
   vtkGetMacro(Distance,float);
 
