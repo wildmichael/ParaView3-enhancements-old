@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkLine.h,v $
   Language:  C++
-  Date:      $Date: 1994-02-08 11:46:48 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1994-02-22 19:05:13 $
+  Version:   $Revision: 1.2 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -16,7 +16,7 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 
 =========================================================================*/
 //
-// Create line centered at origin
+// Computational class for lines.
 //
 #ifndef __vlLine_h
 #define __vlLine_h
