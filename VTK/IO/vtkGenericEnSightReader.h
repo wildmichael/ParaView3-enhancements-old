@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGenericEnSightReader.h,v $
   Language:  C++
-  Date:      $Date: 2001-01-31 18:58:17 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-02-02 16:29:42 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -66,6 +66,11 @@ public:
   void SetCaseFileName(char* fileName);
   vtkGetStringMacro(CaseFileName);
 
+  // Description:
+  // Set/Get the file path.
+  vtkSetStringMacro(FilePath);
+  vtkGetStringMacro(FilePath);
+  
   void Update();
   
   // Description:
@@ -137,11 +142,6 @@ protected:
   // Returns 0 is there was an error.
   int ReadNextDataLine(char result[256]);
 
-  // Description:
-  // Set/Get the file path.
-  vtkSetStringMacro(FilePath);
-  vtkGetStringMacro(FilePath);
-  
   // Description:
   // Set/Get the geometry file name.
   vtkSetStringMacro(GeometryFileName);
