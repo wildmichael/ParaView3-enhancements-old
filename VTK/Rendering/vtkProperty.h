@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProperty.h,v $
   Language:  C++
-  Date:      $Date: 1998-06-01 21:01:10 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 1998-08-10 16:30:40 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -65,7 +65,7 @@ class VTK_EXPORT vtkProperty : public vtkReferenceCount
 public:
   vtkProperty();
   static vtkProperty *New();
-  const char *GetClassName() {return "ovtkProperty";};
+  const char *GetClassName() {return "vtkProperty";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
   vtkProperty &operator=(const vtkProperty& p);
