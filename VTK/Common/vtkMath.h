@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMath.h,v $
   Language:  C++
-  Date:      $Date: 2001-05-04 16:48:56 $
-  Version:   $Revision: 1.68 $
+  Date:      $Date: 2001-05-06 21:15:14 $
+  Version:   $Revision: 1.69 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -196,8 +196,7 @@ public:
 			  double out[3]);
   
   // Description:
-  // Mutltiply one 3x3 matrix by another according to C = BA (if the order
-  // seems odd, it is simply consistent with vtkMatrix4x4::Multiply4x4()).
+  // Mutltiply one 3x3 matrix by another according to C = AB.
   static void Multiply3x3(const float A[3][3], const float B[3][3], 
 			  float C[3][3]);
   static void Multiply3x3(const double A[3][3], const double B[3][3], 
