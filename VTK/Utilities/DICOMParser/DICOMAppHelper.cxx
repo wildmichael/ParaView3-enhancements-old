@@ -3,8 +3,8 @@
   Program:   DICOMParser
   Module:    $RCSfile: DICOMAppHelper.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-11-10 19:11:02 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2003-11-14 17:39:28 $
+  Version:   $Revision: 1.15 $
 
   Copyright (c) 2003 Matt Turek
   All rights reserved.
@@ -86,6 +86,9 @@ DICOMAppHelper::DICOMAppHelper()
   this->PatientName = new dicom_stl::string();
   this->StudyUID = new dicom_stl::string();
   this->GantryAngle = 0.0;
+  this->Width = 0;
+  this->Height = 0;
+  this->PixelRepresentation = NULL;
 
   this->SeriesUIDCB = new DICOMMemberCallback<DICOMAppHelper>;
   this->SliceNumberCB = new DICOMMemberCallback<DICOMAppHelper>;
