@@ -4,8 +4,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDICOMImageReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2004-02-25 17:27:35 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2004-02-28 14:16:37 $
+  Version:   $Revision: 1.24 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -29,7 +29,7 @@
 #include <vtkstd/vector>
 #include <vtkstd/string>
 
-vtkCxxRevisionMacro(vtkDICOMImageReader, "$Revision: 1.23 $");
+vtkCxxRevisionMacro(vtkDICOMImageReader, "$Revision: 1.24 $");
 vtkStandardNewMacro(vtkDICOMImageReader);
 
 class vtkDICOMImageReaderVector : public vtkstd::vector<vtkstd::string>
@@ -247,10 +247,6 @@ void vtkDICOMImageReader::ExecuteData(vtkDataObject *output)
   data->GetPointData()->GetScalars()->SetName("DICOMImage");
 
   this->ComputeDataIncrements();
-
-  // Get the pointer to the output pixel data
-  void *outPtr;
-  outPtr = data->GetScalarPointer();
 
   if (this->FileName)
     {
