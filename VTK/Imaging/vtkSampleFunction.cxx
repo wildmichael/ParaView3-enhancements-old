@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSampleFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-03-12 21:11:58 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1997-03-13 18:45:15 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -270,6 +270,14 @@ void vtkSampleFunction::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "  Ymin,Ymax: (" << this->ModelBounds[2] << ", " << this->ModelBounds[3] << ")\n";
   os << indent << "  Zmin,Zmax: (" << this->ModelBounds[4] << ", " << this->ModelBounds[5] << ")\n";
 
+  if ( this->ImplicitFunction )
+    os << indent << "Implicit Function: " << this->ImplicitFunction << "\n";
+  else
+    os << indent << "No Implicit function defined\n";
+
   os << indent << "Capping: " << (this->Capping ? "On\n" : "Off\n");
+  os << indent << "Cap Value: " << this->CapValue << "\n";
+
+  os << indent << "Compute Normals: " << (this->ComputeNormals ? "On\n" : "Off\n");
 }
 
