@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataArray.h,v $
   Language:  C++
-  Date:      $Date: 2001-06-21 15:21:50 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2001-06-22 13:17:39 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -251,7 +251,7 @@ public:
   // Creates an array for dataType where dataType is one of
   // VTK_BIT, VTK_CHAR, VTK_UNSIGNED_CHAR, VTK_SHORT,
   // VTK_UNSIGNED_SHORT, VTK_INT, VTK_UNSIGNED_INT, VTK_LONG,
-  // VTK_UNSIGNED_LONG, VTK_FLOAT, VTK_DOUBLE.
+  // VTK_UNSIGNED_LONG, VTK_FLOAT, VTK_DOUBLE, VTK_ID_TYPE.
   // Note that the data array returned has be deleted by the
   // user.
   static vtkDataArray* CreateDataArray(int dataType);
