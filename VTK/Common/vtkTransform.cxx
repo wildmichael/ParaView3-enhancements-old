@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-21 16:11:30 $
-  Version:   $Revision: 1.102 $
+  Date:      $Date: 2003-01-20 01:31:52 $
+  Version:   $Revision: 1.103 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 
 #include <stdlib.h>
 
-vtkCxxRevisionMacro(vtkTransform, "$Revision: 1.102 $");
+vtkCxxRevisionMacro(vtkTransform, "$Revision: 1.103 $");
 vtkStandardNewMacro(vtkTransform);
 
 //----------------------------------------------------------------------------
@@ -98,7 +98,6 @@ void vtkTransform::Identity()
   // support for the legacy hack in InternalUpdate
   if (this->Matrix->GetMTime() > this->MatrixUpdateMTime)
     {
-    vtkWarningMacro(<<"Identity: Legacy Hack deprecated in VTK 4.2.  May be removed in a future version.");
     this->Matrix->Identity();
     }
 }
@@ -112,7 +111,6 @@ void vtkTransform::Inverse()
   // for the legacy hack in InternalUpdate
   if (this->Matrix->GetMTime() > this->MatrixUpdateMTime)
     {
-    vtkWarningMacro(<<"Inverse: Legacy Hack deprecated in VTK 4.2.  May be removed in a future version.");
     this->Matrix->Invert();
     }
 }
