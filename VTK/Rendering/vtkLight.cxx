@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLight.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-25 13:43:13 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 2000-11-18 21:05:59 $
+  Version:   $Revision: 1.42 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -77,10 +77,10 @@ vtkLight::vtkLight()
 
 vtkLight::~vtkLight()
 {
-  if(TransformMatrix != NULL)
+  if(this->TransformMatrix != NULL)
     {
-      TransformMatrix->UnRegister(this);
-      TransformMatrix = NULL;
+      this->TransformMatrix->UnRegister(this);
+      this->TransformMatrix = NULL;
     }
 }
 
