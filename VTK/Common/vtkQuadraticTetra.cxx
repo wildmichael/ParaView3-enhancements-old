@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadraticTetra.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-12 18:55:41 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2002-11-26 16:55:04 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,7 +25,7 @@
 #include "vtkFloatArray.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkQuadraticTetra, "$Revision: 1.10 $");
+vtkCxxRevisionMacro(vtkQuadraticTetra, "$Revision: 1.11 $");
 vtkStandardNewMacro(vtkQuadraticTetra);
 
 // Construct the line with two points.
@@ -467,8 +467,8 @@ void vtkQuadraticTetra::InterpolationFunctions(float pcoords[3],
   weights[5] = 4.0 * r * s;
   weights[6] = 4.0 * s * u;
   weights[7] = 4.0 * u * t;
-  weights[8] = 4.0 * s * t;
-  weights[9] = 4.0 * r * t;
+  weights[8] = 4.0 * r * t;
+  weights[9] = 4.0 * s * t;
 }
 
 // Derivatives in parametric space.
