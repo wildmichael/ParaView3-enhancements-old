@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPVGeometryFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-09-22 17:53:12 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2003-09-24 15:25:36 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -34,7 +34,7 @@
 #include "vtkStructuredGridOutlineFilter.h"
 #include "vtkUnstructuredGrid.h"
 
-vtkCxxRevisionMacro(vtkPVGeometryFilter, "$Revision: 1.11 $");
+vtkCxxRevisionMacro(vtkPVGeometryFilter, "$Revision: 1.12 $");
 vtkStandardNewMacro(vtkPVGeometryFilter);
 
 //----------------------------------------------------------------------------
@@ -137,8 +137,9 @@ void vtkPVGeometryFilter::ImageDataExecute(vtkImageData *input)
   ext = input->GetWholeExtent();
 
   // If 2d then default to superclass behavior.
-  if (ext[0] == ext[1] || ext[2] == ext[3] || ext[4] == ext[5] ||
-      !this->UseOutline)
+//  if (ext[0] == ext[1] || ext[2] == ext[3] || ext[4] == ext[5] ||
+//      !this->UseOutline)
+  if (!this->UseOutline)
     {
     this->vtkDataSetSurfaceFilter::Execute();
     this->OutlineFlag = 0;
@@ -181,8 +182,9 @@ void vtkPVGeometryFilter::StructuredGridExecute(vtkStructuredGrid *input)
   ext = input->GetWholeExtent();
 
   // If 2d then default to superclass behavior.
-  if (ext[0] == ext[1] || ext[2] == ext[3] || ext[4] == ext[5] ||
-      !this->UseOutline)
+//  if (ext[0] == ext[1] || ext[2] == ext[3] || ext[4] == ext[5] ||
+//      !this->UseOutline)
+  if (!this->UseOutline)
     {
     this->vtkDataSetSurfaceFilter::Execute();
     this->OutlineFlag = 0;
@@ -216,8 +218,9 @@ void vtkPVGeometryFilter::RectilinearGridExecute(vtkRectilinearGrid *input)
   ext = input->GetWholeExtent();
 
   // If 2d then default to superclass behavior.
-  if (ext[0] == ext[1] || ext[2] == ext[3] || ext[4] == ext[5] ||
-      !this->UseOutline)
+//  if (ext[0] == ext[1] || ext[2] == ext[3] || ext[4] == ext[5] ||
+//      !this->UseOutline)
+  if (!this->UseOutline)
     {
     this->vtkDataSetSurfaceFilter::Execute();
     this->OutlineFlag = 0;
@@ -228,7 +231,7 @@ void vtkPVGeometryFilter::RectilinearGridExecute(vtkRectilinearGrid *input)
   //
   // Otherwise, let Outline do all the work
   //
-  
+
   vtkRectilinearGridOutlineFilter *outline = vtkRectilinearGridOutlineFilter::New();
   // Because of streaming, it is important to set the input and not copy it.
   outline->SetInput(input);
