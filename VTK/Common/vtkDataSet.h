@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSet.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-12 18:10:43 $
-  Version:   $Revision: 1.90 $
+  Date:      $Date: 2000-04-13 14:33:16 $
+  Version:   $Revision: 1.91 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -338,6 +338,7 @@ protected:
   float ScalarRange[2];
   float Center[3];
 
+private:
   void InternalCopy(vtkDataSet *src);  
 };
 

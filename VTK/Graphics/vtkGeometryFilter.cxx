@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGeometryFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-12 20:56:21 $
-  Version:   $Revision: 1.58 $
+  Date:      $Date: 2000-04-13 14:33:16 $
+  Version:   $Revision: 1.59 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -515,6 +515,7 @@ void vtkGeometryFilter::UnstructuredGridExecute()
 {
   vtkUnstructuredGrid *input= (vtkUnstructuredGrid *)this->GetInput();
   vtkCellArray *Connectivity = input->GetCells();
+  if (Connectivity == NULL) {return;}
   int i, cellId;
   int allVisible;
   int npts, *pts;    

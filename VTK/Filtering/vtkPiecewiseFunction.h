@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPiecewiseFunction.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:06:07 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2000-04-13 14:33:17 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -60,7 +60,8 @@ public:
 
   vtkDataObject *MakeObject();
   void Initialize();
-  void DeepCopy( vtkPiecewiseFunction *f );
+  void DeepCopy( vtkDataObject *f );
+  void ShallowCopy( vtkDataObject *f );
 
   // Description:
   // Return what type of dataset this is.

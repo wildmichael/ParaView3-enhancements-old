@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPiecewiseFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:06:07 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2000-04-13 14:33:17 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -86,14 +86,40 @@ vtkPiecewiseFunction::~vtkPiecewiseFunction()
     }
 }
 
-void vtkPiecewiseFunction::DeepCopy( vtkPiecewiseFunction *f )
+void vtkPiecewiseFunction::DeepCopy( vtkDataObject *o )
 {
-  this->ArraySize    = f->ArraySize;
-  this->Clamping     = f->Clamping;
-  this->Function     = new float[this->ArraySize*2]; 
-  this->FunctionSize = f->FunctionSize;
-  memcpy( this->FunctionRange, f->FunctionRange, 2*sizeof(float) );
-  memcpy( this->Function, f->Function, this->ArraySize*2*sizeof(float) );
+  vtkPiecewiseFunction *f = vtkPiecewiseFunction::SafeDownCast(o);
+
+  if (f != NULL)
+    {
+    this->ArraySize    = f->ArraySize;
+    this->Clamping     = f->Clamping;
+    this->Function     = new float[this->ArraySize*2]; 
+    this->FunctionSize = f->FunctionSize;
+    memcpy( this->FunctionRange, f->FunctionRange, 2*sizeof(float) );
+    memcpy( this->Function, f->Function, this->ArraySize*2*sizeof(float) );
+    }
+
+  // Do the superclass
+  this->vtkDataObject::DeepCopy(o);
+}
+
+void vtkPiecewiseFunction::ShallowCopy( vtkDataObject *o )
+{
+  vtkPiecewiseFunction *f = vtkPiecewiseFunction::SafeDownCast(o);
+
+  if (f != NULL)
+    {
+    this->ArraySize    = f->ArraySize;
+    this->Clamping     = f->Clamping;
+    this->Function     = new float[this->ArraySize*2]; 
+    this->FunctionSize = f->FunctionSize;
+    memcpy( this->FunctionRange, f->FunctionRange, 2*sizeof(float) );
+    memcpy( this->Function, f->Function, this->ArraySize*2*sizeof(float) );
+    }
+
+  // Do the superclass
+  this->vtkDataObject::ShallowCopy(o);
 }
 
 vtkDataObject *vtkPiecewiseFunction::MakeObject()
