@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObject.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-18 19:03:26 $
-  Version:   $Revision: 1.67 $
+  Date:      $Date: 2002-11-12 19:21:02 $
+  Version:   $Revision: 1.68 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -53,9 +53,11 @@ public:
   vtkTypeRevisionMacro(vtkDataObject,vtkObject);
   void PrintSelf(ostream& os, vtkIndent indent);
 
+#ifndef VTK_REMOVE_LEGACY_CODE
   // Description:
-  // Create concrete instance of this data object.
-  virtual vtkDataObject *MakeObject() {return vtkDataObject::New();}
+  // For legacy compatibility.  Do not use.
+  virtual vtkDataObject* MakeObject();
+#endif
 
   // Description:
   // Set/Get the source object creating this data object.

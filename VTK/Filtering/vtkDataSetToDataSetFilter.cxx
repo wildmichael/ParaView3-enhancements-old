@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetToDataSetFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-04 20:43:43 $
-  Version:   $Revision: 1.62 $
+  Date:      $Date: 2002-11-12 19:21:02 $
+  Version:   $Revision: 1.63 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 #include "vtkUnstructuredGrid.h"
 #include "vtkRectilinearGrid.h"
 
-vtkCxxRevisionMacro(vtkDataSetToDataSetFilter, "$Revision: 1.62 $");
+vtkCxxRevisionMacro(vtkDataSetToDataSetFilter, "$Revision: 1.63 $");
 
 // Construct object.
 vtkDataSetToDataSetFilter::vtkDataSetToDataSetFilter()
@@ -52,7 +52,7 @@ void vtkDataSetToDataSetFilter::SetInput(vtkDataSet *input)
   
   if (input != NULL && this->vtkSource::GetOutput(0) == NULL)
     {
-    this->vtkSource::SetNthOutput(0, input->MakeObject());
+    this->vtkSource::SetNthOutput(0, input->NewInstance());
     this->Outputs[0]->ReleaseData();
     this->Outputs[0]->Delete();
     }

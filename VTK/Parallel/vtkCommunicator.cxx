@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCommunicator.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-12 15:20:30 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2002-11-12 19:21:02 $
+  Version:   $Revision: 1.16 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -31,7 +31,7 @@
 #include "vtkUnsignedCharArray.h"
 #include "vtkUnsignedLongArray.h"
 
-vtkCxxRevisionMacro(vtkCommunicator, "$Revision: 1.15 $");
+vtkCxxRevisionMacro(vtkCommunicator, "$Revision: 1.16 $");
 
 template <class T>
 int SendDataArray(T* data, int length, int handle, int tag, vtkCommunicator *self)
@@ -475,7 +475,7 @@ int vtkCommunicator::WriteDataSet(vtkDataSet *data)
   unsigned long size;
   vtkDataSetWriter *writer = vtkDataSetWriter::New();
 
-  copy = (vtkDataSet*)(data->MakeObject());
+  copy = data->NewInstance();
   copy->ShallowCopy(data);
 
   // There is a problem with binary files with no data.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageStencilData.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:33:34 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-11-12 19:21:02 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkImageStencilData, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkImageStencilData, "$Revision: 1.7 $");
 vtkStandardNewMacro(vtkImageStencilData);
 
 //----------------------------------------------------------------------------
@@ -78,15 +78,6 @@ void vtkImageStencilData::PrintSelf(ostream& os, vtkIndent indent)
      << this->OldOrigin[0] << ", "
      << this->OldOrigin[1] << ", "
      << this->OldOrigin[2] << ")\n";
-}
-
-//----------------------------------------------------------------------------
-vtkDataObject *vtkImageStencilData::MakeObject()
-{
-  vtkImageStencilData *o = vtkImageStencilData::New();
-  o->DeepCopy(this);
-
-  return (vtkDataObject *)o;
 }
 
 //----------------------------------------------------------------------------
@@ -469,9 +460,13 @@ void vtkImageStencilData::InsertNextExtent(int r1, int r2, int yIdx, int zIdx)
   clist[clistlen++] = r2 + 1;
 }
 
-  
-
-
-
-
-
+//----------------------------------------------------------------------------
+#ifndef VTK_REMOVE_LEGACY_CODE
+vtkDataObject* vtkImageStencilData::MakeObject()
+{
+  VTK_LEGACY_METHOD(MakeObject, "4.2");  
+  vtkImageStencilData* o = vtkImageStencilData::New();
+  o->DeepCopy(this);
+  return o;
+}
+#endif

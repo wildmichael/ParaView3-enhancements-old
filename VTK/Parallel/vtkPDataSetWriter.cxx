@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPDataSetWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-17 01:50:34 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-11-12 19:21:02 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 #include "vtkStructuredGrid.h"
 #include "vtkRectilinearGrid.h"
 
-vtkCxxRevisionMacro(vtkPDataSetWriter, "$Revision: 1.7 $");
+vtkCxxRevisionMacro(vtkPDataSetWriter, "$Revision: 1.8 $");
 vtkStandardNewMacro(vtkPDataSetWriter);
 
 //----------------------------------------------------------------------------
@@ -210,7 +210,7 @@ void vtkPDataSetWriter::Write()
     writer->SetFileName(fileName);
     input->SetUpdateExtent(i, this->NumberOfPieces, this->GhostLevel);
     input->Update();
-    copy = input->MakeObject();
+    copy = input->NewInstance();
     copy->ShallowCopy(input);
     // I am putting this in here because shallow copy does not copy the
     // UpdateExtentInitializedFlag, and I do not want to touch ShallowCopy

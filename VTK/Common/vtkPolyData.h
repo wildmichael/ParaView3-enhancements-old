@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyData.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:26:02 $
-  Version:   $Revision: 1.120 $
+  Date:      $Date: 2002-11-12 19:21:02 $
+  Version:   $Revision: 1.121 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -62,10 +62,6 @@ public:
 
   vtkTypeRevisionMacro(vtkPolyData,vtkPointSet);
   void PrintSelf(ostream& os, vtkIndent indent);
-
-  // Description:
-  // Create a similar type object.
-  vtkDataObject *MakeObject() {return vtkPolyData::New();};
 
   // Description:
   // Return what type of dataset this is.

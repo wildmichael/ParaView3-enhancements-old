@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageStencilData.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:33:35 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-11-12 19:21:02 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -37,7 +37,13 @@ public:
   vtkTypeRevisionMacro(vtkImageStencilData, vtkDataObject);
   void PrintSelf(ostream& os, vtkIndent indent);
 
-  vtkDataObject *MakeObject();
+
+#ifndef VTK_REMOVE_LEGACY_CODE
+  // Description:
+  // For legacy compatibility.  Do not use.
+  virtual vtkDataObject* MakeObject();
+#endif
+  
   void Initialize();
   void DeepCopy(vtkDataObject *o);
   void ShallowCopy(vtkDataObject *f);
