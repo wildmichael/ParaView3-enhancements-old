@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-01 14:35:05 $
-  Version:   $Revision: 1.80 $
+  Date:      $Date: 1999-10-01 17:22:48 $
+  Version:   $Revision: 1.81 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -1904,4 +1904,10 @@ void vtkDataReader::PrintSelf(ostream& os, vtkIndent indent)
     {
     os << indent << "Field Data Name: (None)\n";
     }
+  
+  os << indent << "InputStringLength: " << this->InputStringLength << endl;
 }
+
+
+
+
