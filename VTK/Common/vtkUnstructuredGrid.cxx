@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkUnstructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-05-23 22:28:26 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1994-05-28 06:50:01 $
+  Version:   $Revision: 1.7 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -236,6 +236,16 @@ void vlUnstructuredGrid::BuildLinks()
 {
   this->Links = new vlLinkList(this->GetNumberOfPoints());
   this->Links->BuildLinks(this);
+}
+
+void vlUnstructuredGrid::GetCellPoints(int cellId, vlIdList *ptIds)
+{
+  int i, loc, numPts, *pts;
+
+  loc = this->Cells->GetCellLocation(cellId);
+  this->Connectivity->GetCell(loc,numPts,pts); 
+
+  for (i=0; i<numPts; i++) ptIds->SetId(i,pts[i]);
 }
 
 void vlUnstructuredGrid::GetPointCells(int ptId, vlIdList *cellIds)
