@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleFlight.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-04 17:32:05 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2000-04-21 22:21:10 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to John Biddiscombe of the Rutherford Appleton Laboratory
              who developed class.
 
@@ -181,7 +181,13 @@ void vtkInteractorStyleFlight::OnKeyDown(int ctrl, int shift,
 {
   this->CtrlKey  = ctrl;
   this->ShiftKey = shift;
-  // New light mode behaviour
+  // the following if statement is a dummy one to prevent keycode not used
+  // warnings under unix, (until the correct keycodes are supplied)
+  if (keycode==0xFF)
+    {
+    vtkWarningMacro(<<"Dummy test to prevent compiler warning");
+    }
+  // New Flight mode behaviour
   // Note that we'll need #defines for ARROW key defs under non win32 OS
 #ifdef _WIN32
   switch (keycode)
@@ -206,6 +212,12 @@ void vtkInteractorStyleFlight::OnKeyUp(int ctrl, int shift,
 {
   this->CtrlKey  = ctrl;
   this->ShiftKey = shift;
+  // the following if statement is a dummy one to prevent keycode not used
+  // warnings under unix, (until the correct keycodes are supplied)
+  if (keycode==0xFF)
+    {
+    vtkWarningMacro(<<"Dummy test to prevent compiler warning");
+    }
 #ifdef _WIN32
   switch (keycode) 
     {
