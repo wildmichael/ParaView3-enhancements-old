@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObject.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-04-02 16:25:21 $
-  Version:   $Revision: 1.91 $
+  Date:      $Date: 2003-04-18 15:48:20 $
+  Version:   $Revision: 1.92 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkSource.h"
 
-vtkCxxRevisionMacro(vtkDataObject, "$Revision: 1.91 $");
+vtkCxxRevisionMacro(vtkDataObject, "$Revision: 1.92 $");
 vtkStandardNewMacro(vtkDataObject);
 
 vtkCxxSetObjectMacro(vtkDataObject,FieldData,vtkFieldData);
@@ -672,14 +672,16 @@ void vtkDataObject::InternalDataObjectCopy(vtkDataObject *src)
     {
     this->WholeExtent[idx] = src->WholeExtent[idx];
     this->Extent[idx] = src->Extent[idx];
-    this->UpdateExtent[idx] = src->UpdateExtent[idx];
+    // Copying these update variables caused me no end of grief.
+    //this->UpdateExtent[idx] = src->UpdateExtent[idx];
     }
   this->Piece = src->Piece;
   this->NumberOfPieces = src->NumberOfPieces;
   this->MaximumNumberOfPieces = src->MaximumNumberOfPieces;
-  this->UpdateNumberOfPieces = src->UpdateNumberOfPieces;
-  this->UpdatePiece = src->UpdatePiece;
-  this->UpdateGhostLevel = src->UpdateGhostLevel;
+  // Copying these update variables caused me no end of grief.
+  //this->UpdateNumberOfPieces = src->UpdateNumberOfPieces;
+  //this->UpdatePiece = src->UpdatePiece;
+  //this->UpdateGhostLevel = src->UpdateGhostLevel;
   this->ReleaseDataFlag = src->ReleaseDataFlag;
   this->PipelineMTime = src->PipelineMTime;
   this->UpdateTime = src->UpdateTime;

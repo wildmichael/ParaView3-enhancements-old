@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPDataSetWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-12 19:21:02 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2003-04-18 15:48:20 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 #include "vtkStructuredGrid.h"
 #include "vtkRectilinearGrid.h"
 
-vtkCxxRevisionMacro(vtkPDataSetWriter, "$Revision: 1.8 $");
+vtkCxxRevisionMacro(vtkPDataSetWriter, "$Revision: 1.9 $");
 vtkStandardNewMacro(vtkPDataSetWriter);
 
 //----------------------------------------------------------------------------
@@ -171,6 +171,7 @@ void vtkPDataSetWriter::Write()
         this->WriteUnstructuredMetaData(input, fileRoot, fileName, fptr);
         break;
       case VTK_IMAGE_DATA:
+      case VTK_STRUCTURED_POINTS:
         this->WriteImageMetaData((vtkImageData*)input, fileRoot, fileName, fptr);
         break;
       case VTK_RECTILINEAR_GRID:
