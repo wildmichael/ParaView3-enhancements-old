@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVideoSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-12-13 14:40:12 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-12-14 20:15:53 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -356,7 +356,7 @@ void vtkVideoSource::SetClipRegion(int x0, int x1, int y0, int y1,
     this->ClipRegion[0] = x0; this->ClipRegion[1] = x1;
     this->ClipRegion[2] = y0; this->ClipRegion[3] = y1;
     this->ClipRegion[4] = z0; this->ClipRegion[5] = z1;
-
+    this->Modified();
     if (this->Initialized) 
       { // modify the FrameBufferExtent
       this->FrameBufferMutex->Lock();
