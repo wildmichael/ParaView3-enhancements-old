@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPushPipeline.h,v $
   Language:  C++
-  Date:      $Date: 2003-01-07 15:52:51 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2003-01-08 13:29:09 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -37,6 +37,10 @@ class vtkRenderWindow;
 class vtkRenderer;
 class vtkPushPipelineProcessInfo;
 class vtkPushPipelineDataInfo;
+
+class vtkPushPipelineWindowsType;
+class vtkPushPipelineProcessMapType;
+class vtkPushPipelineDataMapType;
 
 class VTK_HYBRID_EXPORT vtkPushPipeline : public vtkObject
 {
@@ -82,14 +86,11 @@ protected:
   friend class vtkPushPipelineProcessInfo;
   friend class vtkPushPipelineDataInfo;
   friend class vtkPushPipelineConsumeCommand;
-  
-  class WindowsType;
-  class ProcessMapType;
-  class DataMapType;
-  WindowsType* Windows;
-  ProcessMapType* ProcessMap;
-  DataMapType* DataMap;
   //ETX
+  
+  vtkPushPipelineWindowsType* Windows;
+  vtkPushPipelineProcessMapType* ProcessMap;
+  vtkPushPipelineDataMapType* DataMap;
   
   vtkPushPipelineDataInfo *GetPushDataInfo(vtkDataObject *);
   vtkPushPipelineProcessInfo *GetPushProcessInfo(vtkProcessObject *);
