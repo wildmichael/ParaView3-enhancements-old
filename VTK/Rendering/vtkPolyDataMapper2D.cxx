@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:13 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2001-03-05 01:53:05 $
+  Version:   $Revision: 1.24 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -55,7 +55,7 @@ vtkPolyDataMapper2D::vtkPolyDataMapper2D()
   this->ScalarRange[0] = 0.0; this->ScalarRange[1] = 1.0;
 
   this->ColorMode = VTK_COLOR_MODE_DEFAULT;
-  
+
   this->TransformCoordinate = NULL;
 }
 
@@ -66,10 +66,11 @@ void vtkPolyDataMapper2D::ShallowCopy(vtkPolyDataMapper2D *m)
   this->SetScalarVisibility(m->GetScalarVisibility());
   this->SetScalarRange(m->GetScalarRange());
   this->SetTransformCoordinate(m->GetTransformCoordinate());
+  this->SetClippingPlanes(m->GetClippingPlanes());
 }
 
 vtkPolyDataMapper2D::~vtkPolyDataMapper2D()
-{  
+{
   if (this->TransformCoordinate)
     {
     this->TransformCoordinate->UnRegister(this);
@@ -82,7 +83,6 @@ vtkPolyDataMapper2D::~vtkPolyDataMapper2D()
     {
     this->Colors->Delete();
     }
-  
   this->SetInput(NULL);
 }
 
@@ -115,13 +115,13 @@ unsigned long vtkPolyDataMapper2D::GetMTime()
 vtkScalars *vtkPolyDataMapper2D::GetColors()
 {
   vtkScalars *scalars;
-  
+
   // make sure we have an input
   if (!this->Input)
     {
     return NULL;
     }
-    
+
   // get point data and scalars
   scalars = this->Input->GetPointData()->GetScalars();
   // if we don;t have point data scalars, try cell data
@@ -129,7 +129,7 @@ vtkScalars *vtkPolyDataMapper2D::GetColors()
     {
     scalars = this->Input->GetCellData()->GetScalars();
     }
-  
+
   // do we have any scalars ?
   if (scalars && this->ScalarVisibility)
     {
@@ -218,7 +218,7 @@ const char *vtkPolyDataMapper2D::GetColorModeAsString(void)
     {
     return "MapScalars";
     }
-  else 
+  else
     {
     return "Default";
     }
