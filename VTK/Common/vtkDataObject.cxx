@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObject.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-16 18:12:16 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1999-09-17 12:05:23 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -295,16 +295,7 @@ long vtkDataObject::GetPipelineMTime()
 //----------------------------------------------------------------------------
 void vtkDataObject::PreUpdate() 
 {
-  // We only need to do anything if the UpdateExtent has been changed since 
-  // the last PreUpdate.
-  if (this->GetGenericUpdateExtent()->GetMTime() > this->PreUpdateTime)
-    {
-    if (this->Source)
-      {
-      this->Source->PreUpdate(this);
-      }
-    this->PreUpdateTime.Modified();
-    }
+  // For now does nothing
 }
 
 
