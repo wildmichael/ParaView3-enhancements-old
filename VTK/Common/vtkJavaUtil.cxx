@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkJavaUtil.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-31 21:24:47 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2001-02-13 13:58:53 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -283,8 +283,12 @@ VTK_GET_MUTEX();
     }
   id= vtkJavaIdCount;
   vtkInstanceLookup->AddHashEntry((void *)vtkJavaIdCount,ptr);
-  vtkPointerLookup->AddHashEntry(ptr,(void *)env->NewGlobalRef(obj));
 
+#ifdef JNI_VERSION_1_2
+  vtkPointerLookup->AddHashEntry(ptr,(void *)env->NewWeakGlobalRef(obj));
+#else
+  vtkPointerLookup->AddHashEntry(ptr,(void *)env->NewGlobalRef(obj));
+#endif
   vtkJavaSetId(env,obj,vtkJavaIdCount);
   
 #ifdef VTKJAVADEBUG
@@ -329,7 +333,11 @@ JNIEXPORT void vtkJavaDeleteObjectFromHash(JNIEnv *env, int id)
   vtkInstanceLookup->DeleteHashEntry((void *)id);
   vtkTypecastLookup->DeleteHashEntry((void *)id);
   vptr = vtkPointerLookup->GetHashTableValue(ptr);
+#ifdef JNI_VERSION_1_2
+  env->DeleteWeakGlobalRef((jweak)vptr);
+#else
   env->DeleteGlobalRef((jobject)vptr);
+#endif
   vtkPointerLookup->DeleteHashEntry(ptr);
 }
 
@@ -588,7 +596,6 @@ JNIEXPORT void vtkJavaVoidFuncArgDelete(void* arg)
 #endif
   // free the structure
   e->DeleteGlobalRef(arg2->uobj);
-  
   delete arg2;
 }
 
