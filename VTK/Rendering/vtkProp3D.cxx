@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProp3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-02-06 18:19:37 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2003-02-17 19:31:55 $
+  Version:   $Revision: 1.32 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,7 +26,7 @@
 
 typedef double (*SqMatPtr)[4];
 
-vtkCxxRevisionMacro(vtkProp3D, "$Revision: 1.31 $");
+vtkCxxRevisionMacro(vtkProp3D, "$Revision: 1.32 $");
 
 // Construct with the following defaults: origin(0,0,0) 
 // position=(0,0,0) and orientation=(0,0,0). No user defined 
@@ -544,6 +544,7 @@ void vtkProp3D::PokeMatrix(vtkMatrix4x4 *matrix)
       {
       this->SetUserMatrix(this->CachedProp3D->UserMatrix);
       }
+    this->CachedProp3D->SetUserTransform(NULL);
     this->Transform->SetMatrix(this->CachedProp3D->GetMatrix());
     this->Modified();
     }
