@@ -26,7 +26,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkConeSource, "$Revision: 1.68 $");
+vtkCxxRevisionMacro(vtkConeSource, "$Revision: 1.69 $");
 vtkStandardNewMacro(vtkConeSource);
 
 //----------------------------------------------------------------------------
@@ -279,7 +279,7 @@ int vtkConeSource::RequestData(
 }
 
 //----------------------------------------------------------------------------
-int vtkConeSource::ExecuteInformation(
+int vtkConeSource::RequestInformation(
   vtkInformation *vtkNotUsed(request),
   vtkInformationVector **vtkNotUsed(inputVector),
   vtkInformationVector *outputVector)
