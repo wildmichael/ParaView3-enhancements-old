@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOrderedTriangulator.h,v $
   Language:  C++
-  Date:      $Date: 2001-05-21 12:44:05 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-05-21 15:30:17 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -75,7 +75,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // 3D objects in such a way to guarantee compatible face triangulations.
 // This is a very useful fact for parallel processing, or performing
 // operations like clipping that require compatible triangulations across
-// 3D cell faces.
+// 3D cell faces. (See vtkClipVolume for an example.)
 
 // .SECTION Caveats
 // Duplicate vertices will be ignored, i.e., if two points have the same
