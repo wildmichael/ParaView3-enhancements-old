@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractGeometry.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:52:23 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1996-11-08 12:52:34 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -123,6 +123,7 @@ void vtkExtractGeometry::Execute()
     cellPts = cell->GetPointIds();
     numCellPts = cell->GetNumberOfPoints();
 
+    newCellPts.Reset();
     for ( i=0; i < numCellPts; i++)
       {
       ptId = cellPts->GetId(i);
