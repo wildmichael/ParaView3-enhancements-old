@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSetGet.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-18 19:03:26 $
-  Version:   $Revision: 1.106 $
+  Date:      $Date: 2002-06-24 21:47:34 $
+  Version:   $Revision: 1.107 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -115,6 +115,10 @@
 
 #define VTK_TEXT_BOTTOM 0
 #define VTK_TEXT_TOP    2
+
+#define VTK_TEXT_GLOBAL_ANTIALIASING_SOME 0
+#define VTK_TEXT_GLOBAL_ANTIALIASING_NONE 1
+#define VTK_TEXT_GLOBAL_ANTIALIASING_ALL 2
 
 // 
 
