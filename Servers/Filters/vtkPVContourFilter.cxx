@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPVContourFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-07-24 17:14:55 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2000-07-31 18:09:51 $
+  Version:   $Revision: 1.6 $
 
 Copyright (c) 1998-2000 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -29,7 +29,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkPVContourFilter.h"
 #include "vtkPVApplication.h"
 #include "vtkPVRenderView.h"
-#include "vtkPVComposite.h"
 #include "vtkPVPolyData.h"
 
 int vtkPVContourFilterCommand(ClientData cd, Tcl_Interp *interp,
@@ -41,11 +40,11 @@ vtkPVContourFilter::vtkPVContourFilter()
   this->CommandFunction = vtkPVContourFilterCommand;
   
   this->Accept = vtkKWWidget::New();
-  this->Accept->SetParent(this);
+  this->Accept->SetParent(this->Properties);
   this->ContourValueEntry = vtkKWEntry::New();
-  this->ContourValueEntry->SetParent(this);
+  this->ContourValueEntry->SetParent(this->Properties);
   this->ContourValueLabel = vtkKWLabel::New();
-  this->ContourValueLabel->SetParent(this);
+  this->ContourValueLabel->SetParent(this->Properties);
   
   this->Contour = vtkContourFilter::New();  
 }
@@ -72,12 +71,9 @@ vtkPVContourFilter* vtkPVContourFilter::New()
 }
 
 //----------------------------------------------------------------------------
-int vtkPVContourFilter::Create(char *args)
+void vtkPVContourFilter::CreateProperties()
 {
-  if (this->vtkPVSource::Create(args) == 0)
-    {
-    return 0;
-    }
+  this->vtkPVSource::CreateProperties();
   
   this->ContourValueLabel->Create(this->Application, "");
   this->ContourValueLabel->SetLabel("Contour Value:");
@@ -90,8 +86,6 @@ int vtkPVContourFilter::Create(char *args)
   this->Script("pack %s %s -side left -anchor w",
 	       this->ContourValueLabel->GetWidgetName(),
 	       this->ContourValueEntry->GetWidgetName());
-
-  return 1;
 }
 
 //----------------------------------------------------------------------------
@@ -152,7 +146,7 @@ void vtkPVContourFilter::ContourValueChanged()
   this->Contour->Modified();
   this->Contour->Update();
   
-  this->Composite->GetView()->Render();
+  this->GetView()->Render();
 }
 
 

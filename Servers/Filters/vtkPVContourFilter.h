@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPVContourFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-07-24 17:14:55 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2000-07-31 18:09:51 $
+  Version:   $Revision: 1.6 $
 
 Copyright (c) 1998-1999 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -47,7 +47,7 @@ public:
 
   // Description:
   // You have to clone this object before you create its UI.
-  int Create(char *args);
+  void CreateProperties();
   
   // Description:
   // The methods executes on all processes.
