@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLabeledDataMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:39 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2002-05-27 15:22:30 $
+  Version:   $Revision: 1.29 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,11 +16,16 @@
 
 =========================================================================*/
 #include "vtkLabeledDataMapper.h"
+
 #include "vtkDataSet.h"
 #include "vtkObjectFactory.h"
+#include "vtkTextMapper.h"
 
-vtkCxxRevisionMacro(vtkLabeledDataMapper, "$Revision: 1.28 $");
+vtkCxxRevisionMacro(vtkLabeledDataMapper, "$Revision: 1.29 $");
 vtkStandardNewMacro(vtkLabeledDataMapper);
+
+vtkCxxSetObjectMacro(vtkLabeledDataMapper,Input, vtkDataSet);
+
 
 // Instantiate object with font size 12 of font Arial (bolding,
 // italic, shadows on) and %%-#6.3g label format. By default, point ids

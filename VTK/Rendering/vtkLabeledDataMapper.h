@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLabeledDataMapper.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:39 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2002-05-27 15:22:30 $
+  Version:   $Revision: 1.28 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -49,8 +49,9 @@
 #define __vtkLabeledDataMapper_h
 
 #include "vtkMapper2D.h"
-#include "vtkTextMapper.h"
-#include "vtkDataSet.h"
+
+class vtkDataSet;
+class vtkTextMapper;
 
 #define VTK_LABEL_IDS        0
 #define VTK_LABEL_SCALARS    1
@@ -79,7 +80,7 @@ public:
 
   // Description:
   // Set the input dataset to the mapper.  
-  vtkSetObjectMacro(Input, vtkDataSet);
+  virtual void SetInput(vtkDataSet*);
   vtkGetObjectMacro(Input, vtkDataSet);
 
   // Description:
