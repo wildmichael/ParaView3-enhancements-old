@@ -50,7 +50,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkGridSynchronizedTemplates3D, "$Revision: 1.71 $");
+vtkCxxRevisionMacro(vtkGridSynchronizedTemplates3D, "$Revision: 1.72 $");
 vtkStandardNewMacro(vtkGridSynchronizedTemplates3D);
 
 //----------------------------------------------------------------------------
@@ -651,7 +651,7 @@ void ContourGrid(vtkGridSynchronizedTemplates3D *self, int vtkNotUsed(threadId),
       {
       newScalars->SetName(inScalars->GetName());
       }
-    int idx = output->GetPointData()->AddArray(newScalars);
+    idx = output->GetPointData()->AddArray(newScalars);
     output->GetPointData()->SetActiveAttribute(idx, vtkDataSetAttributes::SCALARS);
     newScalars->Delete();
     newScalars = NULL;
