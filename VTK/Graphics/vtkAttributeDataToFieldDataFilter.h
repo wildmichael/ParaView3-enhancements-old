@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAttributeDataToFieldDataFilter.h,v $
   Language:  C++
-  Date:      $Date: 1998-12-02 20:55:42 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-12-23 21:04:00 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,7 +57,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // is placed into the generated fields along with the scalars, vectors, etc.
 
 // .SECTION See Also
-// vtkFieldData vtkDataObject vtkDataSet vtkFieldDataToAttributeData
+// vtkFieldData vtkDataObject vtkDataSet vtkFieldDataToAttributeDataFilter
 
 #ifndef __vtkAttributeDataToFieldDataFilter_h
 #define __vtkAttributeDataToFieldDataFilter_h
