@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-08-11 19:30:12 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 1998-03-17 16:02:00 $
+  Version:   $Revision: 1.50 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -818,7 +818,6 @@ void vtkTransform::MultiplyVectors(vtkVectors *inVectors, vtkVectors *outVectors
                 aMatrix.Element[i][2] * v[2];
       }
 
-    vtkMath::Normalize(newV);
     outVectors->InsertNextVector(newV);
     }
 }
