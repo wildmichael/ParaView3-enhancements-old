@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleUser.h,v $
   Language:  C++
-  Date:      $Date: 2000-10-31 02:46:25 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2000-11-02 22:20:21 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -181,8 +181,10 @@ public:
   vtkGetMacro(Button,int);
 
   // Description:
-  // This method behaves just like OnTimer, but is only called if the
-  // mouse has moved.  Deprecated, do not use.
+  // This method behaves just like OnTimer, but is only called if 
+  // StartUserInteraction has been called.  This method cannot be
+  // used in conjunction with SetMouseMoveMethod.  Deprecated,
+  // do not use.
   void SetUserInteractionMethod(void (*f)(void *), void *arg);
   void SetUserInteractionMethodArgDelete(void (*f)(void *));
 
@@ -222,7 +224,6 @@ protected:
   void OnTimer(void);
 
   int OldPos[2];
-  int UserInteractionPos[2];
 
   int Char;
   char *KeySym;
