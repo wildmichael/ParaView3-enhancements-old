@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractUnstructuredGridPiece.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:34:31 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-08-30 21:05:53 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,6 +22,9 @@
 #define __vtkExtractUnstructuredGridPiece_h
 
 #include "vtkUnstructuredGridToUnstructuredGridFilter.h"
+
+class vtkIdList;
+class vtkIntArray;
 
 class VTK_PARALLEL_EXPORT vtkExtractUnstructuredGridPiece : public vtkUnstructuredGridToUnstructuredGridFilter
 {

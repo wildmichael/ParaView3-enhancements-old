@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPPolyDataNormals.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:34:48 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-08-30 21:05:53 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,9 +16,11 @@
 
 =========================================================================*/
 #include "vtkPPolyDataNormals.h"
-#include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkPPolyDataNormals, "$Revision: 1.8 $");
+#include "vtkObjectFactory.h"
+#include "vtkPolyData.h"
+
+vtkCxxRevisionMacro(vtkPPolyDataNormals, "$Revision: 1.9 $");
 vtkStandardNewMacro(vtkPPolyDataNormals);
 
 //----------------------------------------------------------------------------

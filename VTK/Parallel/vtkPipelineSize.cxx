@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPipelineSize.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-12 15:20:30 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2002-08-30 21:05:53 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,17 +16,19 @@
 
 =========================================================================*/
 #include "vtkPipelineSize.h"
-#include "vtkDataObject.h"
-#include "vtkSource.h"
-#include "vtkObjectFactory.h"
-#include "vtkDataReader.h"
-#include "vtkConeSource.h"
-#include "vtkPlaneSource.h"
-#include "vtkLargeInteger.h"
-#include "vtkPSphereSource.h"
-#include "vtkPolyDataMapper.h"
 
-vtkCxxRevisionMacro(vtkPipelineSize, "$Revision: 1.11 $");
+#include "vtkConeSource.h"
+#include "vtkDataObject.h"
+#include "vtkDataReader.h"
+#include "vtkLargeInteger.h"
+#include "vtkObjectFactory.h"
+#include "vtkPSphereSource.h"
+#include "vtkPlaneSource.h"
+#include "vtkPolyData.h"
+#include "vtkPolyDataMapper.h"
+#include "vtkSource.h"
+
+vtkCxxRevisionMacro(vtkPipelineSize, "$Revision: 1.12 $");
 vtkStandardNewMacro(vtkPipelineSize);
 
 unsigned long 

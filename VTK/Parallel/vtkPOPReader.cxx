@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPOPReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-01 13:58:26 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2002-08-30 21:05:53 $
+  Version:   $Revision: 1.13 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -15,17 +15,20 @@
      PURPOSE.  See the above copyright notice for more information.
 
 =========================================================================*/
-#include <ctype.h>
-#include <math.h>
 #include "vtkPOPReader.h"
+
 #include "vtkMath.h"
 #include "vtkExtentTranslator.h"
 #include "vtkFloatArray.h"
 #include "vtkImageReader.h"
 #include "vtkImageWrapPad.h"
 #include "vtkObjectFactory.h"
+#include "vtkStructuredGrid.h"
 
-vtkCxxRevisionMacro(vtkPOPReader, "$Revision: 1.12 $");
+#include <ctype.h>
+#include <math.h>
+
+vtkCxxRevisionMacro(vtkPOPReader, "$Revision: 1.13 $");
 vtkStandardNewMacro(vtkPOPReader);
 
 //----------------------------------------------------------------------------

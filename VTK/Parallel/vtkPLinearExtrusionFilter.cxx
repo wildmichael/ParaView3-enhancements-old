@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPLinearExtrusionFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:34:46 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-08-30 21:05:53 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,9 +16,11 @@
 
 =========================================================================*/
 #include "vtkPLinearExtrusionFilter.h"
-#include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkPLinearExtrusionFilter, "$Revision: 1.3 $");
+#include "vtkObjectFactory.h"
+#include "vtkPolyData.h"
+
+vtkCxxRevisionMacro(vtkPLinearExtrusionFilter, "$Revision: 1.4 $");
 vtkStandardNewMacro(vtkPLinearExtrusionFilter);
 
 //----------------------------------------------------------------------------

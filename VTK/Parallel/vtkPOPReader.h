@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPOPReader.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-17 01:50:34 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-08-30 21:05:53 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,7 +25,9 @@
 
 #include "vtkStructuredGridSource.h"
 
+class vtkFloatArray;
 class vtkImageData;
+class vtkPoints;
 
 class VTK_PARALLEL_EXPORT vtkPOPReader : public vtkStructuredGridSource 
 {

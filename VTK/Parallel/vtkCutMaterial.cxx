@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCutMaterial.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-17 01:50:34 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2002-08-30 21:05:53 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,13 +16,15 @@
 
 =========================================================================*/
 #include "vtkCutMaterial.h"
+
 #include "vtkCutter.h"
-#include "vtkThreshold.h"
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
 #include "vtkPlane.h"
+#include "vtkThreshold.h"
+#include "vtkUnstructuredGrid.h"
 
-vtkCxxRevisionMacro(vtkCutMaterial, "$Revision: 1.9 $");
+vtkCxxRevisionMacro(vtkCutMaterial, "$Revision: 1.10 $");
 vtkStandardNewMacro(vtkCutMaterial);
 
 // Instantiate object with no input and no defined output.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGridOutlineFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-12 15:20:30 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-08-30 21:05:53 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,9 +16,13 @@
 
 =========================================================================*/
 #include "vtkRectilinearGridOutlineFilter.h"
-#include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkRectilinearGridOutlineFilter, "$Revision: 1.4 $");
+#include "vtkCellArray.h"
+#include "vtkObjectFactory.h"
+#include "vtkPolyData.h"
+#include "vtkRectilinearGrid.h"
+
+vtkCxxRevisionMacro(vtkRectilinearGridOutlineFilter, "$Revision: 1.5 $");
 vtkStandardNewMacro(vtkRectilinearGridOutlineFilter);
 
 
