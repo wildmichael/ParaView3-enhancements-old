@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToPolyDataFilter.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:30:30 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2002-05-13 21:26:32 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -63,7 +63,6 @@
 #define __vtkImageToPolyDataFilter_h
 
 #include "vtkStructuredPointsToPolyDataFilter.h"
-#include "vtkScalarsToColors.h"
 
 #define VTK_STYLE_PIXELIZE 0
 #define VTK_STYLE_POLYGONALIZE 1
@@ -75,6 +74,7 @@
 class vtkStructuredPoints;
 class vtkEdgeTable;
 class vtkAppendPolyData;
+class vtkScalarsToColors;
 
 class VTK_HYBRID_EXPORT vtkImageToPolyDataFilter : public vtkStructuredPointsToPolyDataFilter
 {
@@ -115,7 +115,7 @@ public:
   // Description:
   // Set/Get the vtkLookupTable to use. The lookup table is used when the
   // color mode is set to LUT and a single component scalar is input.
-  vtkSetObjectMacro(LookupTable,vtkScalarsToColors);
+  virtual void SetLookupTable(vtkScalarsToColors*);
   vtkGetObjectMacro(LookupTable,vtkScalarsToColors);
 
   // Description:

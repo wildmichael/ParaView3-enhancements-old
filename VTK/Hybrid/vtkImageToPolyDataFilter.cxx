@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToPolyDataFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-08 13:18:53 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2002-05-13 21:26:32 $
+  Version:   $Revision: 1.20 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,12 +16,16 @@
 
 =========================================================================*/
 #include "vtkImageToPolyDataFilter.h"
-#include "vtkUnsignedCharArray.h"
-#include "vtkLine.h"
-#include "vtkEdgeTable.h"
-#include "vtkAppendPolyData.h"
 
-vtkCxxRevisionMacro(vtkImageToPolyDataFilter, "$Revision: 1.19 $");
+#include "vtkAppendPolyData.h"
+#include "vtkEdgeTable.h"
+#include "vtkLine.h"
+#include "vtkScalarsToColors.h"
+#include "vtkUnsignedCharArray.h"
+
+vtkCxxRevisionMacro(vtkImageToPolyDataFilter, "$Revision: 1.20 $");
+
+vtkCxxSetObjectMacro(vtkImageToPolyDataFilter,LookupTable,vtkScalarsToColors);
 
 vtkImageToPolyDataFilter::vtkImageToPolyDataFilter()
 {
