@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleJoystickCamera.h,v $
   Language:  C++
-  Date:      $Date: 2000-07-19 12:08:57 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2000-08-01 16:37:05 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -82,17 +82,13 @@ public:
   void OnMiddleButtonUp  (int ctrl, int shift, int x, int y);
   void OnRightButtonDown(int ctrl, int shift, int x, int y);
   void OnRightButtonUp  (int ctrl, int shift, int x, int y);
+  void OnTimer(void); 
 
 protected:
   vtkInteractorStyleJoystickCamera();
   ~vtkInteractorStyleJoystickCamera();
   vtkInteractorStyleJoystickCamera(const vtkInteractorStyleJoystickCamera&) {};
   void operator=(const vtkInteractorStyleJoystickCamera&) {};
-
-  void RotateXY(int x, int y);
-  void PanXY(int x, int y);
-  void DollyXY(int x, int y);
-  void SpinXY(int x, int y);
   
   int State;
   float MotionFactor;
