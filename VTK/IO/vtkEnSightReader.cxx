@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSightReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-13 20:46:33 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2001-06-14 12:56:46 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1988,4 +1988,5 @@ void vtkEnSightReader::PrintSelf(ostream& os, vtkIndent indent)
      << this->NumberOfScalarsPerNode << endl;
   os << indent << "NumberOfVectorsPerNode: "
      << this->NumberOfVectorsPerNode << endl;
+  os << indent << "TimeValue: " << this->TimeValue << endl;
 }
