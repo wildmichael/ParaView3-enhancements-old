@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkProperty.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-02-06 17:55:04 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1994-08-21 10:11:28 $
+  Version:   $Revision: 1.5 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -16,6 +16,11 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 #include <stdlib.h>
 #include "Property.hh"
 
+// Description:
+// Construct object with object color, ambient color, diffuse color,
+// specular color, and edge color white; ambient coefficient=0; diffuse 
+// coefficient=0; specular coefficient=0; specular power=1; Gouraud shading;
+// and surface representation.
 vlProperty::vlProperty()
 {
   this->Color[0] = 1;
@@ -43,46 +48,59 @@ vlProperty::vlProperty()
   this->Specular = 0.0;
   this->SpecularPower = 1.0;
   this->Transparency = 1.0;
-  this->Interpolation = 1;   /* gouraud */
-  this->Representation = 2;  /* solid */
+  this->Interpolation = VL_GOURAUD;
+  this->Representation = VL_SURFACE;
   this->EdgeVisibility = 0;
   this->Backface = 0;
   this->Subdivide = 0;
 }
 
 
+// Description:
+// Set shading method to flat.
 void vlProperty::SetFlat (void)
 {
   this->Interpolation= VL_FLAT;
 }
 
+// Description:
+// Set shading method to Gouraud.
 void vlProperty::SetGouraud (void)
 {
   this->Interpolation = VL_GOURAUD;
 }
 
+// Description:
+// Set shading method to Phong.
 void vlProperty::SetPhong (void)
 {
   this->Interpolation = VL_PHONG;
 }
 
+// Description:
+// Represent geometry with points.
 void vlProperty::SetPoints (void)
 {
   this->Interpolation = VL_POINTS;
 }
 
+// Description:
+// Represent geometry as wireframe.
 void vlProperty::SetWireframe (void)
 {
   this->Representation = VL_WIREFRAME;
 }
 
+// Description:
+// Represent geometry as surface.
 void vlProperty::SetSurface (void)
 {
   this->Representation = VL_SURFACE;
 }
 
-/* this is a standard vector set method except that it sets the */
-/* ambient diffuse and specular colors as well                  */
+// Description:
+// Set the color of the object. Has side effects in that it sets the
+// ambient diffuse and specular colors as well.
 void vlProperty::SetColor(float R,float G,float B)
 {
   /* store the coordinates */

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkLight.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-02-06 17:55:36 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1994-08-21 10:11:26 $
+  Version:   $Revision: 1.6 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -17,6 +17,9 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 #include <iostream.h>
 #include "Light.hh"
 
+// Description:
+// Create a light with focal point at origin and position=(0,0,1).
+// Light color is white, intensity=1, and the light is turned on.
 vlLight::vlLight()
 {
   this->FocalPoint[0] = 0.0;
