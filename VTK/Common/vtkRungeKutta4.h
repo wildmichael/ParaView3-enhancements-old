@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRungeKutta4.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-18 22:25:07 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2002-11-06 20:10:00 $
+  Version:   $Revision: 1.13 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -85,14 +85,6 @@ public:
                               float t, float& delT, float& delTActual,
                               float minStep, float maxStep, 
                               float maxError, float& error);
-
-  // Description:
-  // Create concrete instance of this object.
-  virtual vtkInitialValueProblemSolver* MakeObject() 
-    {
-      return vtkRungeKutta4::New();
-    }
-
 
 protected:
   vtkRungeKutta4();

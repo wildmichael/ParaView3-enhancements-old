@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInitialValueProblemSolver.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-18 22:25:39 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2002-11-06 20:10:00 $
+  Version:   $Revision: 1.13 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -93,10 +93,6 @@ public:
                               float minStep, float maxStep, 
                               float maxError, float& error) = 0;
 
-  // Description:
-  // Create concrete instance of the object.
-  virtual vtkInitialValueProblemSolver *MakeObject()=0;
-  
   // Description:
   // Set / get the dataset used for the implicit function evaluation.
   virtual void SetFunctionSet(vtkFunctionSet* functionset);
