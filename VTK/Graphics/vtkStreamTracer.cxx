@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamTracer.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-24 13:19:00 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-04-25 12:17:05 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,7 +25,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkPolyLine.h"
 
-vtkCxxRevisionMacro(vtkStreamTracer, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkStreamTracer, "$Revision: 1.2 $");
 vtkStandardNewMacro(vtkStreamTracer);
 
 const float vtkStreamTracer::EPSILON = 1.0E-12;
@@ -563,9 +563,8 @@ void vtkStreamTracer::Integrate(vtkDataArray* seedSource, vtkIdList* seedIds)
     IntervalInformation delT;
     delT.Unit = TIME_UNIT;
     float propagation = 0.0, step, minStep, maxStep, stepTaken, accumTime=0;
-    float localCoords[3], speed;
+    float speed;
     double cellLength;
-    vtkIdType cellId, subId;
     int retVal=OUT_OF_TIME, tmp;
 
     // Convert intervals to time unit
