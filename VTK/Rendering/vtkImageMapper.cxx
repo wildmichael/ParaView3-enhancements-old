@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-04 14:29:41 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 2002-01-10 11:13:35 $
+  Version:   $Revision: 1.41 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -49,7 +49,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkImageData.h"
 #include "vtkImagingFactory.h"
 
-vtkCxxRevisionMacro(vtkImageMapper, "$Revision: 1.40 $");
+vtkCxxRevisionMacro(vtkImageMapper, "$Revision: 1.41 $");
 
 #define VTK_RINT(x) ((x > 0.0) ? (int)(x + 0.5) : (int)(x - 0.5))
 
@@ -238,7 +238,7 @@ void vtkImageMapper::RenderStart(vtkViewport* viewport, vtkActor2D* actor)
     this->DisplayExtent[4] = this->ZSlice;
     this->DisplayExtent[5] = this->ZSlice;
     //
-    this->GetInput()->SetUpdateExtent(this->DisplayExtent);
+    this->GetInput()->SetUpdateExtentToWholeExtent();
     // clear the position adjustment
     this->PositionAdjustment[0] = 0;
     this->PositionAdjustment[1] = 0;
