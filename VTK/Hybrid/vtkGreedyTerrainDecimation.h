@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGreedyTerrainDecimation.h,v $
   Language:  C++
-  Date:      $Date: 2003-04-02 16:20:30 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2003-04-02 16:35:16 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 // .NAME vtkGreedyTerrainDecimation - reduce height field (represented as image) to reduced TIN
 // .SECTION Description
 // vtkGreedyTerrainDecimation approximates a height field with a triangle
-// mesh (TIN) using a greedy insertion algorithm similar to that
+// mesh (TIM) using a greedy insertion algorithm similar to that
 // described by Garland and Heckbert (Technical Report CMU-CS-95-181).
 // The input to the filter is a height field (represented by a 
 // image whose scalar values are height) and the output of the filter
@@ -67,10 +67,9 @@ class vtkIdList;
 class vtkDoubleArray;
 
 //PIMPL Encapsulation for STL containers
-struct vtkGreedyTerrainDecimationQueueType;
-struct vtkGreedyTerrainDecimationTerrainInfoType;
-struct vtkGreedyTerrainDecimationPointInfoType;
-struct vtkGreedyTerrainDecimationTriangleInfoType;
+class vtkGreedyTerrainDecimationTerrainInfoType;
+class vtkGreedyTerrainDecimationPointInfoType;
+class vtkGreedyTerrainDecimationTriangleInfoType;
 
 #define VTK_ERROR_NUMBER_OF_TRIANGLES 0
 #define VTK_ERROR_SPECIFIED_REDUCTION 1
@@ -170,7 +169,7 @@ protected:
   float          Length;
 
   //Bookeeping arrays
-  vtkGreedyTerrainDecimationQueueType        *TerrainError; //errors for each pt in height field
+  vtkPriorityQueue                           *TerrainError; //errors for each pt in height field
   vtkGreedyTerrainDecimationTerrainInfoType  *TerrainInfo;  //owning triangle for each pt
   vtkGreedyTerrainDecimationPointInfoType    *PointInfo;    //map mesh pt id to input pt id
   vtkGreedyTerrainDecimationTriangleInfoType *TriangleInfo; //triangle info for each tri in mesh
