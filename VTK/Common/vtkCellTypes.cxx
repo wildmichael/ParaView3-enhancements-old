@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellTypes.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-17 22:38:39 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2001-03-20 03:11:17 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -56,10 +56,33 @@ vtkCellTypes* vtkCellTypes::New()
   return new vtkCellTypes;
 }
 
+vtkCellTypes::vtkCellTypes ()
+{
+
+  this->TypeArray = NULL;
+  this->LocationArray = NULL;
+  this->Size = 0;
+  this->MaxId = -1;
+  this->Extend = 1000;
+  this->Allocate(1000,this->Extend);
+
+}
+
 vtkCellTypes::~vtkCellTypes()
 {
-  this->TypeArray->Delete();
-  this->LocationArray->Delete();
+
+  if ( this->TypeArray )
+    {
+    this->TypeArray->UnRegister(this);
+    this->TypeArray = NULL;
+    }
+
+  if ( this->LocationArray )
+    {
+    this->LocationArray->UnRegister(this);
+    this->LocationArray = NULL;
+    }
+
 }
 
 // Allocate memory for this array. Delete old storage only if necessary.

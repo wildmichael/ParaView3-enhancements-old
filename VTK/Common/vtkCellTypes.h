@@ -2,8 +2,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellTypes.h,v $
   Language:  C++
-  Date:      $Date: 2001-03-15 16:56:07 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2001-03-20 03:11:17 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -134,7 +134,7 @@ public:
   void DeepCopy(vtkCellTypes *src);
 
 protected:
-  vtkCellTypes() : TypeArray(NULL), LocationArray(NULL), Size(0), MaxId(-1), Extend(1000) {};
+  vtkCellTypes();
   ~vtkCellTypes();
   vtkCellTypes(const vtkCellTypes&) {};
   void operator=(const vtkCellTypes&) {};  
