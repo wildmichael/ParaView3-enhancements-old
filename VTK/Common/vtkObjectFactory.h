@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObjectFactory.h,v $
   Language:  C++
-  Date:      $Date: 2000-03-29 22:30:25 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2000-03-30 13:38:11 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to William A. Hoffman who developed this class
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -153,10 +153,12 @@ public:
   // Description:
   // This returns the path to a dynamically loaded factory.
   vtkGetStringMacro(LibraryPath);
-  
-protected:
+
   //BTX
   typedef vtkObject* (*CreateFunction)();
+  //ETX
+protected:
+  //BTX
 
   // Description:
   // Register object creation information with the factory.
