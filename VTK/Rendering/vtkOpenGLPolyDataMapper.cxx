@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLPolyDataMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-01-26 00:05:28 $
-  Version:   $Revision: 1.76 $
+  Date:      $Date: 2003-01-28 22:34:11 $
+  Version:   $Revision: 1.77 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -32,20 +32,7 @@
 #include "vtkProperty.h"
 #include "vtkTimerLog.h"
 #include "vtkTriangle.h"
-
-#ifdef VTK_USE_CARBON
- #include "vtkCarbonRenderWindow.h"
-#else
- #ifdef VTK_USE_COCOA
-  #include "vtkCocoaRenderWindow.h"
- #else
-  #ifdef _WIN32
-   #include "vtkWin32OpenGLRenderWindow.h"
-  #else
-   #include "vtkOpenGLRenderWindow.h"
-  #endif
- #endif
-#endif
+#include "vtkOpenGLRenderWindow.h"
 
 #ifndef VTK_IMPLEMENT_MESA_CXX
   #if defined(__APPLE__) && (defined(VTK_USE_CARBON) || defined(VTK_USE_COCOA))
@@ -59,7 +46,7 @@
 
 
 #ifndef VTK_IMPLEMENT_MESA_CXX
-vtkCxxRevisionMacro(vtkOpenGLPolyDataMapper, "$Revision: 1.76 $");
+vtkCxxRevisionMacro(vtkOpenGLPolyDataMapper, "$Revision: 1.77 $");
 vtkStandardNewMacro(vtkOpenGLPolyDataMapper);
 #endif
 

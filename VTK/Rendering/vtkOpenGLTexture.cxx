@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLTexture.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-01-27 02:35:59 $
-  Version:   $Revision: 1.53 $
+  Date:      $Date: 2003-01-28 22:34:11 $
+  Version:   $Revision: 1.54 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,33 +23,18 @@
 #include "vtkOpenGLRenderer.h"
 #include "vtkPointData.h"
 #include "vtkRenderWindow.h"
+#include "vtkOpenGLRenderWindow.h"
 
-#ifdef VTK_USE_CARBON
- #include <OpenGL/gl.h>
- #include "vtkCarbonRenderWindow.h"
+#if defined(__APPLE__) && (defined(VTK_USE_CARBON) || defined(VTK_USE_COCOA))
+#include <OpenGL/gl.h>
 #else
- #ifdef VTK_USE_COCOA
-  #include <OpenGL/gl.h>
-  #include "vtkCocoaRenderWindow.h"
- #else
-  #ifdef _WIN32
-   #include "vtkWin32OpenGLRenderWindow.h"
-  #else
-   #include "vtkOpenGLRenderWindow.h"
-  #endif
- #endif
-#endif
-
-#ifndef VTK_IMPLEMENT_MESA_CXX
- #if !defined(__APPLE__) || (defined(__APPLE__) && !(defined(VTK_USE_CARBON) || defined(VTK_USE_COCOA)))
-  #include <GL/gl.h>
- #endif
+#include <GL/gl.h>
 #endif
 
 #include <math.h>
 
 #ifndef VTK_IMPLEMENT_MESA_CXX
-vtkCxxRevisionMacro(vtkOpenGLTexture, "$Revision: 1.53 $");
+vtkCxxRevisionMacro(vtkOpenGLTexture, "$Revision: 1.54 $");
 vtkStandardNewMacro(vtkOpenGLTexture);
 #endif
 
