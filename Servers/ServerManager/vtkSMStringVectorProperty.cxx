@@ -17,13 +17,12 @@
 #include "vtkClientServerStream.h"
 #include "vtkObjectFactory.h"
 #include "vtkPVXMLElement.h"
-#include "vtkSMCommunicationModule.h"
 
 #include <vtkstd/vector>
 #include "vtkStdString.h"
 
 vtkStandardNewMacro(vtkSMStringVectorProperty);
-vtkCxxRevisionMacro(vtkSMStringVectorProperty, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkSMStringVectorProperty, "$Revision: 1.6 $");
 
 struct vtkSMStringVectorPropertyInternals
 {
