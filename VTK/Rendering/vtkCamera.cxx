@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCamera.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-05-12 02:12:06 $
-  Version:   $Revision: 1.87 $
+  Date:      $Date: 2000-05-12 13:01:38 $
+  Version:   $Revision: 1.88 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -64,6 +64,10 @@ vtkCamera::vtkCamera()
   this->ViewUp[0] = 0.0;
   this->ViewUp[1] = 1.0;
   this->ViewUp[2] = 0.0;
+
+  this->DirectionOfProjection[0] = 0.0;
+  this->DirectionOfProjection[1] = 0.0;
+  this->DirectionOfProjection[2] = 0.0;
 
   this->ViewAngle = 30.0;
 
