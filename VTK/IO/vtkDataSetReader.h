@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetReader.h,v $
   Language:  C++
-  Date:      $Date: 1998-11-21 13:35:01 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1998-11-24 18:38:51 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,18 +41,22 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // .NAME vtkDataSetReader - class to read any type of vtk dataset
 // .SECTION Description
 // vtkDataSetReader is a class that provides instance variables 
-// and methods to read any type of dataset in visualization library format. 
+// and methods to read any type of dataset in Visualization Toolkit (vtk) format. 
 // The output type of this class will vary depending upon the type of data
-// file.
-// .SECTION Caveats
-// These vtk formats are not standard. Use other more standard formats when 
-// you can.
+// file. Convenience methods are provided to keep the data as a particular
+// type.
 
 #ifndef __vtkDataSetReader_h
 #define __vtkDataSetReader_h
 
 #include "vtkSource.h"
 #include "vtkDataReader.h"
+
+class vtkPolyData;
+class vtkStructuredPoints;
+class vtkStructuredGrid;
+class vtkUnstructuredGrid;
+class vtkRectilinearGrid;
 
 class VTK_EXPORT vtkDataSetReader : public vtkSource
 {
@@ -129,13 +133,33 @@ public:
   char *GetFieldDataName();
 
   // Description:
-  // Get the output of this source. Since we need to know the type
-  // of the data, the FileName must be set before GetOutput is apploed.
+  // Get the output of this source as a general vtkDataSet. Since we need 
+  // to know the type of the data, the FileName must be set before GetOutput 
+  // is applied.
   vtkDataSet *GetOutput();
+
+  // Description:
+  // Get the output as various concrete types. This method is typically used
+  // when you know exactly what type of data is being read.  Otherwise, use
+  // the general GetOutput() method. Warning: the method is dangerous because
+  // of the cast; make sure you know the type you request is actually the
+  // type in the file. (You must also set the filename of the object prior
+  // to getting the output.)
+  vtkPolyData *GetPolyDataOutput() {
+    return (vtkPolyData *)this->GetOutput();};
+  vtkStructuredPoints *GetStructuredPointsOutput() {
+    return (vtkStructuredPoints *)this->GetOutput();};
+  vtkStructuredGrid *GetStructuredGridOutput() {
+    return (vtkStructuredGrid *)this->GetOutput();};
+  vtkUnstructuredGrid *GetUnstructuredGridOutput() {
+    return (vtkUnstructuredGrid *)this->GetOutput();};
+  vtkRectilinearGrid *GetRectilinearGridOutput() {
+    return (vtkRectilinearGrid *)this->GetOutput();};
 
 protected:
   void Execute();
   vtkDataReader *Reader;
+
 };
 
 #endif

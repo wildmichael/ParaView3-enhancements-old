@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-11-21 13:35:00 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 1998-11-24 18:38:51 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -50,9 +50,7 @@ vtkDataSetReader::vtkDataSetReader()
 {
   this->Reader = vtkDataReader::New();
   this->Reader->SetSource(this);
-  this->Output = NULL;
 }
-
 
 vtkDataSetReader::~vtkDataSetReader()
 {
@@ -68,8 +66,8 @@ vtkDataSetReader::~vtkDataSetReader()
 vtkDataSet * vtkDataSetReader::GetOutput() {
     if (!this->Reader->GetFileName ())
       {
-	vtkWarningMacro(<< "FileName must be set");
-	return (vtkDataSet *) NULL;
+      vtkWarningMacro(<< "FileName must be set");
+      return (vtkDataSet *) NULL;
       }
     this->Update();
     return (vtkDataSet *) this->Output;
@@ -182,7 +180,6 @@ char *vtkDataSetReader::GetFieldDataName()
   return this->Reader->GetFieldDataName();
 }
 
-
 void vtkDataSetReader::Execute()
 {
   char line[256];
@@ -202,7 +199,7 @@ void vtkDataSetReader::Execute()
     {
     return;
     }
-  //
+
   // Determine dataset type
   //
   if (!this->Reader->ReadString(line))
@@ -213,7 +210,7 @@ void vtkDataSetReader::Execute()
 
   if ( !strncmp(this->Reader->LowerCase(line),"dataset",(unsigned long)7) )
     {
-    //
+
     // See if type is recognized.
     //
     if (!this->Reader->ReadString(line))
@@ -336,7 +333,6 @@ void vtkDataSetReader::Execute()
     vtkErrorMacro(<<"Expecting DATASET keyword, got " << line << " instead");
     }
   
-  //
   // Create appropriate dataset
   //
   if ( this->Output )
