@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXOpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-21 18:17:39 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-09-24 13:30:27 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -267,7 +267,7 @@ vtkXOpenGLRenderWindow::~vtkXOpenGLRenderWindow()
     this->Renderers->InitTraversal();
     for ( ren = vtkOpenGLRenderer::SafeDownCast(this->Renderers->GetNextItemAsObject());
 	  ren != NULL;
-	  vtkOpenGLRenderer::SafeDownCast(this->Renderers->GetNextItemAsObject())  )
+	  ren = vtkOpenGLRenderer::SafeDownCast(this->Renderers->GetNextItemAsObject())  )
       {
       ren->SetRenderWindow(NULL);
       }
