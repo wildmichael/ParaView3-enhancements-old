@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-21 19:58:43 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2000-09-24 08:58:42 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -60,9 +60,6 @@ vtkRectilinearGrid* vtkRectilinearGrid::New()
   // If the factory was unable to create the object, then create it here.
   return new vtkRectilinearGrid;
 }
-
-
-
 
 //----------------------------------------------------------------------------
 vtkRectilinearGrid::vtkRectilinearGrid()
@@ -125,44 +122,6 @@ void vtkRectilinearGrid::Initialize()
     {
     this->ZCoordinates->Delete();
     this->ZCoordinates = NULL;
-    }
-}
-
-
-//----------------------------------------------------------------------------
-vtkRectilinearGrid::vtkRectilinearGrid(const vtkRectilinearGrid& v) :
-vtkDataSet(v)
-{
-  this->Dimensions[0] = v.Dimensions[0];
-  this->Dimensions[1] = v.Dimensions[1];
-  this->Dimensions[2] = v.Dimensions[2];
-  this->DataDescription = v.DataDescription;
-
-  if ( this->XCoordinates != v.XCoordinates )
-    {
-    this->XCoordinates = v.XCoordinates;
-    if ( this->XCoordinates )
-      {
-      this->XCoordinates->Register(this);
-      }
-    }
-
-  if ( this->YCoordinates != v.YCoordinates )
-    {
-    this->YCoordinates = v.YCoordinates;
-    if ( this->YCoordinates )
-      {
-      this->YCoordinates->Register(this);
-      }
-    }
-
-  if ( this->ZCoordinates != v.ZCoordinates )
-    {
-    this->ZCoordinates = v.ZCoordinates;
-    if ( this->ZCoordinates )
-      {
-      this->ZCoordinates->Register(this);
-      }
     }
 }
 

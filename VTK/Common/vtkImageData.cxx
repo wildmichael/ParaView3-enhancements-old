@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-09-21 15:26:39 $
-  Version:   $Revision: 1.95 $
+  Date:      $Date: 2000-09-24 08:58:41 $
+  Version:   $Revision: 1.96 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -62,9 +62,6 @@ vtkImageData* vtkImageData::New()
   return new vtkImageData;
 }
 
-
-
-
 //----------------------------------------------------------------------------
 vtkImageData::vtkImageData()
 {
@@ -102,19 +99,6 @@ vtkImageData::vtkImageData()
   this->ExtentTranslator = vtkExtentTranslator::New();
   this->ExtentTranslator->Register(this);
   this->ExtentTranslator->Delete();
-}
-
-//----------------------------------------------------------------------------
-vtkImageData::vtkImageData(const vtkImageData& v) :
-vtkDataSet(v)
-{
-  memcpy( this->Dimensions, v.Dimensions, 3*sizeof(int) );
-  memcpy( this->Extent,     v.Extent,     6*sizeof(int) );
-  memcpy( this->Spacing,    v.Spacing,    3*sizeof(float) );
-  memcpy( this->Origin,     v.Origin,     3*sizeof(float) );
-
-  this->DataDescription = v.DataDescription;
-
 }
 
 //----------------------------------------------------------------------------

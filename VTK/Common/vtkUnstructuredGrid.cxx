@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-28 10:28:25 $
-  Version:   $Revision: 1.78 $
+  Date:      $Date: 2000-09-24 08:58:42 $
+  Version:   $Revision: 1.79 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -71,9 +71,6 @@ vtkUnstructuredGrid* vtkUnstructuredGrid::New()
   return new vtkUnstructuredGrid;
 }
 
-
-
-
 vtkUnstructuredGrid::vtkUnstructuredGrid ()
 {
   this->Vertex = vtkVertex::New();
@@ -131,29 +128,6 @@ void vtkUnstructuredGrid::Allocate (int numCells, int extSize)
   this->Cells->Allocate(numCells,extSize);
   this->Cells->Register(this);
   this->Cells->Delete();
-}
-
-// Shallow construction of object.
-vtkUnstructuredGrid::vtkUnstructuredGrid(const vtkUnstructuredGrid& ug) :
-vtkPointSet(ug)
-{
-  this->Connectivity = ug.Connectivity;
-  if (this->Connectivity)
-    {
-    this->Connectivity->Register(this);
-    }
-
-  this->Cells = ug.Cells;
-  if (this->Cells)
-    {
-    this->Cells->Register(this);
-    }
-
-  this->Links = ug.Links;
-  if (this->Links)
-    {
-    this->Links->Register(this);
-    }
 }
 
 vtkUnstructuredGrid::~vtkUnstructuredGrid()

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSet.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:09:52 $
-  Version:   $Revision: 1.76 $
+  Date:      $Date: 2000-09-24 08:58:41 $
+  Version:   $Revision: 1.77 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -66,18 +66,6 @@ vtkDataSet::~vtkDataSet ()
 {
   this->PointData->Delete();
   this->CellData->Delete();
-}
-
-//----------------------------------------------------------------------------
-// Copy constructor.
-vtkDataSet::vtkDataSet (const vtkDataSet& ds) :
-PointData(ds.PointData)
-{
-  for (int i=0; i < 6; i++)
-    {
-    this->Bounds[i] = ds.Bounds[i];
-    }
-  this->ReleaseDataFlag = ds.ReleaseDataFlag;
 }
 
 //----------------------------------------------------------------------------

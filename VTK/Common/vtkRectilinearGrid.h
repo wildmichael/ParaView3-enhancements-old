@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGrid.h,v $
   Language:  C++
-  Date:      $Date: 2000-08-30 14:25:57 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 2000-09-24 08:58:42 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -211,7 +211,7 @@ public:
 protected:
   vtkRectilinearGrid();
   ~vtkRectilinearGrid();
-  vtkRectilinearGrid(const vtkRectilinearGrid& v);
+  vtkRectilinearGrid(const vtkRectilinearGrid& v) {};
   void operator=(const vtkRectilinearGrid&) {};
 
   // for the GetCell method

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-09-19 13:01:29 $
-  Version:   $Revision: 1.126 $
+  Date:      $Date: 2000-09-24 08:58:42 $
+  Version:   $Revision: 1.127 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -114,48 +114,6 @@ vtkPolyData::vtkPolyData ()
   // By default, there is 1 piece.
   this->MaximumNumberOfPieces = 1;
   
-}
-
-//----------------------------------------------------------------------------
-// Perform shallow construction of vtkPolyData.
-vtkPolyData::vtkPolyData(const vtkPolyData& pd) :
-vtkPointSet(pd)
-{
-  this->Verts = pd.Verts;
-  if (this->Verts)
-    {
-    this->Verts->Register(this);
-    }
-
-  this->Lines = pd.Lines;
-  if (this->Lines)
-    {
-    this->Lines->Register(this);
-    }
-
-  this->Polys = pd.Polys;
-  if (this->Polys)
-    {
-    this->Polys->Register(this);
-    }
-
-  this->Strips = pd.Strips;
-  if (this->Strips)
-    {
-    this->Strips->Register(this);
-    }
- 
-  this->Cells = pd.Cells;
-  if (this->Cells)
-    {
-    this->Cells->Register(this);
-    }
-
-  this->Links = pd.Links;
-  if (this->Links)
-    {
-    this->Links->Register(this);
-    }
 }
 
 //----------------------------------------------------------------------------
