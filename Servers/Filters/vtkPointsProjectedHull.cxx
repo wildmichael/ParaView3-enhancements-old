@@ -5,9 +5,9 @@
   Program:   Visualization Toolkit
   Module:  $RCSfile: vtkPointsProjectedHull.cxx,v $
   Language:  C++
-  Date:    $Date: 2003-10-01 00:23:36 $
-  Version:   $Revision: 1.6 $
-  Date:    $Date: 2003-10-01 00:23:36 $
+  Date:    $Date: 2003-11-13 18:24:03 $
+  Version:   $Revision: 1.7 $
+  Date:    $Date: 2003-11-13 18:24:03 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -30,8 +30,9 @@
 =========================================================================*/
 
 #include "vtkPointsProjectedHull.h"
+#include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkPointsProjectedHull, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkPointsProjectedHull, "$Revision: 1.7 $");
 vtkStandardNewMacro(vtkPointsProjectedHull);
 
 static const int xdim=0, ydim=1, zdim=2;

@@ -5,8 +5,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergeCells.h,v $
   Language:  C++
-  Date:      $Date: 2003-10-16 18:46:35 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2003-11-13 18:24:03 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -48,11 +48,14 @@
 #define __vtkMergeCells_h
 
 #include "vtkObject.h"
-#include "vtkUnstructuredGrid.h"
-#include "vtkDataSetAttributes.h"
-#include <map>
+
+#include "vtkDataSetAttributes.h" // Needed for FieldList
+#include <map> // Needed for GlobalIdMap
 
 class vtkDataSet;
+class vtkUnstructuredGrid;
+class vtkPointData;
+class vtkCellData;
 
 class VTK_EXPORT vtkMergeCells : public vtkObject
 { 
@@ -151,5 +154,8 @@ private:
   vtkUnstructuredGrid *UnstructuredGrid;
 
   int nextGrid;
+
+  vtkMergeCells(const vtkMergeCells&); // Not implemented
+  void operator=(const vtkMergeCells&); // Not implemented
 };
 #endif

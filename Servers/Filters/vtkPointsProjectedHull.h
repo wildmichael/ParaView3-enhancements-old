@@ -5,8 +5,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointsProjectedHull.h,v $
   Language:  C++
-  Date:      $Date: 2003-10-16 18:46:35 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2003-11-13 18:24:03 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -39,10 +39,7 @@
 #ifndef __vtkPointsProjectedHull_h
 #define __vtkPointsProjectedHull_h
 
-#include "vtkObjectFactory.h"
-#include "vtkSetGet.h"
 #include "vtkPoints.h"
-
 
 class VTK_EXPORT vtkPointsProjectedHull : public vtkPoints
 {
@@ -182,6 +179,9 @@ private:
   float hullBBox[3][4];
   int hullSize[3];
   vtkTimeStamp hullTime[3];
+
+  vtkPointsProjectedHull(const vtkPointsProjectedHull&); // Not implemented
+  void operator=(const vtkPointsProjectedHull&); // Not implemented
 };
 #endif
 

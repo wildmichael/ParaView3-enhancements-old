@@ -5,8 +5,8 @@
   Program:   Visualization Toolkit
   Module:  $RCSfile: vtkPlanesIntersection.cxx,v $
   Language:  C++
-  Date:    $Date: 2003-11-05 23:44:54 $
-  Version:   $Revision: 1.5 $
+  Date:    $Date: 2003-11-13 18:24:03 $
+  Version:   $Revision: 1.6 $
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
   See Copyright.txt or http://www.kitware.com/Copyright.htm for details.
@@ -34,8 +34,9 @@
 #include "vtkCamera.h"
 #include "vtkRenderWindow.h"
 #include "vtkCell.h"
+#include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkPlanesIntersection, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkPlanesIntersection, "$Revision: 1.6 $");
 vtkStandardNewMacro(vtkPlanesIntersection);
 
 // Experiment shows that we get plane equation values on the

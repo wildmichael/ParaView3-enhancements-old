@@ -5,8 +5,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractCells.h,v $
   Language:  C++
-  Date:      $Date: 2003-10-16 18:46:35 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2003-11-13 18:24:03 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -44,8 +44,7 @@
 class vtkIdList;
 class vtkUnstructuredGrid;
 
-class VTK_EXPORT vtkExtractCells : 
-      public vtkDataSetToUnstructuredGridFilter
+class VTK_EXPORT vtkExtractCells : public vtkDataSetToUnstructuredGridFilter
 {
 public:
   vtkTypeRevisionMacro(vtkExtractCells, vtkDataSetToUnstructuredGridFilter);
@@ -99,5 +98,9 @@ private:
 
   int SubSetUGridCellArraySize;
   char InputIsUgrid;
+
+  vtkExtractCells(const vtkExtractCells&); // Not implemented
+  void operator=(const vtkExtractCells&); // Not implemented
 };
+
 #endif

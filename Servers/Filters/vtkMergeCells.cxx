@@ -5,8 +5,8 @@
   Program:   Visualization Toolkit
   Module:  $RCSfile: vtkMergeCells.cxx,v $
   Language:  C++
-  Date:    $Date: 2003-10-16 19:06:43 $
-  Version:   $Revision: 1.4 $ 
+  Date:    $Date: 2003-11-13 18:24:03 $
+  Version:   $Revision: 1.5 $ 
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -47,10 +47,13 @@
 #include "vtkLongArray.h"
 #include "vtkUnsignedLongArray.h"
 #include "vtkDataArray.h"
+#include "vtkPointData.h"
+#include "vtkCellData.h"
+
 #include <stdlib.h>
 #include <algorithm>
 
-vtkCxxRevisionMacro(vtkMergeCells, "$Revision: 1.4 $");
+vtkCxxRevisionMacro(vtkMergeCells, "$Revision: 1.5 $");
 vtkStandardNewMacro(vtkMergeCells);
 
 vtkCxxSetObjectMacro(vtkMergeCells, UnstructuredGrid, vtkUnstructuredGrid);

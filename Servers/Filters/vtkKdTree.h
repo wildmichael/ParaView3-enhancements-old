@@ -5,8 +5,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKdTree.h,v $
   Language:  C++
-  Date:      $Date: 2003-11-05 23:45:22 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2003-11-13 18:24:03 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -597,8 +597,6 @@ protected:
 
 private:
 
-    vtkKdTree(const vtkKdTree&);
-
 //BTX
     int DivideRegion(vtkKdNode *kd, float *c1, int nlevels);
     void SelfRegister(vtkKdNode *kd);
@@ -688,5 +686,8 @@ private:
 
     int *CellRegionList;
 
+
+  vtkKdTree(const vtkKdTree&); // Not implemented
+  void operator=(const vtkKdTree&); // Not implemented
 };
 #endif

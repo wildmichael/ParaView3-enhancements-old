@@ -5,8 +5,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPKdTree.h,v $
   Language:  C++
-  Date:      $Date: 2003-10-16 19:00:13 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2003-11-13 18:24:03 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -411,6 +411,8 @@ private:
   void AddEntry(int *list, int len, int id);
   static int BinarySearch(int *list, int len, int which);
 
+  vtkPKdTree(const vtkPKdTree&); // Not implemented
+  void operator=(const vtkPKdTree&); // Not implemented
 };
 
 //BTX

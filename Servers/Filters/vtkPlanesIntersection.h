@@ -5,8 +5,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPlanesIntersection.h,v $
   Language:  C++
-  Date:      $Date: 2003-11-05 23:44:54 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2003-11-13 18:24:03 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -132,7 +132,7 @@ private:
   void planesMatrix(int p1, int p2, int p3, double M[3][3]) const;
   int duplicate(double testv[3]) const;
   void planesRHS(int p1, int p2, int p3, double r[3]) const;
-  int outsideRegion(double v[3]);
+  int outsideRegion(double v[3]) ;
 
   static double EvaluatePlaneEquation(double *x, double *p);
   static void PlaneEquation(double *n, double *x, double *p);
@@ -157,6 +157,9 @@ private:
   // vertices of convex regions enclosed by the planes, also
   //    the ccw hull of that region projected in 3 orthog. directions
   vtkPointsProjectedHull *regionPts;
+
+  vtkPlanesIntersection(const vtkPlanesIntersection&); // Not implemented
+  void operator=(const vtkPlanesIntersection&); // Not implemented
 };
 #endif
 
