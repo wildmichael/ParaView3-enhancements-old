@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIntArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-01-09 03:03:29 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1997-03-05 18:39:17 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -50,9 +50,10 @@ int vtkIntArray::Allocate(const int sz, const int ext)
 
     this->Size = ( sz > 0 ? sz : 1);
     if ( (this->Array = new int[this->Size]) == NULL ) return 0;
-    this->Extend = ( ext > 0 ? ext : 1);
-    this->MaxId = -1;
     }
+
+  this->Extend = ( ext > 0 ? ext : 1);
+  this->MaxId = -1;
 
   return 1;
 }
