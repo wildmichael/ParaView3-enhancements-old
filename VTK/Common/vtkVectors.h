@@ -1,3 +1,18 @@
+/*=========================================================================
+
+  Program:   Visualization Library
+  Module:    $RCSfile: vtkVectors.h,v $
+  Language:  C++
+  Date:      $Date: 1994-02-04 12:44:48 $
+  Version:   $Revision: 1.4 $
+
+This file is part of the Visualization Library. No part of this file or its 
+contents may be copied, reproduced or altered in any way without the express
+written consent of the authors.
+
+Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994 
+
+=========================================================================*/
 //
 // Abstract interface to 3D vectors.
 //
@@ -21,7 +36,7 @@ public:
   virtual void InsertVector(int i, float x[3]) = 0;   // allocates memory as necessary
   void GetVectors(vlIdList& ptId, vlFloatVectors& fp);
   char *GetClassName() {return "vlVectors";};
-  void PrintSelf(ostream& os);
+  void PrintSelf(ostream& os, vlIndent indent);
   virtual void ComputeMaxNorm();
   float GetMaxNorm();
 
