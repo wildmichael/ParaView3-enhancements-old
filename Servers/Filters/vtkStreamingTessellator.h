@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamingTessellator.h,v $
   Language:  C++
-  Date:      $Date: 2004-08-09 15:33:39 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2005-02-09 01:41:47 $
+  Version:   $Revision: 1.4 $
 
   Copyright 2003 Sandia Corporation.
   Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -287,6 +287,8 @@ class VTK_EXPORT vtkStreamingTessellator : public vtkObject
     void AdaptivelySample3Facet( double* v1, double* v2, double* v3, double* v4, int maxDepth ) const ;
     void AdaptivelySample2Facet( double* v1, double* v2, double* v3, int maxDepth, int move=7 ) const ;
     void AdaptivelySample1Facet( double* v1, double* v2, int maxDepth ) const ;
+
+    int BestTets( int*, double**, int, int ) const;
 
   private:
     vtkStreamingTessellator( const vtkStreamingTessellator& ); // Not implemented.
