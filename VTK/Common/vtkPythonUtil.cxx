@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPythonUtil.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:27:32 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2000-04-30 17:16:08 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -157,7 +157,8 @@ void vtkHashTable::DeleteHashEntry(void *key)
 char *vtkPythonManglePointer(void *ptr, const char *type)
 {
   static char ptrText[128];
-  sprintf(ptrText,"_%0*.*lx_%s",sizeof(void *),sizeof(void *),ptr,type);
+  sprintf(ptrText,"_%*.*lx_%s",(int)sizeof(void *),(int)sizeof(void *),
+	  ptr,type);
   return ptrText;
 }
 
@@ -178,11 +179,6 @@ void *vtkPythonUnmanglePointer(char *ptrText, int *len, const char *type)
     else if (i == 2)
       { // mangled pointer of wrong type
       *len = -1;
-      return NULL;
-      }
-    else
-      { // malformed
-      *len = -2;
       return NULL;
       }
     }
