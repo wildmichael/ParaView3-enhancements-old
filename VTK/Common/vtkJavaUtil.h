@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkJavaUtil.h,v $
   Language:  C++
-  Date:      $Date: 1999-06-15 15:18:48 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1999-10-08 21:57:02 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -74,7 +74,7 @@ extern JNIEXPORT jobject vtkJavaCreateNewJavaStub(JNIEnv *env,
 // behalf of the Java interface for callbacks.
 struct vtkJavaVoidFuncArg 
 {
-  JNIEnv * uenv;
+  JavaVM *vm;
   jobject  uobj;
   jmethodID mid;
 } ;
