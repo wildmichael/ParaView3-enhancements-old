@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSpatialFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-18 15:54:18 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1997-07-24 15:53:32 $
+  Version:   $Revision: 1.23 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -217,10 +217,48 @@ vtkImageSpatialFilter::ComputeRequiredInputRegionExtent(vtkImageRegion *out,
 {
   int extent[8];
   int wholeExtent[8];
+  int idx;
   
   out->GetExtent(4, extent);
   in->GetWholeExtent(4, wholeExtent);
-  this->ComputeRequiredInputExtent(extent, wholeExtent);
+
+  for (idx = 0; idx < this->NumberOfFilteredAxes; ++idx)
+    {
+    // Magnify by strides
+    extent[idx*2] *= this->Strides[idx];
+    extent[idx*2+1] = (extent[idx*2+1]+1)*this->Strides[idx] - 1;
+    // Expand to get inRegion Extent
+    extent[idx*2] -= this->KernelMiddle[idx];
+    extent[idx*2+1] += (this->KernelSize[idx]-1) - this->KernelMiddle[idx];
+
+    // If the expanded region is out of the IMAGE Extent (grow min)
+    if (extent[idx*2] < wholeExtent[idx*2])
+      {
+      if (this->HandleBoundaries)
+	{
+	// shrink the required region extent
+	extent[idx*2] = wholeExtent[idx*2];
+	}
+      else
+	{
+	vtkWarningMacro(<< "Required region is out of the image extent.");
+	}
+      }
+    // If the expanded region is out of the IMAGE Extent (shrink max)      
+    if (extent[idx*2+1] > wholeExtent[idx*2+1])
+      {
+      if (this->HandleBoundaries)
+	{
+	// shrink the required region extent
+	extent[idx*2+1] = wholeExtent[idx*2+1];
+	}
+      else
+	{
+	vtkWarningMacro(<< "Required region is out of the image extent.");
+	}
+      }
+    }
+  
   in->SetExtent(4, extent);
 }
 
@@ -239,11 +277,11 @@ void vtkImageSpatialFilter::ComputeRequiredInputExtent(int *extent,
     {
     axis = this->FilteredAxes[idx];
     // Magnify by strides
-    extent[axis*2] *= this->Strides[axis];
-    extent[axis*2+1] = (extent[axis*2+1]+1)*this->Strides[axis] - 1;
+    extent[axis*2] *= this->Strides[idx];
+    extent[axis*2+1] = (extent[axis*2+1]+1)*this->Strides[idx] - 1;
     // Expand to get inRegion Extent
-    extent[axis*2] -= this->KernelMiddle[axis];
-    extent[axis*2+1] += (this->KernelSize[axis]-1) - this->KernelMiddle[axis];
+    extent[axis*2] -= this->KernelMiddle[idx];
+    extent[axis*2+1] += (this->KernelSize[idx]-1) - this->KernelMiddle[idx];
 
     // If the expanded region is out of the IMAGE Extent (grow min)
     if (extent[axis*2] < wholeExtent[axis*2])
