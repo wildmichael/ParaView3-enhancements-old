@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-19 18:16:47 $
-  Version:   $Revision: 1.110 $
+  Date:      $Date: 2001-10-23 20:18:41 $
+  Version:   $Revision: 1.111 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -379,7 +379,7 @@ int vtkDataReader::OpenVTKFile()
     {
     vtkDebugMacro(<< "Opening vtk file");
 
-    if ( !this->FileName )
+    if ( !this->FileName || (strlen(this->FileName) == 0))
       {
       vtkErrorMacro(<< "No file specified!");
       return 0;
