@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBoxWidget.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-29 18:26:39 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2002-08-20 13:32:25 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -300,6 +300,9 @@ protected:
   int ScalingEnabled;
   int RotationEnabled;
   
+  // Keep track of last pick position
+  float LastPickPosition[3];
+
 private:
   vtkBoxWidget(const vtkBoxWidget&);  //Not implemented
   void operator=(const vtkBoxWidget&);  //Not implemented
