@@ -3,8 +3,8 @@
 Program:   Visualization Toolkit
 Module:    $RCSfile: vtkPCAAnalysisFilter.h,v $
 Language:  C++
-Date:      $Date: 2002-02-12 22:57:42 $
-Version:   $Revision: 1.1 $
+Date:      $Date: 2002-02-13 10:08:35 $
+Version:   $Revision: 1.2 $
 
 Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -113,7 +113,16 @@ class VTK_HYBRID_EXPORT vtkPCAAnalysisFilter : public vtkSource
   //              + b[bsize-1] * sqrt(eigenvalue[bsize-1]) * eigenvector[bsize-1]
   void GetShapeParameters(vtkPointSet *shape, vtkFloatArray *b, int bsize);
 
- protected:
+  // Description:
+  // Retrieve the input with index idx (usually only used for pipeline tracing).
+  vtkPointSet* GetInput(int idx);
+
+  // Description:
+  // Retrieve how many modes are necessary to model the given proportion of the variation.
+  // proportion should be between 0 and 1
+  int GetModesRequiredFor(float proportion);
+
+protected:
   vtkPCAAnalysisFilter();
   ~vtkPCAAnalysisFilter();
 
@@ -121,11 +130,7 @@ class VTK_HYBRID_EXPORT vtkPCAAnalysisFilter : public vtkSource
   // Usual data generation method.
   void Execute();
 
-  // Description:
-  // A wrapper function for accessing the inputs within the filter and subclasses.
-  vtkPointSet* GetInput(int idx);
-
- private:
+private:
   vtkPCAAnalysisFilter(const vtkPCAAnalysisFilter&);  // Not implemented.
   void operator=(const vtkPCAAnalysisFilter&);  // Not implemented.
 

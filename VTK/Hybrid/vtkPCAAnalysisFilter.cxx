@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPCAAnalysisFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-13 08:00:24 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-02-13 10:08:36 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 #include "vtkMath.h"
 #include "vtkFloatArray.h"
 
-vtkCxxRevisionMacro(vtkPCAAnalysisFilter, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkPCAAnalysisFilter, "$Revision: 1.3 $");
 vtkStandardNewMacro(vtkPCAAnalysisFilter);
 
 //------------------------------------------------------------------------
@@ -419,7 +419,7 @@ void vtkPCAAnalysisFilter::SetInput(int idx,vtkPointSet* p)
 
 
 //----------------------------------------------------------------------------
-// protected
+// public
 vtkPointSet* vtkPCAAnalysisFilter::GetInput(int idx) 
 {
   if(idx<0 || idx>=this->vtkProcessObject::GetNumberOfInputs()) {
@@ -450,3 +450,27 @@ void vtkPCAAnalysisFilter::PrintSelf(ostream& os, vtkIndent indent)
   this->Evals->PrintSelf(os,indent);
 }
 
+//----------------------------------------------------------------------------
+// public
+int vtkPCAAnalysisFilter::GetModesRequiredFor(float proportion)
+{
+  int i;
+
+  float eigen_total = 0.0F;
+  for(i=0;i<this->Evals->GetNumberOfTuples();i++)
+    {
+    eigen_total += this->Evals->GetValue(i);
+    }
+
+  float running_total = 0.0F;
+  for(i=0;i<this->Evals->GetNumberOfTuples();i++)
+    {
+    running_total += this->Evals->GetValue(i)/eigen_total;
+    if(running_total>=proportion)
+      {
+      return i+1;
+      }
+    }
+    
+  return Evals->GetNumberOfTuples();
+}
