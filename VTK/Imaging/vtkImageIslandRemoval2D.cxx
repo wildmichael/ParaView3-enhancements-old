@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageIslandRemoval2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-09-18 14:05:24 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1996-09-26 21:07:27 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -92,8 +92,8 @@ void vtkImageIslandRemoval2d::InterceptCacheUpdate(vtkImageRegion *region)
     }
   
   this->Input->UpdateImageInformation(region);
-  region->GetImageExtent(extent, 2);
-  region->SetExtent(extent, 2);
+  region->GetImageExtent(2, extent);
+  region->SetExtent(2, extent);
 }
 
 
@@ -474,19 +474,19 @@ void vtkImageIslandRemoval2d::Execute(vtkImageRegion *inRegion,
   
   
   // this filter expects that input is the same type as output.
-  if (inRegion->GetDataType() != outRegion->GetDataType())
+  if (inRegion->GetScalarType() != outRegion->GetScalarType())
     {
-    vtkErrorMacro(<< "Execute: input DataType, " 
-                  << vtkImageDataTypeNameMacro(inRegion->GetDataType())
-                  << ", must match out DataType "
-                  << vtkImageDataTypeNameMacro(outRegion->GetDataType()));
+    vtkErrorMacro(<< "Execute: input ScalarType, " 
+                  << vtkImageScalarTypeNameMacro(inRegion->GetScalarType())
+                  << ", must match out ScalarType "
+                  << vtkImageScalarTypeNameMacro(outRegion->GetScalarType()));
     return;
     }
 
   inPtr = inRegion->GetScalarPointer();
   outPtr = outRegion->GetScalarPointer();
 
-  switch (inRegion->GetDataType())
+  switch (inRegion->GetScalarType())
     {
     case VTK_FLOAT:
       vtkImageIslandRemoval2dExecute(this, 
@@ -514,7 +514,7 @@ void vtkImageIslandRemoval2d::Execute(vtkImageRegion *inRegion,
 			   outRegion, (unsigned char *)(outPtr));
       break;
     default:
-      vtkErrorMacro(<< "Execute: Unknown DataType");
+      vtkErrorMacro(<< "Execute: Unknown ScalarType");
       return;
     }  
 }

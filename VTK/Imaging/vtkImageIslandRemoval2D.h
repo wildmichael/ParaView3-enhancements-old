@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageIslandRemoval2D.h,v $
   Language:  C++
-  Date:      $Date: 1996-09-18 14:05:25 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1996-09-26 21:07:36 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,7 +42,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // .SECTION Description
 // vtkImageIslandRemoval2d computes the area of separate islands in 
 // a mask image.  It removes any island that has less than AreaThreshold
-// pixels.  Output has the same DataType as input.
+// pixels.  Output has the same ScalarType as input.
 
 
 #ifndef __vtkImageIslandRemoval2d_h
