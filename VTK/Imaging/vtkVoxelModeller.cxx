@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoxelModeller.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:41:39 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 1998-12-27 17:13:18 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -114,6 +114,8 @@ void vtkVoxelModeller::Execute()
 
   output->SetDimensions(this->GetSampleDimensions());
   maxDistance = this->ComputeModelBounds(origin,spacing);
+  output->SetSpacing(spacing);
+  output->SetOrigin(origin);
 //
 // Voxel widths are 1/2 the height, width, length of a voxel
 //
