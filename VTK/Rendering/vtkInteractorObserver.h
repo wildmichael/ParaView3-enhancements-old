@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorObserver.h,v $
   Language:  C++
-  Date:      $Date: 2003-01-16 19:54:30 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2003-09-19 19:41:09 $
+  Version:   $Revision: 1.15 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -110,14 +110,27 @@ public:
   vtkGetMacro(KeyPressActivationValue,char);
 
   // Description:
-  // Specify the renderer to use when activiating the interactor observer.
-  // Normally when the widget is activated (SetEnabled(1) or when 
+  // Set/Get the default renderer to use when activating the interactor 
+  // observer. Normally when the widget is activated (SetEnabled(1) or when 
   // keypress activation takes place), the renderer over which the mouse
   // pointer is positioned is used. Alternatively, you can specify the
   // renderer to bind the interactor to when the interactor observer is
-  // activated.
-  virtual void SetCurrentRenderer(vtkRenderer*);
+  // activated. 
+  vtkGetObjectMacro(DefaultRenderer,vtkRenderer);
+  virtual void SetDefaultRenderer(vtkRenderer*);
+
+  // Description:
+  // Set/Get the current renderer. Normally when the widget is activated 
+  // (SetEnabled(1) or when keypress activation takes place), the renderer
+  // over which the mouse pointer is positioned is used and assigned to
+  // this Ivar. Alternatively, you might want to set the CurrentRenderer
+  // explicitly.
+  // WARNING: note that if the DefaultRenderer Ivar is set (see above), 
+  // it will always override the parameter passed to SetCurrentRenderer,
+  // unless it is NULL.
+  // (i.e., SetCurrentRenderer(foo) = SetCurrentRenderer(DefaultRenderer).
   vtkGetObjectMacro(CurrentRenderer,vtkRenderer);
+  virtual void SetCurrentRenderer(vtkRenderer*);
 
   // Sets up the keypress-i event. 
   virtual void OnChar();
@@ -170,6 +183,7 @@ protected:
   
   // Internal ivars for processing events
   vtkRenderer *CurrentRenderer;
+  vtkRenderer *DefaultRenderer;
 
 private:
   vtkInteractorObserver(const vtkInteractorObserver&);  // Not implemented.
