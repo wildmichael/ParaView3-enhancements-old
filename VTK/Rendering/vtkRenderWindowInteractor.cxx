@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-11-10 11:21:49 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 1998-11-12 21:22:02 $
+  Version:   $Revision: 1.51 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,6 +58,7 @@ vtkRenderWindowInteractor::vtkRenderWindowInteractor()
 
   this->LightFollowCamera = 1;
   this->Initialized = 0;
+  this->Enabled = 0;
   this->DesiredUpdateRate = 15;
   // default limit is 3 hours per frame
   this->StillUpdateRate = 0.0001;
@@ -841,6 +842,7 @@ void vtkRenderWindowInteractor::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "DesiredUpdateRate: " << this->DesiredUpdateRate << "\n";
   os << indent << "StillUpdateRate: " << this->StillUpdateRate << "\n";
   os << indent << "Initialized: " << this->Initialized << "\n";
+  os << indent << "Enabled: " << this->Enabled << "\n";
   os << indent << "EventPosition: " << "( " << this->EventPosition[0] <<
     ", " << this->EventPosition[1] << " )\n";
   os << indent << "Viewport Center: " << "( " << this->Center[0] <<
