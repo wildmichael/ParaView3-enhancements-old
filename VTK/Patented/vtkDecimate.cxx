@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDecimate.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-08-19 20:51:56 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 1998-08-20 11:44:34 $
+  Version:   $Revision: 1.42 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -241,7 +241,10 @@ void vtkDecimate::Execute()
     for (sub=0; sub < this->MaximumSubIterations && trisEliminated &&
     reduction < this->TargetReduction && !abort; sub++) 
       {
-      for (i=0; i < VTK_NUMBER_STATISTICS; i++) this->Stats[i] = 0;
+      for (i=0; i < VTK_NUMBER_STATISTICS; i++)
+	{
+	this->Stats[i] = 0;
+	}
       trisEliminated = 0;
 //
 //  For every vertex that is used by two or more elements and has a loop
@@ -284,7 +287,10 @@ void vtkDecimate::Execute()
             {
             ContinueTriangulating = 1;
             numVerts = V->GetNumberOfVertices();
-            for (i=0; i < numVerts; i++) verts[i] = V->Array + i;
+            for (i=0; i < numVerts; i++)
+              {
+              verts[i] = V->Array + i;
+              }
             }
 //
 //  Note: interior edges can be eliminated if decimation criterion met
@@ -442,7 +448,10 @@ void vtkDecimate::CreateOutput(int numPts, int numTris, int numEliminated,
     }
 
   map = new int[numPts];
-  for (i=0; i<numPts; i++) map[i] = -1;
+  for (i=0; i<numPts; i++)
+    {
+    map[i] = -1;
+    }
   numNewPts = 0;
   for (ptId=0; ptId < numPts; ptId++)
     {
