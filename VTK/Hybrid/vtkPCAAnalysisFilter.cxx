@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPCAAnalysisFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-13 10:08:36 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-02-13 12:11:59 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 #include "vtkMath.h"
 #include "vtkFloatArray.h"
 
-vtkCxxRevisionMacro(vtkPCAAnalysisFilter, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkPCAAnalysisFilter, "$Revision: 1.4 $");
 vtkStandardNewMacro(vtkPCAAnalysisFilter);
 
 //------------------------------------------------------------------------
@@ -334,6 +334,7 @@ void vtkPCAAnalysisFilter::GetParameterisedShape(vtkFloatArray *b, vtkPointSet* 
     shape->GetPoints()->SetPoint(i,shapevec[i*3  ], shapevec[i*3+1], shapevec[i*3+2]);
   }
   
+  DeleteVector(shapevec);
   DeleteVector(w);
 }
 
