@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIOStream.h,v $
   Language:  C++
-  Date:      $Date: 2003-04-18 15:48:02 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2003-08-19 15:39:58 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -69,6 +69,7 @@ using std::fstream;
 #  include "vtkWinCE.h"   // Include mini-streams for Windows CE.
 # else
 #  include <iostream.h>   // Include old-style istream and ostream.
+#  include <iomanip.h>
 #  if defined(_MSC_VER)
 #   include <strstrea.h>  // Include old-style strstream from MSVC.
 #  else
