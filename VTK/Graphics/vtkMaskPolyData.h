@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkMaskPolyData.h,v $
   Language:  C++
-  Date:      $Date: 1994-09-23 17:07:14 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1994-09-24 14:38:58 $
+  Version:   $Revision: 1.4 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -26,8 +26,8 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 class vlMaskPolyData : public vlPolyToPolyFilter
 {
 public:
-  //vlMaskPolyData();
-  //~vlMaskPolyData();
+  vlMaskPolyData();
+  ~vlMaskPolyData() {};
   char *GetClassName() {return "vlMaskPolyData";};
   void PrintSelf(ostream& os, vlIndent indent);
 
@@ -43,10 +43,8 @@ public:
 
 protected:
   void Execute();
-  // every OnRatio entity is on; all others are off.
-  int OnRatio;
-  // offset (or starting point id)
-  int Offset;
+  int OnRatio; // every OnRatio entity is on; all others are off.
+  int Offset;  // offset (or starting point id)
 };
 
 #endif

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkMaskPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-08-08 09:16:19 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1994-09-24 14:38:57 $
+  Version:   $Revision: 1.6 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -15,8 +15,15 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 =========================================================================*/
 #include "MaskPoly.hh"
 
+vlMaskPolyData::vlMaskPolyData()
+{
+  this->OnRatio = 11;
+  this->Offset = 0;
+}
+
 //
-// Down sample polygonal data.  Don't down sample points, usually not worth it.
+// Down sample polygonal data.  Don't down sample points (that is, use the
+// original points, since usually not worth it.
 //
 void vlMaskPolyData::Execute()
 {

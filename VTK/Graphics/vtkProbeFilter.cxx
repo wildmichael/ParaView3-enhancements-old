@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkProbeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-09-12 21:19:29 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1994-09-24 14:38:59 $
+  Version:   $Revision: 1.7 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -14,6 +14,11 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 
 =========================================================================*/
 #include "ProbeF.hh"
+
+vlProbeFilter::vlProbeFilter()
+{
+  this->Source = NULL;
+}
 
 void vlProbeFilter::Execute()
 {
@@ -107,5 +112,15 @@ void vlProbeFilter::Update()
     this->Execute();
     this->ExecuteTime.Modified();
     if ( this->EndMethod ) (*this->EndMethod)(this->EndMethodArg);
+    }
+}
+
+void vlProbeFilter::PrintSelf(ostream& os, vlIndent indent)
+{
+  if (this->ShouldIPrint(vlProbeFilter::GetClassName()))
+    {
+    vlDataSetToDataSetFilter::PrintSelf(os,indent);
+
+    os << indent << "Source: " << this->Source << "\n";
     }
 }

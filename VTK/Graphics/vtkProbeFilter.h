@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkProbeFilter.h,v $
   Language:  C++
-  Date:      $Date: 1994-09-23 17:04:40 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1994-09-24 14:39:00 $
+  Version:   $Revision: 1.4 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -27,10 +27,10 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 class vlProbeFilter : public vlDataSetToDataSetFilter
 {
 public:
-  // vlProbeFilter();
-  // ~vlProbeFilter();
+  vlProbeFilter();
+  ~vlProbeFilter() {};
   char *GetClassName() {return "vlProbeFilter";};
-  // void PrintSelf(ostream& os, vlIndent indent);
+  void PrintSelf(ostream& os, vlIndent indent);
 
   void Update();
   void Initialize();
