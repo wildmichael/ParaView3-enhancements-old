@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-03-27 16:21:27 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 1996-04-03 20:40:59 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -268,7 +268,7 @@ int vtkDataReader::ReadHeader()
     vtkDebugMacro(<< "Opening vtk file as binary");
     delete this->IS;
 #ifdef _WIN32
-    if (!(this->IS = new ifstream(this->Filename, ios::in | ios::bin)))
+    if (!(this->IS = new ifstream(this->Filename, ios::in | ios::binary)))
 #else
     if (!(this->IS = new ifstream(this->Filename, ios::in)))
 #endif
