@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSliceCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-06 14:05:40 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1997-05-15 02:50:25 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -141,7 +141,7 @@ static void ComputePointGradient(int i, int j, int k, int dims[3],
 template <class T, class S>
 static int Contour(T *slice, S *scalars, int imageRange[2], int dims[3], float origin[3],
             float aspectRatio[3], float value, float xmin[3], float xmax[3],
-            FILE *outFP, vtkVolumeReader *reader, int debug)
+            FILE *outFP, vtkVolumeReader *reader, unsigned char debug)
 {
   S *slice0scalars=NULL, *slice1scalars;
   S *slice2scalars, *slice3scalars;
