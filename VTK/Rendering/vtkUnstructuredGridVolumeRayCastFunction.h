@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGridVolumeRayCastFunction.h,v $
   Language:  C++
-  Date:      $Date: 2003-11-24 20:05:46 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-11-25 03:49:30 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -37,15 +37,6 @@ class VTK_RENDERING_EXPORT vtkUnstructuredGridVolumeRayCastFunction : public vtk
 public:
   vtkTypeRevisionMacro(vtkUnstructuredGridVolumeRayCastFunction,vtkObject);
   virtual void PrintSelf(ostream& os, vtkIndent indent);
-
-//BTX
-  virtual void Initialize( vtkRenderer *ren, vtkVolume   *vol )=0;
-  
-  virtual void Finalize( )=0;
-
-  virtual void CastRay( int x, int y, double bounds[2], float color[4] )=0;
-//ETX
-
 
 protected:
   vtkUnstructuredGridVolumeRayCastFunction() {};
