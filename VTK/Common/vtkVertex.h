@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVertex.h,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 22:50:55 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 1998-05-06 19:06:13 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -66,10 +66,12 @@ public:
   void Contour(float value, vtkScalars *cellScalars, 
                vtkPointLocator *locator, vtkCellArray *verts1, 
                vtkCellArray *lines, vtkCellArray *verts2, 
-               vtkPointData *inPd, vtkPointData *outPd);
+               vtkPointData *inPd, vtkPointData *outPd,
+               vtkCellData *inCd, int cellId, vtkCellData *outCd);
   void Clip(float value, vtkScalars *cellScalars, 
             vtkPointLocator *locator, vtkCellArray *pts,
-            vtkPointData *inPd, vtkPointData *outPd, int insideOut);
+            vtkPointData *inPd, vtkPointData *outPd,
+            vtkCellData *inCd, int cellId, vtkCellData *outCd, int insideOut);
   int EvaluatePosition(float x[3], float closestPoint[3], 
                        int& subId, float pcoords[3], 
                        float& dist2, float *weights);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHexahedron.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-04-23 20:00:23 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 1998-05-06 19:05:55 $
+  Version:   $Revision: 1.49 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -336,7 +336,8 @@ void vtkHexahedron::Contour(float value, vtkScalars *cellScalars,
 			    vtkCellArray *vtkNotUsed(verts), 
 			    vtkCellArray *vtkNotUsed(lines), 
 			    vtkCellArray *polys, 
-                            vtkPointData *inPd, vtkPointData *outPd)
+                            vtkPointData *inPd, vtkPointData *outPd,
+                            vtkCellData *inCd, int cellId, vtkCellData *outCd)
 {
   static int CASE_MASK[8] = {1,2,4,8,16,32,64,128};
   TRIANGLE_CASES *triCase;
@@ -661,9 +662,9 @@ void vtkHexahedron::Clip(float vtkNotUsed(value),
 			 vtkScalars *vtkNotUsed(cellScalars), 
                          vtkPointLocator *vtkNotUsed(locator), 
 			 vtkCellArray *vtkNotUsed(tetras),
-                         vtkPointData *vtkNotUsed(inPd), 
-			 vtkPointData *vtkNotUsed(outPd),
-                         int insideOut)
+                         vtkPointData *vtkNotUsed(inPd), vtkPointData *vtkNotUsed(outPd),
+                         vtkCellData *vtkNotUsed(inCd), int cellId, 
+			 vtkCellData *vtkNotUsed(outCd), int insideOut)
 {
 
 }

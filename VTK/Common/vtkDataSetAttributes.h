@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetAttributes.h,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 22:49:31 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-05-06 19:05:53 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -159,6 +159,13 @@ public:
   vtkGetMacro(CopyFieldData,int);
   vtkBooleanMacro(CopyFieldData,int);
 
+  // Description;
+  // Flag indicates whether any data is to be copied or interpolated. This
+  // flag can be used to improve performance by avoiding extra CopyData() or
+  // Interpolate() calls. This method returns valid results only after
+  // CopyAllocate() or InterpolateAllocate() has been invoked.
+  int GetAnyEnabled() {return this->AnyEnabled;}
+
   void CopyAllOn();
   void CopyAllOff();
 
@@ -187,6 +194,7 @@ protected:
   int CopyFieldData;
 
   // Flags are evaluated in CopyAllocate to determine whether copying is possible
+  int AnyEnabled;
   int CopyScalarsEnabled;
   int CopyVectorsEnabled;
   int CopyNormalsEnabled;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuad.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-04-23 20:00:29 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 1998-05-06 19:06:05 $
+  Version:   $Revision: 1.51 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -349,7 +349,8 @@ void vtkQuad::Contour(float value, vtkScalars *cellScalars,
 		      vtkCellArray *vtkNotUsed(verts), 
 		      vtkCellArray *lines, 
 		      vtkCellArray *vtkNotUsed(polys), 
-                      vtkPointData *inPd, vtkPointData *outPd)
+                      vtkPointData *inPd, vtkPointData *outPd,
+                      vtkCellData *inCd, int cellId, vtkCellData *outCd)
 {
   static int CASE_MASK[4] = {1,2,4,8};
   LINE_CASES *lineCase;
@@ -642,6 +643,7 @@ static QUAD_CASES quadCasesComplement[] = {
 void vtkQuad::Clip(float value, vtkScalars *cellScalars, 
                        vtkPointLocator *locator, vtkCellArray *polys,
                        vtkPointData *inPd, vtkPointData *outPd,
+                       vtkCellData *inCd, int cellId, vtkCellData *outCd,
                        int insideOut)
 {
   static int CASE_MASK[4] = {1,2,4,8};

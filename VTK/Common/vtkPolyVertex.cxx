@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyVertex.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-04-23 20:00:27 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 1998-05-06 19:06:02 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -113,7 +113,8 @@ void vtkPolyVertex::Contour(float value, vtkScalars *cellScalars,
 			    vtkPointLocator *locator, vtkCellArray *verts,
 			    vtkCellArray *vtkNotUsed(lines), 
 			    vtkCellArray *vtkNotUsed(polys), 
-                            vtkPointData *inPd, vtkPointData *outPd)
+                            vtkPointData *inPd, vtkPointData *outPd,
+                            vtkCellData *inCd, int cellId, vtkCellData *outCd)
 {
   int i, pts[1], numPts=this->Points.GetNumberOfPoints();
 
@@ -185,6 +186,7 @@ void vtkPolyVertex::Derivatives(int vtkNotUsed(subId),
 void vtkPolyVertex::Clip(float value, vtkScalars *cellScalars, 
                          vtkPointLocator *locator, vtkCellArray *verts,
                          vtkPointData *inPD, vtkPointData *outPD,
+                         vtkCellData *inCD, int cellId, vtkCellData *outCD,
                          int insideOut)
 {
   float s, x[3];

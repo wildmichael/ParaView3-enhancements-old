@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVertex.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-04-23 20:00:34 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 1998-05-06 19:06:13 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -116,7 +116,8 @@ void vtkVertex::Contour(float value, vtkScalars *cellScalars,
 			vtkCellArray *verts, 
 			vtkCellArray *vtkNotUsed(lines), 
 			vtkCellArray *vtkNotUsed(polys), 
-                        vtkPointData *inPd, vtkPointData *outPd)
+                        vtkPointData *inPd, vtkPointData *outPd,
+                        vtkCellData *inCd, int cellId, vtkCellData *outCd)
 {
   if ( value == cellScalars->GetScalar(0) )
     {
@@ -200,6 +201,7 @@ void vtkVertex::Derivatives(int vtkNotUsed(subId),
 void vtkVertex::Clip(float value, vtkScalars *cellScalars, 
                      vtkPointLocator *locator, vtkCellArray *verts,
                      vtkPointData *inPD, vtkPointData *outPD,
+                     vtkCellData *inCD, int cellId, vtkCellData *outCD,
                      int insideOut)
 {
   float s, *x;

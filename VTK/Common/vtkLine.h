@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLine.h,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 22:50:00 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 1998-05-06 19:05:58 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -67,10 +67,12 @@ public:
   void Contour(float value, vtkScalars *cellScalars, 
                vtkPointLocator *locator, vtkCellArray *verts, 
                vtkCellArray *lines, vtkCellArray *polys, 
-               vtkPointData *inPd, vtkPointData *outPd);
+               vtkPointData *inPd, vtkPointData *outPd,
+               vtkCellData *inCd, int cellId, vtkCellData *outCd);
   void Clip(float value, vtkScalars *cellScalars, 
             vtkPointLocator *locator, vtkCellArray *lines,
-            vtkPointData *inPd, vtkPointData *outPd, int insideOut);
+            vtkPointData *inPd, vtkPointData *outPd,
+            vtkCellData *inCd, int cellId, vtkCellData *outCd, int insideOut);
   int EvaluatePosition(float x[3], float closestPoint[3],
                        int& subId, float pcoords[3], 
                        float& dist2, float *weights);
@@ -83,7 +85,7 @@ public:
                    int dim, float *derivs);
 
   // line specific methods
-  static int Intersection(float x[3], float xray[3], float x1[3], float x2[3],
+  static int Intersection(float p1[3], float p2[3], float x1[3], float x2[3],
                           float& u, float& v);
 
   static float DistanceToLine(float x[3], float p1[3], float p2[3], 

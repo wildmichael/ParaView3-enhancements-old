@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangleStrip.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-04-23 20:00:32 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 1998-05-06 19:06:10 $
+  Version:   $Revision: 1.42 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -157,7 +157,8 @@ int vtkTriangleStrip::CellBoundary(int subId, float pcoords[3], vtkIdList& pts)
 void vtkTriangleStrip::Contour(float value, vtkScalars *cellScalars, 
                               vtkPointLocator *locator, vtkCellArray *verts, 
                               vtkCellArray *lines, vtkCellArray *polys, 
-                              vtkPointData *inPd, vtkPointData *outPd)
+                              vtkPointData *inPd, vtkPointData *outPd,
+                              vtkCellData *inCd, int cellId, vtkCellData *outCd)
 {
   int i;
   vtkScalars *triScalars=vtkScalars::New();
@@ -181,7 +182,7 @@ void vtkTriangleStrip::Contour(float value, vtkScalars *cellScalars,
     triScalars->SetScalar(2,cellScalars->GetScalar(i+2));
 
     this->Triangle.Contour(value, triScalars, locator, verts,
-			   lines, polys, inPd, outPd);
+			   lines, polys, inPd, outPd, inCd, cellId, outCd);
     }
   triScalars->Delete();
 }
@@ -302,6 +303,7 @@ void vtkTriangleStrip::DecomposeStrips(vtkCellArray *strips, vtkCellArray *polys
 void vtkTriangleStrip::Clip(float value, vtkScalars *cellScalars, 
                             vtkPointLocator *locator, vtkCellArray *tris,
                             vtkPointData *inPd, vtkPointData *outPd,
+                            vtkCellData *inCd, int cellId, vtkCellData *outCd,
                             int insideOut)
 {
   int i;
@@ -332,7 +334,8 @@ void vtkTriangleStrip::Clip(float value, vtkScalars *cellScalars,
     triScalars->SetScalar(1,cellScalars->GetScalar(id2));
     triScalars->SetScalar(2,cellScalars->GetScalar(id3));
 
-    this->Triangle.Clip(value, triScalars, locator, tris, inPd, outPd, insideOut);
+    this->Triangle.Clip(value, triScalars, locator, tris, inPd, outPd, 
+			inCd, cellId, outCd, insideOut);
     }
 
   triScalars->Delete();

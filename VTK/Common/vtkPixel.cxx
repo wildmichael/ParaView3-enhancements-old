@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPixel.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-04-23 20:00:25 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 1998-05-06 19:05:59 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -195,7 +195,8 @@ void vtkPixel::Contour(float value, vtkScalars *cellScalars,
 		       vtkCellArray *vtkNotUsed(verts),
 		       vtkCellArray *lines, 
 		       vtkCellArray *vtkNotUsed(polys), 
-                       vtkPointData *inPd, vtkPointData *outPd)
+                       vtkPointData *inPd, vtkPointData *outPd,
+                       vtkCellData *inCd, int cellId, vtkCellData *outCd)
 {
   static int CASE_MASK[4] = {1,2,8,4}; //note difference!
   LINE_CASES *lineCase;
@@ -447,9 +448,9 @@ void vtkPixel::Clip(float vtkNotUsed(value),
 		    vtkScalars *vtkNotUsed(cellScalars), 
 		    vtkPointLocator *vtkNotUsed(locator), 
 		    vtkCellArray *vtkNotUsed(tetras),
-		    vtkPointData *vtkNotUsed(inPd), 
-		    vtkPointData *vtkNotUsed(outPd),
-		    int insideOut)
+		    vtkPointData *vtkNotUsed(inPd), vtkPointData *vtkNotUsed(outPd),
+		    vtkCellData *vtkNotUsed(inCd), int cellId, 
+		    vtkCellData *vtkNotUsed(outCd), int insideOut)
 {
 
 }

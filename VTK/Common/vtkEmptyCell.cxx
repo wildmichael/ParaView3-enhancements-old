@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEmptyCell.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 22:49:33 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-05-06 19:05:54 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -74,13 +74,16 @@ int vtkEmptyCell::CellBoundary(int vtkNotUsed(subId),
 }
 
 void vtkEmptyCell::Contour(float vtkNotUsed(value), 
-                          vtkScalars *vtkNotUsed(cellScalars), 
-                          vtkPointLocator *vtkNotUsed(locator),
-                          vtkCellArray *vtkNotUsed(verts), 
-                          vtkCellArray *vtkNotUsed(lines), 
-                          vtkCellArray *vtkNotUsed(polys), 
-                          vtkPointData *vtkNotUsed(inPd), 
-                          vtkPointData *vtkNotUsed(outPd))
+			   vtkScalars *vtkNotUsed(cellScalars), 
+			   vtkPointLocator *vtkNotUsed(locator),
+			   vtkCellArray *vtkNotUsed(verts), 
+			   vtkCellArray *vtkNotUsed(lines), 
+			   vtkCellArray *vtkNotUsed(polys), 
+			   vtkPointData *vtkNotUsed(inPd),
+			   vtkPointData *vtkNotUsed(outPd),
+			   vtkCellData *vtkNotUsed(inCd),
+			   int vtkNotUsed(cellId), 
+			   vtkCellData *vtkNotUsed(outCd))
 {
 }
 
@@ -116,11 +119,13 @@ void vtkEmptyCell::Derivatives(int vtkNotUsed(subId),
 }
 
 void vtkEmptyCell::Clip(float vtkNotUsed(value), 
-                       vtkScalars *vtkNotUsed(cellScalars), 
-                       vtkPointLocator *vtkNotUsed(locator), 
-                       vtkCellArray *vtkNotUsed(verts),    
-                       vtkPointData *vtkNotUsed(inPD), 
-                       vtkPointData *vtkNotUsed(outPD),
-                       int vtkNotUsed(insideOut))
+			vtkScalars *vtkNotUsed(cellScalars), 
+			vtkPointLocator *vtkNotUsed(locator), 
+			vtkCellArray *vtkNotUsed(verts),    
+			vtkPointData *vtkNotUsed(inPD), vtkPointData *vtkNotUsed(outPD),
+			vtkCellData *vtkNotUsed(inCD), 
+			int vtkNotUsed(cellId),
+			vtkCellData *vtkNotUsed(outCD),
+			int vtkNotUsed(insideOut))
 {
 }

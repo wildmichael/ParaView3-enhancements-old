@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoxel.h,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 22:50:58 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 1998-05-06 19:06:15 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -71,10 +71,12 @@ public:
   void Contour(float value, vtkScalars *cellScalars, 
                vtkPointLocator *locator, vtkCellArray *verts, 
                vtkCellArray *lines, vtkCellArray *polys,
-               vtkPointData *inPd, vtkPointData *outPd);
+               vtkPointData *inPd, vtkPointData *outPd,
+               vtkCellData *inCd, int cellId, vtkCellData *outCd);
   void Clip(float value, vtkScalars *cellScalars, 
             vtkPointLocator *locator, vtkCellArray *tetras,
-            vtkPointData *inPd, vtkPointData *outPd, int insideOut);
+            vtkPointData *inPd, vtkPointData *outPd,
+            vtkCellData *inCd, int cellId, vtkCellData *outCd, int insideOut);
   int EvaluatePosition(float x[3], float closestPoint[3],
                        int& subId, float pcoords[3],
                        float& dist2, float *weights);
