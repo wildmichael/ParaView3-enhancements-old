@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSource.h,v $
   Language:  C++
-  Date:      $Date: 2001-01-19 19:58:03 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 2001-03-01 00:00:47 $
+  Version:   $Revision: 1.48 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -75,9 +75,6 @@ public:
   int *GetExecuteExtent() 
     {return this->ExecuteExtent;}
   
-  // Description:
-  virtual void PropagateUpdateExtent(vtkDataObject *output);
-  
 protected:
   vtkImageSource();
   ~vtkImageSource() {};
@@ -90,6 +87,10 @@ protected:
   
   void Execute();
   virtual void Execute(vtkImageData *data);
+
+  // a helper method that sets the extent and allocates the output 
+  // passed into it and returns it as an image data
+  vtkImageData *AllocateOutputData(vtkDataObject *out);
 
   void ComputeRequiredInputUpdateExtent( int *vtkNotUsed(in), 
 					 int *vtkNotUsed(out) ) 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-19 19:58:03 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 2001-03-01 00:00:47 $
+  Version:   $Revision: 1.49 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -91,15 +91,6 @@ vtkImageData *vtkImageSource::GetOutput()
 
 
 //----------------------------------------------------------------------------
-void vtkImageSource::PropagateUpdateExtent(vtkDataObject *out)
-{
-  vtkImageData *output = (vtkImageData*)out;
-
-  this->vtkSource::PropagateUpdateExtent(output);
-}
-
-
-//----------------------------------------------------------------------------
 // Convert to Imaging API
 void vtkImageSource::Execute()
 {
@@ -121,3 +112,17 @@ void vtkImageSource::Execute(vtkImageData *)
   vtkErrorMacro(<< "Execute(): Method not defined.");
 }
 
+
+vtkImageData *vtkImageSource::AllocateOutputData(vtkDataObject *out)
+{
+  vtkImageData *res = vtkImageData::SafeDownCast(out);
+  if (!res)
+    {
+    vtkWarningMacro("Call to AllocateOutputData with non vtkImageData output");
+    return NULL;
+    }
+  res->SetExtent(res->GetUpdateExtent());
+  res->AllocateScalars();
+
+  return res;
+}
