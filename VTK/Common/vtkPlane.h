@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPlane.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:55 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 2002-08-02 14:50:17 $
+  Version:   $Revision: 1.48 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -58,6 +58,12 @@ public:
   // and normal.
   vtkSetVector3Macro(Origin,float);
   vtkGetVectorMacro(Origin,float,3);
+
+  // Description:
+  // Translate the plane in the direction of the normal by the
+  // distance specified.  Negative values move the plane in the
+  // opposite direction.
+  void Push(float distance);
 
   // Description
   // Project a point x onto plane defined by origin and normal. The 

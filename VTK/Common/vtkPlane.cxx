@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPlane.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:54 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2002-08-02 14:50:17 $
+  Version:   $Revision: 1.38 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,7 +19,7 @@
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkPlane, "$Revision: 1.37 $");
+vtkCxxRevisionMacro(vtkPlane, "$Revision: 1.38 $");
 vtkStandardNewMacro(vtkPlane);
 
 // Construct plane passing through origin and normal to z-axis.
@@ -65,6 +65,21 @@ void vtkPlane::ProjectPoint(double x[3], double origin[3], double normal[3], dou
   xproj[0] = x[0] - t * normal[0];
   xproj[1] = x[1] - t * normal[1];
   xproj[2] = x[2] - t * normal[2];
+}
+
+void vtkPlane::Push(float distance)
+{
+  int i;
+
+  if ( distance == 0.0 )
+    {
+    return;
+    }
+  for (i=0; i < 3; i++ )
+    {
+    this->Origin[i] += distance * this->Normal[i];
+    }
+  this->Modified();
 }
 
 // Project a point x onto plane defined by origin and normal. The 
