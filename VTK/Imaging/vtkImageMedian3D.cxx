@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMedian3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-12-23 19:32:40 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1998-02-03 17:05:38 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -254,6 +254,7 @@ static void vtkImageMedian3DExecute(vtkImageMedian3D *self,
   target++;
   
   // loop through pixel of output
+  inPtr = (T *)inData->GetScalarPointer(hoodMin0,hoodMin1,hoodMin2);
   inPtr2 = inPtr;
   for (outIdx2 = outExt[4]; outIdx2 <= outExt[5]; ++outIdx2)
     {
