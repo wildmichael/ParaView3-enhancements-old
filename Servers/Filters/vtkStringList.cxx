@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkStringList.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-04 15:54:51 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-11-26 16:45:12 $
+  Version:   $Revision: 1.3 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -67,6 +67,12 @@ vtkStringList::vtkStringList()
 //----------------------------------------------------------------------------
 vtkStringList::~vtkStringList()
 {
+  this->RemoveAllItems();
+}
+
+//----------------------------------------------------------------------------
+void vtkStringList::RemoveAllItems()
+{
   int i;
 
   for (i = 0; i < this->NumberOfStrings; ++i)
@@ -85,7 +91,6 @@ vtkStringList::~vtkStringList()
     this->StringArrayLength = 0;
     }
 }
-
 
 //----------------------------------------------------------------------------
 char *vtkStringList::GetString(int idx)

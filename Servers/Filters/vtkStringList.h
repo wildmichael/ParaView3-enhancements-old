@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkStringList.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-12 19:52:51 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-11-26 16:45:13 $
+  Version:   $Revision: 1.4 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -62,6 +62,10 @@ public:
   void AddString(const char *EventString, ...);
 //ETX
   
+  // Description:
+  // Initialize to empty.
+  void RemoveAllItems();
+
   // Description:
   // Random access.
   void SetString(int idx, const char *str);
