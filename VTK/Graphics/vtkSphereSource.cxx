@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSphereSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:46 $
-  Version:   $Revision: 1.59 $
+  Date:      $Date: 2002-07-01 21:03:17 $
+  Version:   $Revision: 1.60 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkSphereSource, "$Revision: 1.59 $");
+vtkCxxRevisionMacro(vtkSphereSource, "$Revision: 1.60 $");
 vtkStandardNewMacro(vtkSphereSource);
 
 //----------------------------------------------------------------------------
@@ -256,6 +256,7 @@ void vtkSphereSource::Execute()
   output->GetPointData()->SetNormals(newNormals);
   newNormals->Delete();
 
+  newPolys->Squeeze();
   output->SetPolys(newPolys);
   newPolys->Delete();
 }
