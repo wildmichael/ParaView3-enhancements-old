@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: TestContainers.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-21 21:55:46 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-03-22 13:03:25 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,7 +19,7 @@
 #include "vtkObject.h"
 #include "vtkAbstractList.h"
 
-int main(int argc, char** argv)
+int main(int vtkNotUsed(argc), char** vtkNotUsed(argv))
 {
   // Let us for now just create pointers so that we see that
   // it can parse through the header file.
@@ -28,7 +28,9 @@ int main(int argc, char** argv)
 
   // This is here so that it does not complain about 
   // pointers not being used
-  return 
-    reinterpret_cast<int>( cnt ) + 
-    reinterpret_cast<int>( alist );
+  if ( cnt && alist )
+    {
+    return 1;
+    }
+  return 0;
 }
