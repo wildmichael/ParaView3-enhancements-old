@@ -1,4 +1,4 @@
-/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/tiff/Attic/tif_codec.c,v 1.1 2002-01-29 22:38:19 andy Exp $ */
+/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/tiff/Attic/tif_codec.c,v 1.2 2002-06-24 22:02:59 andy Exp $ */
 
 /*
  * Copyright (c) 1988-1997 Sam Leffler
@@ -111,6 +111,7 @@ _notConfigured(TIFF* tif)
 static int
 NotConfigured(TIFF* tif, int scheme)
 {
+        scheme = 0;
         tif->tif_setupdecode = _notConfigured;
         tif->tif_setupencode = _notConfigured;
         return (1);

@@ -1,4 +1,4 @@
-/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/tiff/Attic/tif_dirread.c,v 1.1 2002-01-29 22:38:20 andy Exp $ */
+/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/tiff/Attic/tif_dirread.c,v 1.2 2002-06-24 22:02:59 andy Exp $ */
 
 /*
  * Copyright (c) 1988-1997 Sam Leffler
@@ -1144,7 +1144,7 @@ TIFFFetchPerSampleShorts(TIFF* tif, TIFFDirEntry* dir, int* pl)
                 uint16 buf[10];
                 uint16* v = buf;
 
-                if (samples > NITEMS(buf))
+                if (samples > (int)NITEMS(buf))
                         v = (uint16*) _TIFFmalloc(samples * sizeof (uint16));
                 if (TIFFFetchShortArray(tif, dir, v)) {
                         int i;
@@ -1180,7 +1180,7 @@ TIFFFetchPerSampleAnys(TIFF* tif, TIFFDirEntry* dir, double* pl)
                 double buf[10];
                 double* v = buf;
 
-                if (samples > NITEMS(buf))
+                if (samples > (int)NITEMS(buf))
                         v = (double*) _TIFFmalloc(samples * sizeof (double));
                 if (TIFFFetchAnyArray(tif, dir, v)) {
                         int i;
