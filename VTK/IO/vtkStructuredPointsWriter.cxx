@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-05-22 11:47:18 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2000-09-17 11:18:16 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -97,6 +97,9 @@ void vtkStructuredPointsWriter::WriteData()
   // Write structured points specific stuff
   //
   *fp << "DATASET STRUCTURED_POINTS\n";
+
+  // Write data owned by the dataset
+  this->WriteDataSetData(fp, input);
 
   input->GetDimensions(dim);
   *fp << "DIMENSIONS " << dim[0] << " " << dim[1] << " " << dim[2] << "\n";
