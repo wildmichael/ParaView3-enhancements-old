@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMaskPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:04:19 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1998-05-01 19:58:27 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -126,6 +126,8 @@ void vtkMaskPoints::Execute()
 // Update ourselves
 //
   output->SetPoints(newPts);
+  newPts->Delete();
+  
   output->Squeeze();
 
   vtkDebugMacro(<<"Masked " << numPts << " original points to " << id+1 << " points");
