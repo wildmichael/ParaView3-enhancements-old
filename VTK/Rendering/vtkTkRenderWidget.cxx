@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkRenderWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-04 16:53:59 $
-  Version:   $Revision: 1.84 $
+  Date:      $Date: 2002-10-07 13:43:08 $
+  Version:   $Revision: 1.85 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -246,6 +246,8 @@ extern "C" {
     Tk_PhotoImageBlock block;
     block.width = 0;
     block.height = 0;
+    block.pixelSize = 0;
+    block.pitch = 0;
     void *TempPointer = 0;
     switch ( orientation )
       {
@@ -291,14 +293,6 @@ extern "C" {
             * ( extent[3] - extent[2] + 1 );
           }
         break;
-        }
-      default:
-        {
-        TempPointer = 0;
-        block.width = 0;
-        block.height = 0;
-        block.pixelSize = 0;
-        block.pitch = 0;
         }
       }
 
