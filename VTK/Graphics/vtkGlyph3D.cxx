@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGlyph3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:25:33 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1995-07-11 10:28:25 $
+  Version:   $Revision: 1.19 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -181,20 +181,19 @@ void vtkGlyph3D::Execute()
     if ( inScalars != NULL )
       {
       // Copy Input scalar
-      for (i=0; i < numSourcePts; i++) 
-        newScalars->InsertScalar(ptIncr+i,scale);
-
+      scale = inScalars->GetScalar(inPtId);
       if ( this->ScaleMode == SCALE_BY_SCALAR )
         {
         if ( (den = this->Range[1] - this->Range[0]) == 0.0 ) den = 1.0;
-        scale = inScalars->GetScalar(inPtId);
-
 
         scale = (scale < this->Range[0] ? this->Range[0] :
                  (scale > this->Range[1] ? this->Range[1] : scale));
         scale = (scale - this->Range[0]) / den;
 
         }
+
+      for (i=0; i < numSourcePts; i++) 
+        newScalars->InsertScalar(ptIncr+i,scale);
       }
 
     // scale data if appropriate
