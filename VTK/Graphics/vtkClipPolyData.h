@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipPolyData.h,v $
   Language:  C++
-  Date:      $Date: 1997-09-29 20:35:59 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1997-12-01 18:28:35 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -46,7 +46,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // the dataset, returning everthing inside of the specified implicit
 // function (or greater than the scalar value) including "pieces" of
 // a cell. (Compare this with vtkExtractGeometry, which pulls out
-// entire, uncut cells.)
+// entire, uncut cells.) The output of this filter is polygonal data.
 //
 // To use this filter, you must decide if you will be clipping with an
 // implicit function, or whether you will be using the input scalar
@@ -109,7 +109,7 @@ public:
 
   // Description
   // Specify the implicit function with which to perform the
-  // clipping. If you not define an implicit function, then the input
+  // clipping. If you do not define an implicit function, then the input
   // scalar data will be used for clipping.
   vtkSetObjectMacro(ClipFunction,vtkImplicitFunction);
   vtkGetObjectMacro(ClipFunction,vtkImplicitFunction);
