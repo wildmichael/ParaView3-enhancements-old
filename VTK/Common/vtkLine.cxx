@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLine.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-09-26 10:54:52 $
-  Version:   $Revision: 1.64 $
+  Date:      $Date: 2000-09-29 19:02:16 $
+  Version:   $Revision: 1.65 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -495,7 +495,14 @@ void vtkLine::Derivatives(int vtkNotUsed(subId),
     {
     for (j=0; j<3; j++)
       {
-      derivs[3*i+j] = (values[2*i+1] - values[2*i]) / deltaX[j];
+      if ( deltaX[j] != 0 )
+	{
+	derivs[3*i+j] = (values[2*i+1] - values[2*i]) / deltaX[j];
+	}
+      else
+	{
+	derivs[3*i+j] =0;
+	}
       }
     }
 }
