@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPythonUtil.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-21 10:25:43 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2002-01-22 09:10:01 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -373,6 +373,10 @@ static void PyVTKObject_PyDelete(PyVTKObject *self)
   self->vtk_ptr->Delete();
   // the rest of the delection is handled when the VTK-level object
   // is destroyed
+  vtkPythonDeleteObjectFromHash((PyObject *)self);
+  Py_DECREF((PyObject *)self->vtk_class);
+  Py_DECREF(self->vtk_dict);
+  PyMem_DEL(self);
 }
 
 //--------------------------------------------------------------------
@@ -441,9 +445,10 @@ PyObject *PyVTKObject_New(PyObject *pyvtkclass, vtkObject *ptr)
   self->vtk_dict = PyDict_New();
 
   vtkPythonAddObjectToHash((PyObject *)self, ptr);
+  /* I'll reinstate this later
   ptr->AddObserver(vtkCommand::DeleteEvent,
                    vtkPythonDeleteCommand::New(self));
-  
+  */
   return (PyObject *)self;
 }
 
