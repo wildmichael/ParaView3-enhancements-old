@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProp.h,v $
   Language:  C++
-  Date:      $Date: 1999-02-25 21:47:12 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-03-01 19:42:24 $
+  Version:   $Revision: 1.4 $
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -121,7 +121,7 @@ public:
   
   // Description:
   // Release any graphics resources that are being consumed by this actor.
-  // The parameter RenderWindow could be used to determine which graphic
+  // The parameter window could be used to determine which graphic
   // resources to release.
   virtual void ReleaseGraphicsResources(vtkWindow *) {};
 

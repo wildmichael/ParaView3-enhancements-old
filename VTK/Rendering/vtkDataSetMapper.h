@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetMapper.h,v $
   Language:  C++
-  Date:      $Date: 1999-02-19 21:53:15 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1999-03-01 19:42:25 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -80,9 +80,9 @@ public:
 
   // Description:
   // Release any graphics resources that are being consumed by this mapper.
-  // The parameter RenderWindow could be used to determine which graphic
+  // The parameter window could be used to determine which graphic
   // resources to release.
-  void ReleaseGraphicsResources(vtkRenderWindow *renWin);
+  void ReleaseGraphicsResources(vtkWindow *);
 
   // Description:
   // Get the mtime also considering the lookup table.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAssembly.h,v $
   Language:  C++
-  Date:      $Date: 1999-02-25 21:47:14 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1999-03-01 19:42:24 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -116,9 +116,9 @@ public:
 
   // Description:
   // Release any graphics resources that are being consumed by this actor.
-  // The parameter RenderWindow could be used to determine which graphic
+  // The parameter window could be used to determine which graphic
   // resources to release.
-  void ReleaseGraphicsResources(vtkRenderWindow *);
+  void ReleaseGraphicsResources(vtkWindow *);
 
   // Description:
   // Methods to traverse the parts of an assembly. Each part (starting from

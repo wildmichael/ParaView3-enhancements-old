@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLProjectedPolyDataRayBounder.h,v $
   Language:  C++
-  Date:      $Date: 1999-02-19 21:53:18 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-03-01 19:42:27 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to Lisa Sobierajski Avila who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -61,6 +61,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 #include <GL/gl.h>
 
+class vtkWindow;
+
 class VTK_EXPORT vtkOpenGLProjectedPolyDataRayBounder : public vtkProjectedPolyDataRayBounder
 {
 public:
@@ -78,9 +80,9 @@ public:
 
   // Description:
   // Release any graphics resources that are being consumed by this ray bounder.
-  // The parameter RenderWindow could be used to determine which graphic
+  // The parameter window could be used to determine which graphic
   // resources to release.
-  void ReleaseGraphicsResources(vtkRenderWindow *);
+  void ReleaseGraphicsResources(vtkWindow *);
 
 
 protected:

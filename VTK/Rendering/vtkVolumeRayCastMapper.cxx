@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-02-24 17:36:18 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1999-03-01 19:42:29 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -110,7 +110,7 @@ void vtkVolumeRayCastMapper::SetGradientEstimator( vtkEncodedGradientEstimator *
 }
 
 
-void vtkVolumeRayCastMapper::ReleaseGraphicsResources(vtkRenderWindow *renWin)
+void vtkVolumeRayCastMapper::ReleaseGraphicsResources(vtkWindow *renWin)
 {
   // pass this information onto the ray bounder
   if (this->RayBounder)

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAssembly.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-02-25 21:47:13 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1999-03-01 19:42:24 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -155,17 +155,18 @@ int vtkAssembly::RenderOpaqueGeometry(vtkViewport *ren)
   return renderedSomething;
 }
 
-void vtkAssembly::ReleaseGraphicsResources(vtkRenderWindow *renWin)
+void vtkAssembly::ReleaseGraphicsResources(vtkWindow *renWin)
 {
   vtkActor *actor;
-  
+
+  vtkActor::ReleaseGraphicsResources(renWin);
+
   // broadcast the message down the Paths
   for ( this->InitPartTraversal(); (actor  = this->GetNextPart()); )
     {
     actor->ReleaseGraphicsResources(renWin);
     }
 }
-
 
 void vtkAssembly::InitPartTraversal()
 {

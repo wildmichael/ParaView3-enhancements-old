@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-02-25 21:47:15 $
-  Version:   $Revision: 1.102 $
+  Date:      $Date: 1999-03-01 19:42:28 $
+  Version:   $Revision: 1.103 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -860,7 +860,7 @@ void vtkRenderer::SetRenderWindow(vtkRenderWindow *renwin)
 	  aProp != NULL;
 	  aProp = this->Props->GetNextItem() )
       {
-	aProp->ReleaseGraphicsResources(this->RenderWindow);
+      aProp->ReleaseGraphicsResources(this->RenderWindow);
       }
     // what about lights?
     // what about cullers?

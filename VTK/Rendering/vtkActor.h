@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor.h,v $
   Language:  C++
-  Date:      $Date: 1999-02-25 21:47:13 $
-  Version:   $Revision: 1.67 $
+  Date:      $Date: 1999-03-01 19:42:24 $
+  Version:   $Revision: 1.68 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -105,7 +105,7 @@ class VTK_EXPORT vtkActor : public vtkProp3D
 
   // Description:
   // Release any graphics resources that are being consumed by this actor.
-  // The parameter RenderWindow could be used to determine which graphic
+  // The parameter window could be used to determine which graphic
   // resources to release.
   void ReleaseGraphicsResources(vtkWindow *);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-02-19 21:53:15 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 1999-03-01 19:42:25 $
+  Version:   $Revision: 1.42 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -71,7 +71,7 @@ void vtkDataSetMapper::SetInput(vtkDataSet *in)
     }
 }
 
-void vtkDataSetMapper::ReleaseGraphicsResources( vtkRenderWindow *renWin )
+void vtkDataSetMapper::ReleaseGraphicsResources( vtkWindow *renWin )
 {
   if (this->PolyDataMapper)
     {

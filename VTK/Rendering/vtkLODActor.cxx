@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLODActor.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-02-25 13:51:14 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 1999-03-01 19:42:25 $
+  Version:   $Revision: 1.37 $
   
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -223,14 +223,11 @@ void vtkLODActor::Render(vtkRenderer *ren, vtkMapper *m)
 }
 
 
-void vtkLODActor::ReleaseGraphicsResources(vtkRenderWindow *renWin)
+void vtkLODActor::ReleaseGraphicsResources(vtkWindow *renWin)
 {
   vtkMapper *mapper;
 
-  if (this->Mapper)
-    {
-    this->Mapper->ReleaseGraphicsResources(renWin);
-    }
+  vtkActor::ReleaseGraphicsResources(renWin);
   
   // broadcast the message down to the individual LOD mappers
   for ( this->LODMappers->InitTraversal();

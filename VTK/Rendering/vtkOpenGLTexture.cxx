@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLTexture.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-02-19 21:53:19 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1999-03-01 19:42:27 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -254,7 +254,7 @@ void vtkOpenGLTexture::Load(vtkRenderer *vtkNotUsed(ren))
 }
 
 
-void vtkOpenGLTexture::ReleaseGraphicsResources(vtkRenderWindow *renWin)
+void vtkOpenGLTexture::ReleaseGraphicsResources(vtkWindow *renWin)
 {
   GLuint tempIndex;
   

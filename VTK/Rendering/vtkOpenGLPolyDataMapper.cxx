@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLPolyDataMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-02-22 21:19:00 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1999-03-01 19:42:26 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -86,7 +86,7 @@ vtkOpenGLPolyDataMapper::~vtkOpenGLPolyDataMapper()
 
 // Release the graphics resources used by this mapper.  In this case, release
 // the display list if any.
-void vtkOpenGLPolyDataMapper::ReleaseGraphicsResources(vtkRenderWindow *renWin)
+void vtkOpenGLPolyDataMapper::ReleaseGraphicsResources(vtkWindow *renWin)
 {
   if (this->ListId)
     {

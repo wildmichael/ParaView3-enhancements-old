@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume.h,v $
   Language:  C++
-  Date:      $Date: 1999-02-24 19:27:48 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1999-03-01 19:42:29 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -61,7 +61,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class vtkRenderer;
 class vtkVolumeMapper;
 class vtkVolumeCollection;
-class vtkRenderWindow;
+class vtkWindow;
 
 class VTK_EXPORT vtkVolume : public vtkProp3D
 {
@@ -95,7 +95,7 @@ public:
 
   // Description:
   // Release any graphics resources that are being consumed by this volume.
-  // The parameter RenderWindow could be used to determine which graphic
+  // The parameter window could be used to determine which graphic
   // resources to release.
   void ReleaseGraphicsResources(vtkWindow *);
 

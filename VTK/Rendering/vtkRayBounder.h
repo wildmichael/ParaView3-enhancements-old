@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRayBounder.h,v $
   Language:  C++
-  Date:      $Date: 1999-02-19 21:53:20 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-03-01 19:42:28 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,6 +57,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkObject.h"
 #include "vtkRenderer.h"
 
+class vtkWindow;
+
 class VTK_EXPORT vtkRayBounder : public vtkObject
 {
 public:
@@ -72,9 +74,9 @@ public:
 
   // Description:
   // Release any graphics resources that are being consumed by this ray bounder.
-  // The parameter RenderWindow could be used to determine which graphic
+  // The parameter window could be used to determine which graphic
   // resources to release.
-  virtual void ReleaseGraphicsResources(vtkRenderWindow *) {};
+  virtual void ReleaseGraphicsResources(vtkWindow *) {};
 
   
 protected:
