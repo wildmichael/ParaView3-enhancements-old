@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfObject.h,v 1.8 2003-06-26 18:02:26 andy Exp $  */
-/*  Date : $Date: 2003-06-26 18:02:26 $ */
-/*  Version : $Revision: 1.8 $ */
+/*  Id : $Id: XdmfObject.h,v 1.9 2003-09-18 13:05:45 andy Exp $  */
+/*  Date : $Date: 2003-09-18 13:05:45 $ */
+/*  Version : $Revision: 1.9 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -265,6 +265,8 @@ need to make sure ....
 #define XDMF_WORD_TRIM( a ) { \
   int             StringLength; \
   char            *fp; \
+  char            *st; \
+  char            *ed; \
    \
   fp = (a); \
   StringLength = strlen( ( a ) ); \
@@ -272,7 +274,14 @@ need to make sure ....
           fp++; \
           StringLength--; \
           } \
-  strcpy((a), fp ); \
+  ed = fp;\
+  st = a;\
+  while(*ed) {\
+    *st = *ed;\
+    st++;\
+    ed++;\
+    }\
+  /*strcpy((a), fp );*/ \
   fp = &(a)[ StringLength - 1 ]; \
   while( ( *fp <= ' ' ) && ( StringLength > 0 ) ){ \
           fp--; \
