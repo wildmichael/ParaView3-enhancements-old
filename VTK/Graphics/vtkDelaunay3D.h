@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDelaunay3D.h,v $
   Language:  C++
-  Date:      $Date: 2001-09-25 20:14:53 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 2001-10-02 21:11:49 $
+  Version:   $Revision: 1.42 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -114,7 +114,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 class vtkTetraArray;
 
-class VTK_EXPORT vtkDelaunay3D : public vtkUnstructuredGridSource
+class VTK_GRAPHICS_EXPORT vtkDelaunay3D : public vtkUnstructuredGridSource
 {
 public:
   vtkTypeMacro(vtkDelaunay3D,vtkUnstructuredGridSource);

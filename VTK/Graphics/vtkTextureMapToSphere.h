@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextureMapToSphere.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:50 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2001-10-02 21:12:05 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -70,7 +70,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "vtkDataSetToDataSetFilter.h"
 
-class VTK_EXPORT vtkTextureMapToSphere : public vtkDataSetToDataSetFilter 
+class VTK_GRAPHICS_EXPORT vtkTextureMapToSphere : public vtkDataSetToDataSetFilter 
 {
 public:
   vtkTypeMacro(vtkTextureMapToSphere,vtkDataSetToDataSetFilter);

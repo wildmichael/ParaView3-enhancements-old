@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObjectToDataSetFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-09-12 16:08:58 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2001-10-02 21:11:47 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -100,7 +100,7 @@ class vtkRectilinearGrid;
 class vtkUnstructuredGrid;
 class vtkCellArray;
 
-class VTK_EXPORT vtkDataObjectToDataSetFilter : public vtkSource
+class VTK_GRAPHICS_EXPORT vtkDataObjectToDataSetFilter : public vtkSource
 {
 public:
   static vtkDataObjectToDataSetFilter *New();

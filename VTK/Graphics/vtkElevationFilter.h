@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkElevationFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:49 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2001-10-02 21:11:51 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -52,7 +52,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "vtkDataSetToDataSetFilter.h"
 
-class VTK_EXPORT vtkElevationFilter : public vtkDataSetToDataSetFilter 
+class VTK_GRAPHICS_EXPORT vtkElevationFilter : public vtkDataSetToDataSetFilter 
 {
 public:
   vtkTypeMacro(vtkElevationFilter,vtkDataSetToDataSetFilter);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHull.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:49 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2001-10-02 21:11:54 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -69,7 +69,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 class vtkPlanes;
 
-class VTK_EXPORT vtkHull : public vtkPolyDataToPolyDataFilter
+class VTK_GRAPHICS_EXPORT vtkHull : public vtkPolyDataToPolyDataFilter
 {
 public:
   static vtkHull *New();

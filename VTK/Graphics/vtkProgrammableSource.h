@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProgrammableSource.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:50 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2001-10-02 21:11:59 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -70,7 +70,7 @@ class vtkStructuredGrid;
 class vtkUnstructuredGrid;
 class vtkRectilinearGrid;
 
-class VTK_EXPORT vtkProgrammableSource : public vtkSource
+class VTK_GRAPHICS_EXPORT vtkProgrammableSource : public vtkSource
 {
 public:
   static vtkProgrammableSource *New();

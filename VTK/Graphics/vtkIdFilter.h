@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIdFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-09-09 11:50:29 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2001-10-02 21:11:54 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -56,7 +56,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "vtkDataSetToDataSetFilter.h"
 
-class VTK_EXPORT vtkIdFilter : public vtkDataSetToDataSetFilter 
+class VTK_GRAPHICS_EXPORT vtkIdFilter : public vtkDataSetToDataSetFilter 
 {
 public:
   vtkTypeMacro(vtkIdFilter,vtkDataSetToDataSetFilter);

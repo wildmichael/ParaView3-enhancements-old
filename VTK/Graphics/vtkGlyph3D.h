@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGlyph3D.h,v $
   Language:  C++
-  Date:      $Date: 2001-09-09 11:50:29 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 2001-10-02 21:11:53 $
+  Version:   $Revision: 1.51 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -113,7 +113,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define VTK_INDEXING_BY_SCALAR 1
 #define VTK_INDEXING_BY_VECTOR 2
 
-class VTK_EXPORT vtkGlyph3D : public vtkDataSetToPolyDataFilter
+class VTK_GRAPHICS_EXPORT vtkGlyph3D : public vtkDataSetToPolyDataFilter
 {
 public:
   vtkTypeMacro(vtkGlyph3D,vtkDataSetToPolyDataFilter);

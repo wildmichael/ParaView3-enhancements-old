@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCutter.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:48 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 2001-10-02 21:11:45 $
+  Version:   $Revision: 1.51 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -71,7 +71,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define VTK_SORT_BY_VALUE 0
 #define VTK_SORT_BY_CELL 1
 
-class VTK_EXPORT vtkCutter : public vtkDataSetToPolyDataFilter
+class VTK_GRAPHICS_EXPORT vtkCutter : public vtkDataSetToPolyDataFilter
 {
 public:
   vtkTypeMacro(vtkCutter,vtkDataSetToPolyDataFilter);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransformTextureCoords.h,v $
   Language:  C++
-  Date:      $Date: 2001-09-12 16:09:07 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2001-10-02 21:12:06 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -61,7 +61,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "vtkDataSetToDataSetFilter.h"
 
-class VTK_EXPORT vtkTransformTextureCoords : public vtkDataSetToDataSetFilter 
+class VTK_GRAPHICS_EXPORT vtkTransformTextureCoords : public vtkDataSetToDataSetFilter 
 {
 public:
   vtkTypeMacro(vtkTransformTextureCoords,vtkDataSetToDataSetFilter);

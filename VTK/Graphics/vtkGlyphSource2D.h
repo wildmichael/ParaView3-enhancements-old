@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGlyphSource2D.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:49 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2001-10-02 21:11:53 $
+  Version:   $Revision: 1.8 $
   Thanks:    Tim Smith who sponsored and encouraged the development
              of this class.
 
@@ -71,7 +71,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define VTK_THICKARROW_GLYPH 10
 #define VTK_HOOKEDARROW_GLYPH 11
 
-class VTK_EXPORT vtkGlyphSource2D : public vtkPolyDataSource 
+class VTK_GRAPHICS_EXPORT vtkGlyphSource2D : public vtkPolyDataSource 
 {
 public:
   vtkTypeMacro(vtkGlyphSource2D,vtkPolyDataSource);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCleanPolyData.h,v $
   Language:  C++
-  Date:      $Date: 2001-09-27 18:46:57 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 2001-10-02 21:11:41 $
+  Version:   $Revision: 1.47 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen
@@ -80,7 +80,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "vtkPolyDataToPolyDataFilter.h"
 
-class VTK_EXPORT vtkCleanPolyData : public vtkPolyDataToPolyDataFilter
+class VTK_GRAPHICS_EXPORT vtkCleanPolyData : public vtkPolyDataToPolyDataFilter
 {
 public:
   static vtkCleanPolyData *New();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRearrangeFields.h,v $
   Language:  C++
-  Date:      $Date: 2001-09-26 22:12:35 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-10-02 21:12:00 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -86,7 +86,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 class vtkFieldData;
 
-class VTK_EXPORT vtkRearrangeFields : public vtkDataSetToDataSetFilter
+class VTK_GRAPHICS_EXPORT vtkRearrangeFields : public vtkDataSetToDataSetFilter
 {
 public:
   vtkTypeMacro(vtkRearrangeFields,vtkDataSetToDataSetFilter);

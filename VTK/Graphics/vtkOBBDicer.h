@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOBBDicer.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:49 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2001-10-02 21:11:56 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -59,7 +59,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkOBBTree.h"
 class vtkShortArray;
 
-class VTK_EXPORT vtkOBBDicer : public vtkDicer 
+class VTK_GRAPHICS_EXPORT vtkOBBDicer : public vtkDicer 
 {
 public:
   vtkTypeMacro(vtkOBBDicer,vtkDicer);

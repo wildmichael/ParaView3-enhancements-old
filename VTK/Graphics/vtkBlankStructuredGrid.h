@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBlankStructuredGrid.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:50:19 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-10-02 21:11:38 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -59,7 +59,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "vtkStructuredGridToStructuredGridFilter.h"
 
-class VTK_EXPORT vtkBlankStructuredGrid : public vtkStructuredGridToStructuredGridFilter
+class VTK_GRAPHICS_EXPORT vtkBlankStructuredGrid : public vtkStructuredGridToStructuredGridFilter
 {
 public:
   static vtkBlankStructuredGrid *New();

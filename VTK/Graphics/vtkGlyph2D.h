@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGlyph2D.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:49 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-10-02 21:11:53 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -56,7 +56,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "vtkGlyph3D.h"
 
-class VTK_EXPORT vtkGlyph2D : public vtkGlyph3D
+class VTK_GRAPHICS_EXPORT vtkGlyph2D : public vtkGlyph3D
 {
 public:
   vtkTypeMacro(vtkGlyph2D,vtkGlyph3D);

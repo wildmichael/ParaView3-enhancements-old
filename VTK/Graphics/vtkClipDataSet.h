@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipDataSet.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:50:19 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-10-02 21:11:41 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -87,7 +87,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkDataSetToUnstructuredGridFilter.h"
 #include "vtkImplicitFunction.h"
 
-class VTK_EXPORT vtkClipDataSet : public vtkDataSetToUnstructuredGridFilter
+class VTK_GRAPHICS_EXPORT vtkClipDataSet : public vtkDataSetToUnstructuredGridFilter
 {
 public:
   vtkTypeMacro(vtkClipDataSet,vtkDataSetToUnstructuredGridFilter);

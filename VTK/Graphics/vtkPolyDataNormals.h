@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataNormals.h,v $
   Language:  C++
-  Date:      $Date: 2001-09-28 19:31:22 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2001-10-02 21:11:58 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -65,7 +65,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkPolyDataToPolyDataFilter.h"
 class vtkFloatArray;
 
-class VTK_EXPORT vtkPolyDataNormals : public vtkPolyDataToPolyDataFilter
+class VTK_GRAPHICS_EXPORT vtkPolyDataNormals : public vtkPolyDataToPolyDataFilter
 {
 public:
   vtkTypeMacro(vtkPolyDataNormals,vtkPolyDataToPolyDataFilter);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProgrammableGlyphFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:50 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2001-10-02 21:11:59 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -89,7 +89,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "vtkDataSetToPolyDataFilter.h"
 
-class VTK_EXPORT vtkProgrammableGlyphFilter : public vtkDataSetToPolyDataFilter
+class VTK_GRAPHICS_EXPORT vtkProgrammableGlyphFilter : public vtkDataSetToPolyDataFilter
 {
 public:
   vtkTypeMacro(vtkProgrammableGlyphFilter,vtkDataSetToPolyDataFilter);

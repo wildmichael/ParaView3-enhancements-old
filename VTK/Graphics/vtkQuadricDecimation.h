@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadricDecimation.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:50 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2001-10-02 21:11:59 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -64,7 +64,7 @@ typedef struct {
   float *Quadric;
 } VTK_ERROR_QUADRIC;
 
-class VTK_EXPORT vtkQuadricDecimation : public vtkPolyDataToPolyDataFilter
+class VTK_GRAPHICS_EXPORT vtkQuadricDecimation : public vtkPolyDataToPolyDataFilter
 {
 public:
   vtkTypeMacro(vtkQuadricDecimation, vtkPolyDataToPolyDataFilter);

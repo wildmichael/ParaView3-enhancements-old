@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSplitField.h,v $
   Language:  C++
-  Date:      $Date: 2001-09-26 02:08:15 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-10-02 21:12:03 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -82,7 +82,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 class vtkFieldData;
 
-class VTK_EXPORT vtkSplitField : public vtkDataSetToDataSetFilter
+class VTK_GRAPHICS_EXPORT vtkSplitField : public vtkDataSetToDataSetFilter
 {
 public:
   vtkTypeMacro(vtkSplitField,vtkDataSetToDataSetFilter);

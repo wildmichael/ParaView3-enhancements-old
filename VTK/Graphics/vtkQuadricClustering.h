@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadricClustering.h,v $
   Language:  C++
-  Date:      $Date: 2001-09-20 15:23:58 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2001-10-02 21:11:59 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -101,7 +101,7 @@ typedef struct {
   float Quadric[9];
 } VTK_POINT_QUADRIC;
 
-class VTK_EXPORT vtkQuadricClustering : public vtkPolyDataToPolyDataFilter
+class VTK_GRAPHICS_EXPORT vtkQuadricClustering : public vtkPolyDataToPolyDataFilter
 {
 public:
   vtkTypeMacro(vtkQuadricClustering, vtkPolyDataToPolyDataFilter);

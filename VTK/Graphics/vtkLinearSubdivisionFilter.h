@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinearSubdivisionFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:49 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2001-10-02 21:11:55 $
+  Version:   $Revision: 1.9 $
   Thanks:    This work was supported bt PHS Research Grant No. 1 P41 RR13218-01
              from the National Center for Research Resources
 
@@ -55,7 +55,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkInterpolatingSubdivisionFilter.h"
 #include "vtkIntArray.h"
 
-class VTK_EXPORT vtkLinearSubdivisionFilter : public vtkInterpolatingSubdivisionFilter
+class VTK_GRAPHICS_EXPORT vtkLinearSubdivisionFilter : public vtkInterpolatingSubdivisionFilter
 {
 public:
   // Description:

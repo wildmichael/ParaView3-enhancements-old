@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuantizePolyDataPoints.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:50 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2001-10-02 21:11:59 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to John Biddiscombe of the Rutherford Appleton Laboratory
              who developed and contributed this class.
 
@@ -64,7 +64,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "vtkCleanPolyData.h"
 
-class VTK_EXPORT vtkQuantizePolyDataPoints : public vtkCleanPolyData
+class VTK_GRAPHICS_EXPORT vtkQuantizePolyDataPoints : public vtkCleanPolyData
 {
 public:
   static vtkQuantizePolyDataPoints *New();

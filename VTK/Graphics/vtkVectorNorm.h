@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectorNorm.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:50 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2001-10-02 21:12:07 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -60,7 +60,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "vtkDataSetToDataSetFilter.h"
 
-class VTK_EXPORT vtkVectorNorm : public vtkDataSetToDataSetFilter 
+class VTK_GRAPHICS_EXPORT vtkVectorNorm : public vtkDataSetToDataSetFilter 
 {
 public:
   vtkTypeMacro(vtkVectorNorm,vtkDataSetToDataSetFilter);

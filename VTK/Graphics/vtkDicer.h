@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDicer.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:48 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2001-10-02 21:11:50 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -74,7 +74,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define VTK_DICE_MODE_SPECIFIED_NUMBER 1
 #define VTK_DICE_MODE_MEMORY_LIMIT 2
 
-class VTK_EXPORT vtkDicer : public vtkDataSetToDataSetFilter 
+class VTK_GRAPHICS_EXPORT vtkDicer : public vtkDataSetToDataSetFilter 
 {
 public:
   vtkTypeMacro(vtkDicer,vtkDataSetToDataSetFilter);

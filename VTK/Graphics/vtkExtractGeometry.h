@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractGeometry.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:49 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2001-10-02 21:11:51 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -65,7 +65,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkDataSetToUnstructuredGridFilter.h"
 #include "vtkImplicitFunction.h"
 
-class VTK_EXPORT vtkExtractGeometry : public vtkDataSetToUnstructuredGridFilter
+class VTK_GRAPHICS_EXPORT vtkExtractGeometry : public vtkDataSetToUnstructuredGridFilter
 {
 public:
   vtkTypeMacro(vtkExtractGeometry,vtkDataSetToUnstructuredGridFilter);

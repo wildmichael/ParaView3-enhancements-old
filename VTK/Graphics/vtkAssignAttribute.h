@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAssignAttribute.h,v $
   Language:  C++
-  Date:      $Date: 2001-09-25 21:02:42 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-10-02 21:11:37 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -85,7 +85,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 class vtkFieldData;
 
-class VTK_EXPORT vtkAssignAttribute : public vtkDataSetToDataSetFilter
+class VTK_GRAPHICS_EXPORT vtkAssignAttribute : public vtkDataSetToDataSetFilter
 {
 public:
   vtkTypeMacro(vtkAssignAttribute,vtkDataSetToDataSetFilter);

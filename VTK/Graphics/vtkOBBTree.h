@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOBBTree.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:49 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2001-10-02 21:11:56 $
+  Version:   $Revision: 1.36 $
   Thanks:    Thanks to Peter C. Everett <pce@world.std.com> for
              improvements and enhancements to vtkOBBTree class.
 
@@ -101,7 +101,7 @@ public:
 //ETX
 //
 
-class VTK_EXPORT vtkOBBTree : public vtkCellLocator
+class VTK_GRAPHICS_EXPORT vtkOBBTree : public vtkCellLocator
 {
 public:
   vtkTypeMacro(vtkOBBTree,vtkCellLocator);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkButterflySubdivisionFilter.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:47 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2001-10-02 21:11:39 $
+  Version:   $Revision: 1.10 $
   Thanks:    This work was supported bt PHS Research Grant No. 1 P41 RR13218-01
              from the National Center for Research Resources
 
@@ -71,7 +71,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkIdList.h"
 #include "vtkCellArray.h"
 
-class VTK_EXPORT vtkButterflySubdivisionFilter : public vtkInterpolatingSubdivisionFilter
+class VTK_GRAPHICS_EXPORT vtkButterflySubdivisionFilter : public vtkInterpolatingSubdivisionFilter
 {
 public:
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInterpolateDataSetAttributes.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:49 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2001-10-02 21:11:54 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -60,7 +60,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkDataSetToDataSetFilter.h"
 #include "vtkDataSetCollection.h"
 
-class VTK_EXPORT vtkInterpolateDataSetAttributes : public vtkDataSetToDataSetFilter
+class VTK_GRAPHICS_EXPORT vtkInterpolateDataSetAttributes : public vtkDataSetToDataSetFilter
 {
 public:
   static vtkInterpolateDataSetAttributes *New();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThreshold.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-29 17:10:11 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2001-10-02 21:12:05 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -64,7 +64,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define VTK_ATTRIBUTE_MODE_USE_POINT_DATA 1
 #define VTK_ATTRIBUTE_MODE_USE_CELL_DATA 2
 
-class VTK_EXPORT vtkThreshold : public vtkDataSetToUnstructuredGridFilter
+class VTK_GRAPHICS_EXPORT vtkThreshold : public vtkDataSetToUnstructuredGridFilter
 {
 public:
   static vtkThreshold *New();

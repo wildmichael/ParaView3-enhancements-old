@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkArrowSource.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 14:51:23 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-10-02 21:11:37 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -53,7 +53,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "vtkPolyDataSource.h"
 
-class VTK_EXPORT vtkArrowSource : public vtkPolyDataSource
+class VTK_GRAPHICS_EXPORT vtkArrowSource : public vtkPolyDataSource
 {
 public:
   // Description

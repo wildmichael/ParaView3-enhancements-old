@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellCenters.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 14:24:29 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2001-10-02 21:11:40 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -61,7 +61,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "vtkDataSetToPolyDataFilter.h"
 
-class VTK_EXPORT vtkCellCenters : public vtkDataSetToPolyDataFilter
+class VTK_GRAPHICS_EXPORT vtkCellCenters : public vtkDataSetToPolyDataFilter
 {
 public:
   vtkTypeMacro(vtkCellCenters,vtkDataSetToPolyDataFilter);
