@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLandmarkTransform.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:24 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2001-04-06 13:33:31 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to Tim Hutton and David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,8 +39,7 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-// .NAME vtkLandmarkTransform - a linear transform specified by two 
-// corresponding point sets
+// .NAME vtkLandmarkTransform - a linear transform specified by two corresponding point sets
 // .SECTION Description
 // A vtkLandmarkTransform is defined by two sets of landmarks, the 
 // transform computed gives the best fit mapping one onto the other, in a 
