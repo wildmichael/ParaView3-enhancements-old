@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKWRemoteExecute.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-04-18 19:36:11 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2003-04-21 16:53:49 $
+  Version:   $Revision: 1.8 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -71,7 +71,7 @@ public:
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro( vtkKWRemoteExecute );
-vtkCxxRevisionMacro(vtkKWRemoteExecute, "$Revision: 1.7 $");
+vtkCxxRevisionMacro(vtkKWRemoteExecute, "$Revision: 1.8 $");
 
 //----------------------------------------------------------------------------
 vtkKWRemoteExecute::vtkKWRemoteExecute()
@@ -123,8 +123,7 @@ int vtkKWRemoteExecute::Detach()
 }
 
 //----------------------------------------------------------------------------
-int vtkKWRemoteExecute::RunRemoteCommand(const char*, 
-  const char* args[])
+int vtkKWRemoteExecute::RunRemoteCommand(const char* args[])
 {
   if ( !this->RemoteHost )
     {
@@ -202,10 +201,9 @@ int vtkKWRemoteExecute::RunCommand(const char* command, const char* args[])
 
   int cc;
   ostrstream str;
-  str << command;
   for ( cc = 0; args[cc]; cc ++ )
     {
-    str << " \"" << args[cc] << "\"";
+    str << "\"" << args[cc] << "\" ";
     }
   str << ends;
   cout << "Execute [" << str.str() << "]" << endl;
@@ -236,6 +234,8 @@ void* vtkKWRemoteExecute::RunCommandThread(void* vargs)
   cout << "Number of arguments: " << cnt << endl;
   char** rargs = new char*[ cnt + 3];
   int scnt=0;
+  rargs[scnt] = vtkString::Duplicate( rw->SSHCommand);
+  scnt ++;
   if ( rw->SSHArguments )
     {
     rargs[scnt] = vtkString::Duplicate( rw->SSHArguments);
