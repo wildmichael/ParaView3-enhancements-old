@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkByteSwap.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-01 15:58:32 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2001-11-01 21:21:57 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -60,6 +60,16 @@ vtkByteSwap* vtkByteSwap::New()
 void vtkByteSwap::Swap2BE(short *) {}
 #else
 void vtkByteSwap::Swap2BE(short *mem_ptr)
+{
+  *mem_ptr = (((*mem_ptr>>8)&0xff) | ((*mem_ptr&0xff)<<8));
+}
+#endif
+
+// Swap 2 byte word.
+#ifdef VTK_WORDS_BIGENDIAN
+void vtkByteSwap::Swap2BE(unsigned short *) {}
+#else
+void vtkByteSwap::Swap2BE(unsigned short *mem_ptr)
 {
   *mem_ptr = (((*mem_ptr>>8)&0xff) | ((*mem_ptr&0xff)<<8));
 }
@@ -412,6 +422,14 @@ void vtkByteSwap::Swap2LE(short *mem_ptr)
 }
 #else
 void vtkByteSwap::Swap2LE(short *) {}
+#endif
+#ifdef VTK_WORDS_BIGENDIAN
+void vtkByteSwap::Swap2LE(unsigned short *mem_ptr)
+{
+  *mem_ptr = (((*mem_ptr>>8)&0xff) | ((*mem_ptr&0xff)<<8));
+}
+#else
+void vtkByteSwap::Swap2LE(unsigned short *) {}
 #endif
 
 // Swap four byte word.
