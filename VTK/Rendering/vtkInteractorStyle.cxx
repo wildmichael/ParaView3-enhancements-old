@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyle.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-16 21:33:22 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2000-02-23 21:40:42 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1032,7 +1032,6 @@ void vtkInteractorStyle::RotateCamera(int x, int y)
   this->CurrentCamera->Azimuth(rxf);
   this->CurrentCamera->Elevation(ryf);
   this->CurrentCamera->OrthogonalizeViewUp();
-  this->CurrentRenderer->ResetCameraClippingRange();
   if (rwi->GetLightFollowCamera())
     {
     this->CurrentLight->SetPosition(this->CurrentCamera->GetPosition());
