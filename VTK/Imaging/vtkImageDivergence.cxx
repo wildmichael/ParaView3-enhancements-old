@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDivergence.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:32:20 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2002-03-12 16:55:23 $
+  Version:   $Revision: 1.23 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkImageDivergence, "$Revision: 1.22 $");
+vtkCxxRevisionMacro(vtkImageDivergence, "$Revision: 1.23 $");
 vtkStandardNewMacro(vtkImageDivergence);
 
 //----------------------------------------------------------------------------
@@ -150,7 +150,7 @@ static void vtkImageDivergenceExecute(vtkImageDivergence *self,
           // do X axis
           d = (float)(inPtr[useMin[idxC]]);
           d -= (float)(inPtr[useMax[idxC]]);
-          sum = d * r[idxC];
+          sum += d * r[idxC];
           inPtr++;
           }
         *outPtr = (T)sum;
