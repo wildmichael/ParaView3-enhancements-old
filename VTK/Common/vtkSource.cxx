@@ -3,8 +3,8 @@
  Program:   Visualization Toolkit
  Module:    $RCSfile: vtkSource.cxx,v $
  Language:  C++
- Date:      $Date: 1996-04-24 19:41:25 $
- Version:   $Revision: 1.22 $
+ Date:      $Date: 1996-07-21 13:29:14 $
+ Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -46,6 +46,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 vtkSource::vtkSource()
 {
+  this->Output = NULL;
   this->StartMethod = NULL;
   this->StartMethodArgDelete = NULL;
   this->StartMethodArg = NULL;
