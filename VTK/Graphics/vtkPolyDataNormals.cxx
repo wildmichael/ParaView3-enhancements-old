@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataNormals.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-21 19:58:43 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2000-10-31 19:47:45 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -268,7 +268,7 @@ void vtkPolyDataNormals::Execute()
     {
     if ((cellId % 1000) == 0)
       {
-      this->UpdateProgress ((float) cellId / (float) numPolys);
+      this->UpdateProgress (0.333 + 0.333 * (float) cellId / (float) numPolys);
       }
     poly->ComputeNormal(inPts, npts, pts, n);
     PolyNormals->SetNormal(cellId,n);
@@ -334,7 +334,7 @@ void vtkPolyDataNormals::Execute()
     outPD->CopyNormalsOff();
     outPD->PassData(pd);
     }
-  this->UpdateProgress(0.66);
+  this->UpdateProgress(0.80);
 
   //
   //  Finally, traverse all elements, computing polygon normals and
