@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageIdealHighPass.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-11 20:12:45 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-05-11 14:59:28 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,6 +41,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // .NAME vtkImageIdealHighPass - Simple frequency domain band pass.
 // .SECTION Description
 // vtkImageIdealHighPass just sets a portion of the image to zero.
+// The sharp cutoff in the frequence domain produces ringing in the
+// spatial domain.
 // Input and Output must be floats.  Dimensionality is set when the
 // axes are set.  Defaults to 2D on X and Y axes.
 
@@ -64,22 +66,21 @@ public:
   // Set/Get the cutoff frequency for each axis.
   // The values are specified in the order X, Y, Z, Time.
   // Units: Cycles per world unit (as defined by the data spacing).
-  vtkSetVector4Macro(CutOff,float);
-  void SetCutOff(float v) {this->SetCutOff(v, v, v, v);}
+  vtkSetVector3Macro(CutOff,float);
+  void SetCutOff(float v) {this->SetCutOff(v, v, v);}
   void SetXCutOff(float v);
   void SetYCutOff(float v);
   void SetZCutOff(float v);
-  void SetTimeCutOff(float v);
-  vtkGetVector4Macro(CutOff,float);
+  vtkGetVector3Macro(CutOff,float);
   float GetXCutOff() {return this->CutOff[0];}
   float GetYCutOff() {return this->CutOff[1];}
   float GetZCutOff() {return this->CutOff[2];}
-  float GetTimeCutOff() {return this->CutOff[3];}
 
 protected:
-  float CutOff[4];
+  float CutOff[3];
   
-  void Execute(vtkImageRegion *inRegion, vtkImageRegion *outRegion);
+  void ThreadedExecute(vtkImageData *inData, vtkImageData *outData,
+		       int outExt[6], int id);
 };
 
 #endif
