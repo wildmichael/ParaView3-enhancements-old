@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkContourFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:12 $
-  Version:   $Revision: 1.92 $
+  Date:      $Date: 2002-02-22 21:16:54 $
+  Version:   $Revision: 1.93 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,7 +26,7 @@
 #include "vtkContourGrid.h"
 
 #include <math.h>
-vtkCxxRevisionMacro(vtkContourFilter, "$Revision: 1.92 $");
+vtkCxxRevisionMacro(vtkContourFilter, "$Revision: 1.93 $");
 vtkStandardNewMacro(vtkContourFilter);
 
 // Construct object with initial range (0,1) and single contour value
@@ -286,6 +286,8 @@ void vtkContourFilter::CreateDefaultLocator()
   if ( this->Locator == NULL )
     {
     this->Locator = vtkMergePoints::New();
+    this->Locator->Register(this);
+    this->Locator->Delete();
     }
 }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:39:07 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2002-02-22 21:17:19 $
+  Version:   $Revision: 1.36 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 
 #include "vtkLookupTable.h"
 
-vtkCxxRevisionMacro(vtkPolyDataMapper2D, "$Revision: 1.35 $");
+vtkCxxRevisionMacro(vtkPolyDataMapper2D, "$Revision: 1.36 $");
 
 vtkPolyDataMapper2D::vtkPolyDataMapper2D()
 {
@@ -215,6 +215,8 @@ void vtkPolyDataMapper2D::CreateDefaultLookupTable()
     this->LookupTable->UnRegister(this);
     }
   this->LookupTable = vtkLookupTable::New();
+  this->LookupTable->Register(this);
+  this->LookupTable->Delete();
 }
 
 // Return the method of coloring scalar data.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractEdges.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:18 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 2002-02-22 21:16:54 $
+  Version:   $Revision: 1.42 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 #include "vtkMergePoints.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkExtractEdges, "$Revision: 1.41 $");
+vtkCxxRevisionMacro(vtkExtractEdges, "$Revision: 1.42 $");
 vtkStandardNewMacro(vtkExtractEdges);
 
 // Construct object.
@@ -172,7 +172,9 @@ void vtkExtractEdges::CreateDefaultLocator()
 {
   if ( this->Locator == NULL )
     {
-    this->Locator = vtkMergePoints::New();
+    vtkMergePoints *locator = vtkMergePoints::New();
+    this->SetLocator(locator);
+    locator->Delete();
     }
 }
 

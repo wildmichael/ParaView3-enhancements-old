@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCutter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:13 $
-  Version:   $Revision: 1.65 $
+  Date:      $Date: 2002-02-22 21:16:54 $
+  Version:   $Revision: 1.66 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkCutter, "$Revision: 1.65 $");
+vtkCxxRevisionMacro(vtkCutter, "$Revision: 1.66 $");
 vtkStandardNewMacro(vtkCutter);
 
 // Construct with user-specified implicit function; initial value of 0.0; and
@@ -315,6 +315,8 @@ void vtkCutter::CreateDefaultLocator()
   if ( this->Locator == NULL )
     {
     this->Locator = vtkMergePoints::New();
+    this->Locator->Register(this);
+    this->Locator->Delete();
     }
 }
 
