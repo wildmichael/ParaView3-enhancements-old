@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamer.h,v $
   Language:  C++
-  Date:      $Date: 2002-11-03 22:51:56 $
-  Version:   $Revision: 1.59 $
+  Date:      $Date: 2002-11-12 20:06:05 $
+  Version:   $Revision: 1.60 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -170,7 +170,7 @@ public:
   // Description:
   // Set/get the integrator type to be used in the stream line
   // calculation. The object passed is not actually used but
-  // is cloned with MakeObject by each thread/process in the
+  // is cloned with NewInstance by each thread/process in the
   // process of integration (prototype pattern). The default is 
   // 2nd order Runge Kutta.
   void SetIntegrator(vtkInitialValueProblemSolver *);
