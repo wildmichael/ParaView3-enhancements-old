@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTubeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-10-26 19:54:06 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 2000-10-26 20:18:02 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -262,7 +262,7 @@ void vtkTubeFilter::Execute()
       if ( vtkMath::Normalize(sNext) == 0.0 )
         {
         vtkErrorMacro(<<"Coincident points!");
-	if (this->DeleteNormals)
+	if (deleteNormals)
 	  {
 	  inNormals->Delete();
 	  }
