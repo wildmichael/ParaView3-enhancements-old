@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOutputWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-18 22:20:08 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1999-12-03 13:59:55 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -61,7 +61,7 @@ void vtkOutputWindow::PrintSelf(ostream& os, vtkIndent indent)
 // default implementation outputs to cerr only
 void vtkOutputWindow::DisplayText(const char* text)
 {
-  cerr << text;
+  cerr << text <<endl;
 }
 
 
