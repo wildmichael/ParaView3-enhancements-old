@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: TestCxxFeatures.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-01-16 14:44:41 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2003-01-31 21:43:49 $
+  Version:   $Revision: 1.20 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -316,6 +316,20 @@ int TestNonTypeTemplate()
 
 //----------------------------------------------------------------------------
 
+int TestBinaryWriting()
+{
+  int result = 1;
+  ofstream fout("TestCxxFeatures_TestBinaryWriting", ios::out | ios::binary);
+  if(!fout)
+    {
+    cerr << "Error opening TestCxxFeatures_TestBinaryWriting for binary writing.\n";
+    result = 0;
+    }
+  return result;
+}
+
+//----------------------------------------------------------------------------
+
 #define DO_TEST(x) \
   if(x()) { cout << "Passed: " #x "\n"; } \
   else { cout << "Failed: " #x "\n"; result = 1; }
@@ -330,5 +344,6 @@ int main()
   DO_TEST(TestFullySpecializedClass);
   DO_TEST(TestIfScope);
   DO_TEST(TestNonTypeTemplate);
+  DO_TEST(TestBinaryWriting);
   return result;
 }
