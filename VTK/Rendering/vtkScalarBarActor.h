@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalarBarActor.h,v $
   Language:  C++
-  Date:      $Date: 2002-11-11 21:41:40 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 2003-01-16 19:31:14 $
+  Version:   $Revision: 1.42 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -45,6 +45,10 @@
 //
 // Set the text property/attributes of the title and the labels through the 
 // vtkTextProperty objects associated to this actor.
+//
+// .SECTION Caveats
+// If a vtkLogLookupTable is specified as the lookup table to use, then the
+// labels are created using a logarithmic scale.
 //
 // .SECTION See Also
 // vtkActor2D vtkTextProperty vtkTextMapper vtkPolyDataMapper2D
