@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume16Reader.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-30 18:33:53 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 1999-07-31 20:48:01 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -154,7 +154,6 @@ void vtkVolume16Reader::Execute()
 {
   vtkScalars *newScalars;
   int first, last;
-  int numberSlices;
   int *dim;
   int dimensions[3];
   float Spacing[3];
@@ -186,14 +185,12 @@ void vtkVolume16Reader::Execute()
 
   if ( (this->ImageRange[1]-this->ImageRange[0]) <= 0 )
     {
-    numberSlices = 1;
     newScalars = this->ReadImage(this->ImageRange[0]);
     }
   else
     {
     first = this->ImageRange[0];
     last = this->ImageRange[1];
-    numberSlices = last - first + 1;
     newScalars = this->ReadVolume(first, last);
     }
 
