@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThreshold.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:12:53 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 2000-05-10 11:30:18 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -118,6 +118,10 @@ void vtkThreshold::Execute()
   int i, ptId, newId, numPts, numCellPts;
   float *x;
   vtkDataSet *input = this->GetInput();
+  if (!input)
+    {
+    vtkErrorMacro(<<"No input, Can't Execute");
+    }
   vtkUnstructuredGrid *output = this->GetOutput();
   vtkPointData *pd=input->GetPointData(), *outPD=output->GetPointData();
   vtkCellData *cd=input->GetCellData(), *outCD=output->GetCellData();
