@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagingFactory.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-22 19:24:36 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1999-10-23 17:06:11 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -130,7 +130,7 @@ vtkObject* vtkImagingFactory::CreateInstance(const char* vtkclassname )
   const char *rl = vtkImagingFactoryGetRenderLibrary();
 
 #ifdef VTK_USE_OGLR
-#ifndef VTK_USE_NATIVE_IMAGING
+#ifdef VTK_USE_NATIVE_IMAGING
     if(strcmp(vtkclassname, "vtkTextMapper") == 0)
       {
       return vtkXTextMapper::New();
@@ -175,7 +175,7 @@ vtkObject* vtkImagingFactory::CreateInstance(const char* vtkclassname )
 #endif
 
 #ifdef _WIN32
-#ifndef VTK_USE_NATIVE_IMAGING
+#ifdef VTK_USE_NATIVE_IMAGING
   if(strcmp(vtkclassname, "vtkTextMapper") == 0)
     {
     return vtkWin32TextMapper::New();
@@ -220,7 +220,7 @@ vtkObject* vtkImagingFactory::CreateInstance(const char* vtkclassname )
 #endif
 
 #ifdef VTK_USE_MESA
-#ifndef VTK_USE_NATIVE_IMAGING
+#ifdef VTK_USE_NATIVE_IMAGING
     if(strcmp(vtkclassname, "vtkTextMapper") == 0)
       {
       return vtkXTextMapper::New();
