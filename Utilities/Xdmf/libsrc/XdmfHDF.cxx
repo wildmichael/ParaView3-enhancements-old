@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfHDF.cxx,v 1.7 2003-10-21 18:37:37 andy Exp $  */
-/*  Date : $Date: 2003-10-21 18:37:37 $ */
-/*  Version : $Revision: 1.7 $ */
+/*  Id : $Id: XdmfHDF.cxx,v 1.8 2003-10-27 17:12:03 clarke Exp $  */
+/*  Date : $Date: 2003-10-27 17:12:03 $ */
+/*  Version : $Revision: 1.8 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -505,7 +505,8 @@ if( DataSetName != NULL ) {
   strcpy(this->Path, lastcolon );
   *firstcolon = '\0';
   firstcolon++;
-  strcpy(this->FileName, firstcolon );
+  // strcpy(this->FileName, firstcolon );
+  this->SetFileName(firstcolon);
   strcpy(this->Domain, NewName);
   XdmfDebug("Two Colons -  Full HDF Filename Domain : " <<
     this->Domain << " File " <<
@@ -522,13 +523,15 @@ if( DataSetName != NULL ) {
     ( STRCASECMP( NewName, "DUMMY" ) == 0 ) ) {
     // Domain::File
     strcpy( this->Domain, NewName);
-    strcpy( this->FileName, firstcolon );
+    // strcpy( this->FileName, firstcolon );
+    this->SetFileName(firstcolon);
   XdmfDebug("Two Colons -  Domain : " <<
     this->Domain << " File " <<
     this->FileName);
   } else {
     // File:Path
-    strcpy( this->FileName, NewName);
+    // strcpy( this->FileName, NewName);
+    this->SetFileName(NewName);
     strcpy( this->Path, firstcolon );
   XdmfDebug("Two Colons -  File : " <<
     this->FileName << " Path " <<

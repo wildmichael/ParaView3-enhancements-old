@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfObject.h,v 1.13 2003-10-21 18:37:37 andy Exp $  */
-/*  Date : $Date: 2003-10-21 18:37:37 $ */
-/*  Version : $Revision: 1.13 $ */
+/*  Id : $Id: XdmfObject.h,v 1.14 2003-10-27 17:12:03 clarke Exp $  */
+/*  Date : $Date: 2003-10-27 17:12:03 $ */
+/*  Version : $Revision: 1.14 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -127,7 +127,7 @@ using std::hex;
 #define XDMF_FALSE  0
 
 #define XDMF_MAX_DIMENSION  10
-#define XDMF_MAX_STRING_LENGTH  256
+#define XDMF_MAX_STRING_LENGTH  1024
 
 /* #define XDMF_LIST_KEY  ICE_LIST_KEY */
 #define XDMF_BIG_INT  ICE_BIG_INT
