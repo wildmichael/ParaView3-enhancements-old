@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTimeStamp.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-10 21:10:31 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 1997-11-13 16:19:25 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -54,6 +54,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkTimeStamp 
 {
 public:
+  void Delete() {delete this;};
   vtkTimeStamp() {this->ModifiedTime = 0;};
   virtual const char *GetClassName() {return "vtkTimeStamp";};
   static vtkTimeStamp *New() {return new vtkTimeStamp;};
