@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkColorTransferFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-24 00:57:22 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-09-12 14:43:45 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -363,9 +363,9 @@ vtkColorTransferFunctionMapDataToRGBA(vtkColorTransferFunction *self,
   while (--i >= 0) 
     {
     findx = *input;
-    *output++ = R->GetValue(findx);
-    *output++ = G->GetValue(findx);
-    *output++ = B->GetValue(findx);
+    *output++ = 255*R->GetValue(findx);
+    *output++ = 255*G->GetValue(findx);
+    *output++ = 255*B->GetValue(findx);
     *output++ = 255;
     input += incr;
     }
