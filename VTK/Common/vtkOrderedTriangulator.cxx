@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOrderedTriangulator.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-07-21 20:46:40 $
-  Version:   $Revision: 1.62 $
+  Date:      $Date: 2003-07-24 18:05:45 $
+  Version:   $Revision: 1.63 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -32,7 +32,7 @@
 #include <vtkstd/stack>
 #include <vtkstd/map>
 
-vtkCxxRevisionMacro(vtkOrderedTriangulator, "$Revision: 1.62 $");
+vtkCxxRevisionMacro(vtkOrderedTriangulator, "$Revision: 1.63 $");
 vtkStandardNewMacro(vtkOrderedTriangulator);
 
 #ifdef _WIN32_WCE
@@ -55,12 +55,12 @@ vtkStandardNewMacro(vtkOrderedTriangulator);
 // when a constructor called by operator new throws.
 // Might be supported in newer versions && (__HP_aCC <= 012100)
 #if defined(__HP_aCC)
-# define VTK_NO_EXCEPTION_OPERATOR_DELETE
+# define VTK_NO_PLACEMENT_DELETE
 #endif
-// Old SGI compiler does not support operator delete that is called
-// when a constructor called by operator new throws.
-#if defined(__sgi) && !defined(__GNUC__) && !defined(_COMPILER_VERSION)
-# define VTK_NO_EXCEPTION_OPERATOR_DELETE
+// SGI compiler does not support placement delete that is called when
+// a constructor called by placement new throws.
+#if defined(__sgi) && !defined(__GNUC__)
+# define VTK_NO_PLACEMENT_DELETE
 #endif
 
 // Classes are used to represent points, faces, and tetras-------------------
@@ -119,7 +119,7 @@ struct OTFace //used during tetra construction
 {
   void *operator new(size_t size, vtkHeap *heap)
     {return heap->AllocateMemory(size);}
-#if !defined(VTK_NO_EXCEPTION_OPERATOR_DELETE)
+#if !defined(VTK_NO_PLACEMENT_DELETE)
   void operator delete(void*,vtkHeap*) {}
 #endif
 
@@ -168,7 +168,7 @@ struct OTTetra
 {
   void *operator new(size_t size, vtkHeap *heap)
     {return heap->AllocateMemory(size);}
-#if !defined(VTK_NO_EXCEPTION_OPERATOR_DELETE)
+#if !defined(VTK_NO_PLACEMENT_DELETE)
   void operator delete(void*,vtkHeap*) {}
 #endif
 
@@ -272,7 +272,7 @@ struct OTTemplate
     }
   void *operator new(size_t size, vtkHeap *heap)
     {return heap->AllocateMemory(size);}
-#if !defined(VTK_NO_EXCEPTION_OPERATOR_DELETE)
+#if !defined(VTK_NO_PLACEMENT_DELETE)
   void operator delete(void*,vtkHeap*) {}
 #endif
 };
