@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageNoiseSource.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-15 13:01:41 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-03-26 21:59:06 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -71,16 +71,16 @@ public:
   vtkGetMacro(Maximum, float);
 
   void SetWholeExtent(int xMinx, int xMax, int yMin, int yMax,
-		      int zMin, int zMax, int tMin, int tMax);
+		      int zMin, int zMax);
 
   void UpdateImageInformation();
 
 private:
   float Minimum;
   float Maximum;
-  int WholeExtent[8];
+  int WholeExtent[6];
 
-  void Execute(vtkImageRegion *region);
+  void Execute(vtkImageData *data);
 };
 
 
