@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointDataToCellData.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:44:54 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-10-06 14:43:22 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -75,7 +75,7 @@ void vtkPointDataToCellData::Execute()
 
   for (cellId=0; cellId < numCells; cellId++)
     {
-    input->GetCellPoints(cellId, *cellPts);
+    input->GetCellPoints(cellId, cellPts);
     numPts = cellPts->GetNumberOfIds();
     if ( numPts > 0 )
       {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextureMapToCylinder.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:41:30 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1998-10-06 14:43:25 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -82,8 +82,7 @@ void vtkTextureMapToCylinder::Execute()
     {
     vtkPoints *pts=vtkPoints::New(); pts->SetNumberOfPoints(numPts);
     float corner[3], max[3], mid[3], min[3], size[3], l;
-    vtkOBBTree OBB;
-    OBB.ReferenceCountingOff();
+    vtkOBBTree *OBB = vtkOBBTree::New();
 
     for ( ptId=0; ptId < numPts; ptId++ )
       {
@@ -91,8 +90,9 @@ void vtkTextureMapToCylinder::Execute()
       pts->SetPoint(ptId,x);
       }
 
-    OBB.ComputeOBB(pts,corner,max,mid,min,size);
+    OBB->ComputeOBB(pts,corner,max,mid,min,size);
     pts->Delete();
+    OBB->Delete();
 
     for ( i=0; i < 3; i++)
       {

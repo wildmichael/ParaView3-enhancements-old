@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkShrinkFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:45:06 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 1998-10-06 14:43:24 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -83,7 +83,7 @@ void vtkShrinkFilter::Execute()
   //
   for (cellId=0; cellId < numCells; cellId++)
     {
-    input->GetCellPoints(cellId,*ptIds);
+    input->GetCellPoints(cellId, ptIds);
     numIds = ptIds->GetNumberOfIds();
 
     // get the center of the cell

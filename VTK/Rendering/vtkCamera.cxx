@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCamera.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:44:33 $
-  Version:   $Revision: 1.60 $
+  Date:      $Date: 1998-10-06 14:43:16 $
+  Version:   $Revision: 1.61 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -750,7 +750,7 @@ vtkMatrix4x4 &vtkCamera::GetPerspectiveTransform(float aspect,
   this->ComputePerspectiveTransform(aspect, nearz,farz);
   
   // return the transform 
-  return this->PerspectiveTransform->GetMatrix();
+  return *(this->PerspectiveTransform->GetMatrixPointer());
 }
 
 // Return the perspective transform matrix. See ComputePerspectiveTransform.
@@ -760,7 +760,7 @@ vtkMatrix4x4 &vtkCamera::GetViewTransform()
   this->ComputeViewTransform();
   
   // return the transform 
-  return this->PerspectiveTransform->GetMatrix();
+  return *(this->PerspectiveTransform->GetMatrixPointer());
 }
 
 // Return the perspective transform matrix. See ComputePerspectiveTransform.
@@ -773,7 +773,7 @@ vtkMatrix4x4 &vtkCamera::GetCompositePerspectiveTransform(float aspect,
   this->ComputePerspectiveTransform(aspect, nearz,farz);
   
   // return the transform 
-  return this->PerspectiveTransform->GetMatrix();
+  return *(this->PerspectiveTransform->GetMatrixPointer());
 }
 
 #define VTK_SQ_MAG(x) ( (x)[0]*(x)[0] + (x)[1]*(x)[1] + (x)[2]*(x)[2] )
@@ -1118,9 +1118,9 @@ void vtkCamera::GetFrustumPlanes( float planes[24] )
   float        v1[3], v2[3], A, B, C, D, t;
 
   *m = this->GetCompositePerspectiveTransform(1,0,1);
-  transform->SetMatrix( *m );
+  transform->SetMatrix(*m);
   transform->Inverse();
-  transform->GetMatrix( *m );
+  transform->GetMatrix(m);
 
   in[3] = 1.0;
   index = 0;

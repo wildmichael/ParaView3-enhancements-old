@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransformTextureCoords.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:45:13 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1998-10-06 14:43:25 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -116,7 +116,7 @@ void vtkTransformTextureCoords::Execute()
                       this->Origin[1] + this->Position[1],
 		      this->Origin[2] + this->Position[2]);
 
-  *matrix = transform->GetMatrix();
+  *matrix = *(transform->GetMatrixPointer());
 
   newTC[0] = newTC[1] = newTC[2] = 0.0;
   newTC[0] = newTC[1] = newTC[2] = 0.0;

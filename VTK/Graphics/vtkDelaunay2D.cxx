@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDelaunay2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:44:41 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1998-10-06 14:43:18 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -427,7 +427,7 @@ void vtkDelaunay2D::Execute()
     {
     for (ptId=numPoints; ptId < (numPoints+8); ptId++)
       {
-      Mesh->GetPointCells(ptId, *cells);
+      Mesh->GetPointCells(ptId, cells);
       for (i=0; i < cells->GetNumberOfIds(); i++)
         {
         triUse[cells->GetId(i)] = 0; //mark as deleted

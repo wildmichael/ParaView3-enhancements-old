@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLProjectedPolyDataRayBounder.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:44:52 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1998-10-06 14:43:21 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to Lisa Sobierajski Avila who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -240,7 +240,7 @@ float *vtkOpenGLProjectedPolyDataRayBounder::Draw( vtkRenderer *ren,
     // To speed things up, we pull the matrix out of the transform. 
     // This way, we can decode z values faster since we know which elements
     // of the matrix are important, and which are zero.
-    transform->GetMatrix( *matrix );
+    transform->GetMatrix(matrix);
     
     // Just checking that our assumptions are correct.
     if( this->Debug )
@@ -293,7 +293,7 @@ float *vtkOpenGLProjectedPolyDataRayBounder::Draw( vtkRenderer *ren,
     // To speed things up, we pull the matrix out of the transform. 
     // This way, we can decode z values faster since we know which elements
     // of the matrix are important, and which are zero.
-    transform->GetMatrix( *matrix );
+    transform->GetMatrix(matrix);
     
     // Just checking that our assumptions are correct.  This code should
     // be removed after the debugging phase is complete

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:45:16 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1998-10-06 14:43:26 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -79,10 +79,6 @@ class VTK_EXPORT vtkVolume : public vtkProp
   const char *GetClassName() {return "vtkVolume";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
-  // Description:
-  // Shallow copy of an volume.
-  vtkVolume &operator=(const vtkVolume& volume);
-
   virtual void Render(vtkRenderer *ren);
   virtual void Update();
 
@@ -99,7 +95,6 @@ class VTK_EXPORT vtkVolume : public vtkProp
   // This matrix is cached, so multiple GetMatrix() calls will be
   // efficient.
   void GetMatrix(vtkMatrix4x4 *m);
-  void GetMatrix(vtkMatrix4x4 &m) {this->GetMatrix(&m);}
 
   // Description:
   // Get the bounds. GetBounds(),
@@ -120,10 +115,17 @@ class VTK_EXPORT vtkVolume : public vtkProp
   // Description:
   // Set/Get the volume property.
   void SetVolumeProperty(vtkVolumeProperty *property);
-  void SetVolumeProperty(vtkVolumeProperty& property) {this->SetVolumeProperty(&property);};
   vtkVolumeProperty *GetVolumeProperty();
 
-   unsigned long int GetMTime();//overload superclasses' implementation
+  unsigned long int GetMTime();//overload superclasses' implementation
+
+  // Description:
+  // For legacy compatability. Do not use.
+  vtkVolume &operator=(const vtkVolume& volume);
+  void GetMatrix(vtkMatrix4x4 &m) {this->GetMatrix(&m);}
+  void SetVolumeProperty(vtkVolumeProperty& property) 
+    {this->SetVolumeProperty(&property);}
+
 
 protected:
 

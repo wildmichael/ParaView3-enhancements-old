@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataNormals.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:44:56 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1998-10-06 14:43:23 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -231,7 +231,7 @@ void vtkPolyDataNormals::Execute()
       {
       Mark++;
       replacementPoint = ptId;
-      OldMesh->GetPointCells(ptId,*cellIds);
+      OldMesh->GetPointCells(ptId,cellIds);
       for (j=0; j < cellIds->GetNumberOfIds(); j++)
         {
         if ( Visited[cellIds->GetId(j)] != Mark )

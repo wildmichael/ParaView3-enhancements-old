@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEncodedGradientShader.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:44:43 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-10-06 14:43:20 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -85,7 +85,7 @@ void vtkEncodedGradientShader::UpdateShadingTable( vtkRenderer *ren,
   m = vtkMatrix4x4::New();
 
   vol->GetMatrix(m);
-  transform->SetMatrix(m);
+  transform->SetMatrix(*m);
   transform->Inverse();
 
   volume_property = vol->GetVolumeProperty();

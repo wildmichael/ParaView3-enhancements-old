@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStripper.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:45:08 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 1998-10-06 14:43:24 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -224,7 +224,7 @@ void vtkStripper::Execute()
           {
           pts[0] = linePts[i];
           pts[1] = linePts[(i+1)%2];
-          Mesh->GetPointCells(pts[1], *cellIds);
+          Mesh->GetPointCells(pts[1], cellIds);
           for (j=0; j < cellIds->GetNumberOfIds(); j++ )
             {
             neighbor = cellIds->GetId(j);
@@ -258,7 +258,7 @@ void vtkStripper::Execute()
                 break;
 
             pts[numPts] = linePts[i];
-            Mesh->GetPointCells(pts[numPts], *cellIds);
+            Mesh->GetPointCells(pts[numPts], cellIds);
             if ( ++numPts > longestLine ) longestLine = numPts;
 
             // get new neighbor

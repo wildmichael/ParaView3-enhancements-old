@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:45:15 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1998-10-06 14:43:25 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -121,7 +121,7 @@ void vtkVolume::GetMatrix(vtkMatrix4x4 *result)
 			      -this->Origin[1],
 			      -this->Origin[2]);
 
-    *(this->Matrix) = this->Transform->GetMatrix();
+    *(this->Matrix) = *(this->Transform->GetMatrixPointer());
     this->MatrixMTime.Modified();
     this->Transform->Pop();  
     }

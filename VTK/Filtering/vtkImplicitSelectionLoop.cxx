@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitSelectionLoop.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:44:48 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-10-06 14:43:21 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,8 +64,8 @@ vtkImplicitSelectionLoop::~vtkImplicitSelectionLoop()
 // Generate plane equations only once to avoid a lot of extra work
 void vtkImplicitSelectionLoop::Initialize()
 {
-  int i, j, numPts;
-  float x[3], x0[3], xProj[3];
+  int i, numPts;
+  float x[3], xProj[3];
 
   numPts = this->Loop->GetNumberOfPoints();
   this->Polygon->Points->SetNumberOfPoints(numPts);
@@ -112,7 +112,7 @@ void vtkImplicitSelectionLoop::Initialize()
 float vtkImplicitSelectionLoop::EvaluateFunction(float x[3])
 {
   int i, numPts=this->Polygon->Points->GetNumberOfPoints();
-  float ray[3], val, pcoords[2], xProj[3];
+  float xProj[3];
   float t, dist2, minDist2, closest[3];
   int inside=0;
 

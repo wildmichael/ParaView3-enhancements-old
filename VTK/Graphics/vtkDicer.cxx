@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDicer.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:44:41 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1998-10-06 14:43:19 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -52,12 +52,10 @@ void vtkDicer::BuildTree(vtkIdList *ptIds, vtkOBBNode *OBBptr)
 {
   int i, numPts=ptIds->GetNumberOfIds();
   int ptId;
-  static vtkOBBTree OBB;
+  vtkOBBTree *OBB = vtkOBBTree::New();
   vtkDataSet *input=(vtkDataSet *)this->Input;
 
   float size[3];
-
-  OBB.ReferenceCountingOff ();
 
   //
   // Gather all the points into a single list
@@ -71,9 +69,11 @@ void vtkDicer::BuildTree(vtkIdList *ptIds, vtkOBBNode *OBBptr)
   //
   // Now compute the OBB
   //
-  OBB.ComputeOBB(this->PointsList, OBBptr->Corner, OBBptr->Axes[0], 
+  OBB->ComputeOBB(this->PointsList, OBBptr->Corner, OBBptr->Axes[0], 
                   OBBptr->Axes[1], OBBptr->Axes[2], size);
-
+  OBB->Delete();
+  OBB = NULL;
+  
   //
   // Check whether to continue recursing; if so, create two children and
   // assign cells to appropriate child.
