@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGenericEnSightReader.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-12 11:48:38 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2002-06-21 12:57:48 $
+  Version:   $Revision: 1.17 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -117,10 +117,11 @@ public:
   //BTX
   enum FileTypes
   {
-    ENSIGHT_6            = 0,
-    ENSIGHT_6_BINARY     = 1,
-    ENSIGHT_GOLD         = 2,
-    ENSIGHT_GOLD_BINARY  = 3
+    ENSIGHT_6             = 0,
+    ENSIGHT_6_BINARY      = 1,
+    ENSIGHT_GOLD          = 2,
+    ENSIGHT_GOLD_BINARY   = 3,
+    ENSIGHT_MASTER_SERVER = 4
   };
   //ETX
 
