@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCamera.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-09-04 21:29:53 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1995-09-12 07:14:26 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -290,7 +290,7 @@ void vtkCamera::SetDistance(float X)
 }  
 
 // Description:
-// This returns the twist of the camera.  The twist corrisponds to Roll and
+// This returns the twist of the camera.  The twist corresponds to Roll and
 // represents the angle of rotation about the z axis to achieve the 
 // current view-up vector.
 float vtkCamera::GetTwist()

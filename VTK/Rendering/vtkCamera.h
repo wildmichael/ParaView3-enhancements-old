@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCamera.h,v $
   Language:  C++
-  Date:      $Date: 1995-09-12 07:12:16 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1995-09-12 07:14:27 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -116,7 +116,7 @@ class vtkCamera : public vtkObject
   vtkGetMacro(EyeAngle,float);
 
   // Description:
-  // Set the size of the cameras lense in world coordinates. This is only 
+  // Set the size of the cameras lens in world coordinates. This is only 
   // used when the renderer is doing focal depth rendering. When that is 
   // being done the size of the focal disk will effect how significant the
   // depth effects will be.
