@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXYZMolReader.h,v $
   Language:  C++
-  Date:      $Date: 2003-05-13 14:49:43 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2003-05-14 12:46:25 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -61,9 +61,19 @@ public:
 
   static vtkXYZMolReader *New();
 
+  // Description:
+  // Test whether the file with the given name can be read by this
+  // reader.
+  virtual int CanReadFile(const char* name);
+
+  // Description:
+  // Set the current time step. It should be greater than 0 and smaller than
+  // MaxTimeStep.
   vtkSetMacro(TimeStep, int);
   vtkGetMacro(TimeStep, int);
-  vtkSetMacro(MaxTimeStep, int);
+
+  // Description:
+  // Get the maximum time step.
   vtkGetMacro(MaxTimeStep, int);
 
 protected:
@@ -71,7 +81,20 @@ protected:
   ~vtkXYZMolReader();
 
   void ReadSpecificMolecule(FILE* fp);
-  
+
+  // Description:
+  // Get next line that is not a comment. It returns the beginning of data on
+  // line (skips empty spaces)
+  char* GetNextLine(FILE* fp, char* line, int maxlen);
+
+  int GetLine1(const char* line, int *cnt);
+  int GetLine2(const char* line, char *name);
+  int GetAtom(const char* line, char* atom, float *x);
+
+  void InsertAtom(const char* atom, float *pos);
+
+  vtkSetMacro(MaxTimeStep, int);
+
   int TimeStep;
   int MaxTimeStep;
 
