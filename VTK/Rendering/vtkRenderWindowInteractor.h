@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkRenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 1994-11-09 19:53:31 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1994-11-12 17:57:11 $
+  Version:   $Revision: 1.5 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -27,6 +27,7 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 // (Distance from center of renderer viewport controls amount of 
 // rotate, pan, zoom).
 // Keystrokes:
+//    r - reset camera view
 //    w - turn all actors wireframe
 //    s - turn all actors surface
 
