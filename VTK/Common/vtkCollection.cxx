@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCollection.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 21:02:02 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1997-05-16 18:21:00 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -179,4 +179,33 @@ void vtkCollection::PrintSelf(ostream& os, vtkIndent indent)
   vtkObject::PrintSelf(os,indent);
 
   os << indent << "Number Of Items: " << this->NumberOfItems << "\n";
+}
+
+
+// Description:
+// Get the i'th item in the collection. NULL is returned if i is out
+// of range
+vtkObject *vtkCollection::GetItemAsObject(int i)
+{
+  vtkCollectionElement *elem=this->Top;
+
+  if (i < 0)
+    {
+    return NULL;
+    }
+  
+  while (elem != NULL && i > 0)
+    {
+    elem = elem->Next;
+    i--;
+    }
+  
+  if ( elem != NULL )
+    {
+    return elem->Item;
+    }
+  else
+    {
+    return NULL;
+    }
 }
