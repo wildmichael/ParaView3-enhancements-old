@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageShrink3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-10-17 15:11:58 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1996-10-21 18:51:21 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -216,7 +216,7 @@ void vtkImageShrink3DExecute(vtkImageShrink3D *self,
 // It can handle any type data, but the two regions must have the same 
 // data type.
 void vtkImageShrink3D::Execute(vtkImageRegion *inRegion, 
-				       vtkImageRegion *outRegion)
+			       vtkImageRegion *outRegion)
 {
   void *inPtr = inRegion->GetScalarPointer();
   void *outPtr = outRegion->GetScalarPointer();
