@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-23 10:44:10 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1995-01-02 11:51:49 $
+  Version:   $Revision: 1.25 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -34,6 +34,11 @@ vlRenderer::vlRenderer()
   this->Background[0] = 0;
   this->Background[1] = 0;
   this->Background[2] = 0;
+
+  this->WorldPoint[0] = 0;
+  this->WorldPoint[1] = 0;
+  this->WorldPoint[2] = 0;
+  this->WorldPoint[3] = 0;
 
   this->DisplayPoint[0] = 0;
   this->DisplayPoint[1] = 0;

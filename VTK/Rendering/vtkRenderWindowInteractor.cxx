@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkRenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-12-09 18:33:07 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1995-01-02 11:51:50 $
+  Version:   $Revision: 1.9 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -35,6 +35,11 @@ vlRenderWindowInteractor::vlRenderWindowInteractor()
   this->OutlineMapper.SetInput(this->Outline);
   this->PickedRenderer = NULL;
   this->CurrentActor = NULL;
+
+  this->StartPickMethod = NULL;
+  this->StartPickMethodArg = NULL;
+  this->EndPickMethod = NULL;
+  this->EndPickMethodArg = NULL;
 }
 
 vlRenderWindowInteractor::~vlRenderWindowInteractor()
