@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCaptionActor2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 20:45:12 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-10-02 20:54:38 $
+  Version:   $Revision: 1.2 $
   Thanks:    Tim Smith who sponsored and encouraged the development
              of this class.
 
@@ -372,7 +372,7 @@ int vtkCaptionActor2D::RenderOpaqueGeometry(vtkViewport *viewport)
     float sf = this->LeaderGlyphSize * sqrt(sze[0]*sze[0] + sze[1]*sze[1]) /
       (sqrt(vtkMath::Distance2BetweenPoints(p1,p2)) * length);
 
-    vtkErrorMacro(<<"Scale factor: " << sf);
+    vtkDebugMacro(<<"Scale factor: " << sf);
 
     this->HeadGlyph->SetSource(this->LeaderGlyph);
     this->HeadGlyph->SetScaleFactor(sf);
