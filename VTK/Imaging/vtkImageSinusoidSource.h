@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSinusoidSource.h,v $
   Language:  C++
-  Date:      $Date: 2001-03-08 13:51:36 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2001-03-08 13:55:31 $
+  Version:   $Revision: 1.21 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -96,8 +96,8 @@ protected:
   float Phase;
   float Amplitude;
 
-  void ExecuteInformation();
-  void ExecuteData(vtkDataObject *data);
+  virtual void ExecuteInformation();
+  virtual void ExecuteData(vtkDataObject *data);
 };
 
 

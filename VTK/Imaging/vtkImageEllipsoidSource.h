@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageEllipsoidSource.h,v $
   Language:  C++
-  Date:      $Date: 2001-03-08 13:52:33 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2001-03-08 13:55:31 $
+  Version:   $Revision: 1.19 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -125,8 +125,8 @@ protected:
   float OutValue;
   int OutputScalarType;
   
-  void ExecuteInformation();
-  void ExecuteData(vtkDataObject *outData);
+  virtual void ExecuteInformation();
+  virtual void ExecuteData(vtkDataObject *outData);
 };
 
 
