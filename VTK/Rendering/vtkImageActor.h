@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageActor.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:33 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2002-02-14 19:21:40 $
+  Version:   $Revision: 1.14 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -53,7 +53,7 @@ public:
 
   // Description:
   // Set/Get the image data input for the image actor.  
-  vtkSetObjectMacro(Input,vtkImageData);
+  virtual void SetInput(vtkImageData *);
   vtkGetObjectMacro(Input,vtkImageData);
 
   // Description:

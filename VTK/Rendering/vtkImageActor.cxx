@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:32 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2002-02-14 19:21:41 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,7 +19,7 @@
 #include "vtkGraphicsFactory.h"
 #include "vtkRenderer.h"
 
-vtkCxxRevisionMacro(vtkImageActor, "$Revision: 1.10 $");
+vtkCxxRevisionMacro(vtkImageActor, "$Revision: 1.11 $");
 
 vtkImageActor* vtkImageActor::New()
 {
@@ -47,6 +47,7 @@ vtkImageActor::~vtkImageActor()
 {
   if (this->Input)
     {
+    this->Input->RemoveConsumer(this);
     this->GetInput()->UnRegister(this);
     this->Input = NULL;
     }
@@ -238,3 +239,25 @@ int vtkImageActor::GetWholeZMax()
   extent = this->GetInput()->GetWholeExtent();
   return extent[5];
 }
+
+void vtkImageActor::SetInput(vtkImageData *args)
+{
+  vtkDebugMacro(<< this->GetClassName() << " (" << this         
+  << "): setting Input to " << args );     
+  if (this->Input != args)                                       
+    {                                                           
+    if (this->Input != NULL) 
+      { 
+      this->Input->RemoveConsumer(this);
+      this->Input->UnRegister(this); 
+      }   
+    this->Input = args;                                          
+    if (this->Input != NULL) 
+      { 
+      this->Input->Register(this); 
+      this->Input->AddConsumer(this);
+      }     
+    this->Modified();                                           
+    }                                                           
+}
+
