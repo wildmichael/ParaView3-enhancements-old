@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSynchronizedTemplates3D.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-13 14:54:04 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2000-01-07 09:06:29 $
+  Version:   $Revision: 1.7 $
 
 
 
@@ -158,19 +158,12 @@ public:
   void GenerateValues(int numContours, float rangeStart, float rangeEnd)
     {this->ContourValues->GenerateValues(numContours, rangeStart, rangeEnd);}
 
-  //-------- streaming stuff ------------
-
   // Description:
   // Needed by templated functions.
   int *GetExecuteExtent() {return this->ExecuteExtent;}
   int SplitExtent(int piece, int numPieces, int *ext);
   int SplitExtent2(int piece, int numPieces, int *ext);
   void ThreadedExecute(vtkImageData *data, int *exExt, int threadId);
-
-  // Description:
-  // Part of the streaming protocall.  This method returns the number of chunks
-  // required to meet the memory limit of the input.
-  int GetNumberOfStreamDivisions();
 
   // Description:
   // Get/Set the number of threads to create when rendering
@@ -184,6 +177,7 @@ public:
   void SetInputMemoryLimit(unsigned long limit);
   unsigned long GetInputMemoryLimit();
 
+
 protected:
   vtkSynchronizedTemplates3D();
   ~vtkSynchronizedTemplates3D();
@@ -195,25 +189,14 @@ protected:
   int ComputeScalars;
   vtkContourValues *ContourValues;
 
-  //------------ for streaming --------------
-  // default execute method breaks apart the execution and 
-  // calls StreamExecute multiple times..
   void Execute();
   void ExecuteInformation();
-  void StreamExecuteStart();
-  void StreamExecuteEnd();
 
-  // Description:
-  // Part of the streaming protocall.  This method sets the UpdateExtent of
-  // the input and sets the ExecuteExtent for this filter.
-  int ComputeDivisionExtents(vtkDataObject *output, int idx, int numPieces);
+  void ComputeInputUpdateExtents(vtkDataObject *output);
 
-  // Stuff for multithreading
-  // this may be pushed into vtkFilter superclass
   int ExecuteExtent[6];
-  // I don't think this is used
   int MinimumPieceSize[3];
-  
+
   int NumberOfThreads;
   vtkMultiThreader *Threader;
   // temporary outputs
