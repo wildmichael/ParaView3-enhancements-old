@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingSquares.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-08-21 11:30:14 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1998-09-02 14:47:29 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -213,7 +213,10 @@ static void ContourImage(T *scalars, vtkScalars *newScalars, int roi[6], int dir
 	    index |= CASE_MASK[ii];
 	    }
 	  }
-        if ( index == 0 || index == 15 ) continue; //no lines
+        if ( index == 0 || index == 15 )
+	  {
+	  continue; //no lines
+	  }
 
         lineCase = lineCases + index;
         edge = lineCase->edges;
