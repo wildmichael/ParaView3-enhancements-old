@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAnisotropicDiffusion3D.h,v $
   Language:  C++
-  Date:      $Date: 1996-09-26 21:04:51 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1996-09-27 12:33:23 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,9 +38,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-// .NAME vtkImageAnisotropicDiffusion3d - edge preserving smoothing.
+// .NAME vtkImageAnisotropicDiffusion3D - edge preserving smoothing.
 // .SECTION Description
-// vtkImageAnisotropicDiffusion3d  diffuses an volume iteratively.
+// vtkImageAnisotropicDiffusion3D  diffuses an volume iteratively.
 // The neighborhood of the diffusion is determined by the instance
 // flags. if "Faces" is on, the 6 voxels adjoined by faces are included
 // in the neighborhood.  If "Edges" is on the 12 edge connected voxels
@@ -59,17 +59,17 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 //  Input and output can be any indpendent data type.
 
 
-#ifndef __vtkImageAnisotropicDiffusion3d_h
-#define __vtkImageAnisotropicDiffusion3d_h
+#ifndef __vtkImageAnisotropicDiffusion3D_h
+#define __vtkImageAnisotropicDiffusion3D_h
 
 
 #include "vtkImageSpatialFilter.h"
 
-class vtkImageAnisotropicDiffusion3d : public vtkImageSpatialFilter
+class vtkImageAnisotropicDiffusion3D : public vtkImageSpatialFilter
 {
 public:
-  vtkImageAnisotropicDiffusion3d();
-  char *GetClassName() {return "vtkImageAnisotropicDiffusion3d";};
+  vtkImageAnisotropicDiffusion3D();
+  char *GetClassName() {return "vtkImageAnisotropicDiffusion3D";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
   void SetNumberOfIterations(int num);
