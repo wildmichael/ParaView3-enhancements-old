@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLParser.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-29 18:07:59 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-05-30 19:11:49 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -127,7 +127,7 @@ protected:
   unsigned long GetXMLByteIndex();
   
   // Send the given buffer to the XML parser.
-  int ParseBuffer(const char* buffer, unsigned int count);
+  virtual int ParseBuffer(const char* buffer, unsigned int count);
   
   // Send the given c-style string to the XML parser.
   int ParseBuffer(const char* buffer);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLParser.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-29 19:42:50 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-05-30 19:11:49 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,14 +27,14 @@
 #define VTK_IOS_NOCREATE | ios::nocreate
 #endif
 
-vtkCxxRevisionMacro(vtkXMLParser, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkXMLParser, "$Revision: 1.7 $");
 vtkStandardNewMacro(vtkXMLParser);
 
 //----------------------------------------------------------------------------
 vtkXMLParser::vtkXMLParser()
 {
-  this->Stream = 0;
-  this->Parser = 0;
+  this->Stream      = 0;
+  this->Parser      = 0;
   this->LegacyHack  = 0;
   this->FileName    = 0;
   this->InputString = 0;
@@ -76,12 +76,15 @@ int vtkXMLParser::Parse(const char* inputString)
 //----------------------------------------------------------------------------
 int vtkXMLParser::Parse()
 {
+  // Select source of XML
   ifstream ifs;
   if ( !this->InputString && !this->Stream && this->FileName )
     {
+    // If it is file, open it and set the appropriate stream
     ifs.open(this->FileName, ios::in VTK_IOS_NOCREATE);
     if ( !ifs )
       {
+      vtkErrorMacro("Cannot open XML file: " << this->FileName);
       return 0;
       }
     this->Stream = &ifs;
@@ -113,6 +116,7 @@ int vtkXMLParser::Parse()
   XML_ParserFree(this->Parser);
   this->Parser = 0;
   
+  // If the source was a file, reset the stream
   if ( this->Stream == &ifs )
     {
     this->Stream = 0;
