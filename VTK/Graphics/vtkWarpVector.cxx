@@ -3,11 +3,9 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkWarpVector.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-05-01 16:16:25 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1994-08-09 15:05:12 $
+  Version:   $Revision: 1.2 $
 
-Description:
----------------------------------------------------------------------------
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
 without the express written consent of the authors.
@@ -25,10 +23,8 @@ void vlWarpVector::Execute()
   vlVectors *inVectors;
   int i, ptId;
   float *x, *v, newX[3];
-  
-//
-// Initialize
-//
+
+  vlDebugMacro(<<"Warping data with vectors");
   this->Initialize();
 
   inPts = this->Input->GetPoints();
@@ -58,6 +54,9 @@ void vlWarpVector::Execute()
 //
 // Update ourselves
 //
+  this->PointData.CopyNormalsOff(); // distorted geometry - normals are bad
+  this->PointData.PassData(this->Input->GetPointData());
+
   this->SetPoints(newPts);
 }
 

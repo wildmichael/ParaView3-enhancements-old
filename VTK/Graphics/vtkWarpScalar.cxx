@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkWarpScalar.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-08-05 09:38:03 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1994-08-09 15:05:11 $
+  Version:   $Revision: 1.2 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -57,6 +57,9 @@ void vlWarpScalar::Execute()
 //
 // Update ourselves
 //
+  this->PointData.CopyNormalsOff(); // distorted geometry - normals are bad
+  this->PointData.PassData(this->Input->GetPointData());
+
   this->SetPoints(newPts);
 }
 
