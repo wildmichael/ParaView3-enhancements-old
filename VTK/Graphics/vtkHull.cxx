@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHull.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-02-28 12:49:54 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2001-03-16 13:28:38 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -715,7 +715,6 @@ void vtkHull::ClipPolygonsFromPlanes( vtkPoints *outPoints,
 
 void vtkHull::CreateInitialPolygon( double *verts, int i, float *bounds)
 {
-  vtkPolyData    *input       = this->GetInput();
   double         center[3], d, planeCenter[3];
   double         v1[3], v2[3], norm, dotProduct;
   int            j;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractPolyDataPiece.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-26 20:55:14 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-03-16 13:28:38 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -78,8 +78,6 @@ void vtkExtractPolyDataPiece::ComputeInputUpdateExtents(vtkDataObject *out)
 
 void vtkExtractPolyDataPiece::ExecuteInformation()
 {
-  vtkPolyData *output = this->GetOutput();
-  
   if (this->GetInput() == NULL)
     {
     vtkErrorMacro("Missing input");

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractUnstructuredGridPiece.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-31 12:35:36 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-03-16 13:28:38 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -77,8 +77,6 @@ void vtkExtractUnstructuredGridPiece::ComputeInputUpdateExtents(vtkDataObject *o
 
 void vtkExtractUnstructuredGridPiece::ExecuteInformation()
 {
-  vtkUnstructuredGrid *output = this->GetOutput();
-  
   if (this->GetInput() == NULL)
     {
     vtkErrorMacro("Missing input");

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCardinalSpline.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:31 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2001-03-16 13:28:38 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -106,6 +106,7 @@ float vtkCardinalSpline::Evaluate (float t)
     }
 
   // find pointer to cubic spline coefficient
+  index = 0;
   for (i = 1; i < size; i++)
     {
     index = i - 1;
@@ -235,7 +236,7 @@ void vtkCardinalSpline::Fit1D (int size, float *x, float *y,
 			int leftConstraint, float leftValue,
 			int rightConstraint, float rightValue)
 {
-  float   b;
+  float   b = 0.0;
   float   xlk;
   float   xlkp;
   int     k;

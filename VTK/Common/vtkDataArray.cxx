@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:07 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2001-03-16 13:28:37 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -199,7 +199,7 @@ int vtkDataArray::InsertNextTuple(const double * tuple)
 unsigned long vtkDataArray::GetActualMemorySize()
 {
   unsigned long numPrims;
-  float size;
+  float size = 0.0;
   numPrims = this->GetNumberOfTuples() * this->GetNumberOfComponents();
 
   switch (this->GetDataType())

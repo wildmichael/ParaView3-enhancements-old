@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToStructuredPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:11 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 2001-03-16 13:28:37 $
+  Version:   $Revision: 1.44 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -141,7 +141,10 @@ void vtkImageToStructuredPoints::Execute()
   int uExtent[6];
   int *wExtent;
 
-  int idxX, idxY, idxZ, maxX, maxY, maxZ;
+  int idxX, idxY, idxZ;
+  int maxX = 0;
+  int maxY = 0;
+  int maxZ = 0;;
   int inIncX, inIncY, inIncZ, rowLength;
   unsigned char *inPtr1, *inPtr, *outPtr;
   vtkStructuredPoints *output = this->GetOutput();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkConnectivityFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:32 $
-  Version:   $Revision: 1.55 $
+  Date:      $Date: 2001-03-16 13:28:38 $
+  Version:   $Revision: 1.56 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -228,7 +228,7 @@ void vtkConnectivityFilter::Execute()
     else if ( this->ExtractionMode == VTK_EXTRACT_CLOSEST_POINT_REGION )
       {//loop over points, find closest one
       float minDist2, dist2, x[3];
-      int minId;
+      int minId = 0;
       for (minDist2=VTK_LARGE_FLOAT, i=0; i<numPts; i++)
         {
         input->GetPoint(i,x);

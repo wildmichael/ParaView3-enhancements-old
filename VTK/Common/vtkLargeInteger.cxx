@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLargeInteger.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-02-16 16:53:41 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2001-03-16 13:28:37 $
+  Version:   $Revision: 1.10 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -101,7 +101,7 @@ vtkLargeInteger::vtkLargeInteger(long n)
   this->Negative = n < 0 ? 1 : 0;
   n = n < 0 ? -n : n; // strip of sign
   this->Number = new char[BIT_INCREMENT];
-  for (int i = 0; i < BIT_INCREMENT; i++)
+  for (unsigned int i = 0; i < BIT_INCREMENT; i++)
     {
     this->Number[i] = n & 1;
     n >>= 1;
@@ -115,7 +115,7 @@ vtkLargeInteger::vtkLargeInteger(unsigned long n)
 {
   this->Negative = 0;
   this->Number = new char[BIT_INCREMENT];
-  for (int i = 0; i < BIT_INCREMENT; i++)
+  for (unsigned int i = 0; i < BIT_INCREMENT; i++)
     {
     this->Number[i] = n & 1;
     n >>= 1;
@@ -129,7 +129,7 @@ vtkLargeInteger::vtkLargeInteger(unsigned int n)
 {
   this->Negative = 0;
   this->Number = new char[BIT_INCREMENT];
-  for (int i = 0; i < BIT_INCREMENT; i++)
+  for (unsigned int i = 0; i < BIT_INCREMENT; i++)
     {
     this->Number[i] = n & 1;
     n >>= 1;
@@ -144,7 +144,7 @@ vtkLargeInteger::vtkLargeInteger(int n)
   this->Negative = n < 0 ? 1 : 0;
   n = n < 0 ? -n : n; // strip of sign
   this->Number = new char[BIT_INCREMENT];
-  for (int i = 0; i < BIT_INCREMENT; i++)
+  for (unsigned int i = 0; i < BIT_INCREMENT; i++)
     {
     this->Number[i] = n & 1;
     n >>= 1;

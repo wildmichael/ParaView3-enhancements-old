@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSight6BinaryReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-31 18:58:17 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-03-16 13:28:38 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -675,7 +675,7 @@ int vtkEnSight6BinaryReader::ReadScalarsPerElement(char* fileName, char* descrip
     // type (and what their ids are) -- IF THIS IS NOT A BLOCK SECTION
     if (strcmp(line, "block") != 0)
       {
-      while (lineRead = this->ReadLine(line) &&
+      while ((lineRead = this->ReadLine(line)) &&
              strncmp(line, "part", 4) != 0)
         {
         elementType = this->GetElementType(line);
@@ -790,7 +790,7 @@ int vtkEnSight6BinaryReader::ReadVectorsPerElement(char* fileName,
     // type (and what their ids are) -- IF THIS IS NOT A BLOCK SECTION
     if (strcmp(line, "block") != 0)
       {
-      while (lineRead = this->ReadLine(line) &&
+      while ((lineRead = this->ReadLine(line)) &&
              strncmp(line, "part", 4) != 0)
         {
         elementType = this->GetElementType(line);
@@ -904,7 +904,7 @@ int vtkEnSight6BinaryReader::ReadTensorsPerElement(char* fileName,
     // type (and what their ids are) -- IF THIS IS NOT A BLOCK SECTION
     if (strcmp(line, "block") != 0)
       {
-      while (lineRead = this->ReadLine(line) &&
+      while ((lineRead = this->ReadLine(line)) &&
              strncmp(line, "part", 4) != 0)
         {
         elementType = this->GetElementType(line);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointLocator.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:14 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 2001-03-16 13:28:37 $
+  Version:   $Revision: 1.51 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -194,7 +194,8 @@ int vtkPointLocator::FindClosestPoint(float x, float y, float z)
 int vtkPointLocator::FindClosestPoint(const float x[3])
 {
   int i, j;
-  float minDist2, dist2;
+  float minDist2;
+  float dist2 = VTK_LARGE_FLOAT;
   float *pt;
   int closest, level;
   int ptId, cno;

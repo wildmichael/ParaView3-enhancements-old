@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFieldData.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:09 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2001-03-16 13:28:37 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -120,7 +120,8 @@ void vtkFieldData::Initialize()
 // Allocate data for each array.
 int vtkFieldData::Allocate(const int sz, const int ext)
 {
-  int i, status;
+  int i;
+  int status = 0;
   
   for ( i=0; i < this->NumberOfArrays; i++ )
     {

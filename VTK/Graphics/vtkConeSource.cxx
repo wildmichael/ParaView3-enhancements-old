@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkConeSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-11 20:19:45 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 2001-03-16 13:28:38 $
+  Version:   $Revision: 1.49 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -108,6 +108,11 @@ void vtkConeSource::Execute()
   if ( this->Resolution )
     {
     angle = 2.0*3.141592654/this->Resolution;
+    }
+  else
+    {
+    vtkErrorMacro (<<"Resolution is zero!");
+    angle = 0.0;
     }
   //
   // Set things up; allocate memory

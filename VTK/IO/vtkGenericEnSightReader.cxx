@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGenericEnSightReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-02-09 14:54:52 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2001-03-16 13:28:38 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -427,7 +427,7 @@ void vtkGenericEnSightReader::SetCaseFileName(char* fileName)
     }
   
   // strip off the path and save it as FilePath if it was included in the filename
-  if (endingSlash = strrchr(this->CaseFileName, '/'))
+  if ((endingSlash = strrchr(this->CaseFileName, '/')))
     {
     position = endingSlash - this->CaseFileName + 1;
     path = new char[position + 1];

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkContourValues.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:07 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2001-03-16 13:28:37 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -123,7 +123,7 @@ void vtkContourValues::SetNumberOfContours(const int number)
   int    currentNumber = this->Contours->GetMaxId()+1;
   int    n = ( number < 0 ? 0 : number);
   int    i;
-  float  *oldValues;
+  float  *oldValues = NULL;
 
   if ( n != currentNumber )
     {

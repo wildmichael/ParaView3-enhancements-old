@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolygon.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-02 20:26:47 $
-  Version:   $Revision: 1.83 $
+  Date:      $Date: 2001-03-16 13:28:37 $
+  Version:   $Revision: 1.84 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -658,7 +658,6 @@ vtkPolyVertexList::vtkPolyVertexList(vtkIdList *ptIds, vtkPoints *pts,
   for (vtx=this->Head, i=0; i<numVerts; i++)
     {
     next = vtx->next;
-    float d2 = vtkMath::Distance2BetweenPoints(vtx->x,next->x);
     if ( vtkMath::Distance2BetweenPoints(vtx->x,next->x) < tol2 )
       {
       next->next->previous = vtx;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-02-27 12:31:49 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 2001-03-16 13:28:38 $
+  Version:   $Revision: 1.42 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -144,7 +144,7 @@ void vtkClipPolyData::Execute()
   int numberOfPoints;
   vtkPointData *inPD=input->GetPointData(), *outPD = output->GetPointData();
   vtkCellData *inCD=input->GetCellData(), *outCD = output->GetCellData();
-  vtkCellData *outClippedCD;
+  vtkCellData *outClippedCD = NULL;
   
   vtkDebugMacro(<< "Clipping polygonal data");
   
