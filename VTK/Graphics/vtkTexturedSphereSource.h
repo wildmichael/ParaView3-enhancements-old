@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTexturedSphereSource.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:56:37 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1997-03-04 17:59:10 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -53,7 +53,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 #define VTK_MAX_SPHERE_RESOLUTION 1024
 
-class vtkTexturedSphereSource : public vtkPolySource 
+class VTK_EXPORT vtkTexturedSphereSource : public vtkPolySource 
 {
 public:
   vtkTexturedSphereSource(int res=8);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-11-15 20:12:13 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 1997-03-04 17:58:17 $
+  Version:   $Revision: 1.47 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -748,11 +748,26 @@ void vtkRenderWindow::StereoRenderComplete(void)
 	{
 	for (y = 0; y < size[1]; y++)
 	  {
-	  res = p1[0] + p1[1] + p1[2];
-	  p3[0] = res/3;
-	  res = p2[0] + p2[1] + p2[2];
-	  p3[1] = 0;
-	  p3[2] = res/3;
+	  //	  res = p1[0] + p1[1] + p1[2];
+	  // p3[0] = res/3;
+	  //res = p2[0] + p2[1] + p2[2];
+	  //p3[1] = 0;
+	  //p3[2] = res/3;
+	  
+	  // copy green
+	  p3[1] = p1[1];
+	  // set red & blue to match intensity
+	  res = p1[0] + p1[2];
+	  p3[0] = res/2;
+	  p3[2] = res/2;
+	  // there can't be more red/blue bounding back than green
+	  if (p3[0] > p3[1])
+	    {
+	    res = p1[0] + p1[1] + p1[2];
+	    p3[0] = res/3;
+	    p3[1] = res/3;
+	    p3[2] = res/3;
+	    }
 	  p1 += 3;
 	  p2 += 3;
 	  p3 += 3;

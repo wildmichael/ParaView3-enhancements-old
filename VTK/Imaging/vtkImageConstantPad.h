@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageConstantPad.h,v $
   Language:  C++
-  Date:      $Date: 1997-01-08 15:19:23 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1997-03-04 18:00:04 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -51,7 +51,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 #include "vtkImagePadFilter.h"
 
-class vtkImageConstantPad : public vtkImagePadFilter
+class VTK_EXPORT vtkImageConstantPad : public vtkImagePadFilter
 {
 public:
   vtkImageConstantPad();

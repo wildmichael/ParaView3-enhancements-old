@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTensorGlyph.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:56:24 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1997-03-04 17:59:03 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -73,7 +73,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 #include "vtkDataSetToPolyFilter.h"
 
-class vtkTensorGlyph : public vtkDataSetToPolyFilter
+class VTK_EXPORT vtkTensorGlyph : public vtkDataSetToPolyFilter
 {
 public:
   vtkTensorGlyph();

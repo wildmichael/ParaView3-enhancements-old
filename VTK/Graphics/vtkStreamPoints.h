@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamPoints.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:55:48 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1997-03-04 17:58:42 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -52,7 +52,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 #include "vtkStreamer.h"
 
-class vtkStreamPoints : public vtkStreamer
+class VTK_EXPORT vtkStreamPoints : public vtkStreamer
 {
 public:
   vtkStreamPoints();

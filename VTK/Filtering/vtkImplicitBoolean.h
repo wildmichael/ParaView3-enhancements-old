@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitBoolean.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:53:14 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1997-03-04 17:57:18 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -65,7 +65,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #define VTK_DIFFERENCE 2
 #define VTK_UNION_OF_MAGNITUDES 3
 
-class vtkImplicitBoolean : public vtkImplicitFunction
+class VTK_EXPORT vtkImplicitBoolean : public vtkImplicitFunction
 {
 public:
   vtkImplicitBoolean();

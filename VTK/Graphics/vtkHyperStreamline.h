@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHyperStreamline.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:53:10 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1997-03-04 17:57:14 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -125,7 +125,7 @@ public:
 //ETX - end tcl exclude
 //
 
-class vtkHyperStreamline : public vtkDataSetToPolyFilter
+class VTK_EXPORT vtkHyperStreamline : public vtkDataSetToPolyFilter
 {
 public:
   vtkHyperStreamline();

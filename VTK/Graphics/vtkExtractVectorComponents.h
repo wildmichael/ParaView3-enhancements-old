@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractVectorComponents.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:52:30 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1997-03-04 17:56:56 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -60,7 +60,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 #include "vtkFilter.h"
 
-class vtkExtractVectorComponents : public vtkFilter
+class VTK_EXPORT vtkExtractVectorComponents : public vtkFilter
 {
 public:
   vtkExtractVectorComponents();

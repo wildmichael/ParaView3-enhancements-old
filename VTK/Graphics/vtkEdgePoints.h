@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEdgePoints.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:52:15 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1997-03-04 17:56:49 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,7 +56,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkDataSetToPolyFilter.h"
 #include "vtkMergePoints.h"
 
-class vtkEdgePoints : public vtkDataSetToPolyFilter
+class VTK_EXPORT vtkEdgePoints : public vtkDataSetToPolyFilter
 {
 public:
   vtkEdgePoints();

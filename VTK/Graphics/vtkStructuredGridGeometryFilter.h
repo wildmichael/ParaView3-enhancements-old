@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridGeometryFilter.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:55:56 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1997-03-04 17:58:45 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -62,7 +62,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 #include "vtkStructuredGridToPolyFilter.h"
 
-class vtkStructuredGridGeometryFilter : public vtkStructuredGridToPolyFilter
+class VTK_EXPORT vtkStructuredGridGeometryFilter : public vtkStructuredGridToPolyFilter
 {
 public:
   vtkStructuredGridGeometryFilter();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLightCollection.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:53:22 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1997-03-04 17:57:25 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -53,7 +53,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkCollection.h"
 #include "vtkLight.h"
 
-class vtkLightCollection : public vtkCollection
+class VTK_EXPORT vtkLightCollection : public vtkCollection
 {
  public:
   char *GetClassName() {return "vtkLightCollection";};

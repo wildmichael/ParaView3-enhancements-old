@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitDataSet.h,v $
   Language:  C++
-  Date:      $Date: 1997-02-14 20:53:22 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1997-03-04 17:57:19 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -66,7 +66,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkImplicitFunction.h"
 #include "vtkDataSet.h"
 
-class vtkImplicitDataSet : public vtkImplicitFunction
+class VTK_EXPORT vtkImplicitDataSet : public vtkImplicitFunction
 {
 public:
   vtkImplicitDataSet();

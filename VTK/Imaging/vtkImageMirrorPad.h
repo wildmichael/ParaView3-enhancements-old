@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMirrorPad.h,v $
   Language:  C++
-  Date:      $Date: 1997-01-08 15:20:41 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1997-03-04 18:00:36 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -50,7 +50,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 #include "vtkImagePadFilter.h"
 
-class vtkImageMirrorPad : public vtkImagePadFilter
+class VTK_EXPORT vtkImageMirrorPad : public vtkImagePadFilter
 {
 public:
   vtkImageMirrorPad();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:55:00 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1997-03-04 17:58:20 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -66,7 +66,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkPolyMapper.h"
 #include "vtkOutlineSource.h"
 
-class vtkRenderWindowInteractor : public vtkObject
+class VTK_EXPORT vtkRenderWindowInteractor : public vtkObject
 {
 public:
   vtkRenderWindowInteractor();

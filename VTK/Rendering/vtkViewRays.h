@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkViewRays.h,v $
   Language:  C++
-  Date:      $Date: 1997-02-19 21:18:21 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1997-03-04 17:59:32 $
+  Version:   $Revision: 1.2 $
 =========================================================================*/
 // .NAME vtkViewRays - provides view ray information for efficiently casting rays
 // .SECTION Description
@@ -49,7 +49,7 @@
 #include "vtkMatrix4x4.h"
 class vtkRenderer;
 
-class vtkViewRays :public vtkObject
+class VTK_EXPORT vtkViewRays :public vtkObject
   {
   public:
   vtkViewRays(void);

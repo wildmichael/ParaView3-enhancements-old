@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectorText.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-03-04 13:35:59 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1997-03-04 17:59:28 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,7 +42,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkFloatPoints.h"
 #include "vtkTransformPolyFilter.h"
 #include "vtkPolyReader.h"
-#include <strstream.h>
 
 char *VTK_VECTOR_TEXT_33 = "36 0.189286 "
 "0.14286 -0.35786 0.13000 -0.35643 0.11857 -0.35214 0.16143 -0.35071 0.10786 -0.34429 "

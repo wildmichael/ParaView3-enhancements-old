@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageViewer.h,v $
   Language:  C++
-  Date:      $Date: 1997-02-26 14:26:58 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1997-03-04 18:00:56 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -55,7 +55,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include 	"vtkImageSource.h"
 #include 	"vtkImageRegion.h"
 
-class vtkImageViewer : public vtkObject {
+class VTK_EXPORT vtkImageViewer : public vtkObject {
 public:
   vtkImageViewer();
   ~vtkImageViewer();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUGFacetReader.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:56:57 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1997-03-04 17:59:19 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -51,7 +51,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkPolySource.h"
 #include "vtkShortArray.h"
 
-class vtkUGFacetReader : public vtkPolySource 
+class VTK_EXPORT vtkUGFacetReader : public vtkPolySource 
 {
 public:
   vtkUGFacetReader();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOBBTree.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:53:49 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1997-03-04 17:57:41 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -96,7 +96,7 @@ public:
 //ETX - end tcl exclude
 //
 
-class vtkOBBTree : public vtkCellLocator
+class VTK_EXPORT vtkOBBTree : public vtkCellLocator
 {
 public:
   vtkOBBTree();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.h,v $
   Language:  C++
-  Date:      $Date: 1997-02-26 18:56:32 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 1997-03-04 17:58:21 $
+  Version:   $Revision: 1.44 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -63,7 +63,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class vtkRenderWindow;
 class vtkNewVolumeRenderer;
 
-class vtkRenderer : public vtkObject
+class VTK_EXPORT vtkRenderer : public vtkObject
 {
 public:
   vtkRenderer();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLODActor.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:53:19 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1997-03-04 17:57:24 $
+  Version:   $Revision: 1.8 $
   
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -66,7 +66,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkGlyph3D.h"
 #include "vtkPointSource.h"
 
-class vtkLODActor : public vtkActor
+class VTK_EXPORT vtkLODActor : public vtkActor
 {
  public:
   vtkLODActor();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectorText.h,v $
   Language:  C++
-  Date:      $Date: 1997-03-04 13:36:01 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1997-03-04 17:59:30 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -48,7 +48,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 #include "vtkPolySource.h"
 
-class vtkVectorText : public vtkPolySource 
+class VTK_EXPORT vtkVectorText : public vtkPolySource 
 {
 public:
   vtkVectorText();

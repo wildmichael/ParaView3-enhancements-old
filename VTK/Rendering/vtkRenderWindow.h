@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 1997-02-26 18:46:40 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 1997-03-04 17:58:18 $
+  Version:   $Revision: 1.42 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -68,7 +68,7 @@ class vtkPolyMapperDevice;
 #define VTK_STEREO_CRYSTAL_EYES 1
 #define VTK_STEREO_RED_BLUE     2
 
-class vtkRenderWindow : public vtkObject
+class VTK_EXPORT vtkRenderWindow : public vtkObject
 {
 public:
   vtkRenderWindow();

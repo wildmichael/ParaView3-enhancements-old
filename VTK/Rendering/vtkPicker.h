@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPicker.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:54:15 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1997-03-04 17:57:54 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -68,7 +68,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkMapper.h"
 #include "vtkTransform.h"
 
-class vtkPicker : public vtkObject
+class VTK_EXPORT vtkPicker : public vtkObject
 {
 public:
   vtkPicker();

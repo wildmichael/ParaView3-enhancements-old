@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSobel3D.h,v $
   Language:  C++
-  Date:      $Date: 1997-01-03 14:59:10 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1997-03-04 18:00:51 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -52,7 +52,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 #include "vtkImageFilter.h"
 
-class vtkImageSobel3D : public vtkImageFilter
+class VTK_EXPORT vtkImageSobel3D : public vtkImageFilter
 {
 public:
   vtkImageSobel3D();

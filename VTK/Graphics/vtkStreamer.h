@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamer.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:55:50 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1997-03-04 17:58:43 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -126,7 +126,7 @@ public:
 //ETX
 //
 
-class vtkStreamer : public vtkDataSetToPolyFilter
+class VTK_EXPORT vtkStreamer : public vtkDataSetToPolyFilter
 {
 public:
   vtkStreamer();
