@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: vtkXdmfDataSetWriter.h,v 1.2 2003-03-04 15:24:32 andy Exp $  */
-/*  Date : $Date: 2003-03-04 15:24:32 $ */
-/*  Version : $Revision: 1.2 $ */
+/*  Id : $Id: vtkXdmfDataSetWriter.h,v 1.3 2003-12-19 19:55:23 andy Exp $  */
+/*  Date : $Date: 2003-12-19 19:55:23 $ */
+/*  Version : $Revision: 1.3 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -62,8 +62,8 @@ public:
   void SetInput(vtkDataSet *input) {
     this->Input = input;
     }
-  void SetHeavyDataSetName( char *HeavyDataSetName ) {
-    if( HeavyDataSetName ) strcpy( this->HeavyDataSetName, HeavyDataSetName );
+  void SetHeavyDataSetName( char *hd) {
+    if( hd ) strcpy( this->HeavyDataSetName, hd );
     this->AllLight = 0;
     }
   void StartTopology( int Type, vtkCellArray *Cells);

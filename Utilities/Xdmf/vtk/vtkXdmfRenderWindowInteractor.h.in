@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: vtkXdmfRenderWindowInteractor.h.in,v 1.1 2003-05-08 18:24:07 clarke Exp $ */
-/*  Date : $Date: 2003-05-08 18:24:07 $ */
-/*  Version : $Revision: 1.1 $ */
+/*  Id : $Id: vtkXdmfRenderWindowInteractor.h.in,v 1.2 2003-12-19 19:55:23 andy Exp $ */
+/*  Date : $Date: 2003-12-19 19:55:23 $ */
+/*  Version : $Revision: 1.2 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -22,6 +22,9 @@
 /*     for more information.                                       */
 /*                                                                 */
 /*******************************************************************/
+#ifndef _@XDMF_WINDOWINTERACTOR@_h
+#define _@XDMF_WINDOWINTERACTOR@_h
+
 #include <@XDMF_WINDOWINTERACTOR@.h>
 
 class VTK_EXPORT vtkXdmfRenderWindowInteractor : public @XDMF_WINDOWINTERACTOR@
@@ -30,5 +33,8 @@ public:
   static vtkXdmfRenderWindowInteractor *New();
   vtkTypeMacro(vtkXdmfRenderWindowInteractor,@XDMF_WINDOWINTERACTOR@);
   virtual void LoopOnce();
-  virtual void Start( int Block = 0 );
+  virtual void Start( int Block );
+  virtual void Start( ) { this->Start(0); }
 };
+
+#endif
