@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCompositeManager.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-02 14:59:01 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 2003-01-17 14:32:18 $
+  Version:   $Revision: 1.46 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -43,7 +43,7 @@
  #include <mpi.h>
 #endif
 
-vtkCxxRevisionMacro(vtkCompositeManager, "$Revision: 1.45 $");
+vtkCxxRevisionMacro(vtkCompositeManager, "$Revision: 1.46 $");
 vtkStandardNewMacro(vtkCompositeManager);
 
 
@@ -507,7 +507,7 @@ void vtkCompositeManager::SetCompositer(vtkCompositer *c)
     }
   if (this->Compositer)
     {
-    this->Compositer->Delete();
+    this->Compositer->UnRegister(this);
     this->Compositer = NULL;
     }
   this->Compositer = c;
