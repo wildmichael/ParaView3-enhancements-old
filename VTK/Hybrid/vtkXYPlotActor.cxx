@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXYPlotActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-28 13:33:49 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2001-08-14 20:44:43 $
+  Version:   $Revision: 1.25 $
   Thanks:    Thanks to Kitware & RPI/SCOREC who supported the development
              of this class.
 
@@ -538,7 +538,7 @@ int vtkXYPlotActor::RenderOpaqueGeometry(vtkViewport *viewport)
 	    }
 	  else
 	    {
-	      this->YAxis->SetRange(yrange[1],range[0]);
+	      this->YAxis->SetRange(yrange[1],yrange[0]);
 	    }
 	}
       else
