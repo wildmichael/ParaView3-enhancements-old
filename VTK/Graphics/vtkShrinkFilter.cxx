@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkShrinkFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:26:39 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1995-07-24 17:09:10 $
+  Version:   $Revision: 1.19 $
 
 This file is part of the Visualization Toolkit. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -17,12 +17,12 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 
 void vtkShrinkFilter::Execute()
 {
-  vtkIdList ptIds(MAX_CELL_SIZE), newPtIds(MAX_CELL_SIZE);
   vtkFloatPoints *newPts;
   int i, j, cellId, numCells, numPts;
   int oldId, newId;
   float center[3], *p, pt[3];
   vtkPointData *pd;
+  vtkIdList ptIds(MAX_CELL_SIZE), newPtIds(MAX_CELL_SIZE);
 
   vtkDebugMacro(<<"Shrinking cells");
   this->Initialize();
@@ -71,11 +71,12 @@ void vtkShrinkFilter::Execute()
     this->InsertNextCell(this->Input->GetCellType(cellId), newPtIds);
     }
 //
-// Update ourselves
+// Update ourselves and release memory
 //
-  
   this->SetPoints(newPts);
   this->Squeeze();
+
+  newPts->Delete();
 }
 
 void vtkShrinkFilter::PrintSelf(ostream& os, vtkIndent indent)

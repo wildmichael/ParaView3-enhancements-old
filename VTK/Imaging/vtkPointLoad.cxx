@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPointLoad.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-21 14:45:32 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1995-07-24 17:09:14 $
+  Version:   $Revision: 1.8 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -215,11 +215,16 @@ void vtkPointLoad::Execute()
       }
     }
 //
-// Update self
+// Update self and free memory
 //
   this->PointData.SetTensors(newTensors);
+  newTensors->Delete();
+
   if ( this->ComputeEffectiveStress)
+    {
     this->PointData.SetScalars(newScalars);
+    newScalars->Delete();
+    }
 }
 
 

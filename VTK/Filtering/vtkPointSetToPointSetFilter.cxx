@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSetToPointSetFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:26:15 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1995-07-24 17:09:07 $
+  Version:   $Revision: 1.14 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -79,9 +79,9 @@ void vtkPointSetToPointSetFilter::Initialize()
 {
   if ( this->Input != NULL )
     {
-    vtkDataSet *ds=this->Input->MakeObject();
-    delete this->PointSet;
     // copies input geometry to internal data set
+    vtkDataSet *ds=this->Input->MakeObject();
+    this->PointSet->Delete();
     this->PointSet = ds;
     }
   else

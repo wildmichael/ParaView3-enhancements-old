@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:25:58 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1995-07-24 17:09:00 $
+  Version:   $Revision: 1.11 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -115,8 +115,8 @@ void vtkMergeFilter::Initialize()
 {
   if ( this->Geometry )
     {
-    delete this->Geometry;
     // copies input geometry to internal data set
+    this->Geometry->Delete();
     this->Geometry = this->Geometry->MakeObject(); 
     }
   else

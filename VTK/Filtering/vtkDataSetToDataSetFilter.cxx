@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetToDataSetFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:25:11 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1995-07-24 17:08:58 $
+  Version:   $Revision: 1.18 $
 
 This file is part of the Visualization Toolkit. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -35,8 +35,8 @@ void vtkDataSetToDataSetFilter::Initialize()
 {
   if ( this->Input )
     {
-    delete this->DataSet;
     // copies input geometry to internal data set
+    this->DataSet->Delete();
     this->DataSet = this->Input->MakeObject(); 
     }
   else

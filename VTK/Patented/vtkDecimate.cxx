@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDecimate.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:25:17 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1995-07-24 17:08:59 $
+  Version:   $Revision: 1.15 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -150,6 +150,7 @@ void vtkDecimate::Execute()
   Mesh->SetPoints(inPts);
   newPolys = new vtkCellArray(*(inPolys));
   Mesh->SetPolys(newPolys);
+  newPolys->Delete(); //registered by Mesh and preserved
   Mesh->BuildLinks();
 //
 // Create array of vertex errors (initially zero)
@@ -372,13 +373,16 @@ void vtkDecimate::CreateOutput(int numPts, int numTris, int numEliminated,
     }
 
   delete [] map;
-  delete Mesh; //side effect: releases memory consumned by data structures
+  Mesh->Delete();
   this->SetPoints(newPts);
   this->SetPolys(newPolys);
 
+  newPts->Delete();
+  newPolys->Delete();
   if ( this->GenerateErrorScalars )
     {
     this->PointData.SetScalars(newScalars);
+    newScalars->Delete();
     delete [] VertexError;
     }
 }
