@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:26:15 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 2002-02-18 21:43:38 $
+  Version:   $Revision: 1.51 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkFloatArray.h"
 
-vtkCxxRevisionMacro(vtkRectilinearGrid, "$Revision: 1.50 $");
+vtkCxxRevisionMacro(vtkRectilinearGrid, "$Revision: 1.51 $");
 vtkStandardNewMacro(vtkRectilinearGrid);
 
 //----------------------------------------------------------------------------
@@ -771,6 +771,10 @@ int vtkRectilinearGrid::ComputeStructuredCoordinates(float x[3], int ijk[3],
       xPrev = tmp;
       }
     if ( x[j] < xPrev || x[j] > xNext )
+      {
+      return 0;
+      }
+    if (x[j] == xNext  && this->Dimensions[j] != 1)
       {
       return 0;
       }
