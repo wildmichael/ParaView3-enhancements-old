@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadraticHexahedron.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-06 13:15:18 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2002-06-08 00:42:50 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,7 +25,7 @@
 #include "vtkFloatArray.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkQuadraticHexahedron, "$Revision: 1.9 $");
+vtkCxxRevisionMacro(vtkQuadraticHexahedron, "$Revision: 1.10 $");
 vtkStandardNewMacro(vtkQuadraticHexahedron);
 
 // Construct the hex with 20 points + 7 extra points for internal
@@ -498,7 +498,7 @@ void vtkQuadraticHexahedron::Derivatives(int vtkNotUsed(subId),
 // Clip this quadratic hex using scalar value provided. Like contouring, 
 // except that it cuts the hex to produce tetrahedra.
 void vtkQuadraticHexahedron::Clip(float value, 
-                                  vtkDataArray* cellScalars, 
+                                  vtkDataArray* vtkNotUsed(cellScalars), 
                                   vtkPointLocator* locator,
                                   vtkCellArray* tets,
                                   vtkPointData* inPd, 
