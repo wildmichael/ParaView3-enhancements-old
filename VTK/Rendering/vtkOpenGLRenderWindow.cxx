@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-03-08 15:57:16 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2000-04-18 01:59:28 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -292,8 +292,9 @@ void vtkOpenGLRenderWindow::Start(void)
 // End the rendering process and display the image.
 void vtkOpenGLRenderWindow::Frame(void)
 {
+  this->MakeCurrent();
   glFlush();
-  if (!this->AbortRender && this->DoubleBuffer&&this->SwapBuffers)
+  if (!this->AbortRender && this->DoubleBuffer && this->SwapBuffers)
     {
     glXSwapBuffers(this->DisplayId, this->WindowId);
     vtkDebugMacro(<< " glXSwapBuffers\n");

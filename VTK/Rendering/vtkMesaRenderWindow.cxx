@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-07 20:13:55 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2000-04-18 01:59:28 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -261,8 +261,9 @@ void vtkMesaRenderWindow::Start(void)
 // End the rendering process and display the image.
 void vtkMesaRenderWindow::Frame(void)
 {
+  this->MakeCurrent();
   glFlush();
-  if (!this->AbortRender && this->DoubleBuffer&&this->SwapBuffers)
+  if (!this->AbortRender && this->DoubleBuffer && this->SwapBuffers)
     {
     glXSwapBuffers(this->DisplayId, this->WindowId);
     vtkDebugMacro(<< " glXSwapBuffers\n");
