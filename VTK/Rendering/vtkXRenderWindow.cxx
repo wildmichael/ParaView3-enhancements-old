@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:49:55 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1997-07-14 13:11:15 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,12 +57,12 @@ vtkXRenderWindow::vtkXRenderWindow()
 
 vtkXRenderWindow::~vtkXRenderWindow()
 {
-  if (this->Interactor) this->Interactor->Delete();
 }
 
 int vtkXRenderWindowFoundMatch;
 
-Bool vtkXRenderWindowPredProc(Display *disp, XEvent *event, char *arg)
+Bool vtkXRenderWindowPredProc(Display *vtkNotUsed(disp), XEvent *event, 
+			      char *arg)
 {
   Window win = (Window)arg;
   
