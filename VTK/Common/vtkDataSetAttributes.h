@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetAttributes.h,v $
   Language:  C++
-  Date:      $Date: 1998-05-19 21:36:56 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-06-18 14:55:25 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -206,14 +206,6 @@ protected:
   int CopyTCoordsEnabled;
   int CopyTensorsEnabled;
   int CopyFieldDataEnabled;
-
-  // used internally during copying, interpolation, etc.
-  vtkScalars CellScalars;
-  vtkVectors CellVectors;
-  vtkNormals CellNormals;
-  vtkTCoords CellTCoords;
-  vtkTensors CellTensors;
-  vtkFieldData *CellFieldData;
 
   // used to set null values
   float Null3Tuple[3];
