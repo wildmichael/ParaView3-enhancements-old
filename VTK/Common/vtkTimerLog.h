@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTimerLog.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 20:48:18 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1997-06-27 15:30:40 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -88,7 +88,7 @@ public:
   
   void PrintSelf(ostream& os, vtkIndent indent);
   static vtkTimerLog *New() {return new vtkTimerLog;};
-  char *GetClassName() {return "vtkTimerLog";};
+  const char *GetClassName() {return "vtkTimerLog";};
 
   // Description:
   // Set/Get the maximum number of entries allowed in the timer log

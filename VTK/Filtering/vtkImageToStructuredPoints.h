@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToStructuredPoints.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-13 20:12:52 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1997-06-27 15:30:00 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -64,7 +64,7 @@ public:
   vtkImageToStructuredPoints();
   ~vtkImageToStructuredPoints();
   static vtkImageToStructuredPoints *New() {return new vtkImageToStructuredPoints;};
-  char *GetClassName() {return "vtkImageToStructuredPoints";};
+  const char *GetClassName() {return "vtkImageToStructuredPoints";};
   void PrintSelf(ostream& os, vtkIndent indent);
   
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPixel.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 20:47:56 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 1997-06-27 15:30:15 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,7 +56,7 @@ public:
   vtkPixel();
   vtkPixel(const vtkPixel& r);
   static vtkPixel *New() {return new vtkPixel;};
-  char *GetClassName() {return "vtkPixel";};
+  const char *GetClassName() {return "vtkPixel";};
 
   // cell methods
   vtkCell *MakeObject() {return new vtkPixel(*this);};

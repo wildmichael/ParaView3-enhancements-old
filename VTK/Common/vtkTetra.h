@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTetra.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 20:48:17 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 1997-06-27 15:30:38 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,7 +56,7 @@ public:
   vtkTetra();
   vtkTetra(const vtkTetra& t);
   static vtkTetra *New() {return new vtkTetra;};
-  char *GetClassName() {return "vtkTetra";};
+  const char *GetClassName() {return "vtkTetra";};
 
   // cell methods
   vtkCell *MakeObject() {return new vtkTetra(*this);};

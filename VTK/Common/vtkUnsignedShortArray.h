@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnsignedShortArray.h,v $
   Language:  C++
-  Date:      $Date: 1997-05-23 20:29:22 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1997-06-27 15:30:46 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,7 +59,7 @@ public:
   vtkUnsignedShortArray(const vtkUnsignedShortArray& ia);
   ~vtkUnsignedShortArray();
   static vtkUnsignedShortArray *New() {return new vtkUnsignedShortArray;};
-  char *GetClassName() {return "vtkUnsignedShortArray";};
+  const char *GetClassName() {return "vtkUnsignedShortArray";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // access/insertion methods

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCollection.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-06 18:07:25 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1997-06-27 15:29:40 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -72,7 +72,7 @@ public:
   virtual ~vtkCollection();
   void PrintSelf(ostream& os, vtkIndent indent);
   static vtkCollection *New() {return new vtkCollection;};
-  char *GetClassName() {return "vtkCollection";};
+  const char *GetClassName() {return "vtkCollection";};
 
   void AddItem(vtkObject *);
   void ReplaceItem(int i, vtkObject *);

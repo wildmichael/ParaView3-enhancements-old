@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObject.h,v $
   Language:  C++
-  Date:      $Date: 1997-05-14 23:35:05 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 1997-06-27 15:30:14 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -63,7 +63,7 @@ public:
   virtual void Delete(); //delete a vtk object.
   virtual ~vtkObject(); //use Delete() whenever possible
   static vtkObject *New() {return new vtkObject;};
-  virtual char *GetClassName() {return "vtkObject";};
+  virtual const char *GetClassName() {return "vtkObject";};
 
   // debugging
   virtual void DebugOn();

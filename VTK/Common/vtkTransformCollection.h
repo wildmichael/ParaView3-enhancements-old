@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransformCollection.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-23 18:57:31 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1997-06-27 15:30:41 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -54,7 +54,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkTransformCollection : public vtkCollection
 {
 public:
-  char *GetClassName() {return "vtkTransformCollection";};
+  const char *GetClassName() {return "vtkTransformCollection";};
   static vtkTransformCollection *New() {return new vtkTransformCollection;};
 
   void AddItem(vtkTransform *);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalars.h,v $
   Language:  C++
-  Date:      $Date: 1997-05-23 20:29:05 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 1997-06-27 15:30:28 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -75,7 +75,7 @@ class VTK_EXPORT vtkScalars : public vtkReferenceCount
 public:
   vtkScalars();
   virtual ~vtkScalars();
-  char *GetClassName() {return "vtkScalars";};
+  const char *GetClassName() {return "vtkScalars";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // For ImageData

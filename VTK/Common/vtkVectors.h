@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectors.h,v $
   Language:  C++
-  Date:      $Date: 1997-05-23 20:29:29 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1997-06-27 15:30:49 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,7 +57,7 @@ class VTK_EXPORT vtkVectors : public vtkReferenceCount
 {
 public:
   vtkVectors();
-  char *GetClassName() {return "vtkVectors";};
+  const char *GetClassName() {return "vtkVectors";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

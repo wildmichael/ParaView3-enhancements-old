@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.h,v $
   Language:  C++
-  Date:      $Date: 1997-05-23 20:28:33 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1997-06-27 15:29:57 $
+  Version:   $Revision: 1.25 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -111,7 +111,7 @@ class VTK_EXPORT vtkImageData : public vtkReferenceCount
 public:
   vtkImageData();
   static vtkImageData *New() {return new vtkImageData;};
-  char *GetClassName() {return "vtkImageData";};
+  const char *GetClassName() {return "vtkImageData";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

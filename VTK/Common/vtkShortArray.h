@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkShortArray.h,v $
   Language:  C++
-  Date:      $Date: 1997-05-23 20:29:07 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1997-06-27 15:30:29 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,7 +59,7 @@ public:
   vtkShortArray(const vtkShortArray& ia);
   ~vtkShortArray();
   static vtkShortArray *New() {return new vtkShortArray;};
-  char *GetClassName() {return "vtkShortArray";};
+  const char *GetClassName() {return "vtkShortArray";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // access/insertion methods

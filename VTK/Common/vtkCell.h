@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCell.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-20 19:39:38 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 1997-06-27 15:29:36 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -76,7 +76,7 @@ class VTK_EXPORT vtkCell : public vtkObject
 public:
   vtkCell();
   void Initialize(int npts, int *pts, vtkPoints *p);
-  char *GetClassName() {return "vtkCell";};
+  const char *GetClassName() {return "vtkCell";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

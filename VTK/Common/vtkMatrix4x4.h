@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMatrix4x4.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 20:47:53 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1997-06-27 15:30:12 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -60,7 +60,7 @@ class VTK_EXPORT vtkMatrix4x4 : public vtkObject
   vtkMatrix4x4 ();
   vtkMatrix4x4 (const vtkMatrix4x4& m);
   static vtkMatrix4x4 *New() {return new vtkMatrix4x4;};
-  char *GetClassName () {return "vtkMatrix4x4";};
+  const char *GetClassName () {return "vtkMatrix4x4";};
   void PrintSelf (ostream& os, vtkIndent indent);
 
   void operator= (float element);

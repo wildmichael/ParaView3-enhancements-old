@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLogLookupTable.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 20:47:51 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1997-06-27 15:30:09 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -61,7 +61,7 @@ class VTK_EXPORT vtkLogLookupTable : public vtkLookupTable
 public:
   vtkLogLookupTable(int sze=256, int ext=256);
   static vtkLogLookupTable *New() {return new vtkLogLookupTable;};
-  char *GetClassName() {return "vtkLogLookupTable";};
+  const char *GetClassName() {return "vtkLogLookupTable";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
   void SetTableRange(float min, float max);

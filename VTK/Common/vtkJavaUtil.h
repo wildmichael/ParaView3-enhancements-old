@@ -3,8 +3,8 @@
   Program:   Java Wrapper for VTK
   Module:    $RCSfile: vtkJavaUtil.h,v $
   Language:  C++
-  Date:      $Date: 1997-03-04 17:54:47 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1997-06-27 15:30:07 $
+  Version:   $Revision: 1.3 $
 
 This file's contents may be copied, reproduced or altered in any way 
 without the express written consent of the author.
@@ -24,7 +24,7 @@ extern void vtkJavaDeleteObjectFromHash(JNIEnv *env, int id);
 extern jobject vtkJavaGetObjectFromPointer(void *ptr);
 extern int  vtkJavaShouldIDeleteObject(JNIEnv *env,jobject obj);
 extern char *vtkJavaUTFToChar(JNIEnv *env, jstring in);
-extern jstring vtkJavaMakeJavaString(JNIEnv *env, char *in);
+extern jstring vtkJavaMakeJavaString(JNIEnv *env, const char *in);
 
 extern jarray vtkJavaMakeJArrayOfDoubleFromFloat(JNIEnv *env,
 						 float *arr, int size);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellTypes.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-20 19:31:19 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1997-06-27 15:29:39 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -73,7 +73,7 @@ public:
   ~vtkCellTypes();
   static vtkCellTypes *New() {return new vtkCellTypes;};
   int Allocate(int sz=512, int ext=1000);
-  char *GetClassName() {return "vtkCellTypes";};
+  const char *GetClassName() {return "vtkCellTypes";};
 
   void InsertCell(int id, unsigned char type, int loc);
   int InsertNextCell(unsigned char type, int loc);

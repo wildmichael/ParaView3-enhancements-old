@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSet.h,v $
   Language:  C++
-  Date:      $Date: 1997-05-23 20:28:52 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1997-06-27 15:30:20 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -61,7 +61,7 @@ public:
   vtkPointSet();
   ~vtkPointSet();
   vtkPointSet(const vtkPointSet& ps);
-  char *GetClassName() {return "vtkPointSet";};
+  const char *GetClassName() {return "vtkPointSet";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // dataset interface

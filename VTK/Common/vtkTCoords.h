@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTCoords.h,v $
   Language:  C++
-  Date:      $Date: 1997-05-23 20:29:16 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1997-06-27 15:30:36 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,7 +59,7 @@ class VTK_EXPORT vtkTCoords : public vtkReferenceCount
 {
 public:
   vtkTCoords(int dim=2);
-  char *GetClassName() {return "vtkTCoords";};
+  const char *GetClassName() {return "vtkTCoords";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

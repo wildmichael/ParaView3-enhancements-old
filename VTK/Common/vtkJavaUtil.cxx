@@ -3,8 +3,8 @@
   Program:   Java Wrapper for VTK
   Module:    $RCSfile: vtkJavaUtil.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-06-23 18:49:47 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1997-06-27 15:30:06 $
+  Version:   $Revision: 1.9 $
 
 This file's contents may be copied, reproduced or altered in any way 
 without the express written consent of the author.
@@ -409,14 +409,14 @@ char *vtkJavaUTFToChar(JNIEnv *env,jstring in)
   
   for (i = 0; i < length; i++)
     {
-    if (inBytes[i] < 128 ) resultLength++;
+    if ((inBytes[i] >= 0)&&(inBytes[i] < 128 )) resultLength++;
     }
   result = new char [resultLength];
 
   resultLength = 0; // the 0 versus 1 up above is on purpose
   for (i = 0; i < length; i++)
     {
-    if (inBytes[i] < 128 ) 
+    if ((inBytes[i] >= 0)&&(inBytes[i] < 128 ))
       {
       result[resultLength] = inBytes[i];
       resultLength++;
@@ -427,7 +427,7 @@ char *vtkJavaUTFToChar(JNIEnv *env,jstring in)
   return result;
 }
 
-jstring vtkJavaMakeJavaString(JNIEnv *env, char *in)
+jstring vtkJavaMakeJavaString(JNIEnv *env, const char *in)
 {
   jstring result;
   char *utf;

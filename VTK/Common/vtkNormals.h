@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkNormals.h,v $
   Language:  C++
-  Date:      $Date: 1997-05-23 20:28:46 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1997-06-27 15:30:13 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,7 +59,7 @@ class VTK_EXPORT vtkNormals : public vtkReferenceCount
 public:
   vtkNormals() {};
   virtual ~vtkNormals() {};
-  char *GetClassName() {return "vtkNormals";};
+  const char *GetClassName() {return "vtkNormals";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellArray.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-20 19:39:39 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 1997-06-27 15:29:37 $
+  Version:   $Revision: 1.52 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -72,7 +72,7 @@ public:
     {return this->Ia->Allocate(sz,ext);};
   void Initialize() {this->Ia->Initialize();};
   static vtkCellArray *New() {return new vtkCellArray;};
-  char *GetClassName() {return "vtkCellArray";};
+  const char *GetClassName() {return "vtkCellArray";};
 
   int GetNumberOfCells();
 

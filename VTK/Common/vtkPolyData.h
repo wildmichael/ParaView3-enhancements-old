@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyData.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-20 19:39:52 $
-  Version:   $Revision: 1.60 $
+  Date:      $Date: 1997-06-27 15:30:21 $
+  Version:   $Revision: 1.61 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -73,7 +73,7 @@ public:
   vtkPolyData(const vtkPolyData& pd);
   ~vtkPolyData();
   static vtkPolyData *New() {return new vtkPolyData;};
-  char *GetClassName() {return "vtkPolyData";};
+  const char *GetClassName() {return "vtkPolyData";};
   char *GetDataType() {return "vtkPolyData";};
   void PrintSelf(ostream& os, vtkIndent indent);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredData.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 20:48:12 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 1997-06-27 15:30:32 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -66,7 +66,7 @@ class VTK_EXPORT vtkStructuredData : public vtkObject
 {
 public:
   static vtkStructuredData *New() {return new vtkStructuredData;};
-  char *GetClassName() {return "vtkStructuredData";};
+  const char *GetClassName() {return "vtkStructuredData";};
   static int SetDimensions(int inDim[3], int dim[3]);
   static int GetDataDimension(int dataDescription);
 

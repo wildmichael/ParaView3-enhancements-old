@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkContourValues.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-02 22:32:46 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1997-06-27 15:29:42 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -60,7 +60,7 @@ public:
   vtkContourValues();
   ~vtkContourValues();
   static vtkContourValues *New() {return new vtkContourValues;};
-  char *GetClassName() {return "vtkContourValues";};
+  const char *GetClassName() {return "vtkContourValues";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
   void SetValue(int i, float value);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuad.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 20:48:06 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 1997-06-27 15:30:25 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -54,7 +54,7 @@ public:
   vtkQuad();
   vtkQuad(const vtkQuad& q);
   static vtkQuad *New() {return new vtkQuad;};
-  char *GetClassName() {return "vtkQuad";};
+  const char *GetClassName() {return "vtkQuad";};
 
   // cell methods
   vtkCell *MakeObject() {return new vtkQuad(*this);};

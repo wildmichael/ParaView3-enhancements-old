@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoidArray.h,v $
   Language:  C++
-  Date:      $Date: 1997-05-23 20:29:30 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1997-06-27 15:30:51 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,7 +59,7 @@ public:
   vtkVoidArray(const vtkVoidArray& fa);
   ~vtkVoidArray();
   static vtkVoidArray *New() {return new vtkVoidArray;};
-  char *GetClassName() {return "vtkVoidArray";};
+  const char *GetClassName() {return "vtkVoidArray";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // access/insertion methods

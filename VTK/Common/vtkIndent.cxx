@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIndent.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 21:02:31 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1997-06-27 15:30:03 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,7 +42,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #define vtkStdIndent 2
 #define NumberOfBlanks 40
 
-static char blanks[NumberOfBlanks+1]="                                        ";
+static const char blanks[NumberOfBlanks+1]="                                        ";
 
 // Description:
 // Determine the next indentation level. Keep indenting by two until the 
@@ -53,7 +53,7 @@ vtkIndent vtkIndent::GetNextIndent()
   if ( indent > NumberOfBlanks ) indent = NumberOfBlanks;
   return indent;
 }
-
+ 
 // Description:
 // Print out the indentation. Basically output a bunch of spaces.
 ostream& operator<<(ostream& os, vtkIndent& ind)

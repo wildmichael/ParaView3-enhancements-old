@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPriorityQueue.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-23 18:57:29 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1997-06-27 15:30:24 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -75,7 +75,7 @@ public:
   vtkPriorityQueue(const int sz, const int ext=1000);
   ~vtkPriorityQueue();
   static vtkPriorityQueue *New() {return new vtkPriorityQueue;};
-  char *GetClassName() {return "vtkPriorityQueue";};
+  const char *GetClassName() {return "vtkPriorityQueue";};
   
   void PrintSelf(ostream& os, vtkIndent indent);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGrid.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-20 19:39:56 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1997-06-27 15:30:48 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -60,7 +60,7 @@ public:
   vtkUnstructuredGrid(const vtkUnstructuredGrid& up);
   ~vtkUnstructuredGrid();
   static vtkUnstructuredGrid *New() {return new vtkUnstructuredGrid;};
-  char *GetClassName() {return "vtkUnstructuredGrid";};
+  const char *GetClassName() {return "vtkUnstructuredGrid";};
   char *GetDataType() {return "vtkUnstructuredGrid";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
