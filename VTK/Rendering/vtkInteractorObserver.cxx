@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorObserver.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-01-16 19:54:30 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2003-04-10 21:33:39 $
+  Version:   $Revision: 1.22 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 #include "vtkRenderWindow.h"
 #include "vtkRenderWindowInteractor.h"
 
-vtkCxxRevisionMacro(vtkInteractorObserver, "$Revision: 1.21 $");
+vtkCxxRevisionMacro(vtkInteractorObserver, "$Revision: 1.22 $");
 
 vtkCxxSetObjectMacro(vtkInteractorObserver,CurrentRenderer,vtkRenderer);
 
@@ -52,6 +52,7 @@ vtkInteractorObserver::vtkInteractorObserver()
 
 vtkInteractorObserver::~vtkInteractorObserver()
 {
+  this->SetCurrentRenderer(NULL);
   this->EventCallbackCommand->Delete();
   this->KeyPressCallbackCommand->Delete();
 }
