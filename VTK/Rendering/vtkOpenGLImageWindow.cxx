@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLImageWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:14:07 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2000-09-05 12:08:12 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,7 +42,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkOpenGLImageWindow.h"
 #include "vtkOpenGLImager.h"
 #include "GL/gl.h"
-#include "GL/glu.h"
 #include "vtkObjectFactory.h"
 
 
