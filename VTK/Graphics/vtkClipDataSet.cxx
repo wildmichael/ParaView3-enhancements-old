@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipDataSet.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-17 15:00:12 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2002-10-02 13:44:49 $
+  Version:   $Revision: 1.21 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,10 +22,11 @@
 #include "vtkObjectFactory.h"
 #include "vtkUnstructuredGrid.h"
 #include "vtkClipVolume.h"
+#include "vtkImageData.h"
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkClipDataSet, "$Revision: 1.20 $");
+vtkCxxRevisionMacro(vtkClipDataSet, "$Revision: 1.21 $");
 vtkStandardNewMacro(vtkClipDataSet);
 
 //----------------------------------------------------------------------------
@@ -131,11 +132,24 @@ void vtkClipDataSet::Execute()
   
   int inputObjectType = input->GetDataObjectType();
 
-  if ( inputObjectType == VTK_STRUCTURED_POINTS || 
-       inputObjectType == VTK_IMAGE_DATA )
-     {
-     this->ClipVolume();
-     return;
+  // if we have volumes
+  if (inputObjectType == VTK_STRUCTURED_POINTS || 
+      inputObjectType == VTK_IMAGE_DATA)
+    {
+    int dimension;
+    int *dims = vtkImageData::SafeDownCast(input)->GetDimensions();
+    for (dimension=3, i=0; i<3; i++)
+      {
+      if ( dims[i] <= 1 )
+        {
+        dimension--;
+        }
+      }
+    if ( dimension >= 3 )
+      {
+      this->ClipVolume();
+      return;
+      }
      }
 
   // Initialize self; create output objects

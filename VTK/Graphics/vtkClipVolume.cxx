@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipVolume.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-13 13:12:08 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 2002-10-02 13:44:29 $
+  Version:   $Revision: 1.50 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,7 +25,7 @@
 #include "vtkUnstructuredGrid.h"
 #include "vtkVoxel.h"
 
-vtkCxxRevisionMacro(vtkClipVolume, "$Revision: 1.49 $");
+vtkCxxRevisionMacro(vtkClipVolume, "$Revision: 1.50 $");
 vtkStandardNewMacro(vtkClipVolume);
 
 // Construct with user-specified implicit function; InsideOut turned off; value
@@ -143,7 +143,7 @@ void vtkClipVolume::Execute()
   
   for (dimension=3, i=0; i<3; i++)
     {
-    if ( dims[0] <= 1 )
+    if ( dims[i] <= 1 )
       {
       dimension--;
       }
