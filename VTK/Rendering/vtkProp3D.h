@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProp3D.h,v $
   Language:  C++
-  Date:      $Date: 1999-02-24 17:31:31 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1999-02-25 20:52:51 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -242,7 +242,6 @@ protected:
   float         Position[3];
   float         Orientation[3];
   float         Center[3];
-  int           Visibility;
   int           Pickable;
   void          (*PickMethod)(void *);
   void          (*PickMethodArgDelete)(void *);
