@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagePlaneWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-24 17:19:51 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-04-25 13:58:59 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -36,7 +36,7 @@
 #include "vtkTransform.h"
 #include "vtkMatrix4x4.h"
 
-vtkCxxRevisionMacro(vtkImagePlaneWidget, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkImagePlaneWidget, "$Revision: 1.7 $");
 vtkStandardNewMacro(vtkImagePlaneWidget);
 
 vtkImagePlaneWidget::vtkImagePlaneWidget()
@@ -108,6 +108,7 @@ vtkImagePlaneWidget::vtkImagePlaneWidget()
   this->Texture = NULL;
   this->LookupTable = NULL;
   this->ColorMap = NULL;
+  this->DummyTransform = NULL;
 }
 
 vtkImagePlaneWidget::~vtkImagePlaneWidget()
@@ -1146,6 +1147,10 @@ float vtkImagePlaneWidget::GetSlicePosition()
 
 void vtkImagePlaneWidget::SetSliceIndex(int index)
 {
+  if (!this->Reslice)
+    {
+    return;
+    }
   this->ImageData = this->Reslice->GetInput();
   this->ImageData->UpdateInformation();
   float origin[3];
@@ -1193,6 +1198,10 @@ void vtkImagePlaneWidget::SetSliceIndex(int index)
 
 int vtkImagePlaneWidget::GetSliceIndex()
 {
+  if (!this->Reslice)
+    {
+      return 0;
+    }
   this->ImageData = this->Reslice->GetInput();
   this->ImageData->UpdateInformation();
   float origin[3];
