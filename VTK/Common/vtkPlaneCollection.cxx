@@ -15,5 +15,11 @@
 #include "vtkPlaneCollection.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkPlaneCollection, "$Revision: 1.7 $");
+vtkCxxRevisionMacro(vtkPlaneCollection, "$Revision: 1.8 $");
 vtkStandardNewMacro(vtkPlaneCollection);
+
+vtkPlane *vtkPlaneCollection::GetNextPlane(
+  vtkCollectionSimpleIterator &cookie) 
+{
+  return static_cast<vtkPlane *>(this->GetNextItemAsObject(cookie));
+}
