@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProcessObject.h,v $
   Language:  C++
-  Date:      $Date: 2000-10-20 13:54:50 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2000-12-08 13:51:39 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -133,11 +133,8 @@ public:
   // Caution: The memory/text in the provided char * is not copied, so
   // users should not pass temporarily allocated strings which have a lifetime
   // less than that of the function accessing the text.
-  void SetProgressText(char *text);
-
-  // Description:
-  // Fetch the current Progress text.
-  char *GetProgressText(void);
+  vtkSetStringMacro(ProgressText);
+  vtkGetStringMacro(ProgressText);
 
   // left public for performance since it is used in inner loops
   int AbortExecute;
@@ -146,7 +143,7 @@ public:
   // Return an array with all the inputs of this process object.
   // This is useful for tracing back in the pipeline to construct
   // graphs etc.
-  vtkDataObject **GetInputs() {return this->Inputs;};
+  vtkDataObject **GetInputs() {return this->Inputs;}
   vtkGetMacro(NumberOfInputs,int);
 
   // Description:
