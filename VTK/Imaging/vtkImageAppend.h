@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAppend.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-03 14:10:25 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2000-10-27 15:29:44 $
+  Version:   $Revision: 1.18 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -69,12 +69,24 @@ public:
   vtkSetMacro(AppendAxis, int);
   vtkGetMacro(AppendAxis, int);
   
+  // Description:
+  // By default "PreserveExtents" is off and the append axis is used.  
+  // When "PreseveExtents" is on, the extent of the inputs is used to 
+  // place the image in the output.  The whole extent of the output is 
+  // the union of the input whole extents.  Any portion of the 
+  // output not covered by the inputs is set to zero.  The origin and 
+  // spacing is taken from the first input.
+  vtkSetMacro(PreserveExtents, int);
+  vtkGetMacro(PreserveExtents, int);
+  vtkBooleanMacro(PreserveExtents, int);
+
 protected:
   vtkImageAppend();
   ~vtkImageAppend();
   vtkImageAppend(const vtkImageAppend&) {};
   void operator=(const vtkImageAppend&) {};
 
+  int PreserveExtents;
   int AppendAxis;
   // Array holds the AppendAxisExtent shift for each input.
   int *Shifts;
@@ -85,6 +97,8 @@ protected:
   
   void ThreadedExecute(vtkImageData **inDatas, vtkImageData *outData,
 		       int extent[6], int id);
+
+  void InitOutput(int outExt[6], vtkImageData *outData);
 };
 
 #endif
