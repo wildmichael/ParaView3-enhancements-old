@@ -3,8 +3,8 @@
  Program:   Visualization Toolkit
  Module:    $RCSfile: vtkSource.cxx,v $
  Language:  C++
- Date:      $Date: 1999-09-16 18:12:17 $
- Version:   $Revision: 1.47 $
+ Date:      $Date: 1999-09-30 19:57:39 $
+ Version:   $Revision: 1.48 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -300,10 +300,6 @@ void vtkSource::InternalUpdate(vtkDataObject *output)
     return;
     }
 
-  // Let the source initialize the data for streaming.
-  // output->Initialize and CopyStructure ...
-  this->StreamExecuteStart();
-  
   // Determine how many pieces we are going to process.
   numDivisions = this->GetNumberOfStreamDivisions();
   for (division = 0; division < numDivisions; ++division)
@@ -333,6 +329,14 @@ void vtkSource::InternalUpdate(vtkDataObject *output)
 	  }
 	}
       this->Updating = 0;
+      
+      // Let the source initialize the data for streaming.
+      // This allocates memory, so should be after input update,
+      // but should be done only once per execute.
+      if (division == 0)
+	{
+	this->StreamExecuteStart();
+	}
       
       // Execute
       if ( this->StartMethod )
