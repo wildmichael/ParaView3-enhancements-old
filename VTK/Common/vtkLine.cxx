@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLine.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-03-04 17:54:48 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 1997-03-04 20:18:05 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -368,6 +368,7 @@ int vtkLine::IntersectWithLine(float p1[3], float p2[3], float tol, float& t,
       else return 0;
       }
     }
+  return 0;
 }
 
 int vtkLine::Triangulate(int vtkNotUsed(index), vtkIdList &ptIds, vtkFloatPoints &pts)
