@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageQuantizeRGBToIndex.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:49 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-07-22 18:29:01 $
+  Version:   $Revision: 1.5 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -105,7 +105,7 @@ protected:
   float           BuildTreeExecuteTime;
   float           LookupIndexExecuteTime;
 
-  void ExecuteImageInformation();
+  void ExecuteInformation();
   void ComputeRequiredInputUpdateExtent(int inExt[6], int outExt[6]);
   void Execute(vtkImageData *inData, vtkImageData *outData);
 };

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageQuantizeRGBToIndex.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:49 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-07-22 18:28:56 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -651,7 +651,7 @@ void vtkImageQuantizeRGBToIndex::Execute(vtkImageData *inData,
 
 
 // Change the output type and number of components
-void vtkImageQuantizeRGBToIndex::ExecuteImageInformation()
+void vtkImageQuantizeRGBToIndex::ExecuteInformation()
 {
   this->GetOutput()->SetNumberOfScalarComponents(1);
   this->GetOutput()->SetScalarType(VTK_UNSIGNED_SHORT);
