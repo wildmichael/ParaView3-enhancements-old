@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkRenderWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-03-03 20:29:07 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1999-03-17 23:18:02 $
+  Version:   $Revision: 1.33 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -520,9 +520,20 @@ static int vtkTkRenderWidget_MakeRenderWindow(struct vtkTkRenderWidget *self)
     }
   else
     {
-    renderWindow = (vtkWin32OpenGLRenderWindow *)
-      vtkTclGetPointerFromObject(self->RW, "vtkRenderWindow", self->Interp,
-				 new_flag);
+    // is RW an address ? big ole python hack here
+    if (self->RW[0] == 'A' && self->RW[1] == 'd' && 
+	self->RW[2] == 'd' && self->RW[3] == 'r')
+      {
+      void *tmp;
+      sscanf(self->RW+5,"%p",&tmp);
+      renderWindow = (vtkWin32OpenGLRenderWindow *)tmp;
+      }
+    else
+      {
+      renderWindow = (vtkWin32OpenGLRenderWindow *)
+	vtkTclGetPointerFromObject(self->RW, "vtkRenderWindow", self->Interp,
+				   new_flag);
+      }
     if (renderWindow != self->RenderWindow)
       {
       if (self->RenderWindow != NULL) {self->RenderWindow->UnRegister(NULL);}
