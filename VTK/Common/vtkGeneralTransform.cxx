@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGeneralTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-01-26 17:37:38 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2000-01-31 04:32:11 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -94,19 +94,10 @@ double *vtkGeneralTransform::TransformDoublePoint(double x,
 // call the TransformPoint method for each point.
 void vtkGeneralTransform::TransformPoints(vtkPoints *in, vtkPoints *out)
 {
-  int i,autoUpdate;
+  int i;
   int n = in->GetNumberOfPoints();
   float outPnt[3];
   float *inPnt;
-
-  // temporarily turn off automatic updating, we only need to call Update()
-  // once for all the points
-  autoUpdate = this->AutoUpdate;
-  if (this->AutoUpdate)
-    {
-    this->Update();
-    this->AutoUpdate = 0;
-    }
 
   for (i = 0; i < n; i++)
     {
@@ -114,8 +105,6 @@ void vtkGeneralTransform::TransformPoints(vtkPoints *in, vtkPoints *out)
     this->TransformPoint(inPnt,outPnt);
     out->InsertNextPoint(outPnt);
     }
-
-  this->AutoUpdate = autoUpdate;
 }
 
 //----------------------------------------------------------------------------
@@ -128,7 +117,7 @@ void vtkGeneralTransform::TransformNormals(vtkPoints *inPts,
 					   vtkNormals *inNms, 
 					   vtkNormals *outNms)
 {
-  int i,autoUpdate;
+  int i;
   int n = inPts->GetNumberOfPoints();
   float offset1[3];
   float offset2[3];
@@ -141,13 +130,6 @@ void vtkGeneralTransform::TransformNormals(vtkPoints *inPts,
   float outNormalN[3];
   float *inPoint,*outPoint,*inNormal;
   float r,f;
-
-  autoUpdate = this->AutoUpdate;
-  if (this->AutoUpdate)
-    {
-    this->Update();
-    this->AutoUpdate = 0;
-    }
 
   for (i = 0; i < n; i++)
     {
@@ -237,8 +219,6 @@ void vtkGeneralTransform::TransformNormals(vtkPoints *inPts,
     
     outNms->InsertNextNormal(outNormal);
     }
-
-  this->AutoUpdate = autoUpdate;
 }
 
 //----------------------------------------------------------------------------
@@ -249,17 +229,10 @@ void vtkGeneralTransform::TransformVectors(vtkPoints *inPts,
 					   vtkVectors *inVrs, 
 					   vtkVectors *outVrs)
 {
-  int i,autoUpdate;
+  int i;
   int n = inPts->GetNumberOfPoints();
   float tmp[3];
   float *point,*vec;
-
-  autoUpdate = this->AutoUpdate;
-  if (this->AutoUpdate)
-    {
-    this->Update();
-    this->AutoUpdate = 0;
-    }
 
   for (i = 0; i < n; i++)
     {
@@ -275,8 +248,6 @@ void vtkGeneralTransform::TransformVectors(vtkPoints *inPts,
     tmp[2] -= point[2];
     outVrs->InsertNextVector(tmp);
     }
-
-  this->AutoUpdate = autoUpdate;
 }
 
 //----------------------------------------------------------------------------
