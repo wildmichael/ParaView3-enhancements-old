@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:04:57 $
-  Version:   $Revision: 1.85 $
+  Date:      $Date: 2000-02-19 21:02:16 $
+  Version:   $Revision: 1.86 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -858,7 +858,7 @@ vtkDataArray *vtkDataReader::ReadArray(char *dataType, int numTuples, int numCom
           {
           if ( !this->Read(&b) )
             {
-            vtkErrorMacro(<<"Error reading binary bit array!");
+	      vtkErrorMacro(<<"Error reading ascii bit array! tuple: " << i << ", component: " << j);
             return NULL;
             }
           else

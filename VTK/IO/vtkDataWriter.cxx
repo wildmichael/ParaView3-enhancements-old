@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:05:04 $
-  Version:   $Revision: 1.63 $
+  Date:      $Date: 2000-02-19 21:02:17 $
+  Version:   $Revision: 1.64 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -499,7 +499,7 @@ int vtkDataWriter::WriteArray(ostream *fp, int dataType, vtkDataArray *data, cha
     {
     case VTK_BIT:
       {
-      sprintf (str, format, "int"); *fp << str; 
+      sprintf (str, format, "bit"); *fp << str; 
       if ( this->FileType == VTK_ASCII )
 	{
 	int s;
@@ -508,11 +508,15 @@ int vtkDataWriter::WriteArray(ostream *fp, int dataType, vtkDataArray *data, cha
 	  for (i=0; i<numComp; i++)
 	    {
 	    idx = i + j*numComp;
-	    s = ((vtkBitArray *)data)->GetValue(i);
+	    s = ((vtkBitArray *)data)->GetValue(idx);
 	    *fp << (s!=0.0?1:0); 
-	    if ( !((idx+1)%6) )
+	    if ( !((idx+1)%8) )
 	      {
 	      *fp << "\n";
+	      }
+	    else
+	      {
+	      *fp << " ";
 	      }
 	    }
 	  }
