@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPythonAppInit.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-01-20 22:04:02 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2003-01-21 16:53:54 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -151,9 +151,9 @@ int main(int argc, char **argv)
     PyList_Insert(path, 0, newpath);
     Py_DECREF(newpath);
     }
-  if ( ::vtkPythonAppInitFileExists(VTK_PYTHON_SOURCE_DIR) )
+  if ( ::vtkPythonAppInitFileExists(VTK_PYTHON_PACKAGE_DIR) )
     {
-    newpath = PyString_FromString(VTK_PYTHON_SOURCE_DIR);
+    newpath = PyString_FromString(VTK_PYTHON_PACKAGE_DIR);
     PyList_Insert(path, 0, newpath);
     Py_DECREF(newpath);
     }
