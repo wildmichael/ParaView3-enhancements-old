@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-02-24 19:27:45 $
-  Version:   $Revision: 1.77 $
+  Date:      $Date: 1999-02-24 20:00:13 $
+  Version:   $Revision: 1.78 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -171,6 +171,7 @@ int vtkActor::GetIsOpaque()
       {
       if (this->Texture && this->Texture->GetInput()) 
 	{
+	this->Texture->GetInput()->Update();
 	if (this->Texture->GetInput()->GetPointData()->GetScalars()->GetNumberOfComponents()%2)
 	  {
 	  return 1;
