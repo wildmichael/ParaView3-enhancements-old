@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLargeInteger.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-16 13:28:37 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2002-01-08 14:27:36 $
+  Version:   $Revision: 1.11 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -168,7 +168,7 @@ vtkLargeInteger::vtkLargeInteger(const vtkLargeInteger& n)
 
 vtkLargeInteger::~vtkLargeInteger(void)
 {
-  delete this->Number;
+  delete []this->Number;
 }
 
 char vtkLargeInteger::CastToChar(void) const
@@ -406,7 +406,7 @@ void vtkLargeInteger::Expand(unsigned int n)
       {
       new_number[i] = this->Number[i];
       }
-    delete this->Number;
+    delete []this->Number;
     this->Number = new_number;
     this->Max = n;
     }
