@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-11-15 16:53:48 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 1996-11-15 20:12:13 $
+  Version:   $Revision: 1.46 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -101,6 +101,27 @@ vtkRenderWindow::~vtkRenderWindow()
     }
   if( WindowName ) 
     delete [] this->WindowName;
+}
+
+void vtkRenderWindow::SetWindowName( char * _arg )
+{
+  if (Debug)   
+    cerr << "Debug: In " __FILE__ << ", line " << __LINE__ << "\n" 
+         << this->GetClassName() << " (" << this << "): setting " 
+         << WindowName  << " to " << _arg << "\n\n";
+
+  if ( WindowName && _arg && (!strcmp(WindowName,_arg))) return;
+  if (WindowName) delete [] WindowName;
+  if( _arg )
+    {
+    WindowName = new char[strlen(_arg)+1];
+    strcpy(WindowName,_arg);
+    }
+  else
+    {
+    WindowName = NULL;
+    }
+  this->Modified();
 }
 
 void vtkRenderWindow::SetDesiredUpdateRate(float rate)
