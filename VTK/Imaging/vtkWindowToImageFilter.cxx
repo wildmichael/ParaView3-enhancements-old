@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWindowToImageFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:38:50 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-10-01 17:38:25 $
+  Version:   $Revision: 1.4 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder,ill Lorensen.
 
@@ -47,6 +47,28 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 vtkWindowToImageFilter::vtkWindowToImageFilter()
 {
   this->Input = NULL;
+}
+
+//----------------------------------------------------------------------------
+vtkWindowToImageFilter::~vtkWindowToImageFilter()
+{
+  if (this->Input)
+    {
+    this->Input->UnRegister(this);
+    this->Input = NULL;
+    }
+}
+
+//----------------------------------------------------------------------------
+void vtkWindowToImageFilter::SetInput(vtkWindow *input)
+{
+  if (input != this->Input)
+    {
+    if (this->Input) {this->Input->UnRegister(this);}
+    this->Input = input;
+    if (this->Input) {this->Input->Register(this);}
+    this->Modified();
+    }
 }
 
 //----------------------------------------------------------------------------

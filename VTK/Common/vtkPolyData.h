@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyData.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 20:34:12 $
-  Version:   $Revision: 1.67 $
+  Date:      $Date: 1998-10-01 17:38:11 $
+  Version:   $Revision: 1.68 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -319,7 +319,6 @@ protected:
   // built only when necessary
   vtkCellTypes *Cells;
   vtkCellLinks *Links;
-
 };
 
 inline void vtkPolyData::GetPointCells(int ptId, unsigned short& ncells, 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyVertex.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 20:34:13 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 1998-10-01 17:38:13 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -52,7 +52,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkPolyVertex : public vtkCell
 {
 public:
-  vtkPolyVertex() {};
+  vtkPolyVertex();
+  ~vtkPolyVertex();
   static vtkPolyVertex *New() {return new vtkPolyVertex;};
   const char *GetClassName() {return "vtkPolyVertex";};
 
@@ -91,7 +92,7 @@ public:
   int GetParametricCenter(float pcoords[3]);
 
 protected:
-  vtkVertex Vertex;
+  vtkVertex *Vertex;
 
 };
 

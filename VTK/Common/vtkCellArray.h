@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellArray.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 20:34:01 $
-  Version:   $Revision: 1.61 $
+  Date:      $Date: 1998-10-01 17:37:58 $
+  Version:   $Revision: 1.62 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -61,7 +61,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkIntArray.h"
 #include "vtkCell.h"
 
-class VTK_EXPORT vtkCellArray : public vtkReferenceCount
+class VTK_EXPORT vtkCellArray : public vtkObject
 {
 public:
   vtkCellArray();
@@ -260,7 +260,7 @@ inline int vtkCellArray::InsertNextCell(vtkCell *cell)
   
   for ( *ptr++ = npts, i = 0; i < npts; i++)
     {
-    *ptr++ = cell->PointIds.GetId(i);
+    *ptr++ = cell->PointIds->GetId(i);
     }
 
   this->NumberOfCells++;

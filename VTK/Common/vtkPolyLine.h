@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyLine.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 20:34:13 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 1998-10-01 17:38:12 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,7 +55,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkPolyLine : public vtkCell
 {
 public:
-  vtkPolyLine() {};
+  vtkPolyLine();
+  ~vtkPolyLine();
   static vtkPolyLine *New() {return new vtkPolyLine;};
   const char *GetClassName() {return "vtkPolyLine";};
 
@@ -101,7 +102,7 @@ public:
   int GetParametricCenter(float pcoords[3]);
 
 protected:
-  vtkLine Line;
+  vtkLine *Line;
 
 };
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellTypes.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 20:34:02 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1998-10-01 17:37:59 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,7 +59,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkCellTypes_h
 #define __vtkCellTypes_h
 
-#include "vtkReferenceCount.h"
+#include "vtkObject.h"
 #include "vtkCellType.h"
 
 struct _vtkCell_s {
@@ -67,7 +67,7 @@ struct _vtkCell_s {
     int loc; //location in associated CellArray object
 };
 
-class VTK_EXPORT vtkCellTypes : public vtkReferenceCount 
+class VTK_EXPORT vtkCellTypes : public vtkObject 
 {
 public:
   vtkCellTypes() : Array(NULL),Size(0),MaxId(-1),Extend(1000) {};

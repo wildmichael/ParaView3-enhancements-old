@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAttributeData.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 20:34:00 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-10-01 17:37:57 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -54,7 +54,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 #include "vtkDataArray.h"
 
-class VTK_EXPORT vtkAttributeData : public vtkReferenceCount 
+class VTK_EXPORT vtkAttributeData : public vtkObject 
 {
 public:
   // Description:

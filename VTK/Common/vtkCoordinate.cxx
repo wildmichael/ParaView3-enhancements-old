@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCoordinate.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:38:32 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1998-10-01 17:38:00 $
+  Version:   $Revision: 1.7 $
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -64,7 +64,7 @@ vtkCoordinate::~vtkCoordinate()
 
 void vtkCoordinate::PrintSelf(ostream& os, vtkIndent indent)
 {
-  this->vtkReferenceCount::PrintSelf(os,indent);
+  this->vtkObject::PrintSelf(os,indent);
 
   char posString[64];
   switch (this->CoordinateSystem)

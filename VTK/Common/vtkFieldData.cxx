@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFieldData.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:38:34 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1998-10-01 17:38:03 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -120,7 +120,7 @@ int vtkFieldData::Allocate(const int sz, const int ext)
 // types of data arrays, but the arrays contain nothing.
 vtkFieldData *vtkFieldData::MakeObject()
 {
-  vtkFieldData *f=new vtkFieldData;
+  vtkFieldData *f= vtkFieldData::New();
   int i;
   vtkDataArray *data;
   
@@ -518,7 +518,7 @@ char *vtkFieldData::GetArrayName(int i)
 
 void vtkFieldData::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkReferenceCount::PrintSelf(os,indent);
+  vtkObject::PrintSelf(os,indent);
 
   os << indent << "Number Of Arrays: " << this->GetNumberOfArrays() << "\n";
   os << indent << "Number Of Components: " << this->GetNumberOfComponents() << "\n";

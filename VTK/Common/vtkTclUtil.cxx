@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTclUtil.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-03 17:51:43 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1998-10-01 17:38:19 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -107,18 +107,8 @@ VTKTCL_EXPORT int vtkTclDeleteObjectFromHash(ClientData cd)
     {
     vtkGenericWarningMacro("vtkTcl Attempting to free object named " << temp);
     }
-  // if it isn't a temp object (i.e. we created it) then delete it 
-  if (strncmp(temp,"vtkTemp",7))
-    {
-    // finally free the name we got from the hash table
-    // it was created using strdup
-    free (temp);
-    return 1;
-    }
-  // finally free the name we got from the hash table
-  // it was created using strdup
   free (temp);
-  return 0;
+  return 1;
 }
 
 // we do no error checking in this.  We assume that if we were called
@@ -320,6 +310,7 @@ VTKTCL_EXPORT void vtkTclGetObjectFromPointer(Tcl_Interp *interp,void *temp,
   entry = Tcl_CreateHashEntry(&vtkCommandLookup,name,&is_new);
   Tcl_SetHashValue(entry,(ClientData)command);
   sprintf(interp->result,"%s",name); 
+  ((vtkObject *)temp)->Register(NULL);
 }
       
 VTKTCL_EXPORT void *vtkTclGetPointerFromObject(char *name,char *result_type,

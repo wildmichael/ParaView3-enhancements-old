@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObject.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 20:34:03 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-10-01 17:38:01 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -125,11 +125,11 @@ public:
   // Assign or retrieve field data to this data object.
   void SetFieldData(vtkFieldData *fd);
   void SetFieldData(vtkFieldData &fd) {this->SetFieldData(&fd);}
-  vtkFieldData *GetFieldData() {return &this->FieldData;};
+  vtkFieldData *GetFieldData() {return this->FieldData;};
 
 protected:
   vtkSource *Source;
-  vtkFieldData FieldData; //General field data associated with data object
+  vtkFieldData *FieldData; //General field data associated with data object
   
   int DataReleased; //keep track of data release during network execution
   int ReleaseDataFlag; //data will release after use by a filter

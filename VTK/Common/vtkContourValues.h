@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkContourValues.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 20:34:02 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1998-10-01 17:38:00 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -50,6 +50,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkContourValues_h
 #define __vtkContourValues_h
 
+#include "vtkObject.h"
 #include "vtkIntArray.h"
 
 class vtkFloatArray;

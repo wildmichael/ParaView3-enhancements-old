@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectors.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 20:34:20 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 1998-10-01 17:38:23 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -113,10 +113,12 @@ public:
   // Description:
   // Return the maximum norm for these vectors.
   float GetMaxNorm();
-  
+
   // Description:
   // Given a list of pt ids, return an array of vectors.
-  void GetVectors(vtkIdList& ptId, vtkVectors& fv);
+  void GetVectors(vtkIdList *ptId, vtkVectors *fv);
+  void GetVectors(vtkIdList& ptId, vtkVectors& fv)
+    {this->GetVectors(&ptId, &fv);}
 
 protected:
   float MaxNorm;

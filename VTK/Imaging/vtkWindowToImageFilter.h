@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWindowToImageFilter.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 20:34:21 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-10-01 17:38:25 $
+  Version:   $Revision: 1.4 $
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -58,13 +58,14 @@ class VTK_EXPORT vtkWindowToImageFilter : public vtkImageSource
 {
 public:
   vtkWindowToImageFilter();
+  ~vtkWindowToImageFilter();
   static vtkWindowToImageFilter *New() {return new vtkWindowToImageFilter;};
   const char *GetClassName() {return "vtkWindowToImageFilter";};
   void PrintSelf(ostream& os, vtkIndent indent);   
 
   // Description:
   // Indicates what renderer to get the pixel data from.
-  vtkSetObjectMacro(Input,vtkWindow);
+  void SetInput(vtkWindow *input);
 
   // Description:
   // Returns which renderer is being used as the source for the pixel data.

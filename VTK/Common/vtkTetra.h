@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTetra.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 20:34:17 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 1998-10-01 17:38:20 $
+  Version:   $Revision: 1.42 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,6 +56,7 @@ class VTK_EXPORT vtkTetra : public vtkCell
 {
 public:
   vtkTetra();
+  ~vtkTetra();
   static vtkTetra *New() {return new vtkTetra;};
   const char *GetClassName() {return "vtkTetra";};
 
@@ -141,8 +142,8 @@ public:
   static void InterpolationDerivs(float derivs[12]);
 
 protected:
-  vtkLine Line;
-  vtkTriangle Triangle;
+  vtkLine *Line;
+  vtkTriangle *Triangle;
 
 };
 

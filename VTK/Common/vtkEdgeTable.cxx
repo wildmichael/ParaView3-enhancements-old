@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEdgeTable.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:38:33 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1998-10-01 17:38:03 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -67,7 +67,7 @@ vtkEdgeTable::~vtkEdgeTable()
       {
       if ( this->Table[i] )
         {
-        delete this->Table[i];
+        this->Table[i]->Delete();
         }
       }
     delete [] this->Table;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetAttributes.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 20:34:03 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1998-10-01 17:38:03 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,7 +58,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkTensors.h"
 #include "vtkFieldData.h"
 
-class VTK_EXPORT vtkDataSetAttributes : public vtkObject 
+class VTK_EXPORT vtkDataSetAttributes : public vtkObject
 {
 public:
   // Description:
@@ -258,7 +258,7 @@ protected:
   // used to set null values
   float Null3Tuple[3];
   float Null4Tuple[4];
-  vtkTensor NullTensor;
+  vtkTensor *NullTensor;
   float *NullTuple;
   int TupleSize;
   float *Tuple;

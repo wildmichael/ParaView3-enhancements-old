@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToStructuredPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-03 17:51:06 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1998-10-01 17:38:06 $
+  Version:   $Revision: 1.25 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 

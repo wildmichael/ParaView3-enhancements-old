@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSet.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:38:40 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 1998-10-01 17:38:10 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -166,6 +166,11 @@ int vtkPointSet::FindCell(float x[3], vtkCell *cell, int cellId, float tol2,
   float closestPoint[3];
   float dist2;
   static vtkIdList cellIds(8,100), ptIds(8,100);
+
+  // Ken will deal with the statics options: 
+  //  1: Instance variable, 2: allocate every call, 3: Static pointers.
+  cellIds.ReferenceCountingOff();
+  ptIds.ReferenceCountingOff();
 
   // make sure everything is up to snuff
   if ( !this->Points )

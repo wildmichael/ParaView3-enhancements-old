@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataArray.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:38:32 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-10-01 17:38:01 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -142,7 +142,7 @@ void vtkDataArray::GetData(int tupleMin, int tupleMax, int compMin, int compMax,
 
 void vtkDataArray::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkReferenceCount::PrintSelf(os,indent);
+  vtkObject::PrintSelf(os,indent);
 
   os << indent << "Number Of Components: " << this->NumberOfComponents << "\n";
   os << indent << "Number Of Tuples: " << this->GetNumberOfTuples() << "\n";

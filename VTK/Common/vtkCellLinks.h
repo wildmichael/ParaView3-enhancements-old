@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellLinks.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 20:34:01 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1998-10-01 17:37:59 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -51,7 +51,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkCellLinks_h
 #define __vtkCellLinks_h
 
-#include "vtkReferenceCount.h"
+#include "vtkObject.h"
 class vtkDataSet;
 
 struct _vtkLink_s {
@@ -59,7 +59,7 @@ struct _vtkLink_s {
     int *cells;
 };
 
-class VTK_EXPORT vtkCellLinks : public vtkReferenceCount 
+class VTK_EXPORT vtkCellLinks : public vtkObject 
 {
 public:
   vtkCellLinks():Array(NULL),Size(0),MaxId(-1),Extend(1000) {};

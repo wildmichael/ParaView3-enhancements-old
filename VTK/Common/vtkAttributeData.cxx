@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAttributeData.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:38:30 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-10-01 17:37:57 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -217,7 +217,7 @@ void vtkAttributeData::ShallowCopy(vtkAttributeData& da)
 
 void vtkAttributeData::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkReferenceCount::PrintSelf(os,indent);
+  vtkObject::PrintSelf(os,indent);
 
   os << indent << "Data: " << this->Data << "\n";
 }

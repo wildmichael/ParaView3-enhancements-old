@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFieldData.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 20:34:04 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-10-01 17:38:04 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -68,7 +68,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkDataArray.h"
 #include "vtkIdList.h"
 
-class VTK_EXPORT vtkFieldData : public vtkReferenceCount
+class VTK_EXPORT vtkFieldData : public vtkObject
 {
 public:
   vtkFieldData();

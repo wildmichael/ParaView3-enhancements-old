@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetAttributes.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:38:33 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1998-10-01 17:38:02 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -84,6 +84,8 @@ vtkDataSetAttributes::vtkDataSetAttributes()
   this->CopyTCoordsEnabled = 0;
   this->CopyTensorsEnabled = 0;
   this->CopyFieldDataEnabled = 0;
+
+  this->NullTensor = vtkTensor::New();
 }
 
 // Destructor for the vtkDataSetAttributes objects.
@@ -99,6 +101,8 @@ vtkDataSetAttributes::~vtkDataSetAttributes()
     {
     delete [] this->Tuple;
     }
+  this->NullTensor->Delete();
+  this->NullTensor = NULL;
 }
 
 // Deep copy of data (i.e., create new data arrays and

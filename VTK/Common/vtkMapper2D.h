@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper2D.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 20:34:09 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1998-10-01 17:38:08 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -49,12 +49,12 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkMapper2D_h
 #define __vtkMapper2D_h
 
-#include "vtkReferenceCount.h"
+#include "vtkObject.h"
 #include "vtkViewport.h"
 #include "vtkWindow.h"
 #include "vtkActor2D.h"
 
-class VTK_EXPORT vtkMapper2D : public vtkReferenceCount
+class VTK_EXPORT vtkMapper2D : public vtkObject
 {
 public:
   void PrintSelf(ostream& os, vtkIndent indent);

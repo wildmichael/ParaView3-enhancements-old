@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPriorityQueue.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 20:34:13 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1998-10-01 17:38:14 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -61,6 +61,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #ifndef __vtkPriorityQueue_h
 #define __vtkPriorityQueue_h
 
+#include "vtkObject.h"
 #include "vtkIntArray.h"
 
 typedef struct _vtkPriorityItem

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSetGet.h,v $
   Language:  C++
-  Date:      $Date: 1998-08-22 19:03:29 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 1998-10-01 17:38:17 $
+  Version:   $Revision: 1.51 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -204,7 +204,7 @@ void Set##name (type& _arg) \
   } 
 
 //
-// Set pointer to object; uses vtkReferenceCount reference counting methodology.
+// Set pointer to object; uses vtkObject reference counting methodology.
 // Creates method Set"name"() (e.g., SetPoints()).
 //
 #define vtkSetReferenceCountedObjectMacro(name,type) \

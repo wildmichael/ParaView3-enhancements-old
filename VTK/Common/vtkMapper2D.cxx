@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-17 21:36:13 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1998-10-01 17:38:08 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -43,6 +43,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 void vtkMapper2D::PrintSelf(ostream& os, vtkIndent indent)
 {
-	this->vtkReferenceCount::PrintSelf(os, indent);
+	this->vtkObject::PrintSelf(os, indent);
 }
 

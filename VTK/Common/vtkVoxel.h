@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoxel.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 20:34:21 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 1998-10-01 17:38:24 $
+  Version:   $Revision: 1.42 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,6 +55,7 @@ class VTK_EXPORT vtkVoxel : public vtkCell
 {
 public:
   vtkVoxel();
+  ~vtkVoxel();
   static vtkVoxel *New() {return new vtkVoxel;};
   const char *GetClassName() {return "vtkVoxel";};
 
@@ -94,8 +95,8 @@ public:
   static void InterpolationDerivs(float pcoords[3], float derivs[24]);
 
 protected:
-  vtkLine Line;
-  vtkPixel Pixel;
+  vtkLine *Line;
+  vtkPixel *Pixel;
   
 };
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLocator.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:38:37 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1998-10-01 17:38:06 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -75,7 +75,7 @@ void vtkLocator::Update()
 
 void vtkLocator::PrintSelf(ostream& os, vtkIndent indent)
 {
-  vtkReferenceCount::PrintSelf(os,indent);
+  vtkObject::PrintSelf(os,indent);
 
   if ( this->DataSet )
     {

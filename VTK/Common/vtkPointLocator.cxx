@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointLocator.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:38:40 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1998-10-01 17:38:10 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -47,7 +47,7 @@ class vtkNeighborPoints
 {
 public:
   vtkNeighborPoints(const int sz, const int ext=1000)
-    {this->P = new vtkIntArray; this->P->Allocate(3*sz,3*ext);};
+    {this->P = vtkIntArray::New(); this->P->Allocate(3*sz,3*ext);};
   ~vtkNeighborPoints(){this->P->Delete();}; 
   int GetNumberOfNeighbors() {return (this->P->GetMaxId()+1)/3;};
   void Reset() {this->P->Reset();};
