@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-16 21:07:26 $
-  Version:   $Revision: 1.114 $
+  Date:      $Date: 2001-03-06 13:14:09 $
+  Version:   $Revision: 1.115 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -279,7 +279,7 @@ void vtkRenderWindow::Render()
     {
     // check the current size 
     size = this->GetSize();
-    int bufferSize = 3*size[0]*size[1];
+    unsigned int bufferSize = 3*size[0]*size[1];
     // If there is not a buffer or the size is too small
     // re-allocate it
     if( !this->AccumulationBuffer 

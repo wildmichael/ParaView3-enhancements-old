@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGeometryFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-02-26 14:50:25 $
-  Version:   $Revision: 1.77 $
+  Date:      $Date: 2001-03-06 13:14:09 $
+  Version:   $Revision: 1.78 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -521,7 +521,6 @@ void vtkGeometryFilter::PolyDataExecute()
   outputCD->CopyAllocate(cd,numCells,numCells/2);
   input->BuildCells(); //needed for GetCellPoints()
   
-  int abort=0;
   int progressInterval = numCells/20 + 1;
   for(cellId=0; cellId < numCells; cellId++)
     {
@@ -530,7 +529,6 @@ void vtkGeometryFilter::PolyDataExecute()
       {
       vtkDebugMacro(<<"Process cell #" << cellId);
       this->UpdateProgress ((float)cellId/numCells);
-      abort = this->GetAbortExecute();
       }
 
     // Handle ghost cells here.  Another option was used cellVis array.
@@ -706,7 +704,6 @@ void vtkGeometryFilter::UnstructuredGridExecute()
   
   // Loop over all cells now that visibility is known
   // (Have to compute visibility first for 3D cell boundarys)
-  int abort=0;
   int progressInterval = numCells/20 + 1;
   for (cellId=0, Connectivity->InitTraversal(); 
        Connectivity->GetNextCell(npts,pts); 
@@ -717,7 +714,6 @@ void vtkGeometryFilter::UnstructuredGridExecute()
       {
       vtkDebugMacro(<<"Process cell #" << cellId);
       this->UpdateProgress ((float)cellId/numCells);
-      abort = this->GetAbortExecute();
       }
 
     // Handle ghost cells here.  Another option was used cellVis array.
@@ -1022,7 +1018,6 @@ void vtkGeometryFilter::StructuredGridExecute()
   
   // Traverse cells to extract geometry
   //
-  int abort=0;
   int progressInterval = numCells/20 + 1;
   for(cellId=0; cellId < numCells; cellId++)
     {
@@ -1031,7 +1026,6 @@ void vtkGeometryFilter::StructuredGridExecute()
       {
       vtkDebugMacro(<<"Process cell #" << cellId);
       this->UpdateProgress ((float)cellId/numCells);
-      abort = this->GetAbortExecute();
       }
 
     // Handle ghost cells here.  Another option was used cellVis array.
