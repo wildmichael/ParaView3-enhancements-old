@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCutter.h,v $
   Language:  C++
-  Date:      $Date: 2002-11-04 17:05:27 $
-  Version:   $Revision: 1.58 $
+  Date:      $Date: 2003-06-30 15:02:08 $
+  Version:   $Revision: 1.59 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -161,6 +161,8 @@ protected:
   ~vtkCutter();
 
   void Execute();
+  void UnstructuredGridCutter();
+  void DataSetCutter();
   vtkImplicitFunction *CutFunction;
   
   vtkPointLocator *Locator;
