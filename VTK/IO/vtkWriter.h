@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWriter.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:13:19 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2000-06-21 08:53:30 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -91,6 +91,7 @@ protected:
   void operator=(const vtkWriter&) {};
 
   virtual void WriteData() = 0; //internal method subclasses must respond to
+  vtkTimeStamp WriteTime;
 };
 
 #endif

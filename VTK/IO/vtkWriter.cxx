@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:13:19 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2000-06-21 08:53:30 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -64,14 +64,24 @@ vtkDataObject *vtkWriter::GetInput()
 // well as StartMethod() and EndMethod() methods.
 void vtkWriter::Write()
 {
+  vtkDataObject *input = this->GetInput();
+
   // make sure input is available
-  if ( !this->GetInput() )
+  if ( !input )
     {
     vtkErrorMacro(<< "No input!");
     return;
     }
 
-  this->GetInput()->Update();
+  //
+  input->Update();
+  //
+  if (input->GetUpdateTime()<this->WriteTime)
+  {
+    // we are up to date
+    return;
+  }
+  //
   if ( this->StartMethod )
     {
     (*this->StartMethod)(this->StartMethodArg);
@@ -82,10 +92,11 @@ void vtkWriter::Write()
     (*this->EndMethod)(this->EndMethodArg);
     }
 
-  if ( this->GetInput()->ShouldIReleaseData() )
+  if ( input->ShouldIReleaseData() )
     {
-    this->GetInput()->ReleaseData();
+    input->ReleaseData();
     }
+  this->WriteTime.Modified();
 }
 
 // Convenient alias for Write() method.
