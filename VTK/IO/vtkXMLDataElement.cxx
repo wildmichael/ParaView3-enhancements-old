@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLDataElement.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-03-31 15:32:43 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2003-04-01 20:32:17 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 
 #include <ctype.h>
 
-vtkCxxRevisionMacro(vtkXMLDataElement, "$Revision: 1.11 $");
+vtkCxxRevisionMacro(vtkXMLDataElement, "$Revision: 1.12 $");
 vtkStandardNewMacro(vtkXMLDataElement);
 
 //----------------------------------------------------------------------------
@@ -752,7 +752,7 @@ void vtkXMLDataElement::SeekInlineDataPosition(vtkXMLDataParser* parser)
   if(!this->InlineDataPosition)
     {
     // Scan for the start of the actual inline data.
-    char c;
+    char c=0;
     stream->seekg(this->GetXMLByteIndex());
     stream->clear(stream->rdstate() & ~ios::eofbit);
     stream->clear(stream->rdstate() & ~ios::failbit);

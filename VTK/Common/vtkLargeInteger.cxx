@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLargeInteger.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-21 21:57:26 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2003-04-01 20:32:17 $
+  Version:   $Revision: 1.14 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -818,7 +818,7 @@ ostream& operator<<(ostream& s, const vtkLargeInteger& n)
 
 istream& operator>>(istream& s, vtkLargeInteger& n)
 {
-  char c;
+  char c=0;
   while (s.get(c)) // strip any leading spaces
     if (c != ' ' && c != '\n' && c != '\r')
       {

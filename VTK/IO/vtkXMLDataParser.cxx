@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLDataParser.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-02-18 15:12:43 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2003-04-01 20:32:17 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 #include "vtkBase64InputStream.h"
 #include "vtkDataCompressor.h"
 
-vtkCxxRevisionMacro(vtkXMLDataParser, "$Revision: 1.8 $");
+vtkCxxRevisionMacro(vtkXMLDataParser, "$Revision: 1.9 $");
 vtkStandardNewMacro(vtkXMLDataParser);
 vtkCxxSetObjectMacro(vtkXMLDataParser, Compressor, vtkDataCompressor);
 
@@ -217,7 +217,7 @@ int vtkXMLDataParser::CheckPrimaryAttributes()
 void vtkXMLDataParser::FindAppendedDataPosition()
 {
   // Scan for the start of the actual appended data.
-  char c;
+  char c=0;
   unsigned long returnPosition = this->Stream->tellg();
   this->ClearStreamEOF();
   this->Stream->seekg(this->GetXMLByteIndex());
@@ -245,7 +245,7 @@ void vtkXMLDataParser::FindAppendedDataPosition()
 unsigned long vtkXMLDataParser::FindInlineDataPosition(unsigned long start)
 {
   // Scan for the start of the actual inline data.
-  char c;
+  char c=0;
   this->Stream->seekg(start);
   this->ClearStreamEOF();
   while(this->Stream->get(c) && (c != '>'));
@@ -325,7 +325,7 @@ int vtkXMLDataParser::ParseBuffer(const char* buffer, unsigned int count)
     if(t == end)
       {
       // Scan for the real end of the element's opening tag.
-      char c;
+      char c=0;
       while(this->Stream->get(c) && (c != '>'))
         {
         prev = c;
