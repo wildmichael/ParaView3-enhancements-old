@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-01 17:56:45 $
-  Version:   $Revision: 1.151 $
+  Date:      $Date: 2000-08-02 18:23:21 $
+  Version:   $Revision: 1.152 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1327,12 +1327,6 @@ void vtkRenderer::PickGeometry()
   vtkDebugMacro( << "Pick Rendered " << 
                     this->NumberOfPropsRenderedAsGeometry << " actors" );
 
-}
-
-
-void  vtkRenderer::GetLayer(float &min, float &max)
-{
-  this->RenderWindow->GetLayer(this->Layer, min, max);
 }
 
 

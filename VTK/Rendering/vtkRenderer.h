@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.h,v $
   Language:  C++
-  Date:      $Date: 2000-08-01 17:57:35 $
-  Version:   $Revision: 1.87 $
+  Date:      $Date: 2000-08-02 18:23:08 $
+  Version:   $Revision: 1.88 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -249,11 +249,6 @@ public:
   // there are layered renderers.
   vtkSetMacro(Layer, int);
   vtkGetMacro(Layer, int);
-
-  // Description:
-  // Get the minimum and maximum z-buffer values that this renderer's layer 
-  // should map into.
-  void  GetLayer(float &min, float &max);
 
   // Description:
   // Returns a bool indicating if this renderer is transparent.  It is
