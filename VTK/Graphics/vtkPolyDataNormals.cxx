@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataNormals.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:12:16 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2000-08-16 10:59:47 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -45,7 +45,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkPolygon.h"
 #include "vtkTriangleStrip.h"
 #include "vtkObjectFactory.h"
-
+#include "vtkRemoveGhostCells.h"
 
 
 //------------------------------------------------------------------------------
@@ -110,6 +110,9 @@ void vtkPolyDataNormals::Execute()
   vtkIdList *cellIds, *edgeNeighbors;
   vtkPolyData *input = this->GetInput();
   vtkPolyData *output = this->GetOutput();
+  vtkPolyData *ghost;
+  int ghostLevel = input->GetUpdateGhostLevel();
+  vtkRemoveGhostCells *rmGhostCells;
   int noCellsNeedVisiting;
   int *Visited;
   vtkPolyData *OldMesh, *NewMesh;
@@ -193,7 +196,8 @@ void vtkPolyDataNormals::Execute()
   NewMesh->SetPolys(newPolys);
   NewMesh->BuildCells(); //builds connectivity
 
-  cellIds = vtkIdList::New(); cellIds->Allocate(VTK_CELL_SIZE);
+  cellIds = vtkIdList::New();
+  cellIds->Allocate(VTK_CELL_SIZE);
 
   //
   // The visited array keeps track of which polygons have been visited.
@@ -291,16 +295,16 @@ void vtkPolyDataNormals::Execute()
       {
       this->Mark++;
       replacementPoint = ptId;
-      OldMesh->GetPointCells(ptId,cellIds);
+      OldMesh->GetPointCells(ptId, cellIds);
       for (j=0; j < cellIds->GetNumberOfIds(); j++)
         {
         if ( Visited[cellIds->GetId(j)] != this->Mark )
-	  {
-          this->MarkAndReplace (cellIds->GetId(j), ptId, replacementPoint,
-				PolyNormals, edgeNeighbors,
-				Visited, Map, OldMesh, NewMesh,
-				CosAngle);
-	  }
+          {
+          this->MarkAndReplace(cellIds->GetId(j), ptId, replacementPoint,
+                               PolyNormals, edgeNeighbors,
+                               Visited, Map, OldMesh, NewMesh,
+                               CosAngle);
+          }
 
         replacementPoint = Map->GetNumberOfIds();
         }
@@ -357,7 +361,7 @@ void vtkPolyDataNormals::Execute()
   if (this->ComputePointNormals)
     {
     for (cellId=0, newPolys->InitTraversal(); newPolys->GetNextCell(npts,pts); 
-  cellId++ )
+          cellId++ )
       {
       polyNormal = PolyNormals->GetNormal(cellId);
 
@@ -365,10 +369,10 @@ void vtkPolyDataNormals::Execute()
         {
         vertNormal = newNormals->GetNormal(pts[i]);
         for (j=0; j < 3; j++)
-	  {
-	  n[j] = vertNormal[j] + polyNormal[j];
-	  }
-	newNormals->SetNormal(pts[i],n);
+          {
+          n[j] = vertNormal[j] + polyNormal[j];
+          }
+        newNormals->SetNormal(pts[i],n);
         }
       }
 
@@ -379,10 +383,10 @@ void vtkPolyDataNormals::Execute()
       if (length != 0.0) 
         {
         for (j=0; j < 3; j++)
-	  {
-	  n[j] = vertNormal[j] / length * flipDirection;
-	  }
-	}
+          {
+          n[j] = vertNormal[j] / length * flipDirection;
+          }
+        }
       newNormals->SetNormal(i,n);
       }
     }
@@ -424,6 +428,23 @@ void vtkPolyDataNormals::Execute()
   NewMesh->Delete();
   poly->Delete();
   edgeNeighbors->Delete();
+  
+  output->GetCellData()->SetGhostLevels(input->GetCellData()->GetGhostLevels());
+
+  // Remove any ghost cells we inserted.
+  if (ghostLevel > 0)
+    {
+    rmGhostCells = vtkRemoveGhostCells::New();
+    ghost = vtkPolyData::New();
+    ghost->ShallowCopy(output);
+    rmGhostCells->SetInput(ghost);
+    rmGhostCells->SetGhostLevel(ghostLevel);
+    rmGhostCells->Update();
+    output->ShallowCopy(rmGhostCells->GetOutput());
+    
+    ghost->Delete();
+    rmGhostCells->Delete();
+    }
 }
 
 //
@@ -589,3 +610,16 @@ void vtkPolyDataNormals::PrintSelf(ostream& os, vtkIndent indent)
     (this->NonManifoldTraversal ? "On\n" : "Off\n");
 }
 
+void vtkPolyDataNormals::ComputeInputUpdateExtents(vtkDataObject *output)
+{
+  int numPieces, ghostLevel;
+  
+  this->vtkPolyDataSource::ComputeInputUpdateExtents(output);
+
+  numPieces = output->GetUpdateNumberOfPieces();
+  ghostLevel = output->GetUpdateGhostLevel();
+  if (numPieces > 1)
+    {
+    this->GetInput()->SetUpdateGhostLevel(ghostLevel + 1);
+    }
+}

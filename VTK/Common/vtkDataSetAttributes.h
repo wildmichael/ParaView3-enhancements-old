@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetAttributes.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:09:53 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2000-08-16 10:59:47 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -58,6 +58,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkTCoords.h"
 #include "vtkTensors.h"
 #include "vtkFieldData.h"
+#include "vtkGhostLevels.h"
 
 class VTK_EXPORT vtkDataSetAttributes : public vtkObject
 {
@@ -162,6 +163,11 @@ public:
   vtkGetObjectMacro(Normals,vtkNormals);
 
   // Description:
+  // Set/Get the ghost level data.
+  vtkSetObjectMacro(GhostLevels, vtkGhostLevels);
+  vtkGetObjectMacro(GhostLevels, vtkGhostLevels);
+
+  // Description:
   // Set/Get the texture coordinate data.
   vtkSetObjectMacro(TCoords,vtkTCoords);
   vtkGetObjectMacro(TCoords,vtkTCoords);
@@ -187,6 +193,12 @@ public:
   vtkSetMacro(CopyVectors,int);
   vtkGetMacro(CopyVectors,int);
   vtkBooleanMacro(CopyVectors,int);
+
+  // Description:
+  // Turn on/off the copying of ghost level data.
+  vtkSetMacro(CopyGhostLevels, int);
+  vtkGetMacro(CopyGhostLevels, int);
+  vtkBooleanMacro(CopyGhostLevels, int);
 
   // Description:
   // Turn on/off the copying of normals data.
@@ -270,6 +282,7 @@ protected:
   vtkTCoords *TCoords;
   vtkTensors *Tensors;
   vtkFieldData *FieldData;
+  vtkGhostLevels *GhostLevels;
 
   // User flags control whether data is to be copied
   int CopyScalars;
@@ -278,6 +291,7 @@ protected:
   int CopyTCoords;
   int CopyTensors;
   int CopyFieldData;
+  int CopyGhostLevels;
 
   // Flags are evaluated in CopyAllocate to determine whether copying is possible
   int AnyEnabled;
@@ -287,6 +301,7 @@ protected:
   int CopyTCoordsEnabled;
   int CopyTensorsEnabled;
   int CopyFieldDataEnabled;
+  int CopyGhostLevelsEnabled;
 
   // used to set null values
   float Null3Tuple[3];

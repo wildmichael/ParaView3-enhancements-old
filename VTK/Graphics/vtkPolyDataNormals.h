@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataNormals.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:12:17 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2000-08-16 10:59:47 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -138,6 +138,8 @@ protected:
 
   // Usual data generation method
   void Execute();
+  
+  void ComputeInputUpdateExtents(vtkDataObject *output);
 
   float FeatureAngle;
   int Splitting;
@@ -169,5 +171,3 @@ protected:
 };
 
 #endif
-
-

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSphereSource.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:12:41 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 2000-08-16 10:59:47 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -129,7 +129,6 @@ protected:
   float EndTheta;
   float StartPhi;
   float EndPhi;
-
 };
 
 #endif
