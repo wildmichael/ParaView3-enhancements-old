@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPointSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-05-15 19:19:55 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1994-09-14 14:00:12 $
+  Version:   $Revision: 1.8 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -13,7 +13,6 @@ written consent of the authors.
 Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994 
 
 =========================================================================*/
-#include <math.h>
 #include "PointSrc.hh"
 #include "vlMath.hh"
 
@@ -37,6 +36,7 @@ void vlPointSource::Execute()
   vlMath math;
   int pts[1];
 
+  vlDebugMacro(<< "Executing Brownian filter");
   this->Initialize();
 
   newPoints = new vlFloatPoints(this->NumberOfPoints);
@@ -71,8 +71,8 @@ void vlPointSource::PrintSelf(ostream& os, vlIndent indent)
     os << indent << "Number Of Points: " << this->NumberOfPoints << "\n";
     os << indent << "Radius: " << this->Radius << "\n";
     os << indent << "Center: (" << this->Center[0] << ", "
-                                  << this->Center[1] << ", "
-                                  << this->Center[2] << ")\n";
+                                << this->Center[1] << ", "
+                                << this->Center[2] << ")\n";
 
     }
 }

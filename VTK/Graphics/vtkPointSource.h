@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPointSource.h,v $
   Language:  C++
-  Date:      $Date: 1994-09-14 08:16:08 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1994-09-14 14:00:13 $
+  Version:   $Revision: 1.8 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -28,6 +28,7 @@ class vlPointSource : public vlPolySource
 {
 public:
   vlPointSource(int numPts=10);
+  ~vlPointSource() {};
   char *GetClassName() {return "vlPointSource";};
   void PrintSelf(ostream& os, vlIndent indent);
 
