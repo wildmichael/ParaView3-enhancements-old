@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFeatureEdges.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:11:39 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2000-09-22 11:20:43 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -132,7 +132,8 @@ protected:
 
   // Usual data generation method
   void Execute();
-
+  void ComputeInputUpdateExtents(vtkDataObject *output);
+  
   float FeatureAngle;
   int BoundaryEdges;
   int FeatureEdges;
