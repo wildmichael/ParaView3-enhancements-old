@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPriorityQueue.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:38:14 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1999-07-14 13:52:14 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -91,6 +91,10 @@ public:
   // Removes item at specified location from tree; then reorders and
   // balances tree. The location == 0 is the root of the tree.
   int Pop(float &priority, int location=0);
+  
+  // Description:
+  // Same as above but simplified for easier wrapping for Tcl.
+  int Pop(int location=0);
   
   // Description:
   // Delete entry in queue with specified id. Returns priority value

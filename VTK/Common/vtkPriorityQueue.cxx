@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPriorityQueue.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-07 21:19:22 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1999-07-14 13:52:14 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -129,6 +129,14 @@ void vtkPriorityQueue::Insert(float priority, int id)
     this->Array[idx] = temp;
     }
 }
+
+// Simplified call for easier wrapping for Tcl.
+int vtkPriorityQueue::Pop(int location)
+{
+  float priority;
+  return this->Pop(priority, location);
+}
+
 // Removes item at specified location from tree; then reorders and
 // balances tree. The location == 0 is the root of the tree.
 int vtkPriorityQueue::Pop(float &priority, int location)
