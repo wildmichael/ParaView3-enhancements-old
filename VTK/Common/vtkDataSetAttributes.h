@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetAttributes.h,v $
   Language:  C++
-  Date:      $Date: 2002-02-13 22:44:37 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 2002-07-02 20:52:04 $
+  Version:   $Revision: 1.52 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -409,7 +409,12 @@ public:
 
     //Determine whether data is available
     int IsAttributePresent(int attrType); //true/false attributes specified
-
+    
+    // Accessor methods.
+    int GetNumberOfFields() { return this->NumberOfFields; }
+    int GetFieldIndex(int i) { return this->FieldIndices[i]; }
+    int GetDSAIndex(int index, int i) { return this->DSAIndices[index][i]; }
+    
     friend class vtkDataSetAttributes;
 
   protected:
