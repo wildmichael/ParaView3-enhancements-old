@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFiniteDifferenceGradientEstimator.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-28 19:02:06 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2002-10-28 22:55:56 $
+  Version:   $Revision: 1.35 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -34,7 +34,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkFiniteDifferenceGradientEstimator, "$Revision: 1.34 $");
+vtkCxxRevisionMacro(vtkFiniteDifferenceGradientEstimator, "$Revision: 1.35 $");
 vtkStandardNewMacro(vtkFiniteDifferenceGradientEstimator);
 
 // This is the templated function that actually computes the EncodedNormal
@@ -328,10 +328,10 @@ static VTK_THREAD_RETURN_TYPE vtkSwitchOnDataType( void *arg )
   int                                    thread_id;
   vtkDataArray                           *scalars;
 
-  thread_id = ((vtkMultiThreader::ThreadInfoStruct *)(arg))->ThreadID;
-  thread_count = ((vtkMultiThreader::ThreadInfoStruct *)(arg))->NumberOfThreads;
+  thread_id = ((vtkMultiThreader::ThreadInfo *)(arg))->ThreadID;
+  thread_count = ((vtkMultiThreader::ThreadInfo *)(arg))->NumberOfThreads;
   estimator = (vtkFiniteDifferenceGradientEstimator *)
-    (((vtkMultiThreader::ThreadInfoStruct *)(arg))->UserData);
+    (((vtkMultiThreader::ThreadInfo *)(arg))->UserData);
   scalars = estimator->Input->GetPointData()->GetScalars();
 
   if (scalars == NULL)

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadricClustering.h,v $
   Language:  C++
-  Date:      $Date: 2002-10-28 21:34:31 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2002-10-28 22:55:56 $
+  Version:   $Revision: 1.32 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -263,16 +263,18 @@ protected:
   float ZBinSize;
 
   //BTX
-  typedef struct {
+  class PointQuadric 
+  {
+  public:
     vtkIdType VertexId;
     // Dimension is supposed to be a flag representing the dimension of the cells
     // contributing to the quadric. 
     // Lines: 1, Triangles: 2 (and points 0 in the future?)
     unsigned char Dimension;
     float Quadric[9];
-  } PointQuadricStruct;
+  };
   //ETX
-  PointQuadricStruct* QuadricArray;
+  PointQuadric* QuadricArray;
 
   vtkIdType NumberOfBinsUsed;
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMultipleInputFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-28 19:01:27 $
-  Version:   $Revision: 1.59 $
+  Date:      $Date: 2002-10-28 22:55:56 $
+  Version:   $Revision: 1.60 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 #include "vtkMultiThreader.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkImageMultipleInputFilter, "$Revision: 1.59 $");
+vtkCxxRevisionMacro(vtkImageMultipleInputFilter, "$Revision: 1.60 $");
 
 //----------------------------------------------------------------------------
 vtkImageMultipleInputFilter::vtkImageMultipleInputFilter()
@@ -164,10 +164,10 @@ VTK_THREAD_RETURN_TYPE vtkImageMultiThreadedExecute( void *arg )
   int ext[6], splitExt[6], total;
   int threadId, threadCount;
   
-  threadId = ((vtkMultiThreader::ThreadInfoStruct *)(arg))->ThreadID;
-  threadCount = ((vtkMultiThreader::ThreadInfoStruct *)(arg))->NumberOfThreads;
+  threadId = ((vtkMultiThreader::ThreadInfo *)(arg))->ThreadID;
+  threadCount = ((vtkMultiThreader::ThreadInfo *)(arg))->NumberOfThreads;
   
-  str = (vtkImageMultiThreadStruct *)(((vtkMultiThreader::ThreadInfoStruct *)(arg))->UserData);
+  str = (vtkImageMultiThreadStruct *)(((vtkMultiThreader::ThreadInfo *)(arg))->UserData);
   
   memcpy(ext,str->Filter->GetOutput()->GetUpdateExtent(),
          sizeof(int)*6);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGridSynchronizedTemplates3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-28 19:01:58 $
-  Version:   $Revision: 1.63 $
+  Date:      $Date: 2002-10-28 22:55:56 $
+  Version:   $Revision: 1.64 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -49,7 +49,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkGridSynchronizedTemplates3D, "$Revision: 1.63 $");
+vtkCxxRevisionMacro(vtkGridSynchronizedTemplates3D, "$Revision: 1.64 $");
 vtkStandardNewMacro(vtkGridSynchronizedTemplates3D);
 
 //----------------------------------------------------------------------------
@@ -900,10 +900,10 @@ VTK_THREAD_RETURN_TYPE vtkGridSyncTempThreadedExecute( void *arg )
   int threadId, threadCount;
   int ext[6], *tmp;
   
-  threadId = ((vtkMultiThreader::ThreadInfoStruct *)(arg))->ThreadID;
-  threadCount = ((vtkMultiThreader::ThreadInfoStruct *)(arg))->NumberOfThreads;
+  threadId = ((vtkMultiThreader::ThreadInfo *)(arg))->ThreadID;
+  threadCount = ((vtkMultiThreader::ThreadInfo *)(arg))->NumberOfThreads;
   self = (vtkGridSynchronizedTemplates3D *)
-            (((vtkMultiThreader::ThreadInfoStruct *)(arg))->UserData);
+            (((vtkMultiThreader::ThreadInfo *)(arg))->UserData);
 
 
   // we need to breakup the ExecuteExtent based on the threadId/Count

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-28 21:33:01 $
-  Version:   $Revision: 1.94 $
+  Date:      $Date: 2002-10-28 22:55:56 $
+  Version:   $Revision: 1.95 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -36,7 +36,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkVolumeRayCastMapper, "$Revision: 1.94 $");
+vtkCxxRevisionMacro(vtkVolumeRayCastMapper, "$Revision: 1.95 $");
 
 //----------------------------------------------------------------------------
 // Needed when we don't use the vtkStandardNewMacro.
@@ -554,10 +554,10 @@ void vtkVolumeRayCastMapper::Render( vtkRenderer *ren, vtkVolume *vol )
 VTK_THREAD_RETURN_TYPE VolumeRayCastMapper_CastRays( void *arg )
 {
   // Get the info out of the input structure
-  int threadID    = ((vtkMultiThreader::ThreadInfoStruct *)(arg))->ThreadID;
-  int threadCount = ((vtkMultiThreader::ThreadInfoStruct *)(arg))->NumberOfThreads;
+  int threadID    = ((vtkMultiThreader::ThreadInfo *)(arg))->ThreadID;
+  int threadCount = ((vtkMultiThreader::ThreadInfo *)(arg))->NumberOfThreads;
   vtkVolumeRayCastStaticInfo *staticInfo  = 
-    (vtkVolumeRayCastStaticInfo *)((vtkMultiThreader::ThreadInfoStruct *)arg)->UserData;
+    (vtkVolumeRayCastStaticInfo *)((vtkMultiThreader::ThreadInfo *)arg)->UserData;
   
   int i, j, k;
   unsigned char *ucptr;

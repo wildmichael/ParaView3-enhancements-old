@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadricDecimation.h,v $
   Language:  C++
-  Date:      $Date: 2002-10-28 21:34:31 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2002-10-28 22:55:56 $
+  Version:   $Revision: 1.14 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -104,11 +104,13 @@ protected:
   vtkPriorityQueue *EdgeCosts;
 
   //BTX
-  typedef struct {
+  class ErrorQuadric
+  {
+  public:
     float *Quadric;
-  } ErrorQuadricStruct;
+  };
   //ETX
-  ErrorQuadricStruct *ErrorQuadrics;
+  ErrorQuadric *ErrorQuadrics;
 
   int AttributeComponents[6];
   int NumberOfComponents;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadricClustering.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-28 21:34:31 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 2002-10-28 22:55:56 $
+  Version:   $Revision: 1.50 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,7 +25,7 @@
 #include "vtkTimerLog.h"
 #include "vtkTriangle.h"
 
-vtkCxxRevisionMacro(vtkQuadricClustering, "$Revision: 1.49 $");
+vtkCxxRevisionMacro(vtkQuadricClustering, "$Revision: 1.50 $");
 vtkStandardNewMacro(vtkQuadricClustering);
 
 //----------------------------------------------------------------------------
@@ -238,9 +238,9 @@ void vtkQuadricClustering::StartAppend(float *bounds)
     this->QuadricArray = NULL;
     }
   this->QuadricArray = 
-    new vtkQuadricClustering::PointQuadricStruct[this->NumberOfDivisions[0] *
-                                                this->NumberOfDivisions[1] *
-                                                this->NumberOfDivisions[2]];
+    new vtkQuadricClustering::PointQuadric[this->NumberOfDivisions[0] *
+                                          this->NumberOfDivisions[1] *
+                                          this->NumberOfDivisions[2]];
   if (this->QuadricArray == NULL)
     {
     vtkErrorMacro("Could not allocate quadric grid.");

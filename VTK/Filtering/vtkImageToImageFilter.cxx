@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToImageFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-28 19:01:27 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 2002-10-28 22:55:56 $
+  Version:   $Revision: 1.51 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 #include "vtkMultiThreader.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkImageToImageFilter, "$Revision: 1.50 $");
+vtkCxxRevisionMacro(vtkImageToImageFilter, "$Revision: 1.51 $");
 
 //----------------------------------------------------------------------------
 vtkImageToImageFilter::vtkImageToImageFilter()
@@ -183,10 +183,10 @@ VTK_THREAD_RETURN_TYPE vtkImageThreadedExecute( void *arg )
   int threadId, threadCount;
   vtkImageData *output;
 
-  threadId = ((vtkMultiThreader::ThreadInfoStruct *)(arg))->ThreadID;
-  threadCount = ((vtkMultiThreader::ThreadInfoStruct *)(arg))->NumberOfThreads;
+  threadId = ((vtkMultiThreader::ThreadInfo *)(arg))->ThreadID;
+  threadCount = ((vtkMultiThreader::ThreadInfo *)(arg))->NumberOfThreads;
 
-  str = (vtkImageThreadStruct *)(((vtkMultiThreader::ThreadInfoStruct *)(arg))->UserData);
+  str = (vtkImageThreadStruct *)(((vtkMultiThreader::ThreadInfo *)(arg))->UserData);
   output = str->Output;
   output->GetUpdateExtent( ext );
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDecimate.h,v $
   Language:  C++
-  Date:      $Date: 2002-10-28 21:37:18 $
-  Version:   $Revision: 1.60 $
+  Date:      $Date: 2002-10-28 22:55:56 $
+  Version:   $Revision: 1.61 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -212,22 +212,26 @@ protected:
 
   //BTX - begin tcl exclude
   // Special structures for building loops
-  typedef struct LocalVertexStruct
+  class LocalVertex
   {
+  public:
     vtkIdType     id;
     float   x[3];
     float   FAngle;
     int     deRefs; //monitor memory requirements; new only when necessary
     int     newRefs;
-  } LocalVertex, *LocalVertexPtr;
+  };
+  typedef LocalVertex *LocalVertexPtr;
     
-  typedef struct LocalTriStruct
+  class LocalTri
   {
+  public:
     vtkIdType     id;
     float   area;
     float   n[3];
     vtkIdType     verts[3];
-  } LocalTri, *LocalTriPtr;
+  };
+  typedef LocalTri *LocalTriPtr;
 
   //
   // Special classes for manipulating data

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPriorityQueue.h,v $
   Language:  C++
-  Date:      $Date: 2002-10-28 21:35:00 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2002-10-28 22:55:56 $
+  Version:   $Revision: 1.36 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -45,11 +45,12 @@ class VTK_COMMON_EXPORT vtkPriorityQueue : public vtkObject
 {
 public:
   //BTX
-  typedef struct ItemStruct
+  class Item
   {
+  public:
     float priority;
     vtkIdType id;
-  } Item;
+  };
   //ETX
 
   // Description:
