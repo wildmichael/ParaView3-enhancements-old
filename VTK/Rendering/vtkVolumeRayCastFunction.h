@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastFunction.h,v $
   Language:  C++
-  Date:      $Date: 1999-04-22 14:14:36 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1999-09-21 15:00:48 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -89,6 +89,10 @@ public:
   virtual float GetZeroOpacityThreshold( vtkVolume *vol )=0;
 
 protected:
+  vtkVolumeRayCastFunction() {};
+  ~vtkVolumeRayCastFunction() {};
+  vtkVolumeRayCastFunction(const vtkVolumeRayCastFunction &) {};
+  void operator=(const vtkVolumeRayCastFunction &) {};
 
   // Description:
   // This method gives the subclass a chance to do any special
