@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-03-07 16:15:13 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 2003-03-07 16:35:30 $
+  Version:   $Revision: 1.47 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 #include "vtkImageClip.h"
 #include "vtkImageData.h"
 
-vtkCxxRevisionMacro(vtkVolumeMapper, "$Revision: 1.46 $");
+vtkCxxRevisionMacro(vtkVolumeMapper, "$Revision: 1.47 $");
 
 // Construct a vtkVolumeMapper with empty scalar input and clipping off.
 vtkVolumeMapper::vtkVolumeMapper()
@@ -118,10 +118,16 @@ void vtkVolumeMapper::SetUseImageClipper(int arg)
   // Force a change of the input to reconnect the pipeline correctly
 
   vtkImageData *input = this->GetInput();
-  input->Register(this);
+  if (input)
+    {
+    input->Register(this);
+    }
   this->SetInput(NULL);
-  this->SetInput(input);
-  input->UnRegister(this);
+  if (input)
+    {
+    this->SetInput(input);
+    input->UnRegister(this);
+    }
 }
 
 void vtkVolumeMapper::SetInput( vtkImageData *input )
