@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLUnstructuredDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-23 15:49:47 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-11-22 20:50:52 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 #include "vtkCellArray.h"
 #include "vtkPointSet.h"
 
-vtkCxxRevisionMacro(vtkXMLUnstructuredDataReader, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkXMLUnstructuredDataReader, "$Revision: 1.3 $");
 
 //----------------------------------------------------------------------------
 vtkXMLUnstructuredDataReader::vtkXMLUnstructuredDataReader()
@@ -235,13 +235,16 @@ void vtkXMLUnstructuredDataReader::SetupOutputInformation()
   output->SetMaximumNumberOfPieces(this->NumberOfPieces);
   
   // Create the points array.
-  vtkDataArray* array =
-    this->CreateDataArray(this->PointElements[this->Piece]->GetNestedElement(0));
   vtkPoints* points = vtkPoints::New();
-  points->SetData(array);
+  
+  // Use the configuration of the first piece since all are the same.
+  vtkXMLDataElement* ePoints = this->PointElements[0];
+  vtkDataArray* a = this->CreateDataArray(ePoints->GetNestedElement(0));
+  points->SetData(a);
+  a->Delete();
+  
   output->SetPoints(points);
   points->Delete();
-  array->Delete();
 }
 
 //----------------------------------------------------------------------------
