@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkReverseSense.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-24 13:34:33 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1998-12-26 13:21:10 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -71,10 +71,10 @@ void vtkReverseSense::Execute()
     polys = new vtkCellArray(*(input->GetPolys()));
     strips = new vtkCellArray(*(input->GetStrips()));
 
-    output->SetVerts(verts);  
-    output->SetLines(lines);  
-    output->SetPolys(polys);  
-    output->SetStrips(strips);  
+    output->SetVerts(verts); verts->Delete();
+    output->SetLines(lines); lines->Delete();
+    output->SetPolys(polys);  polys->Delete();
+    output->SetStrips(strips);  strips->Delete();
 
     for ( int cellId=0; cellId < numCells; cellId++ )
       {
