@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-11-11 21:47:32 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1999-02-10 18:06:02 $
+  Version:   $Revision: 1.29 $
   Thanks:    to Horst Schreiber for developing this MFC code
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -383,7 +383,7 @@ LRESULT vtkWin32OpenGLRenderWindow::MessageProc(HWND hWnd, UINT message,
         this->DeviceContext = GetDC(hWnd);
         this->SetupPixelFormat(this->DeviceContext,
 			       PFD_SUPPORT_OPENGL | PFD_DRAW_TO_WINDOW |
-			       PFD_STEREO | PFD_DOUBLEBUFFER, 
+			       PFD_STEREO | PFD_SUPPORT_GDI |PFD_DOUBLEBUFFER, 
 			       this->GetDebug());
         this->SetupPalette(this->DeviceContext);
 	this->ContextId = wglCreateContext(this->DeviceContext);
@@ -553,7 +553,7 @@ void vtkWin32OpenGLRenderWindow::WindowInitialize (void)
       this->DeviceContext = GetDC(this->WindowId);
       this->SetupPixelFormat(this->DeviceContext, PFD_SUPPORT_OPENGL |
 			     PFD_DRAW_TO_WINDOW | PFD_DOUBLEBUFFER |
-			     PFD_STEREO, this->GetDebug());
+			     PFD_SUPPORT_GDI | PFD_STEREO, this->GetDebug());
       this->SetupPalette(this->DeviceContext);
       this->ContextId = wglCreateContext(this->DeviceContext);
       wglMakeCurrent(this->DeviceContext, this->ContextId);
