@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSTLWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-23 19:13:25 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1998-06-30 19:42:23 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -166,17 +166,5 @@ void vtkSTLWriter::WriteBinarySTL(vtkPoints *pts, vtkCellArray *polys)
     fwrite (&ibuff2, 2, 1, fp);
     }
   fclose (fp);
-}
-
-void vtkSTLWriter::PrintSelf(ostream& os, vtkIndent indent)
-{
-  vtkPolyDataWriter::PrintSelf(os,indent);
- 
-  os << indent << "File Name: " << this->FileName << "\n";
-
-  if ( this->FileType == VTK_ASCII  )
-    os << indent << "FileType: ASCII\n";
-  else
-    os << indent << "FileType: BINARY\n";
 }
 
