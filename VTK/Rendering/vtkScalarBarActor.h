@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalarBarActor.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:13 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2000-12-21 15:05:31 $
+  Version:   $Revision: 1.31 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -212,6 +212,9 @@ private:
   int LastSize[2];
   int LastOrigin[2];
 
+  void SizeTitle(int *titleSize, int *size, vtkViewport *viewport);
+  void AllocateAndSizeLabels(int *labelSize, int *size,
+                             vtkViewport *viewport, float *range);
 };
 
 
