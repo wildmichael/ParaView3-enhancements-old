@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkContourValues.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-17 10:54:25 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-04-16 21:19:50 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -146,10 +146,15 @@ void vtkContourValues::GenerateValues(int numContours, float range[2])
   float val, incr;
   int i;
 
-  numContours = (numContours < 2 ? 2 : numContours);
   this->SetNumberOfContours(numContours);
-
-  incr = (range[1] - range[0]) / (numContours-1);
+  if (numContours == 1)
+    {
+    incr = 0;
+    }
+  else
+    {
+    incr = (range[1] - range[0]) / (numContours-1);
+    }
   for (i=0, val=range[0]; i < numContours; i++, val+=incr)
     {
     this->SetValue(i,val);
