@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-06 21:16:59 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1999-07-06 21:32:53 $
+  Version:   $Revision: 1.15 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -176,7 +176,7 @@ void vtkXTextMapper::GetSize(vtkViewport* viewport, int *size)
   int dir, as, des;
   XCharStruct overall;
   XQueryTextExtents(displayId, font, this->Input, strlen(this->Input),
-		    &dir, &as, &des, &overall);n
+		    &dir, &as, &des, &overall);
   size[1] = as + des;
   size[0] = overall.width;
   this->CurrentFont = font;
