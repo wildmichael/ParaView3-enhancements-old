@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDirectionEncoder.h,v $
   Language:  C++
-  Date:      $Date: 1999-04-06 19:20:58 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1999-04-06 19:46:17 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -61,15 +61,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 class VTK_EXPORT vtkDirectionEncoder : public vtkObject
 {
 public:
-  // Description:
-  // Create a default instance of this class with
-  // ZeroNormalTolerance = 0.0
-  vtkDirectionEncoder();
-
-  // Description:
-  // Print the variables of this class
-  void PrintSelf(ostream& os, vtkIndent indent);
-
   // Description:
   // Get the name of this class
   const char *GetClassName() {return "vtkDirectionEncoder";};
