@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProp3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-07 23:53:54 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2000-08-18 13:55:14 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -520,14 +520,16 @@ void vtkProp3D::PokeMatrix(vtkMatrix4x4 *matrix)
 
 void vtkProp3D::InitPathTraversal()
 {
-  if ( this->Paths == NULL )
+  if ( this->Paths )
     {
-    this->Paths = vtkAssemblyPaths::New();
-    vtkAssemblyPath *path = vtkAssemblyPath::New();
-    path->AddNode(this,this->GetMatrixPointer());
-    this->BuildPaths(this->Paths,path);
-    path->Delete();
+    this->Paths->Delete();
     }
+  this->Paths = vtkAssemblyPaths::New();
+  vtkAssemblyPath *path = vtkAssemblyPath::New();
+  path->AddNode(this,this->GetMatrixPointer());
+  this->BuildPaths(this->Paths,path);
+  path->Delete();
+
   this->Paths->InitTraversal();
 }
 
