@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataMapper.h,v $
   Language:  C++
-  Date:      $Date: 2001-01-08 14:10:29 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2001-01-31 13:56:39 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -89,15 +89,6 @@ public:
   vtkGetMacro(NumberOfPieces, int);
 
   // Description:
-  // If this limit is greater than zero, the mapper will stream
-  // (if NumberofPieces > 1 and if the pieces require more memory
-  // than this limit, the mapper will sub-divide each piece) .
-  // Each piece generated during streaming will be rendered in
-  // a for loop.
-  void SetMemoryLimit(unsigned long limit);
-  vtkGetMacro(MemoryLimit, unsigned long);
-  
-  // Description:
   // Set the number of ghost cells to return.
   vtkSetMacro(GhostLevel, int);
   vtkGetMacro(GhostLevel, int);
@@ -108,9 +99,6 @@ protected:
   vtkPolyDataMapper(const vtkPolyDataMapper&) {};
   void operator=(const vtkPolyDataMapper&) {};
 
-  static const float MEMORY_THRESHOLD;
-
-  unsigned long MemoryLimit;
   int Piece;
   int NumberOfPieces;
   int NumberOfSubPieces;
