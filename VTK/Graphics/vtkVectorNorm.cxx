@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectorNorm.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-08-31 21:25:11 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1995-09-05 16:16:15 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,10 +56,10 @@ void vtkVectorNorm::Execute()
   float *v, s, maxScalar;
   vtkPointData *pd, *outPD;
   vtkVectors *inVectors;
-  vtkDataSet *output;
-//
-// Initialize
-//
+  vtkDataSet *output = this->GetOutput();
+  //
+  // Initialize
+  //
   vtkDebugMacro(<<"Normalizing vectors!");
 
   pd = this->Input->GetPointData();
