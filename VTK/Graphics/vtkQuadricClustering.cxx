@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadricClustering.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-18 13:13:03 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2001-06-19 16:27:20 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -199,19 +199,19 @@ void vtkQuadricClustering::StartAppend(float *bounds)
     {
     this->OutputTriangleArray->Delete();
     this->OutputTriangleArray = NULL;
-    vtkWarningMacro("Array already created.  Did you call EndAppend?");
+    //vtkWarningMacro("Array already created.  Did you call EndAppend?");
     }
   if (this->OutputLines)
     {
     this->OutputLines->Delete();
     this->OutputLines = NULL;
-    vtkWarningMacro("Array already created.  Did you call EndAppend?");
+    //vtkWarningMacro("Array already created.  Did you call EndAppend?");
     }
   if (this->OutputVerts)
     {
     this->OutputVerts->Delete();
     this->OutputVerts = NULL;
-    vtkWarningMacro("Array already created.  Did you call EndAppend?");
+    //vtkWarningMacro("Array already created.  Did you call EndAppend?");
     }
 
   this->OutputTriangleArray = vtkCellArray::New();
@@ -250,7 +250,7 @@ void vtkQuadricClustering::Append(vtkPolyData *pd)
   if (this->OutputTriangleArray == NULL || this->OutputLines == NULL ||
       this->OutputVerts == NULL)
     {
-    vtkErrorMacro("Missing Array:  Did you call StartAppend?");
+    //vtkErrorMacro("Missing Array:  Did you call StartAppend?");
     return;
     }
 
@@ -705,7 +705,7 @@ void vtkQuadricClustering::EndAppend()
   if (this->OutputTriangleArray == NULL || this->OutputLines == NULL ||
       this->OutputVerts == NULL)
     {
-    vtkErrorMacro("Missing Array:  Did you call StartAppend?");
+    //vtkErrorMacro("Missing Array:  Did you call StartAppend?");
     return;
     }
 
@@ -991,7 +991,7 @@ void vtkQuadricClustering::EndAppendUsingPoints(vtkPolyData *input)
   if (this->OutputTriangleArray == NULL || this->OutputLines == NULL ||
       this->OutputVerts == NULL)
     {
-    vtkErrorMacro("Missing Array:  Did you call StartAppend?");
+    //vtkErrorMacro("Missing Array:  Did you call StartAppend?");
     return;
     }
 
