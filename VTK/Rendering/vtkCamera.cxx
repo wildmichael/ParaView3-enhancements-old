@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCamera.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-05-04 13:51:02 $
-  Version:   $Revision: 1.85 $
+  Date:      $Date: 2000-05-04 23:54:17 $
+  Version:   $Revision: 1.86 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -91,6 +91,9 @@ vtkCamera::vtkCamera()
   this->Transform = vtkProjectionTransform::New();
   this->ViewTransform = vtkTransform::New();
   this->PerspectiveTransform = vtkProjectionTransform::New();
+
+  // initialize the ViewTransform
+  this->ComputeViewTransform();
 }
 
 //----------------------------------------------------------------------------
