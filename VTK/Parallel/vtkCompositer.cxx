@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCompositer.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-12 19:58:46 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-04-16 18:06:47 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,14 +20,17 @@
 #include "vtkObjectFactory.h"
 #include "vtkToolkits.h"
 
-vtkCxxRevisionMacro(vtkCompositer, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkCompositer, "$Revision: 1.2 $");
 vtkStandardNewMacro(vtkCompositer);
 
 //-------------------------------------------------------------------------
 vtkCompositer::vtkCompositer()
 {
   this->Controller = vtkMultiProcessController::GetGlobalController();
-  this->Controller->Register(this);
+  if (this->Controller)
+    {
+    this->Controller->Register(this);
+    }
 }
   
 //-------------------------------------------------------------------------
@@ -38,7 +41,7 @@ vtkCompositer::~vtkCompositer()
 
 //-------------------------------------------------------------------------
 void vtkCompositer::CompositeBuffer(vtkDataArray *pBuf, vtkFloatArray *zBuf,
-				                            vtkDataArray *pTmp, vtkFloatArray *zTmp)
+                                    vtkDataArray *pTmp, vtkFloatArray *zTmp)
 {
   pBuf = pBuf;
   zBuf = zBuf;
