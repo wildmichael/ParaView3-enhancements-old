@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkDataSetToDataSetFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-05-08 08:53:42 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1994-06-10 08:33:06 $
+  Version:   $Revision: 1.10 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -51,27 +51,6 @@ void vlDataSetToDataSetFilter::Initialize()
     {
     return;
     }
-}
-
-vlMapper *vlDataSetToDataSetFilter::MakeMapper()
-{
-//
-// A little tricky because mappers must be of concrete type, but this class 
-// deals at abstract level of DataSet.  Depending upon Input member of this 
-// filter, mapper may change.  Hence need to anticipate change in Input and 
-// create new mappers as necessary.
-//
-  vlMapper *mapper;
-
-  vlDataSetToDataSetFilter::Update(); // compiler bug, had to hard code call
-  mapper = this->DataSet->MakeMapper();
-  if ( !this->Mapper || mapper != this->Mapper )
-    {
-    if (this->Mapper) this->Mapper->UnRegister(this);
-    this->Mapper = mapper;
-    this->Mapper->Register(this);
-    }
-  return this->Mapper;
 }
 
 void vlDataSetToDataSetFilter::PrintSelf(ostream& os, vlIndent indent)
