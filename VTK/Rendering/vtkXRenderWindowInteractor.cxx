@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkXRenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-10-17 13:59:08 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1994-10-27 21:38:39 $
+  Version:   $Revision: 1.2 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -69,7 +69,6 @@ void  vlXInteractiveRenderer::Start()
 void vlXInteractiveRenderer::Initialize()
 {
   Display *display;
-  Window      window;
   static int any_initialized = 0;
   static XtAppContext app;
   vlXRenderWindow *ren;
