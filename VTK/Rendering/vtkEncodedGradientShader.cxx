@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEncodedGradientShader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-06-06 13:28:29 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2003-06-09 13:44:03 $
+  Version:   $Revision: 1.30 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -31,7 +31,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkEncodedGradientShader, "$Revision: 1.29 $");
+vtkCxxRevisionMacro(vtkEncodedGradientShader, "$Revision: 1.30 $");
 vtkStandardNewMacro(vtkEncodedGradientShader);
 
 vtkEncodedGradientShader::vtkEncodedGradientShader()
@@ -577,5 +577,6 @@ void vtkEncodedGradientShader::PrintSelf(ostream& os, vtkIndent indent)
 
   os << indent << "Zero Normal Specular Intensity: " <<
     this->ZeroNormalSpecularIntensity << endl;
+  os << indent << "ActiveComponent: " << this->ActiveComponent << endl;
 }
 
