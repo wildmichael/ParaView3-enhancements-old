@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-02 16:43:15 $
-  Version:   $Revision: 1.92 $
+  Date:      $Date: 2001-12-18 13:35:59 $
+  Version:   $Revision: 1.93 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -189,7 +189,8 @@ void vtkMapper::GetResolveCoincidentTopologyPolygonOffsetParameters(
 // then this object is modified as well.
 unsigned long vtkMapper::GetMTime()
 {
-  unsigned long mTime=this->MTime.GetMTime();
+  //unsigned long mTime=this->MTime.GetMTime();
+  unsigned long mTime=vtkAbstractMapper::GetMTime();
   unsigned long lutMTime;
 
   if ( this->LookupTable != NULL )
