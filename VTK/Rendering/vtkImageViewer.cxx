@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageViewer.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-08-19 19:03:41 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1997-08-22 20:28:49 $
+  Version:   $Revision: 1.19 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -75,11 +75,7 @@ vtkImageViewer::vtkImageViewer()
   this->GreenComponent = 1;
   this->BlueComponent = 2;
 
-  this->XOffset = 0;
-  this->YOffset = 0;
   this->GrayScaleHint = 0;
-
-
 }
 
 
