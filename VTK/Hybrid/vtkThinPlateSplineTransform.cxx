@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThinPlateSplineTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-17 14:10:53 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2002-06-17 14:53:03 $
+  Version:   $Revision: 1.29 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,7 +19,7 @@
 #include "vtkMath.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkThinPlateSplineTransform, "$Revision: 1.28 $");
+vtkCxxRevisionMacro(vtkThinPlateSplineTransform, "$Revision: 1.29 $");
 vtkStandardNewMacro(vtkThinPlateSplineTransform);
 
 //------------------------------------------------------------------------
@@ -127,7 +127,7 @@ vtkThinPlateSplineTransform::~vtkThinPlateSplineTransform()
     }
   if (this->MatrixW)
     {
-    DeleteMatrix(this->MatrixW);
+    vtkDeleteMatrix(this->MatrixW);
     this->MatrixW = NULL;
     }
 }
@@ -201,7 +201,7 @@ void vtkThinPlateSplineTransform::InternalUpdate()
     {
     if (this->MatrixW)
       {
-      DeleteMatrix(this->MatrixW);
+      vtkDeleteMatrix(this->MatrixW);
       }
     this->MatrixW = NULL;
     this->NumberOfPoints = 0;
@@ -311,14 +311,14 @@ void vtkThinPlateSplineTransform::InternalUpdate()
       }
     delete [] values;
     
-    MatrixMultiply(U,X,W,N+D+1,N+D+1,N+D+1,D);
-    MatrixMultiply(w,W,X,N+D+1,N+D+1,N+D+1,D);
-    MatrixMultiply(V,X,W,N+D+1,N+D+1,N+D+1,D);
+    vtkMatrixMultiply(U,X,W,N+D+1,N+D+1,N+D+1,D);
+    vtkMatrixMultiply(w,W,X,N+D+1,N+D+1,N+D+1,D);
+    vtkMatrixMultiply(V,X,W,N+D+1,N+D+1,N+D+1,D);
     
-    DeleteMatrix(V);
-    DeleteMatrix(w);
-    DeleteMatrix(U);
-    DeleteMatrix(X);
+    vtkDeleteMatrix(V);
+    vtkDeleteMatrix(w);
+    vtkDeleteMatrix(U);
+    vtkDeleteMatrix(X);
 
     // now the linear portion of the warp must be checked
     // (this is a very poor check for now)
@@ -468,7 +468,7 @@ void vtkThinPlateSplineTransform::InternalUpdate()
 
   if (this->MatrixW)
     {
-    DeleteMatrix(this->MatrixW);
+    vtkDeleteMatrix(this->MatrixW);
     }
   this->MatrixW = W;
   this->NumberOfPoints = N;
