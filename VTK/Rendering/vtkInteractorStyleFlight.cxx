@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleFlight.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-25 02:33:23 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2002-04-25 14:23:34 $
+  Version:   $Revision: 1.18 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 #include "vtkRenderWindowInteractor.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkInteractorStyleFlight, "$Revision: 1.17 $");
+vtkCxxRevisionMacro(vtkInteractorStyleFlight, "$Revision: 1.18 $");
 vtkStandardNewMacro(vtkInteractorStyleFlight);
 
 //---------------------------------------------------------------------------
@@ -132,8 +132,8 @@ void vtkInteractorStyleFlight::OnTimer(void)
 //---------------------------------------------------------------------------
 // Mouse event handlers
 //---------------------------------------------------------------------------
-void vtkInteractorStyleFlight::OnMouseMove(int ctrl, 
-                                           int shift, 
+void vtkInteractorStyleFlight::OnMouseMove(int vtkNotUsed(ctrl), 
+                                           int vtkNotUsed(shift),
                                            int x, 
                                            int y) 
 {

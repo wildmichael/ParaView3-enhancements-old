@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleJoystickActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-25 02:57:22 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2002-04-25 14:23:34 $
+  Version:   $Revision: 1.17 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 #include "vtkMath.h"
 #include "vtkCommand.h"
 
-vtkCxxRevisionMacro(vtkInteractorStyleJoystickActor, "$Revision: 1.16 $");
+vtkCxxRevisionMacro(vtkInteractorStyleJoystickActor, "$Revision: 1.17 $");
 vtkStandardNewMacro(vtkInteractorStyleJoystickActor);
 
 //----------------------------------------------------------------------------
@@ -194,7 +194,7 @@ void vtkInteractorStyleJoystickActor::OnLeftButtonUp(int vtkNotUsed(ctrl),
 
 //----------------------------------------------------------------------------
 void vtkInteractorStyleJoystickActor::OnMiddleButtonDown(int ctrl, 
-                                                         int shift, 
+                                                         int vtkNotUsed(shift), 
                                                          int x, 
                                                          int y) 
 {

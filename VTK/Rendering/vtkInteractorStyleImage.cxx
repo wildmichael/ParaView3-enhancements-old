@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleImage.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-25 02:38:05 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2002-04-25 14:23:34 $
+  Version:   $Revision: 1.16 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 #include "vtkMath.h"
 #include "vtkCommand.h"
 
-vtkCxxRevisionMacro(vtkInteractorStyleImage, "$Revision: 1.15 $");
+vtkCxxRevisionMacro(vtkInteractorStyleImage, "$Revision: 1.16 $");
 vtkStandardNewMacro(vtkInteractorStyleImage);
 
 //----------------------------------------------------------------------------
@@ -78,8 +78,8 @@ void vtkInteractorStyleImage::EndPick()
   this->StopState();
 }
 //----------------------------------------------------------------------------
-void vtkInteractorStyleImage::OnMouseMove(int ctrl, 
-                                          int shift, 
+void vtkInteractorStyleImage::OnMouseMove(int vtkNotUsed(ctrl), 
+                                          int vtkNotUsed(shift),
                                           int x, 
                                           int y) 
 {
