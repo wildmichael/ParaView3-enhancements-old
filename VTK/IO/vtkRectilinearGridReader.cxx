@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGridReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:46:53 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-01-16 15:28:56 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,6 +42,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 vtkRectilinearGridReader::vtkRectilinearGridReader()
 {
+  this->Reader.SetSource(this);
 }
 
 unsigned long int vtkRectilinearGridReader::GetMTime()

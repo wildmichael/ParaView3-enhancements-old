@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:48:03 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1998-01-16 15:28:56 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,6 +42,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 vtkStructuredGridReader::vtkStructuredGridReader()
 {
+  this->Reader.SetSource(this);
 }
 
 unsigned long int vtkStructuredGridReader::GetMTime()
