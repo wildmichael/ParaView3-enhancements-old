@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-09 11:35:05 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 1999-09-30 15:20:20 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -69,8 +69,9 @@ vtkDataSet * vtkDataSetReader::GetOutput()
   
   // The filename might have changed (changing the output).
   // We need to re execute.
-  
-  if (!this->Reader->GetFileName ())
+  if (this->Reader->GetFileName() == NULL && 
+      (this->Reader->GetReadFromInputString() == 0 || 
+       this->Reader->GetInputString() == NULL))
     {
     vtkWarningMacro(<< "FileName must be set");
     return (vtkDataSet *) NULL;
@@ -238,7 +239,8 @@ void vtkDataSetReader::Execute()
 	preader->SetOutput((vtkPolyData *)(output));
 	}
       preader->SetFileName(this->Reader->GetFileName());
-      preader->SetInputString(this->Reader->GetInputString());
+      preader->SetInputString(this->Reader->GetInputString(),
+			      this->Reader->GetInputStringLength());
       preader->SetReadFromInputString(this->Reader->GetReadFromInputString());
       preader->SetScalarsName(this->Reader->GetScalarsName());
       preader->SetVectorsName(this->Reader->GetVectorsName());

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:12:48 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1999-09-30 15:20:20 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -125,7 +125,19 @@ void vtkDataSetWriter::WriteData()
   writer->SetFieldDataName(this->FieldDataName);
   writer->SetFileType(this->FileType);
   writer->SetDebug(this->Debug);
+  writer->SetWriteToOutputString(this->WriteToOutputString);
   writer->Write();
+  if (this->WriteToOutputString)
+    {
+    if (this->OutputString)
+      {
+      delete [] this->OutputString;
+      }
+    this->OutputStringLength = writer->GetOutputStringLength();
+    // should fill something here.
+    this->OutputStringAllocatedLength = this->OutputStringLength;
+    this->OutputString = writer->RegisterAndGetOutputString();
+    }
   writer->Delete();
 }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataReader.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:27 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 1999-09-30 15:20:20 $
+  Version:   $Revision: 1.44 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -94,6 +94,7 @@ public:
   void SetInputString(char *in);
   vtkGetStringMacro(InputString);
   void SetInputString(char *in, int len);
+  vtkGetMacro(InputStringLength, int);
   
   // Description:
   // Get the header from the vtk data file.
