@@ -7,8 +7,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVRMLSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-04-29 19:33:44 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2003-04-30 13:14:59 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -31,7 +31,7 @@
 #include "vtkVRMLImporter.h"
 
 
-vtkCxxRevisionMacro(vtkVRMLSource, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkVRMLSource, "$Revision: 1.3 $");
 vtkStandardNewMacro(vtkVRMLSource);
 
 //------------------------------------------------------------------------------
@@ -152,6 +152,7 @@ void vtkVRMLSource::CopyImporterToOutputs()
     if (mapper)
       {
       input = mapper->GetInput();
+      input->Update();
       output = this->GetOutput(idx);
       output->CopyStructure(input);
       // Only copy well formed arrays.
