@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStructuredGridSource.h,v $
   Language:  C++
-  Date:      $Date: 1994-08-10 08:06:03 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1994-11-06 19:40:21 $
+  Version:   $Revision: 1.3 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -28,6 +28,9 @@ class vlStructuredGridSource : public vlSource, public vlStructuredGrid
 public:
   char *GetClassName() {return "vlStructuredGridSource";};
   void PrintSelf(ostream& os, vlIndent indent);
+
+  void Modified();
+  unsigned long int GetMTime();
   void Update();
 };
 

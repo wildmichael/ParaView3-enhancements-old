@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStructuredPointsSource.h,v $
   Language:  C++
-  Date:      $Date: 1994-08-10 13:20:23 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1994-11-06 19:40:22 $
+  Version:   $Revision: 1.4 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -29,6 +29,9 @@ class vlStructuredPointsSource : public vlSource, public vlStructuredPoints
 public:
   char *GetClassName() {return "vlStructuredPointSource";};
   void PrintSelf(ostream& os, vlIndent indent);
+
+  void Modified();
+  unsigned long int GetMTime();
   void Update();
 };
 

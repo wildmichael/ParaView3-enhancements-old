@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStructuredPointsSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-08-10 13:20:22 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1994-11-06 19:40:22 $
+  Version:   $Revision: 1.4 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -15,20 +15,26 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 =========================================================================*/
 #include "SPtsSrc.hh"
 
+void vlStructuredPointsSource::Modified()
+{
+  this->vlStructuredPoints::Modified();
+  this->vlSource::_Modified();
+}
+
+unsigned long int vlStructuredPointsSource::GetMTime()
+{
+  unsigned long dtime = this->vlStructuredPoints::GetMTime();
+  unsigned long ftime = this->vlSource::_GetMTime();
+  return (dtime > ftime ? dtime : ftime);
+}
+
 void vlStructuredPointsSource::Update()
 {
-  vlSource::Update();
+  this->UpdateFilter();
 }
 
 void vlStructuredPointsSource::PrintSelf(ostream& os, vlIndent indent)
 {
-  if (this->ShouldIPrint(vlStructuredPointsSource::GetClassName()))
-    {
-    this->PrintWatchOn(); // watch for multiple inheritance
-    
-    vlStructuredPoints::PrintSelf(os,indent);
-    vlSource::PrintSelf(os,indent);
-    
-    this->PrintWatchOff(); // stop worrying about it now
-    }
+  vlStructuredPoints::PrintSelf(os,indent);
+  vlSource::_PrintSelf(os,indent);
 }

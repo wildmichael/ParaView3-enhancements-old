@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkSource.h,v $
   Language:  C++
-  Date:      $Date: 1994-08-10 08:06:03 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1994-11-06 19:40:24 $
+  Version:   $Revision: 1.12 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -23,20 +23,19 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 #ifndef __vlSource_h
 #define __vlSource_h
 
-#include "Object.hh"
+#include "LWObject.hh"
 
-class vlSource : virtual public vlObject 
+class vlSource : public vlLWObject
 {
 public:
-  vlSource() : StartMethod(NULL), EndMethod(NULL) {};
-  ~vlSource() {};
-  char *GetClassName() {return "vlSource";};
-  void PrintSelf(ostream& os, vlIndent indent);
+  vlSource();
+  virtual ~vlSource() {};
+  void _PrintSelf(ostream& os, vlIndent indent);
 
   // Description:
   // Bring object up-to-date before execution. Update() checks modified
   // time against last execution time, and re-executes object if necessary.
-  virtual void Update();
+  virtual void UpdateFilter();
 
   void SetStartMethod(void (*f)(void *), void *arg);
   void SetEndMethod(void (*f)(void *), void *arg);
