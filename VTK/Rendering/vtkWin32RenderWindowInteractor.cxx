@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32RenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-04-27 19:56:56 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 1999-05-20 14:50:57 $
+  Version:   $Revision: 1.40 $
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -130,7 +130,7 @@ void vtkWin32RenderWindowInteractor::Initialize()
 
   // get the info we need from the RenderingWindow
   ren = (vtkWin32OpenGLRenderWindow *)(this->RenderWindow);
-  ren->Render();
+  ren->Start();
   size    = ren->GetSize();
   position= ren->GetPosition();
   this->WindowId = ren->GetWindowId();

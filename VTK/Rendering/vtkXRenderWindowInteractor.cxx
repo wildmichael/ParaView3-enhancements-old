@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-05-12 14:50:15 $
-  Version:   $Revision: 1.62 $
+  Date:      $Date: 1999-05-20 14:50:58 $
+  Version:   $Revision: 1.63 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -259,7 +259,7 @@ void vtkXRenderWindowInteractor::Initialize()
     }
 
   this->WindowId = XtWindow(this->top);
-  ren->Render();
+  ren->Start();
   this->Enable();
   this->Size[0] = size[0];
   this->Size[1] = size[1];

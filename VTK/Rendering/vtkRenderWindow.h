@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 1999-04-29 17:51:16 $
-  Version:   $Revision: 1.78 $
+  Date:      $Date: 1999-05-20 14:50:57 $
+  Version:   $Revision: 1.79 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -347,6 +347,7 @@ protected:
   FILE* PPMImageFilePtr;
   int   AbortRender;
   int   InAbortCheck;
+  int   InRender;
   void (*AbortCheckMethod)(void *);
   void (*AbortCheckMethodArgDelete)(void *);
   void *AbortCheckMethodArg;
