@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSet.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-04 14:21:49 $
-  Version:   $Revision: 1.70 $
+  Date:      $Date: 2002-01-18 16:40:22 $
+  Version:   $Revision: 1.71 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,7 +42,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkPointSet.h"
 #include "vtkSource.h"
 
-vtkCxxRevisionMacro(vtkPointSet, "$Revision: 1.70 $");
+vtkCxxRevisionMacro(vtkPointSet, "$Revision: 1.71 $");
 
 vtkPointSet::vtkPointSet ()
 {
@@ -404,7 +404,14 @@ void vtkPointSet::DeepCopy(vtkDataObject *dataObject)
     {
     if (this->Points == NULL)
       {
-      this->Points = vtkPoints::New();
+      if ( pointSet->GetPoints() != NULL )
+        {
+        this->Points = pointSet->GetPoints()->MakeObject();
+        }
+      else
+        {
+        this->Points = vtkPoints::New();
+        }
       }
     this->Points->DeepCopy(pointSet->GetPoints());
     }
