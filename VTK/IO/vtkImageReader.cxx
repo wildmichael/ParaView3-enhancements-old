@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-06 15:44:42 $
-  Version:   $Revision: 1.100 $
+  Date:      $Date: 2002-06-07 13:16:26 $
+  Version:   $Revision: 1.101 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkTransform.h"
 
-vtkCxxRevisionMacro(vtkImageReader, "$Revision: 1.100 $");
+vtkCxxRevisionMacro(vtkImageReader, "$Revision: 1.101 $");
 vtkStandardNewMacro(vtkImageReader);
 
 vtkCxxSetObjectMacro(vtkImageReader,Transform,vtkTransform);
@@ -285,7 +285,8 @@ static void vtkImageReaderUpdate2(vtkImageReader *self, vtkImageData *data,
 
       // read the row.
       self->GetFile()->read((char *)buf, streamRead);
-      if ( self->GetFile()->gcount() != streamRead || self->GetFile()->fail())
+      if ( static_cast<unsigned long>(self->GetFile()->gcount()) != 
+           streamRead || self->GetFile()->fail())
         {
         vtkGenericWarningMacro("File operation failed. row = " << idx1
                                << ", Tried to Read = " << streamRead
