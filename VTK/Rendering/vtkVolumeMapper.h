@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeMapper.h,v $
   Language:  C++
-  Date:      $Date: 1999-04-05 13:59:27 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1999-04-15 18:57:39 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -131,7 +131,8 @@ public:
   // Set/Get the scalar input data
   vtkSetObjectMacro( ScalarInput, vtkStructuredPoints );
   void SetScalarInput(vtkImageCache *cache)
-    {this->SetScalarInput(cache->GetImageToStructuredPoints()->GetOutput());}
+    {vtkImageToStructuredPoints *tmp = cache->MakeImageToStructuredPoints();
+    this->SetScalarInput(tmp->GetOutput()); tmp->Delete();}
   virtual vtkStructuredPoints *GetScalarInput() {return this->ScalarInput;};
 
 
@@ -139,7 +140,8 @@ public:
   // Set/Get the rgb texture input data
   void SetRGBTextureInput( vtkStructuredPoints *rgbTexture );
   void SetRGBTextureInput(vtkImageCache *cache)
-    {this->SetRGBTextureInput(cache->GetImageToStructuredPoints()->GetOutput());}
+    {vtkImageToStructuredPoints *tmp = cache->MakeImageToStructuredPoints();
+    this->SetRGBTextureInput(tmp->GetOutput()); tmp->Delete();}
   virtual vtkStructuredPoints *GetRGBTextureInput() {return this->RGBTextureInput;};
 
 

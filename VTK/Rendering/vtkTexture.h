@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTexture.h,v $
   Language:  C++
-  Date:      $Date: 1999-03-01 19:42:28 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 1999-04-15 18:57:39 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -131,7 +131,8 @@ public:
   vtkSetObjectMacro(Input,vtkStructuredPoints);
   vtkGetObjectMacro(Input,vtkStructuredPoints);
   void SetInput(vtkImageCache *cache)
-    {this->SetInput(cache->GetImageToStructuredPoints()->GetOutput());}  
+    {vtkImageToStructuredPoints *tmp = cache->MakeImageToStructuredPoints();
+    this->SetInput(tmp->GetOutput()); tmp->Delete();}
   
   // Description:
   // Specify the lookup table to convert scalars if necessary
