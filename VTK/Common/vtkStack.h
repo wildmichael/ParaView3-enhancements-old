@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStack.h,v $
   Language:  C++
-  Date:      $Date: 1994-11-11 09:53:14 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1995-01-11 09:31:05 $
+  Version:   $Revision: 1.4 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -24,6 +24,7 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 
 #include "Object.hh"
 
+//BTX begin tcl exclude
 class vlStackElement //;prevents pick-up by man page generator
 {
  public:
@@ -31,6 +32,7 @@ class vlStackElement //;prevents pick-up by man page generator
   vlObject *Item;
   vlStackElement *Next;
 };
+//ETX end tcl exclude
 
 class vlStack : public vlObject
 {
