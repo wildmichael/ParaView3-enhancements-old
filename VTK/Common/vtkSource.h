@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSource.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:10:27 $
-  Version:   $Revision: 1.53 $
+  Date:      $Date: 2000-05-17 16:04:04 $
+  Version:   $Revision: 1.54 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -155,11 +155,17 @@ public:
 
   // Description:
   // Return an array with all the inputs of this process object.
-  // This is useful for tracing back in the pipeline to contruct
+  // This is useful for tracing back in the pipeline to construct
   // graphs etc.
   vtkDataObject **GetOutputs();
   vtkGetMacro(NumberOfOutputs,int);
-    
+
+  // Description:
+  // Release/disconnect all outputs of this source. This is intended to be
+  // called prior to Delete() if the user is concerned about outputs holding
+  // on to the filter/source.
+  void UnregisterAllOutputs(void);
+
 protected:
   vtkSource();
   ~vtkSource();

@@ -3,8 +3,8 @@
  Program:   Visualization Toolkit
  Module:    $RCSfile: vtkSource.cxx,v $
  Language:  C++
- Date:      $Date: 2000-04-28 18:10:26 $
- Version:   $Revision: 1.64 $
+ Date:      $Date: 2000-05-17 16:04:05 $
+ Version:   $Revision: 1.65 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -70,14 +70,14 @@ vtkSource::vtkSource()
 {
   this->NumberOfOutputs = 0;
   this->Outputs = NULL;
-  this->Updating = 0; 
+  this->Updating = 0;
 }
 
 //----------------------------------------------------------------------------
 vtkSource::~vtkSource()
 {
   int idx;
-  
+
   for (idx = 0; idx < this->NumberOfOutputs; ++idx)
     {
     if (this->Outputs[idx])
@@ -102,8 +102,24 @@ vtkDataObject *vtkSource::GetOutput(int i)
     {
     return NULL;
     }
-  
+
   return this->Outputs[i];
+}
+
+//----------------------------------------------------------------------------
+void vtkSource::UnregisterAllOutputs(void)
+{
+  int idx;
+
+  for (idx = 0; idx < this->NumberOfOutputs; ++idx)
+    {
+    if (this->Outputs[idx])
+      {
+      this->Outputs[idx]->SetSource(NULL);
+      this->Outputs[idx]->UnRegister(this);
+      this->Outputs[idx] = NULL;
+      }
+    }
 }
 
 //----------------------------------------------------------------------------
