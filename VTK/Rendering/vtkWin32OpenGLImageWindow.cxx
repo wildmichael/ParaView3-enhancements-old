@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLImageWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-03-12 20:41:11 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-05-27 18:43:40 $
+  Version:   $Revision: 1.7 $
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -65,7 +65,10 @@ vtkWin32OpenGLImageWindow::vtkWin32OpenGLImageWindow()
 
 vtkWin32OpenGLImageWindow::~vtkWin32OpenGLImageWindow()
 {
-  if (this->WindowId && this->OwnWindow) DestroyWindow(this->WindowId);
+  if (this->WindowId && this->OwnWindow)
+    {
+    DestroyWindow(this->WindowId);
+    }
 }
 
 void vtkWin32OpenGLImageWindow::Render()
@@ -109,15 +112,21 @@ LRESULT APIENTRY vtkWin32OpenGLImageWindow::WndProc(HWND hWnd, UINT message,
     }
       
   // forward to actual object
-  if (me) return me->MessageProc(hWnd, message, wParam, lParam);
+  if (me)
+    {
+    return me->MessageProc(hWnd, message, wParam, lParam);
+    }
 
-	return DefWindowProc(hWnd, message, wParam, lParam);
+  return DefWindowProc(hWnd, message, wParam, lParam);
 }
 
 void vtkWin32OpenGLImageWindow::SetWindowName( char * _arg )
 {
   vtkWindow::SetWindowName(_arg);
-  if (this->WindowId) SetWindowText(this->WindowId,this->WindowName);
+  if (this->WindowId)
+    {
+    SetWindowText(this->WindowId,this->WindowName);
+    }
 }
 
 void vtkWin32OpenGLImageWindow::MakeCurrent()

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergePoints2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-03-09 23:48:18 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1999-05-27 18:43:36 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -88,7 +88,10 @@ int vtkMergePoints2D::IsInsertedPoint(float x[2])
       {
       ptId = bucket->GetId(i);
       pt = this->Points->GetPoint(ptId);
-      if (x[0] == pt[0] && x[1] == pt[1]) return ptId;
+      if (x[0] == pt[0] && x[1] == pt[1])
+	{
+	return ptId;
+	}
       }
     }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32RenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-05-20 14:50:57 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 1999-05-27 18:43:39 $
+  Version:   $Revision: 1.41 $
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -125,7 +125,10 @@ void vtkWin32RenderWindowInteractor::Initialize()
     return;
     }
 
-  if (this->Initialized) return;
+  if (this->Initialized)
+    {
+    return;
+    }
   this->Initialized = 1;
 
   // get the info we need from the RenderingWindow

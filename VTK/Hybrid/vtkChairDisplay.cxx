@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkChairDisplay.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-11-21 15:17:23 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-05-27 18:43:37 $
+  Version:   $Revision: 1.4 $
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -81,8 +81,14 @@ void vtkChairDisplay::Update()
   if ( this->GetMTime() > this->ExecuteTime ||
        this->Input->GetPipelineMTime() > this->ExecuteTime)
     {
-    if (this->Output) this->Output->Initialize(); 
-    if (this->TextureOutput) this->TextureOutput->Initialize(); 
+    if (this->Output)
+      {
+      this->Output->Initialize();
+      }
+    if (this->TextureOutput)
+      {
+      this->TextureOutput->Initialize();
+      }
     this->AbortExecute = 0;
     this->Progress = 0.0;
     
@@ -403,7 +409,10 @@ void vtkChairDisplay::Execute(int recomputeTexture)
   this->GeneratePolyData(dimensions, origin, spacing, p2x, p2y,
 			 polys, points, tcoords);
 			
-  if ( this->StartMethod ) (*this->StartMethod)(this->StartMethodArg);    
+  if ( this->StartMethod )
+    {
+    (*this->StartMethod)(this->StartMethodArg);
+    }
 
   if (recomputeTexture)
     {

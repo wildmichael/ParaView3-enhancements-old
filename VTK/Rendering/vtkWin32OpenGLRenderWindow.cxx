@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-05-25 15:23:17 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 1999-05-27 18:43:38 $
+  Version:   $Revision: 1.36 $
   Thanks:    to Horst Schreiber for developing this MFC code
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -53,7 +53,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkOpenGLLight.h"
 #include "vtkOpenGLPolyDataMapper.h"
 
-#define MAX_LIGHTS 8
+#define VTK_MAX_LIGHTS 8
 
 // statics
 vtkWin32OpenGLRenderWindow *vtkWin32OpenGLRenderWindow::TempPointerToThis;
@@ -134,15 +134,21 @@ LRESULT APIENTRY vtkWin32OpenGLRenderWindow::WndProc(HWND hWnd, UINT message,
     }
       
   // forward to actual object
-  if (me) return me->MessageProc(hWnd, message, wParam, lParam);
+  if (me)
+    {
+    return me->MessageProc(hWnd, message, wParam, lParam);
+    }
 
-	return DefWindowProc(hWnd, message, wParam, lParam);
+  return DefWindowProc(hWnd, message, wParam, lParam);
 }
 
 void vtkWin32OpenGLRenderWindow::SetWindowName( char * _arg )
 {
   vtkWindow::SetWindowName(_arg);
-  if (this->WindowId) SetWindowText(this->WindowId,this->WindowName);
+  if (this->WindowId)
+    {
+    SetWindowText(this->WindowId,this->WindowName);
+    }
 }
 
 int vtkWin32OpenGLRenderWindow::GetEventPending()
@@ -626,7 +632,9 @@ void vtkWin32OpenGLRenderWindow::Initialize (void)
 {
   // make sure we havent already been initialized 
   if (this->ContextId)
+    {
     return;
+    }
 
   // now initialize the window 
   this->WindowInitialize();
@@ -693,7 +701,10 @@ void vtkWin32OpenGLRenderWindow::SetFullScreen(int arg)
 {
   int *temp;
   
-  if (this->FullScreen == arg) return;
+  if (this->FullScreen == arg)
+    {
+    return;
+    }
   
   if (!this->Mapped)
     {
@@ -779,7 +790,7 @@ void vtkWin32OpenGLRenderWindow::WindowRemap()
   short cur_light;
 
   /* first delete all the old lights */
-  for (cur_light = GL_LIGHT0; cur_light < GL_LIGHT0+MAX_LIGHTS; cur_light++)
+  for (cur_light = GL_LIGHT0; cur_light < GL_LIGHT0+VTK_MAX_LIGHTS; cur_light++)
     {
     glDisable(cur_light);
     }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkChairDisplay.h,v $
   Language:  C++
-  Date:      $Date: 1999-04-15 18:53:13 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1999-05-27 18:43:37 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -80,8 +80,6 @@ public:
   
   vtkStructuredPoints *GetTextureOutput() {return this->TextureOutput;};
 
-  int MaxYZSize;
-
   void GenerateTexture(vtkImageData *inData, vtkScalars *scalars,
                        int xstart, int ystart,int xsize, int ysize, int p2x);
   
@@ -90,6 +88,8 @@ protected:
   vtkScalars *Scalars;
   vtkStructuredPoints *TextureOutput;
   
+  int MaxYZSize;
+
   int XNotchSize;
   int YNotchSize;
   int ZNotchSize;
