@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-23 18:49:15 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1999-09-16 13:29:37 $
+  Version:   $Revision: 1.22 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -109,10 +109,10 @@ vtkImageMapper* vtkImageMapper::New()
 #else
   return vtkXImageMapper::New();
 #endif
-#endif
+#else
   return vtkXImageMapper::New();
 #endif
-
+#endif
 }
 
 float vtkImageMapper::GetColorShift()
