@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStructuredPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-09-26 16:13:17 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1994-09-29 14:05:26 $
+  Version:   $Revision: 1.15 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -55,7 +55,7 @@ vlCell *vlStructuredPoints::GetCell(int cellId)
   static vlRectangle rectangle;
   static vlBrick brick;
   static vlCell *cell;
-  int i, j, k, idx, loc[3], npts;
+  int idx, loc[3], npts;
   int iMin, iMax, jMin, jMax, kMin, kMax;
   int d01 = this->Dimensions[0]*this->Dimensions[1];
   float x[3];

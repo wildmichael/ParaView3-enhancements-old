@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkVoxel.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-09-14 20:17:22 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1994-09-29 14:05:17 $
+  Version:   $Revision: 1.10 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -33,7 +33,6 @@ int vlBrick::EvaluatePosition(float x[3], float closestPoint[3],
 {
   float *pt1, *pt2, *pt3, *pt4;
   int i;
-  float l21, l31, l41;
   vlMath math;  
 
   subId = 0;

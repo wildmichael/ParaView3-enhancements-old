@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkTriangleStrip.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-09-14 20:18:56 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1994-09-29 14:05:29 $
+  Version:   $Revision: 1.11 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -35,7 +35,6 @@ int vlTriangleStrip::EvaluatePosition(float x[3], float closestPoint[3],
                                       int& subId, float pcoords[3], 
                                       float& minDist2, float weights[MAX_CELL_SIZE])
 {
-  vlFloatPoints pts(3);
   float pc[3], dist2;
   int ignoreId, i, return_status, status;
   float tempWeights[3], activeWeights[3];

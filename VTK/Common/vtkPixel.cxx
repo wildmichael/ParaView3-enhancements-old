@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPixel.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-09-14 20:18:52 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1994-09-29 14:05:24 $
+  Version:   $Revision: 1.9 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -40,7 +40,6 @@ int vlRectangle::EvaluatePosition(float x[3], float closestPoint[3],
   float p[3], p21[3], p31[3];
   float l21, l31, n[3];
   vlMath math;
-  float tempPc[2];
 
   subId = 0;
   pcoords[0] = pcoords[1] = pcoords[2] = 0.0;
@@ -114,7 +113,6 @@ void vlRectangle::Contour(float value, vlFloatScalars *cellScalars,
                      vlCellArray *lines, vlCellArray *polys, 
                      vlFloatScalars *scalars)
 {
-  int i;
   static vlQuad quad;
 
   quad.Points.SetPoint(0,this->Points.GetPoint(0));

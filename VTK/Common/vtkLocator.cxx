@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkLocator.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-08-05 09:04:55 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1994-09-29 14:05:20 $
+  Version:   $Revision: 1.7 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -95,7 +95,7 @@ int vlLocator::FindClosestPoint(float x[3])
   int i, j;
   float minDist2, dist2;
   float *pt;
-  int closest, level, ndivs[3];
+  int closest, level;
   int ptId, cno;
   vlIdList *ptIds;
   int ijk[3], *nei;

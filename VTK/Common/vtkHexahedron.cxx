@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkHexahedron.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-09-20 08:36:53 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1994-09-29 14:05:19 $
+  Version:   $Revision: 1.10 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -45,7 +45,7 @@ int vlHexahedron::EvaluatePosition(float x[3], float closestPoint[3],
   int iteration, converged;
   float  params[3];
   float  fcol[3], rcol[3], scol[3], tcol[3];
-  int i,j,numPts,idx;
+  int i, j;
   float  d, *pt;
   vlMath math;
   float derivs[24];

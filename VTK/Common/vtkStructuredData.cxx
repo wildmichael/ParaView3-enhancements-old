@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStructuredData.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-09-26 16:13:13 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1994-09-29 14:05:25 $
+  Version:   $Revision: 1.16 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -208,7 +208,7 @@ void vlStructuredData::Initialize()
 
 void vlStructuredData::GetCellPoints(int cellId, vlIdList& ptIds)
 {
-  int i, j, k, idx, loc[3], npts;
+  int idx, loc[3], npts;
   int iMin, iMax, jMin, jMax, kMin, kMax;
   int d01 = this->Dimensions[0]*this->Dimensions[1];
  
@@ -291,8 +291,8 @@ void vlStructuredData::GetPointCells(int ptId, vlIdList& cellIds)
   int ptDim[3], cellDim[3];
   int ptLoc[3], cellLoc[3];
   int i, j, cellId, add;
-  static int offset[8][3] = {-1,0,0, -1,-1,0, -1,-1,-1, -1,0,-1,
-                               0,0,0,  0,-1,0,  0,-1,-1,  0,0,-1};
+  static int offset[8][3] = {{-1,0,0}, {-1,-1,0}, {-1,-1,-1}, {-1,0,-1},
+                             {0,0,0},  {0,-1,0},  {0,-1,-1},  {0,0,-1}};
 
   for (i=0; i<3; i++) 
     {

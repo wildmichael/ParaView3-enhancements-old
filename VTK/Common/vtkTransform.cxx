@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-08-09 15:23:34 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1994-09-29 14:05:28 $
+  Version:   $Revision: 1.14 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -598,8 +598,6 @@ vlTransform::~vlTransform ()
 
 void vlTransform::PrintSelf (ostream& os, vlIndent indent)
 {
-  vlMatrix4x4 ctm;
-
   if (this->ShouldIPrint (vlTransform::GetClassName()))
     {
 	  vlObject::PrintSelf(os, indent);

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkLine.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-09-20 08:36:54 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1994-09-29 14:05:18 $
+  Version:   $Revision: 1.12 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -34,7 +34,7 @@ int vlLine::EvaluatePosition(float x[3], float closestPoint[3],
                              float& dist2, float weights[MAX_CELL_SIZE])
 {
   float *a1, *a2, a21[3], denom, num;
-  int i, numPts, return_status;
+  int i, return_status;
   vlMath math;
   float *closest;
 
