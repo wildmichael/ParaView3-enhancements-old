@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTclUtil.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-11 20:47:12 $
-  Version:   $Revision: 1.68 $
+  Date:      $Date: 2002-01-16 17:28:18 $
+  Version:   $Revision: 1.69 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -598,8 +598,11 @@ void vtkTclCommand::SetStringCommand(const char *arg)
 void vtkTclCommand::Execute(vtkObject *, unsigned long, void *)
 {
   int res;
+#if TCL_MAJOR_VERSION == 8 && TCL_MINOR_VERSION <= 2
+  res = Tcl_GlobalEval(this->Interp, this->StringCommand);
+#else
   res = Tcl_EvalEx(this->Interp, this->StringCommand, -1, TCL_EVAL_GLOBAL);
-  
+#endif  
   if (res == TCL_ERROR)
     {
     if (Tcl_GetVar(this->Interp,(char *) "errorInfo",0))
