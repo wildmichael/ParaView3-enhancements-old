@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLPolyDataMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-21 15:21:52 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2001-07-14 04:23:17 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -43,7 +43,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <math.h>
 #include "vtkOpenGLPolyDataMapper2D.h"
 #ifndef VTK_IMPLEMENT_MESA_CXX
-  #ifdef VTK_USE_QUARTZ
+  #ifdef __APPLE__
     #include <OpenGL/gl.h>
   #else
     #include <GL/gl.h>
