@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:47:03 $
-  Version:   $Revision: 1.57 $
+  Date:      $Date: 1997-07-27 15:56:33 $
+  Version:   $Revision: 1.58 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -95,6 +95,9 @@ public:
   virtual void SetDisplayId(void *) {};
   virtual void SetWindowId(void *) {};
   virtual void SetParentId(void *) {};
+
+  // useful for scripting languages
+  virtual void SetWindowInfo(char *info) {};
 
   // Description:
   // Performed at the end of the rendering process to generate image.

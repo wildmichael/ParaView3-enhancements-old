@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-23 20:58:39 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1997-07-27 15:56:34 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -84,6 +84,8 @@ public:
   void SetPosition(int,int);
   int *GetScreenSize();
   int *GetPosition();
+
+  void SetWindowInfo(char *);
   //BTX
   HWND      GetWindowId();
   void      SetWindowId(void *foo) {this->SetWindowId((HWND)foo);};
