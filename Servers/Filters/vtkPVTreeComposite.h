@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkPVTreeComposite.h,v $
   Language:  C++
-  Date:      $Date: 2002-02-19 20:25:41 $
-  Version:   $Revision: 1.10 $  
+  Date:      $Date: 2002-02-20 18:16:55 $
+  Version:   $Revision: 1.11 $  
   
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -84,6 +84,12 @@ public:
   vtkGetMacro(EnableAbort, int);
   vtkBooleanMacro(EnableAbort, int);
 
+  // Description:
+  // Avoid having the cross hairs contribute to the bounds unless
+  // it is the only actor.  This method considers Pickable flag.
+  virtual void ComputeVisiblePropBounds(vtkRenderer *ren, 
+                                        float bounds[6]);
+
 protected:
   vtkPVTreeComposite();
   ~vtkPVTreeComposite();
@@ -100,11 +106,6 @@ protected:
   // There is no initialize method.
   int Initialized;
 
-  // Description:
-  // Avoid having the cross hairs contribute to the bounds unless
-  // it is the only actor.  This method considers Pickable flag.
-  virtual void ComputeVisiblePropBounds(vtkRenderer *ren, 
-                                        float bounds[6]);
   
 //BTX 
 #ifdef VTK_USE_MPI 
