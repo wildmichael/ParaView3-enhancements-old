@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLFreeTypeTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-11-10 18:32:20 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2003-11-10 21:05:22 $
+  Version:   $Revision: 1.35 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -53,9 +53,9 @@ vtkOpenGLFreeTypeTextMapper_GetGL2PSFontName(vtkTextProperty *tprop,
                                              char *ps_font)
 {
  // For speed we use ARIAL == 0, COURIER == 1, TIMES == 2
-  static char *family[] = {"Helvetica", "Courier", "Times"};
-  static char *italic[] = {"Oblique", "Oblique", "Italic"};
-  static char *base[] = {"", "", "-Roman"};
+  static char const *family[] = {"Helvetica", "Courier", "Times"};
+  static char const *italic[] = {"Oblique", "Oblique", "Italic"};
+  static char const *base[] = {"", "", "-Roman"};
 
   int font = tprop->GetFontFamily();
 
@@ -94,7 +94,7 @@ vtkOpenGLFreeTypeTextMapper_GetGL2PSFontName(vtkTextProperty *tprop,
 
 //----------------------------------------------------------------------------
 #ifndef VTK_IMPLEMENT_MESA_CXX
-vtkCxxRevisionMacro(vtkOpenGLFreeTypeTextMapper, "$Revision: 1.34 $");
+vtkCxxRevisionMacro(vtkOpenGLFreeTypeTextMapper, "$Revision: 1.35 $");
 vtkStandardNewMacro(vtkOpenGLFreeTypeTextMapper);
 #endif
 
