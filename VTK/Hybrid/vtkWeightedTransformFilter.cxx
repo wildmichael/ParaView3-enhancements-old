@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWeightedTransformFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-07 16:30:45 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-03-07 16:41:44 $
+  Version:   $Revision: 1.2 $
   Thanks:    Michael Halle, Brigham and Women's Hospital
 
 
@@ -40,9 +40,9 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-#include <vtkWeightedTransformFilter.h>
-#include <vtkObjectFactory.h>
-#include <vtkMath.h>
+#include "vtkWeightedTransformFilter.h"
+#include "vtkObjectFactory.h"
+#include "vtkMath.h"
 
 //----------------------------------------------------------------------------
 
