@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSelectVisiblePoints.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-01 16:29:36 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2000-10-25 13:28:05 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -86,8 +86,15 @@ public:
   // Description:
   // Specify the renderer in which the visibility computation is to be
   // performed.
-  vtkSetObjectMacro(Renderer,vtkRenderer);
-  vtkGetObjectMacro(Renderer,vtkRenderer);
+  void SetRenderer(vtkRenderer* ren)
+    {
+      if (this->Renderer != ren)
+	{
+	this->Renderer = ren;
+	this->Modified();
+	}
+    }
+  vtkRenderer* GetRenderer() { return this->Renderer; }
 
   // Description:
   // Set/Get the flag which enables selection in a rectangular display
