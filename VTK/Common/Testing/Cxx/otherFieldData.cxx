@@ -1,8 +1,8 @@
 /************************************************************************
   Module:    $RCSfile: otherFieldData.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-14 13:26:31 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-01-14 15:11:16 $
+  Version:   $Revision: 1.4 $
  ************************************************************************/
 
 #include "vtkDebugLeaks.h"
@@ -50,8 +50,8 @@ int main()
   fd->GetField(ptIds, fd2);
   ptIds->Delete();
 
-//  int arrayComp;
-//  int id = fd->GetArrayContainingComponent(1, arrayComp);
+  int arrayComp;
+  cout << fd->GetArrayContainingComponent(1, arrayComp) << endl;
 
   float tuple[10];
   fd->GetTuple(2);
