@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGridBunykRayCastFunction.h,v $
   Language:  C++
-  Date:      $Date: 2003-12-05 22:50:32 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2003-12-30 18:56:19 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -166,6 +166,7 @@ protected:
   vtkUnstructuredGridVolumeRayCastMapper  *Mapper;
   void                                    *Scalars;
   int                                      ScalarType;
+  int                                      NumberOfComponents;
   
   // Computed during the initialize method - if something is
   // wrong (no mapper, no volume, no input, etc.) then no rendering
