@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGridReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-09-08 12:49:35 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1995-11-03 17:18:06 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,6 +39,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkUnstructuredGridReader.hh"
+#include "vtkByteSwap.hh"
 
 vtkUnstructuredGridReader::vtkUnstructuredGridReader()
 {
@@ -151,6 +152,7 @@ void vtkUnstructuredGridReader::Execute()
   vtkCellArray *cells=NULL;
   int *types=NULL;
   vtkUnstructuredGrid *output=(vtkUnstructuredGrid *)this->Output;
+  vtkByteSwap swap;
   
 
   vtkDebugMacro(<<"Reading vtk unstructured grid...");
@@ -234,6 +236,7 @@ void vtkUnstructuredGridReader::Execute()
             vtkErrorMacro(<<"Error reading binary cell types!");
             return;
             }
+	  swap.Swap4BERange(types,ncells);
           }
         else //ascii
           {
