@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkParallelFactory.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-26 20:49:40 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-01-26 20:55:14 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1999-2000 Mercury Computers Inc. All rigts reserved.
@@ -65,6 +65,5 @@ const char* vtkParallelFactory::GetDescription()
 
 extern "C" vtkObjectFactory* vtkLoad()
 {
-  cout << "Factory is being loaded." << endl;
   return vtkParallelFactory::New();
 }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPPolyDataNormals.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-26 20:49:39 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-01-26 20:55:14 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -60,7 +60,6 @@ vtkPPolyDataNormals* vtkPPolyDataNormals::New()
 
 void vtkPPolyDataNormals::Execute()
 {
-  vtkWarningMacro("Executing PPolyDataNormals.");
   vtkPolyData *output = this->GetOutput();
   int ghostLevel = this->GetInput()->GetUpdateGhostLevel();
 
@@ -69,7 +68,6 @@ void vtkPPolyDataNormals::Execute()
   // Remove any ghost cells we inserted.
   if (ghostLevel > 0)
     {
-    cout << "here" << endl;
     vtkRemoveGhostCells* rmGhostCells = vtkRemoveGhostCells::New();
     vtkPolyData* ghost = vtkPolyData::New();
     ghost->ShallowCopy(output);

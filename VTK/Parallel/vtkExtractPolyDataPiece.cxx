@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractPolyDataPiece.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-26 20:49:39 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-01-26 20:55:14 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -159,7 +159,6 @@ void vtkExtractPolyDataPiece::Execute()
   int i, ptId, newId, numPts, numCellPts;
   float *x;
 
-  cout << "Executing." << endl;
   // Pipeline update piece will tell us what to generate.
   ghostLevel = output->GetUpdateGhostLevel();
   piece = output->GetUpdatePiece();
@@ -280,7 +279,6 @@ void vtkExtractPolyDataPiece::Execute()
   cellTags->Delete();
   pointOwnership->Delete();
 
-  cout << "Cell field data: " << output->GetCellData()->GetFieldData() << endl;
 }
 
 void vtkExtractPolyDataPiece::PrintSelf(ostream& os, vtkIndent indent)
