@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-03-05 21:29:41 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1995-03-17 05:37:51 $
+  Version:   $Revision: 1.4 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -93,7 +93,7 @@ int vlDataReader::ReadHeader(FILE *fp, int debug)
   else
     {
     vlReadErrorMacro(<< "Unrecognized file type: "<< line);
-    this->FileType == NULL;
+    this->FileType = NULL;
     return 0;
     }
 
