@@ -3,8 +3,8 @@
   Program:   OSCAR 
   Module:    $RCSfile: vtkProperty.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-01-12 16:21:18 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1994-01-28 17:38:23 $
+  Version:   $Revision: 1.3 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -103,18 +103,3 @@ void vlProperty::SetColor(float R,float G,float B)
 }
 
 
-
-float vlProperty::GetTransparency (void)
-{
-  return this->Transparency;
-}
-
-int vlProperty::GetRepresentation (void)
-{
-  return this->Representation;
-}
-
-int vlProperty::GetInterpolation (void)
-{
-  return this->Interpolation;
-}
