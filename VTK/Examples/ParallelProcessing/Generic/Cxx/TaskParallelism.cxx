@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: TaskParallelism.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-16 13:59:21 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-04-13 14:38:01 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,7 @@
 #include "TaskParallelism.h"
 #include "vtkRenderWindow.h"
 #include "vtkRenderWindowInteractor.h"
-#include "vtkTreeComposite.h"
+#include "vtkCompositeManager.h"
 
 // This function sets up properties common to both processes
 // and executes the task corresponding to the current process
@@ -64,7 +64,7 @@ void process(vtkMultiProcessController* controller, void* vtkNotUsed(arg))
 
   // This class allows all processes to composite their images.
   // The root process then displays it in it's render window.
-  vtkTreeComposite* tc = vtkTreeComposite::New();
+  vtkCompositeManager* tc = vtkCompositeManager::New();
   tc->SetRenderWindow(renWin);
 
   // Generate the pipeline see task1.cxx and task2.cxx)
