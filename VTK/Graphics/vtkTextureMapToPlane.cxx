@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextureMapToPlane.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:05:12 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1998-04-27 11:24:10 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -179,7 +179,7 @@ void vtkTextureMapToPlane::Execute()
     for (i=0; i < numPts; i++) 
       {
       p = output->GetPoint(i);
-      for (j=0; j<3; j++) axis[j] = p[j] - this->Origin[i];
+      for (j=0; j<3; j++) axis[j] = p[j] - this->Origin[j];
 
       //s-coordinate
       num = sAxis[0]*axis[0] + sAxis[1]*axis[1] + sAxis[2]*axis[2];
