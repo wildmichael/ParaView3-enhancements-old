@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXImageWindow.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-16 21:09:21 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-02-11 23:48:36 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -156,9 +156,6 @@ public:
   // vtkRenderWindow, the last argument is provided, but currently not used.
   unsigned char *GetPixelData(int x1, int y1, int x2, int y2, int);
 
-  void GetShiftsAndMasks(int &rshift, int &gshift, int &bshift,
-			 unsigned long &rmask, unsigned long &gmask,
-			 unsigned long &bmask);
 
 protected:
   // X stuff
@@ -185,6 +182,10 @@ protected:
   void GetDefaultVisualInfo(XVisualInfo *info);
   Colormap MakeColorMap(Visual *visual);
   void AllocateDirectColorMap();
+  void GetShiftsScalesAndMasks(int &rshift, int &gshift, int &bshift,
+			       int &rscale, int &gscale, int &bscale,
+			       unsigned long &rmask, unsigned long &gmask,
+			       unsigned long &bmask);
 };
 
 #endif
