@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWrapJava.c,v $
   Language:  C++
-  Date:      $Date: 2003-04-29 19:32:56 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 2003-05-07 21:26:05 $
+  Version:   $Revision: 1.45 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -535,7 +535,7 @@ void HandleDataArray(FILE *fp, FileInfo *data)
     jtype = "long";
     jfromtype = "Long";
     }
-  else if (!strcmp("vtkUnsignedShortrray",data->ClassName) )
+  else if (!strcmp("vtkUnsignedShortArray",data->ClassName) )
     {
     type = "unsigned short";
     fromtype = "UnsignedShort";
@@ -544,6 +544,7 @@ void HandleDataArray(FILE *fp, FileInfo *data)
     }
   else
     {
+    printf("%s is not a data array\n", data->ClassName);
     return;
     }
 
@@ -577,8 +578,6 @@ void HandleDataArray(FILE *fp, FileInfo *data)
   fprintf(fp,"  memcpy(op->GetVoidPointer(0), tempArray0, length*sizeof(%s));\n", type);
   fprintf(fp,"  env->Release%sArrayElements(id0,(j%s *)tempArray0,0);\n", jfromtype, jtype);
   fprintf(fp,"}\n");
-
-
 }
 
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkParseJava.c,v $
   Language:  C++
-  Date:      $Date: 2003-04-28 20:35:26 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2003-05-07 21:26:05 $
+  Version:   $Revision: 1.29 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -242,7 +242,7 @@ void HandleDataArray(FILE *fp, FileInfo *data)
     {
     type = "long";
     }
-  else if (!strcmp("vtkUnsignedShortrray",data->ClassName) )
+  else if (!strcmp("vtkUnsignedShortArray",data->ClassName) )
     {
     type = "short";
     }

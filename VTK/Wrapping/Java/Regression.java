@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: Regression.java,v $
   Language:  C++
-  Date:      $Date: 2003-04-29 19:33:39 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2003-05-07 21:26:05 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -45,7 +45,7 @@ public class Regression
       }
     System.out.println("]");
 
-    vtkShortArray narray = new vtkShortArray();
+    vtkUnsignedShortArray narray = new vtkUnsignedShortArray();
     narray.SetJavaArray(carray);
     System.out.print("[");
     for ( cc = 0; cc <= narray.GetMaxId(); cc ++ )
