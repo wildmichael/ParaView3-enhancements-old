@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPNMWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-09-30 14:44:13 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1997-10-01 14:57:58 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,13 +42,12 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 void vtkPNMWriter::WriteFileHeader(ofstream *file, vtkImageCache *cache)
 {
-  int min0, max0, min1, max1, min2, max2, min3, max3, minC, maxC;
+  int min0, max0, min1, max1, min2, max2, min3, max3;
   int bpp;
   
   // Find the length of the rows to write.
   cache->GetUpdateExtent(min0, max0, min1, max1, min2, max2, min3, max3);
-  cache->GetAxisUpdateExtent(VTK_IMAGE_COMPONENT_AXIS, minC, maxC);
-  bpp = maxC - minC + 1;
+  bpp = cache->GetNumberOfScalarComponents();
   
   // spit out the pnm header
   if (bpp == 1)
