@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-23 18:30:46 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2001-08-31 14:52:21 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -259,7 +259,7 @@ void vtkExtractGrid::Execute()
   vtkStructuredGrid *output= this->GetOutput();
   vtkPointData *outPD=output->GetPointData();
   vtkCellData *outCD=output->GetCellData();
-  int i, j, k, *uExt, voi[6];
+  int i, j, k, uExt[6], voi[6];
   int *inExt, *outWholeExt;
   int iIn, jIn, kIn;
   int outSize, jOffset, kOffset, rate[3];
@@ -272,7 +272,7 @@ void vtkExtractGrid::Execute()
   inPts = input->GetPoints();
 
   outWholeExt = output->GetWholeExtent();
-  uExt = output->GetUpdateExtent();
+  output->GetUpdateExtent(uExt);
   inExt = input->GetExtent();
   inInc1 = (inExt[1]-inExt[0]+1);
   inInc2 = inInc1*(inExt[3]-inExt[2]+1);
@@ -362,6 +362,20 @@ void vtkExtractGrid::Execute()
   newCellId = 0;
   inInc1 = (inExt[1]-inExt[0]);
   inInc2 = inInc1*(inExt[3]-inExt[2]);
+  // This will take care of 2D and 1D cells.
+  // Each loop has to excute at least once.
+  if (uExt[4] == uExt[5])
+    {
+    uExt[5] = uExt[5] + 1;
+    }
+  if (uExt[2] == uExt[3])
+    {
+    uExt[3] = uExt[3] + 1;
+    }
+  if (uExt[0] == uExt[1])
+    {
+    uExt[1] = uExt[1] + 1;
+    }
   // No need to consider IncludeBoundary for cell data.
   for ( k=uExt[4]; k < uExt[5]; ++k )
     { // Convert out coords to in coords.
