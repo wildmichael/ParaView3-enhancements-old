@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXdmfReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-10-15 17:18:51 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2003-10-15 18:37:08 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen  
@@ -72,7 +72,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <vector>
 
 vtkStandardNewMacro(vtkXdmfReader);
-vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.21 $");
+vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.22 $");
 
 #if defined(_WIN32) && (defined(_MSC_VER) || defined(__BORLANDC__))
 #  include <direct.h>
@@ -775,8 +775,9 @@ void vtkXdmfReader::Execute()
         XdmfArray *values = this->FormatMulti->ElementToArray( 
         dataNode, this->Internals->DataDescriptions[currentGrid] );
         */
+        vtkDebugMacro("Topology class: " << grid->GetClassAsString());
         if( XDMF_WORD_CMP(NodeType, "DataStructure") &&
-          ( grid->GetTopologyType() != XDMF_UNSTRUCTURED))
+          ( grid->GetClass() != XDMF_UNSTRUCTURED))
           {
           // Only works for the structured and rectilinear grid
           vtkDebugMacro( << "Preparing to Read :" << this->DOM->Get(dataNode, "CData"));
