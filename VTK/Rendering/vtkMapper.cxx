@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-26 19:28:04 $
-  Version:   $Revision: 1.86 $
+  Date:      $Date: 2001-07-30 11:34:05 $
+  Version:   $Revision: 1.87 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -248,16 +248,13 @@ vtkScalars *vtkMapper::GetColors()
   else if ( this->ScalarMode == VTK_SCALAR_MODE_USE_POINT_FIELD_DATA )
     {
     pd = this->GetInput()->GetPointData();
-    if (pd)
+    if (this->ArrayAccessMode == VTK_GET_ARRAY_BY_ID)
       {
-      if (this->ArrayAccessMode == VTK_GET_ARRAY_BY_ID)
-	{
-	dataArray = pd->GetArray(this->ArrayId);
-	}
-      else
-	{
-	dataArray = pd->GetArray(this->ArrayName);
-	}
+      dataArray = pd->GetArray(this->ArrayId);
+      }
+    else
+      {
+      dataArray = pd->GetArray(this->ArrayName);
       }
     
     if (dataArray &&
@@ -289,16 +286,13 @@ vtkScalars *vtkMapper::GetColors()
   else if ( this->ScalarMode == VTK_SCALAR_MODE_USE_CELL_FIELD_DATA )
     {
     cd = this->GetInput()->GetCellData();
-    if (cd)
+    if (this->ArrayAccessMode == VTK_GET_ARRAY_BY_ID)
       {
-      if (this->ArrayAccessMode == VTK_GET_ARRAY_BY_ID)
-	{
-	dataArray = cd->GetArray(this->ArrayId);
-	}
-      else
-	{
-	dataArray = cd->GetArray(this->ArrayName);
-	}
+      dataArray = cd->GetArray(this->ArrayId);
+      }
+    else
+      {
+      dataArray = cd->GetArray(this->ArrayName);
       }
 
     if (dataArray &&
