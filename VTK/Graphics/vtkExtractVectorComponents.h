@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractVectorComponents.h,v $
   Language:  C++
-  Date:      $Date: 1995-12-27 10:59:05 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1996-06-08 13:13:44 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -45,12 +45,13 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // Each output is the same as the input, except that the scalar values will be
 // one of the three components of the vector. These can be found in the
 // VxComponent, VyComponent, and VzComponent.
+
 // .SECTION Caveats
 // This filter is unusual in that it creates multiple outputs. As a result,
-// it cannot// take advantage of the convenience classes (e.g., 
+// it cannot take advantage of the convenience classes (e.g., 
 // vtkPolyToPolyFilter) for deriving concrete filters. Instead, it overloads 
 // the Update() method of its superclasses and provides methods for retrieving
-//  the output.
+// the output.
 
 #ifndef __vtkExtractVectorComponents_h
 #define __vtkExtractVectorComponents_h

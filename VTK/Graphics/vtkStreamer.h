@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamer.h,v $
   Language:  C++
-  Date:      $Date: 1995-12-27 10:58:28 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1996-06-08 13:13:45 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -123,7 +123,7 @@ public:
   int Extend;             // grow array by this amount
   float Direction;        // integration direction
 };
-//ETX - end tcl exclude
+//ETX
 //
 
 class vtkStreamer : public vtkDataSetToPolyFilter
