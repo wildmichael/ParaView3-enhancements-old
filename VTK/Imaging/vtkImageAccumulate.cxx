@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAccumulate.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-13 13:05:30 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2001-11-13 13:23:35 $
+  Version:   $Revision: 1.39 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -170,6 +170,7 @@ static void vtkImageAccumulateExecute(vtkImageAccumulate *self,
                                       double Min[3],
                                       double Max[3],
                                       double Mean[3],
+                                      double StandardDeviation[3],
                                       long int *VoxelCount)
 {
   int idX, idY, idZ, idxC;
