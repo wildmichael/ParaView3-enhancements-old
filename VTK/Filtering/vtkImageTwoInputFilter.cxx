@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageTwoInputFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:28:06 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2002-07-04 22:02:24 $
+  Version:   $Revision: 1.23 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,8 +18,7 @@
 #include "vtkImageTwoInputFilter.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkImageTwoInputFilter, "$Revision: 1.22 $");
-vtkStandardNewMacro(vtkImageTwoInputFilter);
+vtkCxxRevisionMacro(vtkImageTwoInputFilter, "$Revision: 1.23 $");
 
 //----------------------------------------------------------------------------
 vtkImageTwoInputFilter::vtkImageTwoInputFilter()

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToImageFilter.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:28:06 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2002-07-04 22:02:24 $
+  Version:   $Revision: 1.36 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -35,7 +35,6 @@
 class VTK_FILTERING_EXPORT vtkImageToImageFilter : public vtkImageSource
 {
 public:
-  static vtkImageToImageFilter *New();
   vtkTypeRevisionMacro(vtkImageToImageFilter,vtkImageSource);
   void PrintSelf(ostream& os, vtkIndent indent);
 

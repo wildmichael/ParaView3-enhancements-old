@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMultipleInputOutputFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:28:05 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-07-04 22:02:24 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,8 +18,7 @@
 #include "vtkImageMultipleInputOutputFilter.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkImageMultipleInputOutputFilter, "$Revision: 1.7 $");
-vtkStandardNewMacro(vtkImageMultipleInputOutputFilter);
+vtkCxxRevisionMacro(vtkImageMultipleInputOutputFilter, "$Revision: 1.8 $");
 
 //----------------------------------------------------------------------------
 vtkImageMultipleInputOutputFilter::vtkImageMultipleInputOutputFilter()
