@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLabeledDataMapper.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:03:23 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1999-09-14 17:22:40 $
+  Version:   $Revision: 1.14 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -189,6 +189,8 @@ public:
 protected:
   vtkLabeledDataMapper();
   ~vtkLabeledDataMapper();
+  vtkLabeledDataMapper(const vtkLabeledDataMapper&) {};
+  void operator=(const vtkLabeledDataMapper&) {};
 
   vtkDataSet *Input;
   int LabelMode;

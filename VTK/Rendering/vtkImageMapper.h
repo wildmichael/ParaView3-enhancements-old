@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMapper.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:03:15 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1999-09-14 17:22:32 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -108,6 +108,8 @@ public:
 protected:
   vtkImageMapper();
   ~vtkImageMapper();
+  vtkImageMapper(const vtkImageMapper&) {};
+  void operator=(const vtkImageMapper&) {};
 
   vtkImageData* Input;
   float ColorWindow;

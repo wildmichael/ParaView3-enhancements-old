@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageConstantPad.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:03:07 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1999-09-14 17:22:24 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -70,6 +70,9 @@ public:
 protected:
   vtkImageConstantPad();
   ~vtkImageConstantPad() {};
+  vtkImageConstantPad(const vtkImageConstantPad&) {};
+  void operator=(const vtkImageConstantPad&) {};
+
   float Constant;
   
   void ThreadedExecute(vtkImageData *inData, vtkImageData *outData, 

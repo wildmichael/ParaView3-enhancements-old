@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-31 05:42:28 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 1999-09-14 17:21:44 $
+  Version:   $Revision: 1.50 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -89,7 +89,10 @@ class VTK_EXPORT vtkMapper : public vtkAbstractMapper
 public:
   const char *GetClassName() {return "vtkMapper";};
   void PrintSelf(ostream& os, vtkIndent indent);
-  void operator=(const vtkMapper& m);
+
+  // Description:
+  // Make a shallow copy of this mapper.
+  void ShallowCopy(vtkMapper *m);
 
   // Description:
   // Overload standard modified time function. If lookup table is modified,
@@ -215,6 +218,8 @@ public:
 protected:
   vtkMapper();
   ~vtkMapper();
+  vtkMapper(const vtkMapper&) {};
+  void operator=(const vtkMapper&) {};
 
   vtkScalars *Colors;
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkShrinkPolyData.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:02:46 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 1999-09-14 17:22:02 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -80,6 +80,9 @@ public:
 protected:
   vtkShrinkPolyData(float sf=0.5);
   ~vtkShrinkPolyData() {};
+  vtkShrinkPolyData(const vtkShrinkPolyData&) {};
+  void operator=(const vtkShrinkPolyData&) {};
+
   void Execute();
   float ShrinkFactor;
 };

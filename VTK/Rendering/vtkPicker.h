@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPicker.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:02:32 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 1999-09-14 17:21:49 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -203,6 +203,8 @@ public:
 protected:
   vtkPicker();
   ~vtkPicker();
+  vtkPicker(const vtkPicker&) {};
+  void operator=(const vtkPicker&) {};
 
   void MarkPicked(vtkActor *assem, vtkActor *a, vtkMapper *m, 
                   float tMin, float mapperPos[3]);

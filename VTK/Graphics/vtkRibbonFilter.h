@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRibbonFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:02:43 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1999-09-14 17:21:59 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -108,6 +108,9 @@ public:
 protected:
   vtkRibbonFilter();
   ~vtkRibbonFilter() {};
+  vtkRibbonFilter(const vtkRibbonFilter&) {};
+  void operator=(const vtkRibbonFilter&) {};
+
   void Execute();
   float Width;
   float Angle;

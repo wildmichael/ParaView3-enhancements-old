@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoxelContoursToSurfaceFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-10 17:07:40 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-09-14 17:22:17 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -89,6 +89,9 @@ public:
 protected:
   vtkVoxelContoursToSurfaceFilter();
   ~vtkVoxelContoursToSurfaceFilter();
+  vtkVoxelContoursToSurfaceFilter(const vtkVoxelContoursToSurfaceFilter&) {};
+  void operator=(const vtkVoxelContoursToSurfaceFilter&) {};
+
   void    Execute();
 
   int     MemoryLimitInBytes;

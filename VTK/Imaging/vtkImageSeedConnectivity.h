@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSeedConnectivity.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:03:19 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-09-14 17:22:36 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -97,9 +97,11 @@ public:
   vtkSetMacro(Dimensionality,int);
   vtkGetMacro(Dimensionality,int);
   
-private:
+protected:
   vtkImageSeedConnectivity();
   ~vtkImageSeedConnectivity();
+  vtkImageSeedConnectivity(const vtkImageSeedConnectivity&) {};
+  void operator=(const vtkImageSeedConnectivity&) {};
 
   unsigned char InputConnectValue;
   unsigned char OutputConnectedValue;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEarthSource.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:01:56 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-09-14 17:21:12 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to Tom Johnson at Johnson Scientific International who
              developed and contributed this class.
 
@@ -83,6 +83,9 @@ public:
 protected:
   vtkEarthSource();
   ~vtkEarthSource() {};
+  vtkEarthSource(const vtkEarthSource&) {};
+  void operator=(const vtkEarthSource&) {};
+
   void Execute();
 
   float Radius;

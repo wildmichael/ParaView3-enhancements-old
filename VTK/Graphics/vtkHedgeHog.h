@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHedgeHog.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:02:21 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1999-09-14 17:21:37 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,6 +64,8 @@ public:
 protected:
   vtkHedgeHog() { this->ScaleFactor = 1.0;};
   ~vtkHedgeHog() {};
+  vtkHedgeHog(const vtkHedgeHog&) {};
+  void operator=(const vtkHedgeHog&) {};
 
   void Execute();
   float ScaleFactor;

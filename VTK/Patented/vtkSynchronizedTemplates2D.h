@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSynchronizedTemplates2D.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:03:32 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1999-09-14 17:22:47 $
+  Version:   $Revision: 1.3 $
 
 
 
@@ -129,6 +129,9 @@ public:
 protected:
   vtkSynchronizedTemplates2D();
   ~vtkSynchronizedTemplates2D();
+  vtkSynchronizedTemplates2D(const vtkSynchronizedTemplates2D&) {};
+  void operator=(const vtkSynchronizedTemplates2D&) {};
+
   void Execute();
   vtkContourValues *ContourValues;
 };

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLineSource.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:02:27 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1999-09-14 17:21:42 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -74,6 +74,8 @@ public:
 protected:
   vtkLineSource(int res=1);
   ~vtkLineSource() {};
+  vtkLineSource(const vtkLineSource&) {};
+  void operator=(const vtkLineSource&) {};
 
   void Execute();
   float Point1[3];

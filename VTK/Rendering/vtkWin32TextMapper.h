@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32TextMapper.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:03:27 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1999-09-14 17:22:43 $
+  Version:   $Revision: 1.13 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -70,6 +70,8 @@ public:
 protected:
   vtkWin32TextMapper();
   ~vtkWin32TextMapper();
+  vtkWin32TextMapper(const vtkWin32TextMapper&) {};
+  void operator=(const vtkWin32TextMapper&) {};
 
   vtkTimeStamp  BuildTime;
   int LastSize[2];

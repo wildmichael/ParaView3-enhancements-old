@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageRange3D.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:03:19 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-09-14 17:22:35 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -69,6 +69,8 @@ public:
 protected:
   vtkImageRange3D();
   ~vtkImageRange3D();
+  vtkImageRange3D(const vtkImageRange3D&) {};
+  void operator=(const vtkImageRange3D&) {};
 
   vtkImageEllipsoidSource *Ellipse;
     

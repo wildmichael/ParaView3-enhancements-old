@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGridSource.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:02:49 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1999-09-14 17:22:05 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -66,6 +66,9 @@ public:
 protected:
   vtkStructuredGridSource();
   ~vtkStructuredGridSource() {};
+  vtkStructuredGridSource(const vtkStructuredGridSource&) {};
+  void operator=(const vtkStructuredGridSource&) {};
+
   // Used by streaming: The extent of the output being processed
   // by the execute method. Set in the ComputeInputUpdateExtents method
   // (in filter subclasses).

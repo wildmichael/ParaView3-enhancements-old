@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSphere.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:02:47 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1999-09-14 17:22:02 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -79,6 +79,8 @@ public:
 protected:
   vtkSphere();
   ~vtkSphere() {};
+  vtkSphere(const vtkSphere&) {};
+  void operator=(const vtkSphere&) {};
 
   float Radius;
   float Center[3];

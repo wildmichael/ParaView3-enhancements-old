@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergeFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:02:29 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 1999-09-14 17:21:45 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -99,6 +99,8 @@ public:
 protected:
   vtkMergeFilter();
   ~vtkMergeFilter();
+  vtkMergeFilter(const vtkMergeFilter&) {};
+  void operator=(const vtkMergeFilter&) {};
 
   // Usual data generation method
   void Execute();

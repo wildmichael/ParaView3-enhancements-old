@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProp3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-27 21:11:46 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-09-14 17:21:54 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -99,31 +99,31 @@ vtkProp3D::~vtkProp3D()
 }
 
 // Shallow copy of an Prop3D.
-vtkProp3D& vtkProp3D::operator=(const vtkProp3D& Prop3D)
+void vtkProp3D::ShallowCopy(vtkProp3D *Prop3D)
 {
   int i;
 
   for (i=0; i < 3; i++) 
     {
-    this->Origin[i] = Prop3D.Origin[i];
-    this->Position[i] = Prop3D.Position[i];
-    this->Orientation[i] = Prop3D.Orientation[i];
-    this->Center[i] = Prop3D.Center[i];
-    this->Scale[i] = Prop3D.Scale[i];
+    this->Origin[i] = Prop3D->Origin[i];
+    this->Position[i] = Prop3D->Position[i];
+    this->Orientation[i] = Prop3D->Orientation[i];
+    this->Center[i] = Prop3D->Center[i];
+    this->Scale[i] = Prop3D->Scale[i];
     }
 
-  *(this->Transform) = *(Prop3D.Transform);
+  this->Transform->DeepCopy(Prop3D->Transform);
 
-  this->Visibility = Prop3D.Visibility;
-  this->Pickable   = Prop3D.Pickable;
-  this->Dragable   = Prop3D.Dragable;
+  this->Visibility = Prop3D->GetVisibility();
+  this->Pickable   = Prop3D->GetPickable();
+  this->Dragable   = Prop3D->GetDragable();
   
   for (i=0; i < 6; i++)
     {
-    this->Bounds[i] = Prop3D.Bounds[i];
+    this->Bounds[i] = Prop3D->Bounds[i];
     }
-
-  return *this;
+  
+  this->SetUserMatrix(Prop3D->UserMatrix);
 }
 
 // Incrementally change the position of the Prop3D.

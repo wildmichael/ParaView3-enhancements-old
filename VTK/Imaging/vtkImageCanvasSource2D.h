@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCanvasSource2D.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-02 12:59:32 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1999-09-14 17:22:23 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -129,6 +129,8 @@ protected:
   // associated vtkImageData.  However, since the data is reference counted,
   // it may not actually be deleted.
   ~vtkImageCanvasSource2D();
+  vtkImageCanvasSource2D(const vtkImageCanvasSource2D&) {};
+  void operator=(const vtkImageCanvasSource2D&) {};
 
   vtkImageData *ImageData;
   float DrawColor[4];

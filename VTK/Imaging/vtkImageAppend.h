@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAppend.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:03:05 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-09-14 17:22:22 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -71,6 +71,8 @@ public:
 protected:
   vtkImageAppend();
   ~vtkImageAppend();
+  vtkImageAppend(const vtkImageAppend&) {};
+  void operator=(const vtkImageAppend&) {};
 
   int AppendAxis;
   // Array holds the AppendAxisExtent shift for each input.

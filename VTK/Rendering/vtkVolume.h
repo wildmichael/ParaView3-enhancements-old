@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-30 05:12:36 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 1999-09-14 17:22:15 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -126,6 +126,9 @@ public:
   // etc.
   unsigned long GetRedrawMTime();
 
+  // Description:
+  // Make a shallow copy of this volume.
+  void ShallowCopy(vtkVolume *volume);
 
   // Description:
   // For legacy compatibility. Do not use.
@@ -139,7 +142,6 @@ public:
 
   // Description:
   // For legacy compatibility. Do not use.
-  vtkVolume &operator=(const vtkVolume& volume);
   void SetVolumeProperty(vtkVolumeProperty& property) 
     {this->SetProperty(&property);}
 
@@ -253,9 +255,10 @@ public:
 protected:
   vtkVolume();
   ~vtkVolume();
+  vtkVolume(const vtkVolume&) {};
+  void operator=(const vtkVolume&) {};
 
   vtkVolumeMapper              *Mapper;
-
   vtkVolumeProperty            *Property;
 
   // The rgb transfer function array - for unsigned char data this

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDecimate.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-05 12:59:06 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 1999-09-14 17:22:45 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -273,6 +273,9 @@ public:
 protected:
   vtkDecimate();
   ~vtkDecimate();
+  vtkDecimate(const vtkDecimate&) {};
+  void operator=(const vtkDecimate&) {};
+
   void Execute();
 
   float InitialFeatureAngle; // dihedral angle constraint

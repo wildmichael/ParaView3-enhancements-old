@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinearExtrusionFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:02:27 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1999-09-14 17:21:42 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -129,6 +129,8 @@ public:
 protected:
   vtkLinearExtrusionFilter();
   ~vtkLinearExtrusionFilter() {};
+  vtkLinearExtrusionFilter(const vtkLinearExtrusionFilter&) {};
+  void operator=(const vtkLinearExtrusionFilter&) {};
 
   void Execute();
   int ExtrusionType;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractUnstructuredGrid.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:02:19 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-09-14 17:21:34 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -122,6 +122,8 @@ public:
 protected:
   vtkExtractUnstructuredGrid();
   ~vtkExtractUnstructuredGrid() {};
+  vtkExtractUnstructuredGrid(const vtkExtractUnstructuredGrid&) {};
+  void operator=(const vtkExtractUnstructuredGrid&) {};
 
   void Execute();
 

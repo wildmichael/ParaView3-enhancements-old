@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageExport.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:03:09 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1999-09-14 17:22:26 $
+  Version:   $Revision: 1.13 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 
@@ -129,8 +129,10 @@ public:
 protected:
   vtkImageExport();
   ~vtkImageExport();
-  vtkImageFlip *ImageFlip;
+  vtkImageExport(const vtkImageExport&) {};
+  void operator=(const vtkImageExport&) {};
 
+  vtkImageFlip *ImageFlip;
   int ImageLowerLeft;
   int DataDimensions[3];
 };

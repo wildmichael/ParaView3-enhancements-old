@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTensorGlyph.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:02:52 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1999-09-14 17:22:08 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -141,6 +141,9 @@ public:
 protected:
   vtkTensorGlyph();
   ~vtkTensorGlyph();
+  vtkTensorGlyph(const vtkTensorGlyph&) {};
+  void operator=(const vtkTensorGlyph&) {};
+
   void Execute();
 
   int Scaling; // Determine whether scaling of geometry is performed

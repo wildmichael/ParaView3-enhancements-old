@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsSource.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-02 13:05:27 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1999-09-14 17:22:07 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -66,6 +66,9 @@ public:
 protected:
   vtkStructuredPointsSource();
   ~vtkStructuredPointsSource() {};
+  vtkStructuredPointsSource(const vtkStructuredPointsSource&) {};
+  void operator=(const vtkStructuredPointsSource&) {};
+
   // Used by streaming: The extent of the output being processed
   // by the execute method. Set in the ComputeInputUpdateExtent method.
   int ExecuteExtent[6];

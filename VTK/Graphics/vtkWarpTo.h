@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpTo.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:03:01 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1999-09-14 17:22:18 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -75,6 +75,9 @@ public:
 protected:
   vtkWarpTo(); 
   ~vtkWarpTo() {};
+  vtkWarpTo(const vtkWarpTo&) {};
+  void operator=(const vtkWarpTo&) {};
+
   void Execute();
   float ScaleFactor;
   float Position[3];

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSLCReader.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:02:43 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1999-09-14 17:22:00 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -65,13 +65,9 @@ public:
 
 protected:
   vtkSLCReader();
-  ~vtkSLCReader()
-    {
-    if (this->FileName)
-      {
-      delete [] this->FileName;
-      }
-    };
+  ~vtkSLCReader();
+  vtkSLCReader(const vtkSLCReader&) {};
+  void operator=(const vtkSLCReader&) {};
 
   // Stores the FileName of the SLC file to read.
   char *FileName;

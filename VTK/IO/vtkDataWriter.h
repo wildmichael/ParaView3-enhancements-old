@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataWriter.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:02:14 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 1999-09-14 17:21:30 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -191,6 +191,8 @@ public:
 protected:
   vtkDataWriter();
   ~vtkDataWriter();
+  vtkDataWriter(const vtkDataWriter&) {};
+  void operator=(const vtkDataWriter&) {};
 
   int WriteToOutputString;
   char *OutputString;

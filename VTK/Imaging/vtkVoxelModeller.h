@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoxelModeller.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:03:01 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1999-09-14 17:22:18 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -99,6 +99,9 @@ public:
 protected:
   vtkVoxelModeller();
   ~vtkVoxelModeller() {};
+  vtkVoxelModeller(const vtkVoxelModeller&) {};
+  void operator=(const vtkVoxelModeller&) {};
+
   void Execute();
   int SampleDimensions[3];
   float MaximumDistance;

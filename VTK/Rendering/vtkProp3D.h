@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProp3D.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:02:38 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-09-14 17:21:54 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -69,7 +69,7 @@ public:
 
   // Description:
   // Shallow copy.
-  vtkProp3D &operator=(const vtkProp3D& Prop3D);
+  void ShallowCopy(vtkProp3D *Prop3D);
 
   // Description:
   // Set/Get/Add the position of the Prop3D in world coordinates.
@@ -249,6 +249,8 @@ public:
 protected:
   vtkProp3D();
   ~vtkProp3D();
+  vtkProp3D(const vtkProp3D&) {};
+  void operator=(const vtkProp3D&) {};
 
   vtkMatrix4x4  *UserMatrix;
   vtkMatrix4x4  *Matrix;

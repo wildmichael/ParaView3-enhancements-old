@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLight.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:02:26 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 1999-09-14 17:21:42 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -129,12 +129,18 @@ public:
   vtkSetVector3Macro(AttenuationValues,float);
   vtkGetVectorMacro(AttenuationValues,float,3);
 
+  // Description:
+  // Perform deep copy of this light.
+  void DeepCopy(vtkLight *light);
+
   void ReadSelf(istream& is);
   void WriteSelf(ostream& os);
   
 protected:
   vtkLight();
   ~vtkLight() {};
+  vtkLight(const vtkLight&) {};
+  void operator=(const vtkLight&) {};
 
   float FocalPoint[3];
   float Position[3];

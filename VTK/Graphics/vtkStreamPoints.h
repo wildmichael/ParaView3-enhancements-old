@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamPoints.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:02:48 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1999-09-14 17:22:03 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -71,6 +71,8 @@ public:
 protected:
   vtkStreamPoints();
   ~vtkStreamPoints() {};
+  vtkStreamPoints(const vtkStreamPoints&) {};
+  void operator=(const vtkStreamPoints&) {};
 
   // Convert streamer array into vtkPolyData
   void Execute();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProperty.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:02:38 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 1999-09-14 17:21:55 $
+  Version:   $Revision: 1.44 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -76,7 +76,7 @@ public:
 
   // Description:
   // Assign one property to another. 
-  vtkProperty &operator=(const vtkProperty& p);
+  void DeepCopy(vtkProperty *p);
 
   // Description:
   // This method causes the property to set up whatever is required for
@@ -209,6 +209,8 @@ public:
 protected:
   vtkProperty();
   ~vtkProperty() {};
+  vtkProperty(const vtkProperty&) {};
+  void operator=(const vtkProperty&) {};
 
   float Color[3];
   float AmbientColor[3];

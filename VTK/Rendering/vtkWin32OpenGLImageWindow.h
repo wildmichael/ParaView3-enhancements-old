@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLImageWindow.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-30 14:48:21 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1999-09-14 17:22:43 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -164,6 +164,8 @@ public:
 protected:
   vtkWin32OpenGLImageWindow();
   ~vtkWin32OpenGLImageWindow();
+  vtkWin32OpenGLImageWindow(const vtkWin32OpenGLImageWindow&) {};
+  void operator=(const vtkWin32OpenGLImageWindow&) {};
 
   HINSTANCE ApplicationInstance;
   HPALETTE  Palette;

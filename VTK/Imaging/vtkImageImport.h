@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageImport.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:03:12 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1999-09-14 17:22:29 $
+  Version:   $Revision: 1.15 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -122,6 +122,8 @@ public:
 protected:
   vtkImageImport();
   ~vtkImageImport();
+  vtkImageImport(const vtkImageImport&) {};
+  void operator=(const vtkImageImport&) {};
 
   // Generate more than requested.  Called by the superclass before
   // an execute, and before output memory is allocated.

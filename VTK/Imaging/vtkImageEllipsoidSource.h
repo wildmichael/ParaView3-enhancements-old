@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageEllipsoidSource.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:03:09 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1999-09-14 17:22:26 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -103,6 +103,9 @@ public:
 protected:
   vtkImageEllipsoidSource();
   ~vtkImageEllipsoidSource();
+  vtkImageEllipsoidSource(const vtkImageEllipsoidSource&) {};
+  void operator=(const vtkImageEllipsoidSource&) {};
+
   int WholeExtent[6];
   float Center[3];
   float Radius[3];

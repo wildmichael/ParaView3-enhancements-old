@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32RenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:03:02 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1999-09-14 17:22:19 $
+  Version:   $Revision: 1.23 $
   
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -139,6 +139,8 @@ public:
 protected:
   vtkWin32RenderWindowInteractor();
   ~vtkWin32RenderWindowInteractor();
+  vtkWin32RenderWindowInteractor(const vtkWin32RenderWindowInteractor&) {};
+  void operator=(const vtkWin32RenderWindowInteractor&) {};
 
   HWND    WindowId;
   UINT    TimerId;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransformFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:02:54 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1999-09-14 17:22:11 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -80,6 +80,9 @@ public:
 protected:
   vtkTransformFilter();
   ~vtkTransformFilter();
+  vtkTransformFilter(const vtkTransformFilter&) {};
+  void operator=(const vtkTransformFilter&) {};
+
   void Execute();
   vtkTransform *Transform;
 };

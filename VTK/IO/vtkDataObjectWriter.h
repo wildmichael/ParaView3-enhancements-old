@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObjectWriter.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:02:11 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-09-14 17:21:27 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -88,6 +88,8 @@ public:
 protected:
   vtkDataObjectWriter();
   ~vtkDataObjectWriter();
+  vtkDataObjectWriter(const vtkDataObjectWriter&) {};
+  void operator=(const vtkDataObjectWriter&) {};
 
   void WriteData();
   vtkDataWriter *Writer;

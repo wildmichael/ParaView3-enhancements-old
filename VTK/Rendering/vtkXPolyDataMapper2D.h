@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXPolyDataMapper2D.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:03:28 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-09-14 17:22:44 $
+  Version:   $Revision: 1.7 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -65,6 +65,8 @@ public:
 protected:
   vtkXPolyDataMapper2D() {};
   ~vtkXPolyDataMapper2D() {};
+  vtkXPolyDataMapper2D(const vtkXPolyDataMapper2D&) {};
+  void operator=(const vtkXPolyDataMapper2D&) {};
   
 };
 

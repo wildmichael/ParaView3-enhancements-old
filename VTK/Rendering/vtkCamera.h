@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCamera.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:02:03 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 1999-09-14 17:21:21 $
+  Version:   $Revision: 1.50 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -324,6 +324,8 @@ class VTK_EXPORT vtkCamera : public vtkObject
 protected:
   vtkCamera();
   ~vtkCamera();
+  vtkCamera(const vtkCamera&) {};
+  void operator=(const vtkCamera&) {};
 
   double WindowCenter[2];
   double FocalPoint[3];

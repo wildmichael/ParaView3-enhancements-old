@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWarpVector.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:03:02 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1999-09-14 17:22:18 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -76,6 +76,9 @@ public:
 protected:
   vtkWarpVector();
   ~vtkWarpVector();
+  vtkWarpVector(const vtkWarpVector&) {};
+  void operator=(const vtkWarpVector&) {};
+
   void Execute();
   int SplitPointRange(int threadId, int threadCount, int &min, int &max);
   float ScaleFactor;

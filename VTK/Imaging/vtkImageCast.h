@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCast.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:03:06 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1999-09-14 17:22:23 $
+  Version:   $Revision: 1.20 $
   Thanks:    Thanks to Abdalmajeid M. Alyassin who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -93,6 +93,8 @@ public:
 protected:
   vtkImageCast();
   ~vtkImageCast() {};
+  vtkImageCast(const vtkImageCast&) {};
+  void operator=(const vtkImageCast&) {};
 
   int ClampOverflow;
   int OutputScalarType;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageShrink3D.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:03:20 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1999-09-14 17:22:36 $
+  Version:   $Revision: 1.23 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -96,6 +96,8 @@ public:
 protected:
   vtkImageShrink3D();
   ~vtkImageShrink3D() {};
+  vtkImageShrink3D(const vtkImageShrink3D&) {};
+  void operator=(const vtkImageShrink3D&) {};
 
   int ShrinkFactors[3];
   int Shift[3];

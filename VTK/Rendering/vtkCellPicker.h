@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellPicker.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:02:05 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1999-09-14 17:21:23 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -76,6 +76,8 @@ public:
 protected:
   vtkCellPicker();
   ~vtkCellPicker() {};
+  vtkCellPicker(const vtkCellPicker&) {};
+  void operator=(const vtkCellPicker&) {};
 
   int CellId; // picked cell
   int SubId; // picked cell subId

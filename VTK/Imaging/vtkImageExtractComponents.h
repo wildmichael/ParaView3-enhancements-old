@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageExtractComponents.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:03:10 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-09-14 17:22:26 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -74,6 +74,8 @@ public:
 protected:
   vtkImageExtractComponents();
   ~vtkImageExtractComponents() {};
+  vtkImageExtractComponents(const vtkImageExtractComponents&) {};
+  void operator=(const vtkImageExtractComponents&) {};
 
   int NumberOfComponents;
   int Components[3];

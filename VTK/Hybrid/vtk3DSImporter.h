@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtk3DSImporter.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:02:00 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-09-14 17:21:17 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -72,6 +72,8 @@ public:
 protected:
   vtk3DSImporter();
   ~vtk3DSImporter();
+  vtk3DSImporter(const vtk3DSImporter&) {};
+  void operator=(const vtk3DSImporter&) {};
 
   int ImportBegin ();
   void ImportActors (vtkRenderer *renderer);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSTLWriter.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:02:44 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1999-09-14 17:22:00 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -65,6 +65,9 @@ public:
 protected:
   vtkSTLWriter();
   ~vtkSTLWriter() {};
+  vtkSTLWriter(const vtkSTLWriter&) {};
+  void operator=(const vtkSTLWriter&) {};
+
   void WriteData();
 
   void WriteBinarySTL(vtkPoints *pts, vtkCellArray *polys);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitTextureCoords.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:02:24 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1999-09-14 17:21:39 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -112,6 +112,8 @@ public:
 protected:
   vtkImplicitTextureCoords();
   ~vtkImplicitTextureCoords();
+  vtkImplicitTextureCoords(const vtkImplicitTextureCoords&) {};
+  void operator=(const vtkImplicitTextureCoords&) {};
 
   void Execute();
 

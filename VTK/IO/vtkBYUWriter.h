@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBYUWriter.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:02:03 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1999-09-14 17:21:21 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -105,6 +105,8 @@ public:
 protected:
   vtkBYUWriter();
   ~vtkBYUWriter();
+  vtkBYUWriter(const vtkBYUWriter&) {};
+  void operator=(const vtkBYUWriter&) {};
 
   void WriteData();
 

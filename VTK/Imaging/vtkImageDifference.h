@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDifference.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:03:08 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-09-14 17:22:25 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -106,6 +106,8 @@ public:
 protected:
   vtkImageDifference();
   ~vtkImageDifference() {};
+  vtkImageDifference(const vtkImageDifference&) {};
+  void operator=(const vtkImageDifference&) {};
 
   float ErrorPerThread[VTK_MAX_THREADS];
   float ThresholdedErrorPerThread[VTK_MAX_THREADS];

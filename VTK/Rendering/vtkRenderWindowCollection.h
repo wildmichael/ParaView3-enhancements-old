@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindowCollection.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:02:41 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-09-14 17:21:57 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -85,6 +85,8 @@ class VTK_EXPORT vtkRenderWindowCollection : public vtkCollection
 protected:
   vtkRenderWindowCollection() {};
   ~vtkRenderWindowCollection() {};
+  vtkRenderWindowCollection(const vtkRenderWindowCollection&) {};
+  void operator=(const vtkRenderWindowCollection&) {};
 };
 
 

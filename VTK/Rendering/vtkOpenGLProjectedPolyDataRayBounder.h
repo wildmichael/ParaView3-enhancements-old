@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLProjectedPolyDataRayBounder.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:02:31 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1999-09-14 17:21:47 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to Lisa Sobierajski Avila who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -86,6 +86,8 @@ public:
 protected:
   vtkOpenGLProjectedPolyDataRayBounder();
   ~vtkOpenGLProjectedPolyDataRayBounder();
+  vtkOpenGLProjectedPolyDataRayBounder(const vtkOpenGLProjectedPolyDataRayBounder&) {};
+  void operator=(const vtkOpenGLProjectedPolyDataRayBounder&) {};
 
   GLuint    DisplayList;
   float     *DepthRangeBuffer;

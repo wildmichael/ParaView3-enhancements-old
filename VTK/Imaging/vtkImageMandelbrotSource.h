@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMandelbrotSource.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:03:15 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-09-14 17:22:31 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -108,6 +108,8 @@ public:
 protected:
   vtkImageMandelbrotSource();
   ~vtkImageMandelbrotSource();
+  vtkImageMandelbrotSource(const vtkImageMandelbrotSource&) {};
+  void operator=(const vtkImageMandelbrotSource&) {};
 
   int ProjectionAxes[3];
 

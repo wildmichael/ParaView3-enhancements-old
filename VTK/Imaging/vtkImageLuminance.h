@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageLuminance.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:03:14 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-09-14 17:22:31 $
+  Version:   $Revision: 1.7 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -57,6 +57,8 @@ public:
 protected:
   vtkImageLuminance() {};
   ~vtkImageLuminance() {};
+  vtkImageLuminance(const vtkImageLuminance&) {};
+  void operator=(const vtkImageLuminance&) {};
   
   void ExecuteInformation(vtkImageData *inData, vtkImageData *outData);
   void ThreadedExecute(vtkImageData *inData, vtkImageData *outData, 

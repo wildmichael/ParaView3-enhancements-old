@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHull.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:02:22 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-09-14 17:21:37 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -119,6 +119,8 @@ public:
 protected:
   vtkHull();
   ~vtkHull();
+  vtkHull(const vtkHull&) {};
+  void operator=(const vtkHull&) {};
 
   // The planes - 4 floats per plane for A, B, C, D
   float     *Planes;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSpline.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:02:47 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-09-14 17:22:03 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -133,6 +133,8 @@ public:
 protected:
   vtkSpline();
   ~vtkSpline ();
+  vtkSpline(const vtkSpline&) {};
+  void operator=(const vtkSpline&) {};
 
   unsigned long ComputeTime;
   int ClampValue;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkViewRays.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:02:58 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1999-09-14 17:22:14 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -120,6 +120,8 @@ public:
 protected:
   vtkViewRays(void);
   ~vtkViewRays(void);
+  vtkViewRays(const vtkViewRays&) {};
+  void operator=(const vtkViewRays&) {};
 
   vtkRenderer     *Renderer;		// Renderer contains a camera
   int             Size[2];		// Number of view rays

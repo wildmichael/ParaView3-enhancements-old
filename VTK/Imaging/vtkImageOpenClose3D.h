@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageOpenClose3D.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:03:17 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-09-14 17:22:34 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -124,6 +124,8 @@ public:
 protected:
   vtkImageOpenClose3D();
   ~vtkImageOpenClose3D();
+  vtkImageOpenClose3D(const vtkImageOpenClose3D&) {};
+  void operator=(const vtkImageOpenClose3D&) {};
   
   vtkImageDilateErode3D *Filter0;
   vtkImageDilateErode3D *Filter1;

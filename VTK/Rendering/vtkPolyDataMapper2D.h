@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataMapper2D.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:03:25 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1999-09-14 17:22:41 $
+  Version:   $Revision: 1.13 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -139,6 +139,8 @@ public:
 protected:
   vtkPolyDataMapper2D();
   ~vtkPolyDataMapper2D();
+  vtkPolyDataMapper2D(const vtkPolyDataMapper2D&) {};
+  void operator=(const vtkPolyDataMapper2D&) {};
 
   vtkPolyData* Input;
   vtkScalars *Colors;

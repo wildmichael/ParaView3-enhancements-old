@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMCubesWriter.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:02:28 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1999-09-14 17:21:43 $
+  Version:   $Revision: 1.19 $
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -74,6 +74,8 @@ public:
 protected:
   vtkMCubesWriter();
   ~vtkMCubesWriter();
+  vtkMCubesWriter(const vtkMCubesWriter&) {};
+  void operator=(const vtkMCubesWriter&) {};
 
   void WriteData();
   char *LimitsFileName;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSelectPolyData.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:02:45 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1999-09-14 17:22:01 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -186,6 +186,9 @@ public:
 protected:
   vtkSelectPolyData();
   ~vtkSelectPolyData();
+  vtkSelectPolyData(const vtkSelectPolyData&) {};
+  void operator=(const vtkSelectPolyData&) {};
+
   void Execute();
 
   int GenerateSelectionScalars;

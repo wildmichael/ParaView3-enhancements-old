@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSkeleton2D.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:03:20 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1999-09-14 17:22:36 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -77,6 +77,8 @@ public:
 protected:
   vtkImageSkeleton2D();
   ~vtkImageSkeleton2D() {};
+  vtkImageSkeleton2D(const vtkImageSkeleton2D&) {};
+  void operator=(const vtkImageSkeleton2D&) {};
 
   int Prune;
 

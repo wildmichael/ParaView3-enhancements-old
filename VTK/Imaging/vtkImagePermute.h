@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagePermute.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:03:18 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1999-09-14 17:22:34 $
+  Version:   $Revision: 1.13 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -66,6 +66,8 @@ public:
 protected:
   vtkImagePermute();
   ~vtkImagePermute() {};
+  vtkImagePermute(const vtkImagePermute&) {};
+  void operator=(const vtkImagePermute&) {};
 
   int  FilteredAxes[3];
   void ExecuteInformation(vtkImageData *inData, vtkImageData *outData);

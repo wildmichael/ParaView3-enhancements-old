@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageWriter.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:03:23 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1999-09-14 17:22:39 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -100,6 +100,8 @@ public:
 protected:
   vtkImageWriter();
   ~vtkImageWriter();
+  vtkImageWriter(const vtkImageWriter&) {};
+  void operator=(const vtkImageWriter&) {};
 
   int FileDimensionality;
   char *FilePrefix;

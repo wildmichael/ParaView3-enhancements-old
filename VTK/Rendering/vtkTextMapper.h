@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextMapper.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:03:26 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1999-09-14 17:22:42 $
+  Version:   $Revision: 1.22 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -178,6 +178,8 @@ public:
 protected:
   vtkTextMapper();
   ~vtkTextMapper();
+  vtkTextMapper(const vtkTextMapper&) {};
+  void operator=(const vtkTextMapper&) {};
 
   int   Italic;
   int   Bold;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageIslandRemoval2D.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:03:13 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1999-09-14 17:22:30 $
+  Version:   $Revision: 1.20 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -94,6 +94,8 @@ public:
 protected:
   vtkImageIslandRemoval2D();
   ~vtkImageIslandRemoval2D() {};
+  vtkImageIslandRemoval2D(const vtkImageIslandRemoval2D&) {};
+  void operator=(const vtkImageIslandRemoval2D&) {};
 
   int AreaThreshold;
   int SquareNeighborhood;

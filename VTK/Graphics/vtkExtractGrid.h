@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractGrid.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:02:18 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1999-09-14 17:21:33 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -90,6 +90,8 @@ public:
 protected:
   vtkExtractGrid();
   ~vtkExtractGrid() {};
+  vtkExtractGrid(const vtkExtractGrid&) {};
+  void operator=(const vtkExtractGrid&) {};
 
   void Execute();
 

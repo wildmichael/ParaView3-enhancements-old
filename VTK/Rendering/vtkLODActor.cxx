@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLODActor.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-18 13:04:36 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 1999-09-14 17:21:41 $
+  Version:   $Revision: 1.41 $
   
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -356,7 +356,7 @@ void vtkLODActor::BuildPaths(vtkAssemblyPaths *vtkNotUsed(paths),
   vtkMapper *mapper;
 
   // shallow copy
-  *((vtkActor *)copy) = *this;
+  copy->ShallowCopy(this);
   this->LODMappers->InitTraversal();
   while ( (mapper = this->LODMappers->GetNextItem()) )
     {

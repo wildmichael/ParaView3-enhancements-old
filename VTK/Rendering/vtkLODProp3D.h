@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLODProp3D.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:02:26 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1999-09-14 17:21:41 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -194,6 +194,8 @@ public:
 protected:
   vtkLODProp3D();
   ~vtkLODProp3D();
+  vtkLODProp3D(const vtkLODProp3D&) {};
+  void operator=(const vtkLODProp3D&) {};
 
   vtkLODProp3DEntry *LODs;
   int               NumberOfEntries;

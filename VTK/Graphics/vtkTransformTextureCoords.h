@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransformTextureCoords.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:02:55 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1999-09-14 17:22:11 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -122,6 +122,9 @@ public:
 protected:
   vtkTransformTextureCoords();
   ~vtkTransformTextureCoords() {};
+  vtkTransformTextureCoords(const vtkTransformTextureCoords&) {};
+  void operator=(const vtkTransformTextureCoords&) {};
+
   void Execute();
 
   float Origin[3]; //point around which map rotates

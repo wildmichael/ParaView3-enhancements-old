@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeTextureMapper2D.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-30 17:13:29 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1999-09-14 17:22:17 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -80,6 +80,8 @@ public:
 protected:
   vtkVolumeTextureMapper2D();
   ~vtkVolumeTextureMapper2D();
+  vtkVolumeTextureMapper2D(const vtkVolumeTextureMapper2D&) {};
+  void operator=(const vtkVolumeTextureMapper2D&) {};
 
   void InitializeRender( vtkRenderer *ren, vtkVolume *vol );
 

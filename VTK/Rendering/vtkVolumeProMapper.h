@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProMapper.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-02 20:35:16 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-09-14 17:21:16 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -239,6 +239,8 @@ public:
 protected:
   vtkVolumeProMapper();
   ~vtkVolumeProMapper();
+  vtkVolumeProMapper(const vtkVolumeProMapper&) {};
+  void operator=(const vtkVolumeProMapper&) {};
 
   // Update the camera - set the camera matrix
   void UpdateCamera( vtkRenderer *, vtkVolume * );

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageNoiseSource.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:03:17 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-09-14 17:22:33 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -81,6 +81,8 @@ public:
 protected:
   vtkImageNoiseSource();
   ~vtkImageNoiseSource() {};
+  vtkImageNoiseSource(const vtkImageNoiseSource&) {};
+  void operator=(const vtkImageNoiseSource&) {};
 
   float Minimum;
   float Maximum;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangleFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:02:55 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1999-09-14 17:22:11 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -71,6 +71,9 @@ public:
 protected:
   vtkTriangleFilter() : PassVerts(1), PassLines(1) {};
   ~vtkTriangleFilter() {};
+  vtkTriangleFilter(const vtkTriangleFilter&) {};
+  void operator=(const vtkTriangleFilter&) {};
+
   // Usual data generation method
   void Execute();
 

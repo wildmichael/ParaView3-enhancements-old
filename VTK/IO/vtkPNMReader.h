@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPNMReader.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:03:24 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-09-14 17:22:41 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -71,6 +71,8 @@ public:
 protected:
   vtkPNMReader() {};
   ~vtkPNMReader() {};
+  vtkPNMReader(const vtkPNMReader&) {};
+  void operator=(const vtkPNMReader&) {};
   void UpdateInformation();
 };
 

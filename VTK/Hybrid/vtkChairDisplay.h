@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkChairDisplay.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:01:55 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1999-09-14 17:21:11 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -79,6 +79,8 @@ public:
 protected:
   vtkChairDisplay();
   ~vtkChairDisplay();
+  vtkChairDisplay(const vtkChairDisplay&) {};
+  void operator=(const vtkChairDisplay&) {};
 
   vtkScalars *Scalars;
   vtkStructuredPoints *TextureOutput;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRayCaster.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:02:39 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1999-09-14 17:21:55 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -213,6 +213,8 @@ public:
 protected:
   vtkRayCaster();
   ~vtkRayCaster();
+  vtkRayCaster(const vtkRayCaster&) {};
+  void operator=(const vtkRayCaster&) {};
 
   // Description:
   // Zoom the small image up the full size using nearest neighbor 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDEMReader.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:01:55 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-09-14 17:21:11 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -138,6 +138,8 @@ public:
 protected:
   vtkDEMReader();
   ~vtkDEMReader();
+  vtkDEMReader(const vtkDEMReader&) {};
+  void operator=(const vtkDEMReader&) {};
 
   vtkTimeStamp ReadHeaderTime;
   int NumberOfColumns;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLight.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:12:55 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 1999-09-14 17:21:41 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -97,6 +97,19 @@ vtkLight *vtkLight::New()
 #endif
   
   return new vtkLight;
+}
+
+void vtkLight::DeepCopy(vtkLight *light)
+{
+  this->SetFocalPoint(light->GetFocalPoint());
+  this->SetPosition(light->GetPosition());
+  this->SetIntensity(light->GetIntensity());
+  this->SetColor(light->GetColor());
+  this->SetSwitch(light->GetSwitch());
+  this->SetPositional(light->GetPositional());
+  this->SetExponent(light->GetExponent());
+  this->SetConeAngle(light->GetConeAngle());
+  this->SetAttenuationValues(light->GetAttenuationValues());
 }
 
 void vtkLight::PrintSelf(ostream& os, vtkIndent indent)

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProgrammableGlyphFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:02:37 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-09-14 17:21:53 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -143,6 +143,9 @@ public:
 protected:
   vtkProgrammableGlyphFilter();
   ~vtkProgrammableGlyphFilter();
+  vtkProgrammableGlyphFilter(const vtkProgrammableGlyphFilter&) {};
+  void operator=(const vtkProgrammableGlyphFilter&) {};
+
   void Execute();
 
   float Point[3]; // Coordinates of point

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDivergence.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:03:09 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1999-09-14 17:22:25 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -65,6 +65,8 @@ public:
 protected:
   vtkImageDivergence();
   ~vtkImageDivergence() {};
+  vtkImageDivergence(const vtkImageDivergence&) {};
+  void operator=(const vtkImageDivergence&) {};
 
   int Dimensionality;
 

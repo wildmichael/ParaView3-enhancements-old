@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHyperStreamline.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:02:22 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1999-09-14 17:21:37 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -255,6 +255,8 @@ public:
 protected:
   vtkHyperStreamline();
   ~vtkHyperStreamline();
+  vtkHyperStreamline(const vtkHyperStreamline&) {};
+  void operator=(const vtkHyperStreamline&) {};
 
   // Integrate data
   void Execute();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVectorDot.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:02:57 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1999-09-14 17:22:13 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -72,6 +72,9 @@ public:
 protected:
   vtkVectorDot();
   ~vtkVectorDot() {};
+  vtkVectorDot(const vtkVectorDot&) {};
+  void operator=(const vtkVectorDot&) {};
+
   void Execute();
   float ScalarRange[2];
 };

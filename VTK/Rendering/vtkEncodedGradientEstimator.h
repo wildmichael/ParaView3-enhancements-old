@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEncodedGradientEstimator.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:02:17 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1999-09-14 17:21:32 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -149,7 +149,7 @@ public:
   vtkGetMacro( UseCylinderClip, int );
   int *GetCircleLimits() { return this->CircleLimits; };
 
-    // Description:
+  // Description:
   // Set / Get the ZeroNormalThreshold - this defines the minimum magnitude 
   // of a gradient that is considered sufficient to define a 
   // direction. Gradients with magnitudes at or less than this value are given
@@ -160,9 +160,6 @@ public:
   vtkGetMacro( ZeroNormalThreshold, float );
 
   // These variables should be protected but are being
-  vtkEncodedGradientEstimator();
-  ~vtkEncodedGradientEstimator();
-
   // made public to be accessible to the templated function.
   // We used to have the templated function as a friend, but
   // this does not work with all compilers
@@ -185,6 +182,10 @@ public:
 
 
 protected:
+  vtkEncodedGradientEstimator();
+  ~vtkEncodedGradientEstimator();
+  vtkEncodedGradientEstimator(const vtkEncodedGradientEstimator&) {};
+  void operator=(const vtkEncodedGradientEstimator&) {};
 
   // The number of threads to use when encoding normals
   int                        NumberOfThreads;

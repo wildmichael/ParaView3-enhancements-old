@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProgrammableSource.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:02:38 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-09-14 17:21:54 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -110,6 +110,9 @@ public:
 protected:
   vtkProgrammableSource();
   ~vtkProgrammableSource();
+  vtkProgrammableSource(const vtkProgrammableSource&) {};
+  void operator=(const vtkProgrammableSource&) {};
+
   void Execute();
 
   void (*ExecuteMethod)(void *); //function to invoke

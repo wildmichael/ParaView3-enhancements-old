@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBooleanTexture.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:02:03 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1999-09-14 17:21:21 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -140,6 +140,8 @@ public:
 protected:
   vtkBooleanTexture();
   ~vtkBooleanTexture() {};
+  vtkBooleanTexture(const vtkBooleanTexture&) {};
+  void operator=(const vtkBooleanTexture&) {};
 
   void Execute();
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeRayCastMapper.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-31 20:27:03 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1999-09-14 17:22:17 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -151,11 +151,11 @@ public:
 protected:
   vtkVolumeRayCastMapper();
   ~vtkVolumeRayCastMapper();
+  vtkVolumeRayCastMapper(const vtkVolumeRayCastMapper&) {};
+  void operator=(const vtkVolumeRayCastMapper&) {};
 
   vtkVolumeRayCastFunction     *VolumeRayCastFunction;
-
   vtkEncodedGradientEstimator  *GradientEstimator;
-
   vtkEncodedGradientShader     *GradientShader;
 
   // The distance between sample points along the ray
