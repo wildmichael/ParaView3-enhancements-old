@@ -31,7 +31,7 @@
 
 #include "spcth_interface.h"
 
-vtkCxxRevisionMacro(vtkAMRSpyPlotReader, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkAMRSpyPlotReader, "$Revision: 1.2 $");
 vtkStandardNewMacro(vtkAMRSpyPlotReader);
 vtkCxxSetObjectMacro(vtkAMRSpyPlotReader,Controller,vtkMultiProcessController);
 
