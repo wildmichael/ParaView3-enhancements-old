@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: TestPointWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-06 13:55:34 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-08-07 11:28:44 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -556,6 +556,9 @@ int main( int argc, char *argv[] )
   pl3d->SetVectorFunctionNumber(202);
   pl3d->Update();
 
+  delete [] fname;
+  delete [] fname2;
+
   vtkPolyData *point = vtkPolyData::New();
 
   vtkProbeFilter *probe = vtkProbeFilter::New();
@@ -644,8 +647,10 @@ int main( int argc, char *argv[] )
     iren->Start();
     }
 
-  pl3d->Delete();
+  myCallback->Delete();
+  recorder->Delete();
   pointWidget->Delete();
+  pl3d->Delete();
   point->Delete();
   probe->Delete();
   cone->Delete();
@@ -658,7 +663,6 @@ int main( int argc, char *argv[] )
   iren->Delete();
   renWin->Delete();
   ren1->Delete();
-  myCallback->Delete();
   
   return !retVal;
 }

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: TestPlaneWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-06 20:11:06 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-08-07 11:28:44 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -422,6 +422,9 @@ int main( int argc, char *argv[] )
   pl3d->SetVectorFunctionNumber(202);
   pl3d->Update();
 
+  delete [] fname;
+  delete [] fname2;
+
   vtkPolyData *plane = vtkPolyData::New();
 
   vtkProbeFilter *probe = vtkProbeFilter::New();
@@ -502,8 +505,10 @@ int main( int argc, char *argv[] )
     iren->Start();
     }
 
-  pl3d->Delete();
+  myCallback->Delete();
+  recorder->Delete();
   planeWidget->Delete();
+  pl3d->Delete();
   plane->Delete();
   probe->Delete();
   probeMapper->Delete();
@@ -514,7 +519,6 @@ int main( int argc, char *argv[] )
   iren->Delete();
   renWin->Delete();
   ren1->Delete();
-  myCallback->Delete();
   
   return !retVal;
 }
