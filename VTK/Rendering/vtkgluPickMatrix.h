@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkgluPickMatrix.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:40:04 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-05-27 15:42:04 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,6 +22,14 @@
 
 #ifndef vtkgluPickMatrix_h
 #define vtkgluPickMatrix_h
+
+#ifndef VTK_IMPLEMENT_MESA_CXX
+# ifdef __APPLE__
+#  include <OpenGL/gl.h>
+# else
+#  include <GL/gl.h>
+# endif
+#endif
 
 // This function was copied from Mesa and sets up the pick matrix
 inline void vtkgluPickMatrix( GLdouble x, GLdouble y,

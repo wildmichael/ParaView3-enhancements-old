@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalarBarActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:39:23 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2002-05-27 15:42:04 $
+  Version:   $Revision: 1.40 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,9 +16,11 @@
 
 =========================================================================*/
 #include "vtkScalarBarActor.h"
-#include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkScalarBarActor, "$Revision: 1.39 $");
+#include "vtkObjectFactory.h"
+#include "vtkPolyData.h"
+
+vtkCxxRevisionMacro(vtkScalarBarActor, "$Revision: 1.40 $");
 vtkStandardNewMacro(vtkScalarBarActor);
 
 // Instantiate object with 64 maximum colors; 5 labels; font size 12
