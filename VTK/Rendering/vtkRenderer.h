@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.h,v $
   Language:  C++
-  Date:      $Date: 1999-06-03 20:34:19 $
-  Version:   $Revision: 1.74 $
+  Date:      $Date: 1999-08-19 21:49:53 $
+  Version:   $Revision: 1.75 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -169,6 +169,24 @@ public:
   // Description:
   // Create and add a light to renderer.
   void CreateLight(void);
+
+  // Description:
+  // Compute the bounding box of all the visibile props
+  // Used in ResetCamera() and ResetCameraClippingRange()
+  void ComputeVisiblePropBounds( float bounds[6] );
+
+  // Description:
+  // Reset the camera clipping range based on the bounds of the
+  // visible actors. This ensures that no props are cut off
+  void ResetCameraClippingRange();
+
+  // Description:
+  // Reset the camera clipping range based on a bounding box.
+  // This method is called from ResetCameraClippingRange()
+  void ResetCameraClippingRange( float bounds[6] );
+  void ResetCameraClippingRange( float xmin, float xmax, 
+				 float ymin, float ymax, 
+				 float zmin, float zmax);
 
   // Description:
   // Automatically set up the camera based on the visible actors.
