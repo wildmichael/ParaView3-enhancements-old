@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOrderedTriangulator.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-07-09 15:03:47 $
-  Version:   $Revision: 1.59 $
+  Date:      $Date: 2003-07-10 11:03:40 $
+  Version:   $Revision: 1.60 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -30,7 +30,7 @@
 #include <vtkstd/stack>
 #include <vtkstd/map>
 
-vtkCxxRevisionMacro(vtkOrderedTriangulator, "$Revision: 1.59 $");
+vtkCxxRevisionMacro(vtkOrderedTriangulator, "$Revision: 1.60 $");
 vtkStandardNewMacro(vtkOrderedTriangulator);
 
 #ifdef _WIN32_WCE
@@ -670,7 +670,7 @@ int OTTetra::InCircumSphere(double x[3])
           (x[1] - this->Center[1]) * (x[1] - this->Center[1]) +
           (x[2] - this->Center[2]) * (x[2] - this->Center[2]);
 
-  return (dist2 < (0.9999L * this->Radius2) ? 1 : 0);
+  return (dist2 < (0.999999L * this->Radius2) ? 1 : 0);
 }
 
 //------------------------------------------------------------------------
