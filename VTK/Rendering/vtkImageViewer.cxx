@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageViewer.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:11 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 2001-08-07 17:27:23 $
+  Version:   $Revision: 1.33 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -116,7 +116,11 @@ void vtkImageViewer::Render()
     // get the size from the mappers input
     this->ImageMapper->GetInput()->UpdateInformation();
     int *ext = this->ImageMapper->GetInput()->GetWholeExtent();
-    this->ImageWindow->SetSize(ext[1] - ext[0] + 1, ext[3] - ext[2] + 1);
+    // if it would be smaller than 100 by 100 then limit to 100 by 100
+    int xs = ext[1] - ext[0] + 1;
+    int ys = ext[3] - ext[2] + 1;
+    this->ImageWindow->SetSize(xs < 100 ? 100 : xs,
+                               ys < 100 ? 100 : ys);
     }
   
   this->ImageWindow->Render();
