@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitPlaneWidget.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-05 15:01:54 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-08-06 19:00:22 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -140,6 +140,13 @@ public:
   vtkBooleanMacro(Tubing,int);
 
   // Description:
+  // Turn on/off the ability to translate the bounding box by grabbing it
+  // with the left mouse button.
+  vtkSetMacro(OutlineTranslation,int);
+  vtkGetMacro(OutlineTranslation,int);
+  vtkBooleanMacro(OutlineTranslation,int);
+
+  // Description:
   // Grab the polydata that defines the plane. The polydata contains a single
   // polygon that is clipped by the bounding box.
   void GetPolyData(vtkPolyData *pd);
@@ -229,6 +236,7 @@ protected:
   vtkPolyDataMapper *OutlineMapper;
   vtkActor          *OutlineActor;
   void HighlightOutline(int highlight);
+  int OutlineTranslation; //whether the outline can be moved
   
   // The cut plane is produced with a vtkCutter
   vtkCutter         *Cutter;
