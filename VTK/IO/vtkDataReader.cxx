@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-05-03 14:03:17 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1995-05-24 08:30:06 $
+  Version:   $Revision: 1.9 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -1028,6 +1028,14 @@ char *vlDataReader::LowerCase(char *str)
   for ( i=0, s=str; *s != '\0' && i<256; s++,i++) 
     *s = tolower(*s);
   return str;
+}
+
+// Description:
+// Close a vl file.
+void vlDataReader::CloseVLFile(FILE *fp)
+{
+  vlDebugMacro(<<"Closing vl file\n");
+  if ( fp != NULL ) fclose(fp);
 }
 
 void vlDataReader::PrintSelf(ostream& os, vlIndent indent)
