@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIdList.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-23 20:28:27 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1997-05-23 21:30:35 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -99,5 +99,5 @@ void vtkIdList::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkObject::PrintSelf(os,indent);
 
-  os << indent << "Number of Ids: " << this->Ia->GetMaxId+1 << "\n";
+  os << indent << "Number of Ids: " << this->Ia->GetMaxId()+1 << "\n";
 }
