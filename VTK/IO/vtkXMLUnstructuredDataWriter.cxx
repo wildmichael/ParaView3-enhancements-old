@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLUnstructuredDataWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-16 18:23:07 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-12-03 02:02:55 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,7 +26,7 @@
 #include "vtkPoints.h"
 #include "vtkDataSetAttributes.h"
 
-vtkCxxRevisionMacro(vtkXMLUnstructuredDataWriter, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkXMLUnstructuredDataWriter, "$Revision: 1.2 $");
 
 //----------------------------------------------------------------------------
 vtkXMLUnstructuredDataWriter::vtkXMLUnstructuredDataWriter()
@@ -289,8 +289,9 @@ void vtkXMLUnstructuredDataWriter::WriteAppendedPieceData(int index)
   
   unsigned long returnPosition = os.tellp();
   os.seekp(this->NumberOfPointsPositions[index]);
+  vtkPoints* points = input->GetPoints();
   this->WriteScalarAttribute("NumberOfPoints",
-                             input->GetPoints()->GetNumberOfPoints());
+                             (points?points->GetNumberOfPoints():0));
   os.seekp(returnPosition);
   
   this->WritePointDataAppendedData(input->GetPointData(),
