@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStructuredPoints.h,v $
   Language:  C++
-  Date:      $Date: 1995-04-30 16:27:57 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1995-06-05 15:42:42 $
+  Version:   $Revision: 1.21 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -87,7 +87,7 @@ inline int vlStructuredPoints::GetNumberOfCells()
 
 inline int vlStructuredPoints::GetNumberOfPoints()
 {
-  return this->vlStructuredData::_GetNumberOfCells();
+  return this->vlStructuredData::_GetNumberOfPoints();
 }
 
 inline void vlStructuredPoints::GetCellPoints(int cellId, vlIdList& ptIds)
