@@ -3,8 +3,8 @@
   Program: 
   Module:    $RCSfile: otherColorTransferFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-21 21:45:50 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-12-21 21:47:36 $
+  Version:   $Revision: 1.2 $
 
   ==========================================================================*/
 
@@ -68,6 +68,9 @@ void Test(ostream& strm)
 
   ctf1->RemoveAllPoints();
   strm << *ctf1;
+
+  ctf1->Delete();
+  ctf2->Delete();
 
   strm << "Test vtkColorTransferFunction End" << endl;
 }
