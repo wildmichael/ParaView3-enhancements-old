@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadricClustering.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-05 14:13:28 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 2002-08-15 13:33:30 $
+  Version:   $Revision: 1.44 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 #include "vtkFeatureEdges.h"
 #include "vtkTimerLog.h"
 
-vtkCxxRevisionMacro(vtkQuadricClustering, "$Revision: 1.43 $");
+vtkCxxRevisionMacro(vtkQuadricClustering, "$Revision: 1.44 $");
 vtkStandardNewMacro(vtkQuadricClustering);
 
 //----------------------------------------------------------------------------
@@ -450,10 +450,10 @@ void vtkQuadricClustering::AddEdges(vtkCellArray *edges, vtkPoints *points,
       pt1 = points->GetPoint(ptIds[j]);
       binIds[1] = this->HashPoint(pt1);
       this->AddEdge(binIds, pt0, pt1, geometryFlag);
-      ++this->InCellCount;
       pt0 = pt1;
       binIds[0] = binIds[1];
       }
+    ++this->InCellCount;
     }
 }
 //----------------------------------------------------------------------------
@@ -585,8 +585,8 @@ void vtkQuadricClustering::AddVertices(vtkCellArray *verts, vtkPoints *points,
       pt = points->GetPoint(ptIds[j]);
       binId = this->HashPoint(pt);
       this->AddVertex(binId, pt, geometryFlag);
-      ++this->InCellCount;
       }
+    ++this->InCellCount;
     }
 }
 //----------------------------------------------------------------------------
