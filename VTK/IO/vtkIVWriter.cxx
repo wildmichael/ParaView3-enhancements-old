@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIVWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:13 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2002-05-08 13:11:46 $
+  Version:   $Revision: 1.24 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 
 #include <stdio.h>
 
-vtkCxxRevisionMacro(vtkIVWriter, "$Revision: 1.23 $");
+vtkCxxRevisionMacro(vtkIVWriter, "$Revision: 1.24 $");
 vtkStandardNewMacro(vtkIVWriter);
 
 void vtkIVWriter::WriteData()
@@ -63,8 +63,8 @@ void vtkIVWriter::WritePolyData(vtkPolyData *pd, FILE *fp)
   vtkPoints *points = NULL;
   vtkIdType i;
   vtkCellArray *cells;
-  vtkIdType npts;
-  vtkIdType *indx;
+  vtkIdType npts = 0;
+  vtkIdType *indx = 0;
   vtkUnsignedCharArray *colors=NULL;
   int offset=0;
   

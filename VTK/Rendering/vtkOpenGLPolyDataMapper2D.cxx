@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLPolyDataMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-11 19:37:38 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2002-05-08 13:11:37 $
+  Version:   $Revision: 1.37 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -29,7 +29,7 @@
 #include "vtkgluPickMatrix.h"
 
 #ifndef VTK_IMPLEMENT_MESA_CXX
-vtkCxxRevisionMacro(vtkOpenGLPolyDataMapper2D, "$Revision: 1.36 $");
+vtkCxxRevisionMacro(vtkOpenGLPolyDataMapper2D, "$Revision: 1.37 $");
 vtkStandardNewMacro(vtkOpenGLPolyDataMapper2D);
 #endif
 
@@ -47,7 +47,8 @@ void vtkOpenGLPolyDataMapper2D::RenderOverlay(vtkViewport* viewport,
   vtkUnsignedCharArray *c=NULL;
   unsigned char  *rgba;
   unsigned char  color[4];
-  vtkIdType      *pts, npts;
+  vtkIdType      *pts = 0;
+  vtkIdType      npts = 0;
   int            cellScalars = 0;
   int            cellNum = 0;
   vtkPlaneCollection *clipPlanes;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOBJExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:47 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 2002-05-08 13:11:37 $
+  Version:   $Revision: 1.43 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkFloatArray.h"
 
-vtkCxxRevisionMacro(vtkOBJExporter, "$Revision: 1.42 $");
+vtkCxxRevisionMacro(vtkOBJExporter, "$Revision: 1.43 $");
 vtkStandardNewMacro(vtkOBJExporter);
 
 vtkOBJExporter::vtkOBJExporter()
@@ -123,8 +123,8 @@ void vtkOBJExporter::WriteAnActor(vtkActor *anActor, FILE *fpObj, FILE *fpMtl,
   float *tempf, *p;
   vtkCellArray *cells;
   vtkTransform *trans = vtkTransform::New();
-  vtkIdType npts;
-  vtkIdType *indx;
+  vtkIdType npts = 0;
+  vtkIdType *indx = 0;
   
   // see if the actor has a mapper. it could be an assembly
   if (anActor->GetMapper() == NULL)

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPLYWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-24 20:01:34 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2002-05-08 13:11:46 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,7 +19,7 @@
 #include "vtkPLY.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkPLYWriter, "$Revision: 1.11 $");
+vtkCxxRevisionMacro(vtkPLYWriter, "$Revision: 1.12 $");
 vtkStandardNewMacro(vtkPLYWriter);
 
 vtkPLYWriter::vtkPLYWriter()
@@ -192,7 +192,8 @@ void vtkPLYWriter::WriteData()
   int verts[256];
   face.verts = verts;
   vtkPLY::ply_put_element_setup (ply, "face");
-  vtkIdType npts, *pts;
+  vtkIdType npts = 0;
+  vtkIdType *pts = 0;
   for (polys->InitTraversal(), i = 0; i < numPolys; i++)
     {
     polys->GetNextCell(npts,pts);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVRMLExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:39:31 $
-  Version:   $Revision: 1.58 $
+  Date:      $Date: 2002-05-08 13:11:37 $
+  Version:   $Revision: 1.59 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 #include "vtkAssemblyNode.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkVRMLExporter, "$Revision: 1.58 $");
+vtkCxxRevisionMacro(vtkVRMLExporter, "$Revision: 1.59 $");
 vtkStandardNewMacro(vtkVRMLExporter);
 
 vtkVRMLExporter::vtkVRMLExporter()
@@ -231,8 +231,8 @@ void vtkVRMLExporter::WriteAnActor(vtkActor *anActor, FILE *fp)
   vtkProperty *prop;
   float *tempf;
   vtkCellArray *cells;
-  vtkIdType npts;
-  vtkIdType *indx;
+  vtkIdType npts = 0;
+  vtkIdType *indx = 0;
   float tempf2;
   int pointDataWritten = 0;
   vtkPolyDataMapper *pm;

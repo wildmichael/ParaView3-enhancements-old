@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUGFacetReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:24 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 2002-05-08 13:11:46 $
+  Version:   $Revision: 1.41 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkFloatArray.h"
 
-vtkCxxRevisionMacro(vtkUGFacetReader, "$Revision: 1.40 $");
+vtkCxxRevisionMacro(vtkUGFacetReader, "$Revision: 1.41 $");
 vtkStandardNewMacro(vtkUGFacetReader);
 
 // Construct object to extract all parts, and with point merging
@@ -195,7 +195,9 @@ void vtkUGFacetReader::Execute()
   if ( this->Merging )
     {
     int i;
-    vtkIdType *pts, nodes[3], npts;
+    vtkIdType *pts = 0;
+    vtkIdType nodes[3];
+    vtkIdType npts;
     float *x;
 
     mergedPts = vtkPoints::New();

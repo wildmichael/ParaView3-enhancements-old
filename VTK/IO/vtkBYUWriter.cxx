@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBYUWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-29 23:39:55 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 2002-05-08 13:11:46 $
+  Version:   $Revision: 1.44 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkBYUWriter.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkBYUWriter, "$Revision: 1.43 $");
+vtkCxxRevisionMacro(vtkBYUWriter, "$Revision: 1.44 $");
 vtkStandardNewMacro(vtkBYUWriter);
 
 // Create object so that it writes displacement, scalar, and texture files
@@ -97,8 +97,8 @@ void vtkBYUWriter::WriteGeometryFile(FILE *geomFile, int numPts)
   int numPolys, numEdges;
   int i;
   float *x;
-  vtkIdType npts;
-  vtkIdType *pts;
+  vtkIdType npts = 0;
+  vtkIdType *pts = 0;
   vtkPoints *inPts;
   vtkCellArray *inPolys;
   vtkPolyData *input= this->GetInput();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSTLReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-24 20:01:35 $
-  Version:   $Revision: 1.63 $
+  Date:      $Date: 2002-05-08 13:11:46 $
+  Version:   $Revision: 1.64 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 #include <ctype.h>
 #include <string.h>
 
-vtkCxxRevisionMacro(vtkSTLReader, "$Revision: 1.63 $");
+vtkCxxRevisionMacro(vtkSTLReader, "$Revision: 1.64 $");
 vtkStandardNewMacro(vtkSTLReader);
 
 #define VTK_ASCII 0
@@ -138,7 +138,9 @@ void vtkSTLReader::Execute()
   if ( this->Merging )  
     {
     int i;
-    vtkIdType *pts, nodes[3], npts;
+    vtkIdType *pts = 0;
+    vtkIdType nodes[3];
+    vtkIdType npts = 0;
     float *x;
     int nextCell=0;
 

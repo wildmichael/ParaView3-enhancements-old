@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSTLWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:22 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 2002-05-08 13:11:46 $
+  Version:   $Revision: 1.44 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 #include "vtkByteSwap.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkSTLWriter, "$Revision: 1.43 $");
+vtkCxxRevisionMacro(vtkSTLWriter, "$Revision: 1.44 $");
 vtkStandardNewMacro(vtkSTLWriter);
 
 vtkSTLWriter::vtkSTLWriter()
@@ -64,8 +64,8 @@ void vtkSTLWriter::WriteAsciiSTL(vtkPoints *pts, vtkCellArray *polys)
 {
   FILE *fp;
   float n[3], *v1, *v2, *v3;
-  vtkIdType npts;
-  vtkIdType *indx;
+  vtkIdType npts = 0;
+  vtkIdType *indx = 0;
   
   if ((fp = fopen(this->FileName, "w")) == NULL)
     {
@@ -106,8 +106,8 @@ void vtkSTLWriter::WriteBinarySTL(vtkPoints *pts, vtkCellArray *polys)
 {
   FILE *fp;
   float n[3], *v1, *v2, *v3;
-  vtkIdType npts;
-  vtkIdType *indx;
+  vtkIdType npts = 0;
+  vtkIdType *indx = 0;
   unsigned long ulint;
   unsigned short ibuff2=0;
 

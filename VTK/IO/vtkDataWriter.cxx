@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-13 02:20:12 $
-  Version:   $Revision: 1.89 $
+  Date:      $Date: 2002-05-08 13:11:46 $
+  Version:   $Revision: 1.90 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -34,7 +34,7 @@
 #include "vtkFloatArray.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkDataWriter, "$Revision: 1.89 $");
+vtkCxxRevisionMacro(vtkDataWriter, "$Revision: 1.90 $");
 vtkStandardNewMacro(vtkDataWriter);
 
 // this undef is required on the hp. vtkMutexLock ends up including
@@ -862,7 +862,8 @@ int vtkDataWriter::WriteCells(ostream *fp, vtkCellArray *cells, const char *labe
   if ( this->FileType == VTK_ASCII )
     {
     int j;
-    vtkIdType *pts, npts;
+    vtkIdType *pts = 0;
+    vtkIdType npts = 0;
     for (cells->InitTraversal(); cells->GetNextCell(npts,pts); )
       {
       // currently writing vtkIdType as int
