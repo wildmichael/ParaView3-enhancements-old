@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRectilinearGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-26 18:24:22 $
-  Version:   $Revision: 1.58 $
+  Date:      $Date: 2003-05-05 19:26:50 $
+  Version:   $Revision: 1.59 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -30,7 +30,7 @@
 #include "vtkVertex.h"
 #include "vtkVoxel.h"
 
-vtkCxxRevisionMacro(vtkRectilinearGrid, "$Revision: 1.58 $");
+vtkCxxRevisionMacro(vtkRectilinearGrid, "$Revision: 1.59 $");
 vtkStandardNewMacro(vtkRectilinearGrid);
 
 vtkCxxSetObjectMacro(vtkRectilinearGrid,XCoordinates,vtkDataArray);
@@ -80,6 +80,10 @@ vtkRectilinearGrid::~vtkRectilinearGrid()
 void vtkRectilinearGrid::Initialize()
 {
   vtkDataSet::Initialize();
+  // Superclass does not know about dimensions ivar.
+  this->Dimensions[0] = 0;
+  this->Dimensions[1] = 0;
+  this->Dimensions[2] = 0;
 
   if ( this->XCoordinates ) 
     {
