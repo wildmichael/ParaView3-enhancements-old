@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCell3D.h,v $
   Language:  C++
-  Date:      $Date: 2003-07-21 20:46:40 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2003-07-22 17:03:49 $
+  Version:   $Revision: 1.20 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -39,11 +39,6 @@ class VTK_COMMON_EXPORT vtkCell3D : public vtkCell
 public:
   vtkTypeRevisionMacro(vtkCell3D,vtkCell);
   void PrintSelf(ostream& os, vtkIndent indent);
-
-  // Description:
-  // Return whether this cell type has a fixed topology or whether the
-  // topology varies depending on the data (e.g., vtkConvexPointSet).
-  virtual int HasFixedTopology() {return 1;}
 
   // Description:
   // Get the pair of vertices that define an edge. The method returns the

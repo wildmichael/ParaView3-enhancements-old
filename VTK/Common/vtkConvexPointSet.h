@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkConvexPointSet.h,v $
   Language:  C++
-  Date:      $Date: 2003-07-09 18:51:54 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2003-07-22 17:03:49 $
+  Version:   $Revision: 1.14 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -131,6 +131,11 @@ public:
   // Description:
   // Return the center of the cell in parametric coordinates. 
   virtual int GetParametricCenter(float pcoords[3]);
+
+  // Description:
+  // A convex point set is triangulated prior to any operations on it so
+  // it is not a primary cell, it is a composite cell.
+  int IsPrimaryCell() {return 0;}
 
 protected:
   vtkConvexPointSet();

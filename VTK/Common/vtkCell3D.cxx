@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCell3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-07-21 20:46:40 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2003-07-22 17:03:49 $
+  Version:   $Revision: 1.37 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,7 +26,7 @@
 #include "vtkCellArray.h"
 #include "vtkFloatArray.h"
 
-vtkCxxRevisionMacro(vtkCell3D, "$Revision: 1.36 $");
+vtkCxxRevisionMacro(vtkCell3D, "$Revision: 1.37 $");
 
 vtkCell3D::vtkCell3D()
 {
@@ -113,7 +113,7 @@ void vtkCell3D::Clip(float value, vtkDataArray *cellScalars,
 
   // Cells with fixed topology are triangulated with templates.
   float *p, *pPtr = this->GetParametricCoords();
-  if ( this->HasFixedTopology() )
+  if ( this->IsPrimaryCell() )
     {
     // Some cell types support templates for interior clipping. Templates
     // are a heck of a lot faster.

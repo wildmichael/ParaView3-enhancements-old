@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGenericCell.h,v $
   Language:  C++
-  Date:      $Date: 2002-11-12 18:55:41 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2003-07-22 17:03:49 $
+  Version:   $Revision: 1.27 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -76,6 +76,7 @@ public:
   void Derivatives(int subId, float pcoords[3], float *values, 
                    int dim, float *derivs);
   int GetParametricCenter(float pcoords[3]);
+  int IsPrimaryCell();
 
   // Description:
   // This method is used to support the vtkDataSet::GetCell(vtkGenericCell *)
