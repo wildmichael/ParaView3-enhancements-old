@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32RenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-05-27 18:43:39 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 1999-05-31 16:34:03 $
+  Version:   $Revision: 1.42 $
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -463,6 +463,40 @@ void  vtkWin32RenderWindowInteractor::StartUniformScale()
 void  vtkWin32RenderWindowInteractor::EndUniformScale()
 {
   if (this->State != VTKXI_USCALE)
+    {
+    return;
+    }
+  this->State = VTKXI_START;
+  if (this->AnimationState == VTKXI_START)
+    {
+    this->RenderWindow->SetDesiredUpdateRate(this->StillUpdateRate);
+    KillTimer(this->WindowId,this->TimerId);
+    }
+  this->RenderWindow->Render();
+}
+
+void  vtkWin32RenderWindowInteractor::StartTimer()
+{
+  if (this->State != VTKXI_START)
+    {
+    return;
+    }
+  this->State = VTKXI_TIMER;
+  if (this->AnimationState != VTKXI_START)
+    {
+    return;
+    }
+  this->Preprocess = 1;
+  this->RenderWindow->SetDesiredUpdateRate(this->DesiredUpdateRate);
+  if (!SetTimer(this->WindowId,this->TimerId,10,NULL))
+    {
+    vtkErrorMacro(<< "Not enough timers");
+    }
+}
+
+void  vtkWin32RenderWindowInteractor::EndTimer()
+{
+  if (this->State != VTKXI_TIMER)
     {
     return;
     }
@@ -1309,6 +1343,8 @@ LRESULT CALLBACK vtkHandleMessage(HWND hWnd,UINT uMsg, WPARAM wParam, LPARAM lPa
             }
           break;
           
+        case VTKXI_TIMER:
+          break;
         }
       break;
     default:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 1999-04-27 19:34:14 $
-  Version:   $Revision: 1.55 $
+  Date:      $Date: 1999-05-31 16:34:01 $
+  Version:   $Revision: 1.56 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -146,7 +146,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #define VTKXI_SPIN   4
 #define VTKXI_DOLLY  5
 #define VTKXI_USCALE 6
-
+#define VTKXI_TIMER  7 
 
 class VTK_EXPORT vtkRenderWindowInteractor : public vtkObject
 {
@@ -399,6 +399,8 @@ public:
   virtual void EndDolly() {};
   virtual void StartUniformScale() {};
   virtual void EndUniformScale() {};
+  virtual void StartTimer() {};
+  virtual void EndTimer() {};
 
   // Description:
   // This Method detects loops of RenderWindow-Interactor,

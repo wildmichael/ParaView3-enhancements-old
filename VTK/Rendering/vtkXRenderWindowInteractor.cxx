@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-05-20 14:50:58 $
-  Version:   $Revision: 1.63 $
+  Date:      $Date: 1999-05-31 16:34:02 $
+  Version:   $Revision: 1.64 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -481,6 +481,30 @@ void vtkXRenderWindowInteractor::EndUniformScale()
   this->RenderWindow->Render();
 }
 
+void vtkXRenderWindowInteractor::StartTimer()
+{
+  if (this->State != VTKXI_START)
+    {
+    return;
+    }
+  this->Preprocess = 1;
+  this->State = VTKXI_TIMER;
+  this->RenderWindow->SetDesiredUpdateRate(this->DesiredUpdateRate);
+  this->AddTimeOut(this->App,10,vtkXRenderWindowInteractorTimer,(XtPointer)this);
+}
+
+void vtkXRenderWindowInteractor::EndTimer()
+{
+  if (this->State != VTKXI_TIMER)
+    {
+    return;
+    }
+  this->State = VTKXI_START;
+  this->RenderWindow->SetDesiredUpdateRate(this->StillUpdateRate);
+  this->RenderWindow->Render();
+}
+
+  
 void vtkXRenderWindowInteractorCallback(Widget vtkNotUsed(w),
 					XtPointer client_data, 
 					XEvent *event, 
@@ -1113,6 +1137,11 @@ void vtkXRenderWindowInteractorTimer(XtPointer client_data,
         }
       break;
     
+    case VTKXI_TIMER:
+      me->AddTimeOut(me->App,10,
+                     vtkXRenderWindowInteractorTimer,client_data);
+      break;
+ 
     }
 }  
 

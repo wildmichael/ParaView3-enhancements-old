@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32RenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 1998-11-12 21:22:03 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1999-05-31 16:34:03 $
+  Version:   $Revision: 1.19 $
   
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -117,6 +117,9 @@ public:
   virtual void EndDolly();
   virtual void StartUniformScale();
   virtual void EndUniformScale();
+  virtual void StartTimer();
+  virtual void EndTimer();
+
 
   virtual void StartAnimation();
   virtual void EndAnimation();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 1999-05-12 14:50:16 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 1999-05-31 16:34:02 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -116,6 +116,8 @@ public:
   virtual void EndDolly();
   virtual void StartUniformScale();
   virtual void EndUniformScale();
+  virtual void StartTimer();
+  virtual void EndTimer();
 
   // Description:
   // Specify the Xt widget to use for interaction. This method is
