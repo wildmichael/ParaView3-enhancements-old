@@ -20,7 +20,7 @@
 #include "vtkPointSet.h"
 #include "vtkPoints.h"
 
-vtkCxxRevisionMacro(vtkWarpTo, "$Revision: 1.40 $");
+vtkCxxRevisionMacro(vtkWarpTo, "$Revision: 1.41 $");
 vtkStandardNewMacro(vtkWarpTo);
 
 vtkWarpTo::vtkWarpTo() 
@@ -36,11 +36,11 @@ void vtkWarpTo::Execute()
   vtkPoints *newPts;
   vtkIdType ptId, numPts;
   int i;
-  float x[3], newX[3];
+  double x[3], newX[3];
   vtkPointSet *input = this->GetInput();
   vtkPointSet *output = this->GetOutput();
-  float mag;
-  float minMag = 0;
+  double mag;
+  double minMag = 0;
   
   vtkDebugMacro(<<"Warping data to a point");
 
