@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingSquares.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 20:23:13 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1997-04-18 20:58:34 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -70,7 +70,7 @@ class VTK_EXPORT vtkMarchingSquares : public vtkStructuredPointsToPolyDataFilter
 {
 public:
   vtkMarchingSquares();
-  vtkMarchingSquares *New() {return new vtkMarchingSquares;};
+  static vtkMarchingSquares *New() {return new vtkMarchingSquares;};
   char *GetClassName() {return "vtkMarchingSquares";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
