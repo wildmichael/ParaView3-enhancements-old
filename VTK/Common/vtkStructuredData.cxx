@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStructuredData.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-06 19:30:52 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1994-11-15 11:07:11 $
+  Version:   $Revision: 1.19 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -78,14 +78,14 @@ void vlStructuredData::SetDimensions(int i, int j, int k)
 
 void vlStructuredData::SetDimensions(int dim[3])
 {
-//  vlDebugMacro(<< " setting Dimensions to (" << dim[0] << "," << dim[1] << "," << dim[2] << ")");
+  vl_DebugMacro(<< " setting Dimensions to (" << dim[0] << "," << dim[1] << "," << dim[2] << ")");
 
   if ( dim[0] != this->Dimensions[0] || dim[1] != Dimensions[1] ||
   dim[2] != Dimensions[2] )
     {
     if ( dim[0]<1 || dim[1]<1 || dim[2]<1 )
       {
-//      vlErrorMacro (<< "Bad Dimensions, retaining previous values");
+      vl_ErrorMacro (<< "Bad Dimensions, retaining previous values");
       return;
       }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkUnstructuredGrid.h,v $
   Language:  C++
-  Date:      $Date: 1994-10-27 21:37:27 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1994-11-15 11:07:15 $
+  Version:   $Revision: 1.11 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -47,7 +47,6 @@ public:
 
   // dataset interface
   vlDataSet *MakeObject() {return new vlUnstructuredGrid(*this);};
-  void Initialize();
   int GetNumberOfCells();
   vlCell *GetCell(int cellId);
   void GetCellPoints(int cellId, vlIdList& ptIds);
@@ -56,6 +55,8 @@ public:
   void Squeeze();
 
 protected:
+  void Initialize();
+
   // points inherited
   // point data (i.e., scalars, vectors, normals, tcoords) inherited
   vlCellList *Cells;

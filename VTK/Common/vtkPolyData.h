@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPolyData.h,v $
   Language:  C++
-  Date:      $Date: 1994-11-12 07:08:20 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 1994-11-15 11:06:59 $
+  Version:   $Revision: 1.38 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -48,7 +48,6 @@ public:
   int GetNumberOfCells();
   vlCell *GetCell(int cellId);
   int GetCellType(int cellId);
-  void Initialize();
   void GetCellPoints(int cellId, vlIdList& ptIds);
   void GetPointCells(int ptId, vlIdList& cellIds);
 
@@ -98,6 +97,8 @@ public:
   void ResizeCellList(int ptId, int size);
 
 protected:
+  void Initialize();
+
   // points inherited
   // point data (i.e., scalars, vectors, normals, tcoords) inherited
   vlCellArray *Verts;
