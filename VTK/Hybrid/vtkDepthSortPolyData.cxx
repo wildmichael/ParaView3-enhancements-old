@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDepthSortPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-01 12:04:13 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2000-08-13 07:01:01 $
+  Version:   $Revision: 1.5 $
   Thanks:    Scott Hill for implementing this class
 
 
@@ -85,7 +85,11 @@ vtkDepthSortPolyData::~vtkDepthSortPolyData()
 // Don't reference count to avoid nasty cycle
 void vtkDepthSortPolyData::SetProp3D(vtkProp3D *prop3d)
 {
-  this->Prop3D = prop3d;
+  if ( this->Prop3D != prop3d )
+    {
+    this->Prop3D = prop3d;
+    this->Modified();
+    }
 }
 
 vtkProp3D *vtkDepthSortPolyData::GetProp3D()
