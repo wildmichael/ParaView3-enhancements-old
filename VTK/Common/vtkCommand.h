@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCommand.h,v $
   Language:  C++
-  Date:      $Date: 2002-03-26 14:15:32 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2002-03-28 20:28:43 $
+  Version:   $Revision: 1.27 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -125,9 +125,11 @@ public:
     EndOfDataEvent,
     ErrorEvent,
     WarningEvent,
-    StartInteractionEvent,
+    StartInteractionEvent, //mainly used by vtkInteractorObservers
     InteractionEvent,
     EndInteractionEvent,
+    EnableEvent,
+    DisableEvent,
     UserEvent = 1000
   };
 //ETX
