@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSliceCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-10-16 08:27:54 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1995-10-28 13:11:51 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -122,7 +122,7 @@ void vtkSliceCubes::Execute()
   short *slice0, *slice1, *slice2, *slice3;
   int dims[3], imageRange[2];
   float origin[3], aspectRatio[3];
-  int slice, sliceSize, numTriangles=0;
+  int sliceSize, numTriangles=0;
   short value, s[8];
   vtkMath math;
   int i, j, k, idx, jOffset, ii, index, *vert, jj;
