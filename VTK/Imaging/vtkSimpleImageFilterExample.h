@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSimpleImageFilterExample.h,v $
   Language:  C++
-  Date:      $Date: 2001-01-26 20:48:16 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-01-29 19:18:29 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -39,15 +39,18 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-// .NAME vtkSimpleImageFilterExample - 
+// .NAME vtkSimpleImageFilterExample - Simple example of an image-image filter.
 // .SECTION Description
-
+// This is an example of a simple image-image filter. It copies it's input
+// to it's output (point by point). It shows how templates can be used
+// to support various data types.
+// .SECTION See also
+// vtkSimpleImageFilterExample
 
 #ifndef __vtkSimpleImageFilterExample_h
 #define __vtkSimpleImageFilterExample_h
 
 #include "vtkSimpleImageToImageFilter.h"
-#include "vtkMultiThreader.h"
 
 class VTK_EXPORT vtkSimpleImageFilterExample : 
   public vtkSimpleImageToImageFilter

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSimpleImageFilterExample.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-26 20:48:16 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-01-29 19:18:29 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -55,6 +55,10 @@ vtkSimpleImageFilterExample* vtkSimpleImageFilterExample::New()
   return new vtkSimpleImageFilterExample;
 }
 
+// The switch statement in Execute will call this method with
+// the appropriate input type (IT). Note that this example assumes
+// that the output data type is the same as the input data type.
+// This is not always the case.
 template <class IT>
 static void vtkSimpleImageFilterExampleExecute(vtkImageData* input,
 					       vtkImageData* output,
@@ -79,6 +83,8 @@ void vtkSimpleImageFilterExample::Execute(vtkImageData* input,
 
   switch(output->GetScalarType())
     {
+    // This is simple a #define for a big case list. It handles
+    // all data types vtk can handle.
     vtkTemplateMacro4(vtkSimpleImageFilterExampleExecute, input, output,
                       (VTK_TT *)(inPtr), (VTK_TT *)(outPtr));
     default:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSimpleImageToImageFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-26 20:48:16 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-01-29 19:18:29 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -72,13 +72,8 @@ vtkImageData *vtkSimpleImageToImageFilter::GetInput()
   return (vtkImageData *)(this->Inputs[0]);
 }
 
-//----------------------------------------------------------------------------
-// This method can be overriden in a subclass to compute the output
-// Information: WholeExtent, Spacing, Origin, ScalarType and
-// NumberOfScalarComponents.
 void vtkSimpleImageToImageFilter::ExecuteInformation()
 {
-  //????
   vtkImageData *input = this->GetInput();
   vtkImageData *output = this->GetOutput();
 
@@ -94,8 +89,6 @@ void vtkSimpleImageToImageFilter::ExecuteInformation()
 }
 
 
-// By default, simply set the input update extent to match the given output
-// extent
 void vtkSimpleImageToImageFilter::ComputeInputUpdateExtent( int inExt[6], 
 							    int outExt[6] )
 {
@@ -123,6 +116,7 @@ void vtkSimpleImageToImageFilter::Execute()
     return;
     }
 
+  // Set the extent of the output and allocate memory.
   output->SetExtent(output->GetWholeExtent());
   output->AllocateScalars();
 

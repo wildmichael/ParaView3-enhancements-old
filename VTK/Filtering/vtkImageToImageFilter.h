@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToImageFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:11 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2001-01-29 19:18:29 $
+  Version:   $Revision: 1.22 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -41,12 +41,13 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 =========================================================================*/
 // .NAME vtkImageToImageFilter - Generic filter that has one input..
 // .SECTION Description
-// vtkImageToImageFilter is a filter superclass that hides much of the pipeline 
-// complexity. It handles breaking the pipeline execution into smaller
-// extents so that the vtkImageData memory limits are observed. It 
-// also provides support for multithreading.
-
-
+// vtkImageToImageFilter is a filter superclass that hides much of the 
+// pipeline  complexity. It handles breaking the pipeline execution 
+// into smaller extents so that the vtkImageData limits are observed. It 
+// also provides support for multithreading. If you don't need any of this
+// functionality, consider using vtkSimpleImageToImageFilter instead.
+// .SECTION See also
+// vtkSimpleImageToImageFilter
 
 #ifndef __vtkImageToImageFilter_h
 #define __vtkImageToImageFilter_h
