@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXOpenGLRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2003-03-26 14:04:59 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2003-07-23 12:39:34 $
+  Version:   $Revision: 1.23 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -52,8 +52,17 @@ public:
   virtual void WindowInitialize(void);
 
   // Description:
-  // Initialize the rendering window.
+  // Initialize the rendering window.  This will setup all system-specific
+  // resources.  This method nad Deinitialize() must be symmetric and it
+  // should be possible to call them multiple times, even changing WindowId
+  // in-between.  This is what WindowRemap does.
   virtual void Initialize(void);
+
+  // Description:
+  // Deinitialize the rendering window.  This will shutdown all system-specific
+  // resources.  After having called this, it should be possible to destroy
+  // a window that was used for a SetWindowId() call without any ill effects.
+  virtual void Deinitialize(void);
 
   // Description:
   // Change the window to fill the entire screen.
