@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVector.h,v $
   Language:  C++
-  Date:      $Date: 2003-01-07 15:30:00 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2003-03-14 23:09:46 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -158,6 +158,11 @@ public:
   // Description:
   // Display the content of the list.
   void DebugList();
+
+  // Description:
+  // Sort the content of the list.
+  // Provide a comparison function.
+  void Sort(int (*func)(const void *, const void *));
 
 protected:
   vtkVector() {

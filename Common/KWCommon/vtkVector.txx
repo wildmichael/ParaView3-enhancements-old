@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVector.txx,v $
   Language:  C++
-  Date:      $Date: 2003-01-07 15:30:00 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2003-03-14 23:09:46 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,6 +23,8 @@
 #include "vtkVector.h"
 #include "vtkAbstractList.txx"
 #include "vtkVectorIterator.txx"
+
+#include <stdlib.h>
 
 template <class DType>
 vtkVector<DType> *vtkVector<DType>::New()
@@ -376,6 +378,12 @@ void vtkVector<DType>::CopyItems(vtkVector<DType> *in)
     in->GetItem(i,iref);
     this->AppendItem(iref);
     }
+}
+
+template <class DType>
+void vtkVector<DType>::Sort(int (*func)(const void *, const void *))
+{
+  qsort((void *)this->Array, this->GetNumberOfItems(), sizeof(DType), func);
 }
 
 #if defined ( _MSC_VER )
