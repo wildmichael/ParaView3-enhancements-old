@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-08-26 18:36:46 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1997-08-27 17:52:24 $
+  Version:   $Revision: 1.27 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder,ill Lorensen.
@@ -890,6 +890,9 @@ void vtkImageReader::ComputeTransformedSpacing (float Spacing[4])
     }
 }
 
+// if the spacing is negative we need to tranlate the origin
+// basically O' = O + spacing*(dim-1) for any axis that would
+// have a negative spaing
 void vtkImageReader::ComputeTransformedOrigin (float origin[4])
 {
   if (!this->Transform)
@@ -899,11 +902,32 @@ void vtkImageReader::ComputeTransformedOrigin (float origin[4])
   else
     {
     float transformedOrigin[4];
+    float transformedSpacing[4];
+    int transformedExtent[8];
+    
+    memcpy (transformedSpacing, this->DataSpacing, 3 * sizeof (float));
+    // this is zero to prevent translations !!!
+    transformedSpacing[3] = 0.0;
+    this->Transform->MultiplyPoint (transformedSpacing, transformedSpacing);
+
     memcpy (transformedOrigin, this->DataOrigin, 3 * sizeof (float));
     transformedOrigin[3] = 1.0;
     this->Transform->MultiplyPoint (transformedOrigin, transformedOrigin);
 
-    for (int i = 0; i < 3; i++) origin[i] = transformedOrigin[i];
+    this->ComputeTransformedExtent(this->DataExtent,transformedExtent);
+    
+    for (int i = 0; i < 3; i++) 
+      {
+      if (transformedSpacing[i] < 0)
+	{
+	origin[i] = transformedOrigin[i] + transformedSpacing[i]*
+	  (transformedExtent[i*2+1] -  transformedExtent[i*2]);
+	}
+      else
+	{
+	origin[i] = transformedOrigin[i];
+	}
+      }
     origin[3] = this->DataOrigin[3];
     vtkDebugMacro("Transformed Origin " << origin[0] << ", " << origin[1] << ", " << origin[2] << ", " << origin[3]);
     }
@@ -947,11 +971,6 @@ void vtkImageReader::ComputeTransformedExtent(int inExtent[8],
 	temp = outExtent[idx];
 	outExtent[idx] = outExtent[idx+1];
 	outExtent[idx+1] = temp;
-	}
-      if (outExtent[idx] < 0)
-	{
-	outExtent[idx+1] -=  outExtent[idx];
-	outExtent[idx] = 0;
 	}
       }
     
