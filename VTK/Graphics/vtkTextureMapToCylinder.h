@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextureMapToCylinder.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-14 13:21:59 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1998-09-14 14:55:14 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,11 +56,11 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // is set to true, the s-texture varies from 0->1 and then 1->0 (corresponding
 // to angles of 0->180 and 180->360).
 
-// .Section Caveats
-// Since the resulting texture s-coordinate will lie between (0,1), and the 
-// origin of the texture coordinates is not user-controllable, you may want to se 
-// the class vtkTransformTexture to linearly scale and shift the origin of the texture
-// coordinates.
+// .SECTION Caveats
+// Since the resulting texture s-coordinate will lie between (0,1), and the
+// origin of the texture coordinates is not user-controllable, you may want
+// to se the class vtkTransformTexture to linearly scale and shift the origin
+// of the texture coordinates.
 
 // .SECTION See Also
 // vtkTextureMapToPlane vtkTextureMapToSphere vtkTextureMapToBox
