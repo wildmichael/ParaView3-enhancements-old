@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEnSightReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-18 14:19:37 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2001-06-21 15:59:12 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1405,6 +1405,8 @@ int vtkEnSightReader::ReadVariableFiles()
 	  break;
 	}
       }
+    delete [] fileName;
+    delete [] fileName2;
     }
   
   return 1;

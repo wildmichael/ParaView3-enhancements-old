@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGenericEnSightReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-14 12:56:46 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2001-06-21 15:59:12 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -340,6 +340,8 @@ int vtkGenericEnSightReader::DetermineEnSightVersion()
             return VTK_ENSIGHT_GOLD_BINARY;
             } //end if binary
           
+          fclose(this->IFile);
+          this->IFile = NULL;
 	  delete [] fileName;
           return VTK_ENSIGHT_GOLD;
           } // if we found the geometry section in the case file
@@ -418,6 +420,8 @@ int vtkGenericEnSightReader::DetermineEnSightVersion()
           return VTK_ENSIGHT_6_BINARY;
           } //end if binary
         
+        fclose(this->IFile);
+        this->IFile = NULL;
 	delete [] fileName;
         return VTK_ENSIGHT_6;
         } // if we found the geometry section in the case file
