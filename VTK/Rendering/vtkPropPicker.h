@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPropPicker.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:52:59 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2001-08-10 22:03:12 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -92,7 +92,7 @@ protected:
   vtkPropPicker();
   ~vtkPropPicker();
   vtkPropPicker(const vtkPropPicker&);
-  void operator=(vtkPropPicker&);
+  void operator=(const vtkPropPicker&);
 
   void Initialize();
   

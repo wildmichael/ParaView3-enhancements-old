@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagingFactory.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:12 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2001-08-10 22:03:12 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -60,6 +60,9 @@ public:
   static vtkObject* CreateInstance(const char* vtkclassname);
 
 protected:
+  vtkImagingFactory() {};
+  vtkImagingFactory(const vtkImagingFactory&);
+  void operator=(const vtkImagingFactory&);
 };
 
 #endif
