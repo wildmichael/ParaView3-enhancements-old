@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkRenderWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-10-04 03:47:37 $
-  Version:   $Revision: 1.56 $
+  Date:      $Date: 2001-10-07 17:03:32 $
+  Version:   $Revision: 1.57 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -480,9 +480,12 @@ LRESULT APIENTRY vtkTkRenderWidgetProc(HWND hWnd, UINT message,
 
     if (message != WM_PAINT)
       {
-      SetWindowLong(hWnd,4,(LONG)self->RenderWindow);
-      SetWindowLong(hWnd,GWL_WNDPROC,(LONG)self->OldProc);
-      CallWindowProc(self->OldProc,hWnd,message,wParam,lParam);
+      if (self->RenderWindow)
+	{
+	SetWindowLong(hWnd,4,(LONG)self->RenderWindow);
+        SetWindowLong(hWnd,GWL_WNDPROC,(LONG)self->OldProc);
+        CallWindowProc(self->OldProc,hWnd,message,wParam,lParam);
+	}
       }
 
   // now reset to the original config
