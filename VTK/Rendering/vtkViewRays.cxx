@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkViewRays.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 13:22:20 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1997-07-09 17:06:53 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -171,7 +171,7 @@ void vtkViewRays::ComputePerspectiveInfo(float *vr_ptr,int size[2])
   // get the perspective transformation from the active camera
   // given the aspect ratio
   mat = Renderer->GetActiveCamera()->GetPerspectiveTransform(
-    aspect[0]/aspect[1],0,1);
+    aspect[0]/aspect[1],-1,1);
 
   // Invert this matrix because we want to go from screen space to
   // camera space
