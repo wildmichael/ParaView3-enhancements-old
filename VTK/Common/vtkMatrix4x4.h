@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMatrix4x4.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:04:51 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 1999-11-04 16:42:17 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -80,6 +80,10 @@ class VTK_EXPORT vtkMatrix4x4 : public vtkObject
 //BTX
   static void DeepCopy(double Elements[16], vtkMatrix4x4 *source);
 //ETX
+
+  // Description:
+  // Non-static member function. Assigns *from* elements array
+  void DeepCopy(double Elements[16]);
 
   // Description:
   // Set all of the elements to zero.
