@@ -5,8 +5,8 @@
   Program:   Visualization Toolkit
   Module:  $RCSfile: vtkKdTree.cxx,v $
   Language:  C++
-  Date:    $Date: 2003-09-10 19:41:54 $
-  Version:   $Revision: 1.2 $
+  Date:    $Date: 2003-09-12 15:04:08 $
+  Version:   $Revision: 1.3 $
 
 =========================================================================*/
 
@@ -20,7 +20,7 @@
 #include <vtkFloatArray.h>
 #include <vtkMath.h>
 
-vtkCxxRevisionMacro(vtkKdTree, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkKdTree, "$Revision: 1.3 $");
 
 // methods for vtkKdNode -------------------------------------------
 
@@ -1485,7 +1485,7 @@ void vtkKdTree::CreateCellList()
   this->CreateCellList(this->DataSets[0], (int *)NULL, 0);
   return;
 }
-void vtkKdTree::CreateCellList(int *regionList, int listSize)
+void vtkKdTree::CreateCellList(vtkIdType *regionList, int listSize)
 {
   this->CreateCellList(this->DataSets[0], regionList, listSize);
   return;

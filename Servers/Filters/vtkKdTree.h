@@ -5,8 +5,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKdTree.h,v $
   Language:  C++
-  Date:      $Date: 2003-09-10 19:41:55 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2003-09-12 15:04:08 $
+  Version:   $Revision: 1.3 $
 
 =========================================================================*/
 
@@ -225,7 +225,7 @@ public:
 
     void CreateCellList(int DataSet, int *regionList, int listSize);
     void CreateCellList(vtkDataSet *set, int *regionList, int listSize);
-    void CreateCellList(int *regionList, int listSize);
+    void CreateCellList(vtkIdType *regionList, int listSize);
     void CreateCellList();
 
     // Description:
