@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBase64InputStream.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-16 18:23:06 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-10-22 17:51:01 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 #include "vtkBase64Utility.h"
 
 //----------------------------------------------------------------------------
-vtkCxxRevisionMacro(vtkBase64InputStream, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkBase64InputStream, "$Revision: 1.2 $");
 vtkStandardNewMacro(vtkBase64InputStream);
 
 //----------------------------------------------------------------------------
@@ -38,6 +38,21 @@ vtkBase64InputStream::~vtkBase64InputStream()
 void vtkBase64InputStream::PrintSelf(ostream& os, vtkIndent indent)
 {
   this->Superclass::PrintSelf(os, indent);
+}
+
+//----------------------------------------------------------------------------
+inline int vtkBase64InputStream::DecodeTriplet(unsigned char& c0,
+                                               unsigned char& c1,
+                                               unsigned char& c2)
+{
+  // Read the 4 bytes encoding this triplet from the stream.
+
+  unsigned char in[4];
+  this->Stream->read(reinterpret_cast<char*>(in), 4);
+  if(this->Stream->gcount() < 4) { return 0; }
+
+  return vtkBase64Utility::DecodeTriplet(in[0], in[1], in[2], in[3],
+                                         &c0, &c1, &c2);
 }
 
 //----------------------------------------------------------------------------
@@ -141,19 +156,4 @@ unsigned long vtkBase64InputStream::Read(unsigned char* data,
     }
   
   return (out-data);  
-}
-
-//----------------------------------------------------------------------------
-inline int vtkBase64InputStream::DecodeTriplet(unsigned char& c0,
-                                               unsigned char& c1,
-                                               unsigned char& c2)
-{
-  // Read the 4 bytes encoding this triplet from the stream.
-
-  unsigned char in[4];
-  this->Stream->read(reinterpret_cast<char*>(in), 4);
-  if(this->Stream->gcount() < 4) { return 0; }
-
-  return vtkBase64Utility::DecodeTriplet(in[0], in[1], in[2], in[3],
-                                         &c0, &c1, &c2);
 }
