@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkRenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-23 10:44:42 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1994-11-24 00:18:15 $
+  Version:   $Revision: 1.6 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -28,6 +28,7 @@ vlRenderWindowInteractor::vlRenderWindowInteractor()
   this->LightFollowCamera = 1;
   this->Initialized = 0;
 
+  this->Picker = new vlPicker;
   this->OutlineActor = NULL;
   this->OutlineMapper.SetInput(this->Outline);
   this->PickedRenderer = NULL;
@@ -36,6 +37,8 @@ vlRenderWindowInteractor::vlRenderWindowInteractor()
 
 vlRenderWindowInteractor::~vlRenderWindowInteractor()
 {
+  if ( this->Picker ) delete this->Picker;
+  if ( this->OutlineActor ) delete this->OutlineActor;
 }
 
 void vlRenderWindowInteractor::FindPokedRenderer(int x,int y)
@@ -88,7 +91,7 @@ void  vlRenderWindowInteractor::FindPokedCamera(int x,int y)
 // Description:
 // When pick action successfully selects actor, this method highlights the 
 // actor appropriately.
-void vlRenderWindowInteractor::PickActor(vlActor *actor)
+void vlRenderWindowInteractor::HighlightActor(vlActor *actor)
 {
   if ( ! this->OutlineActor )
     {
@@ -114,6 +117,31 @@ void vlRenderWindowInteractor::PickActor(vlActor *actor)
     this->CurrentRenderer->AddActors(OutlineActor);
     this->Outline.SetBounds(actor->GetBounds());
     this->CurrentActor = actor;
+    }
+  this->RenderWindow->Render();
+}
+
+// Description:
+// Specify a method to be executed prior to the pick operation.
+void vlRenderWindowInteractor::SetStartPickMethod(void (*f)(void *), void *arg)
+{
+  if ( f != this->StartPickMethod || arg != this->StartPickMethodArg )
+    {
+    this->StartPickMethod = f;
+    this->StartPickMethodArg = arg;
+    this->Modified();
+    }
+}
+
+// Description:
+// Specify a method to be executed after the pick operation.
+void vlRenderWindowInteractor::SetEndPickMethod(void (*f)(void *), void *arg)
+{
+  if ( f != this->EndPickMethod || arg != this->EndPickMethodArg )
+    {
+    this->EndPickMethod = f;
+    this->EndPickMethodArg = arg;
+    this->Modified();
     }
 }
 

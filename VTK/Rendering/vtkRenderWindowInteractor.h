@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkRenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 1994-11-21 11:14:13 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1994-11-24 00:18:17 $
+  Version:   $Revision: 1.7 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -66,7 +66,14 @@ public:
   void FindPokedCamera(int,int);
   void FindPokedRenderer(int,int);
 
-  virtual void PickActor(vlActor *actor);
+  virtual void HighlightActor(vlActor *actor);
+
+  void SetStartPickMethod(void (*f)(void *), void *arg);
+  void SetEndPickMethod(void (*f)(void *), void *arg);
+
+  // Description:
+  // Get the object used to perform pick operations.
+  vlGetObjectMacro(Picker,vlPicker);
 
 protected:
   vlRenderWindow *RenderWindow;
@@ -83,12 +90,18 @@ protected:
   int Initialized;
 
   // for picking actors
-  vlPicker Picker;
+  vlPicker *Picker;
   vlCubeSource Outline;
   vlPolyMapper OutlineMapper;
   vlActor *OutlineActor;
   vlRenderer *PickedRenderer;
   vlActor *CurrentActor;
+
+  // methods called prior to and after picking
+  void (*StartPickMethod)(void *);
+  void *StartPickMethodArg;
+  void (*EndPickMethod)(void *);
+  void *EndPickMethodArg;
 };
 
 #endif
