@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMultiThreader.h,v $
   Language:  C++
-  Date:      $Date: 2002-12-26 18:24:21 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 2002-12-26 21:52:49 $
+  Version:   $Revision: 1.44 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -28,13 +28,13 @@
 #include "vtkObject.h"
 
 #ifdef VTK_USE_SPROC
-//#include <sys/types.h>
-//#include <unistd.h>
+#include <sys/types.h>
+#include <unistd.h>
 #endif
 
 #ifdef VTK_USE_PTHREADS
-//#include <sys/types.h>
-//#include <unistd.h>
+#include <sys/types.h>
+#include <unistd.h>
 #endif
 
 // If VTK_USE_SPROC is defined, then sproc() will be used to create
