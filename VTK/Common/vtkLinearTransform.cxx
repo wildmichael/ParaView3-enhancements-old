@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinearTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-06-06 01:24:53 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2000-06-09 09:32:53 $
+  Version:   $Revision: 1.22 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -107,56 +107,6 @@ static inline void vtkLinearTransformNormal(T1 mat[4][4],
   vtkLinearTransformVector(matrix,in,out);
 
   vtkMath::Normalize(out);
-}
-
-//----------------------------------------------------------------------------
-// These four functions are definitely not thread safe, and should
-// really only be called from python or tcl.
-float *vtkLinearTransform::TransformFloatNormal(float x, 
-						float y, 
-						float z)
-{
-  this->InternalFloatPoint[0] = x;
-  this->InternalFloatPoint[1] = y;
-  this->InternalFloatPoint[2] = z;
-  this->TransformNormal(this->InternalFloatPoint,this->InternalFloatPoint);
-  return this->InternalFloatPoint;
-}
-
-//----------------------------------------------------------------------------
-double *vtkLinearTransform::TransformDoubleNormal(double x,
-						  double y,
-						  double z)
-{
-  this->InternalDoublePoint[0] = x;
-  this->InternalDoublePoint[1] = y;
-  this->InternalDoublePoint[2] = z;
-  this->TransformNormal(this->InternalDoublePoint,this->InternalDoublePoint);
-  return this->InternalDoublePoint;
-}
-
-//----------------------------------------------------------------------------
-float *vtkLinearTransform::TransformFloatVector(float x, 
-						float y, 
-						float z)
-{
-  this->InternalFloatPoint[0] = x;
-  this->InternalFloatPoint[1] = y;
-  this->InternalFloatPoint[2] = z;
-  this->TransformVector(this->InternalFloatPoint,this->InternalFloatPoint);
-  return this->InternalFloatPoint;
-}
-
-//----------------------------------------------------------------------------
-double *vtkLinearTransform::TransformDoubleVector(double x,
-						  double y,
-						  double z)
-{
-  this->InternalDoublePoint[0] = x;
-  this->InternalDoublePoint[1] = y;
-  this->InternalDoublePoint[2] = z;
-  this->TransformVector(this->InternalDoublePoint,this->InternalDoublePoint);
-  return this->InternalDoublePoint;
 }
 
 //------------------------------------------------------------------------
