@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeTextureMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-17 14:11:08 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 2002-07-22 17:59:15 $
+  Version:   $Revision: 1.47 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -197,10 +197,10 @@ void vtkVolumeTextureMapper2D_TraverseVolume( T *data_ptr,
     t[i*8 + 0] = (float)((size[a0]*(xTile  ))  )/(float)textureSize[0] + offset[0];
     t[i*8 + 1] = (float)((size[a1]*(yTile  ))  )/(float)textureSize[1] + offset[1];
     t[i*8 + 2] = (float)((size[a0]*(xTile  ))  )/(float)textureSize[0] + offset[0];
-    t[i*8 + 3] = (float)((size[a1]*(yTile+1))-1)/(float)textureSize[1] - offset[1];
-    t[i*8 + 4] = (float)((size[a0]*(xTile+1))-1)/(float)textureSize[0] - offset[0];
-    t[i*8 + 5] = (float)((size[a1]*(yTile+1))-1)/(float)textureSize[1] - offset[1];
-    t[i*8 + 6] = (float)((size[a0]*(xTile+1))-1)/(float)textureSize[0] - offset[0];
+    t[i*8 + 3] = (float)((size[a1]*(yTile+1))  )/(float)textureSize[1] - offset[1];
+    t[i*8 + 4] = (float)((size[a0]*(xTile+1))  )/(float)textureSize[0] - offset[0];
+    t[i*8 + 5] = (float)((size[a1]*(yTile+1))  )/(float)textureSize[1] - offset[1];
+    t[i*8 + 6] = (float)((size[a0]*(xTile+1))  )/(float)textureSize[0] - offset[0];
     t[i*8 + 7] = (float)((size[a1]*(yTile  ))  )/(float)textureSize[1] + offset[1];
     
     v[i*12 + a0] = origin[a0];
@@ -465,7 +465,7 @@ void vtkVolumeTextureMapper2D_TraverseVolume( T *data_ptr,
 
 }
 
-vtkCxxRevisionMacro(vtkVolumeTextureMapper2D, "$Revision: 1.46 $");
+vtkCxxRevisionMacro(vtkVolumeTextureMapper2D, "$Revision: 1.47 $");
 
 vtkVolumeTextureMapper2D::vtkVolumeTextureMapper2D()
 {
