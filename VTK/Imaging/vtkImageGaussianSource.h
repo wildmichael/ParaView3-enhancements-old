@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageGaussianSource.h,v $
   Language:  C++
-  Date:      $Date: 1998-04-09 17:47:57 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-06-29 17:26:43 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -39,6 +39,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 // .NAME vtkImageGaussianSource - Create an image with Gaussian pixel values.
+// .SECTION Description
 // vtkImageGaussianSource just produces images with pixel values determined 
 // by a Gaussian.
 
