@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageIslandRemoval2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-01-21 18:51:30 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1998-04-07 12:12:51 $
+  Version:   $Revision: 1.18 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -48,9 +48,13 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // Constructor: Sets default filter to be identity.
 vtkImageIslandRemoval2D::vtkImageIslandRemoval2D()
 {
+  this->AreaThreshold = 0;
   this->SetAreaThreshold(4);
+  this->SquareNeighborhood = 1;
   this->SquareNeighborhoodOff();
+  this->ReplaceValue = 0;
   this->SetReplaceValue(255);
+  this->IslandValue = 255;
   this->SetIslandValue(0);
 }
 
