@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor.h,v $
   Language:  C++
-  Date:      $Date: 1995-09-06 17:39:31 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1995-09-11 08:10:21 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -86,7 +86,7 @@ class vtkActor : public vtkObject
   // Description: 
   // Set/Get the Texture object to control rendering
   // texture maps.  This will be a vtkTexture object. An actor does
-  // not need to have an associated texture map and mutliple actors
+  // not need to have an associated texture map and multiple actors
   // can share one texture.
   vtkSetObjectMacro(Texture,vtkTexture);
   vtkGetObjectMacro(Texture,vtkTexture);
@@ -152,7 +152,7 @@ class vtkActor : public vtkObject
   // This is typically done through an interactive mouse interface.
   // This does not affect methods such as SetPosition which will continue
   // to work.  It is just intended to prevent some actors from being
-  // dragged from within a user interface..
+  // dragged from within a user interface.
   vtkSetMacro(Dragable,int);
   vtkGetMacro(Dragable,int);
   vtkBooleanMacro(Dragable,int);
