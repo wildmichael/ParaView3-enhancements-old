@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkJavaUtil.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-03 23:35:12 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 2003-01-22 21:51:28 $
+  Version:   $Revision: 1.45 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -249,8 +249,9 @@ VTK_GET_MUTEX();
   vtkGenericWarningMacro("RegisterNewObject: Adding an object to hash ptr = " << ptr);
 #endif  
   // lets make sure it isn't already there
-  int id= 0;
-  if (id= vtkJavaGetId(env,obj))
+  int id = 0;
+  id = vtkJavaGetId(env,obj);
+  if (id)
     {
 #ifdef VTKJAVADEBUG
     vtkGenericWarningMacro("RegisterNewObject: Attempt to add an object to the hash when one already exists!!!");
@@ -267,7 +268,7 @@ VTK_GET_MUTEX();
     vtkJavaIdCount++;
     if (vtkJavaIdCount > 268435456) vtkJavaIdCount = 1;
     }
-  id= vtkJavaIdCount;
+  id = vtkJavaIdCount;
   vtkInstanceLookup->AddHashEntry((void *)vtkJavaIdCount,ptr);
 
 #ifdef JNI_VERSION_1_2
