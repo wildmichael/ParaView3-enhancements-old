@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:55:50 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1996-08-15 22:01:13 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -105,6 +105,8 @@ void vtkDataSetWriter::WriteData()
   writer->SetTensorsName(this->TensorsName);
   writer->SetTCoordsName(this->TCoordsName);
   writer->SetLookupTableName(this->LookupTableName);
+  writer->SetFileType(this->FileType);
+  writer->SetDebug(this->Debug);
   writer->Write();
 
 }

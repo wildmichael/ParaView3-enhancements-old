@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOBBTree.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:57:57 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1996-08-15 22:01:26 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -100,7 +100,6 @@ void vtkOBBTree::ComputeOBB(vtkFloatPoints *pts, float corner[3], float max[3],
   float *x, mean[3], xp[3], *v[3], v0[3], v1[3], v2[3];
   float *a[3], a0[3], a1[3], a2[3];
   float tMin[3], tMax[3], closest[3], t;
-  static vtkLine line;
 
   //
   // Compute mean
@@ -166,7 +165,7 @@ void vtkOBBTree::ComputeOBB(vtkFloatPoints *pts, float corner[3], float max[3],
     x = pts->GetPoint(pointId);
     for (i=0; i < 3; i++)
       {
-      line.DistanceToLine(x, mean, a[i], t, closest);
+      vtkLine::DistanceToLine(x, mean, a[i], t, closest);
       if ( t < tMin[i] ) tMin[i] = t;
       if ( t > tMax[i] ) tMax[i] = t;
       }

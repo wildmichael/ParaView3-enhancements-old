@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:57:52 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1996-08-15 22:01:25 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -135,12 +135,18 @@ void vtkMergeFilter::Update()
   if ( mtime > this->ExecuteTime || this->GetMTime() > this->ExecuteTime )
     {
     if ( this->Geometry->GetDataReleased() ) this->Geometry->ForceUpdate();
-    if ( this->Scalars->GetDataReleased() ) this->Scalars->ForceUpdate();
-    if ( this->Vectors->GetDataReleased() ) this->Vectors->ForceUpdate();
-    if ( this->Normals->GetDataReleased() ) this->Normals->ForceUpdate();
-    if ( this->TCoords->GetDataReleased() ) this->TCoords->ForceUpdate();
-    if ( this->Tensors->GetDataReleased() ) this->Tensors->ForceUpdate();
-    if ( this->UserDefined->GetDataReleased() ) this->UserDefined->ForceUpdate();
+    if ( this->Scalars && this->Scalars->GetDataReleased() ) 
+      this->Scalars->ForceUpdate();
+    if ( this->Vectors && this->Vectors->GetDataReleased() ) 
+      this->Vectors->ForceUpdate();
+    if ( this->Normals && this->Normals->GetDataReleased() ) 
+      this->Normals->ForceUpdate();
+    if ( this->TCoords && this->TCoords->GetDataReleased() ) 
+      this->TCoords->ForceUpdate();
+    if ( this->Tensors && this->Tensors->GetDataReleased() ) 
+      this->Tensors->ForceUpdate();
+    if ( this->UserDefined && this->UserDefined->GetDataReleased() ) 
+      this->UserDefined->ForceUpdate();
 
     if ( this->StartMethod ) (*this->StartMethod)(this->StartMethodArg);
     this->Output->Initialize(); //clear output

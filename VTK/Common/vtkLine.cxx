@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLine.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:57:26 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1996-08-15 22:01:24 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -96,7 +96,7 @@ void vtkLine::EvaluateLocation(int& vtkNotUsed(subId), float pcoords[3],
 //  Intersect two 3D lines
 //
 int vtkLine::Intersection (float a1[3], float a2[3], float b1[3], float b2[3],
-                          float& u, float& v)
+                           float& u, float& v)
 {
   float a21[3], b21[3], b1a1[3];
   float sys[2][2], c[2], det;

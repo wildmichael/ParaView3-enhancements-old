@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFeatureEdges.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:56:17 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1996-08-15 22:01:20 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -68,7 +68,6 @@ void vtkFeatureEdges::Execute()
   int numBEdges, numNonManifoldEdges, numFedges;
   float scalar, n[3], *x1, *x2;
   float cosAngle = 0;
-  vtkPolygon poly;
   int lineIds[2];
   int npts, *pts;
   vtkCellArray *inPolys;
@@ -117,7 +116,7 @@ void vtkFeatureEdges::Execute()
     for (cellId=0, inPolys->InitTraversal(); inPolys->GetNextCell(npts,pts); 
     cellId++)
       {
-      poly.ComputeNormal(inPts,npts,pts,n);
+      vtkPolygon::ComputeNormal(inPts,npts,pts,n);
       polyNormals->InsertNormal(cellId,n);
       }
 

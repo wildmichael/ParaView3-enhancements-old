@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextureMapToSphere.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 20:01:00 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1996-08-15 22:01:37 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -99,6 +99,7 @@ void vtkTextureMapToSphere::Execute()
       // watch for truncation problems
       if ( fabs((diff=x[2]-this->Center[2])) > rho )
         {
+        phi = 0.0;
         if ( diff > 0.0 ) tc[1] = 0.0;
         else tc[1] = 1.0;
         }
@@ -112,7 +113,6 @@ void vtkTextureMapToSphere::Execute()
       {
       tc[1] = 0.0;
       }
-
 
     r = rho * sin((double)phi);
     if ( r != 0.0 )

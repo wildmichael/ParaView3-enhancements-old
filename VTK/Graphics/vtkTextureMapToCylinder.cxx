@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextureMapToCylinder.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 20:00:58 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1996-08-15 22:01:36 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -69,7 +69,6 @@ void vtkTextureMapToCylinder::Execute()
   int ptId, i;
   float *x, tc[2], thetaX, thetaY, closest[3], v[3];
   float axis[3], vP[3], vec[3];
-  vtkLine line;
 
   vtkDebugMacro(<<"Generating Cylindrical Texture Coordinates");
 
@@ -135,7 +134,7 @@ void vtkTextureMapToCylinder::Execute()
   for ( ptId=0; ptId < numPts; ptId++ )
     {
     x = input->GetPoint(ptId);
-    line.DistanceToLine(x,this->Point1,this->Point2,tc[1],closest);
+    vtkLine::DistanceToLine(x,this->Point1,this->Point2,tc[1],closest);
 
     for (i=0; i < 3; i++) v[i] = x[i] - closest[i];
     vtkMath::Normalize(v);
