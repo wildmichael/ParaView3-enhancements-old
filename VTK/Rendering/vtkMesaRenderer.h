@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaRenderer.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-22 19:09:34 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1999-12-19 17:42:44 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -79,7 +79,16 @@ protected:
   ~vtkMesaRenderer() {};
   vtkMesaRenderer(const vtkMesaRenderer&) {};
   void operator=(const vtkMesaRenderer&) {};
-  
+  //BTX
+  // Picking functions to be implemented by sub-classes
+  // Stubs for now, until this gets fixed right
+  virtual void DevicePickRender(){};
+  virtual void StartPick(unsigned int pickFromSize){};
+  virtual void SetPickId(unsigned int pickID){};
+  virtual void DonePick(){};
+  virtual unsigned int GetPickedID(){};
+  virtual float GetPickedZ(){};
+  //ETX
 
 };
 
