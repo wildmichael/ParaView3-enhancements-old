@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageNonMaximumSuppression.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-18 15:54:16 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1997-08-13 15:38:41 $
+  Version:   $Revision: 1.18 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -51,7 +51,7 @@ vtkImageNonMaximumSuppression::vtkImageNonMaximumSuppression()
 {
   this->NumberOfFilteredAxes = 3;
   this->NumberOfExecutionAxes = 3;
-  
+  this->HandleBoundaries = 1;
   this->SetOutputScalarType(VTK_FLOAT);
 }
 
