@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSurfaceReconstructionFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-04-08 14:11:21 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1999-04-09 11:10:28 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to Tim Hutton (MINORI Project, Dental and Medical
              Informatics, Eastman Dental Institute, London, UK) who
              developed and contributed this class.
@@ -146,7 +146,7 @@ void vtkSurfaceReconstructionFilter::Execute()
   const unsigned long COUNT = input->GetNumberOfPoints();
   SurfacePoint *surfacePoints = new SurfacePoint[COUNT];
 
-  unsigned long i,j;
+  int i,j,k;
 
   if ( COUNT < 1 )
     {
@@ -216,14 +216,14 @@ void vtkSurfaceReconstructionFilter::Execute()
     DivideBy(p->o,number);
     // then compute the covariance matrix
     MakeZero(covar,0,2,0,2);
-    for(int k=0;k<3;k++)
+    for(k=0;k<3;k++)
       v3d[k] = p->loc[k] - p->o[k];
     AddOuterProduct(covar,v3d);
     for(j=0;j<p->neighbors->GetNumberOfIds();j++)
       {
       neighborIndex = p->neighbors->GetId(j);
       pointi = input->GetPoint(neighborIndex);
-      for(int k=0;k<3;k++)
+      for(k=0;k<3;k++)
         {
         v3d[k] = pointi[k] - p->o[k];
         }
@@ -257,7 +257,7 @@ void vtkSurfaceReconstructionFilter::Execute()
 
     // compute cost between all its neighbors
     // (bit inefficient to do this for every point, as cost is symmetric)
-    for(int j=0;j<p->neighbors->GetNumberOfIds();j++)
+    for(j=0;j<p->neighbors->GetNumberOfIds();j++)
       {
       p->costs[j] = 1.0 - 
         fabs(vtkMath::Dot(p->n,surfacePoints[p->neighbors->GetId(j)].n));
@@ -276,7 +276,7 @@ void vtkSurfaceReconstructionFilter::Execute()
   // that has the lowest cost connection with a visited vertex. Record this
   // vertex as visited, add any new neighbors to the neighbors list.
 
-  if(true) 
+  if(1) 
     {// set to false if you don't want orientation propagation (for testing)
     vtkIdList *nearby = vtkIdList::New(); // list of nearby, unvisited points
     
