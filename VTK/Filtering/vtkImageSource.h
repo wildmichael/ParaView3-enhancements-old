@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSource.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-17 14:28:17 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1997-08-11 18:27:40 $
+  Version:   $Revision: 1.20 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -66,6 +66,7 @@ public:
   void PrintSelf(ostream& os, vtkIndent indent);
 
   virtual void InterceptCacheUpdate();
+  virtual void InternalUpdate();
   virtual void Update();
   virtual void UpdateWholeExtent();
   virtual void UpdateImageInformation() = 0;
