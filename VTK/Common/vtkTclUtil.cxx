@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTclUtil.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-06 12:32:41 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1998-07-07 12:41:40 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -65,11 +65,6 @@ VTKTCL_EXPORT char *vtkTclGetResult()
   return vtkGlobalTclInterp->result;
 }
 
-
-int vtkRendererCommand(ClientData cd, Tcl_Interp *interp,
-		       int argc, char *argv[]);
-int vtkRenderWindowCommand(ClientData cd, Tcl_Interp *interp,
-			      int argc, char *argv[]);
 
 extern Tcl_HashTable vtkInstanceLookup;
 extern Tcl_HashTable vtkPointerLookup;
@@ -235,6 +230,11 @@ VTKTCL_EXPORT void vtkTclGetObjectFromPointer(Tcl_Interp *interp,void *temp,
     }
   
   /* return a pointer to a vtk Object */
+  if (vtkTclDebugOn)
+    {
+      vtkGenericWarningMacro("Looking up name for vtk pointer: " << temp);
+    }
+
   /* first we must look up the pointer to see if it already exists */
   sprintf(temps,"%p",temp);
   if ((entry = Tcl_FindHashEntry(&vtkPointerLookup,temps))) 
@@ -249,6 +249,13 @@ VTKTCL_EXPORT void vtkTclGetObjectFromPointer(Tcl_Interp *interp,void *temp,
     command2 = 
       (int (*)(ClientData,Tcl_Interp *,int,char *[]))Tcl_GetHashValue(entry2);
     
+    if (vtkTclDebugOn)
+      {
+      vtkGenericWarningMacro("Found name: " 
+                             << (char *)(Tcl_GetHashValue(entry)) 
+                             << " for vtk pointer: " << temp);
+      }
+
     /* if the commands are not the same try to pick the best one */
     /* the best one is the one that is lowest in the tree */
     if (command2 != command)
@@ -285,6 +292,12 @@ VTKTCL_EXPORT void vtkTclGetObjectFromPointer(Tcl_Interp *interp,void *temp,
   sprintf(name,"vtkTemp%i",num);
   num++;
   
+  if (vtkTclDebugOn)
+    {
+      vtkGenericWarningMacro("Created name: " << name
+			   << " for vtk pointer: " << temp);
+    }
+
   entry = Tcl_CreateHashEntry(&vtkInstanceLookup,name,&is_new);
   Tcl_SetHashValue(entry,(ClientData)(temp));
   entry = Tcl_CreateHashEntry(&vtkPointerLookup,temps,&is_new);
@@ -351,7 +364,14 @@ VTKTCL_EXPORT void *vtkTclGetPointerFromObject(char *name,char *result_type,
     }
   else
     {
-    sprintf(temps,"vtk bad argument, type conversion failed for object %s.\nCould not type convert %s to type %s.\n", name, name, result_type);
+    // provide more diagnostic info
+    args[0] = "Dummy";
+    args[1] = "GetClassName";
+    args[2] = NULL;
+    command(temp,interp,2,args);
+
+    sprintf(temps,"vtk bad argument, type conversion failed for object %s.\nCould not type convert %s which is of type %s, to type %s.\n", name, name, interp->result, result_type);
+    interp->result[0] = '\0';
     Tcl_AppendResult(interp,temps,NULL);
     error = 1;
     return NULL;
