@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWrapPython.c,v $
   Language:  C++
-  Date:      $Date: 2000-01-26 17:43:04 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2000-01-31 21:51:18 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -296,6 +296,7 @@ char *get_format_string()
       case 4:   result[currPos] = 'i'; currPos++; break;
       case 15:
       case 5:   result[currPos] = 'h'; currPos++; break;
+      case 16:
       case 6:   result[currPos] = 'l'; currPos++; break;
       case 3:   result[currPos] = 'c'; currPos++; break;
       case 13:   result[currPos] = 'b'; currPos++; break;
