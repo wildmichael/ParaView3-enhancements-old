@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-02 17:05:40 $
-  Version:   $Revision: 1.93 $
+  Date:      $Date: 1998-12-08 14:08:38 $
+  Version:   $Revision: 1.94 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -663,6 +663,9 @@ void vtkRenderer::ResetCamera(float bounds[6])
 				  center[1]+distance*vn[1],
 				  center[2]+distance*vn[2]);
   this->ActiveCamera->SetClippingRange(distance/10.0,distance*5.0);
+
+  // setup default parallel scale
+  this->ActiveCamera->SetParallelScale(width);
 }
   
 // Alternative version of ResetCamera(bounds[6]);
