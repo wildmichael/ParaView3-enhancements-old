@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSet.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:44 $
-  Version:   $Revision: 1.104 $
+  Date:      $Date: 2001-09-11 18:53:20 $
+  Version:   $Revision: 1.105 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -160,7 +160,8 @@ public:
 
   // Description:
   // Topological inquiry to get all cells using list of points exclusive of
-  // cell specified (e.g., cellId).
+  // cell specified (e.g., cellId). Note that the list consists of only
+  // cells that use ALL the points provided.
   // THIS METHOD IS THREAD SAFE IF FIRST CALLED FROM A SINGLE THREAD AND
   // THE DATASET IS NOT MODIFIED
   virtual void GetCellNeighbors(vtkIdType cellId, vtkIdList *ptIds, 
