@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume16Reader.h,v $
   Language:  C++
-  Date:      $Date: 1997-05-27 19:43:23 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1997-06-16 10:54:20 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -110,13 +110,13 @@ public:
   // the same file on a LittleEndian machine will result in swapping.
   // As a quick note most UNIX machines are BigEndian while PC's
   // and VAX tend to be LittleEndian. So if the file you are reading
-  // in was generated on a VAX or PC, SetFileByteOrderToLittleEndian otherwise
-  // SetFileByteOrderToBigEndian. 
-  void SetFileByteOrderToBigEndian();
-  void SetFileByteOrderToLittleEndian();
-  int GetFileByteOrder();
-  void SetFileByteOrder(int);
-  char *GetFileByteOrderAsString();
+  // in was generated on a VAX or PC, SetDataByteOrderToLittleEndian otherwise
+  // SetDataByteOrderToBigEndian. 
+  void SetDataByteOrderToBigEndian();
+  void SetDataByteOrderToLittleEndian();
+  int GetDataByteOrder();
+  void SetDataByteOrder(int);
+  char *GetDataByteOrderAsString();
 
   // Description:
   // Turn on/off byte swapping.
