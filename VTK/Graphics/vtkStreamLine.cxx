@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamLine.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:47 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 2002-06-07 20:00:34 $
+  Version:   $Revision: 1.51 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 #include "vtkMath.h"
 #include "vtkFloatArray.h"
 
-vtkCxxRevisionMacro(vtkStreamLine, "$Revision: 1.50 $");
+vtkCxxRevisionMacro(vtkStreamLine, "$Revision: 1.51 $");
 vtkStandardNewMacro(vtkStreamLine);
 
 // Construct object with step size set to 1.0.
@@ -34,6 +34,12 @@ vtkStreamLine::vtkStreamLine()
 
 void vtkStreamLine::Execute()
 {
+  if ( !this->GetInput() )
+    {
+    vtkErrorMacro("Input not set");
+    return;
+    }
+
   vtkStreamPoint *sPrev, *sPtr;
   vtkPoints *newPts;
   vtkFloatArray *newVectors;

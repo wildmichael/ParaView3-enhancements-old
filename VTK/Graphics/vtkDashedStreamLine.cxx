@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDashedStreamLine.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:14 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2002-06-07 20:00:34 $
+  Version:   $Revision: 1.37 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,7 +19,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkFloatArray.h"
 
-vtkCxxRevisionMacro(vtkDashedStreamLine, "$Revision: 1.36 $");
+vtkCxxRevisionMacro(vtkDashedStreamLine, "$Revision: 1.37 $");
 vtkStandardNewMacro(vtkDashedStreamLine);
 
 vtkDashedStreamLine::vtkDashedStreamLine()
@@ -29,6 +29,12 @@ vtkDashedStreamLine::vtkDashedStreamLine()
 
 void vtkDashedStreamLine::Execute()
 {
+  if ( !this->GetInput() )
+    {
+    vtkErrorMacro("Input not set");
+    return;
+    }
+
   vtkStreamPoint *sPrev, *sPtr;
   vtkPoints *newPts;
   vtkFloatArray *newVectors;
