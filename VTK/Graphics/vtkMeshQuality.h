@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMeshQuality.h,v $
   Language:  C++
-  Date:      $Date: 2004-12-21 22:15:25 $ 
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2004-12-22 00:19:14 $ 
+  Version:   $Revision: 1.12 $
 
   Copyright 2003 Sandia Corporation.
   Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -180,7 +180,7 @@ public:
   // member function. Use at your own risk with nonplanar quadrilaterals.
   // The radius ratio aspect ratio of a planar quadrilateral \f$q\f$ is: 
   // \f$\frac{|q|_1|q|_\infty}{4{\cal A}}\f$,
-  // where \f$|q|_1\f$, $|q|_\infty\f$ and \f${\cal A}\f$ respectively denote the 
+  // where \f$|q|_1\f$, \f$|q|_\infty\f$ and \f${\cal A}\f$ respectively denote the 
   // perimeter, the greatest edge length and the area of \f$q\f$.
   static double QuadRadiusRatio( vtkCell* cell );
 
