@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolygon.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:26:12 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1995-07-10 07:23:02 $
+  Version:   $Revision: 1.22 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -429,7 +429,6 @@ int vtkPolygon::PointInPolygon (float bounds[6], float *x, float *n)
 // Following is used in a number of routines.  Made static to avoid 
 // constructor / destructor calls.
 //
-static vtkIdList Tris((MAX_CELL_SIZE-2)*3);
 
 #define TOLERANCE 1.0e-06
 
@@ -447,6 +446,7 @@ int vtkPolygon::Triangulate(vtkIdList &outTris)
   float *bounds, d;
   int verts[MAX_CELL_SIZE];
   int numVerts=this->PointIds.GetNumberOfIds();
+  static vtkIdList Tris((MAX_CELL_SIZE-2)*3);
 
   bounds = this->GetBounds();
   
@@ -674,6 +674,7 @@ void vtkPolygon::Contour(float value, vtkFloatScalars *cellScalars,
   float *bounds, d;
   int polyVerts[MAX_CELL_SIZE];
   static vtkTriangle tri;
+  static vtkIdList Tris((MAX_CELL_SIZE-2)*3);
   static vtkFloatScalars triScalars(3);
 
   bounds = this->GetBounds();
