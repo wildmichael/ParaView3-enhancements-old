@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnsignedIntArray.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:36:27 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2001-10-14 16:53:34 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -154,6 +154,8 @@ public:
   // The class uses the actual array provided; it does not copy the data 
   // from the suppled array.
   void SetArray(unsigned int* array, vtkIdType size, int save);
+  void SetVoidArray(void *array,vtkIdType size, int save) 
+    {this->SetArray((unsigned int*)array, size, save);};
 
   // Description:
   // Resize object to just fit data requirement. Reclaims extra memory.
