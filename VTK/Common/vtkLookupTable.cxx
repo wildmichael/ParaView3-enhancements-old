@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLookupTable.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-29 12:03:15 $
-  Version:   $Revision: 1.71 $
+  Date:      $Date: 2001-09-29 12:05:25 $
+  Version:   $Revision: 1.72 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -566,7 +566,7 @@ static void vtkLookupTableMapData(vtkLookupTable *self, T *input,
           *output++ = *cptr++;
           *output++ = *cptr++;
           *output++ = *cptr++;
-          *output++ = cptr[3]*alpha;
+          *output++ = (*cptr)*alpha; cptr++;
           input += inIncr;
           }
         }
