@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitFunction.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:36:31 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1995-08-16 08:45:19 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -45,15 +45,17 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // operations are required: the ability to evaluate the function and the 
 // function gradient at a given point.
 //    vtkImplicitFunction provides a mechanism to transform the implicit
-// function(s) via a transform filter. This capability can be used to 
+// function(s) via a transformation matrix. This capability can be used to 
 // translate, orient, or scale implicit functions. For example, a sphere 
 // implicit function can be transformed into an oriented ellipse. This is 
 // accomplished by using an instance of vtkTransform.
 // .SECTION Caveats
 // The transformation matrix transforms a point into the space of the implicit
 // function (i.e., the model space). Typically we want to transpose the 
-// implicit model into world coordinates. In this case thus inverse of the 
+// implicit model into world coordinates. In this case the inverse of the 
 // transform is required.
+// .SECTION See Also
+// vtkTransform
 
 #ifndef __vtkImplicitFunction_h
 #define __vtkImplicitFunction_h
