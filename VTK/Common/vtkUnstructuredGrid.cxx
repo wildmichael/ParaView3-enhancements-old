@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-31 20:47:11 $
-  Version:   $Revision: 1.55 $
+  Date:      $Date: 1999-08-17 15:36:45 $
+  Version:   $Revision: 1.56 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -353,14 +353,6 @@ int vtkUnstructuredGrid::GetNumberOfCells()
   return (this->Connectivity ? this->Connectivity->GetNumberOfCells() : 0);
 }
 
-void vtkUnstructuredGrid::PrintSelf(ostream& os, vtkIndent indent)
-{
-  vtkDataSet::PrintSelf(os,indent);
-
-  os << indent << "UpdateExtent: " << this->UpdatePiece << " of "
-     << this->UpdateNumberOfPieces << endl;
-}
-
 // Insert/create cell in object by type and list of point ids defining
 // cell topology.
 int vtkUnstructuredGrid::InsertNextCell(int type, vtkIdList *ptIds)
@@ -606,3 +598,36 @@ void vtkUnstructuredGrid::CopyInformation(vtkDataObject *data)
     // no information I can think of yet.
     }
 }
+
+
+//----------------------------------------------------------------------------
+unsigned long vtkUnstructuredGrid::GetEstimatedUpdateExtentMemorySize()
+{
+  int idx;
+  unsigned long size;
+  
+  if (this->UpdateNumberOfPieces <= 0)
+    {
+    // should not happen (trying to make this robust)
+    return this->EstimatedWholeMemorySize;
+    }
+  
+  size = this->EstimatedWholeMemorySize;
+  size = size * this->UpdatePiece / this->UpdateNumberOfPieces;
+  
+  if (size < 1)
+    {
+    return 1;
+    }
+  return size;
+}
+
+
+void vtkUnstructuredGrid::PrintSelf(ostream& os, vtkIndent indent)
+{
+  vtkDataSet::PrintSelf(os,indent);
+
+  os << indent << "UpdateExtent: " << this->UpdatePiece << " of "
+     << this->UpdateNumberOfPieces << endl;
+}
+

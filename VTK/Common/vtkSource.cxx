@@ -3,8 +3,8 @@
  Program:   Visualization Toolkit
  Module:    $RCSfile: vtkSource.cxx,v $
  Language:  C++
- Date:      $Date: 1999-08-06 14:46:21 $
- Version:   $Revision: 1.41 $
+ Date:      $Date: 1999-08-17 15:36:44 $
+ Version:   $Revision: 1.42 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -468,7 +468,7 @@ void vtkSource::UpdateInformation()
 	}
       
       // Default estimated size is just the sum of the sizes of the inputs.
-      size += pd->GetEstimatedMemorySize();
+      size += pd->GetEstimatedWholeMemorySize();
       }
     }
  
@@ -477,7 +477,7 @@ void vtkSource::UpdateInformation()
     if (this->GetOutput(idx))
       {
       this->GetOutput(idx)->SetLocality(locality + 1);
-      this->GetOutput(idx)->SetEstimatedMemorySize(size);
+      this->GetOutput(idx)->SetEstimatedWholeMemorySize(size);
       this->GetOutput(idx)->SetPipelineMTime(t1);
       }  
     }

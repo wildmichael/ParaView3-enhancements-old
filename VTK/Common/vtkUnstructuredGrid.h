@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGrid.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:12:29 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 1999-08-17 15:36:46 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -121,6 +121,10 @@ public:
   void GetUpdateExtent(int &piece, int &numPieces);
   int GetUpdateNumberOfPieces() {return this->UpdateNumberOfPieces;}
   int GetUpdatePiece() {return this->UpdatePiece;}
+
+  // Description:
+  // Return the amount of memory for the update piece.
+  unsigned long GetEstimatedUpdateExtentMemorySize();
 
 protected:
   // used by GetCell method
