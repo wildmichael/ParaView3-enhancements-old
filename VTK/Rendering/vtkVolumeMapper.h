@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeMapper.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-04 14:30:16 $
-  Version:   $Revision: 1.52 $
+  Date:      $Date: 2002-01-09 23:24:51 $
+  Version:   $Revision: 1.53 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -66,6 +66,7 @@ class vtkVolume;
 #define VTK_CROP_INVERTED_CROSS         0x7be8bef
 
 class vtkWindow;
+class vtkImageClip;
 
 class VTK_RENDERING_EXPORT vtkVolumeMapper : public vtkAbstractMapper3D
 {
@@ -168,6 +169,8 @@ protected:
   float                VoxelCroppingRegionPlanes[6];
   int                  CroppingRegionFlags;
   vtkTimeStamp         BuildTime;
+
+  vtkImageClip        *ImageClipper;
   
   void ConvertCroppingRegionPlanesToVoxels();
   
