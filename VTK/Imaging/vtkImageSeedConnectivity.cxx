@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSeedConnectivity.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-01-07 09:11:32 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2000-01-14 12:27:39 $
+  Version:   $Revision: 1.15 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -138,7 +138,7 @@ void vtkImageSeedConnectivity::AddSeed(int i0, int i1)
 
 //----------------------------------------------------------------------------
 void vtkImageSeedConnectivity::EnlargeOutputUpdateExtents( vtkDataObject 
-							   *data )
+							   *vtkNotUsed(data))
 {
   this->GetOutput()->SetUpdateExtent(this->GetOutput()->GetWholeExtent());
 }

@@ -3,8 +3,8 @@
  Program:   Visualization Toolkit
  Module:    $RCSfile: vtkSource.cxx,v $
  Language:  C++
- Date:      $Date: 2000-01-10 19:47:52 $
- Version:   $Revision: 1.57 $
+ Date:      $Date: 2000-01-14 12:27:37 $
+ Version:   $Revision: 1.58 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -306,7 +306,7 @@ void vtkSource::TriggerAsynchronousUpdate()
 
 //----------------------------------------------------------------------------
 
-void vtkSource::UpdateData(vtkDataObject *output)
+void vtkSource::UpdateData(vtkDataObject *vtkNotUsed(output))
 {
   int idx;
 
@@ -504,7 +504,7 @@ void vtkSource::ComputeEstimatedPipelineMemorySize( vtkDataObject *output,
 // that will produce vtkPolyData or vtkUnstructuredGrid data since the
 // output itself cannot estimate its own size.
 void vtkSource::ComputeEstimatedOutputMemorySize( vtkDataObject *output,
-						  unsigned long *inputSize,
+						  unsigned long *vtkNotUsed(inputSize),
 						  unsigned long size[2] )
 {
   int idx;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProgrammableSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-01-07 09:13:47 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2000-01-14 12:27:38 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -243,7 +243,7 @@ void vtkProgrammableSource::UpdateInformation()
 
 }
 
-void vtkProgrammableSource::UpdateData(vtkDataObject *output)
+void vtkProgrammableSource::UpdateData(vtkDataObject *vtkNotUsed(output))
 {
 }
 
