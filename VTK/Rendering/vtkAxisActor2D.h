@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAxisActor2D.h,v $
   Language:  C++
-  Date:      $Date: 1999-04-22 21:41:58 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1999-06-18 20:48:57 $
+  Version:   $Revision: 1.3 $
 
 Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -113,7 +113,7 @@ public:
   // Description:
   // Set/Get the format with which to print the labels on the scalar
   // bar.
-  vtkSetStringMacro(LabelFormat);
+  vtkSafeSetStringMacro(LabelFormat);
   vtkGetStringMacro(LabelFormat);
 
   // Description:
@@ -126,7 +126,7 @@ public:
 
   // Description:
   // Set/Get the title of the scalar bar actor,
-  vtkSetStringMacro(Title);
+  vtkSafeSetStringMacro(Title);
   vtkGetStringMacro(Title);
 
   // Description:

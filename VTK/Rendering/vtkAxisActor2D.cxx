@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAxisActor2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-04-08 13:40:48 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1999-06-18 20:48:57 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to Kitware & RPI/SCOREC who supported the development
              of this class.
 
@@ -40,6 +40,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkAxisActor2D.h"
+
+vtkSafeSetStringMacro2(LabelFormat,vtkAxisActor2D);
+vtkSafeSetStringMacro2(Title,vtkAxisActor2D);
 
 // Instantiate this object.
 vtkAxisActor2D::vtkAxisActor2D()

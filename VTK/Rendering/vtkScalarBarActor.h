@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalarBarActor.h,v $
   Language:  C++
-  Date:      $Date: 1999-03-11 18:32:32 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1999-06-18 20:48:58 $
+  Version:   $Revision: 1.12 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -181,12 +181,12 @@ public:
   // Description:
   // Set/Get the format with which to print the labels on the scalar
   // bar.
-  vtkSetStringMacro(LabelFormat);
+  vtkSafeSetStringMacro(LabelFormat);
   vtkGetStringMacro(LabelFormat);
 
   // Description:
   // Set/Get the title of the scalar bar actor,
-  vtkSetStringMacro(Title);
+  vtkSafeSetStringMacro(Title);
   vtkGetStringMacro(Title);
 
 protected:
