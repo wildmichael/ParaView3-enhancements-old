@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAssembly.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-05-27 20:23:07 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1996-06-04 20:36:25 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -118,6 +118,12 @@ vtkActor *vtkAssembly::GetNextPart()
     {
     return path->GetLastItem();
     }
+}
+
+int vtkAssembly::GetNumberOfParts()
+{
+  this->UpdatePaths();
+  return this->Paths->GetNumberOfItems();
 }
 
 // Build the assembly paths if necessary.

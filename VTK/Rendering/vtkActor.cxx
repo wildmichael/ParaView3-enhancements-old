@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-05-27 20:23:06 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 1996-06-04 20:36:23 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -501,7 +501,8 @@ void vtkActor::Update()
 // This method is used in conjunction with the assembly object to build a copy
 // of the assembly hierarchy. This hierarchy can then be traversed for 
 // rendering or other operations.
-void vtkActor::BuildPaths(vtkAssemblyPaths *paths, vtkActorCollection *path)
+void vtkActor::BuildPaths(vtkAssemblyPaths *vtkNotUsed(paths), 
+                          vtkActorCollection *path)
 {
   vtkActor *copy=new vtkActor, *previous;
 
