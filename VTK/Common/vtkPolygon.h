@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPolygon.h,v $
   Language:  C++
-  Date:      $Date: 1994-09-14 20:17:37 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1994-10-27 21:37:13 $
+  Version:   $Revision: 1.11 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -66,9 +66,7 @@ public:
   void SplitLoop (int fedges[2], int numVerts, int *verts, int& n1, int *l1, 
                   int& n2, int* l2);
 
-
 };
 
 #endif
-
 

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkUnstructuredGrid.h,v $
   Language:  C++
-  Date:      $Date: 1994-08-15 07:47:25 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1994-10-27 21:37:27 $
+  Version:   $Revision: 1.10 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -18,7 +18,7 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 // vlUnstructuredGrid is a data object that is a concrete implementation 
 // of vlDataSet. vlUnstructuredGrid represents any combinations of any cell
 // types. This includes 0D (e.g., points), 1D (e.g., lines, polylines), 2D 
-// (e.g., triangles, polygons), and 3D (e.g., bricks, tetrahedron).
+// (e.g., triangles, polygons), and 3D (e.g., hexahedron, tetrahedron).
 
 #ifndef __vlUnstructuredGrid_h
 #define __vlUnstructuredGrid_h

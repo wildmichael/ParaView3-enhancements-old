@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStructuredData.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-09-29 14:05:25 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1994-10-27 21:37:17 $
+  Version:   $Revision: 1.17 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -59,6 +59,10 @@ int vlStructuredData::GetDataDimension()
     case XY_PLANE: case YZ_PLANE: case XZ_PLANE: return 2;
 
     case XYZ_GRID: return 3;
+
+    default:
+      vlErrorMacro(<<"Bad data description!");
+      return -1;                       
     }
 }
 
