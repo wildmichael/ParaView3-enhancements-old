@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-15 11:08:04 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1995-06-06 07:26:11 $
+  Version:   $Revision: 1.13 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -68,6 +68,14 @@ float *vlPoints::GetBounds()
 {
   this->ComputeBounds();
   return this->Bounds;
+}
+
+// Description:
+// Return the bounds of the points.
+void vlPoints::GetBounds(float bounds[6])
+{
+  this->ComputeBounds();
+  for (int i=0; i<6; i++) bounds[i] = this->Bounds[i];
 }
 
 void vlPoints::PrintSelf(ostream& os, vlIndent indent)
