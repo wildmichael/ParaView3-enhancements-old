@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinkedList.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-27 19:26:19 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-06-10 18:05:01 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -149,6 +149,10 @@ protected:
   vtkIdType NumberOfItems;
   vtkLinkedListNode<DType> *Head;
   vtkLinkedListNode<DType> *Tail;
+
+private:
+  vtkLinkedList(const vtkLinkedList<DType>&){}
+  void operator=(const vtkLinkedList<DType>&){}
 };
 
 #ifdef VTK_NO_EXPLICIT_TEMPLATE_INSTANTIATION

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkArrayMap.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-27 19:26:19 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-06-10 18:05:01 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -114,15 +114,15 @@ protected:
   vtkArrayMap() { this->Array = 0; }
   virtual ~vtkArrayMap();
 
-  vtkArrayMap(const vtkArrayMap<KeyType,DataType>&); // Not implemented
-  void operator=(const vtkArrayMap<KeyType,DataType>&); // Not implemented
-
   // Description:
   // Find vtkAbstractMapItem that with specific key
   virtual vtkAbstractMapItem<KeyType,DataType> 
     *FindDataItem(const KeyType key);
 
   vtkVector< vtkAbstractMapItem<KeyType,DataType>* > *Array;
+private:
+  vtkArrayMap(const vtkArrayMap<KeyType,DataType>&){}
+  void operator=(const vtkArrayMap<KeyType,DataType>&){}
 };
 
 #ifdef VTK_NO_EXPLICIT_TEMPLATE_INSTANTIATION

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVector.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-27 19:26:19 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2002-06-10 18:05:01 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -155,6 +155,10 @@ protected:
   vtkIdType Size;
   int Resize;
   DType *Array;
+
+private:
+  vtkVector(const vtkVector<DType>&){}
+  void operator=(const vtkVector<DType>&){}
 };
 
 #ifdef VTK_NO_EXPLICIT_TEMPLATE_INSTANTIATION
