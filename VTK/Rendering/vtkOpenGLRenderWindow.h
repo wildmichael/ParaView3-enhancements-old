@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:45 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2001-01-31 17:50:39 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -160,7 +160,7 @@ public:
   void MakeCurrent();
   
   // Description:
-  // Register a texture name with this render window
+  // Register a texture name with this render window.
   void RegisterTextureResource (GLuint id);
 
   // Description:
