@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractPropPicker.h,v $
   Language:  C++
-  Date:      $Date: 2000-06-08 09:11:03 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2000-07-05 12:00:22 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,7 +40,6 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 // .NAME vtkAbstractPropPicker - abstract API for pickers that can pick an instance of vtkProp
 // .SECTION Description
-
 // vtkAbstractPropPicker is an abstract superclass for pickers that can pick
 // an instance of vtkProp. Some pickers, like vtkWorldPointPicker (not a
 // subclass of this class), cannot identify the prop that is
@@ -70,6 +69,13 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // vtkAssemblyPath, since this completely defines the pick path from top to
 // bottom in a assembly hierarchy, and avoids confusion when the same prop is
 // used in different assemblies.
+//
+// The returned assembly paths refer to assembly nodes that in turn refer
+// to vtkProp and vtkMatrix. This association to vtkProp is not a reference
+// counted association, meaning that dangling references are possible if
+// you do a pick, get an assembly path, and then delete a vtkProp. (Reason:
+// assembly paths create many self-referencing loops that destroy reference
+// counting.)
 
 // .SECTION See Also 
 // vtkPropPicker vtkPicker vtkWorldPointPicker vtkCellPicker vtkPointPicker 
