@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:40 $
-  Version:   $Revision: 1.79 $
+  Date:      $Date: 2002-03-03 03:01:36 $
+  Version:   $Revision: 1.80 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -201,7 +201,7 @@ public:
   // Description:
   // Choose which component of which field data array to color by.
   void ColorByArrayComponent(int arrayNum, int component);
-  void ColorByArrayComponent(char* arrayName, int component);
+  void ColorByArrayComponent(const char* arrayName, int component);
   
   // Description:
   // Get the array name or number and component to color by.
