@@ -23,8 +23,9 @@
 #include "vtkTclUtil.h"
 #include "vtkKWDirectoryUtilities.h"
 #include "vtkString.h"
+#include "vtkWindows.h"
 
-vtkCxxRevisionMacro(vtkPVProcessModuleBatchHelper, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkPVProcessModuleBatchHelper, "$Revision: 1.3 $");
 vtkStandardNewMacro(vtkPVProcessModuleBatchHelper);
 
 EXTERN void TclSetLibraryPath _ANSI_ARGS_((Tcl_Obj * pathPtr));
