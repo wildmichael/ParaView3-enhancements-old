@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRayCaster.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-30 01:08:21 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1997-07-01 22:10:14 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -127,6 +127,7 @@ protected:
   int		BilinearImageZoom;
   int           SelectedImageScaleIndex;
   int           StableImageScaleCounter;
+  float         PreviousAllocatedTime;
   int           AutomaticScaleAdjustment;
   float         AutomaticScaleLowerLimit;
   float         ImageRenderTime[2];
