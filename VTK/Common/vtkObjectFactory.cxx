@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObjectFactory.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-21 15:46:50 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2002-10-17 12:14:10 $
+  Version:   $Revision: 1.36 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,7 @@
 
 #include <ctype.h>
 
-vtkCxxRevisionMacro(vtkObjectFactory, "$Revision: 1.35 $");
+vtkCxxRevisionMacro(vtkObjectFactory, "$Revision: 1.36 $");
 
 vtkObjectFactoryCollection* vtkObjectFactory::RegisteredFactories = 0;
 
@@ -425,7 +425,7 @@ void vtkObjectFactory::UnRegisterAllFactories()
   while((factory =
          vtkObjectFactory::RegisteredFactories->GetNextItem()))
     {
-    libs[index] = factory->LibraryHandle;
+    libs[index++] = factory->LibraryHandle;
     }
   // delete the factory list and its factories
   vtkObjectFactory::RegisteredFactories->Delete();
