@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSTLWriter.h,v $
   Language:  C++
-  Date:      $Date: 1997-10-30 12:13:02 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1997-12-14 12:58:09 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -65,11 +65,6 @@ public:
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
-  // Specify the name of the file to write.
-  vtkSetStringMacro(FileName);
-  vtkGetStringMacro(FileName);
-
-  // Description:
   // Specify type of file to write (ascii or binary).
   vtkSetClampMacro(FileType,int,VTK_ASCII,VTK_BINARY);
   vtkGetMacro(FileType,int);
@@ -77,7 +72,6 @@ public:
 protected:
   void WriteData();
 
-  char *FileName;
   int FileType;
 
   void WriteBinarySTL(vtkPoints *pts, vtkCellArray *polys);
