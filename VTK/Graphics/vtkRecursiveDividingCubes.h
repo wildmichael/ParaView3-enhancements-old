@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkRecursiveDividingCubes.h,v $
   Language:  C++
-  Date:      $Date: 1995-10-25 23:51:10 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1995-12-27 10:58:59 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -50,8 +50,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // recursive procedure. In many cases this can result in generating 
 // more points than the procedural implementation of vtkDividingCubes. This is
 // because the recursive procedure divides voxels by multiples of powers of 
-// two. This can over constrain subdivision. One of the advantages of the 
-// recursive technique is that the recursion is terminated earlier which in
+// two. This can over-constrain subdivision. One of the advantages of the 
+// recursive technique is that the recursion is terminated earlier, which in
 // some cases can be more efficient.
 // .SECTION See Also
 // vtkDividingCubes vtkContourFilter vtkMarchingCubes

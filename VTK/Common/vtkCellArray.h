@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellArray.h,v $
   Language:  C++
-  Date:      $Date: 1995-10-25 23:50:51 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 1995-12-27 10:58:04 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -118,7 +118,7 @@ protected:
 inline int vtkCellArray::GetNumberOfCells() {return this->NumberOfCells;};
 
 // Description:
-// Create a cell by specifying the number of pts and an array of point id's
+// Create a cell by specifying the number of points and an array of point id's.
 inline int vtkCellArray::InsertNextCell(int npts, int* pts)
 {
   int id = this->Ia.GetMaxId() + npts + 1;
@@ -190,12 +190,12 @@ inline int vtkCellArray::InsertNextCell(vtkCell *cell)
 }
 
 // Description:
-// Utility routines helps manage memory of cell array. EstimateSize()
+// Utility routines help manage memory of cell array. EstimateSize()
 // returns a value used to initialize and allocate memory for array based
 // on number of cells and maximum number of points making up cell.  If 
-// every cell is the same size (in terms of number of points) then the 
+// every cell is the same size (in terms of number of points), then the 
 // memory estimate is guaranteed exact. (If not exact, use Squeeze() to
-// reclaim any extra memory).
+// reclaim any extra memory.)
 inline int vtkCellArray::EstimateSize(int numCells, int maxPtsPerCell) 
 {
   return numCells*(1+maxPtsPerCell);

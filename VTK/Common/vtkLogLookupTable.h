@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkLogLookupTable.h,v $
   Language:  C++
-  Date:      $Date: 1995-08-31 21:21:42 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1995-12-27 10:58:24 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -44,7 +44,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // values into rgba (red-green-blue-alpha transparency) color specification, 
 // or rgba into scalar values. The difference between this class and its
 // superclass vtkLookupTable is that this class performs scalar mapping based
-// on a logarithmic lookup process. (Uses log base 10).
+// on a logarithmic lookup process. (Uses log base 10.)
 //
 // If non-positive ranges are encountered, then they are converted to 
 // positive values using absolute value.

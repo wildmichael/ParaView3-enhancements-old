@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnsignedCharArray.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:38:53 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1995-12-27 10:58:52 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,7 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-// .NAME vtkUnsignedCharArray - dynamic, self adjusting unsigned character array
+// .NAME vtkUnsignedCharArray - dynamic, self-adjusting unsigned character array
 // .SECTION Description
 // vtkUnsignedCharArray is an array of unsigned character values. It provides 
 // methods for insertion and retrieval of characters, and will automatically 

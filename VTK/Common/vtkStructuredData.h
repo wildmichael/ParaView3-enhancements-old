@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredData.h,v $
   Language:  C++
-  Date:      $Date: 1995-09-08 12:51:10 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1995-12-27 10:58:44 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,7 +42,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // .SECTION Description
 // vtkStructuredData is an abstract class that specifies an interface for
 // topologically regular data. Regular data is data that can be accessed
-// in rectangular fashion using a i-j-k index. A finite difference grid,
+// in rectangular fashion using an i-j-k index. A finite difference grid,
 // a volume, or a pixmap are all considered regular.
 
 #ifndef __vtkStructuredData_h

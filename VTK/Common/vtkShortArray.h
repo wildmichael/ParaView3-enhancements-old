@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkShortArray.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:38:20 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1995-12-27 10:58:36 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,7 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-// .NAME vtkShortArray - dynamic, self adjusting short integer array
+// .NAME vtkShortArray - dynamic, self-adjusting short integer array
 // .SECTION Description
 // vtkShortArray is an array of short integer numbers. It provides methods
 // for insertion and retrieval of integer values, and will 

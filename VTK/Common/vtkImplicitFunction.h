@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitFunction.h,v $
   Language:  C++
-  Date:      $Date: 1995-08-31 21:21:38 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1995-12-27 10:58:16 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,7 +42,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // .SECTION Description
 // vtkImplicitFunction specifies an abstract interface for implicit 
 // functions. Implicit functions are of the form F(x,y,z) = 0. Two primitive 
-// operations are required: the ability to evaluate the function and the 
+// operations are required: the ability to evaluate the function, and the 
 // function gradient at a given point.
 //
 // vtkImplicitFunction provides a mechanism to transform the implicit

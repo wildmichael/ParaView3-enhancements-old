@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDashedStreamLine.h,v $
   Language:  C++
-  Date:      $Date: 1995-10-12 11:27:57 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1995-12-27 10:58:57 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,14 +42,14 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // .SECTION Description
 // vtkDashedStreamLine is a filter that generates a "dashed" streamline for 
 // an arbitrary dataset. The streamline consists of a series of dashes, each 
-// of which represents (approximately) a constant time increment. Thus in the
+// of which represents (approximately) a constant time increment. Thus, in the
 // resulting visual representation, relatively long dashes represent areas of 
 // high velocity, and small dashes represent areas of low velocity.
 //
 // vtkDashedStreamLine introduces the instance variable DashFactor. 
 // DashFactor interacts with its superclass' instance variable StepLength to
 // create the dashes. DashFactor is the percentage of the StepLength line 
-// segment that is visible. Thus if DashFactor=0.75, the dashes will be 
+// segment that is visible. Thus, if the DashFactor=0.75, the dashes will be 
 // "three-quarters on" and "one-quarter off".
 // .SECTION See Also
 // vtkStreamer vtkStreamLine vtkStreamPoints

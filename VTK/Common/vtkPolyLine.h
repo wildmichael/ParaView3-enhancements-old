@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyLine.h,v $
   Language:  C++
-  Date:      $Date: 1995-10-09 16:42:44 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1995-12-27 10:58:01 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,7 +41,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // .NAME vtkPolyLine - cell represents a set of 1D lines
 // .SECTION Description
 // vtkPolyLine is a concrete implementation of vtkCell to represent a set
-// of 1D lines
+// of 1D lines.
 
 #ifndef __vtkPolyLine_h
 #define __vtkPolyLine_h

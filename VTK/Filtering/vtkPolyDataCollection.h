@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataCollection.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:37:40 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1995-12-27 10:58:26 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,8 +41,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // .NAME vtkPolyDataCollection - maintain a list of polygonal data objects
 // .SECTION Description
 // vtkPolyDataCollection is an object that creates and manipulates lists of
-// datasets of type vtkPolyData. See also vtkDataSetCollection and vtkCollection
-// and subclasses. 
+// datasets of type vtkPolyData. 
+// .SECTION See Also
+// vtkDataSetCollection vtkCollection
 
 #ifndef __vtkPolyDataCollection_hh
 #define __vtkPolyDataCollection_hh

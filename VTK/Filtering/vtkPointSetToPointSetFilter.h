@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSetToPointSetFilter.h,v $
   Language:  C++
-  Date:      $Date: 1995-08-31 21:21:55 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1995-12-27 10:59:07 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,7 +42,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // .SECTION Description
 // vtkPointSetToPointSetFilter is an abstract filter class whose subclasses
 // take as input a point set and generates a point set on output.
-// At a minimum the concrete subclasses of vtkPointSetToPointSetFilter
+// At a minimum, the concrete subclasses of vtkPointSetToPointSetFilter
 // modify their point coordinates. They never modify their topological 
 // form, however.
 
