@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoxel.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-26 18:24:22 $
-  Version:   $Revision: 1.76 $
+  Date:      $Date: 2003-02-03 13:23:32 $
+  Version:   $Revision: 1.77 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,7 @@
 #include "vtkPointLocator.h"
 #include "vtkPoints.h"
 
-vtkCxxRevisionMacro(vtkVoxel, "$Revision: 1.76 $");
+vtkCxxRevisionMacro(vtkVoxel, "$Revision: 1.77 $");
 vtkStandardNewMacro(vtkVoxel);
 
 // Construct the voxel with eight points.
@@ -559,4 +559,14 @@ void vtkVoxel::GetEdgePoints(int edgeId, int* &pts)
 void vtkVoxel::GetFacePoints(int faceId, int* &pts)
 {
   pts = this->GetFaceArray(faceId);
+}
+
+static float CellPCoords[24] = {0.0,0.0,0.0, 1.0,0.0,0.0,
+                                0.0,1.0,0.0, 1.0,1.0,0.0, 
+                                0.0,0.0,1.0, 1.0,0.0,1.0,
+                                0.0,1.0,1.0, 1.0,1.0,1.0};
+
+float *vtkVoxel::GetParametricCoords()
+{
+  return CellPCoords;
 }

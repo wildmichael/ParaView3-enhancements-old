@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoxel.h,v $
   Language:  C++
-  Date:      $Date: 2002-12-26 18:24:22 $
-  Version:   $Revision: 1.67 $
+  Date:      $Date: 2003-02-03 13:23:32 $
+  Version:   $Revision: 1.68 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -40,6 +40,7 @@ public:
   // See vtkCell3D API for description of these methods.
   virtual void GetEdgePoints(int edgeId, int* &pts);
   virtual void GetFacePoints(int faceId, int* &pts);
+  virtual float *GetParametricCoords();
 
   // Description:
   // See the vtkCell API for descriptions of these methods.
