@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOBBTree.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:21:45 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1999-10-06 12:59:27 $
+  Version:   $Revision: 1.24 $
   Thanks:    Thanks to Peter C. Everett <pce@world.std.com> for
              improvements and enhancements to vtkOBBTree class.
 
@@ -79,8 +79,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 #include "vtkCellLocator.h"
 #include "vtkMatrix4x4.h"
-#include "vtkCellTriMacro.h"
-//
+
 // Special class defines node for the OBB tree
 //
 //BTX
