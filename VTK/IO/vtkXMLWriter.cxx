@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-09 15:18:44 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-12-09 15:35:04 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,7 @@
 #include "vtkPoints.h"
 #include "vtkUnsignedCharArray.h"
 
-vtkCxxRevisionMacro(vtkXMLWriter, "$Revision: 1.8 $");
+vtkCxxRevisionMacro(vtkXMLWriter, "$Revision: 1.9 $");
 vtkCxxSetObjectMacro(vtkXMLWriter, Compressor, vtkDataCompressor);
 
 //----------------------------------------------------------------------------
@@ -1266,9 +1266,8 @@ void vtkXMLWriter::WriteCoordinatesAppendedData(vtkDataArray* xc,
 //----------------------------------------------------------------------------
 vtkDataArray* vtkXMLWriter::CreateArrayForPoints(vtkDataArray* inArray)
 {
-  // This method is just a dummy because we don't want a pure virtual.
-  // Subclasses that need it should define the real version.
-  vtkErrorMacro("vtkXMLWriter::CreateArrayForPoints should never be called.");
+  // Only some subclasses need to do anything.  By default, just
+  // return the array as given.
   inArray->Register(0);
   return inArray;
 }
@@ -1276,9 +1275,8 @@ vtkDataArray* vtkXMLWriter::CreateArrayForPoints(vtkDataArray* inArray)
 //----------------------------------------------------------------------------
 vtkDataArray* vtkXMLWriter::CreateArrayForCells(vtkDataArray* inArray)
 {
-  // This method is just a dummy because we don't want a pure virtual.
-  // Subclasses that need it should define the real version.
-  vtkErrorMacro("vtkXMLWriter::CreateArrayForCells should never be called.");
+  // Only some subclasses need to do anything.  By default, just
+  // return the array as given.
   inArray->Register(0);
   return inArray;
 }
