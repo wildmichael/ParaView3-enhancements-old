@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVRMLImporter.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-07-10 10:58:07 $
-  Version:   $Revision: 1.60 $
+  Date:      $Date: 2003-07-10 11:54:32 $
+  Version:   $Revision: 1.61 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -4259,7 +4259,7 @@ YY_MALLOC_DECL
 #define YY_BREAK break;
 #endif
 
-vtkCxxRevisionMacro(vtkVRMLImporter, "$Revision: 1.60 $");
+vtkCxxRevisionMacro(vtkVRMLImporter, "$Revision: 1.61 $");
 vtkStandardNewMacro(vtkVRMLImporter);
 
 vtkPoints* vtkVRMLImporter::PointsNew()
@@ -5838,9 +5838,9 @@ vtkVRMLImporter::exitNode()
         // count of tcoords and points is the same, must run through indices to see if they
         // correspond by index point-for-point
         tcoords_correspond=1; // assume true until found otherwise
-        int DUMMY_WARNING_PREVENTION_MECHANISM;
-        int n_pts=-1,*pts = &DUMMY_WARNING_PREVENTION_MECHANISM;
-        int n_tcoord_pts=-1,*tcoord_pts = &DUMMY_WARNING_PREVENTION_MECHANISM;
+        vtkIdType DUMMY_WARNING_PREVENTION_MECHANISM;
+        vtkIdType n_pts=-1,*pts = &DUMMY_WARNING_PREVENTION_MECHANISM;
+        vtkIdType n_tcoord_pts=-1,*tcoord_pts = &DUMMY_WARNING_PREVENTION_MECHANISM;
         this->CurrentMapper->GetInput()->GetPolys()->InitTraversal();
         this->CurrentTCoordCells->InitTraversal();
         int i,j;
@@ -5905,9 +5905,9 @@ vtkVRMLImporter::exitNode()
       this->CurrentMapper->GetInput()->GetPolys()->InitTraversal();
       this->CurrentTCoordCells->InitTraversal();
       int i,j;
-      int DUMMY_WARNING_PREVENTION_MECHANISM;
-      int n_pts=-1,*pts = &DUMMY_WARNING_PREVENTION_MECHANISM;
-      int n_tcoord_pts=-1,*tcoord_pts = &DUMMY_WARNING_PREVENTION_MECHANISM;
+      vtkIdType DUMMY_WARNING_PREVENTION_MECHANISM;
+      vtkIdType n_pts=-1,*pts = &DUMMY_WARNING_PREVENTION_MECHANISM;
+      vtkIdType n_tcoord_pts=-1,*tcoord_pts = &DUMMY_WARNING_PREVENTION_MECHANISM;
       for (i=0;i<this->CurrentMapper->GetInput()->GetPolys()->GetNumberOfCells();i++) 
         {
 
