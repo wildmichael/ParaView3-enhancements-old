@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-06-10 15:20:35 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2003-06-11 13:52:18 $
+  Version:   $Revision: 1.22 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -28,7 +28,7 @@
 #include "vtkUnsignedCharArray.h"
 #include "vtkZLibDataCompressor.h"
 
-vtkCxxRevisionMacro(vtkXMLWriter, "$Revision: 1.21 $");
+vtkCxxRevisionMacro(vtkXMLWriter, "$Revision: 1.22 $");
 vtkCxxSetObjectMacro(vtkXMLWriter, Compressor, vtkDataCompressor);
 
 //----------------------------------------------------------------------------
@@ -120,6 +120,14 @@ void vtkXMLWriter::PrintSelf(ostream& os, vtkIndent indent)
     }
   os << indent << "EncodeAppendedData: " << this->EncodeAppendedData << "\n";
   os << indent << "BlockSize: " << this->BlockSize << "\n";
+  if(this->Stream)
+    {
+    os << indent << "Stream: " << this->Stream << "\n";
+    }
+  else
+    {
+    os << indent << "Stream: (none)\n";
+    }
 }
 
 //----------------------------------------------------------------------------

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-06-10 15:20:35 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2003-06-11 13:52:18 $
+  Version:   $Revision: 1.16 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -32,7 +32,7 @@
 
 #include <sys/stat.h>
 
-vtkCxxRevisionMacro(vtkXMLReader, "$Revision: 1.15 $");
+vtkCxxRevisionMacro(vtkXMLReader, "$Revision: 1.16 $");
 
 //----------------------------------------------------------------------------
 vtkXMLReader::vtkXMLReader()
@@ -82,9 +82,17 @@ void vtkXMLReader::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "FileName: "
      << (this->FileName? this->FileName:"(none)") << "\n";
   os << indent << "CellDataArraySelection: " << this->CellDataArraySelection 
-     << endl;
+     << "\n";
   os << indent << "PointDataArraySelection: " << this->PointDataArraySelection 
-     << endl;
+     << "\n";
+  if(this->Stream)
+    {
+    os << indent << "Stream: " << this->Stream << "\n";
+    }
+  else
+    {
+    os << indent << "Stream: (none)\n";
+    }
 }
 
 //----------------------------------------------------------------------------
