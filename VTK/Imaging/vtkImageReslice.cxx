@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReslice.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-14 18:22:21 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2002-06-16 17:31:23 $
+  Version:   $Revision: 1.24 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 #include <float.h>
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkImageReslice, "$Revision: 1.23 $");
+vtkCxxRevisionMacro(vtkImageReslice, "$Revision: 1.24 $");
 vtkStandardNewMacro(vtkImageReslice);
 
 //----------------------------------------------------------------------------
@@ -132,8 +132,8 @@ void vtkImageReslice::PrintSelf(ostream& os, vtkIndent indent)
   this->GetResliceAxesOrigin(this->ResliceAxesOrigin);
   os << indent << "ResliceAxesOrigin: " << 
     this->ResliceAxesOrigin[0] << " " <<
-    this->ResliceAxesOrigin[0] << " " <<
-    this->ResliceAxesOrigin[0] << "\n";
+    this->ResliceAxesOrigin[1] << " " <<
+    this->ResliceAxesOrigin[2] << "\n";
   os << indent << "ResliceTransform: " << this->ResliceTransform << "\n";
   if (this->ResliceTransform)
     {
