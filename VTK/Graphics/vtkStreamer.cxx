@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStreamer.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-25 20:57:36 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 1999-06-25 21:16:45 $
+  Version:   $Revision: 1.42 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -584,8 +584,7 @@ void vtkStreamer::Integrate()
   gcell->Delete();
   
   // Set up and execute the thread
-  // this->Threader->SetNumberOfThreads( this->NumberOfThreads );
-  this->Threader->SetNumberOfThreads( 1 );
+  this->Threader->SetNumberOfThreads( this->NumberOfThreads );
   this->Threader->SetSingleMethod( vtkStreamer_ThreadedIntegrate, (void *)this );
   this->Threader->SingleMethodExecute();
 
