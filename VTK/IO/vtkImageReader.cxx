@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-06 19:08:29 $
-  Version:   $Revision: 1.104 $
+  Date:      $Date: 2002-08-29 12:37:02 $
+  Version:   $Revision: 1.105 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkTransform.h"
 
-vtkCxxRevisionMacro(vtkImageReader, "$Revision: 1.104 $");
+vtkCxxRevisionMacro(vtkImageReader, "$Revision: 1.105 $");
 vtkStandardNewMacro(vtkImageReader);
 
 vtkCxxSetObjectMacro(vtkImageReader,Transform,vtkTransform);
@@ -342,7 +342,7 @@ void vtkImageReaderUpdate2(vtkImageReader *self, vtkImageData *data,
         }
 */
 #if defined(VTK_USE_ANSI_STDLIB ) && ((defined(__sgi) && !defined(__GNUC__)) \
-    || (__BORLANDC__==0x0560))
+    || (__BORLANDC__>=0x0560))
       // this check is required for SGI's when vtk is build with VTK_USE_ANSI_STDLIB
       // seems that after a read that just reaches EOF, tellg reports a -1.
       // clear() does not work, so we have to reopen the file.
