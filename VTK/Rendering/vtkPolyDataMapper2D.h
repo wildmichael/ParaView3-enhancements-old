@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataMapper2D.h,v $
   Language:  C++
-  Date:      $Date: 1999-03-02 16:49:08 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-06-24 00:59:13 $
+  Version:   $Revision: 1.11 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -61,7 +61,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkViewport.h"
 #include "vtkActor2D.h"
 #include "vtkProperty2D.h"
-#include "vtkLookupTable.h"
+#include "vtkScalarsToColors.h"
 #include "vtkPolyData.h"
 
 class VTK_EXPORT vtkPolyDataMapper2D : public vtkMapper2D
@@ -80,8 +80,8 @@ public:
 
   // Description:
   // Specify a lookup table for the mapper to use.
-  void SetLookupTable(vtkLookupTable *lut);
-  vtkLookupTable *GetLookupTable();
+  void SetLookupTable(vtkScalarsToColors *lut);
+  vtkScalarsToColors *GetLookupTable();
 
   // Description:
   // Create default lookup table. Generally used to create one when none
@@ -138,14 +138,10 @@ public:
   vtkSetObjectMacro(TransformCoordinate, vtkCoordinate);
   vtkGetObjectMacro(TransformCoordinate, vtkCoordinate);
 
-  // Description:
-  // Obsolete methods for legacy compatability. Do not use.
-  void SetLookupTable(vtkLookupTable& lut) {this->SetLookupTable(&lut);};
-
 protected:
   vtkPolyData* Input;
   vtkScalars *Colors;
-  vtkLookupTable *LookupTable;
+  vtkScalarsToColors *LookupTable;
   int ScalarVisibility;
   vtkTimeStamp BuildTime;
   float ScalarRange[2];

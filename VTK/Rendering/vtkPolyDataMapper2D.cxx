@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-03-18 17:11:36 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1999-06-24 00:59:13 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -49,6 +49,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #endif
   #include "vtkXPolyDataMapper2D.h"
 #endif
+
+#include "vtkLookupTable.h"
 
 vtkPolyDataMapper2D::vtkPolyDataMapper2D()
 {
@@ -160,7 +162,7 @@ vtkScalars *vtkPolyDataMapper2D::GetColors()
       }
 
     // Setup mapper/scalar object for color generation
-    this->LookupTable->SetTableRange(this->ScalarRange);
+    this->LookupTable->SetRange(this->ScalarRange[0], this->ScalarRange[1]);
     if (this->Colors)
       {
       this->Colors->Delete();
@@ -183,7 +185,7 @@ vtkScalars *vtkPolyDataMapper2D::GetColors()
 }
 
 // Specify a lookup table for the mapper to use.
-void vtkPolyDataMapper2D::SetLookupTable(vtkLookupTable *lut)
+void vtkPolyDataMapper2D::SetLookupTable(vtkScalarsToColors *lut)
 {
   if ( this->LookupTable != lut ) 
     {
@@ -200,7 +202,7 @@ void vtkPolyDataMapper2D::SetLookupTable(vtkLookupTable *lut)
     }
 }
 
-vtkLookupTable *vtkPolyDataMapper2D::GetLookupTable()
+vtkScalarsToColors *vtkPolyDataMapper2D::GetLookupTable()
 {
   if ( this->LookupTable == NULL )
     {

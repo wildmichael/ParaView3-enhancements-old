@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMapToRGBA.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-05-25 17:59:08 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1999-06-24 00:59:12 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -88,7 +88,7 @@ static void vtkImageMapToRGBAExecute(vtkImageMapToRGBA *self,
   int scalarSize = inData->GetScalarSize();
   int numberOfComponents;
   int rowLength;
-  vtkLookupTable *lookupTable = self->GetLookupTable();
+  vtkScalarsToColors *lookupTable = self->GetLookupTable();
   unsigned char *outPtr1;
   void *inPtr1;
 
@@ -121,7 +121,7 @@ static void vtkImageMapToRGBAExecute(vtkImageMapToRGBA *self,
 	  }
 	count++;
 	}
-      lookupTable->MapScalarsThroughTable(inPtr1,(unsigned char *)outPtr1,
+      lookupTable->MapScalarsThroughTable2(inPtr1,(unsigned char *)outPtr1,
 					  dataType,extX,numberOfComponents);
       outPtr1 += outIncY + extX*4;
       inPtr1 = (void *) ((char *) inPtr1 + inIncY + rowLength);
