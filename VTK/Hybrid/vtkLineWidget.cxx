@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLineWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-01 13:51:35 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2002-08-08 14:42:56 $
+  Version:   $Revision: 1.23 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -33,7 +33,7 @@
 #include "vtkSphereSource.h"
 #include "vtkRenderWindow.h"
 
-vtkCxxRevisionMacro(vtkLineWidget, "$Revision: 1.22 $");
+vtkCxxRevisionMacro(vtkLineWidget, "$Revision: 1.23 $");
 vtkStandardNewMacro(vtkLineWidget);
 
 vtkLineWidget::vtkLineWidget()
@@ -106,10 +106,6 @@ vtkLineWidget::vtkLineWidget()
 
 vtkLineWidget::~vtkLineWidget()
 {
-  if ( this->Enabled )
-    {
-    this->SetEnabled(0);
-    }
   this->LineActor->Delete();
   this->LineMapper->Delete();
   this->LineSource->Delete();
