@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-06-09 12:48:05 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1997-06-13 20:12:43 $
+  Version:   $Revision: 1.28 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -467,7 +467,6 @@ int vtkImageData::AllocateScalars()
     case VTK_VOID:
       vtkErrorMacro(<< "AllocateScalars: ScalarType Unknown");
       return 0;
-      break;
     case VTK_FLOAT:
       scalars = vtkFloatScalars::New();
       this->ScalarsAllocated = scalars->Allocate(this->Volume);

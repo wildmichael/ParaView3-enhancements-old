@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSource.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-09 12:48:14 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1997-06-13 20:12:50 $
+  Version:   $Revision: 1.16 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -71,7 +71,7 @@ public:
   // Description:
   // This method should the allocate and generate the Region's data, or
   // if the data could not be generated set the split factor.
-  virtual void UpdateRegion(vtkImageRegion *region) = 0; 
+  virtual void Update(vtkImageRegion *region) = 0; 
   virtual vtkImageSource *GetOutput();
   // Description:
   // This method fills the regions extent with the largest region that can
@@ -80,19 +80,14 @@ public:
   virtual unsigned long GetPipelineMTime();
   // Description:
   // This method returns the data type of the region that will be returned by
-  // the UpdateRegion method.  This method is used to automatically set
-  // the ScalarTypes of elements in the pipline.  When this source is set as an 
+  // the Update method.  This method is used to automatically set
+  // the ScalarTypes of elements in the pipline.  
+  // When this source is set as an 
   // input, the consumer may call this function and use the returned ScalarType
   // as a default.
   virtual int GetScalarType() = 0;
 
-  // Description:  
-  // This method is used translparently by the "SetInput(vtkImageSource *)"
-  // method to connect the image pipeline to the visualization pipeline.
-  vtkImageToStructuredPoints *GetImageToStructuredPoints();
-  
 protected:
-  vtkImageToStructuredPoints *ImageToStructuredPoints;
 };
 
 

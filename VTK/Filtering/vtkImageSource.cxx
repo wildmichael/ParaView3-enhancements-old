@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-06-09 12:48:12 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1997-06-13 20:12:49 $
+  Version:   $Revision: 1.15 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,23 +38,19 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
+#include "vtkImageRegion.h"
 #include "vtkImageSource.h"
-#include "vtkImageToStructuredPoints.h"
+
 
 //----------------------------------------------------------------------------
 vtkImageSource::vtkImageSource()
 {
-  this->ImageToStructuredPoints = NULL;
 }
 
 
 //----------------------------------------------------------------------------
 vtkImageSource::~vtkImageSource()
 {
-  if (this->ImageToStructuredPoints)
-    {
-    this->ImageToStructuredPoints->Delete();
-    }
 }
 
 
@@ -101,25 +97,12 @@ vtkImageRegion *vtkImageSource::UpdateRegion()
   region = vtkImageRegion::New();
   this->UpdateImageInformation(region);
   region->SetExtent(region->GetImageExtent());
-  this->UpdateRegion(region);
+  this->Update(region);
   
   return region;
 }
 
 
-
-
-//----------------------------------------------------------------------------
-vtkImageToStructuredPoints *vtkImageSource::GetImageToStructuredPoints()
-{
-  if ( ! this->ImageToStructuredPoints)
-    {
-    this->ImageToStructuredPoints = vtkImageToStructuredPoints::New();
-    this->ImageToStructuredPoints->SetScalarInput(this);
-    }
-  
-  return this->ImageToStructuredPoints;
-}
 
 
 
