@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-03-23 13:55:41 $
-  Version:   $Revision: 1.107 $
+  Date:      $Date: 1999-04-01 20:18:52 $
+  Version:   $Revision: 1.108 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -875,7 +875,7 @@ float vtkRenderer::GetZ (int x, int y)
   if (zPtr)
     {
     z = *zPtr;
-    delete zPtr;
+    delete [] zPtr;
     }
   else
     {
