@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOrderedTriangulator.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-08 12:21:43 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2001-10-10 19:38:00 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -624,7 +624,7 @@ void vtkOTTetra::GetFacePoints(int i, vtkOTFace *face)
 //------------------------------------------------------------------------
  
 extern "C" {
-static int SortOnPointIds(const void *val1, const void *val2)
+int vtkSortOnPointIds(const void *val1, const void *val2)
 {
   if (((vtkOTPoint *)val1)->Id < ((vtkOTPoint *)val2)->Id)
     {
