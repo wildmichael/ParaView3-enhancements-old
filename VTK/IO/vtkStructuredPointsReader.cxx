@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:54 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 2001-01-22 19:57:39 $
+  Version:   $Revision: 1.44 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -95,8 +95,11 @@ void vtkStructuredPointsReader::ExecuteInformation()
 {
   vtkStructuredPoints *output = this->GetOutput();
   vtkScalars *scalars;
-
-  output->UpdateData();
+  
+  // Now here is a problem.
+  // Update Extent needs to be set incase the RequestExactExtent flag is on.
+  // Bypass to superclasses update.
+  output->vtkDataObject::UpdateData();
   scalars = output->GetPointData()->GetScalars();
 
   if (scalars)
