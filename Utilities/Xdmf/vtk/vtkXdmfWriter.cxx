@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXdmfWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2004-01-28 16:44:59 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2004-01-28 16:48:49 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen  
@@ -107,7 +107,7 @@ struct vtkXdmfWriterInternal
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro(vtkXdmfWriter);
-vtkCxxRevisionMacro(vtkXdmfWriter, "$Revision: 1.12 $");
+vtkCxxRevisionMacro(vtkXdmfWriter, "$Revision: 1.13 $");
 
 //----------------------------------------------------------------------------
 vtkXdmfWriter::vtkXdmfWriter()
@@ -925,6 +925,11 @@ void vtkXdmfWriter::Write()
 
     vtkXdmfWriterInternal::MapOfCellTypes cellTypes;
     vtkXdmfWriterInternal::DetermineCellTypes(vtkPointSet::SafeDownCast(ds), cellTypes);
+    if ( cellTypes.size() > 1 )
+      {
+      vtkErrorMacro("Xdmf Writer only supports unstructured data of single cell type");
+      continue;
+      }
     ofs << "<Domain";
     if ( this->DomainName )
       {
