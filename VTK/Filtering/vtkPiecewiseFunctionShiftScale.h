@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPiecewiseFunctionShiftScale.h,v $
   Language:  C++
-  Date:      $Date: 2002-02-15 16:19:50 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-02-22 15:08:47 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -32,9 +32,6 @@ public:
   static vtkPiecewiseFunctionShiftScale *New();
   vtkTypeRevisionMacro(vtkPiecewiseFunctionShiftScale, vtkPiecewiseFunctionToPiecewiseFunctionFilter);
   void PrintSelf(ostream& os, vtkIndent indent);
-  
-  vtkSetObjectMacro(Input, vtkPiecewiseFunction);
-  vtkGetObjectMacro(Input, vtkPiecewiseFunction);
   
   vtkSetMacro(PositionShift, float);
   vtkSetMacro(PositionScale, float);
