@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeTextureMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-29 14:51:35 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2003-04-28 19:45:43 $
+  Version:   $Revision: 1.26 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 #include "vtkVolume.h"
 #include "vtkVolumeProperty.h"
 
-vtkCxxRevisionMacro(vtkVolumeTextureMapper, "$Revision: 1.25 $");
+vtkCxxRevisionMacro(vtkVolumeTextureMapper, "$Revision: 1.26 $");
 
 vtkVolumeTextureMapper::vtkVolumeTextureMapper()
 {
@@ -201,11 +201,13 @@ void vtkVolumeTextureMapper::InitializeRender( vtkRenderer *ren,
     this->GradientMagnitudes = NULL;
     }
 
-  this->GetInput()->GetOrigin( this->DataOrigin );
+  float *bds = this->GetInput()->GetBounds();
+  this->DataOrigin[0] = bds[0];
+  this->DataOrigin[1] = bds[2];
+  this->DataOrigin[2] = bds[4];
   this->GetInput()->GetSpacing( this->DataSpacing );
   
   this->ConvertCroppingRegionPlanesToVoxels();
-  
 }
 
 float vtkVolumeTextureMapper::GetGradientMagnitudeScale()
