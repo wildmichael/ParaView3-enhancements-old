@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCollectPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-07-31 14:57:59 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-08-13 14:56:35 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkMultiProcessController.h"
 
-vtkCxxRevisionMacro(vtkCollectPolyData, "$Revision: 1.8 $");
+vtkCxxRevisionMacro(vtkCollectPolyData, "$Revision: 1.9 $");
 vtkStandardNewMacro(vtkCollectPolyData);
 
 vtkCxxSetObjectMacro(vtkCollectPolyData,Controller, vtkMultiProcessController);
@@ -167,7 +167,6 @@ void vtkCollectPolyData::Execute()
     output->GetCellData()->PassData(input->GetCellData());
     append->Delete();
     append = NULL;
-    return;
     }
   else
     {
