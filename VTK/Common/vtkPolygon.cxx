@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolygon.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-15 11:08:40 $
-  Version:   $Revision: 1.63 $
+  Date:      $Date: 1999-01-07 14:12:47 $
+  Version:   $Revision: 1.64 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -983,9 +983,9 @@ void vtkPolygon::ComputeWeights(float x[3], float *weights)
 {
   int i;
   int numPts=this->Points->GetNumberOfPoints();
-  float maxDist2, sum, *pt;
+  float sum, *pt;
 
-  for (sum=0.0, maxDist2=0.0, i=0; i<numPts; i++)
+  for (sum=0.0, i=0; i<numPts; i++)
     {
     pt = this->Points->GetPoint(i);
     weights[i] = vtkMath::Distance2BetweenPoints(x,pt);
