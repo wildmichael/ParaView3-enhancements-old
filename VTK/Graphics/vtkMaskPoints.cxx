@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMaskPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:53:39 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1996-10-17 12:53:36 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -112,8 +112,8 @@ void vtkMaskPoints::Execute()
   else // a.r. mode
     {
     for ( ptId = this->Offset; 
-	  (ptId < numPts)&&(id < this->MaximumNumberOfPoints);  
-	  ptId += this->OnRatio )
+    (ptId < numPts) && (id < (this->MaximumNumberOfPoints-1));
+    ptId += this->OnRatio )
       {
       x =  this->Input->GetPoint(ptId);
       id = newPts->InsertNextPoint(x);
