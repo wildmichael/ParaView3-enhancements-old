@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWrapJava.c,v $
   Language:  C++
-  Date:      $Date: 1999-06-16 20:00:20 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1999-06-17 12:43:17 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -563,7 +563,7 @@ void vtkParseOutput(FILE *fp, FileInfo *data)
   for (i = 0; i < data->NumberOfSuperClasses; i++)
     {
     fprintf(fp,"  if ((res= %s_Typecast(me,dType)) != NULL)",
-	    data->SuperClasses[i],data->SuperClasses[i]);
+	    data->SuperClasses[i]);
     fprintf(fp," { return res; }\n");
     }
   fprintf(fp,"  return NULL;\n");
