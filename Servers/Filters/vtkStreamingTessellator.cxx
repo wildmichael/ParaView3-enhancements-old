@@ -29,7 +29,7 @@
 #  define VTK_TESSELLATOR_INCR_SUBCASE_COUNT(cs,sc)
 #endif // PARAVIEW_DEBUG_TESSELLATOR
 
-vtkCxxRevisionMacro(vtkStreamingTessellator,"$Revision: 1.4 $");
+vtkCxxRevisionMacro(vtkStreamingTessellator,"$Revision: 1.5 $");
 vtkStandardNewMacro(vtkStreamingTessellator);
 
 void vtkStreamingTessellator::PrintSelf( ostream& os, vtkIndent indent )
@@ -58,6 +58,7 @@ vtkStreamingTessellator::vtkStreamingTessellator()
   this->Algorithm = 0;
   this->Callback1 = 0;
   this->Callback2 = 0;
+  this->Callback3 = 0;
   this->MaximumNumberOfSubdivisions = 8;
   for ( int i=0; i<4; ++i )
     {
