@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: MPIGroups.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-12 19:58:46 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2002-05-17 14:10:22 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,6 +27,7 @@
 #include "vtkDebugLeaks.h"
 #include "vtkParallelFactory.h"
 #include "vtkRegressionTestImage.h"
+#include "vtkMPIGroup.h"
 
 static const int NUM_PROC_PER_GROUP = 2;
 
