@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergePoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:53:44 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1996-09-18 11:00:28 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -81,9 +81,11 @@ int *vtkMergePoints::MergePoints()
       p = this->DataSet->GetPoint(i);
       index[i] = newPtId;
 
-      for (j=0; j<3; j++) 
+      for (j=0; j<3; j++)
+	{
         ijk[j] = (int) ((float)((p[j] - this->Bounds[2*j])*0.999 / 
-              (this->Bounds[2*j+1] - this->Bounds[2*j])) * this->Divisions[j]);
+              (this->Bounds[2*j+1] - this->Bounds[2*j])) * (this->Divisions[j] - 1));
+	}
 
       cno = ijk[0] + ijk[1]*this->Divisions[0] + 
             ijk[2]*this->Divisions[0]*this->Divisions[1];
@@ -124,8 +126,9 @@ int vtkMergePoints::IsInsertedPoint(float x[3])
   for (i=0; i<3; i++) 
     {
     ijk[i] = (int) ((float) ((x[i] - this->Bounds[2*i])*0.999 / 
-             (this->Bounds[2*i+1] - this->Bounds[2*i])) * this->Divisions[i]);
+             (this->Bounds[2*i+1] - this->Bounds[2*i])) * (this->Divisions[i] - 1));
     }
+
   idx = ijk[0] + ijk[1]*this->Divisions[0] + 
         ijk[2]*this->Divisions[0]*this->Divisions[1];
 
