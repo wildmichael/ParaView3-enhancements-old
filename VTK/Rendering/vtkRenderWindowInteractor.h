@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 1998-05-06 19:25:55 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 1998-07-01 21:43:00 $
+  Version:   $Revision: 1.38 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -93,8 +93,7 @@ public:
   // Set/Get the desired update rate. This is used by vtkLODActor's to tell 
   // them how quickly they need to render.  This update is in effect only
   // when the camera is being rotated, or zoomed.  When the interactor is
-  // still, the StillUpdateRate is used instead. A value of zero indicates
-  // that the update rate is unimportant.
+  // still, the StillUpdateRate is used instead. 
   vtkSetClampMacro(DesiredUpdateRate,float,0.0001,VTK_LARGE_FLOAT);
   vtkGetMacro(DesiredUpdateRate,float);
 
