@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWindowToImageFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-03 19:45:40 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-01-04 13:36:11 $
+  Version:   $Revision: 1.3 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -81,7 +81,7 @@ vtkWindowToImageFilter::~vtkWindowToImageFilter()
 }
 
 //----------------------------------------------------------------------------
-void vtkWindowToImageFilter::SetInput(vtkRenderWindow *input)
+void vtkWindowToImageFilter::SetInput(vtkWindow *input)
 {
   if (input != this->Input)
     {
@@ -170,7 +170,14 @@ void vtkWindowToImageFilter::ExecuteData(vtkDataObject *vtkNotUsed(data))
     
   float *viewAngles;
   double *windowCenters;
-  vtkRendererCollection *rc = this->Input->GetRenderers();
+  vtkRenderWindow *renWin = vtkRenderWindow::SafeDownCast(this->Input);
+  if (!renWin)
+    {
+    vtkWarningMacro("The window passed to window to image should be a RenderWIndow or one of its subclasses");
+    return;
+    }
+  
+  vtkRendererCollection *rc = renWin->GetRenderers();
   vtkRenderer *aren;
   vtkCamera *cam;
   int numRenderers = rc->GetNumberOfItems();
