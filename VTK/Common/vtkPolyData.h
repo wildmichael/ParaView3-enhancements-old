@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyData.h,v $
   Language:  C++
-  Date:      $Date: 2001-09-14 18:24:51 $
-  Version:   $Revision: 1.113 $
+  Date:      $Date: 2001-09-20 13:12:15 $
+  Version:   $Revision: 1.114 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -191,6 +191,18 @@ public:
   // PolyData::InsertNextCell(). (Or, provide vertex, line, polygon, and
   // triangle strip cell arrays.)
   void Allocate(vtkIdType numCells=1000, int extSize=1000);
+
+  // Description:
+  // Similar to the method above, this method allocates initial storage for
+  // vertex, line, polygon, and triangle strip arrays. It does this more
+  // intelligently, examining the supplied inPolyData to determine whether to
+  // allocate the verts, lines, polys, and strips arrays.  (These arrays are
+  // allocated only if there is data in the corresponding arrays in the
+  // inPolyData.)  Caution: if the inPolyData has no verts, and after
+  // allocating with this method an PolyData::InsertNextCell() is invoked
+  // where a vertex is inserted, bad things will happen.
+  void Allocate(vtkPolyData *inPolyData, vtkIdType numCells=1000, 
+                int extSize=1000);
 
   // Description:
   // Insert a cell of type vtkVERTEX, vtkPOLY_VERTEX, vtkLINE, vtkPOLY_LINE,

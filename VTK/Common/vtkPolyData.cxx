@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-14 18:24:51 $
-  Version:   $Revision: 1.140 $
+  Date:      $Date: 2001-09-20 13:12:15 $
+  Version:   $Revision: 1.141 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1156,6 +1156,60 @@ void vtkPolyData::Allocate(vtkIdType numCells, int extSize)
   cells->Delete();
 }
 
+void vtkPolyData::Allocate(vtkPolyData *inPolyData, vtkIdType numCells, 
+                           int extSize)
+{
+  vtkCellArray *cells;
+  int numVerts=inPolyData->GetVerts()->GetNumberOfCells();
+  int numLines=inPolyData->GetLines()->GetNumberOfCells();
+  int numPolys=inPolyData->GetPolys()->GetNumberOfCells();
+  int numStrips=inPolyData->GetStrips()->GetNumberOfCells();
+  int total=numVerts+numLines+numPolys+numStrips;
+
+  if ( total <= 0 )
+    {
+    return;
+    }
+  
+  if (!this->Cells)
+    {
+    this->Cells = vtkCellTypes::New();
+    this->Cells->Allocate(numCells,3*numCells);
+    // Consistent Register/UnRegister. (ShallowCopy).
+    this->Cells->Register(this);
+    this->Cells->Delete();
+    }
+
+  if ( numVerts > 0 )
+    {
+    cells = vtkCellArray::New();
+    cells->Allocate((int)((float)numVerts/total*numCells),extSize);
+    this->SetVerts(cells);
+    cells->Delete();
+    }
+  if ( numLines > 0 )
+    {
+    cells = vtkCellArray::New();
+    cells->Allocate((int)((float)numLines/total*numCells),extSize);
+    this->SetLines(cells);
+    cells->Delete();
+    }
+  if ( numPolys > 0 )
+    {
+    cells = vtkCellArray::New();
+    cells->Allocate((int)((float)numPolys/total*numCells),extSize);
+    this->SetPolys(cells);
+    cells->Delete();
+    }
+  if ( numStrips > 0 )
+    {
+    cells = vtkCellArray::New();
+    cells->Allocate((int)((float)numStrips/total*numCells),extSize);
+    this->SetStrips(cells);
+    cells->Delete();
+    }
+}
+
 //----------------------------------------------------------------------------
 // Insert a cell of type vtkVERTEX, vtkPOLY_VERTEX, vtkLINE, vtkPOLY_LINE,
 // vtkTRIANGLE, vtkQUAD, vtkPOLYGON, or vtkTRIANGLE_STRIP.  Make sure that
@@ -1756,9 +1810,3 @@ void vtkPolyData::PrintSelf(ostream& os, vtkIndent indent)
      << this->UpdateExtent[3] << ", " << this->UpdateExtent[4] << ", "
      << this->UpdateExtent[5] << endl;
 }
-
-
-
-
-
-
