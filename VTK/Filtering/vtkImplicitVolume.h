@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitVolume.h,v $
   Language:  C++
-  Date:      $Date: 2001-02-12 18:07:08 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2001-02-13 19:10:36 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -54,6 +54,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // the value of the ivar OutValue, and the gradient value OutGradient.
 
 // .SECTION Caveats
+// The input volume data is only updated when GetMTime() is called.
 // Works for 3D structured points datasets, 0D-2D datasets won't work properly.
 
 // .SECTION See Also
@@ -78,7 +79,9 @@ public:
   static vtkImplicitVolume *New();
 
   // Description:
-  // Returns the mtime also considering the volume.
+  // Returns the mtime also considering the volume.  This also calls Update
+  // on the volume, and it therefore must be called before the function is
+  // evaluated.
   unsigned long GetMTime();
 
   // Description
