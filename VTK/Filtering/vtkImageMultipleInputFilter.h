@@ -1,10 +1,10 @@
 /*=========================================================================
 
   Program:   Visualization Toolkit
-  Module:    $RCSfile: vtkImageThreshold.h,v $
+  Module:    $RCSfile: vtkImageMultipleInputFilter.h,v $
   Language:  C++
-  Date:      $Date: 1996-10-29 18:20:27 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1996-10-29 18:19:52 $
+  Version:   $Revision: 1.1 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,68 +38,76 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-// .NAME vtkImageThreshold -  Flexible threshold
+// .NAME vtkImageMultipleInputFilter - Generic filter that has N inputs.
 // .SECTION Description
-// vtkImageThreshold Can do binary or continous thresholding
-// for lower, upper or a range of data.
-//  The output data type may be different than the output, but defaults
-// to the same type.
+// vtkImageMultipleInputFilter is a super class for filters that 
+// any number of inputs.
 
 
-#ifndef __vtkImageThreshold_h
-#define __vtkImageThreshold_h
 
 
-#include "vtkImageFilter.h"
+#ifndef __vtkImageMultipleInputFilter_h
+#define __vtkImageMultipleInputFilter_h
 
-class vtkImageThreshold : public vtkImageFilter
+
+#include "vtkImageCachedSource.h"
+#include "vtkImageRegion.h"
+
+class vtkImageMultipleInputFilter : public vtkImageCachedSource
 {
 public:
-  vtkImageThreshold();
-  char *GetClassName() {return "vtkImageThreshold";};
+  vtkImageMultipleInputFilter();
+  char *GetClassName() {return "vtkImageMultipleInputFilter";};
+  void PrintSelf(ostream& os, vtkIndent indent);
 
-  void ThresholdByUpper(float thresh);
-  void ThresholdByLower(float thresh);
-  void ThresholdBetween(float lower, float upper);
-
-  // Description:
-  // Determines whether to replace the pixel in range with InValue
-  vtkSetMacro(ReplaceIn, int);
-  vtkGetMacro(ReplaceIn, int);
-  vtkBooleanMacro(ReplaceIn, int);
-
-  // Description:
-  // Replace the in range pixels with this value.
-  void SetInValue(float val);
-  vtkGetMacro(InValue, float);
+  virtual void SetInput(int num, vtkImageSource *input);
+  void UpdatePointData(int dim, vtkImageRegion *outRegion);
+  void UpdateImageInformation(vtkImageRegion *outRegion);
+  unsigned long int GetPipelineMTime();
+  
+  vtkSetMacro(UseExecuteMethod,int);
+  vtkGetMacro(UseExecuteMethod,int);
+  vtkBooleanMacro(UseExecuteMethod,int);
   
   // Description:
-  // Determines whether to replace the pixel out of range with OutValue
-  vtkSetMacro(ReplaceOut, int);
-  vtkGetMacro(ReplaceOut, int);
-  vtkBooleanMacro(ReplaceOut, int);
+  // Get one input to this filter.
+  vtkImageSource *GetInput(int num) {return this->Inputs[num];};
 
   // Description:
-  // Replace the in range pixels with this value.
-  void SetOutValue(float val);
-  vtkGetMacro(OutValue, float);
+  // Set/Get input memory limit.  Make this smaller to stream.
+  vtkSetMacro(InputMemoryLimit,long);
+  vtkGetMacro(InputMemoryLimit,long);
+
+  // Description:
+  // Get the number of inputs to this filter
+  vtkGetMacro(NumberOfInputs, int);
   
-  // for the templated function (too many to make friends)
-  vtkGetMacro(UpperThreshold, float);
-  vtkGetMacro(LowerThreshold, float);
   
 protected:
-  float UpperThreshold;
-  float LowerThreshold;
-  int ReplaceIn;
-  float InValue;
-  int ReplaceOut;
-  float OutValue;
+  int NumberOfInputs;
+  vtkImageSource **Inputs;     // An Array of the inputs to the filter
+  vtkImageRegion **Regions;   // We need an array for inputs.
+  int UseExecuteMethod;        // Use UpdatePointData or Execute method?
 
-  void Execute(vtkImageRegion *inRegion, vtkImageRegion *outRegion);
+  long InputMemoryLimit;
+  
+  // Should be set in the constructor.
+  void SetNumberOfInputs(int num);
+  
+  virtual void ComputeOutputImageInformation(vtkImageRegion **inRegions,
+					     vtkImageRegion *outRegion);
+  virtual void ComputeRequiredInputRegionExtent(vtkImageRegion *outRegion,
+						vtkImageRegion **inRegions);
+  virtual void Execute(int dim, vtkImageRegion **inRegions,
+		       vtkImageRegion *outRegion);
+  virtual void Execute(vtkImageRegion **inRegions, vtkImageRegion *outRegion);
 };
 
 #endif
+
+
+
+
 
 
 

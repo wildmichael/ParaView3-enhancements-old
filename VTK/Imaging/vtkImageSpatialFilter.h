@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSpatialFilter.h,v $
   Language:  C++
-  Date:      $Date: 1996-10-16 12:28:10 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1996-10-29 18:20:17 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -63,6 +63,12 @@ public:
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
+  // Get the stride of the filter.  Strides are like shrink factors.
+  void GetStrides(int num, int *size);
+  vtkImageGetMacro(Strides,int);
+  int *GetStrides() {return this->Strides;};
+  
+  // Description:
   // Get the Spatial kernel size and middle.
   void GetKernelSize(int num, int *size);
   vtkImageGetMacro(KernelSize,int);
@@ -85,6 +91,7 @@ public:
   // users shouldn't access these directly but templated functions need to
   int   KernelSize[VTK_IMAGE_DIMENSIONS];
   int   KernelMiddle[VTK_IMAGE_DIMENSIONS];      // Index of kernel origin
+  int   Strides[VTK_IMAGE_DIMENSIONS];      // Shrink factor
   int   HandleBoundaries;     // Shrink kernel at boundaries?
   int   UseExecuteCenter;     // Will the subclass have special execute method.
 
