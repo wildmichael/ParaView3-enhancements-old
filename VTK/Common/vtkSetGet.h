@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSetGet.h,v $
   Language:  C++
-  Date:      $Date: 1995-09-12 13:48:24 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1995-11-09 14:56:08 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -90,8 +90,7 @@ type Get##name () { \
 void Set##name (char* _arg) \
   { \
   if (Debug)   cerr << "Debug: In " __FILE__ << ", line " << __LINE__ << "\n" << this->GetClassName() << " (" << this << "): setting " << #name " to " << _arg << "\n\n"; \
-  if ( name && _arg ) \
-    if ( !strcmp(name,_arg) ) return; \
+  if ( name && _arg && (!strcmp(name,_arg))) return; \
   if (name) delete [] name; \
   if (_arg) \
     { \
