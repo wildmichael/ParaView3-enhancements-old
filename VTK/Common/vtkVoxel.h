@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkVoxel.h,v $
   Language:  C++
-  Date:      $Date: 1994-09-14 20:17:23 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1994-09-25 09:28:28 $
+  Version:   $Revision: 1.10 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -13,7 +13,7 @@ without the express written consent of the authors.
 Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994 
 
 =========================================================================*/
-// .NAME vlBrick - a cell that represents a 3D orthogonal parallelpiped
+// .NAME vlBrick - a cell that represents a 3D orthogonal parallelepiped
 // .SECTION Description
 // vlBrick is a concrete implementation of vlCell to represent a 3D
 // orthogonal parallelpiped. Unlike vlHexahedeon, vlBrick has corners
