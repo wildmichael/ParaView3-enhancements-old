@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVRMLImporter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-04 20:13:13 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2001-05-01 22:07:22 $
+  Version:   $Revision: 1.20 $
   Thanks:    Tom Citriniti who implemented and contributed this class
 
 
@@ -414,7 +414,9 @@ VrmlNodeType::has(const VectorType<NameTypeRec*> &recs, const char *nodeName) co
 
 #define YYDEBUG 1
 
+#ifndef DARWIN
 #include <malloc.h>
+#endif
 
 #ifdef USE_STD_NAMESPACE
 using namespace std;
