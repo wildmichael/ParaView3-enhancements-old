@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyLine.h,v $
   Language:  C++
-  Date:      $Date: 2002-12-26 18:24:21 $
-  Version:   $Revision: 1.65 $
+  Date:      $Date: 2003-05-30 15:11:43 $
+  Version:   $Revision: 1.66 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -47,6 +47,8 @@ public:
   // that control the rotation around the line. The normals try to stay pointing
   // in the same direction as much as possible (i.e., minimal rotation).
   int GenerateSlidingNormals(vtkPoints *, vtkCellArray *, vtkDataArray *);
+  int GenerateSlidingNormals(vtkPoints *, vtkCellArray *, vtkDataArray *, 
+                             float* firstNormal);
 
   // Description:
   // See the vtkCell API for descriptions of these methods.
