@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObject.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-08 01:08:03 $
-  Version:   $Revision: 1.84 $
+  Date:      $Date: 2002-06-11 20:45:57 $
+  Version:   $Revision: 1.85 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkSource.h"
 
-vtkCxxRevisionMacro(vtkDataObject, "$Revision: 1.84 $");
+vtkCxxRevisionMacro(vtkDataObject, "$Revision: 1.85 $");
 vtkStandardNewMacro(vtkDataObject);
 
 vtkCxxSetObjectMacro(vtkDataObject,FieldData,vtkFieldData);
@@ -732,6 +732,7 @@ void vtkDataObject::InternalDataObjectCopy(vtkDataObject *src)
   this->UpdateGhostLevel = src->UpdateGhostLevel;
   this->ReleaseDataFlag = src->ReleaseDataFlag;
   this->PipelineMTime = src->PipelineMTime;
+  this->UpdateTime = src->UpdateTime;
   this->Locality = src->Locality;
 }
 
