@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleSwitch.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-01 14:37:44 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2000-08-10 13:48:34 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -116,6 +116,8 @@ void vtkInteractorStyleSwitch::OnChar(int ctrl, int shift,
 //----------------------------------------------------------------------------
 void vtkInteractorStyleSwitch::OnMouseMove(int ctrl, int shift, int x, int y) 
 {
+  // Call the parent so the LastPos is set
+  vtkInteractorStyle::OnMouseMove(ctrl, shift, x, y);
   if (this->JoystickOrTrackball == VTKIS_JOYSTICK &&
       this->CameraOrActor == VTKIS_CAMERA)
     {
