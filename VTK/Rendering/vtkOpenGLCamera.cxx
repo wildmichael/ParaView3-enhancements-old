@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLCamera.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-03-11 17:05:21 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1999-03-11 20:15:07 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -65,6 +65,8 @@ void vtkOpenGLCamera::Render(vtkRenderer *ren)
   lowerLeft[1] = (int)(vport[1]*size[1] + 0.5);
   upperRight[0] = (int)(vport[2]*size[0] + 0.5);
   upperRight[1] = (int)(vport[3]*size[1] + 0.5);
+  upperRight[0]--;
+  upperRight[1]--;
 
   // if were on a stereo renderer draw to special parts of screen
   if (this->Stereo)
