@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProbeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-02 12:54:39 $
-  Version:   $Revision: 1.60 $
+  Date:      $Date: 2001-05-18 12:51:57 $
+  Version:   $Revision: 1.61 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -166,6 +166,16 @@ void vtkProbeFilter::Execute()
       {
       outPD->NullPoint(ptId);
       }
+    }
+  // BUG FIX: JB.
+  // Output gets setup from input, but when output is imagedata, scalartype
+  // depends on source scalartype not input scalartype
+  if (output->IsA("vtkImageData"))
+    {
+    vtkImageData *out = (vtkImageData*)output;
+    vtkScalars *s = outPD->GetScalars();
+    out->SetScalarType(s->GetDataType());
+    out->SetNumberOfScalarComponents(s->GetNumberOfComponents());
     }
   if (mcs>256)
     {
