@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLargeInteger.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-26 15:12:30 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2001-01-29 15:47:07 $
+  Version:   $Revision: 1.8 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -539,6 +539,11 @@ vtkLargeInteger& vtkLargeInteger::operator>>=(int n)
     this->Number[i] = 0;
     }
 
+  start = start - 1;
+  if (start < 0)
+    {
+    start = 0;
+    }
   this->Sig = start;
   if (this->IsZero())
     {
@@ -574,8 +579,8 @@ vtkLargeInteger vtkLargeInteger::operator--(int)
 vtkLargeInteger& vtkLargeInteger::operator*=(const vtkLargeInteger& n)
 {
   vtkLargeInteger c;
-  int m = this->Sig + n.Sig + 1;
-  this->Expand(m);
+  int m2 = this->Sig + n.Sig + 1;
+  this->Expand(m2);
   if (n.IsSmaller(*this)) // loop through the smaller number
     {
     for (unsigned int i = 0; i <= n.Sig; i++)
