@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXImageWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:48:18 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1998-10-06 14:44:33 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -809,6 +809,7 @@ void vtkXImageWindow::SetWindowId(void *arg)
 
 void vtkXImageWindow::SetWindowId(Window arg)
 {
+  arg = arg;
   // Here to allow me to compile
 }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSpatialFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:48:14 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 1998-10-06 14:44:32 $
+  Version:   $Revision: 1.30 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -92,7 +92,6 @@ void vtkImageSpatialFilter::ExecuteImageInformation()
 {
   int extent[6];
   float spacing[3];
-  int idx;
   
   this->Input->GetWholeExtent(extent);
   this->Input->GetSpacing(spacing);

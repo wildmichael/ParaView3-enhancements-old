@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMarchingCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:48:24 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1998-10-06 14:44:59 $
+  Version:   $Revision: 1.19 $
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -227,6 +227,8 @@ void vtkImageMarchingCubes::Execute()
   // Loop through the chunks running marching cubes on each one
   zMin = extent[4];
   zMax = extent[5];
+  // to avoid warnings
+  chunkMax = zMin + this->NumberOfSlicesPerChunk;
   for(chunkMin = zMin; chunkMin < zMax; chunkMin = chunkMax)
     {
     // Get the chunk from the input

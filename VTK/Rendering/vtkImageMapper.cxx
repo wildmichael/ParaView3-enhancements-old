@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-29 17:42:34 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1998-10-06 14:44:32 $
+  Version:   $Revision: 1.15 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -76,7 +76,7 @@ vtkImageMapper::~vtkImageMapper()
   if (this->Input)
     {
     this->Input->UnRegister(this);
-    this->Input == NULL;
+    this->Input = NULL;
     }
 }
 
