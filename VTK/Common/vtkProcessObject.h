@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProcessObject.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:16 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2001-03-05 01:50:40 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -130,9 +130,6 @@ public:
   // Description:
   // Set the current text message associated with the progress state.
   // This may be used by a calling process/GUI.
-  // Caution: The memory/text in the provided char * is not copied, so
-  // users should not pass temporarily allocated strings which have a lifetime
-  // less than that of the function accessing the text.
   vtkSetStringMacro(ProgressText);
   vtkGetStringMacro(ProgressText);
 
