@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-09-12 13:48:06 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1995-09-18 23:09:39 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -165,6 +165,7 @@ vtkCell *vtkUnstructuredGrid::GetCell(int cellId)
      break;
 
     case VTK_POLY_VERTEX:
+     pvertex.PointIds.Reset(); //reset number of points
      cell = &pvertex;
      break;
 
@@ -173,6 +174,7 @@ vtkCell *vtkUnstructuredGrid::GetCell(int cellId)
       break;
 
     case VTK_POLY_LINE:
+      pline.PointIds.Reset(); //reset number of points
       cell = &pline;
       break;
 
@@ -181,6 +183,7 @@ vtkCell *vtkUnstructuredGrid::GetCell(int cellId)
       break;
 
     case VTK_TRIANGLE_STRIP:
+      strip.PointIds.Reset(); //reset number of points
       cell = &strip;
       break;
 
@@ -193,6 +196,7 @@ vtkCell *vtkUnstructuredGrid::GetCell(int cellId)
       break;
 
     case VTK_POLYGON:
+      poly.PointIds.Reset(); //reset number of points
       cell = &poly;
       break;
 
@@ -212,6 +216,10 @@ vtkCell *vtkUnstructuredGrid::GetCell(int cellId)
   loc = this->Cells->GetCellLocation(cellId);
   this->Connectivity->GetCell(loc,numPts,pts); 
 
+  // make sure there's enough storage; insert does an allocate, set doesn't
+  cell->PointIds.InsertId(numPts-1,pts[numPts-1]);
+  cell->Points.InsertPoint(numPts-1,this->Points->GetPoint(pts[numPts-1]));
+  
   for (i=0; i<numPts; i++)
     {
     cell->PointIds.SetId(i,pts[i]);
