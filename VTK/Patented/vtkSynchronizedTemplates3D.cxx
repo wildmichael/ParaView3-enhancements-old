@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSynchronizedTemplates3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-22 15:48:02 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2001-03-23 20:52:47 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -526,7 +526,7 @@ void vtkSynchronizedTemplates3D::ThreadedExecute(vtkImageData *data,
   vtkDebugMacro(<< "Executing 3D structured contour");
   
   
-  if (this->NumberOfThreads == 1)
+  if (this->NumberOfThreads <= 1)
     { // Special case when only one thread (fast, no copy).
     output = this->GetOutput();
     this->InitializeOutput(exExt, output);
@@ -741,7 +741,7 @@ void vtkSynchronizedTemplates3D::Execute()
   int *ext = input->GetWholeExtent();
 
   // Just in case some one changed the maximum number of threads.
-  if (this->NumberOfThreads == 1)
+  if (this->NumberOfThreads <= 1)
     {
     // Just call the threaded execute directly.
     this->ThreadedExecute(this->GetInput(), this->ExecuteExtent, 0);
@@ -766,8 +766,11 @@ void vtkSynchronizedTemplates3D::Execute()
     for (idx = 0; idx < this->NumberOfThreads; ++idx)
       {
       threadOut = this->Threads[idx];
-      totalPoints += threadOut->GetNumberOfPoints();
-      totalCells += threadOut->GetNumberOfCells();
+      if (threadOut != NULL)
+	{
+	totalPoints += threadOut->GetNumberOfPoints();
+	totalCells += threadOut->GetNumberOfCells();
+	}
       }
     // Allocate the necessary points and polys
     newPts = vtkPoints::New();

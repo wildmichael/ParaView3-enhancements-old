@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGridSynchronizedTemplates3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-22 15:47:56 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2001-03-23 20:52:47 $
+  Version:   $Revision: 1.32 $
 
 
 
@@ -675,7 +675,7 @@ void vtkGridSynchronizedTemplates3D::ThreadedExecute(int *exExt, int threadId)
   vtkPolyData *output = this->GetOutput();
   long dataSize;
   
-  if (this->NumberOfThreads == 1)
+  if (this->NumberOfThreads <= 1)
     { // Special case when only one thread (fast, no copy).
     output = this->GetOutput();
     this->InitializeOutput(exExt, output);
@@ -999,7 +999,7 @@ void vtkGridSynchronizedTemplates3D::Execute()
   int numPieces = output->GetUpdateNumberOfPieces();
 
   
-  if (this->NumberOfThreads == 1)
+  if (this->NumberOfThreads <= 1)
     {
     // just call the threaded execute directly.
     this->ThreadedExecute(this->GetExecuteExtent(), 0);
@@ -1024,8 +1024,11 @@ void vtkGridSynchronizedTemplates3D::Execute()
     for (idx = 0; idx < this->NumberOfThreads; ++idx)
       {
       threadOut = this->Threads[idx];
-      totalPoints += threadOut->GetNumberOfPoints();
-      totalCells += threadOut->GetNumberOfCells();
+      if (threadOut != NULL)
+	{
+	totalPoints += threadOut->GetNumberOfPoints();
+	totalCells += threadOut->GetNumberOfCells();
+	}
       }
     // Allocate the necessary points and polys
     newPts = vtkPoints::New();
