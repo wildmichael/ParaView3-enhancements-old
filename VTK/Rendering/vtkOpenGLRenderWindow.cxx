@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:45:54 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1997-07-18 17:44:35 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -562,15 +562,16 @@ void vtkOpenGLRenderWindow::SetPosition(int x,int y)
 // Specify the size of the rendering window.
 void vtkOpenGLRenderWindow::SetSize(int x,int y)
 {
+  if ((this->Size[0] != x)||(this->Size[1] != y))
+    {
+    this->Modified();
+    this->Size[0] = x;
+    this->Size[1] = y;
+    }
+  
   // if we arent mappen then just set the ivars 
   if (!this->Mapped)
     {
-    if ((this->Size[0] != x)||(this->Size[1] != y))
-      {
-      this->Modified();
-      }
-    this->Size[0] = x;
-    this->Size[1] = y;
     return;
     }
 
