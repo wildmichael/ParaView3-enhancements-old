@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: TestImageIterator.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-12 15:26:27 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-03-19 20:43:58 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -31,6 +31,7 @@ int DoTest(T*)
 {
   int ext[6] = { 0, 0, 0, 0, 0, 0 };
   vtkImageData *id = vtkImageData::New();
+  id->SetExtent(ext);
   vtkImageIterator<T> *it = new vtkImageIterator<T>(id,ext);
   vtkImageProgressIterator<T> *ipt 
     = new vtkImageProgressIterator<T>(id,ext,0,0);
