@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMILVideoSource.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-08 13:19:37 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2002-09-09 21:36:49 $
+  Version:   $Revision: 1.20 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -124,7 +124,7 @@ public:
   vtkGetMacro(VideoInput,int);
 
   // Description:
-  // Set/Get the video levels: the valid ranges are: 
+  // Set/Get the video levels for composite/SVideo: the valid ranges are: 
   // Contrast [0.0,2.0] 
   // Brighness [0.0,255.0] 
   // Hue [-0.5,0.5] 
@@ -137,6 +137,16 @@ public:
   vtkGetMacro(HueLevel,float);
   virtual void SetSaturationLevel(float saturation);
   vtkGetMacro(SaturationLevel,float);
+
+  // Description:
+  // Set/Get the video levels for monochrome/RGB: valid values are
+  // between 0.0 and 255.0. 
+  virtual void SetBlackLevel(float value);
+  virtual float GetBlackLevel() {
+    return this->BlackLevel; };
+  virtual void SetWhiteLevel(float value);
+  virtual float GetWhiteLevel() {
+    return this->WhiteLevel; };
 
   // Description:
   // Set the system which you want use.  If you don't specify a system,
@@ -223,6 +233,9 @@ protected:
   float BrightnessLevel;
   float HueLevel;
   float SaturationLevel;
+
+  float BlackLevel;
+  float WhiteLevel;
 
   int FrameMaxSize[2];
 
