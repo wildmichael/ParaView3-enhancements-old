@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtk3DWidget.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-27 16:12:01 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2002-05-28 15:21:16 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -44,7 +44,11 @@
 // (StartInteractionEvent), operate on the vtkProp3D or other object
 // (InteractionEvent), and set the desired frame rate back to normal values
 // (EndInteractionEvent).
-
+//
+// Note that the Priority attribute inherited from vtkInteractorObserver has
+// a new default value which is now 0.5 so that all 3D widgets have a higher
+// priority than the usual interactor styles.
+//
 // .SECTION See Also
 // vtkBoxWidget vtkLineWidget vtkPlaneWidget vtkSphereWidget
 

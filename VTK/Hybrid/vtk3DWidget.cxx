@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtk3DWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-27 16:12:01 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2002-05-28 15:21:16 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 #include "vtkProp3D.h"
 #include "vtkDataSet.h"
 
-vtkCxxRevisionMacro(vtk3DWidget, "$Revision: 1.9 $");
+vtkCxxRevisionMacro(vtk3DWidget, "$Revision: 1.10 $");
 
 vtkCxxSetObjectMacro(vtk3DWidget,Prop3D,vtkProp3D);
 vtkCxxSetObjectMacro(vtk3DWidget,Input,vtkDataSet);
@@ -32,6 +32,8 @@ vtk3DWidget::vtk3DWidget()
   this->Prop3D = NULL;
   this->Input = NULL;
   this->PlaceFactor = 0.5;
+
+  this->Priority = 0.5;
 }
 
 vtk3DWidget::~vtk3DWidget()
