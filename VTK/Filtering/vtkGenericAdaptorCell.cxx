@@ -35,7 +35,7 @@
 #include "vtkQuad.h"
 #include "vtkHexahedron.h"
 
-vtkCxxRevisionMacro(vtkGenericAdaptorCell, "$Revision: 1.18 $");
+vtkCxxRevisionMacro(vtkGenericAdaptorCell, "$Revision: 1.19 $");
 
 vtkGenericAdaptorCell::vtkGenericAdaptorCell()
 {
@@ -830,6 +830,10 @@ void vtkGenericAdaptorCell::Tessellate(vtkGenericAttributeCollection *attributes
 #ifndef NDEBUG
         valid_npts=3;
 #endif
+        }
+      else
+        {
+        linearCellType=0; // for compiler warning
         }
       }
     
