@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-28 16:27:36 $
-  Version:   $Revision: 1.110 $
+  Date:      $Date: 2002-09-10 05:21:38 $
+  Version:   $Revision: 1.111 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -196,8 +196,16 @@ public:
 
   // Description:
   // Compute the bounding box of all the visible props
-  // Used in ResetCamera() and ResetCameraClippingRange()
+  // Used in ResetCamera() and ResetCameraClippingRange() 
   void ComputeVisiblePropBounds( float bounds[6] );
+
+  // Description:
+  // Wrapper-friendly version of ComputeVisiblePropBounds 
+  float *ComputeVisiblePropBounds()
+    { 
+    static float bounds[6];
+    this->ComputeVisiblePropBounds(bounds);
+    return bounds;};
 
   // Description:
   // Reset the camera clipping range based on the bounds of the
