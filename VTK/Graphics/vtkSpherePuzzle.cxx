@@ -26,7 +26,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkSpherePuzzle, "$Revision: 1.12 $");
+vtkCxxRevisionMacro(vtkSpherePuzzle, "$Revision: 1.13 $");
 vtkStandardNewMacro(vtkSpherePuzzle);
 
 //----------------------------------------------------------------------------
@@ -164,7 +164,6 @@ void vtkSpherePuzzle::Execute()
       // append all the pieces.
       append->AddInput(tmp);
       tmp->Delete();
-      tmp = NULL;
       ++count;
       }
     }
