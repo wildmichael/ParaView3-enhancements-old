@@ -1,10 +1,10 @@
 /*=========================================================================
 
   Program:   Visualization Toolkit
-  Module:    $RCSfile: vtkImageSinusoidSource.h,v $
+  Module:    $RCSfile: vtkImageDivergence.h,v $
   Language:  C++
-  Date:      $Date: 1998-04-09 17:48:01 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1998-04-09 17:47:53 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -32,65 +32,46 @@ EVEN IF THE AUTHORS HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 THE AUTHORS AND DISTRIBUTORS SPECIFICALLY DISCLAIM ANY WARRANTIES, INCLUDING,
 BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
-PARTICULAR PURPOSE, AND NON-INFRINGEMENT.  THIS SOFTWARE IS PROVIDED ON AN
+PARTICULAR PURPOSE, AND -INFRINGEMENT.  THIS SOFTWARE IS PROVIDED ON AN
 "AS IS" BASIS, AND THE AUTHORS AND DISTRIBUTORS HAVE NO OBLIGATION TO PROVIDE
 MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-// .NAME vtkImageSinusoidSource - Create an image with sinusoidal pixel values.
-// vtkImageSinusoidSource just produces images with pixel values determined 
-// by a sinusoid.
+// .NAME vtkImageDivergence - Scalar field from vector field.
+// .SECTION Description
+// vtkImageDivergence takes a 3D vector field from a surface detection
+// filter (i.e. Gradient) and creates a scalar field which 
+// which represents the rate of change of the vector field.
 
 
-#ifndef __vtkImageSinusoidSource_h
-#define __vtkImageSinusoidSource_h
+#ifndef __vtkImageDivergence_h
+#define __vtkImageDivergence_h
 
-#include "vtkImageSource.h"
+#include "vtkImageFilter.h"
 
-class VTK_EXPORT vtkImageSinusoidSource : public vtkImageSource
+class VTK_EXPORT vtkImageDivergence : public vtkImageFilter
 {
 public:
-  vtkImageSinusoidSource();
-  static vtkImageSinusoidSource *New() {return new vtkImageSinusoidSource;};
-  const char *GetClassName() {return "vtkImageSinusoidSource";};
+  vtkImageDivergence();
+  static vtkImageDivergence *New() {return new vtkImageDivergence;};
+  const char *GetClassName() {return "vtkImageDivergence";};
   
   // Description:
-  // Set/Get the extent of the whole output image.
-  void SetWholeExtent(int xMinx, int xMax, int yMin, int yMax,
-		      int zMin, int zMax);
-  
-  // Description:
-  // Set/Get the direction vector which determines the sinusoidal
-  // orientation. The magnitude is ignored.
-  void SetDirection(float,float,float);
-  void SetDirection(float *);
-  vtkGetVector3Macro(Direction, float);
-  
-  // Description:
-  // Set/Get the period of the sinusoid in pixels.
-  vtkSetMacro(Period, float);
-  vtkGetMacro(Period, float);
+  // Determines how the input is interpreted (set of 2d slices ...)
+  vtkSetClampMacro(Dimensionality,int,2,3);
+  vtkGetMacro(Dimensionality,int);
 
-  // Description:
-  // Set/Get the phase: 0->2Pi.  0 => Cosine, pi/2 => Sine.
-  vtkSetMacro(Phase, float);
-  vtkGetMacro(Phase, float);
+protected:
+  int Dimensionality;
 
-  vtkSetMacro(Amplitude, float);
-  vtkGetMacro(Amplitude, float);
-
-  void UpdateImageInformation();
-
-private:
-  int WholeExtent[6];
-  float Direction[3];
-  float Period;
-  float Phase;
-  float Amplitude;
-
-  void Execute(vtkImageData *data);
+  void ExecuteImageInformation();
+  void ComputeRequiredInputUpdateExtent(int inExt[6], int outExt[6]);
+  void ThreadedExecute(vtkImageData *inData, vtkImageData *outData,
+		       int ext[6], int id);
 };
 
-
 #endif
+
+
+
