@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMatrix4x4.h,v $
   Language:  C++
-  Date:      $Date: 1999-04-27 13:42:39 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 1999-04-29 12:09:53 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -114,8 +114,9 @@ class VTK_EXPORT vtkMatrix4x4 : public vtkObject
   // Description:
   // Sets the element i,j in the matrix.
   void SetElement(int i, int j, float value);
+//BTX
   void SetElement(int i, int j, double value);
-
+//ETX
   // Description:
   // Returns the element i,j from the matrix.
   double GetElement(int i, int j) const {return this->Element[i][j];};
