@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMutexLock.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:38:39 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-03-04 22:27:34 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -55,6 +55,9 @@ vtkMutexLock::vtkMutexLock()
 // Destruct the vtkMutexVariable
 vtkMutexLock::~vtkMutexLock()
 {
+#ifdef _WIN32
+  CloseHandle(this->MutexLock);
+#endif
 }
 
 // Lock the vtkMutexLock
