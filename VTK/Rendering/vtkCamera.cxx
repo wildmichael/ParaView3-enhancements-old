@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCamera.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-03-13 20:51:30 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 1996-06-11 11:15:27 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -427,7 +427,11 @@ void vtkCamera::CalcDistance ()
 float *vtkCamera::GetOrientation ()
 {
   // calculate a new orientation
-  this->CalcPerspectiveTransform(1,0,1);
+//  this->CalcPerspectiveTransform(1,0,1);
+  this->CalcViewTransform();
+  this->PerspectiveTransform.GetOrientation (this->Orientation[0],
+					     this->Orientation[1],
+					     this->Orientation[2]);
 
   vtkDebugMacro(<< " Returning Orientation of ( " <<  this->Orientation[0] 
   << ", " << this->Orientation[1] << ", " << this->Orientation[2] << ")");
