@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDEMReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-19 19:58:03 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2001-01-27 16:49:25 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -134,7 +134,7 @@ void vtkDEMReader::Execute()
 
   if (output->GetScalarType() != VTK_FLOAT)
     {
-    vtkErrorMacro("Execute: This source only outputs ints");
+    vtkErrorMacro("Execute: This source only outputs floats.");
     return;
     }
   
