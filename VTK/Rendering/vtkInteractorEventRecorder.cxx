@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorEventRecorder.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-01 14:57:38 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-08-02 13:07:30 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -20,7 +20,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkRenderWindowInteractor.h"
 
-vtkCxxRevisionMacro(vtkInteractorEventRecorder, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkInteractorEventRecorder, "$Revision: 1.3 $");
 vtkStandardNewMacro(vtkInteractorEventRecorder);
 
 float vtkInteractorEventRecorder::StreamVersion = 1.0;
@@ -183,12 +183,10 @@ void vtkInteractorEventRecorder::Play()
           }
         else
           {
-          /*
           if (stream_version >= 1.1)
             {
             // We could grab the time info here
             }
-          */
           *this->InputStream >> pos[0];
           *this->InputStream >> pos[1];
           *this->InputStream >> ctrlKey;
