@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBitArray.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:35:07 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1995-12-27 10:55:31 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,10 +38,10 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-// .NAME vtkBitArray - dynamic, self adjusting array of bits
+// .NAME vtkBitArray - dynamic, self-adjusting array of bits
 // .SECTION Description
 // vtkBitArray is an array of bits (0/1 data value). The array is packed 
-// so that each  byte stores eight bits. vtkBitArray provides methods
+// so that each byte stores eight bits. vtkBitArray provides methods
 // for insertion and retrieval of bits, and will automatically resize 
 // itself to hold new data.
 
@@ -154,7 +154,7 @@ inline int vtkBitArray::GetSize() {return this->Size;}
 inline int vtkBitArray::GetMaxId() {return this->MaxId;}
 
 // Description:
-// Reuse the memory allocated by this object. Objects appears like
+// Reuse the memory allocated by this object. Object appears as if
 // no data has been previously inserted.
 inline void vtkBitArray::Reset() {this->MaxId = -1;}
 
