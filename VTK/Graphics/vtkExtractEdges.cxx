@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractEdges.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:52:21 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1997-04-07 14:50:29 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,6 +59,7 @@ void vtkExtractEdges::Execute()
   int pt1 = 0;
   vtkEdgeTable *edgeTable;
   vtkCell *cell, *edge;
+  vtkPointData *pd, *outPD;
 
   vtkDebugMacro(<<"Executing edge extractor");
   //
@@ -80,6 +81,10 @@ void vtkExtractEdges::Execute()
   newLines = new vtkCellArray;
   newLines->EstimateSize(numPts*4,2);
 
+  pd = input->GetPointData();
+  outPD = output->GetPointData();
+  outPD->CopyAllocate(pd,numPts);
+  
   //
   // Loop over all cells, extracting non-visited edges. 
   //
@@ -96,7 +101,7 @@ void vtkExtractEdges::Execute()
         {
         pt2 = edge->PointIds.GetId(i);
         pts[1] = newPts->InsertNextPoint(input->GetPoint(pt2));
-
+	outPD->CopyData (pd,pt2,pts[1]);
         if ( i > 0 && !edgeTable->IsEdge(pt1,pt2) )
           {
           edgeTable->InsertEdge(pt1, pt2);
@@ -119,7 +124,6 @@ void vtkExtractEdges::Execute()
   output->SetLines(newLines);
   newLines->Delete();
 
-  output->GetPointData()->PassData(input->GetPointData());
   output->Squeeze();
 }
 
