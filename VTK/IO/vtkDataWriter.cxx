@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-09-04 08:34:30 $
-  Version:   $Revision: 1.68 $
+  Date:      $Date: 2000-09-06 21:31:19 $
+  Version:   $Revision: 1.69 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -102,7 +102,7 @@ vtkDataWriter::vtkDataWriter()
   this->TensorsName = new char[8];
   strcpy(this->TensorsName,"tensors");
 
-  this->GhostLevelsName = new char[11];
+  this->GhostLevelsName = new char[12];
   strcpy(this->GhostLevelsName, "ghostLevels");
   
   this->NormalsName = new char[8];
