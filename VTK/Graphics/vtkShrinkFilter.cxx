@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkShrinkFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:52 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 2001-03-16 16:44:20 $
+  Version:   $Revision: 1.50 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -113,15 +113,17 @@ void vtkShrinkFilter::Execute()
     numIds = ptIds->GetNumberOfIds();
 
     //abort/progress methods
-    if (cellId % tenth == 0) 
-      {
-      decimal += 0.1;
-      this->UpdateProgress (decimal);
-      if (this->GetAbortExecute())
-        {
-        break; //out of cell loop
-        }
-      }
+    if (tenth != 0) {
+      if (cellId % tenth == 0) 
+	{
+	  decimal += 0.1;
+	  this->UpdateProgress (decimal);
+	  if (this->GetAbortExecute())
+	    {
+	      break; //out of cell loop
+	    }
+	}
+    }
 
     // get the center of the cell
     center[0] = center[1] = center[2] = 0.0;
