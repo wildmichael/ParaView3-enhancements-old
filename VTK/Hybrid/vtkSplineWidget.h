@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSplineWidget.h,v $
   Language:  C++
-  Date:      $Date: 2002-11-14 13:43:11 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-12-16 01:21:57 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -201,6 +201,17 @@ public:
   void GetHandlePosition(int handle, float xyz[3]);
   float* GetHandlePosition(int handle);
 
+  // Description:
+  // Control whether the spline is open or closed. A closed spline forms
+  // a continuous loop: the first and last points are the same, and
+  // derivatives are continuous.  This method enforces consistency with
+  // user supplied subclasses of vtkSpline.
+  void SetClosed(int closed);
+  vtkGetMacro(Closed,int);
+  void ClosedOn()
+    { this->SetClosed(1); }
+  void ClosedOff()
+    { this->SetClosed(0); }
 
 protected:
   vtkSplineWidget();
@@ -251,8 +262,10 @@ protected:
   int NumberOfHandles;
   float* HandlePositions;
   vtkSpline* CreateDefaultSpline();// default is vtkCardinalSpline
+  int Closed;
+  float Offset;
 
-  // The line
+  // The line segments
   vtkActor          *LineActor;
   vtkPolyDataMapper *LineMapper;
   vtkPolyData       *LineData;
