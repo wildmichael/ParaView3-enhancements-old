@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkCylinderSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-05-15 19:23:34 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1994-10-10 16:28:10 $
+  Version:   $Revision: 1.13 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -37,7 +37,7 @@ void vlCylinderSource::Execute()
   float xbot[3], tcbot[2], nbot[3];
   float xtop[3], tctop[2], ntop[3];
   int i, idx;
-  int pts[MAX_RESOLUTION];
+  int pts[MAX_CELL_SIZE];
   vlFloatPoints *newPoints; 
   vlFloatNormals *newNormals;
   vlFloatTCoords *newTCoords;

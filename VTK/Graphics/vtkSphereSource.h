@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkSphereSource.h,v $
   Language:  C++
-  Date:      $Date: 1994-08-10 08:06:05 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1994-10-10 16:28:14 $
+  Version:   $Revision: 1.8 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -26,7 +26,7 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 
 #include "PolySrc.hh"
 
-#define MAX_RESOLUTION 512
+#define MAX_SPHERE_RESOLUTION 1024
 
 class vlSphereSource : public vlPolySource 
 {
@@ -42,12 +42,12 @@ public:
 
   // Description:
   // Set the number of points in the longitude direction.
-  vlSetClampMacro(ThetaResolution,int,4,MAX_RESOLUTION);
+  vlSetClampMacro(ThetaResolution,int,4,MAX_SPHERE_RESOLUTION);
   vlGetMacro(ThetaResolution,int);
 
   // Description:
   // Set the number of points in the latitude direction.
-  vlSetClampMacro(PhiResolution,int,4,MAX_RESOLUTION);
+  vlSetClampMacro(PhiResolution,int,4,MAX_SPHERE_RESOLUTION);
   vlGetMacro(PhiResolution,int);
 
   // Description:

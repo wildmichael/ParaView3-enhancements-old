@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkConeSource.h,v $
   Language:  C++
-  Date:      $Date: 1994-08-10 08:05:56 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1994-10-10 16:28:09 $
+  Version:   $Revision: 1.11 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -29,8 +29,6 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 
 #include "PolySrc.hh"
 
-#define MAX_RESOLUTION MAX_CELL_SIZE
-
 class vlConeSource : public vlPolySource 
 {
 public:
@@ -50,7 +48,7 @@ public:
 
   // Description:
   // Set the number of facets used to represent cone.
-  vlSetClampMacro(Resolution,int,0,MAX_RESOLUTION)
+  vlSetClampMacro(Resolution,int,0,MAX_CELL_SIZE)
   vlGetMacro(Resolution,int);
 
   // Description:

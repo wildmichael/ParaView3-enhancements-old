@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkDiskSource.h,v $
   Language:  C++
-  Date:      $Date: 1994-08-10 08:05:58 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1994-10-10 16:28:12 $
+  Version:   $Revision: 1.4 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -26,8 +26,6 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 #define __vlDiskSource_h
 
 #include "PolySrc.hh"
-
-#define MAX_RESOLUTION MAX_VERTS
 
 class vlDiskSource : public vlPolySource 
 {

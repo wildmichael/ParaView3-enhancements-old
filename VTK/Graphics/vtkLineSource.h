@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkLineSource.h,v $
   Language:  C++
-  Date:      $Date: 1994-09-14 08:16:07 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1994-10-10 16:28:13 $
+  Version:   $Revision: 1.11 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -23,8 +23,6 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 #define __vlLineSource_h
 
 #include "PolySrc.hh"
-
-#define MAX_RESOLUTION MAX_VERTS
 
 class vlLineSource : public vlPolySource 
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkConeSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-05-15 19:23:36 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1994-10-10 16:28:09 $
+  Version:   $Revision: 1.10 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -34,7 +34,7 @@ void vlConeSource::Execute()
   int numLines, numPolys, numPts;
   float x[3], xbot;
   int i;
-  int pts[MAX_RESOLUTION];
+  int pts[MAX_CELL_SIZE];
   vlFloatPoints *newPoints; 
   vlCellArray *newLines=0;
   vlCellArray *newPolys=0;
