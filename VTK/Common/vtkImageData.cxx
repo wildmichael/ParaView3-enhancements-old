@@ -3,8 +3,8 @@
 
   Module:    $RCSfile: vtkImageData.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-18 17:14:14 $
-  Version:   $Revision: 1.53 $
+  Date:      $Date: 1999-06-30 11:46:59 $
+  Version:   $Revision: 1.54 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -549,6 +549,7 @@ static void vtkImageDataCastExecute(vtkImageData *inData, T *inPtr,
     case VTK_UNSIGNED_CHAR:
       vtkImageDataCastExecute(inData, (T *)(inPtr), 
 			      outData, (unsigned char *)(outPtr),outExt); 
+      break;
     default:
       vtkGenericWarningMacro("Execute: Unknown output ScalarType");
       return;
