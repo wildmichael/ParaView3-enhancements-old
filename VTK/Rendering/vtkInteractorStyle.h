@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyle.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-20 15:19:05 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1999-08-26 20:52:41 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -120,7 +120,7 @@ public:
   // Description:
   // OnTimer calls RotateCamera, RotateActor etc which should be overridden by
   // style subclasses.
-  virtual void OnTimer(void);
+  virtual void OnTimer();
 
   // Description:
   // Callbacks so that the applicaiton can override the default behaviour.

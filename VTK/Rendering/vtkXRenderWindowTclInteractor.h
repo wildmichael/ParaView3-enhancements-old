@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindowTclInteractor.h,v $
   Language:  C++
-  Date:      $Date: 1999-05-12 14:50:16 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1999-08-26 20:52:43 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -101,23 +101,6 @@ public:
   virtual void UpdateSize(int,int);
 
   // Description:
-  // Provide implementaitons of the methods defined in
-  // vtkRenderWindowInteractor. Generally the application developer should
-  // not invoke these methods directly.
-  virtual void StartRotate();
-  virtual void EndRotate();
-  virtual void StartZoom();
-  virtual void EndZoom();
-  virtual void StartPan();
-  virtual void EndPan();
-  virtual void StartSpin();
-  virtual void EndSpin();
-  virtual void StartDolly();
-  virtual void EndDolly();
-  virtual void StartUniformScale();
-  virtual void EndUniformScale();
-
-  // Description:
   // Specify the Xt widget to use for interaction. This method is
   // one of a couple steps that are required for setting up a
   // vtkRenderWindowInteractor as a widget inside of another user 
@@ -166,6 +149,15 @@ public:
   // not set TopLevelShell (each has its own top level shell already)
   virtual void SetTopLevelShell(Widget);
   Widget GetTopLevelShell() {return this->TopLevelShell;};
+
+    // Description:
+  // X timer methods
+  bool CreateTimer(int timertype);
+  bool DestroyTimer(void);
+
+  // Description:
+  // X Tcl specific application terminate. 
+  void TerminateApp(void);
 
   // Description:
   // Functions that are used internally.
