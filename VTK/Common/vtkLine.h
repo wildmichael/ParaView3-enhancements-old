@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLine.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:55:55 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1996-08-15 22:03:52 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -80,13 +80,13 @@ public:
                    int dim, float *derivs);
 
   // line specific methods
-  int Intersection(float x[3], float xray[3], float x1[3], float x2[3],
-               float& u, float& v);
+  static int Intersection(float x[3], float xray[3], float x1[3], float x2[3],
+                          float& u, float& v);
 
-  float DistanceToLine(float x[3], float p1[3], float p2[3], 
-                       float &t, float closestPoint[3]);
+  static float DistanceToLine(float x[3], float p1[3], float p2[3], 
+                              float &t, float closestPoint[3]);
 
-  float DistanceToLine(float x[3], float p1[3], float p2[3]);
+  static float DistanceToLine(float x[3], float p1[3], float p2[3]);
 };
 
 #endif

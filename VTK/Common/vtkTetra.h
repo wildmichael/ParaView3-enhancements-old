@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTetra.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-02 19:59:28 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1996-08-15 22:03:56 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -80,13 +80,15 @@ public:
                    int dim, float *derivs);
 
   // tetrahedron specific
-  void TetraCenter(float p1[3], float p2[3], float p3[3], float p4[3], float center[3]);
-  float Circumsphere(float  p1[3], float p2[3], float p3[3], float p4[3], float center[3]);
-  int BarycentricCoords(float x[3], float  x1[3], float x2[3], float x3[3], 
-                        float x4[3], float bcoords[4]);
+  static void TetraCenter(float p1[3], float p2[3], float p3[3], float p4[3], 
+                          float center[3]);
+  static float Circumsphere(float  p1[3], float p2[3], float p3[3], 
+                            float p4[3], float center[3]);
+  static int BarycentricCoords(float x[3], float  x1[3], float x2[3], 
+                               float x3[3], float x4[3], float bcoords[4]);
   
-  void InterpolationFunctions(float pcoords[3], float weights[4]);
-  void InterpolationDerivs(float derivs[12]);
+  static void InterpolationFunctions(float pcoords[3], float weights[4]);
+  static void InterpolationDerivs(float derivs[12]);
   void JacobianInverse(double **inverse, float derivs[12]);
 
 };
