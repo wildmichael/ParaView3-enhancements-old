@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFieldDataToAttributeDataFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-02 21:34:17 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-12-06 19:08:34 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -199,9 +199,37 @@ void vtkFieldDataToAttributeDataFilter::Execute()
   this->ConstructFieldData(num, attr);
 }
 
-void vtkFieldDataToAttributeDataFilter::PrintSelf(ostream& os, vtkIndent indent)
+void vtkFieldDataToAttributeDataFilter::PrintSelf(ostream& os, 
+						  vtkIndent indent)
 {
   vtkDataSetToDataSetFilter::PrintSelf(os,indent);
+
+  os << indent << "Input Field: ";
+  if ( this->InputField == VTK_DATA_OBJECT_FIELD )
+    {
+    os << "DataObjectField\n";
+    }
+  else if ( this->InputField == VTK_POINT_DATA_FIELD )
+    {
+    os << "PointDataField\n";
+    }
+  else //if ( this->InputField == VTK_CELL_DATA_FIELD )
+    {
+    os << "CellDataField\n";
+    }
+
+  os << indent << "Default Normalize: " 
+     << (this->DefaultNormalize ? "On\n" : "Off\n");
+
+  os << indent << "Output Attribute Data: ";
+  if ( this->OutputAttributeData == VTK_CELL_DATA )
+    {
+    os << "CellData\n";
+    }
+  else //if ( this->OutputAttributeData == VTK_POINT_DATA )
+    {
+    os << "PointData\n";
+    }
 }
 
 // Stuff related to scalars --------------------------------------------
