@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-07 20:08:53 $
-  Version:   $Revision: 1.57 $
+  Date:      $Date: 2000-04-08 17:14:51 $
+  Version:   $Revision: 1.58 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -224,10 +224,18 @@ public:
   void SetRenderTime(float time) {this->RenderTime = time;}
   vtkGetMacro(RenderTime, float);
 
+  //BTX
   // Description:
   // Get the input as a vtkDataSet.  This method is overridden in
   // the specialized mapper classes to return more specific data types.
   vtkDataSet *GetInput();
+  //ETX
+
+  // Description:
+  // Get the input as a vtkDataSet, instead of as a more specialized
+  // data type.  This method is provided for use in the wrapper languages,
+  // C++ programmers should use GetInput() instead.
+  vtkDataSet *GetInputAsDataSet() { return this->GetInput(); };
 
 protected:
   vtkMapper();
