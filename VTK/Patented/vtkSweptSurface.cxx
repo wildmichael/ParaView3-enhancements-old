@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSweptSurface.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-09-03 21:01:59 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 1997-09-11 19:37:58 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -477,6 +477,7 @@ void vtkSweptSurface::ComputeBounds(float origin[3], float spacing[3], float bbo
       h = this->AdjustDistance * spacing[i];
       xmin[i] -= h;
       xmax[i] += h;
+      spacing[i] = xmax[i] - xmin[i];
       }
     }
 
