@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32Header.h,v $
   Language:  C++
-  Date:      $Date: 2003-04-04 20:54:29 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2003-08-21 12:34:21 $
+  Version:   $Revision: 1.31 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -63,7 +63,7 @@ Do_not_include_vtkWin32Header_directly__vtkSystemIncludes_includes_it;
 
 #endif
 
-#if defined(WIN32) && !defined(VTKSTATIC)
+#if defined(WIN32) && defined(VTK_BUILD_SHARED_LIBS)
  #define VTK_EXPORT __declspec( dllexport )
 
  #if defined(vtkCommon_EXPORTS)
