@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-04 20:52:43 $
-  Version:   $Revision: 1.72 $
+  Date:      $Date: 1999-11-09 15:32:28 $
+  Version:   $Revision: 1.73 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -654,13 +654,17 @@ float *vtkTransform::GetOrientationWXYZ ()
   
   // get scale factors
   this->GetScale (scaleX, scaleY, scaleZ);
-  if (scaleX != 1.0 || scaleY != 1.0 || scaleZ != 1.0) 
+  if (scaleX != 1.0f || scaleY != 1.0f || scaleZ != 1.0f) 
     {
     vtkMatrix4x4::Identity(temp1);
     temp1Matrix[0][0] = 1.0 / scaleX;
     temp1Matrix[1][1] = 1.0 / scaleY;
     temp1Matrix[2][2] = 1.0 / scaleZ;
     vtkTransform::Multiply4x4(&(*this->Stack)->Element[0][0], temp1, ScratchPad);
+    }
+  else
+    {
+    ScratchPadMatrix = (SqMatPtr)&(*this->Stack)->Element[0][0];
     }
   
   quat[0] = 0.25*(1.0 + ScratchPadMatrix[0][0] + 
