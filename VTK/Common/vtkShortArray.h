@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkShortArray.h,v $
   Language:  C++
-  Date:      $Date: 1994-02-28 22:13:22 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1994-03-01 20:22:10 $
+  Version:   $Revision: 1.2 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -42,7 +42,7 @@ public:
   int InsertNextValue(const short i)
     {this->InsertValue (++this->MaxId,i); return this->MaxId;};
   vlShortArray &operator=(vlShortArray& sa);
-  vlShortArray operator+=(vlShortArray& sa);
+  vlShortArray &operator+=(vlShortArray& sa);
   void operator+=(const short i) {this->InsertNextValue(i);};
   // operator[] can be used on both left and right side of expression;
   // Note: if used on lh side, user's responsibility to do range checking
