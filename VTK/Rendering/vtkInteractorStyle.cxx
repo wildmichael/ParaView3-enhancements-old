@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyle.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-30 00:02:15 $
-  Version:   $Revision: 1.80 $
+  Date:      $Date: 2002-08-15 15:36:21 $
+  Version:   $Revision: 1.81 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,6 +22,7 @@
 #include "vtkCallbackCommand.h"
 #include "vtkCellPicker.h"
 #include "vtkMath.h" 
+#include "vtkObjectFactory.h"
 #include "vtkOldStyleCallbackCommand.h"
 #include "vtkOutlineSource.h"
 #include "vtkPolyDataMapper.h"
@@ -31,13 +32,8 @@
 #include "vtkRenderWindowInteractor.h"
 #include "vtkTextProperty.h"
 
-vtkCxxRevisionMacro(vtkInteractorStyle, "$Revision: 1.80 $");
-
-//----------------------------------------------------------------------------
-vtkInteractorStyle *vtkInteractorStyle::New() 
-{
-  return new vtkInteractorStyle;
-}
+vtkCxxRevisionMacro(vtkInteractorStyle, "$Revision: 1.81 $");
+vtkStandardNewMacro(vtkInteractorStyle);
 
 //----------------------------------------------------------------------------
 vtkInteractorStyle::vtkInteractorStyle() 
