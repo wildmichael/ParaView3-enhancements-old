@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageNoiseSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-29 22:26:29 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2001-03-08 13:50:35 $
+  Version:   $Revision: 1.20 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -127,8 +127,9 @@ void vtkImageNoiseSource::ExecuteInformation()
   output->SetNumberOfScalarComponents(1);
 }
 
-void vtkImageNoiseSource::Execute(vtkImageData *data)
+void vtkImageNoiseSource::ExecuteData(vtkDataObject *output)
 {
+  vtkImageData *data = this->AllocateOutputData(output);
   float *outPtr;
   int idxR, idxY, idxZ;
   int maxY, maxZ;
