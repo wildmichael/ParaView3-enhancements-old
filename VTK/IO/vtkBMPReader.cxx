@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBMPReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-01-30 14:58:41 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 2003-02-24 19:14:29 $
+  Version:   $Revision: 1.43 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkPointData.h"
 
-vtkCxxRevisionMacro(vtkBMPReader, "$Revision: 1.42 $");
+vtkCxxRevisionMacro(vtkBMPReader, "$Revision: 1.43 $");
 vtkStandardNewMacro(vtkBMPReader);
 
 #ifdef read
@@ -634,6 +634,7 @@ int vtkBMPReader::CanReadFile(const char* fname)
     }
 
   // get size of header
+  int res = 3;
   if (sizeLong == 4)   // if we are on a 32 bit machine
     {
     fread(&infoSize,sizeof(long),1,fp);
@@ -656,9 +657,9 @@ int vtkBMPReader::CanReadFile(const char* fname)
     if ((infoSize != 40)&&(infoSize != 12))
       {
       fclose(fp);
-      return 0;
+      res = 0;
       }
     }
   fclose(fp);
-  return 3;
+  return res;
 }
