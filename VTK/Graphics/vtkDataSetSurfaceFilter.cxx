@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetSurfaceFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-17 02:05:38 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2003-04-01 20:07:06 $
+  Version:   $Revision: 1.24 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -36,7 +36,7 @@
 #include "vtkVoxel.h"
 #include "vtkWedge.h"
 
-vtkCxxRevisionMacro(vtkDataSetSurfaceFilter, "$Revision: 1.23 $");
+vtkCxxRevisionMacro(vtkDataSetSurfaceFilter, "$Revision: 1.24 $");
 vtkStandardNewMacro(vtkDataSetSurfaceFilter);
 
 //----------------------------------------------------------------------------
@@ -646,7 +646,6 @@ void vtkDataSetSurfaceFilter::ComputeInputUpdateExtents(vtkDataObject *output)
   
   if (this->GetInput() == NULL)
     {
-    vtkErrorMacro("No Input");
     return;
     }
   piece = output->GetUpdatePiece();
