@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStructuredGridGeometryFilter.h,v $
   Language:  C++
-  Date:      $Date: 1994-08-11 07:41:30 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1994-09-26 16:11:41 $
+  Version:   $Revision: 1.4 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -26,7 +26,7 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 
 #include "SD2PolyF.hh"
 
-class vlStructuredGeometryFilter : public vlStructuredDataSetToPolyFilter
+class vlStructuredGeometryFilter : public vlStructuredDataToPolyFilter
 {
 public:
   vlStructuredGeometryFilter();

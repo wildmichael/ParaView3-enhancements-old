@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStructuredGridGeometryFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-08-25 21:46:15 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1994-09-26 16:11:40 $
+  Version:   $Revision: 1.7 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -285,7 +285,7 @@ void vlStructuredGeometryFilter::PrintSelf(ostream& os, vlIndent indent)
 {
   if (this->ShouldIPrint(vlStructuredGeometryFilter::GetClassName()))
     {
-    vlStructuredDataSetToPolyFilter::PrintSelf(os,indent);
+    vlStructuredDataToPolyFilter::PrintSelf(os,indent);
 
     os << indent << "Extent: \n";
     os << indent << "  Imin,Imax: (" << this->Extent[0] << ", " << this->Extent[1] << ")\n";

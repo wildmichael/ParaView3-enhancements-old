@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStructuredGridOutlineFilter.h,v $
   Language:  C++
-  Date:      $Date: 1994-08-05 09:08:41 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1994-09-26 16:11:42 $
+  Version:   $Revision: 1.2 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -24,7 +24,7 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 
 #include "SD2PolyF.hh"
 
-class vlStructuredOutlineFilter : public vlStructuredDataSetToPolyFilter
+class vlStructuredOutlineFilter : public vlStructuredDataToPolyFilter
 {
 public:
   vlStructuredOutlineFilter() {};
