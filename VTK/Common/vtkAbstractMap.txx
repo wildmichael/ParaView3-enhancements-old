@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractMap.txx,v $
   Language:  C++
-  Date:      $Date: 2002-04-29 12:48:12 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2002-04-29 13:18:04 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,16 +21,6 @@
 #define __vtkAbstractMap_txx
 
 #include "vtkAbstractMap.h"
-#include "vtkDebugLeaks.h"
-
-template<class KeyType, class DataType>
-vtkAbstractMap<KeyType,DataType>* vtkAbstractMap<KeyType,DataType>::New()
-{
-#ifdef VTK_DEBUG_LEAKS
-  vtkDebugLeaks::ConstructClass("vtkAbstractMap");
-#endif
-  return new vtkAbstractMap<KeyType,DataType>;
-}
 
 template<class KeyType, class DataType>
 vtkAbstractMap<KeyType,DataType>::vtkAbstractMap() {}
