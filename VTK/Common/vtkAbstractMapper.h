@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractMapper.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-30 18:47:58 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1999-09-30 20:21:30 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -46,7 +46,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // data.
 //
 // .SECTION See Also
-// vtkAbstractMapper3D vtkMapper vtkVolumeMapper
+// vtkAbstractMapper3D vtkMapper vtkPolyDataMapper vtkVolumeMapper
 
 #ifndef __vtkAbstractMapper_h
 #define __vtkAbstractMapper_h
