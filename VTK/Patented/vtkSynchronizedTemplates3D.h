@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSynchronizedTemplates3D.h,v $
   Language:  C++
-  Date:      $Date: 2001-12-10 21:29:28 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2001-12-17 13:42:30 $
+  Version:   $Revision: 1.24 $
 
 
 
@@ -184,6 +184,11 @@ public:
   vtkGetStringMacro(InputScalarsSelection);
   void SelectInputScalars(const char *fieldName) 
     {this->SetInputScalarsSelection(fieldName);}
+
+  // Access necessary for templeted function.
+  vtkFloatArray *Normals;
+  vtkFloatArray *Gradients;
+  vtkFloatArray *Scalars;
   
 protected:
   vtkSynchronizedTemplates3D();
