@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataArray.h,v $
   Language:  C++
-  Date:      $Date: 1998-04-16 13:23:09 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-05-06 19:46:48 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -112,24 +112,24 @@ public:
   // Get the data tuple at ith location by filling in a user-provided array,
   // Make sure that your array is large enough to hold the NumberOfComponents
   // amount of data being returned.
-  virtual void GetTuple(const int i, float tuple[]) = 0;
+  virtual void GetTuple(const int i, float * tuple) = 0;
 
   // Description:
   // Set the data tuple at ith location. Note that range checking or
   // memory allocation is not performed; use this method in conjunction
   // with SetNumberOfTuples() to allocate space.
-  virtual void SetTuple(const int i, const float tuple[]) = 0;
+  virtual void SetTuple(const int i, const float * tuple) = 0;
 
   // Description:
-  // Insert the data tuple at ith location. Note that memory allocation 
+  // Insert the data tuple at ith location. Note that memory allocation
   // is performed as necessary to hold the data.
-  virtual void InsertTuple(const int i, const float tuple[]) = 0;
+  virtual void InsertTuple(const int i, const float * tuple) = 0;
 
   // Description:
   // Insert the data tuple at the end of the array and return the location at
-  // which the data was inserted. Memory is allocated as necessary to hold 
+  // which the data was inserted. Memory is allocated as necessary to hold
   // the data.
-  virtual int InsertNextTuple(const float tuple[]) = 0;
+  virtual int InsertNextTuple(const float * tuple) = 0;
 
   // Description:
   // Return the data component at the ith tuple and jth component location.

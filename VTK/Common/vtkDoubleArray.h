@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDoubleArray.h,v $
   Language:  C++
-  Date:      $Date: 1998-04-16 16:06:30 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1998-05-06 19:46:50 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -65,10 +65,10 @@ public:
   int GetDataType() {return VTK_DOUBLE;};
   void SetNumberOfTuples(const int number);
   float *GetTuple(const int i);
-  void GetTuple(const int i, float tuple[]);
-  void SetTuple(const int i, const float tuple[]);
-  void InsertTuple(const int i, const float tuple[]);
-  int InsertNextTuple(const float tuple[]);
+  void GetTuple(const int i, float * tuple);
+  void SetTuple(const int i, const float * tuple);
+  void InsertTuple(const int i, const float * tuple);
+  int InsertNextTuple(const float * tuple);
   void Squeeze();
 
   // access/insertion methods
