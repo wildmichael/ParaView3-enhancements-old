@@ -1,3 +1,18 @@
+/*=========================================================================
+
+  Program:   Visualization Library
+  Module:    $RCSfile: vtkPlaneSource.cxx,v $
+  Language:  C++
+  Date:      $Date: 1994-02-04 12:47:35 $
+  Version:   $Revision: 1.9 $
+
+This file is part of the Visualization Library. No part of this file or its 
+contents may be copied, reproduced or altered in any way without the express
+written consent of the authors.
+
+Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994 
+
+=========================================================================*/
 //
 // Methods for plane generator
 //
@@ -90,3 +105,9 @@ void vlPlaneSource::Execute()
   this->SetPolys(newPolys);
 }
 
+void vlPlaneSource::PrintSelf(ostream& os, vlIndent indent)
+{
+  vlPolySource::PrintSelf(os,indent);
+
+  os << indent << "Resolution: (" << this->XRes << " by " << this->YRes << ")\n";
+}
