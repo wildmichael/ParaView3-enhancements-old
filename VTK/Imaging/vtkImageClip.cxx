@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageClip.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-08 14:08:09 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2001-05-22 21:51:45 $
+  Version:   $Revision: 1.39 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -215,6 +215,8 @@ void vtkImageClip::ExecuteData(vtkDataObject *)
   vtkImageData *outData = this->GetOutput();
   vtkImageData *inData = this->GetInput();
   
+  vtkDebugMacro(<<"Executing image clip");
+
   inExt  = inData->GetExtent(); 
 
   outData->SetExtent(inExt);
