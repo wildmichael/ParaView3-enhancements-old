@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGL2PSExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-06-30 05:24:12 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2003-10-11 10:51:11 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -170,7 +170,7 @@ void _Turn2DPropsOn(vtkRendererCollection *renCol, vtkIntArray *act2dVis)
     }
 }
 
-vtkCxxRevisionMacro(vtkGL2PSExporter, "$Revision: 1.8 $");
+vtkCxxRevisionMacro(vtkGL2PSExporter, "$Revision: 1.9 $");
 vtkStandardNewMacro(vtkGL2PSExporter);
 
 static float vtkGL2PSExporterGlobalPointSizeFactor = 5.0/7.0;
@@ -321,6 +321,11 @@ void vtkGL2PSExporter::WriteData()
     {
     sprintf(fName, "%s.eps", this->FilePrefix);
     format = GL2PS_EPS;
+    }
+  else if (this->FileFormat == PDF_FILE)
+    {
+    sprintf(fName, "%s.pdf", this->FilePrefix);
+    format = GL2PS_PDF;
     }
   else if (this->FileFormat == TEX_FILE)
     {
