@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTreeComposite.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-19 18:08:35 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2001-04-20 14:38:33 $
+  Version:   $Revision: 1.7 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -850,10 +850,7 @@ float vtkTreeComposite::GetZ(int x, int y)
     idx = (x + (y * this->WindowSize[0]));
     }
 
-  int temp = this->WindowSize[0] * this->WindowSize[1] * 0.5;
-    
   return this->ZData[idx];
-  
 }
 
 
