@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThreshold.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-06 19:14:35 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1998-05-11 11:09:32 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -47,6 +47,7 @@ vtkThreshold::vtkThreshold()
   this->LowerThreshold = 0.0;
   this->UpperThreshold = 1.0;
   this->AllScalars = 1;
+  this->AttributeMode = VTK_ATTRIBUTE_MODE_USE_POINT_DATA;
   this->ThresholdFunction = &vtkThreshold::Upper;
 }
 
@@ -108,7 +109,7 @@ void vtkThreshold::Execute()
   outPD = output->GetPointData();
   outPD->CopyAllocate(pd);
   outCD = output->GetCellData();
-  outCD->CopyAllocate(pd);
+  outCD->CopyAllocate(cd);
 
   if ( !(pointScalars || cellScalars) )
     {
