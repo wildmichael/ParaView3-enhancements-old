@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkContourFilter.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-04 14:25:10 $
-  Version:   $Revision: 1.63 $
+  Date:      $Date: 2002-01-08 19:00:52 $
+  Version:   $Revision: 1.64 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -78,8 +78,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "vtkDataSetToPolyDataFilter.h"
 #include "vtkContourValues.h"
-
-class vtkScalarTree;
+#include "vtkScalarTree.h"
 
 class VTK_GRAPHICS_EXPORT vtkContourFilter : public vtkDataSetToPolyDataFilter
 {
@@ -138,6 +137,11 @@ public:
   vtkSetMacro(UseScalarTree,int);
   vtkGetMacro(UseScalarTree,int);
   vtkBooleanMacro(UseScalarTree,int);
+
+  // Description:
+  // Enable the use of a scalar tree to accelerate contour extraction.
+  vtkSetObjectMacro(ScalarTree,vtkScalarTree);
+  vtkGetObjectMacro(ScalarTree,vtkScalarTree);
 
   // Description:
   // Set / get a spatial locator for merging points. By default, 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkContourGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-04 14:25:10 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2002-01-08 19:00:52 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -43,14 +43,14 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkCell.h"
 #include "vtkMergePoints.h"
 #include "vtkContourValues.h"
-#include "vtkScalarTree.h"
+#include "vtkSimpleScalarTree.h"
 #include "vtkObjectFactory.h"
 #include "vtkUnstructuredGrid.h"
 #include "vtkFloatArray.h"
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkContourGrid, "$Revision: 1.14 $");
+vtkCxxRevisionMacro(vtkContourGrid, "$Revision: 1.15 $");
 vtkStandardNewMacro(vtkContourGrid);
 
 // Construct object with initial range (0,1) and single contour value
@@ -236,7 +236,7 @@ static void vtkContourGridExecute(vtkContourGrid *self,
     {
     if ( scalarTree == NULL )
       {
-      scalarTree = vtkScalarTree::New();
+      scalarTree = vtkSimpleScalarTree::New();
       }
     scalarTree->SetDataSet(input);
     //
