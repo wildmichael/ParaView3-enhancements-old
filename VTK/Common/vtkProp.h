@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProp.h,v $
   Language:  C++
-  Date:      $Date: 2000-10-20 13:56:50 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2000-12-07 14:03:03 $
+  Version:   $Revision: 1.27 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -149,7 +149,8 @@ public:
   // prop prior to rendering. Generally used only for picking. See vtkProp3D
   // for more information.
   virtual void PokeMatrix(vtkMatrix4x4 *vtkNotUsed(matrix)) {};
-  virtual vtkMatrix4x4 *GetMatrixPointer() {return NULL;};
+  virtual vtkMatrix4x4 *GetMatrix() 
+    {return NULL;}
 
 //BTX  
   // Description:
@@ -297,6 +298,11 @@ public:
   virtual void BuildPaths(vtkAssemblyPaths *paths, vtkAssemblyPath *path);
 
 //ETX
+
+#ifndef VTK_REMOVE_LEGACY_CODE
+  virtual vtkMatrix4x4 *GetMatrixPointer() 
+    {VTK_LEGACY_METHOD(GetMatrixPointer,"3.2"); return NULL;};
+#endif
 
 protected:
   vtkProp();
