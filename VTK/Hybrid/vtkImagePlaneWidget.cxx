@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagePlaneWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-09-23 15:02:08 $
-  Version:   $Revision: 1.66 $
+  Date:      $Date: 2003-10-31 14:52:33 $
+  Version:   $Revision: 1.67 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -44,7 +44,7 @@
 #include "vtkTextureMapToPlane.h"
 #include "vtkTransform.h"
 
-vtkCxxRevisionMacro(vtkImagePlaneWidget, "$Revision: 1.66 $");
+vtkCxxRevisionMacro(vtkImagePlaneWidget, "$Revision: 1.67 $");
 vtkStandardNewMacro(vtkImagePlaneWidget);
 
 vtkCxxSetObjectMacro(vtkImagePlaneWidget, PlaneProperty, vtkProperty);
@@ -1055,6 +1055,8 @@ void vtkImagePlaneWidget::PlaceWidget(float bds[6])
     }
   this->PlaneSource->Update();
   this->BuildRepresentation();
+  this->UpdateNormal();
+  this->UpdateOrigin();
 }
 
 void vtkImagePlaneWidget::SetPlaneOrientation(int i)
