@@ -4608,7 +4608,7 @@ char yyextra[] = {
 0,0,0,0,0,0,0,1,
 0,0,0,0,0,0,0,0,
 0};
-#ident	"$Revision: 1.23 $"
+#ident	"$Revision: 1.24 $"
 
 int yylineno =1;
 # define YYU(x) x
@@ -4820,21 +4820,11 @@ yyinput()
 {
 	return(input());
 	}
-#if defined(__cplusplus) || defined(__STDC__)
 void yyoutput(int c)
-#else
-yyoutput(c)
-  int c; 
-#endif
 {
 	output(c);
 	}
-#if defined(__cplusplus) || defined(__STDC__)
 void yyunput(int c)
-#else
-yyunput(c)
-   int c; 
-#endif
 {
 	unput(c);
 	}
