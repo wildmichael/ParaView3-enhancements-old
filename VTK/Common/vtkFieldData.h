@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFieldData.h,v $
   Language:  C++
-  Date:      $Date: 1998-12-02 21:14:09 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1998-12-23 20:19:57 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -129,7 +129,9 @@ public:
   int GetNumberOfComponents();
 
   // Description:
-  // Get the number of tuples in the field.
+  // Get the number of tuples in the field. Note: some fields have arrays with
+  // different numbers of tuples; this method returns the number of tuples in
+  // the first array. Mixed-length arrays may have to be treated specially.
   int GetNumberOfTuples();
 
   // Description:
