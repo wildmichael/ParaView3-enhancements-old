@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-03-27 16:13:35 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1994-08-09 15:11:48 $
+  Version:   $Revision: 1.8 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -13,9 +13,6 @@ written consent of the authors.
 Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994 
 
 =========================================================================*/
-//
-//  3D Points, abstract representation
-//
 #include "Points.hh"
 #include "FPoints.hh"
 #include "IdList.hh"
@@ -26,6 +23,8 @@ vlPoints::vlPoints()
   this->Bounds[1] = this->Bounds[3] = this->Bounds[5] = 1.0;
 }
 
+// Description:
+// Given a list of pt ids, return an array of point coordinates.
 void vlPoints::GetPoints(vlIdList& ptId, vlFloatPoints& fp)
 {
   for (int i=0; i<ptId.GetNumberOfIds(); i++)
@@ -33,6 +32,9 @@ void vlPoints::GetPoints(vlIdList& ptId, vlFloatPoints& fp)
     fp.InsertPoint(i,this->GetPoint(ptId.GetId(i)));
     }
 }
+
+// Description:
+// Determine (xmin,xmax, ymin,ymax, zmin,zmax) bounds of points.
 void vlPoints::ComputeBounds()
 {
   int i, j;
@@ -56,6 +58,8 @@ void vlPoints::ComputeBounds()
     }
 }
 
+// Description:
+// Return the bounds of the points.
 float *vlPoints::GetBounds()
 {
   this->ComputeBounds();
