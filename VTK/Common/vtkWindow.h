@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWindow.h,v $
   Language:  C++
-  Date:      $Date: 1997-09-05 13:48:28 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1997-10-16 18:48:32 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -67,7 +67,8 @@ public:
   virtual void *GetGenericWindowId()  = 0;
   virtual void *GetGenericParentId()  = 0;
   virtual void *GetGenericContext()   = 0;
-  
+  virtual void *GetGenericDrawable()  = 0;  
+
   // useful for scripting languages
   virtual void SetWindowInfo(char *) = 0;
 
@@ -99,6 +100,12 @@ public:
   vtkBooleanMacro(Erase,int);
 
   // Description:
+  // Keep track of whether double buffering is on or off
+  vtkSetMacro(DoubleBuffer,int);
+  vtkGetMacro(DoubleBuffer,int);
+  vtkBooleanMacro(DoubleBuffer,int);
+
+  // Description:
   // Get name of rendering window
   vtkGetStringMacro(WindowName);
   virtual void SetWindowName(char * );
@@ -109,6 +116,7 @@ protected:
   int Position[2];
   int Mapped;
   int Erase;
+  int DoubleBuffer;
 };
 
 #endif
