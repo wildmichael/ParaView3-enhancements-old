@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLProperty.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:41:12 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1998-11-17 20:04:56 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -51,6 +51,7 @@ void vtkOpenGLProperty::Render(vtkActor *vtkNotUsed(anActor),
   GLenum method;
   float Info[4];
   GLenum Face;
+  float  color[4];
 
   // unbind any textures for starters
   glDisable(GL_TEXTURE_2D);
@@ -115,6 +116,15 @@ void vtkOpenGLProperty::Render(vtkActor *vtkNotUsed(anActor),
     }
   
   glShadeModel(method);
+
+  // The material properties set above are used if shading is
+  // enabled. This color set here is used if shading is 
+  // disabled. Shading is disabled in the 
+  // vtkOpenGLPolyDataMapper::Draw() method if points or lines
+  // are encountered without normals. 
+  this->GetColor( color );
+  color[3] = 1.0;
+  glColor4fv( color );
 }
 
 // Implement base class method.
