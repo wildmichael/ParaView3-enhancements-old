@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGridSynchronizedTemplates3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-26 17:19:07 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-08-17 15:38:21 $
+  Version:   $Revision: 1.4 $
 
 
 
@@ -863,7 +863,7 @@ int vtkGridSynchronizedTemplates3D::GetNumberOfStreamDivisions()
   // we should really take into consider effect of overlap on memory (later).
 
   // Get the memory necessary to hold the whole input.
-  memSize = input->GetEstimatedMemorySize();
+  memSize = input->GetEstimatedWholeMemorySize();
   // relative to what we are generating
   memSize = memSize / output->GetUpdateNumberOfPieces();
   memLimit = input->GetMemoryLimit();
@@ -942,7 +942,8 @@ void vtkGridSynchronizedTemplates3D::ExecuteInformation()
     {
     numPts = 1;
     }
-  this->GetOutput()->SetEstimatedMemorySize(numTris*sizeTri + numPts*sizePt);
+  this->GetOutput()->SetEstimatedWholeMemorySize(
+    numTris*sizeTri + numPts*sizePt);
 }
 
 //----------------------------------------------------------------------------

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGridSynchronizedTemplates3D.h,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:14:06 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1999-08-17 15:38:21 $
+  Version:   $Revision: 1.3 $
 
 
 
@@ -190,7 +190,7 @@ protected:
   void StreamExecuteStart();
   void StreamExecuteEnd();
   // Description:
-  // Updates output: EstimatedMemorySize
+  // Updates output: EstimatedWholeMemorySize
   void ExecuteInformation();
 
   // Description:

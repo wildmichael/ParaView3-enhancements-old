@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSynchronizedTemplates3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-26 17:19:08 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-08-17 15:38:22 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -632,7 +632,8 @@ void vtkSynchronizedTemplates3D::ExecuteInformation()
     {
     numPts = 1;
     }
-  this->GetOutput()->SetEstimatedMemorySize(numTris*sizeTri + numPts*sizePt);
+  this->GetOutput()->SetEstimatedWholeMemorySize(
+    numTris*sizeTri + numPts*sizePt);
 }
 
 //----------------------------------------------------------------------------
