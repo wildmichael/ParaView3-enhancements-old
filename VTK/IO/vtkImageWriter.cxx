@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:14:05 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2000-09-17 11:17:04 $
+  Version:   $Revision: 1.34 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -151,7 +151,7 @@ vtkImageData *vtkImageWriter::GetInput()
 
 //----------------------------------------------------------------------------
 // This function sets the name of the file. 
-void vtkImageWriter::SetFileName(char *name)
+void vtkImageWriter::SetFileName(const char *name)
 {
   if ( this->FileName && name && (!strcmp(this->FileName,name)))
     {

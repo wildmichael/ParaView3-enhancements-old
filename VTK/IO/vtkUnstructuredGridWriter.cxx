@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGridWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-05-11 19:43:30 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2000-09-17 11:16:37 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -96,6 +96,10 @@ void vtkUnstructuredGridWriter::WriteData()
   // Write unstructured grid specific stuff
   //
   *fp << "DATASET UNSTRUCTURED_GRID\n"; 
+
+  // Write data owned by the dataset
+  this->WriteDataSetData(fp, input);
+
   this->WritePoints(fp, input->GetPoints());
   this->WriteCells(fp, input->GetCells(),"CELLS");
   //

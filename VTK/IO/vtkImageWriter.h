@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageWriter.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:14:05 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2000-09-17 11:17:04 $
+  Version:   $Revision: 1.23 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -65,7 +65,7 @@ public:
   // Specify file name for the image file. You should specify either
   // a FileName or a FilePrefix. Use FilePrefix if the data is stored 
   // in multiple files.
-  void SetFileName(char *);
+  void SetFileName(const char *);
   vtkGetStringMacro(FileName);
 
   // Description:
