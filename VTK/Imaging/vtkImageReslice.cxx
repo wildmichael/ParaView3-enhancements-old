@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReslice.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-14 20:34:07 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-06-14 20:56:56 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to David G Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -610,7 +610,7 @@ void vtkImageReslice::ExecuteInformation(vtkImageData *input,
       for (j = 0; j < 3; j++)
 	{
 	c += imatrix[i][j]*(inCenter[j] - matrix[j][3]);
-	double tmp = fabs(matrix[j][i]);
+	double tmp = matrix[j][i]*matrix[j][i];
 	s += tmp*fabs(inSpacing[j]);
 	d += tmp*(inWholeExt[2*j+1] - inWholeExt[2*j])*fabs(inSpacing[j]);
 	e += tmp*inWholeExt[2*j];
