@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkParse.y,v $
   Language:  C++
-  Date:      $Date: 1999-10-08 16:46:00 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1999-10-19 13:47:59 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -959,6 +959,9 @@ int main(int argc,char *argv[])
   ret = yyparse();
   if (ret)
     {
+    fprintf(stdout,
+            "*** SYNTAX ERROR found in parsing the header file %s ***\n", 
+            argv[1]);
     return ret;
     }
   vtkParseOutput(stdout,&data);
