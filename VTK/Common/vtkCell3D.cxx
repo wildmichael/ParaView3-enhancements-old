@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCell3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-12 20:33:38 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2001-08-22 17:24:27 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -165,6 +165,9 @@ void vtkCell3D::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkCell::PrintSelf(os,indent);
 }
+
+// Note: the following code is placed here to deal with cross-library
+// symbol export and import on Microsoft compilers.
 
 //
 // Edges to intersect.  Three at a time form a triangle. Comments at 

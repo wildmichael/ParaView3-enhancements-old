@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCell.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-11 15:31:55 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 2001-08-22 17:24:27 $
+  Version:   $Revision: 1.48 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -300,6 +300,8 @@ void vtkCell::PrintSelf(ostream& os, vtkIndent indent)
     }
 }
 
+// Note: the following code is placed here to deal with cross-library
+// symbol export and import on Microsoft compilers.
 static VTK_LINE_CASES VTK_MARCHING_SQUARES_LINECASES[] = { 
   {{-1, -1, -1, -1, -1}},
   {{0, 3, -1, -1, -1}},
