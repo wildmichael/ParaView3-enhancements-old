@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-06 15:50:04 $
-  Version:   $Revision: 1.120 $
+  Date:      $Date: 1999-10-07 12:12:34 $
+  Version:   $Revision: 1.121 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -78,6 +78,9 @@ vtkRenderer::vtkRenderer()
   this->Actors = vtkActorCollection::New();
   this->Volumes = vtkVolumeCollection::New();
 
+  this->NumberOfPropsToRayCast = 0;
+  this->NumberOfPropsToRenderIntoImage = 0;
+  
   this->Cullers = vtkCullerCollection::New();  
   vtkFrustumCoverageCuller *cull = vtkFrustumCoverageCuller::New();
   cull->SetSortingStyleToBackToFront();
