@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkViewport.h,v $
   Language:  C++
-  Date:      $Date: 1999-12-17 22:48:29 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1999-12-21 00:34:00 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -227,7 +227,7 @@ public:
   // Same as PickProp with two arguments, but selects from the given
   // collection of Props instead of the Renderers props.  Make sure
   // the Props in the collection are in this renderer.
-  vtkProp* PickProp(float selectionX, float selectionY, vtkPropCollection*);
+  vtkProp* PickPropFrom(float selectionX, float selectionY, vtkPropCollection*);
   vtkGetMacro(PickX, float);
   vtkGetMacro(PickY, float);
   vtkGetMacro(IsPicking, int);

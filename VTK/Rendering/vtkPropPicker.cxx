@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPropPicker.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-12-17 22:48:32 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1999-12-21 00:34:14 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -103,7 +103,7 @@ int vtkPropPicker::Pick(float selectionX, float selectionY, vtkRenderer *rendere
   this->Initialize();
 
   // Have the renderer do the hardware pick
-  this->PickedProp = renderer->vtkViewport::PickProp(selectionX, selectionY, this->PickFromProps);
+  this->PickedProp = renderer->PickPropFrom(selectionX, selectionY, this->PickFromProps);
   // If there was a pick then find the world x,y,z for the pick
   if(this->PickedProp)
     {
@@ -137,7 +137,7 @@ int vtkPropPicker::Pick(float selectionX, float selectionY, vtkRenderer *rendere
 
 void vtkPropPicker::PrintSelf(ostream& os, vtkIndent indent)
 {
-  this->vtkPicker::PrintSelf(os,indent);
+  this->vtkWorldPointPicker::PrintSelf(os, indent);
   os << indent << "PickedProp:    " << this->PickedProp << endl;
   os << indent << "PickFrom List: " << this->PickFromProps << endl;
 }

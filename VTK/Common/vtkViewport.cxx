@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkViewport.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-12-17 22:48:29 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1999-12-21 00:33:59 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -377,7 +377,9 @@ void vtkViewport::PrintSelf(ostream& os, vtkIndent indent)
     {
     os << indent << "No End Render method.\n";
     }
-
+  os << indent << "Pick Position X Y: " << this->PickX 
+     << " " << this->PickY << endl;
+  os << indent << "IsPicking boolean: " << this->IsPicking << endl;
   os << indent << "Props:\n";
   this->Props->PrintSelf(os,indent.GetNextIndent());
 
@@ -571,7 +573,7 @@ void vtkViewport::ComputeAspect()
 }
 
 
-vtkProp* vtkViewport::PickProp(float selectionX, float selectionY, vtkPropCollection* pickfrom)
+vtkProp* vtkViewport::PickPropFrom(float selectionX, float selectionY, vtkPropCollection* pickfrom)
 {
   this->PickFromProps = pickfrom;
   return this->PickProp(selectionX, selectionY);
