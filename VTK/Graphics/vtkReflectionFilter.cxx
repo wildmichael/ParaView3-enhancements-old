@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkReflectionFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-05-16 19:06:25 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2003-05-19 13:08:21 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 #include "vtkPointData.h"
 #include "vtkUnstructuredGrid.h"
 
-vtkCxxRevisionMacro(vtkReflectionFilter, "$Revision: 1.10 $");
+vtkCxxRevisionMacro(vtkReflectionFilter, "$Revision: 1.11 $");
 vtkStandardNewMacro(vtkReflectionFilter);
 
 //---------------------------------------------------------------------------
@@ -236,4 +236,5 @@ void vtkReflectionFilter::PrintSelf(ostream &os, vtkIndent indent)
   this->Superclass::PrintSelf(os, indent);
 
   os << indent << "Plane: " << this->Plane << endl;
+  os << indent << "Center: " << this->Center << endl;
 }
