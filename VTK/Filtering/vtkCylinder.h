@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkCylinder.h,v $
   Language:  C++
-  Date:      $Date: 1995-03-08 16:44:23 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1995-05-04 15:58:37 $
+  Version:   $Revision: 1.3 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -17,6 +17,8 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 // .SECTION Description
 // vlCylinder computes the implicit function and function gradient for 
 // a cylinder. vlCylinder is a concrete implementation of vlImplicitFunction.
+// Cylinder is centered at origin and axes of rotation is along z-axis. (Use a
+// transform filter if necessary to reposition).
 
 #ifndef __vlCylinder_h
 #define __vlCylinder_h
@@ -31,22 +33,22 @@ public:
   void PrintSelf(ostream& os, vlIndent indent);
 
   // ImplicitFunction interface
-  float Evaluate(float x, float y, float z);
-  void EvaluateGradient(float x, float y, float z, float g[3]);
+  float EvaluateFunction(float x[3]);
+  void EvaluateGradient(float x[3], float g[3]);
 
+  // Description:
+  // Set/Get cylinder radius.
   vlSetMacro(Radius,float);
   vlGetMacro(Radius,float);
 
-  vlSetVector3Macro(Top,float);
-  vlGetVectorMacro(Top,float,3);
-
-  vlSetVector3Macro(Bottom,float);
-  vlGetVectorMacro(Bottom,float,3);
+  // Description:
+  // Set/Get cylinder height.
+  vlSetMacro(Height,float);
+  vlGetMacro(Height,float);
 
 protected:
   float Radius;
-  float Top[3];
-  float Bottom[3];
+  float Height;
 
 };
 

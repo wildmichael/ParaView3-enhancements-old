@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkSphere.h,v $
   Language:  C++
-  Date:      $Date: 1995-03-08 16:45:40 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1995-05-04 15:58:49 $
+  Version:   $Revision: 1.7 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -31,8 +31,8 @@ public:
   void PrintSelf(ostream& os, vlIndent indent);
 
   // ImplicitFunction interface
-  float Evaluate(float x, float y, float z);
-  void EvaluateGradient(float x, float y, float z, float n[3]);
+  float EvaluateFunction(float x[3]);
+  void EvaluateGradient(float x[3], float n[3]);
 
   vlSetMacro(Radius,float);
   vlGetMacro(Radius,float);

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPlane.h,v $
   Language:  C++
-  Date:      $Date: 1995-03-08 16:45:38 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1995-05-04 15:58:44 $
+  Version:   $Revision: 1.12 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -35,11 +35,11 @@ public:
 
   // project point onto plane, returning coordinates
   void ProjectPoint(float x[3], float origin[3], float normal[3], float xproj[3]);
+  float Evaluate(float normal[3], float origin[3], float x[3]);
 
   // ImplicitFunction interface
-  float Evaluate(float x, float y, float z);
-  float Evaluate(float normal[3], float origin[3], float x[3]);
-  void EvaluateGradient(float x, float y, float z, float g[3]);
+  float EvaluateFunction(float x[3]);
+  void EvaluateGradient(float x[3], float g[3]);
 
   vlSetVector3Macro(Normal,float);
   vlGetVectorMacro(Normal,float,3);
