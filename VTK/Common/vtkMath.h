@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMath.h,v $
   Language:  C++
-  Date:      $Date: 2003-05-21 18:25:54 $
-  Version:   $Revision: 1.84 $
+  Date:      $Date: 2003-05-22 13:34:08 $
+  Version:   $Revision: 1.85 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -471,7 +471,7 @@ inline int vtkMath::Floor(double x)
   // round-to-nearest,even mode instead of round-to-nearest,+infinity
   return ((int*)&tempval)[0] >> 1;
 #else
-  return floor(x);
+  return (int)floor(x);
 #endif
 }
 
