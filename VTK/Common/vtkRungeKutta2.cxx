@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRungeKutta2.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-21 18:15:36 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2002-06-18 22:25:07 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkRungeKutta2.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkRungeKutta2, "$Revision: 1.9 $");
+vtkCxxRevisionMacro(vtkRungeKutta2, "$Revision: 1.10 $");
 vtkStandardNewMacro(vtkRungeKutta2);
 
 vtkRungeKutta2::vtkRungeKutta2() 
@@ -31,8 +31,8 @@ vtkRungeKutta2::~vtkRungeKutta2()
 
 // Calculate next time step
 int vtkRungeKutta2::ComputeNextStep(float* xprev, float* dxprev, float* xnext, 
-				    float t, float& delT, float& delTActual,
-				    float, float, float, float& error)
+                                    float t, float& delT, float& delTActual,
+                                    float, float, float, float& error)
 {
   int i, numDerivs, numVals;
 

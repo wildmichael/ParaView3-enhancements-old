@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRungeKutta4.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-02-21 18:15:36 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2002-06-18 22:25:07 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkRungeKutta4.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkRungeKutta4, "$Revision: 1.9 $");
+vtkCxxRevisionMacro(vtkRungeKutta4, "$Revision: 1.10 $");
 vtkStandardNewMacro(vtkRungeKutta4);
 
 vtkRungeKutta4::vtkRungeKutta4() 
@@ -60,8 +60,8 @@ void vtkRungeKutta4::Initialize()
 // Applied Numerical Analysis by C. F. Gerald and P. O. Wheatley
 // (Addison Wesley)
 int vtkRungeKutta4::ComputeNextStep(float* xprev, float* dxprev, float* xnext, 
-				    float t, float& delT, float& delTActual,
-				    float, float, float, float& error)
+                                    float t, float& delT, float& delTActual,
+                                    float, float, float, float& error)
 {
 
   int i, numDerivs, numVals;
