@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEncodedGradientEstimator.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-08 18:41:53 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1999-02-09 04:28:55 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -112,6 +112,11 @@ public:
   void SetDirectionEncoder( vtkDirectionEncoder *direnc );
   vtkGetObjectMacro( DirectionEncoder, vtkDirectionEncoder );
 
+  // Description:
+  // Get the time required for the last update in seconds or cpu seconds
+  vtkGetMacro( LastUpdateTimeInSeconds, float );
+  vtkGetMacro( LastUpdateTimeInCPUSeconds, float );
+
   // These variables should be protected but are being
   // made public to be accessible to the templated function.
   // We used to have the templated function as a friend, but
@@ -139,6 +144,7 @@ public:
   int                   ScalarInputSize[3];
   float                 ScalarInputAspect[3];
 
+
 protected:
 
   // The number of threads to use when encoding normals
@@ -148,9 +154,12 @@ protected:
 
   vtkDirectionEncoder        *DirectionEncoder;
 
-  virtual void  UpdateNormals( void ) = 0;
+  virtual void               UpdateNormals( void ) = 0;
 
+  float                      LastUpdateTimeInSeconds;
+  float                      LastUpdateTimeInCPUSeconds;
 }; 
 
 
 #endif
+
