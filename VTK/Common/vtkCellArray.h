@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkCellArray.h,v $
   Language:  C++
-  Date:      $Date: 1994-09-14 20:17:25 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1994-09-26 13:40:27 $
+  Version:   $Revision: 1.25 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -38,7 +38,7 @@ public:
   vlCellArray() : NumberOfCells(0), Location(0) {};
   int Allocate(const int sz, const int ext=1000) 
     {return this->Ia.Allocate(sz,ext);};
-  void Initialize() {return this->Ia.Initialize();};
+  void Initialize() {this->Ia.Initialize();};
   vlCellArray (const int sz, const int ext=1000):NumberOfCells(0),Location(0),Ia(sz,ext){};
   vlCellArray(const vlCellArray& ca);
   ~vlCellArray() {};
