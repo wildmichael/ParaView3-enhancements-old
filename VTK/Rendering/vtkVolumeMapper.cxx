@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-30 18:54:32 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1999-10-06 13:17:25 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -71,6 +71,24 @@ void vtkVolumeMapper::Update()
   if ( this->GetRGBTextureInput() )
     {
     this->GetRGBTextureInput()->Update();
+    }
+}
+
+// Get the bounds for the input of this mapper as 
+// (Xmin,Xmax,Ymin,Ymax,Zmin,Zmax).
+float *vtkVolumeMapper::GetBounds()
+{
+  static float bounds[] = {-1.0,1.0, -1.0,1.0, -1.0,1.0};
+
+  if ( ! this->GetInput() ) 
+    {
+    return bounds;
+    }
+  else
+    {
+    this->GetInput()->Update();
+    this->GetInput()->GetBounds(this->Bounds);
+    return this->Bounds;
     }
 }
 

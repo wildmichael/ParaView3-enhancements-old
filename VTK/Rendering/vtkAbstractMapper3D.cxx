@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractMapper3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-30 18:49:50 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1999-10-06 13:17:21 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -77,39 +77,6 @@ void vtkAbstractMapper3D::RemoveClippingPlane(vtkPlane *plane)
     vtkErrorMacro(<< "Cannot remove clipping plane: mapper has none");
     }
   this->ClippingPlanes->RemoveItem(plane);
-}
-
-
-void vtkAbstractMapper3D::SetInput(vtkDataSet *input)
-{
-  this->vtkProcessObject::SetInput(0, input);
-}
-
-vtkDataSet *vtkAbstractMapper3D::GetInput()
-{
-  if (this->NumberOfInputs < 1)
-    {
-    return NULL;
-    }
-  
-  return (vtkDataSet *)(this->Inputs[0]);
-}
-
-// Get the bounds for this Prop as (Xmin,Xmax,Ymin,Ymax,Zmin,Zmax).
-float *vtkAbstractMapper3D::GetBounds()
-{
-  static float bounds[] = {-1.0,1.0, -1.0,1.0, -1.0,1.0};
-
-  if ( ! this->GetInput() ) 
-    {
-    return bounds;
-    }
-  else
-    {
-    this->GetInput()->Update();
-    this->GetInput()->GetBounds(this->Bounds);
-    return this->Bounds;
-    }
 }
 
 // Get the bounds for this Prop as (Xmin,Xmax,Ymin,Ymax,Zmin,Zmax).

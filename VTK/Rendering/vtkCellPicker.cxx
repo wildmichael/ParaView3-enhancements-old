@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellPicker.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-03 17:55:19 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1999-10-06 13:17:22 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,7 +58,7 @@ float vtkCellPicker::IntersectWithLine(float p1[3], float p2[3], float tol,
   int cellId, i, minCellId, minSubId, subId;
   float x[3], tMin, t, pcoords[3], minXYZ[3], minPcoords[3];
   vtkCell *cell;
-  vtkDataSet *input=m->GetInput();
+  vtkDataSet *input=m->GetDataSetInput();
 
   if ( (numCells = input->GetNumberOfCells()) < 1 )
     {

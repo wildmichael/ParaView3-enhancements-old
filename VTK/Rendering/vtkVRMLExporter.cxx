@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVRMLExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:20 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 1999-10-06 13:17:25 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -270,7 +270,7 @@ void vtkVRMLExporter::WriteAnActor(vtkActor *anActor, FILE *fp)
   trans->Delete();
   
   // get the mappers input and matrix
-  ds = anActor->GetMapper()->GetInput();
+  ds = anActor->GetMapper()->GetDataSetInput();
   
   // we really want polydata
   if ( ds->GetDataObjectType() != VTK_POLY_DATA )

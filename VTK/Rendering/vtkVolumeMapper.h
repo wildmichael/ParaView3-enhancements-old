@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeMapper.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-30 18:54:33 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1999-10-06 13:17:26 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -124,6 +124,10 @@ public:
     this->SetRGBTextureInput(tmp->GetOutput()); tmp->Delete();}
   virtual vtkStructuredPoints *GetRGBTextureInput();
 
+  // Description:
+  // Return bounding box (array of six floats) of data expressed as
+  // (xmin,xmax, ymin,ymax, zmin,zmax).
+  virtual float *GetBounds();
 
   virtual int GetMapperType()=0;
 
