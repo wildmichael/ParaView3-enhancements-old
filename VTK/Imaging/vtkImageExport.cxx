@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageExport.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-17 17:57:08 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2000-01-07 09:11:18 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 
@@ -213,10 +213,11 @@ void *vtkImageExport::GetPointerToData()
       }
     }
 
-  if (this->GetDataMemorySize() > input->GetMemoryLimit())
-    {
-    input->SetMemoryLimit(this->GetDataMemorySize());
-    }
+  //  if (this->GetDataMemorySize() > input->GetMemoryLimit())
+  //    {
+  //    input->SetMemoryLimit(this->GetDataMemorySize());
+  //    }
+
   input->SetUpdateExtent(input->GetWholeExtent());
   input->ReleaseDataFlagOff();
 

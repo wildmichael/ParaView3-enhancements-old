@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMagnitude.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-29 13:47:36 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2000-01-07 09:11:25 $
+  Version:   $Revision: 1.21 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -64,7 +64,7 @@ vtkImageMagnitude* vtkImageMagnitude::New()
 
 //----------------------------------------------------------------------------
 // This method tells the superclass that the first axis will collapse.
-void vtkImageMagnitude::ExecuteInformation(vtkImageData *vtkNotUsed(inData), 
+void vtkImageMagnitude::ExecuteInformation(vtkImageData *inData, 
 					   vtkImageData *outData)
 {
   outData->SetNumberOfScalarComponents(1);

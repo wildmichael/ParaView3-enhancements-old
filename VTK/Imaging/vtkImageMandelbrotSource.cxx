@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMandelbrotSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-10 14:18:03 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2000-01-07 09:11:26 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder,ill Lorensen.
@@ -226,7 +226,7 @@ void vtkImageMandelbrotSource::ExecuteInformation()
     mem = 1;
     }
   
-  output->SetEstimatedWholeMemorySize(mem);
+  //  output->SetEstimatedWholeMemorySize(mem);
 }
 
 //----------------------------------------------------------------------------

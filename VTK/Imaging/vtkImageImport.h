@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageImport.h,v $
   Language:  C++
-  Date:      $Date: 1999-11-17 17:56:58 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2000-01-07 09:11:22 $
+  Version:   $Revision: 1.18 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -115,19 +115,19 @@ public:
   vtkSetVector3Macro(DataOrigin,float);
   vtkGetVector3Macro(DataOrigin,float);
 
-  // Description:
-  // This method returns the largest data that can be generated.
-  void ExecuteInformation();
-  
 protected:
   vtkImageImport();
   ~vtkImageImport();
   vtkImageImport(const vtkImageImport&) {};
   void operator=(const vtkImageImport&) {};
 
+  // Description:
+  // This method returns the largest data that can be generated.
+  void ExecuteInformation();
+  
   // Generate more than requested.  Called by the superclass before
   // an execute, and before output memory is allocated.
-  void ModifyOutputUpdateExtent();
+  void EnlargeOutputUpdateExtents( vtkDataObject *data );
 
   void *ImportVoidPointer;
   int SaveUserArray;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMultipleInputFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-11-17 17:57:00 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2000-01-07 09:11:27 $
+  Version:   $Revision: 1.30 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -92,15 +92,19 @@ public:
   vtkGetMacro( NumberOfThreads, int );
 
   // Description:
+  // Putting this here until I merge graphics and imaging streaming.
+  virtual int SplitExtent(int splitExt[6], int startExt[6], 
+			  int num, int total);
+
+  // Description:
   // The execute method created by the subclass.
+  // This is kept public instead of protected since it is called
+  // from a non-member thread function.
   virtual void ThreadedExecute(vtkImageData **inDatas, 
 			       vtkImageData *outData,
 			       int extent[6], int threadId);
 
-  // Description:
-  // Putting this here until I merge graphics and imaging streaming.
-  virtual int SplitExtent(int splitExt[6], int startExt[6], 
-			  int num, int total);
+
 
 protected:
   vtkImageMultipleInputFilter();
@@ -111,11 +115,13 @@ protected:
   vtkMultiThreader *Threader;
   int Bypass;
   int NumberOfThreads;
+
+  void ComputeInputUpdateExtents( vtkDataObject *output );
   
-  int ComputeDivisionExtents(vtkDataObject *out,
-			     int division, int numDivisions);
-  virtual void ComputeRequiredInputUpdateExtent(int inExt[6], int outExt[6],
-					int whichInput);
+  virtual void ComputeInputUpdateExtent( int inExt[6], 
+					 int outExt[6], 
+					 int whichInput );
+
 
   void Execute();
   void Execute(vtkImageData *outData) {this->vtkImageSource::Execute(outData);};

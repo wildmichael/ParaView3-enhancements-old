@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageTranslateExtent.h,v $
   Language:  C++
-  Date:      $Date: 1999-11-24 12:36:41 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2000-01-07 09:11:36 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -63,7 +63,7 @@ public:
 
   // Description:
   // This method simply copies by reference the input data to the output.
-  void InternalUpdate(vtkDataObject *data);
+  void UpdateData(vtkDataObject *data);
 
 protected:
   vtkImageTranslateExtent();
@@ -73,7 +73,7 @@ protected:
 
   int Translation[3];
   
-  void ComputeRequiredInputUpdateExtent(int extent[6], int wholeExtent[6]);
+  void ComputeInputUpdateExtent(int extent[6], int wholeExtent[6]);
   void ExecuteInformation(vtkImageData *inData, vtkImageData *outData);
   void ExecuteInformation(){this->vtkImageToImageFilter::ExecuteInformation();};
 };

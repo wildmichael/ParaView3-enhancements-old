@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagePermute.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:09:10 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2000-01-07 09:11:29 $
+  Version:   $Revision: 1.19 $
   Thanks:    Thanks to Abdalmajeid M. Alyassin who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -100,8 +100,8 @@ void vtkImagePermute::ExecuteInformation(vtkImageData *inData,
 
 
 //----------------------------------------------------------------------------
-void vtkImagePermute::ComputeRequiredInputUpdateExtent(int inExt[6], 
-						       int outExt[6])
+void vtkImagePermute::ComputeInputUpdateExtent(int inExt[6], 
+					       int outExt[6])
 {
   int idx, axis;
 
@@ -197,7 +197,7 @@ void vtkImagePermute::ThreadedExecute(vtkImageData *inData,
 {
   int inExt[6];
   
-  this->ComputeRequiredInputUpdateExtent(inExt,outExt);
+  this->ComputeInputUpdateExtent(inExt,outExt);
   
   void *inPtr = inData->GetScalarPointerForExtent(inExt);
   void *outPtr = outData->GetScalarPointerForExtent(outExt);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSkeleton2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-17 17:57:13 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2000-01-07 09:11:33 $
+  Version:   $Revision: 1.21 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -80,8 +80,8 @@ void vtkImageSkeleton2D::SetNumberOfIterations(int num)
 // an output region.  Before this method is called "region" should have the 
 // extent of the output region.  After this method finishes, "region" should 
 // have the extent of the required input region.
-void vtkImageSkeleton2D::ComputeRequiredInputUpdateExtent(int *inExt, 
-							  int *outExt)
+void vtkImageSkeleton2D::ComputeInputUpdateExtent(int inExt[6], 
+						  int outExt[6])
 {
   int idx;
   int *wholeExtent;
@@ -363,7 +363,7 @@ void vtkImageSkeleton2D::ThreadedExecute(vtkImageData *inData,
     return;
     }
   
-  this->ComputeRequiredInputUpdateExtent(inExt, outExt); 
+  this->ComputeInputUpdateExtent(inExt, outExt); 
 
   // Make a temporary copy of the input data
   tempData = vtkImageData::New();

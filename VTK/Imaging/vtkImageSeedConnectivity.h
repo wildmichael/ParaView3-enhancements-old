@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSeedConnectivity.h,v $
   Language:  C++
-  Date:      $Date: 1999-11-17 17:57:03 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2000-01-07 09:11:32 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -117,7 +117,7 @@ protected:
   // Description:
   // Generate more than requested.  Called by the superclass before
   // an execute, and before output memory is allocated.
-  void ModifyOutputUpdateExtent();
+  void EnlargeOutputUpdateExtents( vtkDataObject *data );
 };
 
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCacheFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:08:41 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2000-01-07 09:11:12 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -57,7 +57,7 @@ public:
   const char *GetClassName() {return "vtkImageCacheFilter";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
-  void InternalUpdate(vtkDataObject *outData);
+  void UpdateData(vtkDataObject *outData);
 
   void SetCacheSize(int size);
   vtkGetMacro(CacheSize, int);

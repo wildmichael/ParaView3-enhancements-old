@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSobel2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-17 17:57:13 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2000-01-07 09:11:34 $
+  Version:   $Revision: 1.15 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -216,7 +216,7 @@ void vtkImageSobel2D::ThreadedExecute(vtkImageData *inData,
   void *inPtr, *outPtr;
   int inExt[6];
   
-  this->ComputeRequiredInputUpdateExtent(inExt, outExt);  
+  this->ComputeInputUpdateExtent(inExt, outExt);  
   
   inPtr = inData->GetScalarPointerForExtent(inExt);
   outPtr = outData->GetScalarPointerForExtent(outExt);

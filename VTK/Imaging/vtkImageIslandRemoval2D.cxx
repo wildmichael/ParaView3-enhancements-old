@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageIslandRemoval2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:08:58 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2000-01-07 09:11:23 $
+  Version:   $Revision: 1.25 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -96,18 +96,11 @@ void vtkImageIslandRemoval2D::PrintSelf(ostream& os, vtkIndent indent)
 
 
 //----------------------------------------------------------------------------
-void vtkImageIslandRemoval2D::ModifyOutputUpdateExtent()
+void vtkImageIslandRemoval2D::EnlargeOutputUpdateExtents( vtkDataObject *data )
 {
   int wholeExtent[6];
   int extent[6];
   
-  // Filter superclass has no control of intercept cache update.
-  // a work around
-  if (this->Bypass)
-    {
-    return;
-    }
-
   memcpy(wholeExtent,this->GetOutput()->GetWholeExtent(),6*sizeof(int));
   memcpy(extent,this->GetOutput()->GetUpdateExtent(),6*sizeof(int));
   extent[0] = wholeExtent[0];

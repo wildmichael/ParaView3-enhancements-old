@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMathematics.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-18 16:49:45 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2000-01-07 09:11:26 $
+  Version:   $Revision: 1.21 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -81,10 +81,12 @@ void vtkImageMathematics::ExecuteInformation(vtkImageData **inDatas,
   int ext[6], *ext2, idx;
 
   inDatas[0]->GetWholeExtent(ext);
+
   // two input take intersection
   if (this->Operation == VTK_ADD || this->Operation == VTK_SUBTRACT || 
       this->Operation == VTK_MULTIPLY || this->Operation == VTK_DIVIDE ||
-      this->Operation == VTK_MIN || this->Operation == VTK_MAX || this->Operation == VTK_ATAN2) 
+      this->Operation == VTK_MIN || this->Operation == VTK_MAX || 
+      this->Operation == VTK_ATAN2) 
     {
     ext2 = this->GetInput(1)->GetWholeExtent();
     for (idx = 0; idx < 3; ++idx)
@@ -101,7 +103,6 @@ void vtkImageMathematics::ExecuteInformation(vtkImageData **inDatas,
     }
   
   outData->SetWholeExtent(ext);
-
 }
 
 

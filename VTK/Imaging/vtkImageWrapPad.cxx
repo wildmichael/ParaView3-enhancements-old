@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageWrapPad.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:09:21 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2000-01-07 09:11:36 $
+  Version:   $Revision: 1.16 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -63,8 +63,8 @@ vtkImageWrapPad* vtkImageWrapPad::New()
 
 //----------------------------------------------------------------------------
 // Just clip the request.
-void vtkImageWrapPad::ComputeRequiredInputUpdateExtent(int inExt[6],
-						       int outExt[6])
+void vtkImageWrapPad::ComputeInputUpdateExtent(int inExt[6],
+					       int outExt[6])
 {
   int idx;
   int min, max, width, imageMin, imageMax, imageWidth;
@@ -241,7 +241,7 @@ void vtkImageWrapPad::ThreadedExecute(vtkImageData *inData,
 {
   int inExt[6];
   
-  this->ComputeRequiredInputUpdateExtent(inExt,outExt);
+  this->ComputeInputUpdateExtent(inExt,outExt);
 
   void *inPtr = inData->GetScalarPointerForExtent(inExt);
   void *outPtr = outData->GetScalarPointerForExtent(outExt);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-29 13:47:36 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2000-01-07 09:11:37 $
+  Version:   $Revision: 1.25 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -304,7 +304,8 @@ void vtkImageWriter::RecursiveWrite(int axis, vtkImageData *cache,
   
   // will the current request fit into memory
   // if so the just get the data and write it out
-  if (cache->GetEstimatedUpdateMemorySize() < cache->GetMemoryLimit())
+  //  if (cache->GetEstimatedUpdateMemorySize() < cache->GetMemoryLimit())
+  if ( 1 )
     {
     ext = cache->GetUpdateExtent();
     vtkDebugMacro("Getting input extent: " << ext[0] << ", " << 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCursor3D.h,v $
   Language:  C++
-  Date:      $Date: 1999-11-17 17:56:56 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2000-01-07 09:11:16 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -85,7 +85,7 @@ protected:
   // not threaded because it's too simple a filter
   void Execute(vtkImageData *inData, vtkImageData *outData);
   // defined in superclass, but hidden by Execute().
-  void Execute() { this->vtkImageToImageFilter::Execute(); };
+  void Execute() { this->vtkImageInPlaceFilter::Execute(); };
   void Execute(vtkImageData *outData)
     { this->vtkImageToImageFilter::Execute(outData);};
 };

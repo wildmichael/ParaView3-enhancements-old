@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCast.h,v $
   Language:  C++
-  Date:      $Date: 1999-11-17 17:56:54 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2000-01-07 09:11:13 $
+  Version:   $Revision: 1.23 $
   Thanks:    Thanks to Abdalmajeid M. Alyassin who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -99,15 +99,11 @@ protected:
   int ClampOverflow;
   int OutputScalarType;
   void ExecuteInformation(vtkImageData *inData, vtkImageData *outData);
+  void UpdateData(vtkImageData *data);
   void ExecuteInformation(){this->vtkImageToImageFilter::ExecuteInformation();};
-  void InternalUpdate(vtkImageData *data);
   void ThreadedExecute(vtkImageData *inData, vtkImageData *outData, 
 		       int ext[6], int id);
 
- private:
-  // Hide the superclass' InternalUpdate() from the user and the compiler
-  void InternalUpdate(vtkDataObject *data)
-    { this->vtkImageToImageFilter::InternalUpdate(data); };
 };
 
 #endif

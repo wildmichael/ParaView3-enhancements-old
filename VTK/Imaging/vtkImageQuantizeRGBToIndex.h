@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageQuantizeRGBToIndex.h,v $
   Language:  C++
-  Date:      $Date: 1999-11-17 17:57:02 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2000-01-07 09:11:29 $
+  Version:   $Revision: 1.12 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -105,8 +105,8 @@ protected:
   float           LookupIndexExecuteTime;
 
   void ExecuteInformation(vtkImageData *inData, vtkImageData *outData);
+  void ComputeInputUpdateExtent(int inExt[6], int outExt[6]);
   void ExecuteInformation(){this->vtkImageToImageFilter::ExecuteInformation();};
-  void ComputeRequiredInputUpdateExtent(int inExt[6], int outExt[6]);
   void Execute(vtkImageData *inData, vtkImageData *outData);
   // defined in superclass, but hidden by the Execute above
   void Execute(vtkImageData *outData)
@@ -117,7 +117,7 @@ protected:
   // Description:
   // Generate more than requested.  Called by the superclass before
   // an execute, and before output memory is allocated.
-  void ModifyOutputUpdateExtent();
+  void EnlargeOutputUpdateExtents( vtkDataObject *data );
 
 };
 

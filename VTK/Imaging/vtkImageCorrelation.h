@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCorrelation.h,v $
   Language:  C++
-  Date:      $Date: 1999-11-17 17:56:55 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2000-01-07 09:11:15 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -74,9 +74,9 @@ protected:
 
   int Dimensionality;
   void ExecuteInformation(vtkImageData **inDatas, vtkImageData *outData);
+  virtual void ComputeInputUpdateExtent(int inExt[6], int outExt[6],
+					int whichInput);
   void ExecuteInformation(){this->vtkImageTwoInputFilter::ExecuteInformation();};
-  virtual void ComputeRequiredInputUpdateExtent(int inExt[6], int outExt[6],
-						int whichInput);
   void ThreadedExecute(vtkImageData **inDatas, vtkImageData *outData,
 		       int extent[6], int id);
 };

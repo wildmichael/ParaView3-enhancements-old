@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSeedConnectivity.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:09:14 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2000-01-07 09:11:32 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -137,15 +137,9 @@ void vtkImageSeedConnectivity::AddSeed(int i0, int i1)
 
 
 //----------------------------------------------------------------------------
-void vtkImageSeedConnectivity::ModifyOutputUpdateExtent()
+void vtkImageSeedConnectivity::EnlargeOutputUpdateExtents( vtkDataObject 
+							   *data )
 {
-  // Filter superclass has no control of intercept cache update.
-  // a work around
-  if (this->Bypass)
-    {
-    return;
-    }
-  
   this->GetOutput()->SetUpdateExtent(this->GetOutput()->GetWholeExtent());
 }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageRFFT.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-17 17:57:11 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2000-01-07 09:11:30 $
+  Version:   $Revision: 1.19 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -74,8 +74,8 @@ void vtkImageRFFT::ExecuteInformation(vtkImageData *vtkNotUsed(inData),
 //----------------------------------------------------------------------------
 // This method tells the superclass that the whole input array is needed
 // to compute any output region.
-void vtkImageRFFT::ComputeRequiredInputUpdateExtent(int inExt[6], 
-						   int outExt[6])
+void vtkImageRFFT::ComputeInputUpdateExtent(int inExt[6], 
+					    int outExt[6])
 {
   int *extent;
   
@@ -207,7 +207,7 @@ void vtkImageRFFT::ThreadedExecute(vtkImageData *inData, vtkImageData *outData,
   void *inPtr, *outPtr;
   int inExt[6];
 
-  this->ComputeRequiredInputUpdateExtent(inExt, outExt);  
+  this->ComputeInputUpdateExtent(inExt, outExt);  
   inPtr = inData->GetScalarPointerForExtent(inExt);
   outPtr = outData->GetScalarPointerForExtent(outExt);
   

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageIterateFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-11-17 17:56:59 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2000-01-07 09:11:24 $
+  Version:   $Revision: 1.16 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -66,7 +66,12 @@ public:
   // user will not access this method.
   vtkGetMacro(Iteration,int);
   vtkGetMacro(NumberOfIterations,int);  
-  
+
+  void ComputeInputUpdateExtents( vtkDataObject *output );
+  void ComputeInputUpdateExtent( int inExt[6], int outExt[6] )
+    { vtkErrorMacro( << "Should be implemented in subclass" );};
+
+
 protected:
   vtkImageIterateFilter();
   ~vtkImageIterateFilter();
@@ -81,11 +86,6 @@ protected:
   // You should override this method if needed.
   virtual void ExecuteInformation(vtkImageData *inData, vtkImageData *outData);
   
-  // Ends up calling ComputeRequiredInputUpdateExtent(int inExt[6],int outExt[6])
-  // for each iteration.
-  int ComputeDivisionExtents(vtkDataObject *output,
-			     int division, int numDivisions);
-
   // Superclass API: Calls Execute(vtkImageData *inData, vtkImageData *outData)
   // for each iteration.
   void Execute();

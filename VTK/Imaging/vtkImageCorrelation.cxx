@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCorrelation.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-17 17:57:08 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2000-01-07 09:11:15 $
+  Version:   $Revision: 1.15 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -80,9 +80,9 @@ void vtkImageCorrelation::ExecuteInformation(
 
 //----------------------------------------------------------------------------
 // Grow
-void vtkImageCorrelation::ComputeRequiredInputUpdateExtent(int inExt[6], 
-							   int outExt[6],
-							   int whichInput)
+void vtkImageCorrelation::ComputeInputUpdateExtent(int inExt[6], 
+						   int outExt[6],
+						   int whichInput)
 {
   if (whichInput == 1)
     {

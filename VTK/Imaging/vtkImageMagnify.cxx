@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMagnify.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-17 17:57:09 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2000-01-07 09:11:25 $
+  Version:   $Revision: 1.28 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -107,8 +107,8 @@ void vtkImageMagnify::ExecuteInformation(vtkImageData *inData,
 //----------------------------------------------------------------------------
 // This method computes the Region of input necessary to generate outRegion.
 // It assumes offset and size are multiples of Magnify Factors.
-void vtkImageMagnify::ComputeRequiredInputUpdateExtent(int inExt[6],
-						       int outExt[6])
+void vtkImageMagnify::ComputeInputUpdateExtent(int inExt[6],
+					       int outExt[6])
 {
   int idx;
   
@@ -312,7 +312,7 @@ void vtkImageMagnify::ThreadedExecute(vtkImageData *inData,
 				      int outExt[6], int id)
 {
   int inExt[6];
-  this->ComputeRequiredInputUpdateExtent(inExt,outExt);
+  this->ComputeInputUpdateExtent(inExt,outExt);
   void *inPtr = inData->GetScalarPointerForExtent(inExt);
   void *outPtr = outData->GetScalarPointerForExtent(outExt);
   

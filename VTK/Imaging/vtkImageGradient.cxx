@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageGradient.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:08:54 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2000-01-07 09:11:21 $
+  Version:   $Revision: 1.24 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -106,8 +106,8 @@ void vtkImageGradient::ExecuteInformation(vtkImageData *inData,
 
 //----------------------------------------------------------------------------
 // This method computes the input extent necessary to generate the output.
-void vtkImageGradient::ComputeRequiredInputUpdateExtent(int inExt[6],
-							int outExt[6])
+void vtkImageGradient::ComputeInputUpdateExtent(int inExt[6],
+						int outExt[6])
 {
   int *wholeExtent;
   int idx;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAccumulate.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-30 12:35:34 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2000-01-07 09:11:10 $
+  Version:   $Revision: 1.18 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -307,8 +307,8 @@ void vtkImageAccumulate::ExecuteInformation(vtkImageData *vtkNotUsed(input),
 
 //----------------------------------------------------------------------------
 // Get ALL of the input.
-void vtkImageAccumulate::ComputeRequiredInputUpdateExtent(int inExt[6], 
-							  int outExt[6])
+void vtkImageAccumulate::ComputeInputUpdateExtent(int inExt[6], 
+						  int outExt[6])
 {
   int *wholeExtent;
 
@@ -318,16 +318,9 @@ void vtkImageAccumulate::ComputeRequiredInputUpdateExtent(int inExt[6],
 }
 
 //----------------------------------------------------------------------------
-void vtkImageAccumulate:: ModifyOutputUpdateExtent()
+void vtkImageAccumulate::EnlargeOutputUpdateExtents( vtkDataObject *data )
 {
   int wholeExtent[8];
-  
-  // Filter superclass has no control of intercept cache update.
-  // a work around
-  if (this->Bypass)
-    {
-    return;
-    }
   
   this->GetOutput()->GetWholeExtent(wholeExtent);
   this->GetOutput()->SetUpdateExtent(wholeExtent);

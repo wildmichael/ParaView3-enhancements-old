@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageFourierCenter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:08:52 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2000-01-07 09:11:19 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -72,8 +72,8 @@ vtkImageFourierCenter::vtkImageFourierCenter()
 //----------------------------------------------------------------------------
 // This method tells the superclass which input extent is needed.
 // This gets the whole input (even though it may not be needed).
-void vtkImageFourierCenter::ComputeRequiredInputUpdateExtent(int inExt[6], 
-							     int outExt[6])
+void vtkImageFourierCenter::ComputeInputUpdateExtent(int inExt[6], 
+						     int outExt[6])
 {
   int *extent;
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCast.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:08:42 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2000-01-07 09:11:12 $
+  Version:   $Revision: 1.30 $
   Thanks:    Thanks to Abdalmajeid M. Alyassin who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -80,7 +80,7 @@ void vtkImageCast::ExecuteInformation(vtkImageData *vtkNotUsed(inData),
 
 //----------------------------------------------------------------------------
 // The update method first checks to see is a cast is necessary.
-void vtkImageCast::InternalUpdate(vtkImageData *data)
+void vtkImageCast::UpdateData(vtkImageData *data)
 {
   
   if (! this->GetInput() || ! this->GetOutput())
@@ -89,20 +89,8 @@ void vtkImageCast::InternalUpdate(vtkImageData *data)
     return;
     }
   
-  // Do the scalar types already match
-  if (this->GetInput()->GetScalarType() == this->GetOutput()->GetScalarType())
-    {
-    int bypassSave = this->Bypass;
-    // just copy by reference. (use Bypass)
-    vtkDebugMacro("Update: Cast is not necessary.");
-    this->Bypass = 1;
-    this->vtkImageToImageFilter::InternalUpdate(data);
-    this->Bypass = bypassSave;
-    return;
-    }
-  
   // call the superclass update which will cause an execute.
-  this->vtkImageToImageFilter::InternalUpdate(data);
+  this->vtkImageToImageFilter::UpdateData(data);
 }
 
 //----------------------------------------------------------------------------

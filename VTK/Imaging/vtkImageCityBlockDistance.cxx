@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCityBlockDistance.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:08:42 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2000-01-07 09:11:13 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -66,16 +66,10 @@ vtkImageCityBlockDistance::vtkImageCityBlockDistance()
 
 
 //----------------------------------------------------------------------------
-void vtkImageCityBlockDistance::ModifyOutputUpdateExtent()
+void vtkImageCityBlockDistance::EnlargeOutputUpdateExtents( vtkDataObject 
+							    *data)
 {
   int *wholeExtent, updateExtent[6], idx;
-  
-  // Filter superclass has no control of intercept cache update.
-  // a work around
-  if (this->Bypass)
-    {
-    return;
-    }
   
   if ( ! this->GetInput())
     {
@@ -97,8 +91,8 @@ void vtkImageCityBlockDistance::ModifyOutputUpdateExtent()
 //----------------------------------------------------------------------------
 // This method tells the superclass that the whole input array is needed
 // to compute any output region.
-void vtkImageCityBlockDistance::ComputeRequiredInputUpdateExtent(int inExt[6],
-								 int outExt[6])
+void vtkImageCityBlockDistance::ComputeInputUpdateExtent(int inExt[6],
+							 int outExt[6])
 {
   int *wholeExtent;
 

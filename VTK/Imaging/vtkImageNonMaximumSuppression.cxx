@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageNonMaximumSuppression.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-17 17:57:10 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2000-01-07 09:11:27 $
+  Version:   $Revision: 1.32 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -98,9 +98,9 @@ void vtkImageNonMaximumSuppression::ExecuteInformation(vtkImageData **inDatas,
 
 //----------------------------------------------------------------------------
 // This method computes the input extent necessary to generate the output.
-void vtkImageNonMaximumSuppression::
-ComputeRequiredInputUpdateExtent(int inExt[6], int outExt[6],
-				 int whichInput)
+void vtkImageNonMaximumSuppression::ComputeInputUpdateExtent(int inExt[6], 
+							     int outExt[6],
+							     int whichInput)
 {
   int *wholeExtent;
   int idx;

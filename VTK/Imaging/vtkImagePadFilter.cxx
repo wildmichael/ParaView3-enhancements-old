@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagePadFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:09:09 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2000-01-07 09:11:28 $
+  Version:   $Revision: 1.18 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -88,9 +88,10 @@ void vtkImagePadFilter::SetOutputWholeExtent(int extent[6])
     if (this->OutputWholeExtent[idx] != extent[idx])
       {
       this->OutputWholeExtent[idx] = extent[idx];
-      this->Modified();
+      modified = 1;
       }
     }
+
   if (modified)
     {
     this->Modified();
@@ -145,8 +146,8 @@ void vtkImagePadFilter::ExecuteInformation(vtkImageData *inData,
 
 //----------------------------------------------------------------------------
 // Just clip the request.  The subclass may need to overwrite this method.
-void vtkImagePadFilter::ComputeRequiredInputUpdateExtent(int inExt[6], 
-							 int outExt[6])
+void vtkImagePadFilter::ComputeInputUpdateExtent(int inExt[6], 
+						 int outExt[6])
 {
   int idx;
   int *wholeExtent;

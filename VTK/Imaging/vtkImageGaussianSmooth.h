@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageGaussianSmooth.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:08:54 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2000-01-07 09:11:20 $
+  Version:   $Revision: 1.24 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -105,7 +105,7 @@ protected:
   float RadiusFactors[3];
   
   void ComputeKernel(double *kernel, int min, int max, double std);
-  void ComputeRequiredInputUpdateExtent(int inExt[6], int outExt[6]);
+  void ComputeInputUpdateExtent(int inExt[6], int outExt[6]);
   void ExecuteAxis(int axis, vtkImageData *inData, int inExt[6],
 		   vtkImageData *outData, int outExt[6],
 		   int *pcycle, int target, int *pcount, int total);

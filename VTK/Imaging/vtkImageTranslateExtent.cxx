@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageTranslateExtent.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-24 12:36:41 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2000-01-07 09:11:36 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -97,18 +97,14 @@ void vtkImageTranslateExtent::ExecuteInformation(vtkImageData *inData,
   inData->GetOrigin(origin);
   spacing = inData->GetSpacing();
 
-  // Actually superclass handles bypass ...
-  if ( ! this->Bypass)
+  // TranslateExtent the OutputWholeExtent with the input WholeExtent
+  for (idx = 0; idx < 3; ++idx)
     {
-    // TranslateExtent the OutputWholeExtent with the input WholeExtent
-    for (idx = 0; idx < 3; ++idx)
-      {
-      // change extent
-      extent[2*idx] += this->Translation[idx];
-      extent[2*idx+1] += this->Translation[idx];
-      // change origin so the data does not shift
-      origin[idx] -= (float)(this->Translation[idx]) * spacing[idx];
-      }
+    // change extent
+    extent[2*idx] += this->Translation[idx];
+    extent[2*idx+1] += this->Translation[idx];
+    // change origin so the data does not shift
+    origin[idx] -= (float)(this->Translation[idx]) * spacing[idx];
     }
   
   outData->SetWholeExtent(extent);
@@ -118,7 +114,7 @@ void vtkImageTranslateExtent::ExecuteInformation(vtkImageData *inData,
 
 //----------------------------------------------------------------------------
 // This method simply copies by reference the input data to the output.
-void vtkImageTranslateExtent::InternalUpdate(vtkDataObject *data)
+void vtkImageTranslateExtent::UpdateData(vtkDataObject *data)
 {
   vtkImageData *inData, *outData = (vtkImageData*)(data);
   int extent[6], idx;
@@ -161,8 +157,8 @@ void vtkImageTranslateExtent::InternalUpdate(vtkDataObject *data)
 
 
 //----------------------------------------------------------------------------
-void vtkImageTranslateExtent::ComputeRequiredInputUpdateExtent(int extent[6], 
-							       int inExtent[6])
+void vtkImageTranslateExtent::ComputeInputUpdateExtent(int extent[6], 
+						       int inExtent[6])
 {
   extent[0] = inExtent[0] - this->Translation[0];
   extent[1] = inExtent[1] - this->Translation[0];
