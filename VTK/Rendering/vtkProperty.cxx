@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProperty.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:12:22 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 2000-09-25 13:33:53 $
+  Version:   $Revision: 1.46 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -85,22 +85,27 @@ vtkProperty::vtkProperty()
 // Assign one property to another. 
 void vtkProperty::DeepCopy(vtkProperty *p)
 {
-  this->SetColor(p->GetColor());
-  this->SetAmbientColor(p->GetAmbientColor());
-  this->SetDiffuseColor(p->GetDiffuseColor());
-  this->SetSpecularColor(p->GetSpecularColor());
-  this->SetEdgeColor(p->GetEdgeColor());
-
-  this->SetAmbient(p->GetAmbient());
-  this->SetDiffuse(p->GetDiffuse());
-  this->SetSpecular(p->GetSpecular());
-  this->SetSpecularPower(p->GetSpecularPower());
-  this->SetOpacity(p->GetOpacity());
-  this->SetInterpolation(p->GetInterpolation());
-  this->SetRepresentation(p->GetRepresentation());
-  this->SetEdgeVisibility(p->GetEdgeVisibility());
+  if ( p != NULL )
+    {
+    this->SetColor(p->GetColor());
+    this->SetAmbientColor(p->GetAmbientColor());
+    this->SetDiffuseColor(p->GetDiffuseColor());
+    this->SetSpecularColor(p->GetSpecularColor());
+    this->SetEdgeColor(p->GetEdgeColor());
+    this->SetAmbient(p->GetAmbient());
+    this->SetDiffuse(p->GetDiffuse());
+    this->SetSpecular(p->GetSpecular());
+    this->SetSpecularPower(p->GetSpecularPower());
+    this->SetOpacity(p->GetOpacity());
+    this->SetInterpolation(p->GetInterpolation());
+    this->SetRepresentation(p->GetRepresentation());
+    this->SetEdgeVisibility(p->GetEdgeVisibility());
+    this->SetBackfaceCulling(p->GetBackfaceCulling());
+    this->SetFrontfaceCulling(p->GetFrontfaceCulling());
+    this->SetPointSize(p->GetPointSize());
+    this->SetLineWidth(p->GetLineWidth());
+    }
 }
-
 
 // return the correct type of Property 
 vtkProperty *vtkProperty::New()
