@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPicker.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-16 20:32:00 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 2000-02-28 12:14:11 $
+  Version:   $Revision: 1.49 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -270,8 +270,8 @@ int vtkPicker::Pick(float selectionX, float selectionY, float selectionZ,
     tB = clipRange[1] - rayLength;
     for (i=0; i<3; i++) 
       {
-      p1World[i] = PickPosition[i] + tF*cameraDOP[i];
-      p2World[i] = PickPosition[i] + tB*cameraDOP[i];
+      p1World[i] = this->PickPosition[i] + tF*cameraDOP[i];
+      p2World[i] = this->PickPosition[i] + tB*cameraDOP[i];
       }
     }
   else
