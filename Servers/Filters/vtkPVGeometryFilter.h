@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPVGeometryFilter.h,v $
   Language:  C++
-  Date:      $Date: 2003-09-22 17:53:12 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2003-10-31 17:08:34 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,7 +25,6 @@
 
 #include "vtkDataSetSurfaceFilter.h"
 
-class vtkCTHData;
 class vtkImageData;
 class vtkStructuredGrid;
 class vtkRectilinearGrid;
@@ -53,7 +52,7 @@ protected:
   ~vtkPVGeometryFilter();
 
   void Execute();
-  void CTHDataExecute(vtkCTHData *input);
+  void DataSetExecute(vtkDataSet *input);
   void ImageDataExecute(vtkImageData *input);
   void StructuredGridExecute(vtkStructuredGrid *input);
   void RectilinearGridExecute(vtkRectilinearGrid *input);
