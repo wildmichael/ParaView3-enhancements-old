@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader2.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-07-22 19:27:45 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2003-07-23 14:23:57 $
+  Version:   $Revision: 1.26 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -24,7 +24,7 @@
 
 #include <sys/stat.h>
 
-vtkCxxRevisionMacro(vtkImageReader2, "$Revision: 1.25 $");
+vtkCxxRevisionMacro(vtkImageReader2, "$Revision: 1.26 $");
 vtkStandardNewMacro(vtkImageReader2);
 
 #ifdef read
@@ -39,8 +39,8 @@ vtkStandardNewMacro(vtkImageReader2);
 vtkImageReader2::vtkImageReader2()
 {
   this->FilePrefix = NULL;
-  this->FilePattern = new char[strlen("%s") + 1];
-  strcpy (this->FilePattern, "%s");
+  this->FilePattern = new char[strlen("%s.%d") + 1];
+  strcpy (this->FilePattern, "%s.%d");
   this->File = NULL;
 
   this->DataScalarType = VTK_SHORT;
@@ -68,7 +68,7 @@ vtkImageReader2::vtkImageReader2()
   // Left over from short reader
   this->SwapBytes = 0;
   this->FileLowerLeft = 0;
-  this->FileDimensionality = 3;
+  this->FileDimensionality = 2;
 }
 
 //----------------------------------------------------------------------------

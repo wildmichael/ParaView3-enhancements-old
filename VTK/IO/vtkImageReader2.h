@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader2.h,v $
   Language:  C++
-  Date:      $Date: 2003-07-22 19:27:45 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2003-07-23 14:23:57 $
+  Version:   $Revision: 1.20 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -187,7 +187,7 @@ public:
   //       correct reader for this file
   virtual int CanReadFile(const char* vtkNotUsed(fname))
     {
-      return 1;
+      return 0;
     }
 
   // Description:
