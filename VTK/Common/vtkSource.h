@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkSource.h,v $
   Language:  C++
-  Date:      $Date: 1994-11-06 19:40:24 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1994-11-15 11:14:17 $
+  Version:   $Revision: 1.13 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -30,6 +30,7 @@ class vlSource : public vlLWObject
 public:
   vlSource();
   virtual ~vlSource() {};
+  char *_GetClassName() {return "vlSource";};
   void _PrintSelf(ostream& os, vlIndent indent);
 
   // Description:
@@ -47,6 +48,12 @@ protected:
   void (*EndMethod)(void *arg);
   void *EndMethodArg;
   vlTimeStamp ExecuteTime;
+
+  // Get flag indicating whether data has been released since last execution.
+  // Used during update method to determin whether to execute or not.
+  virtual int GetDataReleased();
+  virtual void SetDataReleased(int flag);
+
 };
 
 #endif

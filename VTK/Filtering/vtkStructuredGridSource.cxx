@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStructuredGridSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-06 19:40:20 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1994-11-15 11:14:13 $
+  Version:   $Revision: 1.3 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -31,6 +31,28 @@ unsigned long int vlStructuredGridSource::GetMTime()
 void vlStructuredGridSource::Update()
 {
   this->UpdateFilter();
+}
+
+void vlStructuredGridSource::DebugOn()
+{
+  vlStructuredGrid::DebugOn();
+  vlSource::_DebugOn();
+}
+
+void vlStructuredGridSource::DebugOff()
+{
+  vlStructuredGrid::DebugOff();
+  vlSource::_DebugOff();
+}
+
+int vlStructuredGridSource::GetDataReleased()
+{
+  return this->DataReleased;
+}
+
+void vlStructuredGridSource::SetDataReleased(int flag)
+{
+  this->DataReleased = flag;
 }
 
 void vlStructuredGridSource::PrintSelf(ostream& os, vlIndent indent)

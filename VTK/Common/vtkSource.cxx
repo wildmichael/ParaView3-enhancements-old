@@ -3,8 +3,8 @@
  Program:   Visualization Library
  Module:    $RCSfile: vtkSource.cxx,v $
  Language:  C++
- Date:      $Date: 1994-11-06 19:40:23 $
- Version:   $Revision: 1.9 $
+ Date:      $Date: 1994-11-15 11:14:17 $
+ Version:   $Revision: 1.10 $
 
  This file is part of the Visualization Library. No part of this file or its
  contents may be copied, reproduced or altered in any way without the express
@@ -30,11 +30,12 @@ vlSource::vlSource()
 void vlSource::UpdateFilter()
 {
   // Make sure virtual getMTime method is called since subclasses will overload
-  if ( this->_GetMTime() > this->ExecuteTime )
+  if ( this->_GetMTime() > this->ExecuteTime || this->GetDataReleased() )
     {
     if ( this->StartMethod ) (*this->StartMethod)(this->StartMethodArg);
     this->Execute();
     this->ExecuteTime.Modified();
+    this->SetDataReleased(0);
     if ( this->EndMethod ) (*this->EndMethod)(this->EndMethodArg);
     }
 }
@@ -65,7 +66,18 @@ void vlSource::SetEndMethod(void (*f)(void *), void *arg)
 
 void vlSource::Execute()
 {
-  cerr << "Execution of filter should be in derived class" << "\n";
+  vl_ErrorMacro(<< "Execution of filter should be in derived class");
+}
+
+int vlSource::GetDataReleased()
+{
+  vl_ErrorMacro(<<"Method should be implemented by subclass!");
+  return 1;
+}
+
+void vlSource::SetDataReleased(int flag)
+{
+  vl_ErrorMacro(<<"Method should be implemented by subclass!");
 }
 
 void vlSource::_PrintSelf(ostream& os, vlIndent indent)

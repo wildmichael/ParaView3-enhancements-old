@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStructuredPointsSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-06 19:40:22 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1994-11-15 11:14:15 $
+  Version:   $Revision: 1.5 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -31,6 +31,28 @@ unsigned long int vlStructuredPointsSource::GetMTime()
 void vlStructuredPointsSource::Update()
 {
   this->UpdateFilter();
+}
+
+void vlStructuredPointsSource::DebugOn()
+{
+  vlStructuredPoints::DebugOn();
+  vlSource::_DebugOn();
+}
+
+void vlStructuredPointsSource::DebugOff()
+{
+  vlStructuredPoints::DebugOff();
+  vlSource::_DebugOff();
+}
+
+int vlStructuredPointsSource::GetDataReleased()
+{
+  return this->DataReleased;
+}
+
+void vlStructuredPointsSource::SetDataReleased(int flag)
+{
+  this->DataReleased = flag;
 }
 
 void vlStructuredPointsSource::PrintSelf(ostream& os, vlIndent indent)
