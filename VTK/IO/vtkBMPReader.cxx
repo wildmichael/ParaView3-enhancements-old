@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBMPReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-01-16 21:50:58 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2000-01-17 15:42:46 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -111,7 +111,10 @@ void vtkBMPReader::ExecuteInformation()
     }
 
   this->ComputeInternalFileName(this->DataExtent[4]);
-  
+  if (this->InternalFileName == NULL)
+    {
+    return;
+    }
   // get the magic number by reading in a file
   fp = fopen(this->InternalFileName,"rb");
   if (!fp)
@@ -489,6 +492,11 @@ static void vtkBMPReaderUpdate2(vtkBMPReader *self, vtkImageData *data,
 // are assumed to be the same as the file extent/order.
 void vtkBMPReader::Execute(vtkImageData *data)
 {
+  if (this->InternalFileName == NULL)
+    {
+    vtkErrorMacro(<< "Either a FileName or FilePrefix must be specified.");
+    return;
+    }
   this->ComputeDataIncrements();
   
   // Call the correct templated function for the output

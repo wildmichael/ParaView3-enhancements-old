@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPNMReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-24 16:35:44 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2000-01-17 15:42:56 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -125,6 +125,12 @@ void vtkPNMReader::ExecuteInformation()
     {
     this->DataExtent[4] = this->DataVOI[4];
     this->DataExtent[5] = this->DataVOI[5];
+    }
+
+  if (!this->FileName && !this->FilePrefix)
+    {
+    vtkErrorMacro(<<"Either a FileName or FilePrefix must be specified.");
+    return;
     }
 
   // Allocate the space for the filename

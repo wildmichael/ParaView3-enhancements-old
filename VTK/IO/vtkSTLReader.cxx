@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSTLReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:07:40 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 2000-01-17 15:42:42 $
+  Version:   $Revision: 1.47 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -110,6 +110,12 @@ void vtkSTLReader::Execute()
   vtkCellArray *newPolys, *mergedPolys;
   vtkPolyData *output = this->GetOutput();
   
+  if (!this->FileName)
+    {
+    vtkErrorMacro(<<"A FileName must be specified.");
+    return;
+    }
+
   //
   // Initialize
   //

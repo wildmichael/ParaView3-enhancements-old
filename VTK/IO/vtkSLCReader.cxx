@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSLCReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-01-07 09:13:47 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2000-01-17 15:42:38 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -132,6 +132,12 @@ void vtkSLCReader::ExecuteInformation()
 
   vtkStructuredPoints *output = this->GetOutput();
 
+  if (!this->FileName)
+    {
+    vtkErrorMacro(<<"A FileName must be specified.");
+    return;
+    }
+
   // Initialize
   if ((fp = fopen(this->FileName, "rb")) == NULL)
     {
@@ -198,6 +204,12 @@ void vtkSLCReader::Execute()
   unsigned char *sptr = NULL;
 
   vtkStructuredPoints *output = this->GetOutput();
+
+  if (!this->FileName)
+    {
+    vtkErrorMacro(<<"A FileName must be specified.");
+    return;
+    }
 
   // Initialize
   if ((fp = fopen(this->FileName, "rb")) == NULL)
