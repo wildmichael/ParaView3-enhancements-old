@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGlyph3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-27 20:23:39 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 1998-06-02 19:43:43 $
+  Version:   $Revision: 1.52 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -460,6 +460,7 @@ void vtkGlyph3D::SetNumberOfSources(int num)
   
   this->Modified();
   if ( num < 1 ) num = 1;
+  if ( this->Source ) delete [] this->Source;
   this->Source = new vtkPolyData *[num];
   this->NumberOfSources = num;
 }

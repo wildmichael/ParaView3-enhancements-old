@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractVectorComponents.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-26 20:04:13 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1998-06-02 19:43:40 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -44,6 +44,20 @@ vtkExtractVectorComponents::vtkExtractVectorComponents()
 {
   this->VyComponent = NULL;
   this->VzComponent = NULL;
+}
+
+vtkExtractVectorComponents::~vtkExtractVectorComponents()
+{
+  if (this->VyComponent) 
+    {
+    this->VyComponent->Delete();
+    this->VyComponent = NULL;
+    }
+  if (this->VzComponent) 
+    {
+    this->VzComponent->Delete();
+    this->VzComponent = NULL;
+    }
 }
 
 // Description:
