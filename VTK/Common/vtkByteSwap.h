@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkByteSwap.h,v $
   Language:  C++
-  Date:      $Date: 1995-06-30 16:27:35 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1995-07-25 13:25:46 $
+  Version:   $Revision: 1.7 $
 
 This file is part of the Visualization Toolkit. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -26,6 +26,7 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 class vtkByteSwap
 {
 public:
+  void Delete() {delete this;};
   void Swap4(char *c);
   void Swap4(float *p) {Swap4((char *)p);};
   void Swap4(int *i) {Swap4((char *)i);};
