@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSplineFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-15 11:56:06 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-08-16 11:06:30 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 #include "vtkFloatArray.h"
 #include "vtkMath.h"
 
-vtkCxxRevisionMacro(vtkSplineFilter, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkSplineFilter, "$Revision: 1.4 $");
 vtkStandardNewMacro(vtkSplineFilter);
 
 vtkSplineFilter::vtkSplineFilter()
@@ -54,7 +54,7 @@ void vtkSplineFilter::Execute()
   vtkCellArray *inLines = NULL;
   
   vtkPoints *inPts;
-  vtkIdType numPts = 0;
+  vtkIdType numPts;
   vtkIdType numLines;
   vtkCellArray *newLines;
   vtkIdType numNewPts, numNewCells;
