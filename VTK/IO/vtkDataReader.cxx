@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-11-03 20:22:38 $
-  Version:   $Revision: 1.65 $
+  Date:      $Date: 1998-11-04 13:53:14 $
+  Version:   $Revision: 1.66 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -310,7 +310,7 @@ int vtkDataReader::ReadHeader()
     {
     delete [] this->Header;
     }
-  this->Header = strdup(line);
+  this->Header = new char[strlen(line) + 1];
   
   vtkDebugMacro(<< "Reading vtk file entitled: " << line);
   //
