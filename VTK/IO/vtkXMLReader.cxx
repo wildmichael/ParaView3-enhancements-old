@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-10-16 18:23:07 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-10-18 16:22:37 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -32,7 +32,7 @@
 
 #include <sys/stat.h>
 
-vtkCxxRevisionMacro(vtkXMLReader, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkXMLReader, "$Revision: 1.2 $");
 
 //----------------------------------------------------------------------------
 vtkXMLReader::vtkXMLReader()
@@ -101,6 +101,12 @@ int vtkXMLReader::OpenVTKFile()
     {
     vtkErrorMacro("File already open.");
     return 1;
+    }
+
+  if (!this->FileName)
+    {
+    vtkErrorMacro("File name not specified");
+    return 0;
     }
   
   // First make sure the file exists.  This prevents an empty file
