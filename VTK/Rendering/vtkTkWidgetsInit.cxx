@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkWidgetsInit.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-27 14:18:36 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-07-12 14:40:21 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,10 +26,13 @@
 // Called upon system startup to create the widget commands.
 extern "C" {VTK_TK_EXPORT int Vtkrenderingpythontkwidgets_Init(Tcl_Interp *interp);}
 
-int vtkTkRenderWidget_Cmd(ClientData clientData, Tcl_Interp *interp, 
-                          int argc, char **argv);
-int vtkTkImageViewerWidget_Cmd(ClientData clientData, Tcl_Interp *interp, 
-                               int argc, char **argv);
+extern "C" 
+{
+  int vtkTkRenderWidget_Cmd(ClientData clientData, Tcl_Interp *interp, 
+                            int argc, char **argv);
+  int vtkTkImageViewerWidget_Cmd(ClientData clientData, Tcl_Interp *interp, 
+                                 int argc, char **argv);
+}
 
 int Vtkrenderingpythontkwidgets_Init(Tcl_Interp *interp)
 {
