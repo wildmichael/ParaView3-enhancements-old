@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume.h,v $
   Language:  C++
-  Date:      $Date: 1999-03-01 19:42:29 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 1999-03-11 18:53:44 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -90,6 +90,12 @@ public:
   virtual void GetVolumes(vtkVolumeCollection *vc);
 
   // Description:
+  // Support the standard render methods.
+  // Depending on the mapper type, the volume may be rendered using
+  // this method
+  virtual int RenderTranslucentGeometry(vtkViewport *viewport);
+
+  // Description:
   // Render the volume by calling the Render() method of its mapper
   virtual void Render(vtkRenderer *ren);
 
@@ -140,7 +146,14 @@ public:
 
   // Description:
   // Return the MTime also considering the property etc.
-  unsigned long GetMTime();
+  unsigned long int GetMTime();
+
+  // Description:
+  // Return the mtime of anything that would cause the rendered image to 
+  // appear differently. Usually this involves checking the mtime of the 
+  // prop plus anything else it depends on such as properties, mappers,
+  // etc.
+  virtual unsigned long GetRedrawMTime();
 
   // Description:
   // For legacy compatibility. Do not use.

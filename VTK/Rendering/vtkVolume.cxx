@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-03-01 19:42:29 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 1999-03-11 18:53:43 $
+  Version:   $Revision: 1.32 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -290,6 +290,33 @@ float vtkVolume::GetMaxZBound( )
   return this->Bounds[5];
 }
 
+
+// If the volume mapper is of type VTK_FRAMEBUFFER_VOLUME_MAPPER, then
+// this is its opportunity to render
+int vtkVolume::RenderTranslucentGeometry( vtkViewport *vp )
+{
+  int renderedSomething = 0;
+
+  if ( !this->VolumeMapper )
+    {
+    return;
+    }
+
+  // Force the creation of a property
+  if( !this->VolumeProperty )
+    {
+    this->GetVolumeProperty();
+    }
+
+  if ( this->VolumeMapper->GetMapperType() == VTK_FRAMEBUFFER_VOLUME_MAPPER )
+    {
+    renderedSomething = 1;
+    this->VolumeMapper->Render( (vtkRenderer *)vp, this );
+    }
+
+  return renderedSomething;
+}
+
 void vtkVolume::Render( vtkRenderer *ren )
 {
   if ( !this->VolumeMapper )
@@ -362,6 +389,26 @@ unsigned long int vtkVolume::GetMTime()
     {
     time = this->UserMatrix->GetMTime();
     mTime = ( time > mTime ? time : mTime );
+    }
+
+  return mTime;
+}
+
+unsigned long int vtkVolume::GetRedrawMTime()
+{
+  unsigned long mTime=this->GetMTime();
+  unsigned long time;
+
+  if ( this->VolumeMapper != NULL )
+    {
+    time = this->VolumeMapper->GetMTime();
+    mTime = ( time > mTime ? time : mTime );
+    if (this->GetVolumeMapper()->GetScalarInput() != NULL)
+      {
+      this->GetVolumeMapper()->GetScalarInput()->Update();
+      time = this->VolumeMapper->GetScalarInput()->GetMTime();
+      mTime = ( time > mTime ? time : mTime );
+      }
     }
 
   return mTime;
