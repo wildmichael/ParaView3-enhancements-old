@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMagnify.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-01-15 03:14:23 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1998-03-10 22:28:41 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -210,14 +210,22 @@ static void vtkImageMagnifyExecute(vtkImageMagnify *self,
 	    // setup data values for interp
 	    if (magXIdx == (magX - 1)) 
 	      {
+	      int tiX, tiY, tiZ;
+	      
 	      dataP = *inPtrX;
-	      dataPX = *(inPtrX + inIncX);
-	      dataPY = *(inPtrX + inIncY);
-	      dataPZ = *(inPtrX + inIncZ);
-	      dataPXY = *(inPtrX + inIncX + inIncY);
-	      dataPXZ = *(inPtrX + inIncX + inIncZ);
-	      dataPYZ = *(inPtrX + inIncY + inIncZ);
-	      dataPXYZ = *(inPtrX + inIncX + inIncY + inIncZ);
+	      if (idxX != maxX) tiX = inIncX;
+	      else tiX = 0;
+	      if (idxY != maxY) tiY = inIncY;
+	      else tiY = 0;
+	      if (idxZ != maxZ) tiZ = inIncZ;
+	      else tiZ = 0;
+	      dataPX = *(inPtrX + tiX);
+	      dataPY = *(inPtrX + tiY);
+	      dataPZ = *(inPtrX + tiZ);
+	      dataPXY = *(inPtrX + tiX + tiY);
+	      dataPXZ = *(inPtrX + tiX + tiZ);
+	      dataPYZ = *(inPtrX + tiY + tiZ);
+	      dataPXYZ = *(inPtrX + tiX + tiY + tiZ);
 	      }
 	    *outPtr = (T)
 	      (
