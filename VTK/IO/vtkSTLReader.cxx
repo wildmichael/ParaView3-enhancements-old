@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSTLReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:51 $
-  Version:   $Revision: 1.53 $
+  Date:      $Date: 2001-01-31 15:53:34 $
+  Version:   $Revision: 1.54 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -105,6 +105,12 @@ void vtkSTLReader::Execute()
   vtkPoints *newPts, *mergedPts;
   vtkCellArray *newPolys, *mergedPolys;
   vtkPolyData *output = this->GetOutput();
+  
+  // All of the data in the first piece.
+  if (output->GetUpdatePiece() > 0)
+    {
+    return;
+    }
   
   if (!this->FileName)
     {

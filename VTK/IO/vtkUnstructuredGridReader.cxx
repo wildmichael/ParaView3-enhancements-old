@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGridReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:56 $
-  Version:   $Revision: 1.57 $
+  Date:      $Date: 2001-01-31 15:53:34 $
+  Version:   $Revision: 1.58 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -92,6 +92,7 @@ void vtkUnstructuredGridReader::SetOutput(vtkUnstructuredGrid *output)
 
 
 //----------------------------------------------------------------------------
+// I do not think this should be here, but I do not want to remove it now.
 void vtkUnstructuredGridReader::ComputeInputUpdateExtents(vtkDataObject *data)
 {
   int piece, numPieces, ghostLevel;
@@ -127,6 +128,12 @@ void vtkUnstructuredGridReader::Execute()
   int done=0;
   vtkUnstructuredGrid *output = this->GetOutput();
 
+  // All of the data in the first piece.
+  if (output->GetUpdatePiece() > 0)
+    {
+    return;
+    }  
+  
   vtkDebugMacro(<<"Reading vtk unstructured grid...");
 
   if (!this->OpenVTKFile() || !this->ReadHeader())
