@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPPolyDataNormals.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-31 14:02:18 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2001-09-28 19:33:59 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -41,9 +41,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 =========================================================================*/
 #include "vtkPPolyDataNormals.h"
 #include "vtkObjectFactory.h"
-#include "vtkRemoveGhostCells.h"                                                
 
-//------------------------------------------------------------------------------
+//----------------------------------------------------------------------------
 vtkPPolyDataNormals* vtkPPolyDataNormals::New()
 {
   // First try to create the object from the vtkObjectFactory
@@ -56,33 +55,57 @@ vtkPPolyDataNormals* vtkPPolyDataNormals::New()
   return new vtkPPolyDataNormals;
 }
 
-// Generate normals for polygon meshes
+//----------------------------------------------------------------------------
+vtkPPolyDataNormals::vtkPPolyDataNormals()
+{
+  this->PieceInvariant = 1;
+}
 
+//----------------------------------------------------------------------------
 void vtkPPolyDataNormals::Execute()
 {
   vtkPolyData *output = this->GetOutput();
-  int ghostLevel = this->GetInput()->GetUpdateGhostLevel();
 
   this->vtkPolyDataNormals::Execute();
-  output->GetPointData()->CopyNormalsOn();
-
-  // Remove any ghost cells we inserted.
-  if (ghostLevel > 0 && output->GetCellData()->GetArray("vtkGhostLevels"))
+  
+  if (this->PieceInvariant)
     {
-    vtkRemoveGhostCells* rmGhostCells = vtkRemoveGhostCells::New();
-    vtkPolyData* ghost = vtkPolyData::New();
-    ghost->ShallowCopy(output);
-    rmGhostCells->SetInput(ghost);
-    rmGhostCells->SetGhostLevel(ghostLevel);
-    rmGhostCells->Update();
-    output->CopyStructure(rmGhostCells->GetOutput());
-    output->GetPointData()->PassData(
-                 rmGhostCells->GetOutput()->GetPointData());
-    output->GetCellData()->PassData(
-                 rmGhostCells->GetOutput()->GetCellData());
-
-    ghost->Delete();
-    rmGhostCells->Delete();
-    }                                                                           
+    output->RemoveGhostCells(output->GetUpdateGhostLevel()+1);
+    }
+                                                                   
 }
 
+//--------------------------------------------------------------------------
+void vtkPPolyDataNormals::ComputeInputUpdateExtents(vtkDataObject *output)
+{
+  vtkPolyData *input = this->GetInput();
+  int piece = output->GetUpdatePiece();
+  int numPieces = output->GetUpdateNumberOfPieces();
+  int ghostLevel = output->GetUpdateGhostLevel();
+
+  if (input == NULL)
+    {
+    return;
+    }
+  if (this->PieceInvariant)
+    {
+    input->SetUpdatePiece(piece);
+    input->SetUpdateNumberOfPieces(numPieces);
+    input->SetUpdateGhostLevel(ghostLevel + 1);
+    }
+  else
+    {
+    input->SetUpdatePiece(piece);
+    input->SetUpdateNumberOfPieces(numPieces);
+    input->SetUpdateGhostLevel(ghostLevel);
+    }
+}
+
+//----------------------------------------------------------------------------
+void vtkPPolyDataNormals::PrintSelf(ostream& os, vtkIndent indent)
+{
+  vtkPolyDataNormals::PrintSelf(os,indent);
+
+  os << indent << "PieceInvariant: "
+     << this->PieceInvariant << "\n";
+}

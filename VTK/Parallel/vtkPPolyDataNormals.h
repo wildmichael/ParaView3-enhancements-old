@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPPolyDataNormals.h,v $
   Language:  C++
-  Date:      $Date: 2001-08-10 20:06:53 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-09-28 19:34:24 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -51,20 +51,29 @@ class VTK_EXPORT vtkPPolyDataNormals : public vtkPolyDataNormals
 {
 public:
   vtkTypeMacro(vtkPPolyDataNormals,vtkPolyDataNormals);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   static vtkPPolyDataNormals *New();
 
+  // Description:
+  // To get piece invariance, this filter has to request an 
+  // extra ghost level.  By default piece invariance is on.
+  vtkSetMacro(PieceInvariant, int);
+  vtkGetMacro(PieceInvariant, int);
+  vtkBooleanMacro(PieceInvariant, int);
 
 protected:
-  vtkPPolyDataNormals() {};
+  vtkPPolyDataNormals();
   ~vtkPPolyDataNormals() {};
   vtkPPolyDataNormals(const vtkPPolyDataNormals&);
   void operator=(const vtkPPolyDataNormals&);
 
   // Usual data generation method
   virtual void Execute();
-  
+  void ComputeInputUpdateExtents(vtkDataObject *output);
+
+  int PieceInvariant;
 };
 
 #endif
