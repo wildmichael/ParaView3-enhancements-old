@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGridBunykRayCastFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-11-26 13:56:19 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2003-11-27 12:56:46 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -34,7 +34,7 @@
 #include "vtkColorTransferFunction.h"
 #include "vtkVolumeProperty.h"
 
-vtkCxxRevisionMacro(vtkUnstructuredGridBunykRayCastFunction, "$Revision: 1.7 $");
+vtkCxxRevisionMacro(vtkUnstructuredGridBunykRayCastFunction, "$Revision: 1.8 $");
 vtkStandardNewMacro(vtkUnstructuredGridBunykRayCastFunction);
 
 #define VTK_BUNYKRCF_NUMLISTS 100000
@@ -742,9 +742,9 @@ void vtkUnstructuredGridBunykRayCastFunction::ComputePixelIntersections()
                     {
                     test = test->Next;
                     }
-                  Intersection *tmp = test->Next;
+                  Intersection *tmpNext = test->Next;
                   test->Next = intersect;
-                  intersect->Next = tmp;
+                  intersect->Next = tmpNext;
                   }
                 }
               }
