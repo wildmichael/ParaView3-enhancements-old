@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32PolyDataMapper2D.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-16 21:09:20 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-02-24 17:45:57 $
+  Version:   $Revision: 1.4 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -64,7 +64,8 @@ public:
 
   // Description:
   // Actually draw the poly data.
-  void Render(vtkViewport* viewport, vtkActor2D* actor);
+  void RenderGeometry(vtkViewport* viewport, vtkActor2D* actor) {};
+  void RenderPostSwap(vtkViewport* viewport, vtkActor2D* actor);
 
 protected:
   

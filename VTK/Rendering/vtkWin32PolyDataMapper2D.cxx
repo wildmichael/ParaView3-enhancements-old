@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32PolyDataMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-02-18 17:06:35 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1999-02-24 17:45:57 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -84,7 +84,8 @@ int vtkWin32PolyDataMapper2D::GetCompositingMode(vtkActor2D* actor)
 }
 
 
-void vtkWin32PolyDataMapper2D::Render(vtkViewport* viewport, vtkActor2D* actor)
+void vtkWin32PolyDataMapper2D::RenderPostSwap(vtkViewport* viewport, 
+					      vtkActor2D* actor)
 {
   int numPts;
   vtkPolyData *input= (vtkPolyData *)this->Input;
