@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkFeatureEdges.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-10-05 08:32:55 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1994-11-06 19:37:43 $
+  Version:   $Revision: 1.7 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -49,21 +49,22 @@ void vlFeatureEdges::Execute()
   int numPts, nei;
   vlIdList neighbors(MAX_CELL_SIZE);
   int p1, p2;
+  vlPolyData *input=(vlPolyData *)this->Input;
 
   vlDebugMacro(<<"Executing feature edges");
   this->Initialize();
 //
 //  Check input
 //
-  if ( (numPts=this->Input->GetNumberOfPoints()) )
+  if ( (numPts=input->GetNumberOfPoints()) )
     {
     vlErrorMacro(<<"No input data!");
     return;
     }
 
   // build cell structure.  Only operate with polygons.
-  Mesh.SetPoints(this->Input->GetPoints());
-  inPolys = this->Input->GetPolys();
+  Mesh.SetPoints(input->GetPoints());
+  inPolys = input->GetPolys();
   Mesh.SetPolys(inPolys);
   Mesh.BuildLinks();
 //
@@ -84,7 +85,7 @@ void vlFeatureEdges::Execute()
       for (cellId=0, inPolys->InitTraversal(); inPolys->GetNextCell(npts,pts); 
       cellId++)
         {
-        poly.ComputeNormal(this->Input->GetPoints(),npts,pts,n);
+        poly.ComputeNormal(input->GetPoints(),npts,pts,n);
         polyNormals->InsertNormal(cellId,n);
         }
 

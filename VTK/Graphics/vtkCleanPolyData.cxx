@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkCleanPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-09-30 19:37:02 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1994-11-06 19:37:30 $
+  Version:   $Revision: 1.7 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -33,7 +33,8 @@ vlCleanPolyData::~vlCleanPolyData()
 
 void vlCleanPolyData::Execute()
 {
-  int numPts=this->Input->GetNumberOfPoints();
+  vlPolyData *input=(vlPolyData *)this->Input;
+  int numPts=input->GetNumberOfPoints();
   vlFloatPoints *newPts;
   int numNewPts;
   
@@ -42,21 +43,21 @@ void vlCleanPolyData::Execute()
   int *Index;
   int i, j, count;
   int npts, *pts, updatedPts[MAX_CELL_SIZE];
-  vlCellArray *inVerts=this->Input->GetVerts(), *newVerts=NULL;
-  vlCellArray *inLines=this->Input->GetLines(), *newLines=NULL;
-  vlCellArray *inPolys=this->Input->GetPolys(), *newPolys=NULL;
-  vlCellArray *inStrips=this->Input->GetStrips(), *newStrips=NULL;
+  vlCellArray *inVerts=input->GetVerts(), *newVerts=NULL;
+  vlCellArray *inLines=input->GetLines(), *newLines=NULL;
+  vlCellArray *inPolys=input->GetPolys(), *newPolys=NULL;
+  vlCellArray *inStrips=input->GetStrips(), *newStrips=NULL;
 
   vlDebugMacro(<<"Cleaning data");
   this->Initialize();
 
-  if ( numPts < 1 || (inPts=this->Input->GetPoints()) == NULL )
+  if ( numPts < 1 || (inPts=input->GetPoints()) == NULL )
     {
     vlErrorMacro(<<"No data to clean!");
     return;
     }
 
-  pd = this->Input->GetPointData();
+  pd = input->GetPointData();
   this->PointData.CopyAllocate(pd);
 
   if ( this->Locator == NULL ) this->CreateDefaultLocator();
@@ -64,7 +65,7 @@ void vlCleanPolyData::Execute()
   this->Locator->SetPoints(inPts);
 
   // compute absolute tolerance from relative given
-  this->Locator->SetTolerance(this->Tolerance*this->Input->GetLength());
+  this->Locator->SetTolerance(this->Tolerance*input->GetLength());
 
   // compute merge list
   Index = this->Locator->MergePoints();

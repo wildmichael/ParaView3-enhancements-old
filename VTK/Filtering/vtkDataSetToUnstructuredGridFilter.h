@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkDataSetToUnstructuredGridFilter.h,v $
   Language:  C++
-  Date:      $Date: 1994-08-08 09:13:24 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1994-11-06 19:37:40 $
+  Version:   $Revision: 1.3 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -28,9 +28,12 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 class vlDataSetToUnstructuredGridFilter : public vlUnstructuredGrid, public vlDataSetFilter
 {
 public:
-  void Update();
   char *GetClassName() {return "vlDataSetToUnstructuredGridFilter";};
   void PrintSelf(ostream& os, vlIndent indent);
+
+  void Modified();
+  unsigned long int GetMTime();
+  void Update();
 };
 
 #endif

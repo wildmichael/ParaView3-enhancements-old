@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkAppendPolyData.h,v $
   Language:  C++
-  Date:      $Date: 1994-09-12 21:19:16 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1994-11-06 19:37:27 $
+  Version:   $Revision: 1.4 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -41,7 +41,7 @@ public:
   void AddInput(vlPolyData& in) {this->AddInput(&in);};
   void RemoveInput(vlPolyData *);
   void RemoveInput(vlPolyData& in) {this->RemoveInput(&in);};
-  vlPolyDataCollection *GetInput() {return &(this->Input);};
+  vlPolyDataCollection *GetInput() {return &(this->InputList);};
 
   // filter interface
   void Update();
@@ -51,7 +51,7 @@ protected:
   void Execute();
 
   // list of data sets to append together
-  vlPolyDataCollection Input;
+  vlPolyDataCollection InputList;
 };
 
 #endif

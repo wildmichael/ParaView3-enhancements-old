@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkAppendFilter.h,v $
   Language:  C++
-  Date:      $Date: 1994-09-12 21:19:14 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1994-11-06 19:37:25 $
+  Version:   $Revision: 1.5 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -41,7 +41,7 @@ public:
   void AddInput(vlDataSet& in) {this->AddInput(&in);};
   void RemoveInput(vlDataSet *in);
   void RemoveInput(vlDataSet& in) {this->RemoveInput(&in);};
-  vlDataSetCollection *GetInput() {return &(this->Input);};
+  vlDataSetCollection *GetInput() {return &(this->InputList);};
 
   // filter interface
   void Update();
@@ -50,7 +50,7 @@ protected:
   // Usual data generation method
   void Execute();
   // list of data sets to append together
-  vlDataSetCollection Input;
+  vlDataSetCollection InputList;
 };
 
 #endif
