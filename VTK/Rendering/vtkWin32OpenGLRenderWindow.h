@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-01 16:30:25 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2000-09-12 10:23:35 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -265,11 +265,6 @@ protected:
 				  WPARAM wParam, LPARAM lParam);
   //ETX
   
-  
-  // This is used to try to avoid extra make current calls.
-  // Make current calls are expensive on Win32.
-  // I am sure there is a better way that this ...
-  static vtkRenderWindow *CurrentRenderWindow;
 };
 
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-21 02:18:46 $
-  Version:   $Revision: 1.56 $
+  Date:      $Date: 2000-09-12 10:23:25 $
+  Version:   $Revision: 1.57 $
   Thanks:    to Horst Schreiber for developing this MFC code
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -54,13 +54,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkOpenGLLight.h"
 #include "vtkOpenGLPolyDataMapper.h"
 #include "vtkObjectFactory.h"
-
-
-
-// This is used to try to avoid extra make current calls.
-// Make current calls are expensive on Win32.
-// There is a better way... see how unix does it.
-vtkRenderWindow *vtkWin32OpenGLRenderWindow::CurrentRenderWindow = NULL;
 
 
 
@@ -212,13 +205,10 @@ void vtkWin32OpenGLRenderWindow::Start(void)
 void vtkWin32OpenGLRenderWindow::MakeCurrent()
 {
   // Try to avoid doing anything (for performance).
-  if (this->CurrentRenderWindow == this)
+  if (this->ContextId && (this->ContextId != wglGetCurrentContext()))
     {
-    return;
+    wglMakeCurrent(this->DeviceContext, this->ContextId);
     }
-  this->CurrentRenderWindow = this;
-
-  wglMakeCurrent(this->DeviceContext, this->ContextId);
 }
 
 void vtkWin32OpenGLRenderWindow::SetSize(int x, int y)
