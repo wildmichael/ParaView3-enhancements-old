@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRecursiveSphereDirectionEncoder.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:07:32 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1999-11-19 13:18:26 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -162,7 +162,7 @@ int vtkRecursiveSphereDirectionEncoder::GetNumberOfEncodedDirections( void )
   int     outer_size, inner_size;
   int     norm_size;
 
-  outer_size = pow( 2.0, (double) this->RecursionDepth ) + 1;
+  outer_size = (int)(pow( 2.0, (double) this->RecursionDepth ) + 1);
   inner_size = outer_size - 1;
 
   norm_size = outer_size * outer_size + inner_size * inner_size;
@@ -211,7 +211,7 @@ void vtkRecursiveSphereDirectionEncoder::InitializeIndexTable( void )
     delete [] this->DecodedNormal;
     }
 
-  this->OuterSize = pow( 2.0, (double) this->RecursionDepth ) + 1;
+  this->OuterSize = (int)(pow( 2.0, (double) this->RecursionDepth ) + 1);
   this->InnerSize = this->OuterSize - 1;
   this->GridSize = 
     this->OuterSize * this->OuterSize +
