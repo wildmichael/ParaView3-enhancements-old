@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-01-05 10:57:03 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1995-01-31 16:15:47 $
+  Version:   $Revision: 1.11 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -45,6 +45,7 @@ vlRenderWindow::vlRenderWindow()
   SubBuffer = NULL;
   CurrentSubFrame = 0;
   ResultFrame = NULL;
+  FileName = NULL;
 }
 
 // Description:
