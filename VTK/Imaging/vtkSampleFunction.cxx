@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSampleFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-02-17 19:49:51 $
-  Version:   $Revision: 1.63 $
+  Date:      $Date: 2003-02-18 14:33:21 $
+  Version:   $Revision: 1.64 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkPointData.h"
 
-vtkCxxRevisionMacro(vtkSampleFunction, "$Revision: 1.63 $");
+vtkCxxRevisionMacro(vtkSampleFunction, "$Revision: 1.64 $");
 vtkStandardNewMacro(vtkSampleFunction);
 vtkCxxSetObjectMacro(vtkSampleFunction,ImplicitFunction,vtkImplicitFunction);
 
@@ -146,7 +146,6 @@ void vtkSampleFunction::ExecuteData(vtkDataObject *outp)
   //
   int extent[6];
   output->GetUpdateExtent(extent);
-  int sliceSize = this->SampleDimensions[0] * this->SampleDimensions[1];
   float spacing[3];
   output->GetSpacing(spacing);
 
