@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-09-13 13:35:52 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2000-09-25 10:58:06 $
+  Version:   $Revision: 1.26 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -180,6 +180,7 @@ void vtkWin32OpenGLTextMapper::ReleaseGraphicsResources(vtkWindow *win)
         cache[j] = cache[j+1];
         }
       cache[numCached] = NULL;
+      i--;
       }
     }
 

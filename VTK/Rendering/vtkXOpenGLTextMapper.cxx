@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXOpenGLTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-03 09:51:18 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2000-09-25 10:58:06 $
+  Version:   $Revision: 1.21 $
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -185,6 +185,7 @@ void vtkXOpenGLTextMapper::ReleaseGraphicsResources(vtkWindow *win)
 	cache[j] = cache[j+1];
 	}
       cache[numCached] = NULL;
+      i--;
       }
     }
   this->LastWindow = NULL;
