@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkMath.h,v $
   Language:  C++
-  Date:      $Date: 1995-02-26 10:21:56 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1995-06-18 16:56:38 $
+  Version:   $Revision: 1.17 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -48,9 +48,16 @@ public:
                         double c1, double c2, double c3);
   float Distance2BetweenPoints(float x[3], float y[3]);
 
+  // Random number generation
   void RandomSeed(long s);  
   float Random();  
   float Random(float min, float max);
+
+  // Solution of linear equations
+  void SingularValueDecomposition(double **a, int m, int n, 
+                                  double *w, double **v);
+  void SingularValueBackSubstitution(double **u, double *w, double **v,
+                                     int m, int n, double *b, double *x);
 
 protected:
   static long Seed;
