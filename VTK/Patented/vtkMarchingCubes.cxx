@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkMarchingCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-06-08 21:39:15 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1995-06-09 10:17:11 $
+  Version:   $Revision: 1.5 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -64,6 +64,18 @@ void vlMarchingCubes::GenerateValues(int numContours, float range[2])
     {
     this->SetValue(i,val);
     }
+}
+
+// Description:
+// Generate numContours equally spaced contour values between specified
+// range.
+void vlMarchingCubes::GenerateValues(int numContours, float r1, float r2)
+{
+  float rng[2];
+
+  rng[0] = r1;
+  rng[1] = r2;
+  this->GenerateValues(numContours,rng);
 }
 
 //
