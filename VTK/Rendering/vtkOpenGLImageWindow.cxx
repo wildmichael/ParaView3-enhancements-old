@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLImageWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-05-07 11:27:19 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1999-05-13 13:19:20 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -201,13 +201,13 @@ void vtkOpenGLImageWindow::MakeDefaultWindow()
     this->OwnDisplay = 1;
     }
 
-  v = this->GetDesiredVisualInfo();
   attr.override_redirect = False;
     
   // create our own window ? 
   this->WindowCreated = 0;
   if (!this->WindowId)
     {
+    v = this->GetDesiredVisualInfo();
     this->ColorMap = XCreateColormap(this->DisplayId,
 				     RootWindow( this->DisplayId, v->screen),
 				     v->visual, AllocNone );
@@ -243,8 +243,8 @@ void vtkOpenGLImageWindow::MakeDefaultWindow()
     XGetWindowAttributes(this->DisplayId,
 			 this->WindowId,&winattr);
     matcher.visualid = XVisualIDFromVisual(winattr.visual);
-    XFree(v);
-    v = XGetVisualInfo(this->DisplayId, VisualIDMask,
+    matcher.screen = DefaultScreen(DisplayId);
+    v = XGetVisualInfo(this->DisplayId, VisualIDMask | VisualScreenMask,
 		       &matcher, &nItems);
     }
 

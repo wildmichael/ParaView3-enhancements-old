@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-04-30 01:57:22 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1999-05-13 13:19:08 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -352,16 +352,17 @@ void vtkOpenGLRenderWindow::WindowInitialize (void)
     this->OwnDisplay = 1;
     }
 
-  v = this->GetDesiredVisualInfo();
   attr.override_redirect = False;
   if (this->Borders == 0.0)
+    {
     attr.override_redirect = True;
-  
-    
+    }
+
   // create our own window ? 
   this->OwnWindow = 0;
   if (!this->WindowId)
     {
+    v = this->GetDesiredVisualInfo();
     this->ColorMap = XCreateColormap(this->DisplayId,
 				     RootWindow( this->DisplayId, v->screen),
 				     v->visual, AllocNone );
@@ -395,8 +396,8 @@ void vtkOpenGLRenderWindow::WindowInitialize (void)
     XGetWindowAttributes(this->DisplayId,
 			 this->WindowId,&winattr);
     matcher.visualid = XVisualIDFromVisual(winattr.visual);
-    XFree(v);
-    v = XGetVisualInfo(this->DisplayId, VisualIDMask,
+    matcher.screen = DefaultScreen(DisplayId);
+    v = XGetVisualInfo(this->DisplayId, VisualIDMask | VisualScreenMask,
 		       &matcher, &nItems);
     }
 
