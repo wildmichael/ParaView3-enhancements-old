@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractMap.txx,v $
   Language:  C++
-  Date:      $Date: 2002-04-10 11:59:28 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-04-10 12:05:54 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -109,7 +109,8 @@ void vtkAbstractMapKeyIsString(vtkAbstractMap<KeyType,DataType>* ma)
 // Note that we can mostly compare pointers as integers, so we do not
 // have to set the compare function.
 template<class KeyType, class DataType>
-void vtkAbstractMapDataIsReferenceCounted(vtkAbstractMap<KeyType,DataType>*)
+void vtkAbstractMapDataIsReferenceCounted(
+  vtkAbstractMap<KeyType,DataType>* ma)
 {
   ma->SetDataDeleteFunction(vtkAbstractMapReferenceCountedDeleteFunction);
   ma->SetDataCreateFunction(vtkAbstractMapReferenceCountedCreateFunction); 
