@@ -106,16 +106,17 @@ $PROGNAME =~ s/^.*[\\\/]//;
 
 my %default = 
   (
-   dirs => ["../../Common", 
-            "../../Filtering", 
-            "../../GenericFiltering", 
-            "../../Graphics", 
-            "../../GUISupport", 
-            "../../Hybrid", 
-            "../../Imaging", 
-            "../../IO", 
-            "../../Parallel", 
-            "../../Patented", 
+   dirs => ["../../Common",
+            "../../Filtering",
+            "../../GenericFiltering",
+            "../../GenericFiltering/Testing/Cxx",
+            "../../Graphics",
+            "../../GUISupport/MFC",
+            "../../Hybrid",
+            "../../Imaging",
+            "../../IO",
+            "../../Parallel",
+            "../../Patented",
             "../../Rendering"],
    relativeto => "",
    temp => "doc_header2doxygen.tmp",
@@ -260,13 +261,13 @@ foreach my $source (@files) {
         last if $line =~ /\/\/ \.NAME/;
 
         # Date. Example:
-        # Date:      $Date: 2005-02-21 00:09:41 $
+        # Date:      $Date: 2005-03-01 05:09:59 $
 
         if ($line =~ /^\s*Date:\s*(.*)$/) {
             $date = $1;
 
         # Version. Example:
-        # Version:   $Revision: 1.9 $
+        # Version:   $Revision: 1.10 $
 
         } elsif ($line =~ /^\s*Version:\s*(.*)$/) {
             $revision = $1;
