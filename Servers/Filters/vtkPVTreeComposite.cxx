@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPVTreeComposite.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-05-30 18:54:29 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2001-06-01 13:33:55 $
+  Version:   $Revision: 1.8 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -565,7 +565,7 @@ int vtkPVTreeComposite::CheckForAbortComposite()
 }
 
 //-------------------------------------------------------------------------
-int vtkPVTreeComposite::RootWaitForSateliteToFinish(int satelliteId)
+int vtkPVTreeComposite::RootWaitForSatelliteToFinish(int satelliteId)
 {
   satelliteId = satelliteId;
 }
