@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataMapper2D.h,v $
   Language:  C++
-  Date:      $Date: 1998-05-07 18:58:52 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-05-26 16:30:13 $
+  Version:   $Revision: 1.3 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -133,7 +133,6 @@ protected:
   int ScalarVisibility;
   vtkTimeStamp BuildTime;
   float ScalarRange[2];
-  int SelfCreatedLookupTable;
   int ColorMode;
 
 };
