@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMultiProcessController.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-12 21:24:10 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-03-24 21:55:41 $
+  Version:   $Revision: 1.2 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -369,7 +369,7 @@ void vtkMultiProcessController::ProcessRMI(int remoteProcessId,
                                            void *arg, int argLength,
                                            int rmiTag)
 {
-  vtkMultiProcessControllerRMI *rmi;
+  vtkMultiProcessControllerRMI *rmi = NULL;
   int found = 0;
 
   // find the rmi

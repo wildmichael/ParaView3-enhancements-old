@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPipelineSize.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-02-16 16:53:55 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2001-03-24 21:55:41 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -275,7 +275,7 @@ GenericComputeOutputMemorySize( vtkSource *src, vtkDataObject *output,
                                 unsigned long size[2] )
 {
   int idx;
-  unsigned long tmp;
+  unsigned long tmp = 0;
   vtkLargeInteger sz = 0;
   
   
