@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProMapper.h,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:04:29 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2000-02-14 21:48:59 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -182,7 +182,7 @@ public:
 
   // Description:
   // Set / Get the cut plane falloff value for intensities
-  vtkSetClampMacro( CutPlaneFallOffDistance, int, 0.0, 16 );
+  vtkSetClampMacro( CutPlaneFallOffDistance, int, 0, 16 );
   vtkGetMacro( CutPlaneFallOffDistance, int );
 
   // Description:
