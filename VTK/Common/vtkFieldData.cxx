@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFieldData.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-29 14:50:16 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-06-29 17:57:07 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -126,6 +126,7 @@ vtkFieldData *vtkFieldData::MakeObject()
       {
       data = this->Data[i]->MakeObject();
       f->SetArray(i,data);
+      data->Delete();
       f->SetArrayName(i,this->GetArrayName(i));
       }
     }
@@ -391,6 +392,7 @@ void vtkFieldData::DeepCopy(vtkFieldData& f)
       newData = data->MakeObject(); //instantiate same type of object
       newData->DeepCopy(*data);
       this->SetArray(i, newData);
+      newData->Delete();
       }
     }
 }
