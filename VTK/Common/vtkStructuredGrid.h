@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGrid.h,v $
   Language:  C++
-  Date:      $Date: 2001-03-26 21:07:31 $
-  Version:   $Revision: 1.76 $
+  Date:      $Date: 2001-04-02 20:53:47 $
+  Version:   $Revision: 1.77 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -127,14 +127,14 @@ public:
   void UnBlankPoint(int ptId);
   
   // Description:
-  // Get the array that defines the blanking (visibility) of each point
+  // Get the array that defines the blanking (visibility) of each point.
   vtkUnsignedCharArray *GetPointVisibility() 
     {return this->PointVisibility;}
 
   // Description:
-  // Set an array that defines the visibility of the points in the mesh.
-  // Make sure that length of the visibility array matches the number of
-  // points in the grid.
+  // Set an array that defines the (blanking) visibility of the points 
+  // in the grid. Make sure that length of the visibility array matches 
+  // the number of points in the grid.
   void SetPointVisibility(vtkUnsignedCharArray *pointVisibility);
 
   // Description:
