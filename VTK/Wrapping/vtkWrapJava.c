@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWrapJava.c,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:18 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2001-01-31 21:26:40 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -457,8 +457,7 @@ void outputFunction(FILE *fp, FileInfo *data)
   CurrentData = data;
 
   /* some functions will not get wrapped no matter what else */
-  if (currentFunction->IsPureVirtual ||
-      currentFunction->IsOperator || 
+  if (currentFunction->IsOperator || 
       currentFunction->ArrayFailure ||
       !currentFunction->IsPublic ||
       !currentFunction->Name) 

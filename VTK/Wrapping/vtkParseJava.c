@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkParseJava.c,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:18 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2001-01-31 21:26:40 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -230,8 +230,7 @@ void outputFunction(FILE *fp, FileInfo *data)
   int args_ok = 1;
  
   /* some functions will not get wrapped no matter what else */
-  if (currentFunction->IsPureVirtual ||
-      currentFunction->IsOperator || 
+  if (currentFunction->IsOperator || 
       currentFunction->ArrayFailure ||
       !currentFunction->IsPublic ||
       !currentFunction->Name) 
