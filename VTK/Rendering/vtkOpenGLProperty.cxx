@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLProperty.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-06-29 19:08:51 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2003-06-30 05:26:23 $
+  Version:   $Revision: 1.25 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -33,11 +33,12 @@
 
 #ifdef VTK_USE_GL2PS
 #include "gl2ps.h"
+#include "vtkGL2PSExporter.h"
 #endif // VTK_USE_GL2PS
 
 
 #ifndef VTK_IMPLEMENT_MESA_CXX
-vtkCxxRevisionMacro(vtkOpenGLProperty, "$Revision: 1.24 $");
+vtkCxxRevisionMacro(vtkOpenGLProperty, "$Revision: 1.25 $");
 vtkStandardNewMacro(vtkOpenGLProperty);
 #endif
 
@@ -134,10 +135,11 @@ void vtkOpenGLProperty::Render(vtkActor *vtkNotUsed(anActor),
 
   // Set pointsize and linewidth for GL2PS output.
 #ifdef VTK_USE_GL2PS
-  gl2psPointSize(this->PointSize);
-  gl2psLineWidth(this->LineWidth);
+  gl2psPointSize(this->PointSize*
+                 vtkGL2PSExporter::GetGlobalPointSizeFactor());
+  gl2psLineWidth(this->LineWidth*
+                 vtkGL2PSExporter::GetGlobalLineWidthFactor());
 #endif // VTK_USE_GL2PS
-
 
   // Set the LineStipple
   if (this->LineStipplePattern != 0xFFFF)
