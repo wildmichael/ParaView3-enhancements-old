@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMILVideoSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-08 13:19:37 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2002-08-11 01:02:39 $
+  Version:   $Revision: 1.20 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,12 +18,13 @@
 #include "vtkMILVideoSource.h"
 #include "vtkTimerLog.h"
 #include "vtkObjectFactory.h"
+#include "vtkCriticalSection.h"
 
 #include <mil.h>
 #include <ctype.h>
 #include <string.h>
 
-vtkCxxRevisionMacro(vtkMILVideoSource, "$Revision: 1.19 $");
+vtkCxxRevisionMacro(vtkMILVideoSource, "$Revision: 1.20 $");
 vtkStandardNewMacro(vtkMILVideoSource);
 
 //----------------------------------------------------------------------------
