@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPVTiledDisplayManager.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-03-21 20:03:35 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2003-03-24 19:20:54 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -43,7 +43,7 @@
  #include <mpi.h>
 #endif
 
-vtkCxxRevisionMacro(vtkPVTiledDisplayManager, "$Revision: 1.7 $");
+vtkCxxRevisionMacro(vtkPVTiledDisplayManager, "$Revision: 1.8 $");
 vtkStandardNewMacro(vtkPVTiledDisplayManager);
 
 vtkCxxSetObjectMacro(vtkPVTiledDisplayManager, RenderView, vtkObject);
@@ -80,7 +80,7 @@ class vtkPVTiledDisplaySchedule
 public:
   vtkPVTiledDisplaySchedule();
   ~vtkPVTiledDisplaySchedule();
-  void PrintSelf(ostream& os, vtkIndent indent);
+  void Print(ostream& os, vtkIndent indent);
 
   void InitializeForTile(int tileId, int tileProcess, int numProcs, int zeroEmtpy);
   // Swaps processes if benefits global totals.
@@ -337,7 +337,7 @@ void vtkPVTiledDisplaySchedule::ComputeElementOtherProcessIds()
 }
 
 //-------------------------------------------------------------------------
-void vtkPVTiledDisplaySchedule::PrintSelf(ostream& os, vtkIndent indent)
+void vtkPVTiledDisplaySchedule::Print(ostream& os, vtkIndent indent)
 {
   int pIdx, eIdx;
   vtkPVTiledDisplayProcess* p;
@@ -1271,7 +1271,7 @@ void vtkPVTiledDisplayManager::PrintSelf(ostream& os, vtkIndent indent)
 
   if (this->Schedule)
     {
-    this->Schedule->PrintSelf(os, indent);
+    this->Schedule->Print(os, indent);
     }
 }
 

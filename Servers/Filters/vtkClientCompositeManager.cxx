@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClientCompositeManager.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-03-20 15:37:28 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2003-03-24 19:20:54 $
+  Version:   $Revision: 1.9 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -50,7 +50,7 @@
  #include <mpi.h>
 #endif
 
-vtkCxxRevisionMacro(vtkClientCompositeManager, "$Revision: 1.8 $");
+vtkCxxRevisionMacro(vtkClientCompositeManager, "$Revision: 1.9 $");
 vtkStandardNewMacro(vtkClientCompositeManager);
 
 vtkCxxSetObjectMacro(vtkClientCompositeManager,Compositer,vtkCompositer);
@@ -1782,6 +1782,7 @@ void vtkClientCompositeManager::PrintSelf(ostream& os, vtkIndent indent)
        << this->TiledDimensions[0] << ", " << this->TiledDimensions[1] << endl;
     }
   
+  os << indent << "UseCompositing: " << this->UseCompositing << endl;
   os << indent << "UseChar: " << this->UseChar << endl;
   os << indent << "UseRGB: " << this->UseRGB << endl;
   os << indent << "ClientFlag: " << this->ClientFlag << endl;
