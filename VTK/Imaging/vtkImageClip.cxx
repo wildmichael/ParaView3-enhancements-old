@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageClip.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-22 12:48:07 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2001-01-30 13:10:03 $
+  Version:   $Revision: 1.37 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -211,11 +211,10 @@ void vtkImageClip::ResetOutputWholeExtent()
 // This method simply copies by reference the input data to the output.
 void vtkImageClip::Execute()
 {
-  int *inExt, *outExt;
+  int *inExt;
   vtkImageData *outData = this->GetOutput();
   vtkImageData *inData = this->GetInput();
   
-  outExt = outData->GetUpdateExtent();  
   inExt  = inData->GetExtent(); 
 
   outData->SetExtent(inExt);

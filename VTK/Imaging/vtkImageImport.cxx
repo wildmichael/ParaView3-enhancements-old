@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageImport.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-29 20:07:52 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2001-01-30 13:10:03 $
+  Version:   $Revision: 1.30 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -135,7 +135,6 @@ void vtkImageImport::PrintSelf(ostream& os, vtkIndent indent)
 void vtkImageImport::ExecuteInformation()
 {
   vtkImageData *output = this->GetOutput();
-  unsigned long mem;
   
   // set the extent
   output->SetWholeExtent(this->DataExtent);

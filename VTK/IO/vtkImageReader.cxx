@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-29 20:07:52 $
-  Version:   $Revision: 1.77 $
+  Date:      $Date: 2001-01-30 13:10:03 $
+  Version:   $Revision: 1.78 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -443,7 +443,6 @@ void vtkImageReader::PrintSelf(ostream& os, vtkIndent indent)
 void vtkImageReader::ExecuteInformation()
 {
   vtkImageData *output = this->GetOutput();
-  unsigned long mem;
   float spacing[3];
   int extent[6];
   float origin[3];
