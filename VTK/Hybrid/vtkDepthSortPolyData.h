@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDepthSortPolyData.h,v $
   Language:  C++
-  Date:      $Date: 2000-07-17 16:58:12 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2000-08-01 12:04:13 $
+  Version:   $Revision: 1.2 $
   Thanks:    Scott Hill for implementing this class
 
 
@@ -98,8 +98,8 @@ public:
   // that is used to include the effects of transformation. This ivar only
   // has effect if the direction is set to front-to-back or back-to-front,
   // and a camera is specified. Specifying the vtkProp3D is optional.
-  vtkSetObjectMacro(Prop3D,vtkProp3D);
-  vtkGetObjectMacro(Prop3D,vtkProp3D);
+  void SetProp3D(vtkProp3D *);
+  vtkProp3D *GetProp3D();
 
   // Description:
   // Set/Get the sort direction. This ivar only has effect if the sort
