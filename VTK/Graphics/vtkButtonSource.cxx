@@ -14,7 +14,7 @@
 =========================================================================*/
 #include "vtkButtonSource.h"
 
-vtkCxxRevisionMacro(vtkButtonSource, "$Revision: 1.11 $");
+vtkCxxRevisionMacro(vtkButtonSource, "$Revision: 1.12 $");
 
 // Construct 
 vtkButtonSource::vtkButtonSource()
@@ -26,6 +26,8 @@ vtkButtonSource::vtkButtonSource()
   this->TextureDimensions[0] = 100;
   this->TextureDimensions[1] = 100;
   this->TwoSided = 0;
+
+  this->SetNumberOfInputPorts(0);
 }
 
 void vtkButtonSource::PrintSelf(ostream& os, vtkIndent indent)
