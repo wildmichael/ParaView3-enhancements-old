@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkRenderWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-04-24 20:29:51 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1997-05-07 18:47:33 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -347,7 +347,21 @@ LRESULT APIENTRY vtkTkRenderWidgetProc(HWND hWnd, UINT message,
   LRESULT rval;
   struct vtkTkRenderWidget *self = 
     (struct vtkTkRenderWidget *)GetWindowLong(hWnd,GWL_USERDATA);
-  
+
+  // watch for WM_USER + 12  this is a special message
+  // from the vtkRenderWIndowInteractor letting us 
+  // know it wants to get events also
+  if ((message == WM_USER+12)&&(wParam == 24))
+    {
+    WNDPROC tmp = (WNDPROC)lParam;
+    // we need to tell it what the original vtk event handler was 
+    SetWindowLong(hWnd,GWL_USERDATA,(LONG)self->RenderWindow);
+    tmp(hWnd, WM_USER+13,26,(LONG)self->OldProc);
+    SetWindowLong(hWnd,GWL_USERDATA,(LONG)self);
+    self->OldProc = tmp;
+    return 1;
+    }
+
   // forward message to Tk handler
   SetWindowLong(hWnd,GWL_USERDATA,(LONG)((TkWindow *)self->TkWin)->window);
   if (((TkWindow *)self->TkWin)->parentPtr)
