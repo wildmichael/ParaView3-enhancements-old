@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkMergeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-06-02 21:03:17 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1994-06-10 08:31:12 $
+  Version:   $Revision: 1.2 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -57,26 +57,6 @@ void vlMergeFilter::Initialize()
     {
     return;
     }
-}
-
-vlMapper *vlMergeFilter::MakeMapper()
-{
-//
-// A little tricky because mappers must be of concrete type, but this class 
-// deals at abstract level of DataSet.  Depending upon Input member of this 
-// filter, mapper may change.  Hence need to anticipate change in Input and 
-// create new mappers as necessary.
-//
-  vlMapper *mapper;
-
-  mapper = this->Geometry->MakeMapper();
-  if ( !this->Mapper || mapper != this->Mapper )
-    {
-    if (this->Mapper) this->Mapper->UnRegister(this);
-    this->Mapper = mapper;
-    this->Mapper->Register(this);
-    }
-  return this->Mapper;
 }
 
 void vlMergeFilter::PrintSelf(ostream& os, vlIndent indent)
