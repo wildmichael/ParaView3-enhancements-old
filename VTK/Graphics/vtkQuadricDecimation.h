@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuadricDecimation.h,v $
   Language:  C++
-  Date:      $Date: 2003-06-13 15:03:04 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2003-06-14 10:31:48 $
+  Version:   $Revision: 1.17 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -172,9 +172,9 @@ protected:
   // Find a cell that uses this edge.
   vtkIdType GetEdgeCellId(vtkIdType p1Id, vtkIdType p2Id);
 
-  bool IsGoodPlacement(vtkIdType pt0Id, vtkIdType pt1Id, const double *x);
-  bool TrianglePlaneCheck(const float t0[3], const float t1[3], 
-                          const float t2[3],  const double *x);
+  int IsGoodPlacement(vtkIdType pt0Id, vtkIdType pt1Id, const double *x);
+  int TrianglePlaneCheck(const float t0[3], const float t1[3], 
+                         const float t2[3],  const double *x);
   void ComputeNumberOfComponents(void);
   void UpdateEdgeData(vtkIdType ptoId, vtkIdType pt1Id);
   
