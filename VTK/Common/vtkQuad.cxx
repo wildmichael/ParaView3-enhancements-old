@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQuad.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-12 18:55:41 $
-  Version:   $Revision: 1.79 $
+  Date:      $Date: 2002-11-15 19:12:23 $
+  Version:   $Revision: 1.80 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,7 @@
 #include "vtkPointLocator.h"
 #include "vtkTriangle.h"
 
-vtkCxxRevisionMacro(vtkQuad, "$Revision: 1.79 $");
+vtkCxxRevisionMacro(vtkQuad, "$Revision: 1.80 $");
 vtkStandardNewMacro(vtkQuad);
 
 static const float VTK_DIVERGED = 1.e6;
@@ -56,7 +56,7 @@ vtkQuad::~vtkQuad()
 }
 
 static const int VTK_QUAD_MAX_ITERATION=20;
-static const float VTK_QUAD_CONVERGED=1.e-05;
+static const float VTK_QUAD_CONVERGED=1.e-04;
 
 int vtkQuad::EvaluatePosition(float x[3], float* closestPoint,
                              int& subId, float pcoords[3], 
