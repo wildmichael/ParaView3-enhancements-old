@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkConnectivityFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-05-24 12:24:21 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1995-05-24 12:55:31 $
+  Version:   $Revision: 1.7 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -78,7 +78,7 @@ void vlConnectivityFilter::Execute()
   if ( this->ExtractionMode != EXTRACT_POINT_SEEDED_REGIONS && 
   this->ExtractionMode != EXTRACT_CELL_SEEDED_REGIONS ) 
     { //visit all cells marking with region number
-    for (cellId=0; cellId < numCells; cellId++, RegionNumber++)
+    for (cellId=0; cellId < numCells; cellId++)
       {
       if ( Visited[cellId] < 0 ) 
         {
