@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWrapPython.c,v $
   Language:  C++
-  Date:      $Date: 1999-05-13 02:58:59 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-05-13 15:19:21 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -463,8 +463,7 @@ void outputFunction2(FILE *fp, FileInfo *data)
 	  fprintf(fp,"      }\n    }\n  }\n");
 	  }
 	}
-      fprintf(fp,"  return NULL;
-\n}\n\n");
+      fprintf(fp,"  return NULL;\n}\n\n");
 
       /* clear all occurances of this method from further consideration */
       for (occ = fnum + 1; occ < numberOfWrappedFunctions; occ++)
