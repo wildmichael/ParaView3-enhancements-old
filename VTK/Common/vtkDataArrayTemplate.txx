@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataArrayTemplate.txx,v $
   Language:  C++
-  Date:      $Date: 2003-11-18 15:24:47 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2003-11-21 15:12:40 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -164,11 +164,15 @@ void vtkDataArrayTemplate<T>::PrintSelf(ostream& os, vtkIndent indent)
 
   if(this->Array)
     {
-    os << indent << "Array: " << this->Array << "\n";
+    os << indent;
+    os << "Array: ";
+    os << this->Array;
+    os << "\n";
     }
   else
     {
-    os << indent << "Array: (null)\n";
+    os << indent;
+    os << "Array: (null)\n";
     }
 }
 
