@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUGFacetReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-01-28 09:35:43 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1996-01-28 10:43:56 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -125,9 +125,18 @@ void vtkUGFacetReader::Execute()
     }
 
   // update output
+  vtkDebugMacro(<<"Read " 
+                << newPolys->GetNumberOfCells() << " triangles, "
+                << newPoints->GetNumberOfPoints() << " points.");
+
   output->SetPoints(newPoints);
+  newPoints->Delete();
+
   output->GetPointData()->SetNormals(newNormals);
+  newNormals->Delete();
+ 
   output->SetPolys(newPolys);
+  newPolys->Delete();
 
   output->Squeeze();
 }
