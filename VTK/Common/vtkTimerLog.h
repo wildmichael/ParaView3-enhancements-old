@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTimerLog.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-13 14:17:14 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2002-05-15 11:42:17 $
+  Version:   $Revision: 1.37 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -92,7 +92,7 @@ public:
   // This flag will turn loging of events off or on.  
   // By default, logging is on.
   static void SetLogging(int v) {vtkTimerLog::Logging = v;}
-  static int GetLogging(int v) {return vtkTimerLog::Logging;}
+  static int GetLogging() {return vtkTimerLog::Logging;}
   static void LoggingOn() {vtkTimerLog::SetLogging(1);}
   static void LoggingOff() {vtkTimerLog::SetLogging(0);}
 
