@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCommunicator.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-04 14:29:18 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2002-01-04 22:16:17 $
+  Version:   $Revision: 1.9 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -52,7 +52,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkDoubleArray.h"
 #include "vtkIdTypeArray.h"
 
-vtkCxxRevisionMacro(vtkCommunicator, "$Revision: 1.8 $");
+vtkCxxRevisionMacro(vtkCommunicator, "$Revision: 1.9 $");
 
 template <class T>
 static int SendDataArray(T* data, int length, int handle, int tag, vtkCommunicator *self)
@@ -472,7 +472,14 @@ int vtkCommunicator::ReadImageData(vtkImageData *object)
     }
   
   reader->ReadFromInputStringOn();
-  reader->SetInputString(this->MarshalString, this->MarshalDataLength);
+  
+  vtkCharArray* mystring = vtkCharArray::New();
+  // mystring should not delete the string when it's done,
+  // that's our job.
+  mystring->SetArray(this->MarshalString, this->MarshalDataLength, 1);
+  reader->SetInputArray(mystring);
+  mystring->Delete();
+
   reader->GetOutput()->Update();
 
   object->ShallowCopy(reader->GetOutput());
@@ -520,7 +527,14 @@ int vtkCommunicator::ReadDataSet(vtkDataSet *object)
     }
   
   reader->ReadFromInputStringOn();
-  reader->SetInputString(this->MarshalString, this->MarshalDataLength);
+
+  vtkCharArray* mystring = vtkCharArray::New();
+  // mystring should not delete the string when it's done,
+  // that's our job.
+  mystring->SetArray(this->MarshalString, this->MarshalDataLength, 1);
+  reader->SetInputArray(mystring);
+  mystring->Delete();
+
   output = reader->GetOutput();
   output->Update();
 
