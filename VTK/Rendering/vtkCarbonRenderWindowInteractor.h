@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCarbonRenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-16 14:00:16 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-08-22 19:27:36 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,7 +25,6 @@
 #ifndef __vtkCarbonRenderWindowInteractor_h
 #define __vtkCarbonRenderWindowInteractor_h
 
-#include <stdlib.h>
 #include "vtkRenderWindowInteractor.h"
 
 #include <Carbon/Carbon.h>

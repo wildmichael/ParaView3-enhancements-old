@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWinCEOpenGLRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:39:51 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-08-22 19:27:36 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,6 @@
 #ifndef __vtkWinCEOpenGLRenderWindow_h
 #define __vtkWinCEOpenGLRenderWindow_h
 
-#include <stdlib.h>
 #include "vtkOpenGLRenderWindow.h"
 #include "GL/osmesa.h"
 

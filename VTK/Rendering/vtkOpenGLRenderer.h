@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLRenderer.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:55 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2002-08-22 19:27:36 $
+  Version:   $Revision: 1.29 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -23,7 +23,6 @@
 #ifndef __vtkOpenGLRenderer_h
 #define __vtkOpenGLRenderer_h
 
-#include <stdlib.h>
 #include "vtkRenderer.h"
 
 class VTK_RENDERING_EXPORT vtkOpenGLRenderer : public vtkRenderer

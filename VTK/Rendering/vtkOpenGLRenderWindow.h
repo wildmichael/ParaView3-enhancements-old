@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-24 14:59:31 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2002-08-22 19:27:36 $
+  Version:   $Revision: 1.35 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,7 +25,6 @@
 #ifndef __vtkOpenGLRenderWindow_h
 #define __vtkOpenGLRenderWindow_h
 
-#include <stdlib.h>
 #include "vtkRenderWindow.h"
 #ifdef __APPLE__
 #include <OpenGL/gl.h>

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCocoaRenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-16 13:43:54 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-08-22 19:27:36 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,7 +25,6 @@
 #ifndef __vtkCocoaRenderWindowInteractor_h
 #define __vtkCocoaRenderWindowInteractor_h
 
-#include <stdlib.h>
 #include "vtkRenderWindowInteractor.h"
 
 

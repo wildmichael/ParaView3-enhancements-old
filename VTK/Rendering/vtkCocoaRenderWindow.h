@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCocoaRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-22 18:39:29 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-08-22 19:27:36 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,10 +24,8 @@
 #ifndef __vtkCocoaRenderWindow_h
 #define __vtkCocoaRenderWindow_h
 
-#include <stdlib.h>
 #include "vtkOpenGLRenderWindow.h"
 #include <OpenGL/gl.h>
-#endif
 
 class vtkIdList;
 
@@ -238,3 +236,4 @@ private:
   void operator=(const vtkCocoaRenderWindow&);  // Not implemented.
 };
 
+#endif
