@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCacheFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-30 15:07:57 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1999-09-30 15:49:21 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -120,8 +120,8 @@ void vtkImageCacheFilter::SetCacheSize(int size)
     return;
     }
   
-  this->Data = new (vtkImageData*)[size];
-  this->Times = new (unsigned long)[size];
+  this->Data = new vtkImageData* [size];
+  this->Times = new unsigned long [size];
 
   for (idx = 0; idx < size; ++idx)
     {
