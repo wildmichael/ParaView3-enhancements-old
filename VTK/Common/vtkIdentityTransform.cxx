@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIdentityTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-12 13:18:59 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2001-08-13 15:54:30 $
+  Version:   $Revision: 1.13 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -175,10 +175,10 @@ void vtkIdentityTransform::InternalTransformDerivative(const double in[3],
 // inverse of the derivative of the forward transform. 
 void vtkIdentityTransform::TransformPointsNormalsVectors(vtkPoints *inPts, 
 							 vtkPoints *outPts,
-							 vtkNormals *inNms, 
-							 vtkNormals *outNms,
-							 vtkVectors *inVrs, 
-							 vtkVectors *outVrs)
+							 vtkDataArray *inNms, 
+							 vtkDataArray *outNms,
+							 vtkDataArray *inVrs, 
+							 vtkDataArray *outVrs)
 {
   this->TransformPoints(inPts,outPts);
   if (inNms)
@@ -206,19 +206,6 @@ void vtkIdentityTransform::TransformPoints(vtkPoints *inPts,
 }
 
 //----------------------------------------------------------------------------
-void vtkIdentityTransform::TransformNormals(vtkNormals *inNms, 
-					    vtkNormals *outNms)
-{
-  int n = inNms->GetNumberOfNormals();
-  double normal[3];
-  
-  for (int i = 0; i < n; i++)
-    {
-    inNms->GetNormal(i,normal);
-    outNms->InsertNextNormal(normal);
-    }
-}
-
 void vtkIdentityTransform::TransformNormals(vtkDataArray *inNms, 
 					    vtkDataArray *outNms)
 {
@@ -233,16 +220,16 @@ void vtkIdentityTransform::TransformNormals(vtkDataArray *inNms,
 }
 
 //----------------------------------------------------------------------------
-void vtkIdentityTransform::TransformVectors(vtkVectors *inNms, 
-					    vtkVectors *outNms)
+void vtkIdentityTransform::TransformVectors(vtkDataArray *inNms, 
+					    vtkDataArray *outNms)
 {
-  int n = inNms->GetNumberOfVectors();
+  int n = inNms->GetNumberOfTuples();
   double vect[3];
   
   for (int i = 0; i < n; i++)
     {
-    inNms->GetVector(i,vect);
-    outNms->InsertNextVector(vect);
+    inNms->GetTuple(i,vect);
+    outNms->InsertNextTuple(vect);
     }
 }
 
