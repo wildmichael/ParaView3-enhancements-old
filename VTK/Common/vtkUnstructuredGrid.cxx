@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-19 21:34:20 $
-  Version:   $Revision: 1.89 $
+  Date:      $Date: 2001-03-19 21:53:00 $
+  Version:   $Revision: 1.90 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -925,7 +925,7 @@ void vtkUnstructuredGrid::GetListOfUniqueCellTypes(vtkUnsignedCharArray *uniqueT
     }
 }
 
-bool vtkUnstructuredGrid::IsHomogeneous() {
+int vtkUnstructuredGrid::IsHomogeneous() {
 
   unsigned char type;
   if (this->Types)
@@ -935,12 +935,12 @@ bool vtkUnstructuredGrid::IsHomogeneous() {
 	{
 	  if (this->Types->GetValue(cellId) != type)
 	    {
-	      return false;
+	      return 0;
 	    }
 	}
-      return true;
+      return 1;
     }
-  return false;
+  return 0;
 
 }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSubdivideTetra.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-19 21:34:23 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2001-03-19 21:53:03 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -88,7 +88,7 @@ void vtkSubdivideTetra::Execute()
   
   vtkDebugMacro(<<"Executing mesh subdivide");
 
-  if (!input->IsHomogeneous() ||
+  if (input->IsHomogeneous() == 0 ||
       input->GetCellType(0) != VTK_TETRA)
     {
       vtkErrorMacro(<<"all cells must be tetrahedra.");

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGrid.h,v $
   Language:  C++
-  Date:      $Date: 2001-03-19 21:34:19 $
-  Version:   $Revision: 1.70 $
+  Date:      $Date: 2001-03-19 21:53:00 $
+  Version:   $Revision: 1.71 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -184,7 +184,7 @@ public:
 
   // Description:
   // Traverse cells and determine if cells are all of the same type.
-  bool IsHomogeneous();
+  int IsHomogeneous();
 
 
 #ifndef VTK_REMOVE_LEGACY_CODE
