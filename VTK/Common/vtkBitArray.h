@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBitArray.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 21:01:51 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1996-09-26 20:49:20 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -102,8 +102,9 @@ inline unsigned char *vtkBitArray::GetPtr(const int id)
 // data values requested.
 inline unsigned char *vtkBitArray::WritePtr(const int id, const int number)
 {
-  if ( (id + number) > this->Size ) this->Resize(id+number);
-  this->MaxId = id + number - 1;
+  int newSize=id+number;
+  if ( newSize > this->Size ) this->Resize(newSize);
+  if ( (--newSize) > this->MaxId ) this->MaxId = newSize;
   return this->Array + id/8;
 }
 

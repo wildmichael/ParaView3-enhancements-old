@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLine.h,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 21:02:39 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 1996-09-26 20:49:44 $
+  Version:   $Revision: 1.29 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -67,7 +67,7 @@ public:
   void Contour(float value, vtkFloatScalars *cellScalars, 
                vtkPointLocator *locator, vtkCellArray *verts, 
                vtkCellArray *lines, vtkCellArray *polys, 
-               vtkFloatScalars *s);
+               vtkPointData *inPd, vtkPointData *outPd);
   int EvaluatePosition(float x[3], float closestPoint[3],
                        int& subId, float pcoords[3], 
                        float& dist2, float *weights);
@@ -75,7 +75,7 @@ public:
                         float *weights);
   int IntersectWithLine(float p1[3], float p2[3], float tol, float& t,
                         float x[3], float pcoords[3], int& subId);
-  int Triangulate(int index, vtkFloatPoints &pts);
+  int Triangulate(int index, vtkIdList &ptIds, vtkFloatPoints &pts);
   void Derivatives(int subId, float pcoords[3], float *values, 
                    int dim, float *derivs);
 
@@ -87,6 +87,11 @@ public:
                               float &t, float closestPoint[3]);
 
   static float DistanceToLine(float x[3], float p1[3], float p2[3]);
+
+  void Clip(float value, vtkFloatScalars *cellScalars, 
+            vtkPointLocator *locator, vtkCellArray *lines,
+            vtkPointData *inPd, vtkPointData *outPd, int insideOut);
+
 };
 
 #endif
