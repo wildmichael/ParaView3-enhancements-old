@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkDataReader.h,v $
   Language:  C++
-  Date:      $Date: 1995-05-24 08:30:28 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1995-05-25 16:49:14 $
+  Version:   $Revision: 1.7 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -84,9 +84,9 @@ public:
 
   // Special methods
   char *LowerCase(char *);
-  FILE *OpenVLFile(int debug);
-  int ReadHeader(FILE *fp, int debug);
-  int ReadPointData(FILE *fp, vlDataSet *ds, int numPts, int debug);
+  FILE *OpenVLFile();
+  int ReadHeader(FILE *fp);
+  int ReadPointData(FILE *fp, vlDataSet *ds, int numPts);
   int ReadPoints(FILE *fp, vlPointSet *ps, int numPts);
   int ReadCells(FILE *fp, int size, int *data);
   void CloseVLFile(FILE *fp);

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkUnstructuredGridReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-05-24 12:40:23 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1995-05-25 16:49:19 $
+  Version:   $Revision: 1.8 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -132,9 +132,10 @@ void vlUnstructuredGridReader::Execute()
 
   vlDebugMacro(<<"Reading vl unstructured grid...");
   this->Initialize();
+  if ( this->Debug ) this->Reader.DebugOn();
+  else this->Reader.DebugOff();
 
-  if ( !(fp=this->Reader.OpenVLFile(this->Debug)) ||
-  ! this->Reader.ReadHeader(fp,this->Debug) )
+  if ( !(fp=this->Reader.OpenVLFile()) || !this->Reader.ReadHeader(fp) )
       return;
 //
 // Read unstructured grid specific stuff
@@ -239,7 +240,7 @@ void vlUnstructuredGridReader::Execute()
           return;
           }
 
-        this->Reader.ReadPointData(fp, (vlDataSet *)this, npts, this->Debug);
+        this->Reader.ReadPointData(fp, (vlDataSet *)this, npts);
         break; //out of this loop
         }
 
@@ -262,7 +263,7 @@ void vlUnstructuredGridReader::Execute()
       return;
       }
 
-    this->Reader.ReadPointData(fp, (vlDataSet *)this, numPts, this->Debug);
+    this->Reader.ReadPointData(fp, (vlDataSet *)this, numPts);
     }
 
   else 

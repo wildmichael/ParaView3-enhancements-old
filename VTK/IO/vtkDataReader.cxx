@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-05-24 08:30:06 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1995-05-25 16:49:13 $
+  Version:   $Revision: 1.10 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -60,14 +60,11 @@ vlDataReader::~vlDataReader()
 
 // Description:
 // Open a vl data file. Returns NULL if error.
-FILE *vlDataReader::OpenVLFile(int debug)
+FILE *vlDataReader::OpenVLFile()
 {
   FILE *fptr;
 
-  if ( debug )
-    {
-    vlDebugMacro(<< "Opening vl file");
-    }
+  vlDebugMacro(<< "Opening vl file");
 
   if ( !this->Filename )
     {
@@ -86,15 +83,12 @@ FILE *vlDataReader::OpenVLFile(int debug)
 
 // Description:
 // Read the header of a vl data file. Returns 0 if error.
-int vlDataReader::ReadHeader(FILE *fp, int debug)
+int vlDataReader::ReadHeader(FILE *fp)
 {
   char line[257];
   int retStat;
 
-  if ( debug )
-    {
-    vlDebugMacro(<< "Reading vl file header");
-    }
+  vlDebugMacro(<< "Reading vl file header");
 //
 // read header
 //
@@ -117,10 +111,7 @@ int vlDataReader::ReadHeader(FILE *fp, int debug)
     return 0;
     }
   line[256] = '\0';
-  if ( debug )
-    {
-    vlDebugMacro(<< "Reading vl file entitled: " << line);
-    }
+  vlDebugMacro(<< "Reading vl file entitled: " << line);
 //
 // read type
 //
@@ -146,15 +137,12 @@ int vlDataReader::ReadHeader(FILE *fp, int debug)
 // Read the point data of a vl data file. The number of points (from the 
 // dataset) must match the number of points defined in point attributes (unless
 // no geometry was defined).
-int vlDataReader::ReadPointData(FILE *fp, vlDataSet *ds, int numPts, int debug)
+int vlDataReader::ReadPointData(FILE *fp, vlDataSet *ds, int numPts)
 {
   int retStat;
   char line[257];
 
-  if ( debug )
-    {
-    vlDebugMacro(<< "Reading vl point data");
-    }
+  vlDebugMacro(<< "Reading vl point data");
 //
 // Read keywords until end-of-file
 //
@@ -299,6 +287,7 @@ int vlDataReader::ReadPoints(FILE *fp, vlPointSet *ps, int numPts)
     return 0;
     }
 
+  vlDebugMacro(<<"Read " << ps->GetNumberOfPoints() << "\n");
   return 1;
 }
 

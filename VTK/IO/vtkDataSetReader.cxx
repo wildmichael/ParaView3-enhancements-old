@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkDataSetReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-05-03 11:46:02 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1995-05-25 16:49:12 $
+  Version:   $Revision: 1.5 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -128,15 +128,19 @@ void vlDataSetReader::Execute()
 
   vlDebugMacro(<<"Reading vl dataset...");
   this->Initialize();
+  if ( this->Debug ) this->Reader.DebugOn();
+  else this->Reader.DebugOff();
 
-  if ( !(fp=this->Reader.OpenVLFile(this->Debug)) ||
-  ! this->Reader.ReadHeader(fp,this->Debug) )
+  if ( !(fp=this->Reader.OpenVLFile()) || !this->Reader.ReadHeader(fp) )
       return;
 //
 // Determine dataset type
 //
   if ( (retStat=fscanf(fp,"%256s",line)) == EOF || retStat < 1 ) 
-    goto PREMATURE;
+    {
+    vlErrorMacro(<< "Premature EOF reading dataset keyword");
+    return;
+    }
 
   if ( !strncmp(this->Reader.LowerCase(line),"dataset",(unsigned long)7) )
     {
@@ -144,7 +148,10 @@ void vlDataSetReader::Execute()
 // See if type is recognized.
 //
     if ( (retStat=fscanf(fp,"%256s",line)) == EOF || retStat < 1 ) 
-      goto PREMATURE;
+      {
+      vlErrorMacro(<< "Premature EOF reading type");
+      return;
+      }
 
     rewind(fp);
     if ( ! strncmp(this->Reader.LowerCase(line),"polydata",8) )
@@ -215,10 +222,6 @@ void vlDataSetReader::Execute()
   if ( this->DataSet ) delete this->DataSet;
   this->DataSet = reader;
   return;
-
-  PREMATURE:
-    vlErrorMacro(<< "Premature EOF");
-    return;
 }
 
 void vlDataSetReader::PrintSelf(ostream& os, vlIndent indent)
