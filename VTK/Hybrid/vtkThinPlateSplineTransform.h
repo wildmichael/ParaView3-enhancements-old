@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThinPlateSplineTransform.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-30 18:19:48 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2000-04-30 23:03:57 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to David G. Gobbi who developed this class 
              based on code from vtkThinPlateSplineMeshWarp.cxx
 	     written by Tim Hutton.
@@ -66,7 +66,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 class VTK_EXPORT vtkThinPlateSplineTransform : public vtkWarpTransform
 {
 public:
-  vtkTypeMacro(vtkThinPlateSplineTransform,vtkGeneralTransform);
+  vtkTypeMacro(vtkThinPlateSplineTransform,vtkWarpTransform);
   void PrintSelf(ostream& os, vtkIndent indent);
   static vtkThinPlateSplineTransform *New();
 
