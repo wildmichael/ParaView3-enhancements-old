@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-22 19:57:39 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 2001-07-31 12:22:53 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -95,13 +95,19 @@ void vtkStructuredPointsReader::ExecuteInformation()
 {
   vtkStructuredPoints *output = this->GetOutput();
   vtkScalars *scalars;
+  int saveRequestFlag;
   
   // Now here is a problem.
   // Update Extent needs to be set incase the RequestExactExtent flag is on.
-  // Bypass to superclasses update.
+  // Bypass to superclasses update.  
+  // Well that solution no longer works because the superclass now handles
+  // the RequestForExactExtent flag.  Lets try disabling the flag temporarily.
+  saveRequestFlag = output->GetRequestExactExtent();
+  output->SetRequestExactExtent(0);
   output->vtkDataObject::UpdateData();
+  output->SetRequestExactExtent(saveRequestFlag);
+  
   scalars = output->GetPointData()->GetScalars();
-
   if (scalars)
     {
     output->SetScalarType(scalars->GetDataType());
