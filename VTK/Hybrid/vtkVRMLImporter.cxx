@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVRMLImporter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-06-28 11:19:51 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2000-06-28 16:28:07 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -1633,10 +1633,7 @@ expect(int type)
 
 #define FLEX_SCANNER
 
-#include <io.h>
-#include <stdlib.h>
-#include <stdio.h>
-
+#include "vtkSystemIncludes.h"
 
 /* cfront 1.2 defines "c_plusplus" instead of "__cplusplus" */
 #ifdef c_plusplus
@@ -1649,7 +1646,11 @@ expect(int type)
 #ifdef __cplusplus
 
 #include <stdlib.h>
-//#include <unistd.h>
+#ifdef WIN32
+#include <io.h>
+#else
+#include <unistd.h>
+#endif
 
 /* Use prototypes in function declarations. */
 #define YY_USE_PROTOS
