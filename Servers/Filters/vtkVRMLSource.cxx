@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVRMLSource.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-05-05 16:45:38 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2003-05-09 17:08:23 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -32,7 +32,7 @@
 #include "vtkUnsignedCharArray.h"
 
 
-vtkCxxRevisionMacro(vtkVRMLSource, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkVRMLSource, "$Revision: 1.6 $");
 vtkStandardNewMacro(vtkVRMLSource);
 
 //------------------------------------------------------------------------------
@@ -272,5 +272,7 @@ void vtkVRMLSource::PrintSelf(ostream& os, vtkIndent indent)
     {
     os << indent << "FileName: " << this->FileName << endl;
     }
+  os << indent << "Color: " << this->Color << endl;
+  os << indent << "Append: " << this->Append << endl;
 }
 
