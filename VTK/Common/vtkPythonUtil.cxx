@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPythonUtil.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-11-12 22:24:11 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-03-10 22:26:00 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -194,7 +194,7 @@ void vtkPythonAddObjectToHash(PyObject *obj, void *ptr,
 // should we delete this object
 int vtkPythonShouldIDeleteObject(PyObject *obj)
 {
-  if ((int)(vtkDeleteLookup->GetHashTableValue((void *)obj)))
+  if (vtkDeleteLookup->GetHashTableValue((void *)obj))
     {
 #ifdef VTKPYTHONDEBUG
     vtkGenericWarningMacro("Decided to delete obj = " << obj);
