@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPythonUtil.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-10-13 16:28:47 $
-  Version:   $Revision: 1.66 $
+  Date:      $Date: 2003-11-07 13:47:45 $
+  Version:   $Revision: 1.67 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -40,9 +40,12 @@
 // warnings.  Python documentation says these should not be necessary.
 // We define it as a macro in case the length needs to change across
 // python versions.
-#if (PY_MAJOR_VERSION == 2) && (PY_MINOR_VERSION == 2)
+#if (PY_MAJOR_VERSION == 2) && (PY_MINOR_VERSION == 3)
 #define VTK_PYTHON_UTIL_SUPRESS_UNINITIALIZED \
-  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+  0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0,
+#elif (PY_MAJOR_VERSION == 2) && (PY_MINOR_VERSION == 2)
+#define VTK_PYTHON_UTIL_SUPRESS_UNINITIALIZED \
+  0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,
 #elif (PY_MAJOR_VERSION == 2) && (PY_MINOR_VERSION == 1)
 #define VTK_PYTHON_UTIL_SUPRESS_UNINITIALIZED \
   0,0,0,0,
