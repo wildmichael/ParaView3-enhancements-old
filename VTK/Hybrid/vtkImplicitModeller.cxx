@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitModeller.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-22 12:40:55 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 1997-08-19 18:41:01 $
+  Version:   $Revision: 1.44 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -301,8 +301,6 @@ float vtkImplicitModeller::ComputeModelBounds()
     if ( (bounds[2*i+1] - bounds[2*i]) > maxDist )
       maxDist = bounds[2*i+1] - bounds[2*i];
 
-  maxDist *= this->MaximumDistance;
-
   // adjust bounds so model fits strictly inside (only if not set previously)
   if ( this->AdjustBounds )
     {
@@ -312,6 +310,8 @@ float vtkImplicitModeller::ComputeModelBounds()
       this->ModelBounds[2*i+1] = bounds[2*i+1] + maxDist*this->AdjustDistance;
       }
     }
+
+  maxDist *= this->MaximumDistance;
 
   // Set volume origin and data spacing
   output->SetOrigin(this->ModelBounds[0],this->ModelBounds[2],
