@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransformFilter.h,v $
   Language:  C++
-  Date:      $Date: 1995-11-05 18:44:17 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1995-12-27 10:57:40 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,7 +40,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 // .NAME vtkTransformFilter - transform points and associated normals and vectors
 // .SECTION Description
-// vtkTransformFilter is a filter to transform point coordinates and 
+// vtkTransformFilter is a filter to transform point coordinates, and 
 // associated point normals and vectors. Other point data is passed
 // through the filter.
 //

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIntArray.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:36:35 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1995-12-27 10:56:15 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,7 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-// .NAME vtkIntArray - dynamic, self adjusting integer array
+// .NAME vtkIntArray - dynamic, self-adjusting integer array
 // .SECTION Description
 // vtkIntArray is an array of integer numbers. It provides methods
 // for insertion and retrieval of integer values, and will 
@@ -147,11 +147,11 @@ inline void vtkIntArray::Squeeze() {this->Resize (this->MaxId+1);};
 inline int vtkIntArray::GetSize() {return this->Size;};
 
 // Description:
-// Returning the maximum index of data inserted so far.
+// Return the maximum index of data inserted so far.
 inline int vtkIntArray::GetMaxId() {return this->MaxId;};
 
 // Description:
-// Reuse the memory allocated by this object. Objects appears like
+// Reuse the memory allocated by this object. Objects appear as if
 // no data has been previously inserted.
 inline void vtkIntArray::Reset() {this->MaxId = -1;};
 

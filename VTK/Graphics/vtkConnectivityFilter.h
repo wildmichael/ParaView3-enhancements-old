@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkConnectivityFilter.h,v $
   Language:  C++
-  Date:      $Date: 1995-10-25 23:49:45 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1995-12-27 10:55:42 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,8 +42,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // .SECTION Description
 // vtkConnectivityFilter is a filter that extracts cells that share common 
 // points. The filter works in one of four ways: 1) extract the largest
-// connected region in the dataset, 2) extract specified region numbers,
-// 3) extract all regions sharing specified point ids, and 4) extract
+// connected region in the dataset; 2) extract specified region numbers;
+// 3) extract all regions sharing specified point ids; or 4) extract
 // all regions sharing specified cell ids.
 
 #ifndef __vtkConnectivityFilter_h

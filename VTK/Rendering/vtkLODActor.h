@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLODActor.h,v $
   Language:  C++
-  Date:      $Date: 1995-09-06 18:01:06 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1995-12-27 10:58:48 $
+  Version:   $Revision: 1.5 $
   
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -50,8 +50,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // box outline of the actor. The middle level of detail is a point
 // cloud of a fixed number of points that have been randomly sampled
 // from the Mappers input data.  Point attributes are copied over to
-// the point cloud.  These two lover levels of detail are accomplished by
-// creating instances of a vtkOutlineFilter, vtkGlyph3D and vtkPointSource.
+// the point cloud.  These two lower levels of detail are accomplished by
+// creating instances of a vtkOutlineFilter, vtkGlyph3D, and vtkPointSource.
 
 // .SECTION see also
 // vtkActor vtkRenderer

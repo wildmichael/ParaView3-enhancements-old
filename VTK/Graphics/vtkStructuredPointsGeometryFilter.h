@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPointsGeometryFilter.h,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:31:46 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1995-12-27 10:57:09 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -44,7 +44,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // structured points dataset. By specifying appropriate i-j-k indices (via the 
 // "Extent" instance variable), it is possible to extract a point, a line, a 
 // plane (i.e., image), or a "volume" from dataset. (Since the output is 
-// of type polydata, the volume is actually a (n x m x o) region of points).
+// of type polydata, the volume is actually a (n x m x o) region of points.)
 //
 // The extent specification is zero-offset. That is, the first k-plane in
 // a 50x50x50 volume is given by (0,49, 0,49, 0,0).
@@ -55,7 +55,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // k-plane, you can use the extents (0,100, 0,100, 4,4). The 100 will 
 // automatically be clamped to 49.
 // .SECTION See Also
-// vtkGeometryFilter, vtkStructuredGridFilter
+// vtkGeometryFilter vtkStructuredGridFilter
 
 #ifndef __vtkStructuredPointsGeometryFilter_h
 #define __vtkStructuredPointsGeometryFilter_h

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextureMapToPlane.h,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:31:55 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1995-12-27 10:57:23 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -43,7 +43,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // vtkTextureMapToPlane is a filter that generates 2D texture coordinates
 // by mapping input dataset points onto a plane. The plane can either be
 // user specified or generated automatically. (A least squares method is
-// used to generate the plane).
+// used to generate the plane.)
 
 #ifndef __vtkTextureMapToPlane_h
 #define __vtkTextureMapToPlane_h

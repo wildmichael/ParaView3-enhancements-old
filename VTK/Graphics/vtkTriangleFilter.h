@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangleFilter.h,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:32:23 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1995-12-27 10:58:50 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,7 +41,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // .NAME vtkTriangleFilter - create triangle polygons from input polygons and triangle strips
 // .SECTION Description
 // vtkTriangleFilter generates triangles from input polygons and triangle 
-// strips. The filter will also pass through vertices and lines, if
+// strips. The filter also will pass through vertices and lines, if
 // requested.
 
 #ifndef __vtkTriangleFilter_h

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLightCollection.h,v $
   Language:  C++
-  Date:      $Date: 1995-09-12 12:09:16 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1995-12-27 10:56:19 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -65,7 +65,7 @@ class vtkLightCollection : public vtkCollection
 };
 
 // Description:
-// Add an light to the list.
+// Add a light to the list.
 inline void vtkLightCollection::AddItem(vtkLight *a) 
 {
   this->vtkCollection::AddItem((vtkObject *)a);

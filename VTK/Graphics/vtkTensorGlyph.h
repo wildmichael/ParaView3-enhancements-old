@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkTensorGlyph.h,v $
   Language:  C++
-  Date:      $Date: 1995-11-06 20:27:28 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1995-12-27 10:58:40 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -95,7 +95,7 @@ public:
 
   // Description:
   // Specify scale factor to scale object by. (Scale factor always affects
-  // output even if scaling is off).
+  // output even if scaling is off.)
   vtkSetMacro(ScaleFactor,float);
   vtkGetMacro(ScaleFactor,float);
 

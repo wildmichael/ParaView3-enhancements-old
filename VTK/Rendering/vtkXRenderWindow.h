@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 1995-11-05 18:44:19 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1995-12-27 10:57:57 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -43,7 +43,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // vtkXRenderWindow is a subclass of the abstract class
 // vtkRenderWindow. vtkXRenderWindow interfaces to the X Window system and
 // provides some methods that are common to any vtkRenderWindow
-// subclass that renders under X windows. The vtkXRenderWindowInteractor
+// subclass that renders under X Windows. The vtkXRenderWindowInteractor
 // makes heavy use of these common methods.
 
 // .SECTION see also

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPixel.h,v $
   Language:  C++
-  Date:      $Date: 1995-10-25 23:50:16 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1995-12-27 10:56:42 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,7 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-// .NAME vtkPixel - a cell that represents a orthogonal quadrilateral
+// .NAME vtkPixel - a cell that represents an orthogonal quadrilateral
 // .SECTION Description
 // vtkPixel is a concrete implementation of vtkCell to represent a 2D
 // orthogonal quadrilateral. Unlike vtkQuad, the corners are at right angles,

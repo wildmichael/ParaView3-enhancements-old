@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBooleanTexture.h,v $
   Language:  C++
-  Date:      $Date: 1995-10-25 23:50:53 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1995-12-27 10:58:06 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -44,7 +44,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // combinations of inside, outside, and on region boundary. The "region" is
 // implicitly represented via 2D texture coordinates. These texture 
 // coordinates are normally generated using a filter like 
-// vtkImplicitTextureCoords which generates the texture coordinates for 
+// vtkImplicitTextureCoords, which generates the texture coordinates for 
 // any implicit function.
 //
 // vtkBooleanTexture generates the map according to the s-t texture

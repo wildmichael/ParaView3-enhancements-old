@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalars.h,v $
   Language:  C++
-  Date:      $Date: 1995-08-31 21:20:16 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 1995-12-27 10:55:23 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -52,7 +52,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // and volumes).
 //
 // Because of the close relationship between scalars and colors, scalars 
-// also maintain in internal lookup table. If provided, this table is used 
+// also maintain an internal lookup table. If provided, this table is used 
 // to map scalars into colors, rather than the lookup table that the vtkMapper
 // objects are associated with.
 

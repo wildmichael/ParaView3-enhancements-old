@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataReader.h,v $
   Language:  C++
-  Date:      $Date: 1995-09-08 12:49:07 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1995-12-27 10:56:20 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,7 +41,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // .NAME vtkDataReader - helper class for objects that read vtk data files
 // .SECTION Description
 // vtkDataReader is a helper class that reads the vtk data file header and 
-// point data (e.g., scalars, vectors, normals, etc) from a vtk data file. 
+// point data (e.g., scalars, vectors, normals, etc.) from a vtk data file. 
 // See text for format.
 
 #ifndef __vtkDataReader_hh

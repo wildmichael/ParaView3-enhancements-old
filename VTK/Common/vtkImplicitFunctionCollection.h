@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitFunctionCollection.h,v $
   Language:  C++
-  Date:      $Date: 1995-09-12 07:41:21 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1995-12-27 10:56:11 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -41,8 +41,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // .NAME vtkImplicitFunctionCollection - maintain a list of implicit functions
 // .SECTION Description
 // vtkImplicitFunctionCollection is an object that creates and manipulates
-// lists of objects of type vtkImplicitFunction. See also vtkCollection and 
-// subclasses.
+// lists of objects of type vtkImplicitFunction. 
+// .SECTION See Also
+// vtkCollection
 
 #ifndef __vtkImplicitFunctionCollection_hh
 #define __vtkImplicitFunctionCollection_hh
@@ -62,14 +63,14 @@ public:
 };
 
 // Description:
-// Add a implicit function to the list.
+// Add an implicit function to the list.
 inline void vtkImplicitFunctionCollection::AddItem(vtkImplicitFunction *f) 
 {
   this->vtkCollection::AddItem((vtkObject *)f);
 }
 
 // Description:
-// Remove a implicit function from the list.
+// Remove an implicit function from the list.
 inline void vtkImplicitFunctionCollection::RemoveItem(vtkImplicitFunction *f) 
 {
   this->vtkCollection::RemoveItem((vtkObject *)f);

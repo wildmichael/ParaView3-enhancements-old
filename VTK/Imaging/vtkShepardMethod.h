@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkShepardMethod.h,v $
   Language:  C++
-  Date:      $Date: 1995-10-25 23:50:57 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1995-12-27 10:58:18 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -80,7 +80,7 @@ public:
 
   // Description:
   // Specify influence distance of each input point. This distance is a 
-  // fraction of the length of the diagonal of the sample space. Thus values 
+  // fraction of the length of the diagonal of the sample space. Thus, values 
   // of 1.0 will cause each input point to influence all points in the 
   // structured point dataset. Values less than 1.0 can improve performance
   // significantly.

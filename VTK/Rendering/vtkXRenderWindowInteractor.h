@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 1995-10-25 13:21:20 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1995-12-27 10:57:55 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -49,7 +49,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // vtkRenderWindowInteractor vtkXRenderWindow
 
 // .SECTION Event Bindings
-// Mouse bindings: Button 1 - rotate, Button 2 - pan, Button 3 - zoom
+// Mouse bindings: Button 1 - rotate; Button 2 - pan; and Button 3 - zoom.
 // The distance from the center of the renderer viewport determines
 // how quickly to rotate, pan and zoom.
 // Keystrokes:

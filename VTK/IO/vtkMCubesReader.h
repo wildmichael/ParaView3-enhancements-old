@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMCubesReader.h,v $
   Language:  C++
-  Date:      $Date: 1995-10-09 16:42:24 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1995-12-27 10:57:12 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,7 +42,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // .SECTION Description
 // vtkMCubesReader is a source object that reads binary marching cubes
 // files. (Marching cubes is an isosurfacing technique that generates 
-// many triangles). The binary format is supported by B. Lorensen's
+// many triangles.) The binary format is supported by B. Lorensen's
 // marching cubes program (and the vtkSliceCubes object). The format 
 // repeats point coordinates, so this object will merge the points 
 // with a vtkLocator object. You can choose to supply the vtkLocator 

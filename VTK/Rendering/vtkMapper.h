@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:37:02 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1995-12-27 10:56:27 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -94,8 +94,8 @@ public:
   vtkBooleanMacro(ScalarsVisible,int);
 
   // Description:
-  // Specify range in terms of (smin,smax) through which to map scalars
-  // into lookup table.
+  // Specify range in terms of scalar minimum and maximum (smin,smax). These
+  // values are used to map scalars into lookup table.
   vtkSetVector2Macro(ScalarRange,float);
   vtkGetVectorMacro(ScalarRange,float,2);
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyData.h,v $
   Language:  C++
-  Date:      $Date: 1995-11-07 21:25:30 $
-  Version:   $Revision: 1.51 $
+  Date:      $Date: 1995-12-27 10:56:48 $
+  Version:   $Revision: 1.52 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -43,7 +43,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // vtkPolyData is a data object that is a concrete implementation of 
 // vtkDataSet. vtkPolyData represents a geometric structure consisting of 
 // vertices, lines, polygons, and triangle strips. Point attribute values 
-// (e.g., scalars, vectors, etc.) are also represented.
+// (e.g., scalars, vectors, etc.) also are represented.
 //
 // The actual cell types (CellType.hh) supported by vtkPolyData are: 
 // vtkVertex, vtkPolyVertex, vtkLine, vtkPolyLine, vtkTriangle, 

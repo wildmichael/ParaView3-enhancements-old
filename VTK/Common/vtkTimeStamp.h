@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTimeStamp.h,v $
   Language:  C++
-  Date:      $Date: 1995-11-06 20:27:26 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1995-12-27 10:57:36 $
+  Version:   $Revision: 1.21 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,14 +59,14 @@ public:
   // just a monotonically increasing unsigned long integer. It is
   // possible for this number to wrap around back to zero.
   // This should only happen for processes that have been running
-  // for a very long time while constantly changing objects
+  // for a very long time, while constantly changing objects
   // within the program. When this does occur, the typical consequence
   // should be that some filters will update themselves when really
   // they don't need to.
   void Modified() {this->ModifiedTime = ++vtkTime;};
 
   // Description:
-  // Return this objects Modified time.
+  // Return this object's Modified time.
   unsigned long int GetMTime() {return ModifiedTime;};
 
   int operator>(vtkTimeStamp& ts) {return (this->ModifiedTime > ts.ModifiedTime);};

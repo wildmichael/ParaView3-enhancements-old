@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOutlineSource.h,v $
   Language:  C++
-  Date:      $Date: 1995-09-12 12:25:17 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1995-12-27 10:57:21 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -40,7 +40,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 =========================================================================*/
 // .NAME vtkOutlineSource - create wireframe outline around bounding box
 // .SECTION Description
-// vtkOutlineSource creates a wireframe outline around a user specified 
+// vtkOutlineSource creates a wireframe outline around a user-specified 
 // bounding box.
 
 #ifndef __vtkOutlineSource_h

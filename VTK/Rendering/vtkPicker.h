@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPicker.h,v $
   Language:  C++
-  Date:      $Date: 1995-09-12 12:34:21 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1995-12-27 10:56:40 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,9 +38,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-// .NAME vtkPicker - select an actor by shooting a ray into graphics window
+// .NAME vtkPicker - select an actor by shooting a ray into a graphics window
 // .SECTION Description
-// vtkPicker is used to select actors by shooting a ray into graphics window
+// vtkPicker is used to select actors by shooting a ray into a graphics window
 // and intersecting with the actor's bounding box. The ray is defined from a 
 // point defined in window (or pixel) coordinates, and a point located from 
 // the camera's position.
@@ -81,13 +81,13 @@ public:
 
   // Description:
   // Get the selection point in screen (pixel) coordinates. The third
-  // value is related to z-buffer depth. (Normally should be =0).
+  // value is related to z-buffer depth. (Normally should be =0.)
   vtkGetVectorMacro(SelectionPoint,float,3);
 
   // Description:
   // Specify tolerance for performing pick operation. Tolerance is specified
   // as fraction of rendering window size. (Rendering window size is measured
-  // across diagonal).
+  // across diagonal.)
   vtkSetMacro(Tolerance,float);
   vtkGetMacro(Tolerance,float);
 

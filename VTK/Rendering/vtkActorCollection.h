@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActorCollection.h,v $
   Language:  C++
-  Date:      $Date: 1995-08-14 22:23:02 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1995-12-27 10:58:42 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -65,14 +65,14 @@ class vtkActorCollection : public vtkCollection
 };
 
 // Description:
-// Adds an actor to the list.
+// Add an actor to the list.
 inline void vtkActorCollection::AddItem(vtkActor *a) 
 {
   this->vtkCollection::AddItem((vtkObject *)a);
 }
 
 // Description:
-// Removes an actor from the list.
+// Remove an actor from the list.
 inline void vtkActorCollection::RemoveItem(vtkActor *a) 
 {
   this->vtkCollection::RemoveItem((vtkObject *)a);

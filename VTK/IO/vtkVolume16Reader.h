@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume16Reader.h,v $
   Language:  C++
-  Date:      $Date: 1995-10-25 23:51:12 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1995-12-27 10:59:02 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -83,7 +83,7 @@ public:
   vtkGetStringMacro(FilePrefix);
 
   // Description:
-  // The sprintf format to use to build filename from FilePrefix and number.
+  // The sprintf format used to build filename from FilePrefix and number.
   vtkSetStringMacro(FilePattern);
   vtkGetStringMacro(FilePattern);
 
@@ -114,12 +114,12 @@ public:
   vtkGetMacro(DataMask,short);
 
   // Description:
-  // Specify the number of bytes to seek over at start of image
+  // Specify the number of bytes to seek over at start of image.
   vtkSetMacro(HeaderSize,int);
   vtkGetMacro(HeaderSize,int);
 
   // Description:
-  // Turn on/off byte swapping
+  // Turn on/off byte swapping.
   vtkSetMacro(SwapBytes,int);
   vtkGetMacro(SwapBytes,int);
   vtkBooleanMacro(SwapBytes,int);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTensor.h,v $
   Language:  C++
-  Date:      $Date: 1995-09-07 09:31:57 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1995-12-27 10:57:25 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -149,7 +149,7 @@ inline void vtkTensor::operator=(vtkTensor &t)
 }
 
 // Description:
-// Return column vector from tensor. (Assumes 2D matrix form). 0-offset.
+// Return column vector from tensor. (Assumes 2D matrix form and 0-offset.)
 inline float *vtkTensor::GetColumn(int j)
 {
   return this->T + this->Dimension*j;

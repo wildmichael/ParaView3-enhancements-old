@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkNormals.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:37:11 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1995-12-27 10:56:33 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,7 +42,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // .SECTION Description
 // vtkNormals provides an abstract interface to 3D normals. The data model
 // for vtkNormals is an array of nx-ny-nz triplets accessible by point id.
-// (Each normal is assumed normalized |n| = 1). The subclasses of 
+// (Each normal is assumed normalized |n| = 1.) The subclasses of 
 // vtkNormals are concrete data types (float, int, etc.) that implement 
 // the interface of vtkNormals. 
 

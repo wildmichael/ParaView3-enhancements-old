@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkContourFilter.h,v $
   Language:  C++
-  Date:      $Date: 1995-10-25 23:49:46 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1995-12-27 10:55:44 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -46,7 +46,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // Data consisting of 3D cells will generate isosurfaces, data 
 // consisting of 2D cells will generate isolines, and data with 1D 
 // or 0D cells will generate isopoints. Combinations of output type 
-// is possible if the input dimension is mixed.
+// are possible if the input dimension is mixed.
 //
 // If the input type is volume (e.g., 3D structured point dataset), 
 // you may wish to use vtkMarchingCubes. This class is specifically tailored

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObject.h,v $
   Language:  C++
-  Date:      $Date: 1995-11-16 22:27:20 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 1995-12-27 10:56:35 $
+  Version:   $Revision: 1.30 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -46,7 +46,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // framework should be a subclass of vtkObject or one of its children.
 // The few exceptions tend to be very small helper classes that usually
 // never get instantiated or situations where multiple inheritance
-// gets in the way.  Then LWObject might be required.
+// gets in the way.  Then, LWObject might be required.
 
 // .SECTION see also
 // vtkLWObject

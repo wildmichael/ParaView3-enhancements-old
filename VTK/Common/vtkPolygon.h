@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolygon.h,v $
   Language:  C++
-  Date:      $Date: 1995-10-09 16:42:17 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1995-12-27 10:56:52 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,7 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-// .NAME vtkPolygon - a cell that represents a n-sided polygon
+// .NAME vtkPolygon - a cell that represents an n-sided polygon
 // .SECTION Description
 // vtkPolygon is a concrete implementation of vtkCell to represent a 2D 
 // n-sided polygon. The polygons cannot have any internal holes, and cannot

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoidArray.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:39:00 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1995-12-27 10:57:44 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -38,7 +38,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 
 =========================================================================*/
-// .NAME vtkVoidArray - dynamic, self adjusting array of void* pointers
+// .NAME vtkVoidArray - dynamic, self-adjusting array of void* pointers
 // .SECTION Description
 // vtkVoidArray is an array of pointers to void. It provides methods
 // for insertion and retrieval of these pointers values, and will 

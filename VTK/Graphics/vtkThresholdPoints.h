@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThresholdPoints.h,v $
   Language:  C++
-  Date:      $Date: 1995-08-30 12:31:57 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1995-12-27 10:57:34 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -42,8 +42,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // .SECTION Description
 // vtkThresholdPoints is a filter that extracts points from a dataset that 
 // satisfy a threshold criterion. The criterion can take three forms:
-// 1) greater than a particular value, 2) less than a particular value, and
-// 2) between a particular value. The output of the filter is polygonal data.
+// 1) greater than a particular value; 2) less than a particular value; or
+// 3) between a particular value. The output of the filter is polygonal data.
 // .SECTION See Also
 // vtkThreshold
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGaussianSplatter.h,v $
   Language:  C++
-  Date:      $Date: 1995-10-25 23:51:01 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1995-12-27 10:58:32 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -67,7 +67,7 @@ public:
 
   // Description:
   // Specify the radius of propagation of the splat. This value is expressed
-  // as percentage  of the sampling structured point set. Smaller numbers 
+  // as a percentage  of the sampling structured point set. Smaller numbers 
   // greatly reduce execution time.
   vtkSetClampMacro(Radius,float,0.0,1.0);
   vtkGetMacro(Radius,float);

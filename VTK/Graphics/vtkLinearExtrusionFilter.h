@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLinearExtrusionFilter.h,v $
   Language:  C++
-  Date:      $Date: 1995-09-06 18:05:29 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1995-12-27 10:58:22 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -60,10 +60,10 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // polylines. Vertices generate lines.
 //
 // This filter can be used to create 3D fonts, 3D irregular bar charts,
-// or to model 2 1/2D objects like punched plates. It can also be used to 
+// or to model 2 1/2D objects like punched plates. It also can be used to 
 // create solid objects from 2D polygonal meshes.
 // .SECTION Caveats
-// Some polygonal objects have no free edges (e.g., sphere). When swept 
+// Some polygonal objects have no free edges (e.g., sphere). When swept,
 // this will result in two separate surfaces if capping is on, or no surface
 // if capping is off.
 // .SECTION See Also

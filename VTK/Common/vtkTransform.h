@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTransform.h,v $
   Language:  C++
-  Date:      $Date: 1995-10-10 23:54:14 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1995-12-27 10:57:38 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -44,8 +44,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // vtkTransform maintains a stack of 4x4 transformation matrices.  A
 // variety of methods are provided to manipulate the translation,
 // scale, and rotation components of the matrix.  Methods operate on
-// the matrix at the top of the stack. Many object such as vtkActor and
-// vtkCamera use this class for performing their matrix operations.
+// the matrix at the top of the stack. Many objects, such as vtkActor and
+// vtkCamera, use this class for performing their matrix operations.
 // It is very important to realize that this class performs all of
 // its operations in a right handed coordinate system with right
 // handed rotations. Some other graphics libraries use left handed 

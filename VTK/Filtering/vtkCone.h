@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCone.h,v $
   Language:  C++
-  Date:      $Date: 1995-10-25 23:49:44 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1995-12-27 10:55:38 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -44,7 +44,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // vtkCone is a concrete implementation of vtkImplicitFunction. The cone vertex
 // is located at the origin with axis of rotation coincident with z-axis. (Use
 // the superclass' vtkImplicitFunction transformation matrix if necessary to 
-// reposition). The angle specifies the angle between the axis of rotation 
+// reposition.) The angle specifies the angle between the axis of rotation 
 // and the side of the cone.
 // .SECTION Caveats
 // The cone is infinite in extent. To truncate the cone use the 
