@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-01-09 13:45:36 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 1999-04-15 21:31:24 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -591,3 +591,25 @@ void vtkMergeFilter::PrintSelf(ostream& os, vtkIndent indent)
     }
 }
 
+
+void vtkMergeFilter::UnRegister(vtkObject *o)
+{
+  // detect the circular loop source <-> data
+  // If we have two references and one of them is my data
+  // and I am not being unregistered by my data, break the loop.
+  if (this->ReferenceCount == 6 &&
+      this->PolyData->GetReferenceCount() == 1 &&
+      this->StructuredGrid->GetReferenceCount() == 1 &&
+      this->UnstructuredGrid->GetReferenceCount() == 1 &&
+      this->StructuredPoints->GetReferenceCount() == 1 &&
+      this->RectilinearGrid->GetReferenceCount() == 1)
+    {
+    this->PolyData->SetSource(NULL);
+    this->StructuredGrid->SetSource(NULL);
+    this->UnstructuredGrid->SetSource(NULL);
+    this->StructuredPoints->SetSource(NULL);
+    this->RectilinearGrid->SetSource(NULL);
+    }
+  
+  this->vtkObject::UnRegister(o);
+}

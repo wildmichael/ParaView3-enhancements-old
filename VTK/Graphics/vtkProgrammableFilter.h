@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProgrammableFilter.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-08 18:42:10 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-04-15 21:31:24 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -140,6 +140,10 @@ public:
   // Description:
   // Get the output as a concrete type.
   vtkRectilinearGrid *GetRectilinearGridOutput();
+
+  // Description:
+  // Handle the source/data loop.
+  void UnRegister(vtkObject *o);
 
 protected:
   void Execute();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMergeFilter.h,v $
   Language:  C++
-  Date:      $Date: 1999-04-15 18:56:32 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 1999-04-15 21:31:24 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -127,6 +127,10 @@ public:
   // Description:
   // For legacy compatibility. Do not use.
   void SetGeometry(vtkDataSet &input) {this->SetGeometry(&input);}
+
+  // Description:
+  // Handle the source/data loop.
+  void UnRegister(vtkObject *o);
 
 protected:
   // Usual data generation method
