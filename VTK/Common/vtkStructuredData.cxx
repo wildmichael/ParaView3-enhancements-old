@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredData.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-06 14:40:28 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 1998-10-13 17:45:09 $
+  Version:   $Revision: 1.42 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -216,6 +216,10 @@ void vtkStructuredData::GetPointCells(int ptId, vtkIdList *cellIds, int dim[3])
     {
     ptDim[i] = dim[i];
     cellDim[i] = ptDim[i] - 1;
+    if (cellDim[i] == 0)
+      {
+      cellDim[i] = 1;
+      }
     }
   //
   //  Get the location of the point
