@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: vtkXdmfDataSetWriter.cxx,v 1.3 2003-04-09 19:57:47 andy Exp $  */
-/*  Date : $Date: 2003-04-09 19:57:47 $ */
-/*  Version : $Revision: 1.3 $ */
+/*  Id : $Id: vtkXdmfDataSetWriter.cxx,v 1.4 2003-07-10 19:30:19 andy Exp $  */
+/*  Date : $Date: 2003-07-10 19:30:19 $ */
+/*  Version : $Revision: 1.4 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -81,8 +81,13 @@ char *vtkXdmfDataSetWriter::GetXML( void ) {
   char  *String, *ptr;
   
   ptr = this->Internals->XMLStream->str();
-  String = new char[ strlen( ptr ) + 1 ];
-  strcpy( String, ptr );
+  if ( ptr ){
+    String = new char[ strlen( ptr ) + 1 ];
+    strcpy( String, ptr );
+  }
+  else {
+    String = 0;
+  }
   this->Internals->XMLStream->rdbuf()->freeze( 0 );
   return( String );
   }
