@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPiecewiseFunction.h,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:07:11 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1999-12-04 15:26:22 $
+  Version:   $Revision: 1.16 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -105,6 +105,15 @@ public:
   // separate piecewise functions and three separate calls to GetTable().
   void GetTable( float x1, float x2, int size, float *table, int stride=1 );
 
+  // Description:
+  // Constructs a piecewise function from a table.  Function range is
+  // is set to [x1, x2], function size is set to size, and function points
+  // are regularly spaced between x1 and x2.  Parameter "stride" is
+  // is step through the input table.  It is used by vtkColorTransferFunction
+  // to construct 3 piecewise functions from an rgb table.
+  void BuildFunctionFromTable( float x1, float x2, int size,
+			       float *table, int stride=1 );
+  
   // Description:
   // When zero range clamping is Off, GetValue() returns 0.0 when a
   // value is requested outside of the points specified.
