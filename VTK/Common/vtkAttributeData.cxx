@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAttributeData.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:09:45 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2000-08-17 15:25:14 $
+  Version:   $Revision: 1.15 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -185,6 +185,10 @@ void vtkAttributeData::SetData(vtkDataArray *data)
 // makes sense.
 void vtkAttributeData::DeepCopy(vtkAttributeData *da)
 {
+  if (da == NULL)
+    {
+    return;
+    }
   if ( da->Data != this->Data && da->Data != NULL )
     {
     if (da->Data->GetNumberOfComponents() != this->Data->GetNumberOfComponents() )
