@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProcrustesAlignmentFilter.h,v $
   Language:  C++
-  Date:      $Date: 2002-02-05 17:36:04 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2003-03-11 13:46:44 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -57,6 +57,7 @@
 
 class vtkLandmarkTransform;
 class vtkPointSet;
+class vtkPoints;
 
 class VTK_HYBRID_EXPORT vtkProcrustesAlignmentFilter : public vtkSource
 {
@@ -76,6 +77,10 @@ public:
   // degrees of freedom of the alignment (i.e. rigid body, similarity, etc.).
   // The default is a similarity alignment.
   vtkGetObjectMacro(LandmarkTransform,vtkLandmarkTransform);
+  
+  // Description: 
+  // Get the estimated mean point cloud
+  vtkGetObjectMacro(MeanPoints,vtkPoints);
   
   // Description:
   // Specify how many pointsets are going to be given as input.
@@ -103,6 +108,8 @@ protected:
   void Execute();
 
   vtkLandmarkTransform *LandmarkTransform;
+
+  vtkPoints *MeanPoints;
 
 private:
   vtkProcrustesAlignmentFilter(const vtkProcrustesAlignmentFilter&);  // Not implemented.
