@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkParallelCoordinatesActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-11-18 21:05:02 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2000-11-19 23:03:29 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to Kitware & RPI/SCOREC who supported the development
              of this class.
 
@@ -65,10 +65,7 @@ vtkParallelCoordinatesActor::vtkParallelCoordinatesActor()
   this->PositionCoordinate->SetCoordinateSystemToNormalizedViewport();
   this->PositionCoordinate->SetValue(0.1,0.1);
   
-  this->Position2Coordinate = vtkCoordinate::New();
-  this->Position2Coordinate->SetCoordinateSystemToNormalizedViewport();
   this->Position2Coordinate->SetValue(0.9, 0.8);
-  this->Position2Coordinate->SetReferenceCoordinate(this->PositionCoordinate);
   
   this->Input = NULL;
   this->IndependentVariables = VTK_IV_COLUMN;
@@ -102,8 +99,6 @@ vtkParallelCoordinatesActor::vtkParallelCoordinatesActor()
 
 vtkParallelCoordinatesActor::~vtkParallelCoordinatesActor()
 {
-  this->Position2Coordinate->Delete();
-  this->Position2Coordinate = NULL;
   this->TitleMapper->Delete();
   this->TitleMapper = NULL;
   this->TitleActor->Delete();
