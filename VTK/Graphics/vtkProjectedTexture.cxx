@@ -1,5 +1,12 @@
 /*=========================================================================
 
+  Program:   Visualization Toolkit
+  Module:    $RCSfile: vtkProjectedTexture.cxx,v $
+  Language:  C++
+  Date:      $Date: 1998-10-06 20:42:04 $
+  Version:   $Revision: 1.6 $
+
+
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
 This software is copyrighted by Ken Martin, Will Schroeder and Bill Lorensen.
