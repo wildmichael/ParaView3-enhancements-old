@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkQueue.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-27 14:59:33 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2003-01-09 22:52:01 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,6 +21,8 @@
 
 #ifndef VTK_NO_EXPLICIT_TEMPLATE_INSTANTIATION
 
+template class VTK_EXPORT vtkVector<void*>;
+template class VTK_EXPORT vtkVector<vtkObject*>;
 template class VTK_EXPORT vtkQueue<void*>;
 template class VTK_EXPORT vtkQueue<vtkObject*>;
 
