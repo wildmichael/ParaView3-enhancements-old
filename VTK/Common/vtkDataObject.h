@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObject.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-14 21:24:44 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-10-16 15:58:16 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -74,8 +74,7 @@ public:
   virtual vtkDataObject *MakeObject() {return new vtkDataObject;};
 
   // Description:
-  // Specify the source object creating this data object.
-  vtkSetObjectMacro(Source,vtkSource);
+  // Get the source object creating this data object.
   vtkGetObjectMacro(Source,vtkSource);
   
   // Description:
@@ -126,6 +125,13 @@ public:
   void SetFieldData(vtkFieldData &fd);
   vtkFieldData *GetFieldData() {return this->FieldData;};
 
+  //BTX - begin tcl exclude
+  // Description:
+  // This method is to be used only by the source.
+  // The source is not reference counted by this data object.
+  void SetSource(vtkSource *source);
+  //ETX
+  
   // Description:
   // For legacy compatibility: Do not use.
   void SetFieldData(vtkFieldData *fd) {this->SetFieldData(*fd);}

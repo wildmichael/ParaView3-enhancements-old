@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitFunction.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 20:34:07 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 1998-10-16 15:58:18 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -75,6 +75,7 @@ class VTK_EXPORT vtkImplicitFunction : public vtkObject
 {
 public:
   vtkImplicitFunction();
+  ~vtkImplicitFunction();
   const char *GetClassName() {return "vtkImplicitFunction";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
@@ -105,7 +106,7 @@ public:
 
   // Description:
   // Set/Get transformation matrix to transform implicit function.
-  vtkSetObjectMacro(Transform,vtkTransform);
+  vtkSetReferenceCountedObjectMacro(Transform,vtkTransform);
   vtkGetObjectMacro(Transform,vtkTransform);
 
 protected:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:38:36 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1998-10-16 15:58:17 $
+  Version:   $Revision: 1.18 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -43,6 +43,11 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 vtkImplicitFunction::vtkImplicitFunction()
 {
   this->Transform = NULL;
+}
+
+vtkImplicitFunction::~vtkImplicitFunction()
+{
+  this->SetTransform(NULL);
 }
 
 // Evaluate function at position x-y-z and return value. Point x[3] is

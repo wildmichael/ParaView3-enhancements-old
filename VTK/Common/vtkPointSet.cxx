@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSet.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-06 14:40:24 $
-  Version:   $Revision: 1.46 $
+  Date:      $Date: 1998-10-16 15:58:18 $
+  Version:   $Revision: 1.47 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -264,6 +264,22 @@ void vtkPointSet::Squeeze()
     }
   vtkDataSet::Squeeze();
 }
+
+void vtkPointSet::UnRegister(vtkObject *o)
+{
+  // detect the circular loop PointSet <-> Locator
+  // If we have two references and one of them is my locator
+  // and I am not being unregistered by my locator, break the loop.
+  if (this->ReferenceCount == 2 && this->Locator &&
+      this->Locator->GetDataSet() == this && 
+      this->Locator != o)
+    {
+    this->Locator->SetDataSet(NULL);
+    }
+  this->vtkObject::UnRegister(o);
+}
+
+
 
 void vtkPointSet::PrintSelf(ostream& os, vtkIndent indent)
 {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFieldData.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-14 21:24:46 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1998-10-16 15:58:16 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -86,7 +86,7 @@ void vtkFieldData::Initialize()
       {
       if ( this->Data[i] != NULL ) 
 	{
-	this->Data[i]->Delete();
+	this->Data[i]->UnRegister(this);
 	}
       }
     

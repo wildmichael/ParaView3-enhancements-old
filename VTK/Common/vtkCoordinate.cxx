@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCoordinate.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:38:00 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1998-10-16 15:58:15 $
+  Version:   $Revision: 1.8 $
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -59,7 +59,9 @@ vtkCoordinate::vtkCoordinate()
 // Destroy a Coordinate.  
 vtkCoordinate::~vtkCoordinate()
 {
+  // To get rid of references (Refence counting).
   this->SetReferenceCoordinate(NULL);
+  this->SetViewport(NULL);
 }
 
 void vtkCoordinate::PrintSelf(ostream& os, vtkIndent indent)
@@ -91,6 +93,29 @@ void vtkCoordinate::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "ReferenceCoordinate: " << this->ReferenceCoordinate << "\n";
   os << indent << "Viewport: " << this->Viewport << "\n";
 }
+
+
+void vtkCoordinate::SetViewport(vtkViewport *viewport)
+{
+  if (this->Viewport != viewport)
+    {
+    if (this->Viewport != NULL) 
+      {
+      this->Viewport->UnRegister(this);
+      }
+    this->Viewport = viewport;
+    if (this->Viewport != NULL) 
+      {
+      this->Viewport->Register(this);
+      }
+    this->Modified();
+    }
+}
+
+
+
+
+
 
 float *vtkCoordinate::GetComputedWorldValue(vtkViewport* viewport)
 {

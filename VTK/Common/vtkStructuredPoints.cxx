@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-14 21:24:57 $
-  Version:   $Revision: 1.63 $
+  Date:      $Date: 1998-10-16 15:58:20 $
+  Version:   $Revision: 1.64 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -658,7 +658,8 @@ void vtkStructuredPoints::UnRegister(vtkObject* o)
   // but it has registered me.
   if (this->GetReferenceCount() == 2 && 
       this->StructuredPointsToImage != NULL &&
-      this->StructuredPointsToImage->GetInput() == this)
+      this->StructuredPointsToImage->GetInput() == this &&
+      this->StructuredPointsToImage != o)
     {
     vtkStructuredPointsToImage *temp = this->StructuredPointsToImage;
     this->StructuredPointsToImage = NULL;    

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor2DCollection.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 20:34:00 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1998-10-16 15:58:14 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -52,8 +52,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #define __vtkActor2DCollection_h
 
 #include "vtkCollection.h"
-#include "vtkActor2D.h"
-
+class vtkActor2D;
+class vtkViewport;
 
 class VTK_EXPORT vtkActor2DCollection : public vtkCollection
 {
@@ -70,7 +70,6 @@ class VTK_EXPORT vtkActor2DCollection : public vtkCollection
   // Sorts the vtkActor2DCollection by layer number.  Smaller layer
   // numbers are first.  Layer numbers can be any integer value.
   void Sort();
-
   
   // Description:
   // Add an actor to the list.  The new actor is inserted in the list

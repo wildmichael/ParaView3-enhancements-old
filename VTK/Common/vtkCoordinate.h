@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCoordinate.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:38:01 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-10-16 15:58:15 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -48,6 +48,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 #include "vtkObject.h"
 class vtkViewport;
+
 
 #define VTK_DISPLAY             0
 #define VTK_NORMALIZED_DISPLAY  1
@@ -106,7 +107,7 @@ public:
   // If you want this coordinate to be relative to a specific
   // vtkViewport (vtkRenderer, vtkImager) then you can specify
   // that here.
-  vtkSetObjectMacro(Viewport,vtkViewport);
+  void SetViewport(vtkViewport *viewport);
   vtkGetObjectMacro(Viewport,vtkViewport);
 
   // Description:

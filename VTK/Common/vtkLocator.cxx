@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLocator.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-01 17:38:06 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 1998-10-16 15:58:18 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -54,8 +54,9 @@ vtkLocator::vtkLocator()
 
 vtkLocator::~vtkLocator()
 {
-// commented out because of compiler problems in g++
-//  this->FreeSearchStructure(); 
+  // commented out because of compiler problems in g++
+  //  this->FreeSearchStructure(); 
+  this->SetDataSet(NULL);
 }
 
 void vtkLocator::Initialize()

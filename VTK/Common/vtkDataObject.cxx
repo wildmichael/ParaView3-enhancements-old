@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObject.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-10-14 21:24:43 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1998-10-16 15:58:15 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,6 +56,17 @@ vtkDataObject::~vtkDataObject()
 {
   this->FieldData->Delete();
 }
+
+// Used only by the source.  No reference counting.
+void vtkDataObject::SetSource(vtkSource *source)
+{
+  if (this->Source != source)
+    {
+    this->Source = source;
+    this->Modified();
+    }
+}
+
 
 void vtkDataObject::Initialize()
 {

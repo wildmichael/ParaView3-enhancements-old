@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSource.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 20:34:07 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 1998-10-16 15:58:17 $
+  Version:   $Revision: 1.27 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -121,13 +121,18 @@ public:
   // Returns the cache object of the source.  If one does not exist, a default
   // is created.
   vtkImageCache *GetCache();
-
+  
   // Description:
   // subclass can over ride this method to do custom streaming and
   // splitting for multiprocessing.
   virtual int SplitExtent(int splitExt[6], int startExt[6], 
 			  int num, int total);
 
+  // Description:
+  // This UnRegister method detects the small reference counting loop:
+  // ImageSource <-> ImageCache, and destructs anyway.
+  void UnRegister(vtkObject *o);
+  
 protected:
   vtkImageCache *Output;
 

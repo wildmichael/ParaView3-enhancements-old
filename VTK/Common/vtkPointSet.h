@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointSet.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 20:34:12 $
-  Version:   $Revision: 1.32 $
+  Date:      $Date: 1998-10-16 15:58:19 $
+  Version:   $Revision: 1.33 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -99,6 +99,10 @@ public:
   vtkSetReferenceCountedObjectMacro(Points,vtkPoints);
   vtkGetObjectMacro(Points,vtkPoints);
 
+  // Description:
+  // Detect refernce loop PointSet <-> locator.
+  void UnRegister(vtkObject *o);
+  
 protected:
   vtkPoints *Points;
   vtkPointLocator *Locator;
