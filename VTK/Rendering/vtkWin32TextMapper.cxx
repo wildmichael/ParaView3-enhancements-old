@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32TextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-30 05:45:43 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 2002-07-01 19:59:09 $
+  Version:   $Revision: 1.31 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 #include "vtkTextProperty.h"
 #include "vtkViewport.h"
 
-vtkCxxRevisionMacro(vtkWin32TextMapper, "$Revision: 1.30 $");
+vtkCxxRevisionMacro(vtkWin32TextMapper, "$Revision: 1.31 $");
 
 //--------------------------------------------------------------------------
 vtkWin32TextMapper* vtkWin32TextMapper::New()
@@ -62,7 +62,7 @@ void vtkWin32TextMapper::GetSize(vtkViewport* viewport, int *size)
     return;
     }
 
-  if (this->Input == NULL)
+  if (this->Input == NULL || this->Input[0] == '\0') 
     {
     size[0] = 0; size[1] = 0;
     return;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXTextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-06-30 05:45:43 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2002-07-01 19:59:09 $
+  Version:   $Revision: 1.36 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,7 +25,7 @@
 //mark this class for future legacy-related changes
 #endif
 
-vtkCxxRevisionMacro(vtkXTextMapper, "$Revision: 1.35 $");
+vtkCxxRevisionMacro(vtkXTextMapper, "$Revision: 1.36 $");
 
 //-------------------------------------------------------------------------
 vtkXTextMapper* vtkXTextMapper::New()
@@ -106,15 +106,9 @@ void vtkXTextMapper::GetSize(vtkViewport* viewport, int *s)
   int *vSize = viewport->GetSize();
   
   vtkTextProperty *tprop = this->GetTextProperty();
-  if (!tprop)
-    {
-    vtkErrorMacro(<< "Need a text property to get size");
-    s[0] = s[1] = 0;
-    return;
-    }
 
   if (this->SizeMTime < this->MTime || 
-      this->SizeMTime < tprop->GetMTime() ||
+      (tprop && this->SizeMTime < tprop->GetMTime()) ||
       vSize[0] != this->ViewportSize[0] || 
       vSize[1] != this->ViewportSize[1])
     {
