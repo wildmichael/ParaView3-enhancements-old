@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-11-06 14:43:39 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1996-11-15 17:01:37 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -147,6 +147,25 @@ Window vtkXRenderWindow::GetWindowId()
   return this->WindowId;
 }
 
+void vtkXRenderWindow::SetPosition(int x,int y)
+{
+  // if we arent mappen then just set the ivars
+  if (!this->Mapped)
+    {
+    if ((this->Position[0] != x)||(this->Position[1] != y))
+      {
+      this->Modified();
+      }
+    this->Position[0] = x;
+    this->Position[1] = y;
+    return;
+    }
+
+  XMoveResizeWindow(this->DisplayId,this->WindowId,x,y,
+                    this->Size[0], this->Size[1]);
+  XSync(this->DisplayId,False);
+}
+
 // Description:
 // Set this RenderWindow's X window id to a pre-existing window.
 void vtkXRenderWindow::SetWindowId(Window arg)
@@ -159,6 +178,24 @@ void vtkXRenderWindow::SetWindowId(void *arg)
 {
   this->SetWindowId((Window)arg);
 }
+
+
+void vtkXRenderWindow::SetWindowName(char * name)
+{
+  vtkRenderWindow::SetWindowName( name );
+
+  XTextProperty win_name_text_prop;
+  
+  if( XStringListToTextProperty( &name, 1, &win_name_text_prop ) == 0 ){
+    
+     vtkWarningMacro(<< "Can't rename window.\n"); 
+     return;
+  }
+
+  XSetWMName( this->DisplayId, this->WindowId, &win_name_text_prop );
+  XSetWMIconName( this->DisplayId, this->WindowId, &win_name_text_prop );
+}
+
 
 // Description:
 // Specify the X window id to use if a WindowRemap is done.
