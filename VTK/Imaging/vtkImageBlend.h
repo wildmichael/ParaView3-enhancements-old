@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageBlend.h,v $
   Language:  C++
-  Date:      $Date: 2000-09-26 20:10:19 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2000-09-28 15:25:18 $
+  Version:   $Revision: 1.9 $
   Thanks:    Thanks to David G. Gobbi and Sebastien Barre who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -64,7 +64,9 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //
 // \em Compound : 
 // Images are compounded together and each component is scaled by the sum of
-// the alpha/opacity values.
+// the alpha/opacity values. Use the CompoundThreshold method to set 
+// specify a threshold in compound mode. Pixels with opacity*alpha less
+// or equal than this threshold are ignored.
 // The alpha value of the first input, if present, is NOT copied to the alpha 
 // value of the output.  The output always has the same number of components
 // and the same extent as the first input.
@@ -76,7 +78,9 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //   foreach input i {
 //     r <- input[i](px)(alpha) * opacity(i)
 //     sum <- sum + r
-//     output(px) <- output(px) + input(px) * r
+//     if r > threshold {
+//       output(px) <- output(px) + input(px) * r
+//     }
 //   }
 //   output(px) <- output(px) / sum
 // }
@@ -116,6 +120,12 @@ public:
 	{this->SetBlendMode(VTK_IMAGE_BLEND_MODE_COMPOUND);};
   const char *GetBlendModeAsString(void);
 
+  // Description:
+  // Specify a threshold in compound mode. Pixels with opacity*alpha less
+  // or equal the threshold are ignored.
+  vtkSetMacro(CompoundThreshold,float);
+  vtkGetMacro(CompoundThreshold,float);
+
   virtual void UpdateData(vtkDataObject *output);
   
 protected:
@@ -135,6 +145,7 @@ protected:
   double *Opacity;
   int OpacityArrayLength;
   int BlendMode;
+  float CompoundThreshold;
 };
 
 // Description:
