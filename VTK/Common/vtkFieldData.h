@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFieldData.h,v $
   Language:  C++
-  Date:      $Date: 1998-10-14 21:24:46 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1998-12-02 21:14:09 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -106,6 +106,17 @@ public:
   // Return the ith array in the field. A NULL is returned if the index i is out
   // if range.
   vtkDataArray *GetArray(int i);
+
+  // Description:
+  // Return the array containing the ith component of the field. The return value
+  // is an integer number n 0<=n<this->NumberOfArrays. Also, an integer value is
+  // returned indicating the component in the array is returned. Method returns
+  // -1 if specified component is not in the field.
+  int GetArrayContainingComponent(int i, int& arrayComp);
+
+  // Description:
+  // Return the array with the name given. Returns NULL is array not found.
+  vtkDataArray *GetArray(char *arrayName);
 
   // Description:
   // Set/Get the name for an array of data. 
