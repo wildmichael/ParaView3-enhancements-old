@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkDataWriter.h,v $
   Language:  C++
-  Date:      $Date: 1995-05-02 18:43:13 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1995-05-24 08:28:28 $
+  Version:   $Revision: 1.4 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -92,6 +92,7 @@ public:
   int WritePoints(FILE *fp, vlPoints *p);
   int WriteCells(FILE *fp, vlCellArray *cells, char *label);
   int WritePointData(FILE *fp, vlDataSet *ds);
+  void CloseVLFile(FILE *fp);
 
 protected:
   char *Filename;

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkDataWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-05-24 07:43:53 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1995-05-24 08:28:14 $
+  Version:   $Revision: 1.6 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -642,6 +642,14 @@ int vlDataWriter::WriteCells(FILE *fp, vlCellArray *cells, char *label)
 
   fprintf (fp,"\n");
   return 1;
+}
+
+// Description:
+// Close a vl file.
+void vlDataWriter::CloseVLFile(FILE *fp)
+{
+  vlDebugMacro(<<"Closing vl file\n");
+  if ( fp != NULL ) fclose(fp);
 }
 
 void vlDataWriter::PrintSelf(ostream& os, vlIndent indent)
