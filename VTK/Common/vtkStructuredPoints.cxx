@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkStructuredPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-04-14 15:30:09 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1994-05-13 08:06:56 $
+  Version:   $Revision: 1.9 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -116,17 +116,13 @@ vlCell *vlStructuredPoints::GetCell(int cellId)
       break;
 
     case XYZ_GRID:
-      { // braces necessary because some compilers don't like jumping
-        // over initializers
-      int cd01 = this->Dimensions[0]*this->Dimensions[1];
-      iMin = cellId % (this->Dimensions[0]-1);
+      iMin = cellId % (this->Dimensions[0] - 1);
       iMax = iMin + 1;
-      jMin = (cellId % cd01) / (this->Dimensions[0]-1);
+      jMin = (cellId / (this->Dimensions[0] - 1)) % (this->Dimensions[1] - 1);
       jMax = jMin + 1;
-      kMin = cellId / cd01;
+      kMin = cellId / ((this->Dimensions[0] - 1) * (this->Dimensions[1] - 1));
       kMax = kMin + 1;
       cell = &brick;
-      }
       break;
     }
 
