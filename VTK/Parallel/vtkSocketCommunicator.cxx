@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSocketCommunicator.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-02 18:56:13 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2001-07-02 19:27:12 $
+  Version:   $Revision: 1.15 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -180,18 +180,6 @@ int vtkSocketCommunicator::Send(float *data, int length,
 }
 
 //----------------------------------------------------------------------------
-int vtkSocketCommunicator::Send(vtkIdType *data, int length, 
-				int remoteProcessId, int tag)
-{
-  if ( checkForError(remoteProcessId, this->NumberOfProcesses) )
-    {
-    return 0;
-    }
-
-  return SendMessage(data, length, tag, this->Socket);
-}
-
-//----------------------------------------------------------------------------
 int vtkSocketCommunicator::ReceiveMessage( char *data, int size, int length,
                                            int tag )
 {
@@ -294,17 +282,6 @@ int vtkSocketCommunicator::Receive(float *data, int length,
     }
 
   return ReceiveMessage( (char *)data, sizeof(float), length, tag);
-}
-
-int vtkSocketCommunicator::Receive(vtkIdType *data, int length, 
-				   int remoteProcessId, int tag)
-{
-  if ( checkForError(remoteProcessId, this->NumberOfProcesses) )
-    {
-    return 0;
-    }
-
-  return ReceiveMessage( (char *)data, sizeof(vtkIdType), length, tag);
 }
 
 int vtkSocketCommunicator::WaitForConnection(int port, int timeout)

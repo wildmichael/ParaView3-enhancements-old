@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSocketCommunicator.h,v $
   Language:  C++
-  Date:      $Date: 2001-07-02 18:56:13 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2001-07-02 19:27:12 $
+  Version:   $Revision: 1.9 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -98,7 +98,6 @@ public:
   int Send(unsigned long *data, int length, int remoteProcessId, int tag);
   int Send(char *data, int length, int remoteProcessId, int tag);
   int Send(float *data, int length, int remoteProcessId, int tag);
-  int Send(vtkIdType *data, int length, int remoteProcessId, int tag);
   int Send(vtkDataObject *data, int remoteId, int tag)
     {return this->vtkCommunicator::Send(data,remoteId,tag);}
 
@@ -110,7 +109,6 @@ public:
   int Receive(unsigned long *data, int length, int remoteProcessId, int tag);
   int Receive(char *data, int length, int remoteProcessId, int tag);
   int Receive(float *data, int length, int remoteProcessId, int tag);
-  int Receive(vtkIdType *data, int length, int remoteProcessId, int tag);
   int Receive(vtkDataObject *data, int remoteId, int tag)
     {return this->vtkCommunicator::Receive(data, remoteId, tag);}
 
