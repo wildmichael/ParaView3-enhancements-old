@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVoxelModeller.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:33:50 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 2002-06-14 15:14:10 $
+  Version:   $Revision: 1.42 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -28,12 +28,12 @@
 #ifndef __vtkVoxelModeller_h
 #define __vtkVoxelModeller_h
 
-#include "vtkDataSetToStructuredPointsFilter.h"
+#include "vtkDataSetToImageFilter.h"
 
-class VTK_IMAGING_EXPORT vtkVoxelModeller : public vtkDataSetToStructuredPointsFilter 
+class VTK_IMAGING_EXPORT vtkVoxelModeller : public vtkDataSetToImageFilter 
 {
 public:
-  vtkTypeRevisionMacro(vtkVoxelModeller,vtkDataSetToStructuredPointsFilter);
+  vtkTypeRevisionMacro(vtkVoxelModeller,vtkDataSetToImageFilter);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
@@ -77,7 +77,10 @@ protected:
   vtkVoxelModeller();
   ~vtkVoxelModeller() {};
 
-  void Execute();
+  
+  virtual void ExecuteInformation();
+  virtual void ExecuteData(vtkDataObject *);
+
   int SampleDimensions[3];
   float MaximumDistance;
   float ModelBounds[6];
