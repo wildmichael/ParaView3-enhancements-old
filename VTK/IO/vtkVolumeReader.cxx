@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:57:19 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1997-02-23 18:42:02 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -62,8 +62,8 @@ void vtkVolumeReader::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "Data Aspect Ratio: (" << this->DataAspectRatio[0] << ", "
                                          << this->DataAspectRatio[1] << ", "
                                          << this->DataAspectRatio[2] << ")\n";
-  os << indent << "FilePrefix: " << this->FilePrefix << "\n";
-  os << indent << "FilePattern: " << this->FilePattern << "\n";
+  os << indent << "FilePrefix: " << (this->FilePrefix ? this->FilePrefix : "(none)") << "\n";
+  os << indent << "FilePattern: " << (this->FilePattern ? this->FilePattern : "(none)") << "\n";
   os << indent << "Image Range: (" << this->ImageRange[0] << ", " 
      << this->ImageRange[1] << ")\n";
 }
