@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkHexahedron.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-05-29 12:47:30 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1995-06-06 08:24:18 $
+  Version:   $Revision: 1.17 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -124,9 +124,9 @@ int vlHexahedron::EvaluatePosition(float x[3], float closestPoint[3],
     }
   else
     {
-    if ( pcoords[0] >= 0.0 && pcoords[0] <= 1.0 &&
-    pcoords[1] >= 0.0 && pcoords[1] <= 1.0 &&
-    pcoords[2] >= 0.0 && pcoords[2] <= 1.0 )
+    if ( pcoords[0] >= -0.001 && pcoords[0] <= 1.001 &&
+    pcoords[1] >= -0.001 && pcoords[1] <= 1.001 &&
+    pcoords[2] >= -0.001 && pcoords[2] <= 1.001 )
       {
       closestPoint[0] = x[0]; closestPoint[1] = x[1]; closestPoint[2] = x[2];
       dist2 = 0.0; // inside hexahedron
