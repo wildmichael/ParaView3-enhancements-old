@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-31 00:02:52 $
-  Version:   $Revision: 1.123 $
+  Date:      $Date: 2002-04-05 22:09:23 $
+  Version:   $Revision: 1.124 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -38,7 +38,7 @@
 #include <ctype.h>
 #include <sys/stat.h>
 
-vtkCxxRevisionMacro(vtkDataReader, "$Revision: 1.123 $");
+vtkCxxRevisionMacro(vtkDataReader, "$Revision: 1.124 $");
 vtkStandardNewMacro(vtkDataReader);
 
 // this undef is required on the hp. vtkMutexLock ends up including
@@ -1880,7 +1880,7 @@ int vtkDataReader::CharacterizeFile()
                    this->NormalsNameInFile, this->NormalsNameAllocSize);
     this->CheckFor("tcoords", line, this->NumberOfTCoordsInFile,
                    this->TCoordsNameInFile, this->TCoordsNameAllocSize);
-    this->CheckFor("fielddata", line, this->NumberOfFieldDataInFile,
+    this->CheckFor("field", line, this->NumberOfFieldDataInFile,
                    this->FieldDataNameInFile, this->FieldDataNameAllocSize);
     }
 
