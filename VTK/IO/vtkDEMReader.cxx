@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDEMReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-01-07 08:59:21 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2000-01-10 19:48:32 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -87,7 +87,7 @@ vtkDEMReader::~vtkDEMReader()
 }
 
 //----------------------------------------------------------------------------
-void vtkDEMReader::UpdateInformation()
+void vtkDEMReader::ExecuteInformation()
 {
   float spacing[3], origin[3];
   int extent[6];
