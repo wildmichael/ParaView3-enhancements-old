@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSpatialFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:33:31 $
-  Version:   $Revision: 1.47 $
+  Date:      $Date: 2002-03-04 00:08:10 $
+  Version:   $Revision: 1.48 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,21 +20,15 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkImageSpatialFilter, "$Revision: 1.47 $");
+vtkCxxRevisionMacro(vtkImageSpatialFilter, "$Revision: 1.48 $");
 vtkStandardNewMacro(vtkImageSpatialFilter);
 
 //----------------------------------------------------------------------------
 // Construct an instance of vtkImageSpatialFilter fitler.
 vtkImageSpatialFilter::vtkImageSpatialFilter()
 {
-  int idx;
-  
-  for (idx = 0; idx < 3; ++idx)
-    {
-    this->KernelSize[idx] = 1;
-    this->KernelMiddle[idx] = 0;
-    }
-  
+  this->KernelSize[0] = this->KernelSize[1] = this->KernelSize[2] = 1;
+  this->KernelMiddle[0] = this->KernelMiddle[1] = this->KernelMiddle[2] = 0;
   this->HandleBoundaries = 1;
 }
 
