@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPVUpdateSuppressor.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-04-10 17:22:37 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2003-04-17 15:04:05 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,8 +20,9 @@
 #include "vtkCommand.h"
 #include "vtkObjectFactory.h"
 #include "vtkPolyData.h"
+#include "vtkCollection.h"
 
-vtkCxxRevisionMacro(vtkPVUpdateSuppressor, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkPVUpdateSuppressor, "$Revision: 1.7 $");
 vtkStandardNewMacro(vtkPVUpdateSuppressor);
 
 //----------------------------------------------------------------------------
@@ -32,11 +33,15 @@ vtkPVUpdateSuppressor::vtkPVUpdateSuppressor()
 
   this->UpdatePiece = 0;
   this->UpdateNumberOfPieces = 1;
+
+  this->CachedGeometry = vtkCollection::New();
 }
 
 //----------------------------------------------------------------------------
 vtkPVUpdateSuppressor::~vtkPVUpdateSuppressor()
 {
+  this->CachedGeometry->Delete();
+  this->CachedGeometry = NULL;
 }
 
 //----------------------------------------------------------------------------
@@ -103,6 +108,34 @@ void vtkPVUpdateSuppressor::Execute()
     return;
     }  
   output->ShallowCopy(input);
+}
+
+//----------------------------------------------------------------------------
+void vtkPVUpdateSuppressor::RemoveAllCaches()
+{
+  this->CachedGeometry->RemoveAllItems();
+}
+
+//----------------------------------------------------------------------------
+void vtkPVUpdateSuppressor::CacheUpdate(int idx)
+{
+  vtkPolyData *pd;
+  vtkPolyData *output;
+
+  output = this->GetOutput();
+  pd = static_cast<vtkPolyData*>(this->CachedGeometry->GetItemAsObject(idx));
+  if (pd == NULL)
+    { // we need to update and save.
+    this->ForceUpdate();
+    pd = vtkPolyData::New();
+    pd->ShallowCopy(output);
+    this->CachedGeometry->ReplaceItem(idx, pd);
+    pd->Delete();
+    }
+  else
+    { // Output generated previously.
+    output->ShallowCopy(pd);
+    }
 }
 
 
