@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKitwareContourFilter.h,v $
   Language:  C++
-  Date:      $Date: 2003-04-16 14:30:23 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2003-05-02 14:19:53 $
+  Version:   $Revision: 1.19 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -43,15 +43,15 @@
 // invoke the method UseScalarTreeOn().
 
 // .SECTION Caveats
-// For StructuredPoints And StructuredGrids, normals are computed
-// by default, but it is an expensive computation.  Processing for 
+// For StructuredPoints, StructuredGrids, and RectilinearGrids, normals are
+// computed by default, but it is an expensive computation.  Processing for 
 // other data set types has not been extended to include normal 
 // computation.  In the mean time, use vtkPolyDataNormals to compute 
 // the surface normals.
 
 // .SECTION See Also
 // vtkSynchronizedTemplates3D vtkSynchronizedTemplates2D 
-// vtkGridSynchronizedTemplates3D
+// vtkGridSynchronizedTemplates3D vtkRectilinearSynchronizedTemplates
 
 #ifndef __vtkKitwareContourFilter_h
 #define __vtkKitwareContourFilter_h
@@ -87,6 +87,8 @@ protected:
   void StructuredPointsContour(int dim); 
   //special contouring for structured grid
   void StructuredGridContour(int dim);
+  //special contouring for rectilinear grid
+  void RectilinearGridContour(int dim);
   //default if not structured data
   void DataSetContour();
   
