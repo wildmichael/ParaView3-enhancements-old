@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBlankStructuredGridWithImage.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-12 11:32:40 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-05-16 17:05:36 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -105,7 +105,7 @@ void vtkBlankStructuredGridWithImage::Execute()
   // Get the image, set it as the blanking array.
   unsigned char *data = (unsigned char *)image->GetScalarPointer();
   vtkUnsignedCharArray *dataArray = vtkUnsignedCharArray::New();
-  dataArray->SetArray(data, gridDims[0]*gridDims[1]*gridDims[2], 0);
+  dataArray->SetArray(data, gridDims[0]*gridDims[1]*gridDims[2], 1);
 
   output->CopyStructure(grid);
   output->GetPointData()->PassData(grid->GetPointData());
