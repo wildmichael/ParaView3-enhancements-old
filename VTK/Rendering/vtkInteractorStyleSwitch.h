@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleSwitch.h,v $
   Language:  C++
-  Date:      $Date: 2002-03-21 21:27:34 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2002-04-24 19:07:48 $
+  Version:   $Revision: 1.15 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -60,7 +60,14 @@ public:
   // the underlying styles
   void SetAutoAdjustCameraClippingRange( int value );
   
+  // Description:
+  // Set/Get current style
   vtkGetObjectMacro(CurrentStyle, vtkInteractorStyle);
+  void SetCurrentStyleToJoystickActor();
+  void SetCurrentStyleToJoystickCamera();
+  void SetCurrentStyleToTrackballActor();
+  void SetCurrentStyleToTrackballCamera();
+
 protected:
   vtkInteractorStyleSwitch();
   ~vtkInteractorStyleSwitch();

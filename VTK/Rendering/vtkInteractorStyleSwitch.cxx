@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyleSwitch.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-23 19:46:41 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2002-04-24 19:07:48 $
+  Version:   $Revision: 1.14 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 #include "vtkInteractorStyleTrackballActor.h"
 #include "vtkInteractorStyleTrackballCamera.h"
 
-vtkCxxRevisionMacro(vtkInteractorStyleSwitch, "$Revision: 1.13 $");
+vtkCxxRevisionMacro(vtkInteractorStyleSwitch, "$Revision: 1.14 $");
 vtkStandardNewMacro(vtkInteractorStyleSwitch);
 
 //----------------------------------------------------------------------------
@@ -76,6 +76,34 @@ void vtkInteractorStyleSwitch::SetAutoAdjustCameraClippingRange( int value )
   this->TrackballCamera->SetAutoAdjustCameraClippingRange( value );
   
   this->Modified();
+}
+
+void vtkInteractorStyleSwitch::SetCurrentStyleToJoystickActor()
+{
+  this->JoystickOrTrackball = VTKIS_JOYSTICK;
+  this->CameraOrActor = VTKIS_ACTOR;
+  this->SetCurrentStyle();
+}
+
+void vtkInteractorStyleSwitch::SetCurrentStyleToJoystickCamera()
+{
+  this->JoystickOrTrackball = VTKIS_JOYSTICK;
+  this->CameraOrActor = VTKIS_CAMERA;
+  this->SetCurrentStyle();
+}
+
+void vtkInteractorStyleSwitch::SetCurrentStyleToTrackballActor()
+{
+  this->JoystickOrTrackball = VTKIS_TRACKBALL;
+  this->CameraOrActor = VTKIS_ACTOR;
+  this->SetCurrentStyle();
+}
+
+void vtkInteractorStyleSwitch::SetCurrentStyleToTrackballCamera()
+{
+  this->JoystickOrTrackball = VTKIS_TRACKBALL;
+  this->CameraOrActor = VTKIS_CAMERA;
+  this->SetCurrentStyle();
 }
 
 //----------------------------------------------------------------------------
@@ -190,7 +218,7 @@ void vtkInteractorStyleSwitch::SetInteractor(vtkRenderWindowInteractor *iren)
   if(iren)
     {
     iren->AddObserver(vtkCommand::CharEvent, this->EventCallbackCommand);
-        iren->AddObserver(vtkCommand::DeleteEvent, this->EventCallbackCommand);
+    iren->AddObserver(vtkCommand::DeleteEvent, this->EventCallbackCommand);
     }
   this->SetCurrentStyle();
 }
