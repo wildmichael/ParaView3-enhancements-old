@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKitwareContourFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:35:26 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2002-02-08 20:54:57 $
+  Version:   $Revision: 1.24 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,7 +26,7 @@
 #include "vtkGridSynchronizedTemplates3D.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkKitwareContourFilter, "$Revision: 1.23 $");
+vtkCxxRevisionMacro(vtkKitwareContourFilter, "$Revision: 1.24 $");
 vtkStandardNewMacro(vtkKitwareContourFilter);
 
 // Construct object with initial range (0,1) and single contour value
@@ -137,7 +137,7 @@ void vtkKitwareContourFilter::Execute()
   vtkDebugMacro(<< "Executing contour filter");
 
   numCells = input->GetNumberOfCells();
-  inScalars = input->GetPointData()->GetScalars();
+  inScalars = input->GetPointData()->GetScalars(this->InputScalarsSelection);
   if ( ! inScalars || numCells < 1 )
     {
     // vtkErrorMacro(<<"No data to contour");
