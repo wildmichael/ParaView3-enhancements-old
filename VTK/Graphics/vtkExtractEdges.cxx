@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractEdges.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-12-26 18:21:53 $
-  Version:   $Revision: 1.38 $
+  Date:      $Date: 2001-12-27 13:38:51 $
+  Version:   $Revision: 1.39 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -81,7 +81,7 @@ void vtkExtractEdges::Execute()
   vtkCellArray *newLines;
   vtkIdType numCells, cellNum, numPts, newId;
   int edgeNum, numEdgePts, numCellEdges;
-  int i, abort;
+  int i, abort = 0;
   vtkIdType pts[2];
   vtkIdType pt1 = 0, pt2;
   float *x;
