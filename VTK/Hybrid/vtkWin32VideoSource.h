@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32VideoSource.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:30:45 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2002-08-01 13:51:19 $
+  Version:   $Revision: 1.16 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -19,7 +19,12 @@
 // .SECTION Description
 // vtkWin32VideoSource grabs frames or streaming video from a
 // Video for Windows compatible device on the Win32 platform. 
-
+// .SECTION Caveats
+// With some capture cards, if this class is leaked and ReleaseSystemResources 
+// is not called, you may have to reboot before you can capture again.
+// vtkVideoSource used to keep a global list and delete the video sources
+// if your program leaked, due to exit crashes that was removed.
+//
 // .SECTION See Also
 // vtkVideoSource vtkMILVideoSource
 

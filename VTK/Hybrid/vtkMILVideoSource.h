@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMILVideoSource.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:30:35 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2002-08-01 13:51:19 $
+  Version:   $Revision: 1.17 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,11 @@
 // and Corona video digitizers through the Matrox Imaging Library 
 // interface.  In order to use this class, you must link VTK with mil.lib,
 // MIL version 5.0 or higher is required.
-
+// .SECTION Caveats
+// With some capture cards, if this class is leaked and ReleaseSystemResources 
+// is not called, you may have to reboot before you can capture again.
+// vtkVideoSource used to keep a global list and delete the video sources
+// if your program leaked, due to exit crashes that was removed.
 // .SECTION See Also
 // vtkWin32VideoSource vtkVideoSource
 
