@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-17 17:55:55 $
-  Version:   $Revision: 1.67 $
+  Date:      $Date: 1999-11-23 20:55:09 $
+  Version:   $Revision: 1.68 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -735,8 +735,7 @@ void vtkUnstructuredGrid::GetCellNeighbors(int cellId, vtkIdList *ptIds,
     if (primeCells[cellNum] != cellId)
       {
       // are all the remaining face points in the cell ?
-      allFound = 1;
-      for (i=1; i < numPts; i++)
+      for (allFound=1, i=1; i < numPts && allFound; i++)
         {
         ptId = ptIds->GetId(i);
         int numCurrent = this->Links->GetNcells(ptId);
