@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMedian3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:08 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2001-08-17 12:56:19 $
+  Version:   $Revision: 1.23 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -155,7 +155,7 @@ double *vtkImageMedian3DAccumulateMedian(int &UpNum, int &DownNum,
       ++idx;
       }
     // place val and move all others up
-    while (idx <= max)
+    while (idx < max)
       {
       temp = *ptr;
       *ptr = val;
@@ -163,6 +163,7 @@ double *vtkImageMedian3DAccumulateMedian(int &UpNum, int &DownNum,
       ++ptr;
       ++idx;
       }
+    *ptr = val;
     // Update counts
     ++UpNum;
     --DownMax;
@@ -193,7 +194,7 @@ double *vtkImageMedian3DAccumulateMedian(int &UpNum, int &DownNum,
       ++idx;
       }
     // place val and move all others up
-    while (idx <= max)
+    while (idx < max)
       {
       temp = *ptr;
       *ptr = val;
@@ -201,6 +202,7 @@ double *vtkImageMedian3DAccumulateMedian(int &UpNum, int &DownNum,
       --ptr;
       ++idx;
       }
+    *ptr = val;
     // Update counts
     ++DownNum;
     --UpMax;
