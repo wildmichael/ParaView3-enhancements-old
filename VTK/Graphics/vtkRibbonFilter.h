@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkRibbonFilter.h,v $
   Language:  C++
-  Date:      $Date: 1994-02-07 17:49:40 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1994-06-06 16:16:57 $
+  Version:   $Revision: 1.2 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -34,7 +34,7 @@ public:
   vlSetClampMacro(Radius,float,0,LARGE_FLOAT);
   vlGetMacro(Radius,float);
 
-  vlSetClampMacro(Angle,float,0,180);
+  vlSetClampMacro(Angle,float,0,360);
   vlGetMacro(Angle,float);
 
 protected:

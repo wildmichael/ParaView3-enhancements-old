@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkAppendFilter.h,v $
   Language:  C++
-  Date:      $Date: 1994-06-04 07:26:18 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1994-06-06 16:16:33 $
+  Version:   $Revision: 1.2 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -29,7 +29,7 @@ class vlAppendFilter : public vlUnstructuredGrid, public vlFilter
 {
 public:
   vlAppendFilter();
-  ~vlAppendFilter() {};
+  ~vlAppendFilter();
   char *GetClassName() {return "vlAppendFilter";};
   void PrintSelf(ostream& os, vlIndent indent);
 
