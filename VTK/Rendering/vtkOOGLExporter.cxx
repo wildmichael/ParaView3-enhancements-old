@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOOGLExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-08 13:11:37 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2002-05-21 21:44:59 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,7 +25,7 @@
 #include "vtkTriangleStrip.h"
 #include "vtkVersion.h"
 
-vtkCxxRevisionMacro(vtkOOGLExporter, "$Revision: 1.9 $");
+vtkCxxRevisionMacro(vtkOOGLExporter, "$Revision: 1.10 $");
 vtkStandardNewMacro(vtkOOGLExporter);
 
 vtkOOGLExporter::vtkOOGLExporter()
@@ -547,7 +547,11 @@ void vtkOOGLExporter::WriteAnActor(vtkActor *anActor, FILE *fp, int count)
           fprintf(fp, "%s%i ", indent, (int) npts);
           for (i = 0; i < npts; i++)
             {
+#ifdef VTK_USE_64BIT_IDS
+            fprintf(fp, "%lld ", indx[i]);
+#else  // VTK_USE_64BIT_IDS
             fprintf(fp, "%d ", indx[i]);
+#endif // VTK_USE_64BIT_IDS
             }
           fprintf(fp, "\n");
           }
