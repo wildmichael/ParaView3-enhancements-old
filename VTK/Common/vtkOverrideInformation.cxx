@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOverrideInformation.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-01 22:43:33 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-03-01 14:25:18 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -83,7 +83,15 @@ void vtkOverrideInformation::PrintSelf(ostream& os,
      << "Override: " << this->ClassOverrideName 
      << "\nWith: " << this->ClassOverrideWithName 
      << "\nDescription: " << this->Description;
-  this->ObjectFactory->PrintSelf(os, indent);
+  os << indent << "From Factory:\n";
+  if(this->ObjectFactory)
+    {
+    this->ObjectFactory->PrintSelf(os, indent.GetNextIndent());
+    }
+  else
+    {
+    os << indent.GetNextIndent() << "(NULL)\n";
+    }
 }
 
 
