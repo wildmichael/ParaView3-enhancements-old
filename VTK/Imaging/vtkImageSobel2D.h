@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSobel2D.h,v $
   Language:  C++
-  Date:      $Date: 1997-07-17 14:30:22 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1998-05-08 12:09:56 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -50,9 +50,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #define __vtkImageSobel2D_h
 
 
-#include "vtkImageFilter.h"
+#include "vtkImageSpatialFilter.h"
 
-class VTK_EXPORT vtkImageSobel2D : public vtkImageFilter
+class VTK_EXPORT vtkImageSobel2D : public vtkImageSpatialFilter
 {
 public:
   vtkImageSobel2D();
@@ -60,16 +60,10 @@ public:
   const char *GetClassName() {return "vtkImageSobel2D";};
   void PrintSelf(ostream& os, vtkIndent indent);
 
-  // Description:
-  // Specify which axes will contribute to the gradient.
-  void SetFilteredAxes(int axis0, int axis1);
-  vtkGetVector2Macro(FilteredAxes, int);
-  
 protected:
+  void ThreadedExecute(vtkImageData *inData, vtkImageData *outData,
+		       int outExt[6], int id);
   void ExecuteImageInformation();
-  void ComputeRequiredInputUpdateExtent();
-  void Execute(vtkImageRegion *inRegion, vtkImageRegion *outRegion);
-
 };
 
 #endif
