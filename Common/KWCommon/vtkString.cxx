@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkString.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-08 01:04:34 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-06-03 21:26:03 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkString.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkString, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkString, "$Revision: 1.2 $");
 vtkStandardNewMacro(vtkString);
  
 // Description:
@@ -56,10 +56,14 @@ void vtkString::Copy(char* dest, const char* src)
 // you can use delete to remove it. It returns empty string 
 // "" if the input is empty.
 char* vtkString::Duplicate(const char* str)
-{  
-  char *newstr = new char [ vtkString::Length(str) + 1 ];
-  vtkString::Copy(newstr, str);
-  return newstr;
+{    
+  if ( str )
+    {
+    char *newstr = new char [ vtkString::Length(str) + 1 ];
+    vtkString::Copy(newstr, str);
+    return newstr;
+    }
+  return 0;
 }
 
 // Description:
