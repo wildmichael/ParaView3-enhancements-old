@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXRenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-10-25 13:20:49 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1995-10-30 15:58:46 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -417,7 +417,7 @@ void vtkXRenderWindowInteractorCallback(Widget w,XtPointer client_data,
           me->FindPokedRenderer(((XKeyEvent*)event)->x,
 				me->Size[1] - ((XKeyEvent*)event)->y);
 	  ac = me->CurrentRenderer->GetActors();
-	  for (ac->InitTraversal(); anActor = ac->GetNextItem(); )
+	  for (ac->InitTraversal(); (anActor = ac->GetNextItem()); )
 	    {
 	    anActor->GetProperty()->SetWireframe();
 	    }
@@ -434,7 +434,7 @@ void vtkXRenderWindowInteractorCallback(Widget w,XtPointer client_data,
           me->FindPokedRenderer(((XKeyEvent*)event)->x,
 			        me->Size[1] - ((XKeyEvent*)event)->y);
 	  ac = me->CurrentRenderer->GetActors();
-	  for (ac->InitTraversal(); anActor = ac->GetNextItem(); )
+	  for (ac->InitTraversal(); (anActor = ac->GetNextItem()); )
 	    {
 	    anActor->GetProperty()->SetSurface();
 	    }
