@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkRibbonFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-05-15 19:19:37 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1994-05-29 22:02:22 $
+  Version:   $Revision: 1.7 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -52,7 +52,8 @@ void vlRibbonFilter::Execute()
   inPts = this->Input->GetPoints();
   pd = this->Input->GetPointData();
   // copy scalars, vectors, tcoords.  Normals are computed here.
-  this->PointData.CopyAllocate(pd,1,1,0,1);
+  this->PointData.CopyNormalsOff();
+  this->PointData.CopyAllocate(pd);
 
   if ( !(inLines = this->Input->GetLines()) || 
   inLines->GetNumberOfCells() < 1 )
