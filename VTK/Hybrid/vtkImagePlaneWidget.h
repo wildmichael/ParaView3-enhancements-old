@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagePlaneWidget.h,v $
   Language:  C++
-  Date:      $Date: 2003-10-31 14:49:09 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 2003-10-31 16:05:19 $
+  Version:   $Revision: 1.36 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -278,12 +278,14 @@ public:
   // Description:
   // Convenience method to get the vtkImageMapToColors filter used by this
   // widget.  The user can properly render other transparent actors in a
-  // scene by calling the filter's SetOuputFormatToRGB and PassAlphaToOutputOff.
-  vtkImageMapToColors* GetImageMapToColors();
+  // scene by calling the filter's SetOuputFormatToRGB and 
+  // PassAlphaToOutputOff.
+  vtkGetObjectMacro(ColorMap, vtkImageMapToColors);
+  virtual void SetColorMap(vtkImageMapToColors *);
 
   // Description:
-  // Set/Get the plane's outline properties. The properties of the plane's outline
-  // when selected and unselected can be manipulated.
+  // Set/Get the plane's outline properties. The properties of the plane's 
+  // outline when selected and unselected can be manipulated.
   virtual void SetPlaneProperty(vtkProperty*);
   vtkGetObjectMacro(PlaneProperty,vtkProperty);
   virtual void SetSelectedPlaneProperty(vtkProperty*);
