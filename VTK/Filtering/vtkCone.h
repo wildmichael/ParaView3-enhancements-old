@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCone.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:35:25 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1995-08-16 08:46:41 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -43,8 +43,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // vtkCone computes the implicit function and function gradient for a cone.
 // vtkCone is a concrete implementation of vtkImplicitFunction. The cone vertex
 // is located at the origin with axis of rotation coincident with z-axis. (Use
-// a transform filter if necessary to reposition). The angle specifies the
-// angle between the axis of rotation and the side of the cone.
+// the superclass vtkImplicitFunction transformation matrix if necessary to 
+// reposition). The angle specifies the angle between the axis of rotation 
+// and the side of the cone.
 // .SECTION Caveats
 // The cone is infinite in extent. To truncate the cone use the 
 // vtkImplicitBoolean in combination with clipping planes.
