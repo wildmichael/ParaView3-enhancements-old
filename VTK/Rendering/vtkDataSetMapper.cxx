@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkDataSetMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-07-09 06:47:52 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1994-07-11 22:19:29 $
+  Version:   $Revision: 1.13 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -86,6 +86,11 @@ void vlDataSetMapper::Render(vlRenderer *ren)
     vlErrorMacro(<< "No input!\n");
     return;
     }
+//
+// Need a lookup table
+//
+  if ( ! this->LookupTable ) this->SetLookupTable(new vlLookupTable);
+  this->LookupTable->Build();
 //
 // Now can create appropriate mapper
 //
