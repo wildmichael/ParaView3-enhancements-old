@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCTHExtractAMRPart.h,v $
   Language:  C++
-  Date:      $Date: 2003-09-05 20:07:52 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-09-08 19:41:57 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -34,6 +34,7 @@ class vtkAppendPolyData;
 class vtkImageData;
 class vtkFloatArray;
 class vtkDataArray;
+class vtkIdList;
 
 class VTK_EXPORT vtkCTHExtractAMRPart : public vtkCTHDataToPolyDataFilter
 {
@@ -83,9 +84,19 @@ protected:
   void ExecuteCellDataToPointData(vtkDataArray *cellVolumeFraction, 
                                   vtkFloatArray *pointVolumeFraction, int *dims);
 
+
+  void ExecuteCellDataToPointData2(vtkDataArray *cellVolumeFraction, 
+                            vtkFloatArray *pointVolumeFraction, vtkCTHData* data);
+  float ComputeSharedPoint(int blockId, int x, int y, int z, 
+                            float* pCell, vtkCTHData* output);
+  void FindPointCells(vtkCTHData* self, vtkIdType ptId, vtkIdList* idList);
+
+
+
   int Clipping;
   vtkPlane* ClipPlane;
   vtkStringList *VolumeArrayNames;
+  vtkIdList* IdList;
 
 private:
   void InternalImageDataCopy(vtkCTHExtractAMRPart *src);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPVGeometryFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-09-05 20:08:23 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2003-09-08 19:41:57 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -33,7 +33,7 @@
 #include "vtkStructuredGrid.h"
 #include "vtkStructuredGridOutlineFilter.h"
 
-vtkCxxRevisionMacro(vtkPVGeometryFilter, "$Revision: 1.9 $");
+vtkCxxRevisionMacro(vtkPVGeometryFilter, "$Revision: 1.10 $");
 vtkStandardNewMacro(vtkPVGeometryFilter);
 
 //----------------------------------------------------------------------------
@@ -101,6 +101,7 @@ void vtkPVGeometryFilter::Execute()
       vtkPolyData *inCopy = vtkPolyData::New();
       vtkStripper *stripper = vtkStripper::New();
       inCopy->ShallowCopy(inPd);
+      inCopy->RemoveGhostCells(1);
       stripper->SetInput(inCopy);
       stripper->Update();
       out->CopyStructure(stripper->GetOutput());
@@ -113,6 +114,7 @@ void vtkPVGeometryFilter::Execute()
     else
       {
       out->ShallowCopy(inPd);
+      out->RemoveGhostCells(1);
       return;
       }
     }
