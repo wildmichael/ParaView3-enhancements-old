@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPNGWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-07 21:11:54 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2002-05-31 22:21:23 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,8 +20,10 @@
 
 #include <png.h>
 
-vtkCxxRevisionMacro(vtkPNGWriter, "$Revision: 1.11 $");
+vtkCxxRevisionMacro(vtkPNGWriter, "$Revision: 1.12 $");
 vtkStandardNewMacro(vtkPNGWriter);
+
+vtkCxxSetObjectMacro(vtkPNGWriter,Result,vtkUnsignedCharArray);
 
 vtkPNGWriter::vtkPNGWriter()
 {

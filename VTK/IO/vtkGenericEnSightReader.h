@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGenericEnSightReader.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-31 15:59:46 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2002-05-31 22:21:23 $
+  Version:   $Revision: 1.14 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -188,7 +188,7 @@ protected:
   float MaximumTimeValue;
   
   vtkCollection *TimeSetTimeValuesCollection;
-  vtkSetObjectMacro(TimeSetTimeValuesCollection, vtkCollection);
+  virtual void SetTimeSetTimeValuesCollection(vtkCollection*);
   
 private:
   vtkGenericEnSightReader(const vtkGenericEnSightReader&);  // Not implemented.

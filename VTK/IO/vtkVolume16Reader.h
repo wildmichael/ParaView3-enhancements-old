@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume16Reader.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:25 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 2002-05-31 22:21:23 $
+  Version:   $Revision: 1.41 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -48,9 +48,9 @@
 #ifndef __vtkVolume16Reader_h
 #define __vtkVolume16Reader_h
 
-#include <stdio.h>
 #include "vtkVolumeReader.h"
-#include "vtkTransform.h"
+
+class vtkTransform;
 class vtkUnsignedCharArray;
 class vtkUnsignedShortArray;
 
@@ -113,7 +113,7 @@ public:
   // Set/Get transformation matrix to transform the data from slice space
   // into world space. This matrix must be a permutation matrix. To qualify,
   // the sums of the rows must be + or - 1.
-  vtkSetObjectMacro(Transform,vtkTransform);
+  virtual void SetTransform(vtkTransform*);
   vtkGetObjectMacro(Transform,vtkTransform);
 
   // Description:

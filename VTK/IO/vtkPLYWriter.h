@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPLYWriter.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:38:18 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-05-31 22:21:23 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -33,8 +33,8 @@
 #define __vtkPLYWriter_h
 
 #include "vtkPolyDataWriter.h"
-#include "vtkPolyData.h"
-#include "vtkScalarsToColors.h"
+
+class vtkScalarsToColors;
 
 #define VTK_LITTLE_ENDIAN 0
 #define VTK_BIG_ENDIAN    1
@@ -103,7 +103,7 @@ public:
   // Description:
   // A lookup table can be specified in order to convert data arrays to
   // RGBA colors.
-  vtkSetObjectMacro(LookupTable,vtkScalarsToColors);
+  virtual void SetLookupTable(vtkScalarsToColors*);
   vtkGetObjectMacro(LookupTable,vtkScalarsToColors);
   
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataReader.h,v $
   Language:  C++
-  Date:      $Date: 2002-03-13 02:20:12 $
-  Version:   $Revision: 1.69 $
+  Date:      $Date: 2002-05-31 22:21:23 $
+  Version:   $Revision: 1.70 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -30,13 +30,13 @@
 #define __vtkDataReader_h
 
 #include "vtkSource.h"
-#include "vtkDataSetAttributes.h"
-#include "vtkCharArray.h"
 
 #define VTK_ASCII 1
 #define VTK_BINARY 2
 
+class vtkCharArray;
 class vtkDataSet;
+class vtkDataSetAttributes;
 class vtkPointSet;
 class vtkRectilinearGrid;
 
@@ -85,7 +85,7 @@ public:
   // It should be noted that if the underlying char* is owned by the
   // user ( vtkCharArray::SetArray(array, 1); ) and is deleted before
   // the reader, bad things will happen during a pipeline update.
-  vtkSetObjectMacro(InputArray, vtkCharArray);
+  virtual void SetInputArray(vtkCharArray*);
   vtkGetObjectMacro(InputArray, vtkCharArray);
     
   // Description:

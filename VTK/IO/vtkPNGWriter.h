@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPNGWriter.h,v $
   Language:  C++
-  Date:      $Date: 2002-04-15 19:08:49 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-05-31 22:21:23 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -48,7 +48,7 @@ public:
   // Description:
   // When writing to memory this is the result, it will be NULL until the 
   // data is written the first time
-  vtkSetObjectMacro(Result, vtkUnsignedCharArray);
+  virtual void SetResult(vtkUnsignedCharArray*);
   vtkGetObjectMacro(Result, vtkUnsignedCharArray);
 
 protected:

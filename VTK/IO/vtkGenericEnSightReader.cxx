@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGenericEnSightReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-31 15:59:46 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2002-05-31 22:21:23 $
+  Version:   $Revision: 1.24 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,14 +16,18 @@
 
 =========================================================================*/
 #include "vtkGenericEnSightReader.h"
+
 #include "vtkEnSight6Reader.h"
 #include "vtkEnSight6BinaryReader.h"
 #include "vtkEnSightGoldReader.h"
 #include "vtkEnSightGoldBinaryReader.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkGenericEnSightReader, "$Revision: 1.23 $");
+vtkCxxRevisionMacro(vtkGenericEnSightReader, "$Revision: 1.24 $");
 vtkStandardNewMacro(vtkGenericEnSightReader);
+
+vtkCxxSetObjectMacro(vtkGenericEnSightReader,TimeSetTimeValuesCollection, 
+                     vtkCollection);
 
 //----------------------------------------------------------------------------
 vtkGenericEnSightReader::vtkGenericEnSightReader()

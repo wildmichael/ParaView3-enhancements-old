@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-13 14:19:11 $
-  Version:   $Revision: 1.125 $
+  Date:      $Date: 2002-05-31 22:21:23 $
+  Version:   $Revision: 1.126 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -38,8 +38,10 @@
 #include <ctype.h>
 #include <sys/stat.h>
 
-vtkCxxRevisionMacro(vtkDataReader, "$Revision: 1.125 $");
+vtkCxxRevisionMacro(vtkDataReader, "$Revision: 1.126 $");
 vtkStandardNewMacro(vtkDataReader);
+
+vtkCxxSetObjectMacro(vtkDataReader, InputArray, vtkCharArray);
 
 // this undef is required on the hp. vtkMutexLock ends up including
 // /usr/inclue/dce/cma_ux.h which has the gall to #define read as cma_read
