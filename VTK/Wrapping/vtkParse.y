@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkParse.y,v $
   Language:  C++
-  Date:      $Date: 1999-01-07 15:56:59 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1999-01-07 16:49:06 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -65,7 +65,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
   void checkSigSize(char *arg)
     {
-    if (strlen(currentFunction->Signature) + strlen(arg) > 
+    if (strlen(currentFunction->Signature) + strlen(arg) + 3 > 
         sigAllocatedLength)
       {
       currentFunction->Signature = (char *)
