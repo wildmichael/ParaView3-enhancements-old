@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPropPicker.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-06-08 09:11:04 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2000-06-14 18:31:11 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -71,7 +71,7 @@ vtkPropPicker::~vtkPropPicker()
 // set up for a pick
 void vtkPropPicker::Initialize()
 {
-  this->vtkAbstractPicker::Initialize();
+  this->vtkAbstractPropPicker::Initialize();
 }
 
 // Pick from the given collection
