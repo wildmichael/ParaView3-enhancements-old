@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBYUReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-26 18:18:50 $
-  Version:   $Revision: 1.48 $
+  Date:      $Date: 2003-03-20 15:39:36 $
+  Version:   $Revision: 1.49 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,7 +26,7 @@
 #include "vtkPoints.h"
 #include "vtkPolyData.h"
 
-vtkCxxRevisionMacro(vtkBYUReader, "$Revision: 1.48 $");
+vtkCxxRevisionMacro(vtkBYUReader, "$Revision: 1.49 $");
 vtkStandardNewMacro(vtkBYUReader);
 
 vtkBYUReader::vtkBYUReader()
@@ -68,7 +68,7 @@ void vtkBYUReader::Execute()
   FILE *geomFp;
   int numPts;
 
-  if (this->GeometryFileName == NULL)
+  if (this->GeometryFileName == NULL || this->GeometryFileName == '\0')
     {
     vtkErrorMacro(<< "No GeometryFileName specified!");
     return;
