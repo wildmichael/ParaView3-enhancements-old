@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVRMLImporter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:27 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 2001-01-26 15:15:35 $
+  Version:   $Revision: 1.18 $
   Thanks:    Tom Citriniti who implemented and contributed this class
 
 
@@ -76,6 +76,11 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkPoints.h"
 #include "vtkNormals.h"
 #include "vtkSystemIncludes.h"
+
+// Provide isatty prototype for Cygwin. 
+#ifdef __CYGWIN__
+#include <unistd.h>
+#endif
 
 // Used later to get the current VRMLImporter
 static vtkVRMLImporter *CurrentImporter;

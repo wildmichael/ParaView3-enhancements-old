@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32RenderWindowInteractor.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:00 $
-  Version:   $Revision: 1.71 $
+  Date:      $Date: 2001-01-26 15:15:36 $
+  Version:   $Revision: 1.72 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -44,11 +44,19 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <math.h>
 
 #include "vtkWin32OpenGLRenderWindow.h"
+
+// MSVC does the right thing without the forward declaration when it 
+// sees it in the friend decl in vtkWin32RenderWindowInteractor, but
+// GCC needs to see the declaration beforehand. It has to do with the
+// CALLBACK attribute.
+VTK_EXPORT LRESULT CALLBACK vtkHandleMessage(HWND,UINT,WPARAM,LPARAM);
+VTK_EXPORT LRESULT CALLBACK vtkHandleMessage2(HWND,UINT,WPARAM,LPARAM,class vtkWin32RenderWindowInteractor*);
+
 #include "vtkWin32RenderWindowInteractor.h"
 #include "vtkInteractorStyle.h"
 #include "vtkActor.h"
 #ifndef VTK_IMPLEMENT_MESA_CXX
-#include <gl/gl.h>
+#include <GL/gl.h>
 #endif
 #include "vtkObjectFactory.h"
 #include "vtkCommand.h"

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLImageWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:09:14 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2001-01-26 15:15:36 $
+  Version:   $Revision: 1.20 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -42,7 +42,11 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <stdlib.h>
 #include <math.h>
 #include <stdio.h>
+#ifdef _MSC_VER
 #include <GL/glaux.h>
+#else
+#include <GL/gl.h>
+#endif
 #include "vtkWin32OpenGLImageWindow.h"
 #include "vtkObjectFactory.h"
 
