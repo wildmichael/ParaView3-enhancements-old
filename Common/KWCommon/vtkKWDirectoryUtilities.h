@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKWDirectoryUtilities.h,v $
   Language:  C++
-  Date:      $Date: 2003-04-01 16:21:44 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2003-04-16 12:53:51 $
+  Version:   $Revision: 1.8 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -114,6 +114,11 @@ public:
   // directory path) and write it to 'name'.
   // Return a pointer to the name (i.e. 'name').
   static const char* GetFilenameName(const char *filename, char *name);
+
+  // Description:
+  // Extract the extension of a given filename and write it to 'ext'.
+  // Return a pointer to the extension (i.e. 'ext').
+  static const char* GetFilenameExtension(const char *filename, char *ext);
 
   // Description:
   // Try to locate the file 'filename' in the directory 'dir'.
