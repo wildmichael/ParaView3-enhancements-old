@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOutputWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-15 15:40:30 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2003-02-20 19:42:25 $
+  Version:   $Revision: 1.29 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -16,13 +16,14 @@
 
 =========================================================================*/
 #include "vtkOutputWindow.h"
-#ifdef _WIN32
+#include "vtkToolkits.h"
+#if defined( _WIN32 ) && !defined( VTK_USE_X )
 #include "vtkWin32OutputWindow.h"
 #endif
 #include "vtkObjectFactory.h"
 #include "vtkDebugLeaks.h"
 
-vtkCxxRevisionMacro(vtkOutputWindow, "$Revision: 1.28 $");
+vtkCxxRevisionMacro(vtkOutputWindow, "$Revision: 1.29 $");
 
 //----------------------------------------------------------------------------
 // Needed when we don't use the vtkStandardNewMacro.
@@ -152,7 +153,7 @@ vtkOutputWindow* vtkOutputWindow::GetInstance()
       // if the factory failed to create the object,
       // then destroy it now, as vtkDebugLeaks::ConstructClass was called
       // with "vtkOutputWindow", and not the real name of the class
-#ifdef _WIN32    
+#if defined( _WIN32 ) && !defined( VTK_USE_X )
 #ifdef VTK_DEBUG_LEAKS
       vtkDebugLeaks::DestructClass("vtkOutputWindow");
 #endif
