@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkContourValues.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-06-02 21:58:02 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1997-06-09 13:21:43 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -61,7 +61,7 @@ void vtkContourValues::SetValue(int i, float value)
   int numContours=this->Contours->GetMaxId()+1;
   i = (i < 0 ? 0 : i);
 
-  if ( i > numContours || value != this->Contours->GetValue(i) )
+  if ( i >= numContours || value != this->Contours->GetValue(i) )
     {
     this->Modified();
     this->Contours->InsertValue(i,value);
