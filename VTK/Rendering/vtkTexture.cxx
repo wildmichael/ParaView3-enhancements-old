@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTexture.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-12 13:10:26 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 2001-05-19 22:16:59 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -171,6 +171,10 @@ unsigned char *vtkTexture::MapScalarsToColors (vtkScalars *scalars)
     this->LookupTable->Build ();
     this->SelfAdjustingTableRange = 1;
     }
+  else
+    {
+    this->SelfAdjustingTableRange = 0;
+    }
   // if there is no pixmap, create one
   if (!this->MappedScalars)
     {
@@ -179,7 +183,7 @@ unsigned char *vtkTexture::MapScalarsToColors (vtkScalars *scalars)
   
   // if the texture created its own lookup table, set the Table Range
   // to the range of the scalar data.
-  if (this->SelfAdjustingTableRange) 
+  if (this->SelfAdjustingTableRange)
     {
     this->LookupTable->SetTableRange (scalars->GetRange());
     }
