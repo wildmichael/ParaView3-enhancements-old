@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInteractorStyle.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-03-26 21:09:48 $
-  Version:   $Revision: 1.55 $
+  Date:      $Date: 2002-03-27 19:03:30 $
+  Version:   $Revision: 1.56 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 #include "vtkOldStyleCallbackCommand.h"
 #include "vtkCallbackCommand.h"
 
-vtkCxxRevisionMacro(vtkInteractorStyle, "$Revision: 1.55 $");
+vtkCxxRevisionMacro(vtkInteractorStyle, "$Revision: 1.56 $");
 
 //----------------------------------------------------------------------------
 vtkInteractorStyle *vtkInteractorStyle::New() 
@@ -99,6 +99,11 @@ vtkInteractorStyle::~vtkInteractorStyle()
   if ( this->CurrentRenderer)
     {
     this->CurrentRenderer->UnRegister(this);
+    this->CurrentRenderer = NULL;
+    }
+  if (this->CurrentCamera)
+    {
+    this->CurrentCamera->UnRegister(this);
     this->CurrentRenderer = NULL;
     }
 
@@ -304,9 +309,17 @@ void vtkInteractorStyle::FindPokedRenderer(int x,int y)
 
 //----------------------------------------------------------------------------
 void  vtkInteractorStyle::FindPokedCamera(int x,int y) 
-{
-  this->CurrentRenderer = this->Interactor->FindPokedRenderer(x,y);
+{  
+  if (this->CurrentCamera)
+    {
+    this->CurrentCamera->UnRegister(this);
+    }
+  this->FindPokedRenderer(x,y);
   this->CurrentCamera = this->CurrentRenderer->GetActiveCamera();
+  if(this->CurrentCamera)
+    {
+    this->CurrentCamera->Register(this);
+    }
   
   // side effect stuff
   float *vp = this->CurrentRenderer->GetViewport();
