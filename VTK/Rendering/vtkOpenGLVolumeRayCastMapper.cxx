@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLVolumeRayCastMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-30 20:30:41 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2001-09-10 17:54:10 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -164,10 +164,6 @@ void vtkOpenGLVolumeRayCastMapper::RenderTexture( vtkVolume *vol,
   // Turn texturing on so that we can draw the textured hexagon
   glEnable( GL_TEXTURE_2D );
 
-  // Turn blending on so that the translucent geometry of the hexagon can
-  // be blended with other geoemtry
-  glEnable( GL_BLEND );
-
   // Don't write into the Zbuffer - just use it for comparisons
   glDepthMask( 0 );
   
@@ -207,7 +203,6 @@ void vtkOpenGLVolumeRayCastMapper::RenderTexture( vtkVolume *vol,
     }
   glEnd();
 
-  glDisable( GL_BLEND );
   glDisable( GL_ALPHA_TEST );
   glDisable( GL_TEXTURE_2D );
   glDepthMask( 1 );

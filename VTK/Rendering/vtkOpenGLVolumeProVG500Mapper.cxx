@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLVolumeProVG500Mapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-06 19:07:51 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2001-09-10 17:54:09 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -78,10 +78,6 @@ void vtkOpenGLVolumeProVG500Mapper::RenderHexagon(  vtkRenderer  *ren,
 
   // Turn texturing on so that we can draw the textured hexagon
   glEnable( GL_TEXTURE_2D );
-
-  // Turn blending on so that the translucent geometry of the hexagon can
-  // be blended with other geoemtry
-  glEnable( GL_BLEND );
 
   glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
   glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR );
@@ -170,7 +166,6 @@ void vtkOpenGLVolumeProVG500Mapper::RenderHexagon(  vtkRenderer  *ren,
 
   t->Delete();
 
-  glDisable( GL_BLEND );
   glDisable( GL_TEXTURE_2D );
 
   // Pop the OpenGL modelview matrix
