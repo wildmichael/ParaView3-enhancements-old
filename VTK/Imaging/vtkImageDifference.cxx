@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDifference.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-25 23:31:10 $
-  Version:   $Revision: 1.31 $
+  Date:      $Date: 2003-10-17 17:59:25 $
+  Version:   $Revision: 1.32 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -20,7 +20,7 @@
 #include "vtkImageData.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkImageDifference, "$Revision: 1.31 $");
+vtkCxxRevisionMacro(vtkImageDifference, "$Revision: 1.32 $");
 vtkStandardNewMacro(vtkImageDifference);
 
 // Construct object to extract all of the input data.
@@ -329,7 +329,7 @@ void vtkImageDifference::ExecuteInformation(vtkImageData **inputs,
   
   // Make sure the Input has been set.
   // we require that input 1 be set.
-  if ( ! inputs[0] || ! inputs[1])
+  if ( this->NumberOfInputs < 2 || ! inputs[0] || ! inputs[1])
     {
     vtkErrorMacro(<< "ExecuteInformation: Input is not set.");
     return;
