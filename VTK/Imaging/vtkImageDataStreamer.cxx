@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageDataStreamer.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-01-31 13:59:35 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2001-02-01 13:46:33 $
+  Version:   $Revision: 1.22 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -82,6 +82,16 @@ void vtkImageDataStreamer::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkImageToImageFilter::PrintSelf(os,indent);
 
+  os << indent << "NumberOfStreamDivisions: " << this->NumberOfStreamDivisions << endl;
+  if ( this->ExtentTranslator )
+    {
+    os << indent << "ExtentTranslator:\n";
+    this->ExtentTranslator->PrintSelf(os,indent.GetNextIndent());
+    }
+  else
+    {
+    os << indent << "ExtentTranslator: (none)\n";
+    }
 }
 
 //----------------------------------------------------------------------------
