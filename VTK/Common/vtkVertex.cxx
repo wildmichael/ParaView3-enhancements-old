@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVertex.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-11-30 18:45:12 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 1999-12-01 12:11:55 $
+  Version:   $Revision: 1.44 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -270,7 +270,7 @@ void vtkVertex::Clip(float value, vtkScalars *cellScalars,
 //
 // Compute interpolation functions
 //
-void vtkVertex::InterpolationFunctions(float pcoords[3], float weights[1])
+void vtkVertex::InterpolationFunctions(float vtkNotUsed(pcoords)[3], float weights[1])
 {
   weights[0] = 1.0;
 }
