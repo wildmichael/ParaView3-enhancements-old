@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtk3DSImporter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 11:56:32 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1999-09-15 11:18:33 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -51,7 +51,6 @@ static Colour col        = {0.0, 0.0, 0.0};
 static Colour global_amb = {0.1, 0.1, 0.1};
 static Vector pos        = {0.0, 0.0, 0.0};
 static Vector target     = {0.0, 0.0, 0.0};
-static float  fog_distance = 0.0;
 static float  hotspot = -1;
 static float  falloff = -1;
 /* Default material property */

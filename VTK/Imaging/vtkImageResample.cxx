@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageResample.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 11:56:35 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 1999-09-15 11:18:33 $
+  Version:   $Revision: 1.21 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -510,7 +510,6 @@ static void vtkImageResampleExecute3D(vtkImageResample *self,
   float t00, t01, t10, t11, t0, t1;
   float zPos, yPos, xPos;
   int idxC, idxX, idxY, idxZ;
-  int inIdxZ;
   int inMaxX, inMaxY, inMaxZ;
   int maxC, maxX, maxY, maxZ;
   int inIncX, inIncY, inIncZ;
