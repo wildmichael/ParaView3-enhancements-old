@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOBJExporter.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:53:50 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1996-09-23 18:17:20 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -56,7 +56,7 @@ void vtkOBJExporter::WriteData()
   vtkRenderer *ren;
   FILE *fpObj, *fpMtl;
   vtkActorCollection *ac;
-  vtkActor *anActor;
+  vtkActor *anActor, *aPart;
   char nameObj[80];
   char nameMtl[80];
   int idStart = 1;
@@ -110,7 +110,10 @@ void vtkOBJExporter::WriteData()
   ac = ren->GetActors();
   for (ac->InitTraversal(); (anActor = ac->GetNextItem()); )
     {
-    this->WriteAnActor(anActor, fpObj, fpMtl, idStart);
+    for (anActor->InitPartTraversal();(aPart=anActor->GetNextPart()); )
+      {
+      this->WriteAnActor(aPart, fpObj, fpMtl, idStart);
+      }
     }
   
   fclose(fpObj);
