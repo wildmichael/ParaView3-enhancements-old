@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-01-24 21:03:03 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2000-01-26 13:58:53 $
+  Version:   $Revision: 1.27 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -126,6 +126,7 @@ void vtkImageWriter::PrintSelf(ostream& os, vtkIndent indent)
     (this->FilePattern ? this->FilePattern : "(none)") << "\n";
 
   os << indent << "FileDimensionality: " << this->FileDimensionality << "\n";
+  os << indent << "MemoryLimit: " << this->MemoryLimit << "\n";
 }
 
 
