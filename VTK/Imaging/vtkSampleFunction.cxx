@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkSampleFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-08-25 11:57:52 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1994-09-29 14:06:38 $
+  Version:   $Revision: 1.7 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -67,8 +67,6 @@ void vlSampleFunction::SetModelBounds(float xmin, float xmax, float ymin, float 
   this->ModelBounds[2] != ymin || this->ModelBounds[3] != ymax ||
   this->ModelBounds[4] != zmin || this->ModelBounds[5] != zmax )
     {
-    float length;
-
     this->Modified();
     this->ModelBounds[0] = xmin;
     this->ModelBounds[1] = xmax;

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPointSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-09-14 14:00:12 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1994-09-29 14:06:37 $
+  Version:   $Revision: 1.9 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -34,7 +34,6 @@ void vlPointSource::Execute()
   vlFloatPoints *newPoints;
   vlCellArray *newVerts;
   vlMath math;
-  int pts[1];
 
   vlDebugMacro(<< "Executing Brownian filter");
   this->Initialize();

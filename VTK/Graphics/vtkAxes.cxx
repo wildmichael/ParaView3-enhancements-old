@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkAxes.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-08-10 13:20:17 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1994-09-29 14:06:36 $
+  Version:   $Revision: 1.4 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -30,7 +30,6 @@ vlAxes::vlAxes()
 
 void vlAxes::Execute()
 {
-  int i;
   int numPts=6, numLines=3;
   vlFloatPoints *newPts;
   vlCellArray *newLines;
