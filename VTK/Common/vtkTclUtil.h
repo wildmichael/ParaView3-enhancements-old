@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTclUtil.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-25 13:27:39 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2000-08-07 16:24:36 $
+  Version:   $Revision: 1.24 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -66,7 +66,7 @@ vtkTclGetObjectFromPointer(Tcl_Interp *interp, void *temp,
 					  Tcl_Interp *,int, char *[]));
 
 extern VTKTCL_EXPORT void *
-vtkTclGetPointerFromObject(char *name, char *result_type,
+vtkTclGetPointerFromObject(const char *name, const char *result_type,
 			   Tcl_Interp *interp, int &error);
 
 extern VTKTCL_EXPORT void vtkTclVoidFunc(void *);
