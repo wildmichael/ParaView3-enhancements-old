@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageChangeInformation.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:31:58 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-07-05 22:07:06 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -18,7 +18,7 @@
 #include "vtkImageChangeInformation.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkImageChangeInformation, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkImageChangeInformation, "$Revision: 1.7 $");
 vtkStandardNewMacro(vtkImageChangeInformation);
 
 //----------------------------------------------------------------------------
@@ -181,6 +181,10 @@ void vtkImageChangeInformation::ExecuteData(vtkDataObject *data)
     }
 
   vtkImageData *inData = this->GetInput();
+  if (!inData)
+    {
+    return;
+    }
   vtkImageData *outData = (vtkImageData *)(data);
   int extent[6];
   
