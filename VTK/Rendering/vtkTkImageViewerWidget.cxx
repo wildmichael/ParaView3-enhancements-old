@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkImageViewerWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-22 04:51:19 $
-  Version:   $Revision: 1.49 $
+  Date:      $Date: 2002-04-22 05:21:23 $
+  Version:   $Revision: 1.50 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -274,14 +274,12 @@ static void vtkTkImageViewerWidget_Destroy(char *memPtr)
     {
     int netRefCount = 0;
     netRefCount =  self->ImageViewer->GetReferenceCount();
-    /*
     if (self->ImageViewer->GetRenderWindow()->GetInteractor() && 
         self->ImageViewer->GetRenderWindow()->GetInteractor()->GetRenderWindow() == self->ImageViewer->GetRenderWindow() &&
         self->ImageViewer->GetRenderWindow()->GetInteractor()->GetReferenceCount() == 1)
       {
       netRefCount = netRefCount - 1;
       }
-    */
     if (netRefCount > 1)
       {
       vtkGenericWarningMacro("A TkImageViewerWidget is being destroyed before it associated vtkImageViewer is destroyed. This is very bad and usually due to the order in which objects are being destroyed. Always destroy the vtkImageViewer before destroying the user interface components.");
@@ -291,7 +289,7 @@ static void vtkTkImageViewerWidget_Destroy(char *memPtr)
     self->ImageViewer->SetWindowId ( (void*)NULL );
     self->ImageViewer->UnRegister(NULL);
     self->ImageViewer = NULL;
-    free (self->IV);
+    ckfree (self->IV);
   }
   ckfree((char *) memPtr);
 }
