@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkGeometryFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-05-29 14:00:17 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 1995-05-30 07:43:01 $
+  Version:   $Revision: 1.15 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -79,7 +79,7 @@ void vlGeometryFilter::Execute()
   int numPts=this->Input->GetNumberOfPoints();
   int numCells=this->Input->GetNumberOfCells();
   char *cellVis;
-  vlCell *cell, *face;
+  vlCell *cell, *face, *cellCopy;
   float *x;
   vlIdList *ptIds;
   static vlIdList cellIds(MAX_CELL_SIZE);
@@ -169,9 +169,10 @@ void vlGeometryFilter::Execute()
           break;
 
         case 3:
-          for (j=0; j < cell->GetNumberOfFaces(); j++)
+          cellCopy = cell->MakeObject();
+          for (j=0; j < cellCopy->GetNumberOfFaces(); j++)
             {
-            face = cell->GetFace(j);
+            face = cellCopy->GetFace(j);
             this->Input->GetCellNeighbors(cellId, face->PointIds, cellIds);
             if ( cellIds.GetNumberOfIds() <= 0 || 
             (!allVisible && !cellVis[cellIds.GetId(0)]) )
@@ -187,6 +188,7 @@ void vlGeometryFilter::Execute()
               this->InsertNextCell(face->GetCellType(), npts, pts);
               }
             }
+            delete cellCopy;
           break;
 
         } //switch
