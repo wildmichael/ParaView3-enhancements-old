@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-02 21:08:52 $
-  Version:   $Revision: 1.57 $
+  Date:      $Date: 2001-10-04 09:29:42 $
+  Version:   $Revision: 1.58 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -80,6 +80,19 @@ public:
   // The sprintf format used to build filename from FilePrefix and number.
   void SetFilePattern(const char *);
   vtkGetStringMacro(FilePattern);
+
+  // Description:
+  // When reading files which start at an unusual index, this can be added
+  // to the slice number when generating the file name (default = 0)
+  vtkSetMacro(FileNameSliceOffset,int);
+  vtkGetMacro(FileNameSliceOffset,int);
+
+  // Description:
+  // When reading files which have regular, but non contiguous slices
+  // (eg filename.1,filename.3,filename.5)
+  // a spacing can be specified to skip missing files (default = 1)
+  vtkSetMacro(FileNameSliceSpacing,int);
+  vtkGetMacro(FileNameSliceSpacing,int);
 
   // Description:
   // Set the data type of pixels in the file.  
@@ -219,6 +232,8 @@ protected:
   char *FilePattern;
   int NumberOfScalarComponents;
   int FileLowerLeft;
+  int FileNameSliceOffset;
+  int FileNameSliceSpacing;
 
   ifstream *File;
   unsigned long DataIncrements[4];

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-09 11:37:23 $
-  Version:   $Revision: 1.83 $
+  Date:      $Date: 2001-10-04 09:29:42 $
+  Version:   $Revision: 1.84 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -108,6 +108,10 @@ vtkImageReader::vtkImageReader()
   this->Transform = NULL;
   this->FileLowerLeft = 0;
   this->FileDimensionality = 2;
+
+  this->FileNameSliceOffset = 0;
+  this->FileNameSliceSpacing = 1;
+
 }
 
 //----------------------------------------------------------------------------
@@ -169,12 +173,15 @@ void vtkImageReader::ComputeInternalFileName(int slice)
     }
   else 
     {
+    int slicenum = slice*FileNameSliceSpacing + FileNameSliceOffset;
+
     if (this->FilePrefix)
       {
       this->InternalFileName = new char [strlen(this->FilePrefix) +
                                         strlen(this->FilePattern) + 10];
-      sprintf (this->InternalFileName, this->FilePattern, 
-               this->FilePrefix, slice);
+
+      sprintf (this->InternalFileName, this->FilePattern,
+               this->FilePrefix, slicenum);
       }
     else
       {
