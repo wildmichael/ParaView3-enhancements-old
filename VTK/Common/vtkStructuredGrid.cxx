@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStructuredGrid.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-16 15:01:46 $
-  Version:   $Revision: 1.76 $
+  Date:      $Date: 2001-04-17 14:20:47 $
+  Version:   $Revision: 1.77 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -1061,15 +1061,8 @@ void vtkStructuredGrid::GetScalarRange(float range[2])
       }
     }
 
-  if ( cellRange[0] >= VTK_LARGE_FLOAT )
-    {
-    range[0] = 0.0;
-    }
-  
-  if ( cellRange[1] <= -VTK_LARGE_FLOAT )
-    {
-    range[1] = 1.0;
-    }
+  range[0] = (cellRange[0] >= VTK_LARGE_FLOAT ? 0.0 : cellRange[0]);
+  range[1] = (cellRange[1] <= -VTK_LARGE_FLOAT ? 1.0 : cellRange[1]);
 
   this->ComputeTime.Modified();
 }
