@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCamera.h,v $
   Language:  C++
-  Date:      $Date: 1999-04-27 19:32:45 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 1999-05-03 01:17:00 $
+  Version:   $Revision: 1.46 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -300,7 +300,9 @@ class VTK_EXPORT vtkCamera : public vtkObject
 
   // Description:
   // Get the plane equations that bound the view frustum.
-  // The plane normals point inward.
+  // The plane normals point inward. The planes array contains six
+  // plane equations of the form (Ax+By+Cz+D=0), the first four
+  // values are (A,B,C,D) which repeats for each of the planes.
   void GetFrustumPlanes( float planes[24] );
 
   // Description:
