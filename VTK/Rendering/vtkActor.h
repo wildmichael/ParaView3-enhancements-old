@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-30 15:14:16 $
-  Version:   $Revision: 1.74 $
+  Date:      $Date: 1999-11-11 21:32:13 $
+  Version:   $Revision: 1.75 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -92,7 +92,7 @@ class VTK_EXPORT vtkActor : public vtkProp3D
   // This causes the actor to be rendered. It in turn will render the actor's
   // property, texture map and then mapper. If a property hasn't been
   // assigned, then the actor will create one automatically. Note that a side
-  // effect of this method is that the
+  // effect of this method is that the pipeline will be updated.
   virtual void Render(vtkRenderer *, vtkMapper *) {};
 
   // Description:
