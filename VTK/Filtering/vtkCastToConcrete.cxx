@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCastToConcrete.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-04-22 10:49:33 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1999-04-22 13:35:18 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -326,6 +326,22 @@ void vtkCastToConcrete::UnRegister(vtkObject *o)
       this->UnstructuredGrid->GetNetReferenceCount() == 1 &&
       this->StructuredPoints->GetNetReferenceCount() == 1 &&
       this->RectilinearGrid->GetNetReferenceCount() == 1)
+    {
+    this->PolyData->SetSource(NULL);
+    this->StructuredGrid->SetSource(NULL);
+    this->UnstructuredGrid->SetSource(NULL);
+    this->StructuredPoints->SetSource(NULL);
+    this->RectilinearGrid->SetSource(NULL);
+    }
+  if (this->ReferenceCount == 5 &&
+      (this->PolyData == o || this->StructuredGrid == o ||
+       this->UnstructuredGrid == o || this->RectilinearGrid == o ||
+       this->StructuredPoints == o) &&
+      (this->PolyData->GetNetReferenceCount() +
+       this->StructuredPoints->GetNetReferenceCount() +
+       this->RectilinearGrid->GetNetReferenceCount() +
+       this->StructuredGrid->GetNetReferenceCount() +
+       this->UnstructuredGrid->GetNetReferenceCount()) == 6)
     {
     this->PolyData->SetSource(NULL);
     this->StructuredGrid->SetSource(NULL);
