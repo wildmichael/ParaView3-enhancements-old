@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBooleanTexture.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:31:44 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2002-06-11 15:47:59 $
+  Version:   $Revision: 1.34 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -44,14 +44,14 @@
 #ifndef __vtkBooleanTexture_h
 #define __vtkBooleanTexture_h
 
-#include "vtkStructuredPointsSource.h"
+#include "vtkImageSource.h"
 
-class VTK_IMAGING_EXPORT vtkBooleanTexture : public vtkStructuredPointsSource
+class VTK_IMAGING_EXPORT vtkBooleanTexture : public vtkImageSource
 {
 public:
   static vtkBooleanTexture *New();
 
-  vtkTypeRevisionMacro(vtkBooleanTexture,vtkStructuredPointsSource);
+  vtkTypeRevisionMacro(vtkBooleanTexture,vtkImageSource);
   void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
@@ -118,7 +118,8 @@ protected:
   vtkBooleanTexture();
   ~vtkBooleanTexture() {};
 
-  void Execute();
+  virtual void ExecuteInformation();
+  virtual void ExecuteData(vtkDataObject *data);
 
   int XSize;
   int YSize;
