@@ -1,5 +1,5 @@
 /* -*- c -*- *****************************************************************
-** $Id: SimpleExample.c,v 1.2 2004-05-12 13:56:38 martink Exp $
+** $Id: SimpleExample.c,v 1.3 2004-05-25 19:02:50 martink Exp $
 **
 ** Copyright (C) 2003 Sandia Corporation
 ** Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -53,7 +53,7 @@ static void draw(void)
     glPopMatrix();
 }
 
-int SimpleExample(int argc, char *argv[])
+int SimpleExample(int, char *[])
 {
     float angle;
 

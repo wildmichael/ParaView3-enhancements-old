@@ -1,5 +1,5 @@
 /* -*- c -*- *****************************************************************
-** $Id: BlankTiles.c,v 1.2 2003-07-14 19:58:55 kmorel Exp $
+** $Id: BlankTiles.c,v 1.3 2004-05-25 19:02:50 martink Exp $
 **
 ** Copyright (C) 2003 Sandia Corporation
 ** Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -33,7 +33,7 @@ static void draw(void)
     printf("Leaving draw\n");
 }
 
-int BlankTiles(int argc, char *argv[])
+int BlankTiles(int, char *[])
 {
     int i, j, x, y;
     GLubyte *cb;
@@ -49,46 +49,46 @@ int BlankTiles(int argc, char *argv[])
     icetBoundingBoxf(-0.5, 0.5, -0.5, 0.5, -0.5, 0.5);
 
     for (i = 0; i < STRATEGY_LIST_SIZE; i++) {
-	int tile_dim;
+        int tile_dim;
 
-	icetStrategy(strategy_list[i]);
-	printf("\n\nUsing %s strategy.\n", icetGetStrategyName());
+        icetStrategy(strategy_list[i]);
+        printf("\n\nUsing %s strategy.\n", icetGetStrategyName());
 
-	for (tile_dim = 1; tile_dim*tile_dim <= num_proc; tile_dim++) {
-	    printf("\nRunning on a %d x %d display.\n", tile_dim, tile_dim);
-	    icetResetTiles();
-	    for (y = 0; y < tile_dim; y++) {
-		for (x = 0; x < tile_dim; x++) {
-		    icetAddTile(x*SCREEN_WIDTH, y*SCREEN_HEIGHT,
-				SCREEN_WIDTH, SCREEN_HEIGHT, y*tile_dim + x);
-		}
-	    }
+        for (tile_dim = 1; tile_dim*tile_dim <= num_proc; tile_dim++) {
+            printf("\nRunning on a %d x %d display.\n", tile_dim, tile_dim);
+            icetResetTiles();
+            for (y = 0; y < tile_dim; y++) {
+                for (x = 0; x < tile_dim; x++) {
+                    icetAddTile(x*SCREEN_WIDTH, y*SCREEN_HEIGHT,
+                                SCREEN_WIDTH, SCREEN_HEIGHT, y*tile_dim + x);
+                }
+            }
 
-	    printf("Rendering frame.\n");
-	    glMatrixMode(GL_PROJECTION);
-	    glLoadIdentity();
-	    glOrtho(-1, tile_dim*2-1, -1, tile_dim*2-1, -1, 1);
-	    glMatrixMode(GL_MODELVIEW);
-	    glLoadIdentity();
-	    icetDrawFrame();
-	    swap_buffers();
+            printf("Rendering frame.\n");
+            glMatrixMode(GL_PROJECTION);
+            glLoadIdentity();
+            glOrtho(-1, tile_dim*2-1, -1, tile_dim*2-1, -1, 1);
+            glMatrixMode(GL_MODELVIEW);
+            glLoadIdentity();
+            icetDrawFrame();
+            swap_buffers();
 
-	    if (rank == 0) {
-		printf("Rank == 0, tile should have stuff in it.\n");
-	    } else if (rank < tile_dim*tile_dim) {
-		printf("Checking returned image.\n");
-		cb = icetGetColorBuffer();
-		for (j = 0; j < SCREEN_WIDTH*SCREEN_HEIGHT*4; j++) {
-		    if (cb[j] != 0) {
-			printf("Found bad pixel!!!!!!!!\n");
-			result = TEST_FAILED;
-			break;
-		    }
-		}
-	    } else {
-		printf("Not a display node.  Not testing image.\n");
-	    }
-	}
+            if (rank == 0) {
+                printf("Rank == 0, tile should have stuff in it.\n");
+            } else if (rank < tile_dim*tile_dim) {
+                printf("Checking returned image.\n");
+                cb = icetGetColorBuffer();
+                for (j = 0; j < SCREEN_WIDTH*SCREEN_HEIGHT*4; j++) {
+                    if (cb[j] != 0) {
+                        printf("Found bad pixel!!!!!!!!\n");
+                        result = TEST_FAILED;
+                        break;
+                    }
+                }
+            } else {
+                printf("Not a display node.  Not testing image.\n");
+            }
+        }
     }
 
     printf("Cleaning up.\n");

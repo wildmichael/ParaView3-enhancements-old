@@ -8,7 +8,7 @@
  * of authorship are reproduced on all copies.
  */
 
-/* $Id: common.c,v 1.8 2004-04-12 18:19:16 kmorel Exp $ */
+/* $Id: common.c,v 1.9 2004-05-25 19:02:49 martink Exp $ */
 
 #include "common.h"
 
@@ -68,7 +68,8 @@ static GLint allocatedTileSize = 0;
 void icetRenderTransferFullImages(IceTImage imageBuffer,
                                   IceTSparseImage inImage,
                                   IceTSparseImage outImage,
-                                  GLint num_receiving, GLint *tile_image_dest)
+                                  GLint /* num_receiving */, 
+                                  GLint *tile_image_dest)
 {
     GLint num_sending;
     GLint *tile_list;

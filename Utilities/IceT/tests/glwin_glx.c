@@ -11,7 +11,7 @@
 
 /* 
  * This code opens up a GL window in X
- * $Id: glwin_glx.c,v 1.3 2004-05-19 17:56:38 martink Exp $
+ * $Id: glwin_glx.c,v 1.4 2004-05-25 19:02:50 martink Exp $
  *
  */ 
 
@@ -157,7 +157,7 @@ void resize( GLsizei width, GLsizei height )
 
 } /* end void resize( ) */    
 
-static Bool WaitForMapNotify(Display *d, XEvent *e, char *arg) 
+static Bool WaitForMapNotify(Display *, XEvent *e, char *arg) 
 { 
   if( (e->type == MapNotify) && (e->xmap.window == (Window)arg) )
   { 
