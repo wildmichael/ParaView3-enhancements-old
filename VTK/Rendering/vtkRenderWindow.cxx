@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-29 01:52:50 $
-  Version:   $Revision: 1.55 $
+  Date:      $Date: 1997-05-29 12:18:26 $
+  Version:   $Revision: 1.56 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -142,7 +142,7 @@ char *vtkRenderWindow::GetRenderLibrary()
     {
     if (!strcmp("sbr",temp)) temp = "Starbase";
     else if (!strcmp("glr",temp)) temp = "GL";
-    else if (!strcmp("oglrx",temp)) temp = "OpenGL";
+    else if (!strcmp("oglr",temp)) temp = "OpenGL";
     else if (!strcmp("woglr",temp)) temp = "Win32OpenGL";
     else if (!strcmp("xglr",temp)) temp = "XGL";
     else if ( strcmp("Starbase",temp) && strcmp("GL",temp) && 
