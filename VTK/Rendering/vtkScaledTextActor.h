@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScaledTextActor.h,v $
   Language:  C++
-  Date:      $Date: 1999-08-29 19:03:25 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1999-09-01 22:43:54 $
+  Version:   $Revision: 1.3 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -91,10 +91,18 @@ public:
   void SetHeight(float h);
   float GetHeight();
   
+  // Description:
+  // Set/Get the minimum size in pixels for this actor.
+  // Defaults to 10,10
+  vtkSetVector2Macro(MinimumSize,int);
+  vtkGetVector2Macro(MinimumSize,int);
+  
 protected:
   vtkScaledTextActor();
   ~vtkScaledTextActor();
 
+  int MinimumSize[2];
+  
   vtkActor2D *TextActor;
   vtkCoordinate *Position2Coordinate;
   vtkTimeStamp  BuildTime;
