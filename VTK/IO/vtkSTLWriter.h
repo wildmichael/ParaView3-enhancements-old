@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSTLWriter.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-31 22:38:07 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1995-09-07 09:12:13 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -53,8 +53,8 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #include "vtkWriter.hh"
 #include "vtkPolyData.hh"
 
-#define STL_ASCII 0
-#define STL_BINARY 1
+#define VTK_STL_ASCII 0
+#define VTK_STL_BINARY 1
 
 class vtkSTLWriter : public vtkWriter
 {
@@ -75,7 +75,7 @@ public:
 
   // Description:
   // Specify type of file to write (ascii or binary).
-  vtkSetClampMacro(WriteMode,int,STL_ASCII,STL_BINARY);
+  vtkSetClampMacro(WriteMode,int,VTK_STL_ASCII,VTK_STL_BINARY);
   vtkGetMacro(WriteMode,int);
 
 protected:
