@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyDataSourceWidget.h,v $
   Language:  C++
-  Date:      $Date: 2002-08-08 13:29:04 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2003-04-16 19:27:07 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -41,7 +41,7 @@
 
 class vtkPolyDataSource;
 
-class VTK_EXPORT vtkPolyDataSourceWidget : public vtk3DWidget
+class VTK_HYBRID_EXPORT vtkPolyDataSourceWidget : public vtk3DWidget
 {
  public:
   vtkTypeRevisionMacro(vtkPolyDataSourceWidget, vtk3DWidget);
