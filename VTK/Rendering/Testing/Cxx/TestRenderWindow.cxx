@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: TestRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-05-29 12:48:55 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-06-07 19:06:14 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -66,6 +66,7 @@ int main( int argc, char *argv[] )
   renWin->Render();
   renWin->Render();
   renWin->EraseOff();
+  renWin->SwapBuffersOff();
   
   renWin->SetZbufferData(  0, 0,  169, 169, floatArray );
   
@@ -75,6 +76,7 @@ int main( int argc, char *argv[] )
 
   actor->GetProperty()->SetColor(0,1,0);
   actor->AddPosition( -0.1, -0.1, 0.0 );
+  renWin->SwapBuffersOn();
   renWin->Render();
   renWin->GetRGBAPixelData( 120, 120, 174, 174, 1, floatArray );
 
