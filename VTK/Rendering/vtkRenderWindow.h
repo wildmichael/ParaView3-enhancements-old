@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.h,v $
   Language:  C++
-  Date:      $Date: 1995-07-28 14:51:08 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1995-07-31 20:10:15 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -175,7 +175,21 @@ public:
   virtual void StereoRenderComplete();
 
   virtual int  GetRemapWindow();
+  virtual void WindowRemap() {};
 
+  // Description:
+  // Turn on/off erasing the screen between images. Allows multiple exposure
+  // sequences if turned on.
+  vtkSetMacro(Erase,int);
+  vtkGetMacro(Erase,int);
+  vtkBooleanMacro(Erase,int);
+
+  // Description:
+  // Turn on/off buffer swapping between images. 
+  vtkSetMacro(SwapBuffers,int);
+  vtkGetMacro(SwapBuffers,int);
+  vtkBooleanMacro(SwapBuffers,int);
+  
   // Description:
   // Get name of rendering window
   vtkGetStringMacro(Name);
@@ -237,6 +251,8 @@ protected:
   int SubFrames;               // number of sub frames
   int CurrentSubFrame;         // what one are we on
   unsigned char* ResultFrame;  // used for any non immediate rendering
+  int   Erase;
+  int   SwapBuffers;
 };
 
 #endif
