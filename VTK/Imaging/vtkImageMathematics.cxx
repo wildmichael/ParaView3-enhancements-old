@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMathematics.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-03 17:53:14 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1998-09-15 18:30:21 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -211,7 +211,7 @@ static void vtkImageMathematicsExecute2(vtkImageMathematics *self,
   // Loop through ouput pixels
   for (idxZ = 0; idxZ <= maxZ; idxZ++)
     {
-    for (idxY = 0; idxY <= maxY; idxY++)
+    for (idxY = 0; !self->AbortExecute && idxY <= maxY; idxY++)
       {
       if (!id) 
 	{

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagePermute.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-03 17:53:19 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1998-09-15 18:30:23 $
+  Version:   $Revision: 1.11 $
   Thanks:    Thanks to Abdalmajeid M. Alyassin who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -140,7 +140,7 @@ static void vtkImagePermuteExecute(vtkImagePermute *self,
   for (idxZ = 0; idxZ <= maxZ; idxZ++)
     {
     inPtr1 = inPtr2;
-    for (idxY = 0; idxY <= maxY; idxY++)
+    for (idxY = 0; !self->AbortExecute && idxY <= maxY; idxY++)
       {
       if (!id) 
 	{

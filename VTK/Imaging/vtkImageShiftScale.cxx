@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageShiftScale.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-03 17:53:23 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1998-09-15 18:30:24 $
+  Version:   $Revision: 1.23 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -107,7 +107,7 @@ static void vtkImageShiftScaleExecute(vtkImageShiftScale *self,
   // Loop through ouput pixels
   for (idxZ = 0; idxZ <= maxZ; idxZ++)
     {
-    for (idxY = 0; idxY <= maxY; idxY++)
+    for (idxY = 0; !self->AbortExecute && idxY <= maxY; idxY++)
       {
       if (!id) 
 	{

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageButterworthHighPass.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-08-18 15:56:38 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-09-15 18:30:14 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -104,6 +104,8 @@ void vtkImageButterworthHighPass::ThreadedExecute(vtkImageData *inData,
   // normalization factors
   float norm0, norm1, norm2;
   float sum1, sum0;
+  unsigned long count = 0;
+  unsigned long target;
 
   // Error checking
   if (inData->GetNumberOfScalarComponents() != 2)
@@ -158,6 +160,9 @@ void vtkImageButterworthHighPass::ThreadedExecute(vtkImageData *inData,
     norm2 = 1.0 / ((spacing[2] * 2.0 * mid2) * this->CutOff[2]);
     }
   
+  target = (unsigned long)((ext[5]-ext[4]+1)*(ext[3]-ext[2]+1)/50.0);
+  target++;
+
   // loop over all the pixels (keeping track of normalized distance to origin.
   for (idx2 = ext[4]; idx2 <= ext[5]; ++idx2)
     {
@@ -171,8 +176,16 @@ void vtkImageButterworthHighPass::ThreadedExecute(vtkImageData *inData,
     // Convert location into normalized cycles/world unit
     temp2 = temp2 * norm2;
 
-    for (idx1 = ext[2]; idx1 <= ext[3]; ++idx1)
+    for (idx1 = ext[2]; !self->AbortExecute && idx1 <= ext[3]; ++idx1)
       {
+      if (!id) 
+	{
+	if (!(count%target))
+	  {
+	  self->UpdateProgress(count/(50.0*target));
+	  }
+	count++;
+	}
       // distance to min (this axis' contribution)
       temp1 = (float)idx1;
       // Wrap back to 0.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMultipleInputFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-03 17:53:17 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 1998-09-15 18:30:22 $
+  Version:   $Revision: 1.25 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -257,6 +257,7 @@ void vtkImageMultipleInputFilter::InternalUpdate(vtkImageData *outData)
     return;
     }
   this->Updating = 1;
+  this->AbortExecute = 0;
   
   // Make sure there is an output.
   this->CheckCache();

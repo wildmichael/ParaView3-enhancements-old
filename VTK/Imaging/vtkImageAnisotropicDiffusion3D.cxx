@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAnisotropicDiffusion3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-03 17:52:56 $
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 1998-09-15 18:30:13 $
+  Version:   $Revision: 1.24 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -180,7 +180,8 @@ void vtkImageAnisotropicDiffusion3D::ThreadedExecute(vtkImageData *inData,
   // Loop performing the diffusion
   // Note: region extent could get smaller as the diffusion progresses
   // (but never get smaller than output region).
-  for (idx = this->NumberOfIterations - 1; idx >= 0; --idx)
+  for (idx = this->NumberOfIterations - 1; 
+       !this->AbortExecute && idx >= 0; --idx)
     {
     if (!id)
       {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-03 17:53:21 $
-  Version:   $Revision: 1.43 $
+  Date:      $Date: 1998-09-15 18:30:23 $
+  Version:   $Revision: 1.44 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder,ill Lorensen.
@@ -544,15 +544,6 @@ void vtkImageReader::OpenAndSeekFile(int dataExtent[6], int idx)
   long streamStart;
 
   this->ComputeInternalFileName(idx);
-  if (this->GetFileDimensionality() == 3)
-    {
-    this->UpdateProgress(0.0);
-    } 
-  else 
-    {
-    this->UpdateProgress ((float) (idx - dataExtent[4])
-                        / (float) (dataExtent[5] - dataExtent[4] + 1));
-    }
   this->OpenFile();
 
   // convert data extent into constants that can be used to seek.
@@ -613,6 +604,8 @@ static void vtkImageReaderUpdate2(vtkImageReader *self, vtkImageData *data,
   int dataExtent[6];
   int comp, pixelSkip;
   int filePos, correction;
+  unsigned long count = 0;
+  unsigned long target;
   
   // Get the requested extents.
   data->GetExtent(inExtent);
@@ -658,6 +651,10 @@ static void vtkImageReaderUpdate2(vtkImageReader *self, vtkImageData *data,
   // create a buffer to hold a row of the data
   buf = new unsigned char[streamRead];
   
+  target = (unsigned long)((dataExtent[5]-dataExtent[4]+1)*
+			   (dataExtent[3]-dataExtent[2]+1)/50.0);
+  target++;
+
   // read the data row by row
   if (self->GetFileDimensionality() == 3)
     {
@@ -670,10 +667,16 @@ static void vtkImageReaderUpdate2(vtkImageReader *self, vtkImageData *data,
       self->OpenAndSeekFile(dataExtent,idx2);
       }
     outPtr1 = outPtr2;
-    for (idx1 = dataExtent[2]; idx1 <= dataExtent[3]; ++idx1)
+    for (idx1 = dataExtent[2]; 
+	 !self->AbortExecute && idx1 <= dataExtent[3]; ++idx1)
       {
+      if (!(count%target))
+	{
+	self->UpdateProgress(count/(50.0*target));
+	}
+      count++;
       outPtr0 = outPtr1;
-      
+  
       // read the row.
       if ( ! self->File->read((char *)buf, streamRead))
 	{

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMirrorPad.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-03 17:53:16 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1998-09-15 18:30:22 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -155,7 +155,7 @@ static void vtkImageMirrorPadExecute(vtkImageMirrorPad *self,
     inPtrY = inPtrZ;
     inIdx[1] = inIdxStart[1];
     inInc[1] = inIncStart[1];
-    for (idxY = 0; idxY <= maxY; idxY++)
+    for (idxY = 0; !self->AbortExecute && idxY <= maxY; idxY++)
       {
       inPtrX = inPtrY;
       inIdx[0] = inIdxStart[0];

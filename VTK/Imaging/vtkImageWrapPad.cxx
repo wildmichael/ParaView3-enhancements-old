@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageWrapPad.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-03 17:53:29 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1998-09-15 18:30:26 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -151,7 +151,8 @@ static void vtkImageWrapPadExecute(vtkImageWrapPad *self,
       }
     inPtr1 = inPtr2;
     inIdx1 = start1;
-    for (outIdx1 = outExt[2]; outIdx1 <= outExt[3]; ++outIdx1, ++inIdx1)
+    for (outIdx1 = outExt[2]; 
+	 !self->AbortExecute && outIdx1 <= outExt[3]; ++outIdx1, ++inIdx1)
       {
       if (!id) 
 	{

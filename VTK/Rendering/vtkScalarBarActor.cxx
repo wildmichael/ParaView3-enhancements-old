@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalarBarActor.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-07 21:15:51 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1998-09-15 18:30:27 $
+  Version:   $Revision: 1.5 $
   Thanks:    Thanks to Kitware & RPI/SCOREC who supported the development
              of this class.
 
@@ -272,13 +272,15 @@ void vtkScalarBarActor::Render(vtkViewport *viewport)
     if (this->Orientation == VTK_ORIENT_VERTICAL)
       {
       this->TitleActor->SetPosition(position[0] + barOrigin[0], 
-            position[1] + barOrigin[1] + barHeight + this->FontSize*2);
+				    position[1] + barOrigin[1] + 
+				    barHeight + this->FontSize*2);
 
       for (i=0; i < this->NumberOfLabels; i++)
 	{
 	val = (float)i/(this->NumberOfLabels-1) * barHeight;
-	this->TextActors[i]->SetPosition(position[0] + barOrigin[0] + barWidth+3,
-              position[1] + barOrigin[1] + val + this->FontSize/2);
+	this->TextActors[i]->SetPosition(position[0] + barOrigin[0]+barWidth+3,
+					 position[1] + barOrigin[1] + val 
+					 + this->FontSize/2);
 	}
       }
     else

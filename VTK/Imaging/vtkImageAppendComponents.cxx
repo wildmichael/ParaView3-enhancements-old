@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageAppendComponents.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-07-07 17:27:44 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1998-09-15 18:30:14 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -100,7 +100,7 @@ static void vtkImageAppendComponentsExecute(vtkImageAppendComponents *self,
   inPtr = inPtrP + inComp;
   for (idxZ = 0; idxZ <= maxZ; idxZ++)
     {
-    for (idxY = 0; idxY <= maxY; idxY++)
+    for (idxY = 0; !self->AbortExecute && idxY <= maxY; idxY++)
       {
       if (!id) 
 	{

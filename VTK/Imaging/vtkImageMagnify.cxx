@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMagnify.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-03 17:53:13 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1998-09-15 18:30:21 $
+  Version:   $Revision: 1.14 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -147,7 +147,7 @@ static void vtkImageMagnifyExecute(vtkImageMagnify *self,
   maxX = outExt[1] - outExt[0];
   maxY = outExt[3] - outExt[2]; 
   maxZ = outExt[5] - outExt[4];
-  target = (unsigned long)((maxZ+1)*(maxY+1)/50.0);
+  target = (unsigned long)(maxC*(maxZ+1)*(maxY+1)/50.0);
   target++;
   
   // Get increments to march through data 
@@ -171,7 +171,7 @@ static void vtkImageMagnifyExecute(vtkImageMagnify *self,
       {
       inPtrY = inPtrZ;
       magYIdx = magY - outExt[2]%magY - 1;
-      for (idxY = 0; idxY <= maxY; idxY++, magYIdx--)
+      for (idxY = 0; !self->AbortExecute && idxY <= maxY; idxY++, magYIdx--)
 	{
 	if (!id) 
 	  {

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageNoiseSource.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-29 20:35:22 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-09-15 18:30:22 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder,ill Lorensen.
@@ -113,6 +113,8 @@ void vtkImageNoiseSource::Execute(vtkImageData *data)
   int outIncX, outIncY, outIncZ;
   int rowLength;
   int *outExt;
+  unsigned long count = 0;
+  unsigned long target;
   
   if (data->GetScalarType() != VTK_FLOAT)
     {
@@ -130,12 +132,19 @@ void vtkImageNoiseSource::Execute(vtkImageData *data)
   data->GetContinuousIncrements(outExt, outIncX, outIncY, outIncZ);
   outPtr = (float *) data->GetScalarPointer(outExt[0],outExt[2],outExt[4]);
   
+  target = (unsigned long)((maxZ+1)*(maxY+1)/50.0);
+  target++;
 
   // Loop through ouput pixels
   for (idxZ = 0; idxZ <= maxZ; idxZ++)
     {
-    for (idxY = 0; idxY <= maxY; idxY++)
+    for (idxY = 0; !this->AbortExecute && idxY <= maxY; idxY++)
       {
+      if (!(count%target))
+	{
+	this->UpdateProgress(count/(50.0*target));
+	}
+      count++;
       for (idxR = 0; idxR < rowLength; idxR++)
 	{
 	// Pixel operation

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageConstantPad.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-03 17:52:57 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1998-09-15 18:30:15 $
+  Version:   $Revision: 1.16 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -91,7 +91,7 @@ static void vtkImageConstantPadExecute(vtkImageConstantPad *self,
   for (idxZ = outExt[4]; idxZ <= outExt[5]; idxZ++)
     {
     state3 = (idxZ < inExt[4] || idxZ > inExt[5]);
-    for (idxY = outExt[2]; idxY <= outExt[3]; idxY++)
+    for (idxY = outExt[2]; !self->AbortExecute && idxY <= outExt[3]; idxY++)
       {
       if (!id) 
 	{

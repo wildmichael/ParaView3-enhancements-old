@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageInPlaceFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-03 17:53:08 $
-  Version:   $Revision: 1.17 $
+  Date:      $Date: 1998-09-15 18:30:19 $
+  Version:   $Revision: 1.18 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -67,6 +67,7 @@ void vtkImageInPlaceFilter::InternalUpdate(vtkImageData *outData)
     return;
     }
   this->Updating = 1;
+  this->AbortExecute = 0;
   
   // Make sure there is an output.
   this->CheckCache();

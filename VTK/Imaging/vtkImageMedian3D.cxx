@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMedian3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-03 17:53:15 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1998-09-15 18:30:21 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -261,7 +261,8 @@ static void vtkImageMedian3DExecute(vtkImageMedian3D *self,
     inPtr1 = inPtr2;
     hoodMin1 = hoodStartMin1;
     hoodMax1 = hoodStartMax1;
-    for (outIdx1 = outExt[2]; outIdx1 <= outExt[3]; ++outIdx1)
+    for (outIdx1 = outExt[2]; 
+	 !self->AbortExecute && outIdx1 <= outExt[3]; ++outIdx1)
       {
       if (!id) 
 	{
