@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-05-14 20:09:14 $
-  Version:   $Revision: 1.167 $
+  Date:      $Date: 2001-05-15 15:02:54 $
+  Version:   $Revision: 1.168 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -633,6 +633,7 @@ void vtkRenderer::CreateLight(void)
   // I do not see why UnRegister is used on CreatedLight, but lets be consistent. 
   vtkLight *l = vtkLight::New();
   this->CreatedLight = l;
+  this->CreatedLight->Register(this);
   this->AddLight(this->CreatedLight);
   l->Delete();
   l = NULL;
