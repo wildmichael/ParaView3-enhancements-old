@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32PolyDataMapper2D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-02-18 12:50:53 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1999-02-18 17:06:35 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -184,7 +184,7 @@ void vtkWin32PolyDataMapper2D::Render(vtkViewport* viewport, vtkActor2D* actor)
     for ( j=0; j < numPts; j++ )
       {
       this->TransformCoordinate->SetValue(p->GetPoint(j));
-      itmp = this->TransformCoordinate->GetComputedLocalDisplayValue(viewport);
+      itmp = this->TransformCoordinate->GetComputedDisplayValue(viewport);
       displayPts->SetPoint(j,itmp[0], itmp[1], itmp[2]);
       }
     p = displayPts;
