@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkFeatureEdges.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-11-09 19:50:41 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1995-04-17 15:07:51 $
+  Version:   $Revision: 1.9 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -56,7 +56,7 @@ void vlFeatureEdges::Execute()
 //
 //  Check input
 //
-  if ( (numPts=input->GetNumberOfPoints()) )
+  if (!(numPts=input->GetNumberOfPoints()) )
     {
     vlErrorMacro(<<"No input data!");
     return;
