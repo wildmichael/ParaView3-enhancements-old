@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOrderedTriangulator.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-10-10 19:38:00 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2001-10-10 20:11:56 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -865,7 +865,7 @@ void vtkOrderedTriangulator::Triangulate()
   if ( ! this->PreSorted )
     {
     qsort((void *)this->Mesh->Points.GetPointer(0), this->NumberOfPoints, 
-          sizeof(vtkOTPoint), SortOnPointIds);
+          sizeof(vtkOTPoint), vtkSortOnPointIds);
     }
 
   // Insert each point into the triangulation. Assign internal ids 
