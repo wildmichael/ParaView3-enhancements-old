@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRuledSurfaceFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-11-01 14:53:42 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2000-11-01 17:01:07 $
+  Version:   $Revision: 1.6 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -120,6 +120,7 @@ void vtkRuledSurfaceFilter::Execute()
         outPD->CopyData(inPD,i,i);
         }
       }
+    newPts->Delete();
     newStrips = vtkCellArray::New();
     newStrips->Allocate(
       2*(this->Resolution[1]+1)*this->Resolution[0]*(numLines-1));
