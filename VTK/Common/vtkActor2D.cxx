@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor2D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-11-19 20:10:03 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2000-11-19 23:48:38 $
+  Version:   $Revision: 1.29 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -83,11 +83,18 @@ vtkActor2D::~vtkActor2D()
   if (this->Property)
     {
     this->Property->UnRegister(this);
+    this->Property = NULL;
     }
-  this->PositionCoordinate->Delete();
-  this->PositionCoordinate = NULL;
-  this->Position2Coordinate->Delete();
-  this->Position2Coordinate = NULL;
+  if (this->PositionCoordinate)
+    {
+    this->PositionCoordinate->Delete();
+    this->PositionCoordinate = NULL;
+    }
+  if (this->Position2Coordinate)
+    {
+    this->Position2Coordinate->Delete();
+    this->Position2Coordinate = NULL;
+    }
   if (this->Mapper != NULL)
     {
     this->Mapper->UnRegister(this);
