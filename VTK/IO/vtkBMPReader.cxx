@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBMPReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-29 17:06:59 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1998-12-31 12:16:21 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -448,6 +448,7 @@ void vtkBMPReader::PrintSelf(ostream& os, vtkIndent indent)
 {
   vtkImageReader::PrintSelf(os,indent);
 
+  // this->Colors is not printed
   os << indent << "Depth: " << this->Depth << "\n";
 }
 
