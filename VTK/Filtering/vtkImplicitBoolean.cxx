@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkImplicitBoolean.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-02-26 10:20:24 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1995-02-26 13:23:02 $
+  Version:   $Revision: 1.2 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -142,12 +142,14 @@ void vlImplicitBoolean::EvaluateNormal(float x, float y, float z, float n[3])
 
   else //difference
     {
+    float nTemp[3];
     vlImplicitFunction *firstF;
     this->FunctionList.InitTraversal();
     if ( (firstF = this->FunctionList.GetNextItem()) != NULL )
       {
       value = firstF->Evaluate(x,y,z);
-      firstF->EvaluateNormal(x,y,z,n);
+      firstF->EvaluateNormal(x,y,z,nTemp); 
+      n[0] = -1.0*nTemp[0]; n[1] = -1.0*nTemp[1]; n[2] = -1.0*nTemp[2];
       }
 
     for (this->FunctionList.InitTraversal(); 
@@ -158,7 +160,8 @@ void vlImplicitBoolean::EvaluateNormal(float x, float y, float z, float n[3])
         if ( (v=(-1.0)*f->Evaluate(x,y,z)) > value )
           {
           value = v;
-          f->EvaluateNormal(x,y,z,n);
+          f->EvaluateNormal(x,y,z,nTemp);
+          n[0] = -1.0*nTemp[0]; n[1] = -1.0*nTemp[1]; n[2] = -1.0*nTemp[2];
           }
         }
       }
