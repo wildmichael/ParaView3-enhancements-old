@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSampleFunction.h,v $
   Language:  C++
-  Date:      $Date: 1997-04-18 20:53:09 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1997-06-05 19:52:48 $
+  Version:   $Revision: 1.20 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -59,6 +59,7 @@ class VTK_EXPORT vtkSampleFunction : public vtkStructuredPointsSource
 {
 public:
   vtkSampleFunction();
+  ~vtkSampleFunction();
   static vtkSampleFunction *New() {return new vtkSampleFunction;};
   char *GetClassName() {return "vtkSampleFunction";};
   void PrintSelf(ostream& os, vtkIndent indent);
@@ -67,6 +68,11 @@ public:
   // Specify the implicit function to use to generate data.
   vtkSetObjectMacro(ImplicitFunction,vtkImplicitFunction);
   vtkGetObjectMacro(ImplicitFunction,vtkImplicitFunction);
+  // Description:
+  // Specify the subclass of the vtkScalars by providing a scalar
+  // subclass object.  vtkSampleFunction() will allocate the necessary space
+  // for storing the sampled values in the vtkScalars subclass.
+  vtkSetObjectMacro(Scalars,vtkScalars);
 
   void SetSampleDimensions(int i, int j, int k);
   void SetSampleDimensions(int dim[3]);
@@ -103,10 +109,11 @@ public:
 
 protected:
   void Execute();
-  void Cap(vtkFloatScalars *s);
+  void Cap(vtkScalars *s);
 
   int SampleDimensions[3];
   float ModelBounds[6];
+  vtkScalars *Scalars;
   int Capping;
   float CapValue;
   vtkImplicitFunction *ImplicitFunction;
