@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPieceScalars.h,v $
   Language:  C++
-  Date:      $Date: 2001-02-08 15:20:30 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-03-27 14:06:47 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -60,6 +60,19 @@ public:
   vtkTypeMacro(vtkPieceScalars,vtkDataSetToDataSetFilter);
   void PrintSelf(ostream& os, vtkIndent indent);
 
+  // Description:
+  // Option to centerate cell scalars of poi9nts scalars.  Default is point scalars.
+  void SetScalarModeToCellData() {this->SetCellScalarsFlag(1);}
+  void SetScalarModeToPointData() {this->SetCellScalarsFlag(0);}
+  int GetScalarMode() {return this->CellScalarsFlag;}
+  
+  // Dscription:
+  // This option uses a random mapping between pieces and scalar values.
+  // The scalar values are choosen between 0 and 1.  By default, random mode is off.
+  vtkSetMacro(RandomMode, int);
+  vtkGetMacro(RandomMode, int);
+  vtkBooleanMacro(RandomMode, int);
+  
 protected:
   vtkPieceScalars();
   ~vtkPieceScalars();
@@ -68,6 +81,13 @@ protected:
   
   // Append the pieces.
   void Execute();
+  
+  vtkScalars *MakePieceScalars(int piece, int numScalars);
+  vtkScalars *MakeRandomScalars(int piece, int numScalars);
+  
+  vtkSetMacro(CellScalarsFlag,int);
+  int CellScalarsFlag;
+  int RandomMode;
 };
 
 #endif
