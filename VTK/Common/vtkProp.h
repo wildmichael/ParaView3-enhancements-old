@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProp.h,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:16 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2001-05-28 05:39:44 $
+  Version:   $Revision: 1.30 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -298,11 +298,6 @@ public:
   virtual void BuildPaths(vtkAssemblyPaths *paths, vtkAssemblyPath *path);
 
 //ETX
-
-#ifndef VTK_REMOVE_LEGACY_CODE
-  virtual vtkMatrix4x4 *GetMatrixPointer() 
-    {VTK_LEGACY_METHOD(GetMatrixPointer,"3.2"); return NULL;}
-#endif
 
 protected:
   vtkProp();
