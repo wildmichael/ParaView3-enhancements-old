@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBitArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-18 12:03:45 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 2001-05-10 11:26:28 $
+  Version:   $Revision: 1.42 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -121,7 +121,7 @@ int vtkBitArray::GetValue(const int id)
 }
 
 // Allocate memory for this array. Delete old storage only if necessary.
-int vtkBitArray::Allocate(const int sz, const int ext)
+int vtkBitArray::Allocate(const int sz, const int vtkNotUsed(ext))
 {
   if ( sz > this->Size )
     {

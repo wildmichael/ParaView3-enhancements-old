@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIntArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-18 12:03:45 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 2001-05-10 11:26:28 $
+  Version:   $Revision: 1.51 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -108,7 +108,7 @@ void vtkIntArray::SetArray(int* array, int size, int save)
 }
 
 // Allocate memory for this array. Delete old storage only if necessary.
-int vtkIntArray::Allocate(const int sz, const int ext)
+int vtkIntArray::Allocate(const int sz, const int vtkNotUsed(ext))
 {
   if ( sz > this->Size )
     {

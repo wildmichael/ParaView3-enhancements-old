@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnsignedIntArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-18 12:03:45 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2001-05-10 11:26:28 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -108,7 +108,7 @@ void vtkUnsignedIntArray::SetArray(unsigned int* array, int size, int save)
 }
 
 // Allocate memory for this array. Delete old storage only if necessary.
-int vtkUnsignedIntArray::Allocate(const int sz, const int ext)
+int vtkUnsignedIntArray::Allocate(const int sz, const int vtkNotUsed(ext))
 {
   if ( sz > this->Size )
     {
