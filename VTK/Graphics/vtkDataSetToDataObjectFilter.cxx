@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetToDataObjectFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-02-19 15:29:38 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1999-03-05 13:41:16 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -62,7 +62,6 @@ vtkDataSetToDataObjectFilter::vtkDataSetToDataObjectFilter()
 void vtkDataSetToDataObjectFilter::Execute()
 {
   vtkDataSet *input = (vtkDataSet *)this->GetInput();
-  vtkDataObject *output = (vtkDataObject *)this->GetOutput();
   vtkScalars *scalars;
   vtkVectors *vectors;
   vtkTensors *tensors;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObjectWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-12-29 14:53:33 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1999-03-05 13:41:16 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -68,7 +68,6 @@ void vtkDataObjectWriter::WriteData()
 {
   FILE *fp;
   vtkFieldData *f=this->Input->GetFieldData();
-  int numTuples=f->GetNumberOfTuples();
 
   vtkDebugMacro(<<"Writing vtk FieldData data...");
 
