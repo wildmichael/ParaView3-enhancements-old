@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHashMap.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-21 17:46:46 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-06-21 18:42:19 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -151,6 +151,15 @@ private:
 };
 
 static inline vtkIdType vtkHashMapHashMethod(int x) { return x; }
+static inline vtkIdType vtkHashMapHashMethod(const char* s)
+{
+  vtkIdType h = 0;
+  for(;*s;++s)
+    {
+    h = 5*h + *s;
+    }
+  return h;
+}
 
 #ifdef VTK_NO_EXPLICIT_TEMPLATE_INSTANTIATION
 #include "vtkHashMap.txx"
