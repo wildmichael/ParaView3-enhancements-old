@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-11-05 17:17:55 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1995-12-29 13:48:58 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -570,13 +570,13 @@ int vtkDataWriter::WriteTCoordData(FILE *fp, vtkTCoords *tcoords, int numPts)
   int i, j, dim;
   char *type;
 
-  fprintf (fp, "TCOORDS ");
+  fprintf (fp, "TEXTURE_COORDINATES ");
   type = tcoords->GetDataType();
   dim = tcoords->GetDimension();
 
   if ( !strcmp(type,"float") )
     {
-    fprintf (fp, "%s float\n", this->TCoordsName);
+    fprintf (fp, "%s %d float\n", this->TCoordsName, dim);
     if ( this->FileType == VTK_ASCII )
       {
       float *tc;
