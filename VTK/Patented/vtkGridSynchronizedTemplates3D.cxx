@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGridSynchronizedTemplates3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-24 21:56:51 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2001-03-27 16:11:56 $
+  Version:   $Revision: 1.34 $
 
 
 
@@ -470,7 +470,7 @@ static void ContourGrid(vtkGridSynchronizedTemplates3D *self,
       for (j = YMin; j <= YMax; j++)
         {
 	// Should not impact perfomance here/
-	edgePtId = j*incY + k*incZ;
+	edgePtId = (j-inExt[2])*incY + (k-inExt[4])*incZ;
         
 	p1 = inPtPtrY;
         s1 = inPtrY;

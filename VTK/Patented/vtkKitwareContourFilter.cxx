@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkKitwareContourFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-24 21:56:51 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2001-03-27 16:11:56 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -306,8 +306,11 @@ void vtkKitwareContourFilter::StructuredGridContour(int dim)
       gridTemp3D->SetValue(i,values[i]);
       }
 
-    gridTemp3D->Update();
     output = gridTemp3D->GetOutput();
+    output->SetUpdateNumberOfPieces(thisOutput->GetUpdateNumberOfPieces());
+    output->SetUpdatePiece(thisOutput->GetUpdatePiece());
+    output->SetUpdateGhostLevel(thisOutput->GetUpdateGhostLevel());
+    gridTemp3D->Update();
     output->Register(this);
     gridTemp3D->Delete();
     }
