@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOpenGLImageMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-08-02 20:04:22 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 1999-08-03 16:06:26 $
+  Version:   $Revision: 1.19 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -239,7 +239,9 @@ static void vtkOpenGLImageMapperRenderShort(vtkOpenGLImageMapper *self,
   // The "*2.0" and "*1.0" ensure that the comparison is done
   // with double-precision math.
   int bitShift = 0;
-  while (((long)(1 << bitShift)*scale)*USHRT_MAX*2.0 < INT_MAX*1.0)
+  double absScale = ((scale < 0) ? -scale : scale); 
+
+  while (((long)(1 << bitShift)*absScale)*2.0*USHRT_MAX < INT_MAX*1.0)
     {
     bitShift++;
     }
