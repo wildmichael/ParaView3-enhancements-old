@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLStructuredGridReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-27 00:16:05 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-12-31 21:58:34 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -22,7 +22,7 @@
 #include "vtkXMLDataElement.h"
 #include "vtkXMLDataParser.h"
 
-vtkCxxRevisionMacro(vtkXMLStructuredGridReader, "$Revision: 1.4 $");
+vtkCxxRevisionMacro(vtkXMLStructuredGridReader, "$Revision: 1.5 $");
 vtkStandardNewMacro(vtkXMLStructuredGridReader);
 
 //----------------------------------------------------------------------------
@@ -144,8 +144,15 @@ void vtkXMLStructuredGridReader::SetupOutputInformation()
     {
     // Non-empty volume.
     vtkDataArray* a = this->CreateDataArray(ePoints->GetNestedElement(0));
-    points->SetData(a);
-    a->Delete();
+    if(a)
+      {
+      points->SetData(a);
+      a->Delete();
+      }
+    else
+      {
+      this->InformationError = 1;
+      }
     }
   
   output->SetPoints(points);

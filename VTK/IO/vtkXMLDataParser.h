@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLDataParser.h,v $
   Language:  C++
-  Date:      $Date: 2002-12-09 14:50:08 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2002-12-31 21:58:34 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -46,14 +46,6 @@ public:
   // Description:
   // Enumerate big and little endian byte order settings.
   enum { BigEndian, LittleEndian };
-  //ETX
-  
-  //BTX
-  // Description:
-  // Enumerate the supported vtkIdType bit lengths.
-  //   Int32 = File stores 32-bit values for vtkIdType.
-  //   Int64 = File stores 64-bit values for vtkIdType.
-  enum { Int32=32, Int64=64 };
   //ETX
   
   // Description:
@@ -161,9 +153,6 @@ protected:
   
   // The byte order of the binary input.
   int ByteOrder;
-  
-  // The input vtkIdType.
-  int IdType;
   
   // The input stream used to read data.  Set by ReadAppendedData and
   // ReadInlineData methods.

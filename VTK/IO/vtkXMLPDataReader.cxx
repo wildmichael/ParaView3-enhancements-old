@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLPDataReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-26 18:18:50 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2002-12-31 21:58:34 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,7 +25,7 @@
 #include "vtkXMLDataElement.h"
 #include "vtkXMLDataReader.h"
 
-vtkCxxRevisionMacro(vtkXMLPDataReader, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkXMLPDataReader, "$Revision: 1.4 $");
 
 //----------------------------------------------------------------------------
 vtkXMLPDataReader::vtkXMLPDataReader()
@@ -86,8 +86,15 @@ void vtkXMLPDataReader::SetupOutputInformation()
       if(this->PointDataArrayIsEnabled(eNested))
         {
         vtkDataArray* array = this->CreateDataArray(eNested);
-        pointData->AddArray(array);
-        array->Delete();
+        if(array)
+          {
+          pointData->AddArray(array);
+          array->Delete();
+          }
+        else
+          {
+          this->InformationError = 1;
+          }
         }
       }
     }
@@ -100,8 +107,15 @@ void vtkXMLPDataReader::SetupOutputInformation()
       if(this->CellDataArrayIsEnabled(eNested))
         {
         vtkDataArray* array = this->CreateDataArray(eNested);
-        cellData->AddArray(array);
-        array->Delete();
+        if(array)
+          {
+          cellData->AddArray(array);
+          array->Delete();
+          }
+        else
+          {
+          this->InformationError = 1;
+          }
         }
       }
     }

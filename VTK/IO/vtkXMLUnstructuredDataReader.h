@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLUnstructuredDataReader.h,v $
   Language:  C++
-  Date:      $Date: 2002-10-23 15:49:47 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2002-12-31 21:58:34 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -29,8 +29,9 @@
 #include "vtkXMLDataReader.h"
 
 class vtkCellArray;
-class vtkUnsignedCharArray;
+class vtkIdTypeArray;
 class vtkPointSet;
+class vtkUnsignedCharArray;
 
 class VTK_IO_EXPORT vtkXMLUnstructuredDataReader : public vtkXMLDataReader
 {
@@ -60,8 +61,8 @@ protected:
   vtkPointSet* GetOutputAsPointSet();
   vtkXMLDataElement* FindDataArrayWithName(vtkXMLDataElement* eParent,
                                            const char* name);
-  vtkDataArray* CreateDataArrayWithName(vtkXMLDataElement* eParent,
-                                        const char* name);
+  vtkIdTypeArray* ConvertToIdTypeArray(vtkDataArray* a);
+  vtkUnsignedCharArray* ConvertToUnsignedCharArray(vtkDataArray* a);
   
   // Pipeline execute data driver.  Called by vtkXMLReader.
   void ReadXMLData();
