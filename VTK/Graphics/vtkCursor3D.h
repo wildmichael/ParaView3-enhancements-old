@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkCursor3D.h,v $
   Language:  C++
-  Date:      $Date: 1994-08-10 13:20:20 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1994-09-14 08:16:06 $
+  Version:   $Revision: 1.4 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -35,12 +35,12 @@ public:
 
   void SetModelBounds(float *bounds);
   void SetModelBounds(float xmin, float xmax, float ymin, float ymax, float zmin, float zmax);
-  vlGetVectorMacro(ModelBounds,float);
+  vlGetVectorMacro(ModelBounds,float,6);
 
   // Description:
   // Specify the position of cursor focus.
   vlSetVector3Macro(FocalPoint,float);
-  vlGetVectorMacro(FocalPoint,float);
+  vlGetVectorMacro(FocalPoint,float,3);
 
   // Description:
   // Turn on/off the wireframe bounding box.

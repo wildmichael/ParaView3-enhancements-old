@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkAxes.h,v $
   Language:  C++
-  Date:      $Date: 1994-08-10 13:20:18 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1994-09-14 08:16:05 $
+  Version:   $Revision: 1.5 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -36,7 +36,7 @@ public:
   // Description:
   // Set the origin of the axes.
   vlSetVector3Macro(Origin,float);
-  vlGetVectorMacro(Origin,float);
+  vlGetVectorMacro(Origin,float,3);
 
   // Description:
   // Set the scale factor of the axes. Used to control size.

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkLineSource.h,v $
   Language:  C++
-  Date:      $Date: 1994-08-10 08:05:59 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1994-09-14 08:16:07 $
+  Version:   $Revision: 1.10 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -36,12 +36,12 @@ public:
   // Description:
   // Set position of first end point.
   vlSetVector3Macro(Pt1,float);
-  vlGetVectorMacro(Pt1,float);
+  vlGetVectorMacro(Pt1,float,3);
 
   // Description:
   // Set position of other end point.
   vlSetVector3Macro(Pt2,float);
-  vlGetVectorMacro(Pt2,float);
+  vlGetVectorMacro(Pt2,float,3);
 
   // Description:
   // Divide line into resolution number of pieces.

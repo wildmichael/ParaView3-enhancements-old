@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPointSource.h,v $
   Language:  C++
-  Date:      $Date: 1994-08-10 08:06:01 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1994-09-14 08:16:08 $
+  Version:   $Revision: 1.7 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -39,7 +39,7 @@ public:
   // Description:
   // Set the center of the point cloud.
   vlSetVector3Macro(Center,float);
-  vlGetVectorMacro(Center,float);
+  vlGetVectorMacro(Center,float,3);
 
   // Description:
   // Set the radius of the point cloud.
