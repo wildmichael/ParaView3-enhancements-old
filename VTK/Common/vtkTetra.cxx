@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkTetra.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-09-14 20:18:54 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 1994-09-20 08:36:57 $
+  Version:   $Revision: 1.10 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -53,15 +53,15 @@ int vlTetra::EvaluatePosition(float x[3], float closestPoint[3],
     c3[i] = pt3[i] - pt4[i];
     }
 
-  if ( (det = math.Determinate3x3(c1,c2,c3)) == 0.0 )
+  if ( (det = math.Determinant3x3(c1,c2,c3)) == 0.0 )
     {
     dist2 = LARGE_FLOAT;
     return 0;
     }
 
-  pcoords[0] = math.Determinate3x3 (rhs,c2,c3) / det;
-  pcoords[1] = math.Determinate3x3 (c1,rhs,c3) / det;
-  pcoords[2] = math.Determinate3x3 (c1,c2,rhs) / det;
+  pcoords[0] = math.Determinant3x3 (rhs,c2,c3) / det;
+  pcoords[1] = math.Determinant3x3 (c1,rhs,c3) / det;
+  pcoords[2] = math.Determinant3x3 (c1,c2,rhs) / det;
   p4 = 1.0 - pcoords[0] - pcoords[1] - pcoords[2];
 
   if ( pcoords[0] >= 0.0 && pcoords[1] <= 1.0 &&

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkLine.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-09-14 20:17:29 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1994-09-20 08:36:54 $
+  Version:   $Revision: 1.11 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -144,14 +144,14 @@ int vlLine::Intersection (float a1[3], float a2[3], float b1[3], float b2[3],
 //
 //  Solve the system of equations
 //
-  if ( (det=math.Determinate2x2(sys[0],sys[1])) <= TOL )
+  if ( (det=math.Determinant2x2(sys[0],sys[1])) <= TOL )
     {
     return ON_LINE;
     }
   else 
     {
-    u = math.Determinate2x2(c,sys[1]) / det;
-    v = math.Determinate2x2(sys[0],c) / det;
+    u = math.Determinant2x2(c,sys[1]) / det;
+    v = math.Determinant2x2(sys[0],c) / det;
     }
 //
 //  Check parametric coordinates for intersection.

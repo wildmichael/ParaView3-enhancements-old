@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkQuad.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-09-14 20:18:50 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1994-09-20 08:36:56 $
+  Version:   $Revision: 1.13 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -110,15 +110,15 @@ int vlQuad::EvaluatePosition(float x[3], float closestPoint[3],
 
     for (j=0; j<2; j++) fcol[j] -= x[indices[j]];
 //
-//  compute determinates and generate improvements
+//  compute determinants and generate improvements
 //
-    if ( (det=math.Determinate2x2(rcol,scol)) == 0.0 )
+    if ( (det=math.Determinant2x2(rcol,scol)) == 0.0 )
       {
       return 0;
       }
 
-    pcoords[0] = params[0] - math.Determinate2x2 (fcol,scol) / det;
-    pcoords[1] = params[1] - math.Determinate2x2 (rcol,fcol) / det;
+    pcoords[0] = params[0] - math.Determinant2x2 (fcol,scol) / det;
+    pcoords[1] = params[1] - math.Determinant2x2 (rcol,fcol) / det;
 //
 //  check for convergence
 //

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkTriangle.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-09-14 20:18:57 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1994-09-20 08:36:58 $
+  Version:   $Revision: 1.14 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -81,11 +81,11 @@ int vlTriangle::EvaluatePosition(float x[3], float closestPoint[3],
     c2[i] = pt2[indices[i]] - pt3[indices[i]];
     }
 
-  if ( (det = math.Determinate2x2(c1,c2)) == 0.0 )
+  if ( (det = math.Determinant2x2(c1,c2)) == 0.0 )
     return 0;
 
-  pcoords[0] = math.Determinate2x2 (rhs,c2) / det;
-  pcoords[1] = math.Determinate2x2 (c1,rhs) / det;
+  pcoords[0] = math.Determinant2x2 (rhs,c2) / det;
+  pcoords[1] = math.Determinant2x2 (c1,rhs) / det;
   pcoords[2] = 1.0 - pcoords[0] - pcoords[1];
 //
 // Okay, now find closest point to element
