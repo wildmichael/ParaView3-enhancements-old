@@ -3,11 +3,9 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPixel.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-07-19 08:03:53 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1994-08-15 07:49:36 $
+  Version:   $Revision: 1.7 $
 
-Description:
----------------------------------------------------------------------------
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
 without the express written consent of the authors.

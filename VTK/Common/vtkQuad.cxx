@@ -3,11 +3,9 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkQuad.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-07-19 08:03:52 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1994-08-15 07:49:33 $
+  Version:   $Revision: 1.11 $
 
-Description:
----------------------------------------------------------------------------
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
 without the express written consent of the authors.

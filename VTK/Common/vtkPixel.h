@@ -3,11 +3,9 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPixel.h,v $
   Language:  C++
-  Date:      $Date: 1994-05-15 19:19:38 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1994-08-15 07:49:37 $
+  Version:   $Revision: 1.6 $
 
-Description:
----------------------------------------------------------------------------
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
 without the express written consent of the authors.
@@ -15,9 +13,12 @@ without the express written consent of the authors.
 Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994 
 
 =========================================================================*/
-//
-// Computational class for rectangles.
-//
+// .NAME vlRectangle - a cell that represents a orthogonal quadrilateral
+// .SECTION Description
+// vlRectangle is a concrete implementation of vlCell to represent a 2D
+// orthogonal quadrilateral. Unlike vlQuad, the corners are at right angles,
+// leading to large increases in computational efficiency.
+
 #ifndef __vlRectangle_h
 #define __vlRectangle_h
 

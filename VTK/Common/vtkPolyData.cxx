@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-07-15 13:20:31 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 1994-08-15 07:49:22 $
+  Version:   $Revision: 1.37 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -27,7 +27,6 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 // of verts, lines, polygons, and triangle strips lists.  It basically 
 // "marks" empty lists so that the traveral method "GetNextCell" 
 // works properly.
-//
 vlCellArray *vlPolyData::Dummy = NULL;
 
 vlPolyData::vlPolyData ()

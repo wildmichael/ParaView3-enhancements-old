@@ -3,11 +3,9 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkVertex.h,v $
   Language:  C++
-  Date:      $Date: 1994-05-15 19:21:36 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1994-08-15 07:49:19 $
+  Version:   $Revision: 1.8 $
 
-Description:
----------------------------------------------------------------------------
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
 without the express written consent of the authors.
@@ -15,9 +13,10 @@ without the express written consent of the authors.
 Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994 
 
 =========================================================================*/
-//
-// Computationsl class for point cells
-//
+// .NAME vlPoint - a cell that represents a point
+// .SECTION Description
+// vlPoint is a concrete implementation of vlCell to represent a 0D vertex.
+
 #ifndef __vlPoint_h
 #define __vlPoint_h
 
