@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHexahedron.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:03:16 $
-  Version:   $Revision: 1.62 $
+  Date:      $Date: 2000-10-02 19:31:10 $
+  Version:   $Revision: 1.63 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -685,15 +685,15 @@ void vtkHexahedron::Derivatives(int vtkNotUsed(subId), float pcoords[3],
   // now compute derivates of values provided
   for (k=0; k < dim; k++) //loop over values per vertex
     {
+    sum[0] = sum[1] = sum[2] = 0.0;
+    for ( i=0; i < 8; i++) //loop over interp. function derivatives
+      {
+      sum[0] += functionDerivs[i] * values[dim*i + k]; 
+      sum[1] += functionDerivs[8 + i] * values[dim*i + k];
+      sum[2] += functionDerivs[16 + i] * values[dim*i + k];
+      }
     for (j=0; j < 3; j++) //loop over derivative directions
       {
-      sum[0] = sum[1] = sum[2] = 0.0;
-      for ( i=0; i < 8; i++) //loop over interp. function derivatives
-        {
-        sum[0] += functionDerivs[i] * values[dim*i + k]; 
-        sum[1] += functionDerivs[8 + i] * values[dim*i + k];
-        sum[2] += functionDerivs[16 + i] * values[dim*i + k];
-        }
       derivs[3*k + j] = sum[0]*jI[j][0] + sum[1]*jI[j][1] + sum[2]*jI[j][2];
       }
     }

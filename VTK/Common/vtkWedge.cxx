@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWedge.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:04:06 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2000-10-02 19:31:10 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -642,7 +642,7 @@ void vtkWedge::Derivatives(int vtkNotUsed(subId), float pcoords[3],
 
     for (j=0; j < 3; j++) //loop over derivative directions
       {
-      derivs[3*k + j] = sum[0]*jI[0][j] + sum[1]*jI[1][j] + sum[2]*jI[2][j];
+      derivs[3*k + j] = sum[0]*jI[j][0] + sum[1]*jI[j][1] + sum[2]*jI[j][2];
       }
     }
 }
