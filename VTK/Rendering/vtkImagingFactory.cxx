@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImagingFactory.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-07-25 16:59:31 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2000-07-30 09:02:15 $
+  Version:   $Revision: 1.10 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -154,6 +154,10 @@ vtkObject* vtkImagingFactory::CreateInstance(const char* vtkclassname )
     if(strcmp(vtkclassname, "vtkImageWindow") == 0)
       {
       return vtkXImageWindow::New();
+      }
+    if(strcmp(vtkclassname, "vtkImager") == 0)
+      {
+      return NULL;
       }
     if(strcmp(vtkclassname, "vtkImageMapper") == 0)
       {
