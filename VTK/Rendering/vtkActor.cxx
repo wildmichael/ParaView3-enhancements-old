@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-17 02:03:07 $
-  Version:   $Revision: 1.120 $
+  Date:      $Date: 2003-01-21 20:02:56 $
+  Version:   $Revision: 1.121 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -31,7 +31,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkActor, "$Revision: 1.120 $");
+vtkCxxRevisionMacro(vtkActor, "$Revision: 1.121 $");
 
 vtkCxxSetObjectMacro(vtkActor,Texture,vtkTexture);
 
@@ -397,7 +397,7 @@ float *vtkActor::GetBounds()
 
 unsigned long int vtkActor::GetMTime()
 {
-  unsigned long mTime=this->vtkObject::GetMTime();
+  unsigned long mTime=this->Superclass::GetMTime();
   unsigned long time;
 
   if ( this->Property != NULL )
@@ -409,18 +409,6 @@ unsigned long int vtkActor::GetMTime()
   if ( this->BackfaceProperty != NULL )
     {
     time = this->BackfaceProperty->GetMTime();
-    mTime = ( time > mTime ? time : mTime );
-    }
-
-  if ( this->UserMatrix != NULL )
-    {
-    time = this->UserMatrix->GetMTime();
-    mTime = ( time > mTime ? time : mTime );
-    }
-
-  if ( this->UserTransform != NULL )
-    {
-    time = this->UserTransform->GetMTime();
     mTime = ( time > mTime ? time : mTime );
     }
 

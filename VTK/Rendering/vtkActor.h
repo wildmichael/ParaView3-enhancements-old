@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor.h,v $
   Language:  C++
-  Date:      $Date: 2002-05-27 14:27:44 $
-  Version:   $Revision: 1.97 $
+  Date:      $Date: 2003-01-21 20:02:55 $
+  Version:   $Revision: 1.98 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -138,8 +138,7 @@ public:
   virtual void ApplyProperties() {return;};
 
   // Description:
-  // Get the actors mtime plus consider its properties, texture and
-  // usermatrix if set.
+  // Get the actors mtime plus consider its properties and texture if set.
   unsigned long int GetMTime();
   
   // Description:
