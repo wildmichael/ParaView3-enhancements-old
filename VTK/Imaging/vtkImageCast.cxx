@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCast.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-01-28 15:24:51 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 1997-03-13 15:57:13 $
+  Version:   $Revision: 1.3 $
   Thanks:    Thanks to Abdalmajeid M. Alyassin who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -47,8 +47,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // Constructor sets default values
 vtkImageCast::vtkImageCast()
 {
-
   this->SetAxes(VTK_IMAGE_X_AXIS, VTK_IMAGE_Y_AXIS);
+  this->Dimensionality = 1;
+  this->ExecuteDimensionality = 2;
 }
 
 
@@ -66,6 +67,8 @@ void vtkImageCastExecute(vtkImageCast *self,
   int outInc0, outInc1;
   IT  *inPtr0, *inPtr1;
   OT  *outPtr0, *outPtr1;
+
+  self = self;
   
   // Get information to march through data 
   inRegion->GetIncrements(inInc0, inInc1);
@@ -93,8 +96,8 @@ void vtkImageCastExecute(vtkImageCast *self,
 //----------------------------------------------------------------------------
 template <class T>
 void vtkImageCastExecute(vtkImageCast *self,
-			      vtkImageRegion *inRegion, T *inPtr,
-			      vtkImageRegion *outRegion)
+			 vtkImageRegion *inRegion, T *inPtr,
+			 vtkImageRegion *outRegion)
 {
   void *outPtr = outRegion->GetScalarPointer();
   switch (outRegion->GetScalarType())
