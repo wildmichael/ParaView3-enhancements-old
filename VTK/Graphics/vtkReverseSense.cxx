@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkReverseSense.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-11-12 20:08:17 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2002-12-08 13:31:55 $
+  Version:   $Revision: 1.27 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -21,7 +21,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkPolyData.h"
 
-vtkCxxRevisionMacro(vtkReverseSense, "$Revision: 1.26 $");
+vtkCxxRevisionMacro(vtkReverseSense, "$Revision: 1.27 $");
 vtkStandardNewMacro(vtkReverseSense);
 
 // Construct object so that behavior is to reverse cell ordering and
@@ -88,7 +88,7 @@ void vtkReverseSense::Execute()
     //first do point normals
     vtkIdType numPoints=input->GetNumberOfPoints();
     vtkDataArray *outNormals=normals->NewInstance();
-    outNormals->SetNumberOfComponents(outNormals->GetNumberOfComponents());
+    outNormals->SetNumberOfComponents(normals->GetNumberOfComponents());
     outNormals->SetNumberOfTuples(numPoints);
     float n[3];
 
