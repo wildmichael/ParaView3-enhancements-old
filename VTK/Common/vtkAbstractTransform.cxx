@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAbstractTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-09-14 15:34:54 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2000-09-14 16:15:57 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -41,7 +41,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 =========================================================================*/
 
 #include "vtkAbstractTransform.h"
-#include "vtkHomogenousTransform.h"
+#include "vtkHomogeneousTransform.h"
 #include "vtkMath.h"
 #ifdef VTK_DEBUG_LEAKS
 #include "vtkDebugLeaks.h"
@@ -312,13 +312,11 @@ void vtkAbstractTransform::UnRegister(vtkObject *o)
 
 //----------------------------------------------------------------------------
 // A very, very minimal transformation
-class VTK_EXPORT vtkSimpleTransform : public vtkHomogenousTransform
+class VTK_EXPORT vtkSimpleTransform : public vtkHomogeneousTransform
 {
 public:
-  vtkTypeMacro(vtkSimpleTransform,vtkHomogenousTransform);
+  vtkTypeMacro(vtkSimpleTransform,vtkHomogeneousTransform);
   static vtkSimpleTransform *New() {
-    // for performance reasons this class does not use the factory,
-    // so add it to the vtkDebugLeaks 
 #ifdef VTK_DEBUG_LEAKS
     vtkDebugLeaks::ConstructClass("vtkSimpleTransform");
 #endif    
