@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-02-08 17:12:40 $
-  Version:   $Revision: 1.96 $
+  Date:      $Date: 1999-02-15 15:59:48 $
+  Version:   $Revision: 1.97 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -707,7 +707,8 @@ void vtkRenderer::ResetCamera(float bounds[6])
   float distance;
   float width;
   float vn[3], *vup;;
-
+  
+  this->GetActiveCamera();
   if ( this->ActiveCamera != NULL )
     {
     this->ActiveCamera->GetViewPlaneNormal(vn);
