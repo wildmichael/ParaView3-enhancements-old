@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageClip.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 21:15:41 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1997-07-11 17:07:33 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -253,7 +253,7 @@ static void vtkImageClipAxis(vtkImageRegion *region, T backGround)
   int flag;  // signals loop to stop after non background pixel.
   
   region->GetExtent(min0,max0, min1,max1, min2,max2, min3,max3, min4,max4);
-  region->GetIncrements(inc0, inc1, inc2, inc3);
+  region->GetIncrements(inc0, inc1, inc2, inc3, inc4);
   // loop to find min
   ptr0 = (T *)(region->GetScalarPointer(min0, min1, min2, min3, min4));
   flag = 1;
@@ -398,7 +398,8 @@ static void vtkImageClipCompute(vtkImageRegion *region, T *ptr)
   
   // We have a backGround value, now shrink the axes one by one.
   region->GetAxes(5, axes);
-  for (idx = 0; idx < 5; ++ idx)
+  // do not bother with component axis
+  for (idx = 0; idx < 4; ++ idx)
     {
     region->SetAxes(axes[idx]);
     vtkImageClipAxis(region, backGround);
@@ -460,6 +461,8 @@ void vtkImageClip::ComputeOutputWholeExtent()
   this->CTime.Modified();
   region->Delete();
 }
+
+
 
 
 
