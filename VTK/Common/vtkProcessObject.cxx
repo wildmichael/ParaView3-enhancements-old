@@ -3,8 +3,8 @@
  Program:   Visualization Toolkit
  Module:    $RCSfile: vtkProcessObject.cxx,v $
  Language:  C++
- Date:      $Date: 2001-03-13 20:26:06 $
- Version:   $Revision: 1.22 $
+ Date:      $Date: 2001-08-28 20:12:47 $
+ Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -97,6 +97,8 @@ vtkProcessObject::~vtkProcessObject()
     delete [] this->SortedInputs2;
     this->SortedInputs2 = NULL;
     }
+  delete [] this->ProgressText;
+  this->ProgressText = NULL;
 }
 
 typedef vtkDataObject *vtkDataObjectPointer;
