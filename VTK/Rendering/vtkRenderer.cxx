@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-07-14 10:17:54 $
-  Version:   $Revision: 1.147 $
+  Date:      $Date: 2000-07-28 12:33:28 $
+  Version:   $Revision: 1.148 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -92,6 +92,8 @@ vtkRenderer::vtkRenderer()
   this->RayCastPropArray         = NULL;
   this->RenderIntoImagePropArray = NULL;   
 
+  this->TransparentRenderer      = 0;
+  this->Interactive              = 1;
   this->Cullers = vtkCullerCollection::New();  
   vtkFrustumCoverageCuller *cull = vtkFrustumCoverageCuller::New();
   this->Cullers->AddItem(cull);
