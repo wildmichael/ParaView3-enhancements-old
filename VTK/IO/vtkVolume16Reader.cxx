@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolume16Reader.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-08-21 20:57:16 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1996-11-27 12:56:04 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -166,7 +166,7 @@ vtkScalars *vtkVolume16Reader::ReadImage(int sliceNumber)
 
   // build the file name
   sprintf (filename, this->FilePattern, this->FilePrefix, sliceNumber);
-  if ( !(fp = fopen(filename,"r")) )
+  if ( !(fp = fopen(filename,"rb")) )
     {
     vtkErrorMacro(<<"Can't open file: " << filename);
     return NULL;
@@ -221,7 +221,7 @@ vtkScalars *vtkVolume16Reader::ReadVolume(int first, int last)
     {
     // build the file name
     sprintf (filename, this->FilePattern, this->FilePrefix, fileNumber);
-    if ( !(fp = fopen(filename,"r")) )
+    if ( !(fp = fopen(filename,"rb")) )
       {
       vtkErrorMacro(<<"Can't find file: " << filename);
       return NULL;
