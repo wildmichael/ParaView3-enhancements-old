@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageStencilData.h,v $
   Language:  C++
-  Date:      $Date: 2001-07-30 21:15:12 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-08-02 19:25:15 $
+  Version:   $Revision: 1.2 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -78,11 +78,12 @@ public:
 
   // Description:
   // Given the total output x extent [xMin,xMax] and the current y, z indices,
-  // return each sub extent [r1,r2] that lies within within the unclipped
-  // region in sequence.  A value of '0' is returned if no more sub extents
-  // are available.  The variable 'iter' must be initialized to zero
-  // before the first call.  The variable 'iter' is used internally
-  // to keep track of which sub-extent should be returned next.
+  // return each sub-extent [r1,r2] that lies within within the unclipped
+  // region in sequence.  A value of '0' is returned if no more sub-extents
+  // are available.  The variable 'iter' must be initialized to zero before
+  // the first call, unless you want the complementary sub-extents in which
+  // case you must initialize 'iter' to -1.  The variable 'iter' is used
+  // internally to keep track of which sub-extent should be returned next.
   int GetNextExtent(int &r1, int &r2, int xMin, int xMax,
                     int yIdx, int zIdx, int &iter);
 
