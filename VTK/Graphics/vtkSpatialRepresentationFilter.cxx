@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSpatialRepresentationFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-23 20:49:25 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1997-12-11 12:01:32 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -135,6 +135,9 @@ void vtkSpatialRepresentationFilter::Update()
 
     if ( this->StartMethod ) (*this->StartMethod)(this->StartMethodArg);
     this->Output->Initialize(); //clear output
+    // reset AbortExecute flag and Progress
+    this->AbortExecute = 0;
+    this->Progress = 0.0;
     this->Execute();
     this->ExecuteTime.Modified();
     this->SetDataReleased(0);

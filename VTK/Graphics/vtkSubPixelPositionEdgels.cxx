@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSubPixelPositionEdgels.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-05-23 20:35:56 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1997-12-11 12:01:34 $
+  Version:   $Revision: 1.11 $
 
 Copyright (c) 1993-1997 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -328,6 +328,9 @@ void vtkSubPixelPositionEdgels::Update()
     {
     if ( this->StartMethod ) (*this->StartMethod)(this->StartMethodArg);
     this->Output->Initialize();
+    // reset AbortExecute flag and Progress
+    this->AbortExecute = 0;
+    this->Progress = 0.0;
     this->Execute();
     this->ExecuteTime.Modified();
     this->SetDataReleased(0);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProbeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:46:35 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 1997-12-11 12:01:30 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -129,6 +129,9 @@ void vtkProbeFilter::Update()
 
     if ( this->StartMethod ) (*this->StartMethod)(this->StartMethodArg);
     this->Output->CopyStructure(this->Input);
+    // reset AbortExecute flag and Progress
+    this->AbortExecute = 0;
+    this->Progress = 0.0;
     this->Execute();
     this->ExecuteTime.Modified();
     this->SetDataReleased(0);

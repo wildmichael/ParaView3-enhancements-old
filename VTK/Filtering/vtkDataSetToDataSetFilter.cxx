@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetToDataSetFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-11-06 14:15:04 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 1997-12-11 12:01:22 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -159,6 +159,9 @@ void vtkDataSetToDataSetFilter::Update()
     if ( this->StartMethod ) (*this->StartMethod)(this->StartMethodArg);
     // copy topological/geometric structure from input
     this->Output->CopyStructure(this->Input);
+    // reset AbortExecute flag and Progress
+    this->AbortExecute = 0;
+    this->Progress = 0.0;
     this->Execute();
     this->ExecuteTime.Modified();
     this->SetDataReleased(0);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTensorGlyph.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:48:24 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 1997-12-11 12:01:35 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -330,6 +330,9 @@ void vtkTensorGlyph::Update()
 
     if ( this->StartMethod ) (*this->StartMethod)(this->StartMethodArg);
     this->Output->Initialize(); //clear output
+    // reset AbortExecute flag and Progress
+    this->AbortExecute = 0;
+    this->Progress = 0.0;
     this->Execute();
     this->ExecuteTime.Modified();
     this->SetDataReleased(0);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImplicitModeller.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-08-19 18:41:01 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 1997-12-11 12:01:25 $
+  Version:   $Revision: 1.45 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -266,6 +266,9 @@ void vtkImplicitModeller::Update()
 
       if ( this->StartMethod ) (*this->StartMethod)(this->StartMethodArg);
       this->Output->Initialize(); //clear output
+      // reset AbortExecute flag and Progress
+      this->AbortExecute = 0;
+      this->Progress = 0.0;
       this->Execute();
       this->ExecuteTime.Modified();
       this->SetDataReleased(0);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCastToConcrete.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-11-25 13:06:38 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 1997-12-11 12:01:21 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -88,6 +88,9 @@ void vtkCastToConcrete::Update()
   this->GetMTime() > this->ExecuteTime )
     {
     if ( this->StartMethod ) (*this->StartMethod)(this->StartMethodArg);
+    // reset AbortExecute flag and Progress
+    this->AbortExecute = 0;
+    this->Progress = 0.0;
     this->Execute();
     this->ExecuteTime.Modified();
     if ( this->EndMethod ) (*this->EndMethod)(this->EndMethodArg);

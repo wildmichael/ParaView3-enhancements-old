@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkExtractVectorComponents.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-07-09 20:44:31 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 1997-12-11 12:01:23 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -193,6 +193,9 @@ void vtkExtractVectorComponents::Update()
     this->Output->CopyStructure(this->Input);
     this->VyComponent->CopyStructure(this->Input);
     this->VzComponent->CopyStructure(this->Input);
+    // reset AbortExecute flag and Progress
+    this->AbortExecute = 0;
+    this->Progress = 0.0;
     this->Execute();
     this->ExecuteTime.Modified();
     this->SetDataReleased(0);
