@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtk3DWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-09-05 14:46:01 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2002-10-04 12:35:52 $
+  Version:   $Revision: 1.15 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,7 +25,7 @@
 #include "vtkRenderer.h"
 #include "vtkRenderWindow.h"
 
-vtkCxxRevisionMacro(vtk3DWidget, "$Revision: 1.14 $");
+vtkCxxRevisionMacro(vtk3DWidget, "$Revision: 1.15 $");
 
 vtkCxxSetObjectMacro(vtk3DWidget,Prop3D,vtkProp3D);
 vtkCxxSetObjectMacro(vtk3DWidget,Input,vtkDataSet);
@@ -118,10 +118,9 @@ float vtk3DWidget::SizeHandles(float factor)
 {
   int i;
   vtkRenderer *renderer;
-  vtkCamera *camera;
 
   if ( !this->ValidPick || !(renderer=this->CurrentRenderer) || 
-       !(camera=renderer->GetActiveCamera()) )
+       !renderer->GetActiveCamera() )
     {
     return (this->HandleSize * factor * this->InitialLength);
     }
