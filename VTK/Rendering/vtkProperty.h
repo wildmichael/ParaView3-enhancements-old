@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProperty.h,v $
   Language:  C++
-  Date:      $Date: 1997-05-23 20:35:18 $
-  Version:   $Revision: 1.30 $
+  Date:      $Date: 1997-06-16 10:57:19 $
+  Version:   $Revision: 1.31 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -77,6 +77,13 @@ public:
   // method includes the invoking actor as an argument which can
   // be used by property devices that require the actor.
   virtual void Render(vtkActor *,vtkRenderer *) {};
+
+  // Description:
+  // This method renders the property as a backface property. TwoSidedLighting
+  // must be turned off to see any backface properties. Note that only
+  // colors and opacity are used for backface properties. Other properties
+  // such as Representation, Culling are specified by the Property.
+  virtual void BackfaceRender(vtkActor *,vtkRenderer *) {};
 
   // Description:
   // Set the shading interpolation method for an object.
