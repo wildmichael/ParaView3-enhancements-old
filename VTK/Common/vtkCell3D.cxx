@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCell3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-05-21 20:23:48 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2001-05-23 11:49:12 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -154,11 +154,7 @@ void vtkCell3D::Clip(float value, vtkScalars *cellScalars,
   this->Triangulator->Triangulate();
 
   // Add the triangulation to the mesh
-//  this->Triangulator->AddTetras(0,output);
-//  if ( this->GenerateClippedOutput )
-//    {
-//    this->Triangulator->AddTetras(1,clippedOutput);
-//    }
+  this->Triangulator->AddTetras(0,tets);
 }
 
 void vtkCell3D::PrintSelf(ostream& os, vtkIndent indent)
