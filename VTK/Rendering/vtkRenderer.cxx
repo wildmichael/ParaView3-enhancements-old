@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkRenderer.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-09-14 08:10:03 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 1994-09-16 12:49:45 $
+  Version:   $Revision: 1.20 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -149,7 +149,6 @@ void vlRenderer::DoActors()
 void vlRenderer::ResetCamera()
 {
   vlActor *anActor;
-  int num;
   float *bounds;
   float allBounds[6];
   int nothingVisible=1;
@@ -158,10 +157,8 @@ void vlRenderer::ResetCamera()
   allBounds[1] = allBounds[3] = allBounds[5] = -LARGE_FLOAT;
   
   // loop through actors 
-  for (num = 1; num <= this->Actors.GetNumberOfItems(); num++)
+  for ( this->Actors.InitTraversal(); anActor = this->Actors.GetNextItem(); )
     {
-    anActor = this->Actors.GetItem(num);
- 
     // if it's invisible, we can skip the rest 
     if ( anActor->GetVisibility() )
       {

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkRendererCollection.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-08-21 10:12:28 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1994-09-16 12:49:42 $
+  Version:   $Revision: 1.6 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -14,20 +14,17 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 
 =========================================================================*/
 #include <stdlib.h>
-#include <iostream.h>
 #include "RenderC.hh"
 
 // Description:
 // Forward the Render() method to each renderer in the list.
 void vlRendererCollection::Render()
 {
-  int i;
-  vlRenderer *elem;
+  vlRenderer *ren;
 
-  for (i = 1; i <= this->GetNumberOfItems(); i++)
+  for ( this->InitTraversal(); ren = GetNextItem(); )
     {
-    elem = this->GetItem(i);
-    elem->Render();
+    ren->Render();
     }
 }
 

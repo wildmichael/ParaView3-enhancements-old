@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkRendererCollection.h,v $
   Language:  C++
-  Date:      $Date: 1994-08-21 10:12:29 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1994-09-16 12:49:43 $
+  Version:   $Revision: 1.6 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -33,7 +33,7 @@ class vlRendererCollection : public vlCollection
   void AddItem(vlRenderer *a);
   void RemoveItem(vlRenderer *a);
   int IsItemPresent(vlRenderer *a);
-  vlRenderer *GetItem(int num);
+  vlRenderer *GetNextItem();
   void Render();
 };
 
@@ -60,10 +60,10 @@ inline int vlRendererCollection::IsItemPresent(vlRenderer *a)
 }
 
 // Description:
-// Get an renderer in the list at a particular location (1<=num<=number items).
-inline vlRenderer *vlRendererCollection::GetItem(int num) 
+// Get the next renderer in the list.
+inline vlRenderer *vlRendererCollection::GetNextItem() 
 {
-  return (vlRenderer *)(this->vlCollection::GetItem(num));
+  return (vlRenderer *)(this->vlCollection::GetNextItem());
 }
 
 #endif

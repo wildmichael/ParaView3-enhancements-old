@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkActorCollection.h,v $
   Language:  C++
-  Date:      $Date: 1994-08-21 10:11:21 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1994-09-16 12:49:40 $
+  Version:   $Revision: 1.5 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -33,7 +33,7 @@ class vlActorCollection : public vlCollection
   void AddItem(vlActor *a);
   void RemoveItem(vlActor *a);
   int IsItemPresent(vlActor *a);
-  vlActor *GetItem(int num);
+  vlActor *GetNextItem();
 };
 
 // Description:
@@ -59,10 +59,10 @@ inline int vlActorCollection::IsItemPresent(vlActor *a)
 }
 
 // Description:
-// Get an actor in the list at a particular location (1<=num<=number items).
-inline vlActor *vlActorCollection::GetItem(int num) 
+// Get the next actor in the list.
+inline vlActor *vlActorCollection::GetNextItem() 
 { 
-  return (vlActor *)(this->vlCollection::GetItem(num));
+  return (vlActor *)(this->vlCollection::GetNextItem());
 }
 
 #endif
