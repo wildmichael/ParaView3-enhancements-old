@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXImageWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-04-14 18:19:45 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1998-04-20 17:19:13 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -163,8 +163,9 @@ unsigned char *vtkXImageWindow::GetPixelData(int x1, int y1,
       }
     }
  
+  XDestroyImage(image);
+  
   return data;
-
 }
 
 void vtkXImageWindow::SwapBuffers()
@@ -239,8 +240,9 @@ vtkXImageWindow::~vtkXImageWindow()
   vtkDebugMacro(<< "vtkXImageWindow::vtkXImageWindow");
 
   /* free the Xwindow we created no need to free the colormap */
-  if (this->DisplayId && this->WindowId)
+  if (this->DisplayId && this->WindowId && this->WindowCreated)
     {
+    XFreeGC(this->DisplayId, this->Gc);
     XDestroyWindow(this->DisplayId,this->WindowId);
     }
   if (this->DisplayId)
