@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThresholdPoints.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:29:52 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2003-05-09 10:23:55 $
+  Version:   $Revision: 1.34 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -37,15 +37,16 @@ public:
   void PrintSelf(ostream& os, vtkIndent indent);
   
   // Description:
-  // Criterion is cells whose scalars are less than lower threshold.
+  // Criterion is cells whose scalars are less or equal to lower threshold.
   void ThresholdByLower(float lower);
 
   // Description:
-  // Criterion is cells whose scalars are less than upper threshold.
+  // Criterion is cells whose scalars are greater or equal to upper threshold.
   void ThresholdByUpper(float upper);
 
   // Description:
-  // Criterion is cells whose scalars are between lower and upper thresholds.
+  // Criterion is cells whose scalars are between lower and upper thresholds
+  // (inclusive of the end values).
   void ThresholdBetween(float lower, float upper);
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkThreshold.h,v $
   Language:  C++
-  Date:      $Date: 2003-03-25 14:58:57 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 2003-05-09 10:23:55 $
+  Version:   $Revision: 1.46 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -56,7 +56,8 @@ public:
   void ThresholdByUpper(float upper);
 
   // Description:
-  // Criterion is cells whose scalars are between lower and upper thresholds.
+  // Criterion is cells whose scalars are between lower and upper thresholds
+  // (inclusive of the end values).
   void ThresholdBetween(float lower, float upper);
 
   // Description:
