@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSLCReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:13:07 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1999-09-04 13:33:20 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -161,7 +161,6 @@ void vtkSLCReader::Execute()
   int   magic_num;
   int   z_counter;
   int   icon_width, icon_height;
-  int   voxel_count;
   int   compressed_size;
   int   i;
 
@@ -223,8 +222,6 @@ void vtkSLCReader::Execute()
   fread( icon_ptr, 1, (icon_width*icon_height), fp );
 
   delete [] icon_ptr;
-
-  voxel_count = 0;
 
   // Read In Data Plane By Plane
   for( z_counter=0; z_counter<size[2]; z_counter++ )

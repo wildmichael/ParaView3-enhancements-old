@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRibbonFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-06-25 16:00:06 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 1999-09-04 13:33:20 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -76,7 +76,6 @@ void vtkRibbonFilter::Execute()
   float *n;
   float s[3], sNext[3], sPrev[3], w[3];
   double BevelAngle;
-  float theta;
   int deleteNormals=0, ptId;
   vtkPolyData *input= this->GetInput();
   vtkPolyData *output= this->GetOutput();
@@ -151,7 +150,6 @@ void vtkRibbonFilter::Execute()
   //  Create pairs of points along the line that are later connected into a 
   //  triangle strip.
   //
-  theta = this->Angle * vtkMath::DegreesToRadians();
   for (inLines->InitTraversal(); inLines->GetNextCell(npts,pts); )
     {
     //
