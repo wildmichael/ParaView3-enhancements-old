@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataObject.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-10-09 01:01:04 $
-  Version:   $Revision: 1.55 $
+  Date:      $Date: 2000-10-12 11:16:21 $
+  Version:   $Revision: 1.56 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -725,4 +725,6 @@ void vtkDataObject::PrintSelf(ostream& os, vtkIndent indent)
 
   os << indent << "LastUpdateExtentWasOutsideOfTheExtent: " << 
     this->LastUpdateExtentWasOutsideOfTheExtent << endl;
+
+  os << indent << "Locality: " << this->Locality << endl;
 }
