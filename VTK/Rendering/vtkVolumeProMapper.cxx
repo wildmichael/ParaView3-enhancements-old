@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-04 14:30:16 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2002-01-16 17:00:08 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -44,16 +44,16 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkRenderer.h"
 #include "vtkToolkits.h"
 
-#ifdef VTK_HAVE_VG500
+#if defined (VTK_HAVE_VG500) || defined (VTK_FORCE_COMPILE_VG500)
 #include "vtkVolumeProVG500Mapper.h"
 #endif
-#ifdef VTK_HAVE_VP1000
+#if defined (VTK_HAVE_VP1000) || defined (VTK_FORCE_COMPILE_VP1000)
 #include "vtkVolumeProVP1000Mapper.h"
 #endif
 
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkVolumeProMapper, "$Revision: 1.27 $");
+vtkCxxRevisionMacro(vtkVolumeProMapper, "$Revision: 1.28 $");
 
 // Create the mapper. No context has been created, no volume has
 // been created yet.
@@ -140,11 +140,11 @@ vtkVolumeProMapper *vtkVolumeProMapper::New()
     return (vtkVolumeProMapper*)ret;
     }
   
-#ifdef VTK_HAVE_VP1000
+#if defined (VTK_HAVE_VP1000) || defined (VTK_FORCE_COMPILE_VP1000)
   return vtkVolumeProVP1000Mapper::New();
 #else
 
-#ifdef VTK_HAVE_VG500
+#if defined (VTK_HAVE_VG500) || defined (VTK_FORCE_COMPILE_VG500)
   return vtkVolumeProVG500Mapper::New();
 #else
   // if not using vli, then return the stub class, which will render

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVolumeProMapper.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-04 14:30:17 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2002-01-16 17:00:08 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -78,7 +78,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkVersion.h"
 
 //BTX
-#ifdef VTK_HAVE_VP1000
+#if defined (VTK_HAVE_VP1000) || defined (VTK_FORCE_COMPILE_VP1000)
 namespace vli3 {
 #endif
 class VLIContext;
@@ -86,7 +86,7 @@ class VLIVolume;
 class VLILookupTable;
 class VLILight;
 class VLICutPlane;
-#ifdef VTK_HAVE_VP1000
+#if defined (VTK_HAVE_VP1000) || defined (VTK_FORCE_COMPILE_VP1000)
 }
 using namespace vli3;
 #endif
