@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStripper.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-04 14:26:31 $
-  Version:   $Revision: 1.53 $
+  Date:      $Date: 2002-01-10 14:27:56 $
+  Version:   $Revision: 1.54 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -42,7 +42,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkStripper.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkStripper, "$Revision: 1.53 $");
+vtkCxxRevisionMacro(vtkStripper, "$Revision: 1.54 $");
 vtkStandardNewMacro(vtkStripper);
 
 // Construct object with MaximumLength set to 1000.
@@ -319,6 +319,7 @@ void vtkStripper::Execute()
 
   output->SetPoints(input->GetPoints());
   output->GetPointData()->PassData(pd);
+  output->SetFieldData(input->GetFieldData());
 
   // output strips
   if ( newStrips )
