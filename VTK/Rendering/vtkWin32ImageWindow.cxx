@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32ImageWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-05-21 18:37:47 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1998-05-22 15:29:11 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -248,6 +248,7 @@ vtkWin32ImageWindow::vtkWin32ImageWindow()
 //----------------------------------------------------------------------------
 vtkWin32ImageWindow::~vtkWin32ImageWindow()
 {
+  if (this->WindowId && this->OwnWindow) DestroyWindow(this->WindowId);
 }
 
 
