@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCommand.h,v $
   Language:  C++
-  Date:      $Date: 2000-10-19 18:37:19 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2000-10-20 17:39:36 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -69,7 +69,7 @@ public:
     ProgressEvent,
     PickEvent,
     AbortCheckEvent,
-    UserEvent = 1000,
+    UserEvent = 1000
   };
     
   static unsigned long GetEventIdFromString(const char *event)
