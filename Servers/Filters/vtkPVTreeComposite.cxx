@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPVTreeComposite.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-18 14:38:11 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2001-08-23 13:04:41 $
+  Version:   $Revision: 1.14 $
   
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -56,7 +56,6 @@ vtkPVTreeComposite* vtkPVTreeComposite::New()
 }
 
 
-#undef VTK_USE_MPI
 //#########################################################################
 // If we are not using MPI, just stub out this class so the supper class
 // will do every thing.
