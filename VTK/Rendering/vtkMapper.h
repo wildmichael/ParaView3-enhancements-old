@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMapper.h,v $
   Language:  C++
-  Date:      $Date: 1996-05-22 20:56:52 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 1996-05-24 19:50:51 $
+  Version:   $Revision: 1.22 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -51,11 +51,11 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 #define __vtkMapper_hh
 
 #include "vtkObject.hh"
-#include "vtkGeometryPrimitive.hh"
 #include "vtkLookupTable.hh"
 #include "vtkDataSet.hh"
 
 class vtkRenderer;
+class vtkActor;
 
 class vtkMapper : public vtkObject 
 {
@@ -76,7 +76,7 @@ public:
   // Description:
   // Method initiates the mapping process. Generally sent by the actor 
   // as each frame is rendered.
-  virtual void Render(vtkRenderer *) = 0;
+  virtual void Render(vtkRenderer *ren, vtkActor *a) = 0;
 
   void SetLookupTable(vtkLookupTable *lut);
   void SetLookupTable(vtkLookupTable& lut) {this->SetLookupTable(&lut);};
