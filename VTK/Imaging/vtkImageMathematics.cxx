@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMathematics.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-08-01 08:59:40 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2000-08-02 10:04:16 $
+  Version:   $Revision: 1.30 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -201,7 +201,7 @@ static void vtkImageMathematicsExecute1(vtkImageMathematics *self,
 	    break;
 	  case VTK_CONJUGATE:
 	    outPtr[0] = in1Ptr[0];
-	    outPtr[1] = (T)(-1*in1Ptr[1]);
+	    outPtr[1] = (T)(-1.0*(double)(in1Ptr[1]));
 	    // Why bother trtying to figure out the continuous increments.
 	    outPtr++;
 	    in1Ptr++;
