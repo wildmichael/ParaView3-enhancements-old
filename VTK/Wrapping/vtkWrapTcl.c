@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWrapTcl.c,v $
   Language:  C++
-  Date:      $Date: 2000-01-26 17:43:04 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2000-02-01 14:35:15 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -584,7 +584,15 @@ void vtkParseOutput(FILE *fp, FileInfo *data)
     }
   fprintf(fp,"      }\n    return TCL_ERROR;\n    }\n\n");
   
-  
+  /* add the GetSuperClassName */
+  if (data->NumberOfSuperClasses)
+    {
+    fprintf(fp,"  if (!strcmp(\"GetSuperClassName\",argv[1]))\n");
+    fprintf(fp,"    {\n");
+    fprintf(fp,"    sprintf(interp->result,\"%s\");\n",data->SuperClasses[0]);
+    fprintf(fp,"    return TCL_OK;\n");
+    fprintf(fp,"    }\n\n");      
+    }
   
   /* insert function handling code here */
   for (i = 0; i < data->NumberOfFunctions; i++)
@@ -608,6 +616,7 @@ void vtkParseOutput(FILE *fp, FileInfo *data)
     }
   /* now list our methods */
   fprintf(fp,"    Tcl_AppendResult(interp,\"Methods from %s:\\n\",NULL);\n",data->ClassName);
+  fprintf(fp,"    Tcl_AppendResult(interp,\"  GetSuperClassName\\n\",NULL);\n");
   for (i = 0; i < numberOfWrappedFunctions; i++)
     {
     int numArgs = 0;
