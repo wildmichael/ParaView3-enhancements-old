@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFieldData.h,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 22:49:35 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-04-02 18:39:46 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -87,6 +87,8 @@ public:
   void SetArray(int i, vtkDataArray *);
   int GetNumberOfArrays();
   vtkDataArray *GetArray(int i);
+  void SetArrayName(int i,char *name);
+  char *GetArrayName(int i);
 
   // managing components/tuples in the field
   int GetNumberOfComponents();
@@ -115,6 +117,7 @@ public:
 protected:
   int NumberOfArrays;
   vtkDataArray **Data;
+  char **ArrayNames;
 
   int TupleSize; //used for type conversion
   float *Tuple;
