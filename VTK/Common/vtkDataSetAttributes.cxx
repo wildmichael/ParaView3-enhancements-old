@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetAttributes.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 22:49:31 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-04-28 13:48:26 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -114,36 +114,48 @@ void vtkDataSetAttributes::DeepCopy(vtkDataSetAttributes& pd)
     {
     newData = data->MakeObject();
     newData->DeepCopy(*data);
+    this->SetScalars((vtkScalars *) newData);
+    newData->Delete ();
     }
   
   if ( (data=pd.GetVectors()) != NULL )
     {
     newData = data->MakeObject();
     newData->DeepCopy(*data);
+    this->SetVectors((vtkVectors *) newData);
+    newData->Delete ();
     }
   
   if ( (data=pd.GetNormals()) != NULL )
     {
     newData = data->MakeObject();
     newData->DeepCopy(*data);
+    this->SetNormals((vtkNormals *) newData);
+    newData->Delete ();
     }
   
   if ( (data=pd.GetTCoords()) != NULL )
     {
     newData = data->MakeObject();
     newData->DeepCopy(*data);
+    this->SetTCoords((vtkTCoords *) newData);
+    newData->Delete ();
     }
   
   if ( (data=pd.GetTensors()) != NULL )
     {
     newData = data->MakeObject();
     newData->DeepCopy(*data);
+    this->SetTensors((vtkTensors *) newData);
+    newData->Delete ();
     }
   
   if ( (f=pd.GetFieldData()) != NULL )
     {
     newF = (vtkFieldData *)f->MakeObject();
     newF->DeepCopy(*f);
+    this->SetFieldData((vtkFieldData *) newF);
+    newF->Delete ();
     }
   
   this->CopyScalars = pd.CopyScalars;
