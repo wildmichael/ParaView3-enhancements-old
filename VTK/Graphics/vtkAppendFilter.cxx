@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkAppendFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-06-11 08:09:02 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1994-08-05 09:06:43 $
+  Version:   $Revision: 1.4 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -81,10 +81,10 @@ void vlAppendFilter::Update()
 
   if (mtime > this->GetMTime() || this->GetMTime() > this->ExecuteTime )
     {
-    if ( this->StartMethod ) (*this->StartMethod)();
+    if ( this->StartMethod ) (*this->StartMethod)(this->StartMethodArg);
     this->Execute();
     this->ExecuteTime.Modified();
-    if ( this->EndMethod ) (*this->EndMethod)();
+    if ( this->EndMethod ) (*this->EndMethod)(this->EndMethodArg);
     }
 }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkAppendPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-06-06 16:14:48 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1994-08-05 09:06:44 $
+  Version:   $Revision: 1.2 $
 
 Description:
 ---------------------------------------------------------------------------
@@ -81,10 +81,10 @@ void vlAppendPolyData::Update()
 
   if (mtime > this->GetMTime() || this->GetMTime() > this->ExecuteTime )
     {
-    if ( this->StartMethod ) (*this->StartMethod)();
+    if ( this->StartMethod ) (*this->StartMethod)(this->StartMethodArg);
     this->Execute();
     this->ExecuteTime.Modified();
-    if ( this->EndMethod ) (*this->EndMethod)();
+    if ( this->EndMethod ) (*this->EndMethod)(this->EndMethodArg);
     }
 }
 
