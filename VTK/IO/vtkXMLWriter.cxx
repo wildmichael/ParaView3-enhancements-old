@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXMLWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-01-31 22:06:44 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2003-02-09 14:40:17 $
+  Version:   $Revision: 1.14 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,7 @@
 #include "vtkPoints.h"
 #include "vtkUnsignedCharArray.h"
 
-vtkCxxRevisionMacro(vtkXMLWriter, "$Revision: 1.13 $");
+vtkCxxRevisionMacro(vtkXMLWriter, "$Revision: 1.14 $");
 vtkCxxSetObjectMacro(vtkXMLWriter, Compressor, vtkDataCompressor);
 
 //----------------------------------------------------------------------------
@@ -673,7 +673,7 @@ const char* vtkXMLWriter::GetWordTypeName(int dataType)
         case vtkXMLWriter::Int64: return "Int64";
         default: return 0;
         }
-      } break;
+      } 
     case VTK_CHAR:           isSigned = 1; size = sizeof(char); break;
     case VTK_INT:            isSigned = 1; size = sizeof(int); break;
     case VTK_LONG:           isSigned = 1; size = sizeof(long); break;
@@ -683,7 +683,8 @@ const char* vtkXMLWriter::GetWordTypeName(int dataType)
     case VTK_UNSIGNED_LONG:  isSigned = 0; size = sizeof(unsigned long); break;
     case VTK_UNSIGNED_SHORT: isSigned = 0; size = sizeof(unsigned short); break;
     default:
-      { vtkWarningMacro("Unsupported data type: " << dataType); } break;
+    {
+    vtkWarningMacro("Unsupported data type: " << dataType); } break;
     }
   const char* type = 0;
   switch (size)
