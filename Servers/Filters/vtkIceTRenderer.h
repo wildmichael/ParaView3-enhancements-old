@@ -5,8 +5,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIceTRenderer.h,v $
   Language:  C++
-  Date:      $Date: 2003-09-24 17:44:43 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2003-10-07 20:14:58 $
+  Version:   $Revision: 1.4 $
 
 =========================================================================*/
 // .NAME vtkIceTRenderer
@@ -19,11 +19,7 @@
 #ifndef __vtkIceTRenderer_h
 #define __vtkIceTRenderer_h
 
-//#include "vtksnlParallelWin32Header.h"
-
-#include <vtkOpenGLRenderer.h>
-
-#include <GL/ice-t.h>
+#include "vtkOpenGLRenderer.h"
 
 class VTK_EXPORT vtkIceTRenderer : public vtkOpenGLRenderer
 {
@@ -64,6 +60,9 @@ protected:
 
   int ComposeNextFrame;
   int InIceTRender;
+
+  vtkIceTRenderer(const vtkIceTRenderer&); // Not implemented
+  void operator=(const vtkIceTRenderer&); // Not implemented
 };
 
 #endif //__vtkIceTRenderer_h

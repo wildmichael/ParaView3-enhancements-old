@@ -1,12 +1,14 @@
 /* -*- c++ -*- *******************************************************/
 
-/* $Id: vtkIceTRenderer.cxx,v 1.3 2003-09-24 17:44:43 lawcc Exp $ */
+/* $Id: vtkIceTRenderer.cxx,v 1.4 2003-10-07 20:14:58 andy Exp $ */
 
 #include "vtkIceTRenderer.h"
 
 #include "vtkObjectFactory.h"
 #include "vtkLightCollection.h"
 #include "vtkCommand.h"
+
+#include <GL/ice-t.h>
 
 //******************************************************************
 // Prototypes
@@ -22,7 +24,7 @@ static vtkIceTRenderer *currentRenderer;
 // vtkIceTRenderer implementation.
 //******************************************************************
 
-vtkCxxRevisionMacro(vtkIceTRenderer, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkIceTRenderer, "$Revision: 1.4 $");
 vtkStandardNewMacro(vtkIceTRenderer);
 
 vtkIceTRenderer::vtkIceTRenderer()
