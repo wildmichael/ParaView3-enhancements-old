@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OpenGLRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-08-16 14:43:31 $
-  Version:   $Revision: 1.71 $
+  Date:      $Date: 2001-09-04 13:17:46 $
+  Version:   $Revision: 1.72 $
   Thanks:    to Horst Schreiber for developing this MFC code
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -947,12 +947,14 @@ void vtkWin32OpenGLRenderWindow::CreateOffScreenDC(int xsize, int ysize,
   this->MemoryDataHeader.bmiHeader.biClrUsed = 0;
   this->MemoryDataHeader.bmiHeader.biClrImportant = 0;
   this->MemoryDataHeader.bmiHeader.biSizeImage = dataWidth*ysize;
-	
+
+  HBITMAP dib = CreateDIBSection(aHdc,
+                     &this->MemoryDataHeader, DIB_RGB_COLORS,
+                     (void **)(&(this->MemoryData)),  NULL, 0);
+  SIZE oldSize;
+  SetBitmapDimensionEx(dib, xsize, ysize, &oldSize);
   // try using a DIBsection
-  this->CreateOffScreenDC(
-    CreateDIBSection(aHdc,
-                     &this->MemoryDataHeader, DIB_RGB_COLORS, 
-                     (void **)(&(this->MemoryData)),  NULL, 0), aHdc);
+  this->CreateOffScreenDC(dib, aHdc);
 }
 
 void vtkWin32OpenGLRenderWindow::CreateOffScreenDC(HBITMAP hbmp, HDC aHdc)
@@ -1036,10 +1038,10 @@ HDC vtkWin32OpenGLRenderWindow::GetMemoryDC()
   return this->MemoryHdc;
 }
 
-void vtkWin32OpenGLRenderWindow::CleanUpOffScreenRendering()
+void vtkWin32OpenGLRenderWindow::CleanUpOffScreenRendering(void)
 {
   GdiFlush();
-  DeleteDC(this->MemoryHdc); 
+  DeleteDC(this->MemoryHdc);
   DeleteObject(this->MemoryBuffer);
   
   // we need to release resources
@@ -1052,7 +1054,7 @@ void vtkWin32OpenGLRenderWindow::CleanUpOffScreenRendering()
   wglDeleteContext(this->ContextId);
 }
 
-void vtkWin32OpenGLRenderWindow::ResumeScreenRendering()
+void vtkWin32OpenGLRenderWindow::ResumeScreenRendering(void)
 {
   this->CleanUpOffScreenRendering();
   this->Mapped = this->ScreenMapped;
@@ -1064,7 +1066,7 @@ void vtkWin32OpenGLRenderWindow::ResumeScreenRendering()
   wglMakeCurrent(this->DeviceContext, this->ContextId);
 
   vtkRenderer* ren;
-  for (this->Renderers->InitTraversal(); 
+  for (this->Renderers->InitTraversal();
        (ren = this->Renderers->GetNextItem());)
     {
     ren->SetRenderWindow(this);
