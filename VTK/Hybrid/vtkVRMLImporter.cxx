@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVRMLImporter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-21 15:21:51 $
-  Version:   $Revision: 1.29 $
+  Date:      $Date: 2001-06-24 17:55:55 $
+  Version:   $Revision: 1.30 $
   Thanks:    Tom Citriniti who implemented and contributed this class
 
 
@@ -575,7 +575,7 @@ typedef union {
   
   float           sffloat;
   vtkPoints       *vec3f;
-  vtkIntArray     *mfint32;
+  vtkIdTypeArray     *mfint32;
   int             sfint;
 } YYSTYPE;
 
@@ -4306,9 +4306,9 @@ vtkPoints* vtkVRMLImporter::PointsNew()
   return pts;
 }
 
-vtkIntArray* vtkVRMLImporter::IntArrayNew()
+vtkIdTypeArray* vtkVRMLImporter::IdTypeArrayNew()
 {
-  vtkIntArray* array = vtkIntArray::New();
+  vtkIdTypeArray* array = vtkIdTypeArray::New();
   this->Heap.Push(array);
   return array;
 }
@@ -4550,7 +4550,7 @@ int yylex ( vtkVRMLImporter* self )
 	    YY_USER_ACTION
 	  { if (parsing_mf) yyerror("Double [");
 	  parsing_mf = 1;
-	  yylval.mfint32 = self->IntArrayNew();
+	  yylval.mfint32 = self->IdTypeArrayNew();
 	  }
         YY_BREAK
 	  case 19:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkVRMLImporter.h,v $
   Language:  C++
-  Date:      $Date: 2001-05-14 21:38:00 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2001-06-24 17:55:55 $
+  Version:   $Revision: 1.9 $
   Thanks:    Tom Citriniti who implemented and contributed this class
 
 
@@ -177,7 +177,7 @@ private:
   vtkPolyDataMapper    *CurrentMapper;
 
   vtkPoints* PointsNew();
-  vtkIntArray* IntArrayNew();
+  vtkIdTypeArray* IdTypeArrayNew();
 
   void DeleteObject(vtkObject*);
 
