@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTimerLog.cxx,v $
   Language:  C++
-  Date:      $Date: 1996-12-13 16:15:05 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1997-02-25 15:25:38 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -58,10 +58,10 @@ int vtkTimerLog::MaxEntries = 100;
 int vtkTimerLog::NextEntry = 0;
 int vtkTimerLog::WrapFlag = 0;
 vtkTimerLogEntry *vtkTimerLog::TimerLog = NULL;
-#ifdef _WIN32
-int vtkTimerLog::TicksPerSecond = 60;
-#else
+#ifdef CLK_TCK
 int vtkTimerLog::TicksPerSecond = CLK_TCK;
+#else
+int vtkTimerLog::TicksPerSecond = 60;
 #endif
 
 #ifdef _WIN32
