@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToStructuredPoints.h,v $
   Language:  C++
-  Date:      $Date: 1997-06-09 12:48:16 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1997-06-09 18:33:50 $
+  Version:   $Revision: 1.6 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -82,13 +82,6 @@ public:
   vtkGetMacro(WholeImage,int);
   vtkBooleanMacro(WholeImage,int);
 
-  // Description:
-  // ColorScalarsOn tells this output to create color scalars.
-  // This object then can be used as input to vtkTIFFWriter.
-  vtkSetMacro(ColorScalars,int);
-  vtkGetMacro(ColorScalars,int);
-  vtkBooleanMacro(ColorScalars,int);
-
   // Set/Get the extent to translate explicitely.
   void SetExtent(int dim, int *extent);
   vtkImageSetExtentMacro(Extent);
@@ -129,7 +122,6 @@ protected:
   vtkImageSource *ScalarInput;
   vtkImageSource *VectorInput;
   int WholeImage;
-  int ColorScalars;
   int Coordinate3;
   int Extent[VTK_IMAGE_EXTENT_DIMENSIONS];
   int Axes[VTK_IMAGE_DIMENSIONS];
