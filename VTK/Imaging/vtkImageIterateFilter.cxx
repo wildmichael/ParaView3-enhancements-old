@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageIterateFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-01-07 09:11:24 $
-  Version:   $Revision: 1.19 $
+  Date:      $Date: 2000-01-16 21:51:21 $
+  Version:   $Revision: 1.20 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -119,11 +119,21 @@ void vtkImageIterateFilter::ComputeInputUpdateExtents( vtkDataObject *output )
   vtkImageData *in, *out = (vtkImageData*)output;
   int inExt[6], idx;
 
+  if (!this->GetInput())
+    {
+    vtkErrorMacro(<< "Input not set.");
+    return;
+    }
+
   for (idx = this->NumberOfIterations - 1; idx >= 0; --idx)
     {
     this->Iteration = idx;
     in = this->GetIterationInput();
     
+    if (!in)
+      {
+      return;
+      }
     /* default value */
     out->GetUpdateExtent(inExt);
     this->ComputeInputUpdateExtent(inExt, out->GetUpdateExtent());

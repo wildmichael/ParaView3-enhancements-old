@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCacheFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-01-07 09:11:12 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2000-01-16 21:51:02 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -156,6 +156,12 @@ void vtkImageCacheFilter::UpdateData(vtkDataObject *outObject)
   vtkImageData *inData = this->GetInput();
   int i;
   int flag = 0;
+
+  if (!inData)
+    {
+    vtkErrorMacro(<< "Input not set.");
+    return;
+    }
 
   uExt = outData->GetUpdateExtent();
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGridSynchronizedTemplates3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-01-12 20:47:59 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2000-01-16 21:51:31 $
+  Version:   $Revision: 1.13 $
 
 
 
@@ -903,8 +903,16 @@ void vtkGridSynchronizedTemplates3D::ComputeInputUpdateExtents( vtkDataObject *o
   vtkStructuredGrid *input = this->GetInput();
   vtkPolyData *output = (vtkPolyData *)out;
   int piece, numPieces;
-  int *wholeExt = input->GetWholeExtent();
+  int *wholeExt;
   int ext[6];
+
+  if (!input)
+    {
+    vtkErrorMacro(<< "Input not set.");
+    return;
+    }
+
+  wholeExt = input->GetWholeExtent();
 
   // Get request from output
   output->GetUpdateExtent(piece, numPieces);

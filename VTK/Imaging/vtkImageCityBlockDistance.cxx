@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageCityBlockDistance.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-01-13 16:37:36 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2000-01-16 21:51:07 $
+  Version:   $Revision: 1.13 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -95,6 +95,12 @@ void vtkImageCityBlockDistance::ComputeInputUpdateExtent(int inExt[6],
 							 int outExt[6])
 {
   int *wholeExtent;
+
+  if ( ! this->GetInput())
+    {
+    vtkErrorMacro(<< "Input not set.");
+    return;
+    }
 
   memcpy(inExt, outExt, 6 * sizeof(int));
   wholeExtent = this->GetInput()->GetWholeExtent();

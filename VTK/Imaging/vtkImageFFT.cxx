@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageFFT.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-01-07 09:11:18 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2000-01-16 21:51:14 $
+  Version:   $Revision: 1.21 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -80,6 +80,11 @@ void vtkImageFFT::ComputeInputUpdateExtent(int inExt[6],
 {
   int *extent;
   
+  if (!this->GetInput())
+    {
+      vtkErrorMacro(<< "Input not set.");
+      return;
+    }
   // Assumes that the input update extent has been initialized to output ...
   extent = this->GetInput()->GetWholeExtent();
   memcpy(inExt, outExt, 6 * sizeof(int));

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageToImageFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-01-13 13:25:41 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2000-01-16 21:51:27 $
+  Version:   $Revision: 1.25 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -62,6 +62,7 @@ vtkImageToImageFilter* vtkImageToImageFilter::New()
 //----------------------------------------------------------------------------
 vtkImageToImageFilter::vtkImageToImageFilter()
 {
+  this->NumberOfRequiredInputs = 1;
   this->Bypass = 0;
   this->Threader = vtkMultiThreader::New();
   this->NumberOfThreads = this->Threader->GetNumberOfThreads();
@@ -158,7 +159,10 @@ void vtkImageToImageFilter::ComputeInputUpdateExtents( vtkDataObject *output )
 
   output->GetUpdateExtent( outExt );
 
-  this->ComputeInputUpdateExtent( inExt, outExt );
+  if (this->NumberOfInputs)
+    {
+    this->ComputeInputUpdateExtent( inExt, outExt );
+    }
 
   for (int idx = 0; idx < this->NumberOfInputs; ++idx)
     {

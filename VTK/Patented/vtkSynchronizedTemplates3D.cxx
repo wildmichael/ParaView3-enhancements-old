@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSynchronizedTemplates3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-01-11 22:14:06 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2000-01-16 21:51:35 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -92,6 +92,7 @@ vtkSynchronizedTemplates3D::vtkSynchronizedTemplates3D()
 {
   int idx;
 
+  this->NumberOfRequiredInputs = 1;
   this->ContourValues = vtkContourValues::New();
   this->ComputeNormals = 1;
   this->ComputeGradients = 0;
@@ -942,8 +943,16 @@ void vtkSynchronizedTemplates3D::ComputeInputUpdateExtents(vtkDataObject *out)
   vtkImageData *input = this->GetInput();
   vtkPolyData *output = (vtkPolyData *)out;
   int piece, numPieces;
-  int *wholeExt = input->GetWholeExtent();
+  int *wholeExt;
   int ext[6];
+
+  if (input == NULL)
+    {
+    vtkErrorMacro("Input not set");
+    return;
+    }
+
+  wholeExt = input->GetWholeExtent();
 
   // Get request from output
   output->GetUpdateExtent(piece, numPieces);

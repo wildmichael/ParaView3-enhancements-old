@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageSpatialFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-01-07 09:11:34 $
-  Version:   $Revision: 1.37 $
+  Date:      $Date: 2000-01-16 21:51:24 $
+  Version:   $Revision: 1.38 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -112,6 +112,11 @@ void vtkImageSpatialFilter::ExecuteInformation()
   vtkImageData *input = this->GetInput();
   vtkImageData *output = this->GetOutput();
   
+  if (!input)
+    {
+    vtkErrorMacro(<< "Input not set.");
+    return;
+    }
   // Copy the defaults
   output->CopyTypeSpecificInformation( input );
 
@@ -160,8 +165,11 @@ void vtkImageSpatialFilter::ComputeInputUpdateExtent(int extent[6],
   int idx;
   int *wholeExtent;
   
-  wholeExtent = this->GetInput()->GetWholeExtent();
-  
+  if (!this->GetInput())
+    {
+    return;
+    }
+
   for (idx = 0; idx < 3; ++idx)
     {
     // Magnify by strides
