@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:04:46 $
-  Version:   $Revision: 1.36 $
+  Date:      $Date: 2000-03-25 16:34:16 $
+  Version:   $Revision: 1.37 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -149,6 +149,7 @@ void vtkClipPolyData::Execute()
   int numberOfPoints;
   vtkPointData *inPD=input->GetPointData(), *outPD = output->GetPointData();
   vtkCellData *inCD=input->GetCellData(), *outCD = output->GetCellData();
+  vtkCellData *outClippedCD;
   
   vtkDebugMacro(<< "Clipping polygonal data");
   
@@ -239,6 +240,8 @@ void vtkClipPolyData::Execute()
   if ( this->GenerateClippedOutput )
     {
     this->GetClippedOutput()->Initialize();
+    outClippedCD = this->GetClippedOutput()->GetCellData();
+    outClippedCD->CopyAllocate(inCD,estimatedSize,estimatedSize/2);
     clippedVerts = vtkCellArray::New();
     clippedVerts->Allocate(estimatedSize,estimatedSize/2);
     clippedLines = vtkCellArray::New();
@@ -297,7 +300,7 @@ void vtkClipPolyData::Execute()
     if ( this->GenerateClippedOutput )
       {
       cell->Clip(this->Value, cellScalars, this->Locator, clippedList,
-                 inPD, outPD, inCD, cellId, outCD, !this->InsideOut);
+                 inPD, outPD, inCD, cellId, outClippedCD, !this->InsideOut);
       }
 
     if (cellId % updateTime == 0)
