@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32ImageWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-09-18 12:48:17 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1998-11-11 21:44:50 $
+  Version:   $Revision: 1.12 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -718,10 +718,6 @@ void vtkWin32ImageWindow::MakeDefaultWindow()
 
   vtkDebugMacro (<< "vtkWin32ImageWindow::MakeDefaultWindow");
 
-  // create our own window if not already set
-  // #### commented out 7/31/97
-  // this->OwnWindow = 0;
-
   // get the applicaiton instance if we don't have one already
   if (!this->ApplicationInstance)
     {
@@ -749,7 +745,6 @@ void vtkWin32ImageWindow::MakeDefaultWindow()
     // has the class been registered ?
     if (!GetClassInfo(this->ApplicationInstance,"vtkImage",&wndClass))
         {
-		// ### Double buffering - added CS_OWNDC
         wndClass.style = CS_HREDRAW | CS_VREDRAW | CS_OWNDC;
         wndClass.lpfnWndProc = vtkWin32ImageWindowWndProc;
         wndClass.cbClsExtra = 0;
@@ -807,9 +802,25 @@ void vtkWin32ImageWindow::MakeDefaultWindow()
     this->OwnWindow = 1;
 
     ShowWindow(this->WindowId, SW_SHOW);
-    
     }
-
+  // window id was set
+  else
+    {
+    SetWindowLong(this->WindowId,GWL_USERDATA,(LONG)this);
+    this->DeviceContext = (HDC)GetDC(this->WindowId);
+    SetBkColor (this->DeviceContext, RGB(0,0,0));
+    if (this->GetGrayScaleHint())
+      {
+      vtkWin32ImageWindowSetupGrayPixelFormat(this->DeviceContext);
+      vtkWin32ImageWindowSetupGrayPalette(this->DeviceContext,this);
+      }
+    else
+      {
+      vtkWin32ImageWindowSetupRGBPixelFormat(this->DeviceContext);
+      vtkWin32ImageWindowSetupRGBPalette(this->DeviceContext,this);
+      }
+    }
+  
   this->Mapped = 1;
 }
 

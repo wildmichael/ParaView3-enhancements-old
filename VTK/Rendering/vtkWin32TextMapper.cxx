@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32TextMapper.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-06-15 20:39:11 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1998-11-11 21:44:51 $
+  Version:   $Revision: 1.7 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -97,10 +97,7 @@ void vtkWin32TextMapper::Render(vtkViewport* viewport, vtkActor2D* actor)
 
   // Get the window information for display
   vtkWindow*  window = viewport->GetVTKWindow();
-  HWND windowId = (HWND) window->GetGenericWindowId();
-
   // Get the device context from the window
-  
   HDC hdc = (HDC) window->GetGenericContext();
  
   // Get the position of the text actor
@@ -164,9 +161,8 @@ void vtkWin32TextMapper::Render(vtkViewport* viewport, vtkActor2D* actor)
 	  family = FF_SWISS;
 	  break;
     }
-
   fontStruct.lfHeight = MulDiv(this->FontSize, 
-			       GetDeviceCaps(hdc, LOGPIXELSY), 72);  
+			       window->GetDPI(), 72);  
   // height in logical units
   fontStruct.lfWidth = 0;  // default width
   fontStruct.lfEscapement = 0;
