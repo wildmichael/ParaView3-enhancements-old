@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScaledTextActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-01-04 14:30:12 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2002-01-08 14:37:17 $
+  Version:   $Revision: 1.22 $
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
 All rights reserved.
@@ -41,7 +41,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "vtkScaledTextActor.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkScaledTextActor, "$Revision: 1.21 $");
+vtkCxxRevisionMacro(vtkScaledTextActor, "$Revision: 1.22 $");
 vtkStandardNewMacro(vtkScaledTextActor);
 
 vtkScaledTextActor::vtkScaledTextActor()
@@ -235,6 +235,23 @@ void vtkScaledTextActor::SetMapper(vtkTextMapper *mapper)
 {
   this->TextActor->SetMapper(mapper);
 }
+
+vtkTextMapper *vtkScaledTextActor::GetMapper(void)
+{
+  return (vtkTextMapper *)(this->TextActor->GetMapper());
+}
+
+void vtkScaledTextActor::SetMapper(vtkMapper2D *mapper)
+{
+  if (mapper->IsA("vtkTextMapper"))
+    {
+    this->SetMapper( (vtkTextMapper *)mapper );
+    }
+  else
+    {
+    vtkErrorMacro("Must use vtkTextMapper for this class");
+    }
+  }
 
 void vtkScaledTextActor::ShallowCopy(vtkProp *prop)
 {
