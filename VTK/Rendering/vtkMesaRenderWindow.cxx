@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMesaRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-06-12 09:52:39 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2000-08-08 10:56:41 $
+  Version:   $Revision: 1.14 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -1374,7 +1374,7 @@ void vtkMesaRenderWindow::SetOffScreenRendering(int i)
     }
   else
     {
-    if (!this->OffScreenWindow)
+    if (this->OffScreenWindow)
       {
       OSMesaDestroyContext(this->OffScreenContextId);
       this->OffScreenContextId = NULL;
@@ -1386,6 +1386,7 @@ void vtkMesaRenderWindow::SetOffScreenRendering(int i)
     this->MakeCurrent();
     // reset the size based on the screen window
     this->GetSize();
+    this->WindowInitialize();
     }
 #endif
 }
