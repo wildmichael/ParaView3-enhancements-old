@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCollection.h,v $
   Language:  C++
-  Date:      $Date: 2002-01-22 15:25:15 $
-  Version:   $Revision: 1.44 $
+  Date:      $Date: 2002-07-11 21:16:23 $
+  Version:   $Revision: 1.45 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -42,6 +42,8 @@ class vtkCollectionElement //;prevents pick-up by man page generator
   vtkCollectionElement *Next;
 };
 //ETX end tcl exclude
+
+class vtkCollectionIterator;
 
 class VTK_COMMON_EXPORT vtkCollection : public vtkObject
 {
@@ -102,7 +104,11 @@ public:
   // Get the i'th item in the collection. NULL is returned if i is out
   // of range
   vtkObject *GetItemAsObject(int i);
-
+  
+  // Description:
+  // Get an iterator to traverse the objects in this collection.
+  vtkCollectionIterator* NewIterator();
+  
 protected:
   vtkCollection();
   ~vtkCollection();
@@ -113,6 +119,10 @@ protected:
   vtkCollectionElement *Bottom;
   vtkCollectionElement *Current;
 
+  //BTX
+  friend class vtkCollectionIterator;
+  //ETX
+  
 private:
   vtkCollection(const vtkCollection&);
   void operator=(const vtkCollection&);
