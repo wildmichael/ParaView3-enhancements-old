@@ -1,3 +1,20 @@
+/*=========================================================================
+
+  Program:   DICOMParser
+  Module:    $RCSfile: DICOMAppHelper.cxx,v $
+  Language:  C++
+  Date:      $Date: 2003-08-27 18:49:00 $
+  Version:   $Revision: 1.9 $
+
+  Copyright (c) 2003 Matt Turek
+  All rights reserved.
+  See Copyright.txt for details.
+
+     This software is distributed WITHOUT ANY WARRANTY; without even 
+     the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR 
+     PURPOSE.  See the above copyright notice for more information.
+
+=========================================================================*/
 
 #ifdef _MSC_VER
 #pragma warning ( disable : 4514 )
