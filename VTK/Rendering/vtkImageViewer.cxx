@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageViewer.cxx,v $
   Language:  C++
-  Date:      $Date: 1997-04-17 21:34:03 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 1997-04-18 13:45:41 $
+  Version:   $Revision: 1.4 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -40,7 +40,9 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
 =========================================================================*/
 #include "vtkImageViewer.h"
-#ifndef _WIN32
+#ifdef _WIN32
+#include "vtkImageWin32Viewer.h"
+#else
 #include "vtkImageXViewer.h"
 #endif
 
@@ -80,10 +82,11 @@ void vtkImageViewer::SetSize(int a[2])
 //----------------------------------------------------------------------------
 vtkImageViewer *vtkImageViewer::New()
 {
-#ifndef _WIN32
+#ifdef _WIN32
+  return new vtkImageWin32Viewer;
+#else
   return new vtkImageXViewer;
 #endif  
-  cerr << "vtkImageViewer: New: No viewers defined.\n";
   return NULL;
 }
 
