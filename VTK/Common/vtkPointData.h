@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkPointData.h,v $
   Language:  C++
-  Date:      $Date: 1994-05-15 19:19:42 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1994-05-29 22:04:03 $
+  Version:   $Revision: 1.16 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -38,11 +38,11 @@ public:
   virtual void Update() {};
 
   // use to copy data
-  void CopyAllocate(vlPointData* pd, int sze=0, int ext=1000, int sFlg=1, int vFlg=1, int nFlg=1, int tFlg=1);
+  void CopyAllocate(vlPointData* pd, int sze=0, int ext=1000);
   void CopyData(vlPointData *fromPd, int fromId, int toId);
 
   // use to interpolate data
-  void InterpolateAllocate(vlPointData* pd, int sze=0, int ext=1000, int sFlg=1, int vFlg=1, int nFlg=1, int tFlg=1);
+  void InterpolateAllocate(vlPointData* pd, int sze=0, int ext=1000);
   void InterpolatePoint(vlPointData *fromPd, int toId, vlIdList *ptIds, float *weights);
 
   // Set point data to null values
@@ -62,6 +62,25 @@ public:
 
   vlSetObjectMacro (TCoords, vlTCoords);
   vlGetObjectMacro (TCoords, vlTCoords);
+
+  vlSetMacro(CopyScalars,int);
+  vlGetMacro(CopyScalars,int);
+  vlBooleanMacro(CopyScalars,int);
+
+  vlSetMacro(CopyVectors,int);
+  vlGetMacro(CopyVectors,int);
+  vlBooleanMacro(CopyVectors,int);
+
+  vlSetMacro(CopyNormals,int);
+  vlGetMacro(CopyNormals,int);
+  vlBooleanMacro(CopyNormals,int);
+
+  vlSetMacro(CopyTCoords,int);
+  vlGetMacro(CopyTCoords,int);
+  vlBooleanMacro(CopyTCoords,int);
+
+  void CopyAllOn();
+  void CopyAllOff();
 
 protected:
   vlScalars *Scalars;
