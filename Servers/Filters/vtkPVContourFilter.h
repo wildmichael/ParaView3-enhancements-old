@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPVContourFilter.h,v $
   Language:  C++
-  Date:      $Date: 2000-07-13 18:27:50 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2000-07-17 02:35:32 $
+  Version:   $Revision: 1.3 $
 
 Copyright (c) 1998-1999 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -47,6 +47,14 @@ public:
   void ContourValueChanged();
 
   vtkGetObjectMacro(Contour, vtkContourFilter);
+
+  // Description:
+  // Set the input PVData.
+  void SetInput(vtkPVData *pvData);
+
+  // Description:
+  // Should be called pvOutput.
+  vtkPVData *GetDataWidget();
   
 protected:
   vtkPVContourFilter();
