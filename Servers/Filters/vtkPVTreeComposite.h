@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkPVTreeComposite.h,v $
   Language:  C++
-  Date:      $Date: 2003-11-19 17:01:41 $
-  Version:   $Revision: 1.22 $  
+  Date:      $Date: 2003-11-19 21:45:07 $
+  Version:   $Revision: 1.23 $  
   
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -57,6 +57,7 @@ class vtkMPIController;
 
 #include "vtkCompositeRenderManager.h"
 
+class vtkDataArray;
 class vtkFloatArray;
 class vtkRenderWindowInteractor;
 
