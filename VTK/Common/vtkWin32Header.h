@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32Header.h,v $
   Language:  C++
-  Date:      $Date: 2003-02-12 13:17:45 $
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2003-02-14 15:25:46 $
+  Version:   $Revision: 1.29 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -46,8 +46,8 @@ Do_not_include_vtkWin32Header_directly__vtkSystemIncludes_includes_it;
 
 #include <windows.h>
 
-#ifndef __cygwin__
-// Handle compiler warning messages, etc.
+#ifdef _MSC_VER
+// Handle MSVC compiler warning messages, etc.
 #ifndef VTK_DISPLAY_WIN32_WARNINGS
 #pragma warning ( disable : 4127 )
 #pragma warning ( disable : 4244 )
