@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkJavaUtil.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-01-22 21:51:28 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 2003-01-23 13:44:00 $
+  Version:   $Revision: 1.46 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -369,8 +369,8 @@ JNIEXPORT void *vtkJavaGetPointerFromObject(JNIEnv *env, jobject obj, char *resu
     return NULL;
     }
   
-  void* res;
-  if (res= command(ptr,result_type))
+  void* res= command(ptr,result_type);
+  if (res)
     {
 #ifdef VTKJAVADEBUG
     vtkGenericWarningMacro("GetPointerFromObject: Got id= " << id << " ptr= " << ptr << " " << result_type);
