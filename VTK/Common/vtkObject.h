@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkObject.h,v $
   Language:  C++
-  Date:      $Date: 1998-11-13 22:01:12 $
-  Version:   $Revision: 1.59 $
+  Date:      $Date: 1999-02-08 15:12:46 $
+  Version:   $Revision: 1.60 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -169,11 +169,6 @@ public:
   // Sets the reference count (use with care)
   void SetReferenceCount(int);
 
-  // Description:
-  // For legacy compatibility. Do not use. 
-  // Works now by making reference count negative.
-  void ReferenceCountingOff();
-
   //BTX
   // Description:
   // A callback for when the destructor is called. Scripting
@@ -198,17 +193,6 @@ inline void vtkObject::Modified()
 {
   this->MTime.Modified();
 }
-
-
-// Turn off reference counting for this object. This allows you to create
-// automatic reference counted objects and avoid warning messages when scope
-// is existed. (Note: It is preferable to use the combination new/Delete() 
-// to create and delete vtk objects.)
-inline void vtkObject::ReferenceCountingOff()
-{
-  this->ReferenceCount = -1;
-}
-
 
 #endif
 
