@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkLegendBoxActor.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-09-24 09:39:57 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2000-09-24 10:24:02 $
+  Version:   $Revision: 1.6 $
   Thanks:    Tim Smith who sponsored and encouraged the development
              of this class.
 
@@ -699,9 +699,16 @@ void vtkLegendBoxActor::ShallowCopy(vtkProp *prop)
     this->SetShadow(a->GetShadow());
     this->SetFontFamily(a->GetFontFamily());
     this->SetBorder(a->GetBorder());
-    this->SetPadding(a->GetPadding());
     this->SetLockBorder(a->GetLockBorder());
-    this->SetLockBorder(a->GetScalarVisibility());
+    this->SetPadding(a->GetPadding());
+    this->SetScalarVisibility(a->GetScalarVisibility());
+    this->SetNumberOfEntries(a->GetNumberOfEntries());
+    for (int i=0; i<this->NumberOfEntries; i++)
+      {
+      this->SetEntrySymbol(i,a->GetEntrySymbol(i));
+      this->SetEntryString(i,a->GetEntryString(i));
+      this->SetEntryColor(i,a->GetEntryColor(i));
+      }
     }
 
   // Now do superclass
