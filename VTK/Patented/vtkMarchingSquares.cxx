@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingSquares.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:07:15 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 1998-05-27 16:59:42 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -107,9 +107,11 @@ void vtkMarchingSquares::SetImageRange(int imin, int imax, int jmin, int jmax,
 unsigned long vtkMarchingSquares::GetMTime()
 {
   unsigned long mTime=this->vtkStructuredPointsToPolyDataFilter::GetMTime();
-  unsigned long contourValuesMTime=this->ContourValues->GetMTime();
+  unsigned long mTime2=this->ContourValues->GetMTime();
 
-  mTime = ( contourValuesMTime > mTime ? contourValuesMTime : mTime );
+  mTime = ( mTime2 > mTime ? mTime2 : mTime );
+  mTime2=this->Locator->GetMTime();
+  mTime = ( mTime2 > mTime ? mTime2 : mTime );
 
   return mTime;
 }

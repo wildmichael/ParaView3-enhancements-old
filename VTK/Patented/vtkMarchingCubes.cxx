@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingCubes.cxx,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 23:07:14 $
-  Version:   $Revision: 1.40 $
+  Date:      $Date: 1998-05-27 16:59:41 $
+  Version:   $Revision: 1.41 $
 
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -93,9 +93,11 @@ vtkMarchingCubes::~vtkMarchingCubes()
 unsigned long vtkMarchingCubes::GetMTime()
 {
   unsigned long mTime=this->vtkStructuredPointsToPolyDataFilter::GetMTime();
-  unsigned long contourValuesMTime=this->ContourValues->GetMTime();
+  unsigned long mTime2=this->ContourValues->GetMTime();
 
-  mTime = ( contourValuesMTime > mTime ? contourValuesMTime : mTime );
+  mTime = ( mTime2 > mTime ? mTime2 : mTime );
+  mTime2=this->Locator->GetMTime();
+  mTime = ( mTime2 > mTime ? mTime2 : mTime );
 
   return mTime;
 }
