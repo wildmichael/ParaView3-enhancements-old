@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGlyph3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:12:52 $
-  Version:   $Revision: 1.63 $
+  Date:      $Date: 1999-08-04 11:33:15 $
+  Version:   $Revision: 1.64 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -516,7 +516,7 @@ void vtkGlyph3D::PrintSelf(ostream& os, vtkIndent indent)
 
   if ( this->GetNumberOfSources() < 2 )
     {
-    if ( this->Inputs[1] != NULL )
+    if ( this->GetSource(0) != NULL )
       {
       os << indent << "Source: (" << this->GetSource(0) << ")\n";
       }
