@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGridSynchronizedTemplates3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-02-04 17:09:17 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2000-03-02 17:50:14 $
+  Version:   $Revision: 1.16 $
 
 
 
@@ -282,7 +282,7 @@ static void ComputeGridPointGradient(int i, int j, int k, int inExt[6],
     sum = 0.0;
     for (j = 0; j < 3; ++j)
       {
-      sum += NtNi[i][j] * Nts[j];
+      sum += NtNi[j][i] * Nts[j];
       }
     g[i] = sum;
     }
