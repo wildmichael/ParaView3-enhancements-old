@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 1995-07-29 11:47:50 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 1995-07-31 20:09:03 $
+  Version:   $Revision: 1.26 $
 
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -70,6 +70,8 @@ vtkRenderWindow::vtkRenderWindow()
   this->CurrentSubFrame = 0;
   this->ResultFrame = NULL;
   this->Filename = NULL;
+  this->Erase = 1;
+  this->SwapBuffers = 1;
 }
 
 // Description:
@@ -528,6 +530,7 @@ void vtkRenderWindow::PrintSelf(ostream& os, vtkIndent indent)
 
   os << indent << "Borders: " << (this->Borders ? "On\n":"Off\n");
   os << indent << "Double Buffer: " << (this->DoubleBuffer ? "On\n":"Off\n");
+  os << indent << "Erase: " << (this->Erase ? "On\n" : "Off\n");
   os << indent << "Full Screen: " << (this->FullScreen ? "On\n":"Off\n");
   os << indent << "Name: " << this->Name << "\n";
   temp = this->GetPosition();
@@ -694,12 +697,10 @@ void vtkRenderWindow::CopyResultFrame(void)
 
     // get the size
     size = this->GetSize();
-    this->SetPixelData(0,0,size[0]-1,size[1]-1,this->ResultFrame,1);
+    this->SetPixelData(0,0,size[0]-1,size[1]-1,this->ResultFrame,0);
     }
-  else
-    {
-    this->Frame();
-    }
+
+  this->Frame();
 }
 
 // Description:
