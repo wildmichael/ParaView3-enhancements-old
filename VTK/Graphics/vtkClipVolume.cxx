@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkClipVolume.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-07-24 16:05:16 $
-  Version:   $Revision: 1.54 $
+  Date:      $Date: 2003-07-24 17:49:43 $
+  Version:   $Revision: 1.55 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -33,7 +33,7 @@
 #include "vtkIntArray.h"
 #include "vtkUnsignedCharArray.h"
 
-vtkCxxRevisionMacro(vtkClipVolume, "$Revision: 1.54 $");
+vtkCxxRevisionMacro(vtkClipVolume, "$Revision: 1.55 $");
 vtkStandardNewMacro(vtkClipVolume);
 vtkCxxSetObjectMacro(vtkClipVolume,ClipFunction,vtkImplicitFunction);
 
@@ -421,6 +421,8 @@ void vtkClipVolume::ClipTets(float value, vtkTetra *clipTetra, vtkDataArray *cli
                              vtkPointData *outPD, vtkCellData *inCD, vtkIdType cellId, 
                              vtkCellData *outCD, vtkCellData *clippedCD, int insideOut)
 {
+  (void)inPD;
+  (void)clippedCD;
   // Tesselate this cell as if it were inside
   vtkIdType ntetra = tetraPts->GetNumberOfPoints() / 4;
   int i, id, j, k, numNew;
@@ -477,6 +479,10 @@ void vtkClipVolume::ClipVoxel(float value, vtkDataArray *cellScalars,
                               vtkIdType cellId, vtkCellData *outCD,
                               vtkCellData *clippedCD)
 {
+  (void)inCD;
+  (void)cellId;
+  (void)outCD;
+  (void)clippedCD;
   float x[3], *xPtr, s1, s2, t, voxelOrigin[3];
   float bounds[6], p1[3], p2[3];
   int i, k, edgeNum, numPts, numNew;
