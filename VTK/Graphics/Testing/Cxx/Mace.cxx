@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: Mace.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-08-08 13:50:50 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2002-09-30 20:36:40 $
+  Version:   $Revision: 1.8 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -15,18 +15,18 @@
      PURPOSE.  See the above copyright notice for more information.
 
 =========================================================================*/
-#include "vtkRenderer.h"
-#include "vtkRenderWindow.h"
-#include "vtkRenderer.h"
-#include "vtkSphereSource.h"
-#include "vtkPolyDataMapper.h"
 #include "vtkActor.h"
 #include "vtkConeSource.h"
-#include "vtkGlyph3D.h"
-#include "vtkRenderWindowInteractor.h"
-
-#include "vtkRegressionTestImage.h"
 #include "vtkDebugLeaks.h"
+#include "vtkGlyph3D.h"
+#include "vtkPolyData.h"
+#include "vtkPolyDataMapper.h"
+#include "vtkRegressionTestImage.h"
+#include "vtkRenderWindow.h"
+#include "vtkRenderWindowInteractor.h"
+#include "vtkRenderer.h"
+#include "vtkRenderer.h"
+#include "vtkSphereSource.h"
 
 int Mace( int argc, char *argv[] )
 {
