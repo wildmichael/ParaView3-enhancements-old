@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMarchingContourFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-12-19 22:14:05 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-12-20 12:08:04 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -144,8 +144,8 @@ void vtkMarchingContourFilter::Execute()
   vtkDataSet *input=this->GetInput();
   vtkPolyData *output=this->GetOutput();
   int numCells;
-  vtkPointData *inPd, *outPd=output->GetPointData();
-  vtkCellData *inCd, *outCd=output->GetCellData();
+  vtkPointData *outPd=output->GetPointData();
+  vtkCellData *outCd=output->GetCellData();
   int numContours=this->ContourValues->GetNumberOfContours();
   float *values=this->ContourValues->GetValues();
   
@@ -156,8 +156,6 @@ void vtkMarchingContourFilter::Execute()
       vtkErrorMacro(<<"Input is NULL");
       return;
     }
-  inPd=input->GetPointData();
-  inCd=input->GetCellData();
 
   numCells = input->GetNumberOfCells();
   inScalars = input->GetPointData()->GetScalars();
