@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSet.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:36:08 $
-  Version:   $Revision: 1.108 $
+  Date:      $Date: 2001-11-13 14:09:24 $
+  Version:   $Revision: 1.109 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -165,7 +165,7 @@ public:
   // THIS METHOD IS THREAD SAFE IF FIRST CALLED FROM A SINGLE THREAD AND
   // THE DATASET IS NOT MODIFIED
   virtual void GetCellNeighbors(vtkIdType cellId, vtkIdList *ptIds, 
-				vtkIdList *cellIds);
+                                vtkIdList *cellIds);
 
   // Description:
   // Locate the closest point to the global coordinate x. Return the
@@ -214,8 +214,8 @@ public:
   // efficient implementation. See for example vtkStructuredPoints.
   // THIS METHOD IS NOT THREAD SAFE.
   virtual vtkCell *FindAndGetCell(float x[3], vtkCell *cell, vtkIdType cellId, 
-				  float tol2, int& subId, float pcoords[3], 
-				  float *weights);
+                                  float tol2, int& subId, float pcoords[3], 
+                                  float *weights);
 
   // Description:
   // Datasets are composite objects and need to check each part for MTime

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkProcessStatistics.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:16 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 2001-11-13 14:09:56 $
+  Version:   $Revision: 1.9 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -102,7 +102,7 @@ vtkProcessStatistics* vtkProcessStatistics::New()
 #    endif /* no NBPG */
 #   endif /* no EXEC_PAGESIZE */
 #  else /* no HAVE_SYS_PARAM_H */
-#   define getpagesize() 8192	/* punt totally */
+#   define getpagesize() 8192   /* punt totally */
 #  endif /* no HAVE_SYS_PARAM_H */
 # endif /* no _SC_PAGESIZE */
 

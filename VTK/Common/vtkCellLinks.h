@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCellLinks.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:36:03 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2001-11-13 14:09:24 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -202,9 +202,9 @@ inline void vtkCellLinks::RemoveCellReference(vtkIdType cellId, vtkIdType ptId)
     if (cells[i] == cellId)
       {
       for (int j=i; j < (ncells-1); j++)
-	{
-	cells[j] = cells[j+1];
-	}
+        {
+        cells[j] = cells[j+1];
+        }
       this->Array[ptId].ncells--;
       break;
       }

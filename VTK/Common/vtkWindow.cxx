@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWindow.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:22 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2001-11-13 14:10:03 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -66,7 +66,7 @@ vtkWindow::~vtkWindow()
   if( this->WindowName )
     {
     delete [] this->WindowName;
-	this->WindowName = NULL;
+        this->WindowName = NULL;
     }
 }
 

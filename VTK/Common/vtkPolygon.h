@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolygon.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-02 16:41:17 $
-  Version:   $Revision: 1.68 $
+  Date:      $Date: 2001-11-13 14:09:28 $
+  Version:   $Revision: 1.69 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -122,7 +122,7 @@ public:
   // (e.g., non-convex). Returns 0 if point is not in polygon; 1 if it is.
   // Can also return -1 to indicate degenerate polygon.
   static int PointInPolygon(float x[3], int numPts, float *pts, 
-			    float bounds[6], float n[3]);  
+                            float bounds[6], float n[3]);  
 
   // Description:
   // Triangulate this polygon. The user must provide the vtkIdList outTris.

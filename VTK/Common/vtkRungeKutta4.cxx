@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRungeKutta4.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-04-24 00:38:35 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-11-13 14:09:58 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -94,7 +94,7 @@ void vtkRungeKutta4::Initialize()
 // Applied Numerical Analysis by C. F. Gerald and P. O. Wheatley
 // (Addison Wesley)
 float vtkRungeKutta4::ComputeNextStep(float* xprev, float* dxprev,
-				      float* xnext, float t, float delT)
+                                      float* xnext, float t, float delT)
 {
 
   int i, numDerivs, numVals;
@@ -172,9 +172,9 @@ float vtkRungeKutta4::ComputeNextStep(float* xprev, float* dxprev,
   for(i=0; i<numDerivs; i++)
     {
     xnext[i] = xprev[i] + delT*(this->Derivs[i]/6.0 +
-				this->NextDerivs[0][i]/3.0 +
-				this->NextDerivs[1][i]/3.0 +
-				this->NextDerivs[2][i]/6.0);
+                                this->NextDerivs[0][i]/3.0 +
+                                this->NextDerivs[1][i]/3.0 +
+                                this->NextDerivs[2][i]/6.0);
     }
 
   // TO DO: Should return estimated error

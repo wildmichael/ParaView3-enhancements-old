@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGenericCell.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-02 16:41:05 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2001-11-13 14:09:25 $
+  Version:   $Revision: 1.19 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -76,25 +76,25 @@ public:
   vtkCell *GetFace(int faceId);
   int CellBoundary(int subId, float pcoords[3], vtkIdList *pts);
   int EvaluatePosition(float x[3], float* closestPoint, 
-		       int& subId, float pcoords[3], 
-		       float& dist2, float *weights);
+                       int& subId, float pcoords[3], 
+                       float& dist2, float *weights);
   void EvaluateLocation(int& subId, float pcoords[3], 
                         float x[3], float *weights);
   void Contour(float value, vtkDataArray *cellScalars, 
-	       vtkPointLocator *locator, vtkCellArray *verts, 
-	       vtkCellArray *lines, vtkCellArray *polys, 
-	       vtkPointData *inPd, vtkPointData *outPd,
-	       vtkCellData *inCd, vtkIdType cellId, vtkCellData *outCd);
+               vtkPointLocator *locator, vtkCellArray *verts, 
+               vtkCellArray *lines, vtkCellArray *polys, 
+               vtkPointData *inPd, vtkPointData *outPd,
+               vtkCellData *inCd, vtkIdType cellId, vtkCellData *outCd);
   void Clip(float value, vtkDataArray *cellScalars, 
-	    vtkPointLocator *locator, vtkCellArray *connectivity,
-	    vtkPointData *inPd, vtkPointData *outPd,
-	    vtkCellData *inCd, vtkIdType cellId, vtkCellData *outCd, 
+            vtkPointLocator *locator, vtkCellArray *connectivity,
+            vtkPointData *inPd, vtkPointData *outPd,
+            vtkCellData *inCd, vtkIdType cellId, vtkCellData *outCd, 
             int insideOut);
   int IntersectWithLine(float p1[3], float p2[3], float tol, float& t,
-			float x[3], float pcoords[3], int& subId);
+                        float x[3], float pcoords[3], int& subId);
   int Triangulate(int index, vtkIdList *ptIds, vtkPoints *pts);
   void Derivatives(int subId, float pcoords[3], float *values, 
-		   int dim, float *derivs);
+                   int dim, float *derivs);
   int GetParametricCenter(float pcoords[3]);
 
   // Description:

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnsignedCharArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-21 15:21:51 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 2001-11-13 14:10:02 $
+  Version:   $Revision: 1.51 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -224,7 +224,7 @@ unsigned char *vtkUnsignedCharArray::ResizeAndExtend(const vtkIdType sz)
   if (this->Array)
     {
     memcpy(newArray, this->Array, 
-	   (sz < this->Size ? sz : this->Size) * sizeof(char));
+           (sz < this->Size ? sz : this->Size) * sizeof(char));
     if (!this->SaveUserArray)
       {
       delete [] this->Array;
@@ -268,7 +268,7 @@ void vtkUnsignedCharArray::Resize(vtkIdType sz)
   if (this->Array)
     {
     memcpy(newArray, this->Array, 
-	   (newSize < this->Size ? newSize : this->Size) * sizeof(char));
+           (newSize < this->Size ? newSize : this->Size) * sizeof(char));
     if (!this->SaveUserArray)
       {
       delete [] this->Array;

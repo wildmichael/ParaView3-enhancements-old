@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalars.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-28 20:30:10 $
-  Version:   $Revision: 1.52 $
+  Date:      $Date: 2001-11-13 14:09:58 $
+  Version:   $Revision: 1.53 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -147,13 +147,13 @@ void vtkScalars::ComputeRange()
       {
       s = this->GetScalar(i);
       if ( s < this->Range[0] )
-	{
-	this->Range[0] = s;
-	}
+        {
+        this->Range[0] = s;
+        }
       if ( s > this->Range[1] )
-	{
-	this->Range[1] = s;
-	}
+        {
+        this->Range[1] = s;
+        }
       }
 
     this->ComputeTime.Modified();

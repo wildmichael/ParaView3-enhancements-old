@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPoints.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-02 16:41:14 $
-  Version:   $Revision: 1.41 $
+  Date:      $Date: 2001-11-13 14:09:54 $
+  Version:   $Revision: 1.42 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -127,13 +127,13 @@ void vtkPoints::ComputeBounds()
       for (j=0; j<3; j++)
         {
         if ( x[j] < this->Bounds[2*j] )
-	  {
-	  this->Bounds[2*j] = x[j];
-	  }
+          {
+          this->Bounds[2*j] = x[j];
+          }
         if ( x[j] > this->Bounds[2*j+1] )
-	  {
-	  this->Bounds[2*j+1] = x[j];
-	  }
+          {
+          this->Bounds[2*j+1] = x[j];
+          }
         }
       }
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalarsToColors.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-02 16:41:18 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2001-11-13 14:09:58 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -98,11 +98,11 @@ void vtkScalarsToColors::MapScalarsThroughTable(vtkDataArray *scalars,
     }
 
   this->MapScalarsThroughTable2(scalars->GetVoidPointer(0),
-				output,
-				scalars->GetDataType(),
-				scalars->GetNumberOfTuples(),
-				scalars->GetNumberOfComponents(),
-				outputFormat);
+                                output,
+                                scalars->GetDataType(),
+                                scalars->GetNumberOfTuples(),
+                                scalars->GetNumberOfComponents(),
+                                outputFormat);
 }
 
 vtkUnsignedCharArray *vtkScalarsToColors::ConvertUnsignedCharToRGBA(

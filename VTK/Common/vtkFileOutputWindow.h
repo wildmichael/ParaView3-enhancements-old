@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFileOutputWindow.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:36:12 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2001-11-13 14:09:25 $
+  Version:   $Revision: 1.8 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -73,7 +73,7 @@ public:
   vtkSetMacro(Flush, int);
   vtkGetMacro(Flush, int);
   vtkBooleanMacro(Flush, int);
-	
+        
   // Description: Setting append will cause the log file to be 
   // opened in append mode.  Otherwise, if the log file exists,
   // it will be overwritten each time the vtkFileOutputWindow 

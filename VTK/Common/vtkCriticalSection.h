@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCriticalSection.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:36:06 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2001-11-13 14:09:24 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -100,9 +100,9 @@ public:
     {
       this->Init();
       if(isLocked)
-	{
-	this->Lock();
-	}
+        {
+        this->Lock();
+        }
     }
 
   void Init();

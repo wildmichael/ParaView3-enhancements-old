@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInitialValueProblemSolver.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:36:15 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2001-11-13 14:09:26 $
+  Version:   $Revision: 1.7 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -71,12 +71,12 @@ public:
   // or -1 on failure (for example, if the integration moves out of
   // a data set)
   virtual float ComputeNextStep(float* xprev, float* xnext, float t,
-				float delT) 
+                                float delT) 
     {
       return this->ComputeNextStep(xprev, 0, xnext, t, delT);
     }
   virtual float ComputeNextStep(float* xprev, float* dxprev, float* xnext, 
-				float t, float delT) = 0;
+                                float t, float delT) = 0;
 
   // Description:
   // Create concrete instance of the object.

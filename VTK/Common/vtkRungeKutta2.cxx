@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRungeKutta2.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:17 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2001-11-13 14:09:57 $
+  Version:   $Revision: 1.5 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -67,7 +67,7 @@ vtkRungeKutta2* vtkRungeKutta2::New()
 
 // Calculate next time step
 float vtkRungeKutta2::ComputeNextStep(float* xprev, float* dxprev, 
-				      float* xnext, float t, float delT)
+                                      float* xnext, float t, float delT)
 {
   int i, numDerivs, numVals;
 

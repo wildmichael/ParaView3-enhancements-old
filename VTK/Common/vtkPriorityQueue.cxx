@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPriorityQueue.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-22 19:12:49 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2001-11-13 14:09:56 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -187,7 +187,7 @@ vtkIdType vtkPriorityQueue::Pop(float &priority, vtkIdType location)
     idx = 2*i + 1;
 
     if ( this->Array[idx].priority < this->Array[idx+1].priority || 
-	 idx == this->MaxId )
+         idx == this->MaxId )
       {
       j = idx;
       }
@@ -240,7 +240,7 @@ vtkPriorityItem *vtkPriorityQueue::Resize(const vtkIdType sz)
   if (this->Array)
     {
     memcpy(newArray, this->Array,
-	   (sz < this->Size ? sz : this->Size) * sizeof(vtkPriorityItem));
+           (sz < this->Size ? sz : this->Size) * sizeof(vtkPriorityItem));
     delete [] this->Array;
     }
 

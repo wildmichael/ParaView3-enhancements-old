@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageData.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-02 16:41:09 $
-  Version:   $Revision: 1.92 $
+  Date:      $Date: 2001-11-13 14:09:26 $
+  Version:   $Revision: 1.93 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -104,7 +104,7 @@ public:
   int GetCellType(vtkIdType cellId);
   void GetCellPoints(vtkIdType cellId, vtkIdList *ptIds)
     {vtkStructuredData::GetCellPoints(cellId,ptIds,this->DataDescription,
-				      this->GetDimensions());}
+                                      this->GetDimensions());}
   void GetPointCells(vtkIdType ptId, vtkIdList *cellIds)
     {vtkStructuredData::GetPointCells(ptId,cellIds,this->GetDimensions());}
   void ComputeBounds();
@@ -221,7 +221,7 @@ public:
   // increments that are suited for continuous incrementing of the
   // pointer in a Z, Y, X, C nested for loop.
   void GetContinuousIncrements(int extent[6], int &incX, int &incY,
-			       int &incZ);
+                               int &incZ);
   
   // Description:
   // Access the native pointer for the scalar data

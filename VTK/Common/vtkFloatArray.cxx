@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFloatArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-21 15:21:50 $
-  Version:   $Revision: 1.50 $
+  Date:      $Date: 2001-11-13 14:09:41 $
+  Version:   $Revision: 1.51 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -217,7 +217,7 @@ float *vtkFloatArray::ResizeAndExtend(const vtkIdType sz)
   if (this->Array)
     {
     memcpy(newArray, this->Array,
-	   (sz < this->Size ? sz : this->Size) * sizeof(float));
+           (sz < this->Size ? sz : this->Size) * sizeof(float));
     if (!this->SaveUserArray)
       {
       delete [] this->Array;
@@ -259,7 +259,7 @@ void vtkFloatArray::Resize(vtkIdType sz)
   if (this->Array)
     {
     memcpy(newArray, this->Array,
-	   (newSize < this->Size ? newSize : this->Size) * sizeof(float));
+           (newSize < this->Size ? newSize : this->Size) * sizeof(float));
     if (!this->SaveUserArray)
       {
       delete [] this->Array;

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkInitialValueProblemSolver.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:11 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2001-11-13 14:09:46 $
+  Version:   $Revision: 1.4 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -66,7 +66,7 @@ void vtkInitialValueProblemSolver::SetFunctionSet(vtkFunctionSet* fset)
     {
     if (this->FunctionSet != 0) { this->FunctionSet->UnRegister(this); }
     if (fset != 0 && (fset->GetNumberOfFunctions() !=
-		      fset->GetNumberOfIndependentVariables() - 1))
+                      fset->GetNumberOfIndependentVariables() - 1))
       {
       vtkErrorMacro("Invalid function set!");
       this->FunctionSet = 0;

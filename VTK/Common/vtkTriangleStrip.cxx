@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangleStrip.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-07-12 20:33:38 $
-  Version:   $Revision: 1.65 $
+  Date:      $Date: 2001-11-13 14:10:01 $
+  Version:   $Revision: 1.66 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -105,11 +105,11 @@ int vtkTriangleStrip::EvaluatePosition(float x[3], float* closestPoint,
       {
       return_status = status;
       if (closestPoint)
-	{
-	closestPoint[0] = closest[0]; 
-	closestPoint[1] = closest[1]; 
-	closestPoint[2] = closest[2];
-	}
+        {
+        closestPoint[0] = closest[0]; 
+        closestPoint[1] = closest[1]; 
+        closestPoint[2] = closest[2];
+        }
       subId = i;
       pcoords[0] = pc[0];
       pcoords[1] = pc[1];
@@ -195,7 +195,7 @@ void vtkTriangleStrip::Contour(float value, vtkDataArray *cellScalars,
     triScalars->SetTuple(2,cellScalars->GetTuple(i+2));
 
     this->Triangle->Contour(value, triScalars, locator, verts,
-			   lines, polys, inPd, outPd, inCd, cellId, outCd);
+                           lines, polys, inPd, outPd, inCd, cellId, outCd);
     }
   triScalars->Delete();
 }
@@ -352,7 +352,7 @@ void vtkTriangleStrip::Clip(float value, vtkDataArray *cellScalars,
     triScalars->SetTuple(2,cellScalars->GetTuple(id3));
 
     this->Triangle->Clip(value, triScalars, locator, tris, inPd, outPd, 
-			inCd, cellId, outCd, insideOut);
+                        inCd, cellId, outCd, insideOut);
     }
 
   triScalars->Delete();

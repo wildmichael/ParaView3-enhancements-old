@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkIdentityTransform.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-02 16:41:08 $
-  Version:   $Revision: 1.20 $
+  Date:      $Date: 2001-11-13 14:09:26 $
+  Version:   $Revision: 1.21 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -80,11 +80,11 @@ public:
   // Apply the transformation to a combination of points, normals
   // and vectors.  
   void TransformPointsNormalsVectors(vtkPoints *inPts, 
-				     vtkPoints *outPts, 
-				     vtkDataArray *inNms, 
-				     vtkDataArray *outNms,
-				     vtkDataArray *inVrs, 
-				     vtkDataArray *outVrs);
+                                     vtkPoints *outPts, 
+                                     vtkDataArray *inNms, 
+                                     vtkDataArray *outNms,
+                                     vtkDataArray *inVrs, 
+                                     vtkDataArray *outVrs);
 
   // Invert the transformation.  This doesn't do anything to the 
   // identity transformation.
@@ -113,9 +113,9 @@ public:
   // without calling Update.  Meant for use only within other VTK
   // classes.
   void InternalTransformDerivative(const float in[3], float out[3],
-				   float derivative[3][3]);
+                                   float derivative[3][3]);
   void InternalTransformDerivative(const double in[3], double out[3],
-				   double derivative[3][3]);
+                                   double derivative[3][3]);
 
   // Description:
   // Make a transform of the same type.  This will actually

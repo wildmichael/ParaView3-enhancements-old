@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkOrderedTriangulator.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-10-10 20:11:56 $
-  Version:   $Revision: 1.27 $
+  Date:      $Date: 2001-11-13 14:09:51 $
+  Version:   $Revision: 1.28 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -745,7 +745,7 @@ static void AssignNeighbors(vtkOTTetra* t1, vtkOTTetra* t2)
 }
 
 static vtkOTTetra *CreateTetra(vtkOTPoint& p, vtkOTFace& face, 
-			       vtkMemoryPool& pool)
+                               vtkMemoryPool& pool)
 {
   vtkOTTetra *tetra = new(pool.GetNextPointer()) vtkOTTetra;
   tetra->Radius2 = vtkTetra::Circumsphere(p.X,

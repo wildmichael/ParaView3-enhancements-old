@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointData.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-22 19:12:48 $
-  Version:   $Revision: 1.63 $
+  Date:      $Date: 2001-11-13 14:09:53 $
+  Version:   $Revision: 1.64 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -68,9 +68,9 @@ void vtkPointData::NullPoint (vtkIdType ptId)
       int length = da->GetNumberOfComponents();
       float* tuple = new float[length];
       for(int j=0; j<length; j++)
-	{
-	tuple[j] = 0;
-	}
+        {
+        tuple[j] = 0;
+        }
       da->InsertTuple(ptId, tuple);
       delete[] tuple;
       }

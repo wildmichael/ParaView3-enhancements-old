@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkActor2DCollection.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:06 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2001-11-13 14:09:33 $
+  Version:   $Revision: 1.19 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -87,9 +87,9 @@ void vtkActor2DCollection::RenderOverlay(vtkViewport* viewport)
       {
       // Make sure that the actor is visible before rendering
       if (tempActor->GetVisibility() == 1)
-			{
-	    tempActor->RenderOverlay(viewport);
-	}
+                        {
+            tempActor->RenderOverlay(viewport);
+        }
       }
     }
 }

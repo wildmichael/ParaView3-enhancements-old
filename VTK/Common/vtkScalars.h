@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScalars.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:36:24 $
-  Version:   $Revision: 1.77 $
+  Date:      $Date: 2001-11-13 14:09:30 $
+  Version:   $Revision: 1.78 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -183,7 +183,7 @@ public:
   // scalar data. The color mode parameter controls how the scalar data 
   // is mapped to colors (see vtkMapper::ColorMode methods for a definition).
   int InitColorTraversal(float alpha, vtkScalarsToColors *lut, 
-			 int colorMode=0);
+                         int colorMode=0);
   
   // Description:
   // Get the color value at a particular id. Returns a pointer to a 4-byte

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPointLocator2D.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:36:20 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2001-11-13 14:09:28 $
+  Version:   $Revision: 1.17 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -110,23 +110,23 @@ public:
   // The returned points are sorted from closest to farthest.
   virtual void FindClosestNPoints(int N, float x[2], vtkIdList *result);
   virtual void FindClosestNPoints(int N, float x, float y,
-				  vtkIdList *result);
+                                  vtkIdList *result);
 
   // Description:
   // Find the closest points to a position such that each quadrant of
   // space around the position contains at least N points. Loosely 
   // limit the search to a maximum number of points evaluated, M. 
   virtual void FindDistributedPoints(int N, float x[2], 
-				     vtkIdList *result, int M);
+                                     vtkIdList *result, int M);
   virtual void FindDistributedPoints(int N, float x, float y, 
-				     vtkIdList *result, int M);
+                                     vtkIdList *result, int M);
 
   // Description:
   // Find all points within a specified radius R of position x.
   // The result is not sorted in any specific manner.
   virtual void FindPointsWithinRadius(float R, float x[2], vtkIdList *result);
   virtual void FindPointsWithinRadius(float R, float x, float y,
-				      vtkIdList *result);
+                                      vtkIdList *result);
   // Description:
   // See vtkLocator interface documentation.
   void Initialize();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPlane.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:14 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2001-11-13 14:09:53 $
+  Version:   $Revision: 1.35 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -111,7 +111,7 @@ void vtkPlane::ProjectPoint(double x[3], double origin[3], double normal[3], dou
 // projected point is returned in xproj. NOTE : normal NOT required to
 // have magnitude 1.
 void vtkPlane::GeneralizedProjectPoint(float x[3], float origin[3],
-				       float normal[3], float xproj[3])
+                                       float normal[3], float xproj[3])
 {
   float t, xo[3], n2;
 

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkGeneralTransform.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:36:14 $
-  Version:   $Revision: 1.34 $
+  Date:      $Date: 2001-11-13 14:09:25 $
+  Version:   $Revision: 1.35 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -217,9 +217,9 @@ public:
   // without calling Update.  Meant for use only within other VTK
   // classes.
   void InternalTransformDerivative(const float in[3], float out[3],
-				   float derivative[3][3]);
+                                   float derivative[3][3]);
   void InternalTransformDerivative(const double in[3], double out[3],
-				   double derivative[3][3]);
+                                   double derivative[3][3]);
 
   // Description:
   // Check for self-reference.  Will return true if concatenating

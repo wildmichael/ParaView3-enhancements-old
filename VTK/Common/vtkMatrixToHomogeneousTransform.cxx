@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMatrixToHomogeneousTransform.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-12-10 20:08:13 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-11-13 14:09:50 $
+  Version:   $Revision: 1.3 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -104,7 +104,7 @@ void vtkMatrixToHomogeneousTransform::InternalUpdate()
 
 //----------------------------------------------------------------------------
 void vtkMatrixToHomogeneousTransform::InternalDeepCopy(
-						vtkAbstractTransform *gtrans)
+                                                vtkAbstractTransform *gtrans)
 {
   vtkMatrixToHomogeneousTransform *transform = 
     (vtkMatrixToHomogeneousTransform *)gtrans;

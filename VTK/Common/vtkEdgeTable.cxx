@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkEdgeTable.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-06-22 19:12:48 $
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2001-11-13 14:09:39 $
+  Version:   $Revision: 1.27 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -285,7 +285,7 @@ vtkIdType vtkEdgeTable::InsertEdge(vtkIdType p1, vtkIdType p2)
       {
       if ( this->Attributes[index] )
         {
-	this->Attributes[index]->Delete();
+        this->Attributes[index]->Delete();
         }
       this->Attributes[index] = vtkIdList::New();
       this->Attributes[index]->Allocate(6,12);

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32OutputWindow.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:36:30 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2001-11-13 14:09:32 $
+  Version:   $Revision: 1.12 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -68,7 +68,7 @@ public:
   virtual void DisplayText(const char*);
   //BTX
   static LRESULT APIENTRY WndProc(HWND hWnd, UINT message, 
-				  WPARAM wParam, LPARAM lParam);
+                                  WPARAM wParam, LPARAM lParam);
   //ETX
 protected: 
   vtkWin32OutputWindow() {}; 

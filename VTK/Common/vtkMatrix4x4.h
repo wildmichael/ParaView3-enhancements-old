@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMatrix4x4.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:36:17 $
-  Version:   $Revision: 1.59 $
+  Date:      $Date: 2001-11-13 14:09:27 $
+  Version:   $Revision: 1.60 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -138,9 +138,9 @@ public:
 
 //BTX
   static void MultiplyPoint(const double Elements[16], 
-			    const float in[4], float out[4]);
+                            const float in[4], float out[4]);
   static void MultiplyPoint(const double Elements[16], 
-			    const double in[4], double out[4]);
+                            const double in[4], double out[4]);
 //ETX
 
   // Description:
@@ -159,7 +159,7 @@ public:
     vtkMatrix4x4::Multiply4x4(*a->Element,*b->Element,*c->Element); };
 //BTX
   static void Multiply4x4(const double a[16], const double b[16], 
-			  double c[16]);
+                          double c[16]);
 //ETX
 
   // Description:
@@ -203,9 +203,9 @@ public:
   void Transpose(vtkMatrix4x4 &in,vtkMatrix4x4 &out)
     {this->Transpose(&in,&out);}
   static void PointMultiply(const double Elements[16], 
-			    const float in[4], float out[4]);
+                            const float in[4], float out[4]);
   static void PointMultiply(const double Elements[16], 
-			    const double in[4], double out[4]);
+                            const double in[4], double out[4]);
 //ETX
 
 protected:

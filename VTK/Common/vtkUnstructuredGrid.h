@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkUnstructuredGrid.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:36:28 $
-  Version:   $Revision: 1.78 $
+  Date:      $Date: 2001-11-13 14:09:32 $
+  Version:   $Revision: 1.79 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -120,7 +120,7 @@ public:
   // THIS METHOD IS THREAD SAFE IF FIRST CALLED FROM A SINGLE THREAD AND
   // THE DATASET IS NOT MODIFIED
   virtual void GetCellNeighbors(vtkIdType cellId, vtkIdList *ptIds, 
-				vtkIdList *cellIds);
+                                vtkIdList *cellIds);
 
   // Description:
   // For streaming.  User/next filter specifies which piece the want updated.

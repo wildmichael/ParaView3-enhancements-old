@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkBitArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-11-12 18:57:33 $
-  Version:   $Revision: 1.45 $
+  Date:      $Date: 2001-11-13 14:09:34 $
+  Version:   $Revision: 1.46 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -178,7 +178,7 @@ void vtkBitArray::DeepCopy(vtkDataArray *ia)
 
     this->Array = new unsigned char[(this->Size+7)/8];
     memcpy(this->Array, (unsigned char*)ia->GetVoidPointer(0),
-	   ((this->Size+7)/8)*sizeof(unsigned char));
+           ((this->Size+7)/8)*sizeof(unsigned char));
     }
 }
 
@@ -237,7 +237,7 @@ unsigned char *vtkBitArray::ResizeAndExtend(const vtkIdType sz)
          ((usedSize+7)/8)*sizeof(unsigned char));
     if (!this->SaveUserArray)
       {
-	delete[] this->Array;
+        delete[] this->Array;
       }
     }
 
@@ -282,7 +282,7 @@ void vtkBitArray::Resize(vtkIdType sz)
          ((usedSize+7)/8)*sizeof(unsigned char));
     if (!this->SaveUserArray)
       {
-	delete[] this->Array;
+        delete[] this->Array;
       }
     }
 

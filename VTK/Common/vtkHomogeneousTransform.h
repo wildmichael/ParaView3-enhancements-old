@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHomogeneousTransform.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-02 16:41:07 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2001-11-13 14:09:25 $
+  Version:   $Revision: 1.10 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -70,11 +70,11 @@ public:
   // Apply the transformation to a combination of points, normals
   // and vectors.  
   virtual void TransformPointsNormalsVectors(vtkPoints *inPts, 
-					     vtkPoints *outPts, 
-					     vtkDataArray *inNms, 
-					     vtkDataArray *outNms,
-					     vtkDataArray *inVrs, 
-					     vtkDataArray *outVrs);
+                                             vtkPoints *outPts, 
+                                             vtkDataArray *inNms, 
+                                             vtkDataArray *outNms,
+                                             vtkDataArray *inVrs, 
+                                             vtkDataArray *outVrs);
 
   // Description:
   // Get a copy of the internal transformation matrix.  The
@@ -106,9 +106,9 @@ public:
   // without calling Update.  Meant for use only within other VTK
   // classes.
   void InternalTransformDerivative(const float in[3], float out[3],
-				   float derivative[3][3]);
+                                   float derivative[3][3]);
   void InternalTransformDerivative(const double in[3], double out[3],
-				   double derivative[3][3]);
+                                   double derivative[3][3]);
 
 protected:
   vtkHomogeneousTransform();

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkCoordinate.h,v $
   Language:  C++
-  Date:      $Date: 2001-10-11 13:36:05 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2001-11-13 14:09:24 $
+  Version:   $Revision: 1.26 $
   Thanks:    Thanks to Matt Turek who developed this class.
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -103,11 +103,11 @@ public:
   vtkGetMacro(CoordinateSystem, int);
   void SetCoordinateSystemToDisplay() {this->SetCoordinateSystem(VTK_DISPLAY);}
   void SetCoordinateSystemToNormalizedDisplay() 
-	{this->SetCoordinateSystem(VTK_NORMALIZED_DISPLAY);}
+        {this->SetCoordinateSystem(VTK_NORMALIZED_DISPLAY);}
   void SetCoordinateSystemToViewport() 
-	{this->SetCoordinateSystem(VTK_VIEWPORT);}
+        {this->SetCoordinateSystem(VTK_VIEWPORT);}
   void SetCoordinateSystemToNormalizedViewport() 
-	{this->SetCoordinateSystem(VTK_NORMALIZED_VIEWPORT);}
+        {this->SetCoordinateSystem(VTK_NORMALIZED_VIEWPORT);}
   void SetCoordinateSystemToView() {this->SetCoordinateSystem(VTK_VIEW);}
   void SetCoordinateSystemToWorld() {this->SetCoordinateSystem(VTK_WORLD);}
     

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetAttributes.h,v $
   Language:  C++
-  Date:      $Date: 2001-11-02 16:41:04 $
-  Version:   $Revision: 1.42 $
+  Date:      $Date: 2001-11-13 14:09:24 $
+  Version:   $Revision: 1.43 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -298,7 +298,7 @@ public:
   // same type, and have the same number of components. This is true if you
   // invoke CopyAllocate() or InterpolateAllocate().
   void CopyTuple(vtkDataArray *fromData, vtkDataArray *toData, 
-		 vtkIdType fromId, vtkIdType toId);
+                 vtkIdType fromId, vtkIdType toId);
 
   // Description:
   // Get the field data array indices corresponding to scalars, 
