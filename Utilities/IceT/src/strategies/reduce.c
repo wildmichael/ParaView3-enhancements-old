@@ -8,7 +8,7 @@
  * of authorship are reproduced on all copies.
  */
 
-/* $Id: reduce.c,v 1.6 2003-08-22 22:37:03 kmorel Exp $ */
+/* $Id: reduce.c,v 1.7 2004-09-09 22:56:03 kmorel Exp $ */
 
 #include <GL/ice-t.h>
 #include <image.h>
@@ -19,6 +19,10 @@
 
 #include <stdlib.h>
 #include <string.h>
+
+#ifdef _MSC_VER
+#pragma warning(disable:4127)
+#endif
 
 static IceTImage reduceCompose(void);
 static GLint delegate(GLint **tile_image_destp,

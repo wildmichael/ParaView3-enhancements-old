@@ -8,7 +8,7 @@
  * of authorship are reproduced on all copies.
  */
 
-/* $Id: image.c,v 1.7 2003-11-10 15:49:32 kmorel Exp $ */
+/* $Id: image.c,v 1.8 2004-09-09 22:56:03 kmorel Exp $ */
 
 #include <image.h>
 #include <projections.h>
@@ -33,6 +33,10 @@
 #endif
 #ifndef MAX
 #define MAX(x, y)	((x) < (y) ? (y) : (x))
+#endif
+
+#ifdef _MSC_VER
+#pragma warning(disable:4055)
 #endif
 
 /* Renders the geometry for a tile.  The geometry may not be projected
