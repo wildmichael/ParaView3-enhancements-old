@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSynchronizedTemplates3D.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-03-22 13:26:42 $
-  Version:   $Revision: 1.33 $
+  Date:      $Date: 2001-03-22 15:48:02 $
+  Version:   $Revision: 1.34 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -106,10 +106,6 @@ vtkSynchronizedTemplates3D::vtkSynchronizedTemplates3D()
 
   this->Threader = vtkMultiThreader::New();
   this->NumberOfThreads = this->Threader->GetNumberOfThreads();
-  if (this->NumberOfThreads > this->Threader->GetGlobalMaximumNumberOfThreads())
-    {
-    this->NumberOfThreads = this->Threader->GetGlobalMaximumNumberOfThreads();
-    }
   
   for (idx = 0; idx < VTK_MAX_THREADS; ++idx)
     {
@@ -654,11 +650,13 @@ void vtkSynchronizedTemplates3D::InitializeOutput(int *ext,vtkPolyData *o)
     newGradients->Allocate(estimatedSize,estimatedSize/2);
     o->GetPointData()->CopyVectorsOff();
     }
+  // It is more efficient to just create the scalar array 
+  // rather than redundantly interpolate the scalars.
+  o->GetPointData()->CopyScalarsOff();
   if (this->ComputeScalars)
     {
     newScalars = vtkScalars::New();
     newScalars->Allocate(estimatedSize,estimatedSize/2);
-    o->GetPointData()->CopyScalarsOff();
     }
   
   o->GetPointData()->InterpolateAllocate(this->GetInput()->GetPointData(),
@@ -743,10 +741,6 @@ void vtkSynchronizedTemplates3D::Execute()
   int *ext = input->GetWholeExtent();
 
   // Just in case some one changed the maximum number of threads.
-  if (this->NumberOfThreads > this->Threader->GetGlobalMaximumNumberOfThreads())
-    {
-    this->NumberOfThreads = this->Threader->GetGlobalMaximumNumberOfThreads();
-    }
   if (this->NumberOfThreads == 1)
     {
     // Just call the threaded execute directly.
