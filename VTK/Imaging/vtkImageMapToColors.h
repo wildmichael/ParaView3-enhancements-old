@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageMapToColors.h,v $
   Language:  C++
-  Date:      $Date: 2000-04-28 18:13:47 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 2000-05-10 18:46:35 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to David G. Gobbi who developed this class.
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -44,6 +44,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // The vtkImageMapToColors filter will take an input image of any valid
 // scalar type, and map the first component of the image through a
 // lookup table.  The result is an image of type VTK_UNSIGNED_CHAR.
+// If the lookup table is not set, or is set to NULL, then the input
+// data will be passed through if it is already of type UNSIGNED_CHAR.
 
 // .SECTION See Also
 // vtkLookupTable vtkScalarsToColors
@@ -79,6 +81,7 @@ public:
   // Description:
   // We need to check the modified time of the lookup table too.
   unsigned long GetMTime();
+  void UpdateData(vtkDataObject *output);
 
 protected:
   vtkImageMapToColors();
