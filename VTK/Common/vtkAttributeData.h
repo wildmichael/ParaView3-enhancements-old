@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkAttributeData.h,v $
   Language:  C++
-  Date:      $Date: 1998-03-26 22:49:10 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 1998-08-12 02:08:14 $
+  Version:   $Revision: 1.2 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -47,7 +47,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // control the type of the underlying data, if necessary.
 
 // .SECTION See Also
-// vtkPoints vtkScalars vtkVectors vtkNormals vtkTCoords vtkTensors vtkField
+// vtkPoints vtkScalars vtkVectors vtkNormals vtkTCoords vtkTensors vtkFieldData
 
 #ifndef __vtkAttributeData_h
 #define __vtkAttributeData_h
