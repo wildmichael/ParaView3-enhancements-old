@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHeap.h,v $
   Language:  C++
-  Date:      $Date: 2001-09-20 18:41:06 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2001-09-21 11:36:43 $
+  Version:   $Revision: 1.3 $
   Thanks:    Tom Citriniti who implemented and contributed this class
 
 
@@ -77,6 +77,8 @@ class VTK_EXPORT vtkHeap : public vtkObject
 {
 public:
   static vtkHeap *New();
+  vtkTypeMacro(vtkHeap,vtkObject);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
   // Description:
   // Allocate the memory requested.

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHeap.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-09-20 18:38:12 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2001-09-21 11:36:43 $
+  Version:   $Revision: 1.2 $
   Thanks:    Tom Citriniti who implemented and contributed this class
 
 
@@ -127,4 +127,10 @@ char* vtkHeap::StrDup(const char* str)
   return static_cast<char*>(node->Ptr);
 }
 
+void vtkHeap::PrintSelf(ostream& os, vtkIndent indent)
+{
+  vtkObject::PrintSelf(os,indent);
+
+  os << indent << "Number of Allocations: " << this->NumberOfAllocations << "\n";
+}
 
