@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPiecewiseFunction.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-07-17 16:39:38 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2000-07-17 17:16:07 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -102,6 +102,8 @@ void vtkPiecewiseFunction::DeepCopy( vtkDataObject *o )
       this->Function     = new float[this->ArraySize*2];
       memcpy( this->Function, f->Function, this->ArraySize*2*sizeof(float) );
       }
+    
+    this->Modified();
     }
 
   // Do the superclass
