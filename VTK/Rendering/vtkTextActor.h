@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTextActor.h,v $
   Language:  C++
-  Date:      $Date: 2002-06-04 16:36:04 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2002-06-04 19:39:00 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -57,7 +57,6 @@ public:
   // Get the vtkTextMapper that defines the text to be drawn.
   // One will be created by default if none is supplied
   void SetMapper(vtkTextMapper *mapper);
-  vtkTextMapper *GetMapper(void);
 
   // Description:
   // Set the text string to be displayed. "\n" is recognized
