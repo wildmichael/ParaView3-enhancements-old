@@ -3,8 +3,8 @@
   Program:   ParaView
   Module:    $RCSfile: vtkPVGeometryFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 2001-10-09 10:19:16 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2001-10-10 14:16:30 $
+  Version:   $Revision: 1.6 $
 
 Copyright (c) 2000-2001 Kitware Inc. 469 Clifton Corporate Parkway,
 Clifton Park, NY, 12065, USA.
@@ -40,6 +40,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
 #include "vtkPVGeometryFilter.h"
+#include "vtkGeometryFilter.h"
 #include "vtkExtractEdges.h"
 #include "vtkOutlineSource.h"
 #include "vtkStructuredGridOutlineFilter.h"
@@ -265,6 +266,7 @@ void vtkPVGeometryFilter::UnstructuredGridExecute(vtkUnstructuredGrid *input)
 
 
   vtkDataSetSurfaceFilter *surface = vtkDataSetSurfaceFilter::New();
+  //vtkGeometryFilter *surface = vtkGeometryFilter::New();
   surface->SetInput(input);
   vtkExtractEdges *edges = vtkExtractEdges::New();
   edges->SetInput(surface->GetOutput());
