@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkHDF5RawImageReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-03-11 16:34:44 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2003-03-12 15:41:40 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -37,7 +37,7 @@
 #include <string>
 
 //----------------------------------------------------------------------------
-vtkCxxRevisionMacro(vtkHDF5RawImageReader, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkHDF5RawImageReader, "$Revision: 1.2 $");
 vtkStandardNewMacro(vtkHDF5RawImageReader);
 
 //----------------------------------------------------------------------------
@@ -45,13 +45,13 @@ vtkStandardNewMacro(vtkHDF5RawImageReader);
 class vtkHDF5RawImageReaderDataSet
 {
 public:
-  std::string name;
+  vtkstd::string name;
   int dims[3];
   int rank;
   int format;
 };
 
-class vtkHDF5RawImageReaderDataSetsType: public std::vector<vtkHDF5RawImageReaderDataSet> {};
+class vtkHDF5RawImageReaderDataSetsType: public vtkstd::vector<vtkHDF5RawImageReaderDataSet> {};
 
 int vtkHDF5RawImageReaderVisit(hid_t, const char*, void* opdata);
 int vtkHDF5RawImageReaderTraverseGroup(vtkHDF5RawImageReader*,
@@ -358,7 +358,7 @@ void vtkHDF5RawImageReader::Execute()
     data->SetNumberOfComponents(1);  
     data->SetNumberOfTuples(count[0] * count[1] * count[2]);
     
-    std::string full = "/";
+    vtkstd::string full = "/";
     full += name;
     hid_t dataset = H5Dopen(file, full.c_str());
     if(dataset >= 0)
@@ -443,7 +443,7 @@ int vtkHDF5RawImageReaderVisit(hid_t loc_id, const char* name, void* opdata)
     static_cast<vtkHDF5RawImageReaderTraverseData*>(opdata);
   
   // Construct the full name of the HDF5 object.
-  std::string full = data->path;
+  vtkstd::string full = data->path;
   if(full != "/")
     {
     full += "/";
