@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkImageImport.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-12-17 02:03:53 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 2003-11-05 18:41:38 $
+  Version:   $Revision: 1.40 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,7 +24,7 @@
 
 #include <ctype.h>
 
-vtkCxxRevisionMacro(vtkImageImport, "$Revision: 1.39 $");
+vtkCxxRevisionMacro(vtkImageImport, "$Revision: 1.40 $");
 vtkStandardNewMacro(vtkImageImport);
 
 //----------------------------------------------------------------------------
@@ -201,7 +201,10 @@ void vtkImageImport::ExecuteData(vtkDataObject *output)
   // If set, use the callbacks to prepare our input data.
   this->InvokeExecuteDataCallbacks();
   
-  vtkImageData *data = this->AllocateOutputData(output);
+  vtkImageData *data = vtkImageData::SafeDownCast(output);
+  data->UpdateInformation();
+  data->SetExtent(0,0,0,0,0,0);
+  data->AllocateScalars();
   void *ptr = this->GetImportVoidPointer();
   int size = 
     (this->DataExtent[1] - this->DataExtent[0]+1) *
