@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkChairDisplay.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-10-11 15:05:27 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-10-13 00:53:04 $
+  Version:   $Revision: 1.7 $
 
 Copyright (c) 1993-1996 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -389,7 +389,7 @@ void vtkChairDisplay::Execute(int recomputeTexture)
   if (recomputeTexture && this->Scalars)
     {
     this->Scalars->Delete();
-    this->Scalars == NULL;
+    this->Scalars = NULL;
     }
   if (!this->Scalars || recomputeTexture)
     {
