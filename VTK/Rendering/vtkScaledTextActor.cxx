@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScaledTextActor.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-09-01 22:43:54 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 1999-09-16 13:30:39 $
+  Version:   $Revision: 1.7 $
 
 Copyright (c) 1993-1999 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -64,6 +64,15 @@ vtkScaledTextActor::~vtkScaledTextActor()
   this->TextActor->Delete();
   this->Position2Coordinate->Delete();
   this->Position2Coordinate = NULL;
+}
+
+// Release any graphics resources that are being consumed by this actor.
+// The parameter window could be used to determine which graphic
+// resources to release.
+void vtkScaledTextActor::ReleaseGraphicsResources(vtkWindow *win)
+{
+  this->vtkActor2D::ReleaseGraphicsResources(win);
+  this->TextActor->ReleaseGraphicsResources(win);
 }
 
 void vtkScaledTextActor::SetWidth(float w)

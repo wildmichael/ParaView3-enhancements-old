@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkScaledTextActor.h,v $
   Language:  C++
-  Date:      $Date: 1999-09-14 17:22:42 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1999-09-16 13:30:39 $
+  Version:   $Revision: 1.5 $
 
 Copyright (c) 1993-1995 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -97,6 +97,12 @@ public:
   vtkSetVector2Macro(MinimumSize,int);
   vtkGetVector2Macro(MinimumSize,int);
   
+  // Description:
+  // Release any graphics resources that are being consumed by this actor.
+  // The parameter window could be used to determine which graphic
+  // resources to release.
+  virtual void ReleaseGraphicsResources(vtkWindow *);
+
 protected:
   vtkScaledTextActor();
   ~vtkScaledTextActor();
