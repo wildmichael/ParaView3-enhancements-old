@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTkRenderWidget.h,v $
   Language:  C++
-  Date:      $Date: 1998-04-16 21:11:14 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1998-09-14 15:28:46 $
+  Version:   $Revision: 1.8 $
   Thanks:    Thanks to C. Charles Law who developed this class.
 
 
@@ -47,10 +47,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // be used to create a vtkRenderer and etc. You can also specify a 
 // vtkRenderWindow to be used when creating the widget by using
 // the -rw option. It also takes -width and -height options.
-
-
-// .SECTION Event Bindings
-// Events can be bound on this widget just liek any other Tk widget.
+// Events can be bound on this widget just like any other Tk widget.
 
 // .SECTION See Also
 // vtkRenderWindow vtkRenderer

@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkWin32RenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-14 13:22:05 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 1998-09-14 15:28:46 $
+  Version:   $Revision: 1.14 $
   
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
 
@@ -44,11 +44,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // event bindings to common graphics functions. For example, camera
 // zoom-in/zoom-out, azimuth, and roll. It is one of the window system
 // specific subclasses of vtkRenderWindowInteractor.
-
-// .SECTION see also
-// vtkRenderWindowInteractor vtkWin32OpenGLRenderWindow
-
-// .SECTION Event Bindings
+//
 // Mouse bindings: Button 1 - rotate, Button 2 - pan, Button 3 - zoom
 // The distance from the center of the renderer viewport determines
 // how quickly to rotate, pan and zoom.
@@ -57,6 +53,10 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 //    w - turn all actors wireframe
 //    s - turn all actors surface
 //    e - exits
+
+// .SECTION see also
+// vtkRenderWindowInteractor vtkWin32OpenGLRenderWindow
+
 
 
 #ifndef __vtkWin32RenderWindowInteractor_h

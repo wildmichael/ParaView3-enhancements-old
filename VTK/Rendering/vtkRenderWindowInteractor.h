@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkRenderWindowInteractor.h,v $
   Language:  C++
-  Date:      $Date: 1998-09-14 13:21:50 $
-  Version:   $Revision: 1.39 $
+  Date:      $Date: 1998-09-14 15:28:45 $
+  Version:   $Revision: 1.40 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -47,8 +47,7 @@ MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 // or cells; switching in/out of stereo mode; property changes such as
 // wireframe and surface; and a toggle to force the light to be placed at
 // camera viewpoint (pointing in view direction).
-
-// .SECTION Event Bindings
+// 
 // Specific devices have different camera bindings. The bindings are on both
 // mouse events as well as keyboard presses. See vtkXRenderWindowInteractor  
 // and vtkWin32RenderWindowInteractor for specific information.
