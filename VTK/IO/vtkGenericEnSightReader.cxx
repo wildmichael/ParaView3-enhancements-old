@@ -28,8 +28,9 @@
 #include <vtkstd/string>
 #include <vtkstd/map>
 #include <assert.h>
+#include <ctype.h> /* isspace */
 
-vtkCxxRevisionMacro(vtkGenericEnSightReader, "$Revision: 1.66 $");
+vtkCxxRevisionMacro(vtkGenericEnSightReader, "$Revision: 1.67 $");
 vtkStandardNewMacro(vtkGenericEnSightReader);
 
 vtkCxxSetObjectMacro(vtkGenericEnSightReader,TimeSets, 
