@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkShrinkPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-07-13 16:32:34 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 1994-09-29 14:07:55 $
+  Version:   $Revision: 1.16 $
 
 This file is part of the Visualization Library. No part of this file or its 
 contents may be copied, reproduced or altered in any way without the express
@@ -17,8 +17,8 @@ Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen 1993, 1994
 
 void vlShrinkPolyData::Execute()
 {
-  int i, j, k;
-  float center[3], *p;
+  int j, k;
+  float center[3];
   vlPoints *inPts;
   vlPointData *pd;
   vlCellArray *inVerts,*inLines,*inPolys,*inStrips;

@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkGlyph3D.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-09-12 21:19:25 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 1994-09-29 14:07:50 $
+  Version:   $Revision: 1.12 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -72,7 +72,7 @@ void vlGlyph3D::Execute()
   vlFloatScalars *newScalars=NULL;
   vlFloatVectors *newVectors=NULL;
   vlFloatNormals *newNormals=NULL;
-  float *x, s, *v, vNew[3];
+  float *x, *v, vNew[3];
   vlTransform trans;
   vlCell *cell;
   vlIdList *cellPts;

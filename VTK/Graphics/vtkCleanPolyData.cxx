@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkCleanPolyData.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-09-12 21:19:20 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1994-09-29 14:07:48 $
+  Version:   $Revision: 1.5 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -37,7 +37,6 @@ void vlCleanPolyData::Execute()
   int numNewPts;
   
   vlPointData *pd;
-  vlLocator *locator;
   vlPoints *inPts;
   int *Index;
   int i, j, count;

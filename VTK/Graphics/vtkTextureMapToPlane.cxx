@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkTextureMapToPlane.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-09-20 08:37:27 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 1994-09-29 14:07:57 $
+  Version:   $Revision: 1.5 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -151,7 +151,7 @@ void vlTextureMapToPlane::Execute()
 void vlTextureMapToPlane::ComputeNormal()
 {
   int numPts=this->GetNumberOfPoints();
-  float m[9], v[3], *x, d;
+  float m[9], v[3], *x;
   int i, ptId, dir;
   float length, w, *c1, *c2, *c3, det;
   float *bounds;

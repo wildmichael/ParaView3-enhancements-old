@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkVoxelModeller.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-08-09 15:08:01 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 1994-09-29 14:07:59 $
+  Version:   $Revision: 1.6 $
 
 This file is part of the Visualization Library. No part of this file or its
 contents may be copied, reproduced or altered in any way without the express
@@ -99,7 +99,7 @@ void vlVoxelModeller::Execute()
   int numPts, idx;
   int subId;
   int min[3], max[3];
-  float x[3], prevDistance2, distance2;
+  float x[3], distance2;
   int jkFactor;
   float weights[MAX_CELL_SIZE];
   float closestPoint[3];
@@ -266,8 +266,7 @@ void vlVoxelModeller::SetSampleDimensions(int dim[3])
 void vlVoxelModeller::Write(char *fname)
 {
   FILE *fp;
-  int cellNum, i, j, k;
-  float *bounds;
+  int i, j, k;
   float maxDistance;
   vlBitScalars *newScalars;
   int numPts, idx;

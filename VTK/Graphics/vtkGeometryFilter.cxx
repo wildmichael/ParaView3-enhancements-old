@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkGeometryFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-08-11 07:41:26 $
-  Version:   $Revision: 1.8 $
+  Date:      $Date: 1994-09-29 14:07:49 $
+  Version:   $Revision: 1.9 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -187,8 +187,6 @@ void vlGeometryFilter::Execute()
 
 void vlGeometryFilter::PrintSelf(ostream& os, vlIndent indent)
 {
-  int i;
-
   if (this->ShouldIPrint(vlGeometryFilter::GetClassName()))
     {
     vlDataSetToPolyFilter::PrintSelf(os,indent);

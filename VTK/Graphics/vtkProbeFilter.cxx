@@ -3,8 +3,8 @@
   Program:   Visualization Library
   Module:    $RCSfile: vtkProbeFilter.cxx,v $
   Language:  C++
-  Date:      $Date: 1994-09-24 14:38:59 $
-  Version:   $Revision: 1.7 $
+  Date:      $Date: 1994-09-29 14:07:54 $
+  Version:   $Revision: 1.8 $
 
 This file is part of the Visualization Library. No part of this file
 or its contents may be copied, reproduced or altered in any way
@@ -27,8 +27,7 @@ void vlProbeFilter::Execute()
   vlCell *cell;
   vlPointData *pd;
   int numPts, subId;
-  float pcoords[3], dist2, weights[MAX_CELL_SIZE];
-  float closestPoint[3];
+  float pcoords[3], weights[MAX_CELL_SIZE];
 
   vlDebugMacro(<<"Probing data");
   this->Initialize();
