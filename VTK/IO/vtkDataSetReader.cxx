@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkDataSetReader.cxx,v $
   Language:  C++
-  Date:      $Date: 1999-07-22 12:12:45 $
-  Version:   $Revision: 1.35 $
+  Date:      $Date: 1999-08-06 14:39:15 $
+  Version:   $Revision: 1.36 $
 
 
 Copyright (c) 1993-1998 Ken Martin, Will Schroeder, Bill Lorensen.
@@ -272,6 +272,7 @@ void vtkDataSetReader::Execute()
       preader->SetTCoordsName(this->Reader->GetTCoordsName());
       preader->SetLookupTableName(this->Reader->GetLookupTableName());
       preader->SetFieldDataName(this->Reader->GetFieldDataName());
+      preader->Update();
       // whether we used the old output or not, we need to set the output.
       this->SetOutput(0, preader->GetOutput());
       preader->Delete();
