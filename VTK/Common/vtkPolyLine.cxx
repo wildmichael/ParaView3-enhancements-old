@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkPolyLine.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-10-02 18:54:58 $
-  Version:   $Revision: 1.56 $
+  Date:      $Date: 2000-10-02 19:36:10 $
+  Version:   $Revision: 1.57 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -437,7 +437,7 @@ void vtkPolyLine::Derivatives(int subId, float pcoords[3], float *values,
   this->Line->Points->SetPoint(0,this->Points->GetPoint(subId));
   this->Line->Points->SetPoint(1,this->Points->GetPoint(subId+1));
 
-  this->Line->Derivatives(0, pcoords, values+subId, dim, derivs);
+  this->Line->Derivatives(0, pcoords, values+dim*subId, dim, derivs);
 }
 
 void vtkPolyLine::Clip(float value, vtkScalars *cellScalars, 

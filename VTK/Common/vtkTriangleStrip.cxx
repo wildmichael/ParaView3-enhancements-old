@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkTriangleStrip.cxx,v $
   Language:  C++
-  Date:      $Date: 2000-10-02 18:54:58 $
-  Version:   $Revision: 1.58 $
+  Date:      $Date: 2000-10-02 19:36:10 $
+  Version:   $Revision: 1.59 $
 
 
 Copyright (c) 1993-2000 Ken Martin, Will Schroeder, Bill Lorensen 
@@ -279,7 +279,7 @@ void vtkTriangleStrip::Derivatives(int subId, float pcoords[3], float *values,
   this->Triangle->Points->SetPoint(1,this->Points->GetPoint(subId+1));
   this->Triangle->Points->SetPoint(2,this->Points->GetPoint(subId+2));
 
-  this->Triangle->Derivatives(0, pcoords, values+subId, dim, derivs);
+  this->Triangle->Derivatives(0, pcoords, values+dim*subId, dim, derivs);
 }
 
 // Given a triangle strip, decompose it into (triangle) polygons. The 
