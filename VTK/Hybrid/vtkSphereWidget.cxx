@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkSphereWidget.cxx,v $
   Language:  C++
-  Date:      $Date: 2002-04-05 20:29:22 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2002-04-06 11:01:47 $
+  Version:   $Revision: 1.7 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -26,7 +26,7 @@
 #include "vtkCallbackCommand.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkSphereWidget, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkSphereWidget, "$Revision: 1.7 $");
 vtkStandardNewMacro(vtkSphereWidget);
 
 vtkSphereWidget::vtkSphereWidget()
@@ -162,6 +162,7 @@ void vtkSphereWidget::SetEnabled(int enabling)
     // Add the sphere
     this->CurrentRenderer->AddActor(this->SphereActor);
     this->SphereActor->SetProperty(this->SphereProperty);
+
     this->CurrentRenderer->AddActor(this->HandleActor);
     this->HandleActor->SetProperty(this->HandleProperty);
     this->SelectRepresentation();
@@ -255,6 +256,24 @@ void vtkSphereWidget::PrintSelf(ostream& os, vtkIndent indent)
   else
     {
     os << indent << "Selected Sphere Property: (none)\n";
+    }
+
+  if ( this->HandleProperty )
+    {
+    os << indent << "Handle Property: " << this->HandleProperty << "\n";
+    }
+  else
+    {
+    os << indent << "Handle Property: (none)\n";
+    }
+  if ( this->SelectedHandleProperty )
+    {
+    os << indent << "Selected Handle Property: " 
+       << this->SelectedHandleProperty << "\n";
+    }
+  else
+    {
+    os << indent << "Selected Handle Property: (none)\n";
     }
 
   os << indent << "Translation: " << (this->Translation ? "On\n" : "Off\n");
