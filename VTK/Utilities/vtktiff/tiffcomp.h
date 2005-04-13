@@ -1,4 +1,4 @@
-/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/vtktiff/Attic/tiffcomp.h,v 1.1 2004-04-28 15:49:22 king Exp $ */
+/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/vtktiff/Attic/tiffcomp.h,v 1.2 2005-04-13 10:50:59 david.cole Exp $ */
 
 /*
  * Copyright (c) 1990-1997 Sam Leffler
@@ -84,7 +84,11 @@
 #define BSDTYPES
 #define HAVE_UNISTD_H   0
 #elif (defined(_WINDOWS) || defined(__WIN32__) || defined(_Windows) || defined(_WIN32)) && !defined(unix)
-#define BSDTYPES
+  //  If MINGW has already typedefed u_char, u_short, u_int and u_long in their
+  //  winsock2.h, they also defined _BSDTYPES_DEFINED...
+  #if !defined(__MINGW32__) || !defined(_BSDTYPES_DEFINED)
+    #define BSDTYPES
+  #endif
 #elif defined(OS2_16) || defined(OS2_32)
 #define BSDTYPES
 #elif defined(__acornriscos)
