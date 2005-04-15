@@ -3,8 +3,8 @@
   Program:   DICOMParser
   Module:    $RCSfile: DICOMCallback.h,v $
   Language:  C++
-  Date:      $Date: 2003-08-27 18:49:00 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2005-04-15 21:54:05 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 2003 Matt Turek
   All rights reserved.
@@ -45,6 +45,7 @@
 class DICOM_EXPORT DICOMCallback
 {
  public:
+  virtual ~DICOMCallback();
   virtual void Execute(DICOMParser *parser,
                        doublebyte group,
                        doublebyte element,
