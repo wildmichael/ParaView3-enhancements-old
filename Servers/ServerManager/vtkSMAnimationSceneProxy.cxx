@@ -20,10 +20,8 @@
 #include "vtkCollection.h"
 #include "vtkCollectionIterator.h"
 #include "vtkSMRenderModuleProxy.h"
-vtkCxxRevisionMacro(vtkSMAnimationSceneProxy, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkSMAnimationSceneProxy, "$Revision: 1.4 $");
 vtkStandardNewMacro(vtkSMAnimationSceneProxy);
-vtkCxxSetObjectMacro(vtkSMAnimationSceneProxy, RenderModuleProxy, 
-  vtkSMRenderModuleProxy);
 
 //----------------------------------------------------------------------------
 vtkSMAnimationSceneProxy::vtkSMAnimationSceneProxy()
