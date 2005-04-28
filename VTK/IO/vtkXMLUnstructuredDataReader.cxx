@@ -23,7 +23,7 @@
 #include "vtkInformation.h"
 #include "vtkStreamingDemandDrivenPipeline.h"
 
-vtkCxxRevisionMacro(vtkXMLUnstructuredDataReader, "$Revision: 1.18 $");
+vtkCxxRevisionMacro(vtkXMLUnstructuredDataReader, "$Revision: 1.19 $");
 
 //----------------------------------------------------------------------------
 vtkXMLUnstructuredDataReader::vtkXMLUnstructuredDataReader()
@@ -37,7 +37,10 @@ vtkXMLUnstructuredDataReader::vtkXMLUnstructuredDataReader()
 //----------------------------------------------------------------------------
 vtkXMLUnstructuredDataReader::~vtkXMLUnstructuredDataReader()
 {
-  if(this->NumberOfPieces) { this->DestroyPieces(); }
+  if(this->NumberOfPieces)
+    {
+    this->DestroyPieces();
+    }
 }
 
 //----------------------------------------------------------------------------
