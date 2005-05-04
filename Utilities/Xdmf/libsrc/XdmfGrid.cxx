@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfGrid.cxx,v 1.8 2004-01-13 22:59:52 andy Exp $  */
-/*  Date : $Date: 2004-01-13 22:59:52 $ */
-/*  Version : $Revision: 1.8 $ */
+/*  Id : $Id: XdmfGrid.cxx,v 1.9 2005-05-04 17:52:47 andy Exp $  */
+/*  Date : $Date: 2005-05-04 17:52:47 $ */
+/*  Version : $Revision: 1.9 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -49,6 +49,7 @@ XdmfGrid::XdmfGrid() {
   this->Attribute = (XdmfAttribute **)calloc(1, sizeof( XdmfAttribute * ));
   this->AssignedAttribute = NULL;
   this->NumberOfAttributes = 0;
+  this->Collection = 0;
   }
 
 XdmfGrid::~XdmfGrid() {
@@ -59,6 +60,7 @@ XdmfGrid::~XdmfGrid() {
     delete this->Attribute[Index];
     }
   free(this->Attribute);
+  this->SetCollection(0);
   }
 
 XdmfInt32
@@ -150,6 +152,9 @@ if( attribute ) {
 } else {
   this->SetName( GetUnique("Grid_" ) );
 }
+// Request collection attribute. If collection is not specified, just set it to none.
+attribute = this->DOM->Get( Element, "Collection" );
+this->SetCollection( attribute );
 XdmfInt32 OldNumberOfAttributes = this->NumberOfAttributes;
 this->NumberOfAttributes = this->DOM->FindNumberOfElements("Attribute", Element );
 if( this->NumberOfAttributes > 0 ){
