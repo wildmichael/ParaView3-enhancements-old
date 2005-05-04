@@ -27,7 +27,7 @@
 #include "vtkSMProxyManager.h"
 
 vtkStandardNewMacro(vtkSMCaveRenderModuleProxy);
-vtkCxxRevisionMacro(vtkSMCaveRenderModuleProxy, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkSMCaveRenderModuleProxy, "$Revision: 1.3 $");
 //-----------------------------------------------------------------------------
 vtkSMCaveRenderModuleProxy::vtkSMCaveRenderModuleProxy()
 {
@@ -50,6 +50,7 @@ void vtkSMCaveRenderModuleProxy::CreateCompositeManager()
     vtkErrorMacro("Failed to create CompositeManagerProxy.");
     return;
     }
+  cm->SetServers(vtkProcessModule::CLIENT | vtkProcessModule::RENDER_SERVER);
   this->AddSubProxy("CompositeManager", cm);
   cm->Delete();
 }
