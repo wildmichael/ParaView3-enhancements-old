@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFixedPointVolumeRayCastCompositeGOHelper.cxx,v $
   Language:  C++
-  Date:      $Date: 2005-05-04 14:13:58 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2005-05-05 20:10:59 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkFixedPointVolumeRayCastCompositeGOHelper, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkFixedPointVolumeRayCastCompositeGOHelper, "$Revision: 1.2 $");
 vtkStandardNewMacro(vtkFixedPointVolumeRayCastCompositeGOHelper);
 
 // Construct a new vtkFixedPointVolumeRayCastCompositeGOHelper with default values
@@ -260,6 +260,7 @@ void vtkFixedPointCompositeGOHelperGenerateImageIndependentNN( T *data,
                                                      vtkFixedPointVolumeRayCastMapper *mapper,
                                                      vtkVolume *vol)
 {
+  VTKKWRCHelper_InitializeWeights();
   VTKKWRCHelper_InitializationAndLoopStartGONN();
   VTKKWRCHelper_InitializeCompositeMultiNN();
   VTKKWRCHelper_InitializeCompositeGONN();
@@ -677,6 +678,7 @@ void vtkFixedPointCompositeGOHelperGenerateImageIndependentTrilin( T *data,
                                                          vtkFixedPointVolumeRayCastMapper *mapper,
                                                          vtkVolume *vol)
 {
+  VTKKWRCHelper_InitializeWeights();
   VTKKWRCHelper_InitializationAndLoopStartGOTrilin();
   VTKKWRCHelper_InitializeCompositeMultiTrilin();
   VTKKWRCHelper_InitializeCompositeMultiGOTrilin();

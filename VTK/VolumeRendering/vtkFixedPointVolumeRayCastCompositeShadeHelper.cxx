@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFixedPointVolumeRayCastCompositeShadeHelper.cxx,v $
   Language:  C++
-  Date:      $Date: 2005-05-04 14:13:58 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2005-05-05 20:10:59 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkFixedPointVolumeRayCastCompositeShadeHelper, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkFixedPointVolumeRayCastCompositeShadeHelper, "$Revision: 1.2 $");
 vtkStandardNewMacro(vtkFixedPointVolumeRayCastCompositeShadeHelper);
 
 // Construct a new vtkFixedPointVolumeRayCastCompositeShadeHelper with default values
@@ -255,6 +255,7 @@ void vtkFixedPointCompositeShadeHelperGenerateImageIndependentNN( T *data,
                                                      vtkFixedPointVolumeRayCastMapper *mapper,
                                                      vtkVolume *vol)
 {
+  VTKKWRCHelper_InitializeWeights();
   VTKKWRCHelper_InitializationAndLoopStartShadeNN();
   VTKKWRCHelper_InitializeCompositeMultiNN();
   VTKKWRCHelper_InitializeCompositeShadeNN();
@@ -625,6 +626,7 @@ void vtkFixedPointCompositeShadeHelperGenerateImageIndependentTrilin( T *data,
                                                          vtkFixedPointVolumeRayCastMapper *mapper,
                                                          vtkVolume *vol)
 {
+  VTKKWRCHelper_InitializeWeights();
   VTKKWRCHelper_InitializationAndLoopStartShadeTrilin();
   VTKKWRCHelper_InitializeCompositeMultiTrilin();
   VTKKWRCHelper_InitializeCompositeMultiShadeTrilin();
