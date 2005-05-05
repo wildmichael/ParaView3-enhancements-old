@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXdmfReader.h,v $
   Language:  C++
-  Date:      $Date: 2005-01-27 14:27:19 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2005-05-05 20:03:25 $
+  Version:   $Revision: 1.16 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -160,6 +160,8 @@ public:
   // Get number of domains and grids.
   int GetNumberOfDomains();
   int GetNumberOfGrids();
+
+  int GetNewNumberOfGrids();
   
   // Description:
   // Get the name of domain or grid at index.
@@ -212,6 +214,10 @@ protected:
   // Callback registered with the SelectionObserver.
   static void SelectionModifiedCallback(vtkObject* caller, unsigned long eid,
                                         void* clientdata, void* calldata);
+
+
+  int RequestSingleGridInformation(int currentGrid, int generateGrid,
+    vtkInformationVector* outputVector);
   
   // The array selections.
   vtkDataArraySelection* PointDataArraySelection;
