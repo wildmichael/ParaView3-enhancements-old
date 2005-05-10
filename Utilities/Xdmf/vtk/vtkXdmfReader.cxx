@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXdmfReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2005-05-06 17:52:33 $
-  Version:   $Revision: 1.56 $
+  Date:      $Date: 2005-05-10 21:41:21 $
+  Version:   $Revision: 1.57 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen  
@@ -79,7 +79,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <vtkstd/vector>
 
 vtkStandardNewMacro(vtkXdmfReader);
-vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.56 $");
+vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.57 $");
 
 #if defined(_WIN32) && (defined(_MSC_VER) || defined(__BORLANDC__))
 #  include <direct.h>
@@ -1561,6 +1561,16 @@ int vtkXdmfReader::RequestSingleGridInformation(int currentGrid, int generateGri
       idvGrid->SetExtent(0, EndExtent[2],
         0, EndExtent[1],
         0, EndExtent[0]);
+      XdmfGeometry  *Geometry = grid->GetGeometry();
+      if ( Geometry->GetGeometryType() == XDMF_GEOMETRY_ORIGIN_DXDYDZ )
+        { 
+        // Update geometry so that origin and spacing are read
+        Geometry->Update();
+        XdmfFloat64 *origin = Geometry->GetOrigin();
+        XdmfFloat64 *spacing = Geometry->GetDxDyDz();
+        outInfo->Set(vtkDataObject::ORIGIN(), origin[2], origin[1], origin[0]);
+        outInfo->Set(vtkDataObject::SPACING(), spacing[2], spacing[1], spacing[0]);
+        }
       }
     else  if ( grid->GetTopologyType() == XDMF_2DRECTMESH ||
       grid->GetTopologyType() == XDMF_3DRECTMESH )
