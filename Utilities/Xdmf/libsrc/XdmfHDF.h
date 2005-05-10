@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfHDF.h,v 1.11 2004-01-15 21:43:56 andy Exp $  */
-/*  Date : $Date: 2004-01-15 21:43:56 $ */
-/*  Version : $Revision: 1.11 $ */
+/*  Id : $Id: XdmfHDF.h,v 1.12 2005-05-10 17:41:36 andy Exp $  */
+/*  Date : $Date: 2005-05-10 17:41:36 $ */
+/*  Version : $Revision: 1.12 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -169,7 +169,7 @@ Read the cueently open dataset into and Array.
 */
   XdmfArray *Read( XdmfArray *Array = NULL );
 /*!
-Write to the cueently open dataset from and Array.
+Write to the curently open dataset from and Array.
 */
   XdmfArray *Write( XdmfArray *Array );
 

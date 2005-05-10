@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfHDF.cxx,v 1.23 2004-11-22 16:06:45 jsjones Exp $  */
-/*  Date : $Date: 2004-11-22 16:06:45 $ */
-/*  Version : $Revision: 1.23 $ */
+/*  Id : $Id: XdmfHDF.cxx,v 1.24 2005-05-10 17:41:36 andy Exp $  */
+/*  Date : $Date: 2005-05-10 17:41:36 $ */
+/*  Version : $Revision: 1.24 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -516,7 +516,7 @@ if( this->Dataset == H5I_BADID ){
 src_npts = H5Sget_select_npoints( this->GetDataSpace() );
 dest_npts = H5Sget_select_npoints( Array->GetDataSpace() );
 if( src_npts != dest_npts ) {
-  XdmfErrorMessage("Source and Target Spaces specify different sizes");
+  XdmfErrorMessage("Source and Target Spaces specify different sizes for path: " << this->Path);
   XdmfErrorMessage("Source = " << ICE_64BIT_CAST(src_npts) << " items");
   XdmfErrorMessage("Target = " << ICE_64BIT_CAST(dest_npts) << " items");
   return( NULL );
