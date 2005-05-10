@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXdmfWriter.h,v $
   Language:  C++
-  Date:      $Date: 2004-08-19 21:25:43 $
-  Version:   $Revision: 1.9 $
+  Date:      $Date: 2005-05-10 18:23:01 $
+  Version:   $Revision: 1.10 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -121,12 +121,12 @@ protected:
     void* mapofcells = 0, const void *celltype = 0 );
   virtual int WriteCellArray( ostream& ost, vtkDataSet* Cells, const char* gridName, 
     void* mapofcells, const void *celltype );
-  virtual int WritePoints( ostream& ost, vtkPoints *Points, const char* gridName );
-  virtual int WriteDataArray( ostream& ost, vtkDataArray* array, 
+  virtual int WritePoints( ostream& ost, vtkPoints *Points, vtkDataSet* dataSet, const char* gridName );
+  virtual int WriteDataArray( ostream& ost, vtkDataArray* array, vtkDataSet* ds,
     int dims[3], const char* Name, const char* Center, int type, const char* gridName,
     int active );
-  virtual int WriteVTKArray( ostream& ost, vtkDataArray* array, 
-    int dims[3], const char* name, const char* dataName, const char* gridName, int alllight);
+  virtual int WriteVTKArray( ostream& ost, vtkDataArray* array, vtkDataSet* dataSet,
+    int dims[3], int *extents, const char* name, const char* dataName, const char* gridName, int alllight);
 
   vtkSetStringMacro(HeavyDataSetNameString);
   char    *HeavyDataSetNameString;
