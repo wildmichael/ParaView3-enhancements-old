@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFixedPointVolumeRayCastCompositeShadeHelper.cxx,v $
   Language:  C++
-  Date:      $Date: 2005-05-05 20:10:59 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2005-05-11 20:58:10 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -27,7 +27,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkFixedPointVolumeRayCastCompositeShadeHelper, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkFixedPointVolumeRayCastCompositeShadeHelper, "$Revision: 1.3 $");
 vtkStandardNewMacro(vtkFixedPointVolumeRayCastCompositeShadeHelper);
 
 // Construct a new vtkFixedPointVolumeRayCastCompositeShadeHelper with default values
@@ -259,7 +259,6 @@ void vtkFixedPointCompositeShadeHelperGenerateImageIndependentNN( T *data,
   VTKKWRCHelper_InitializationAndLoopStartShadeNN();
   VTKKWRCHelper_InitializeCompositeMultiNN();
   VTKKWRCHelper_InitializeCompositeShadeNN();
-  VTKKWRCHelper_SpaceLeapSetup();
       
   for ( k = 0; k < numSteps; k++ )
     {
@@ -268,7 +267,6 @@ void vtkFixedPointCompositeShadeHelperGenerateImageIndependentNN( T *data,
       VTKKWRCHelper_MoveToNextSampleShadeNN();    
       }
     
-    VTKKWRCHelper_SpaceLeapCheck();    
     VTKKWRCHelper_CroppingCheckNN( pos );
     
     unsigned short normal[4];
@@ -630,7 +628,6 @@ void vtkFixedPointCompositeShadeHelperGenerateImageIndependentTrilin( T *data,
   VTKKWRCHelper_InitializationAndLoopStartShadeTrilin();
   VTKKWRCHelper_InitializeCompositeMultiTrilin();
   VTKKWRCHelper_InitializeCompositeMultiShadeTrilin();
-  VTKKWRCHelper_SpaceLeapSetup();
 
   for ( k = 0; k < numSteps; k++ )
     {
@@ -639,7 +636,6 @@ void vtkFixedPointCompositeShadeHelperGenerateImageIndependentTrilin( T *data,
       mapper->FixedPointIncrement( pos, dir );
       }
     
-    VTKKWRCHelper_SpaceLeapCheck();
     VTKKWRCHelper_CroppingCheckTrilin( pos );
     
     mapper->ShiftVectorDown( pos, spos );
