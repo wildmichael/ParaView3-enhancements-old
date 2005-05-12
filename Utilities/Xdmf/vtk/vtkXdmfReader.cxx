@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXdmfReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2005-05-10 21:41:21 $
-  Version:   $Revision: 1.57 $
+  Date:      $Date: 2005-05-12 14:35:15 $
+  Version:   $Revision: 1.58 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen  
@@ -79,7 +79,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <vtkstd/vector>
 
 vtkStandardNewMacro(vtkXdmfReader);
-vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.57 $");
+vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.58 $");
 
 #if defined(_WIN32) && (defined(_MSC_VER) || defined(__BORLANDC__))
 #  include <direct.h>
@@ -1428,7 +1428,7 @@ int vtkXdmfReader::RequestSingleGridInformation(int currentGrid, int generateGri
       {
       vtkDebugMacro(<<"Type changed Output class name: " << this->GetOutput(generateGrid)->GetClassName() 
         << " <> " << vGrid->GetClassName());
-      if ( this->GetOutput(generateGrid)->GetClassName() != vGrid->GetClassName() )
+      if ( strcmp(this->GetOutput(generateGrid)->GetClassName(), vGrid->GetClassName()) == 0 )
         {
         type_changed = 1;
         }
