@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXdmfReader.h,v $
   Language:  C++
-  Date:      $Date: 2005-05-05 20:03:25 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2005-05-13 21:00:43 $
+  Version:   $Revision: 1.17 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -145,7 +145,8 @@ public:
 
   // Description:
   // Get the Low Level XdmfGrid
-  const char *GetXdmfGridHandle(int idx);
+  //Disable for now
+  //const char *GetXdmfGridHandle(int idx);
 
   // Description:
   // Get/Set the current domain name.
@@ -161,8 +162,6 @@ public:
   int GetNumberOfDomains();
   int GetNumberOfGrids();
 
-  int GetNewNumberOfGrids();
-  
   // Description:
   // Get the name of domain or grid at index.
   const char* GetDomainName(int idx);
@@ -216,9 +215,6 @@ protected:
                                         void* clientdata, void* calldata);
 
 
-  int RequestSingleGridInformation(int currentGrid, int generateGrid,
-    vtkInformationVector* outputVector);
-  
   // The array selections.
   vtkDataArraySelection* PointDataArraySelection;
   vtkDataArraySelection* CellDataArraySelection;
@@ -228,11 +224,6 @@ protected:
   vtkCallbackCommand* SelectionObserver;
 
   XdmfDOM         *DOM;
-  XdmfFormatMulti *FormatMulti;
-  XdmfTransform   *Transform;
-
-  // For converting arrays from XDMF to VTK format
-  vtkXdmfDataArray *ArrayConverter;
 
   char* DomainName;
   char* GridName;
