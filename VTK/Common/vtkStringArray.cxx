@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStringArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2005-05-16 13:37:31 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2005-05-17 15:54:37 $
+  Version:   $Revision: 1.3 $
 
   Copyright 2004 Sandia Corporation.
   Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -32,7 +32,7 @@
 #include "vtkIdList.h"
 #include "vtkIdTypeArray.h"
 
-vtkCxxRevisionMacro(vtkStringArray, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkStringArray, "$Revision: 1.3 $");
 vtkStandardNewMacro(vtkStringArray);
 
 //----------------------------------------------------------------------------
@@ -515,7 +515,7 @@ vtkStringArray::ConvertFromContiguous(vtkDataArray *Data,
          here < stringEnd;
          ++here)
       {
-      newString.push_back(static_cast<char>(Data->GetTuple1(here)));
+      newString += static_cast<char>(Data->GetTuple1(here));
       }
     this->InsertNextValue(newString);
     currentStringStart = stringEnd;
