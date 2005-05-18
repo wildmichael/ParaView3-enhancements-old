@@ -26,13 +26,14 @@
 #include <sys/stat.h>
 
 //----------------------------------------------------------------------------
-vtkCxxRevisionMacro(vtkMetaImageWriter, "$Revision: 1.12 $");
+vtkCxxRevisionMacro(vtkMetaImageWriter, "$Revision: 1.13 $");
 vtkStandardNewMacro(vtkMetaImageWriter);
 
 //----------------------------------------------------------------------------
 vtkMetaImageWriter::vtkMetaImageWriter()
 {
   this->MHDFileName = 0;
+  this->FileLowerLeft = 1;
 }
 
 //----------------------------------------------------------------------------
