@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStringArray.h,v $
   Language:  C++
-  Date:      $Date: 2005-05-16 13:37:31 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2005-05-21 18:31:55 $
+  Version:   $Revision: 1.3 $
 
   Copyright 2004 Sandia Corporation.
   Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -110,7 +110,7 @@ public:
 
   // Description:
   // Get the data at a particular index.
-  vtkStdString GetValue(vtkIdType id);
+  vtkStdString &GetValue(vtkIdType id);
 
   // Description:
   // Set the data at a particular index. Does not do range checking. Make sure

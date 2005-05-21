@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStringArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2005-05-17 15:54:37 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2005-05-21 18:31:55 $
+  Version:   $Revision: 1.4 $
 
   Copyright 2004 Sandia Corporation.
   Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -32,7 +32,7 @@
 #include "vtkIdList.h"
 #include "vtkIdTypeArray.h"
 
-vtkCxxRevisionMacro(vtkStringArray, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkStringArray, "$Revision: 1.4 $");
 vtkStandardNewMacro(vtkStringArray);
 
 //----------------------------------------------------------------------------
@@ -378,7 +378,7 @@ vtkStringArray::GetActualMemorySize( void )
 
 // ----------------------------------------------------------------------
 
-vtkStdString
+vtkStdString &
 vtkStringArray::GetValue( vtkIdType id )
 {
   return this->Array[id];
