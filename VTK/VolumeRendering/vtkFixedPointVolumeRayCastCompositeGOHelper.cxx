@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFixedPointVolumeRayCastCompositeGOHelper.cxx,v $
   Language:  C++
-  Date:      $Date: 2005-05-11 20:58:10 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2005-05-23 19:35:38 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -24,10 +24,11 @@
 #include "vtkRenderWindow.h"
 #include "vtkVolume.h"
 #include "vtkVolumeProperty.h"
+#include "vtkFixedPointRayCastImage.h"
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkFixedPointVolumeRayCastCompositeGOHelper, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkFixedPointVolumeRayCastCompositeGOHelper, "$Revision: 1.4 $");
 vtkStandardNewMacro(vtkFixedPointVolumeRayCastCompositeGOHelper);
 
 // Construct a new vtkFixedPointVolumeRayCastCompositeGOHelper with default values
