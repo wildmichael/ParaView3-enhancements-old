@@ -32,7 +32,7 @@
 #include <vtkstd/vector>
 #include <vtkstd/string>
 
-vtkCxxRevisionMacro(vtkParticleReader, "$Revision: 1.26 $");
+vtkCxxRevisionMacro(vtkParticleReader, "$Revision: 1.27 $");
 vtkStandardNewMacro(vtkParticleReader);
 
 namespace {
@@ -349,10 +349,8 @@ int vtkParticleReader::DetermineFileType()
     {
     return FILE_TYPE_IS_TEXT;
     }
-  else
-    {
-    return FILE_TYPE_IS_BINARY;
-    }
+
+  return FILE_TYPE_IS_BINARY;
 }
 
 //----------------------------------------------------------------------------
