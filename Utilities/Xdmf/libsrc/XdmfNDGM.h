@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfNDGM.h,v 1.7 2004-01-15 21:43:56 andy Exp $  */
-/*  Date : $Date: 2004-01-15 21:43:56 $ */
-/*  Version : $Revision: 1.7 $ */
+/*  Id : $Id: XdmfNDGM.h,v 1.8 2005-05-26 21:02:01 clarke Exp $  */
+/*  Date : $Date: 2005-05-26 21:02:01 $ */
+/*  Version : $Revision: 1.8 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -36,6 +36,9 @@ extern "C" {
 	typedef struct {
 		XdmfString dummy;
 		} NDGM_NODE;
+	typedef struct {
+		XdmfString dummy;
+		} NDGM_CLIENT;
 #endif
 }
 #endif /* SWIG */
@@ -171,6 +174,20 @@ Open a connection
 #endif
       }
 
+//! Become an MPI NDGM Server. This Loops until NDGM_TERM_CMD is received.
+   XdmfInt32  ServerForever(XdmfInt64 MemoryLength);
+
+//! Add an MPI NDGM Server to List
+   XdmfInt32  AddServerDescription(XdmfInt64 Rank, XdmfInt64 Start, XdmfInt64 Length);
+
+//! Initialize MPI NDGM. NDGM Id is returned
+   XdmfInt32  InitClient(void);
+
+//! Tell an MPI NDGM Server to Terminate
+   XdmfInt32 TermServer(XdmfInt64 AtAddress);
+
+//! Terminate NDGM
+   XdmfInt32 Term(void);
 
 protected:
   char    NdgmHost[XDMF_MAX_STRING_LENGTH];
@@ -179,6 +196,7 @@ protected:
   XdmfInt32  NdgmMode;
   NDGM_NODE  *NdgmNode;
   NDGM_NODE  *NdgmClient;
+  NDGM_CLIENT *NdgmServerList;
 };
 
 
