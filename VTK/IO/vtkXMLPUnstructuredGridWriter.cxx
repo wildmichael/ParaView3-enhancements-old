@@ -19,7 +19,7 @@
 #include "vtkUnstructuredGrid.h"
 #include "vtkXMLUnstructuredGridWriter.h"
 
-vtkCxxRevisionMacro(vtkXMLPUnstructuredGridWriter, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkXMLPUnstructuredGridWriter, "$Revision: 1.7 $");
 vtkStandardNewMacro(vtkXMLPUnstructuredGridWriter);
 
 //----------------------------------------------------------------------------

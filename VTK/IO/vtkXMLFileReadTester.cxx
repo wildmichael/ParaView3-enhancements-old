@@ -15,7 +15,7 @@
 #include "vtkXMLFileReadTester.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkXMLFileReadTester, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkXMLFileReadTester, "$Revision: 1.3 $");
 vtkStandardNewMacro(vtkXMLFileReadTester);
 
 //----------------------------------------------------------------------------

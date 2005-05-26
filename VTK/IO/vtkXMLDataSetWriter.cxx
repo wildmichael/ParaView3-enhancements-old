@@ -29,7 +29,7 @@
 #include "vtkXMLStructuredGridWriter.h"
 #include "vtkXMLUnstructuredGridWriter.h"
 
-vtkCxxRevisionMacro(vtkXMLDataSetWriter, "$Revision: 1.10 $");
+vtkCxxRevisionMacro(vtkXMLDataSetWriter, "$Revision: 1.11 $");
 vtkStandardNewMacro(vtkXMLDataSetWriter);
 
 //----------------------------------------------------------------------------
