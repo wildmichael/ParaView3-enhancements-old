@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfNDGM.h,v 1.8 2005-05-26 21:02:01 clarke Exp $  */
-/*  Date : $Date: 2005-05-26 21:02:01 $ */
-/*  Version : $Revision: 1.8 $ */
+/*  Id : $Id: XdmfNDGM.h,v 1.9 2005-05-27 19:08:56 clarke Exp $  */
+/*  Date : $Date: 2005-05-27 19:08:56 $ */
+/*  Version : $Revision: 1.9 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -178,7 +178,7 @@ Open a connection
    XdmfInt32  ServerForever(XdmfInt64 MemoryLength);
 
 //! Add an MPI NDGM Server to List
-   XdmfInt32  AddServerDescription(XdmfInt64 Rank, XdmfInt64 Start, XdmfInt64 Length);
+   XdmfInt32  AddServerDescription(XdmfInt64 rank, XdmfInt64 start, XdmfInt64 length);
 
 //! Initialize MPI NDGM. NDGM Id is returned
    XdmfInt32  InitClient(void);

@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfNDGM.cxx,v 1.7 2005-05-26 21:02:01 clarke Exp $  */
-/*  Date : $Date: 2005-05-26 21:02:01 $ */
-/*  Version : $Revision: 1.7 $ */
+/*  Id : $Id: XdmfNDGM.cxx,v 1.8 2005-05-27 19:08:56 clarke Exp $  */
+/*  Date : $Date: 2005-05-27 19:08:56 $ */
+/*  Version : $Revision: 1.8 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -355,9 +355,9 @@ XdmfNDGM::ServerForever(XdmfInt64 MemoryLength)
 }
 
 XdmfInt32
-XdmfNDGM::AddServerDescription(XdmfInt64 Rank, XdmfInt64 Start, XdmfInt64 Length){
+XdmfNDGM::AddServerDescription(XdmfInt64 rank, XdmfInt64 start, XdmfInt64 length){
 #ifdef HAVE_NDGM
-    this->NdgmServerList = ndgm_mpi_add_server_desc(this->NdgmServerList, Rank, Start, Length);
+    this->NdgmServerList = ndgm_mpi_add_server_desc(this->NdgmServerList, rank, start, length);
     if(this->NdgmServerList){
         return(NDGM_SUCCESS);
     }
