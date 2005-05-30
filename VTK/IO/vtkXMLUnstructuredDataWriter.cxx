@@ -29,11 +29,13 @@
 #include "vtkPoints.h"
 #include "vtkStreamingDemandDrivenPipeline.h"
 #include "vtkUnsignedCharArray.h"
+#define vtkOffsetsManager_DoNotInclude
 #include "vtkOffsetsManagerArray.h"
+#undef  vtkOffsetsManager_DoNotInclude
 
 #include <assert.h>
 
-vtkCxxRevisionMacro(vtkXMLUnstructuredDataWriter, "$Revision: 1.13 $");
+vtkCxxRevisionMacro(vtkXMLUnstructuredDataWriter, "$Revision: 1.14 $");
 
 //----------------------------------------------------------------------------
 vtkXMLUnstructuredDataWriter::vtkXMLUnstructuredDataWriter()
