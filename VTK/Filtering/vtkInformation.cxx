@@ -34,7 +34,7 @@
 
 #include <vtkstd/map>
 
-vtkCxxRevisionMacro(vtkInformation, "$Revision: 1.15 $");
+vtkCxxRevisionMacro(vtkInformation, "$Revision: 1.16 $");
 vtkStandardNewMacro(vtkInformation);
 
 //----------------------------------------------------------------------------
@@ -379,6 +379,13 @@ void vtkInformation::Append(vtkInformationKeyVectorKey* key,
                             vtkInformationInformationKey* value)
 {
   key->Append(this, value);
+}
+
+//----------------------------------------------------------------------------
+void vtkInformation::Remove(vtkInformationKeyVectorKey* key,
+                            vtkInformationKey* value)
+{
+  key->RemoveItem(this, value);
 }
 
 //----------------------------------------------------------------------------
