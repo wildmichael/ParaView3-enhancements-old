@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDataDesc.h,v 1.7 2004-01-21 20:25:34 andy Exp $  */
-/*  Date : $Date: 2004-01-21 20:25:34 $ */
-/*  Version : $Revision: 1.7 $ */
+/*  Id : $Id: XdmfDataDesc.h,v 1.8 2005-06-09 14:29:39 clarke Exp $  */
+/*  Date : $Date: 2005-06-09 14:29:39 $ */
+/*  Version : $Revision: 1.8 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -208,7 +208,11 @@ protected:
   XdmfInt32  Rank;
   XdmfInt64  NextOffset;
   XdmfInt64  Dimension[XDMF_MAX_DIMENSION];
+#if (H5_VERS_MAJOR >= 1) && (H5_VERS_MINOR >= 6) && (H5_VERS_RELEASE >= 4)
+  hsize_t  Start[XDMF_MAX_DIMENSION];
+#else
   hssize_t  Start[XDMF_MAX_DIMENSION];
+#endif
   hsize_t    Stride[XDMF_MAX_DIMENSION];
   hsize_t    Count[XDMF_MAX_DIMENSION];
 
