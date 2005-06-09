@@ -8,11 +8,11 @@
  * of authorship are reproduced on all copies.
  */
 
-/* $Id: porting.h,v 1.1 2003-06-17 18:38:54 andy Exp $ */
+/* $Id: porting.h,v 1.2 2005-06-09 13:49:16 kmorel Exp $ */
 
 #ifndef _ICET_PORTING_H_
 #define _ICET_PORTING_H_
 
-unsigned long get_usec(void);
+/* Currently, everything defined in porting.c is declared in ice-t.h. */
 
 #endif /*_ICET_PORTING_H_*/
