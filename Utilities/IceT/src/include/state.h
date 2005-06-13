@@ -8,14 +8,14 @@
  * of authorship are reproduced on all copies.
  */
 
-/* $Id: state.h,v 1.4 2005-06-09 13:49:16 kmorel Exp $ */
+/* $Id: state.h,v 1.5 2005-06-13 15:01:13 kmorel Exp $ */
 
 #ifndef _ICET_STATE_H_
 #define _ICET_STATE_H_
 
 #include <GL/ice-t.h>
 
-typedef unsigned long long IceTTimeStamp;
+typedef IceTUnsignedInt64 IceTTimeStamp;
 
 struct IceTStateValue {
     GLenum type;

@@ -1,4 +1,4 @@
-# $Id: CMakeLists.txt,v 1.16 2005-06-09 13:49:16 kmorel Exp $
+# $Id: CMakeLists.txt,v 1.17 2005-06-13 15:01:12 kmorel Exp $
 #
 ## Copyright 2003 Sandia Coporation
 ## Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -85,14 +85,15 @@ ENDIF (BUILD_TESTING)
 
 # Configure data type sizes.
 INCLUDE (${CMAKE_ROOT}/Modules/CheckTypeSize.cmake)
-CHECK_TYPE_SIZE(char        CMAKE_SIZEOF_CHAR)
-CHECK_TYPE_SIZE(short       CMAKE_SIZEOF_SHORT)
-CHECK_TYPE_SIZE(int         CMAKE_SIZEOF_INT)
-CHECK_TYPE_SIZE(long        CMAKE_SIZEOF_LONG)
-CHECK_TYPE_SIZE("long long" CMAKE_SIZEOF_LONG_LONG)
-CHECK_TYPE_SIZE(float       CMAKE_SIZEOF_FLOAT)
-CHECK_TYPE_SIZE(double      CMAKE_SIZEOF_DOUBLE)
-CHECK_TYPE_SIZE("void*"     CMAKE_SIZEOF_VOID_P)
+CHECK_TYPE_SIZE(char        ICET_SIZEOF_CHAR)
+CHECK_TYPE_SIZE(short       ICET_SIZEOF_SHORT)
+CHECK_TYPE_SIZE(int         ICET_SIZEOF_INT)
+CHECK_TYPE_SIZE(long        ICET_SIZEOF_LONG)
+CHECK_TYPE_SIZE("long long" ICET_SIZEOF_LONG_LONG)
+CHECK_TYPE_SIZE(__int64     ICET_SIZEOF___INT64)
+CHECK_TYPE_SIZE(float       ICET_SIZEOF_FLOAT)
+CHECK_TYPE_SIZE(double      ICET_SIZEOF_DOUBLE)
+CHECK_TYPE_SIZE("void*"     ICET_SIZEOF_VOID_P)
 
 # Configure files with settings for use by the build.
 CONFIGURE_FILE(${ICET_SOURCE_DIR}/src/include/GL/ice-t_config.h.in
