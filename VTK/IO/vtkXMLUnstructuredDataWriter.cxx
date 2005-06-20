@@ -35,7 +35,7 @@
 
 #include <assert.h>
 
-vtkCxxRevisionMacro(vtkXMLUnstructuredDataWriter, "$Revision: 1.18 $");
+vtkCxxRevisionMacro(vtkXMLUnstructuredDataWriter, "$Revision: 1.19 $");
 
 //----------------------------------------------------------------------------
 vtkXMLUnstructuredDataWriter::vtkXMLUnstructuredDataWriter()
@@ -690,6 +690,8 @@ vtkXMLUnstructuredDataWriter::WriteCellsAppendedData(vtkCellArray* cells,
         }
       else
         {
+        // One timestep must have already been written or the 
+        // mtime would have changed and we would not be here.
         assert( timestep > 0 );
         cellsManager->GetElement(i).GetOffsetValue(timestep) = 
           cellsManager->GetElement(i).GetOffsetValue(timestep-1);
