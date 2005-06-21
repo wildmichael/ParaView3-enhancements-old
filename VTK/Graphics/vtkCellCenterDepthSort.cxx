@@ -49,7 +49,7 @@ public:
 
 //-----------------------------------------------------------------------------
 
-vtkCxxRevisionMacro(vtkCellCenterDepthSort, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkCellCenterDepthSort, "$Revision: 1.1 $");
 vtkStandardNewMacro(vtkCellCenterDepthSort);
 
 vtkCellCenterDepthSort::vtkCellCenterDepthSort()

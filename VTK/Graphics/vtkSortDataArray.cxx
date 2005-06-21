@@ -34,7 +34,7 @@
 // -------------------------------------------------------------------------
 
 vtkStandardNewMacro(vtkSortDataArray);
-vtkCxxRevisionMacro(vtkSortDataArray,"$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkSortDataArray,"$Revision: 1.1 $");
 
 vtkSortDataArray::vtkSortDataArray()
 {
