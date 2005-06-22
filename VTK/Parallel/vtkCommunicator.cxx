@@ -28,7 +28,7 @@
 #include "vtkUnsignedCharArray.h"
 #include "vtkUnsignedLongArray.h"
 
-vtkCxxRevisionMacro(vtkCommunicator, "$Revision: 1.25 $");
+vtkCxxRevisionMacro(vtkCommunicator, "$Revision: 1.26 $");
 
 template <class T>
 int SendDataArray(T* data, int length, int handle, int tag, vtkCommunicator *self)
@@ -502,7 +502,6 @@ int vtkCommunicator::WriteDataSet(vtkDataSet *data)
 
 int vtkCommunicator::ReadDataSet(vtkDataSet *object)
 {
-  vtkDataSet *output;
   vtkDataSetReader *reader = vtkDataSetReader::New();
 
   if (this->MarshalString == NULL || this->MarshalStringLength <= 0)
