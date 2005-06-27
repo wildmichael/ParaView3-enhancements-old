@@ -29,7 +29,7 @@
 #include "vtkStdString.h"
 
 vtkStandardNewMacro(vtkSMProxyProperty);
-vtkCxxRevisionMacro(vtkSMProxyProperty, "$Revision: 1.18 $");
+vtkCxxRevisionMacro(vtkSMProxyProperty, "$Revision: 1.19 $");
 
 struct vtkSMProxyPropertyInternals
 {
@@ -458,6 +458,7 @@ void vtkSMProxyProperty::SaveState(
       if (dom && dom->IsInDomain(proxy))
         {
         proxies.push_back(proxy->GetName());
+        break;
         }
       this->DomainIterator->Next();
       }
