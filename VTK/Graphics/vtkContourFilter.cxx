@@ -43,7 +43,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkContourFilter, "$Revision: 1.123 $");
+vtkCxxRevisionMacro(vtkContourFilter, "$Revision: 1.124 $");
 vtkStandardNewMacro(vtkContourFilter);
 vtkCxxSetObjectMacro(vtkContourFilter,ScalarTree,vtkScalarTree);
 
@@ -247,7 +247,7 @@ int vtkContourFilter::RequestData(
   // is there data to process?
   if (!this->GetInputArrayToProcess(0, inputVector))
     {
-    return 0;
+    return 1;
     }
   
   int sType = this->GetInputArrayToProcess(0, inputVector)->GetDataType();
