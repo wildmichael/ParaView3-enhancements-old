@@ -26,7 +26,7 @@
 
 #include <vtkstd/vector>
 
-vtkCxxRevisionMacro(vtkCVGeometryCache, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkCVGeometryCache, "$Revision: 1.6 $");
 vtkStandardNewMacro(vtkCVGeometryCache);
 
 struct vtkCVGeometryCacheInternal
@@ -94,13 +94,19 @@ int vtkCVGeometryCache::RequestData(
     vtkInformation* outInfo = outputVector->GetInformationObject(i);
     vtkPolyData* output = vtkPolyData::SafeDownCast(
       outInfo->Get(vtkDataObject::DATA_OBJECT()));
-    if (output)
+    if (output && this->Internal->PolyDatas.size() > i)
       {
       output->ShallowCopy(this->Internal->PolyDatas[i]);
       }
     }
   vtkTimerLog::MarkEndEvent("vtkCVGeometryCache::RequestData");
   return 1;
+}
+
+//----------------------------------------------------------------------------
+void vtkCVGeometryCache::RemoveAllGeometry()
+{
+  this->Internal->PolyDatas.clear();
 }
 
 //----------------------------------------------------------------------------
