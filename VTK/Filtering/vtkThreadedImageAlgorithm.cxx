@@ -26,7 +26,7 @@
 #include "vtkStreamingDemandDrivenPipeline.h"
 #include "vtkTrivialProducer.h"
 
-vtkCxxRevisionMacro(vtkThreadedImageAlgorithm, "$Revision: 1.10 $");
+vtkCxxRevisionMacro(vtkThreadedImageAlgorithm, "$Revision: 1.11 $");
 
 //----------------------------------------------------------------------------
 vtkThreadedImageAlgorithm::vtkThreadedImageAlgorithm()
@@ -336,6 +336,6 @@ void vtkThreadedImageAlgorithm::ThreadedExecute(
   int vtkNotUsed(threadId))
 {
   extent = extent;
-  vtkErrorMacro("subclase should override this method!!!");
+  vtkErrorMacro("Subclass should override this method!!!");
 }
 
