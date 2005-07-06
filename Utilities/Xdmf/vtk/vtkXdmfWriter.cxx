@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXdmfWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2005-07-06 19:13:46 $
-  Version:   $Revision: 1.22 $
+  Date:      $Date: 2005-07-06 19:34:28 $
+  Version:   $Revision: 1.23 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen  
@@ -110,7 +110,7 @@ struct vtkXdmfWriterInternal
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro(vtkXdmfWriter);
-vtkCxxRevisionMacro(vtkXdmfWriter, "$Revision: 1.22 $");
+vtkCxxRevisionMacro(vtkXdmfWriter, "$Revision: 1.23 $");
 
 //----------------------------------------------------------------------------
 vtkXdmfWriter::vtkXdmfWriter()
@@ -867,7 +867,7 @@ int vtkXdmfWriter::WriteDataArray( ostream& ost, vtkDataArray* array, vtkDataSet
 //----------------------------------------------------------------------------
 int vtkXdmfWriter::WriteVTKArray( ostream& ost, vtkDataArray* array, vtkDataSet* dataSet, 
   int *scaledExtent, int dims[3], const char* Name, const char* dataName, const char* gridName,
-  int alllight, int cellData = 0 )
+  int alllight, int cellData )
 {
   vtkIdType res = -1;
   int int_type;
