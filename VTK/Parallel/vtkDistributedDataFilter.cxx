@@ -57,7 +57,7 @@
 #include "vtkMPIController.h"
 #endif
 
-vtkCxxRevisionMacro(vtkDistributedDataFilter, "$Revision: 1.27 $")
+vtkCxxRevisionMacro(vtkDistributedDataFilter, "$Revision: 1.28 $")
 
 vtkStandardNewMacro(vtkDistributedDataFilter)
 
@@ -2946,7 +2946,7 @@ void vtkDistributedDataFilter::ClipCellsToSpatialRegion(vtkUnstructuredGrid *gri
     ep->SetPieceFunction(insideBoxFunction);
     ep->CreateGhostCellsOn();
 
-    ep->GetOutputPortInformation(0)->Set(
+    ep->GetExecutive()->GetOutputInformation(0)->Set(
       vtkStreamingDemandDrivenPipeline::UPDATE_NUMBER_OF_GHOST_LEVELS(),
       this->GhostLevel);
     ep->SetInput(combined);
