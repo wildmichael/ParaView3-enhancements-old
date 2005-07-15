@@ -1,3 +1,4 @@
+#include "vtk_netcdf_mangle.h"
 /*
  * Copyright 1993-1996 University Corporation for Atmospheric Research/Unidata
  * 
@@ -30,7 +31,7 @@
  * NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION
  * WITH THE ACCESS, USE OR PERFORMANCE OF THIS SOFTWARE.
  */
-/* "$Id: netcdf.h,v 1.1 2005-07-15 21:56:39 andy Exp $" */
+/* "$Id: netcdf.h,v 1.2 2005-07-15 22:05:43 andy Exp $" */
 
 #ifndef _NETCDF_
 #define _NETCDF_

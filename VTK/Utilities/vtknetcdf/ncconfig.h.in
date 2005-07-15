@@ -1,5 +1,7 @@
+#include "vtk_netcdf_mangle.h"
+
 /* libsrc/ncconfig.in.  Generated automatically from configure.in by autoheader.  */
-/* $Id: ncconfig.h.in,v 1.1 2005-07-15 21:56:39 andy Exp $ */
+/* $Id: ncconfig.h.in,v 1.2 2005-07-15 22:05:43 andy Exp $ */
 #ifndef _NCCONFIG_H_
 #define _NCCONFIG_H_
 
