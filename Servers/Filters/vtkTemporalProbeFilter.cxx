@@ -21,7 +21,7 @@
 #include "vtkPoints.h"
 #include "vtkUnstructuredGrid.h"
 
-vtkCxxRevisionMacro(vtkTemporalProbeFilter, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkTemporalProbeFilter, "$Revision: 1.2 $");
 vtkStandardNewMacro(vtkTemporalProbeFilter);
 
 
@@ -104,7 +104,7 @@ void vtkTemporalProbeFilter::AnimateTick(double TheTime)
     int numComp = ida->GetNumberOfComponents();
     double *x = new double[numComp];
     ida->GetTuple(0,x);
-    int oNumTups = oda->InsertNextTuple(x);
+    oda->InsertNextTuple(x);
     delete(x);
     }  
 
