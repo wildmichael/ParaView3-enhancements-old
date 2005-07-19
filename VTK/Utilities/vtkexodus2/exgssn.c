@@ -54,7 +54,7 @@
 *
 * revision history - 
 *
-*  $Id: exgssn.c,v 1.2 2005-07-19 12:31:28 andy Exp $
+*  $Id: exgssn.c,v 1.3 2005-07-19 23:40:10 andy Exp $
 *
 *****************************************************************************/
 
@@ -383,7 +383,7 @@ int ex_get_side_set_node_list(int exoid,
 
     for (m=0; (size_t)m < strlen(elem_type); m++)
       elem_blk_parms[i].elem_type[m] = 
-              toupper((int)elem_type[m]);
+              (char)toupper((int)elem_type[m]);
     elem_blk_parms[i].elem_type[m] = '\0';
 
     if (strncmp(elem_blk_parms[i].elem_type,"CIRCLE",3) == 0)

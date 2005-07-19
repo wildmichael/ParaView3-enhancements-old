@@ -44,7 +44,7 @@
 *
 * revision history - 
 *
-*  $Id: exodusII_int.h,v 1.2 2005-07-19 22:42:55 andy Exp $
+*  $Id: exodusII_int.h,v 1.3 2005-07-19 23:40:10 andy Exp $
 *
 ****************************************************************************
 */
@@ -62,7 +62,10 @@
 
 #ifdef _MSC_VER
 #  pragma warning ( disable : 4127 )
+#  pragma warning ( disable : 4706 )
+#  pragma warning ( disable : 4701 )
 #endif
+
 
 #include <stdio.h>
 
