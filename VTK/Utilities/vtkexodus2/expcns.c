@@ -60,7 +60,7 @@
 *
 * revision history - 
 *
-*  $Id: expcns.c,v 1.1 2005-07-17 15:44:00 andy Exp $
+*  $Id: expcns.c,v 1.2 2005-07-19 22:11:53 andy Exp $
 *
 *****************************************************************************/
 
@@ -91,6 +91,8 @@ int ex_put_concat_node_sets (int   exoid,
    float  *flt_dist_fact;
    double *dbl_dist_fact;
    char errmsg[MAX_ERR_LENGTH];
+
+   (void)node_sets_df_index;
 
   exerrval = 0; /* clear error code */
 

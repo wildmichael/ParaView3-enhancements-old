@@ -3,7 +3,7 @@
  *  Copyright 1996, University Corporation for Atmospheric Research
  *      See netcdf/COPYRIGHT file for copying and redistribution conditions.
  */
-/* $Id: putget.c,v 1.1 2005-07-15 21:56:39 andy Exp $ */
+/* $Id: putget.c,v 1.2 2005-07-19 22:11:53 andy Exp $ */
 
 #include "nc.h"
 #include <string.h>
@@ -554,6 +554,8 @@ NCedgeck(const NC *ncp, const NC_var *varp,
 {
   const size_t *const end = start + varp->ndims;
   const size_t *shp = varp->shape;
+
+  (void)ncp;
 
   if(varp->ndims == 0)
     return NC_NOERR;  /* 'scalar' variable */

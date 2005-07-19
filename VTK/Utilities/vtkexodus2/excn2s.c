@@ -57,7 +57,7 @@
 *
 * revision history - 
 *
-*  $Id: excn2s.c,v 1.2 2005-07-19 12:31:28 andy Exp $
+*  $Id: excn2s.c,v 1.3 2005-07-19 22:11:53 andy Exp $
 *
 *****************************************************************************/
 
@@ -217,6 +217,9 @@ int ex_cvt_nodes_to_sides(int exoid,
   };
 
   char errmsg[MAX_ERR_LENGTH];
+
+  (void)side_sets_node_index;
+  (void)side_sets_elem_index;
 
   exerrval = 0; /* clear error code */
 

@@ -2,7 +2,7 @@
  *  Copyright 1996, University Corporation for Atmospheric Research
  *  See netcdf/COPYRIGHT file for copying and redistribution conditions.
  */
-/* $Id: posixio.c,v 1.2 2005-07-19 17:04:00 andy Exp $ */
+/* $Id: posixio.c,v 1.3 2005-07-19 22:11:53 andy Exp $ */
 /*#define USE_CWRITE 1 *//*define to use _cwrite instead of write*/
 
 #ifdef SGI64
@@ -387,7 +387,7 @@ px_get(ncio *const nciop, ncio_px *const pxp,
   /* else */
 
   if(pxp->bf_extent > pxp->blksz
-     && blkoffset == pxp->bf_offset + pxp->blksz)
+     && blkoffset == (off_t)(pxp->bf_offset + pxp->blksz))
   {
     /* hit in upper half */
     if(blkextent == pxp->blksz)
@@ -442,7 +442,7 @@ px_get(ncio *const nciop, ncio_px *const pxp,
   }
   /* else */
 
-  if(blkoffset == pxp->bf_offset - pxp->blksz)
+  if(blkoffset == (off_t)(pxp->bf_offset - pxp->blksz))
   {
     /* wants the page below */
     void *const middle =
@@ -572,6 +572,8 @@ px_double_buffer(ncio *const nciop, off_t to, off_t from,
   int status = ENOERR;
   void *src;
   void *dest;
+
+  (void)rflags;
   
 #if 0
 fprintf(stderr, "double_buffr %ld %ld %ld\n",
@@ -1052,6 +1054,7 @@ ncio_spx_move(ncio *const nciop, off_t to, off_t from,
 static int
 ncio_spx_sync(ncio *const nciop)
 {
+  (void)nciop;
   /* NOOP */
   return ENOERR;
 }
