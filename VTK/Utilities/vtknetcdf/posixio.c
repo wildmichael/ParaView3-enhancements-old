@@ -2,7 +2,7 @@
  *  Copyright 1996, University Corporation for Atmospheric Research
  *  See netcdf/COPYRIGHT file for copying and redistribution conditions.
  */
-/* $Id: posixio.c,v 1.1 2005-07-15 21:56:39 andy Exp $ */
+/* $Id: posixio.c,v 1.2 2005-07-19 17:04:00 andy Exp $ */
 /*#define USE_CWRITE 1 *//*define to use _cwrite instead of write*/
 
 #ifdef SGI64
@@ -27,7 +27,8 @@
 #include <string.h>
 #ifdef _MSC_VER /* Microsoft Compilers */
 #include <io.h>
-#else
+#endif
+#ifdef HAVE_UNISTD_H
 #include <unistd.h>
 #endif
 

@@ -1,7 +1,7 @@
 #include "vtk_netcdf_mangle.h"
 
 /* libsrc/ncconfig.in.  Generated automatically from configure.in by autoheader.  */
-/* $Id: ncconfig.h.in,v 1.3 2005-07-17 13:40:53 andy Exp $ */
+/* $Id: ncconfig.h.in,v 1.4 2005-07-19 17:04:00 andy Exp $ */
 #ifndef _NCCONFIG_H_
 #define _NCCONFIG_H_
 
@@ -53,6 +53,9 @@
 
 /* Define if you have <alloca.h> and it should be used (not on Ultrix).  */
 #cmakedefine HAVE_ALLOCA_H @HAVE_ALLOCA_H@
+
+/* Define if you have <unistd.h> and it should be used (not on Ultrix).  */
+#cmakedefine HAVE_UNISTD_H @HAVE_UNISTD_H@
 
 /* Define if you don't have the strerror function  */
 #cmakedefine NO_STRERROR @NO_STRERROR@
