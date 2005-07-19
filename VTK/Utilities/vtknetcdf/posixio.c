@@ -2,7 +2,7 @@
  *  Copyright 1996, University Corporation for Atmospheric Research
  *  See netcdf/COPYRIGHT file for copying and redistribution conditions.
  */
-/* $Id: posixio.c,v 1.3 2005-07-19 22:11:53 andy Exp $ */
+/* $Id: posixio.c,v 1.4 2005-07-19 23:37:24 andy Exp $ */
 /*#define USE_CWRITE 1 *//*define to use _cwrite instead of write*/
 
 #ifdef SGI64
@@ -135,6 +135,7 @@ blksize(int fd)
   }
   /* else, silent in the face of error */
 #endif
+  (void)fd;
   return (size_t) 2 * pagesize();
 }
 

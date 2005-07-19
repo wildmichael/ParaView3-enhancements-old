@@ -2,7 +2,7 @@
  *  Copyright 1996, University Corporation for Atmospheric Research
  *  See netcdf/COPYRIGHT file for copying and redistribution conditions.
  */
-/* "$Id: ncx.h,v 1.1 2005-07-15 21:56:39 andy Exp $" */
+/* "$Id: ncx.h,v 1.2 2005-07-19 23:37:24 andy Exp $" */
 
 #ifndef _NCX_H_
 #define _NCX_H_
@@ -27,6 +27,11 @@
 #include <stddef.h> /* size_t */
 #include <errno.h>
 #include <sys/types.h> /* off_t */
+
+#ifdef _MSC_VER
+#  pragma warning ( disable : 4244 )
+#endif
+
 
 #if defined(_CRAY) && !defined(_CRAYIEEE)
 #define CRAYFLOAT 1 /* CRAY Floating point */

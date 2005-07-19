@@ -3,7 +3,7 @@
  *  Copyright 1996, University Corporation for Atmospheric Research
  *      See netcdf/COPYRIGHT file for copying and redistribution conditions.
  */
-/* $Id: putget.c,v 1.2 2005-07-19 22:11:53 andy Exp $ */
+/* $Id: putget.c,v 1.3 2005-07-19 23:37:24 andy Exp $ */
 
 #include "nc.h"
 #include <string.h>
@@ -6662,9 +6662,9 @@ nc_get_vara(int ncid, int varid,
   return NC_EBADTYPE;
 }
 
-#if defined(__cplusplus)
+#if 1 /* defined(__cplusplus) */
 /* C++ consts default to internal linkage and must be initialized */
-const size_t coord_zero[NC_MAX_VAR_DIMS] = {0};
+static const size_t coord_zero[NC_MAX_VAR_DIMS] = {0};
 #else
 static const size_t coord_zero[NC_MAX_VAR_DIMS];
 #endif

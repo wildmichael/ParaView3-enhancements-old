@@ -2,7 +2,7 @@
  *  Copyright 1996, University Corporation for Atmospheric Research
  *      See netcdf/COPYRIGHT file for copying and redistribution conditions.
  */
-/* $Id: nc.h,v 1.1 2005-07-15 21:56:38 andy Exp $ */
+/* $Id: nc.h,v 1.2 2005-07-19 23:37:24 andy Exp $ */
 #ifndef _NC_H_
 #define _NC_H_
 
@@ -16,6 +16,11 @@
 #include  "netcdf.h"
 #include  "ncio.h"  /* ncio */
 #include  "fbits.h"
+
+#ifdef _MSC_VER
+#  pragma warning ( disable : 4127 )
+#  pragma warning ( disable : 4130 )
+#endif
 
 
 #ifndef NC_ARRAY_GROWBY
