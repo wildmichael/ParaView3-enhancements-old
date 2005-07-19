@@ -2,7 +2,7 @@
  *  Copyright 1996, University Corporation for Atmospheric Research
  *      See netcdf/COPYRIGHT file for copying and redistribution conditions.
  */
-/* $Id: nc.c,v 1.1 2005-07-15 21:56:38 andy Exp $ */
+/* $Id: nc.c,v 1.2 2005-07-19 12:31:30 andy Exp $ */
 
 #include "nc.h"
 #include "rnd.h"
@@ -214,7 +214,7 @@ NC_begins(NC *ncp,
 
   index = (off_t) ncp->xsz;
   ncp->begin_var = D_RNDUP(index, v_align);
-  if(ncp->begin_var - index < h_minfree)
+  if(ncp->begin_var - index < (off_t)h_minfree)
   {
     ncp->begin_var = D_RNDUP(index + (off_t)h_minfree, v_align);
   }
@@ -237,7 +237,7 @@ fprintf(stderr, "    VAR %d %s: %ld\n", ii, (*vpp)->name->cp, (long)index);
   }
 
   ncp->begin_rec = D_RNDUP(index, r_align);
-  if(ncp->begin_rec - index < v_minfree)
+  if(ncp->begin_rec - index < (off_t)v_minfree)
   {
     ncp->begin_rec = D_RNDUP(index + (off_t)v_minfree, r_align);
   }
@@ -441,7 +441,7 @@ fill_added_recs(NC *gnu, NC *old)
   NC_var ** const gnu_varpp = (NC_var **)gnu->vars.value;
 
   int recno = 0;
-  for(; recno < old->numrecs; recno++)
+  for(; (off_t)recno < (off_t)old->numrecs; recno++)
   {
     int varid = (int)old->vars.nelems;
     for(; varid < (int)gnu->vars.nelems; varid++)

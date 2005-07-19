@@ -56,7 +56,7 @@
 *
 * revision history - 
 *
-*  $Id: exinq.c,v 1.1 2005-07-17 15:44:00 andy Exp $
+*  $Id: exinq.c,v 1.2 2005-07-19 12:31:28 andy Exp $
 *
 *****************************************************************************/
 
@@ -66,7 +66,7 @@
 
 static void flt_cvt(float *xptr,double x)
 {
-  *xptr = x;
+  *xptr = (float)x;
 }
 
 /*

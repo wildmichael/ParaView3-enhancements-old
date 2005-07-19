@@ -59,7 +59,7 @@
 *
 * revision history - 
 *
-*  $Id: expini.c,v 1.1 2005-07-17 15:44:00 andy Exp $
+*  $Id: expini.c,v 1.2 2005-07-19 12:31:28 andy Exp $
 *
 *****************************************************************************/
 
@@ -81,7 +81,6 @@ int ex_put_init (int   exoid,
                  int   num_side_sets)
 {
   int numdimdim, numnoddim, elblkdim, strdim, dim[2], dimid, varid;
-  int header_size, fixed_var_size, iows;
   
   char errmsg[MAX_ERR_LENGTH];
 

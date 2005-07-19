@@ -54,7 +54,7 @@
 *
 * revision history - 
 *
-*  $Id: exgssn.c,v 1.1 2005-07-17 15:44:00 andy Exp $
+*  $Id: exgssn.c,v 1.2 2005-07-19 12:31:28 andy Exp $
 *
 *****************************************************************************/
 
@@ -381,7 +381,7 @@ int ex_get_side_set_node_list(int exoid,
     elem_blk_parms[i].num_nodes_per_elem = num_nodes_per_elem;
     elem_blk_parms[i].num_attr = num_attr;
 
-    for (m=0; m < strlen(elem_type); m++)
+    for (m=0; (size_t)m < strlen(elem_type); m++)
       elem_blk_parms[i].elem_type[m] = 
               toupper((int)elem_type[m]);
     elem_blk_parms[i].elem_type[m] = '\0';

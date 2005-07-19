@@ -55,12 +55,14 @@
 *
 * revision history - 
 *
-*  $Id: expss.c,v 1.1 2005-07-17 15:44:00 andy Exp $
+*  $Id: expss.c,v 1.2 2005-07-19 12:31:28 andy Exp $
 *
 *****************************************************************************/
 
 #include "exodusII.h"
 #include "exodusII_int.h"
+
+#include <stdlib.h>
 
 /*
  * writes the side set element list and side set side list for a single side set

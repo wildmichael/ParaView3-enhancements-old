@@ -53,12 +53,14 @@
 *
 * revision history - 
 *
-*  $Id: expmap.c,v 1.1 2005-07-17 15:44:00 andy Exp $
+*  $Id: expmap.c,v 1.2 2005-07-19 12:31:28 andy Exp $
 *
 *****************************************************************************/
 
 #include "exodusII.h"
 #include "exodusII_int.h"
+
+#include <stdlib.h>
 
 /*
  * writes out the element order map to the database
