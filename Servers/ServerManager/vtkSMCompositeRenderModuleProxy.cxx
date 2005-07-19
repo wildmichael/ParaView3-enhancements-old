@@ -26,7 +26,7 @@
 #include "vtkClientServerStream.h"
 
 vtkStandardNewMacro(vtkSMCompositeRenderModuleProxy);
-vtkCxxRevisionMacro(vtkSMCompositeRenderModuleProxy, "$Revision: 1.4 $");
+vtkCxxRevisionMacro(vtkSMCompositeRenderModuleProxy, "$Revision: 1.5 $");
 //-----------------------------------------------------------------------------
 vtkSMCompositeRenderModuleProxy::vtkSMCompositeRenderModuleProxy()
 {
@@ -140,6 +140,13 @@ void vtkSMCompositeRenderModuleProxy::InitializeCompositingPipeline()
 
   this->CompositeManagerProxy->UpdateVTKObjects();
 
+}
+
+//-----------------------------------------------------------------------------
+int vtkSMCompositeRenderModuleProxy::IsRenderLocal()
+{
+  return this->GetLocalRenderDecision(
+    this->GetTotalVisibleGeometryMemorySize(), 1);
 }
 
 //-----------------------------------------------------------------------------
