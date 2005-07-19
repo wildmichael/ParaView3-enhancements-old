@@ -44,7 +44,7 @@
 *
 * revision history - 
 *
-*  $Id: exodusII_int.h,v 1.1 2005-07-17 15:44:00 andy Exp $
+*  $Id: exodusII_int.h,v 1.2 2005-07-19 22:42:55 andy Exp $
 *
 ****************************************************************************
 */
@@ -58,6 +58,10 @@
 #if defined __STDC__ || defined __cplusplus
 #include <stdlib.h>
 #endif
+#endif
+
+#ifdef _MSC_VER
+#  pragma warning ( disable : 4127 )
 #endif
 
 #include <stdio.h>
