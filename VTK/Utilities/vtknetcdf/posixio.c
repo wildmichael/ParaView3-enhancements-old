@@ -2,7 +2,7 @@
  *  Copyright 1996, University Corporation for Atmospheric Research
  *  See netcdf/COPYRIGHT file for copying and redistribution conditions.
  */
-/* $Id: posixio.c,v 1.4 2005-07-19 23:37:24 andy Exp $ */
+/* $Id: posixio.c,v 1.5 2005-07-21 21:40:32 andy Exp $ */
 /*#define USE_CWRITE 1 *//*define to use _cwrite instead of write*/
 
 #ifdef SGI64
@@ -304,6 +304,8 @@ px_rel(ncio_px *const pxp, off_t offset, int rflags)
      && offset < pxp->bf_offset + (off_t) pxp->bf_extent);
   assert(pIf(fIsSet(rflags, RGN_MODIFIED),
     fIsSet(pxp->bf_rflags, RGN_WRITE)));
+
+  (void)offset;
 
   if(fIsSet(rflags, RGN_MODIFIED))
   {
@@ -830,6 +832,8 @@ ncio_spx_rel(ncio *const nciop, off_t offset, int rflags)
 {
   ncio_spx *const pxp = (ncio_spx *)nciop->pvt;
   int status = ENOERR;
+
+  (void)offset;
 
   assert(pxp->bf_offset <= offset);
   assert(pxp->bf_cnt != 0);
