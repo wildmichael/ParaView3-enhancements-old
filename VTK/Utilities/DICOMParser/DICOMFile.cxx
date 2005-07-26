@@ -3,8 +3,8 @@
   Program:   DICOMParser
   Module:    $RCSfile: DICOMFile.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-09-05 17:20:35 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2005-07-26 20:02:22 $
+  Version:   $Revision: 1.11 $
 
   Copyright (c) 2003 Matt Turek
   All rights reserved.
@@ -157,7 +157,7 @@ doublebyte DICOMFile::ReadDoubleByte()
   this->Read((char*)&(sh),sz); 
   if (PlatformIsBigEndian) 
     {
-    sh = swapShort(sh);
+    sh = swap2(sh);
     }
   return(sh);
 }
@@ -169,7 +169,7 @@ doublebyte DICOMFile::ReadDoubleByteAsLittleEndian()
   this->Read((char*)&(sh),sz); 
   if (PlatformIsBigEndian)
     {
-    sh = swapShort(sh);
+    sh = swap2(sh);
     }
   return(sh);
 }
@@ -181,7 +181,7 @@ quadbyte DICOMFile::ReadQuadByte()
   this->Read((char*)&(sh),sz);
   if (PlatformIsBigEndian) 
     {
-    sh = swapLong(sh);
+    sh = swap4(sh);
     }
   return(sh);
 }

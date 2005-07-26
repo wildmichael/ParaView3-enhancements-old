@@ -4,8 +4,8 @@
   Program:   DICOMParser
   Module:    $RCSfile: DICOMTypes.h,v $
   Language:  C++
-  Date:      $Date: 2003-08-27 18:49:00 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2005-07-26 20:02:22 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) 2003 Matt Turek
   All rights reserved.
@@ -25,6 +25,7 @@ typedef unsigned short doublebyte;
 typedef int quadbyte;
 typedef unsigned short ushort;
 typedef unsigned long  ulong;
+typedef unsigned int  uint;
 
 
 #endif
