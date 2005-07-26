@@ -2,7 +2,7 @@
  *  Copyright 1996, University Corporation for Atmospheric Research
  *  See netcdf/COPYRIGHT file for copying and redistribution conditions.
  */
-/* "$Id: ncx.h,v 1.2 2005-07-19 23:37:24 andy Exp $" */
+/* "$Id: ncx.h,v 1.3 2005-07-26 19:48:16 king Exp $" */
 
 #ifndef _NCX_H_
 #define _NCX_H_
@@ -91,7 +91,7 @@
 #define X_LONG_MAX  2147483647
 #define X_ULONG_MAX  4294967295U
 #endif
-#define X_FLOAT_MAX  3.40282347e+38f
+#define X_FLOAT_MAX  ((float)3.40282347e+38)
 #define X_FLOAT_MIN  (-X_FLOAT_MAX)
 #define X_FLT_MAX  X_FLOAT_MAX  /* alias compatible with limits.h */
 #if CRAYFLOAT
