@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: SystemInformation.cxx,v $
   Language:  C++
-  Date:      $Date: 2003-08-05 20:01:48 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2005-07-29 17:40:00 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -75,7 +75,7 @@ int main(int,char *[])
       Xdmf_BINARY_DIR "/CMakeCache.txt", 
       Xdmf_BINARY_DIR "/Ice/libsrc/IceConfig.h",
       Xdmf_BINARY_DIR "/libsrc/XdmfConfig.h.h",
-      Xdmf_BINARY_DIR "/CMakeError.log",
+      Xdmf_BINARY_DIR "/CMakeFiles/CMakeError.log",
       Xdmf_BINARY_DIR "/CMake/CMakeCache.txt", 
       Xdmf_BINARY_DIR "/XDMFBuildSettings.cmake",
       Xdmf_BINARY_DIR "/XDMFLibraryDepends.cmake",
