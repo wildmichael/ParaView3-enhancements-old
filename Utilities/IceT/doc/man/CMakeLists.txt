@@ -1,4 +1,4 @@
-# $Id: CMakeLists.txt,v 1.4 2003-10-01 15:28:08 kmorel Exp $
+# $Id: CMakeLists.txt,v 1.5 2005-08-03 13:07:15 andy Exp $
 #
 ## Copyright 2003 Sandia Coporation
 ## Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -41,8 +41,8 @@ SET(MAN7_FILES
   man7/ICE-T.7
   )
 
-MAKE_DIRECTORY(man3)
-MAKE_DIRECTORY(man7)
+MAKE_DIRECTORY(${CMAKE_CURRENT_BINARY_DIR}/man3)
+MAKE_DIRECTORY(${CMAKE_CURRENT_BINARY_DIR}/man7)
 
 MACRO(ICET_LINK_MAN3_FILE srcfile destfile)
   ADD_CUSTOM_TARGET(man3/${destfile}.3 ALL
