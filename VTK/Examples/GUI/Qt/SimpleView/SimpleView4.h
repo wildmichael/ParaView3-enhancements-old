@@ -1,9 +1,9 @@
 /*=========================================================================
 
   Program:   Visualization Toolkit
-  Module:    $RCSfile: SimpleView.h,v $
+  Module:    $RCSfile: SimpleView4.h,v $
   Language:  C++
-  Date:      $Date: 2005-01-28 20:21:32 $
+  Date:      $Date: 2005-08-11 16:47:38 $
   Version:   $Revision: 1.1 $
 
   Copyright 2004 Sandia Corporation.
@@ -34,7 +34,8 @@
 #ifndef SIMPLEVIEW_H
 #define SIMPLEVIEW_H
 
-#include "uiSimpleView.h"
+#include "qmainwindow.h"
+#include "ui_uiSimpleView4.h"
 
 // Forward class declarations
 class vtkCylinderSource;
@@ -45,14 +46,14 @@ class vtkActor;
 class vtkRenderer;
 
 
-class SimpleView : public uiSimpleView
+class SimpleView : public QMainWindow, private Ui_MainWindow
 {
     Q_OBJECT
 
 public:
 
     // Constructor/Destructor
-    SimpleView(QWidget* parent = 0, const char* name = 0, WFlags fl = WType_TopLevel); 
+    SimpleView(QWidget* parent = 0);
     ~SimpleView() {};
 
 public slots:
@@ -60,21 +61,9 @@ public slots:
      virtual void fileOpen();
      virtual void fileExit();
 
-  // You can overload all these methods!
-#if 0
-    virtual void fileNew();
-    virtual void fileSave();
-    virtual void fileSaveAs();
-    virtual void filePrint();
-    virtual void helpIndex();
-    virtual void helpContents();
-    virtual void helpAbout();
-#endif
-
 protected:
-   
+
 protected slots:
-    // virtual void languageChange();
 
 private:
      vtkCylinderSource* source;
@@ -85,3 +74,4 @@ private:
 };
 
 #endif // SIMPLEVIEW_H
+
