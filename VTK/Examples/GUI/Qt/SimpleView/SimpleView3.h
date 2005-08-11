@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: SimpleView3.h,v $
   Language:  C++
-  Date:      $Date: 2005-08-11 16:47:38 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2005-08-11 18:46:44 $
+  Version:   $Revision: 1.2 $
 
   Copyright 2004 Sandia Corporation.
   Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -34,7 +34,7 @@
 #ifndef SIMPLEVIEW_H
 #define SIMPLEVIEW_H
 
-#include "uiSimpleView.h"
+#include "uiSimpleView3.h"
 
 // Forward class declarations
 class vtkCylinderSource;
