@@ -18,7 +18,15 @@
 #include "vtkImageData.h"
 #include "vtkObjectFactory.h"
 
+#ifdef _MSC_VER
+#pragma warning (push, 3)
+#endif
+
 #include <vfw.h>
+
+#ifdef _MSC_VER
+#pragma warning (pop)
+#endif
 
 class vtkAVIWriterInternal 
 {
@@ -32,7 +40,7 @@ public:
 
 //---------------------------------------------------------------------------
 vtkStandardNewMacro(vtkAVIWriter);
-vtkCxxRevisionMacro(vtkAVIWriter, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkAVIWriter, "$Revision: 1.3 $");
 
 //---------------------------------------------------------------------------
 vtkAVIWriter::vtkAVIWriter()
