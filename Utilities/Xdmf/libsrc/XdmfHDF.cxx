@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfHDF.cxx,v 1.24 2005-05-10 17:41:36 andy Exp $  */
-/*  Date : $Date: 2005-05-10 17:41:36 $ */
-/*  Version : $Revision: 1.24 $ */
+/*  Id : $Id: XdmfHDF.cxx,v 1.25 2005-08-23 22:18:44 jsjones Exp $  */
+/*  Date : $Date: 2005-08-23 22:18:44 $ */
+/*  Version : $Revision: 1.25 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -662,7 +662,7 @@ XdmfDebug("Using Domain " << this->Domain );
     } else if( STRCASECMP( this->Domain, "GASS" ) == 0 ) {
     } else {
 // Check for Parallel HDF5 ... MPI must already be initialized
-#if H5_HAVE_PARALLEL && (H5_VERS_MAJOR >= 1) && (H5_VERS_MINOR >= 6)
+#if H5_HAVE_PARALLEL && ((H5_VERS_MAJOR>1)||((H5_VERS_MAJOR==1)&&(H5_VERS_MINOR>=6)))
     if((!this->UseSerialFile) && (STRCASECMP( this->Domain, "SERIAL" ) != 0 )) {
       XdmfDebug("Using Parallel File Interface, Path = " << this->GetWorkingDirectory() );
 

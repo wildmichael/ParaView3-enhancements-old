@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfHDFSupport.h,v 1.4 2004-01-15 21:43:56 andy Exp $  */
-/*  Date : $Date: 2004-01-15 21:43:56 $ */
-/*  Version : $Revision: 1.4 $ */
+/*  Id : $Id: XdmfHDFSupport.h,v 1.5 2005-08-23 22:18:44 jsjones Exp $  */
+/*  Date : $Date: 2005-08-23 22:18:44 $ */
+/*  Version : $Revision: 1.5 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -29,7 +29,7 @@
 #include "XdmfObject.h"
 #include "H5public.h"
 
-#if (H5_VERS_MAJOR >= 1) && (H5_VERS_MINOR >= 6)
+#if (H5_VERS_MAJOR>1)||((H5_VERS_MAJOR==1)&&(H5_VERS_MINOR>=6))
 #include "hdf5.h"
 #else
 extern "C" {
