@@ -2,7 +2,7 @@
  *  Copyright 1996, University Corporation for Atmospheric Research
  *      See netcdf/COPYRIGHT file for copying and redistribution conditions.
  */
-/* $Id: nc.c,v 1.2 2005-07-19 12:31:30 andy Exp $ */
+/* $Id: nc.c,v 1.3 2005-08-29 17:54:17 andy Exp $ */
 
 #include "nc.h"
 #include "rnd.h"
@@ -298,7 +298,10 @@ read_numrecs(NC *ncp)
 
   status = ncx_get_size_t(&xp, &ncp->numrecs);
 
-  (void) ncp->nciop->rel(ncp->nciop, NC_NUMRECS_OFFSET, 0);
+  {
+  ncio_relfunc* func = (ncio_relfunc*)(ncp->nciop->rel);
+  (void) (func(ncp->nciop, NC_NUMRECS_OFFSET, 0));
+  }
 
   if(status == NC_NOERR)
     fClr(ncp->flags, NC_NDIRTY);
@@ -327,7 +330,10 @@ write_numrecs(NC *ncp)
 
   status = ncx_put_size_t(&xp, &ncp->numrecs);
 
-  (void) ncp->nciop->rel(ncp->nciop, NC_NUMRECS_OFFSET, RGN_MODIFIED);
+  {
+  ncio_relfunc* func = (ncio_relfunc*)(ncp->nciop->rel);
+  (void) (func(ncp->nciop, NC_NUMRECS_OFFSET, RGN_MODIFIED));
+  }
 
   if(status == NC_NOERR)
     fClr(ncp->flags, NC_NDIRTY);

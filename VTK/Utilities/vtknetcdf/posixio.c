@@ -2,7 +2,7 @@
  *  Copyright 1996, University Corporation for Atmospheric Research
  *  See netcdf/COPYRIGHT file for copying and redistribution conditions.
  */
-/* $Id: posixio.c,v 1.5 2005-07-21 21:40:32 andy Exp $ */
+/* $Id: posixio.c,v 1.6 2005-08-29 17:54:17 andy Exp $ */
 /*#define USE_CWRITE 1 *//*define to use _cwrite instead of write*/
 
 #ifdef SGI64
@@ -1133,7 +1133,10 @@ ncio_free(ncio *nciop)
     return;
 
   if(nciop->free != NULL)
-    nciop->free(nciop->pvt);
+    {
+    ncio_freefunc* func = (ncio_freefunc*)nciop->free;
+    func(nciop->pvt);
+    }
   
   free(nciop);
 }
@@ -1371,7 +1374,10 @@ ncio_close(ncio *nciop, int doUnlink)
   if(nciop == NULL)
     return EINVAL;
 
-  status = nciop->sync(nciop);
+  {
+  ncio_syncfunc* func = (ncio_syncfunc*)(nciop->sync);
+  status = func(nciop);
+  }
 
   (void) close(nciop->fd);
   
