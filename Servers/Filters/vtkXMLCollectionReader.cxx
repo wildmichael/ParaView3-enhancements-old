@@ -31,7 +31,7 @@
 #include <vtkstd/map>
 #include <vtkstd/algorithm>
 
-vtkCxxRevisionMacro(vtkXMLCollectionReader, "$Revision: 1.15 $");
+vtkCxxRevisionMacro(vtkXMLCollectionReader, "$Revision: 1.16 $");
 vtkStandardNewMacro(vtkXMLCollectionReader);
 
 //----------------------------------------------------------------------------
@@ -113,16 +113,6 @@ vtkDataSet* vtkXMLCollectionReader::GetOutput(int index)
 
   // Now return the requested output.
   return this->GetOutputAsDataSet(index);
-}
-
-//----------------------------------------------------------------------------
-void vtkXMLCollectionReader::Update()
-{
-  // Update information first to make sure an output exists.
-  this->UpdateInformation();
-
-  // Now complete the standard Update.
-  this->Superclass::Update();
 }
 
 //----------------------------------------------------------------------------
