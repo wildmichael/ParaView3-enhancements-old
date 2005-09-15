@@ -91,7 +91,7 @@
   x = NULL;      \
 }
 
-vtkCxxRevisionMacro(vtkExodusIIWriter, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkExodusIIWriter, "$Revision: 1.7 $");
 vtkStandardNewMacro(vtkExodusIIWriter);
 vtkCxxSetObjectMacro(vtkExodusIIWriter, ModelMetadata, vtkModelMetadata);
 
@@ -3704,4 +3704,11 @@ void vtkExodusIIWriter::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "WriteOutGlobalElementIdArray " << this->WriteOutGlobalElementIdArray << endl;
 
   os << indent << "ModelMetadata " << this->ModelMetadata << endl;
+
+  // ATTRIBUTE EDITOR
+  if (this->EditedVariableName)
+    {
+    os << indent << "EditedVariableName " << this->EditedVariableName << endl;
+    }
+  os << indent << "EditorFlag " << this->EditorFlag << endl;
 }
