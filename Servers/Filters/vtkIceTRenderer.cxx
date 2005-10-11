@@ -14,7 +14,7 @@
 =========================================================================*/
 /* -*- c++ -*- *******************************************************/
 
-/* $Id: vtkIceTRenderer.cxx,v 1.17 2005-10-10 14:26:56 kmorel Exp $ */
+/* $Id: vtkIceTRenderer.cxx,v 1.18 2005-10-11 13:11:17 berk Exp $ */
 
 #include "vtkIceTRenderer.h"
 
@@ -30,6 +30,8 @@
 
 #include <GL/ice-t.h>
 
+#include <vtkstd/algorithm>
+
 //******************************************************************
 // Prototypes
 //******************************************************************
@@ -44,7 +46,7 @@ static vtkIceTRenderer *currentRenderer;
 // vtkIceTRenderer implementation.
 //******************************************************************
 
-vtkCxxRevisionMacro(vtkIceTRenderer, "$Revision: 1.17 $");
+vtkCxxRevisionMacro(vtkIceTRenderer, "$Revision: 1.18 $");
 vtkStandardNewMacro(vtkIceTRenderer);
 
 vtkCxxSetObjectMacro(vtkIceTRenderer, SortingKdTree, vtkPKdTree);
