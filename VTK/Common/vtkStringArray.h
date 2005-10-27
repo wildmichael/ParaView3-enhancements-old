@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStringArray.h,v $
   Language:  C++
-  Date:      $Date: 2005-05-21 18:31:55 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2005-10-27 15:30:00 $
+  Version:   $Revision: 1.4 $
 
   Copyright 2004 Sandia Corporation.
   Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -82,7 +82,7 @@ public:
 
   // Description:
   // Resize the array while conserving the data.
-  void Resize(vtkIdType numTuples);
+  int Resize(vtkIdType numTuples);
 
   // Description:
   // Given a list of indices, return an array of values.  You must
