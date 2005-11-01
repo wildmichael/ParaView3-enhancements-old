@@ -29,7 +29,7 @@
 //-----------------------------------------------------------------------------
 
 vtkStandardNewMacro(vtkSMCompositeDisplayProxy);
-vtkCxxRevisionMacro(vtkSMCompositeDisplayProxy, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkSMCompositeDisplayProxy, "$Revision: 1.6 $");
 //-----------------------------------------------------------------------------
 vtkSMCompositeDisplayProxy::vtkSMCompositeDisplayProxy()
 {
@@ -793,7 +793,7 @@ void vtkSMCompositeDisplayProxy::SetCollectionDecision(int v)
     return;
     }
   ivp->SetElement(0, this->CollectionDecision);
-  this->InvalidateGeometryInternal();
+  this->InvalidateGeometryInternal(0);
   this->UpdateVTKObjects();
 }
 
