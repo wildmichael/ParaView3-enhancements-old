@@ -23,9 +23,10 @@
 #include "vtkHandleRepresentation.h"
 #include "vtkCoordinate.h"
 #include "vtkWidgetCallbackMapper.h"
+#include "vtkWidgetEvent.h"
 #include <vtkstd/vector>
 
-vtkCxxRevisionMacro(vtkSeedWidget, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkSeedWidget, "$Revision: 1.3 $");
 vtkStandardNewMacro(vtkSeedWidget);
 
 

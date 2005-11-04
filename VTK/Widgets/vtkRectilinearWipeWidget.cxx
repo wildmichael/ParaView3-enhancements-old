@@ -24,9 +24,10 @@
 #include "vtkWidgetEventTranslator.h"
 #include "vtkWidgetCallbackMapper.h" 
 #include "vtkEvent.h"
+#include "vtkWidgetEvent.h"
 
 
-vtkCxxRevisionMacro(vtkRectilinearWipeWidget, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkRectilinearWipeWidget, "$Revision: 1.3 $");
 vtkStandardNewMacro(vtkRectilinearWipeWidget);
 
 

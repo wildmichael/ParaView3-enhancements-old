@@ -23,8 +23,9 @@
 #include "vtkWidgetEventTranslator.h"
 #include "vtkWidgetCallbackMapper.h" 
 #include "vtkEvent.h"
+#include "vtkWidgetEvent.h"
 
-vtkCxxRevisionMacro(vtkHandleWidget, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkHandleWidget, "$Revision: 1.3 $");
 vtkStandardNewMacro(vtkHandleWidget);
 
 //----------------------------------------------------------------------------------
