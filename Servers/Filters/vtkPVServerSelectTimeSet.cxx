@@ -16,7 +16,6 @@
 
 #include "vtkClientServerInterpreter.h"
 #include "vtkObjectFactory.h"
-#include "vtkPVProcessModule.h"
 #include "vtkGenericEnSightReader.h"
 #include "vtkDataArrayCollection.h"
 #include "vtkDataArrayCollectionIterator.h"
@@ -26,7 +25,7 @@
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro(vtkPVServerSelectTimeSet);
-vtkCxxRevisionMacro(vtkPVServerSelectTimeSet, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkPVServerSelectTimeSet, "$Revision: 1.2 $");
 
 //----------------------------------------------------------------------------
 class vtkPVServerSelectTimeSetInternals

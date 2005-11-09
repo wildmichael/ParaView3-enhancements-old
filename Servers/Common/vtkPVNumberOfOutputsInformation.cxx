@@ -21,7 +21,7 @@
 #include "vtkSource.h"
 
 vtkStandardNewMacro(vtkPVNumberOfOutputsInformation);
-vtkCxxRevisionMacro(vtkPVNumberOfOutputsInformation, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkPVNumberOfOutputsInformation, "$Revision: 1.4 $");
 
 //----------------------------------------------------------------------------
 vtkPVNumberOfOutputsInformation::vtkPVNumberOfOutputsInformation()
@@ -71,8 +71,13 @@ void vtkPVNumberOfOutputsInformation::CopyFromObject(vtkObject* obj)
 }
 
 //----------------------------------------------------------------------------
-void vtkPVNumberOfOutputsInformation::AddInformation(vtkPVInformation*)
+void vtkPVNumberOfOutputsInformation::AddInformation(vtkPVInformation* info)
 {
+  if (vtkPVNumberOfOutputsInformation::SafeDownCast(info))
+    {
+    this->NumberOfOutputs = vtkPVNumberOfOutputsInformation::SafeDownCast(info)
+      ->GetNumberOfOutputs();
+    }
 }
 
 //----------------------------------------------------------------------------

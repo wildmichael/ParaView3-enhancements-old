@@ -14,7 +14,7 @@
 =========================================================================*/
 #include "vtkPVProcessModuleBatchHelper.h"
 
-#include "vtkPVProcessModule.h"
+#include "vtkProcessModule.h"
 #include "vtkPVProcessModuleBatchHelperConfig.h"
 #include "vtkObjectFactory.h"
 #include "vtkPVBatchOptions.h"
@@ -26,7 +26,7 @@
 
 #include <vtksys/SystemTools.hxx>
 
-vtkCxxRevisionMacro(vtkPVProcessModuleBatchHelper, "$Revision: 1.11 $");
+vtkCxxRevisionMacro(vtkPVProcessModuleBatchHelper, "$Revision: 1.12 $");
 vtkStandardNewMacro(vtkPVProcessModuleBatchHelper);
 
 EXTERN void TclSetLibraryPath _ANSI_ARGS_((Tcl_Obj * pathPtr));

@@ -16,7 +16,7 @@
 
 #include "vtkPVProcessModulePythonHelper.h"
 
-#include "vtkPVProcessModule.h"
+#include "vtkProcessModule.h"
 #include "vtkObjectFactory.h"
 #include "vtkPVPythonOptions.h"
 #include "vtkSMApplication.h"
@@ -39,7 +39,7 @@ extern "C" {
 }
 
 
-vtkCxxRevisionMacro(vtkPVProcessModulePythonHelper, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkPVProcessModulePythonHelper, "$Revision: 1.2 $");
 vtkStandardNewMacro(vtkPVProcessModulePythonHelper);
 
 //----------------------------------------------------------------------------

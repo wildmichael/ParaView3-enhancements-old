@@ -20,12 +20,11 @@
 #include "vtkInformation.h"
 #include "vtkInformationDoubleVectorKey.h"
 #include "vtkObjectFactory.h"
-#include "vtkPVProcessModule.h"
 #include "vtkClientServerStream.h"
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro(vtkPVServerTimeSteps);
-vtkCxxRevisionMacro(vtkPVServerTimeSteps, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkPVServerTimeSteps, "$Revision: 1.3 $");
 
 //----------------------------------------------------------------------------
 class vtkPVServerTimeStepsInternals

@@ -16,7 +16,7 @@
 
 #include "vtkImplicitPlaneWidget.h"
 #include "vtkObjectFactory.h"
-#include "vtkPVProcessModule.h"
+#include "vtkProcessModule.h"
 #include "vtkClientServerStream.h"
 #include "vtkCommand.h"
 #include "vtkSMIntVectorProperty.h"
@@ -24,7 +24,7 @@
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro(vtkSMImplicitPlaneWidgetProxy);
-vtkCxxRevisionMacro(vtkSMImplicitPlaneWidgetProxy, "$Revision: 1.8 $");
+vtkCxxRevisionMacro(vtkSMImplicitPlaneWidgetProxy, "$Revision: 1.9 $");
 
 //----------------------------------------------------------------------------
 vtkSMImplicitPlaneWidgetProxy::vtkSMImplicitPlaneWidgetProxy()
