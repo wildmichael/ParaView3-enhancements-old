@@ -35,7 +35,7 @@
 
 //-----------------------------------------------------------------------------
 vtkStandardNewMacro(vtkPVLODVolume);
-vtkCxxRevisionMacro(vtkPVLODVolume, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkPVLODVolume, "$Revision: 1.6 $");
 vtkCxxSetObjectMacro(vtkPVLODVolume, RenderModuleHelper, vtkPVRenderModuleHelper);
 
 //----------------------------------------------------------------------------
@@ -342,7 +342,7 @@ void vtkPVLODVolume::PrintSelf(ostream& os, vtkIndent indent)
   if (this->RenderModuleHelper)
     {
     os << endl;
-    os << this->RenderModuleHelper->PrintSelf(os, indent.GetNextIndent());
+    this->RenderModuleHelper->PrintSelf(os, indent.GetNextIndent());
     }
   else
     {
