@@ -18,7 +18,7 @@
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro(vtkSMCompoundProxy);
-vtkCxxRevisionMacro(vtkSMCompoundProxy, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkSMCompoundProxy, "$Revision: 1.2 $");
 
 vtkCxxSetObjectMacro(vtkSMCompoundProxy, MainProxy, vtkSMProxy);
 
@@ -31,7 +31,10 @@ vtkSMCompoundProxy::vtkSMCompoundProxy()
 //----------------------------------------------------------------------------
 vtkSMCompoundProxy::~vtkSMCompoundProxy()
 {
-  this->MainProxy->Delete();
+  if (this->MainProxy)
+    {
+    this->MainProxy->Delete();
+    }
   this->MainProxy = 0;
 }
 
