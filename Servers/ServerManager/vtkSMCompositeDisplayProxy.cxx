@@ -29,7 +29,7 @@
 //-----------------------------------------------------------------------------
 
 vtkStandardNewMacro(vtkSMCompositeDisplayProxy);
-vtkCxxRevisionMacro(vtkSMCompositeDisplayProxy, "$Revision: 1.9 $");
+vtkCxxRevisionMacro(vtkSMCompositeDisplayProxy, "$Revision: 1.10 $");
 //-----------------------------------------------------------------------------
 vtkSMCompositeDisplayProxy::vtkSMCompositeDisplayProxy()
 {
@@ -75,10 +75,11 @@ vtkSMCompositeDisplayProxy::~vtkSMCompositeDisplayProxy()
 //-----------------------------------------------------------------------------
 void vtkSMCompositeDisplayProxy::CreateVTKObjects(int numObjects)
 {
-  if (this->ObjectsCreated)
+  if (this->ObjectsCreated || !this->CanCreateProxy)
     {
     return;
     }
+
   this->CollectProxy = this->GetSubProxy("Collect");
   this->LODCollectProxy = this->GetSubProxy("LODCollect");
 
