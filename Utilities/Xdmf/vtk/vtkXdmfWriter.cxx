@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXdmfWriter.cxx,v $
   Language:  C++
-  Date:      $Date: 2005-11-28 18:22:37 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2005-11-29 14:46:58 $
+  Version:   $Revision: 1.25 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen  
@@ -110,7 +110,7 @@ struct vtkXdmfWriterInternal
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro(vtkXdmfWriter);
-vtkCxxRevisionMacro(vtkXdmfWriter, "$Revision: 1.24 $");
+vtkCxxRevisionMacro(vtkXdmfWriter, "$Revision: 1.25 $");
 
 //----------------------------------------------------------------------------
 vtkXdmfWriter::vtkXdmfWriter()
@@ -253,7 +253,6 @@ int vtkXdmfWriter::WriteCellArray( ostream& ost, vtkDataSet *ds,
   ost << " Dimensions=\"" << il->GetNumberOfIds() << " " << PointsInPoly << "\"";
   this->Indent(ost);
   vtkIdList* cellPoints = vtkIdList::New();
-  vtkUnstructuredGrid* ug = vtkUnstructuredGrid::SafeDownCast(ds);
   if( this->AllLight )
     {
     ost << " Format=\"XML\">";
