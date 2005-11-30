@@ -14,7 +14,7 @@
 =========================================================================*/
 /* -*- c++ -*- *******************************************************/
 
-/* $Id: vtkIceTRenderer.cxx,v 1.18 2005-10-11 13:11:17 berk Exp $ */
+/* $Id: vtkIceTRenderer.cxx,v 1.19 2005-11-30 16:08:19 kmorel Exp $ */
 
 #include "vtkIceTRenderer.h"
 
@@ -46,7 +46,7 @@ static vtkIceTRenderer *currentRenderer;
 // vtkIceTRenderer implementation.
 //******************************************************************
 
-vtkCxxRevisionMacro(vtkIceTRenderer, "$Revision: 1.18 $");
+vtkCxxRevisionMacro(vtkIceTRenderer, "$Revision: 1.19 $");
 vtkStandardNewMacro(vtkIceTRenderer);
 
 vtkCxxSetObjectMacro(vtkIceTRenderer, SortingKdTree, vtkPKdTree);
@@ -276,16 +276,17 @@ void vtkIceTRenderer::DeviceRender()
     icetDisable(ICET_ORDERED_COMPOSITE);
     }
 
-  //Make sure we tell ICE-T what the background color is.  Make sure
-  //the background is transparent if blending colors.
+  //Make sure we tell ICE-T what the background color is.  If the background
+  //is black, also make it transparent so that we can skip fixing it.
   GLint in_buffers;
   icetGetIntegerv(ICET_INPUT_BUFFERS, &in_buffers);
-  if (in_buffers == ICET_COLOR_BUFFER_BIT)
+  if (   (in_buffers == ICET_COLOR_BUFFER_BIT)
+      && (this->Background[0] == 0.0)
+      && (this->Background[1] == 0.0)
+      && (this->Background[2] == 0.0) )
     {
-    glClearColor((GLclampf)(this->Background[0]),
-                 (GLclampf)(this->Background[1]),
-                 (GLclampf)(this->Background[2]),
-                 (GLclampf)(0.0));
+    glClearColor((GLclampf)(0.0), (GLclampf)(0.0),
+                 (GLclampf)(0.0), (GLclampf)(0.0));
     }
   else
     {
