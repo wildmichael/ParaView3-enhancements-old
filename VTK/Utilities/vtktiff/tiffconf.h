@@ -1,4 +1,4 @@
-/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/vtktiff/tiffconf.h,v 1.1 2004-04-28 15:49:22 king Exp $ */
+/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/vtktiff/tiffconf.h,v 1.2 2005-12-05 21:26:14 david.cole Exp $ */
 /*
  * Copyright (c) 1988-1997 Sam Leffler
  * Copyright (c) 1991-1997 Silicon Graphics, Inc.
@@ -157,6 +157,10 @@
 #pragma warning ( disable : 4786 )
 #pragma warning ( disable : 4311 )
 #pragma warning ( disable : 4312 )
+#endif
+
+#if defined(__BORLANDC__)
+#pragma warn -8004 /* "assigned a value that is never used" */
 #endif
 
 #endif /* _TIFFCONF_ */

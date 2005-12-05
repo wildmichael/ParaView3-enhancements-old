@@ -44,7 +44,7 @@
 *
 * revision history - 
 *
-*  $Id: exodusII_int.h,v 1.3 2005-07-19 23:40:10 andy Exp $
+*  $Id: exodusII_int.h,v 1.4 2005-12-05 21:26:13 david.cole Exp $
 *
 ****************************************************************************
 */
@@ -64,6 +64,10 @@
 #  pragma warning ( disable : 4127 )
 #  pragma warning ( disable : 4706 )
 #  pragma warning ( disable : 4701 )
+#endif
+
+#if defined(__BORLANDC__)
+#pragma warn -8004 /* "assigned a value that is never used" */
 #endif
 
 

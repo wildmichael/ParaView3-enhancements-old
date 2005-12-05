@@ -2,8 +2,12 @@
  *  Copyright 1996, University Corporation for Atmospheric Research
  *  See netcdf/COPYRIGHT file for copying and redistribution conditions.
  */
-/* $Id: posixio.c,v 1.6 2005-08-29 17:54:17 andy Exp $ */
+/* $Id: posixio.c,v 1.7 2005-12-05 21:26:14 david.cole Exp $ */
 /*#define USE_CWRITE 1 *//*define to use _cwrite instead of write*/
+
+#if defined(__BORLANDC__)
+#pragma warn -8004 /* "assigned a value that is never used" */
+#endif
 
 #ifdef SGI64
 #define lseek lseek64
