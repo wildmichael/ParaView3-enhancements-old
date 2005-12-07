@@ -3,8 +3,8 @@
   Program:   DICOMParser
   Module:    $RCSfile: DICOMAppHelper.cxx,v $
   Language:  C++
-  Date:      $Date: 2004-02-25 17:27:22 $
-  Version:   $Revision: 1.21 $
+  Date:      $Date: 2005-12-07 21:15:21 $
+  Version:   $Revision: 1.22 $
 
   Copyright (c) 2003 Matt Turek
   All rights reserved.
@@ -34,6 +34,9 @@
 #include <string>
 #include <math.h>
 #include <algorithm>
+#if defined(__BORLANDC__)
+#include <mem.h> // for memcpy
+#endif
 
 //#define DEBUG_DICOM_APP_HELPER
 
