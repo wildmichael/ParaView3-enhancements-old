@@ -24,7 +24,7 @@
 #include "vtkSMInputProperty.h"
 
 vtkStandardNewMacro(vtkSMAxesProxy);
-vtkCxxRevisionMacro(vtkSMAxesProxy, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkSMAxesProxy, "$Revision: 1.6 $");
 //---------------------------------------------------------------------------
 vtkSMAxesProxy::vtkSMAxesProxy()
 {
@@ -99,12 +99,6 @@ void vtkSMAxesProxy::CreateVTKObjects(int numObjects)
 
   this->UpdateVTKObjects();
 
-}
-
-//---------------------------------------------------------------------------
-void vtkSMAxesProxy::SaveInBatchScript(ofstream* file)
-{
-  this->Superclass::SaveInBatchScript(file);
 }
 
 //---------------------------------------------------------------------------
