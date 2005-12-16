@@ -14,7 +14,7 @@
 =========================================================================*/
 /* -*- c++ -*- *******************************************************/
 
-/* $Id: vtkIceTRenderer.cxx,v 1.19 2005-11-30 16:08:19 kmorel Exp $ */
+/* $Id: vtkIceTRenderer.cxx,v 1.20 2005-12-16 15:42:41 kmorel Exp $ */
 
 #include "vtkIceTRenderer.h"
 
@@ -46,7 +46,7 @@ static vtkIceTRenderer *currentRenderer;
 // vtkIceTRenderer implementation.
 //******************************************************************
 
-vtkCxxRevisionMacro(vtkIceTRenderer, "$Revision: 1.19 $");
+vtkCxxRevisionMacro(vtkIceTRenderer, "$Revision: 1.20 $");
 vtkStandardNewMacro(vtkIceTRenderer);
 
 vtkCxxSetObjectMacro(vtkIceTRenderer, SortingKdTree, vtkPKdTree);
@@ -234,8 +234,10 @@ void vtkIceTRenderer::DeviceRender()
     }
 
   //Set up ordered compositing.
-  if (   this->SortingKdTree
-      && (this->ComposeOperation == vtkIceTRenderManager::ComposeOperationOver))
+  if (   (this->ComposeOperation == vtkIceTRenderManager::ComposeOperationOver)
+      && this->SortingKdTree
+      && (   this->SortingKdTree->GetNumberOfRegions()
+          >= this->Context->GetController()->GetNumberOfProcesses()) )
     {
     // Setup ICE-T context for correct sorting.
     icetEnable(ICET_ORDERED_COMPOSITE);
