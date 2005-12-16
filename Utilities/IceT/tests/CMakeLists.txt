@@ -1,4 +1,4 @@
-# $Id: CMakeLists.txt,v 1.7 2004-05-20 20:43:37 martink Exp $
+# $Id: CMakeLists.txt,v 1.8 2005-12-16 14:02:27 kmorel Exp $
 #
 ## Copyright 2003 Sandia Coporation
 ## Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -9,12 +9,13 @@
 #
 
 SET(MyTests
-	SimpleExample.c
-	BlankTiles.c
-	CompressionSize.c
-	DisplayNoDraw.c
-#	RandomTransform.c
-	)
+  BlankTiles.c
+  BoundsBehindViewer.c
+  CompressionSize.c
+  DisplayNoDraw.c
+  RandomTransform.c
+  SimpleExample.c
+  )
 
 SET(UTIL_SRCS init.c ppm.c)
 
@@ -27,27 +28,32 @@ ENDIF (WIN32)
 INCLUDE_DIRECTORIES(${CMAKE_CURRENT_SOURCE_DIR})
 
 CREATE_TEST_SOURCELIST(Tests icetTests_mpi.c ${MyTests}
-		       EXTRA_INCLUDE mpi_comm.h
-		       FUNCTION init_mpi_comm)
+  EXTRA_INCLUDE mpi_comm.h
+  FUNCTION init_mpi_comm)
 
 ADD_EXECUTABLE(icetTests_mpi ${Tests} ${UTIL_SRCS})
-TARGET_LINK_LIBRARIES(icetTests_mpi icet icet_strategies icet_mpi ${OPENGL_glu_LIBRARY})
+TARGET_LINK_LIBRARIES(icetTests_mpi
+  icet
+  icet_strategies
+  icet_mpi
+  ${OPENGL_glu_LIBRARY}
+  )
 
 IF (ICET_MPIRUN_EXE)
   SET(PRE_TEST_FLAGS ${ICET_MPIRUN_EXE} ${ICET_MPI_PREFLAGS})
   SET(POST_TEST_FLAGS ${ICET_MPI_POSTFLAGS})
 ENDIF (ICET_MPIRUN_EXE)
 
-SET(ICET_TEST_FLAGS "-redirect" CACHE STRING "Arguments given to the test program.")
+SET(ICET_TEST_FLAGS "" CACHE STRING "Arguments given to the test program.")
 MARK_AS_ADVANCED(ICET_TEST_FLAGS)
 SEPARATE_ARGUMENTS(ICET_TEST_FLAGS)
 
 FOREACH (test ${MyTests})
   GET_FILENAME_COMPONENT(TName ${test} NAME_WE)
-  ADD_TEST(${TName}
-	   ${PRE_TEST_FLAGS}
-		${C_TEST_PATH}/icetTests_mpi ${ICET_TEST_FLAGS} ${TName}
-		${POST_TEST_FLAGS})
+  ADD_TEST(IceT${TName}
+    ${PRE_TEST_FLAGS}
+    ${C_TEST_PATH}/icetTests_mpi ${ICET_TEST_FLAGS} ${TName}
+    ${POST_TEST_FLAGS})
 ENDFOREACH(test)
 
 IF (WIN32)
