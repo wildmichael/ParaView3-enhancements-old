@@ -11,7 +11,7 @@
 
 /* 
  * This code opens up a GL window in X
- * $Id: glwin_glx.c,v 1.5 2004-05-25 20:44:47 berk Exp $
+ * $Id: glwin_glx.c,v 1.6 2005-12-16 14:01:07 kmorel Exp $
  *
  */ 
 
@@ -40,10 +40,11 @@ int wincreat( int x, int y, int width, int height, char *title)
   GLXContext             glcx;
   XEvent                 event;
   int                    attributes[] = { GLX_RGBA,
-                                          GLX_DEPTH_SIZE, 16, 
-                                          GLX_RED_SIZE, 1, 
-                                          GLX_GREEN_SIZE, 1, 
-                                          GLX_BLUE_SIZE, 1,
+                                          GLX_DEPTH_SIZE, 16,
+                                          GLX_RED_SIZE, 8,
+                                          GLX_GREEN_SIZE, 8,
+                                          GLX_BLUE_SIZE, 8,
+                                          GLX_ALPHA_SIZE, 8,
                                           GLX_DOUBLEBUFFER,
                                           None }; 
 
