@@ -1,5 +1,5 @@
 /* -*- c -*- *****************************************************************
-** $Id: DisplayNoDraw.c,v 1.6 2005-01-06 16:50:12 kmorel Exp $
+** $Id: DisplayNoDraw.c,v 1.7 2005-12-16 19:02:08 kmorel Exp $
 **
 ** Copyright (C) 2003 Sandia Corporation
 ** Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -124,6 +124,6 @@ int DisplayNoDraw(int argc, char *argv[])
         }
     }
 
-    finalize_test();
+    finalize_test(result);
     return result;
 }

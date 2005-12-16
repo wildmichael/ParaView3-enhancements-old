@@ -8,7 +8,7 @@
  * of authorship are reproduced on all copies.
  */
 
-/* $Id: test-util.h,v 1.1 2003-06-17 18:38:54 andy Exp $ */
+/* $Id: test-util.h,v 1.2 2005-12-16 19:02:08 kmorel Exp $ */
 
 #ifndef _TEST_UTIL_H_
 #define _TEST_UTIL_H_
@@ -30,11 +30,11 @@ extern int SCREEN_HEIGHT;
 
 void initialize_test(int *argcp, char ***argvp, IceTCommunicator comm);
 
-void finalize_test(void);
+void finalize_test(int result);
 
 void write_ppm(const char *filename,
-	       const GLubyte *image,
-	       int width, int height);
+               const GLubyte *image,
+               int width, int height);
 
 #ifdef __cplusplus
 }

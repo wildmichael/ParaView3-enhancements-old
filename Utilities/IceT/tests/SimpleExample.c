@@ -1,5 +1,5 @@
 /* -*- c -*- *****************************************************************
-** $Id: SimpleExample.c,v 1.5 2005-01-06 16:50:12 kmorel Exp $
+** $Id: SimpleExample.c,v 1.6 2005-12-16 19:02:08 kmorel Exp $
 **
 ** Copyright (C) 2003 Sandia Corporation
 ** Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -169,6 +169,6 @@ int SimpleExample(int argc, char * argv[])
         swap_buffers();
     }
 
-    finalize_test();
+    finalize_test(TEST_PASSED);
     return TEST_PASSED;
 }

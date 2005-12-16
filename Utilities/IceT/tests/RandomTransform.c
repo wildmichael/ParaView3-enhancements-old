@@ -1,5 +1,5 @@
 /* -*- c -*- *****************************************************************
-** $Id: RandomTransform.c,v 1.9 2005-12-16 14:00:13 kmorel Exp $
+** $Id: RandomTransform.c,v 1.10 2005-12-16 19:02:08 kmorel Exp $
 **
 ** Copyright (C) 2003 Sandia Corporation
 ** Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -223,6 +223,7 @@ static void check_results(int result)
     }
 
     if (fail) {
+        finalize_test(TEST_FAILED);
         exit(TEST_FAILED);
     }
 }
@@ -523,6 +524,6 @@ int RandomTransform(int argc, char *argv[])
     icetInputOutputBuffers(ICET_COLOR_BUFFER_BIT | ICET_DEPTH_BUFFER_BIT,
                            ICET_COLOR_BUFFER_BIT);
 
-    finalize_test();
+    finalize_test(result);
     return result;
 }

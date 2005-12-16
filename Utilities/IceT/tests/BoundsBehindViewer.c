@@ -1,5 +1,5 @@
 /* -*- c -*- *****************************************************************
-** $Id: BoundsBehindViewer.c,v 1.1 2005-12-16 14:02:27 kmorel Exp $
+** $Id: BoundsBehindViewer.c,v 1.2 2005-12-16 19:02:08 kmorel Exp $
 **
 ** Copyright (C) 2005 Sandia Corporation
 ** Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -104,11 +104,11 @@ int BoundsBehindViewer(int argc, char * argv[])
         GLuint *cb = (GLuint *)icetGetColorBuffer();
         if (cb[0] != 0xFFFFFFFF) {
             printf("First pixel in color buffer wrong: 0x%x\n", cb[0]);
-            finalize_test();
+            finalize_test(TEST_FAILED);
             return TEST_FAILED;
         }
     }
 
-    finalize_test();
+    finalize_test(TEST_PASSED);
     return TEST_PASSED;
 }
