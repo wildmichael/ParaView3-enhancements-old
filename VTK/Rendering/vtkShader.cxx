@@ -339,7 +339,7 @@ public:
 };
 
 //-----------------------------------------------------------------------------
-vtkCxxRevisionMacro(vtkShader, "$Revision: 1.17 $")
+vtkCxxRevisionMacro(vtkShader, "$Revision: 1.18 $")
 vtkCxxSetObjectMacro(vtkShader, XMLShader, vtkXMLShader);
 //-----------------------------------------------------------------------------
 vtkShader::vtkShader()
@@ -1122,7 +1122,7 @@ void vtkShader::SetSamplerParameter(vtkActor* act, vtkRenderer*,
     return;
     }
   
-  this->SetSamplerParameter(name, texture);
+  this->SetSamplerParameter(name, texture, texture_id);
 }
 //-----------------------------------------------------------------------------
 void vtkShader::SetApplicationParameter(vtkXMLDataElement* elem)
