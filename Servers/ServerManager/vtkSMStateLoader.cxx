@@ -23,7 +23,7 @@
 #include <vtkstd/map>
 
 vtkStandardNewMacro(vtkSMStateLoader);
-vtkCxxRevisionMacro(vtkSMStateLoader, "$Revision: 1.4 $");
+vtkCxxRevisionMacro(vtkSMStateLoader, "$Revision: 1.5 $");
 
 struct vtkSMStateLoaderInternals
 {
@@ -111,8 +111,6 @@ vtkSMProxy* vtkSMStateLoader::NewProxy(vtkPVXMLElement* root,
     vtkErrorMacro("No root is defined. Cannot create proxy");
     return 0;
     }
-
-  vtkSMProxyManager* pm = this->GetProxyManager();
 
   unsigned int numElems = root->GetNumberOfNestedElements();
   unsigned int i=0;
