@@ -16,13 +16,16 @@
 #include "vtkDataArrayTemplate.txx"
 VTK_DATA_ARRAY_TEMPLATE_INSTANTIATE(double);
 
+#include "vtkArrayIteratorTemplate.txx"
+VTK_ARRAY_ITERATOR_TEMPLATE_INSTANTIATE(double);
+
 #define __vtkDoubleArray_cxx
 #include "vtkDoubleArray.h"
 
 #include "vtkObjectFactory.h"
 
 //----------------------------------------------------------------------------
-vtkCxxRevisionMacro(vtkDoubleArray, "$Revision: 1.48 $");
+vtkCxxRevisionMacro(vtkDoubleArray, "$Revision: 1.49 $");
 vtkStandardNewMacro(vtkDoubleArray);
 
 //----------------------------------------------------------------------------

@@ -15,6 +15,7 @@
 #include "vtkOpenGLImageMapper.h"
 
 #include "vtkActor2D.h"
+#include "vtkDataArray.h"
 #include "vtkImageData.h"
 #include "vtkObjectFactory.h"
 #include "vtkPointData.h"
@@ -27,7 +28,7 @@
 #include <limits.h>
 
 #ifndef VTK_IMPLEMENT_MESA_CXX
-vtkCxxRevisionMacro(vtkOpenGLImageMapper, "$Revision: 1.62 $");
+vtkCxxRevisionMacro(vtkOpenGLImageMapper, "$Revision: 1.63 $");
 vtkStandardNewMacro(vtkOpenGLImageMapper);
 #endif
 

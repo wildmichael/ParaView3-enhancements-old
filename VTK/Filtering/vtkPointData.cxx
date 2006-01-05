@@ -13,9 +13,11 @@
 
 =========================================================================*/
 #include "vtkPointData.h"
+
+#include "vtkDataArray.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkPointData, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkPointData, "$Revision: 1.2 $");
 vtkStandardNewMacro(vtkPointData);
 
 void vtkPointData::NullPoint (vtkIdType ptId)

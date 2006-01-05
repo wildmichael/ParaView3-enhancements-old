@@ -12,22 +12,22 @@
      PURPOSE.  See the above copyright notice for more information.
 
 =========================================================================*/
-
-#include "DICOMParser.h"
-#include "DICOMAppHelper.h"
-
 #include "vtkDICOMImageReader.h"
+
+#include "DICOMAppHelper.h"
+#include "DICOMParser.h"
+#include "vtkDirectory.h"
+#include "vtkDataArray.h"
 #include "vtkImageData.h"
 #include "vtkObjectFactory.h"
 #include "vtkPointData.h"
-#include "vtkDirectory.h"
 
 #include <vtkstd/vector>
 #include <vtkstd/string>
 
 #include <sys/stat.h>
 
-vtkCxxRevisionMacro(vtkDICOMImageReader, "$Revision: 1.33 $");
+vtkCxxRevisionMacro(vtkDICOMImageReader, "$Revision: 1.34 $");
 vtkStandardNewMacro(vtkDICOMImageReader);
 
 class vtkDICOMImageReaderVector : public vtkstd::vector<vtkstd::string>

@@ -14,6 +14,7 @@
 =========================================================================*/
 #include "vtkRTAnalyticSource.h"
 
+#include "vtkDataArray.h"
 #include "vtkImageData.h"
 #include "vtkInformation.h"
 #include "vtkInformationVector.h"
@@ -23,7 +24,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkRTAnalyticSource, "$Revision: 1.20 $");
+vtkCxxRevisionMacro(vtkRTAnalyticSource, "$Revision: 1.21 $");
 vtkStandardNewMacro(vtkRTAnalyticSource);
 
 //----------------------------------------------------------------------------

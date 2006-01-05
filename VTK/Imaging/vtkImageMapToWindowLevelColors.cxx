@@ -14,6 +14,7 @@
 =========================================================================*/
 #include "vtkImageMapToWindowLevelColors.h"
 
+#include "vtkDataArray.h"
 #include "vtkImageData.h"
 #include "vtkInformation.h"
 #include "vtkInformationVector.h"
@@ -21,7 +22,7 @@
 #include "vtkScalarsToColors.h"
 #include "vtkPointData.h"
 
-vtkCxxRevisionMacro(vtkImageMapToWindowLevelColors, "$Revision: 1.24 $");
+vtkCxxRevisionMacro(vtkImageMapToWindowLevelColors, "$Revision: 1.25 $");
 vtkStandardNewMacro(vtkImageMapToWindowLevelColors);
 
 // Constructor sets default values

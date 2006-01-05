@@ -14,6 +14,7 @@
 =========================================================================*/
 #include "vtkTIFFReader.h"
 
+#include "vtkDataArray.h"
 #include "vtkImageData.h"
 #include "vtkPointData.h"
 #include "vtkObjectFactory.h"
@@ -26,7 +27,7 @@ extern "C" {
 
 //-------------------------------------------------------------------------
 vtkStandardNewMacro(vtkTIFFReader);
-vtkCxxRevisionMacro(vtkTIFFReader, "$Revision: 1.52 $");
+vtkCxxRevisionMacro(vtkTIFFReader, "$Revision: 1.53 $");
 
 class vtkTIFFReaderInternal
 {

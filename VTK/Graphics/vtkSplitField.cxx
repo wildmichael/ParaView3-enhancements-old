@@ -15,6 +15,7 @@
 #include "vtkSplitField.h"
 
 #include "vtkCellData.h"
+#include "vtkDataArray.h"
 #include "vtkDataSet.h"
 #include "vtkDataSetAttributes.h"
 #include "vtkInformation.h"
@@ -22,7 +23,7 @@
 #include "vtkObjectFactory.h"
 #include "vtkPointData.h"
 
-vtkCxxRevisionMacro(vtkSplitField, "$Revision: 1.18 $");
+vtkCxxRevisionMacro(vtkSplitField, "$Revision: 1.19 $");
 vtkStandardNewMacro(vtkSplitField);
 
 char vtkSplitField::FieldLocationNames[3][12] 
