@@ -3,8 +3,8 @@
   Program:   DICOMParser
   Module:    $RCSfile: DICOMAppHelper.h,v $
   Language:  C++
-  Date:      $Date: 2006-01-10 16:26:38 $
-  Version:   $Revision: 1.13 $
+  Date:      $Date: 2006-01-11 15:58:54 $
+  Version:   $Revision: 1.14 $
 
   Copyright (c) 2003 Matt Turek
   All rights reserved.
@@ -33,7 +33,7 @@
 #include "DICOMCallback.h"
 
 #ifdef _MSC_VER
-#pragma warning ( enable : 4018 )
+#pragma warning ( default: 4018 )
 #endif 
 class DICOMParser;
 
