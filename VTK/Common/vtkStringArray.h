@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStringArray.h,v $
   Language:  C++
-  Date:      $Date: 2006-01-05 18:29:03 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2006-02-07 20:50:18 $
+  Version:   $Revision: 1.6 $
 
   Copyright 2004 Sandia Corporation.
   Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -215,9 +215,11 @@ public:
   // the array supplied by the user.  Set save to 1 to keep the class
   // from deleting the array when it cleans up or reallocates memory.
   // The class uses the actual array provided; it does not copy the data
-  // from the suppled array.
+  // from the suppled array. If save is 0, then this class is free to delete
+  // the array when it cleans up or reallocates. In that case, it is required 
+  // that the array was allocated using the C++ new operator (and not malloc).
   void SetArray(vtkStdString* array, vtkIdType size, int save);
-  void SetVoidArray(void* array, vtkIdType size, int save)
+  virtual void SetVoidArray(void* array, vtkIdType size, int save)
     { this->SetArray(static_cast<vtkStdString*>(array), size, save); }
 //ETX
 
