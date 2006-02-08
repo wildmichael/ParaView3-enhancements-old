@@ -22,7 +22,7 @@
 #include "vtkImageData.h"
 #include "vtkFreeTypeUtilities.h"
 
-vtkCxxRevisionMacro(vtkTextActor, "$Revision: 1.26 $");
+vtkCxxRevisionMacro(vtkTextActor, "$Revision: 1.27 $");
 vtkStandardNewMacro(vtkTextActor);
 
 // ----------------------------------------------------------------------------
@@ -94,6 +94,10 @@ vtkTextActor::~vtkTextActor()
   this->AdjustedPositionCoordinate->Delete();
   this->Transform->Delete();
   this->SetTextProperty(NULL);
+  if(this->Input)
+    {
+    delete [] this->Input;
+    }
 }
 
 // ----------------------------------------------------------------------------
