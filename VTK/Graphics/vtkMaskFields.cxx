@@ -23,14 +23,14 @@
 #include "vtkPointData.h"
 #include <ctype.h>
 
-vtkCxxRevisionMacro(vtkMaskFields, "$Revision: 1.10 $");
+vtkCxxRevisionMacro(vtkMaskFields, "$Revision: 1.11 $");
 vtkStandardNewMacro(vtkMaskFields);
 
 char vtkMaskFields::FieldLocationNames[3][12] 
 = { "OBJECT_DATA",
     "POINT_DATA",
     "CELL_DATA" };
-char vtkMaskFields::AttributeNames[vtkDataSetAttributes::NUM_ATTRIBUTES][10]  = { 0 };
+char vtkMaskFields::AttributeNames[vtkDataSetAttributes::NUM_ATTRIBUTES][10]  = { {0} };
 
 vtkMaskFields::vtkMaskFields()
 {
