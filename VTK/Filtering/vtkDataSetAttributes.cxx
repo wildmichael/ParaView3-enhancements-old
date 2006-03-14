@@ -30,7 +30,7 @@
 #include "vtkIdTypeArray.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkDataSetAttributes, "$Revision: 1.11 $");
+vtkCxxRevisionMacro(vtkDataSetAttributes, "$Revision: 1.12 $");
 vtkStandardNewMacro(vtkDataSetAttributes);
 
 //--------------------------------------------------------------------------
@@ -458,7 +458,7 @@ void vtkDataSetAttributesCopyValues(
   int inIndex;
   int outIndex;
 
-  int yIdx, yIdx, xIdx;
+  int zIdx, yIdx, xIdx;
   for (zIdx = outExt[4]; zIdx <= outExt[5]; ++zIdx)
     {
     inIndex = inZIndex;
