@@ -8,7 +8,7 @@
  * of authorship are reproduced on all copies.
  */
 
-/* $Id: porting.c,v 1.2 2005-06-09 13:49:16 kmorel Exp $ */
+/* $Id: porting.c,v 1.3 2006-03-28 15:16:43 kmorel Exp $ */
 
 #include <porting.h>
 #include <GL/ice-t.h>
@@ -37,7 +37,7 @@ double icetWallTime(void)
 
     gettimeofday(tp, NULL);
 
-    return 1000000.0*(tp->tv_sec - start.tv_sec) + (double)tp->tv_usec;
+    return (tp->tv_sec - start.tv_sec) + 0.000001*(double)tp->tv_usec;
 }
 #else /*WIN32*/
 double icetWallTime(void)
