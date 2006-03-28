@@ -1,7 +1,7 @@
 /*=========================================================================
 
    Program:   ParaQ
-   Module:    $RCSfile: pqConnect.h,v $
+   Module:    $RCSfile: pqDelimitedTextParser.h,v $
 
    Copyright (c) 2005,2006 Sandia Corporation, Kitware Inc.
    All rights reserved.
@@ -30,30 +30,46 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
 
-#ifndef _pqConnect_h
-#define _pqConnect_h
+#ifndef _pqDelimitedTextParser_h
+#define _pqDelimitedTextParser_h
 
-#include "QtComponentsExport.h"
+#include "QtWidgetsExport.h"
+#include <QObject>
 
-class QObject;
+class QIODevice;
 
-/// Helper class for making Qt connections
-struct QTCOMPONENTS_EXPORT pqConnect
+/// Parses a delimited text file (e.g. a CSV or tab-delimited file), and emits signals that represent data series from the file.
+class QTWIDGETS_EXPORT pqDelimitedTextParser :
+  public QObject
 {
-  pqConnect(const char* Signal, const QObject* Receiver, const char* Method);
+  Q_OBJECT
   
-  const char* Signal;
-  const QObject* Receiver;
-  const char* Method;
+public:
+  enum SeriesT
+  {
+    /// Data series are organized in columns
+    COLUMN_SERIES
+  };
+  
+  /// Initializes the parser with the delimiter that will be used to separate fields on the same line within parsed files.
+  pqDelimitedTextParser(SeriesT series, char delimiter);
+  
+  /// Call this to parse a filesystem file.
+  void parse(const QString& path);
+  
+signals:
+  /// Signal emitted when parsing begins.
+  void startParsing();
+  /// Signal that will be emitted once for each data series contained in the parsed file.
+  void parseSeries(const QStringList&);
+  /// Signal emitted when parsing ends.
+  void finishParsing();
+
+private:
+  const SeriesT Series;
+  const char Delimiter;
+  
+  void parseColumns(QIODevice& stream);
 };
 
-/// Makes a Qt connection
-template<typename T>
-T* operator<<(T* LHS, const pqConnect& RHS)
-{
-  LHS->connect(LHS, RHS.Signal, RHS.Receiver, RHS.Method);
-  return LHS;
-}
-
-#endif // !_pqConnect_h
-
+#endif

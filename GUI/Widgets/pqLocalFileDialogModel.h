@@ -1,7 +1,7 @@
 /*=========================================================================
 
    Program:   ParaQ
-   Module:    $RCSfile: pqServerFileDialogModel.h,v $
+   Module:    $RCSfile: pqLocalFileDialogModel.h,v $
 
    Copyright (c) 2005,2006 Sandia Corporation, Kitware Inc.
    All rights reserved.
@@ -30,25 +30,21 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
 
-#ifndef _pqServerFileDialogModel_h
-#define _pqServerFileDialogModel_h
+#ifndef _pqLocalFileDialogModel_h
+#define _pqLocalFileDialogModel_h
 
-#include "QtComponentsExport.h"
+#include "QtWidgetsExport.h"
 #include "pqFileDialogModel.h"
 
-class vtkProcessModule;
-
-/// Implementation of pqFileDialogModel that allows remote browsing of a connected ParaView server's filesystem
-class QTCOMPONENTS_EXPORT pqServerFileDialogModel :
+/// Implementation of pqFileDialogModel that provides browsing capabilities for the local filesystem
+class QTWIDGETS_EXPORT pqLocalFileDialogModel :
   public pqFileDialogModel
 {
-  typedef pqFileDialogModel base;
-  
   Q_OBJECT
 
 public:
-  pqServerFileDialogModel(vtkProcessModule* ProcessModule, QObject* Parent = 0);
-  ~pqServerFileDialogModel();
+  pqLocalFileDialogModel(QObject* Parent = 0);
+  ~pqLocalFileDialogModel();
 
   QString getStartPath();
   void setCurrentPath(const QString&);
@@ -60,11 +56,11 @@ public:
   QStringList splitPath(const QString&);
   QAbstractItemModel* fileModel();
   QAbstractItemModel* favoriteModel();
-
+  
 private:
   class pqImplementation;
   pqImplementation* const Implementation;
 };
 
-#endif // !_pqServerFileDialogModel_h
+#endif // !_pqLocalFileDialogModel_h
 

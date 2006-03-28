@@ -30,17 +30,17 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
 
-#ifndef _QtComponentsExport_h
-#define _QtComponentsExport_h
+#ifndef _pqWidgetsExport_h
+#define _pqWidgetsExport_h
 
 #if defined(WIN32) && defined(PARAQ_BUILD_SHARED_LIBS)
-# if defined(QtComponents_EXPORTS)
-#   define QTCOMPONENTS_EXPORT __declspec(dllexport)
+# if defined(pqWidgets_EXPORTS)
+#   define PQWIDGETS_EXPORT __declspec(dllexport)
 # else
-#   define QTCOMPONENTS_EXPORT __declspec(dllimport)
+#   define PQWIDGETS_EXPORT __declspec(dllimport)
 # endif
 #else
-# define QTCOMPONENTS_EXPORT
+# define PQWIDGETS_EXPORT
 #endif
 
-#endif // !_QtComponentsExport_h
+#endif // !_pqWidgetsExport_h

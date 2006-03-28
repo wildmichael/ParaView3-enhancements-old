@@ -1,7 +1,7 @@
 /*=========================================================================
 
    Program:   ParaQ
-   Module:    $RCSfile: pqFileDialog.h,v $
+   Module:    $RCSfile: pqServerFileDialogModel.h,v $
 
    Copyright (c) 2005,2006 Sandia Corporation, Kitware Inc.
    All rights reserved.
@@ -30,49 +30,41 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
 
-#ifndef _pqFileDialog_h
-#define _pqFileDialog_h
+#ifndef _pqServerFileDialogModel_h
+#define _pqServerFileDialogModel_h
 
-#include "QtComponentsExport.h"
-#include <QDialog>
+#include "pqWidgetsExport.h"
+#include "pqFileDialogModel.h"
 
-class pqFileDialogModel;
-namespace Ui { class pqFileDialog; }
-class QModelIndex;
+class vtkProcessModule;
 
-/// Provides a standard file dialog "front-end" for the pqFileDialogModel "back-end", i.e. it can be used for both local and remote file browsing
-class QTCOMPONENTS_EXPORT pqFileDialog :
-  public QDialog
+/// Implementation of pqFileDialogModel that allows remote browsing of a connected ParaView server's filesystem
+class PQWIDGETS_EXPORT pqServerFileDialogModel :
+  public pqFileDialogModel
 {
-  typedef QDialog base;
+  typedef pqFileDialogModel base;
   
   Q_OBJECT
-  
-public:
-  pqFileDialog(pqFileDialogModel* Model, const QString& Title, QWidget* Parent, const char* const Name);
 
-signals:
-  /// Signal emitted when the user has chosen a set of files and accepted the dialog
-  void filesSelected(const QStringList&);
+public:
+  pqServerFileDialogModel(vtkProcessModule* ProcessModule, QObject* Parent = 0);
+  ~pqServerFileDialogModel();
+
+  QString getStartPath();
+  void setCurrentPath(const QString&);
+  QString getCurrentPath();
+  bool isDir(const QModelIndex&);
+  QStringList getFilePaths(const QModelIndex&);
+  QString getFilePath(const QString&);
+  QString getParentPath(const QString&);
+  QStringList splitPath(const QString&);
+  QAbstractItemModel* fileModel();
+  QAbstractItemModel* favoriteModel();
 
 private:
-  ~pqFileDialog();
-  pqFileDialog(const pqFileDialog&);
-  pqFileDialog& operator=(const pqFileDialog&);
-
-  void accept();
-  
-  pqFileDialogModel* const Model;
-  Ui::pqFileDialog* const Ui;
-  const QModelIndex* Temp;
-  
-private slots:
-  void onDataChanged(const QModelIndex&, const QModelIndex&);
-  void onActivated(const QModelIndex&);
-  void onManualEntry(const QString&);
-  void onNavigate(const QString&);
-  void onNavigateUp();
-  void onNavigateDown();
+  class pqImplementation;
+  pqImplementation* const Implementation;
 };
 
-#endif // !_pqFileDialog_h
+#endif // !_pqServerFileDialogModel_h
+

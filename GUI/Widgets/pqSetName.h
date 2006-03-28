@@ -1,7 +1,7 @@
 /*=========================================================================
 
    Program:   ParaQ
-   Module:    $RCS $
+   Module:    $RCSfile: pqSetName.h,v $
 
    Copyright (c) 2005,2006 Sandia Corporation, Kitware Inc.
    All rights reserved.
@@ -30,35 +30,26 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
 
-/*!
- * \file pqChartExport.h
- * \brief
- *   Used to switch between dll import and export on windows.
- * \date August 19, 2005
- */
+#ifndef _pqSetName_h
+#define _pqSetName_h
 
-#ifndef __pqChartExport_h
-#define __pqChartExport_h
+#include "QtWidgetsExport.h"
+#include <QString>
 
-#if defined(WIN32) && defined(PARAQ_BUILD_SHARED_LIBS)
-# if defined(pqChart_EXPORTS)
-#   define QTCHART_EXPORT __declspec(dllexport)
-# else
-#   define QTCHART_EXPORT __declspec(dllimport) 
-# endif
-#else
-# define QTCHART_EXPORT
-#endif
+/// Helper class for setting a Qt object name
+struct QTWIDGETS_EXPORT pqSetName
+{
+  pqSetName(const QString& Name);
+  const QString Name;
+};
 
-// The plugin is always dynamic.
-#if defined(WIN32)
-# if defined(pqChartPlugin_EXPORTS)
-#   define QTCHARTPLUGIN_EXPORT __declspec(dllexport)
-# else
-#   define QTCHARTPLUGIN_EXPORT __declspec(dllimport)
-# endif
-#else
-# define QTCHARTPLUGIN_EXPORT
-#endif
+/// Sets a Qt object's name
+template<typename T>
+T* operator<<(T* LHS, const pqSetName& RHS)
+{
+  LHS->setObjectName(RHS.Name);
+  return LHS;
+}
 
-#endif
+#endif // !_pqSetName_h
+

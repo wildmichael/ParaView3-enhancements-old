@@ -1,7 +1,7 @@
 /*=========================================================================
 
    Program:   ParaQ
-   Module:    $RCSfile: pqLocalFileDialogModel.h,v $
+   Module:    $RCSfile: pqConnect.h,v $
 
    Copyright (c) 2005,2006 Sandia Corporation, Kitware Inc.
    All rights reserved.
@@ -30,37 +30,30 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
 
-#ifndef _pqLocalFileDialogModel_h
-#define _pqLocalFileDialogModel_h
+#ifndef _pqConnect_h
+#define _pqConnect_h
 
-#include "QtComponentsExport.h"
-#include "pqFileDialogModel.h"
+#include "QtWidgetsExport.h"
 
-/// Implementation of pqFileDialogModel that provides browsing capabilities for the local filesystem
-class QTCOMPONENTS_EXPORT pqLocalFileDialogModel :
-  public pqFileDialogModel
+class QObject;
+
+/// Helper class for making Qt connections
+struct QTWIDGETS_EXPORT pqConnect
 {
-  Q_OBJECT
-
-public:
-  pqLocalFileDialogModel(QObject* Parent = 0);
-  ~pqLocalFileDialogModel();
-
-  QString getStartPath();
-  void setCurrentPath(const QString&);
-  QString getCurrentPath();
-  bool isDir(const QModelIndex&);
-  QStringList getFilePaths(const QModelIndex&);
-  QString getFilePath(const QString&);
-  QString getParentPath(const QString&);
-  QStringList splitPath(const QString&);
-  QAbstractItemModel* fileModel();
-  QAbstractItemModel* favoriteModel();
+  pqConnect(const char* Signal, const QObject* Receiver, const char* Method);
   
-private:
-  class pqImplementation;
-  pqImplementation* const Implementation;
+  const char* Signal;
+  const QObject* Receiver;
+  const char* Method;
 };
 
-#endif // !_pqLocalFileDialogModel_h
+/// Makes a Qt connection
+template<typename T>
+T* operator<<(T* LHS, const pqConnect& RHS)
+{
+  LHS->connect(LHS, RHS.Signal, RHS.Receiver, RHS.Method);
+  return LHS;
+}
+
+#endif // !_pqConnect_h
 
