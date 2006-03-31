@@ -30,40 +30,31 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
 
-#include "PythonDialog.h"
-#include "ui_PythonDialog.h"
+#ifndef _AboutDialog_h
+#define _AboutDialog_h
 
-//////////////////////////////////////////////////////////////////////
-// PythonDialog::pqImplementation
+#include "ui_AboutDialog.h"
 
-struct PythonDialog::pqImplementation
+/// Provides an about dialog
+class AboutDialog :
+  public QDialog
 {
-  Ui::PythonDialog Ui;
+  Q_OBJECT
+
+public:
+  AboutDialog(QWidget* Parent);
+
+private:
+  ~AboutDialog();
+  AboutDialog(const AboutDialog&);
+  AboutDialog& operator=(const AboutDialog&);
+  
+  Ui::AboutDialog Ui;
+  
+private slots:
+  void accept();
+  void reject();
 };
 
-PythonDialog::PythonDialog(QWidget* Parent) :
-  QDialog(Parent),
-  Implementation(new pqImplementation())
-{
-  this->Implementation->Ui.setupUi(this);
-  this->setObjectName("pythonDialog");
-  this->setWindowTitle(tr("Python Shell"));
-}
-
-PythonDialog::~PythonDialog()
-{
-  delete Implementation;
-}
-
-void PythonDialog::accept()
-{
-  QDialog::accept();
-  delete this;
-}
-
-void PythonDialog::reject()
-{
-  QDialog::reject();
-  delete this;
-}
+#endif // !_AboutDialog_h
 
