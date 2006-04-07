@@ -2,7 +2,7 @@
 /*=========================================================================
 
    Program:   ParaQ
-   Module:    $RCS $
+   Module:    $RCSfile: pqOptions.cxx,v $
 
    Copyright (c) 2005,2006 Sandia Corporation, Kitware Inc.
    All rights reserved.
@@ -36,7 +36,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <vtkObjectFactory.h>
 
 vtkStandardNewMacro(pqOptions);
-vtkCxxRevisionMacro(pqOptions, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(pqOptions, "$Revision: 1.6 $");
 
 //-----------------------------------------------------------------------------
 pqOptions::pqOptions()
