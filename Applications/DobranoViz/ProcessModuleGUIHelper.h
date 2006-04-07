@@ -1,7 +1,7 @@
 /*=========================================================================
 
    Program:   ParaQ
-Module:    $RCSfile: pqClientProcessModuleGUIHelper.cxx,v $
+Module:    $RCSfile: ProcessModuleGUIHelper.h,v $
 
    Copyright (c) 2005,2006 Sandia Corporation, Kitware Inc.
    All rights reserved.
@@ -29,36 +29,35 @@ NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
+#ifndef __pqClientProcessModudeGUIHelper_h
+#define __pqClientProcessModudeGUIHelper_h
 
-#include "pqClientProcessModuleGUIHelper.h"
-
-#include "vtkObjectFactory.h"
-#include "MainWindow.h"
-
-vtkStandardNewMacro(pqClientProcessModuleGUIHelper);
-vtkCxxRevisionMacro(pqClientProcessModuleGUIHelper, "$Revision: 1.1 $");
-//-----------------------------------------------------------------------------
-pqClientProcessModuleGUIHelper::pqClientProcessModuleGUIHelper()
+#include "pqProcessModuleGUIHelper.h"
+/*!
+ * ProcessModuleGUIHelper extends pqProcessModuleGUIHelper
+ * so that we can create the type of MainWindow needed for pqClient.
+ *
+ */
+class ProcessModuleGUIHelper : public pqProcessModuleGUIHelper
 {
-}
+public:
+  static ProcessModuleGUIHelper* New();
+  vtkTypeRevisionMacro(ProcessModuleGUIHelper, pqProcessModuleGUIHelper);
+  void PrintSelf(ostream& os, vtkIndent indent);
 
-//-----------------------------------------------------------------------------
-pqClientProcessModuleGUIHelper::~pqClientProcessModuleGUIHelper()
-{
-}
+protected:
+  ProcessModuleGUIHelper();
+  ~ProcessModuleGUIHelper();
 
-//-----------------------------------------------------------------------------
-void pqClientProcessModuleGUIHelper::CreateMainWindow()
-{
-  // Should rename class MainWindow(). It should be prefixed with pq/vtk something
-  // otherwise we get funny looking statements like this.
-  this->MainWindow = new ::MainWindow();
-  this->MainWindow->resize(800, 600);
-}
+  /// subclasses can override this method to create their own
+  /// subclass of pqMainWindow as the Main Window.
+  virtual pqMainWindow* CreateMainWindow();
 
-//-----------------------------------------------------------------------------
-void pqClientProcessModuleGUIHelper::PrintSelf(ostream& os, vtkIndent indent)
-{
-  this->Superclass::PrintSelf(os, indent);
-}
+private:
+  ProcessModuleGUIHelper(const ProcessModuleGUIHelper&); // Not implemented.
+  void operator=(const ProcessModuleGUIHelper&); // Not implemented.
+};
+
+#endif
+
 

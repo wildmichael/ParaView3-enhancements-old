@@ -1,7 +1,7 @@
 /*=========================================================================
 
    Program:   ParaQ
-Module:    $RCSfile: pqClientProcessModuleGUIHelper.h,v $
+Module:    $RCSfile: ProcessModuleGUIHelper.h,v $
 
    Copyright (c) 2005,2006 Sandia Corporation, Kitware Inc.
    All rights reserved.
@@ -34,28 +34,28 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "pqProcessModuleGUIHelper.h"
 /*!
- * pqClientProcessModuleGUIHelper extends pqProcessModuleGUIHelper
+ * ProcessModuleGUIHelper extends pqProcessModuleGUIHelper
  * so that we can create the type of MainWindow needed for pqClient.
  *
  */
-class pqClientProcessModuleGUIHelper : public pqProcessModuleGUIHelper
+class ProcessModuleGUIHelper : public pqProcessModuleGUIHelper
 {
 public:
-  static pqClientProcessModuleGUIHelper* New();
-  vtkTypeRevisionMacro(pqClientProcessModuleGUIHelper, pqProcessModuleGUIHelper);
+  static ProcessModuleGUIHelper* New();
+  vtkTypeRevisionMacro(ProcessModuleGUIHelper, pqProcessModuleGUIHelper);
   void PrintSelf(ostream& os, vtkIndent indent);
 
 protected:
-  pqClientProcessModuleGUIHelper();
-  ~pqClientProcessModuleGUIHelper();
+  ProcessModuleGUIHelper();
+  ~ProcessModuleGUIHelper();
 
   /// subclasses can override this method to create their own
   /// subclass of pqMainWindow as the Main Window.
-  virtual void CreateMainWindow();
+  virtual pqMainWindow* CreateMainWindow();
 
 private:
-  pqClientProcessModuleGUIHelper(const pqClientProcessModuleGUIHelper&); // Not implemented.
-  void operator=(const pqClientProcessModuleGUIHelper&); // Not implemented.
+  ProcessModuleGUIHelper(const ProcessModuleGUIHelper&); // Not implemented.
+  void operator=(const ProcessModuleGUIHelper&); // Not implemented.
 };
 
 #endif
