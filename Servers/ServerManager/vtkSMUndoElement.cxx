@@ -15,12 +15,14 @@
 #include "vtkSMUndoElement.h"
 
 #include "vtkObjectFactory.h"
+#include "vtkProcessModuleConnectionManager.h"
 
-vtkCxxRevisionMacro(vtkSMUndoElement, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkSMUndoElement, "$Revision: 1.2 $");
 //-----------------------------------------------------------------------------
 vtkSMUndoElement::vtkSMUndoElement()
 {
-  this->ConnectionID.ID  = 0;
+  this->ConnectionID  = 
+    vtkProcessModuleConnectionManager::GetNullConnectionID();
 }
 
 //-----------------------------------------------------------------------------

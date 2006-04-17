@@ -40,7 +40,7 @@
 #include <vtkstd/vector>
 
 vtkStandardNewMacro(vtkSMComparativeVisProxy);
-vtkCxxRevisionMacro(vtkSMComparativeVisProxy, "$Revision: 1.16 $");
+vtkCxxRevisionMacro(vtkSMComparativeVisProxy, "$Revision: 1.17 $");
 
 vtkCxxSetObjectMacro(vtkSMComparativeVisProxy, RenderModule, vtkSMRenderModuleProxy);
 
@@ -153,7 +153,7 @@ vtkSMComparativeVisProxy::~vtkSMComparativeVisProxy()
 }
 
 //-----------------------------------------------------------------------------
-void vtkSMComparativeVisProxy::SetConnectionID(vtkConnectionID id)
+void vtkSMComparativeVisProxy::SetConnectionID(vtkIdType id)
 {
   this->Superclass::SetConnectionID(id);
   if (this->MultiActorHelper)
