@@ -33,7 +33,7 @@
 
 #include "vtkMath.h"
 
-vtkCxxRevisionMacro(vtkGenericCellTessellator, "$Revision: 1.14 $");
+vtkCxxRevisionMacro(vtkGenericCellTessellator, "$Revision: 1.15 $");
 vtkCxxSetObjectMacro(vtkGenericCellTessellator, ErrorMetrics, vtkCollection);
 
 //-----------------------------------------------------------------------------
@@ -62,9 +62,10 @@ void vtkGenericCellTessellator::PrintSelf(ostream& os, vtkIndent indent)
 {
   this->Superclass::PrintSelf(os,indent);
 
-  os << indent << "ErrorMetrics: " 
-     << this->ErrorMetrics << endl;
-  
+  os << indent << "Measurement: "  << this->Measurement << endl;
+  os << indent << "ErrorMetrics: " << this->ErrorMetrics << endl;
+  /* this->MaxErrorsCapacity */
+  /* this->MaxErrors */
 }
 
 //-----------------------------------------------------------------------------
