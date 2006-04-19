@@ -31,7 +31,7 @@
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkClipPolyData, "$Revision: 1.56 $");
+vtkCxxRevisionMacro(vtkClipPolyData, "$Revision: 1.57 $");
 vtkStandardNewMacro(vtkClipPolyData);
 vtkCxxSetObjectMacro(vtkClipPolyData,ClipFunction,vtkImplicitFunction);
 
@@ -89,11 +89,6 @@ unsigned long vtkClipPolyData::GetMTime()
 
 vtkPolyData *vtkClipPolyData::GetClippedOutput()
 {
-  if (this->GetNumberOfOutputPorts() < 2)
-    {
-    return NULL;
-    }
-  
   return vtkPolyData::SafeDownCast(
     this->GetExecutive()->GetOutputData(1));
 }
