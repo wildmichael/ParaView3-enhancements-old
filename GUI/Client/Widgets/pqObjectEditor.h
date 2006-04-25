@@ -35,6 +35,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include <QWidget>
 #include "pqSMProxy.h"
+#include "pqPropertyManager.h"
 class QGridLayout;
 
 /// Widget which provides an editor for editing properties of a proxy
@@ -53,9 +54,9 @@ public:
   pqSMProxy proxy();
   
   /// populate widgets with properties from the server manager
-  static void getServerManagerProperties(pqSMProxy proxy, QWidget* w);
+  static void linkServerManagerProperties(pqSMProxy proxy, QWidget* w);
   /// set the properties in the server manager with properties in the widgets
-  static void setServerManagerProperties(pqSMProxy proxy, QWidget* w);
+  static void unlinkServerManagerProperties(pqSMProxy proxy, QWidget* w);
 
   /// hint for sizing this widget
   QSize sizeHint() const;
@@ -78,6 +79,8 @@ protected:
 
   pqSMProxy Proxy;
   QGridLayout* PanelLayout;
+
+  static pqPropertyManager PropertyManager;
 
 };
 
