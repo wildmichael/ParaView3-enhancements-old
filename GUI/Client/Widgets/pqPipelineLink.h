@@ -1,7 +1,7 @@
 /*=========================================================================
 
    Program:   ParaQ
-   Module:    $RCSfile: pqPipelineObject.h,v $
+   Module:    $RCSfile: pqPipelineLink.h,v $
 
    Copyright (c) 2005,2006 Sandia Corporation, Kitware Inc.
    All rights reserved.
@@ -30,31 +30,35 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
 
-/// \file pqPipelineObject.h
-///
-/// \date 11/16/2005
+/// \file pqPipelineLink.h
+/// \date 4/17/2006
 
-#ifndef _pqPipelineObject_h
-#define _pqPipelineObject_h
+#ifndef _pqPipelineLink_h
+#define _pqPipelineLink_h
 
 
 #include "pqWidgetsExport.h"
-#include "pqPipelineModelItem.h"
+#include "pqPipelineObject.h"
 
-class pqPipelineServer;
+class pqPipelineFilter;
+class pqPipelineSource;
 
 
-class PQWIDGETS_EXPORT pqPipelineObject : public pqPipelineModelItem
+class PQWIDGETS_EXPORT pqPipelineLink : public pqPipelineObject
 {
 public:
-  pqPipelineObject();
-  virtual ~pqPipelineObject() {}
+  pqPipelineLink();
+  virtual ~pqPipelineLink() {}
 
-  pqPipelineServer *GetServer() const;
-  void SetServer(pqPipelineServer *server);
+  pqPipelineSource *GetSource() const {return this->Source;}
+  void SetSource(pqPipelineSource *source) {this->Source = source;}
+
+  pqPipelineFilter *GetLink() const {return this->Link;}
+  void SetLink(pqPipelineFilter *link) {this->Link = link;}
 
 private:
-  pqPipelineServer *Server;           ///< Stores the parent server.
+  pqPipelineSource *Source;
+  pqPipelineFilter *Link;
 };
 
 #endif

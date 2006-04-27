@@ -1,7 +1,7 @@
 /*=========================================================================
 
    Program:   ParaQ
-   Module:    $RCSfile: pqPipelineWindow.cxx,v $
+   Module:    $RCSfile: pqPipelineBrowserContextMenu.h,v $
 
    Copyright (c) 2005,2006 Sandia Corporation, Kitware Inc.
    All rights reserved.
@@ -30,17 +30,35 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
 
-/// \file pqPipelineWindow.cxx
-///
-/// \date 12/22/2005
+/// \file pqPipelineBrowserContextMenu.h
+/// \date 4/20/2006
 
-#include "pqPipelineWindow.h"
+#ifndef _pqPipelineBrowserContextMenu_h
+#define _pqPipelineBrowserContextMenu_h
 
 
-pqPipelineWindow::pqPipelineWindow(QWidget *window)
+#include "pqWidgetsExport.h"
+#include <QObject>
+
+class pqPipelineBrowser;
+class QPoint;
+
+
+class PQWIDGETS_EXPORT pqPipelineBrowserContextMenu : public QObject
 {
-  this->Widget = window;
-  this->Server = 0;
-}
+  Q_OBJECT
 
+public:
+  pqPipelineBrowserContextMenu(pqPipelineBrowser *browser);
+  virtual ~pqPipelineBrowserContextMenu();
 
+public slots:
+  void showContextMenu(const QPoint &pos);
+  void showDisplayEditor();
+  void showRenderViewEditor();
+
+private:
+  pqPipelineBrowser *Browser;
+};
+
+#endif
