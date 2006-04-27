@@ -1,7 +1,7 @@
 /*=========================================================================
 
    Program:   ParaQ
-   Module:    $RCSfile: pqWidgetEventTranslator.h,v $
+   Module:    $RCSfile: pqFileDialogEventPlayer.h,v $
 
    Copyright (c) 2005,2006 Sandia Corporation, Kitware Inc.
    All rights reserved.
@@ -30,39 +30,28 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
 
-#ifndef _pqWidgetEventTranslator_h
-#define _pqWidgetEventTranslator_h
+#ifndef _pqFileDialogEventPlayer_h
+#define _pqFileDialogEventPlayer_h
 
-#include "QtTestingExport.h"
-#include <QObject>
+#include <pqWidgetEventPlayer.h>
 
 /**
-Abstract interface for an object that can translate low-level Qt events into high-level, serializable ParaQ events, for test-cases, demos, tutorials, etc.
+Concrete implementation of pqWidgetEventPlayer that handles playback of recorded file dialog user input.
 
-\sa pqEventTranslator
+\sa pqEventPlayer
 */
-class QTTESTING_EXPORT pqWidgetEventTranslator :
-  public QObject
+class pqFileDialogEventPlayer :
+  public pqWidgetEventPlayer
 {
-  Q_OBJECT
-  
 public:
-  virtual ~pqWidgetEventTranslator() {}
-  
-  /// Derivatives should implement this and translate events into commands, returning "true" if they handled the event, and setting Error to "true" if there were any problems
-  virtual bool translateEvent(QObject* Object, QEvent* Event, bool& Error) = 0;
+  pqFileDialogEventPlayer();
 
-signals:
-  /// Derivatives should emit this signal whenever they wish to record a high-level event
-  void recordEvent(QObject* Object, const QString& Command, const QString& Arguments);
+  bool playEvent(QObject* Object, const QString& Command, const QString& Arguments, bool& Error);
 
-protected:
-  pqWidgetEventTranslator() {}
-  
 private:
-  pqWidgetEventTranslator(const pqWidgetEventTranslator&);
-  pqWidgetEventTranslator& operator=(const pqWidgetEventTranslator&);
+  pqFileDialogEventPlayer(const pqFileDialogEventPlayer&);
+  pqFileDialogEventPlayer& operator=(const pqFileDialogEventPlayer&);
 };
 
-#endif // !_pqWidgetEventTranslator_h
+#endif // !_pqFileDialogEventPlayer_h
 

@@ -1,7 +1,7 @@
 /*=========================================================================
 
    Program:   ParaQ
-   Module:    $RCSfile: pqWidgetEventTranslator.h,v $
+   Module:    $RCSfile: pqFileDialogEventTranslator.h,v $
 
    Copyright (c) 2005,2006 Sandia Corporation, Kitware Inc.
    All rights reserved.
@@ -30,39 +30,39 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
 
-#ifndef _pqWidgetEventTranslator_h
-#define _pqWidgetEventTranslator_h
+#ifndef _pqFileDialogEventTranslator_h
+#define _pqFileDialogEventTranslator_h
 
-#include "QtTestingExport.h"
-#include <QObject>
+#include <pqWidgetEventTranslator.h>
+
+class pqFileDialog;
 
 /**
-Abstract interface for an object that can translate low-level Qt events into high-level, serializable ParaQ events, for test-cases, demos, tutorials, etc.
+Translates low-level Qt events into high-level ParaQ events that can be recorded as test cases.
 
 \sa pqEventTranslator
 */
-class QTTESTING_EXPORT pqWidgetEventTranslator :
-  public QObject
+
+class pqFileDialogEventTranslator :
+  public pqWidgetEventTranslator
 {
   Q_OBJECT
   
 public:
-  virtual ~pqWidgetEventTranslator() {}
+  pqFileDialogEventTranslator();
   
-  /// Derivatives should implement this and translate events into commands, returning "true" if they handled the event, and setting Error to "true" if there were any problems
-  virtual bool translateEvent(QObject* Object, QEvent* Event, bool& Error) = 0;
+  virtual bool translateEvent(QObject* Object, QEvent* Event, bool& Error);
 
-signals:
-  /// Derivatives should emit this signal whenever they wish to record a high-level event
-  void recordEvent(QObject* Object, const QString& Command, const QString& Arguments);
-
-protected:
-  pqWidgetEventTranslator() {}
-  
 private:
-  pqWidgetEventTranslator(const pqWidgetEventTranslator&);
-  pqWidgetEventTranslator& operator=(const pqWidgetEventTranslator&);
+  pqFileDialogEventTranslator(const pqFileDialogEventTranslator&);
+  pqFileDialogEventTranslator& operator=(const pqFileDialogEventTranslator&);
+
+  pqFileDialog* CurrentObject;
+
+private slots:
+  void onFilesSelected(const QStringList&);
+  void onCancelled();
 };
 
-#endif // !_pqWidgetEventTranslator_h
+#endif // !_pqFileDialogEventTranslator_h
 
