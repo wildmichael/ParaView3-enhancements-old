@@ -23,7 +23,7 @@
 #include "vtkQuadraticEdge.h"
 #include "vtkQuadraticQuad.h"
 
-vtkCxxRevisionMacro(vtkQuadraticHexahedron, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkQuadraticHexahedron, "$Revision: 1.6 $");
 vtkStandardNewMacro(vtkQuadraticHexahedron);
 
 //----------------------------------------------------------------------------
@@ -128,6 +128,11 @@ vtkCell *vtkQuadraticHexahedron::GetFace(int faceId)
     }
 
   return this->Face;
+}
+//----------------------------------------------------------------------------
+int *vtkQuadraticHexahedron::GetFaceArray(int faceId)
+{
+  return HexFaces[faceId];
 }
 
 //----------------------------------------------------------------------------
