@@ -1,7 +1,7 @@
 /*=========================================================================
 
    Program:   ParaQ
-   Module:    $RCSfile: pqRenderViewProxy.h,v $
+   Module:    $RCSfile: pqRenderWindowManager.h,v $
 
    Copyright (c) 2005,2006 Sandia Corporation, Kitware Inc.
    All rights reserved.
@@ -29,43 +29,48 @@ NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
+#ifndef __pqRenderWindowManager_h
+#define __pqRenderWindowManager_h
 
-#ifndef _pqRenderViewProxy_h
-#define _pqRenderViewProxy_h
 
 #include "pqWidgetsExport.h"
-#include "vtkPVRenderViewProxy.h"
+#include <QObject>
 
+class pqServer;
+class pqMultiViewFrame;
 class pqRenderModule;
+class pqRenderWindowManagerInternal;
 
-/// Integrates the PVS render window with the Qt window
-class PQWIDGETS_EXPORT pqRenderViewProxy : public vtkPVRenderViewProxy
+// This class manages all render windows. This class is an attempt to
+// take away some of the work form pqMainWindow. 
+class PQWIDGETS_EXPORT pqRenderWindowManager : public QObject 
 {
+  Q_OBJECT
 public:
-  static pqRenderViewProxy* New();
-  vtkTypeRevisionMacro(pqRenderViewProxy,vtkPVRenderViewProxy);
-  void PrintSelf(ostream& os, vtkIndent indent);
-   
-  // Implemeting API from vtkPVRenderViewProxy.
-  virtual void Render();
-  virtual void EventuallyRender();
-  virtual vtkRenderWindow* GetRenderWindow();
+  pqRenderWindowManager(QObject* parent=NULL);
+  virtual ~pqRenderWindowManager();
 
-  // Set the pqRenderModule.
-  void setRenderModule(pqRenderModule*);
+  // returns the active render module.
+  pqRenderModule* getActiveRenderModule();
 
-  // Get the pqRenderModule.
-  pqRenderModule* getRenderModule() 
-    {return this->RenderModule;}
-protected:
-  pqRenderViewProxy();
-  ~pqRenderViewProxy();
+public slots:
+  // this must be set, so that the manager knows on which server
+  // to create the view when a new view is added.
+  void setActiveServer(pqServer* server);
 
-  pqRenderModule* RenderModule;
+public slots:
+  /// This will create a RenderWindow to fill the frame.
+  /// the render window is created on the active server
+  /// which must be set by the application.
+  void onFrameAdded(pqMultiViewFrame* frame);
+  void onFrameRemoved(pqMultiViewFrame* frame);
+
+  void onRenderModuleAdded(pqRenderModule* rm);
+  void onRenderModuleRemoved(pqRenderModule* rm);
+
+  void onActivate(QWidget* obj);
 private:
-  pqRenderViewProxy(const pqRenderViewProxy&); // Not implemented
-  void operator=(const pqRenderViewProxy&); // Not implemented
-
+  pqRenderWindowManagerInternal* Internal;
 };
 
 #endif
