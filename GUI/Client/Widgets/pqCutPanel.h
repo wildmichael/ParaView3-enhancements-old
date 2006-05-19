@@ -1,7 +1,7 @@
 /*=========================================================================
 
    Program:   ParaQ
-  Module:    $RCSfile: main.cxx,v $
+   Module:    $RCSfile: pqCutPanel.h,v $
 
    Copyright (c) 2005,2006 Sandia Corporation, Kitware Inc.
    All rights reserved.
@@ -30,10 +30,22 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
 
-#include "ProcessModuleGUIHelper.h"
-#include <pqMain.h>
+#ifndef _pqCutPanel_h
+#define _pqCutPanel_h
 
-int main(int argc, char* argv[])
+#include "pqWidgetObjectPanel.h"
+
+/// Widget which provides an editor for editing properties of a proxy
+class pqCutPanel :
+  public pqWidgetObjectPanel
 {
-  return pqMain::Run(argc, argv, ProcessModuleGUIHelper::New());
-}
+  Q_OBJECT
+public:
+  /// constructor
+  pqCutPanel(QWidget* p);
+  /// destructor
+  ~pqCutPanel();
+};
+
+#endif
+

@@ -1,7 +1,7 @@
 /*=========================================================================
 
    Program:   ParaQ
-Module:    $RCSfile: ProcessModuleGUIHelper.cxx,v $
+   Module:    $RCSfile: pqClipPanel.cxx,v $
 
    Copyright (c) 2005,2006 Sandia Corporation, Kitware Inc.
    All rights reserved.
@@ -30,34 +30,28 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
 
-#include "ProcessModuleGUIHelper.h"
+// this include
+#include "pqClipPanel.h"
 
-#include "vtkObjectFactory.h"
-#include "MainWindow.h"
+// Qt includes
+#include <QSlider>
 
-vtkStandardNewMacro(ProcessModuleGUIHelper);
-vtkCxxRevisionMacro(ProcessModuleGUIHelper, "$Revision: 1.1 $");
-//-----------------------------------------------------------------------------
-ProcessModuleGUIHelper::ProcessModuleGUIHelper()
+// VTK includes
+
+// paraview includes
+
+// paraq includes
+#include "pqSliderDomain.h"
+
+
+/// constructor
+pqClipPanel::pqClipPanel(QWidget* p)
+  : pqWidgetObjectPanel(":/pqWidgets/ClipPanel.ui", p)
 {
 }
 
-//-----------------------------------------------------------------------------
-ProcessModuleGUIHelper::~ProcessModuleGUIHelper()
+/// destructor
+pqClipPanel::~pqClipPanel()
 {
+  this->setProxy(NULL);
 }
-
-//-----------------------------------------------------------------------------
-QWidget* ProcessModuleGUIHelper::CreateMainWindow()
-{
-  pqMainWindow* const window = new MainWindow();
-  window->resize(800, 600);
-  return window;
-}
-
-//-----------------------------------------------------------------------------
-void ProcessModuleGUIHelper::PrintSelf(ostream& os, vtkIndent indent)
-{
-  this->Superclass::PrintSelf(os, indent);
-}
-
