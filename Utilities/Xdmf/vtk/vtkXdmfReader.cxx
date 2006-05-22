@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXdmfReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2005-09-30 14:37:57 $
-  Version:   $Revision: 1.65 $
+  Date:      $Date: 2006-05-22 16:09:52 $
+  Version:   $Revision: 1.66 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen  
@@ -87,7 +87,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define USE_IMAGE_DATA // otherwise uniformgrid
 
 vtkStandardNewMacro(vtkXdmfReader);
-vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.65 $");
+vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.66 $");
 
 vtkCxxSetObjectMacro(vtkXdmfReader,Controller,vtkMultiProcessController);
 
@@ -2778,7 +2778,14 @@ void vtkXdmfReader::PrintSelf(ostream& os, vtkIndent indent)
      << endl;
   os << indent << "PointDataArraySelection: " << this->PointDataArraySelection 
      << endl;
+  os << indent << "Domain: " << this->DomainName << endl;
   int cc;
+  os << indent << "Grids:" << endl;
+  for ( cc = 0; cc < this->GetNumberOfGrids(); ++ cc )
+    {
+    os << indent << " " << cc << ": " << this->GetGridName(cc) << " - "
+      << (this->GetGridSetting(cc)?"enabled":"disabled") << endl;
+    }
   os << indent << "Outputs: " << this->GetNumberOfOutputPorts() << endl;
   for ( cc = 0; cc < this->GetNumberOfOutputPorts(); cc ++ )
     {
