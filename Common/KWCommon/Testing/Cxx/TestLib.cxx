@@ -1,7 +1,7 @@
 /*=========================================================================
 
   Program:   ParaView
-  Module:    $RCSfile: CommonKWCommonPrintSelf.cxx,v $
+  Module:    $RCSfile: TestLib.cxx,v $
 
   Copyright (c) Kitware, Inc.
   All rights reserved.
