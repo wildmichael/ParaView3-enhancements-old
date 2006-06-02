@@ -1,7 +1,7 @@
 /*=========================================================================
 
    Program:   ParaQ
-   Module:    $RCSfile: pqMenuEventTranslator.cxx,v $
+   Module:    $RCSfile: pqBasicWidgetEventTranslator.h,v $
 
    Copyright (c) 2005,2006 Sandia Corporation, Kitware Inc.
    All rights reserved.
@@ -30,56 +30,33 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
 
-#include "pqMenuEventTranslator.h"
-#include "pqMenuEventTranslatorAdaptor.h"
+#ifndef _pqBasicWidgetEventTranslator_h
+#define _pqBasicWidgetEventTranslator_h
 
-#include <QEvent>
-#include <QMouseEvent>
-#include <QKeyEvent>
-#include <QMenu>
+#include "pqWidgetEventTranslator.h"
 
-pqMenuEventTranslator::pqMenuEventTranslator()
+/**
+Translates low-level Qt events into high-level ParaQ events that can be recorded as test cases.
+
+\sa pqEventTranslator
+*/
+
+class pqBasicWidgetEventTranslator :
+  public pqWidgetEventTranslator
 {
-}
-
-pqMenuEventTranslator::~pqMenuEventTranslator()
-{
-}
-
-bool pqMenuEventTranslator::translateEvent(QObject* Object, QEvent* Event, bool& /*Error*/)
-{
-  QMenu* const object = qobject_cast<QMenu*>(Object);
-  if(!object)
-    return false;
-
-  if(Event->type() == QEvent::KeyPress)
-    {
-    QKeyEvent* e = static_cast<QKeyEvent*>(Event);
-    if(e->key() == Qt::Key_Enter)
-      {
-      QAction* action = object->activeAction();
-      if(action)
-        {
-        emit recordEvent(action, "activate", "");
-        return true;
-        }
-      }
-    }
+  Q_OBJECT
   
-  if(Event->type() == QEvent::MouseButtonRelease)
-    {
-    QMouseEvent* e = static_cast<QMouseEvent*>(Event);
-    if(e->button() == Qt::LeftButton)
-      {
-      QAction* action = object->actionAt(e->pos());
-      if(action)
-        {
-        emit recordEvent(action, "activate", "");
-        return true;
-        }
-      }
-    }
-    
-  return false;
-}
+public:
+  pqBasicWidgetEventTranslator();
+  ~pqBasicWidgetEventTranslator();
+  
+  virtual bool translateEvent(QObject* Object, QEvent* Event, bool& Error);
+
+private:
+  pqBasicWidgetEventTranslator(const pqBasicWidgetEventTranslator&);
+  pqBasicWidgetEventTranslator& operator=(const pqBasicWidgetEventTranslator&);
+  
+};
+
+#endif // !_pqBasicWidgetEventTranslator_h
 

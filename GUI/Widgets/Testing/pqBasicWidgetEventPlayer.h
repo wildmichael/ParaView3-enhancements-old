@@ -1,7 +1,7 @@
 /*=========================================================================
 
    Program:   ParaQ
-   Module:    $RCSfile: pqMenuEventTranslator.cxx,v $
+   Module:    $RCSfile: pqBasicWidgetEventPlayer.h,v $
 
    Copyright (c) 2005,2006 Sandia Corporation, Kitware Inc.
    All rights reserved.
@@ -30,56 +30,28 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
 
-#include "pqMenuEventTranslator.h"
-#include "pqMenuEventTranslatorAdaptor.h"
+#ifndef _pqBasicWidgetEventPlayer_h
+#define _pqBasicWidgetEventPlayer_h
 
-#include <QEvent>
-#include <QMouseEvent>
-#include <QKeyEvent>
-#include <QMenu>
+#include "pqWidgetEventPlayer.h"
 
-pqMenuEventTranslator::pqMenuEventTranslator()
+/**
+Concrete implementation of pqWidgetEventPlayer that handles playback of "activate" events for buttons and menus.
+
+\sa pqEventPlayer
+*/
+class pqBasicWidgetEventPlayer :
+  public pqWidgetEventPlayer
 {
-}
+public:
+  pqBasicWidgetEventPlayer();
 
-pqMenuEventTranslator::~pqMenuEventTranslator()
-{
-}
+  bool playEvent(QObject* Object, const QString& Command, const QString& Arguments, bool& Error);
 
-bool pqMenuEventTranslator::translateEvent(QObject* Object, QEvent* Event, bool& /*Error*/)
-{
-  QMenu* const object = qobject_cast<QMenu*>(Object);
-  if(!object)
-    return false;
+private:
+  pqBasicWidgetEventPlayer(const pqBasicWidgetEventPlayer&);
+  pqBasicWidgetEventPlayer& operator=(const pqBasicWidgetEventPlayer&);
+};
 
-  if(Event->type() == QEvent::KeyPress)
-    {
-    QKeyEvent* e = static_cast<QKeyEvent*>(Event);
-    if(e->key() == Qt::Key_Enter)
-      {
-      QAction* action = object->activeAction();
-      if(action)
-        {
-        emit recordEvent(action, "activate", "");
-        return true;
-        }
-      }
-    }
-  
-  if(Event->type() == QEvent::MouseButtonRelease)
-    {
-    QMouseEvent* e = static_cast<QMouseEvent*>(Event);
-    if(e->button() == Qt::LeftButton)
-      {
-      QAction* action = object->actionAt(e->pos());
-      if(action)
-        {
-        emit recordEvent(action, "activate", "");
-        return true;
-        }
-      }
-    }
-    
-  return false;
-}
+#endif // !_pqBasicWidgetEventPlayer_h
 

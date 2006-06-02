@@ -1,7 +1,7 @@
 /*=========================================================================
 
    Program:   ParaQ
-   Module:    $RCSfile: pqMenuEventTranslator.cxx,v $
+   Module:    $RCSfile: pqBasicWidgetEventTranslator.cxx,v $
 
    Copyright (c) 2005,2006 Sandia Corporation, Kitware Inc.
    All rights reserved.
@@ -30,56 +30,38 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
 
-#include "pqMenuEventTranslator.h"
-#include "pqMenuEventTranslatorAdaptor.h"
+#include "pqBasicWidgetEventTranslator.h"
 
 #include <QEvent>
-#include <QMouseEvent>
-#include <QKeyEvent>
-#include <QMenu>
+#include <QWidget>
 
-pqMenuEventTranslator::pqMenuEventTranslator()
+pqBasicWidgetEventTranslator::pqBasicWidgetEventTranslator()
 {
 }
 
-pqMenuEventTranslator::~pqMenuEventTranslator()
+pqBasicWidgetEventTranslator::~pqBasicWidgetEventTranslator()
 {
 }
 
-bool pqMenuEventTranslator::translateEvent(QObject* Object, QEvent* Event, bool& /*Error*/)
+bool pqBasicWidgetEventTranslator::translateEvent(QObject* Object, 
+                                                  QEvent* Event, 
+                                                  bool& /*Error*/)
 {
-  QMenu* const object = qobject_cast<QMenu*>(Object);
+  QWidget* const object = qobject_cast<QWidget*>(Object);
   if(!object)
     return false;
-
-  if(Event->type() == QEvent::KeyPress)
-    {
-    QKeyEvent* e = static_cast<QKeyEvent*>(Event);
-    if(e->key() == Qt::Key_Enter)
-      {
-      QAction* action = object->activeAction();
-      if(action)
-        {
-        emit recordEvent(action, "activate", "");
-        return true;
-        }
-      }
-    }
-  
-  if(Event->type() == QEvent::MouseButtonRelease)
-    {
-    QMouseEvent* e = static_cast<QMouseEvent*>(Event);
-    if(e->button() == Qt::LeftButton)
-      {
-      QAction* action = object->actionAt(e->pos());
-      if(action)
-        {
-        emit recordEvent(action, "activate", "");
-        return true;
-        }
-      }
-    }
     
-  return false;
+  switch(Event->type())
+    {
+    case QEvent::ContextMenu:
+      {
+      emit recordEvent(Object, "contextMenu", "");
+      }
+      break;
+    default:
+      break;
+    }
+      
+  return true;
 }
 

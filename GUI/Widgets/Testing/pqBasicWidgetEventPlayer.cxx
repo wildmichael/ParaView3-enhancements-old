@@ -1,7 +1,7 @@
 /*=========================================================================
 
    Program:   ParaQ
-   Module:    $RCSfile: pqMenuEventTranslator.cxx,v $
+   Module:    $RCSfile: pqBasicWidgetEventPlayer.cxx,v $
 
    Copyright (c) 2005,2006 Sandia Corporation, Kitware Inc.
    All rights reserved.
@@ -30,56 +30,35 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
 
-#include "pqMenuEventTranslator.h"
-#include "pqMenuEventTranslatorAdaptor.h"
+#include "pqBasicWidgetEventPlayer.h"
+#include "pqTesting.h"
 
-#include <QEvent>
-#include <QMouseEvent>
-#include <QKeyEvent>
-#include <QMenu>
+#include <QApplication>
+#include <QWidget>
+#include <QtDebug>
 
-pqMenuEventTranslator::pqMenuEventTranslator()
+pqBasicWidgetEventPlayer::pqBasicWidgetEventPlayer()
 {
 }
 
-pqMenuEventTranslator::~pqMenuEventTranslator()
+bool pqBasicWidgetEventPlayer::playEvent(QObject* Object, 
+         const QString& Command, const QString& /*Arguments*/, 
+         bool& /*Error*/)
 {
-}
-
-bool pqMenuEventTranslator::translateEvent(QObject* Object, QEvent* Event, bool& /*Error*/)
-{
-  QMenu* const object = qobject_cast<QMenu*>(Object);
-  if(!object)
-    return false;
-
-  if(Event->type() == QEvent::KeyPress)
+  QWidget* widget = qobject_cast<QWidget*>(Object);
+  if(widget)
     {
-    QKeyEvent* e = static_cast<QKeyEvent*>(Event);
-    if(e->key() == Qt::Key_Enter)
+    if(Command == "contextMenu")
       {
-      QAction* action = object->activeAction();
-      if(action)
-        {
-        emit recordEvent(action, "activate", "");
-        return true;
-        }
+      QEvent* e = new QEvent(QEvent::ContextMenu);
+      QCoreApplication::postEvent(widget, e);
+      return true;
+      }
+    else
+      {
+      return false;
       }
     }
-  
-  if(Event->type() == QEvent::MouseButtonRelease)
-    {
-    QMouseEvent* e = static_cast<QMouseEvent*>(Event);
-    if(e->button() == Qt::LeftButton)
-      {
-      QAction* action = object->actionAt(e->pos());
-      if(action)
-        {
-        emit recordEvent(action, "activate", "");
-        return true;
-        }
-      }
-    }
-    
   return false;
 }
 
