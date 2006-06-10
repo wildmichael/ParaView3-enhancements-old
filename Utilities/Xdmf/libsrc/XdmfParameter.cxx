@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfParameter.cxx,v 1.6 2004-01-13 22:59:52 andy Exp $  */
-/*  Date : $Date: 2004-01-13 22:59:52 $ */
-/*  Version : $Revision: 1.6 $ */
+/*  Id : $Id: XdmfParameter.cxx,v 1.7 2006-06-10 16:22:15 andy Exp $  */
+/*  Date : $Date: 2006-06-10 16:22:15 $ */
+/*  Version : $Revision: 1.7 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -35,6 +35,7 @@ XdmfParameter::XdmfParameter() {
   this->ParameterFormat[0] = '\0';
   this->ParameterArray = NULL;
   this->ParameterNode = NULL;
+  this->ParameterIndex = 0;
   }
 
 XdmfParameter::~XdmfParameter() {
