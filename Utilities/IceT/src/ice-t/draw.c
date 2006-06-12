@@ -8,7 +8,7 @@
  * of authorship are reproduced on all copies.
  */
 
-/* $Id: draw.c,v 1.18 2005-12-16 13:43:49 kmorel Exp $ */
+/* $Id: draw.c,v 1.19 2006-06-12 22:20:55 kmorel Exp $ */
 
 #include <GL/ice-t.h>
 #include <state.h>
@@ -759,7 +759,7 @@ void icetDrawFrame(void)
             icetGetIntegerv(ICET_READ_BUFFER, &readBuffer);
             glDrawBuffer(readBuffer);
 
-          // Place raster position in lower left corner.
+          /* Place raster position in lower left corner. */
             glMatrixMode(GL_PROJECTION);
             glLoadIdentity();
             glMatrixMode(GL_MODELVIEW);
