@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDOM.cxx,v 1.16 2006-06-10 16:22:13 andy Exp $  */
-/*  Date : $Date: 2006-06-10 16:22:13 $ */
-/*  Version : $Revision: 1.16 $ */
+/*  Id : $Id: XdmfDOM.cxx,v 1.17 2006-07-03 16:06:24 andy Exp $  */
+/*  Date : $Date: 2006-07-03 16:06:24 $ */
+/*  Version : $Revision: 1.17 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -990,13 +990,13 @@ XdmfParameter *
 XdmfDOM::FindParameter( XdmfConstString ParameterName, XdmfXNode *Node ) {
 
 XdmfString Attribute;
-XdmfInt32  i, NumberOfParameters;
+XdmfInt32  i, numberOfParameters;
 XdmfParameter  *Param = NULL;
 XdmfXNode    *ParamNode;
 
-NumberOfParameters = this->FindNumberOfParameters( Node );
-if( NumberOfParameters <= 0 ) return( NULL );
-for( i = 0 ; i < NumberOfParameters ; i++ ){
+numberOfParameters = this->FindNumberOfParameters( Node );
+if( numberOfParameters <= 0 ) return( NULL );
+for( i = 0 ; i < numberOfParameters ; i++ ){
   ParamNode = this->FindElement( "Parameter", i );
   Attribute = ParamNode->Get( "Name" );
   if(  XDMF_WORD_CMP( Attribute, ParameterName ) ) {
@@ -1012,12 +1012,12 @@ return( Param );
 XdmfParameter *
 XdmfDOM::GetParameter( XdmfInt32 Index, XdmfXNode *Node ) {
 
-XdmfInt32  NumberOfParameters;
+XdmfInt32  numberOfParameters;
 XdmfParameter  *Param = NULL;
 XdmfXNode    *ParamNode;
 
-NumberOfParameters = this->FindNumberOfParameters( Node );
-if( Index >= NumberOfParameters ) return( NULL );
+numberOfParameters = this->FindNumberOfParameters( Node );
+if( Index >= numberOfParameters ) return( NULL );
 ParamNode = this->FindElement( "Parameter", Index, Node );
 
 if( ParamNode ) {
