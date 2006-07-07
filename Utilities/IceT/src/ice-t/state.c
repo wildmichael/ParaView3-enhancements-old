@@ -8,7 +8,7 @@
  * of authorship are reproduced on all copies.
  */
 
-/* $Id: state.c,v 1.10 2005-06-09 13:49:16 kmorel Exp $ */
+/* $Id: state.c,v 1.11 2006-07-07 13:11:08 kmorel Exp $ */
 
 #include <state.h>
 
@@ -35,7 +35,7 @@ IceTState icetStateCreate(void)
 
 void icetStateDestroy(IceTState state)
 {
-    int i;
+    GLenum i;
 
     for (i = 0; i < ICET_STATE_SIZE; i++) {
         if (state[i].type != ICET_NULL) {
@@ -47,7 +47,7 @@ void icetStateDestroy(IceTState state)
 
 void icetStateCopy(IceTState dest, const IceTState src)
 {
-    int i;
+    GLenum i;
     int type_width;
     IceTTimeStamp mod_time;
 
@@ -396,7 +396,7 @@ void icetStateResetTiming(void)
 
 void icetStateDump(void)
 {
-    int i;
+    GLenum i;
     IceTState state;
 
     state = icetGetState();
