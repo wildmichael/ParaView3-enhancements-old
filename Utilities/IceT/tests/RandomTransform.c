@@ -1,5 +1,5 @@
 /* -*- c -*- *****************************************************************
-** $Id: RandomTransform.c,v 1.10 2005-12-16 19:02:08 kmorel Exp $
+** $Id: RandomTransform.c,v 1.11 2006-07-10 13:04:21 kmorel Exp $
 **
 ** Copyright (C) 2003 Sandia Corporation
 ** Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -228,7 +228,7 @@ static void check_results(int result)
     }
 }
 
-int RandomTransform(int argc, char *argv[])
+int RandomTransform()
 {
     int i, x, y;
     GLubyte *cb;
