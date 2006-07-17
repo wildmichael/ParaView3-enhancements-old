@@ -18,7 +18,7 @@
 #include "vtkCallbackCommand.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkCameraWidget, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkCameraWidget, "$Revision: 1.3 $");
 vtkStandardNewMacro(vtkCameraWidget);
 
 //-------------------------------------------------------------------------
@@ -62,6 +62,8 @@ void vtkCameraWidget::SelectRegion(double eventPos[2])
     {
     reinterpret_cast<vtkCameraRepresentation*>(this->WidgetRep)->InitializePath();
     }
+  
+  this->Superclass::SelectRegion(eventPos);
 }
 
 //-------------------------------------------------------------------------
