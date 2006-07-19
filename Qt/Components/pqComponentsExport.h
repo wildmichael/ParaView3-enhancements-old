@@ -1,7 +1,7 @@
 /*=========================================================================
 
-   Program: ParaView
-   Module:    $RCSfile: pqSimpleAnimationManager.h,v $
+   Program:   ParaView
+   Module:    $RCSfile: pqComponentsExport.h,v $
 
    Copyright (c) 2005,2006 Sandia Corporation, Kitware Inc.
    All rights reserved.
@@ -29,46 +29,18 @@ NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-#ifndef __pqSimpleAnimationManager_h
-#define __pqSimpleAnimationManager_h
 
-#include <QObject>
-#include "pqComponentsExport.h"
+#ifndef _pqComponentsExport_h
+#define _pqComponentsExport_h
 
-class pqPipelineSource;
-class pqSimpleAnimationManagerInternal;
-
-// This class is a temporary animation manager. It simply saves
-// animations in which the timestep of a reader is animated.
-class PQCOMPONENTS_EXPORT pqSimpleAnimationManager : public QObject
-{
-  Q_OBJECT;
-public:
-  pqSimpleAnimationManager(QObject* parent=0);
-  virtual ~pqSimpleAnimationManager();
-
-  // Returns if the manager can create an animation for the 
-  // given source.
-  static bool canAnimate(pqPipelineSource* source);
-
-
-  // Creates the animation. This will pop-up a dialog asking for
-  // relevant information about the animation.
-  bool createTimestepAnimation(pqPipelineSource* source, const QString& filename);
-
-public slots:
-  // Call to interrupt saving of the animation.
-  void abortSavingAnimation();
-
-private slots:
-  void onAnimationTick();
-
-
-
-private:
-  pqPipelineSource* Source;
-
-  pqSimpleAnimationManagerInternal* Internal;
-};
+#if defined(WIN32) && defined(PARAVIEW_BUILD_SHARED_LIBS)
+# if defined(pqComponents_EXPORTS)
+#   define PQCOMPONENTS_EXPORT __declspec(dllexport)
+# else
+#   define PQCOMPONENTS_EXPORT __declspec(dllimport)
+# endif
+#else
+# define PQCOMPONENTS_EXPORT
 #endif
 
+#endif // !_pqWidgetsExport_h
