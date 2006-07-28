@@ -20,7 +20,7 @@
 #include "vtkQuadricClustering.h"
 
 vtkStandardNewMacro(vtkPVLODPartDisplayInformation);
-vtkCxxRevisionMacro(vtkPVLODPartDisplayInformation, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkPVLODPartDisplayInformation, "$Revision: 1.4 $");
 
 //----------------------------------------------------------------------------
 vtkPVLODPartDisplayInformation::vtkPVLODPartDisplayInformation()
@@ -84,7 +84,7 @@ void vtkPVLODPartDisplayInformation::AddInformation(vtkPVInformation* info)
 
 //----------------------------------------------------------------------------
 void
-vtkPVLODPartDisplayInformation::CopyToStream(vtkClientServerStream* css) const
+vtkPVLODPartDisplayInformation::CopyToStream(vtkClientServerStream* css)
 {
   css->Reset();
   *css << vtkClientServerStream::Reply;
