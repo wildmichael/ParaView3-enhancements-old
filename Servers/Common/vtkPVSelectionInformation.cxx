@@ -22,7 +22,7 @@
 #include "vtkSelectionSerializer.h"
 
 vtkStandardNewMacro(vtkPVSelectionInformation);
-vtkCxxRevisionMacro(vtkPVSelectionInformation, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkPVSelectionInformation, "$Revision: 1.3 $");
 
 //----------------------------------------------------------------------------
 vtkPVSelectionInformation::vtkPVSelectionInformation()
@@ -88,8 +88,6 @@ void vtkPVSelectionInformation::AddInformation(vtkPVInformation* info)
 //----------------------------------------------------------------------------
 void vtkPVSelectionInformation::CopyToStream(vtkClientServerStream* css)
 {
-  int hasSelection;
-
   css->Reset();
   *css << vtkClientServerStream::Reply;
 
