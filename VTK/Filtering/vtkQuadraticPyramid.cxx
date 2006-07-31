@@ -24,8 +24,9 @@
 #include "vtkQuadraticEdge.h"
 #include "vtkQuadraticQuad.h"
 #include "vtkQuadraticTriangle.h"
+#include "vtkPoints.h"
 
-vtkCxxRevisionMacro(vtkQuadraticPyramid, "$Revision: 1.12 $");
+vtkCxxRevisionMacro(vtkQuadraticPyramid, "$Revision: 1.13 $");
 vtkStandardNewMacro(vtkQuadraticPyramid);
 
 //----------------------------------------------------------------------------
