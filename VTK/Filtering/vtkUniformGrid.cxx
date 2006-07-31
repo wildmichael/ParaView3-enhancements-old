@@ -31,7 +31,7 @@
 #include "vtkVertex.h"
 #include "vtkVoxel.h"
 
-vtkCxxRevisionMacro(vtkUniformGrid, "$Revision: 1.12 $");
+vtkCxxRevisionMacro(vtkUniformGrid, "$Revision: 1.13 $");
 vtkStandardNewMacro(vtkUniformGrid);
 
 vtkCxxSetObjectMacro(vtkUniformGrid, PointVisibility,
@@ -65,7 +65,7 @@ void vtkUniformGrid::CopyStructure(vtkDataSet *ds)
 
   this->Superclass::CopyStructure(ds);
 
-  vtkUniformGrid *sPts=vtkUniformGrid::SafeDownCast(ds);
+  vtkUniformGrid *sPts = vtkUniformGrid::SafeDownCast(ds);
   if (!sPts)
     {
     return;
