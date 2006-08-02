@@ -1,7 +1,7 @@
 /*=========================================================================
 
    Program: ParaView
-   Module:    $RCSfile: pqChartPlugin.h,v $
+   Module:    $RCSfile: pqColorMapEditor.h,v $
 
    Copyright (c) 2005,2006 Sandia Corporation, Kitware Inc.
    All rights reserved.
@@ -30,43 +30,51 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
 
-/*
- * Copyright 2004 Sandia Corporation.
- * Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
- * license for use of this work by or on behalf of the
- * U.S. Government. Redistribution and use in source and binary forms, with
- * or without modification, are permitted provided that this Notice and any
- * statement of authorship are reproduced on all copies.
- */
+/// \file pqColorMapEditor.h
+/// \date 7/31/2006
 
-#ifndef _pqChartPlugin_h
-#define _pqChartPlugin_h
+#ifndef _pqColorMapEditor_h
+#define _pqColorMapEditor_h
 
-#include <QtDesigner/QDesignerCustomWidgetInterface>
-#include <QtDesigner/QDesignerCustomWidgetCollectionInterface>
-#include <QtCore/qplugin.h>
-#include <QObject>
 
-class pqColorMapWidgetPlugin;
-class pqHistogramWidgetPlugin;
-class pqLineChartWidgetPlugin;
+#include "pqComponentsExport.h"
+#include <QDialog>
 
-class pqChartPlugin : public QObject,
-    public QDesignerCustomWidgetCollectionInterface
+class pqColorMapEditorForm;
+class pqPipelineDisplay;
+class QCloseEvent;
+class QColor;
+class QString;
+class QTimer;
+class vtkSMLookupTableProxy;
+
+
+class PQCOMPONENTS_EXPORT pqColorMapEditor : public QDialog
 {
   Q_OBJECT
-  Q_INTERFACES(QDesignerCustomWidgetCollectionInterface)
 
 public:
-  pqChartPlugin(QObject *parent=0);
-  virtual ~pqChartPlugin();
+  pqColorMapEditor(QWidget *parent=0);
+  virtual ~pqColorMapEditor();
 
-  virtual QList<QDesignerCustomWidgetInterface*> customWidgets() const;
+  void setDisplay(pqPipelineDisplay *display);
+
+protected:
+  virtual void closeEvent(QCloseEvent *e);
+
+private slots:
+  void handleTextEdit(const QString &text);
+  void setSizeFromText();
+  void setSizeFromSlider(int tableSize);
+  void setTableSize(int tableSize);
+  void changeColor(int index, const QColor &color);
+  void closeForm();
 
 private:
-  pqColorMapWidgetPlugin *ColorMap;
-  pqHistogramWidgetPlugin *Histogram;
-  pqLineChartWidgetPlugin *LineChart;
+  pqColorMapEditorForm *Form;
+  vtkSMLookupTableProxy *LookupTable;
+  QTimer *EditDelay;
 };
 
 #endif
+

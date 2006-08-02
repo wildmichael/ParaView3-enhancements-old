@@ -62,6 +62,7 @@ protected slots:
   /// internally used to update the graphics window when a property changes
   void updateView();
   void colorByChanged(const QString& val);
+  void openColorMapEditor();
   void zoomToData();
   void updateColorByMenu(bool forceUpdate=false);
   
