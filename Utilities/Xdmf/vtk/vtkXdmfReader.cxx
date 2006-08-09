@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXdmfReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2006-08-03 14:32:17 $
-  Version:   $Revision: 1.68 $
+  Date:      $Date: 2006-08-09 20:25:51 $
+  Version:   $Revision: 1.69 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen  
@@ -87,7 +87,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define USE_IMAGE_DATA // otherwise uniformgrid
 
 vtkStandardNewMacro(vtkXdmfReader);
-vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.68 $");
+vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.69 $");
 
 vtkCxxSetObjectMacro(vtkXdmfReader,Controller,vtkMultiProcessController);
 
@@ -540,6 +540,8 @@ int vtkXdmfReader::RequestDataObject(vtkInformationVector *outputVector)
     this->DOM->SetInputFileName(this->FileName);
     vtkDebugMacro( << "...............Preparing to Parse " << this->FileName);
     this->DOM->Parse();
+    // Added By Jerry Clarke
+    this->GridsModified = 1;
     }
 
   XdmfXNode *domain = 0;
@@ -995,6 +997,7 @@ int vtkXdmfReaderInternal::RequestSingleGridData(
     //continue;
     }
   
+  vtkDebugWithObjectMacro( this->Reader, << "Reading Heavy Data for " << xdmfGrid->GetName());
   xdmfGrid->Update();
   
   // True for all 3d datasets except unstructured grids
@@ -2702,6 +2705,13 @@ void vtkXdmfReader::UpdateGrids()
     return;
     }
 
+    // Modified by Jerry Clarke
+    if( !this->GridsModified )
+    {
+        vtkDebugMacro( << "Skipping Grid Update : Not Modified");
+        return;
+    }
+
   for ( currentGrid = 0; !done; currentGrid ++ )
     {
     gridNode = this->DOM->FindElement("Grid", currentGrid, domain);
@@ -2721,6 +2731,7 @@ void vtkXdmfReader::UpdateGrids()
       str << gridName << ends;
       }
     gridName = str.str();
+    vtkDebugMacro( << "Reading Light Data for " << gridName );
     XdmfConstString collectionName = this->DOM->Get( gridNode, "Collection" );
 
     // Copy collectionName because it is a pointer to an internal
