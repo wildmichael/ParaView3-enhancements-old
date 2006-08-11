@@ -58,7 +58,7 @@ protected:
 //-----------------------------------------------------------------------------
 
 vtkStandardNewMacro(vtkSMServerSideAnimationPlayer);
-vtkCxxRevisionMacro(vtkSMServerSideAnimationPlayer, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkSMServerSideAnimationPlayer, "$Revision: 1.2 $");
 //-----------------------------------------------------------------------------
 vtkSMServerSideAnimationPlayer::vtkSMServerSideAnimationPlayer()
 {
@@ -158,6 +158,7 @@ void vtkSMServerSideAnimationPlayer::PerformActions()
         }
       }
     }
+  iter->Delete();
 
   vtkProcessModule* pm = vtkProcessModule::GetProcessModule();
   pm->StopAcceptingAllConnections();
