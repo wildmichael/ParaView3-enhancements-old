@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkFixedPointVolumeRayCastCompositeShadeHelper.cxx,v $
   Language:  C++
-  Date:      $Date: 2005-08-19 19:24:59 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2006-08-14 17:31:21 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -25,10 +25,11 @@
 #include "vtkVolume.h"
 #include "vtkVolumeProperty.h"
 #include "vtkFixedPointRayCastImage.h"
+#include "vtkDataArray.h"
 
 #include <math.h>
 
-vtkCxxRevisionMacro(vtkFixedPointVolumeRayCastCompositeShadeHelper, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkFixedPointVolumeRayCastCompositeShadeHelper, "$Revision: 1.6 $");
 vtkStandardNewMacro(vtkFixedPointVolumeRayCastCompositeShadeHelper);
 
 // Construct a new vtkFixedPointVolumeRayCastCompositeShadeHelper with default values
@@ -708,14 +709,14 @@ void vtkFixedPointVolumeRayCastCompositeShadeHelper::GenerateImage( int threadID
                                                  vtkVolume *vol,
                                                  vtkFixedPointVolumeRayCastMapper *mapper )
 {
-  void *data     = mapper->GetInput()->GetScalarPointer();
-  int scalarType = mapper->GetInput()->GetScalarType();
+  void *data     = mapper->GetCurrentScalars()->GetVoidPointer(0);
+  int scalarType = mapper->GetCurrentScalars()->GetDataType();
 
   // Nearest Neighbor interpolate
   if ( mapper->ShouldUseNearestNeighborInterpolation( vol ) )
     {
     // One component data
-    if ( mapper->GetInput()->GetNumberOfScalarComponents() == 1 )
+    if ( mapper->GetCurrentScalars()->GetNumberOfComponents() == 1 )
       {
       // Scale == 1.0 and shift == 0.0 - simple case (faster)
       if ( mapper->GetTableScale()[0] == 1.0 && mapper->GetTableShift()[0] == 0.0 )
@@ -755,7 +756,7 @@ void vtkFixedPointVolumeRayCastCompositeShadeHelper::GenerateImage( int threadID
       {
       // Two components - the first specifies color (through a lookup table) and
       // the second specified opacity (through a lookup table)
-      if ( mapper->GetInput()->GetNumberOfScalarComponents() == 2 )
+      if ( mapper->GetCurrentScalars()->GetNumberOfComponents() == 2 )
         {
         switch ( scalarType )
           {
@@ -785,7 +786,7 @@ void vtkFixedPointVolumeRayCastCompositeShadeHelper::GenerateImage( int threadID
   else
     {
     // One component
-    if ( mapper->GetInput()->GetNumberOfScalarComponents() == 1 )
+    if ( mapper->GetCurrentScalars()->GetNumberOfComponents() == 1 )
       {
       // Scale == 1.0 and shift == 0.0 - simple case (faster)
       if ( mapper->GetTableScale()[0] == 1.0 && mapper->GetTableShift()[0] == 0.0 )
@@ -826,7 +827,7 @@ void vtkFixedPointVolumeRayCastCompositeShadeHelper::GenerateImage( int threadID
       {
       // Two components - the first specifies color (through a lookup table) and
       // the second specified opacity (through a lookup table)
-      if ( mapper->GetInput()->GetNumberOfScalarComponents() == 2 )
+      if ( mapper->GetCurrentScalars()->GetNumberOfComponents() == 2 )
         {
         switch ( scalarType )
           {
