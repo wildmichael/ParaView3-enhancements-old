@@ -36,15 +36,10 @@ static const char *vtkWidgetEventStrings[] = {
   "AddFinalPoint",
   "Completed",
   "TimedOut",
-  "PaintbrushDrawBegin",
-  "PaintbrushEraseBegin",
-  "PaintbrushSequenceEnd",
-  "Undo",
-  "Redo",
   NULL
 };
 
-vtkCxxRevisionMacro(vtkWidgetEvent, "$Revision: 1.3 $");
+vtkCxxRevisionMacro(vtkWidgetEvent, "$Revision: 1.4 $");
 vtkStandardNewMacro(vtkWidgetEvent);
 
 
