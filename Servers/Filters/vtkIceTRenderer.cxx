@@ -14,7 +14,7 @@
 =========================================================================*/
 /* -*- c++ -*- *******************************************************/
 
-/* $Id: vtkIceTRenderer.cxx,v 1.20 2005-12-16 15:42:41 kmorel Exp $ */
+/* $Id: vtkIceTRenderer.cxx,v 1.21 2006-08-15 16:10:37 dave.demarle Exp $ */
 
 #include "vtkIceTRenderer.h"
 
@@ -46,7 +46,7 @@ static vtkIceTRenderer *currentRenderer;
 // vtkIceTRenderer implementation.
 //******************************************************************
 
-vtkCxxRevisionMacro(vtkIceTRenderer, "$Revision: 1.20 $");
+vtkCxxRevisionMacro(vtkIceTRenderer, "$Revision: 1.21 $");
 vtkStandardNewMacro(vtkIceTRenderer);
 
 vtkCxxSetObjectMacro(vtkIceTRenderer, SortingKdTree, vtkPKdTree);
@@ -419,6 +419,16 @@ static inline void UpdateViewParams(GLdouble vert[3], GLdouble transform[16],
 int vtkIceTRenderer::UpdateGeometry()
 {
   vtkDebugMacro("In vtkIceTRenderer::UpdateGeometry()");
+
+  if (this->SelectMode != vtkRenderer::NOT_SELECTING)
+    {
+    //we are doing a visible polygon selection instead of a normal render
+    int ret = this->UpdateGeometryForSelection();
+    vtkDebugMacro( << "Rendered " << 
+                   this->NumberOfPropsRendered << " actors" );    
+    return ret;
+    }
+
   int i;
 
   this->NumberOfPropsRendered = 0;
