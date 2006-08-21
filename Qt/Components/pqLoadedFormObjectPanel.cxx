@@ -36,6 +36,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // Qt includes
 #include <QVBoxLayout>
 #include <QFormBuilder>
+#include <QFile>
 
 // VTK includes
 

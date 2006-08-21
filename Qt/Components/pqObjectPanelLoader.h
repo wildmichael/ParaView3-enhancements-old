@@ -1,7 +1,7 @@
 /*=========================================================================
 
    Program: ParaView
-   Module:    $RCSfile: pqCutPanel.h,v $
+   Module:    $RCSfile: pqObjectPanelLoader.h,v $
 
    Copyright (c) 2005,2006 Sandia Corporation, Kitware Inc.
    All rights reserved.
@@ -30,52 +30,37 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
 
-#ifndef _pqCutPanel_h
-#define _pqCutPanel_h
+#ifndef _pqObjectPanelLoader_h
+#define _pqObjectPanelLoader_h
 
-#include "pqObjectPanel.h"
-#include "pqObjectPanelInterface.h"
+#include <QObject>
+#include <QStringList>
+class pqObjectPanelInterface;
+class pqObjectPanel;
 
-class pqImplicitPlaneWidget;
 
-/// Custom panel for the Cut filter that manages a 3D widget for interactive cutting
-class pqCutPanel :
-  public pqObjectPanel
+/// loader class that creates panels from plugins
+/// for now, it only supports static plugins
+class pqObjectPanelLoader : public QObject
 {
-  typedef pqObjectPanel Superclass;
-
   Q_OBJECT
-
 public:
-  pqCutPanel(QWidget* p);
-  ~pqCutPanel();
+  /// constructor
+  pqObjectPanelLoader(QObject* p=0);
+  /// destructor
+  ~pqObjectPanelLoader();
 
-  pqImplicitPlaneWidget* getImplicitPlaneWidget();
-  
-private slots:
-  /// Called if the user accepts pending modifications
-  void onAccepted();
-  /// Called if the user rejects pending modifications
-  void onRejected();
+  /// create a widget from a plugin
+  pqObjectPanel* createPanel(const QString& className,
+                              QWidget* parent = 0);
+
+  QStringList availableWidgets() const;
 
 private:
-  virtual void setProxyInternal(pqProxy* p);
-  virtual void select();
-  virtual void deselect();
+  QList<pqObjectPanelInterface*> PanelPlugins;
 
-  class pqImplementation;
-  pqImplementation* const Implementation;
-};
-
-// make this panel available to the object inspector
-class pqCutPanelInterface : public QObject, public pqObjectPanelInterface
-{
-  Q_OBJECT
-  Q_INTERFACES(pqObjectPanelInterface)
-public:
-  virtual QString name() const;
-  virtual pqObjectPanel* createPanel(QWidget* p);
 };
 
 #endif
+
 

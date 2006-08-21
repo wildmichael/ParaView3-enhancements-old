@@ -1,7 +1,7 @@
 /*=========================================================================
 
    Program: ParaView
-   Module:    $RCSfile: pqCutPanel.h,v $
+   Module:    $RCSfile: pqObjectPanelInterface.h,v $
 
    Copyright (c) 2005,2006 Sandia Corporation, Kitware Inc.
    All rights reserved.
@@ -30,52 +30,26 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
 
-#ifndef _pqCutPanel_h
-#define _pqCutPanel_h
+#ifndef _pqObjectPanelInterface_h
+#define _pqObjectPanelInterface_h
 
-#include "pqObjectPanel.h"
-#include "pqObjectPanelInterface.h"
+#include <QString>
+class QWidget;
+class pqObjectPanel;
 
-class pqImplicitPlaneWidget;
-
-/// Custom panel for the Cut filter that manages a 3D widget for interactive cutting
-class pqCutPanel :
-  public pqObjectPanel
+/// interface class for plugins that create pqObjectPanels
+class pqObjectPanelInterface
 {
-  typedef pqObjectPanel Superclass;
-
-  Q_OBJECT
-
 public:
-  pqCutPanel(QWidget* p);
-  ~pqCutPanel();
+  /// destructor
+  virtual ~pqObjectPanelInterface() {}
 
-  pqImplicitPlaneWidget* getImplicitPlaneWidget();
-  
-private slots:
-  /// Called if the user accepts pending modifications
-  void onAccepted();
-  /// Called if the user rejects pending modifications
-  void onRejected();
+  virtual pqObjectPanel* createPanel(QWidget* p) = 0;
 
-private:
-  virtual void setProxyInternal(pqProxy* p);
-  virtual void select();
-  virtual void deselect();
-
-  class pqImplementation;
-  pqImplementation* const Implementation;
+  virtual QString name() const = 0;
 };
 
-// make this panel available to the object inspector
-class pqCutPanelInterface : public QObject, public pqObjectPanelInterface
-{
-  Q_OBJECT
-  Q_INTERFACES(pqObjectPanelInterface)
-public:
-  virtual QString name() const;
-  virtual pqObjectPanel* createPanel(QWidget* p);
-};
+Q_DECLARE_INTERFACE(pqObjectPanelInterface, "com.kitware.paraview.objectpanel")
 
 #endif
 

@@ -1,7 +1,7 @@
 /*=========================================================================
 
    Program: ParaView
-   Module:    $RCSfile: pqCutPanel.h,v $
+   Module:    $RCSfile: pqObjectPanelLoader.cxx,v $
 
    Copyright (c) 2005,2006 Sandia Corporation, Kitware Inc.
    All rights reserved.
@@ -30,52 +30,60 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
 
-#ifndef _pqCutPanel_h
-#define _pqCutPanel_h
+// this include
+#include "pqObjectPanelLoader.h"
 
-#include "pqObjectPanel.h"
+// Qt includes
+#include <QPluginLoader>
+
+// ParaView includes
 #include "pqObjectPanelInterface.h"
 
-class pqImplicitPlaneWidget;
-
-/// Custom panel for the Cut filter that manages a 3D widget for interactive cutting
-class pqCutPanel :
-  public pqObjectPanel
+//-----------------------------------------------------------------------------
+/// constructor
+pqObjectPanelLoader::pqObjectPanelLoader(QObject* p)
+  : QObject(p)
 {
-  typedef pqObjectPanel Superclass;
+  // for now, we only support static plugins 
+  // (plugins built into the application)
+  QObjectList plugins = QPluginLoader::staticInstances();
+  foreach(QObject* o, plugins)
+    {
+    pqObjectPanelInterface* i = qobject_cast<pqObjectPanelInterface*>(o);
+    if(i)
+      {
+      this->PanelPlugins.append(i);
+      }
+    }
+}
 
-  Q_OBJECT
-
-public:
-  pqCutPanel(QWidget* p);
-  ~pqCutPanel();
-
-  pqImplicitPlaneWidget* getImplicitPlaneWidget();
+//-----------------------------------------------------------------------------
+/// destructor
+pqObjectPanelLoader::~pqObjectPanelLoader()
+{
+}
   
-private slots:
-  /// Called if the user accepts pending modifications
-  void onAccepted();
-  /// Called if the user rejects pending modifications
-  void onRejected();
-
-private:
-  virtual void setProxyInternal(pqProxy* p);
-  virtual void select();
-  virtual void deselect();
-
-  class pqImplementation;
-  pqImplementation* const Implementation;
-};
-
-// make this panel available to the object inspector
-class pqCutPanelInterface : public QObject, public pqObjectPanelInterface
+pqObjectPanel* pqObjectPanelLoader::createPanel(const QString& className,
+                                                 QWidget* p)
 {
-  Q_OBJECT
-  Q_INTERFACES(pqObjectPanelInterface)
-public:
-  virtual QString name() const;
-  virtual pqObjectPanel* createPanel(QWidget* p);
-};
+  foreach(pqObjectPanelInterface* i, this->PanelPlugins)
+    {
+    if(i->name() == className)
+      {
+      return i->createPanel(p);
+      }
+    }
+  return NULL;
+}
 
-#endif
+QStringList pqObjectPanelLoader::availableWidgets() const
+{
+  QStringList names;
+  foreach(pqObjectPanelInterface* i, this->PanelPlugins)
+    {
+    names.append(i->name());
+    }
+  return names;
+}
+
 
