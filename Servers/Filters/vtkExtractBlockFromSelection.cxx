@@ -23,7 +23,7 @@
 #include "vtkSelection.h"
 #include "vtkUnstructuredGrid.h"
 
-vtkCxxRevisionMacro(vtkExtractBlockFromSelection, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkExtractBlockFromSelection, "$Revision: 1.3 $");
 vtkStandardNewMacro(vtkExtractBlockFromSelection);
 
 //----------------------------------------------------------------------------
@@ -68,6 +68,7 @@ int vtkExtractBlockFromSelection::RequestData(
         {
         output->ShallowCopy(ug);
         }
+      iter->Delete();
       return 1;
       }
     }
