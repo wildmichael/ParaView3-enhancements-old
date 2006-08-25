@@ -1,7 +1,7 @@
 /*=========================================================================
 
    Program: ParaView
-   Module:    $RCSfile: pqEventPlayerXML.h,v $
+   Module:    $RCSfile: pqEventDispatcher.h,v $
 
    Copyright (c) 2005,2006 Sandia Corporation, Kitware Inc.
    All rights reserved.
@@ -30,31 +30,45 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
 
-#ifndef _pqEventPlayerXML_h
-#define _pqEventPlayerXML_h
+#ifndef _pqEventDispatcher_h
+#define _pqEventDispatcher_h
 
 #include "QtTestingExport.h"
+
 #include <QObject>
-#include <QString>
-#include <QDomNode>
 
 class pqEventPlayer;
+class pqEventSource;
 
-class QTTESTING_EXPORT pqEventPlayerXML : public QObject
+class QTTESTING_EXPORT pqEventDispatcher :
+  public QObject
 {
   Q_OBJECT
+  
 public:
-  /// Loads an XML test case from a file, and plays it with the given player, 
-  /// returning true iff every command was successfully executed
-  bool playXML(pqEventPlayer& Player, const QString& Path);
+  pqEventDispatcher();
+  ~pqEventDispatcher();
 
-protected slots:
+  /** Retrieves events from the given event source, dispatching them to
+  the given event player for test case playback.  Note that playback is
+  asynchronous - the call to playEvents() returns immediately.  Callers
+  must ensure that the source, dispatcher, and player objects remain
+  in-scope until either the succeeded() or failed() signal is emitted
+  to indicate that playback has finished. */
+  void playEvents(pqEventSource& source, pqEventPlayer& player);
+
+signals:
+  void succeeded();
+  void failed();
+
+private slots:
   void playNextEvent();
 
-protected:
-  QDomNode mDomNode;
-  pqEventPlayer* Player;
+private:
+  void stopPlayback();
+
+  class pqImplementation;
+  pqImplementation* const Implementation;
 };
 
-#endif // !_pqEventPlayerXML_h
-
+#endif // !_pqEventDispatcher_h

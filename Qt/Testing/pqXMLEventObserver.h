@@ -1,7 +1,7 @@
 /*=========================================================================
 
    Program: ParaView
-   Module:    $RCSfile: pqWidgetEventTranslator.h,v $
+   Module:    $RCSfile: pqXMLEventObserver.h,v $
 
    Copyright (c) 2005,2006 Sandia Corporation, Kitware Inc.
    All rights reserved.
@@ -30,41 +30,43 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
 
-#ifndef _pqWidgetEventTranslator_h
-#define _pqWidgetEventTranslator_h
+#ifndef _pqXMLEventObserver_h
+#define _pqXMLEventObserver_h
 
-#include "QtTestingExport.h"
 #include <QObject>
+#include <vtkIOStream.h>
 
 /**
-Abstract interface for an object that can translate
-low-level Qt events into high-level, serializable ParaView
-events, for test-cases, demos, tutorials, etc.
+Observes high-level ParaView events, and serializes them to a stream as XML
+for possible playback (as a test-case, demo, tutorial, etc).  To use,
+connect the onRecordEvent() slot to the pqEventTranslator::recordEvent()
+signal.
 
-\sa pqEventTranslator
+\note Output is sent to the stream from this object's destructor, so you
+must ensure that it goes out of scope before trying to playback the stream.
+
+\sa pqEventObserverStdout, pqEventTranslator, pqEventPlayerXML
 */
-class QTTESTING_EXPORT pqWidgetEventTranslator :
+
+class pqXMLEventObserver :
   public QObject
 {
   Q_OBJECT
   
 public:
-  virtual ~pqWidgetEventTranslator() {}
-  
-  /** Derivatives should implement this and translate events into commands,
-  returning "true" if they handled the event, and setting Error
-  to "true" if there were any problems. */
-  virtual bool translateEvent(QObject* Object, QEvent* Event, bool& Error) = 0;
+  pqXMLEventObserver(ostream& Stream);
+  ~pqXMLEventObserver();
 
-signals:
-  /// Derivatives should emit this signal whenever they wish to record a high-level event
-  void recordEvent(QObject* Object, const QString& Command, const QString& Arguments);
+public slots:
+  void onRecordEvent(
+    const QString& Widget,
+    const QString& Command,
+    const QString& Arguments);
 
-protected:
-  pqWidgetEventTranslator() {}
-  pqWidgetEventTranslator(const pqWidgetEventTranslator&);
-  pqWidgetEventTranslator& operator=(const pqWidgetEventTranslator&);
+private:
+  /// Stores a stream that will be used to store the XML output
+  ostream& Stream;
 };
 
-#endif // !_pqWidgetEventTranslator_h
+#endif // !_pqXMLEventObserver_h
 

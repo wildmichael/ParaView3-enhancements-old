@@ -1,7 +1,7 @@
 /*=========================================================================
 
    Program: ParaView
-   Module:    $RCSfile: pqEventObserverXML.cxx,v $
+   Module:    $RCSfile: pqStdoutEventObserver.h,v $
 
    Copyright (c) 2005,2006 Sandia Corporation, Kitware Inc.
    All rights reserved.
@@ -30,42 +30,29 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
 
-#include "pqEventObserverXML.h"
+#ifndef _pqStdoutEventObserver_h
+#define _pqStdoutEventObserver_h
 
-/// Escapes strings so they can be embedded in an XML document
-static const QString textToXML(const QString& string)
+#include <QObject>
+
+/**
+Observes high-level ParaView "events" and writes them to stdout,
+mainly for debugging purposes. To use, connect the onRecordEvent()
+slot to the pqEventTranslator::recordEvent() signal.
+
+\sa pqEventTranslator, pqEventObserverXML
+*/
+
+class pqStdoutEventObserver :
+  public QObject
 {
-  QString result = string;
-  result.replace("&", "&amp;");
-  result.replace("<", "&lt;");
-  result.replace(">", "&gt;");
-  result.replace("'", "&apos;");
-  result.replace("\"", "&quot;");
-  
-  return result;
-}
+  Q_OBJECT
 
-////////////////////////////////////////////////////////////////////////////////////
-// pqEventObserverXML
+public slots:
+  void onRecordEvent(
+    const QString& Widget,
+    const QString& Command,
+    const QString& Arguments);
+};
 
-pqEventObserverXML::pqEventObserverXML(ostream& stream) :
-  Stream(stream)
-{
-  this->Stream << "<?xml version=\"1.0\" ?>\n";
-  this->Stream << "<pqevents>\n";
-}
-
-pqEventObserverXML::~pqEventObserverXML()
-{
-  this->Stream << "</pqevents>\n";
-}
-
-void pqEventObserverXML::onRecordEvent(const QString& Widget, const QString& Command, const QString& Arguments)
-{
-  this->Stream
-    << "  <pqevent "
-    << "object=\"" << textToXML(Widget).toAscii().data() << "\" "
-    << "command=\"" << textToXML(Command).toAscii().data() << "\" "
-    << "arguments=\"" << textToXML(Arguments).toAscii().data() << "\" "
-    << "/>\n";
-}
+#endif // !_pqStdoutEventObserver_h
