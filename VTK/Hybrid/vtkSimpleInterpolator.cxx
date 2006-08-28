@@ -15,7 +15,7 @@
 #include "vtkSimpleInterpolator.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkSimpleInterpolator, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkSimpleInterpolator, "$Revision: 1.2 $");
 vtkStandardNewMacro(vtkSimpleInterpolator);
 
 //----------------------------------------------------------------------------
@@ -284,3 +284,15 @@ double vtkSimpleInterpolator::ComputeRightDerivative()
     }
 }
 //----------------------------------------------------------------------------
+void vtkSimpleInterpolator::PrintSelf(ostream& os, vtkIndent indent)
+{
+  this->Superclass::PrintSelf(os, indent);
+  os << indent << "LeftConstraint: "
+     << LeftConstraint;
+  os << indent << "RightConstraint: "
+     << RightConstraint;
+  os << indent << "LeftValue: "
+     << LeftValue;
+  os << indent << "RightValue: "
+     << RightValue;
+}
