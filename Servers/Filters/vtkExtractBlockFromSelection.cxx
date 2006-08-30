@@ -23,7 +23,7 @@
 #include "vtkSelection.h"
 #include "vtkUnstructuredGrid.h"
 
-vtkCxxRevisionMacro(vtkExtractBlockFromSelection, "$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkExtractBlockFromSelection, "$Revision: 1.6 $");
 vtkStandardNewMacro(vtkExtractBlockFromSelection);
 
 //----------------------------------------------------------------------------
@@ -81,6 +81,7 @@ int vtkExtractBlockFromSelection::RequestData(
 void vtkExtractBlockFromSelection::PrintSelf(ostream& os, vtkIndent indent)
 {
   this->Superclass::PrintSelf(os,indent);
+  os << indent << "SourceID: " << this->SourceID << endl;
 }
 
 //----------------------------------------------------------------------------
