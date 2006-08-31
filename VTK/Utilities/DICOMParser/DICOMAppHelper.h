@@ -3,8 +3,8 @@
   Program:   DICOMParser
   Module:    $RCSfile: DICOMAppHelper.h,v $
   Language:  C++
-  Date:      $Date: 2006-01-11 15:58:54 $
-  Version:   $Revision: 1.14 $
+  Date:      $Date: 2006-08-31 17:20:15 $
+  Version:   $Revision: 1.15 $
 
   Copyright (c) 2003 Matt Turek
   All rights reserved.
@@ -292,7 +292,14 @@ public:
     {
       return this->ImagePositionPatient;
     }
-  
+
+  /** Get the (DICOM) directions cosines. It consist of the components
+   * of the first two vectors. The third vector needs to be computed
+   * to form an orthonormal basis. */
+ float *GetImageOrientationPatient()
+    {
+      return this->ImageOrientationPatient;
+    }
   
   /** Get the number of bits allocated per pixel of the last image
    *  processed by the DICOMParser */
@@ -474,6 +481,7 @@ public:
   int SliceNumber; 
   int Dimensions[2];
   float ImagePositionPatient[3];
+  float ImageOrientationPatient[6];
 
   // map from series UID to vector of files in the series 
   // dicom_stl::map<dicom_stl::string, dicom_stl::vector<dicom_stl::string>, ltstdstr> SeriesUIDMap;
