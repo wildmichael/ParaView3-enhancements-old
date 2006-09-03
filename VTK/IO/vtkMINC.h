@@ -3,6 +3,17 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMINC.h,v $
 
+  Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen
+  All rights reserved.
+  See Copyright.txt or http://www.kitware.com/Copyright.htm for details.
+
+     This software is distributed WITHOUT ANY WARRANTY; without even
+     the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
+     PURPOSE.  See the above copyright notice for more information.
+
+=========================================================================*/
+/*=========================================================================
+
 Copyright (c) 2006 Atamai, Inc.
 
 Use, modification and redistribution of the software, in source or
@@ -39,8 +50,8 @@ POSSIBILITY OF SUCH DAMAGES.
    This file has been modified from the original "minc.h" that was
    distributed with minc version 1.4.  All of the prototype
    declarations have been removed.  This modification was made in
-   support of the use of this file with the vtkMINCImageReader
-   and vtkMINCImageWriter.
+   support of the use of this file with the vtkMINCReader
+   and vtkMINCWriter.
 
    David Gobbi, Atamai Inc..
 */
@@ -77,7 +88,13 @@ POSSIBILITY OF SUCH DAMAGES.
 @CREATED    : July 24, 1992. (Peter Neelin, Montreal Neurological Institute)
 @MODIFIED   : 
  * $Log: vtkMINC.h,v $
- * Revision 1.1  2006-08-30 16:03:22  dgobbi
+ * Revision 1.2  2006-09-03 21:42:30  dgobbi
+ * ENH: Add option to rescale real-valued data to VTK_FLOAT.  Change ImageOrientation method to DirectionCosines to be more MINC-like, since ImageOrientation is not VTK-standard.
+ *
+ * Revision 1.1  2006/09/03 01:01:21  dgobbi
+ * ENH: move the MINC attributes into a separate file to make it easy to copy from the reader to the writer
+ *
+ * Revision 1.1  2006/08/30 16:03:22  dgobbi
  * ENH: Add a vtkMINC.h that contains all the MINC constants.  Make the MINCReader and MINCWriter use it.
  *
  * Revision 6.11.2.2  2004/09/28 20:23:40  bert
@@ -186,7 +203,7 @@ POSSIBILITY OF SUCH DAMAGES.
               make no representations about the suitability of this
               software for any purpose.  It is provided "as is" without
               express or implied warranty.
-@RCSID      : $Header: /cvsroot/ParaView3/ParaView3/VTK/IO/vtkMINC.h,v 1.1 2006-08-30 16:03:22 dgobbi Exp $ MINC (MNI)
+@RCSID      : $Header: /cvsroot/ParaView3/ParaView3/VTK/IO/vtkMINC.h,v 1.2 2006-09-03 21:42:30 dgobbi Exp $ MINC (MNI)
 ---------------------------------------------------------------------------- */
 
 /* Some useful constants */
