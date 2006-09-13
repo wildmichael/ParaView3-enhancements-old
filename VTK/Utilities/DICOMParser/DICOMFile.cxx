@@ -3,8 +3,8 @@
   Program:   DICOMParser
   Module:    $RCSfile: DICOMFile.cxx,v $
   Language:  C++
-  Date:      $Date: 2005-07-26 20:02:22 $
-  Version:   $Revision: 1.11 $
+  Date:      $Date: 2006-09-13 14:06:47 $
+  Version:   $Revision: 1.12 $
 
   Copyright (c) 2003 Matt Turek
   All rights reserved.
@@ -22,11 +22,11 @@
 #pragma warning ( push, 3 )
 #endif 
 
-#include <stdio.h>
-#include <string>
-
 #include "DICOMConfig.h"
 #include "DICOMFile.h"
+
+#include <stdio.h>
+#include <string>
 
 DICOMFile::DICOMFile() : InputStream()
 {

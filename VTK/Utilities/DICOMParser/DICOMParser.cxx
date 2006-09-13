@@ -3,8 +3,8 @@
   Program:   DICOMParser
   Module:    $RCSfile: DICOMParser.cxx,v $
   Language:  C++
-  Date:      $Date: 2006-03-24 15:54:33 $
-  Version:   $Revision: 1.16 $
+  Date:      $Date: 2006-09-13 14:06:47 $
+  Version:   $Revision: 1.17 $
 
   Copyright (c) 2003 Matt Turek
   All rights reserved.
@@ -25,6 +25,9 @@
 #pragma warning ( push, 3 )
 #endif 
 
+#include "DICOMConfig.h"
+#include "DICOMParser.h"
+#include "DICOMCallback.h"
 
 #include <stdlib.h>
 #if !defined(__MWERKS__)
@@ -37,11 +40,6 @@
 #endif
 
 #include <string>
-
-#include "DICOMConfig.h"
-#include "DICOMParser.h"
-#include "DICOMCallback.h"
-
 
 // Define DEBUG_DICOM to get debug messages sent to dicom_stream::cerr
 // #define DEBUG_DICOM
