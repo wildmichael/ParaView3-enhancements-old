@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfExpr.h,v 1.2 2004-01-15 21:43:56 andy Exp $  */
-/*  Date : $Date: 2004-01-15 21:43:56 $ */
-/*  Version : $Revision: 1.2 $ */
+/*  Id : $Id: XdmfExpr.h,v 1.3 2006-09-14 12:50:22 andy Exp $  */
+/*  Date : $Date: 2006-09-14 12:50:22 $ */
+/*  Version : $Revision: 1.3 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -22,6 +22,7 @@
 /*     for more information.                                       */
 /*                                                                 */
 /*******************************************************************/
+#include "XdmfConfig.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
