@@ -25,7 +25,7 @@
 #include "vtkStructuredGrid.h"
 #include "vtkUnsignedCharArray.h"
 
-vtkCxxRevisionMacro(vtkBlankStructuredGridWithImage, "$Revision: 1.12 $");
+vtkCxxRevisionMacro(vtkBlankStructuredGridWithImage, "$Revision: 1.13 $");
 vtkStandardNewMacro(vtkBlankStructuredGridWithImage);
 
 //----------------------------------------------------------------------------
@@ -59,6 +59,7 @@ vtkImageData *vtkBlankStructuredGridWithImage::GetBlankingInput()
     this->GetExecutive()->GetInputData(1, 0));
 }
 
+//----------------------------------------------------------------------------
 int vtkBlankStructuredGridWithImage::RequestData(
   vtkInformation *vtkNotUsed(request),
   vtkInformationVector **inputVector,
