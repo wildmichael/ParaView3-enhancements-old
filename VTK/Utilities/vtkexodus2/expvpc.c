@@ -51,7 +51,7 @@
 *
 * revision history - 
 *
-*  $Id: expvpc.c,v 1.1 2005-07-17 15:44:00 andy Exp $
+*  $Id: expvpc.c,v 1.2 2006-09-18 16:05:40 dave.demarle Exp $
 *****************************************************************************/
 
 #include <stdlib.h>
@@ -71,11 +71,19 @@ int ex_put_concat_var_param (int   exoid,
                              int   num_elem_blk,
                              int  *elem_var_tab)
 {
-  int time_dim, num_nod_dim, dimid, strdim, varid, iresult;
+  int time_dim = 0;
+  int num_nod_dim = 0;
+  int dimid = 0;
+  int strdim = 0;
+  int varid = 0;
+  int iresult = 0;
   long idum, start[2], count[2]; 
-  int numelblkdim, numelvardim;
-  nclong *stat_vals, *lptr;
-  int i, j, k, id, *ids;
+  int numelblkdim = 0;
+  int numelvardim = 0;
+  nclong *stat_vals = 0;
+  nclong *lptr = 0;
+  int i, j, k, id;
+  int *ids = 0;
   int dims[3];
   char errmsg[MAX_ERR_LENGTH];
 

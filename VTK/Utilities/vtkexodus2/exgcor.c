@@ -55,7 +55,7 @@
 *
 * revision history - 
 *
-*  $Id: exgcor.c,v 1.1 2005-07-17 15:43:59 andy Exp $
+*  $Id: exgcor.c,v 1.2 2006-09-18 16:05:40 dave.demarle Exp $
 *
 *****************************************************************************/
 
@@ -227,11 +227,13 @@ int ex_get_coord (int exoid,
         const void *coor;
         char *which;
         int status;
+
+        coor = x_coor;
+        which = "X";
+        coordid = coordidx;
        
         if (i == 0) {
-          coor = x_coor;
-          which = "X";
-          coordid = coordidx;
+          ;
         } else if (i == 1) {
           coor = y_coor;
           which = "Y";

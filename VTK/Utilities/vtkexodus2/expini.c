@@ -59,7 +59,7 @@
 *
 * revision history - 
 *
-*  $Id: expini.c,v 1.2 2005-07-19 12:31:28 andy Exp $
+*  $Id: expini.c,v 1.3 2006-09-18 16:05:40 dave.demarle Exp $
 *
 *****************************************************************************/
 
@@ -80,7 +80,13 @@ int ex_put_init (int   exoid,
                  int   num_node_sets,
                  int   num_side_sets)
 {
-  int numdimdim, numnoddim, elblkdim, strdim, dim[2], dimid, varid;
+  int numdimdim = 0;
+  int numnoddim = 0;
+  int elblkdim = 0;
+  int strdim = 0;
+  int dim[2];
+  int dimid = 0;
+  int varid = 0;
   
   char errmsg[MAX_ERR_LENGTH];
 
