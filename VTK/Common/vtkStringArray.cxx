@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkStringArray.cxx,v $
   Language:  C++
-  Date:      $Date: 2006-01-05 18:29:03 $
-  Version:   $Revision: 1.6 $
+  Date:      $Date: 2006-09-21 21:23:23 $
+  Version:   $Revision: 1.7 $
 
   Copyright 2004 Sandia Corporation.
   Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -36,7 +36,7 @@ VTK_ARRAY_ITERATOR_TEMPLATE_INSTANTIATE(vtkStdString);
 #include "vtkIdTypeArray.h"
 #include "vtkObjectFactory.h"
 
-vtkCxxRevisionMacro(vtkStringArray, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(vtkStringArray, "$Revision: 1.7 $");
 vtkStandardNewMacro(vtkStringArray);
 
 //----------------------------------------------------------------------------
@@ -200,13 +200,13 @@ void vtkStringArray::InterpolateTuple(vtkIdType i, vtkIdList *ptIndices,
       << source->GetDataTypeAsString());
     return;
     }
-  
+
   if (ptIndices->GetNumberOfIds() == 0)
     {
     // nothing to do.
     return;
     }
-  
+
   // We use nearest neighbour for interpolating strings.
   // First determine which is the nearest neighbour using the weights-
   // it's the index with maximum weight.
