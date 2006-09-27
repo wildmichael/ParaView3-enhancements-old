@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXdmfReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2006-08-10 15:55:19 $
-  Version:   $Revision: 1.70 $
+  Date:      $Date: 2006-09-27 17:09:57 $
+  Version:   $Revision: 1.71 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen  
@@ -87,7 +87,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define USE_IMAGE_DATA // otherwise uniformgrid
 
 vtkStandardNewMacro(vtkXdmfReader);
-vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.70 $");
+vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.71 $");
 
 vtkCxxSetObjectMacro(vtkXdmfReader,Controller,vtkMultiProcessController);
 
@@ -2782,17 +2782,9 @@ void vtkXdmfReader::UpdateGrids()
 int vtkXdmfReader::FillOutputPortInformation(int port,
                                              vtkInformation *info)
 { 
-  vtkInformation* outInfo =this->GetExecutive()->GetOutputInformation()->GetInformationObject(port);
-  if(outInfo->Has(vtkDataObject::DATA_OBJECT()))
-    {
-    info->Set(vtkCompositeDataPipeline::COMPOSITE_DATA_TYPE_NAME(), 
-              "vtkDataObject");
-    info->Set(vtkDataObject::DATA_TYPE_NAME(), "vtkDataObject");
-    }
-  else
-    {
-    info->Set(vtkDataObject::DATA_TYPE_NAME(), "vtkDataObject");
-    }
+  vtkInformation* outInfo =
+    this->GetExecutive()->GetOutputInformation()->GetInformationObject(port);
+  info->Set(vtkDataObject::DATA_TYPE_NAME(), "vtkDataObject");
   return 1;
 }
 
