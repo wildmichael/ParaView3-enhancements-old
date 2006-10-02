@@ -42,7 +42,7 @@
 
 //----------------------------------------------------------------------------
 vtkStandardNewMacro(vtkPVServerFileListing);
-vtkCxxRevisionMacro(vtkPVServerFileListing, "$Revision: 1.7 $");
+vtkCxxRevisionMacro(vtkPVServerFileListing, "$Revision: 1.8 $");
 
 //----------------------------------------------------------------------------
 class vtkPVServerFileListingInternals
@@ -139,10 +139,6 @@ const vtkClientServerStream& vtkPVServerFileListing::GetSpecial()
   char* end = start;
   for(;end != strings+n; ++end)
     {
-    if(*end == '\\')
-      {
-      *end = '/';
-      }
     if(!*end)
       {
       this->Internal->Result << vtkClientServerStream::Reply << start << start << 1 << vtkClientServerStream::End;
