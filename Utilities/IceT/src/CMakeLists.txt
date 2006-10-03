@@ -1,4 +1,4 @@
-# $Id: CMakeLists.txt,v 1.1 2003-06-17 18:38:54 andy Exp $
+# $Id: CMakeLists.txt,v 1.2 2006-10-03 18:20:41 kmorel Exp $
 #
 ## Copyright 2003 Sandia Coporation
 ## Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -9,13 +9,6 @@
 #
 
 SUBDIRS(ice-t
-	communication
-	strategies)
-
-# Decide whether to build tilecomp application.
-OPTION(BUILD_TILECOMP "Build the antiquated tilecomp example." OFF)
-MARK_AS_ADVANCED(BUILD_TILECOMP)
-
-IF (BUILD_TILECOMP)
-  SUBDIRS(tilecomp)
-ENDIF (BUILD_TILECOMP)
+  communication
+  strategies
+  )
