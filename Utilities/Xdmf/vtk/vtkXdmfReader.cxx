@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXdmfReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2006-10-04 15:04:26 $
-  Version:   $Revision: 1.72 $
+  Date:      $Date: 2006-10-04 20:37:05 $
+  Version:   $Revision: 1.73 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen  
@@ -87,7 +87,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define USE_IMAGE_DATA // otherwise uniformgrid
 
 vtkStandardNewMacro(vtkXdmfReader);
-vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.72 $");
+vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.73 $");
 
 vtkCxxSetObjectMacro(vtkXdmfReader,Controller,vtkMultiProcessController);
 
@@ -2779,7 +2779,7 @@ void vtkXdmfReader::UpdateGrids()
 
 //----------------------------------------------------------------------------
 
-int vtkXdmfReader::FillOutputPortInformation(int port,
+int vtkXdmfReader::FillOutputPortInformation(int,
                                              vtkInformation *info)
 { 
   info->Set(vtkDataObject::DATA_TYPE_NAME(), "vtkDataObject");
