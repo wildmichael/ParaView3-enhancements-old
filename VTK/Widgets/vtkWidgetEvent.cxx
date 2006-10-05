@@ -36,10 +36,11 @@ static const char *vtkWidgetEventStrings[] = {
   "AddFinalPoint",
   "Completed",
   "TimedOut",
+  "ModifyEvent",
   NULL
 };
 
-vtkCxxRevisionMacro(vtkWidgetEvent, "$Revision: 1.4 $");
+vtkCxxRevisionMacro(vtkWidgetEvent, "$Revision: 1.5 $");
 vtkStandardNewMacro(vtkWidgetEvent);
 
 
