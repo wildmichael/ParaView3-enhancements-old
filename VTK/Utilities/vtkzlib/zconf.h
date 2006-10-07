@@ -4,7 +4,7 @@
  * For conditions of distribution and use, see copyright notice in zlib.h 
  */
 
-/* @(#) $Id: zconf.h,v 1.2 2005-12-05 21:26:14 david.cole Exp $ */
+/* @(#) $Id: zconf.h,v 1.3 2006-10-07 17:40:12 david.cole Exp $ */
 
 #ifndef _ZCONF_H
 #define _ZCONF_H
@@ -289,6 +289,8 @@ typedef uLong FAR uLongf;
 
 #if defined(__BORLANDC__)
 #pragma warn -8004 /* "assigned a value that is never used" */
+#pragma warn -8012 /* "comparing signed with unsigned" */
+#pragma warn -8057 /* "parameter never used" */
 #endif
 
 #endif /* _ZCONF_H */

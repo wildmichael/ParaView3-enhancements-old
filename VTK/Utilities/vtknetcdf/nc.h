@@ -2,7 +2,7 @@
  *  Copyright 1996, University Corporation for Atmospheric Research
  *      See netcdf/COPYRIGHT file for copying and redistribution conditions.
  */
-/* $Id: nc.h,v 1.3 2005-12-05 21:26:14 david.cole Exp $ */
+/* $Id: nc.h,v 1.4 2006-10-07 17:40:12 david.cole Exp $ */
 #ifndef _NC_H_
 #define _NC_H_
 
@@ -24,6 +24,7 @@
 
 #if defined(__BORLANDC__)
 #pragma warn -8004 /* "assigned a value that is never used" */
+#pragma warn -8008 /* "condition always true" */
 #endif
 
 
