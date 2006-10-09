@@ -2,7 +2,7 @@
  *  Copyright 1996, University Corporation for Atmospheric Research
  *  See netcdf/COPYRIGHT file for copying and redistribution conditions.
  */
-/* $Id: posixio.c,v 1.7 2005-12-05 21:26:14 david.cole Exp $ */
+/* $Id: posixio.c,v 1.8 2006-10-09 14:06:03 david.cole Exp $ */
 /*#define USE_CWRITE 1 *//*define to use _cwrite instead of write*/
 
 #if defined(__BORLANDC__)
@@ -30,6 +30,9 @@
 #include <fcntl.h>
 #include <string.h>
 #ifdef _MSC_VER /* Microsoft Compilers */
+#include <io.h>
+#endif
+#ifdef __BORLANDC__
 #include <io.h>
 #endif
 #ifdef HAVE_UNISTD_H

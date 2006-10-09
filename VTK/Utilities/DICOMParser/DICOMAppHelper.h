@@ -3,8 +3,8 @@
   Program:   DICOMParser
   Module:    $RCSfile: DICOMAppHelper.h,v $
   Language:  C++
-  Date:      $Date: 2006-08-31 17:20:15 $
-  Version:   $Revision: 1.15 $
+  Date:      $Date: 2006-10-09 14:06:03 $
+  Version:   $Revision: 1.16 $
 
   Copyright (c) 2003 Matt Turek
   All rights reserved.
@@ -35,12 +35,13 @@
 #ifdef _MSC_VER
 #pragma warning ( default: 4018 )
 #endif 
+
 class DICOMParser;
 
 // Function object for sorting strings
 struct ltstdstr
 {
-  bool operator()(const dicom_stl::string s1, const dicom_stl::string s2) const
+  bool operator()(const dicom_stl::string &s1, const dicom_stl::string &s2) const
   {
     return s1 < s2;
   }

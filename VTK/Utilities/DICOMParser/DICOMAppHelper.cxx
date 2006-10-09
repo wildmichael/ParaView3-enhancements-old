@@ -3,8 +3,8 @@
   Program:   DICOMParser
   Module:    $RCSfile: DICOMAppHelper.cxx,v $
   Language:  C++
-  Date:      $Date: 2006-08-31 17:20:15 $
-  Version:   $Revision: 1.24 $
+  Date:      $Date: 2006-10-09 14:06:03 $
+  Version:   $Revision: 1.25 $
 
   Copyright (c) 2003 Matt Turek
   All rights reserved.
@@ -56,8 +56,8 @@ public:
 
 struct lt_pair_int_string
 {
-  bool operator()(const dicom_stl::pair<int, dicom_stl::string> s1, 
-                  const dicom_stl::pair<int, dicom_stl::string> s2) const
+  bool operator()(const dicom_stl::pair<int, dicom_stl::string> &s1, 
+                  const dicom_stl::pair<int, dicom_stl::string> &s2) const
   {
     return s1.first < s2.first;
   }
@@ -66,8 +66,8 @@ struct lt_pair_int_string
 
 struct lt_pair_float_string
 {
-  bool operator()(const dicom_stl::pair<float, dicom_stl::string> s1, 
-                  const dicom_stl::pair<float, dicom_stl::string> s2) const
+  bool operator()(const dicom_stl::pair<float, dicom_stl::string> &s1, 
+                  const dicom_stl::pair<float, dicom_stl::string> &s2) const
   {
     return s1.first < s2.first;
   }
@@ -76,8 +76,8 @@ struct lt_pair_float_string
 
 struct gt_pair_int_string
 {
-  bool operator()(const dicom_stl::pair<int, dicom_stl::string> s1, 
-                  const dicom_stl::pair<int, dicom_stl::string> s2) const
+  bool operator()(const dicom_stl::pair<int, dicom_stl::string> &s1, 
+                  const dicom_stl::pair<int, dicom_stl::string> &s2) const
   {
     return s1.first > s2.first;
   }
@@ -86,8 +86,8 @@ struct gt_pair_int_string
 
 struct gt_pair_float_string
 {
-  bool operator()(const dicom_stl::pair<float, dicom_stl::string> s1, 
-                  const dicom_stl::pair<float, dicom_stl::string> s2) const
+  bool operator()(const dicom_stl::pair<float, dicom_stl::string> &s1, 
+                  const dicom_stl::pair<float, dicom_stl::string> &s2) const
   {
     return s1.first > s2.first;
   }
