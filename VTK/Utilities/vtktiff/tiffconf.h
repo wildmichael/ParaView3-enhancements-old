@@ -1,4 +1,4 @@
-/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/vtktiff/tiffconf.h,v 1.3 2006-10-09 14:06:03 david.cole Exp $ */
+/* $Header: /cvsroot/ParaView3/ParaView3/VTK/Utilities/vtktiff/tiffconf.h,v 1.4 2006-10-09 17:54:54 david.cole Exp $ */
 /*
  * Copyright (c) 1988-1997 Sam Leffler
  * Copyright (c) 1991-1997 Silicon Graphics, Inc.
@@ -161,6 +161,7 @@
 
 #if defined(__BORLANDC__)
 #pragma warn -8004 /* "assigned a value that is never used" */
+#pragma warn -8008 /* "condition is always true" */
 #pragma warn -8012 /* "comparing signed and unsigned values" */
 #pragma warn -8057 /* "parameter is never used" */
 #pragma warn -8060 /* "possibly incorrect assignment" */
