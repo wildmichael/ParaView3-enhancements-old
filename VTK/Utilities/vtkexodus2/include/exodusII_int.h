@@ -44,7 +44,7 @@
 *
 * revision history - 
 *
-*  $Id: exodusII_int.h,v 1.4 2005-12-05 21:26:13 david.cole Exp $
+*  $Id: exodusII_int.h,v 1.5 2006-10-09 19:34:41 david.cole Exp $
 *
 ****************************************************************************
 */
@@ -68,6 +68,9 @@
 
 #if defined(__BORLANDC__)
 #pragma warn -8004 /* "assigned a value that is never used" */
+#pragma warn -8008 /* "condition is always true" */
+#pragma warn -8060 /* "possibly incorrect assignment" */
+#pragma warn -8066 /* "unreachable code" */
 #endif
 
 
