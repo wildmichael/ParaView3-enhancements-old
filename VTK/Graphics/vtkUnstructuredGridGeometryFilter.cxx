@@ -48,7 +48,7 @@
 #include <vtkstd/vector>
 #include <assert.h>
 
-vtkCxxRevisionMacro(vtkUnstructuredGridGeometryFilter, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkUnstructuredGridGeometryFilter, "$Revision: 1.3 $");
 vtkStandardNewMacro(vtkUnstructuredGridGeometryFilter);
 
 #if 0
@@ -834,8 +834,8 @@ int vtkUnstructuredGridGeometryFilter::RequestData(
     }
 
   vtkIdType cellId;
-  vtkIdType npts;
-  vtkIdType *pts;
+  vtkIdType npts=0;
+  vtkIdType *pts=0;
   int i;
   double x[3];
   
