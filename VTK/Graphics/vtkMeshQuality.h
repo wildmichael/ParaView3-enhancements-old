@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMeshQuality.h,v $
   Language:  C++
-  Date:      $Date: 2006-06-14 19:18:08 $ 
-  Version:   $Revision: 1.23 $
+  Date:      $Date: 2006-10-11 16:03:46 $ 
+  Version:   $Revision: 1.24 $
 
   Copyright 2003-2006 Sandia Corporation.
   Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -57,8 +57,8 @@
 // The minimal angle is not, strictly speaking, a quality measure, but it is
 // provided because of its useage by many authors.
 
-#ifndef vtkMeshQuality_h
-#define vtkMeshQuality_h
+#ifndef __vtkMeshQuality_h
+#define __vtkMeshQuality_h
 
 #include "vtkDataSetAlgorithm.h"
 
