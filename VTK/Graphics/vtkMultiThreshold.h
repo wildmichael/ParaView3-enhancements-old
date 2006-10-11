@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMultiThreshold.h,v $
   Language:  C++
-  Date:      $Date: 2006-10-11 19:51:13 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2006-10-11 23:33:44 $
+  Version:   $Revision: 1.3 $
 
   Copyright 2003 Sandia Corporation.
   Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -259,9 +259,11 @@ protected:
   typedef double (*TupleNorm)( vtkDataArray* arr, vtkIdType tuple, int component );
 
   // NormKey must be able to use TupleNorm typedef:
+  class NormKey;
   friend class vtkMultiThreshold::NormKey;
 
   // Interval must be able to use NormKey typedef:
+  class Interval;
   friend class vtkMultiThreshold::Interval;
 
   /// A class with comparison operator used to index input array norms used in threshold rules.
