@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMultiThreshold.h,v $
   Language:  C++
-  Date:      $Date: 2006-10-11 23:33:44 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2006-10-12 06:57:07 $
+  Version:   $Revision: 1.4 $
 
   Copyright 2003 Sandia Corporation.
   Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -126,8 +126,8 @@ public:
   /// Norms that can be used to threshold vector attributes.
   enum Norm {
     LINFINITY_NORM=-3, //!< Use the \f$L_{\infty}\f$ norm for the specified array threshold.
-    L2_NORM=-2, //!< Use the \f$L_2\f$ norm for the specified array threshold.
-    L1_NORM=-1, //!< Use the \f$L_1\f$ norm for the specified array threshold.
+    L2_NORM=-2,        //!< Use the \f$L_2\f$ norm for the specified array threshold.
+    L1_NORM=-1         //!< Use the \f$L_1\f$ norm for the specified array threshold.
   };
   /// Operations that can be performed on sets to generate another set. Most of these operators take 2 or more input sets.
   enum SetOperation {
