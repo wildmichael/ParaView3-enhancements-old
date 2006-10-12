@@ -1,7 +1,7 @@
 /*=========================================================================
 
    Program: ParaView
-   Module:    $RCSfile: pqXMLEventObserver.cxx,v $
+   Module:    $RCSfile: pqTabBarEventTranslator.cxx,v $
 
    Copyright (c) 2005,2006 Sandia Corporation, Kitware Inc.
    All rights reserved.
@@ -30,47 +30,46 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
 
-#include "pqXMLEventObserver.h"
+#include "pqTabBarEventTranslator.h"
 
-#include <QTextStream>
+#include <QTabBar>
+#include <QEvent>
 
-/// Escapes strings so they can be embedded in an XML document
-static const QString textToXML(const QString& string)
+pqTabBarEventTranslator::pqTabBarEventTranslator() :
+  CurrentObject(0)
 {
-  QString result = string;
-  result.replace("&", "&amp;");
-  result.replace("<", "&lt;");
-  result.replace(">", "&gt;");
-  result.replace("'", "&apos;");
-  result.replace("\"", "&quot;");
-  
-  return result;
 }
 
-////////////////////////////////////////////////////////////////////////////////////
-// pqXMLEventObserver
-
-pqXMLEventObserver::pqXMLEventObserver(QTextStream& stream) :
-  Stream(stream)
+bool pqTabBarEventTranslator::translateEvent(QObject* Object, QEvent* Event, bool& /*Error*/)
 {
-  this->Stream << "<?xml version=\"1.0\" ?>\n";
-  this->Stream << "<pqevents>\n";
+  QTabBar* const object = qobject_cast<QTabBar*>(Object);
+  if(!object)
+    return false;
+    
+  switch(Event->type())
+    {
+    case QEvent::Enter:
+      if(this->CurrentObject != Object)
+        {
+        if(this->CurrentObject)
+          {
+          disconnect(this->CurrentObject, 0, this, 0);
+          }
+        
+        this->CurrentObject = object;
+        connect(object, SIGNAL(currentChanged(int)), this, SLOT(indexChanged(int)));
+        }
+      break;
+    default:
+      break;
+    }
+
+  return true;
 }
 
-pqXMLEventObserver::~pqXMLEventObserver()
+void pqTabBarEventTranslator::indexChanged(int which)
 {
-  this->Stream << "</pqevents>\n";
+  emit recordEvent(this->CurrentObject, "set_tab",
+                   QString("%1").arg(which));
 }
 
-void pqXMLEventObserver::onRecordEvent(
-  const QString& Widget,
-  const QString& Command,
-  const QString& Arguments)
-{
-  this->Stream
-    << "  <pqevent "
-    << "object=\"" << textToXML(Widget).toAscii().data() << "\" "
-    << "command=\"" << textToXML(Command).toAscii().data() << "\" "
-    << "arguments=\"" << textToXML(Arguments).toAscii().data() << "\" "
-    << "/>\n";
-}

@@ -1,7 +1,7 @@
 /*=========================================================================
 
    Program: ParaView
-   Module:    $RCSfile: pqXMLEventObserver.cxx,v $
+   Module:    $RCSfile: pqTabBarEventPlayer.h,v $
 
    Copyright (c) 2005,2006 Sandia Corporation, Kitware Inc.
    All rights reserved.
@@ -30,47 +30,29 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
 
-#include "pqXMLEventObserver.h"
+#ifndef _pqTabBarEventPlayer_h
+#define _pqTabBarEventPlayer_h
 
-#include <QTextStream>
+#include "pqWidgetEventPlayer.h"
 
-/// Escapes strings so they can be embedded in an XML document
-static const QString textToXML(const QString& string)
+/**
+Concrete implementation of pqWidgetEventPlayer that translates high-level ParaView events into low-level Qt events.
+
+\sa pqEventPlayer
+*/
+
+class pqTabBarEventPlayer :
+  public pqWidgetEventPlayer
 {
-  QString result = string;
-  result.replace("&", "&amp;");
-  result.replace("<", "&lt;");
-  result.replace(">", "&gt;");
-  result.replace("'", "&apos;");
-  result.replace("\"", "&quot;");
-  
-  return result;
-}
+public:
+  pqTabBarEventPlayer();
 
-////////////////////////////////////////////////////////////////////////////////////
-// pqXMLEventObserver
+  bool playEvent(QObject* Object, const QString& Command, const QString& Arguments, bool& Error);
 
-pqXMLEventObserver::pqXMLEventObserver(QTextStream& stream) :
-  Stream(stream)
-{
-  this->Stream << "<?xml version=\"1.0\" ?>\n";
-  this->Stream << "<pqevents>\n";
-}
+private:
+  pqTabBarEventPlayer(const pqTabBarEventPlayer&);
+  pqTabBarEventPlayer& operator=(const pqTabBarEventPlayer&);
+};
 
-pqXMLEventObserver::~pqXMLEventObserver()
-{
-  this->Stream << "</pqevents>\n";
-}
+#endif // !_pqTabBarEventPlayer_h
 
-void pqXMLEventObserver::onRecordEvent(
-  const QString& Widget,
-  const QString& Command,
-  const QString& Arguments)
-{
-  this->Stream
-    << "  <pqevent "
-    << "object=\"" << textToXML(Widget).toAscii().data() << "\" "
-    << "command=\"" << textToXML(Command).toAscii().data() << "\" "
-    << "arguments=\"" << textToXML(Arguments).toAscii().data() << "\" "
-    << "/>\n";
-}

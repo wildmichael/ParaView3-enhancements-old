@@ -34,7 +34,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define _pqXMLEventObserver_h
 
 #include <QObject>
-#include <vtkIOStream.h>
+class QTextStream;
 
 /**
 Observes high-level ParaView events, and serializes them to a stream as XML
@@ -54,7 +54,7 @@ class pqXMLEventObserver :
   Q_OBJECT
   
 public:
-  pqXMLEventObserver(ostream& Stream);
+  pqXMLEventObserver(QTextStream& Stream);
   ~pqXMLEventObserver();
 
 public slots:
@@ -65,7 +65,7 @@ public slots:
 
 private:
   /// Stores a stream that will be used to store the XML output
-  ostream& Stream;
+  QTextStream& Stream;
 };
 
 #endif // !_pqXMLEventObserver_h

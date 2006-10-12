@@ -1,7 +1,7 @@
 /*=========================================================================
 
    Program: ParaView
-   Module:    $RCSfile: pqXMLEventObserver.cxx,v $
+   Module:    $RCSfile: pqTabBarEventPlayer.cxx,v $
 
    Copyright (c) 2005,2006 Sandia Corporation, Kitware Inc.
    All rights reserved.
@@ -30,47 +30,47 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
 
-#include "pqXMLEventObserver.h"
+#include "pqTabBarEventPlayer.h"
 
-#include <QTextStream>
+#include <QComboBox>
+#include <QLineEdit>
+#include <QtDebug>
 
-/// Escapes strings so they can be embedded in an XML document
-static const QString textToXML(const QString& string)
+pqTabBarEventPlayer::pqTabBarEventPlayer()
 {
-  QString result = string;
-  result.replace("&", "&amp;");
-  result.replace("<", "&lt;");
-  result.replace(">", "&gt;");
-  result.replace("'", "&apos;");
-  result.replace("\"", "&quot;");
-  
-  return result;
 }
 
-////////////////////////////////////////////////////////////////////////////////////
-// pqXMLEventObserver
-
-pqXMLEventObserver::pqXMLEventObserver(QTextStream& stream) :
-  Stream(stream)
+bool pqTabBarEventPlayer::playEvent(QObject* Object, const QString& Command, const QString& Arguments, bool& Error)
 {
-  this->Stream << "<?xml version=\"1.0\" ?>\n";
-  this->Stream << "<pqevents>\n";
+  if(Command != "set_tab")
+    return false;
+
+  const QString value = Arguments;
+    
+  if(QTabBar* const object = qobject_cast<QTabBar*>(Object))
+    {
+    bool ok = false;
+    int which = value.toInt(&ok);
+    if(!ok)
+      {
+      qCritical() << "calling set_tab with invalid argument on " << Object;
+      Error = true;
+      }
+    else if(object->count() < which)
+      {
+      qCritical() << "calling set_tab with out of bounds index on " << Object;
+      Error = true;
+      }
+    else
+      {
+      object->setCurrentIndex(which);
+      }
+    return true;
+    }
+
+  qCritical() << "calling set_tab on unhandled type " << Object;
+
+  Error = true;
+  return true;
 }
 
-pqXMLEventObserver::~pqXMLEventObserver()
-{
-  this->Stream << "</pqevents>\n";
-}
-
-void pqXMLEventObserver::onRecordEvent(
-  const QString& Widget,
-  const QString& Command,
-  const QString& Arguments)
-{
-  this->Stream
-    << "  <pqevent "
-    << "object=\"" << textToXML(Widget).toAscii().data() << "\" "
-    << "command=\"" << textToXML(Command).toAscii().data() << "\" "
-    << "arguments=\"" << textToXML(Arguments).toAscii().data() << "\" "
-    << "/>\n";
-}

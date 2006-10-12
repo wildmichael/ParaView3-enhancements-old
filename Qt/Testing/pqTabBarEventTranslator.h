@@ -1,7 +1,7 @@
 /*=========================================================================
 
    Program: ParaView
-   Module:    $RCSfile: pqXMLEventObserver.cxx,v $
+   Module:    $RCSfile: pqTabBarEventTranslator.h,v $
 
    Copyright (c) 2005,2006 Sandia Corporation, Kitware Inc.
    All rights reserved.
@@ -30,47 +30,39 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
 
-#include "pqXMLEventObserver.h"
+#ifndef _pqTabBarEventTranslator_h
+#define _pqTabBarEventTranslator_h
 
-#include <QTextStream>
+#include "pqWidgetEventTranslator.h"
+#include <QPointer>
+class QTabBar;
 
-/// Escapes strings so they can be embedded in an XML document
-static const QString textToXML(const QString& string)
+/**
+Translates low-level Qt events into high-level ParaView events that can be recorded as test cases.
+
+\sa pqEventTranslator
+*/
+
+class pqTabBarEventTranslator :
+  public pqWidgetEventTranslator
 {
-  QString result = string;
-  result.replace("&", "&amp;");
-  result.replace("<", "&lt;");
-  result.replace(">", "&gt;");
-  result.replace("'", "&apos;");
-  result.replace("\"", "&quot;");
+  Q_OBJECT
   
-  return result;
-}
+public:
+  pqTabBarEventTranslator();
+  
+  virtual bool translateEvent(QObject* Object, QEvent* Event, bool& Error);
 
-////////////////////////////////////////////////////////////////////////////////////
-// pqXMLEventObserver
+protected slots:
+  void indexChanged(int);
 
-pqXMLEventObserver::pqXMLEventObserver(QTextStream& stream) :
-  Stream(stream)
-{
-  this->Stream << "<?xml version=\"1.0\" ?>\n";
-  this->Stream << "<pqevents>\n";
-}
+private:
+  pqTabBarEventTranslator(const pqTabBarEventTranslator&);
+  pqTabBarEventTranslator& operator=(const pqTabBarEventTranslator&);
 
-pqXMLEventObserver::~pqXMLEventObserver()
-{
-  this->Stream << "</pqevents>\n";
-}
+  QPointer<QTabBar> CurrentObject;
 
-void pqXMLEventObserver::onRecordEvent(
-  const QString& Widget,
-  const QString& Command,
-  const QString& Arguments)
-{
-  this->Stream
-    << "  <pqevent "
-    << "object=\"" << textToXML(Widget).toAscii().data() << "\" "
-    << "command=\"" << textToXML(Command).toAscii().data() << "\" "
-    << "arguments=\"" << textToXML(Arguments).toAscii().data() << "\" "
-    << "/>\n";
-}
+};
+
+#endif // !_pqTabBarEventTranslator_h
+
