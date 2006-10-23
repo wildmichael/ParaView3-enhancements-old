@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMultiThreshold.h,v $
   Language:  C++
-  Date:      $Date: 2006-10-23 18:25:12 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2006-10-23 20:00:54 $
+  Version:   $Revision: 1.6 $
 
   Copyright 2003 Sandia Corporation.
   Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -356,6 +356,7 @@ protected:
     virtual ~Interval() { }
     virtual void PrintNode( ostream& os );
     virtual Interval* GetIntervalPointer();
+    friend class vtkMultiThreshold::Set;
   };
 
   /// A subset of a mesh represented as a boolean set operation
@@ -374,6 +375,7 @@ protected:
     virtual ~BooleanSet() { }
     virtual void PrintNode( ostream& os );
     virtual BooleanSet* GetBooleanSetPointer();
+    friend class vtkMultiThreshold::Set;
   };
 
   /// A list of pointers to IntervalSets.
