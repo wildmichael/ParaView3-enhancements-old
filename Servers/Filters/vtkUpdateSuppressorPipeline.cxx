@@ -20,7 +20,7 @@
 
 #include "vtkProcessModule.h"
 
-vtkCxxRevisionMacro(vtkUpdateSuppressorPipeline, "$Revision: 1.7 $");
+vtkCxxRevisionMacro(vtkUpdateSuppressorPipeline, "$Revision: 1.8 $");
 vtkStandardNewMacro(vtkUpdateSuppressorPipeline);
 
 
@@ -53,7 +53,7 @@ int vtkUpdateSuppressorPipeline::ProcessRequest(vtkInformation* request,
     vtkInformation *info = outInfo->GetInformationObject(0);
     int numPieces = info->Get(
       vtkStreamingDemandDrivenPipeline::UPDATE_NUMBER_OF_PIECES());
-    if (numPieces == 1)
+    if (numPieces <= 1)
       {
       return 1;
       }
