@@ -209,13 +209,14 @@ static void printAttributeInfo(GLuint program, const char* vtkNotUsed(filename))
 
 //-----------------------------------------------------------------------------
 vtkStandardNewMacro(vtkGLSLShader);
-vtkCxxRevisionMacro(vtkGLSLShader, "$Revision: 1.10 $");
+vtkCxxRevisionMacro(vtkGLSLShader, "$Revision: 1.11 $");
 
 //-----------------------------------------------------------------------------
 vtkGLSLShader::vtkGLSLShader()
 {
   this->Shader = 0;
   this->Program = 0;
+  this->UseOpenGL2 = 0;
 }
 
 //-----------------------------------------------------------------------------
