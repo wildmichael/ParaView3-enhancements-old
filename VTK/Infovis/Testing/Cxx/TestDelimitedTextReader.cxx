@@ -1,7 +1,7 @@
 /*=========================================================================
 
   Program:   Visualization Toolkit
-  Module:    $RCSfile: DelimitedTextReader.cxx,v $
+  Module:    $RCSfile: TestDelimitedTextReader.cxx,v $
 
   Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -26,7 +26,7 @@
 #include <vtkIOStream.h>
 
 int
-DelimitedTextReader(int argc, char *argv[])
+TestDelimitedTextReader(int argc, char *argv[])
 {
   vtkIdType i, j;
   char *filename = vtkTestUtilities::ExpandDataFileName(argc, argv,
