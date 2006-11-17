@@ -40,7 +40,7 @@
 #include "vtkFocalPlanePointPlacer.h"
 #include "vtkBezierContourLineInterpolator.h"
 
-vtkCxxRevisionMacro(vtkOrientedGlyphContourRepresentation, "$Revision: 1.8 $");
+vtkCxxRevisionMacro(vtkOrientedGlyphContourRepresentation, "$Revision: 1.9 $");
 vtkStandardNewMacro(vtkOrientedGlyphContourRepresentation);
 
 //----------------------------------------------------------------------
@@ -492,8 +492,8 @@ void vtkOrientedGlyphContourRepresentation::BuildLines()
 }
 
 //----------------------------------------------------------------------
-const vtkPolyData * 
-vtkOrientedGlyphContourRepresentation::GetContourRepresentationAsPolyData() const
+vtkPolyData * 
+vtkOrientedGlyphContourRepresentation::GetContourRepresentationAsPolyData()
 {
   // Get the points in this contour as a vtkPolyData. 
   return this->Lines; 
