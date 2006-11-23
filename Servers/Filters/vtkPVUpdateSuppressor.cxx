@@ -28,7 +28,7 @@
 #include "vtkUnstructuredGrid.h"
 #include "vtkUpdateSuppressorPipeline.h"
 
-vtkCxxRevisionMacro(vtkPVUpdateSuppressor, "$Revision: 1.39 $");
+vtkCxxRevisionMacro(vtkPVUpdateSuppressor, "$Revision: 1.40 $");
 vtkStandardNewMacro(vtkPVUpdateSuppressor);
 
 //----------------------------------------------------------------------------
@@ -232,9 +232,9 @@ vtkExecutive* vtkPVUpdateSuppressor::CreateDefaultExecutive()
 
 
 //----------------------------------------------------------------------------
-int vtkPVUpdateSuppressor::RequestUpdateExtent(vtkInformation* request,
+int vtkPVUpdateSuppressor::RequestUpdateExtent(vtkInformation* vtkNotUsed(request),
                                   vtkInformationVector** inputVector,
-                                  vtkInformationVector* outputVector)
+                                  vtkInformationVector* vtkNotUsed(outputVector))
 {
   if (!this->Enabled)
     {
