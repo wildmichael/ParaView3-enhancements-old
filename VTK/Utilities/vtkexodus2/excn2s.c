@@ -57,7 +57,7 @@
 *
 * revision history - 
 *
-*  $Id: excn2s.c,v 1.7 2006-11-29 20:33:02 dcthomp Exp $
+*  $Id: excn2s.c,v 1.8 2006-11-29 21:32:36 dcthomp Exp $
 *
 *****************************************************************************/
 
@@ -354,7 +354,7 @@ int ex_cvt_nodes_to_sides(int exoid,
     elem_blk_parms[i].num_attr = num_attr;
 
     for (m=0; m < (int)strlen(elem_type); m++)
-      elem_blk_parms[i].elem_type[m] = 
+      elem_blk_parms[i].elem_type[m] = (char)
               toupper((int)elem_type[m]);
     elem_blk_parms[i].elem_type[m] = '\0';
 
