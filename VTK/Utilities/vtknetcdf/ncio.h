@@ -2,13 +2,17 @@
  *  Copyright 1996, University Corporation for Atmospheric Research
  *  See netcdf/COPYRIGHT file for copying and redistribution conditions.
  */
-/* $Id: ncio.h,v 1.2 2006-11-29 18:09:27 dcthomp Exp $ */
+/* $Id: ncio.h,v 1.3 2006-11-29 21:23:38 dcthomp Exp $ */
 
 #ifndef _NCIO_H_
 #define _NCIO_H_
 
+#include "ncconfig.h"
+
 #include <stddef.h> /* size_t */
-#include <sys/types.h>  /* off_t */
+#ifndef NO_SYS_TYPES_H
+#  include <sys/types.h>  /* off_t */
+#endif /* NO_SYS_TYPES_H */
 #include "netcdf.h"
 
 typedef struct ncio ncio; /* forward reference */

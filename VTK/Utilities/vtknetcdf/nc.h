@@ -2,7 +2,7 @@
  *  Copyright 1996, University Corporation for Atmospheric Research
  *      See netcdf/COPYRIGHT file for copying and redistribution conditions.
  */
-/* $Id: nc.h,v 1.5 2006-11-29 18:09:26 dcthomp Exp $ */
+/* $Id: nc.h,v 1.6 2006-11-29 21:23:37 dcthomp Exp $ */
 #ifndef _NC_H_
 #define _NC_H_
 
@@ -11,6 +11,10 @@
  */
 #include  "ncconfig.h"
 
+#ifndef NO_SYS_TYPES_H
+#  include  <sys/types.h> /* off_t */
+#endif
+
 /* If netcdf-4 is in use, rename all nc_ functions to nc3_ functions. */
 #ifdef USE_NETCDF4
 #include <netcdf3.h>
@@ -18,7 +22,6 @@
 #endif
 
 #include  <stddef.h>  /* size_t */
-#include  <sys/types.h> /* off_t */
 #include  "netcdf.h"
 #include  "ncio.h"  /* ncio */
 #include  "fbits.h"

@@ -2,7 +2,7 @@
  *  Copyright 1996, University Corporation for Atmospheric Research
  *  See netcdf/COPYRIGHT file for copying and redistribution conditions.
  */
-/* "$Id: ncx.h,v 1.5 2006-11-29 20:10:53 dcthomp Exp $" */
+/* "$Id: ncx.h,v 1.6 2006-11-29 21:23:38 dcthomp Exp $" */
 
 #ifndef _NCX_H_
 #define _NCX_H_
@@ -27,7 +27,9 @@
 #include "rnd.h"
 #include <stddef.h> /* size_t */
 #include <errno.h>
-#include <sys/types.h> /* off_t */
+#ifndef NO_SYS_TYPES_H
+#  include <sys/types.h>  /* off_t */
+#endif /* NO_SYS_TYPES_H */
 
 #ifdef _MSC_VER
 #  pragma warning ( disable : 4244 )
