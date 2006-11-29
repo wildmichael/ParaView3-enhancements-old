@@ -55,7 +55,7 @@
 *
 * revision history - 
 *
-*  $Id: exgvan.c,v 1.3 2006-11-29 18:09:13 dcthomp Exp $
+*  $Id: exgvan.c,v 1.4 2006-11-29 20:33:02 dcthomp Exp $
 *
 *****************************************************************************/
 
@@ -147,7 +147,7 @@ int ex_get_var_names (int   exoid,
    * See if reading into contiguous memory in which case we can load 
    * all values in one call.  If not, we must load each name individually.
    */
-  if (&var_names[num_vars-1][0] - &var_names[0][0] ==
+  if ((int)(&var_names[num_vars-1][0] - &var_names[0][0]) ==
       sizeof(char)*(MAX_STR_LENGTH+1)*(num_vars-1)) {
     status = nc_get_var_text(exoid, varid, &var_names[0][0]);
     if (status == -1) {

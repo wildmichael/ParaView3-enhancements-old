@@ -52,7 +52,7 @@
 *
 * revision history - 
 *
-*  $Id: exgsnl.c,v 1.4 2006-11-29 18:09:13 dcthomp Exp $
+*  $Id: exgsnl.c,v 1.5 2006-11-29 20:33:02 dcthomp Exp $
 *
 *****************************************************************************/
 
@@ -288,7 +288,7 @@ int ex_get_side_set_node_list_len(int exoid,
     elem_blk_parms[i].num_attr = num_attr;
     elem_blk_parms[i].elem_blk_id = elem_blk_ids[i];
 
-    for (m=0; m < strlen(elem_type); m++)
+    for (m=0; m < (int)strlen(elem_type); m++)
       elem_blk_parms[i].elem_type[m] = 
               toupper((int)elem_type[m]);
     elem_blk_parms[i].elem_type[m] = '\0';
