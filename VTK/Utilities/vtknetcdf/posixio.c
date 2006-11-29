@@ -2,7 +2,7 @@
  *  Copyright 1996, University Corporation for Atmospheric Research
  *  See netcdf/COPYRIGHT file for copying and redistribution conditions.
  */
-/* $Id: posixio.c,v 1.9 2006-11-29 18:09:27 dcthomp Exp $ */
+/* $Id: posixio.c,v 1.10 2006-11-29 20:10:53 dcthomp Exp $ */
 
 #include  "ncconfig.h"
 #if defined(__BORLANDC__)
@@ -146,7 +146,7 @@ environment_specified_size()
         size = 1 << size;
       }
       fprintf(stderr, "NETCDF: Block size set to %d via NC_BLOCKSIZE environment variable.\n",
-              size);
+              (int)size);
     }
   }
   return size;
@@ -208,6 +208,7 @@ blksize(int fd)
   /* else, silent in the face of error */
  }
 #endif
+  (void) fd;
   return (size_t) 2 * pagesize();
 }
 #define BLKSIZE_DEFINED

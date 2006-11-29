@@ -2,7 +2,7 @@
  *  Copyright 1996, University Corporation for Atmospheric Research
  *  See netcdf/COPYRIGHT file for copying and redistribution conditions.
  */
-/* "$Id: ncx.h,v 1.4 2006-11-29 18:09:27 dcthomp Exp $" */
+/* "$Id: ncx.h,v 1.5 2006-11-29 20:10:53 dcthomp Exp $" */
 
 #ifndef _NCX_H_
 #define _NCX_H_
@@ -42,9 +42,11 @@
 
 
 #if defined(DLL_NETCDF) /* define when library is a DLL */
-#include <io.h>
-#define lseek _lseeki64
-#define off_t __int64
+#  include <io.h>
+#  ifndef __BORLANDC__
+#    define lseek _lseeki64
+#    define off_t __int64
+#  endif /* __BORLANDC__ */
 #endif  /* defined(DLL_NETCDF) */
 
 /*

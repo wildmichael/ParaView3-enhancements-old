@@ -2,7 +2,7 @@
  *  Copyright 1996, University Corporation for Atmospheric Research
  *      See netcdf/COPYRIGHT file for copying and redistribution conditions.
  */
-/* $Id: v2i.c,v 1.2 2006-11-29 18:09:27 dcthomp Exp $ */
+/* $Id: v2i.c,v 1.3 2006-11-29 20:10:53 dcthomp Exp $ */
 
 #include <stdlib.h>
 #include "netcdf.h"
@@ -77,41 +77,41 @@ typedef signed char schar;
 static int
 numrecvars(int ncid, int *nrecvarsp, int *recvarids)
 {
-    int status;
-    int nvars = 0;
-    int ndims = 0;
-    int nrecvars = 0;
-    int varid;
-    int recdimid;
-    int dimids[MAX_NC_DIMS];
+  int status;
+  int nvars = 0;
+  int ndims = 0;
+  int nrecvars;
+  int varid;
+  int recdimid;
+  int dimids[MAX_NC_DIMS];
 
-    status = nc_inq_nvars(ncid, &nvars); 
-    if(status != NC_NOERR)
-  return status;
-
-    status = nc_inq_unlimdim(ncid, &recdimid); 
-    if(status != NC_NOERR)
-  return status;
-
-    if (recdimid == -1) {
-  *nrecvarsp = 0;
-  return NC_NOERR;
-    }
-    nrecvars = 0;
-    for (varid = 0; varid < nvars; varid++) {
-  status = nc_inq_varndims(ncid, varid, &ndims); 
+  status = nc_inq_nvars(ncid, &nvars); 
   if(status != NC_NOERR)
-      return status;
-  status = nc_inq_vardimid(ncid, varid, dimids); 
+    return status;
+
+  status = nc_inq_unlimdim(ncid, &recdimid); 
   if(status != NC_NOERR)
+    return status;
+
+  if (recdimid == -1) {
+    *nrecvarsp = 0;
+    return NC_NOERR;
+  }
+  nrecvars = 0;
+  for (varid = 0; varid < nvars; varid++) {
+    status = nc_inq_varndims(ncid, varid, &ndims); 
+    if(status != NC_NOERR)
       return status;
-  if (ndims > 0 && dimids[0] == recdimid) {
+    status = nc_inq_vardimid(ncid, varid, dimids); 
+    if(status != NC_NOERR)
+      return status;
+    if (ndims > 0 && dimids[0] == recdimid) {
       if (recvarids != NULL)
         recvarids[nrecvars] = varid;
       nrecvars++;
-  }
     }
-    *nrecvarsp = nrecvars;
+  }
+  *nrecvarsp = nrecvars;
     return NC_NOERR;
 }
 
