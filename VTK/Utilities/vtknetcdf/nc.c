@@ -2,7 +2,7 @@
  *  Copyright 1996, University Corporation for Atmospheric Research
  *      See netcdf/COPYRIGHT file for copying and redistribution conditions.
  */
-/* $Id: nc.c,v 1.6 2006-11-29 21:16:44 dcthomp Exp $ */
+/* $Id: nc.c,v 1.7 2006-11-29 21:40:21 dcthomp Exp $ */
 
 #include "nc.h"
 #include "rnd.h"
@@ -281,7 +281,7 @@ fprintf(stderr, "    VAR %d %s: %ld\n", ii, (*vpp)->name->cp, (long)index);
       ncp->begin_rec != (off_t)D_RNDUP(ncp->begin_rec, r_align) )
   {
     ncp->begin_rec = D_RNDUP(index, r_align);
-    if(ncp->begin_rec < index + v_minfree)
+    if ( ncp->begin_rec < (off_t)(index + v_minfree) )
     {
       ncp->begin_rec = D_RNDUP(index + (off_t)v_minfree, r_align);
     }
