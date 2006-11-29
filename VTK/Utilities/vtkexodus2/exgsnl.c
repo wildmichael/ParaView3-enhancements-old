@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 1994 Sandia Corporation. Under the terms of Contract
+ * Copyright (c) 2005 Sandia Corporation. Under the terms of Contract
  * DE-AC04-94AL85000 with Sandia Corporation, the U.S. Governement
  * retains certain rights in this software.
  * 
@@ -52,7 +52,7 @@
 *
 * revision history - 
 *
-*  $Id: exgsnl.c,v 1.3 2005-07-19 23:40:10 andy Exp $
+*  $Id: exgsnl.c,v 1.4 2006-11-29 18:09:13 dcthomp Exp $
 *
 *****************************************************************************/
 
@@ -288,9 +288,9 @@ int ex_get_side_set_node_list_len(int exoid,
     elem_blk_parms[i].num_attr = num_attr;
     elem_blk_parms[i].elem_blk_id = elem_blk_ids[i];
 
-    for (m=0; (size_t)m < strlen(elem_type); m++)
+    for (m=0; m < strlen(elem_type); m++)
       elem_blk_parms[i].elem_type[m] = 
-              (char)toupper((int)elem_type[m]);
+              toupper((int)elem_type[m]);
     elem_blk_parms[i].elem_type[m] = '\0';
 
     if (strncmp(elem_blk_parms[i].elem_type,"CIRCLE",3) == 0)

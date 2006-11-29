@@ -2,7 +2,7 @@
  *   Copyright 1995, University Corporation for Atmospheric Research
  *   See top level COPYRIGHT file for copying and redistribution conditions.
  */
-/* $Id: t_ncio.c,v 1.1 2005-07-15 21:56:39 andy Exp $ */
+/* $Id: t_ncio.c,v 1.2 2006-11-29 18:09:27 dcthomp Exp $ */
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -21,25 +21,25 @@ usage(const char *av0)
   (void)fprintf(stderr,
     "Usage: %s [options] fname\t\nOptions:\n", av0);
   (void)fprintf(stderr,
-    "\t-v    Verbose\n") ;
+    "\t-v   Verbose\n") ;
   (void)fprintf(stderr,
-    "\t-w    Open Read/Write, default is read only\n") ;
+    "\t-w   Open Read/Write, default is read only\n") ;
   (void)fprintf(stderr,
-    "\t-c    Create, clobber existing\n") ;
+    "\t-c   Create, clobber existing\n") ;
   (void)fprintf(stderr,
-    "\t-n    Create, error if it already exists\n") ;
+    "\t-n   Create, error if it already exists\n") ;
   (void)fprintf(stderr,
-    "\t-L    Use locking if available\n") ;
+    "\t-L   Use locking if available\n") ;
   (void)fprintf(stderr,
-    "\t-S    Share updates (turn off caching)\n") ;
+    "\t-S   Share updates (turn off caching)\n") ;
   (void)fprintf(stderr,
-    "\t-U    Delete (unlink) on close\n") ;
+    "\t-U   Delete (unlink) on close\n") ;
   (void)fprintf(stderr,
-    "\t-o igeto  Initial get offset\n") ;
+    "\t-o igeto Initial get offset\n") ;
   (void)fprintf(stderr,
     "\t-i igetsz  Initial get size\n") ;
   (void)fprintf(stderr,
-    "\t-I initialsz  Initial file size for create\n") ;
+    "\t-I initialsz Initial file size for create\n") ;
   (void)fprintf(stderr,
     "\t-s sizehint  Buffer size\n") ;
   exit(EXIT_FAILURE);

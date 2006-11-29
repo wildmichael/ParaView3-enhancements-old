@@ -2,7 +2,7 @@
  *  Copyright 1996, University Corporation for Atmospheric Research
  *      See netcdf/COPYRIGHT file for copying and redistribution conditions.
  */
-/* $Id: string.c,v 1.1 2005-07-15 21:56:39 andy Exp $ */
+/* $Id: string.c,v 1.2 2006-11-29 18:09:27 dcthomp Exp $ */
 
 #include "nc.h"
 #include <stdlib.h>
@@ -30,7 +30,10 @@ free_NC_string(NC_string *ncstrp)
 /*
  * Verify that a name string is valid
  * CDL syntax, eg, all the characters are
- * alphanumeric, '-', '_', or '.'.
+ * alphanumeric, '-', '_', '+', or '.'.
+ * Also permit ':', '@', '(', or ')' in names for chemists currently making 
+ * use of these characters, but don't document until ncgen and ncdump can 
+ * also handle these characters in names.
  */
 int
 NC_check_name(const char *name)
@@ -46,7 +49,8 @@ NC_check_name(const char *name)
     int ch = *cp;
     if(!isalnum(ch))
     {
-      if(ch != '_' && ch != '-' && ch != '.')
+        if(ch != '_' && ch != '-' && ch != '+' && ch != '.' && 
+           ch != ':' && ch != '@' && ch != '(' && ch != ')')
         return NC_EBADNAME;
     }
   }

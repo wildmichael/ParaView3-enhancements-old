@@ -1,5 +1,5 @@
 /*
- * $Id: ncio.c,v 1.1 2005-07-15 21:56:39 andy Exp $
+ * $Id: ncio.c,v 1.2 2006-11-29 18:09:27 dcthomp Exp $
  */
 
 #if defined(_CRAY)

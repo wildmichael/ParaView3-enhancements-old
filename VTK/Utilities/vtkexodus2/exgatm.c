@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 1994 Sandia Corporation. Under the terms of Contract
+ * Copyright (c) 2005 Sandia Corporation. Under the terms of Contract
  * DE-AC04-94AL85000 with Sandia Corporation, the U.S. Governement
  * retains certain rights in this software.
  * 
@@ -52,7 +52,7 @@
 *
 * revision history - 
 *
-*  $Id: exgatm.c,v 1.1 2005-07-17 15:43:59 andy Exp $
+*  $Id: exgatm.c,v 1.2 2006-11-29 18:09:13 dcthomp Exp $
 *
 *****************************************************************************/
 

@@ -2,7 +2,7 @@
  *   Copyright 1995, University Corporation for Atmospheric Research
  *   See top level COPYRIGHT file for copying and redistribution conditions.
  */
-/* $Id: fbits.h,v 1.1 2005-07-15 21:56:38 andy Exp $ */
+/* $Id: fbits.h,v 1.2 2006-11-29 18:09:26 dcthomp Exp $ */
 
 #ifndef _FBITS_H_
 #define _FBITS_H_

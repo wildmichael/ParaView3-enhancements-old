@@ -2,7 +2,7 @@
  *  Copyright 1996, University Corporation for Atmospheric Research
  *      See netcdf/COPYRIGHT file for copying and redistribution conditions.
  */
-/* $Id: dim.c,v 1.2 2005-07-19 12:31:30 andy Exp $ */
+/* $Id: dim.c,v 1.3 2006-11-29 18:09:26 dcthomp Exp $ */
 
 #include "nc.h"
 #include <stdlib.h>
@@ -99,7 +99,7 @@ find_NC_Udim(const NC_dimarray *ncap, NC_dim **dimpp)
   {
     /*EMPTY*/
   }
-  if((size_t)dimid >= ncap->nelems)
+  if(dimid >= ncap->nelems)
     return(-1); /* not found */
   /* else, normal return */
   if(dimpp != NULL)
@@ -321,9 +321,15 @@ nc_def_dim(int ncid, const char *name, size_t size, int *dimidp)
   if(status != NC_NOERR)
     return status;
 
-    /* cast needed for braindead systems with signed size_t */
-  if((unsigned long) size > X_INT_MAX) /* Backward compat */
-    return NC_EINVAL;
+  if ((ncp->flags & NC_64BIT_OFFSET) && sizeof(off_t) > 4) {
+      /* CDF2 format and LFS */
+      if(size > X_UINT_MAX - 3) /* "- 3" handles rounded-up size */
+    return NC_EDIMSIZE;
+  } else {
+      /* CDF1 format */
+      if(size > X_INT_MAX - 3)
+    return NC_EDIMSIZE;
+  }
 
   if(size == NC_UNLIMITED)
   {
@@ -403,7 +409,7 @@ nc_inq_dim(int ncid, int dimid, char *name, size_t *sizep)
   if(sizep != 0)
   {
     if(dimp->size == NC_UNLIMITED)
-      *sizep = ncp->numrecs;
+      *sizep = NC_get_numrecs(ncp);
     else
       *sizep = dimp->size;  
   }
@@ -455,9 +461,9 @@ nc_inq_dimlen(int ncid, int dimid, size_t *lenp)
   if(lenp != 0)
   {
     if(dimp->size == NC_UNLIMITED)
-      *lenp = ncp->numrecs;
+      *lenp = NC_get_numrecs(ncp);
     else
-      *lenp = dimp->size;  
+      *lenp = dimp->size; 
   }
   return NC_NOERR;
 }

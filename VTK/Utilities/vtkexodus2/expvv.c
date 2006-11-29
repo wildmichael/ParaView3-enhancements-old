@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 1994 Sandia Corporation. Under the terms of Contract
+ * Copyright (c) 2005 Sandia Corporation. Under the terms of Contract
  * DE-AC04-94AL85000 with Sandia Corporation, the U.S. Governement
  * retains certain rights in this software.
  * 
@@ -48,20 +48,25 @@
 *
 * revision history - 
 *
-*  $Id: expvv.c,v 1.1 2005-07-17 15:44:00 andy Exp $
+*  $Id: expvv.c,v 1.2 2006-11-29 18:09:13 dcthomp Exp $
 *
 *****************************************************************************/
 
 #include "exodusII.h"
 #include "exodusII_int.h"
 
-/*
+/*!
  * writes the values of a single variable at one time step in the
  * database; assume the first time index is 1. Access based on the
  * passed in 'varid'
+ *
+ * NOTE: If used for nodal variables, it must be an ex_large_model == 1 
+ *       \param     exoid           int     exodus file id
+ *       \param     time_step       int     whole time step number
+ *       \param     varid           int     id of variable on exodus database
+ *       \param     num_entity      int     number of entities for this variable
+ *       \param     var_vals        float*  array of nodal variable values
  */
-
-/* NOTE: If used for nodal variables, it must be an ex_large_model == 1 */
 
 int ex_put_varid_var(int   exoid,
                      int   time_step,
