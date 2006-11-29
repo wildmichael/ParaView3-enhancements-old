@@ -2,22 +2,23 @@
  *  Copyright 1996, University Corporation for Atmospheric Research
  *  See netcdf/COPYRIGHT file for copying and redistribution conditions.
  */
-/* $Id: posixio.c,v 1.11 2006-11-29 21:03:29 dcthomp Exp $ */
+/* $Id: posixio.c,v 1.12 2006-11-29 23:27:06 dcthomp Exp $ */
 
 #include  "ncconfig.h"
+#ifndef NO_SYS_TYPES_H
+#  include <sys/types.h>
+#endif /* NO_SYS_TYPES_H */
+
 #if defined(__BORLANDC__)
 #pragma warn -8004 /* "assigned a value that is never used" */
 #endif
 
-
-#include "ncconfig.h"
 #include <assert.h>
 #include <stdlib.h>
 #include <errno.h>
 #ifndef ENOERR
 #define ENOERR 0
 #endif
-#include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <string.h>
