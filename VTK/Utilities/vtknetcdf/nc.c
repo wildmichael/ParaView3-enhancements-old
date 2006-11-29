@@ -2,7 +2,7 @@
  *  Copyright 1996, University Corporation for Atmospheric Research
  *      See netcdf/COPYRIGHT file for copying and redistribution conditions.
  */
-/* $Id: nc.c,v 1.5 2006-11-29 20:10:53 dcthomp Exp $ */
+/* $Id: nc.c,v 1.6 2006-11-29 21:16:44 dcthomp Exp $ */
 
 #include "nc.h"
 #include "rnd.h"
@@ -242,12 +242,12 @@ NC_begins(NC *ncp,
 
   /* only (re)calculate begin_var if there is not sufficient space in header
      or start of non-record variables is not aligned as requested by valign */
-  if (ncp->begin_var < ncp->xsz + h_minfree ||
-      ncp->begin_var != D_RNDUP(ncp->begin_var, v_align) ) 
+  if ( ncp->begin_var < (off_t)(ncp->xsz + h_minfree) ||
+       ncp->begin_var != (off_t)D_RNDUP(ncp->begin_var, v_align) )
   {
     index = (off_t) ncp->xsz;
     ncp->begin_var = D_RNDUP(index, v_align);
-    if(ncp->begin_var < index + h_minfree)
+    if ( ncp->begin_var < (off_t)(index + h_minfree) )
     {
       ncp->begin_var = D_RNDUP(index + (off_t)h_minfree, v_align);
     }
@@ -278,7 +278,7 @@ fprintf(stderr, "    VAR %d %s: %ld\n", ii, (*vpp)->name->cp, (long)index);
      space at end of non-record variables or if start of record
      variables is not aligned as requested by r_align */
   if (ncp->begin_rec < (off_t)(index + v_minfree) ||
-      ncp->begin_rec != D_RNDUP(ncp->begin_rec, r_align) )
+      ncp->begin_rec != (off_t)D_RNDUP(ncp->begin_rec, r_align) )
   {
     ncp->begin_rec = D_RNDUP(index, r_align);
     if(ncp->begin_rec < index + v_minfree)
