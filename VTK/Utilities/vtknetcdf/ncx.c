@@ -21,7 +21,7 @@
  *  they handle IEEE subnormals properly, and their "n" versions
  *  operate speedily on arrays.
  */
-/* $Id: ncx.c,v 1.3 2006-11-29 18:09:27 dcthomp Exp $ */
+/* $Id: ncx.c,v 1.4 2006-11-30 17:57:35 dcthomp Exp $ */
 
 /*
  * An external data representation interface.
@@ -1713,7 +1713,10 @@ ncx_put_size_t(void **xpp, const size_t *ulp)
 {
   /* similar to put_ix_int() */
   uchar *cp = (uchar *) *xpp;
+#ifndef __BORLANDC__
+  /* For borland, the following *is* always true and will generate a warning. */
   assert(*ulp <= X_SIZE_MAX);
+#endif /* __BORLANDC__ */
 
   *cp++ = (uchar)((*ulp) >> 24);
   *cp++ = (uchar)(((*ulp) & 0x00ff0000) >> 16);
