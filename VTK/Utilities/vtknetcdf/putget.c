@@ -3,7 +3,7 @@
  *  Copyright 1996, University Corporation for Atmospheric Research
  *      See netcdf/COPYRIGHT file for copying and redistribution conditions.
  */
-/* $Id: putget.c,v 1.5 2006-11-29 20:10:53 dcthomp Exp $ */
+/* $Id: putget.c,v 1.6 2006-11-30 00:57:09 dcthomp Exp $ */
 
 #include "nc.h"
 #include <string.h>
@@ -6591,7 +6591,7 @@ nc_get_vara_double(int ncid, int varid,
 
 
 
-#if defined(__cplusplus)
+#if defined(__cplusplus) || defined(_MSC_VER)
 /* C++ consts default to internal linkage and must be initialized */
 const size_t coord_zero[NC_MAX_VAR_DIMS] = {0};
 #else
