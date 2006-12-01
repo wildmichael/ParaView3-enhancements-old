@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMeshQuality.h,v $
   Language:  C++
-  Date:      $Date: 2006-11-30 22:33:39 $ 
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2006-12-01 22:14:00 $ 
+  Version:   $Revision: 1.26 $
 
   Copyright 2003-2006 Sandia Corporation.
   Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -206,10 +206,6 @@ public:
     {
     this->SetQuadQualityMeasure( VTK_QUALITY_MAX_ASPECT_FROBENIUS );
     }
-  void SetQuadQualityMeasureToMinAngle()
-    {
-    this->SetQuadQualityMeasure( VTK_QUALITY_MIN_ANGLE );
-    }
   void SetQuadQualityMeasureToMaxEdgeRatios()
     {
     this->SetQuadQualityMeasure( VTK_QUALITY_MAX_EDGE_RATIOS );
@@ -234,12 +230,10 @@ public:
     {
     this->SetQuadQualityMeasure( VTK_QUALITY_STRETCH );
     }
-#if 0
   void SetQuadQualityMeasureToMinAngle()
     {
     this->SetQuadQualityMeasure( VTK_QUALITY_MIN_ANGLE );
     }
-#endif // 0
   void SetQuadQualityMeasureToMaxAngle()
     {
     this->SetQuadQualityMeasure( VTK_QUALITY_MAX_ANGLE );
