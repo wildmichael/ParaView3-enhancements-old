@@ -2,7 +2,7 @@
  *  Copyright 1996, University Corporation for Atmospheric Research
  *  See netcdf/COPYRIGHT file for copying and redistribution conditions.
  */
-/* $Id: posixio.c,v 1.14 2006-11-30 09:20:53 dcthomp Exp $ */
+/* $Id: posixio.c,v 1.15 2006-12-01 18:58:03 pppebay Exp $ */
 
 #include  "ncconfig.h"
 #ifndef NO_SYS_TYPES_H
@@ -232,7 +232,6 @@ static size_t blksize(int fd)
 static size_t
 blksize(int fd)
 {
-  size_t environment_specified_size();
   size_t size = environment_specified_size();
   if (size > 0)
     return size;
