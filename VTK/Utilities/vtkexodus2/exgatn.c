@@ -48,7 +48,7 @@
 * revision history - 
 *   20061003 - David Thompson - adapted from ex_get_elem_attr_names
 *
-*  $Id: exgatn.c,v 1.1 2006-11-29 18:09:13 dcthomp Exp $
+*  $Id: exgatn.c,v 1.2 2006-12-02 09:25:08 dcthomp Exp $
 *
 *****************************************************************************/
 
@@ -70,8 +70,8 @@ int ex_get_attr_names( int   exoid,
   int i, j;
   const char* tname;
   const char* vobjids;
-  const char* dnumobjatt;
-  const char* vattrbname;
+  const char* dnumobjatt = 0;
+  const char* vattrbname = 0;
 
   switch (obj_type) {
   case EX_EDGE_BLOCK:
