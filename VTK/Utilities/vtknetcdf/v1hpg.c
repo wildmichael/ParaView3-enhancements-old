@@ -2,7 +2,7 @@
  *  Copyright 1996, University Corporation for Atmospheric Research
  *      See netcdf/COPYRIGHT file for copying and redistribution conditions.
  */
-/* $Id: v1hpg.c,v 1.3 2006-11-29 20:10:53 dcthomp Exp $ */
+/* $Id: v1hpg.c,v 1.4 2006-12-03 19:35:58 dcthomp Exp $ */
 
 #include "nc.h"
 #include <stdlib.h>
@@ -1310,7 +1310,7 @@ nc_get_NC(NC *ncp)
       if(extent > 4096)
         extent = 4096;
       if( ((off_t)extent) > filesize )
-        extent = _RNDUP(filesize, X_ALIGN);
+        extent = (off_t) _RNDUP(filesize, X_ALIGN);
       }
     else if(extent > ncp->chunk)
       {
