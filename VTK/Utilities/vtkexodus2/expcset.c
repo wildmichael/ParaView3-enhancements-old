@@ -46,7 +46,7 @@
 *
 * revision history - 
 *
-*  $Id: expcset.c,v 1.1 2006-11-29 18:09:13 dcthomp Exp $
+*  $Id: expcset.c,v 1.2 2006-12-03 11:08:44 dcthomp Exp $
 *
 *****************************************************************************/
 
@@ -85,11 +85,11 @@ int ex_put_concat_sets (int   exoid,
   char* dimptr;
   char* idsptr;
   char* statptr;
-  char* numentryptr;
-  char* numdfptr;
-  char* factptr;
-  char* elemptr;
-  char* extraptr;
+  char* numentryptr = 0;
+  char* numdfptr = 0;
+  char* factptr = 0;
+  char* elemptr = 0;
+  char* extraptr = 0;
   struct list_item** ctr_list_ptr;
   int ex_inq_val;
   const int *extra_list;   

@@ -57,7 +57,7 @@
 *
 * revision history - 
 *
-*  $Id: exgsetp.c,v 1.1 2006-11-29 18:09:13 dcthomp Exp $
+*  $Id: exgsetp.c,v 1.2 2006-12-03 11:08:44 dcthomp Exp $
 *
 *****************************************************************************/
 
@@ -81,8 +81,8 @@ int ex_get_set_param (int  exoid,
    char* typeName;
    char* dimptr;
    char* idsptr;
-   char* numentryptr;
-   char* numdfptr;
+   char* numentryptr = 0;
+   char* numdfptr = 0;
 
    exerrval = 0; /* clear error code */
 

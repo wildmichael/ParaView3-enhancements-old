@@ -58,7 +58,7 @@
 * revision history - 
 *   20061001 - David Thompson - Generalized from ex_get_conn.
 *
-* $Id: exgconn.c,v 1.1 2006-11-29 18:09:13 dcthomp Exp $
+* $Id: exgconn.c,v 1.2 2006-12-03 11:08:44 dcthomp Exp $
 */
 #include <stdlib.h>
 #include "exodusII.h"
@@ -75,8 +75,8 @@ int ex_get_conn( int   exoid,
                  int*  edgeconn,
                  int*  faceconn )
 {
-   int numblkentriesdim, connid, econnid, fconnid, blk_id_ndx, iresult;
-   int numnodperentdim, numedgperentdim, numfacperentdim;
+   int numblkentriesdim, connid, econnid = -1, fconnid = -1, blk_id_ndx, iresult;
+   int numnodperentdim, numedgperentdim = -1, numfacperentdim = -1;
    int iexit = (EX_NOERR); /* exit status */
    long num_entries_this_blk, num_nodes_per_entry, num_edges_per_entry, num_faces_per_entry;
    long start[2], count[2]; 
@@ -85,13 +85,13 @@ int ex_get_conn( int   exoid,
 
    const char* tname;
    const char* vblkids;
-   const char* dnumblkent;
-   const char* dnumnodent;
-   const char* dnumedgent;
-   const char* dnumfacent;
-   const char* vnodeconn;
-   const char* vedgeconn;
-   const char* vfaceconn;
+   const char* dnumblkent = 0;
+   const char* dnumnodent = 0;
+   const char* dnumedgent = 0;
+   const char* dnumfacent = 0;
+   const char* vnodeconn = 0;
+   const char* vedgeconn = 0;
+   const char* vfaceconn = 0;
 
    /* Should we warn if edgeconn or faceconn are non-NULL?
     * No, fail silently so the same code can be used to read any type of block info.

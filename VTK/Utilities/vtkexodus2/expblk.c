@@ -53,7 +53,7 @@
 * revision history - 
 *   20061001 - David Thompson - Adapted from ex_put_elem_block
 *
-*  $Id: expblk.c,v 1.1 2006-11-29 18:09:13 dcthomp Exp $
+*  $Id: expblk.c,v 1.2 2006-12-03 11:08:44 dcthomp Exp $
 *
 *****************************************************************************/
 
@@ -79,7 +79,7 @@ int ex_put_block( int         exoid,
    long start[2], num_blk;
    nclong ldum;
    int cur_num_blk, numblkdim, numattrdim;
-   int nnodperentdim, nedgperentdim, nfacperentdim;
+   int nnodperentdim, nedgperentdim = -1, nfacperentdim = -1;
    int connid, econnid, fconnid;
    char *cdum;
    char errmsg[MAX_ERR_LENGTH];
@@ -87,16 +87,16 @@ int ex_put_block( int         exoid,
    const char* dnumblk;
    const char* vblkids;
    const char* vblksta;
-   const char* vnodcon;
-   const char* vedgcon;
-   const char* vfaccon;
-   const char* vattnam;
-   const char* vblkatt;
-   const char* dneblk;
-   const char* dnape;
-   const char* dnnpe;
-   const char* dnepe;
-   const char* dnfpe;
+   const char* vnodcon = 0;
+   const char* vedgcon = 0;
+   const char* vfaccon = 0;
+   const char* vattnam = 0;
+   const char* vblkatt = 0;
+   const char* dneblk = 0;
+   const char* dnape = 0;
+   const char* dnnpe = 0;
+   const char* dnepe = 0;
+   const char* dnfpe = 0;
    struct list_item** ctr_list;
 
    exerrval  = 0; /* clear error code */

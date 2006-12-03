@@ -47,7 +47,7 @@
 *
 * revision history - 
 *
-*  $Id: expatt.c,v 1.1 2006-11-29 18:09:13 dcthomp Exp $
+*  $Id: expatt.c,v 1.2 2006-12-03 11:08:44 dcthomp Exp $
 *
 *****************************************************************************/
 
@@ -63,7 +63,7 @@ int ex_put_attr (int   exoid,
                       int   blk_id,
                       const void *attrib)
 {
-  int numentriesbdim, numattrdim, attrid, blk_id_ndx;
+  int numentriesbdim = -1, numattrdim = -1, attrid = -1, blk_id_ndx;
   long num_entries_this_blk, num_attr, start[2], count[2];
   char errmsg[MAX_ERR_LENGTH];
   const char* tname;

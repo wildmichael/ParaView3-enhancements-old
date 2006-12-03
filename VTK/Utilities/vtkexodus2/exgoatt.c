@@ -48,7 +48,7 @@
 * revision history - 
 *   20061003 - David Thompson - adapted from ex_get_one_attr
 *
-*  $Id: exgoatt.c,v 1.1 2006-11-29 18:09:13 dcthomp Exp $
+*  $Id: exgoatt.c,v 1.2 2006-12-03 11:08:44 dcthomp Exp $
 *
 *****************************************************************************/
 
@@ -74,8 +74,8 @@ int ex_get_one_attr( int   exoid,
   const char* tname;
   const char* vobjids;
   const char* dnumobjent;
-  const char* dnumobjatt;
-  const char* vattrbname;
+  const char* dnumobjatt = 0;
+  const char* vattrbname = 0;
 
   switch (obj_type) {
   case EX_EDGE_BLOCK:
