@@ -31,6 +31,7 @@
 #include <stdio.h>
 #include <stdlib.h> /* for free() */
 #include <string.h> /* for memset() */
+#include <ctype.h> /* for toupper(), isgraph() */
 
 #ifdef EXODUSII_HAVE_MALLOC_H
 #  include <malloc.h>
@@ -795,7 +796,7 @@ void vtkExodusIIReaderPrivate::ArrayInfoType::Reset()
 }
 
 // ------------------------------------------------------- PRIVATE CLASS MEMBERS
-vtkCxxRevisionMacro(vtkExodusIIReaderPrivate,"$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkExodusIIReaderPrivate,"$Revision: 1.6 $");
 vtkStandardNewMacro(vtkExodusIIReaderPrivate);
 vtkCxxSetObjectMacro(vtkExodusIIReaderPrivate,CachedConnectivity,vtkUnstructuredGrid);
 
@@ -3838,11 +3839,11 @@ protected:
 };
 
 vtkStandardNewMacro(vtkExodusIIXMLParser);
-vtkCxxRevisionMacro(vtkExodusIIXMLParser,"$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkExodusIIXMLParser,"$Revision: 1.6 $");
 
 // -------------------------------------------------------- PUBLIC CLASS MEMBERS
 
-vtkCxxRevisionMacro(vtkExodusIIReader,"$Revision: 1.5 $");
+vtkCxxRevisionMacro(vtkExodusIIReader,"$Revision: 1.6 $");
 vtkStandardNewMacro(vtkExodusIIReader);
 vtkCxxSetObjectMacro(vtkExodusIIReader,Metadata,vtkExodusIIReaderPrivate);
 vtkCxxSetObjectMacro(vtkExodusIIReader,ExodusModel,vtkExodusModel);
