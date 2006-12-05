@@ -49,7 +49,7 @@
 * revision history - 
 *   20061003 - David Thompson - Adapted from ex_put_one_attr
 *
-*  $Id: expoatt.c,v 1.1 2006-11-29 18:09:13 dcthomp Exp $
+*  $Id: expoatt.c,v 1.2 2006-12-05 00:12:03 dcthomp Exp $
 *
 *****************************************************************************/
 
@@ -74,9 +74,9 @@ int ex_put_one_attr( int   exoid,
   char errmsg[MAX_ERR_LENGTH];
   const char* tname;
   const char* vobjids;
-  const char* dnumobjent;
-  const char* dnumobjatt;
-  const char* vattrbname;
+  const char* dnumobjent = 0;
+  const char* dnumobjatt = 0;
+  const char* vattrbname = 0;
 
   switch (obj_type) {
   case EX_EDGE_BLOCK:

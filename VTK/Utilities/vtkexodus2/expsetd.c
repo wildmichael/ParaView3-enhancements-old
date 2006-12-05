@@ -53,7 +53,7 @@
 *
 * revision history - 
 *
-*  $Id: expsetd.c,v 1.1 2006-11-29 18:09:13 dcthomp Exp $
+*  $Id: expsetd.c,v 1.2 2006-12-05 00:12:03 dcthomp Exp $
 *
 *****************************************************************************/
 
@@ -76,8 +76,8 @@ int ex_put_set_dist_fact (int   exoid,
    char* typeName;
    char* dimptr;
    char* idsptr;
-   char* numdfptr;
-   char* factptr;
+   char* numdfptr = 0;
+   char* factptr = 0;
 
    exerrval = 0; /* clear error code */
 

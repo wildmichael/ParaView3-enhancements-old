@@ -57,7 +57,7 @@
 *
 * revision history - 
 *
-*  $Id: expsetp.c,v 1.1 2006-11-29 18:09:13 dcthomp Exp $
+*  $Id: expsetp.c,v 1.2 2006-12-05 00:12:03 dcthomp Exp $
 *
 *****************************************************************************/
 
@@ -85,11 +85,11 @@ int ex_put_set_param (int exoid,
    char* dimptr;
    char* idsptr;
    char* statptr;
-   char* numentryptr;
-   char* numdfptr;
-   char* factptr;
-   char* entryptr;
-   char* extraptr;
+   char* numentryptr = 0;
+   char* numdfptr = 0;
+   char* factptr = 0;
+   char* entryptr = 0;
+   char* extraptr = 0;
    struct list_item** ctr_list_ptr;
 
    exerrval = 0; /* clear error code */

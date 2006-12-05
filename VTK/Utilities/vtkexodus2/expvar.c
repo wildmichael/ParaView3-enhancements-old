@@ -52,7 +52,7 @@
 *
 * revision history - 
 *
-*  $Id: expvar.c,v 1.1 2006-11-29 18:09:13 dcthomp Exp $
+*  $Id: expvar.c,v 1.2 2006-12-05 00:12:03 dcthomp Exp $
 *
 *****************************************************************************/
 
@@ -78,7 +78,7 @@ int ex_put_var (int   exoid,
   long num_obj, num_obj_var, start[2], count[2];
   nclong *obj_var_truth_tab;
   char errmsg[MAX_ERR_LENGTH];
-  const char* tname;
+  const char* tname = 0;
 
   exerrval = 0; /* clear error code */
 

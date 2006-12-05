@@ -48,7 +48,7 @@
 * revision history - 
 *   20061003 - David Thompson - adapted from ex_get_one_attr
 *
-*  $Id: exgoatt.c,v 1.2 2006-12-03 11:08:44 dcthomp Exp $
+*  $Id: exgoatt.c,v 1.3 2006-12-05 00:12:03 dcthomp Exp $
 *
 *****************************************************************************/
 
@@ -73,7 +73,7 @@ int ex_get_one_attr( int   exoid,
   char errmsg[MAX_ERR_LENGTH];
   const char* tname;
   const char* vobjids;
-  const char* dnumobjent;
+  const char* dnumobjent = 0;
   const char* dnumobjatt = 0;
   const char* vattrbname = 0;
 
