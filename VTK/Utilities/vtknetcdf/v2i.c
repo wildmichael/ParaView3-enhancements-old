@@ -2,10 +2,11 @@
  *  Copyright 1996, University Corporation for Atmospheric Research
  *      See netcdf/COPYRIGHT file for copying and redistribution conditions.
  */
-/* $Id: v2i.c,v 1.4 2006-11-29 20:44:20 dcthomp Exp $ */
+/* $Id: v2i.c,v 1.5 2006-12-06 16:36:51 dcthomp Exp $ */
 
 #include <stdlib.h>
 #include "netcdf.h"
+#include "nc.h"
 
 #ifndef NO_NETCDF_2
 
