@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfObject.h,v 1.1 2006-12-08 21:07:58 clarke Exp $  */
-/*  Date : $Date: 2006-12-08 21:07:58 $ */
-/*  Version : $Revision: 1.1 $ */
+/*  Id : $Id: XdmfObject.h,v 1.2 2006-12-11 21:48:56 clarke Exp $  */
+/*  Date : $Date: 2006-12-11 21:48:56 $ */
+/*  Version : $Revision: 1.2 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -68,6 +68,36 @@
 
 #ifndef __XdmfObject_h
 #define __XdmfObject_h
+
+
+# ifndef SWIG
+#if !defined( WIN32 ) || defined(__CYGWIN__)
+#define UNIX
+#endif /* WIN32 */
+
+# ifdef __hpux
+#  include <sys/param.h>
+# endif
+
+# ifdef UNIX
+#  include "sys/file.h"
+#  include "strings.h"
+#  define STRCASECMP strcasecmp
+#  define STRNCASECMP strncasecmp
+#  define STRCMP strcmp
+#  define STRNCMP strncmp
+# endif
+
+# if defined(WIN32) && !defined(__CYGWIN__)
+#  include "winsock.h"
+/* String comparison routine. */
+#  define STRCASECMP _stricmp
+#  define STRNCASECMP _strnicmp
+#  define STRCMP strcmp
+#  define STRNCMP strncmp
+# endif
+#endif /* SWIG */
+
 
 #ifdef __cplusplus
 /* Use ANSI C++ --------------------------------------------- */
