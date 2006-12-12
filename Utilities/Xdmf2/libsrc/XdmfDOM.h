@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDOM.h,v 1.3 2006-12-12 18:15:51 clarke Exp $  */
-/*  Date : $Date: 2006-12-12 18:15:51 $ */
-/*  Version : $Revision: 1.3 $ */
+/*  Id : $Id: XdmfDOM.h,v 1.4 2006-12-12 22:28:25 clarke Exp $  */
+/*  Date : $Date: 2006-12-12 22:28:25 $ */
+/*  Version : $Revision: 1.4 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -234,7 +234,7 @@ ostream         *Output;
 istream         *Input;
 XdmfPointer     Doc;
 XdmfXmlNode     Tree;
-XdmfString      LastDOMGet;
+XdmfPointer     StaticBuffer;
 XdmfInt32       ParserOptions;
 };
 
