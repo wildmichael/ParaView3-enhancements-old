@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDOM.h,v 1.4 2006-12-12 22:28:25 clarke Exp $  */
-/*  Date : $Date: 2006-12-12 22:28:25 $ */
-/*  Version : $Revision: 1.4 $ */
+/*  Id : $Id: XdmfDOM.h,v 1.5 2006-12-13 14:04:03 clarke Exp $  */
+/*  Date : $Date: 2006-12-13 14:04:03 $ */
+/*  Version : $Revision: 1.5 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -130,7 +130,7 @@ public :
   XdmfInt32 GenerateHead( void );
 //! Output a String to the XML document
   XdmfInt32 Puts( XdmfConstString String );
-//! Generate a Standard XDMF Tail i.e. </Xdmf>
+//! Generate a Standard XDMF Tail
   XdmfInt32 GenerateTail( void );
 
 //! Return the Low Level root of the tree
