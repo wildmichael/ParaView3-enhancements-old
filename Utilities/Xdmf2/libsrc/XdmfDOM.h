@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDOM.h,v 1.5 2006-12-13 14:04:03 clarke Exp $  */
-/*  Date : $Date: 2006-12-13 14:04:03 $ */
-/*  Version : $Revision: 1.5 $ */
+/*  Id : $Id: XdmfDOM.h,v 1.6 2006-12-14 18:33:25 clarke Exp $  */
+/*  Date : $Date: 2006-12-14 18:33:25 $ */
+/*  Version : $Revision: 1.6 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -27,10 +27,7 @@
 
 
 #include "XdmfObject.h"
-
-typedef XdmfPointer XdmfXmlNode;
-
-class XdmfParameter;
+#include "XdmfLightData.h"
 
 //! Class for XML Parsing using the Document Object Model
 /*!
@@ -88,7 +85,7 @@ XML =
 \endverbatim
 
 */
-class XDMF_EXPORT XdmfDOM : public XdmfObject {
+class XDMF_EXPORT XdmfDOM : public XdmfLightData {
 
 public :
 
@@ -104,7 +101,7 @@ public :
         XdmfInt32 SetOutputFileName( XdmfConstString Filename );
 
   //! Get the FileName of the XML Description
-         XdmfGetStringMacro( InputFileName );
+        XdmfConstString GetInputFileName() { return(this->GetFileName()); };
 
   //! Get the FileName of the XML Description
          XdmfGetStringMacro( OutputFileName );
@@ -193,11 +190,6 @@ tree starting at a particular node.
 //! Set the default NDGM Host to use for HDF5 files
   XdmfSetStringMacro( NdgmHost );
 
-//! Get the default Working directory to use for HDF5 files
-  XdmfGetStringMacro( WorkingDirectory );
-//! Set the default Working directory to use for HDF5 files
-  XdmfSetStringMacro( WorkingDirectory );
-
 //! Get the Value of an Attribute from an Element
 /*!
 Get the various attributes from a node. If the XML is :
@@ -227,14 +219,11 @@ Dom->Get(Node, "CData")  // will return "file.h5" ; the Character Data
 protected :
 
 XdmfString      NdgmHost;
-XdmfString      WorkingDirectory;
-XdmfString      InputFileName;
 XdmfString      OutputFileName;
 ostream         *Output;
 istream         *Input;
 XdmfPointer     Doc;
 XdmfXmlNode     Tree;
-XdmfPointer     StaticBuffer;
 XdmfInt32       ParserOptions;
 };
 
