@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfElement.h,v 1.2 2006-12-14 19:10:59 clarke Exp $  */
-/*  Date : $Date: 2006-12-14 19:10:59 $ */
-/*  Version : $Revision: 1.2 $ */
+/*  Id : $Id: XdmfElement.h,v 1.3 2006-12-14 22:15:14 clarke Exp $  */
+/*  Date : $Date: 2006-12-14 22:15:14 $ */
+/*  Version : $Revision: 1.3 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -25,6 +25,7 @@
 #ifndef __XdmfElement_h
 #define __XdmfElement_h
 
+class XdmfDOM;
 #include "XdmfDOM.h"
 
 /*!
@@ -68,16 +69,19 @@ public:
     //! Get the Element type : Grid, Topology, etc.
     XdmfConstString GetElementType();
 
-    //! Initialize basic structure from XML
+    //! Initialize basic structure from XML (INPUT)
     XdmfInt32 UpdateInformation();
 
-    //! Initialize all information. Possibly acessing Heavy Data.
+    //! Initialize all information. Possibly acessing Heavy Data. (INPUT)
     XdmfInt32 Update();
 
-    //! Set the Value of an Attribute
+    //! Update the DOM from the Basic Structure
+    XdmfInt32 UpdateDOM();
+
+    //! Set the Value of an Attribute (OUTPUT)
     XdmfInt32 Set(XdmfConstString Name, XdmfConstString Value);
 
-    //! Get the Value of An Attribute
+    //! Get the Value of An Attribute (INPUT)
     XdmfConstString Get(XdmfConstString Name);
 
 protected:

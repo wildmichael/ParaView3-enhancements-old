@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDOM.h,v 1.6 2006-12-14 18:33:25 clarke Exp $  */
-/*  Date : $Date: 2006-12-14 18:33:25 $ */
-/*  Version : $Revision: 1.6 $ */
+/*  Id : $Id: XdmfDOM.h,v 1.7 2006-12-14 22:15:14 clarke Exp $  */
+/*  Date : $Date: 2006-12-14 22:15:14 $ */
+/*  Version : $Revision: 1.7 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -155,6 +155,10 @@ public :
   XdmfInt32  IsChild( XdmfXmlNode ChildToCheck, XdmfXmlNode Node = NULL );
   //! Convert DOM to XML String
   XdmfConstString Serialize(XdmfXmlNode node = NULL);
+  /*! Dump the XML contents 
+    \param Output FileName of Output. Default is to use current OutputFileName
+  */
+  XdmfInt32 Write(XdmfConstString Output = NULL);
   //! Insert a node into a DOM
   XdmfInt32 Insert(XdmfXmlNode parent, XdmfXmlNode node);
   //! Create a node from an XML string and insert it in the DOM

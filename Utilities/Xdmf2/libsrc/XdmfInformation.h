@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfInformation.h,v 1.2 2006-12-14 19:10:59 clarke Exp $  */
-/*  Date : $Date: 2006-12-14 19:10:59 $ */
-/*  Version : $Revision: 1.2 $ */
+/*  Id : $Id: XdmfInformation.h,v 1.3 2006-12-14 22:15:14 clarke Exp $  */
+/*  Date : $Date: 2006-12-14 22:15:14 $ */
+/*  Version : $Revision: 1.3 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -27,8 +27,8 @@
 
 #include "XdmfElement.h"
 
-typedef XdmfPointer XdmfXmlNode;
 
+typedef XdmfPointer XdmfXmlNode;
 /*! XdmfInformation represents a free form element in XML.
 It's used to represent Name = Value pairs. Applications that understand
 the Name can use the Value. Those that don't can ignore the element.
@@ -49,21 +49,23 @@ public:
 
   XdmfConstString GetClassName() { return ( "XdmfInformation" ) ; };
 
-//! Set the current name
-    XdmfInt32 SetName(XdmfConstString Value);
-//! Get the current name
-    XdmfGetValueMacro(Name, XdmfConstString);
-
 //! Update From XML
     XdmfInt32 UpdateInformation();
 
-/*! Get the Value, either the "Value" Attribute or the CDATA if there is no
-    "Value" Attribute.
+/*! Set the internal value. This is not reflected in the DOM
+    Until UpdateDOM() is called.
 */
-    XdmfConstString GetValue();
+    XdmfSetStringMacro(Value);
 
+//! Update the DOM
+    XdmfInt32 UpdateDOM();
+
+/*! Get the internal Value.
+*/
+    XdmfGetStringMacro(Value);
 
 protected:
+    XdmfString  Value;
 };
 
 #endif // __XdmfInformation_h
