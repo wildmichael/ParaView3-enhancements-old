@@ -36,7 +36,7 @@
 #include "vtkUnsignedLongArray.h"
 #include "vtkUnsignedShortArray.h"
 
-vtkCxxRevisionMacro(vtkDataWriter, "$Revision: 1.112 $");
+vtkCxxRevisionMacro(vtkDataWriter, "$Revision: 1.113 $");
 vtkStandardNewMacro(vtkDataWriter);
 
 // this undef is required on the hp. vtkMutexLock ends up including
@@ -628,7 +628,7 @@ int vtkDataWriter::WriteArray(ostream *fp, int dataType, vtkAbstractArray *data,
       }
     break;
 
-    case VTK_STRING_TYPE:
+    case VTK_STRING:
       {
       }
     break;
