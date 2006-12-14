@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfElement.cxx,v 1.1 2006-12-14 18:33:25 clarke Exp $  */
-/*  Date : $Date: 2006-12-14 18:33:25 $ */
-/*  Version : $Revision: 1.1 $ */
+/*  Id : $Id: XdmfElement.cxx,v 1.2 2006-12-14 19:10:59 clarke Exp $  */
+/*  Date : $Date: 2006-12-14 19:10:59 $ */
+/*  Version : $Revision: 1.2 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -55,6 +55,21 @@ XdmfInt32 XdmfElement::Update(){
         return(XDMF_FAIL);
     }
     return(XDMF_SUCCESS);
+}
+
+XdmfConstString XdmfElement::GetElementType(){
+    if(!this->DOM) {
+        XdmfErrorMessage("No DOM has been set");
+        return(NULL);
+    }
+    if(!this->Element){
+        XdmfErrorMessage("No XML Node has been set");
+        return(NULL);
+    }
+    xmlNode *node;
+    node = (xmlNode *)this->Element;
+    if(!node) return(NULL);
+    return((XdmfConstString)node->name);
 }
 
 XdmfInt32 XdmfElement::Set(XdmfConstString Name, XdmfConstString Value){

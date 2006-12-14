@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfElement.h,v 1.1 2006-12-14 18:33:25 clarke Exp $  */
-/*  Date : $Date: 2006-12-14 18:33:25 $ */
-/*  Version : $Revision: 1.1 $ */
+/*  Id : $Id: XdmfElement.h,v 1.2 2006-12-14 19:10:59 clarke Exp $  */
+/*  Date : $Date: 2006-12-14 19:10:59 $ */
+/*  Version : $Revision: 1.2 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -64,6 +64,9 @@ public:
     /*! Get the XML Node
     */
     XdmfGetValueMacro(Element, XdmfXmlNode);
+
+    //! Get the Element type : Grid, Topology, etc.
+    XdmfConstString GetElementType();
 
     //! Initialize basic structure from XML
     XdmfInt32 UpdateInformation();

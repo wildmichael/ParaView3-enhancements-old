@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfInformation.cxx,v 1.1 2006-12-14 18:33:25 clarke Exp $  */
-/*  Date : $Date: 2006-12-14 18:33:25 $ */
-/*  Version : $Revision: 1.1 $ */
+/*  Id : $Id: XdmfInformation.cxx,v 1.2 2006-12-14 19:10:59 clarke Exp $  */
+/*  Date : $Date: 2006-12-14 19:10:59 $ */
+/*  Version : $Revision: 1.2 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -34,7 +34,6 @@ XdmfInt32 XdmfInformation::UpdateInformation(){
     const char *n;
     XdmfElement::UpdateInformation();
     n = this->Get("Name");
-    cout << "Name = " << n << endl;
     this->SetName(n);
 }
 
@@ -44,4 +43,9 @@ XdmfConstString XdmfInformation::GetValue() {
     Value = this->Get("Value");
     if(!Value) Value = this->Get("CDATA");
     return(Value);
+}
+
+XdmfInt32 XdmfInformation::SetName(XdmfConstString Value){
+    XdmfElement::SetName(Value);
+    return(this->Set("Name", Value));
 }
