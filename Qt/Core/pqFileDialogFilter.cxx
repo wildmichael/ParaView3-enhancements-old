@@ -1,7 +1,7 @@
 /*=========================================================================
 
    Program: ParaView
-   Module:    $RCSfile: pqServerFileDialogModel.h,v $
+   Module:    $RCSfile: pqFileDialogFilter.cxx,v $
 
    Copyright (c) 2005,2006 Sandia Corporation, Kitware Inc.
    All rights reserved.
@@ -29,52 +29,51 @@ NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
+  
 
-#ifndef _pqServerFileDialogModel_h
-#define _pqServerFileDialogModel_h
+#include "pqFileDialogFilter.h"
 
-#include "pqComponentsExport.h"
+#include <QIcon>
+#include <QFileIconProvider>
+
 #include "pqFileDialogModel.h"
 
-class vtkProcessModule;
-class pqServer;
-
-/**
-Implementation of pqFileDialogModel that allows remote browsing of a connected ParaView server's filesystem.
-
-To use, pass a new instance of pqServerFileDialogModel to pqFileDialog object.
-
-\sa pqFileDialogModel, pqLocalFileDialogModel, pqFileDialog
-*/
-class PQCOMPONENTS_EXPORT pqServerFileDialogModel :
-  public pqFileDialogModel
+pqFileDialogFilter::pqFileDialogFilter(pqFileDialogModel* model, QObject* Parent)
+  : QSortFilterProxyModel(Parent), Model(model)
 {
-  typedef pqFileDialogModel base;
-  
-  Q_OBJECT
+  this->setSourceModel(model);
+}
 
-public:
-  /// server is the server for which we need the listing.
-  pqServerFileDialogModel(QObject* Parent, pqServer* server);
-  ~pqServerFileDialogModel();
+pqFileDialogFilter::~pqFileDialogFilter()
+{
+}
 
-  QString getStartPath();
-  void setCurrentPath(const QString&);
-  void setParentPath();
-  QString getCurrentPath();
-  bool isDir(const QModelIndex&);
-  QStringList getFilePaths(const QModelIndex&);
-  QString getFilePath(const QString&);
-  QStringList getParentPaths(const QString&);
-  bool fileExists(const QString&);
-  bool dirExists(const QString&);
-  QAbstractItemModel* fileModel();
-  QAbstractItemModel* favoriteModel();
-  
-private:
-  class pqImplementation;
-  pqImplementation* const Implementation;
-};
+void pqFileDialogFilter::setFilter(const QStringList& wildcards)
+{
+  Wildcards.clear();
+  foreach(QString p, wildcards)
+    {
+    Wildcards.append(QRegExp(p, Qt::CaseInsensitive, QRegExp::Wildcard));
+    }
+}
 
-#endif // !_pqServerFileDialogModel_h
+bool pqFileDialogFilter::filterAcceptsRow(int row_source, const QModelIndex& source_parent) const
+{
+  QModelIndex idx = this->Model->index(row_source, 0, source_parent);
+  if(this->Model->isDir(idx))
+    {
+    return true;
+    }
+
+  QString str = this->sourceModel()->data(idx).toString();
+
+  bool pass = false;
+  int i=0, end=this->Wildcards.size();
+  for(; i<end && pass == false; i++)
+    {
+    pass = this->Wildcards[i].exactMatch(str);
+    }
+  return pass;
+}
+
 
