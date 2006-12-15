@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDOM.cxx,v 1.8 2006-12-15 13:15:17 clarke Exp $  */
-/*  Date : $Date: 2006-12-15 13:15:17 $ */
-/*  Version : $Revision: 1.8 $ */
+/*  Id : $Id: XdmfDOM.cxx,v 1.9 2006-12-15 21:55:21 clarke Exp $  */
+/*  Date : $Date: 2006-12-15 21:55:21 $ */
+/*  Version : $Revision: 1.9 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -262,7 +262,7 @@ if(inxml) {
 }else{
     Doc = xmlReadFile(this->GetInputFileName(), NULL, parserOptions);
 }
-if(this->Doc){
+if(Doc){
     if(parserOptions & XML_PARSE_XINCLUDE){
         if (xmlXIncludeProcess(Doc) < 0) {
             xmlFreeDoc(Doc);
@@ -355,6 +355,10 @@ XdmfXmlNode
 XdmfDOM::GetChild( XdmfInt64 Index, XdmfXmlNode Node ){
 XdmfXmlNode child;
 
+if(!Node){
+    Node = this->Tree;
+}
+if(!Node) return(0);
 child = Node->children;
 while(child && Index){
     child = XdmfGetNextElement(child);
@@ -524,18 +528,23 @@ XdmfDOM::Set( XdmfXmlNode Node, XdmfConstString Attribute, XdmfConstString Value
 
 if(!Node) return;
 if( STRNCASECMP( Attribute, "CDATA", 5 ) == 0 ){
-    XdmfXmlNode  next, text;
+    XdmfXmlNode  child, next, text;
 
+    cout << "Setting CDATA to " << Value << endl;
     // Delete Existing CData
-    while(Node){
-        next = Node->next;
-        if ((Node->type == XML_TEXT_NODE) ||
-            (Node->type == XML_CDATA_SECTION_NODE)) {
-            xmlUnlinkNode(Node);
-            xmlFreeNode(Node);
+    child = Node->children;
+    while(child){
+        cout << "Checking Node of type " << Node->type << endl;
+        next = child->next;
+        if ((child->type == XML_TEXT_NODE) ||
+            (child->type == XML_CDATA_SECTION_NODE)) {
+            cout << "Deleting Node" << endl;
+            xmlUnlinkNode(child);
+            xmlFreeNode(child);
         }
-       Node = next;
+       child = next;
     }
+    cout << "Adding Node" << endl;
     text = xmlNewDocText(this->Doc, (const xmlChar *)Value);
     xmlAddChildList(Node, text);
 }else{

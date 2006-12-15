@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfObject.h,v 1.2 2006-12-11 21:48:56 clarke Exp $  */
-/*  Date : $Date: 2006-12-11 21:48:56 $ */
-/*  Version : $Revision: 1.2 $ */
+/*  Id : $Id: XdmfObject.h,v 1.3 2006-12-15 21:55:21 clarke Exp $  */
+/*  Date : $Date: 2006-12-15 21:55:21 $ */
+/*  Version : $Revision: 1.3 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -471,6 +471,9 @@ public:
 
   void SetGlobalDebugOn() { XdmfObject::SetGlobalDebug( 1 ) ; };
   void SetGlobalDebugOff() { XdmfObject::SetGlobalDebug( 0 ) ; };
+
+  XdmfConstString GetUniqueName(XdmfConstString NameBase=NULL);
+
 
 
 protected:

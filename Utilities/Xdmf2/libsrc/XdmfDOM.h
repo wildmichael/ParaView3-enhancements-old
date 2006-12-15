@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDOM.h,v 1.8 2006-12-15 13:15:17 clarke Exp $  */
-/*  Date : $Date: 2006-12-15 13:15:17 $ */
-/*  Version : $Revision: 1.8 $ */
+/*  Id : $Id: XdmfDOM.h,v 1.9 2006-12-15 21:55:21 clarke Exp $  */
+/*  Date : $Date: 2006-12-15 21:55:21 $ */
+/*  Version : $Revision: 1.9 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -26,7 +26,6 @@
 #define __XdmfDOM_h
 
 
-#include "XdmfObject.h"
 #include "XdmfLightData.h"
 
 //! Class for XML Parsing using the Document Object Model

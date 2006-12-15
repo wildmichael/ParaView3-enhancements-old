@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfObject.cxx,v 1.1 2006-12-08 21:07:58 clarke Exp $  */
-/*  Date : $Date: 2006-12-08 21:07:58 $ */
-/*  Version : $Revision: 1.1 $ */
+/*  Id : $Id: XdmfObject.cxx,v 1.2 2006-12-15 21:55:21 clarke Exp $  */
+/*  Date : $Date: 2006-12-15 21:55:21 $ */
+/*  Version : $Revision: 1.2 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -55,6 +55,11 @@ XdmfObject::GetGlobalDebug(){
 void
 XdmfObject::SetGlobalDebug( XdmfInt32 Value ){
   GlobalDebugFlag = Value;
+}
+
+XdmfConstString
+XdmfObject::GetUniqueName(XdmfConstString NameBase){
+    return(GetUnique(NameBase));
 }
 
 XdmfInt32
