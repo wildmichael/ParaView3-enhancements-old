@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfInformation.h,v 1.3 2006-12-14 22:15:14 clarke Exp $  */
-/*  Date : $Date: 2006-12-14 22:15:14 $ */
-/*  Version : $Revision: 1.3 $ */
+/*  Id : $Id: XdmfInformation.h,v 1.4 2006-12-15 13:15:17 clarke Exp $  */
+/*  Date : $Date: 2006-12-15 13:15:17 $ */
+/*  Version : $Revision: 1.4 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -28,7 +28,6 @@
 #include "XdmfElement.h"
 
 
-typedef XdmfPointer XdmfXmlNode;
 /*! XdmfInformation represents a free form element in XML.
 It's used to represent Name = Value pairs. Applications that understand
 the Name can use the Value. Those that don't can ignore the element.

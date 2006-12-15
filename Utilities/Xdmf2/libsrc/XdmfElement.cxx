@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfElement.cxx,v 1.3 2006-12-14 22:15:14 clarke Exp $  */
-/*  Date : $Date: 2006-12-14 22:15:14 $ */
-/*  Version : $Revision: 1.3 $ */
+/*  Id : $Id: XdmfElement.cxx,v 1.4 2006-12-15 13:15:17 clarke Exp $  */
+/*  Date : $Date: 2006-12-15 13:15:17 $ */
+/*  Version : $Revision: 1.4 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -23,6 +23,7 @@
 /*                                                                 */
 /*******************************************************************/
 #include "XdmfElement.h"
+#include "XdmfDOM.h"
 #include <libxml/tree.h>
 
 XdmfElement::XdmfElement() {
@@ -66,10 +67,8 @@ XdmfConstString XdmfElement::GetElementType(){
         XdmfErrorMessage("No XML Node has been set");
         return(NULL);
     }
-    xmlNode *node;
-    node = (xmlNode *)this->Element;
-    if(!node) return(NULL);
-    return((XdmfConstString)node->name);
+    if(!this->Element) return(NULL);
+    return((XdmfConstString)this->Element->name);
 }
 
 XdmfInt32 XdmfElement::UpdateDOM(){

@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDOM.h,v 1.7 2006-12-14 22:15:14 clarke Exp $  */
-/*  Date : $Date: 2006-12-14 22:15:14 $ */
-/*  Version : $Revision: 1.7 $ */
+/*  Id : $Id: XdmfDOM.h,v 1.8 2006-12-15 13:15:17 clarke Exp $  */
+/*  Date : $Date: 2006-12-15 13:15:17 $ */
+/*  Version : $Revision: 1.8 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -134,7 +134,7 @@ public :
   XdmfXmlNode GetTree( void ) {return(this->Tree);} ;
 
   //! Parse XML without re-initializing entire DOM
-  XdmfXmlNode __Parse( XdmfConstString xml );
+  XdmfXmlNode __Parse(XdmfConstString xml, XdmfXmlDoc *Doc=NULL);
 
   //! Re-Initialize and Parse 
   XdmfInt32 Parse(XdmfConstString xml = NULL );
@@ -226,7 +226,7 @@ XdmfString      NdgmHost;
 XdmfString      OutputFileName;
 ostream         *Output;
 istream         *Input;
-XdmfPointer     Doc;
+XdmfXmlDoc      Doc;
 XdmfXmlNode     Tree;
 XdmfInt32       ParserOptions;
 };
