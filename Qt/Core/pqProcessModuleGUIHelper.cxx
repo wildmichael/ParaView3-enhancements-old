@@ -113,7 +113,7 @@ public:
 ////////////////////////////////////////////////////////////////////////////
 // pqProcessModuleGUIHelper
 
-vtkCxxRevisionMacro(pqProcessModuleGUIHelper, "$Revision: 1.6 $");
+vtkCxxRevisionMacro(pqProcessModuleGUIHelper, "$Revision: 1.7 $");
 //-----------------------------------------------------------------------------
 pqProcessModuleGUIHelper::pqProcessModuleGUIHelper() :
   Implementation(new pqImplementation())
@@ -128,8 +128,7 @@ pqProcessModuleGUIHelper::~pqProcessModuleGUIHelper()
 
 void pqProcessModuleGUIHelper::disableOutputWindow()
 {
-  this->Implementation->OutputWindowAdapter = vtkSmartPointer<pqOutputWindowAdapter>::New();
-  vtkOutputWindow::SetInstance(this->Implementation->OutputWindowAdapter);
+  this->Implementation->OutputWindowAdapter->setActive(false);
 }
 
 //-----------------------------------------------------------------------------
