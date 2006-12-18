@@ -1,7 +1,7 @@
 /*=========================================================================
 
    Program: ParaView
-   Module:    $RCSfile: pqDisplayManager.h,v $
+   Module:    $RCSfile: pqTextDisplayPropertiesWidget.h,v $
 
    Copyright (c) 2005,2006 Sandia Corporation, Kitware Inc.
    All rights reserved.
@@ -29,36 +29,45 @@ NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-#ifndef _pqDisplayManager_h
-#define _pqDisplayManager_h
+#ifndef __pqTextDisplayPropertiesWidget_h
+#define __pqTextDisplayPropertiesWidget_h
 
-#include <QObject>
-#include "pqWidgetsExport.h"
-class pqPipelineSource;
-class pqRenderViewModule;
+#include <QWidget>
+#include "pqComponentsExport.h"
 
-/// Object which provides help for managing display proxies
-class PQWIDGETS_EXPORT pqDisplayManager : public QObject
+// This is a display editor widget for Text displays. 
+class pqDisplay;
+
+class PQCOMPONENTS_EXPORT pqTextDisplayPropertiesWidget : public QWidget
 {
   Q_OBJECT
 public:
-  /// constructor
-  pqDisplayManager(QObject* p);
-  /// destructor
-  ~pqDisplayManager();
+  pqTextDisplayPropertiesWidget(QWidget* parent=0);
+  virtual ~pqTextDisplayPropertiesWidget();
+
+  // Get the display whose properties this editor is editing.
+  pqDisplay* getDisplay() const;
 
 public slots:
+  /// Set the display whose properties this editor will edit.
+  void setDisplay(pqDisplay* display);
 
-  void addDisplayForSource(pqPipelineSource*, pqRenderViewModule*);
+  void reloadGUI() {};
 
-  void addDeferredDisplayForSource(pqPipelineSource*, pqRenderViewModule*);
-  void removeDeferredDisplayForSource(pqPipelineSource*, pqRenderViewModule*);
-  void createDeferredDisplays();
+protected slots:
+  void renderAllViews();
+
+  void onVisibilityChanged(int);
 
 private:
   class pqInternal;
   pqInternal* Internal;
+
+private:
+  pqTextDisplayPropertiesWidget(const pqTextDisplayPropertiesWidget&); // Not implemented.
+  void operator=(const pqTextDisplayPropertiesWidget&); // Not implemented.
 };
 
 #endif
+
 
