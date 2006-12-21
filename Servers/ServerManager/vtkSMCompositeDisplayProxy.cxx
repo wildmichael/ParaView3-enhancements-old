@@ -30,7 +30,7 @@ PURPOSE.  See the above copyright notice for more information.
 //-----------------------------------------------------------------------------
 
 vtkStandardNewMacro(vtkSMCompositeDisplayProxy);
-vtkCxxRevisionMacro(vtkSMCompositeDisplayProxy, "$Revision: 1.29 $");
+vtkCxxRevisionMacro(vtkSMCompositeDisplayProxy, "$Revision: 1.30 $");
 //-----------------------------------------------------------------------------
 vtkSMCompositeDisplayProxy::vtkSMCompositeDisplayProxy()
 {
@@ -826,7 +826,7 @@ void vtkSMCompositeDisplayProxy::SetupCollectionFilter(vtkSMProxy* collectProxy)
                      vtkProcessModule::DATA_SERVER, stream);
       }
     // if running in render server mode
-    if(pm->GetOptions()->GetRenderServerMode())
+    if(pm->GetRenderClientMode(this->GetConnectionID()))
       {
       stream
         << vtkClientServerStream::Invoke
