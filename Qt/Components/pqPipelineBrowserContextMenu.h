@@ -41,6 +41,8 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <QObject>
 
 class pqPipelineBrowser;
+class pqPipelineBrowserContextMenuInternal;
+class QAction;
 class QPoint;
 
 
@@ -50,12 +52,15 @@ class PQCOMPONENTS_EXPORT pqPipelineBrowserContextMenu : public QObject
 
 public:
   pqPipelineBrowserContextMenu(pqPipelineBrowser *browser);
-  virtual ~pqPipelineBrowserContextMenu();
+  virtual ~pqPipelineBrowserContextMenu() {}
+
+  void setMenuAction(QAction *action);
 
 public slots:
   void showContextMenu(const QPoint &pos);
 
 private:
+  pqPipelineBrowserContextMenuInternal *Internal;
   pqPipelineBrowser *Browser;
 };
 

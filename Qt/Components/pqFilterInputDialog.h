@@ -1,7 +1,7 @@
 /*=========================================================================
 
    Program: ParaView
-   Module:    $RCSfile: pqPipelineMenu.h,v $
+   Module:    $RCSfile: pqFilterInputDialog.h,v $
 
    Copyright (c) 2005,2006 Sandia Corporation, Kitware Inc.
    All rights reserved.
@@ -28,65 +28,63 @@ LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
 NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-========================================================================*/
+=========================================================================*/
 
-/// \file pqPipelineMenu.h
-/// \date 6/5/2006
+/// \file pqFilterInputDialog.h
+/// \date 12/5/2006
 
-#ifndef _pqPipelineMenu_h
-#define _pqPipelineMenu_h
+#ifndef _pqFilterInputDialog_h
+#define _pqFilterInputDialog_h
 
 
 #include "pqComponentsExport.h"
-#include <QObject>
+#include <QDialog>
 
+class pqFilterInputDialogInternal;
+class pqFlatTreeView;
+class pqPipelineFilter;
 class pqPipelineModel;
-class QAction;
+class QButtonGroup;
+class QGroupBox;
 class QItemSelection;
-class QItemSelectionModel;
+class QPushButton;
+class QScrollArea;
+class QString;
+class QStringList;
 
 
-/// \class pqPipelineMenu
-/// \brief
-///   The pqPipelineMenu class is used to update the enabled state of
-///   the pipeline menu.
-class PQCOMPONENTS_EXPORT pqPipelineMenu : public QObject
+class PQCOMPONENTS_EXPORT pqFilterInputDialog : public QDialog
 {
   Q_OBJECT
 
 public:
-  enum ActionName
-    {
-    InvalidAction = -1,
-    AddSourceAction = 0,
-    AddFilterAction,
-    ChangeInputAction,
-    DeleteAction,
-    LastAction = DeleteAction
-    };
+  pqFilterInputDialog(QWidget *parent=0);
+  virtual ~pqFilterInputDialog() {}
 
-public:
-  pqPipelineMenu(QObject *parent=0);
-  virtual ~pqPipelineMenu();
+  pqPipelineModel *getModel() const {return this->Model;}
+  pqPipelineFilter *getFilter() const {return this->Filter;}
+  void setModelAndFilter(pqPipelineModel *model, pqPipelineFilter *filter);
 
-  void setModels(pqPipelineModel *model, QItemSelectionModel *selection);
-
-  void setMenuAction(ActionName name, QAction *action);
-  QAction *getMenuAction(ActionName name) const;
-
-  bool isActionEnabled(ActionName name) const;
-
-  void updateActions();
+  void getFilterInputPorts(QStringList &ports) const;
+  void getFilterInputs(const QString &port, QStringList &inputs) const;
+  void getCurrentFilterInputs(const QString &port, QStringList &inputs) const;
 
 private slots:
-  void updateActions(const QItemSelection &selected,
+  void changeCurrentInput(int id);
+  void changeInput(const QItemSelection &selected,
       const QItemSelection &deselected);
-  void handleDeletion();
 
 private:
+  pqFilterInputDialogInternal *Internal;
   pqPipelineModel *Model;
-  QItemSelectionModel *Selection;
-  QAction **MenuList;
+  pqPipelineFilter *Filter;
+  pqFlatTreeView *TreeView;
+  QGroupBox *FilterBox;
+  QScrollArea *InputFrame;
+  QPushButton *OkButton;
+  QPushButton *CancelButton;
+  QButtonGroup *InputGroup;
+  bool InChangeInput;
 };
 
 #endif
