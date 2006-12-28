@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Values              */
 /*                                                                 */
-/*  Id : $Id: XdmfValues.cxx,v 1.1 2006-12-28 21:56:42 clarke Exp $  */
-/*  Date : $Date: 2006-12-28 21:56:42 $ */
-/*  Version : $Revision: 1.1 $ */
+/*  Id : $Id: XdmfValues.cxx,v 1.2 2006-12-28 21:58:25 clarke Exp $  */
+/*  Date : $Date: 2006-12-28 21:58:25 $ */
+/*  Version : $Revision: 1.2 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -33,11 +33,13 @@ XdmfValues::XdmfValues() {
 XdmfValues::~XdmfValues() {
 }
 
+// Override this
 XdmfArray *
 XdmfValues::Read(XdmfArray *Array){
     return(NULL);
 }
 
+// Override this
 XdmfInt32 
 XdmfValues::Write(XdmfArray *Array){
     return(XDMF_FAIL);
