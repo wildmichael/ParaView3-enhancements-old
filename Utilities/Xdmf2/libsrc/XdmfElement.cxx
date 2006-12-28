@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfElement.cxx,v 1.5 2006-12-15 21:55:21 clarke Exp $  */
-/*  Date : $Date: 2006-12-15 21:55:21 $ */
-/*  Version : $Revision: 1.5 $ */
+/*  Id : $Id: XdmfElement.cxx,v 1.6 2006-12-28 21:56:42 clarke Exp $  */
+/*  Date : $Date: 2006-12-28 21:56:42 $ */
+/*  Version : $Revision: 1.6 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -94,8 +94,13 @@ XdmfConstString XdmfElement::GetElementType(){
 }
 
 XdmfInt32 XdmfElement::UpdateDOM(){
-    this->Set("Name", this->GetName());
-    return(this->Set("Name", this->GetName()));
+    XdmfConstString  name;
+
+    name = this->GetName();
+    if(name && (strlen(name) > 1)){
+        return(this->Set("Name", name));
+    }
+    return(XDMF_SUCCESS);
 }
 
 XdmfInt32 XdmfElement::Set(XdmfConstString Name, XdmfConstString Value){
