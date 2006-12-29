@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDataStructure.h,v 1.2 2006-12-28 21:56:42 clarke Exp $  */
-/*  Date : $Date: 2006-12-28 21:56:42 $ */
-/*  Version : $Revision: 1.2 $ */
+/*  Id : $Id: XdmfDataStructure.h,v 1.3 2006-12-29 17:57:43 clarke Exp $  */
+/*  Date : $Date: 2006-12-29 17:57:43 $ */
+/*  Version : $Revision: 1.3 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -91,13 +91,13 @@ public:
     XdmfGetValueMacro(DataDesc, XdmfDataDesc *);
 
     //! Set the XdmfDataDesc.
-    XdmfSetValueMacro(DataDesc, XdmfDataDesc *);
+    XdmfInt32 SetDataDesc(XdmfDataDesc *DataDesc);
 
     //! Get the Internal Array
     XdmfGetValueMacro(Array, XdmfArray *);
 
     //! Set the Array
-    XdmfSetValueMacro(Array, XdmfArray *);
+    XdmfInt32   SetArray(XdmfArray *Array);
 
     //! Convenience Function to access Array
     /*! The more robust access is via :
@@ -140,9 +140,14 @@ public:
 
 protected:
     XdmfInt32       Format;
+    XdmfInt32       DataDescIsMine;
+    XdmfInt32       ArrayIsMine;
     XdmfDataDesc    *DataDesc;
     XdmfArray       *Array;
     XdmfValues      *Values;
+
+    //! Make sure this->Values is correct
+    XdmfInt32       CheckValues(XdmfInt32 Format);
 };
 
 #endif // __XdmfDataStructure_h

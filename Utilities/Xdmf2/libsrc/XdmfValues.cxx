@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Values              */
 /*                                                                 */
-/*  Id : $Id: XdmfValues.cxx,v 1.2 2006-12-28 21:58:25 clarke Exp $  */
-/*  Date : $Date: 2006-12-28 21:58:25 $ */
-/*  Version : $Revision: 1.2 $ */
+/*  Id : $Id: XdmfValues.cxx,v 1.3 2006-12-29 17:57:43 clarke Exp $  */
+/*  Date : $Date: 2006-12-29 17:57:43 $ */
+/*  Version : $Revision: 1.3 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -27,10 +27,39 @@
 #include "XdmfArray.h"
 
 XdmfValues::XdmfValues() {
-    this->DataStructure = NULL;
+    this->Format = -1;
 }
 
 XdmfValues::~XdmfValues() {
+}
+
+XdmfInt32 
+XdmfValues::Inherit(XdmfDataStructure *DataStructure) {
+    if(!DataStructure){
+        XdmfErrorMessage("DataStructure to copy is NULL");
+        return(XDMF_FAIL);
+    }
+    if(this->SetDOM(DataStructure->GetDOM()) != XDMF_SUCCESS){
+        XdmfErrorMessage("Error Setting DOM");
+        return(XDMF_FAIL);
+    }
+    if(this->SetElement(DataStructure->GetElement()) != XDMF_SUCCESS){
+        XdmfErrorMessage("Error Setting Element");
+        return(XDMF_FAIL);
+    }
+    if(this->SetFormat(DataStructure->GetFormat()) != XDMF_SUCCESS){
+        XdmfErrorMessage("Error Setting Element");
+        return(XDMF_FAIL);
+    }
+    if(this->DataDesc && this->DataDescIsMine){
+        delete this->DataDesc;
+    }
+    this->DataDescIsMine = 0;
+    if(this->SetDataDesc(DataStructure->GetDataDesc()) != XDMF_SUCCESS){
+        XdmfErrorMessage("Error Setting DataDesc");
+        return(XDMF_FAIL);
+    }
+    return(XDMF_SUCCESS);
 }
 
 // Override this

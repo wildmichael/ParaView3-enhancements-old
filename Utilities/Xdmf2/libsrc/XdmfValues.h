@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Values              */
 /*                                                                 */
-/*  Id : $Id: XdmfValues.h,v 1.1 2006-12-28 21:56:42 clarke Exp $  */
-/*  Date : $Date: 2006-12-28 21:56:42 $ */
-/*  Version : $Revision: 1.1 $ */
+/*  Id : $Id: XdmfValues.h,v 1.2 2006-12-29 17:57:43 clarke Exp $  */
+/*  Date : $Date: 2006-12-29 17:57:43 $ */
+/*  Version : $Revision: 1.2 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -71,17 +71,14 @@ public :
   ~XdmfValues();
 
   XdmfConstString GetClassName() { return("XdmfValues"); } ;
-  //! Get the Internal Data Structure Representation
-  XdmfGetValueMacro(DataStructure, XdmfDataStructure   *);
-  //! Set the Internal Data Structure Representation
-  XdmfSetValueMacro(DataStructure, XdmfDataStructure   *);
+  //! Set DOM and Element from another XdmfDataStructure
+  XdmfInt32 Inherit(XdmfDataStructure *DataStructure);
   //! Read the Array from the External Representation
   virtual XdmfArray *Read(XdmfArray *Array=NULL);
   //! Write the Array to the External Representation
   virtual XdmfInt32 Write(XdmfArray *Array);
 
 protected :
-    XdmfDataStructure   *DataStructure;
 };
 
 #endif
