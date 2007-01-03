@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and ValuesXML              */
 /*                                                                 */
-/*  Id : $Id: XdmfValuesXML.cxx,v 1.3 2006-12-29 19:48:09 clarke Exp $  */
-/*  Date : $Date: 2006-12-29 19:48:09 $ */
-/*  Version : $Revision: 1.3 $ */
+/*  Id : $Id: XdmfValuesXML.cxx,v 1.4 2007-01-03 21:43:09 clarke Exp $  */
+/*  Date : $Date: 2007-01-03 21:43:09 $ */
+/*  Version : $Revision: 1.4 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -57,7 +57,7 @@ XdmfValuesXML::Read(XdmfArray *Array){
 }
 
 XdmfInt32
-XdmfValuesXML::Write(XdmfArray *Array){
+XdmfValuesXML::Write(XdmfArray *Array, XdmfConstString HeavyDataSetName){
 
     XdmfConstString DataValues;
     ostrstream   StringOutput;

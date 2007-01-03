@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Values              */
 /*                                                                 */
-/*  Id : $Id: XdmfValues.h,v 1.2 2006-12-29 17:57:43 clarke Exp $  */
-/*  Date : $Date: 2006-12-29 17:57:43 $ */
-/*  Version : $Revision: 1.2 $ */
+/*  Id : $Id: XdmfValues.h,v 1.3 2007-01-03 21:43:09 clarke Exp $  */
+/*  Date : $Date: 2007-01-03 21:43:09 $ */
+/*  Version : $Revision: 1.3 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -76,7 +76,7 @@ public :
   //! Read the Array from the External Representation
   virtual XdmfArray *Read(XdmfArray *Array=NULL);
   //! Write the Array to the External Representation
-  virtual XdmfInt32 Write(XdmfArray *Array);
+  virtual XdmfInt32 Write(XdmfArray *Array, XdmfConstString HeavyDataSetName=NULL);
 
 protected :
 };

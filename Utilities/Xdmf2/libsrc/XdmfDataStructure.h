@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDataStructure.h,v 1.3 2006-12-29 17:57:43 clarke Exp $  */
-/*  Date : $Date: 2006-12-29 17:57:43 $ */
-/*  Version : $Revision: 1.3 $ */
+/*  Id : $Id: XdmfDataStructure.h,v 1.4 2007-01-03 21:43:09 clarke Exp $  */
+/*  Date : $Date: 2007-01-03 21:43:09 $ */
+/*  Version : $Revision: 1.4 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -137,6 +137,10 @@ public:
     XdmfInt32 SetDimensions(XdmfInt32 Rank, XdmfInt64 *Dimensions){this->SetShape(Rank, Dimensions);};
     //! Convenience Function
     XdmfInt32 SetDimensionsFromString(XdmfConstString Dimensions);
+    //! Set the name of the Heavy Data Set (if applicable)
+    XdmfSetStringMacro(HeavyDataSetName);
+    //! Get the name of the Heavy Data Set (if applicable)
+    XdmfGetValueMacro(HeavyDataSetName, XdmfConstString);
 
 protected:
     XdmfInt32       Format;
@@ -145,6 +149,7 @@ protected:
     XdmfDataDesc    *DataDesc;
     XdmfArray       *Array;
     XdmfValues      *Values;
+    XdmfString      HeavyDataSetName;
 
     //! Make sure this->Values is correct
     XdmfInt32       CheckValues(XdmfInt32 Format);

@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Values              */
 /*                                                                 */
-/*  Id : $Id: XdmfValues.cxx,v 1.3 2006-12-29 17:57:43 clarke Exp $  */
-/*  Date : $Date: 2006-12-29 17:57:43 $ */
-/*  Version : $Revision: 1.3 $ */
+/*  Id : $Id: XdmfValues.cxx,v 1.4 2007-01-03 21:43:09 clarke Exp $  */
+/*  Date : $Date: 2007-01-03 21:43:09 $ */
+/*  Version : $Revision: 1.4 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -70,7 +70,7 @@ XdmfValues::Read(XdmfArray *Array){
 
 // Override this
 XdmfInt32 
-XdmfValues::Write(XdmfArray *Array){
+XdmfValues::Write(XdmfArray *Array, XdmfConstString HeavyDataSetName){
     return(XDMF_FAIL);
 }
 
