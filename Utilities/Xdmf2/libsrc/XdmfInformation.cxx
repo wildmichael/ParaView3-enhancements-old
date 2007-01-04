@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfInformation.cxx,v 1.4 2006-12-15 21:55:21 clarke Exp $  */
-/*  Date : $Date: 2006-12-15 21:55:21 $ */
-/*  Version : $Revision: 1.4 $ */
+/*  Id : $Id: XdmfInformation.cxx,v 1.5 2007-01-04 21:54:05 clarke Exp $  */
+/*  Date : $Date: 2007-01-04 21:54:05 $ */
+/*  Version : $Revision: 1.5 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -43,8 +43,8 @@ XdmfInt32 XdmfInformation::UpdateInformation(){
     return(XDMF_SUCCESS);
 }
 
-XdmfInt32 XdmfInformation::UpdateDOM(){
-    if(XdmfElement::UpdateDOM() != XDMF_SUCCESS) return(XDMF_FAIL);
+XdmfInt32 XdmfInformation::Build(){
+    if(XdmfElement::Build() != XDMF_SUCCESS) return(XDMF_FAIL);
     // If Value isn't already an XML Attribute and
     // the value is > 10 chars, put it in the CDATA
     if((this->Get("Value") == NULL)  && (strlen(this->Value) > 10)){

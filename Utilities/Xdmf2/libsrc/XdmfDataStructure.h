@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDataStructure.h,v 1.4 2007-01-03 21:43:09 clarke Exp $  */
-/*  Date : $Date: 2007-01-03 21:43:09 $ */
-/*  Version : $Revision: 1.4 $ */
+/*  Id : $Id: XdmfDataStructure.h,v 1.5 2007-01-04 21:54:05 clarke Exp $  */
+/*  Date : $Date: 2007-01-04 21:54:05 $ */
+/*  Version : $Revision: 1.5 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -85,7 +85,7 @@ public:
     XdmfInt32 Update();
 
 //! Update the DOM (OUTPUT)
-    XdmfInt32 UpdateDOM();
+    XdmfInt32 Build();
 
     //! Get the Internal XdmfDataDesc
     XdmfGetValueMacro(DataDesc, XdmfDataDesc *);

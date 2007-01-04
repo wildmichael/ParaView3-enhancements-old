@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfHDF.h,v 1.1 2006-12-28 21:56:42 clarke Exp $  */
-/*  Date : $Date: 2006-12-28 21:56:42 $ */
-/*  Version : $Revision: 1.1 $ */
+/*  Id : $Id: XdmfHDF.h,v 1.2 2007-01-04 21:54:05 clarke Exp $  */
+/*  Date : $Date: 2007-01-04 21:54:05 $ */
+/*  Version : $Revision: 1.2 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -183,7 +183,7 @@ Read the curently open dataset into and Array.
 /*!
 Write to the curently open dataset from and Array.
 */
-  XdmfArray *Write( XdmfArray *Array );
+  XdmfInt32 Write( XdmfArray *Array );
 
 //! Close the HDF5  File
   XdmfInt32 Close();

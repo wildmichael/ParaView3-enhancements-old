@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfElement.cxx,v 1.6 2006-12-28 21:56:42 clarke Exp $  */
-/*  Date : $Date: 2006-12-28 21:56:42 $ */
-/*  Version : $Revision: 1.6 $ */
+/*  Id : $Id: XdmfElement.cxx,v 1.7 2007-01-04 21:54:05 clarke Exp $  */
+/*  Date : $Date: 2007-01-04 21:54:05 $ */
+/*  Version : $Revision: 1.7 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -43,7 +43,10 @@ XdmfInt32 XdmfElement::InsertChildElement(XdmfXmlNode Child){
         XdmfErrorMessage("Current Element is empty");
         return(XDMF_FAIL);
     }
-    return(this->DOM->Insert(this->Element, Child));
+    if(this->DOM->Insert(this->Element, Child)){
+        return(XDMF_SUCCESS);
+    }
+    return(XDMF_FAIL);
 }
 
 XdmfInt32 XdmfElement::UpdateInformation(){
@@ -93,7 +96,7 @@ XdmfConstString XdmfElement::GetElementType(){
     return((XdmfConstString)this->Element->name);
 }
 
-XdmfInt32 XdmfElement::UpdateDOM(){
+XdmfInt32 XdmfElement::Build(){
     XdmfConstString  name;
 
     name = this->GetName();

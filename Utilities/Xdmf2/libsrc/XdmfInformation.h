@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfInformation.h,v 1.4 2006-12-15 13:15:17 clarke Exp $  */
-/*  Date : $Date: 2006-12-15 13:15:17 $ */
-/*  Version : $Revision: 1.4 $ */
+/*  Id : $Id: XdmfInformation.h,v 1.5 2007-01-04 21:54:05 clarke Exp $  */
+/*  Date : $Date: 2007-01-04 21:54:05 $ */
+/*  Version : $Revision: 1.5 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -52,12 +52,12 @@ public:
     XdmfInt32 UpdateInformation();
 
 /*! Set the internal value. This is not reflected in the DOM
-    Until UpdateDOM() is called.
+    Until Build() is called.
 */
     XdmfSetStringMacro(Value);
 
 //! Update the DOM
-    XdmfInt32 UpdateDOM();
+    XdmfInt32 Build();
 
 /*! Get the internal Value.
 */

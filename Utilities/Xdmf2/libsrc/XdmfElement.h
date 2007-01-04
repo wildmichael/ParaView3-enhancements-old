@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfElement.h,v 1.6 2006-12-29 17:57:43 clarke Exp $  */
-/*  Date : $Date: 2006-12-29 17:57:43 $ */
-/*  Version : $Revision: 1.6 $ */
+/*  Id : $Id: XdmfElement.h,v 1.7 2007-01-04 21:54:05 clarke Exp $  */
+/*  Date : $Date: 2007-01-04 21:54:05 $ */
+/*  Version : $Revision: 1.7 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -82,7 +82,7 @@ public:
     XdmfInt32 Update();
 
     //! Update the DOM from the Basic Structure
-    XdmfInt32 UpdateDOM();
+    XdmfInt32 Build();
 
     //! Set the Value of an Attribute (OUTPUT)
     XdmfInt32 Set(XdmfConstString Name, XdmfConstString Value);

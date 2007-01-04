@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDOM.h,v 1.9 2006-12-15 21:55:21 clarke Exp $  */
-/*  Date : $Date: 2006-12-15 21:55:21 $ */
-/*  Version : $Revision: 1.9 $ */
+/*  Id : $Id: XdmfDOM.h,v 1.10 2007-01-04 21:54:05 clarke Exp $  */
+/*  Date : $Date: 2007-01-04 21:54:05 $ */
+/*  Version : $Revision: 1.10 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -159,9 +159,13 @@ public :
   */
   XdmfInt32 Write(XdmfConstString Output = NULL);
   //! Insert a node into a DOM
-  XdmfInt32 Insert(XdmfXmlNode parent, XdmfXmlNode node);
+  XdmfXmlNode Insert(XdmfXmlNode parent, XdmfXmlNode node);
   //! Create a node from an XML string and insert it in the DOM
-  XdmfInt32 InsertFromString(XdmfXmlNode parent, XdmfConstString xml );
+  XdmfXmlNode InsertFromString(XdmfXmlNode parent, XdmfConstString xml );
+  //! Create a new document
+  XdmfXmlNode Create(XdmfConstString Version="2.0");
+  //! Create a new node under an existing one
+  XdmfXmlNode InsertNew(XdmfXmlNode Parent, XdmfConstString Type);
   //! Delete a node
   XdmfInt32 DeleteNode(XdmfXmlNode node);
   //! Find the n'th occurance of a certain node type
