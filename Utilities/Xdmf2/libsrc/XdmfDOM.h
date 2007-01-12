@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDOM.h,v 1.10 2007-01-04 21:54:05 clarke Exp $  */
-/*  Date : $Date: 2007-01-04 21:54:05 $ */
-/*  Version : $Revision: 1.10 $ */
+/*  Id : $Id: XdmfDOM.h,v 1.11 2007-01-12 21:44:12 clarke Exp $  */
+/*  Date : $Date: 2007-01-12 21:44:12 $ */
+/*  Version : $Revision: 1.11 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -184,6 +184,8 @@ tree starting at a particular node.
       XdmfConstString Value,
       XdmfInt32 Index= 0,
       XdmfXmlNode Node = NULL );
+  //! Find an Node using XPath syntax
+  XdmfXmlNode FindElementByPath(XdmfConstString Path);
   //! Find the number of nodes of a certain type
   XdmfInt32 FindNumberOfElements(XdmfConstString TagName,
       XdmfXmlNode Node = NULL );
