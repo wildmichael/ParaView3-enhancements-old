@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Values              */
 /*                                                                 */
-/*  Id : $Id: XdmfValues.cxx,v 1.4 2007-01-03 21:43:09 clarke Exp $  */
-/*  Date : $Date: 2007-01-03 21:43:09 $ */
-/*  Version : $Revision: 1.4 $ */
+/*  Id : $Id: XdmfValues.cxx,v 1.5 2007-01-16 22:01:37 clarke Exp $  */
+/*  Date : $Date: 2007-01-16 22:01:37 $ */
+/*  Version : $Revision: 1.5 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -43,10 +43,16 @@ XdmfValues::Inherit(XdmfDataStructure *DataStructure) {
         XdmfErrorMessage("Error Setting DOM");
         return(XDMF_FAIL);
     }
-    if(this->SetElement(DataStructure->GetElement()) != XDMF_SUCCESS){
-        XdmfErrorMessage("Error Setting Element");
+    // if(this->SetElement(DataStructure->GetElement()) != XDMF_SUCCESS){
+    //     XdmfErrorMessage("Error Setting Element");
+    //     return(XDMF_FAIL);
+    // }
+    // Do it by hand so the _private member of the structure is maintained.
+    if(!DataStructure->GetElement()){
+        XdmfErrorMessage("Element is NULL");
         return(XDMF_FAIL);
     }
+    this->Element = DataStructure->GetElement();
     if(this->SetFormat(DataStructure->GetFormat()) != XDMF_SUCCESS){
         XdmfErrorMessage("Error Setting Element");
         return(XDMF_FAIL);

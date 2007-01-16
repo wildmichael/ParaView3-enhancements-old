@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDataStructure.cxx,v 1.5 2007-01-04 21:54:05 clarke Exp $  */
-/*  Date : $Date: 2007-01-04 21:54:05 $ */
-/*  Version : $Revision: 1.5 $ */
+/*  Id : $Id: XdmfDataStructure.cxx,v 1.6 2007-01-16 22:01:37 clarke Exp $  */
+/*  Date : $Date: 2007-01-16 22:01:37 $ */
+/*  Version : $Revision: 1.6 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -29,6 +29,8 @@
 // Supported Xdmf Formats
 #include "XdmfValuesXML.h"
 #include "XdmfValuesHDF.h"
+
+#include <libxml/tree.h>
 
 XdmfDataStructure::XdmfDataStructure() {
     this->Values = NULL;
@@ -62,6 +64,31 @@ XdmfDataStructure::SetDataDesc(XdmfDataDesc *DataDesc){
     this->DataDescIsMine = 0;
     this->DataDesc = DataDesc;
     return(XDMF_SUCCESS);
+}
+
+XdmfInt32 XdmfDataStructure::Reference( XdmfXmlNode Element ){
+    XdmfDataStructure *ds;
+
+    if(Element->_private == 0x0){
+        XdmfDebug("Element has not been initialized as a DataStructure");
+        if(this->SetElement(Element) != XDMF_SUCCESS){
+            XdmfErrorMessage("Error Setting Element");
+            return(XDMF_FAIL);
+        }
+        this->SetIsReference(0);
+        return(XDMF_SUCCESS);
+    }
+    ds = (XdmfDataStructure *)Element->_private;
+    XdmfDebug("Referenceing Existing DataStructure at " << ds );
+    this->SetDOM(ds->GetDOM());
+    this->Element = Element;
+    this->SetDataDesc(ds->GetDataDesc());
+    this->SetArray(ds->GetArray());
+    this->SetHeavyDataSetName(ds->GetHeavyDataSetName());
+    this->SetFormat(ds->GetFormat());
+    this->SetIsReference(1);
+    return(XDMF_SUCCESS);
+
 }
 
 XdmfInt32 XdmfDataStructure::UpdateInformation(){
