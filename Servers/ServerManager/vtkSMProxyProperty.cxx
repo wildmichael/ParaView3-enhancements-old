@@ -32,7 +32,7 @@
 #include "vtkStdString.h"
 
 vtkStandardNewMacro(vtkSMProxyProperty);
-vtkCxxRevisionMacro(vtkSMProxyProperty, "$Revision: 1.39 $");
+vtkCxxRevisionMacro(vtkSMProxyProperty, "$Revision: 1.40 $");
 
 struct vtkSMProxyPropertyInternals
 {
@@ -577,7 +577,6 @@ void vtkSMProxyProperty::ChildSaveState(vtkPVXMLElement* propertyElement,
         }
       }
     propertyElement->AddNestedElement(element);
-    propertyElement->AddAttribute("clear",  "0");
     element->Delete();
     }
 }
