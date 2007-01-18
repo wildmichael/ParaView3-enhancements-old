@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDataStructure.h,v 1.6 2007-01-16 22:01:37 clarke Exp $  */
-/*  Date : $Date: 2007-01-16 22:01:37 $ */
-/*  Version : $Revision: 1.6 $ */
+/*  Id : $Id: XdmfDataStructure.h,v 1.7 2007-01-18 22:13:59 clarke Exp $  */
+/*  Date : $Date: 2007-01-18 22:13:59 $ */
+/*  Version : $Revision: 1.7 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -88,7 +88,7 @@ public:
     XdmfInt32 Build();
 
     //! Reference Another DataStructure. Construct if Necessary
-    XdmfInt32 Reference( XdmfXmlNode Element );
+    XdmfInt32 SetReference( XdmfXmlNode Element );
     //! Get the Internal XdmfDataDesc
     XdmfGetValueMacro(DataDesc, XdmfDataDesc *);
 
@@ -143,6 +143,8 @@ public:
     XdmfSetStringMacro(HeavyDataSetName);
     //! Get the name of the Heavy Data Set (if applicable)
     XdmfGetValueMacro(HeavyDataSetName, XdmfConstString);
+    //! Copy Information from Another DataStructure
+    XdmfInt32 Copy(XdmfElement *Source);
 
 protected:
     XdmfInt32       Format;
