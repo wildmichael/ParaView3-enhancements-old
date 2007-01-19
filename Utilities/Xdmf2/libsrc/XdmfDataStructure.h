@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDataStructure.h,v 1.7 2007-01-18 22:13:59 clarke Exp $  */
-/*  Date : $Date: 2007-01-18 22:13:59 $ */
-/*  Version : $Revision: 1.7 $ */
+/*  Id : $Id: XdmfDataStructure.h,v 1.8 2007-01-19 17:55:51 clarke Exp $  */
+/*  Date : $Date: 2007-01-19 17:55:51 $ */
+/*  Version : $Revision: 1.8 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -87,8 +87,6 @@ public:
 //! Update the DOM (OUTPUT)
     XdmfInt32 Build();
 
-    //! Reference Another DataStructure. Construct if Necessary
-    XdmfInt32 SetReference( XdmfXmlNode Element );
     //! Get the Internal XdmfDataDesc
     XdmfGetValueMacro(DataDesc, XdmfDataDesc *);
 
