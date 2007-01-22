@@ -29,7 +29,7 @@ PURPOSE.  See the above copyright notice for more information.
 #include <math.h>
 
 //----------------------------------------------------------------------------
-vtkCxxRevisionMacro(vtkCarbonRenderWindow, "$Revision: 1.57 $");
+vtkCxxRevisionMacro(vtkCarbonRenderWindow, "$Revision: 1.58 $");
 vtkStandardNewMacro(vtkCarbonRenderWindow);
 
 //----------------------------------------------------------------------------
@@ -474,7 +474,8 @@ void vtkCarbonRenderWindow::Frame()
     glFlush();
     }
 }
-  
+
+//--------------------------------------------------------------------------
 AGLContext vtkCarbonRenderWindow::GetContextId()
 {
   if(this->OffScreenRendering)
