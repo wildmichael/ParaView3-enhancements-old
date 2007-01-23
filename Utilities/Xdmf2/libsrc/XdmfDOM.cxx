@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDOM.cxx,v 1.12 2007-01-12 21:44:12 clarke Exp $  */
-/*  Date : $Date: 2007-01-12 21:44:12 $ */
-/*  Version : $Revision: 1.12 $ */
+/*  Id : $Id: XdmfDOM.cxx,v 1.13 2007-01-23 20:52:53 clarke Exp $  */
+/*  Date : $Date: 2007-01-23 20:52:53 $ */
+/*  Version : $Revision: 1.13 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -516,6 +516,10 @@ XdmfDOM::FindElementByPath(XdmfConstString Path){
     }
     // Return the first XML_ELEMENT_NODE
     nodes = xpathObj->nodesetval;
+    if(!nodes){
+        XdmfErrorMessage("No Elements Match XPath Expression : " << Path);
+        return(NULL);
+    }
     XdmfDebug("Found " << nodes->nodeNr << " Element that match XPath expression " << Path);
     for(i=0 ; i < nodes->nodeNr ; i++){
         child = nodes->nodeTab[i];

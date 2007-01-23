@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfLightData.h,v 1.3 2006-12-15 13:15:17 clarke Exp $  */
-/*  Date : $Date: 2006-12-15 13:15:17 $ */
-/*  Version : $Revision: 1.3 $ */
+/*  Id : $Id: XdmfLightData.h,v 1.4 2007-01-23 20:52:53 clarke Exp $  */
+/*  Date : $Date: 2007-01-23 20:52:53 $ */
+/*  Version : $Revision: 1.4 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -26,6 +26,11 @@
 #define __XdmfLightData_h
 
 #include "XdmfObject.h"
+
+// Organizations
+#define XDMF_UNIFORM    0   // One Single Entitiy
+#define XDMF_COLLECTION 1   // An Array of Homogeneous Entities
+#define XDMF_TREE       2   // Group of Hierarchical Entities
 
 // typedef XdmfPointer XdmfXmlNode;
 class _xmlNode;

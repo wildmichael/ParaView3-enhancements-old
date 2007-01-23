@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfElement.cxx,v 1.11 2007-01-23 14:54:45 clarke Exp $  */
-/*  Date : $Date: 2007-01-23 14:54:45 $ */
-/*  Version : $Revision: 1.11 $ */
+/*  Id : $Id: XdmfElement.cxx,v 1.12 2007-01-23 20:52:53 clarke Exp $  */
+/*  Date : $Date: 2007-01-23 20:52:53 $ */
+/*  Version : $Revision: 1.12 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -27,6 +27,7 @@
 #include <libxml/tree.h>
 
 #define XDMF_EMPTY_REFERENCE   0x00
+#define XDMF_ERROR_REFERENCE    -1
 
 XdmfElement::XdmfElement() {
     this->DOM = NULL;
@@ -119,6 +120,10 @@ XdmfInt32 XdmfElement::UpdateInformation(){
     Value = this->Get("Name");
     if(Value) this->SetName(Value);
     ref = this->CheckForReference(this->Element);
+    if(ref == (XdmfXmlNode)XDMF_ERROR_REFERENCE){
+        XdmfErrorMessage("Error Checking Reference");
+        return(XDMF_FAIL);
+    }
     if(ref){
         XdmfXmlNode node;
 
@@ -217,7 +222,7 @@ XdmfElement::FollowReference(XdmfXmlNode Element){
 
     if(!Element){
         XdmfErrorMessage("Element is NULL");
-        return(NULL);
+        return((XdmfXmlNode)XDMF_ERROR_REFERENCE);
     }
     Value = this->DOM->Get(Element, "Reference");
     if(Value){
@@ -225,14 +230,14 @@ XdmfElement::FollowReference(XdmfXmlNode Element){
             Value = this->DOM->GetCData(Element);
             if(!Value){
                 XdmfErrorMessage("Reference to CDATA is NULL");
-                return(NULL);
+                return((XdmfXmlNode)XDMF_ERROR_REFERENCE);
             }
         }
         XdmfDebug("Following Reference to " << Value);
         ref = this->DOM->FindElementByPath(Value);
         if(!ref){
             XdmfErrorMessage("Can't Find Node of Path " << Value);
-            return(NULL);
+            return((XdmfXmlNode)XDMF_ERROR_REFERENCE);
         }
     }
     return(ref);
@@ -244,19 +249,23 @@ XdmfElement::CheckForReference(XdmfXmlNode Element){
     XdmfXmlNode node;
 
     XdmfDebug("XdmfElement::CheckForReference(XdmfXmlNode Element)");
-    if(!Element) return(NULL);
+    if(!Element) return((XdmfXmlNode)XDMF_ERROR_REFERENCE);
     // Does the Referenced Node Exist and is it of the Same Type
     node = this->FollowReference(Element);
+    if(node == (XdmfXmlNode)XDMF_ERROR_REFERENCE){
+        XdmfErrorMessage("Error Following Reference");
+        return((XdmfXmlNode)XDMF_ERROR_REFERENCE);
+    }
     if(node){
         XdmfDebug("Element is a Reference");
         // Check Type (low level XML "name") against this->Element
         if(STRCMP((const char *)node->name, (const char *)Element->name) != 0){
             XdmfErrorMessage("Reference node is a " << node->name << " not " << Element->name);
-            return(NULL);
+            return((XdmfXmlNode)XDMF_ERROR_REFERENCE);
         }
     }else{
         // This is not a Reference Node
-        return(NULL);
+        return((XdmfXmlNode)XDMF_EMPTY_REFERENCE);
     }
     XdmfDebug("Setting ReferenceElement");
     this->ReferenceElement = Element;
