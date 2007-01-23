@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Values              */
 /*                                                                 */
-/*  Id : $Id: XdmfDataStructure.h,v 1.10 2007-01-23 20:57:11 clarke Exp $  */
-/*  Date : $Date: 2007-01-23 20:57:11 $ */
-/*  Version : $Revision: 1.10 $ */
+/*  Id : $Id: XdmfDataStructure.h,v 1.11 2007-01-23 21:56:16 clarke Exp $  */
+/*  Date : $Date: 2007-01-23 21:56:16 $ */
+/*  Version : $Revision: 1.11 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -26,7 +26,7 @@
 #define __XdmfDataStructure_h
 
 
-#include "XdmfDataStructure.h"
+#include "XdmfDataItem.h"
 
 class XdmfArray;
 
