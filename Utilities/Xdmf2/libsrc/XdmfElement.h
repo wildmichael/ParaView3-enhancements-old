@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfElement.h,v 1.12 2007-01-19 21:55:38 clarke Exp $  */
-/*  Date : $Date: 2007-01-19 21:55:38 $ */
-/*  Version : $Revision: 1.12 $ */
+/*  Id : $Id: XdmfElement.h,v 1.13 2007-01-23 14:54:45 clarke Exp $  */
+/*  Date : $Date: 2007-01-23 14:54:45 $ */
+/*  Version : $Revision: 1.13 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -116,6 +116,19 @@ public:
 //! Get the XML Node
     XdmfGetValueMacro(Element, XdmfXmlNode);
 
+    //! Tells the Element if data is to be copied out of a reference.
+    /*!
+        If an element is a reference and another element has already accessed the data there
+        are two choices. First, copy the data out of the element that contains the data. This
+        is the default and the safest, but leads to additional memory requirements. The second
+        option is to just point to the original data. For this to work in the general caes, a 
+        refernce counting / garbage collection scheme needs to be used. Otherwise, the destruction
+        of the original element will leave an invalid reference in the new element. In short, setting
+        CopyReferenceData to 0 should be done with care.
+    */
+    XdmfSetValueMacro(CopyReferenceData, XdmfInt32);
+    //! Get the flag if data is to be copied out of a reference.
+    XdmfGetValueMacro(CopyReferenceData, XdmfInt32);
     //! Get the Element type : Grid, Topology, etc.
     XdmfConstString GetElementType();
 
@@ -150,5 +163,7 @@ protected:
     //! If this is a Reference XML, this is the head of the Reference chain (the Original XML node).
     XdmfXmlNode ReferenceElement;
     XdmfInt32   IsReference;
+    // Copy, don't copy data out of reference element. Default is to copy.
+    XdmfInt32   CopyReferenceData;
 };
 #endif // __XdmfElement_h
