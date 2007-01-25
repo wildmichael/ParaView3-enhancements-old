@@ -153,11 +153,11 @@ private:
 };
 
 vtkStandardNewMacro(vtkSMUndoStackUndoSet);
-vtkCxxRevisionMacro(vtkSMUndoStackUndoSet, "$Revision: 1.11 $");
+vtkCxxRevisionMacro(vtkSMUndoStackUndoSet, "$Revision: 1.12 $");
 //*****************************************************************************
 
 vtkStandardNewMacro(vtkSMUndoStack);
-vtkCxxRevisionMacro(vtkSMUndoStack, "$Revision: 1.11 $");
+vtkCxxRevisionMacro(vtkSMUndoStack, "$Revision: 1.12 $");
 vtkCxxSetObjectMacro(vtkSMUndoStack, StateLoader, vtkSMUndoRedoStateLoader);
 //-----------------------------------------------------------------------------
 vtkSMUndoStack::vtkSMUndoStack()
@@ -405,7 +405,7 @@ void vtkSMUndoStack::OnUnRegisterProxy(void* data)
 
   vtkSMProxyManager::RegisteredProxyInformation &info =*(reinterpret_cast<
     vtkSMProxyManager::RegisteredProxyInformation*>(data));
-  if (prototypesRe.find(info.GroupName) != 0)
+  if (!info.Proxy || (info.GroupName && prototypesRe.find(info.GroupName) != 0))
     {
     return;
     }
