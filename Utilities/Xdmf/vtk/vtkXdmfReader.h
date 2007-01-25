@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXdmfReader.h,v $
   Language:  C++
-  Date:      $Date: 2005-06-08 15:36:26 $
-  Version:   $Revision: 1.18 $
+  Date:      $Date: 2007-01-25 16:34:56 $
+  Version:   $Revision: 1.19 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -187,6 +187,7 @@ public:
   void DisableGrid(const char* name);
   void DisableGrid(int idx);
   void DisableAllGrids();
+  void RemoveAllGrids();
 
   // Description:
   // Get current enable/disable of the grid
