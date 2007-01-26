@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Values              */
 /*                                                                 */
-/*  Id : $Id: XdmfDataStructure.h,v 1.11 2007-01-23 21:56:16 clarke Exp $  */
-/*  Date : $Date: 2007-01-23 21:56:16 $ */
-/*  Version : $Revision: 1.11 $ */
+/*  Id : $Id: XdmfDataStructure.h,v 1.12 2007-01-26 18:06:24 clarke Exp $  */
+/*  Date : $Date: 2007-01-26 18:06:24 $ */
+/*  Version : $Revision: 1.12 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -53,18 +53,10 @@ public :
   ~XdmfDataStructure();
 
   XdmfConstString GetClassName() { return("XdmfDataStructure"); } ;
-  //! Set DOM and Element from another XdmfDataStructure
 
-    //! Set the Type. One of : XDMF_UNIFORM, XDMF_COLLECTION, XDMF_TREE
-    XdmfSetValueMacro(ItemType, XdmfInt32);
-    //! Get the Type. One of : XDMF_UNIFORM, XDMF_COLLECTION, XDMF_TREE
-    XdmfGetValueMacro(ItemType, XdmfInt32);
-
-    //! Update From Light Data
-    XdmfInt32 UpdateInformation();
+  XdmfInt32 UpdateInformation();
 
 protected :
-    XdmfInt32 ItemType;
 };
 
 #endif

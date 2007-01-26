@@ -1,10 +1,10 @@
 /*******************************************************************/
 /*                               XDMF                              */
-/*                   eXtensible Data Model and ValuesXML              */
+/*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfValuesXML.cxx,v 1.4 2007-01-03 21:43:09 clarke Exp $  */
-/*  Date : $Date: 2007-01-03 21:43:09 $ */
-/*  Version : $Revision: 1.4 $ */
+/*  Id : $Id: XdmfValuesXML.cxx,v 1.5 2007-01-26 18:06:24 clarke Exp $  */
+/*  Date : $Date: 2007-01-26 18:06:24 $ */
+/*  Version : $Revision: 1.5 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */

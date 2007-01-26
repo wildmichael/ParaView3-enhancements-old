@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Values              */
 /*                                                                 */
-/*  Id : $Id: XdmfDataStructure.cxx,v 1.12 2007-01-23 21:56:16 clarke Exp $  */
-/*  Date : $Date: 2007-01-23 21:56:16 $ */
-/*  Version : $Revision: 1.12 $ */
+/*  Id : $Id: XdmfDataStructure.cxx,v 1.13 2007-01-26 18:06:24 clarke Exp $  */
+/*  Date : $Date: 2007-01-26 18:06:24 $ */
+/*  Version : $Revision: 1.13 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -26,7 +26,7 @@
 #include "XdmfArray.h"
 
 XdmfDataStructure::XdmfDataStructure() {
-    this->ItemType = XDMF_UNIFORM;
+    this->ItemType = XDMF_ITEM_UNIFORM;
 }
 
 XdmfDataStructure::~XdmfDataStructure() {
