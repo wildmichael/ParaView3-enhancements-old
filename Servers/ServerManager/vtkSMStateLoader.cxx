@@ -30,7 +30,7 @@
 #include <vtkstd/vector>
 
 vtkStandardNewMacro(vtkSMStateLoader);
-vtkCxxRevisionMacro(vtkSMStateLoader, "$Revision: 1.17 $");
+vtkCxxRevisionMacro(vtkSMStateLoader, "$Revision: 1.18 $");
 
 struct vtkSMStateLoaderRegistrationInfo
 {
@@ -102,7 +102,11 @@ vtkSMProxy* vtkSMStateLoader::NewProxyFromElement(
                     << type);
       return 0;
       }
-    proxy->SetConnectionID(this->ConnectionID);
+
+    if (!proxy->GetObjectsCreated())
+      {
+      proxy->SetConnectionID(this->ConnectionID);
+      }
     }
   else if (strcmp(proxyElement->GetName(), "CompoundProxy") == 0)
     {
