@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMeshQuality.h,v $
   Language:  C++
-  Date:      $Date: 2006-12-01 22:14:00 $ 
-  Version:   $Revision: 1.26 $
+  Date:      $Date: 2007-01-29 20:47:06 $ 
+  Version:   $Revision: 1.27 $
 
   Copyright 2003-2006 Sandia Corporation.
   Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -726,7 +726,7 @@ public:
   // It assumes that you pass the correct type of cell -- no type checking is
   // performed because this method is called from the inner loop of the Execute()
   // member function.
-  // The edge ratio of a tetrahedron \f$H\f$ is: 
+  // The edge ratio of a hexahedron \f$H\f$ is: 
   // \f$\frac{|H|_\infty}{|H|_0}\f$,
   // where \f$|H|_\infty\f$ and \f$|H|_0\f$ respectively denote the greatest and
   // the smallest edge lengths of \f$H\f$.
