@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfGeometry.cxx,v 1.1 2007-02-08 18:04:32 clarke Exp $  */
-/*  Date : $Date: 2007-02-08 18:04:32 $ */
-/*  Version : $Revision: 1.1 $ */
+/*  Id : $Id: XdmfGeometry.cxx,v 1.2 2007-02-09 15:43:02 clarke Exp $  */
+/*  Date : $Date: 2007-02-09 15:43:02 $ */
+/*  Version : $Revision: 1.2 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -159,13 +159,7 @@ if( Attribute ){
 } else {
   this->GeometryType = XDMF_GEOMETRY_XYZ;
 }
-
-Attribute = this->Get( "Name" );
-if( Attribute ) {
-  this->SetName( Attribute );
-} else {
-  this->SetName( GetUnique("Geometry_" ) );
-}
+if(!this->Name) this->SetName(GetUnique("Geometry_"));
 return( XDMF_SUCCESS );
 }
 

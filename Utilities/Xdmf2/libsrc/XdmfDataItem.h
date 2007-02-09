@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDataItem.h,v 1.3 2007-01-26 18:06:24 clarke Exp $  */
-/*  Date : $Date: 2007-01-26 18:06:24 $ */
-/*  Version : $Revision: 1.3 $ */
+/*  Id : $Id: XdmfDataItem.h,v 1.4 2007-02-09 15:43:02 clarke Exp $  */
+/*  Date : $Date: 2007-02-09 15:43:02 $ */
+/*  Version : $Revision: 1.4 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -43,6 +43,7 @@ class XdmfValues;
 #define XDMF_ITEM_TREE           0x15
 
 #define XDMF_ITEM_MASK        0xF0    // Evaluates to a Single Array ?
+
 
 
 //!  Data Container Object.

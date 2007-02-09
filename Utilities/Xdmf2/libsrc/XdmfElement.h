@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfElement.h,v 1.13 2007-01-23 14:54:45 clarke Exp $  */
-/*  Date : $Date: 2007-01-23 14:54:45 $ */
-/*  Version : $Revision: 1.13 $ */
+/*  Id : $Id: XdmfElement.h,v 1.14 2007-02-09 15:43:02 clarke Exp $  */
+/*  Date : $Date: 2007-02-09 15:43:02 $ */
+/*  Version : $Revision: 1.14 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -33,6 +33,7 @@
 
 class XdmfDOM;
 
+//! Basic XML Based Element
 /*!
     XdmfElement represents an Element in the LightData. For example,
     XdmfInformation, XdmfGrid, XdmfTopology etc. are all elements.

@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfTopology.cxx,v 1.1 2007-02-08 18:04:32 clarke Exp $  */
-/*  Date : $Date: 2007-02-08 18:04:32 $ */
-/*  Version : $Revision: 1.1 $ */
+/*  Id : $Id: XdmfTopology.cxx,v 1.2 2007-02-09 15:43:03 clarke Exp $  */
+/*  Date : $Date: 2007-02-09 15:43:03 $ */
+/*  Version : $Revision: 1.2 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -320,12 +320,7 @@ Attribute = this->Get( "BaseOffset" );
 if( Attribute ){
   this->BaseOffset = strtol( Attribute, (XdmfString *)NULL, 0);
   }
-Attribute = this->Get( "Name" );
-if( Attribute ) {
-  this->SetName( Attribute );
-} else {
-  this->SetName( GetUnique("Topology_" ) );
-}
+if(!this->Name) this->SetName(GetUnique("Topology_"));
 return( XDMF_SUCCESS );
 }
 
@@ -343,7 +338,7 @@ if( this->TopologyType == XDMF_NOTOPOLOGY ){
   }
 if( this->GetClass() == XDMF_UNSTRUCTURED ){
   // Read Connection
-  ConnectionElement = this->DOM->FindElement( NULL, 0, Element );
+  ConnectionElement = this->DOM->FindElement( NULL, 0, this->Element );
   if( ConnectionElement ){
       XdmfDataItem  Connections;
   
