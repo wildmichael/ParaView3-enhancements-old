@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfGrid.cxx,v 1.1 2007-02-09 15:43:02 clarke Exp $  */
-/*  Date : $Date: 2007-02-09 15:43:02 $ */
-/*  Version : $Revision: 1.1 $ */
+/*  Id : $Id: XdmfGrid.cxx,v 1.2 2007-02-09 20:58:53 clarke Exp $  */
+/*  Date : $Date: 2007-02-09 20:58:53 $ */
+/*  Version : $Revision: 1.2 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -27,13 +27,7 @@
 #include "XdmfDOM.h"
 #include "XdmfTopology.h"
 #include "XdmfGeometry.h"
-// #include "XdmfAttribute.h"
-
-class XdmfAttribute : public XdmfElement {
-    public :
-        XdmfAttribute() {};
-        ~XdmfAttribute() {};
-};
+#include "XdmfAttribute.h"
 
 XdmfGrid *HandleToXdmfGrid( XdmfString Source ){
   XdmfObject  *TempObj;
