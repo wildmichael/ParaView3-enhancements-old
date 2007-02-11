@@ -34,15 +34,15 @@
 #include "vtkPlanes.h"
 #include "vtkPlane.h"
 #include "vtkPoints.h"
-#include "vtkFrustumExtractor.h"
+#include "vtkExtractSelectedFrustum.h"
 
-vtkCxxRevisionMacro(vtkAreaPicker, "$Revision: 1.13 $");
+vtkCxxRevisionMacro(vtkAreaPicker, "$Revision: 1.14 $");
 vtkStandardNewMacro(vtkAreaPicker);
 
 //--------------------------------------------------------------------------
 vtkAreaPicker::vtkAreaPicker()
 {
-  this->FrustumExtractor = vtkFrustumExtractor::New();
+  this->FrustumExtractor = vtkExtractSelectedFrustum::New();
   this->Frustum = this->FrustumExtractor->GetFrustum();
   this->Frustum->Register(this);
 
