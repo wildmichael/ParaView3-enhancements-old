@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDOM.cxx,v 1.13 2007-01-23 20:52:53 clarke Exp $  */
-/*  Date : $Date: 2007-01-23 20:52:53 $ */
-/*  Version : $Revision: 1.13 $ */
+/*  Id : $Id: XdmfDOM.cxx,v 1.14 2007-02-14 21:52:03 clarke Exp $  */
+/*  Date : $Date: 2007-02-14 21:52:03 $ */
+/*  Version : $Revision: 1.14 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -435,11 +435,17 @@ return(this->Tree);
 }
 
 XdmfXmlNode  
-XdmfDOM::FindElement(XdmfConstString TagName, XdmfInt32 Index, XdmfXmlNode Node) {
+XdmfDOM::FindElement(XdmfConstString TagName, XdmfInt32 Index, XdmfXmlNode Node, XdmfInt32 IgnoreInfo) {
 
 XdmfString type = (XdmfString )TagName;
 XdmfXmlNode child;
 
+this->SetDebug(1);
+if(TagName){
+    XdmfDebug("FindElement " << TagName << " Index = " << Index);
+}else{
+    XdmfDebug("FindElement NULL Index = " << Index);
+}
 if(!Node) {
     if(!this->Tree) return( NULL );
     Node = this->Tree;
@@ -450,16 +456,32 @@ if ( type ) {
   if( STRNCASECMP( type, "NULL", 4 ) == 0 ) type = NULL;
 }
 if ( !type ) {
-    return(this->GetChild(Index, Node));
+    if(IgnoreInfo){
+        while(child){
+            if(XDMF_WORD_CMP("Information", (const char *)(child)->name) == 0){
+                if(Index <= 0){
+                    return(child);
+                }
+                Index--;
+            }
+            child = XdmfGetNextElement(child);
+        }
+    }else{
+        return(this->GetChild(Index, Node));
+    }
 } else {
     while(child){
-        if(XDMF_WORD_CMP((const char *)type, (const char *)(child)->name)){
-            if(Index <= 0){
-                return(child);
+        if(IgnoreInfo && XDMF_WORD_CMP("Information", (const char *)(child)->name)){
+            child = XdmfGetNextElement(child);
+        }else{
+            if(XDMF_WORD_CMP((const char *)type, (const char *)(child)->name)){
+                if(Index <= 0){
+                    return(child);
+                }
+                Index--;
             }
-            Index--;
+            child = XdmfGetNextElement(child);
         }
-        child = XdmfGetNextElement(child);
     }
 }
 return(NULL);

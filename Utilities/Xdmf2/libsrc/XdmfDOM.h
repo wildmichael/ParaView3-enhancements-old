@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDOM.h,v 1.11 2007-01-12 21:44:12 clarke Exp $  */
-/*  Date : $Date: 2007-01-12 21:44:12 $ */
-/*  Version : $Revision: 1.11 $ */
+/*  Id : $Id: XdmfDOM.h,v 1.12 2007-02-14 21:52:03 clarke Exp $  */
+/*  Date : $Date: 2007-02-14 21:52:03 $ */
+/*  Version : $Revision: 1.12 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -174,11 +174,13 @@ Walk the tree and find the first
 element that is of a certain type. 
 Index ( 0 based ) can be used to find the n'th
 node that satisfies the criteria. The search can also
-tree starting at a particular node.
+tree starting at a particular node. IgnoreInfo allows
+the "Information" Elements not to be counted against Index.
 */
   XdmfXmlNode FindElement(XdmfConstString TagName,
       XdmfInt32 Index= 0,
-      XdmfXmlNode Node = NULL );
+      XdmfXmlNode Node = NULL,
+      XdmfInt32 IgnoreInfo=1);
 //! Find the Node that has Attribute="Value"
   XdmfXmlNode FindElementByAttribute(XdmfConstString Attribute,
       XdmfConstString Value,
