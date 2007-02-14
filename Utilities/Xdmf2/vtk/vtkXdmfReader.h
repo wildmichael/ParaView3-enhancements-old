@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXdmfReader.h,v $
   Language:  C++
-  Date:      $Date: 2007-02-09 20:58:07 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2007-02-14 17:52:17 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 1993-2002 Ken Martin, Will Schroeder, Bill Lorensen 
   All rights reserved.
@@ -245,6 +245,8 @@ protected:
 
   int GridsModified;
 
+  void UpdateUniformGrid(void *GridNode, char *CollectionName);
+  void UpdateNonUniformGrid(void *GridNode, char *CollectionName);
   void UpdateGrids();
 
   int NumberOfEnabledActualGrids;
