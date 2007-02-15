@@ -1,7 +1,7 @@
 /*=========================================================================
 
    Program: ParaView
-   Module:    $RCSfile: pqBarChartDisplayProxyEditor.h,v $
+   Module:    $RCSfile: pqDisplayPanel.cxx,v $
 
    Copyright (c) 2005,2006 Sandia Corporation, Kitware Inc.
    All rights reserved.
@@ -29,48 +29,32 @@ NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-#ifndef __pqBarChartDisplayProxyEditor_h
-#define __pqBarChartDisplayProxyEditor_h
 
 #include "pqDisplayPanel.h"
 
-class pqDisplay;
-
-/// pqBarChartDisplayProxyEditor is the editor widget for
-/// a Bar Chart display.
-class PQCOMPONENTS_EXPORT pqBarChartDisplayProxyEditor : public pqDisplayPanel
+pqDisplayPanel::pqDisplayPanel(pqDisplay* display, QWidget* p)
+  : QWidget(p), Display(display)
 {
-  Q_OBJECT
-public:
-  pqBarChartDisplayProxyEditor(pqDisplay* display, QWidget* parent=0);
-  virtual ~pqBarChartDisplayProxyEditor();
+}
 
-public slots:
-  /// Forces a reload of the GUI elements that depend on
-  /// the display proxy.
-  void reloadGUI();
-
-protected slots:
-  /// Opens the color map editor.
-  void openColorMapEditor();
-
-protected:
-  /// Cleans up internal data structures.
-  void cleanup();
-
-private:
+pqDisplayPanel::~pqDisplayPanel()
+{
+}
   
-  /// Set the display whose properties this editor is editing.
-  /// This call will raise an error is the display is not
-  /// a BarChartPlotDisplay proxy.
-  void setDisplay(pqDisplay* display);
+pqDisplay* pqDisplayPanel::getDisplay()
+{
+  return this->Display;
+}
 
-  pqBarChartDisplayProxyEditor(const pqBarChartDisplayProxyEditor&); // Not implemented.
-  void operator=(const pqBarChartDisplayProxyEditor&); // Not implemented.
+void pqDisplayPanel::reloadGUI()
+{
+}
 
-  class pqInternal;
-  pqInternal* Internal;
-};
-
-#endif
+void pqDisplayPanel::updateAllViews()
+{
+  if (this->Display)
+    {
+    this->Display->renderAllViews();
+    }
+}
 

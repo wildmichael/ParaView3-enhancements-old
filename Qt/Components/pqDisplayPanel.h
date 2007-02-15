@@ -1,7 +1,7 @@
 /*=========================================================================
 
    Program: ParaView
-   Module:    $RCSfile: pqBarChartDisplayProxyEditor.h,v $
+   Module:    $RCSfile: pqDisplayPanel.h,v $
 
    Copyright (c) 2005,2006 Sandia Corporation, Kitware Inc.
    All rights reserved.
@@ -29,47 +29,39 @@ NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
-#ifndef __pqBarChartDisplayProxyEditor_h
-#define __pqBarChartDisplayProxyEditor_h
+#ifndef _pqDisplayPanel_h
+#define _pqDisplayPanel_h
 
-#include "pqDisplayPanel.h"
+#include <QWidget>
+#include <QPointer>
+#include "pqComponentsExport.h"
+#include "pqDisplay.h"
 
-class pqDisplay;
 
-/// pqBarChartDisplayProxyEditor is the editor widget for
-/// a Bar Chart display.
-class PQCOMPONENTS_EXPORT pqBarChartDisplayProxyEditor : public pqDisplayPanel
+/// Widget which provides an editor for the properties of a display.
+class PQCOMPONENTS_EXPORT pqDisplayPanel : public QWidget
 {
   Q_OBJECT
 public:
-  pqBarChartDisplayProxyEditor(pqDisplay* display, QWidget* parent=0);
-  virtual ~pqBarChartDisplayProxyEditor();
+  /// constructor
+  pqDisplayPanel(pqDisplay* display, QWidget* p = NULL);
+  /// destructor
+  ~pqDisplayPanel();
+
+  /// get the proxy for which properties are displayed
+  pqDisplay* getDisplay();
 
 public slots:
-  /// Forces a reload of the GUI elements that depend on
-  /// the display proxy.
-  void reloadGUI();
-
-protected slots:
-  /// Opens the color map editor.
-  void openColorMapEditor();
+  /// TODO: get rid of this function once the server manager can
+  /// inform us of display property changes
+  virtual void reloadGUI();
+  
+  /// Requests update on all views the
+  /// display is visible in.
+  virtual void updateAllViews();
 
 protected:
-  /// Cleans up internal data structures.
-  void cleanup();
-
-private:
-  
-  /// Set the display whose properties this editor is editing.
-  /// This call will raise an error is the display is not
-  /// a BarChartPlotDisplay proxy.
-  void setDisplay(pqDisplay* display);
-
-  pqBarChartDisplayProxyEditor(const pqBarChartDisplayProxyEditor&); // Not implemented.
-  void operator=(const pqBarChartDisplayProxyEditor&); // Not implemented.
-
-  class pqInternal;
-  pqInternal* Internal;
+  QPointer<pqDisplay> Display;
 };
 
 #endif
