@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: vtkXdmfDataArray.cxx,v 1.1 2007-02-09 20:58:07 clarke Exp $  */
-/*  Date : $Date: 2007-02-09 20:58:07 $ */
-/*  Version : $Revision: 1.1 $ */
+/*  Id : $Id: vtkXdmfDataArray.cxx,v 1.2 2007-02-16 21:36:44 clarke Exp $  */
+/*  Date : $Date: 2007-02-16 21:36:44 $ */
+/*  Version : $Revision: 1.2 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -51,7 +51,7 @@ vtkXdmfDataArray::vtkXdmfDataArray()
 
 //----------------------------------------------------------------------------
 vtkDataArray *vtkXdmfDataArray::FromXdmfArray( char *ArrayName, int CopyShape,
-  int rank ){
+  int rank, int Components ){
   XdmfArray *array = this->Array;
   if ( ArrayName != NULL ) {
     array = TagNameToArray( ArrayName );
@@ -127,8 +127,11 @@ vtkDataArray *vtkXdmfDataArray::FromXdmfArray( char *ArrayName, int CopyShape,
       components = array->GetDimension( rank );
       }
     tuples = array->GetNumberOfElements() / components;
-    //cout << "Tuples: " << tuples << " components: " << components << endl;
-    //cout << "Rank: " << rank << endl;
+    /// this breaks
+    components = Components;
+    tuples = array->GetNumberOfElements() / components;
+    cout << "Tuples: " << tuples << " components: " << components << endl;
+    cout << "Rank: " << rank << endl;
     this->vtkArray->SetNumberOfComponents( components );
     this->vtkArray->SetNumberOfTuples( tuples );
     } 
