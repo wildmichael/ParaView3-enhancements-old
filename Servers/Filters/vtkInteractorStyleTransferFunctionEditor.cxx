@@ -21,7 +21,7 @@
 #include "vtkTransferFunctionEditorRepresentation.h"
 #include "vtkTransferFunctionEditorWidget.h"
 
-vtkCxxRevisionMacro(vtkInteractorStyleTransferFunctionEditor, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkInteractorStyleTransferFunctionEditor, "$Revision: 1.3 $");
 vtkStandardNewMacro(vtkInteractorStyleTransferFunctionEditor);
 
 vtkCxxSetObjectMacro(vtkInteractorStyleTransferFunctionEditor, Widget,
@@ -167,6 +167,7 @@ void vtkInteractorStyleTransferFunctionEditor::OnChar()
         {
         rep->BuildRepresentation();
         }
+      this->InvokeEvent(vtkCommand::InteractionEvent, NULL);
       }
       break;
       
