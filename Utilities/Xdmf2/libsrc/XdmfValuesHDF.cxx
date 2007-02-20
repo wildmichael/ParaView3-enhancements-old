@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format */
 /*                                                                 */
-/*  Id : $Id: XdmfValuesHDF.cxx,v 1.3 2007-01-18 22:13:59 clarke Exp $  */
-/*  Date : $Date: 2007-01-18 22:13:59 $ */
-/*  Version : $Revision: 1.3 $ */
+/*  Id : $Id: XdmfValuesHDF.cxx,v 1.4 2007-02-20 19:08:36 clarke Exp $  */
+/*  Date : $Date: 2007-02-20 19:08:36 $ */
+/*  Version : $Revision: 1.4 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -25,6 +25,7 @@
 #include "XdmfObject.h"
 #include "XdmfValuesHDF.h"
 #include "XdmfHDF.h"
+#include "XdmfDOM.h"
 #include "XdmfDataStructure.h"
 #include "XdmfArray.h"
 
@@ -45,7 +46,7 @@ XdmfValuesHDF::Read(XdmfArray *Array){
         XdmfErrorMessage("DataDesc has not been set");
         return(NULL);
     }
-    H5.SetWorkingDirectory(this->GetWorkingDirectory());
+    H5.SetWorkingDirectory(this->DOM->GetWorkingDirectory());
     XDMF_STRING_DUPLICATE(DataSetName, this->Get("CDATA"));
     if(!DataSetName || strlen(DataSetName) < 1){
         XdmfErrorMessage("Invalid HDF5 Dataset Name");
