@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfArray.cxx,v 1.2 2007-02-15 17:20:24 clarke Exp $  */
-/*  Date : $Date: 2007-02-15 17:20:24 $ */
-/*  Version : $Revision: 1.2 $ */
+/*  Id : $Id: XdmfArray.cxx,v 1.3 2007-02-22 13:38:16 clarke Exp $  */
+/*  Date : $Date: 2007-02-22 13:38:16 $ */
+/*  Version : $Revision: 1.3 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -213,14 +213,17 @@ XdmfArray::XdmfArray( XdmfInt32 numberType, XdmfLength Length ) {
 XdmfArray::~XdmfArray() {
   XdmfDebug("XdmfArray Destructor");
   if( ( this->DataIsMine ) && ( this->DataPointer != NULL ) ) {
-    XdmfDebug(" Deleteing Data Array" );
+    XdmfDebug(" Deleteing Data Array " << this->DataPointer );
     // delete [] this->DataPointer;
     free( this->DataPointer );
+    XdmfDebug(" Done Deleteing Data Array " << this->DataPointer );
     this->DataPointer = NULL;
   } else {
     XdmfDebug("Can't Delete Array : Data Pointer is not mine");
   }
+  XdmfDebug(" Remove From Array List  " << this );
   XDMFArrayList.RemoveArray(this);
+  XdmfDebug(" Done Remove From Array List  " << this );
 }
 
 XdmfString

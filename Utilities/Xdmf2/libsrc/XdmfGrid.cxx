@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfGrid.cxx,v 1.2 2007-02-09 20:58:53 clarke Exp $  */
-/*  Date : $Date: 2007-02-09 20:58:53 $ */
-/*  Version : $Revision: 1.2 $ */
+/*  Id : $Id: XdmfGrid.cxx,v 1.3 2007-02-22 13:38:16 clarke Exp $  */
+/*  Date : $Date: 2007-02-22 13:38:16 $ */
+/*  Version : $Revision: 1.3 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -238,7 +238,7 @@ if( this->NumberOfAttributes > 0 ){
     iattribute = new XdmfAttribute;
 
     this->Attribute[Index] = iattribute;
-    AttributeElement = this->DOM->FindElement( "Attribute", Index, Element );
+    AttributeElement = this->DOM->FindElement( "Attribute", Index, this->Element );
     iattribute->SetDOM( this->DOM );    
     iattribute->SetElement( AttributeElement );
     iattribute->UpdateInformation();
