@@ -1,4 +1,4 @@
-# $Id: CMakeLists.txt,v 1.2 2006-10-03 18:20:41 kmorel Exp $
+# $Id: CMakeLists.txt,v 1.3 2007-02-22 18:25:27 kmorel Exp $
 #
 ## Copyright 2003 Sandia Coporation
 ## Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -8,7 +8,6 @@
 ## of authorship are reproduced on all copies.
 #
 
-SUBDIRS(ice-t
-  communication
-  strategies
-  )
+ADD_SUBDIRECTORY(ice-t)
+ADD_SUBDIRECTORY(communication)
+ADD_SUBDIRECTORY(strategies)

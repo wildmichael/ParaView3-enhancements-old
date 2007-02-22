@@ -1,4 +1,4 @@
-# $Id: CMakeLists.txt,v 1.1 2003-07-08 18:48:29 kmorel Exp $
+# $Id: CMakeLists.txt,v 1.2 2007-02-22 18:25:27 kmorel Exp $
 #
 ## Copyright 2003 Sandia Coporation
 ## Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -8,4 +8,4 @@
 ## of authorship are reproduced on all copies.
 #
 
-SUBDIRS(man)
+ADD_SUBDIRECTORY(man)
