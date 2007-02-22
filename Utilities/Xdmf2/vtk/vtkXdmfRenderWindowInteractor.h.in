@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: vtkXdmfRenderWindowInteractor.h.in,v 1.1 2007-02-09 20:58:07 clarke Exp $ */
-/*  Date : $Date: 2007-02-09 20:58:07 $ */
-/*  Version : $Revision: 1.1 $ */
+/*  Id : $Id: vtkXdmfRenderWindowInteractor.h.in,v 1.2 2007-02-22 13:36:39 clarke Exp $ */
+/*  Date : $Date: 2007-02-22 13:36:39 $ */
+/*  Version : $Revision: 1.2 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
