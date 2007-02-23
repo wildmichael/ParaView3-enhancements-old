@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: vtkXdmfDataArray.cxx,v 1.2 2007-02-16 21:36:44 clarke Exp $  */
-/*  Date : $Date: 2007-02-16 21:36:44 $ */
-/*  Version : $Revision: 1.2 $ */
+/*  Id : $Id: vtkXdmfDataArray.cxx,v 1.3 2007-02-23 21:54:21 clarke Exp $  */
+/*  Date : $Date: 2007-02-23 21:54:21 $ */
+/*  Version : $Revision: 1.3 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -130,8 +130,8 @@ vtkDataArray *vtkXdmfDataArray::FromXdmfArray( char *ArrayName, int CopyShape,
     /// this breaks
     components = Components;
     tuples = array->GetNumberOfElements() / components;
-    cout << "Tuples: " << tuples << " components: " << components << endl;
-    cout << "Rank: " << rank << endl;
+    // cout << "Tuples: " << tuples << " components: " << components << endl;
+    // cout << "Rank: " << rank << endl;
     this->vtkArray->SetNumberOfComponents( components );
     this->vtkArray->SetNumberOfTuples( tuples );
     } 
