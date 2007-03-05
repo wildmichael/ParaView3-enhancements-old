@@ -14,7 +14,7 @@
 =========================================================================*/
 /* -*- c++ -*- *******************************************************/
 
-/* $Id: vtkIceTRenderer.cxx,v 1.23 2007-03-05 15:06:09 utkarsh Exp $ */
+/* $Id: vtkIceTRenderer.cxx,v 1.24 2007-03-05 17:14:30 utkarsh Exp $ */
 
 #include "vtkIceTRenderer.h"
 
@@ -46,7 +46,7 @@ static vtkIceTRenderer *currentRenderer;
 // vtkIceTRenderer implementation.
 //******************************************************************
 
-vtkCxxRevisionMacro(vtkIceTRenderer, "$Revision: 1.23 $");
+vtkCxxRevisionMacro(vtkIceTRenderer, "$Revision: 1.24 $");
 vtkStandardNewMacro(vtkIceTRenderer);
 
 vtkCxxSetObjectMacro(vtkIceTRenderer, SortingKdTree, vtkPKdTree);
@@ -501,9 +501,23 @@ int vtkIceTRenderer::UpdateGeometry()
         this->PropArray[i]->RenderOpaqueGeometry(this);
       }
     }
-  this->PropVisibility = visible;
-  this->DeviceRenderTranslucentPolygonalGeometry();
-  this->PropVisibility = 0;
+
+  int hasTranslucentPolygonalGeometry=0;
+  for ( i = 0; !hasTranslucentPolygonalGeometry && i < this->PropArrayCount;
+    i++ )
+    {
+    if (visible[i])
+      {
+      hasTranslucentPolygonalGeometry=
+        this->PropArray[i]->HasTranslucentPolygonalGeometry();
+      }
+    }
+  if(hasTranslucentPolygonalGeometry)
+    {
+    this->PropVisibility = visible;
+    this->DeviceRenderTranslucentPolygonalGeometry();
+    this->PropVisibility = 0;
+    }
 
   for (i = 0; i < this->PropArrayCount; i++)
     {
