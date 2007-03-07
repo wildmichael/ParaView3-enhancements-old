@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkMeshQuality.h,v $
   Language:  C++
-  Date:      $Date: 2007-02-01 23:02:48 $ 
-  Version:   $Revision: 1.28 $
+  Date:      $Date: 2007-03-07 01:27:21 $ 
+  Version:   $Revision: 1.29 $
 
   Copyright 2003-2006 Sandia Corporation.
   Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -749,7 +749,7 @@ public:
   // performed because this method is called from the inner loop of the Execute()
   // member function.
   static double HexMaxAspectFrobenius( vtkCell* cell );
-  static double HexMaxEdgeRatios( vtkCell* cell );
+  static double HexMaxEdgeRatio( vtkCell* cell );
   static double HexSkew( vtkCell* cell );
   static double HexTaper( vtkCell* cell );
   static double HexVolume( vtkCell* cell );
