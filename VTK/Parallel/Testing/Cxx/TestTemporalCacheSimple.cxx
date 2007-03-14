@@ -1,7 +1,7 @@
 /*=========================================================================
 
   Program:   Visualization Toolkit
-  Module:    $RCSfile: TestTemporalCache2.cxx,v $
+  Module:    $RCSfile: TestTemporalCacheSimple.cxx,v $
 
   Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen
   All rights reserved.
@@ -84,7 +84,7 @@ public:
   vtkstd::vector<double> TimeStepValues;
 };
 //----------------------------------------------------------------------------
-vtkCxxRevisionMacro(vtkTemporalSphereSource, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkTemporalSphereSource, "$Revision: 1.1 $");
 vtkStandardNewMacro(vtkTemporalSphereSource);
 //----------------------------------------------------------------------------
 vtkTemporalSphereSource::vtkTemporalSphereSource()
