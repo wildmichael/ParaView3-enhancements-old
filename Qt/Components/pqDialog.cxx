@@ -1,7 +1,7 @@
 /*=========================================================================
 
-   Program:   ParaView
-   Module:    $RCSfile: pqUndoRedoStateLoader.h,v $
+   Program: ParaView
+   Module:    $RCSfile: pqDialog.cxx,v $
 
    Copyright (c) 2005,2006 Sandia Corporation, Kitware Inc.
    All rights reserved.
@@ -28,36 +28,36 @@ LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
 NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-========================================================================*/
-#ifndef __pqUndoRedoStateLoader_h
-#define __pqUndoRedoStateLoader_h
+=========================================================================*/
+#include "pqDialog.h"
 
-#include "vtkSMUndoRedoStateLoader.h"
-#include "pqCoreExport.h"
-
-// pqUndoRedoStateLoader is the undo/redo state loader that understand
-// GUI specific undo elements such as \c PendingDisplay. 
-class PQCORE_EXPORT pqUndoRedoStateLoader : public vtkSMUndoRedoStateLoader
+//-----------------------------------------------------------------------------
+pqDialog::pqDialog(QWidget* _parent/*=0*/, Qt::WindowFlags f/*=0*/)
+  : QDialog(_parent, f)
 {
-public:
-  static pqUndoRedoStateLoader* New();
-  vtkTypeRevisionMacro(pqUndoRedoStateLoader, vtkSMUndoRedoStateLoader);
-  void PrintSelf(ostream& os, vtkIndent indent);
+  this->UndoLabel = "Dialog";
+}
 
-protected:
-  pqUndoRedoStateLoader();
-  ~pqUndoRedoStateLoader();
+//-----------------------------------------------------------------------------
+pqDialog::~pqDialog()
+{
+}
 
-  virtual void HandleTag(const char* tagName, vtkPVXMLElement* root);
+//-----------------------------------------------------------------------------
+void pqDialog::accept()
+{
+  emit this->beginUndo(this->UndoLabel);
+  this->acceptInternal();
+  this->Superclass::accept();
+  emit this->endUndo();
+}
 
-  void HandlePendingDisplay(vtkPVXMLElement* elem);
-
-private:
-  pqUndoRedoStateLoader(const pqUndoRedoStateLoader&); // Not implemented.
-  void operator=(const pqUndoRedoStateLoader&); // Not implemented.
-};
-
-
-
-#endif
+//-----------------------------------------------------------------------------
+void pqDialog::done(int r)
+{
+  emit this->beginUndo(this->UndoLabel);
+  this->doneInternal(r);
+  this->Superclass::done(r);
+  emit this->endUndo();
+}
 
