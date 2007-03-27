@@ -1,7 +1,7 @@
 /*=========================================================================
 
    Program: ParaView
-   Module:    $RCSfile: QtWidgetsPlugin.h,v $
+   Module:    $RCSfile: pqDoubleRangeWidgetDomain.h,v $
 
    Copyright (c) 2005,2006 Sandia Corporation, Kitware Inc.
    All rights reserved.
@@ -30,62 +30,41 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =========================================================================*/
 
-#ifndef _QtWidgetsPlugin_h
-#define _QtWidgetsPlugin_h
+#ifndef pq_DoubleRangeWidgetDomain_h
+#define pq_DoubleRangeWidgetDomain_h
 
-#include <QDesignerCustomWidgetInterface>
-#include <QDesignerCustomWidgetCollectionInterface>
-#include <qplugin.h>
 #include <QObject>
+#include "pqComponentsExport.h"
 
-class pqCollapsedGroupPlugin :
-  public QDesignerCustomWidgetInterface
-{
-  Q_INTERFACES(QDesignerCustomWidgetInterface)
+class pqDoubleRangeWidget;
+class vtkSMProperty;
 
-public:
-  QString name() const;
-  QString domXml() const;
-  QWidget* createWidget(QWidget* parent);
-  QString group() const;
-  QIcon icon() const;
-  QString includeFile() const;
-  QString toolTip() const;
-  QString whatsThis() const;
-  bool isContainer() const;
-};
-
-class pqDoubleRangeWidgetPlugin :
-  public QDesignerCustomWidgetInterface
-{
-  Q_INTERFACES(QDesignerCustomWidgetInterface)
-
-public:
-  QString name() const;
-  QString domXml() const;
-  QWidget* createWidget(QWidget* parent);
-  QString group() const;
-  QIcon icon() const;
-  QString includeFile() const;
-  QString toolTip() const;
-  QString whatsThis() const;
-  bool isContainer() const;
-};
-
-class QtWidgetsPlugin :
-  public QObject,
-  public QDesignerCustomWidgetCollectionInterface
+/// combo box domain 
+/// observers the domain for a combo box and updates accordingly
+class PQCOMPONENTS_EXPORT pqDoubleRangeWidgetDomain : public QObject
 {
   Q_OBJECT
-  Q_INTERFACES(QDesignerCustomWidgetCollectionInterface)
-  
 public:
-  QtWidgetsPlugin(QObject* parent = 0);
+  /// constructor requires a pqDoubleRangeWidget, 
+  /// and the property with the domain to observe
+  /// the list of values in the combo box is automatically 
+  /// updated when the domain changes
+  pqDoubleRangeWidgetDomain(pqDoubleRangeWidget* p, vtkSMProperty* prop, int index=-1);
+  ~pqDoubleRangeWidgetDomain();
 
-  QList<QDesignerCustomWidgetInterface*> customWidgets() const;
-  
+public slots:
+  void domainChanged();
+protected slots:
+  void internalDomainChanged();
+
+protected:
+  virtual void setRange(double min, double max);
+
+  pqDoubleRangeWidget* getRangeWidget() const;
 private:
-  QList<QDesignerCustomWidgetInterface*> List;
+  class pqInternal;
+  pqInternal* Internal;
 };
 
-#endif // _QtWidgetsPlugin_h
+#endif
+
