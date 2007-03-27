@@ -32,7 +32,7 @@
 #include "vtkSmartPointer.h"
 #include "vtkUnstructuredGrid.h"
 
-vtkCxxRevisionMacro(vtkExtractSelectedLocations, "$Revision: 1.4 $");
+vtkCxxRevisionMacro(vtkExtractSelectedLocations, "$Revision: 1.5 $");
 vtkStandardNewMacro(vtkExtractSelectedLocations);
 
 //----------------------------------------------------------------------------
@@ -354,7 +354,6 @@ int vtkExtractSelectedLocations::ExtractCells(
           cellCounter[ptId]++;
           }
         }
-      locArrayIndex++;
       }
     }
   
