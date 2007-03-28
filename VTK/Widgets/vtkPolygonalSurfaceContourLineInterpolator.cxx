@@ -27,7 +27,7 @@
 #include "vtkDijkstraGraphGeodesicPath.h"
 
 vtkCxxRevisionMacro(vtkPolygonalSurfaceContourLineInterpolator,
-                                            "$Revision: 1.1 $");
+                                            "$Revision: 1.2 $");
 vtkStandardNewMacro(vtkPolygonalSurfaceContourLineInterpolator);
 
 //----------------------------------------------------------------------
@@ -55,7 +55,7 @@ int vtkPolygonalSurfaceContourLineInterpolator::UpdateNode(
 
 //----------------------------------------------------------------------
 int vtkPolygonalSurfaceContourLineInterpolator::InterpolateLine(
-                          vtkRenderer *ren,
+                          vtkRenderer *,
                           vtkContourRepresentation *rep,
                           int idx1, int idx2 )
 {
