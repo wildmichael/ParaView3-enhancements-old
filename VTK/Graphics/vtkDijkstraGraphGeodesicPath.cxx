@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:  $RCSfile: vtkDijkstraGraphGeodesicPath.cxx,v $
   Language:  C++
-  Date:    $Date: 2007-03-28 04:31:55 $
-  Version:   $Revision: 1.1 $
+  Date:    $Date: 2007-03-28 04:44:35 $
+  Version:   $Revision: 1.2 $
   
   Made by Rasmus Paulsen
   email:  rrp(at)imm.dtu.dk
@@ -28,7 +28,7 @@
 #include "vtkPointData.h"
 #include "vtkCellArray.h"
 
-vtkCxxRevisionMacro(vtkDijkstraGraphGeodesicPath, "$Revision: 1.1 $");
+vtkCxxRevisionMacro(vtkDijkstraGraphGeodesicPath, "$Revision: 1.2 $");
 vtkStandardNewMacro(vtkDijkstraGraphGeodesicPath);
 
 //----------------------------------------------------------------------------
@@ -85,20 +85,20 @@ int vtkDijkstraGraphGeodesicPath::RequestData(
     inInfo->Get(vtkDataObject::DATA_OBJECT()));
   if (!input)
     {
-    return 1;
+    return 0;
     }
 
   vtkPolyData *output = vtkPolyData::SafeDownCast(
     outInfo->Get(vtkDataObject::DATA_OBJECT()));
   if (!input)
     {
-    return 1;
+    return 0;
     }
   
   this->Initialize();
   this->ShortestPath(this->StartVertex, this->EndVertex);
   this->TraceShortestPath(input, output, this->StartVertex, this->EndVertex);
-  
+  return 1;
 }
 
 //----------------------------------------------------------------------------
@@ -221,10 +221,10 @@ void vtkDijkstraGraphGeodesicPath::BuildAdjacency(vtkPolyData *pd)
       Adj[v]->InsertUniqueId(u);
       for (int j = 0; j < npts-1; j++)
         {
-        vtkIdType u = pts[j];
-        vtkIdType v = pts[j+1];
-        Adj[u]->InsertUniqueId(v);
-        Adj[v]->InsertUniqueId(u);
+        vtkIdType u1 = pts[j];
+        vtkIdType v1 = pts[j+1];
+        Adj[u1]->InsertUniqueId(v1);
+        Adj[v1]->InsertUniqueId(u1);
         }
       }
     }
