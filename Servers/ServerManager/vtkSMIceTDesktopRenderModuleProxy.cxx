@@ -31,7 +31,7 @@
 #include <vtkstd/set>
 
 vtkStandardNewMacro(vtkSMIceTDesktopRenderModuleProxy);
-vtkCxxRevisionMacro(vtkSMIceTDesktopRenderModuleProxy, "$Revision: 1.27 $");
+vtkCxxRevisionMacro(vtkSMIceTDesktopRenderModuleProxy, "$Revision: 1.28 $");
 
 vtkCxxSetObjectMacro(vtkSMIceTDesktopRenderModuleProxy, 
                      ServerDisplayManagerProxy,
@@ -65,6 +65,7 @@ vtkSMIceTDesktopRenderModuleProxy::vtkSMIceTDesktopRenderModuleProxy()
 vtkSMIceTDesktopRenderModuleProxy::~vtkSMIceTDesktopRenderModuleProxy()
 {
   this->SetServerDisplayManagerProxy(0);
+  delete this->PartitionedData;
 }
 
 //-----------------------------------------------------------------------------
