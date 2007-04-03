@@ -1,4 +1,4 @@
-# $Id: CMakeLists.txt,v 1.19 2007-02-22 18:25:27 kmorel Exp $
+# $Id: CMakeLists.txt,v 1.20 2007-04-03 13:01:29 berk Exp $
 #
 ## Copyright 2003 Sandia Coporation
 ## Under the terms of Contract DE-AC04-94AL85000, there is a non-exclusive
@@ -132,11 +132,6 @@ INCLUDE_DIRECTORIES(${ICET_SOURCE_DIR}/src/include)
 INCLUDE_DIRECTORIES(${ICET_BINARY_DIR}/src/include)
 
 ADD_SUBDIRECTORY(src)
-IF(BUILD_DOCUMENTATION)
-  IF(NOT WIN32)
-    ADD_SUBDIRECTORY(doc)
-  ENDIF(NOT WIN32)
-ENDIF(BUILD_DOCUMENTATION)
 
 IF (BUILD_TESTING AND ICET_BUILD_TESTING)
   ADD_SUBDIRECTORY(tests)
