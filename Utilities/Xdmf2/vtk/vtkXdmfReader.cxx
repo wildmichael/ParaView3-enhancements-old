@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXdmfReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2007-04-03 20:28:19 $
-  Version:   $Revision: 1.10 $
+  Date:      $Date: 2007-04-03 20:56:27 $
+  Version:   $Revision: 1.11 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen  
@@ -86,7 +86,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define USE_IMAGE_DATA // otherwise uniformgrid
 
 vtkStandardNewMacro(vtkXdmfReader);
-vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.10 $");
+vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.11 $");
 
 vtkCxxSetObjectMacro(vtkXdmfReader,Controller,vtkMultiProcessController);
 
@@ -2806,6 +2806,10 @@ void vtkXdmfReader::UpdateNonUniformGrid(void *GridNode, char * CollectionName)
     vtkDebugMacro( << "Reading Light Data for " << gridName );
     // What Type of Grid
     XdmfConstString gridType = this->DOM->Get(gridNode, "GridType");
+    if(!gridType){
+        // Accept Old Style
+        gridType = this->DOM->Get(gridNode, "Type");
+    }
     if(XDMF_WORD_CMP(gridType, "Tree")){
         vtkDebugMacro( << " Grid is a Tree ");
         this->UpdateNonUniformGrid(gridNode, CollectionName);
@@ -2875,6 +2879,10 @@ void vtkXdmfReader::UpdateGrids()
       }
     // What Type of Grid
     XdmfConstString gridType = this->DOM->Get(gridNode, "GridType");
+    if(!gridType){
+        // Accept Old Style
+        gridType = this->DOM->Get(gridNode, "Type");
+    }
     if(XDMF_WORD_CMP(gridType, "Tree")){
         // Tree : collName is gridName
         vtkDebugMacro( << " Grid is a Tree ");
