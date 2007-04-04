@@ -33,7 +33,7 @@ public:
 };
 
 vtkStandardNewMacro(vtkSMExtractSelectionProxy);
-vtkCxxRevisionMacro(vtkSMExtractSelectionProxy, "$Revision: 1.2 $");
+vtkCxxRevisionMacro(vtkSMExtractSelectionProxy, "$Revision: 1.3 $");
 //-----------------------------------------------------------------------------
 vtkSMExtractSelectionProxy::vtkSMExtractSelectionProxy()
 {
@@ -170,4 +170,5 @@ void vtkSMExtractSelectionProxy::PrintSelf(ostream& os, vtkIndent indent)
 {
   this->Superclass::PrintSelf(os, indent);
   os << indent << "UseGlobalIDs: " << this->UseGlobalIDs << endl;
+  os << indent << "SelectionFieldType: " << this->SelectionFieldType << endl;
 }
