@@ -24,7 +24,7 @@
 #include "vtkRenderWindowInteractor.h"
 #include "vtkTransferFunctionEditorRepresentation.h"
 
-vtkCxxRevisionMacro(vtkTransferFunctionEditorWidget, "$Revision: 1.12 $");
+vtkCxxRevisionMacro(vtkTransferFunctionEditorWidget, "$Revision: 1.13 $");
 
 //----------------------------------------------------------------------------
 vtkTransferFunctionEditorWidget::vtkTransferFunctionEditorWidget()
@@ -212,7 +212,7 @@ void vtkTransferFunctionEditorWidget::SetOpacityFunction(
 }
 
 //----------------------------------------------------------------------------
-void vtkTransferFunctionEditorWidget::UpdateFromTransferFunctions()
+void vtkTransferFunctionEditorWidget::UpdateTransferFunctionMTime()
 {
   if (this->OpacityFunction)
     {
