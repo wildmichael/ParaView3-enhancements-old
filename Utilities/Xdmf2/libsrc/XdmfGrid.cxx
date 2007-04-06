@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfGrid.cxx,v 1.4 2007-04-06 16:39:40 clarke Exp $  */
-/*  Date : $Date: 2007-04-06 16:39:40 $ */
-/*  Version : $Revision: 1.4 $ */
+/*  Id : $Id: XdmfGrid.cxx,v 1.5 2007-04-06 16:51:40 clarke Exp $  */
+/*  Date : $Date: 2007-04-06 16:51:40 $ */
+/*  Version : $Revision: 1.5 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -250,29 +250,31 @@ if( this->GridType |= XDMF_GRID_UNIFORM ){
             delete di;
         }
     }
-    return(XDMF_SUCCESS);
-}
+//    return(XDMF_SUCCESS);
+}else{
 // Handle Uniform Grid
-Element = this->DOM->FindElement("Topology", 0, this->Element);
-if(Element){
-    if(this->Topology->SetDOM( this->DOM ) == XDMF_FAIL) return(XDMF_FAIL);
-    if(this->Topology->SetElement(Element) == XDMF_FAIL) return(XDMF_FAIL);
-    Status = this->Topology->UpdateInformation();
-    if( Status == XDMF_FAIL ){
-        XdmfErrorMessage("Error Reading Topology");
-        return( XDMF_FAIL );
+    Element = this->DOM->FindElement("Topology", 0, this->Element);
+    if(Element){
+        if(this->Topology->SetDOM( this->DOM ) == XDMF_FAIL) return(XDMF_FAIL);
+        if(this->Topology->SetElement(Element) == XDMF_FAIL) return(XDMF_FAIL);
+        Status = this->Topology->UpdateInformation();
+        if( Status == XDMF_FAIL ){
+            XdmfErrorMessage("Error Reading Topology");
+            return( XDMF_FAIL );
+        }
+    }
+    Element = this->DOM->FindElement("Geometry", 0, this->Element);
+    if(Element){
+        if(this->Geometry->SetDOM( this->DOM ) == XDMF_FAIL) return(XDMF_FAIL);
+        if(this->Geometry->SetElement(Element) == XDMF_FAIL) return(XDMF_FAIL);
+        Status = this->Geometry->UpdateInformation();
+        if( Status == XDMF_FAIL ){
+            XdmfErrorMessage("Error Reading Geometry");
+            return( XDMF_FAIL );
+        }
     }
 }
-Element = this->DOM->FindElement("Geometry", 0, this->Element);
-if(Element){
-    if(this->Geometry->SetDOM( this->DOM ) == XDMF_FAIL) return(XDMF_FAIL);
-    if(this->Geometry->SetElement(Element) == XDMF_FAIL) return(XDMF_FAIL);
-    Status = this->Geometry->UpdateInformation();
-    if( Status == XDMF_FAIL ){
-        XdmfErrorMessage("Error Reading Geometry");
-        return( XDMF_FAIL );
-    }
-}
+// Get Attributes
 if(!this->Name) this->SetName( GetUnique("Grid_" ) );
 XdmfInt32 OldNumberOfAttributes = this->NumberOfAttributes;
 this->NumberOfAttributes = this->DOM->FindNumberOfElements("Attribute", this->Element );
