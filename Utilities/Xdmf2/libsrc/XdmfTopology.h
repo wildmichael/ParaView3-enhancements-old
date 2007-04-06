@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfTopology.h,v 1.3 2007-04-04 14:58:14 clarke Exp $  */
-/*  Date : $Date: 2007-04-04 14:58:14 $ */
-/*  Version : $Revision: 1.3 $ */
+/*  Id : $Id: XdmfTopology.h,v 1.4 2007-04-06 16:39:40 clarke Exp $  */
+/*  Date : $Date: 2007-04-06 16:39:40 $ */
+/*  Version : $Revision: 1.4 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -261,6 +261,8 @@ public:
   XdmfArray *GetConnectivity( XdmfArray *Array = NULL );
 //! Set the connectivity
   XdmfInt32 SetConnectivity( XdmfArray *Array );
+//! Get the Offsets of each cell in the Connectivity Array
+  XdmfArray *GetCellOffsets(XdmfArray *Array = NULL);
 //! Update the Heavy Data
 /*!
 	If the Heavy Data is dynamic (i.e. stored in NDGM) or
@@ -283,6 +285,7 @@ protected:
   XdmfInt32  Order[ XDMF_MAX_ORDER ];
   XdmfInt32  NodesPerElement;
   XdmfArray  *Connectivity;
+  XdmfArray  *CellOffsets;
   XdmfInt32  OrderIsDefault;
   XdmfInt32  ConnectivityIsMine;
   XdmfInt32  BaseOffset;

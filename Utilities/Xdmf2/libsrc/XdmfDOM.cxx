@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDOM.cxx,v 1.14 2007-02-14 21:52:03 clarke Exp $  */
-/*  Date : $Date: 2007-02-14 21:52:03 $ */
-/*  Version : $Revision: 1.14 $ */
+/*  Id : $Id: XdmfDOM.cxx,v 1.15 2007-04-06 16:39:40 clarke Exp $  */
+/*  Date : $Date: 2007-04-06 16:39:40 $ */
+/*  Version : $Revision: 1.15 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -440,7 +440,7 @@ XdmfDOM::FindElement(XdmfConstString TagName, XdmfInt32 Index, XdmfXmlNode Node,
 XdmfString type = (XdmfString )TagName;
 XdmfXmlNode child;
 
-this->SetDebug(1);
+// this->SetDebug(1);
 if(TagName){
     XdmfDebug("FindElement " << TagName << " Index = " << Index);
 }else{
