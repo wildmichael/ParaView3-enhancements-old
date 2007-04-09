@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfGrid.h,v 1.2 2007-04-06 16:39:40 clarke Exp $  */
-/*  Date : $Date: 2007-04-06 16:39:40 $ */
-/*  Version : $Revision: 1.2 $ */
+/*  Id : $Id: XdmfGrid.h,v 1.3 2007-04-09 19:39:31 clarke Exp $  */
+/*  Date : $Date: 2007-04-09 19:39:31 $ */
+/*  Version : $Revision: 1.3 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -32,13 +32,18 @@ class XdmfGeometry;
 class XdmfTopology;
 class XdmfAttribute;
 
-#define XDMF_GRID_UNIFORM       0x00000 // Type is XdmfTopology Type
+#define XDMF_GRID_UNIFORM       0x00000 // Type xor XDMF_GRID_MASK = XdmfTopology Type
 #define XDMF_GRID_COLLECTION    0x10000
 #define XDMF_GRID_TREE          0x20000
 #define XDMF_GRID_SUBSET        0x40000
 #define XDMF_GRID_UNSET         0x0FFFF
 
 #define XDMF_GRID_MASK          0xF0000
+
+
+#define XDMF_GRID_SECTION_ALL           0x100000
+#define XDMF_GRID_SECTION_DATA_ITEM     0x200000
+#define XDMF_GRID_SECTION_MASK          0xF00000
 
 //! In memory representation of an XDMF Grid
 /*!
