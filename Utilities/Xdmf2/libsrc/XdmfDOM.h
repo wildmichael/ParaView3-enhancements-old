@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDOM.h,v 1.12 2007-02-14 21:52:03 clarke Exp $  */
-/*  Date : $Date: 2007-02-14 21:52:03 $ */
-/*  Version : $Revision: 1.12 $ */
+/*  Id : $Id: XdmfDOM.h,v 1.13 2007-04-10 17:04:56 clarke Exp $  */
+/*  Date : $Date: 2007-04-10 17:04:56 $ */
+/*  Version : $Revision: 1.13 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -178,6 +178,15 @@ tree starting at a particular node. IgnoreInfo allows
 the "Information" Elements not to be counted against Index.
 */
   XdmfXmlNode FindElement(XdmfConstString TagName,
+      XdmfInt32 Index= 0,
+      XdmfXmlNode Node = NULL,
+      XdmfInt32 IgnoreInfo=1);
+/*! Find DataItem, DataStructure, or DataTransform
+    This is needed for backward compatibility but will
+    be removed in the future and XML will be forced
+    to use <DataItem ....
+*/
+  XdmfXmlNode FindDataElement(
       XdmfInt32 Index= 0,
       XdmfXmlNode Node = NULL,
       XdmfInt32 IgnoreInfo=1);

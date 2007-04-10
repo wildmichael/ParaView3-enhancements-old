@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfGrid.cxx,v 1.6 2007-04-09 19:39:31 clarke Exp $  */
-/*  Date : $Date: 2007-04-09 19:39:31 $ */
-/*  Version : $Revision: 1.6 $ */
+/*  Id : $Id: XdmfGrid.cxx,v 1.7 2007-04-10 17:04:56 clarke Exp $  */
+/*  Date : $Date: 2007-04-10 17:04:56 $ */
+/*  Version : $Revision: 1.7 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -376,7 +376,7 @@ if((this->GridType & XDMF_GRID_MASK) != XDMF_GRID_UNIFORM){
         cout << " Done Getting SubSet all" << endl;
         }else if((this->GridType & XDMF_GRID_SECTION_MASK) == XDMF_GRID_SECTION_DATA_ITEM){
             cout << "Getting SubGrid Selection " << endl;
-            select = this->DOM->FindElement(NULL, 0, this->Element);
+            select = this->DOM->FindDataElement(0, this->Element);
             if(select){
                 XdmfDataItem    *di = new XdmfDataItem;
                 XdmfArray       *celloff, *newconn;
