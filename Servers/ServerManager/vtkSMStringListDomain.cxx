@@ -23,7 +23,7 @@
 #include "vtkStdString.h"
 
 vtkStandardNewMacro(vtkSMStringListDomain);
-vtkCxxRevisionMacro(vtkSMStringListDomain, "$Revision: 1.18 $");
+vtkCxxRevisionMacro(vtkSMStringListDomain, "$Revision: 1.19 $");
 
 struct vtkSMStringListDomainInternals
 {
@@ -208,7 +208,7 @@ void vtkSMStringListDomain::ChildSaveState(vtkPVXMLElement* domainElement)
 
 //---------------------------------------------------------------------------
 int vtkSMStringListDomain::LoadState(vtkPVXMLElement* domainElement, 
-    vtkSMStateLoader* loader)
+    vtkSMStateLoaderBase* loader)
 {
   this->Superclass::LoadState(domainElement, loader);
   
