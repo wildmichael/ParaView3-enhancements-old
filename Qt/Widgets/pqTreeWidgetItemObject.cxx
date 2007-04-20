@@ -38,6 +38,12 @@ pqTreeWidgetItemObject::pqTreeWidgetItemObject(QTreeWidget* p, const QStringList
 {
 }
 
+pqTreeWidgetItemObject::pqTreeWidgetItemObject(QTreeWidgetItem* p, const QStringList& t)
+  : QTreeWidgetItem(p, t) 
+{
+}
+
+
 void pqTreeWidgetItemObject::setData(int column, int role, const QVariant& v)
 {
   if(Qt::CheckStateRole == role)
