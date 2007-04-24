@@ -11,7 +11,7 @@ This libxml2 was converted from upstream as follows:
              libxml2-2.6.27
 
 2.) Fix trio*.h files:
-  "$Id: vtk_README.txt,v 1.1 2007-04-24 17:17:44 king Exp $"  -->  "Id: ..."
+  "$Id: vtk_README.txt,v 1.2 2007-04-24 17:23:33 king Exp $"  -->  "Id: ..."
 
 3.) Remove extra directories and files, fix permissions:
 
@@ -46,7 +46,7 @@ To upgrade to a newer libxml2 version:
 
   cvs update -dAP
   cvs tag VTK-libxml2-<new>-merge-pre
-  cvs update -j VTK-libxml2-upstream-<old> -j VTK-libxml2-upstream-<new>
+  cvs update -d -j VTK-libxml2-upstream-<old> -j VTK-libxml2-upstream-<new>
 
 4.) Manually resolve conflicts and commit.
 
