@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfInformation.cxx,v 1.5 2007-01-04 21:54:05 clarke Exp $  */
-/*  Date : $Date: 2007-01-04 21:54:05 $ */
-/*  Version : $Revision: 1.5 $ */
+/*  Id : $Id: XdmfInformation.cxx,v 1.6 2007-04-24 18:20:37 clarke Exp $  */
+/*  Date : $Date: 2007-04-24 18:20:37 $ */
+/*  Version : $Revision: 1.6 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -25,10 +25,21 @@
 #include "XdmfInformation.h"
 
 XdmfInformation::XdmfInformation() {
+    this->SetElementName("Information");
     this->Value = NULL;
 }
 
 XdmfInformation::~XdmfInformation() {
+}
+
+XdmfInt32
+XdmfInformation::Adopt( XdmfElement *Child){
+    if(Child && XDMF_WORD_CMP(Child->GetElementName(), "Information")){
+        return(XdmfElement::Adopt(Child));
+    }else{
+        XdmfErrorMessage("Information can only Adopt Information elements");
+    }
+    return(XDMF_FAIL);
 }
 
 XdmfInt32 XdmfInformation::UpdateInformation(){

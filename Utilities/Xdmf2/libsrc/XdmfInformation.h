@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfInformation.h,v 1.5 2007-01-04 21:54:05 clarke Exp $  */
-/*  Date : $Date: 2007-01-04 21:54:05 $ */
-/*  Version : $Revision: 1.5 $ */
+/*  Id : $Id: XdmfInformation.h,v 1.6 2007-04-24 18:20:37 clarke Exp $  */
+/*  Date : $Date: 2007-04-24 18:20:37 $ */
+/*  Version : $Revision: 1.6 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -48,6 +48,8 @@ public:
 
   XdmfConstString GetClassName() { return ( "XdmfInformation" ) ; };
 
+//! Adopt an Element
+  XdmfInt32 Adopt(XdmfElement *Child);
 //! Update From XML
     XdmfInt32 UpdateInformation();
 

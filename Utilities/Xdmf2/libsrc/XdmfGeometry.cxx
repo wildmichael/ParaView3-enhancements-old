@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfGeometry.cxx,v 1.3 2007-04-10 17:04:56 clarke Exp $  */
-/*  Date : $Date: 2007-04-10 17:04:56 $ */
-/*  Version : $Revision: 1.3 $ */
+/*  Id : $Id: XdmfGeometry.cxx,v 1.4 2007-04-24 18:20:37 clarke Exp $  */
+/*  Date : $Date: 2007-04-24 18:20:37 $ */
+/*  Version : $Revision: 1.4 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -49,6 +49,19 @@ XdmfGeometry::XdmfGeometry() {
 XdmfGeometry::~XdmfGeometry() {
   if( this->PointsAreMine && this->Points )  delete this->Points;
   }
+
+XdmfInt32
+XdmfGeometry::Adopt( XdmfElement *Child){
+    if(Child && (
+        XDMF_WORD_CMP(Child->GetElementName(), "DataItem") ||
+        XDMF_WORD_CMP(Child->GetElementName(), "Information")
+        )){
+        return(XdmfElement::Adopt(Child));
+    }else{
+        XdmfErrorMessage("Geometry can only Adopt DataItem or Information elements");
+    }
+    return(XDMF_FAIL);
+}
 
 XdmfInt32
 XdmfGeometry::SetOrigin( XdmfFloat64 X, XdmfFloat64 Y, XdmfFloat64 Z ){

@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDataItem.cxx,v 1.7 2007-04-10 17:04:56 clarke Exp $  */
-/*  Date : $Date: 2007-04-10 17:04:56 $ */
-/*  Version : $Revision: 1.7 $ */
+/*  Id : $Id: XdmfDataItem.cxx,v 1.8 2007-04-24 18:20:37 clarke Exp $  */
+/*  Date : $Date: 2007-04-24 18:20:37 $ */
+/*  Version : $Revision: 1.8 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -55,6 +55,19 @@ XdmfDataItem::~XdmfDataItem() {
     XdmfDebug("Done Deleteing array");
     if(this->DataDesc && this->DataDescIsMine) delete this->DataDesc;
     if(this->Values) delete this->Values;
+}
+
+XdmfInt32
+XdmfDataItem::Adopt( XdmfElement *Child){
+    if(Child && (
+        XDMF_WORD_CMP(Child->GetElementName(), "DataItem") ||
+        XDMF_WORD_CMP(Child->GetElementName(), "Information")
+        )){
+        return(XdmfElement::Adopt(Child));
+    }else{
+        XdmfErrorMessage("DataItem can only Adopt DataItem or Information elements");
+    }
+    return(XDMF_FAIL);
 }
 
 XdmfInt32 

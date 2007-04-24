@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfGrid.cxx,v 1.8 2007-04-24 14:21:49 clarke Exp $  */
-/*  Date : $Date: 2007-04-24 14:21:49 $ */
-/*  Version : $Revision: 1.8 $ */
+/*  Id : $Id: XdmfGrid.cxx,v 1.9 2007-04-24 18:20:37 clarke Exp $  */
+/*  Date : $Date: 2007-04-24 18:20:37 $ */
+/*  Version : $Revision: 1.9 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -68,6 +68,22 @@ XdmfGrid::~XdmfGrid() {
     }
   free(this->Attribute);
   }
+
+XdmfInt32
+XdmfGrid::Adopt( XdmfElement *Child){
+    if(Child && (
+        XDMF_WORD_CMP(Child->GetElementName(), "Grid") ||
+        XDMF_WORD_CMP(Child->GetElementName(), "Geometry") ||
+        XDMF_WORD_CMP(Child->GetElementName(), "Topology") ||
+        XDMF_WORD_CMP(Child->GetElementName(), "DataItem") ||
+        XDMF_WORD_CMP(Child->GetElementName(), "Information")
+        )){
+        return(XdmfElement::Adopt(Child));
+    }else{
+        XdmfErrorMessage("Attribute can only Adopt Grid | Geometry | Topology | DataItem | Information elements");
+    }
+    return(XDMF_FAIL);
+}
 
 XdmfConstString
 XdmfGrid::GetGridTypeAsString(){

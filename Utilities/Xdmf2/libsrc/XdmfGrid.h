@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfGrid.h,v 1.3 2007-04-09 19:39:31 clarke Exp $  */
-/*  Date : $Date: 2007-04-09 19:39:31 $ */
-/*  Version : $Revision: 1.3 $ */
+/*  Id : $Id: XdmfGrid.h,v 1.4 2007-04-24 18:20:37 clarke Exp $  */
+/*  Date : $Date: 2007-04-24 18:20:37 $ */
+/*  Version : $Revision: 1.4 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -143,6 +143,8 @@ public:
   //! Get the Grid Type as a string
   XdmfConstString GetGridTypeAsString();
 
+//! Adopt an Element
+  XdmfInt32 Adopt(XdmfElement *Child);
   //! Get the Grid Type
   XdmfGetValueMacro( GridType, XdmfInt32);
   //! Set the Grid Type

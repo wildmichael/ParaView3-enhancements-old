@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfElement.h,v 1.14 2007-02-09 15:43:02 clarke Exp $  */
-/*  Date : $Date: 2007-02-09 15:43:02 $ */
-/*  Version : $Revision: 1.14 $ */
+/*  Id : $Id: XdmfElement.h,v 1.15 2007-04-24 18:20:37 clarke Exp $  */
+/*  Date : $Date: 2007-04-24 18:20:37 $ */
+/*  Version : $Revision: 1.15 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -130,6 +130,12 @@ public:
     XdmfSetValueMacro(CopyReferenceData, XdmfInt32);
     //! Get the flag if data is to be copied out of a reference.
     XdmfGetValueMacro(CopyReferenceData, XdmfInt32);
+
+    //! Get the ElementName. i.e. ElementName for <Information ... = "Information"
+    XdmfGetStringMacro(ElementName);
+    //! Set the ElementName. i.e. ElementName for <Information ... = "Information"
+    XdmfSetStringMacro(ElementName);
+
     //! Get the Element type : Grid, Topology, etc.
     XdmfConstString GetElementType();
 
@@ -151,14 +157,20 @@ public:
     //! Copy Information from Another Element. Overridden in Child Class
     virtual XdmfInt32 Copy(XdmfElement *Source);
 
+    //! Adopt a child Element. Overridden in child Class to check ElementName
+    virtual XdmfInt32   Adopt(XdmfElement *Child = 0);
+
     //! Follow a Refernce Chain one step, if it exists
     XdmfXmlNode FollowReference(XdmfXmlNode Element);
 
 protected:
     void        SetReferenceObject(XdmfXmlNode Element, void *p);
     void        *GetReferenceObject(XdmfXmlNode Element);
+    void        SetCurrentXdmfElement(XdmfXmlNode Element, void *p);
+    void        *GetCurrentXdmfElement(XdmfXmlNode Element);
     XdmfDOM     *DOM;
     XdmfInt32   State;
+    XdmfString  ElementName;
     //! Target XML That Represents this. In the case of a reference, this is the target XML not the Reference="XX" node.
     XdmfXmlNode Element;
     //! If this is a Reference XML, this is the head of the Reference chain (the Original XML node).

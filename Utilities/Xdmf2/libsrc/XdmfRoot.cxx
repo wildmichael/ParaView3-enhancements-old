@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfRoot.cxx,v 1.1 2007-04-24 14:21:49 clarke Exp $  */
-/*  Date : $Date: 2007-04-24 14:21:49 $ */
-/*  Version : $Revision: 1.1 $ */
+/*  Id : $Id: XdmfRoot.cxx,v 1.2 2007-04-24 18:20:37 clarke Exp $  */
+/*  Date : $Date: 2007-04-24 18:20:37 $ */
+/*  Version : $Revision: 1.2 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -41,6 +41,20 @@ XdmfInt32 XdmfRoot::UpdateInformation(){
     Value = this->Get("XInclude");
     if(!Value) this->SetXInclude(atoi(Value));
     return(XDMF_SUCCESS);
+}
+
+XdmfInt32
+XdmfRoot::Adopt( XdmfElement *Child){
+    if(Child && (
+        XDMF_WORD_CMP(Child->GetElementName(), "Domain") ||
+        XDMF_WORD_CMP(Child->GetElementName(), "DataItem") ||
+        XDMF_WORD_CMP(Child->GetElementName(), "Information")
+        )){
+        return(XdmfElement::Adopt(Child));
+    }else{
+        XdmfErrorMessage("Attribute can only Adopt Domain | DataItem | Information elements");
+    }
+    return(XDMF_FAIL);
 }
 
 XdmfInt32 XdmfRoot::Build(){

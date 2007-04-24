@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfRoot.h,v 1.1 2007-04-24 14:21:49 clarke Exp $  */
-/*  Date : $Date: 2007-04-24 14:21:49 $ */
-/*  Version : $Revision: 1.1 $ */
+/*  Id : $Id: XdmfRoot.h,v 1.2 2007-04-24 18:20:37 clarke Exp $  */
+/*  Date : $Date: 2007-04-24 18:20:37 $ */
+/*  Version : $Revision: 1.2 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -47,6 +47,8 @@ public:
 //! Update From XML
     XdmfInt32 UpdateInformation();
 
+//! Adopt an Element
+  XdmfInt32 Adopt(XdmfElement *Child);
 /*! Set the Xdmf Version
     Until Build() is called.
 */

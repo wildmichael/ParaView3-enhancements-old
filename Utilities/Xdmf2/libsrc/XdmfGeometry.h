@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfGeometry.h,v 1.1 2007-02-08 18:04:32 clarke Exp $  */
-/*  Date : $Date: 2007-02-08 18:04:32 $ */
-/*  Version : $Revision: 1.1 $ */
+/*  Id : $Id: XdmfGeometry.h,v 1.2 2007-04-24 18:20:37 clarke Exp $  */
+/*  Date : $Date: 2007-04-24 18:20:37 $ */
+/*  Version : $Revision: 1.2 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -87,6 +87,8 @@ XDMF_GEOMETRY_ORIGIN_DXDYDZ : Xorigin, Yorigin, Zorigin, Dx, Dy, Dz
   XdmfString GetGeometryTypeAsString( void );
   XdmfInt32 SetGeometryTypeFromString( XdmfConstString GeometryType );
 
+//! Adopt an Element
+  XdmfInt32 Adopt(XdmfElement *Child);
   XdmfInt32 Update();
   XdmfInt32 UpdateInformation();
 
