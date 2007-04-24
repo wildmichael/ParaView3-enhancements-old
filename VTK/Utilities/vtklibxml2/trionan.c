@@ -1,6 +1,6 @@
 /*************************************************************************
  *
- * $Id: trionan.c,v 1.3 2007-04-24 18:55:38 king Exp $
+ * $Id: trionan.c,v 1.4 2007-04-24 19:01:43 king Exp $
  *
  * Copyright (C) 2001 Bjorn Reese <breese@users.sourceforge.net>
  *
@@ -112,7 +112,7 @@
  * Constants
  */
 
-static TRIO_CONST char rcsid[] = "@(#)$Id: trionan.c,v 1.3 2007-04-24 18:55:38 king Exp $";
+static TRIO_CONST char rcsid[] = "@(#)$Id: trionan.c,v 1.4 2007-04-24 19:01:43 king Exp $";
 
 #if defined(USE_IEEE_754)
 
@@ -558,7 +558,9 @@ TRIO_ARGS2((number, is_negative),
            double number,
            int *is_negative)
 {
-  (void)trio_is_negative; /* avoid trio_is_negative not used warning */
+  /* avoid static function not used not used warning */
+  (void)trio_is_negative;
+  (void)trio_is_special_quantity;
 #if defined(fpclassify) && defined(signbit)
   /*
    * C99 defines fpclassify() and signbit() as a macros
