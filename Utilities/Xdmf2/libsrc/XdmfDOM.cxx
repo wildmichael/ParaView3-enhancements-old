@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDOM.cxx,v 1.16 2007-04-10 17:04:56 clarke Exp $  */
-/*  Date : $Date: 2007-04-10 17:04:56 $ */
-/*  Version : $Revision: 1.16 $ */
+/*  Id : $Id: XdmfDOM.cxx,v 1.17 2007-04-24 14:21:49 clarke Exp $  */
+/*  Date : $Date: 2007-04-24 14:21:49 $ */
+/*  Version : $Revision: 1.17 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -324,12 +324,13 @@ XdmfXmlNode
 XdmfDOM::Create(XdmfConstString Version){
     XdmfInt32   Status;
     ostrstream  XmlString;
+    const xmlChar *XmlNs = XINCLUDE_NS;
 
     if(!Version) {
-        Version = "2.0";
+        Version = XDMF_VERSION_STRING;
     }
     XmlString << "<?xml version=\"1.0\" ?>" << endl << endl;
-    XmlString << "<Xdmf Version=\"" << Version << "\" >" << endl;
+    XmlString << "<Xdmf Version=\"" << Version << "\" xmlns:xi=\"" << XmlNs << "\" >" << endl;
     XmlString << "</Xdmf>" << endl;
     Status = this->Parse(XmlString.str());
     if(Status == XDMF_FAIL) return(NULL);

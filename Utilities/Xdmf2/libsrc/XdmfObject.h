@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfObject.h,v 1.5 2007-01-05 18:12:32 clarke Exp $  */
-/*  Date : $Date: 2007-01-05 18:12:32 $ */
-/*  Version : $Revision: 1.5 $ */
+/*  Id : $Id: XdmfObject.h,v 1.6 2007-04-24 14:21:49 clarke Exp $  */
+/*  Date : $Date: 2007-04-24 14:21:49 $ */
+/*  Version : $Revision: 1.6 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -161,6 +161,8 @@ using std::hex;
 
 #include "XdmfExport.h"
 
+#define XDMF_VERSION 2.1
+#define XDMF_VERSION_STRING "2.1"
 
 #define XDMF_SUCCESS  1
 #define XDMF_FAIL  -1
