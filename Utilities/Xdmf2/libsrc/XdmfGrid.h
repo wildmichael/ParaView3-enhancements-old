@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfGrid.h,v 1.6 2007-04-25 19:23:59 clarke Exp $  */
-/*  Date : $Date: 2007-04-25 19:23:59 $ */
-/*  Version : $Revision: 1.6 $ */
+/*  Id : $Id: XdmfGrid.h,v 1.7 2007-04-25 20:44:18 clarke Exp $  */
+/*  Date : $Date: 2007-04-25 20:44:18 $ */
+/*  Version : $Revision: 1.7 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -151,6 +151,8 @@ public:
 
   //! Get the Grid Type as a string
   XdmfConstString GetGridTypeAsString();
+
+  XdmfInt32 SetGridTypeFromString(XdmfConstString GridType);
 
   //! Build the XML (OUTPUT)
   XdmfInt32 Build();

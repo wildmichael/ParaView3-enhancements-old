@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfAttribute.cxx,v 1.4 2007-04-25 19:23:59 clarke Exp $  */
-/*  Date : $Date: 2007-04-25 19:23:59 $ */
-/*  Version : $Revision: 1.4 $ */
+/*  Id : $Id: XdmfAttribute.cxx,v 1.5 2007-04-25 20:44:18 clarke Exp $  */
+/*  Date : $Date: 2007-04-25 20:44:18 $ */
+/*  Version : $Revision: 1.5 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -30,6 +30,7 @@
 #include "XdmfDOM.h"
 
 XdmfAttribute::XdmfAttribute() {
+  this->SetElementName("Attribute");
   this->AttributeType = XDMF_ATTRIBUTE_TYPE_NONE;
   this->ValuesAreMine = 1;
   this->Values = NULL;
