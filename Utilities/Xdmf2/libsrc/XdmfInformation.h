@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfInformation.h,v 1.7 2007-04-25 16:23:29 clarke Exp $  */
-/*  Date : $Date: 2007-04-25 16:23:29 $ */
-/*  Version : $Revision: 1.7 $ */
+/*  Id : $Id: XdmfInformation.h,v 1.8 2007-04-25 19:23:59 clarke Exp $  */
+/*  Date : $Date: 2007-04-25 19:23:59 $ */
+/*  Version : $Revision: 1.8 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -35,6 +35,11 @@ Example :
 \verbatim
     <Information Name="XBounds" Value="0.0 10.0"/>
     <Information Name="Bounds"> 0.0 10.0 100.0 110.0 200.0 210.0 </Information>
+
+
+    XML Element : Information
+    XML Attribute : Name = Any String
+    XML Attribute : Value = Any String
 \endverbatim
     If there is a Value= Attribute in  the XML it is used. Otherwise the CDATA
     is used.

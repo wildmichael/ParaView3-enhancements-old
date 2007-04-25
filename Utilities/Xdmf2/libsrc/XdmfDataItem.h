@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDataItem.h,v 1.6 2007-04-25 16:23:29 clarke Exp $  */
-/*  Date : $Date: 2007-04-25 16:23:29 $ */
-/*  Version : $Revision: 1.6 $ */
+/*  Id : $Id: XdmfDataItem.h,v 1.7 2007-04-25 19:23:59 clarke Exp $  */
+/*  Date : $Date: 2007-04-25 19:23:59 $ */
+/*  Version : $Revision: 1.7 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -86,6 +86,15 @@ A Uniform XdmfDataItem represents an XdmfArray in XML.
     <DataItem Dimensions="3">
     1 2 3
     </DataItem>
+
+
+    XML Element : DataItem
+    XML Attribute : Name = Any String
+    XML Attribute : ItemType = Uniform* | Collection | Tree | HyperSlab | Coordinates | Function
+    XML Attribute : Dimensions = K J I 
+    XML Attribute : NumberType = Float* | Int | UInt | Char | UChar
+    XML Attribute : Precision = 1 | 4 | 8
+    XML Attribute : Format = XML* | HDF
 \endverbatim
 */
 

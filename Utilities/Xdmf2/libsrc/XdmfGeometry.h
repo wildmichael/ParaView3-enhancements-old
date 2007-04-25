@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfGeometry.h,v 1.3 2007-04-25 16:23:29 clarke Exp $  */
-/*  Date : $Date: 2007-04-25 16:23:29 $ */
-/*  Version : $Revision: 1.3 $ */
+/*  Id : $Id: XdmfGeometry.h,v 1.4 2007-04-25 19:23:59 clarke Exp $  */
+/*  Date : $Date: 2007-04-25 19:23:59 $ */
+/*  Version : $Revision: 1.4 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -78,6 +78,18 @@ XDMF_GEOMETRY_XYZ 	: X0,Y0,Z0,X1,Y1,Z1 ..... XN,YN,ZN  for every point
 XDMF_GEOMETRY_X_Y_Z	: X0,X1 ... XN,Y0,Y1 ... YN,Z0,Z1 ... ZN  for every point
 XDMF_GEOMETRY_VXVYVZ	: X0,X1 ... XN,Y0,Y1 ... YN,Z0,Z1 ... ZN for XAxis, YAxis, ZAxis
 XDMF_GEOMETRY_ORIGIN_DXDYDZ : Xorigin, Yorigin, Zorigin, Dx, Dy, Dz
+
+    XML Element : Grid
+    XML Attribute : Name = Any String
+    XML Attribute : GeometryType = XYZ* | XY | X_Y_Z | X_Y | VXVYVZ | ORIGIN_DXDYDZ
+
+    Example :
+        <Grid Name="Mesh" GridType="Uniform">
+            <Topology ...
+            <Geometry ...
+            <Attribute ...
+        </Grid>
+
 \endverbatim
 */
   XdmfSetValueMacro( GeometryType, XdmfInt32 );

@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfRoot.h,v 1.3 2007-04-25 16:23:29 clarke Exp $  */
-/*  Date : $Date: 2007-04-25 16:23:29 $ */
-/*  Version : $Revision: 1.3 $ */
+/*  Id : $Id: XdmfRoot.h,v 1.4 2007-04-25 19:23:59 clarke Exp $  */
+/*  Date : $Date: 2007-04-25 19:23:59 $ */
+/*  Version : $Revision: 1.4 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -34,6 +34,9 @@ Xdmf. In XML it is the Element :
 The Xdmf element may have Domain and DataItem Elements as children
 The NameSpace "http://www.w3.org/2003/XInclude" is defined in a 
 macro in libxml2, so it can change.
+
+    XML Element : Xdmf
+    XML Attribute : Version = Version #
 */
 
 class XDMF_EXPORT XdmfRoot : public XdmfElement {

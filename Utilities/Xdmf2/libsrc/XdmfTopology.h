@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfTopology.h,v 1.6 2007-04-25 16:23:29 clarke Exp $  */
-/*  Date : $Date: 2007-04-25 16:23:29 $ */
-/*  Version : $Revision: 1.6 $ */
+/*  Id : $Id: XdmfTopology.h,v 1.7 2007-04-25 19:23:59 clarke Exp $  */
+/*  Date : $Date: 2007-04-25 19:23:59 $ */
+/*  Version : $Revision: 1.7 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -122,6 +122,20 @@ Currently supported BASE topologies are :
    6 20 25 100 200  3 5 300 301 302 303 304
 
    The Tet uses point index 20, 25, 100, and 200 while the polygon uses 300 - 304.
+
+   XML Element : Topology
+   XML Attribute : Name = Any String
+   XML Attribute : TopologyType = Polyvertex | Polyline | Polygon |
+                                  Triangle | Quadrilateral | Tetrahedron | Pyramid| Wedge | Hexahedron |
+                                  Edge_3 | Triagle_6 | Quadrilateral_8 | Tetrahedron_10 | Pyramid_13 |
+                                  Wedge_15 | Hexahedron_20 |
+                                  Mixed |
+                                  2DSMesh | 2DRectMesh | 2DCoRectMesh |
+                                  3DSMesh | 3DRectMesh | 3DCoRectMesh
+   XML Attribute : NumberOfElements = Number of Cells
+   XML Attribute : NodesPerElement = # (Only Important for Polyvertex, Polygon and Polyline)
+   XML Attribute : Order = Order of Nodes if not Default
+   XML BaseOffset: Offset if not 0
 \endverbatim
 */
 
