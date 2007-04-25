@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDataItem.h,v 1.5 2007-04-24 18:20:37 clarke Exp $  */
-/*  Date : $Date: 2007-04-24 18:20:37 $ */
-/*  Version : $Revision: 1.5 $ */
+/*  Id : $Id: XdmfDataItem.h,v 1.6 2007-04-25 16:23:29 clarke Exp $  */
+/*  Date : $Date: 2007-04-25 16:23:29 $ */
+/*  Version : $Revision: 1.6 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -105,8 +105,8 @@ public:
 //! Set the format of the data. Usually XML | HDF. Default is XML.
     XdmfSetValueMacro(Format, XdmfInt32);
 
-//! Adopt an Element
-  XdmfInt32 Adopt(XdmfElement *Child);
+//! Insert an Element
+  XdmfInt32 Insert(XdmfElement *Child);
     //! Tells the DataItem is it owns the Array and is thus allowed  to delete it.
     XdmfSetValueMacro(ArrayIsMine, XdmfInt32);
     //! Get the Value it the DataItem owns the Array

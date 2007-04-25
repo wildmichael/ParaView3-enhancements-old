@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfAttribute.h,v 1.2 2007-04-24 18:20:37 clarke Exp $  */
-/*  Date : $Date: 2007-04-24 18:20:37 $ */
-/*  Version : $Revision: 1.2 $ */
+/*  Id : $Id: XdmfAttribute.h,v 1.3 2007-04-25 16:23:29 clarke Exp $  */
+/*  Date : $Date: 2007-04-25 16:23:29 $ */
+/*  Version : $Revision: 1.3 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -74,8 +74,8 @@ public:
 //! Return the if the Attribute is Active
   XdmfGetValueMacro( Active, XdmfInt32 );
 
-//! Adopt an Element
-  XdmfInt32 Adopt(XdmfElement *Child);
+//! Insert an Element
+  XdmfInt32 Insert(XdmfElement *Child);
 
 //! Set the type using a String
   XdmfInt32 SetAttributeTypeFromString( XdmfConstString AttributeType );

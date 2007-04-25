@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfInformation.cxx,v 1.6 2007-04-24 18:20:37 clarke Exp $  */
-/*  Date : $Date: 2007-04-24 18:20:37 $ */
-/*  Version : $Revision: 1.6 $ */
+/*  Id : $Id: XdmfInformation.cxx,v 1.7 2007-04-25 16:23:29 clarke Exp $  */
+/*  Date : $Date: 2007-04-25 16:23:29 $ */
+/*  Version : $Revision: 1.7 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -33,11 +33,11 @@ XdmfInformation::~XdmfInformation() {
 }
 
 XdmfInt32
-XdmfInformation::Adopt( XdmfElement *Child){
+XdmfInformation::Insert( XdmfElement *Child){
     if(Child && XDMF_WORD_CMP(Child->GetElementName(), "Information")){
-        return(XdmfElement::Adopt(Child));
+        return(XdmfElement::Insert(Child));
     }else{
-        XdmfErrorMessage("Information can only Adopt Information elements");
+        XdmfErrorMessage("Information can only Insert Information elements");
     }
     return(XDMF_FAIL);
 }

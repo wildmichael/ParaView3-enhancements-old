@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfRoot.cxx,v 1.2 2007-04-24 18:20:37 clarke Exp $  */
-/*  Date : $Date: 2007-04-24 18:20:37 $ */
-/*  Version : $Revision: 1.2 $ */
+/*  Id : $Id: XdmfRoot.cxx,v 1.3 2007-04-25 16:23:29 clarke Exp $  */
+/*  Date : $Date: 2007-04-25 16:23:29 $ */
+/*  Version : $Revision: 1.3 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -23,8 +23,10 @@
 /*                                                                 */
 /*******************************************************************/
 #include "XdmfRoot.h"
+#include "XdmfDOM.h"
 
 XdmfRoot::XdmfRoot() {
+    this->SetElementName("Xdmf");
     this->Version = XDMF_VERSION;
     this->XInclude = 1;
 }
@@ -44,15 +46,15 @@ XdmfInt32 XdmfRoot::UpdateInformation(){
 }
 
 XdmfInt32
-XdmfRoot::Adopt( XdmfElement *Child){
+XdmfRoot::Insert( XdmfElement *Child){
     if(Child && (
         XDMF_WORD_CMP(Child->GetElementName(), "Domain") ||
         XDMF_WORD_CMP(Child->GetElementName(), "DataItem") ||
         XDMF_WORD_CMP(Child->GetElementName(), "Information")
         )){
-        return(XdmfElement::Adopt(Child));
+        return(XdmfElement::Insert(Child));
     }else{
-        XdmfErrorMessage("Attribute can only Adopt Domain | DataItem | Information elements");
+        XdmfErrorMessage("Xdmf Root can only Insert Domain | DataItem | Information elements, not a " << Child->GetElementName());
     }
     return(XDMF_FAIL);
 }
@@ -61,6 +63,14 @@ XdmfInt32 XdmfRoot::Build(){
     static char VersionBuf[80];
     ostrstream  Version(VersionBuf,80);
 
+    if(!this->GetElement()){
+        if(this->GetDOM()){
+            XdmfXmlNode  node;
+
+            node = this->GetDOM()->Create();
+            this->SetElement(node);
+        }
+    }
     if(XdmfElement::Build() != XDMF_SUCCESS) return(XDMF_FAIL);
     // Version and XInclude
     Version << this->Version << ends;

@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfElement.h,v 1.15 2007-04-24 18:20:37 clarke Exp $  */
-/*  Date : $Date: 2007-04-24 18:20:37 $ */
-/*  Version : $Revision: 1.15 $ */
+/*  Id : $Id: XdmfElement.h,v 1.16 2007-04-25 16:23:29 clarke Exp $  */
+/*  Date : $Date: 2007-04-25 16:23:29 $ */
+/*  Version : $Revision: 1.16 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -157,16 +157,19 @@ public:
     //! Copy Information from Another Element. Overridden in Child Class
     virtual XdmfInt32 Copy(XdmfElement *Source);
 
-    //! Adopt a child Element. Overridden in child Class to check ElementName
-    virtual XdmfInt32   Adopt(XdmfElement *Child = 0);
+    //! Insert a child Element. Overridden in child Class to check ElementName
+    virtual XdmfInt32   Insert(XdmfElement *Child = 0);
 
     //! Follow a Refernce Chain one step, if it exists
     XdmfXmlNode FollowReference(XdmfXmlNode Element);
 
+
 protected:
     void        SetReferenceObject(XdmfXmlNode Element, void *p);
     void        *GetReferenceObject(XdmfXmlNode Element);
+    //! Set the XdmfElement Object Assigned to the XML Element in the DOM
     void        SetCurrentXdmfElement(XdmfXmlNode Element, void *p);
+    //! Get the XdmfElement Object Assigned to the XML Element in the DOM
     void        *GetCurrentXdmfElement(XdmfXmlNode Element);
     XdmfDOM     *DOM;
     XdmfInt32   State;

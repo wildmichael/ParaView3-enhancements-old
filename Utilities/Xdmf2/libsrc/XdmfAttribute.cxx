@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfAttribute.cxx,v 1.2 2007-04-24 18:20:37 clarke Exp $  */
-/*  Date : $Date: 2007-04-24 18:20:37 $ */
-/*  Version : $Revision: 1.2 $ */
+/*  Id : $Id: XdmfAttribute.cxx,v 1.3 2007-04-25 16:23:29 clarke Exp $  */
+/*  Date : $Date: 2007-04-25 16:23:29 $ */
+/*  Version : $Revision: 1.3 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -44,14 +44,14 @@ XdmfAttribute::~XdmfAttribute() {
 
 
 XdmfInt32
-XdmfAttribute::Adopt( XdmfElement *Child){
+XdmfAttribute::Insert( XdmfElement *Child){
     if(Child && (
         XDMF_WORD_CMP(Child->GetElementName(), "DataItem") ||
         XDMF_WORD_CMP(Child->GetElementName(), "Information")
         )){
-        return(XdmfElement::Adopt(Child));
+        return(XdmfElement::Insert(Child));
     }else{
-        XdmfErrorMessage("Attribute can only Adopt DataItem or Information elements");
+        XdmfErrorMessage("Attribute can only Insert DataItem or Information elements");
     }
     return(XDMF_FAIL);
 }

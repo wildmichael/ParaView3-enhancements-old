@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfTopology.cxx,v 1.6 2007-04-24 18:20:37 clarke Exp $  */
-/*  Date : $Date: 2007-04-24 18:20:37 $ */
-/*  Version : $Revision: 1.6 $ */
+/*  Id : $Id: XdmfTopology.cxx,v 1.7 2007-04-25 16:23:29 clarke Exp $  */
+/*  Date : $Date: 2007-04-25 16:23:29 $ */
+/*  Version : $Revision: 1.7 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -40,6 +40,7 @@ XdmfTopology *HandleToXdmfTopology( XdmfString Source ){
 
 XdmfTopology::XdmfTopology() {
   XdmfInt64 Dimensions = 1;
+  this->SetElementName("Topology");
   this->TopologyType = XDMF_NOTOPOLOGY;
   this->NodesPerElement = 0;
   this->Shape = new XdmfDataDesc;
@@ -58,14 +59,45 @@ XdmfTopology::~XdmfTopology() {
   }
 
 XdmfInt32
-XdmfTopology::Adopt( XdmfElement *Child){
+XdmfTopology::Build(){
+    if(XdmfElement::Build() != XDMF_SUCCESS) return(XDMF_FAIL);
+    this->Set("TopologyType", this->GetTopologyTypeAsString());
+    if(this->GetNumberOfElements()){
+        this->Set("NumberOfElements", this->Shape->GetShapeAsString());
+    }
+    if( this->OrderIsDefault == 0 ){
+        this->Set("Order", this->GetOrderAsString());
+    } 
+    if(this->Connectivity){
+        XdmfDataItem    *di = NULL;
+        XdmfXmlNode     node;
+        //! Is there already a DataItem
+        node = this->DOM->FindDataElement(0, this->GetElement());
+        if(node) {
+            di = (XdmfDataItem *)this->GetCurrentXdmfElement(node);
+        }
+        if(!di){
+            di = new XdmfDataItem;
+            node = this->DOM->InsertNew(this->GetElement(), "DataItem");
+            di->SetDOM(this->DOM);
+            di->SetElement(node);
+        }
+        di->SetArray(this->Connectivity);
+        if(this->Connectivity->GetNumberOfElements() > 100) di->SetFormat(XDMF_FORMAT_HDF);
+        di->Build();
+
+    }
+    return(XDMF_SUCCESS);
+}
+XdmfInt32
+XdmfTopology::Insert( XdmfElement *Child){
     if(Child && (
         XDMF_WORD_CMP(Child->GetElementName(), "DataItem") ||
         XDMF_WORD_CMP(Child->GetElementName(), "Information")
         )){
-        return(XdmfElement::Adopt(Child));
+        return(XdmfElement::Insert(Child));
     }else{
-        XdmfErrorMessage("Topology can only Adopt DataItem or Information elements");
+        XdmfErrorMessage("Topology can only Insert DataItem or Information elements");
     }
     return(XDMF_FAIL);
 }
@@ -73,6 +105,11 @@ XdmfTopology::Adopt( XdmfElement *Child){
 XdmfInt64 XdmfTopology::GetNumberOfElements( void ) {
   return( this->Shape->GetNumberOfElements() );
   }
+
+XdmfInt32
+XdmfTopology::SetNumberOfElements( XdmfInt64 NumberOfElements){
+    return(this->Shape->SetNumberOfElements(NumberOfElements));
+    }
 
 XdmfInt32
 XdmfTopology::SetConnectivity( XdmfArray *Array ){

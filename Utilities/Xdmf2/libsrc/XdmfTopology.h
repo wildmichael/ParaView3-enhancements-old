@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfTopology.h,v 1.5 2007-04-24 18:20:37 clarke Exp $  */
-/*  Date : $Date: 2007-04-24 18:20:37 $ */
-/*  Version : $Revision: 1.5 $ */
+/*  Id : $Id: XdmfTopology.h,v 1.6 2007-04-25 16:23:29 clarke Exp $  */
+/*  Date : $Date: 2007-04-25 16:23:29 $ */
+/*  Version : $Revision: 1.6 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -133,8 +133,10 @@ public:
 
   XdmfConstString GetClassName() { return ( "XdmfTopology" ) ; };
 
-//! Adopt an Element
-  XdmfInt32 Adopt(XdmfElement *Child);
+//! Build the XML (Output)
+  XdmfInt32 Build();
+//! Insert an Element
+  XdmfInt32 Insert(XdmfElement *Child);
 //! Get General Class
 /*!
 	GetClass returns XDMF_UNSTRUCTURED or XDMF_STRUCTURED.
@@ -253,6 +255,8 @@ public:
   GetShapeDesc( void ) {
     return( this->Shape );
     }
+//! Set the total number of cells
+  XdmfInt32 SetNumberOfElements(XdmfInt64 NumberOfElements);
 //! Return the total number of Cells
   XdmfInt64 GetNumberOfElements( void );
 //! Returns an XdmfArray of Connectivity

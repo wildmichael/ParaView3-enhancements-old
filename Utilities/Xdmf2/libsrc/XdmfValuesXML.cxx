@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfValuesXML.cxx,v 1.6 2007-01-26 21:29:21 clarke Exp $  */
-/*  Date : $Date: 2007-01-26 21:29:21 $ */
-/*  Version : $Revision: 1.6 $ */
+/*  Id : $Id: XdmfValuesXML.cxx,v 1.7 2007-04-25 16:23:29 clarke Exp $  */
+/*  Date : $Date: 2007-04-25 16:23:29 $ */
+/*  Version : $Revision: 1.7 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -126,5 +126,6 @@ XdmfValuesXML::Write(XdmfArray *Array, XdmfConstString HeavyDataSetName){
             }
         }
     }
+    StringOutput << ends;
     return(this->Set("CDATA", StringOutput.str()));
 }

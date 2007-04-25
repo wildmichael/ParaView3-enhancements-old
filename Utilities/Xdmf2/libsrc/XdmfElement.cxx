@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfElement.cxx,v 1.14 2007-04-24 18:20:37 clarke Exp $  */
-/*  Date : $Date: 2007-04-24 18:20:37 $ */
-/*  Version : $Revision: 1.14 $ */
+/*  Id : $Id: XdmfElement.cxx,v 1.15 2007-04-25 16:23:29 clarke Exp $  */
+/*  Date : $Date: 2007-04-25 16:23:29 $ */
+/*  Version : $Revision: 1.15 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -176,7 +176,7 @@ XdmfInt32 XdmfElement::InsertChildElement(XdmfXmlNode Child){
 
 
 XdmfInt32
-XdmfElement::Adopt(XdmfElement *Child){
+XdmfElement::Insert(XdmfElement *Child){
     XdmfXmlNode element;
 
     if(!this->DOM) {
