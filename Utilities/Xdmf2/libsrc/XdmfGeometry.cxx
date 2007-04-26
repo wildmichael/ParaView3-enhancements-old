@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfGeometry.cxx,v 1.5 2007-04-25 16:23:29 clarke Exp $  */
-/*  Date : $Date: 2007-04-25 16:23:29 $ */
-/*  Version : $Revision: 1.5 $ */
+/*  Id : $Id: XdmfGeometry.cxx,v 1.6 2007-04-26 14:14:05 clarke Exp $  */
+/*  Date : $Date: 2007-04-26 14:14:05 $ */
+/*  Version : $Revision: 1.6 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -122,7 +122,7 @@ return( this->SetDxDyDz( dxDyDz[0], dxDyDz[1], dxDyDz[2] ) );
 
 XdmfInt32
 XdmfGeometry::SetPoints( XdmfArray *points ){
-    if( this->PointsAreMine && this->Points ) delete points;
+    if( this->PointsAreMine && this->Points ) delete this->Points;
     this->PointsAreMine = 0;
     this->Points = points;
     return( XDMF_SUCCESS );

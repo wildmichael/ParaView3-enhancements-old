@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfAttribute.cxx,v 1.5 2007-04-25 20:44:18 clarke Exp $  */
-/*  Date : $Date: 2007-04-25 20:44:18 $ */
-/*  Version : $Revision: 1.5 $ */
+/*  Id : $Id: XdmfAttribute.cxx,v 1.6 2007-04-26 14:14:05 clarke Exp $  */
+/*  Date : $Date: 2007-04-26 14:14:05 $ */
+/*  Version : $Revision: 1.6 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -57,6 +57,33 @@ XdmfAttribute::Insert( XdmfElement *Child){
     return(XDMF_FAIL);
 }
 
+
+XdmfInt32
+XdmfAttribute::Build(){
+    if(XdmfElement::Build() != XDMF_SUCCESS) return(XDMF_FAIL);
+    this->Set("AttributeType", this->GetAttributeTypeAsString());
+    this->Set("Center", this->GetAttributeCenterAsString());
+    if(this->Values){
+        XdmfDataItem    *di = NULL;
+        XdmfXmlNode     node;
+        //! Is there already a DataItem
+        node = this->DOM->FindDataElement(0, this->GetElement());
+        if(node) {
+            di = (XdmfDataItem *)this->GetCurrentXdmfElement(node);
+        }
+        if(!di){
+            di = new XdmfDataItem;
+            node = this->DOM->InsertNew(this->GetElement(), "DataItem");
+            di->SetDOM(this->DOM);
+            di->SetElement(node);
+        }
+        di->SetArray(this->Values);
+        if(this->Values->GetNumberOfElements() > 100) di->SetFormat(XDMF_FORMAT_HDF);
+        di->Build();
+
+    }
+    return(XDMF_SUCCESS);
+}
 
 XdmfConstString
 XdmfAttribute::GetAttributeTypeAsString( void ){
@@ -139,6 +166,14 @@ if( XDMF_WORD_CMP( attributeCenter, "Grid" ) ) {
   return( XDMF_FAIL );
   }
 return( XDMF_SUCCESS );
+}
+
+XdmfInt32
+XdmfAttribute::SetValues(XdmfArray *Values){
+    if(this->ValuesAreMine && this->Values) delete this->Values;
+    this->ValuesAreMine = 0;
+    this->Values = Values;
+    return(XDMF_SUCCESS);
 }
 
 XdmfInt32

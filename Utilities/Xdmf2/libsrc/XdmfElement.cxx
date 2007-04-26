@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfElement.cxx,v 1.15 2007-04-25 16:23:29 clarke Exp $  */
-/*  Date : $Date: 2007-04-25 16:23:29 $ */
-/*  Version : $Revision: 1.15 $ */
+/*  Id : $Id: XdmfElement.cxx,v 1.16 2007-04-26 14:14:05 clarke Exp $  */
+/*  Date : $Date: 2007-04-26 14:14:05 $ */
+/*  Version : $Revision: 1.16 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -180,7 +180,11 @@ XdmfElement::Insert(XdmfElement *Child){
     XdmfXmlNode element;
 
     if(!this->DOM) {
-        XdmfErrorMessage("No DOM has not been set");
+        XdmfErrorMessage("No DOM has not been set : Parent must have a DOM and Element before insertion makes sense");
+        return(XDMF_FAIL);
+    }
+    if(!this->GetElement()) {
+        XdmfErrorMessage("No Element has not been set : Parent must have a DOM and Element before insertion makes sense");
         return(XDMF_FAIL);
     }
     if(!Child){

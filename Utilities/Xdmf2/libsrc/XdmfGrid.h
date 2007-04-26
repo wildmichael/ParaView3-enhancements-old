@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfGrid.h,v 1.7 2007-04-25 20:44:18 clarke Exp $  */
-/*  Date : $Date: 2007-04-25 20:44:18 $ */
-/*  Version : $Revision: 1.7 $ */
+/*  Id : $Id: XdmfGrid.h,v 1.8 2007-04-26 14:14:05 clarke Exp $  */
+/*  Date : $Date: 2007-04-26 14:14:05 $ */
+/*  Version : $Revision: 1.8 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -156,6 +156,11 @@ public:
 
   //! Build the XML (OUTPUT)
   XdmfInt32 Build();
+
+//! Create a XML node for the Topology of a Uniform Grid
+  XdmfInt32 InsertTopology();
+//! Create a XML node for the Geometry of a Uniform Grid
+  XdmfInt32 InsertGeometry();
 //! Insert an Element
   XdmfInt32 Insert(XdmfElement *Child);
   //! Get the Grid Type
