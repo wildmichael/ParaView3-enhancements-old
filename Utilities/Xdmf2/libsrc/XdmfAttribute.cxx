@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfAttribute.cxx,v 1.6 2007-04-26 14:14:05 clarke Exp $  */
-/*  Date : $Date: 2007-04-26 14:14:05 $ */
-/*  Version : $Revision: 1.6 $ */
+/*  Id : $Id: XdmfAttribute.cxx,v 1.7 2007-04-26 15:08:14 clarke Exp $  */
+/*  Date : $Date: 2007-04-26 15:08:14 $ */
+/*  Version : $Revision: 1.7 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -170,10 +170,20 @@ return( XDMF_SUCCESS );
 
 XdmfInt32
 XdmfAttribute::SetValues(XdmfArray *Values){
+    if(Values == this->Values) return(XDMF_SUCCESS);
     if(this->ValuesAreMine && this->Values) delete this->Values;
     this->ValuesAreMine = 0;
     this->Values = Values;
     return(XDMF_SUCCESS);
+}
+
+XdmfArray *
+XdmfAttribute::GetValues(XdmfInt32 Create){
+    if(!this->Values && Create){
+        this->Values = new XdmfArray;
+        this->ValuesAreMine = 1;
+    }
+    return(this->Values);
 }
 
 XdmfInt32

@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfTopology.cxx,v 1.7 2007-04-25 16:23:29 clarke Exp $  */
-/*  Date : $Date: 2007-04-25 16:23:29 $ */
-/*  Version : $Revision: 1.7 $ */
+/*  Id : $Id: XdmfTopology.cxx,v 1.8 2007-04-26 15:08:14 clarke Exp $  */
+/*  Date : $Date: 2007-04-26 15:08:14 $ */
+/*  Version : $Revision: 1.8 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -113,10 +113,11 @@ XdmfTopology::SetNumberOfElements( XdmfInt64 NumberOfElements){
 
 XdmfInt32
 XdmfTopology::SetConnectivity( XdmfArray *Array ){
-if( this->ConnectivityIsMine && this->Connectivity ) delete this->Connectivity;
-this->ConnectivityIsMine = 0;
-this->Connectivity = Array;
-return( XDMF_SUCCESS );
+    if(this->Connectivity == Array) return(XDMF_SUCCESS);
+    if( this->ConnectivityIsMine && this->Connectivity ) delete this->Connectivity;
+    this->ConnectivityIsMine = 0;
+    this->Connectivity = Array;
+    return( XDMF_SUCCESS );
 }
 
 
@@ -495,15 +496,19 @@ return( this->CellOffsets );
 }
 
 XdmfArray *
-XdmfTopology::GetConnectivity( XdmfArray *Array ){
-if( this->Connectivity ) {
-  if( Array ){
-    CopyArray( this->Connectivity, Array );
-    return( Array );
-  } else {
-    return( this->Connectivity );
-  }
-}
+XdmfTopology::GetConnectivity( XdmfArray *Array, XdmfInt32 Create ){
+    if(!this->Connectivity && Create){
+        this->Connectivity = new XdmfArray;
+        this->ConnectivityIsMine = 1;
+    }
+    if( this->Connectivity ) {
+      if( Array ){
+        CopyArray( this->Connectivity, Array );
+        return( Array );
+      } else {
+        return( this->Connectivity );
+      }
+    }
 return( NULL );
 }
 

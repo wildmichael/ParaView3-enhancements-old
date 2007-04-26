@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfAttribute.h,v 1.5 2007-04-26 14:14:05 clarke Exp $  */
-/*  Date : $Date: 2007-04-26 14:14:05 $ */
-/*  Version : $Revision: 1.5 $ */
+/*  Id : $Id: XdmfAttribute.h,v 1.6 2007-04-26 15:08:14 clarke Exp $  */
+/*  Date : $Date: 2007-04-26 15:08:14 $ */
+/*  Version : $Revision: 1.6 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -114,8 +114,8 @@ public:
 
 //! Sets the values for the Attribute
   XdmfInt32 SetValues(XdmfArray *Values);
-//! Retreives the Values of the Attribute
-  XdmfGetValueMacro( Values, XdmfArray *);
+//! Retreives the Values of the Attribute, create one by default
+  XdmfArray *GetValues(XdmfInt32 Create=1);
 
 //! Initialize but don't read the Heavy Data
   XdmfInt32 UpdateInformation();
