@@ -3,8 +3,8 @@
   Program:   DICOMParser
   Module:    $RCSfile: DICOMAppHelper.cxx,v $
   Language:  C++
-  Date:      $Date: 2006-10-09 14:06:03 $
-  Version:   $Revision: 1.25 $
+  Date:      $Date: 2007-05-03 17:00:46 $
+  Version:   $Revision: 1.26 $
 
   Copyright (c) 2003 Matt Turek
   All rights reserved.
@@ -800,15 +800,20 @@ void DICOMAppHelper::PixelSpacingCallback(DICOMParser *parser,
                                           unsigned char* val,
                                           quadbyte) 
 {
-  float fval = DICOMFile::ReturnAsFloat(val, parser->GetDICOMFile()->GetPlatformIsBigEndian());
-
   if (group == 0x0028 && element == 0x0030)
     {
-    this->PixelSpacing[0] = this->PixelSpacing[1] = fval;
+    if (!val || sscanf((char*)(val), "%f\\%f",
+                       &this->PixelSpacing[0],
+                       &this->PixelSpacing[1]) != 2)
+      {
+      this->PixelSpacing[0] = this->PixelSpacing[1] = 0.0;
+      }
     }
   else if (group == 0x0018 && element == 0x0050)
     {
-    this->PixelSpacing[2] = fval;
+    this->PixelSpacing[2] = 
+      DICOMFile::ReturnAsFloat(
+        val, parser->GetDICOMFile()->GetPlatformIsBigEndian());
     }
 }
 
