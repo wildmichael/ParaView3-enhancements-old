@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfAttribute.cxx,v 1.7 2007-04-26 15:08:14 clarke Exp $  */
-/*  Date : $Date: 2007-04-26 15:08:14 $ */
-/*  Version : $Revision: 1.7 $ */
+/*  Id : $Id: XdmfAttribute.cxx,v 1.8 2007-05-04 15:27:35 clarke Exp $  */
+/*  Date : $Date: 2007-05-04 15:27:35 $ */
+/*  Version : $Revision: 1.8 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -245,7 +245,7 @@ if( this->AttributeType == XDMF_ATTRIBUTE_TYPE_NONE ){
     }
   }
 
-ValuesNode = this->DOM->FindElement( NULL, 0, Element );
+ValuesNode = this->DOM->FindDataElement( 0, Element );
 if( ValuesNode ){
   ValueReader.SetDOM( this->DOM );
   if( this->ValuesAreMine && this->Values ){
@@ -256,7 +256,10 @@ if( ValuesNode ){
   if(ValueReader.SetElement(ValuesNode) == XDMF_FAIL) return(XDMF_FAIL);
   if(ValueReader.UpdateInformation() == XDMF_FAIL) return(XDMF_FAIL);
   if(ValueReader.Update() == XDMF_FAIL) return(XDMF_FAIL);
+  // Steal the array
   this->Values = ValueReader.GetArray();
+  ValueReader.SetArrayIsMine(0);
+  this->ValuesAreMine = 1;
   if( !this->Values ) {
     XdmfErrorMessage("Error Retriving Data Values");
     return( XDMF_FAIL );

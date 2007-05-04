@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDataItem.cxx,v 1.9 2007-04-25 16:23:29 clarke Exp $  */
-/*  Date : $Date: 2007-04-25 16:23:29 $ */
-/*  Version : $Revision: 1.9 $ */
+/*  Id : $Id: XdmfDataItem.cxx,v 1.10 2007-05-04 15:27:35 clarke Exp $  */
+/*  Date : $Date: 2007-05-04 15:27:35 $ */
+/*  Version : $Revision: 1.10 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -69,6 +69,15 @@ XdmfDataItem::Insert( XdmfElement *Child){
         XdmfErrorMessage("DataItem can only Insert DataItem or Information elements");
     }
     return(XDMF_FAIL);
+}
+
+XdmfArray *
+XdmfDataItem::GetArray(XdmfInt32 Create){
+    if(!this->Array && Create){
+        this->Array = new XdmfArray;
+        this->ArrayIsMine = 1;
+    }
+    return(this->Array);
 }
 
 XdmfInt32 

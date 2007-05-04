@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDOM.cxx,v 1.19 2007-04-25 12:39:42 clarke Exp $  */
-/*  Date : $Date: 2007-04-25 12:39:42 $ */
-/*  Version : $Revision: 1.19 $ */
+/*  Id : $Id: XdmfDOM.cxx,v 1.20 2007-05-04 15:27:35 clarke Exp $  */
+/*  Date : $Date: 2007-05-04 15:27:35 $ */
+/*  Version : $Revision: 1.20 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -591,6 +591,18 @@ XdmfDOM::FindElementByPath(XdmfConstString Path){
 xmlXPathFreeObject(xpathObj);
 xmlXPathFreeContext(xpathCtx);
 return(NULL);
+}
+
+XdmfConstString
+XdmfDOM::GetPath(XdmfXmlNode Node){
+    char *txt;
+
+    if(!Node){
+        XdmfErrorMessage("Node == NULL");
+        return((XdmfConstString)NULL);
+    }
+    txt = (char *)xmlGetNodePath(Node);
+    return(this->DupChars(txt));
 }
 
 XdmfInt32

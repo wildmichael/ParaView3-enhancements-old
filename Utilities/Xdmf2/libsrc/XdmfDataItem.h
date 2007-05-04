@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDataItem.h,v 1.7 2007-04-25 19:23:59 clarke Exp $  */
-/*  Date : $Date: 2007-04-25 19:23:59 $ */
-/*  Version : $Revision: 1.7 $ */
+/*  Id : $Id: XdmfDataItem.h,v 1.8 2007-05-04 15:27:35 clarke Exp $  */
+/*  Date : $Date: 2007-05-04 15:27:35 $ */
+/*  Version : $Revision: 1.8 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -137,7 +137,7 @@ public:
     XdmfInt32 SetDataDesc(XdmfDataDesc *DataDesc);
 
     //! Get the Internal Array
-    XdmfGetValueMacro(Array, XdmfArray *);
+    XdmfArray *GetArray(XdmfInt32 Create=1);
 
     //! Set the Array. Also sets ArrayIsMine = 0
     XdmfInt32   SetArray(XdmfArray *Array);

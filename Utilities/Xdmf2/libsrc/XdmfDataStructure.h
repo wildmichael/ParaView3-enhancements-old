@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Values              */
 /*                                                                 */
-/*  Id : $Id: XdmfDataStructure.h,v 1.12 2007-01-26 18:06:24 clarke Exp $  */
-/*  Date : $Date: 2007-01-26 18:06:24 $ */
-/*  Version : $Revision: 1.12 $ */
+/*  Id : $Id: XdmfDataStructure.h,v 1.13 2007-05-04 15:27:35 clarke Exp $  */
+/*  Date : $Date: 2007-05-04 15:27:35 $ */
+/*  Version : $Revision: 1.13 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -33,6 +33,11 @@ class XdmfArray;
 
 //!  Data Container Object.
 /*!
+XdmfDataStructure is being deprecated!!
+Use XdmfDataItem !!
+<DataStructure ... == <DataItem  ItemType="Uniform" ...
+
+
 An XdmfDataItem is a container for data. It is of one of three types :
 \verbatim
     Uniform ..... A single DataStructure or DataTransform

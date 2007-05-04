@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDOM.h,v 1.13 2007-04-10 17:04:56 clarke Exp $  */
-/*  Date : $Date: 2007-04-10 17:04:56 $ */
-/*  Version : $Revision: 1.13 $ */
+/*  Id : $Id: XdmfDOM.h,v 1.14 2007-05-04 15:27:35 clarke Exp $  */
+/*  Date : $Date: 2007-05-04 15:27:35 $ */
+/*  Version : $Revision: 1.14 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -205,6 +205,8 @@ the "Information" Elements not to be counted against Index.
       XdmfConstString Value,
       XdmfXmlNode Node = NULL );
 
+//! Get XPath of a node
+    XdmfConstString GetPath(XdmfXmlNode Node);
 //! Get the default NDGM Host to use for HDF5 files
   XdmfGetStringMacro( NdgmHost );
 //! Set the default NDGM Host to use for HDF5 files

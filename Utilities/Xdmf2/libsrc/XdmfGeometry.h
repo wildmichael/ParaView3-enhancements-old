@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfGeometry.h,v 1.5 2007-04-26 15:08:14 clarke Exp $  */
-/*  Date : $Date: 2007-04-26 15:08:14 $ */
-/*  Version : $Revision: 1.5 $ */
+/*  Id : $Id: XdmfGeometry.h,v 1.6 2007-05-04 15:27:35 clarke Exp $  */
+/*  Date : $Date: 2007-05-04 15:27:35 $ */
+/*  Version : $Revision: 1.6 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -29,6 +29,7 @@
 #include "XdmfElement.h"
 
 class XdmfArray;
+class XdmfDataItem;
 
 #define XDMF_GEOMETRY_NONE          0
 #define XDMF_GEOMETRY_XYZ           1
@@ -140,6 +141,7 @@ XDMF_GEOMETRY_ORIGIN_DXDYDZ : Xorigin, Yorigin, Zorigin, Dx, Dy, Dz
     }
 
 protected:
+  XdmfDataItem *GetDataItem(XdmfInt32 Index, XdmfXmlNode Node);
 
   XdmfInt32  GeometryType;
   XdmfInt32  PointsAreMine;

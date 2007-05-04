@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfElement.cxx,v 1.16 2007-04-26 14:14:05 clarke Exp $  */
-/*  Date : $Date: 2007-04-26 14:14:05 $ */
-/*  Version : $Revision: 1.16 $ */
+/*  Id : $Id: XdmfElement.cxx,v 1.17 2007-05-04 15:27:35 clarke Exp $  */
+/*  Date : $Date: 2007-05-04 15:27:35 $ */
+/*  Version : $Revision: 1.17 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -89,8 +89,8 @@ void XdmfElement::SetReferenceObject(XdmfXmlNode Element, void *p){
         PrivateData = new XdmfElementData;
         XDMF_XML_PRIVATE_DATA(Element) = (void *)PrivateData;
     }
-    XdmfDebug("Old Ref = " << PrivateData->GetReferenceElement());
-    XdmfDebug("New Ref = " << p);
+    // XdmfDebug("Old Ref = " << PrivateData->GetReferenceElement());
+    // XdmfDebug("New Ref = " << p);
     PrivateData->SetReferenceElement((XdmfElement *)p);
 }
 
