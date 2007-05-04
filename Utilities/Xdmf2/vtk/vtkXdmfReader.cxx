@@ -3,8 +3,8 @@
   Program:   Visualization Toolkit
   Module:    $RCSfile: vtkXdmfReader.cxx,v $
   Language:  C++
-  Date:      $Date: 2007-04-04 14:57:49 $
-  Version:   $Revision: 1.12 $
+  Date:      $Date: 2007-05-04 18:46:14 $
+  Version:   $Revision: 1.13 $
 
 
 Copyright (c) 1993-2001 Ken Martin, Will Schroeder, Bill Lorensen  
@@ -86,7 +86,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define USE_IMAGE_DATA // otherwise uniformgrid
 
 vtkStandardNewMacro(vtkXdmfReader);
-vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.12 $");
+vtkCxxRevisionMacro(vtkXdmfReader, "$Revision: 1.13 $");
 
 vtkCxxSetObjectMacro(vtkXdmfReader,Controller,vtkMultiProcessController);
 
@@ -1431,9 +1431,13 @@ int vtkXdmfReaderInternal::RequestSingleGridData(
 #else
     vtkUniformGrid *vGrid = vtkUniformGrid::SafeDownCast(output);
 #endif
+    XdmfTopology        *Topology = xdmfGrid->GetTopology();
+    XdmfInt64   Dimensions[3] = { 0, 0, 0 };
     XdmfFloat64 *origin = Geometry->GetOrigin();
     vGrid->SetOrigin(origin[2], origin[1], origin[0]);
     XdmfFloat64 *spacing = Geometry->GetDxDyDz();
+    Topology->GetShapeDesc()->GetShape( Dimensions );
+    vGrid->SetDimensions(Dimensions[2], Dimensions[1], Dimensions[0]);
     stride[2] = readerStride[0];
     stride[1] = readerStride[1];
     stride[0] = readerStride[2];
