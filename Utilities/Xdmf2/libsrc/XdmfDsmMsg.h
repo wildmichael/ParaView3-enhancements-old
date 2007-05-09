@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDsmComm.cxx,v 1.2 2007-05-09 15:09:41 clarke Exp $  */
-/*  Date : $Date: 2007-05-09 15:09:41 $ */
-/*  Version : $Revision: 1.2 $ */
+/*  Id : $Id: XdmfDsmMsg.h,v 1.1 2007-05-09 15:09:41 clarke Exp $  */
+/*  Date : $Date $ */
+/*  Version : $Revision $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -22,62 +22,44 @@
 /*     for more information.                                       */
 /*                                                                 */
 /*******************************************************************/
-#include "XdmfDsmComm.h"
-#include "XdmfDsmMsg.h"
+#ifndef __XdmfDsmMsg_h
+#define __XdmfDsmMsg_h
+
+#include "XdmfObject.h"
 
 
-XdmfDsmComm::XdmfDsmComm() {
-    this->Msg = new XdmfDsmMsg;
-}
+//! Base comm message object for Distributed Shared Memory implementation
+/*!
+*/
 
-XdmfDsmComm::~XdmfDsmComm() {
-}
+#define XDMF_DSM_DEFAULT_TAG    0x80
 
-XdmfInt32
-XdmfDsmComm::SetMsg(XdmfDsmMsg *Msg){
-        this->Msg = Msg;
-    }
+class XdmfDsmMsg : public XdmfObject {
 
-XdmfDsmMsg *
-XdmfDsmComm::GetMsg(){
-    return(this->Msg);
-}
+    public :
+        XdmfDsmMsg();
+        ~XdmfDsmMsg();
 
-XdmfInt32
-XdmfDsmComm::Init(){
-    return(XDMF_SUCCESS);
-}
+        XdmfSetValueMacro(Source, XdmfInt32);
+        XdmfGetValueMacro(Source, XdmfInt32);
 
-XdmfInt32
-XdmfDsmComm::Check(XdmfDsmMsg *Msg){
-    if(Msg->Tag <= 0) Msg->Tag = XDMF_DSM_DEFAULT_TAG;
-    return(XDMF_SUCCESS);
-}
+        XdmfSetValueMacro(Dest, XdmfInt32);
+        XdmfGetValueMacro(Dest, XdmfInt32);
 
-XdmfInt32
-XdmfDsmComm::Receive(XdmfDsmMsg *Msg){
-    if(Msg->Tag <= 0) Msg->Tag = XDMF_DSM_DEFAULT_TAG;
-    if(Msg->Size <= 0 ){
-        XdmfErrorMessage("Cannot Receive Message of Size = " << Msg->Size);
-        return(XDMF_FAIL);
-    }
-    if(Msg->Data <= 0 ){
-        XdmfErrorMessage("Cannot Receive Message into Data Buffer = " << Msg->Size);
-        return(XDMF_FAIL);
-    }
-    return(XDMF_SUCCESS);
-}
+        XdmfSetValueMacro(Tag, XdmfInt32);
+        XdmfGetValueMacro(Tag, XdmfInt32);
 
-XdmfInt32
-XdmfDsmComm::Send(XdmfDsmMsg *Msg){
-    if(Msg->Tag <= 0) Msg->Tag = XDMF_DSM_DEFAULT_TAG;
-    if(Msg->Size <= 0 ){
-        XdmfErrorMessage("Cannot Send Message of Size = " << Msg->Size);
-        return(XDMF_FAIL);
-    }
-    if(Msg->Data <= 0 ){
-        XdmfErrorMessage("Cannot Send Message from Data Buffer = " << Msg->Size);
-        return(XDMF_FAIL);
-    }
-    return(XDMF_SUCCESS);
-}
+        XdmfSetValueMacro(Size, XdmfInt64);
+        XdmfGetValueMacro(Size, XdmfInt64);
+
+        XdmfSetValueMacro(Data, void *);
+        XdmfGetValueMacro(Data, void *);
+
+    XdmfInt32   Source;
+    XdmfInt32   Dest;
+    XdmfInt32   Tag;
+    XdmfInt64   Size;
+    void        *Data;
+};
+
+#endif // __XdmfDsmMsg_h

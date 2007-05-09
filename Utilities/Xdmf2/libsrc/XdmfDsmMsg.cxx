@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDsmComm.cxx,v 1.2 2007-05-09 15:09:41 clarke Exp $  */
+/*  Id : $Id: XdmfDsmMsg.cxx,v 1.1 2007-05-09 15:09:41 clarke Exp $  */
 /*  Date : $Date: 2007-05-09 15:09:41 $ */
-/*  Version : $Revision: 1.2 $ */
+/*  Version : $Revision: 1.1 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -22,62 +22,11 @@
 /*     for more information.                                       */
 /*                                                                 */
 /*******************************************************************/
-#include "XdmfDsmComm.h"
 #include "XdmfDsmMsg.h"
 
 
-XdmfDsmComm::XdmfDsmComm() {
-    this->Msg = new XdmfDsmMsg;
+XdmfDsmMsg::XdmfDsmMsg() {
 }
 
-XdmfDsmComm::~XdmfDsmComm() {
-}
-
-XdmfInt32
-XdmfDsmComm::SetMsg(XdmfDsmMsg *Msg){
-        this->Msg = Msg;
-    }
-
-XdmfDsmMsg *
-XdmfDsmComm::GetMsg(){
-    return(this->Msg);
-}
-
-XdmfInt32
-XdmfDsmComm::Init(){
-    return(XDMF_SUCCESS);
-}
-
-XdmfInt32
-XdmfDsmComm::Check(XdmfDsmMsg *Msg){
-    if(Msg->Tag <= 0) Msg->Tag = XDMF_DSM_DEFAULT_TAG;
-    return(XDMF_SUCCESS);
-}
-
-XdmfInt32
-XdmfDsmComm::Receive(XdmfDsmMsg *Msg){
-    if(Msg->Tag <= 0) Msg->Tag = XDMF_DSM_DEFAULT_TAG;
-    if(Msg->Size <= 0 ){
-        XdmfErrorMessage("Cannot Receive Message of Size = " << Msg->Size);
-        return(XDMF_FAIL);
-    }
-    if(Msg->Data <= 0 ){
-        XdmfErrorMessage("Cannot Receive Message into Data Buffer = " << Msg->Size);
-        return(XDMF_FAIL);
-    }
-    return(XDMF_SUCCESS);
-}
-
-XdmfInt32
-XdmfDsmComm::Send(XdmfDsmMsg *Msg){
-    if(Msg->Tag <= 0) Msg->Tag = XDMF_DSM_DEFAULT_TAG;
-    if(Msg->Size <= 0 ){
-        XdmfErrorMessage("Cannot Send Message of Size = " << Msg->Size);
-        return(XDMF_FAIL);
-    }
-    if(Msg->Data <= 0 ){
-        XdmfErrorMessage("Cannot Send Message from Data Buffer = " << Msg->Size);
-        return(XDMF_FAIL);
-    }
-    return(XDMF_SUCCESS);
+XdmfDsmMsg::~XdmfDsmMsg() {
 }

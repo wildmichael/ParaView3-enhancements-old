@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDsmComm.h,v 1.1 2007-05-08 16:31:53 clarke Exp $  */
-/*  Date : $Date: 2007-05-08 16:31:53 $ */
-/*  Version : $Revision: 1.1 $ */
+/*  Id : $Id: XdmfDsmComm.h,v 1.2 2007-05-09 15:09:41 clarke Exp $  */
+/*  Date : $Date: 2007-05-09 15:09:41 $ */
+/*  Version : $Revision: 1.2 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -36,15 +36,7 @@
 #define XDMF_SHIFT64(a)     (a)
 #define XDMF_SHIFT32(a)     (a)
 
-#define XDMF_DSM_DEFAULT_TAG    0x80
-
-typedef struct {
-    XdmfInt32   Source;
-    XdmfInt32   Dest;
-    XdmfInt32   Tag;
-    XdmfInt64   Size;
-    void        *Data;
-} XdmfDsmMsg;
+class XdmfDsmMsg;
 
 class XDMF_EXPORT XdmfDsmComm : public XdmfObject {
 
@@ -63,15 +55,23 @@ public:
     XdmfGetValueMacro(TotalSize, XdmfInt32);
     XdmfSetValueMacro(TotalSize, XdmfInt32);
 
+    //! Message
+    XdmfDsmMsg *GetMsg();
+    XdmfInt32   SetMsg(XdmfDsmMsg *Msg);
+
     virtual XdmfInt32   Init();
     virtual XdmfInt32   Send(XdmfDsmMsg *Msg);
     virtual XdmfInt32   Receive(XdmfDsmMsg *Msg);
     virtual XdmfInt32   Check(XdmfDsmMsg *Msg);
 
+    // XdmfInt32   Send() { return(this->Send(this->Msg)); };
+    // XdmfInt32   Receive() { return(this->Receive(this->Msg)); };
+    // XdmfInt32   Check() { return(this->Check(this->Msg)); };
 
 protected:
     XdmfInt32       Id;
     XdmfInt32       TotalSize;
+    XdmfDsmMsg      *Msg;
 };
 
 #endif // __XdmfDsmComm_h
