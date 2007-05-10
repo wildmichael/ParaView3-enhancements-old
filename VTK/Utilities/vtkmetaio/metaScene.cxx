@@ -3,8 +3,8 @@
   Program:   MetaIO
   Module:    $RCSfile: metaScene.cxx,v $
   Language:  C++
-  Date:      $Date: 2007-05-10 21:37:39 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2007-05-10 21:52:31 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) Insight Software Consortium. All rights reserved.
   See ITKCopyright.txt or http://www.itk.org/HTML/Copyright.htm for details.
@@ -176,7 +176,11 @@ Read(const char *_headerName)
   /** Objects should be added here */
   for(i=0;i<m_NObjects;i++)
   {
-    if(META_DEBUG) METAIO_STREAM::cout << MET_ReadType(*m_ReadStream) << METAIO_STREAM::endl;
+    if(META_DEBUG) 
+      {
+      METAIO_STREAM::cout << MET_ReadType(*m_ReadStream).c_str() 
+                          << METAIO_STREAM::endl;
+      }
 
     if(m_Event)
       {
