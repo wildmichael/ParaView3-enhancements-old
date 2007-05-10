@@ -3,8 +3,8 @@
   Program:   MetaIO
   Module:    $RCSfile: metaDTITube.cxx,v $
   Language:  C++
-  Date:      $Date: 2007-05-10 17:14:12 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2007-05-10 19:17:20 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) Insight Software Consortium. All rights reserved.
   See ITKCopyright.txt or http://www.itk.org/HTML/Copyright.htm for details.
@@ -96,7 +96,8 @@ PrintInfo() const
     {
     METAIO_STREAM::cout << "Root = " << "True" << METAIO_STREAM::endl;
     }
-  METAIO_STREAM::cout << "PointDim = " << m_PointDim << METAIO_STREAM::endl;
+  METAIO_STREAM::cout << "PointDim = " << m_PointDim.c_str() 
+                      << METAIO_STREAM::endl;
   METAIO_STREAM::cout << "NPoints = " << m_NPoints << METAIO_STREAM::endl;
   char str[255];
   MET_TypeToString(m_ElementType, str);

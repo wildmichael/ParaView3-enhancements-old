@@ -3,8 +3,8 @@
   Program:   Insight Segmentation & Registration Toolkit
   Module:    $RCSfile: metaOutput.cxx,v $
   Language:  C++
-  Date:      $Date: 2007-05-10 17:14:12 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2007-05-10 19:17:20 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) 2002 Insight Consortium. All rights reserved.
   See ITKCopyright.txt or http://www.itk.org/HTML/Copyright.htm for details.
@@ -129,7 +129,7 @@ METAIO_STL::string MetaOutput::GetUsername()
     struct passwd *pw = getpwuid(getuid());
     if ( pw == NULL )
       {
-        METAIO_STL::cout << "getpwuid() failed " << METAIO_STL::endl;
+        METAIO_STREAM::cout << "getpwuid() failed " << METAIO_STREAM::endl;
       }
     return pw->pw_name;
 #endif // not _WIN32
@@ -316,7 +316,7 @@ void MetaOutput::Write()
 {
   if(m_MetaCommand && m_MetaCommand->GetOptionWasSet("GenerateXMLMetaOutput"))
     {
-    METAIO_STL::cout << this->GenerateXML().c_str() << METAIO_STL::endl;
+    METAIO_STREAM::cout << this->GenerateXML().c_str() << METAIO_STREAM::endl;
     }
   if(m_MetaCommand && m_MetaCommand->GetOptionWasSet("GenerateXMLFile"))
     {
@@ -349,7 +349,8 @@ void MetaOutput::Write()
 
     if(!(*itStream)->Open())
       {
-      METAIO_STL::cout << "MetaOutput ERROR: cannot open stream" << METAIO_STL::endl;
+      METAIO_STREAM::cout << "MetaOutput ERROR: cannot open stream" 
+                       << METAIO_STREAM::endl;
       return;
       }
 
@@ -370,7 +371,8 @@ void MetaOutput::Write()
      
     if(!(*itStream)->Close())
       {
-      METAIO_STL::cout << "MetaOutput ERROR: cannot close stream" << METAIO_STL::endl;
+      METAIO_STREAM::cout << "MetaOutput ERROR: cannot close stream" 
+                          << METAIO_STREAM::endl;
       return;
       }
     itStream++;

@@ -3,8 +3,8 @@
   Program:   MetaIO
   Module:    $RCSfile: metaImage.cxx,v $
   Language:  C++
-  Date:      $Date: 2007-05-10 17:14:12 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2007-05-10 19:17:20 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) Insight Software Consortium. All rights reserved.
   See ITKCopyright.txt or http://www.itk.org/HTML/Copyright.htm for details.
@@ -982,7 +982,7 @@ CanRead(const char *_headerName) const
     return false;
     }
 
-  METAIO_STL::string key;
+  char key[8000];
 
   inputStream >> key;
 
