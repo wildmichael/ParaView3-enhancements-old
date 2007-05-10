@@ -3,8 +3,8 @@
   Program:   MetaIO
   Module:    $RCSfile: metaLandmark.cxx,v $
   Language:  C++
-  Date:      $Date: 2007-05-10 17:14:12 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2007-05-10 21:37:39 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) Insight Software Consortium. All rights reserved.
   See ITKCopyright.txt or http://www.itk.org/HTML/Copyright.htm for details.
@@ -23,6 +23,29 @@
 #if (METAIO_USE_NAMESPACE)
 namespace METAIO_NAMESPACE {
 #endif
+
+LandmarkPnt::
+LandmarkPnt(int dim)
+{ 
+  m_Dim = dim;
+  m_X = new float[m_Dim];
+  for(unsigned int i=0;i<m_Dim;i++)
+    {
+    m_X[i] = 0;
+    }
+    
+  //Color is red by default
+  m_Color[0]=1.0;
+  m_Color[1]=0.0;
+  m_Color[2]=0.0;
+  m_Color[3]=1.0;
+}
+
+LandmarkPnt::
+~LandmarkPnt()
+{ 
+  delete []m_X;
+};
 
 //
 // MedImage Constructors

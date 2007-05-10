@@ -3,8 +3,8 @@
   Program:   MetaIO
   Module:    $RCSfile: metaMesh.h,v $
   Language:  C++
-  Date:      $Date: 2007-05-10 17:14:12 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2007-05-10 21:37:39 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) Insight Software Consortium. All rights reserved.
   See ITKCopyright.txt or http://www.itk.org/HTML/Copyright.htm for details.
@@ -69,19 +69,8 @@ class METAIO_EXPORT MeshPoint
 {
 public:
 
-  MeshPoint(int dim)
-    { 
-    m_Dim = dim;
-    m_X = new float[m_Dim];
-    for(unsigned int i=0;i<m_Dim;i++)
-      {
-      m_X[i] = 0;
-      }
-    }
-  ~MeshPoint()
-    { 
-    delete []m_X;
-    };
+  MeshPoint(int dim);
+  ~MeshPoint();
   
   unsigned int m_Dim;
   float* m_X;
@@ -96,20 +85,8 @@ class METAIO_EXPORT MeshCell
 {
 public:
 
-  MeshCell(int dim)
-    { 
-    m_Dim = dim;
-    m_Id = -1;
-    m_PointsId = new int[m_Dim];
-    for(unsigned int i=0;i<m_Dim;i++)
-      {
-      m_PointsId[i] = -1;
-      }
-    }
-  ~MeshCell()
-    { 
-    delete []m_PointsId;
-    };
+  MeshCell(int dim);
+  ~MeshCell();
   
   int m_Id;
   unsigned int m_Dim;

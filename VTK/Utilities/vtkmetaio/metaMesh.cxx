@@ -3,8 +3,8 @@
   Program:   MetaIO
   Module:    $RCSfile: metaMesh.cxx,v $
   Language:  C++
-  Date:      $Date: 2007-05-10 17:14:12 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2007-05-10 21:37:39 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) Insight Software Consortium. All rights reserved.
   See ITKCopyright.txt or http://www.itk.org/HTML/Copyright.htm for details.
@@ -23,6 +23,43 @@
 #if (METAIO_USE_NAMESPACE)
 namespace METAIO_NAMESPACE {
 #endif
+
+
+MeshPoint::
+MeshPoint(int dim)
+{ 
+  m_Dim = dim;
+  m_X = new float[m_Dim];
+  for(unsigned int i=0;i<m_Dim;i++)
+    {
+    m_X[i] = 0;
+    }
+}
+
+MeshPoint::
+~MeshPoint()
+{ 
+  delete []m_X;
+}
+
+MeshCell::
+MeshCell(int dim)
+{ 
+  m_Dim = dim;
+  m_Id = -1;
+  m_PointsId = new int[m_Dim];
+  for(unsigned int i=0;i<m_Dim;i++)
+    {
+    m_PointsId[i] = -1;
+    }
+}
+
+MeshCell::
+~MeshCell()
+{ 
+  delete []m_PointsId;
+}
+  
 
 //
 // MetaMesh Constructors

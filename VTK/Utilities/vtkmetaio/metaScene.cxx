@@ -3,8 +3,8 @@
   Program:   MetaIO
   Module:    $RCSfile: metaScene.cxx,v $
   Language:  C++
-  Date:      $Date: 2007-05-10 17:14:12 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2007-05-10 21:37:39 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) Insight Software Consortium. All rights reserved.
   See ITKCopyright.txt or http://www.itk.org/HTML/Copyright.htm for details.
@@ -380,9 +380,9 @@ Write(const char *_headName)
   m_WriteStream->open(m_FileName, METAIO_STREAM::ios::binary | METAIO_STREAM::ios::out);
   if(!m_WriteStream->is_open())
     {
-    return false;
     delete m_WriteStream;
     m_WriteStream = 0;
+    return false;
     }
 
   M_Write();
