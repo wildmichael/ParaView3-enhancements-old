@@ -2,7 +2,7 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDsmMsg.h,v 1.1 2007-05-09 15:09:41 clarke Exp $  */
+/*  Id : $Id: XdmfDsmMsg.h,v 1.2 2007-05-10 20:34:07 clarke Exp $  */
 /*  Date : $Date $ */
 /*  Version : $Revision $ */
 /*                                                                 */
@@ -34,6 +34,8 @@
 
 #define XDMF_DSM_DEFAULT_TAG    0x80
 
+#define XDMF_DSM_ANY_SOURCE     -1
+
 class XdmfDsmMsg : public XdmfObject {
 
     public :
@@ -49,8 +51,8 @@ class XdmfDsmMsg : public XdmfObject {
         XdmfSetValueMacro(Tag, XdmfInt32);
         XdmfGetValueMacro(Tag, XdmfInt32);
 
-        XdmfSetValueMacro(Size, XdmfInt64);
-        XdmfGetValueMacro(Size, XdmfInt64);
+        XdmfSetValueMacro(Length, XdmfInt64);
+        XdmfGetValueMacro(Length, XdmfInt64);
 
         XdmfSetValueMacro(Data, void *);
         XdmfGetValueMacro(Data, void *);
@@ -58,7 +60,7 @@ class XdmfDsmMsg : public XdmfObject {
     XdmfInt32   Source;
     XdmfInt32   Dest;
     XdmfInt32   Tag;
-    XdmfInt64   Size;
+    XdmfInt64   Length;
     void        *Data;
 };
 

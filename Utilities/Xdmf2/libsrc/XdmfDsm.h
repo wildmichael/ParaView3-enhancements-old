@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDsm.h,v 1.1 2007-05-09 15:09:41 clarke Exp $  */
-/*  Date : $Date: 2007-05-09 15:09:41 $ */
-/*  Version : $Revision: 1.1 $ */
+/*  Id : $Id: XdmfDsm.h,v 1.2 2007-05-10 20:34:07 clarke Exp $  */
+/*  Date : $Date: 2007-05-10 20:34:07 $ */
+/*  Version : $Revision: 1.2 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -33,15 +33,14 @@
 */
 
 
+class XdmfDsmMsg;
 class XdmfDsmComm;
+class XdmfDsm;
 class XdmfArray;
 
 #define XDMF_DSM_TYPE_UNIFORM       0
 #define XDMF_DSM_TYPE_UNIFORM_RANGE 1
 #define XDMF_DSM_TYPE_MIXED         2
-
-#define XDMF_DSM_OPCODE_PUT     0x01
-#define XDMF_DSM_OPCODE_GET     0x02
 
 #define XDMF_DSM_DEFAULT_LENGTH 10000
 
@@ -94,7 +93,8 @@ public:
     
     XdmfInt32   AddressToId(XdmfInt64 Address);
 
-    XdmfInt32   Put(XdmfInt64 Address, XdmfInt64 Length, void *Data);
+    XdmfInt32   SendCommandHeader(XdmfInt32 Opcode, XdmfInt32 Dest, XdmfInt64 Address, XdmfInt64 Length);
+    XdmfInt32   ReceiveCommandHeader(XdmfInt32 *Opcode, XdmfInt32 *Source, XdmfInt64 *Address, XdmfInt64 *Length, XdmfInt32 Block=1);
 
 protected:
     XdmfInt32   DsmType;
@@ -105,6 +105,7 @@ protected:
     XdmfInt64   Length;
     XdmfArray   *Storage;
     XdmfDsmComm *Comm;
+    XdmfDsmMsg  *Msg;
 };
 
 #endif // __XdmfDsm_h

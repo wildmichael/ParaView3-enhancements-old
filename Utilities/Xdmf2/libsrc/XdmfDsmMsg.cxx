@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDsmMsg.cxx,v 1.1 2007-05-09 15:09:41 clarke Exp $  */
-/*  Date : $Date: 2007-05-09 15:09:41 $ */
-/*  Version : $Revision: 1.1 $ */
+/*  Id : $Id: XdmfDsmMsg.cxx,v 1.2 2007-05-10 20:34:07 clarke Exp $  */
+/*  Date : $Date: 2007-05-10 20:34:07 $ */
+/*  Version : $Revision: 1.2 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -26,6 +26,7 @@
 
 
 XdmfDsmMsg::XdmfDsmMsg() {
+    this->Tag = XDMF_DSM_DEFAULT_TAG;
 }
 
 XdmfDsmMsg::~XdmfDsmMsg() {

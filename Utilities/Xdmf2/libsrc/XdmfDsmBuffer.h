@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDsmComm.cxx,v 1.3 2007-05-10 20:34:07 clarke Exp $  */
+/*  Id : $Id: XdmfDsmBuffer.h,v 1.1 2007-05-10 20:34:07 clarke Exp $  */
 /*  Date : $Date: 2007-05-10 20:34:07 $ */
-/*  Version : $Revision: 1.3 $ */
+/*  Version : $Revision: 1.1 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -22,62 +22,28 @@
 /*     for more information.                                       */
 /*                                                                 */
 /*******************************************************************/
-#include "XdmfDsmComm.h"
-#include "XdmfDsmMsg.h"
+#ifndef __XdmfDsmBuffer_h
+#define __XdmfDsmBuffer_h
+
+#include "XdmfDsm.h"
 
 
-XdmfDsmComm::XdmfDsmComm() {
-    this->Msg = new XdmfDsmMsg;
-}
+//! Base comm object for Distributed Shared Memory implementation
+/*!
+*/
 
-XdmfDsmComm::~XdmfDsmComm() {
-}
 
-XdmfInt32
-XdmfDsmComm::SetMsg(XdmfDsmMsg *Msg){
-        this->Msg = Msg;
-    }
+class XDMF_EXPORT XdmfDsmBuffer : public XdmfDsm {
 
-XdmfDsmMsg *
-XdmfDsmComm::GetMsg(){
-    return(this->Msg);
-}
+public:
+  XdmfDsmBuffer();
+  ~XdmfDsmBuffer();
 
-XdmfInt32
-XdmfDsmComm::Init(){
-    return(XDMF_SUCCESS);
-}
+  XdmfConstString GetClassName() { return ( "XdmfDsmBuffer" ) ; };
 
-XdmfInt32
-XdmfDsmComm::Check(XdmfDsmMsg *Msg){
-    if(Msg->Tag <= 0) Msg->Tag = XDMF_DSM_DEFAULT_TAG;
-    return(XDMF_SUCCESS);
-}
+    XdmfInt32   Put(XdmfInt64 Address, XdmfInt64 Length, void *Data);
 
-XdmfInt32
-XdmfDsmComm::Receive(XdmfDsmMsg *Msg){
-    if(Msg->Tag <= 0) Msg->Tag = XDMF_DSM_DEFAULT_TAG;
-    if(Msg->Length <= 0 ){
-        XdmfErrorMessage("Cannot Receive Message of Length = " << Msg->Length);
-        return(XDMF_FAIL);
-    }
-    if(Msg->Data <= 0 ){
-        XdmfErrorMessage("Cannot Receive Message into Data Buffer = " << Msg->Length);
-        return(XDMF_FAIL);
-    }
-    return(XDMF_SUCCESS);
-}
+protected:
+};
 
-XdmfInt32
-XdmfDsmComm::Send(XdmfDsmMsg *Msg){
-    if(Msg->Tag <= 0) Msg->Tag = XDMF_DSM_DEFAULT_TAG;
-    if(Msg->Length <= 0 ){
-        XdmfErrorMessage("Cannot Send Message of Length = " << Msg->Length);
-        return(XDMF_FAIL);
-    }
-    if(Msg->Data <= 0 ){
-        XdmfErrorMessage("Cannot Send Message from Data Buffer = " << Msg->Length);
-        return(XDMF_FAIL);
-    }
-    return(XDMF_SUCCESS);
-}
+#endif // __XdmfDsmBuffer_h
