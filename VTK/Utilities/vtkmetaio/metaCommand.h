@@ -3,8 +3,8 @@
   Program:   MetaIO
   Module:    $RCSfile: metaCommand.h,v $
   Language:  C++
-  Date:      $Date: 2007-05-10 20:03:09 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2007-05-10 23:32:50 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) Insight Software Consortium. All rights reserved.
   See ITKCopyright.txt or http://www.itk.org/HTML/Copyright.htm for details.
@@ -24,6 +24,7 @@
 
 #ifdef _MSC_VER
 #pragma warning ( disable : 4786 )
+#pragma warning ( disable: 4251 )
 #endif
 
 #include <stdlib.h>

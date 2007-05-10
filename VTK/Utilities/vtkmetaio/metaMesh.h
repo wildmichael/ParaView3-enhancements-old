@@ -3,8 +3,8 @@
   Program:   MetaIO
   Module:    $RCSfile: metaMesh.h,v $
   Language:  C++
-  Date:      $Date: 2007-05-10 21:37:39 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2007-05-10 23:32:50 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) Insight Software Consortium. All rights reserved.
   See ITKCopyright.txt or http://www.itk.org/HTML/Copyright.htm for details.
@@ -21,6 +21,10 @@
 
 #include "metaUtils.h"
 #include "metaObject.h"
+
+#ifdef _MSC_VER
+#pragma warning ( disable: 4251 )
+#endif
 
 #include <list>
 
