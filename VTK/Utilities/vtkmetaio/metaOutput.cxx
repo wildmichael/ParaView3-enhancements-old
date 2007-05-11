@@ -3,8 +3,8 @@
   Program:   Insight Segmentation & Registration Toolkit
   Module:    $RCSfile: metaOutput.cxx,v $
   Language:  C++
-  Date:      $Date: 2007-05-11 12:17:19 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2007-05-11 22:11:25 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) 2002 Insight Consortium. All rights reserved.
   See ITKCopyright.txt or http://www.itk.org/HTML/Copyright.htm for details.
@@ -322,9 +322,17 @@ void MetaOutput::Write()
   if(m_MetaCommand && m_MetaCommand->GetOptionWasSet("GenerateXMLFile"))
     {
     //this->GenerateXML();
-    METAIO_STL::string filename = m_MetaCommand->GetValueAsString("GenerateXMLFile");
+    METAIO_STL::string filename = m_MetaCommand
+                                  ->GetValueAsString("GenerateXMLFile");
     METAIO_STL::ofstream fileStream;
-    fileStream.open(filename.c_str(), METAIO_STL::ios::binary | METAIO_STL::ios::out);
+
+#ifdef __sgi
+    fileStream.open(filename.c_str(), METAIO_STL::ios::out);
+#else
+    fileStream.open(filename.c_str(), METAIO_STL::ios::binary 
+                                      | METAIO_STL::ios::out);
+#endif
+
     if(fileStream.is_open())
       {
       fileStream << this->GenerateXML(filename.c_str()).c_str();

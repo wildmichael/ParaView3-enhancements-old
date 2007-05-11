@@ -3,8 +3,8 @@
   Program:   MetaIO
   Module:    $RCSfile: metaForm.cxx,v $
   Language:  C++
-  Date:      $Date: 2007-05-10 17:14:12 $
-  Version:   $Revision: 1.1 $
+  Date:      $Date: 2007-05-11 22:11:25 $
+  Version:   $Revision: 1.2 $
 
   Copyright (c) Insight Software Consortium. All rights reserved.
   See ITKCopyright.txt or http://www.itk.org/HTML/Copyright.htm for details.
@@ -614,8 +614,12 @@ Read(const char *_fileName)
     }
 
   METAIO_STREAM::ifstream * tmpReadStream = new METAIO_STREAM::ifstream;
+#ifdef __sgi
+  tmpReadStream->open(m_FileName, METAIO_STREAM::ios::in);
+#else
   tmpReadStream->open(m_FileName, METAIO_STREAM::ios::binary |
                                   METAIO_STREAM::ios::in);
+#endif
 
   if(!tmpReadStream->is_open())
     {
@@ -700,10 +704,12 @@ Write(const char *_fileName)
   METAIO_STREAM::ofstream tFile(m_FileName, METAIO_STREAM::ios::out);
   tFile.close();                    
   }
-#endif
-
+  tmpWriteStream->open(_fileName, METAIO_STREAM::ios::out);
+#else
   tmpWriteStream->open(_fileName, METAIO_STREAM::ios::binary |
                                   METAIO_STREAM::ios::out);
+#endif
+
   if(!tmpWriteStream->is_open())
     {
     delete tmpWriteStream;

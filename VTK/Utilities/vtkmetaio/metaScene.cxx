@@ -3,8 +3,8 @@
   Program:   MetaIO
   Module:    $RCSfile: metaScene.cxx,v $
   Language:  C++
-  Date:      $Date: 2007-05-10 21:52:31 $
-  Version:   $Revision: 1.4 $
+  Date:      $Date: 2007-05-11 22:11:25 $
+  Version:   $Revision: 1.5 $
 
   Copyright (c) Insight Software Consortium. All rights reserved.
   See ITKCopyright.txt or http://www.itk.org/HTML/Copyright.htm for details.
@@ -148,7 +148,12 @@ Read(const char *_headerName)
  
   M_PrepareNewReadStream();
   
-  m_ReadStream->open(m_FileName, METAIO_STREAM::ios::binary | METAIO_STREAM::ios::in);
+#ifdef __sgi
+  m_ReadStream->open(m_FileName, METAIO_STREAM::ios::in);
+#else
+  m_ReadStream->open(m_FileName, METAIO_STREAM::ios::binary 
+                                 | METAIO_STREAM::ios::in);
+#endif
   
   if(!m_ReadStream->is_open())
   {
@@ -377,11 +382,16 @@ Write(const char *_headName)
 
 #ifdef __sgi
   // Create the file. This is required on some older sgi's
-  METAIO_STREAM::ofstream tFile(m_FileName,METAIO_STREAM::ios::out);
+  {
+  METAIO_STREAM::ofstream tFile(m_FileName, METAIO_STREAM::ios::out);
   tFile.close();                    
+  }
+  m_WriteStream->open(m_FileName, METAIO_STREAM::ios::out);
+#else
+  m_WriteStream->open(m_FileName, METAIO_STREAM::ios::binary 
+                                  | METAIO_STREAM::ios::out);
 #endif
 
-  m_WriteStream->open(m_FileName, METAIO_STREAM::ios::binary | METAIO_STREAM::ios::out);
   if(!m_WriteStream->is_open())
     {
     delete m_WriteStream;
