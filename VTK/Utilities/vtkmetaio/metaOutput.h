@@ -3,8 +3,8 @@
   Program:   Insight Segmentation & Registration Toolkit
   Module:    $RCSfile: metaOutput.h,v $
   Language:  C++
-  Date:      $Date: 2007-05-10 23:32:50 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2007-05-11 12:43:38 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 2002 Insight Consortium. All rights reserved.
   See ITKCopyright.txt or http://www.itk.org/HTML/Copyright.htm for details.
@@ -20,6 +20,8 @@
 #ifdef _MSC_VER
 #pragma warning ( disable : 4786 )
 #pragma warning ( disable: 4251 )
+#pragma warning ( disable: 4511 ) // copy constructor not found
+#pragma warning ( disable: 4512 ) // assignment operator not found
 #endif
 
 #include "metaCommand.h"
@@ -127,7 +129,8 @@ public:
   bool Open()
     {
     MetaOutputStream::Open();
-    m_FileStream.open(m_FileName.c_str(), METAIO_STL::ios::binary | METAIO_STL::ios::out);
+    m_FileStream.open(m_FileName.c_str(),
+                      METAIO_STL::ios::binary | METAIO_STL::ios::out);
     return m_FileStream.is_open();
     }
 
