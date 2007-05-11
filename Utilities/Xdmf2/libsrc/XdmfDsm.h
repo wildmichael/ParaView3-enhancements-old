@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDsm.h,v 1.2 2007-05-10 20:34:07 clarke Exp $  */
-/*  Date : $Date: 2007-05-10 20:34:07 $ */
-/*  Version : $Revision: 1.2 $ */
+/*  Id : $Id: XdmfDsm.h,v 1.3 2007-05-11 16:46:01 clarke Exp $  */
+/*  Date : $Date: 2007-05-11 16:46:01 $ */
+/*  Version : $Revision: 1.3 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -27,6 +27,7 @@
 
 #include "XdmfObject.h"
 
+#define XDMF_DSM_OPCODE_DONE    0xFF
 
 //! Base comm object for Distributed Shared Memory implementation
 /*!
@@ -95,6 +96,11 @@ public:
 
     XdmfInt32   SendCommandHeader(XdmfInt32 Opcode, XdmfInt32 Dest, XdmfInt64 Address, XdmfInt64 Length);
     XdmfInt32   ReceiveCommandHeader(XdmfInt32 *Opcode, XdmfInt32 *Source, XdmfInt64 *Address, XdmfInt64 *Length, XdmfInt32 Block=1);
+
+    XdmfInt32   SendData(XdmfInt32 Dest, void *Data, XdmfInt64 Length);
+    XdmfInt32   ReceiveData(XdmfInt32 Source, void *Data, XdmfInt64 Length, XdmfInt32 Block=1);
+
+    XdmfInt32   SendDone();
 
 protected:
     XdmfInt32   DsmType;

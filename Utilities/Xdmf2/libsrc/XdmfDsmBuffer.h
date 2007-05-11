@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDsmBuffer.h,v 1.1 2007-05-10 20:34:07 clarke Exp $  */
-/*  Date : $Date: 2007-05-10 20:34:07 $ */
-/*  Version : $Revision: 1.1 $ */
+/*  Id : $Id: XdmfDsmBuffer.h,v 1.2 2007-05-11 16:46:01 clarke Exp $  */
+/*  Date : $Date: 2007-05-11 16:46:01 $ */
+/*  Version : $Revision: 1.2 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -42,6 +42,12 @@ public:
   XdmfConstString GetClassName() { return ( "XdmfDsmBuffer" ) ; };
 
     XdmfInt32   Put(XdmfInt64 Address, XdmfInt64 Length, void *Data);
+
+    XdmfInt32   ServiceOnce(XdmfInt32 *ReturnOpcode=0);
+    XdmfInt32   ServiceUntilIdle(XdmfInt32 *ReturnOpcode=0);
+    XdmfInt32   ServiceLoop(XdmfInt32 *ReturnOpcode=0);
+    XdmfInt32   Service(XdmfInt32 *ReturnOpcode=0);
+
 
 protected:
 };

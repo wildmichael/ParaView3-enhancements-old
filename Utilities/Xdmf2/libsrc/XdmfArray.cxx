@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfArray.cxx,v 1.3 2007-02-22 13:38:16 clarke Exp $  */
-/*  Date : $Date: 2007-02-22 13:38:16 $ */
-/*  Version : $Revision: 1.3 $ */
+/*  Id : $Id: XdmfArray.cxx,v 1.4 2007-05-11 16:46:01 clarke Exp $  */
+/*  Date : $Date: 2007-05-11 16:46:01 $ */
+/*  Version : $Revision: 1.4 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -350,7 +350,6 @@ return( XDMF_SUCCESS );
 XdmfPointer XdmfArray::GetDataPointer( XdmfInt64 Index ) {
 
 XdmfByte  *Pointer;
-
 Pointer = ( XdmfByte *)this->DataPointer;
 Pointer += (this->GetElementSize() * Index );
 return( (XdmfPointer)Pointer );
