@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfArray.cxx,v 1.4 2007-05-11 16:46:01 clarke Exp $  */
-/*  Date : $Date: 2007-05-11 16:46:01 $ */
-/*  Version : $Revision: 1.4 $ */
+/*  Id : $Id: XdmfArray.cxx,v 1.5 2007-05-11 20:59:29 clarke Exp $  */
+/*  Date : $Date: 2007-05-11 20:59:29 $ */
+/*  Version : $Revision: 1.5 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -29,6 +29,7 @@
 #ifndef _WIN32
 #include <unistd.h>
 #endif
+
 
 static XdmfLength  GlobalTimeCntr = 0;
 // static  ostrstream  *StringOutput = NULL;
@@ -61,13 +62,17 @@ private:
 
 XdmfArrayListClass::~XdmfArrayListClass()
 {
+
   if ( this->List )
     {
-    while( this->ListIndex )
+    while( this->ListIndex > 0 )
       {
+      // cout << "Before this->ListIndex = " << this->ListIndex << endl;
       delete this->List[this->ListIndex-1].Array;
+      // cout << "After this->ListIndex = " << this->ListIndex << endl;
       }
     delete [] this->List;
+    this->List = 0;
     }
 }
 
