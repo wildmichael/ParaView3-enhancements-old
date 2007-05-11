@@ -14,6 +14,7 @@
 =========================================================================*/
 #include "vtkMetaImageReader.h"
 
+#include "vtkDataArray.h"
 #include "vtkObjectFactory.h"
 #include "vtkPointData.h"
 #include "vtkImageData.h"
@@ -33,7 +34,7 @@
 #include <sys/stat.h>
 
 //----------------------------------------------------------------------------
-vtkCxxRevisionMacro(vtkMetaImageReader, "$Revision: 1.24 $");
+vtkCxxRevisionMacro(vtkMetaImageReader, "$Revision: 1.25 $");
 vtkStandardNewMacro(vtkMetaImageReader);
 
 //----------------------------------------------------------------------------
