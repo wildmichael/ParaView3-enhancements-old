@@ -3,8 +3,8 @@
   Program:   MetaIO
   Module:    $RCSfile: metaUtils.cxx,v $
   Language:  C++
-  Date:      $Date: 2007-05-10 17:14:12 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2007-05-11 12:17:19 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) Insight Software Consortium. All rights reserved.
   See ITKCopyright.txt or http://www.itk.org/HTML/Copyright.htm for details.
@@ -850,7 +850,6 @@ bool MET_Read(METAIO_STREAM::istream &fp, METAIO_STL::vector<MET_FieldRecordType
               {
               break;
               }
-            MET_CHAR_TYPE c = fp.get();
             c = fp.get();
             (*fieldIter)->value[0] = (double)c;
             fp.getline( s, 500 );

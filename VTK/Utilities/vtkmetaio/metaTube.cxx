@@ -3,8 +3,8 @@
   Program:   MetaIO
   Module:    $RCSfile: metaTube.cxx,v $
   Language:  C++
-  Date:      $Date: 2007-05-10 21:37:39 $
-  Version:   $Revision: 1.3 $
+  Date:      $Date: 2007-05-11 12:17:19 $
+  Version:   $Revision: 1.4 $
 
   Copyright (c) Insight Software Consortium. All rights reserved.
   See ITKCopyright.txt or http://www.itk.org/HTML/Copyright.htm for details.
@@ -541,12 +541,12 @@ M_Read(void)
 
       for(d = 0; d < m_NDims; d++)
         {
-        char* num = new char[sizeof(float)];
+        num = new char[sizeof(float)];
         for(k=0;k<sizeof(float);k++)
           {
           num[k] = _data[i+k];
           }
-        float td = (float)((float*)num)[0];
+        td = (float)((float*)num)[0];
         MET_SwapByteIfSystemMSB(&td,MET_FLOAT);
         i+=sizeof(float);
         pnt->m_V1[d] = (float)td;
@@ -557,12 +557,12 @@ M_Read(void)
         {
         for(d = 0; d < m_NDims; d++)
           {
-          char* num = new char[sizeof(float)];
+          num = new char[sizeof(float)];
           for(k=0;k<sizeof(float);k++)
             {
             num[k] = _data[i+k];
             }
-          float td = (float)((float*)num)[0];
+          td = (float)((float*)num)[0];
           MET_SwapByteIfSystemMSB(&td,MET_FLOAT);
           i+=sizeof(float);
           pnt->m_V2[d] = (float)td;
@@ -572,12 +572,12 @@ M_Read(void)
       
       for(d = 0; d < m_NDims; d++)
         {
-        char* num = new char[sizeof(float)];
+        num = new char[sizeof(float)];
         for(k=0;k<sizeof(float);k++)
           {
           num[k] = _data[i+k];
           }
-        float td = (float)((float*)num)[0];
+        td = (float)((float*)num)[0];
         MET_SwapByteIfSystemMSB(&td,MET_FLOAT);
         i+=sizeof(float);
         pnt->m_T[d] = (float)td;
@@ -586,12 +586,12 @@ M_Read(void)
            
       for(d=0; d<4; d++)
         {
-        char* num = new char[sizeof(float)];
+        num = new char[sizeof(float)];
         for(k=0;k<sizeof(float);k++)
           {
           num[k] = _data[i+k];
           }
-        float td = (float)((float*)num)[0];
+        td = (float)((float*)num)[0];
         MET_SwapByteIfSystemMSB(&td,MET_FLOAT);
         i+=sizeof(float);
         pnt->m_Color[d] = (float)td;

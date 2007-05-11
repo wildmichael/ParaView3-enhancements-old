@@ -3,8 +3,8 @@
   Program:   Insight Segmentation & Registration Toolkit
   Module:    $RCSfile: metaOutput.cxx,v $
   Language:  C++
-  Date:      $Date: 2007-05-10 19:17:20 $
-  Version:   $Revision: 1.2 $
+  Date:      $Date: 2007-05-11 12:17:19 $
+  Version:   $Revision: 1.3 $
 
   Copyright (c) 2002 Insight Consortium. All rights reserved.
   See ITKCopyright.txt or http://www.itk.org/HTML/Copyright.htm for details.
@@ -239,8 +239,8 @@ METAIO_STL::string MetaOutput::GenerateXML(const char* filename)
       continue;
       }
 
-    typedef METAIO_STL::vector<MetaCommand::Field> FieldVector;
-    FieldVector::const_iterator itField = (*itInput).fields.begin();
+    typedef METAIO_STL::vector<MetaCommand::Field> CmdFieldVector;
+    CmdFieldVector::const_iterator itField = (*itInput).fields.begin();
     while(itField != (*itInput).fields.end())
       {
       if((*itInput).fields.size() == 1)
@@ -249,7 +249,8 @@ METAIO_STL::string MetaOutput::GenerateXML(const char* filename)
         }
       else
         {
-        buffer += "  <Input name=\"" + (*itInput).name + "." + (*itField).name +"\"";
+        buffer += "  <Input name=\"" + (*itInput).name + "." 
+                                     + (*itField).name +"\"";
         }
 
       buffer += " description=\"" + (*itInput).description + "\"";
