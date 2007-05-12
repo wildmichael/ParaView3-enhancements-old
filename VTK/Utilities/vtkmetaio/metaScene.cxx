@@ -3,8 +3,8 @@
   Program:   MetaIO
   Module:    $RCSfile: metaScene.cxx,v $
   Language:  C++
-  Date:      $Date: 2007-05-11 22:11:25 $
-  Version:   $Revision: 1.5 $
+  Date:      $Date: 2007-05-12 15:53:11 $
+  Version:   $Revision: 1.6 $
 
   Copyright (c) Insight Software Consortium. All rights reserved.
   See ITKCopyright.txt or http://www.itk.org/HTML/Copyright.htm for details.
@@ -16,6 +16,7 @@
 =========================================================================*/
 #if defined(_MSC_VER)
 #pragma warning ( disable : 4786 )
+#pragma warning ( disable : 4702 )
 #endif
 
 #include <stdio.h>
