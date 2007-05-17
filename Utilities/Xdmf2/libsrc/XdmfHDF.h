@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfHDF.h,v 1.2 2007-01-04 21:54:05 clarke Exp $  */
-/*  Date : $Date: 2007-01-04 21:54:05 $ */
-/*  Version : $Revision: 1.2 $ */
+/*  Id : $Id: XdmfHDF.h,v 1.3 2007-05-17 21:00:56 clarke Exp $  */
+/*  Date : $Date: 2007-05-17 21:00:56 $ */
+/*  Version : $Revision: 1.3 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -33,6 +33,7 @@
 #define XDMF_H5_OTHER    0xFF
 
 class XdmfArray;
+class XdmfDsmBuffer;
 
 //! Class for Accessing HDF5 Data
 /*!
@@ -104,6 +105,9 @@ public:
   XdmfSetValueMacro(UseSerialFile, XdmfInt32);
 //! Get Value of Use Serial
   XdmfGetValueMacro(UseSerialFile, XdmfInt32);
+//! DSM Buffer
+  XdmfGetValueMacro(DsmBuffer, XdmfDsmBuffer *);
+  XdmfSetValueMacro(DsmBuffer, XdmfDsmBuffer *);
 //! Set the current internal HDF "Group" for creation
   XdmfInt32 SetCwdName( XdmfConstString Directory );
 //! Get the current internal HDF "Group"
@@ -200,6 +204,7 @@ protected:
   XdmfInt32  UseSerialFile;
   XdmfInt64  NumberOfChildren;
   XdmfString  Child[1024];
+  XdmfDsmBuffer *DsmBuffer;
 
 };
 

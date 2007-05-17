@@ -2,9 +2,9 @@
 /*                               XDMF                              */
 /*                   eXtensible Data Model and Format              */
 /*                                                                 */
-/*  Id : $Id: XdmfDsm.h,v 1.3 2007-05-11 16:46:01 clarke Exp $  */
-/*  Date : $Date: 2007-05-11 16:46:01 $ */
-/*  Version : $Revision: 1.3 $ */
+/*  Id : $Id: XdmfDsm.h,v 1.4 2007-05-17 21:00:56 clarke Exp $  */
+/*  Date : $Date: 2007-05-17 21:00:56 $ */
+/*  Version : $Revision: 1.4 $ */
 /*                                                                 */
 /*  Author:                                                        */
 /*     Jerry A. Clarke                                             */
@@ -78,6 +78,10 @@ public:
     XdmfGetValueMacro(Length, XdmfInt64);
     XdmfInt32 SetLength(XdmfInt64 Length);
 
+//! totalLength
+    XdmfGetValueMacro(TotalLength, XdmfInt64);
+    XdmfSetValueMacro(TotalLength, XdmfInt64);
+
 //! Storage
     XdmfGetValueMacro(Storage, XdmfArray *);
     XdmfSetValueMacro(Storage, XdmfArray *);
@@ -109,6 +113,7 @@ protected:
     XdmfInt64   StartAddress;
     XdmfInt64   EndAddress;
     XdmfInt64   Length;
+    XdmfInt64   TotalLength;
     XdmfArray   *Storage;
     XdmfDsmComm *Comm;
     XdmfDsmMsg  *Msg;
