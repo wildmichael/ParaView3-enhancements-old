@@ -28,7 +28,7 @@
 #include <vtkstd/vector>
 
 vtkStandardNewMacro(vtkCSVWriter);
-vtkCxxRevisionMacro(vtkCSVWriter, "$Revision: 1.4 $");
+vtkCxxRevisionMacro(vtkCSVWriter, "$Revision: 1.5 $");
 //-----------------------------------------------------------------------------
 vtkCSVWriter::vtkCSVWriter()
 {
@@ -236,6 +236,8 @@ void vtkCSVWriter::WriteData()
 
     (*this->Stream) << "\n";
     }
+
+  this->Stream->close();
 }
 
 //-----------------------------------------------------------------------------
